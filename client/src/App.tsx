@@ -14,6 +14,7 @@ import Construction from "@/pages/Construction";
 import MobileHome from "@/pages/MobileHome";
 import Municipality from "@/pages/Municipality";
 import Applications from "@/pages/Applications";
+import ProductComparison from "@/pages/ProductComparison";
 
 function Router() {
   return (
@@ -28,6 +29,7 @@ function Router() {
       <Route path="/mobile-home" component={MobileHome} />
       <Route path="/municipality" component={Municipality} />
       <Route path="/applications" component={Applications} />
+      <Route path="/product-comparison" component={ProductComparison} />
       {/* Fallback to 404 */}
       <Route component={NotFound} />
     </Switch>
