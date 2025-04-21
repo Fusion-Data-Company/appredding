@@ -15,6 +15,10 @@ import MobileHome from "@/pages/MobileHome";
 import Municipality from "@/pages/Municipality";
 import Applications from "@/pages/Applications";
 import ProductComparison from "@/pages/ProductComparison";
+import AuthPage from "@/pages/auth-page";
+import ClientDashboard from "@/pages/client-dashboard";
+import { AuthProvider } from "@/hooks/use-auth";
+import { ProtectedRoute } from "@/components/ProtectedRoute";
 
 function Router() {
   return (
@@ -30,6 +34,8 @@ function Router() {
       <Route path="/municipality" component={Municipality} />
       <Route path="/applications" component={Applications} />
       <Route path="/product-comparison" component={ProductComparison} />
+      <Route path="/auth" component={AuthPage} />
+      <ProtectedRoute path="/client-dashboard" component={ClientDashboard} />
       {/* Fallback to 404 */}
       <Route component={NotFound} />
     </Switch>
@@ -41,7 +47,9 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
-        <Router />
+        <AuthProvider>
+          <Router />
+        </AuthProvider>
       </TooltipProvider>
     </QueryClientProvider>
   );
