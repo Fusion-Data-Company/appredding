@@ -1,8 +1,176 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { CircleDollarSign, DropletIcon, HelpCircle, Info } from "lucide-react";
+import { 
+  Card, 
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle
+} from "@/components/ui/card";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+
+// Constants for pool coating calculator
+interface CoatingProduct {
+  name: string;
+  coverage: number; // Coverage in sq ft per gallon
+  price: number; // Price per gallon
+}
+
+interface CalculationResult {
+  surfaceArea: number; // Total surface area in sq ft
+  gallonsNeeded: number; // Total gallons needed
+  totalCost: number; // Total cost in dollars
+  productName: string; // Name of the coating product
+  coatCount: number; // Number of coats
+}
+
+// Coating product information
+const coatingProducts: Record<string, CoatingProduct> = {
+  pebble: {
+    name: "PraetorianPebble™",
+    coverage: 100, // 100 sq ft per gallon
+    price: 75.99
+  },
+  quartz: {
+    name: "PraetorianQuartz™",
+    coverage: 125, // 125 sq ft per gallon
+    price: 89.99
+  },
+  epoxy: {
+    name: "PraetorianEpoxy™",
+    coverage: 150, // 150 sq ft per gallon
+    price: 105.99
+  }
+};
+
+// Surface condition factors - affects how much material is needed
+const surfaceFactors = {
+  smooth: 1.0, // No additional material needed
+  moderate: 1.2, // 20% more material needed
+  rough: 1.4 // 40% more material needed
+};
 
 const Pools = () => {
+  // State for calculator inputs
+  const [poolShape, setPoolShape] = useState("rectangular");
+  const [coatingType, setCoatingType] = useState("pebble");
+  const [length, setLength] = useState<number | undefined>(undefined);
+  const [width, setWidth] = useState<number | undefined>(undefined);
+  const [depth, setDepth] = useState<number | undefined>(undefined);
+  const [coats, setCoats] = useState<number>(2);
+  const [surfaceCondition, setSurfaceCondition] = useState("moderate");
+  
+  // State for calculation results
+  const [calculationResult, setCalculationResult] = useState<CalculationResult | null>(null);
+  const [showResults, setShowResults] = useState(false);
+  const [validationError, setValidationError] = useState<string | null>(null);
+
+  // Calculate the surface area based on pool shape and dimensions
+  const calculateSurfaceArea = () => {
+    if (!length || !width || !depth) {
+      return 0;
+    }
+
+    let surfaceArea = 0;
+    
+    switch (poolShape) {
+      case "rectangular":
+        // Calculate surface area for rectangular pool
+        // Bottom + 2 long sides + 2 short sides
+        surfaceArea = (length * width) + (2 * length * depth) + (2 * width * depth);
+        break;
+      case "oval":
+        // Approximation for oval pool
+        // Using PI * (a * b) for the oval bottom + perimeter * depth for sides
+        const a = length / 2;
+        const b = width / 2;
+        // Approximation of oval perimeter
+        const perimeter = 2 * Math.PI * Math.sqrt((a * a + b * b) / 2);
+        surfaceArea = (Math.PI * a * b) + (perimeter * depth);
+        break;
+      case "kidney":
+      case "freeform":
+        // For complex shapes, use a factor based on rectangular estimation
+        // This is an approximation - actual calculation would require more specific measurements
+        surfaceArea = 0.85 * ((length * width) + (2 * length * depth) + (2 * width * depth));
+        break;
+      case "custom":
+        // For custom, we just use a simplified rectangular calculation
+        surfaceArea = (length * width) + (2 * (length + width) * depth);
+        break;
+      default:
+        surfaceArea = 0;
+    }
+    
+    return Math.ceil(surfaceArea);
+  };
+
+  // Calculate the amount of coating needed
+  const calculateCoatingNeeded = () => {
+    // Reset validation error
+    setValidationError(null);
+    
+    // Validate inputs
+    if (!length || !width || !depth) {
+      setValidationError("Please enter all pool dimensions.");
+      return;
+    }
+    
+    if (length <= 0 || width <= 0 || depth <= 0) {
+      setValidationError("Dimensions must be greater than zero.");
+      return;
+    }
+    
+    // Get product details
+    const product = coatingProducts[coatingType];
+    const surfaceFactor = surfaceFactors[surfaceCondition as keyof typeof surfaceFactors];
+    
+    // Calculate surface area
+    const area = calculateSurfaceArea();
+    
+    // Calculate gallons needed based on coverage, number of coats, and surface condition
+    const gallonsPerCoat = Math.ceil((area / product.coverage) * surfaceFactor);
+    const totalGallons = gallonsPerCoat * coats;
+    
+    // Calculate total cost
+    const cost = totalGallons * product.price;
+    
+    // Set calculation result
+    setCalculationResult({
+      surfaceArea: area,
+      gallonsNeeded: totalGallons,
+      totalCost: cost,
+      productName: product.name,
+      coatCount: coats
+    });
+    
+    // Show the results
+    setShowResults(true);
+  };
+
+  // Reset the calculator
+  const resetCalculator = () => {
+    setLength(undefined);
+    setWidth(undefined);
+    setDepth(undefined);
+    setCoats(2);
+    setPoolShape("rectangular");
+    setCoatingType("pebble");
+    setSurfaceCondition("moderate");
+    setShowResults(false);
+    setCalculationResult(null);
+    setValidationError(null);
+  };
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
@@ -119,10 +287,20 @@ const Pools = () => {
               <h3 className="text-2xl font-bold mb-4 text-center">Calculate How Much Coating You Need</h3>
               <p className="text-center mb-6">Enter your pool dimensions to determine the amount of coating needed for your project</p>
               
+              {validationError && (
+                <Alert variant="destructive" className="mb-6">
+                  <AlertDescription>{validationError}</AlertDescription>
+                </Alert>
+              )}
+              
               <div className="grid md:grid-cols-2 gap-6 mb-6">
                 <div>
                   <label className="block text-sm font-medium mb-2">Pool Shape</label>
-                  <select className="w-full bg-primary-900 border border-primary-700 rounded p-2">
+                  <select 
+                    className="w-full bg-primary-900 border border-primary-700 rounded p-2"
+                    value={poolShape}
+                    onChange={(e) => setPoolShape(e.target.value)}
+                  >
                     <option value="rectangular">Rectangular</option>
                     <option value="oval">Oval</option>
                     <option value="kidney">Kidney</option>
@@ -132,8 +310,26 @@ const Pools = () => {
                 </div>
                 
                 <div>
-                  <label className="block text-sm font-medium mb-2">Coating System</label>
-                  <select className="w-full bg-primary-900 border border-primary-700 rounded p-2">
+                  <label className="block text-sm font-medium mb-2">
+                    Coating System
+                    <TooltipProvider>
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <span className="inline-block ml-1">
+                            <HelpCircle className="h-4 w-4 inline text-gray-400" />
+                          </span>
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p className="w-60">Different coating systems have different coverage rates and durability. Select the system that best meets your needs.</p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
+                  </label>
+                  <select 
+                    className="w-full bg-primary-900 border border-primary-700 rounded p-2"
+                    value={coatingType}
+                    onChange={(e) => setCoatingType(e.target.value)}
+                  >
                     <option value="pebble">PraetorianPebble™</option>
                     <option value="quartz">PraetorianQuartz™</option>
                     <option value="epoxy">PraetorianEpoxy™</option>
@@ -144,43 +340,159 @@ const Pools = () => {
               <div className="grid md:grid-cols-3 gap-6 mb-6">
                 <div>
                   <label className="block text-sm font-medium mb-2">Length (ft)</label>
-                  <input type="number" className="w-full bg-primary-900 border border-primary-700 rounded p-2" placeholder="Enter length" />
+                  <input 
+                    type="number" 
+                    className="w-full bg-primary-900 border border-primary-700 rounded p-2" 
+                    placeholder="Enter length" 
+                    value={length || ''}
+                    onChange={(e) => setLength(e.target.value ? parseFloat(e.target.value) : undefined)}
+                    min="1"
+                  />
                 </div>
                 
                 <div>
                   <label className="block text-sm font-medium mb-2">Width (ft)</label>
-                  <input type="number" className="w-full bg-primary-900 border border-primary-700 rounded p-2" placeholder="Enter width" />
+                  <input 
+                    type="number" 
+                    className="w-full bg-primary-900 border border-primary-700 rounded p-2" 
+                    placeholder="Enter width" 
+                    value={width || ''}
+                    onChange={(e) => setWidth(e.target.value ? parseFloat(e.target.value) : undefined)}
+                    min="1"
+                  />
                 </div>
                 
                 <div>
-                  <label className="block text-sm font-medium mb-2">Average Depth (ft)</label>
-                  <input type="number" className="w-full bg-primary-900 border border-primary-700 rounded p-2" placeholder="Enter depth" />
+                  <label className="block text-sm font-medium mb-2">
+                    Average Depth (ft)
+                    <TooltipProvider>
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <span className="inline-block ml-1">
+                            <HelpCircle className="h-4 w-4 inline text-gray-400" />
+                          </span>
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p className="w-60">For variable depth pools, use the average depth. For example, if your pool ranges from 3ft to 8ft, enter 5.5ft.</p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
+                  </label>
+                  <input 
+                    type="number" 
+                    className="w-full bg-primary-900 border border-primary-700 rounded p-2" 
+                    placeholder="Enter depth" 
+                    value={depth || ''}
+                    onChange={(e) => setDepth(e.target.value ? parseFloat(e.target.value) : undefined)}
+                    min="1"
+                    step="0.1"
+                  />
                 </div>
               </div>
               
               <div className="grid md:grid-cols-2 gap-6 mb-6">
                 <div>
                   <label className="block text-sm font-medium mb-2">Number of Coats</label>
-                  <select className="w-full bg-primary-900 border border-primary-700 rounded p-2">
+                  <select 
+                    className="w-full bg-primary-900 border border-primary-700 rounded p-2"
+                    value={coats}
+                    onChange={(e) => setCoats(parseInt(e.target.value))}
+                  >
                     <option value="1">1 Coat</option>
-                    <option value="2" selected>2 Coats (Recommended)</option>
+                    <option value="2">2 Coats (Recommended)</option>
                     <option value="3">3 Coats (Heavy Duty)</option>
                   </select>
                 </div>
                 
                 <div>
-                  <label className="block text-sm font-medium mb-2">Surface Condition</label>
-                  <select className="w-full bg-primary-900 border border-primary-700 rounded p-2">
+                  <label className="block text-sm font-medium mb-2">
+                    Surface Condition
+                    <TooltipProvider>
+                      <Tooltip>
+                        <TooltipTrigger asChild>
+                          <span className="inline-block ml-1">
+                            <HelpCircle className="h-4 w-4 inline text-gray-400" />
+                          </span>
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p className="w-60">Surface condition affects how much coating material is needed. Rougher surfaces require more material.</p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
+                  </label>
+                  <select 
+                    className="w-full bg-primary-900 border border-primary-700 rounded p-2"
+                    value={surfaceCondition}
+                    onChange={(e) => setSurfaceCondition(e.target.value)}
+                  >
                     <option value="smooth">Smooth (New/Refinished)</option>
                     <option value="moderate">Moderate (Some Porosity)</option>
                     <option value="rough">Rough (High Porosity)</option>
                   </select>
                 </div>
               </div>
-              
-              <Button className="w-full bg-primary-500 hover:bg-primary-400 py-3 text-lg">
-                Calculate Materials Needed
-              </Button>
+
+              {showResults && calculationResult ? (
+                <div className="mb-6">
+                  <Card className="bg-primary-700 border-primary-600">
+                    <CardHeader>
+                      <CardTitle className="flex items-center justify-center text-white">
+                        <DropletIcon className="h-6 w-6 mr-2 text-primary-300" /> 
+                        Calculation Results
+                      </CardTitle>
+                      <CardDescription className="text-center text-primary-200">
+                        Based on your pool dimensions and selected coating system
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent className="grid gap-4">
+                      <div className="grid grid-cols-2 items-center gap-4">
+                        <div className="text-sm font-medium">Surface Area:</div>
+                        <div className="text-right">{calculationResult.surfaceArea.toLocaleString()} sq ft</div>
+                      </div>
+                      <div className="grid grid-cols-2 items-center gap-4">
+                        <div className="text-sm font-medium">Coating System:</div>
+                        <div className="text-right">{calculationResult.productName}</div>
+                      </div>
+                      <div className="grid grid-cols-2 items-center gap-4">
+                        <div className="text-sm font-medium">Number of Coats:</div>
+                        <div className="text-right">{calculationResult.coatCount}</div>
+                      </div>
+                      <div className="grid grid-cols-2 items-center gap-4">
+                        <div className="text-sm font-medium">Material Needed:</div>
+                        <div className="text-right">{calculationResult.gallonsNeeded.toLocaleString()} gallons</div>
+                      </div>
+                      <div className="grid grid-cols-2 items-center gap-4 pt-4 border-t border-primary-600">
+                        <div className="text-base font-semibold flex items-center">
+                          <CircleDollarSign className="h-5 w-5 mr-1.5 text-primary-300" />
+                          Estimated Cost:
+                        </div>
+                        <div className="text-right text-base font-semibold">
+                          ${calculationResult.totalCost.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}
+                        </div>
+                      </div>
+                    </CardContent>
+                    <CardFooter className="flex justify-center">
+                      <Button 
+                        variant="outline" 
+                        onClick={resetCalculator}
+                        className="mr-2"
+                      >
+                        Reset
+                      </Button>
+                      <Button>
+                        Request Quote
+                      </Button>
+                    </CardFooter>
+                  </Card>
+                </div>
+              ) : (
+                <Button 
+                  className="w-full bg-primary-500 hover:bg-primary-400 py-3 text-lg"
+                  onClick={calculateCoatingNeeded}
+                >
+                  Calculate Materials Needed
+                </Button>
+              )}
             </div>
             
             <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Our Pool Coating Systems</h2>
@@ -315,6 +627,7 @@ const Pools = () => {
           </div>
         </section>
       </main>
+      <Footer />
     </div>
   );
 };
