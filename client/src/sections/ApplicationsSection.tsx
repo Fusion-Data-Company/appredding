@@ -1,12 +1,15 @@
+import { Link } from "wouter";
+
 interface ApplicationCardProps {
   imageSrc: string;
   title: string;
   description: string;
+  link: string;
 }
 
-const ApplicationCard = ({ imageSrc, title, description }: ApplicationCardProps) => {
+const ApplicationCard = ({ imageSrc, title, description, link }: ApplicationCardProps) => {
   return (
-    <a href="#" className="group relative rounded-lg overflow-hidden h-64">
+    <div className="group relative rounded-lg overflow-hidden h-64 block cursor-pointer" onClick={() => window.location.href = link}>
       <img 
         src={imageSrc} 
         alt={title} 
@@ -16,8 +19,11 @@ const ApplicationCard = ({ imageSrc, title, description }: ApplicationCardProps)
       <div className="absolute bottom-0 left-0 p-6">
         <h3 className="text-xl font-semibold mb-1">{title}</h3>
         <p className="text-[#a0a0a0] text-sm">{description}</p>
+        <div className="mt-2 text-primary-400 text-sm font-semibold flex items-center opacity-0 group-hover:opacity-100 transition-opacity">
+          Learn more <i className="fas fa-arrow-right ml-2"></i>
+        </div>
       </div>
-    </a>
+    </div>
   );
 };
 
@@ -26,32 +32,38 @@ const ApplicationsSection = () => {
     {
       imageSrc: "https://images.unsplash.com/photo-1551023911-28a2dfc5679b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
       title: "Wildfire Protection",
-      description: "Class-A fire retardant for homes in wildfire-prone areas"
+      description: "Class-A fire retardant for homes in wildfire-prone areas",
+      link: "/fire-prevention"
     },
     {
       imageSrc: "https://images.unsplash.com/photo-1566843972142-a7fcb70de1a5?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
       title: "Marine",
-      description: "Salt water resistant coating for boats and marine structures"
+      description: "Salt water resistant coating for boats and marine structures",
+      link: "/marinas"
     },
     {
       imageSrc: "https://images.unsplash.com/photo-1560090995-01632a28895b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
       title: "Pool",
-      description: "Chemical resistant finishes for pool surfaces"
+      description: "Chemical resistant finishes for pool surfaces",
+      link: "/pools"
     },
     {
       imageSrc: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
       title: "Construction",
-      description: "Protective barriers for commercial and residential buildings"
+      description: "Protective barriers for commercial and residential buildings",
+      link: "/construction"
     },
     {
       imageSrc: "https://images.unsplash.com/photo-1523676060187-f55189a71f5e?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
       title: "Mobile Home",
-      description: "Specialized coatings for manufactured housing"
+      description: "Specialized coatings for manufactured housing",
+      link: "/mobile-home"
     },
     {
       imageSrc: "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
       title: "Municipality",
-      description: "Infrastructure protection for public works projects"
+      description: "Infrastructure protection for public works projects",
+      link: "/municipality"
     }
   ];
 
@@ -72,6 +84,7 @@ const ApplicationsSection = () => {
               imageSrc={app.imageSrc}
               title={app.title}
               description={app.description}
+              link={app.link}
             />
           ))}
         </div>

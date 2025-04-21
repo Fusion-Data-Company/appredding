@@ -54,30 +54,30 @@ const Header = () => {
                 Home
               </Link>
             </li>
-            {isHomePage ? (
+            <li>
+              <Link
+                href="/applications"
+                className="text-gray-700 hover:text-primary-700 font-medium px-2 py-1 transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:bg-primary-600 after:transition-all"
+              >
+                Applications
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/painter-network"
+                className="text-gray-700 hover:text-primary-700 font-medium px-2 py-1 transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:bg-primary-600 after:transition-all"
+              >
+                Painter Network
+              </Link>
+            </li>
+            {isHomePage && (
               <>
-                <li>
-                  <a
-                    href="#applications"
-                    className="text-gray-700 hover:text-primary-700 font-medium px-2 py-1 transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:bg-primary-600 after:transition-all"
-                  >
-                    Applications
-                  </a>
-                </li>
                 <li>
                   <a
                     href="#products"
                     className="text-gray-700 hover:text-primary-700 font-medium px-2 py-1 transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:bg-primary-600 after:transition-all"
                   >
                     Products
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#painters"
-                    className="text-gray-700 hover:text-primary-700 font-medium px-2 py-1 transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:bg-primary-600 after:transition-all"
-                  >
-                    Painter Network
                   </a>
                 </li>
                 <li>
@@ -89,7 +89,7 @@ const Header = () => {
                   </a>
                 </li>
               </>
-            ) : null}
+            )}
             <li>
               <Link
                 href="/crm"

@@ -51,30 +51,30 @@ const MobileMenu = ({ isOpen, onClose, isHomePage = true }: MobileMenuProps) => 
               <i className="fas fa-home mr-2 text-primary-600 w-6"></i> Home
             </Link>
           </li>
+          <li className="py-1">
+            <Link
+              href="/applications"
+              className="mobile-menu-link text-gray-800 hover:text-primary-700 transition-colors font-medium block py-2 px-3 hover:bg-gray-50 rounded-md"
+            >
+              <i className="fas fa-layer-group mr-2 text-primary-600 w-6"></i> Applications
+            </Link>
+          </li>
+          <li className="py-1">
+            <Link
+              href="/painter-network"
+              className="mobile-menu-link text-gray-800 hover:text-primary-700 transition-colors font-medium block py-2 px-3 hover:bg-gray-50 rounded-md"
+            >
+              <i className="fas fa-users mr-2 text-primary-600 w-6"></i> Painter Network
+            </Link>
+          </li>
           {isHomePage && (
             <>
-              <li className="py-1">
-                <a
-                  href="#applications"
-                  className="mobile-menu-link text-gray-800 hover:text-primary-700 transition-colors font-medium block py-2 px-3 hover:bg-gray-50 rounded-md"
-                >
-                  <i className="fas fa-layer-group mr-2 text-primary-600 w-6"></i> Applications
-                </a>
-              </li>
               <li className="py-1">
                 <a
                   href="#products"
                   className="mobile-menu-link text-gray-800 hover:text-primary-700 transition-colors font-medium block py-2 px-3 hover:bg-gray-50 rounded-md"
                 >
                   <i className="fas fa-paint-roller mr-2 text-primary-600 w-6"></i> Products
-                </a>
-              </li>
-              <li className="py-1">
-                <a
-                  href="#painters"
-                  className="mobile-menu-link text-gray-800 hover:text-primary-700 transition-colors font-medium block py-2 px-3 hover:bg-gray-50 rounded-md"
-                >
-                  <i className="fas fa-users mr-2 text-primary-600 w-6"></i> Painter Network
                 </a>
               </li>
               <li className="py-1">
