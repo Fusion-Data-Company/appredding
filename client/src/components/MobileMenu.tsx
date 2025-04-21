@@ -87,7 +87,15 @@ const MobileMenu = ({ isOpen, onClose, isHomePage = true }: MobileMenuProps) => 
               </li>
             </>
           )}
-          <li className="pt-4">
+          <li className="pt-4 pb-2">
+            <Link
+              href="/client-dashboard"
+              className="mobile-menu-link bg-primary-600 hover:bg-primary-700 text-white font-medium block py-3 px-4 rounded-md text-center transition-colors shadow-sm"
+            >
+              <i className="fas fa-user-shield mr-2"></i> Client Dashboard
+            </Link>
+          </li>
+          <li className="pt-2">
             <Link
               href="/crm"
               className="mobile-menu-link bg-primary-600 hover:bg-primary-700 text-white font-medium block py-3 px-4 rounded-md text-center transition-colors shadow-sm"

@@ -40,9 +40,10 @@ export default function ClientDashboard() {
   };
 
   // Format date for display
-  const formatDate = (dateString: string | null | undefined) => {
+  const formatDate = (dateString: string | Date | null | undefined) => {
     if (!dateString) return "Not set";
-    return new Date(dateString).toLocaleDateString("en-US", {
+    const date = typeof dateString === 'string' ? new Date(dateString) : dateString;
+    return date.toLocaleDateString("en-US", {
       year: "numeric",
       month: "short",
       day: "numeric",
@@ -126,11 +127,11 @@ export default function ClientDashboard() {
                           </div>
                           <div className="flex justify-between">
                             <span className="text-gray-400">Start Date:</span>
-                            <span>{formatDate(project.startDate)}</span>
+                            <span>{project.startDate ? formatDate(project.startDate) : "Not set"}</span>
                           </div>
                           <div className="flex justify-between">
                             <span className="text-gray-400">Completion:</span>
-                            <span>{formatDate(project.completionDate)}</span>
+                            <span>{project.completionDate ? formatDate(project.completionDate) : "Not set"}</span>
                           </div>
                           <div className="flex justify-between">
                             <span className="text-gray-400">Budget:</span>

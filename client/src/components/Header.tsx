@@ -100,6 +100,14 @@ const Header = () => {
             )}
             <li>
               <Link
+                href="/client-dashboard"
+                className="bg-primary-600 hover:bg-primary-700 text-white font-medium px-4 py-2 rounded-md transition-colors shadow-sm hover:shadow mr-2"
+              >
+                Client Dashboard
+              </Link>
+            </li>
+            <li>
+              <Link
                 href="/crm"
                 className="bg-primary-600 hover:bg-primary-700 text-white font-medium px-4 py-2 rounded-md transition-colors shadow-sm hover:shadow"
               >
