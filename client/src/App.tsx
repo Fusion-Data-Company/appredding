@@ -6,12 +6,28 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import CRM from "@/pages/CRM";
+import PainterNetwork from "@/pages/PainterNetwork";
+import Marinas from "@/pages/Marinas";
+import FirePrevention from "@/pages/FirePrevention";
+import Pools from "@/pages/Pools";
+import Construction from "@/pages/Construction";
+import MobileHome from "@/pages/MobileHome";
+import Municipality from "@/pages/Municipality";
+import Applications from "@/pages/Applications";
 
 function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/crm" component={CRM} />
+      <Route path="/painter-network" component={PainterNetwork} />
+      <Route path="/marinas" component={Marinas} />
+      <Route path="/fire-prevention" component={FirePrevention} />
+      <Route path="/pools" component={Pools} />
+      <Route path="/construction" component={Construction} />
+      <Route path="/mobile-home" component={MobileHome} />
+      <Route path="/municipality" component={Municipality} />
+      <Route path="/applications" component={Applications} />
       {/* Fallback to 404 */}
       <Route component={NotFound} />
     </Switch>
