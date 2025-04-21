@@ -3,8 +3,6 @@ import Footer from "@/components/Footer";
 import HeroSection from "@/sections/HeroSection";
 import FeaturesSection from "@/sections/FeaturesSection";
 import ApplicationsSection from "@/sections/ApplicationsSection";
-import WildfireSection from "@/sections/WildfireSection";
-import MarineSection from "@/sections/MarineSection";
 import ProductsSection from "@/sections/ProductsSection";
 import PainterNetworkSection from "@/sections/PainterNetworkSection";
 import TestimonialsSection from "@/sections/TestimonialsSection";
@@ -18,8 +16,6 @@ const Home = () => {
         <HeroSection />
         <FeaturesSection />
         <ApplicationsSection />
-        <WildfireSection />
-        <MarineSection />
         <ProductsSection />
         <PainterNetworkSection />
         <TestimonialsSection />

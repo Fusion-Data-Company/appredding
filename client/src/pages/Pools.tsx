@@ -113,6 +113,76 @@ const Pools = () => {
 
         <section className="py-16 bg-primary-800/50">
           <div className="container mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Pool Coverage Calculator</h2>
+            
+            <div className="max-w-3xl mx-auto bg-primary-800 premium-border rounded-xl p-8 glass-effect mb-12">
+              <h3 className="text-2xl font-bold mb-4 text-center">Calculate How Much Coating You Need</h3>
+              <p className="text-center mb-6">Enter your pool dimensions to determine the amount of coating needed for your project</p>
+              
+              <div className="grid md:grid-cols-2 gap-6 mb-6">
+                <div>
+                  <label className="block text-sm font-medium mb-2">Pool Shape</label>
+                  <select className="w-full bg-primary-900 border border-primary-700 rounded p-2">
+                    <option value="rectangular">Rectangular</option>
+                    <option value="oval">Oval</option>
+                    <option value="kidney">Kidney</option>
+                    <option value="freeform">Free Form</option>
+                    <option value="custom">Custom</option>
+                  </select>
+                </div>
+                
+                <div>
+                  <label className="block text-sm font-medium mb-2">Coating System</label>
+                  <select className="w-full bg-primary-900 border border-primary-700 rounded p-2">
+                    <option value="pebble">PraetorianPebble™</option>
+                    <option value="quartz">PraetorianQuartz™</option>
+                    <option value="epoxy">PraetorianEpoxy™</option>
+                  </select>
+                </div>
+              </div>
+              
+              <div className="grid md:grid-cols-3 gap-6 mb-6">
+                <div>
+                  <label className="block text-sm font-medium mb-2">Length (ft)</label>
+                  <input type="number" className="w-full bg-primary-900 border border-primary-700 rounded p-2" placeholder="Enter length" />
+                </div>
+                
+                <div>
+                  <label className="block text-sm font-medium mb-2">Width (ft)</label>
+                  <input type="number" className="w-full bg-primary-900 border border-primary-700 rounded p-2" placeholder="Enter width" />
+                </div>
+                
+                <div>
+                  <label className="block text-sm font-medium mb-2">Average Depth (ft)</label>
+                  <input type="number" className="w-full bg-primary-900 border border-primary-700 rounded p-2" placeholder="Enter depth" />
+                </div>
+              </div>
+              
+              <div className="grid md:grid-cols-2 gap-6 mb-6">
+                <div>
+                  <label className="block text-sm font-medium mb-2">Number of Coats</label>
+                  <select className="w-full bg-primary-900 border border-primary-700 rounded p-2">
+                    <option value="1">1 Coat</option>
+                    <option value="2" selected>2 Coats (Recommended)</option>
+                    <option value="3">3 Coats (Heavy Duty)</option>
+                  </select>
+                </div>
+                
+                <div>
+                  <label className="block text-sm font-medium mb-2">Surface Condition</label>
+                  <select className="w-full bg-primary-900 border border-primary-700 rounded p-2">
+                    <option value="smooth">Smooth (New/Refinished)</option>
+                    <option value="moderate">Moderate (Some Porosity)</option>
+                    <option value="rough">Rough (High Porosity)</option>
+                  </select>
+                </div>
+              </div>
+              
+              <Button className="w-full bg-primary-500 hover:bg-primary-400 py-3 text-lg">
+                Calculate Materials Needed
+              </Button>
+            </div>
+            
             <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Our Pool Coating Systems</h2>
             
             <div className="grid md:grid-cols-3 gap-8">
