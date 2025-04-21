@@ -1,11 +1,13 @@
 import { useEffect } from "react";
+import { Link } from "wouter";
 
 interface MobileMenuProps {
   isOpen: boolean;
   onClose: () => void;
+  isHomePage?: boolean;
 }
 
-const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
+const MobileMenu = ({ isOpen, onClose, isHomePage = true }: MobileMenuProps) => {
   useEffect(() => {
     // Add event listeners to close menu when clicking on links
     const handleLinkClick = () => {
@@ -33,44 +35,56 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
     >
       <ul className="container mx-auto px-4 space-y-4">
         <li>
-          <a
-            href="#"
+          <Link
+            href="/"
             className="mobile-menu-link text-[#f5f5f5] hover:text-[#0070f3] transition-colors font-medium block py-2"
           >
             Home
-          </a>
+          </Link>
         </li>
+        {isHomePage && (
+          <>
+            <li>
+              <a
+                href="#applications"
+                className="mobile-menu-link text-[#f5f5f5] hover:text-[#0070f3] transition-colors font-medium block py-2"
+              >
+                Applications
+              </a>
+            </li>
+            <li>
+              <a
+                href="#products"
+                className="mobile-menu-link text-[#f5f5f5] hover:text-[#0070f3] transition-colors font-medium block py-2"
+              >
+                Products
+              </a>
+            </li>
+            <li>
+              <a
+                href="#painters"
+                className="mobile-menu-link text-[#f5f5f5] hover:text-[#0070f3] transition-colors font-medium block py-2"
+              >
+                Painter Network
+              </a>
+            </li>
+            <li>
+              <a
+                href="#contact"
+                className="mobile-menu-link text-[#f5f5f5] hover:text-[#0070f3] transition-colors font-medium block py-2"
+              >
+                Contact
+              </a>
+            </li>
+          </>
+        )}
         <li>
-          <a
-            href="#applications"
+          <Link
+            href="/crm"
             className="mobile-menu-link text-[#f5f5f5] hover:text-[#0070f3] transition-colors font-medium block py-2"
           >
-            Applications
-          </a>
-        </li>
-        <li>
-          <a
-            href="#products"
-            className="mobile-menu-link text-[#f5f5f5] hover:text-[#0070f3] transition-colors font-medium block py-2"
-          >
-            Products
-          </a>
-        </li>
-        <li>
-          <a
-            href="#painters"
-            className="mobile-menu-link text-[#f5f5f5] hover:text-[#0070f3] transition-colors font-medium block py-2"
-          >
-            Painter Network
-          </a>
-        </li>
-        <li>
-          <a
-            href="#contact"
-            className="mobile-menu-link text-[#f5f5f5] hover:text-[#0070f3] transition-colors font-medium block py-2"
-          >
-            Contact
-          </a>
+            Team CRM
+          </Link>
         </li>
       </ul>
     </div>

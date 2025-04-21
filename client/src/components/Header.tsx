@@ -1,9 +1,11 @@
 import { useState } from "react";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import MobileMenu from "./MobileMenu";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [location] = useLocation();
+  const isHomePage = location === "/";
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
@@ -23,44 +25,56 @@ const Header = () => {
         <nav className="hidden md:block">
           <ul className="flex space-x-8">
             <li>
-              <a
-                href="#"
+              <Link
+                href="/"
                 className="text-[#f5f5f5] hover:text-[#0070f3] transition-colors font-medium"
               >
                 Home
-              </a>
+              </Link>
             </li>
+            {isHomePage ? (
+              <>
+                <li>
+                  <a
+                    href="#applications"
+                    className="text-[#f5f5f5] hover:text-[#0070f3] transition-colors font-medium"
+                  >
+                    Applications
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#products"
+                    className="text-[#f5f5f5] hover:text-[#0070f3] transition-colors font-medium"
+                  >
+                    Products
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#painters"
+                    className="text-[#f5f5f5] hover:text-[#0070f3] transition-colors font-medium"
+                  >
+                    Painter Network
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#contact"
+                    className="text-[#f5f5f5] hover:text-[#0070f3] transition-colors font-medium"
+                  >
+                    Contact
+                  </a>
+                </li>
+              </>
+            ) : null}
             <li>
-              <a
-                href="#applications"
+              <Link
+                href="/crm"
                 className="text-[#f5f5f5] hover:text-[#0070f3] transition-colors font-medium"
               >
-                Applications
-              </a>
-            </li>
-            <li>
-              <a
-                href="#products"
-                className="text-[#f5f5f5] hover:text-[#0070f3] transition-colors font-medium"
-              >
-                Products
-              </a>
-            </li>
-            <li>
-              <a
-                href="#painters"
-                className="text-[#f5f5f5] hover:text-[#0070f3] transition-colors font-medium"
-              >
-                Painter Network
-              </a>
-            </li>
-            <li>
-              <a
-                href="#contact"
-                className="text-[#f5f5f5] hover:text-[#0070f3] transition-colors font-medium"
-              >
-                Contact
-              </a>
+                Team CRM
+              </Link>
             </li>
           </ul>
         </nav>
@@ -76,7 +90,7 @@ const Header = () => {
       </div>
 
       {/* Mobile Navigation */}
-      <MobileMenu isOpen={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)} />
+      <MobileMenu isOpen={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)} isHomePage={isHomePage} />
     </header>
   );
 };

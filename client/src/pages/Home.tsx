@@ -6,7 +6,6 @@ import ApplicationsSection from "@/sections/ApplicationsSection";
 import WildfireSection from "@/sections/WildfireSection";
 import MarineSection from "@/sections/MarineSection";
 import ProductsSection from "@/sections/ProductsSection";
-import CRMSection from "@/sections/CRMSection";
 import PainterNetworkSection from "@/sections/PainterNetworkSection";
 import TestimonialsSection from "@/sections/TestimonialsSection";
 import ContactSection from "@/sections/ContactSection";
@@ -22,7 +21,6 @@ const Home = () => {
         <WildfireSection />
         <MarineSection />
         <ProductsSection />
-        <CRMSection />
         <PainterNetworkSection />
         <TestimonialsSection />
         <ContactSection />
