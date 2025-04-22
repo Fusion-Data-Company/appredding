@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { CircleDollarSign, DropletIcon, HelpCircle, Info } from "lucide-react";
+import { GradientHeading } from "@/components/ui/gradient-heading";
 import { 
   Card, 
   CardContent,
@@ -179,7 +180,7 @@ const Pools = () => {
         <section className="py-16 md:py-24">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto text-center mb-16">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6 glow-text">Premium Pool Protection Systems</h1>
+              <GradientHeading level={1} className="text-4xl md:text-5xl mb-6 glow-text" variant="blue">Premium Pool Protection Systems</GradientHeading>
               <p className="text-xl text-gray-200 mb-8">
                 Our specialized pool coatings provide superior protection and beautiful finishes, enhancing both the durability and appearance of your pool surfaces.
               </p>
@@ -187,7 +188,7 @@ const Pools = () => {
 
             <div className="grid md:grid-cols-2 gap-12 mb-16">
               <div className="bg-primary-800 premium-border rounded-xl p-8 shadow-premium-lg">
-                <h2 className="text-3xl font-bold mb-6">Pool Surface Solutions</h2>
+                <GradientHeading level={2} className="text-3xl mb-6" variant="blue">Pool Surface Solutions</GradientHeading>
                 <p className="mb-8">Our advanced coating systems are designed to provide years of durable protection for all types of pool surfaces</p>
                 
                 <div className="space-y-6">
@@ -235,12 +236,12 @@ const Pools = () => {
 
               <div>
                 <img 
-                  src="https://images.unsplash.com/photo-1529290130-4ca3753253ae?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" 
-                  alt="Beautiful pool with Praetorian coating" 
+                  src="@assets/peakpx (3).jpg" 
+                  alt="Beautiful luxury pool with Praetorian coating" 
                   className="rounded-xl w-full h-64 object-cover mb-8"
                 />
                 
-                <h2 className="text-3xl font-bold mb-6">Why Choose Praetorian Pool Coatings?</h2>
+                <GradientHeading level={2} className="text-3xl mb-6" variant="blue">Why Choose Praetorian Pool Coatings?</GradientHeading>
                 
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
@@ -281,7 +282,7 @@ const Pools = () => {
 
         <section className="py-16 bg-primary-800/50">
           <div className="container mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Pool Coverage Calculator</h2>
+            <GradientHeading level={2} className="text-3xl md:text-4xl mb-12 text-center" variant="blue">Pool Coverage Calculator</GradientHeading>
             
             <div className="max-w-3xl mx-auto bg-primary-800 premium-border rounded-xl p-8 glass-effect mb-12">
               <h3 className="text-2xl font-bold mb-4 text-center">Calculate How Much Coating You Need</h3>
@@ -495,7 +496,7 @@ const Pools = () => {
               )}
             </div>
             
-            <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Our Pool Coating Systems</h2>
+            <GradientHeading level={2} className="text-3xl md:text-4xl mb-12 text-center" variant="blue">Our Pool Coating Systems</GradientHeading>
             
             <div className="grid md:grid-cols-3 gap-8">
               <div className="bg-primary-800 premium-border rounded-lg p-6 hover-lift">
@@ -563,7 +564,7 @@ const Pools = () => {
 
         <section className="py-16">
           <div className="container mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Pool Application Process</h2>
+            <GradientHeading level={2} className="text-3xl md:text-4xl mb-12 text-center" variant="blue">Pool Application Process</GradientHeading>
             
             <div className="max-w-5xl mx-auto">
               <div className="relative">
