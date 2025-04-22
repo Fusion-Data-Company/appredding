@@ -6,7 +6,7 @@ const HeroSection = () => {
       className="relative bg-black h-screen flex items-center justify-center" 
       style={{
         backgroundImage: "url('/assets/fire-water-hands-hd.jpg')",
-        backgroundSize: "cover",
+        backgroundSize: "contain",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat"
       }}
