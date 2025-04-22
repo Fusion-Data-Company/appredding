@@ -1,3 +1,5 @@
+import { GradientHeading } from "@/components/ui/gradient-heading";
+
 interface ProductCardProps {
   imageSrc: string;
   title: string;
@@ -16,7 +18,7 @@ const ProductCard = ({ imageSrc, title, price, description }: ProductCardProps) 
         />
       </div>
       <div className="p-6">
-        <h3 className="text-xl font-semibold mb-2">{title}</h3>
+        <GradientHeading level={3} className="text-xl mb-2" variant={title.includes("Fire") ? "fire" : title.includes("Marine") || title.includes("Aqua") ? "blue" : "mixed"}>{title}</GradientHeading>
         <div className="text-[#0070f3] font-bold mb-4">
           {price} <span className="text-[#a0a0a0] font-normal">/ gallon</span>
         </div>
@@ -77,7 +79,7 @@ const ProductsSection = () => {
     <section className="py-20 bg-[#121212]" id="products">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Product Line</h2>
+          <GradientHeading level={2} className="text-3xl md:text-4xl mb-4" variant="fire">Our Product Line</GradientHeading>
           <p className="text-[#a0a0a0] max-w-2xl mx-auto">
             Choose from our range of professional-grade protective coatings available in various sizes to meet your project needs.
           </p>

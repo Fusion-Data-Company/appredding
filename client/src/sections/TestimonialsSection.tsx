@@ -1,9 +1,11 @@
+import { GradientHeading } from "@/components/ui/gradient-heading";
+
 const TestimonialsSection = () => {
   return (
     <section className="py-20 bg-[#1e1e1e]">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">What Our Clients Say</h2>
+          <GradientHeading level={2} className="text-3xl md:text-4xl mb-4" variant="mixed">What Our Clients Say</GradientHeading>
           <p className="text-[#a0a0a0] max-w-2xl mx-auto">
             Hear from satisfied customers who trust Praetorian coatings to protect their valuable assets.
           </p>
@@ -33,7 +35,7 @@ const TestimonialsSection = () => {
                   className="w-12 h-12 rounded-full object-cover mr-4"
                 />
                 <div>
-                  <div className="font-semibold">James Wilson</div>
+                  <GradientHeading level={4} className="text-lg" variant="fire">James Wilson</GradientHeading>
                   <div className="text-[#a0a0a0] text-sm">Big Bear Lake, CA</div>
                 </div>
               </div>
