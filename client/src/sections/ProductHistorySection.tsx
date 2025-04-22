@@ -1,3 +1,5 @@
+import { GradientHeading } from "@/components/ui/gradient-heading";
+
 const ProductHistorySection = () => {
   return (
     <section 
@@ -11,7 +13,7 @@ const ProductHistorySection = () => {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary-400">Our Heritage of Protection</h2>
+            <GradientHeading level={2} className="text-3xl md:text-4xl mb-4" variant="fire">Our Heritage of Protection</GradientHeading>
             <p className="mb-6">
               For over 40 years, Praetorian Protective Coatings has been at the forefront of developing advanced coating technologies that protect what matters most.
             </p>
@@ -43,7 +45,7 @@ const ProductHistorySection = () => {
           
           <div className="bg-primary-800 rounded-lg overflow-hidden shadow-lg">
             <div className="p-6 border-b border-primary-700">
-              <h3 className="text-xl font-semibold">Product Innovation Timeline</h3>
+              <GradientHeading level={3} className="text-xl" variant="blue">Product Innovation Timeline</GradientHeading>
               <p className="text-gray-300">Explore our history of protective coating innovations</p>
             </div>
             <div className="p-6 space-y-6">

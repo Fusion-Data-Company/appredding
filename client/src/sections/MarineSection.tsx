@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { GradientHeading } from "@/components/ui/gradient-heading";
 
 const MarineSection = () => {
   const [formData, setFormData] = useState({
@@ -33,7 +34,7 @@ const MarineSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="order-2 md:order-1 bg-[#1e1e1e] rounded-lg overflow-hidden shadow-lg">
             <div className="p-6 border-b border-[#333333]">
-              <h3 className="text-xl font-semibold">Marine Application Configurator</h3>
+              <GradientHeading level={3} className="text-xl" variant="blue">Marine Application Configurator</GradientHeading>
               <p className="text-[#a0a0a0]">Find the right marine coating for your vessel</p>
             </div>
             <div className="p-6 space-y-6">
@@ -94,7 +95,7 @@ const MarineSection = () => {
           </div>
           
           <div className="order-1 md:order-2">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#0070f3]">Marine Protection Systems</h2>
+            <GradientHeading level={2} className="text-3xl md:text-4xl mb-4" variant="blue">Marine Protection Systems</GradientHeading>
             <p className="mb-6">
               Our marine coatings provide superior protection against salt water, UV damage, and marine growth for all types of watercraft and marine structures.
             </p>
