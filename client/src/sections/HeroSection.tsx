@@ -31,7 +31,7 @@ const HeroSection = () => {
               interval={3000}
               className="text-primary-500 block my-1"
             />
-            <div>with advanced defense technology</div>
+            <div>with superior defense technology</div>
           </div>
           <p className="text-[#a0a0a0] text-lg md:text-xl mb-8">
             Industry-leading solutions that protect against fire, water, and environmental damage. Trusted by professionals worldwide.
