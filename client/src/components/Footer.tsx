@@ -1,10 +1,12 @@
+import { GradientHeading } from "@/components/ui/gradient-heading";
+
 const Footer = () => {
   return (
     <footer className="bg-[#1e1e1e] border-t border-[#333333] pt-12 pb-6 mt-auto">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div>
-            <h3 className="text-xl font-semibold mb-4">Praetorian Coatings</h3>
+            <GradientHeading level={3} className="text-xl mb-4" variant="mixed">Praetorian Coatings</GradientHeading>
             <p className="text-[#a0a0a0] mb-6">
               Industry-leading protective coatings engineered to defend against the elements,
               preserve structures, and provide peace of mind.
@@ -42,7 +44,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold mb-4">Applications</h3>
+            <GradientHeading level={3} className="text-lg mb-4" variant="fire">Applications</GradientHeading>
             <ul className="space-y-2">
               <li>
                 <a href="#" className="text-[#a0a0a0] hover:text-[#0070f3] transition-colors">
@@ -78,7 +80,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold mb-4">Our Product</h3>
+            <GradientHeading level={3} className="text-lg mb-4" variant="mixed">Our Product</GradientHeading>
             <ul className="space-y-2">
               <li>
                 <a href="#" className="text-[#a0a0a0] hover:text-[#0070f3] transition-colors">
@@ -109,7 +111,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold mb-4">Resources</h3>
+            <GradientHeading level={3} className="text-lg mb-4" variant="blue">Resources</GradientHeading>
             <ul className="space-y-2">
               <li>
                 <a href="#" className="text-[#a0a0a0] hover:text-[#0070f3] transition-colors">

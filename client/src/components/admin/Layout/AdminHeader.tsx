@@ -3,6 +3,7 @@ import { useAuth } from "@/hooks/use-auth";
 import { useAdminContext } from "@/hooks/useAdmin/useAdminContext";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { GradientHeading } from "@/components/ui/gradient-heading";
 import {
   DropdownMenu,
   DropdownMenuContent,
