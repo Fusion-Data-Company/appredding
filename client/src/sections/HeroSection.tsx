@@ -13,8 +13,8 @@ const HeroSection = () => {
     >
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto animate-fadeIn">
-          <div className="text-4xl md:text-5xl font-bold mb-6 flex flex-col items-center">
-            <div className="mb-2">Element-proof protection for your</div>
+          <div className="text-4xl md:text-5xl font-bold mb-6 flex flex-col items-center text-center">
+            <div>Element-proof protection for your</div>
             <AnimatedTextCycle 
               words={[
                 "home & living spaces",
@@ -29,9 +29,9 @@ const HeroSection = () => {
                 "vulnerable surfaces"
               ]}
               interval={3000}
-              className="text-primary-500 my-2"
+              className="text-primary-500"
             />
-            <div className="mt-2">with advanced dual defense technology</div>
+            <div>with advanced defense technology</div>
           </div>
           <p className="text-[#a0a0a0] text-lg md:text-xl mb-8">
             Industry-leading solutions that protect against fire, water, and environmental damage. Trusted by professionals worldwide.
