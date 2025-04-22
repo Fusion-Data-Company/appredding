@@ -9,6 +9,9 @@ interface ApplicationCardProps {
 }
 
 const ApplicationCard = ({ imageSrc, title, description, link }: ApplicationCardProps) => {
+  // Determine if this is a water-related application
+  const isWaterRelated = title === "Marine" || title === "Pool";
+  
   return (
     <div className="group relative rounded-lg overflow-hidden h-[450px] block cursor-pointer">
       <img 
@@ -24,7 +27,11 @@ const ApplicationCard = ({ imageSrc, title, description, link }: ApplicationCard
         <p className="text-[#a0a0a0] text-sm mb-4">{description}</p>
         <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
           <Link href={link}>
-            <GradientButton size="sm" className="w-full md:w-auto">
+            <GradientButton 
+              size="sm" 
+              variant={isWaterRelated ? "variant" : "default"}
+              className="w-full md:w-auto"
+            >
               Learn more
             </GradientButton>
           </Link>

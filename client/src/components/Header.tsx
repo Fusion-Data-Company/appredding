@@ -33,15 +33,15 @@ const Header = () => {
 
   return (
     <header 
-      className={`bg-white border-b border-gray-200 sticky top-0 z-50 transition-all duration-300 ${
-        scrolled ? "shadow-premium-md py-3" : "py-4"
+      className={`bg-[#121212] border-b border-[#ff6a00]/20 sticky top-0 z-50 transition-all duration-300 ${
+        scrolled ? "shadow-[0_4px_20px_rgba(255,106,0,0.1)] py-3" : "py-4"
       }`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         <Link href="/" className="text-2xl font-heading font-bold flex items-center gap-2 group z-10">
-          <i className="fas fa-shield-alt text-primary-600 group-hover:text-primary-700 transition-colors"></i>
-          <span className="tracking-tight">
-            Praetorian<span className="text-primary-600 group-hover:text-primary-700 transition-colors">Coatings</span>
+          <i className="fas fa-shield-alt text-[#ff6a00] group-hover:text-[#ff8c00] transition-colors"></i>
+          <span className="tracking-tight text-white">
+            Praetorian<span className="text-[#ff6a00] group-hover:text-[#ff8c00] transition-colors">Coatings</span>
           </span>
         </Link>
 
@@ -67,14 +67,14 @@ const Header = () => {
                 {isHomePage ? (
                   <a 
                     href="#contact" 
-                    className="text-gray-700 hover:text-primary-700 font-medium py-1"
+                    className="text-gray-200 hover:text-[#ff6a00] font-medium transition-colors px-2 py-1.5 block"
                   >
                     Contact Us
                   </a>
                 ) : (
                   <Link
                     href="/#contact"
-                    className="text-gray-700 hover:text-primary-700 font-medium py-1"
+                    className="text-gray-200 hover:text-[#ff6a00] font-medium transition-colors px-2 py-1.5 block"
                   >
                     Contact Us
                   </Link>
@@ -95,10 +95,10 @@ const Header = () => {
         {/* Mobile Menu Button */}
         <button
           onClick={toggleMobileMenu}
-          className="md:hidden text-gray-800 p-1 rounded-md hover:bg-gray-100 transition-colors z-10"
+          className="md:hidden text-white p-1 rounded-md hover:bg-[#ff6a00]/10 transition-colors z-10"
           aria-label="Toggle mobile menu"
         >
-          <i className={`fas ${mobileMenuOpen ? "fa-times" : "fa-bars"} text-xl`}></i>
+          <i className={`fas ${mobileMenuOpen ? "fa-times" : "fa-bars"} text-xl text-[#ff6a00]`}></i>
         </button>
       </div>
 
