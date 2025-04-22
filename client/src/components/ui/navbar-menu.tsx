@@ -42,7 +42,7 @@ export const MenuItem = ({
               <motion.div
                 transition={transition}
                 layoutId="active" // layoutId ensures smooth animation
-                className="bg-gradient-to-b from-primary-900/98 to-primary-950/98 backdrop-blur-3xl backdrop-filter before:absolute before:inset-0 before:bg-black/60 before:z-[-1] relative rounded-xl overflow-hidden border border-[#ff6a00]/40 shadow-[0_10px_25px_-5px_rgba(0,0,0,0.5)]"
+                className="bg-gradient-to-b from-gray-700/80 to-gray-800/80 backdrop-blur-3xl backdrop-filter before:absolute before:inset-0 before:bg-gray-500/30 before:z-[-1] relative rounded-xl overflow-hidden border border-[#ff6a00]/40 shadow-[0_10px_25px_-5px_rgba(0,0,0,0.3)]"
               >
                 <motion.div
                   layout // layout ensures smooth animation
@@ -69,7 +69,7 @@ export const Menu = ({
   return (
     <nav
       onMouseLeave={() => setActive(null)} // resets the state
-      className="relative rounded-full border-2 border-[#ff6a00]/40 bg-gradient-to-r from-primary-950/80 to-primary-900/80 backdrop-blur-xl shadow-[0_0_15px_rgba(255,106,0,0.3)] flex justify-center space-x-8 px-8 py-4"
+      className="relative rounded-full border-2 border-[#ff6a00]/40 bg-gradient-to-r from-gray-800/75 to-gray-700/75 backdrop-blur-xl shadow-[0_0_15px_rgba(255,106,0,0.3)] flex justify-center space-x-8 px-8 py-4"
     >
       {children}
     </nav>
@@ -88,7 +88,7 @@ export const ProductItem = ({
   imgSrc: string;
 }) => {
   return (
-    <Link href={href} className="flex space-x-3 bg-primary-900/95 backdrop-blur-3xl backdrop-filter relative before:absolute before:inset-0 before:bg-black/40 before:z-[-1] p-4 rounded-lg hover:bg-primary-800/95 transition-all border border-primary-700/40 hover:border-[#ff6a00]/40 shadow-md hover:shadow-lg">
+    <Link href={href} className="flex space-x-3 bg-gray-700/80 backdrop-blur-3xl backdrop-filter relative before:absolute before:inset-0 before:bg-gray-500/30 before:z-[-1] p-4 rounded-lg hover:bg-gray-600/80 transition-all border border-gray-600/50 hover:border-[#ff6a00]/40 shadow-md hover:shadow-lg">
       <img
         src={imgSrc}
         width={140}
