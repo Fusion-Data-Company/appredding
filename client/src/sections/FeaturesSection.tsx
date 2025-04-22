@@ -1,10 +1,16 @@
-const FeatureCard = ({ icon, title, description }: { icon: string; title: string; description: string }) => {
+import { GradientHeading } from "@/components/ui/gradient-heading";
+
+const FeatureCard = ({ icon, title, description, index }: { icon: string; title: string; description: string; index: number }) => {
+  // Different gradient variants based on index/feature type
+  const variants = ["fire", "blue", "mixed"];
+  const variant = variants[index % variants.length] as "fire" | "blue" | "mixed";
+  
   return (
     <div className="bg-[#1e1e1e] rounded-lg p-8 text-center hover:transform hover:-translate-y-1 transition-transform">
       <div className="text-5xl text-[#0070f3] mb-6">
         <i className={icon}></i>
       </div>
-      <h3 className="text-xl font-semibold mb-3">{title}</h3>
+      <GradientHeading level={3} className="text-xl mb-3" variant={variant}>{title}</GradientHeading>
       <p className="text-[#a0a0a0]">{description}</p>
     </div>
   );
@@ -33,7 +39,7 @@ const FeaturesSection = () => {
     <section className="py-20 bg-[#121212]" id="features">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Superior Protection Features</h2>
+          <GradientHeading level={2} className="text-3xl md:text-4xl mb-4" variant="mixed">Superior Protection Features</GradientHeading>
           <p className="text-[#a0a0a0] max-w-2xl mx-auto">
             Our specially formulated coatings are designed to withstand extreme conditions while providing long-lasting protection for your assets.
           </p>
@@ -43,6 +49,7 @@ const FeaturesSection = () => {
           {features.map((feature, index) => (
             <FeatureCard
               key={index}
+              index={index}
               icon={feature.icon}
               title={feature.title}
               description={feature.description}
