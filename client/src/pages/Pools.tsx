@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { CircleDollarSign, DropletIcon, HelpCircle, Info } from "lucide-react";
 import { GradientHeading } from "@/components/ui/gradient-heading";
+import poolImage from "@assets/Screenshot 2025-04-22 at 14.04.08.png";
 import { 
   Card, 
   CardContent,
@@ -236,7 +237,7 @@ const Pools = () => {
 
               <div>
                 <img 
-                  src="@assets/Screenshot 2025-04-22 at 14.04.08.png" 
+                  src={poolImage} 
                   alt="Elegant luxury pool with pristine Praetorian coating" 
                   className="rounded-xl w-full h-64 object-cover mb-8"
                 />
