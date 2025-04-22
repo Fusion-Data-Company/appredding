@@ -7,7 +7,7 @@ const HeroSection = () => {
       style={{
         backgroundImage: "url('/assets/fire-water-hands-hd.jpg')",
         backgroundSize: "contain",
-        backgroundPosition: "center 60%",
+        backgroundPosition: "center 20%",
         backgroundRepeat: "no-repeat"
       }}
     >
