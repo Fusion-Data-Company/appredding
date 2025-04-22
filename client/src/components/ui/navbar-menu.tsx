@@ -42,7 +42,7 @@ export const MenuItem = ({
               <motion.div
                 transition={transition}
                 layoutId="active" // layoutId ensures smooth animation
-                className="bg-gradient-to-b from-primary-900 to-primary-950 backdrop-blur-xl rounded-xl overflow-hidden border border-[#ff6a00]/40 shadow-[0_10px_25px_-5px_rgba(0,0,0,0.5)]"
+                className="bg-gradient-to-b from-[#101520] to-[#080c14] rounded-xl overflow-hidden border border-[#ff6a00]/40 shadow-[0_10px_25px_-5px_rgba(0,0,0,0.5)]"
               >
                 <motion.div
                   layout // layout ensures smooth animation
@@ -69,7 +69,7 @@ export const Menu = ({
   return (
     <nav
       onMouseLeave={() => setActive(null)} // resets the state
-      className="relative rounded-full border-2 border-[#ff6a00]/40 bg-gradient-to-r from-primary-950 to-primary-900 backdrop-blur-xl shadow-[0_0_15px_rgba(255,106,0,0.3)] flex justify-center space-x-8 px-8 py-4"
+      className="relative rounded-full border-2 border-[#ff6a00]/40 bg-gradient-to-r from-[#0a0f18] to-[#141c2b] shadow-[0_0_15px_rgba(255,106,0,0.3)] flex justify-center space-x-8 px-8 py-4"
     >
       {children}
     </nav>
@@ -88,7 +88,7 @@ export const ProductItem = ({
   imgSrc: string;
 }) => {
   return (
-    <Link href={href} className="flex space-x-3 bg-primary-800 p-4 rounded-lg hover:bg-primary-700 transition-all border border-primary-700/50 hover:border-[#ff6a00]/40 shadow-md hover:shadow-lg">
+    <Link href={href} className="flex space-x-3 bg-[#121824] p-4 rounded-lg hover:bg-[#192133] transition-all border border-[#223] hover:border-[#ff6a00]/40 shadow-md hover:shadow-lg">
       <img
         src={imgSrc}
         width={140}
