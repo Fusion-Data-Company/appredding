@@ -211,17 +211,17 @@ const MobileHome = () => {
                 </div>
                 
                 <div className="backdrop-blur-sm bg-primary-800/60 border border-blue-500/30 rounded-lg p-5 shadow-lg">
-                  <h3 className="text-xl font-bold mb-3 text-blue-100">Extended Warranty</h3>
+                  <h3 className="text-xl font-bold mb-3 text-white">Extended Warranty</h3>
                   <p className="text-gray-100">We stand behind our work with an industry-leading 15-year warranty on materials and workmanship, transferable to new owners if you sell your home.</p>
                 </div>
                 
                 <div className="backdrop-blur-sm bg-primary-800/60 border border-blue-500/30 rounded-lg p-5 shadow-lg">
-                  <h3 className="text-xl font-bold mb-3 text-blue-100">Eco-Friendly Solutions</h3>
+                  <h3 className="text-xl font-bold mb-3 text-white">Eco-Friendly Solutions</h3>
                   <p className="text-gray-100">Our coatings are low-VOC and environmentally responsible, providing protection without harsh chemicals or harmful emissions.</p>
                 </div>
                 
                 <div className="backdrop-blur-sm bg-primary-800/60 border border-blue-500/30 rounded-lg p-5 shadow-lg">
-                  <h3 className="text-xl font-bold mb-3 text-blue-100">Financing Available</h3>
+                  <h3 className="text-xl font-bold mb-3 text-white">Financing Available</h3>
                   <p className="text-gray-100">Affordable monthly payment options make protecting your investment accessible, with no money down and interest-free periods available.</p>
                 </div>
               </div>
@@ -260,7 +260,7 @@ const MobileHome = () => {
                     </svg>
                   </div>
                   <p className="mb-4 italic text-white">"After applying Praetorian's roof coating, our energy bills dropped by almost 25%! The technicians were professional and finished the job in just two days. My mobile home looks better than it has in years."</p>
-                  <div className="font-semibold text-blue-200">- David M., Phoenix, AZ</div>
+                  <div className="font-semibold text-orange-200">- David M., Phoenix, AZ</div>
                 </div>
                 
                 <div className="backdrop-blur-sm bg-primary-800/80 border border-blue-500/30 rounded-lg p-6 shadow-lg">
@@ -282,7 +282,7 @@ const MobileHome = () => {
                     </svg>
                   </div>
                   <p className="mb-4 italic text-white">"We had persistent leaks for years that other companies couldn't fix. Praetorian's specialized coating sealed everything perfectly. It's been through two monsoon seasons without a single leak. Worth every penny!"</p>
-                  <div className="font-semibold text-blue-200">- Linda W., Tucson, AZ</div>
+                  <div className="font-semibold text-orange-200">- Linda W., Tucson, AZ</div>
                 </div>
                 
                 <div className="backdrop-blur-sm bg-primary-800/80 border border-blue-500/30 rounded-lg p-6 shadow-lg">
@@ -304,7 +304,7 @@ const MobileHome = () => {
                     </svg>
                   </div>
                   <p className="mb-4 italic text-white">"The financing options made it possible for us to protect our home on a fixed income. The difference in interior temperature during summer is amazing, and the exterior looks like new. Their customer service was outstanding."</p>
-                  <div className="font-semibold text-blue-200">- Robert & Susan K., Mesa, AZ</div>
+                  <div className="font-semibold text-orange-200">- Robert & Susan K., Mesa, AZ</div>
                 </div>
               </div>
             </div>
