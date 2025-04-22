@@ -56,7 +56,7 @@ const ApplicationsSection = () => {
       link: "/construction"
     },
     {
-      imageSrc: "https://images.unsplash.com/photo-1523676060187-f55189a71f5e?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+      imageSrc: "/assets/mobile-home-protection.jpg",
       title: "Mobile Home",
       description: "Specialized coatings for manufactured housing",
       link: "/mobile-home"
