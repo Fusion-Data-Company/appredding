@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Button } from "@/components/ui/button";
+import { GradientButton } from "@/components/ui/gradient-button";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { CircleDollarSign, DropletIcon, HelpCircle, Info } from "lucide-react";
 import { GradientHeading } from "@/components/ui/gradient-heading";

@@ -97,9 +97,9 @@ const FirePrevention = () => {
                   <div className="text-center p-8">
                     <h3 className="text-2xl font-bold mb-4">Interactive wildfire risk map</h3>
                     <p className="mb-6">Evaluate your property's risk level and explore protection options tailored to your specific needs</p>
-                    <Button className="bg-gradient-to-r from-orange-600 to-yellow-500 hover:from-orange-500 hover:to-yellow-400 text-white border-0">
+                    <GradientButton>
                       Check Your Risk Level
-                    </Button>
+                    </GradientButton>
                   </div>
                 </div>
               </div>
@@ -167,9 +167,9 @@ const FirePrevention = () => {
               </div>
               
               <div className="mt-8 text-center">
-                <Button className="bg-gradient-to-r from-orange-600 to-yellow-500 hover:from-orange-500 hover:to-yellow-400 text-white border-0 px-8">
+                <GradientButton>
                   Get Protected Today
-                </Button>
+                </GradientButton>
               </div>
             </div>
           </div>
