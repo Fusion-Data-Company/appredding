@@ -58,7 +58,7 @@ export default function AdminHeader() {
     <header className="sticky top-0 z-10 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
       <div className="flex items-center justify-between p-4">
         <div className="flex items-center">
-          <h1 className="text-2xl font-semibold mr-4">{getSectionTitle()}</h1>
+          <GradientHeading level={1} className="text-2xl mr-4">{getSectionTitle()}</GradientHeading>
           
           {/* Section specific actions */}
           <div className="hidden md:flex space-x-2">

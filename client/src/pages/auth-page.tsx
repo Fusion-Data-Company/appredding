@@ -3,6 +3,7 @@ import { useAuth } from "@/hooks/use-auth";
 import { useLocation } from "wouter";
 import Header from "@/components/Header";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { GradientHeading } from "@/components/ui/gradient-heading";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
@@ -111,9 +112,9 @@ export default function AuthPage() {
         <div className="container mx-auto py-16 px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
             <div className="bg-primary-900 rounded-xl p-8 shadow-premium-md border border-primary-800">
-              <h2 className="text-3xl font-bold mb-6 text-center">
+              <GradientHeading level={2} className="text-3xl mb-6 text-center" variant="fire">
                 {activeTab === "login" ? "Welcome Back" : "Create Your Account"}
-              </h2>
+              </GradientHeading>
               
               <Tabs defaultValue="login" value={activeTab} onValueChange={setActiveTab}>
                 <TabsList className="grid grid-cols-2 mb-8">
@@ -382,9 +383,9 @@ export default function AuthPage() {
             
             <div className="lg:order-first order-last">
               <div className="space-y-6">
-                <h1 className="text-4xl md:text-5xl font-bold">
+                <GradientHeading level={1} className="text-4xl md:text-5xl" variant="blue">
                   Client Dashboard Access
-                </h1>
+                </GradientHeading>
                 
                 <p className="text-xl text-gray-200">
                   Create an account or sign in to access your projects and connect with our team of professionals.
@@ -398,7 +399,7 @@ export default function AuthPage() {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="font-medium">Track Project Progress</h3>
+                      <GradientHeading level={3} className="font-medium text-base" variant="mixed">Track Project Progress</GradientHeading>
                       <p className="text-gray-400">Monitor the status of your coating projects in real-time</p>
                     </div>
                   </div>
@@ -410,7 +411,7 @@ export default function AuthPage() {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="font-medium">Access Project Documentation</h3>
+                      <GradientHeading level={3} className="font-medium text-base" variant="blue">Access Project Documentation</GradientHeading>
                       <p className="text-gray-400">View and download important files and documentation</p>
                     </div>
                   </div>
