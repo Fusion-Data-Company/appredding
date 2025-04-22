@@ -8,6 +8,7 @@ import TestimonialsSection from "@/sections/TestimonialsSection";
 import ContactSection from "@/sections/ContactSection";
 import ProductHistorySection from "@/sections/ProductHistorySection";
 import ProductPerformanceSection from "@/sections/ProductPerformanceSection";
+import ProductComparisonSection from "@/components/ProductComparisonSection";
 import FAQSection from "@/components/FAQSection";
 import VideoSection from "@/components/VideoSection";
 import { faqData, videoData } from "@/data/content";
@@ -23,9 +24,10 @@ const Home = () => {
         <ProductHistorySection />
         <ProductsSection />
         <ProductPerformanceSection />
+        <ProductComparisonSection />
+        <TestimonialsSection />
         <VideoSection videos={videoData} />
         <FAQSection faqs={faqData} />
-        <TestimonialsSection />
         <ContactSection />
       </main>
       <Footer />
