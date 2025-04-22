@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import HeroSection from "@/sections/HeroSection";
+import IntroSection from "@/sections/IntroSection";
 import FeaturesSection from "@/sections/FeaturesSection";
 import ApplicationsSection from "@/sections/ApplicationsSection";
 import ProductsSection from "@/sections/ProductsSection";
@@ -19,6 +20,7 @@ const Home = () => {
       <Header />
       <main>
         <HeroSection />
+        <IntroSection />
         <FeaturesSection />
         <ApplicationsSection />
         <ProductHistorySection />
