@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 const HeroSection = () => {
   return (
     <section 
-      className="relative bg-black h-[70vh] flex flex-col items-center justify-end pb-20" 
+      className="relative bg-black h-[65vh] flex flex-col items-center justify-end pb-10" 
       style={{
         backgroundImage: "url('/assets/fire-water-hands-hd.jpg')",
         backgroundSize: "contain",
