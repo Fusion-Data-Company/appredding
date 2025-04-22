@@ -1,16 +1,5 @@
-"use client";
 import React from "react";
-import { motion } from "framer-motion";
 import { Link } from "wouter";
-
-const transition = {
-  type: "spring",
-  mass: 0.5,
-  damping: 11.5,
-  stiffness: 100,
-  restDelta: 0.001,
-  restSpeed: 0.001,
-};
 
 export const MenuItem = ({
   setActive,
@@ -25,35 +14,17 @@ export const MenuItem = ({
 }) => {
   return (
     <div onMouseEnter={() => setActive(item)} className="relative">
-      <motion.p
-        transition={{ duration: 0.3 }}
-        className="cursor-pointer text-gray-800 hover:text-primary-700 font-medium"
-      >
+      <p className="cursor-pointer text-gray-800 hover:text-primary-700 font-medium">
         {item}
-      </motion.p>
-      {active !== null && (
-        <motion.div
-          initial={{ opacity: 0, scale: 0.85, y: 10 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={transition}
-        >
-          {active === item && (
-            <div className="absolute top-[calc(100%_+_1.2rem)] left-1/2 transform -translate-x-1/2 pt-4 z-50">
-              <motion.div
-                transition={transition}
-                layoutId="active" // layoutId ensures smooth animation
-                className="bg-white rounded-xl overflow-hidden border border-gray-200 shadow-xl"
-              >
-                <motion.div
-                  layout // layout ensures smooth animation
-                  className="w-max h-full p-4"
-                >
-                  {children}
-                </motion.div>
-              </motion.div>
+      </p>
+      {active === item && (
+        <div className="absolute top-[calc(100%_+_1.2rem)] left-1/2 transform -translate-x-1/2 pt-4 z-50">
+          <div className="bg-white rounded-xl overflow-hidden border border-gray-200 shadow-xl">
+            <div className="w-max h-full p-4">
+              {children}
             </div>
-          )}
-        </motion.div>
+          </div>
+        </div>
       )}
     </div>
   );
@@ -68,7 +39,7 @@ export const Menu = ({
 }) => {
   return (
     <nav
-      onMouseLeave={() => setActive(null)} // resets the state
+      onMouseLeave={() => setActive(null)}
       className="relative rounded-full border border-gray-200 bg-white shadow-sm flex justify-center space-x-8 px-8 py-4"
     >
       {children}
