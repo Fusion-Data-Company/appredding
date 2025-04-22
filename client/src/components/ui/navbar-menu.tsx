@@ -69,7 +69,7 @@ export const Menu = ({
   return (
     <nav
       onMouseLeave={() => setActive(null)} // resets the state
-      className="relative rounded-full border border-gray-200 bg-white shadow-sm flex justify-center space-x-8 px-8 py-4"
+      className="relative rounded-full border-2 border-[#ff6a00]/30 bg-[#1a1a1a] shadow-md flex justify-center space-x-8 px-8 py-4"
     >
       {children}
     </nav>
@@ -88,19 +88,19 @@ export const ProductItem = ({
   imgSrc: string;
 }) => {
   return (
-    <Link href={href} className="flex space-x-2">
+    <Link href={href} className="flex space-x-3 bg-[#222222] p-3 rounded-lg hover:bg-[#2a2a2a] transition-colors">
       <img
         src={imgSrc}
         width={140}
         height={70}
         alt={title}
-        className="flex-shrink-0 rounded-md shadow-md"
+        className="flex-shrink-0 rounded-md shadow-md border border-[#ff6a00]/20"
       />
       <div>
-        <h4 className="text-base font-bold mb-1 text-gray-800">
+        <h4 className="text-base font-bold mb-1 text-white">
           {title}
         </h4>
-        <p className="text-gray-600 text-sm max-w-[10rem]">
+        <p className="text-gray-300 text-sm max-w-[10rem]">
           {description}
         </p>
       </div>
@@ -112,7 +112,7 @@ export const HoveredLink = ({ children, ...rest }: any) => {
   return (
     <Link
       {...rest}
-      className="text-gray-700 hover:text-primary-700 font-medium transition-colors px-2 py-1.5 block"
+      className="text-gray-200 hover:text-[#ff6a00] font-medium transition-colors px-2 py-1.5 block"
     >
       {children}
     </Link>
