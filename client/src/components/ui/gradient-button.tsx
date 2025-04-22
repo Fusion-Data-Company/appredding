@@ -1,29 +1,25 @@
-"use client"
-
 import * as React from "react"
-import { Slot } from "@radix-ui/react-slot"
 import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
+import { Slot } from "@radix-ui/react-slot"
 
-const gradientButtonVariants = cva(
-  [
-    "gradient-button",
-    "inline-flex items-center justify-center",
-    "rounded-[11px] min-w-[132px] px-9 py-4",
-    "text-base leading-[19px] font-[500] text-white",
-    "font-sans font-bold",
-    "focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring",
-    "disabled:pointer-events-none disabled:opacity-50",
-  ],
+export const gradientButtonVariants = cva(
+  "gradient-button rounded-md inline-flex items-center justify-center px-6 py-3 text-sm font-medium text-white transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
         default: "",
         variant: "gradient-button-variant",
       },
+      size: {
+        default: "h-11 px-6 py-3",
+        sm: "h-9 px-3 py-2 text-xs",
+        lg: "h-14 px-8 py-4 text-base",
+      },
     },
     defaultVariants: {
       variant: "default",
+      size: "default",
     },
   }
 )
@@ -34,18 +30,17 @@ export interface GradientButtonProps
   asChild?: boolean
 }
 
-const GradientButton = React.forwardRef<HTMLButtonElement, GradientButtonProps>(
-  ({ className, variant, asChild = false, ...props }, ref) => {
+export const GradientButton = React.forwardRef<HTMLButtonElement, GradientButtonProps>(
+  ({ className, variant, size, asChild = false, ...props }, ref) => {
     const Comp = asChild ? Slot : "button"
     return (
       <Comp
-        className={cn(gradientButtonVariants({ variant, className }))}
+        className={cn(gradientButtonVariants({ variant, size, className }))}
         ref={ref}
         {...props}
       />
     )
   }
 )
-GradientButton.displayName = "GradientButton"
 
-export { GradientButton, gradientButtonVariants }
+GradientButton.displayName = "GradientButton"

@@ -10,7 +10,7 @@ interface ApplicationCardProps {
 
 const ApplicationCard = ({ imageSrc, title, description, link }: ApplicationCardProps) => {
   return (
-    <div className="group relative rounded-lg overflow-hidden h-[450px] block cursor-pointer" onClick={() => window.location.href = link}>
+    <div className="group relative rounded-lg overflow-hidden h-[450px] block cursor-pointer">
       <img 
         src={imageSrc} 
         alt={title} 
@@ -19,11 +19,15 @@ const ApplicationCard = ({ imageSrc, title, description, link }: ApplicationCard
         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-      <div className="absolute bottom-0 left-0 p-6">
+      <div className="absolute bottom-0 left-0 p-6 w-full">
         <h3 className="text-xl font-semibold mb-1">{title}</h3>
-        <p className="text-[#a0a0a0] text-sm">{description}</p>
-        <div className="mt-2 text-primary-400 text-sm font-semibold flex items-center opacity-0 group-hover:opacity-100 transition-opacity">
-          Learn more <i className="fas fa-arrow-right ml-2"></i>
+        <p className="text-[#a0a0a0] text-sm mb-4">{description}</p>
+        <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
+          <Link href={link}>
+            <GradientButton size="sm" className="w-full md:w-auto">
+              Learn more
+            </GradientButton>
+          </Link>
         </div>
       </div>
     </div>
