@@ -38,7 +38,7 @@ const ApplicationsSection = () => {
       link: "/fire-prevention"
     },
     {
-      imageSrc: "https://images.unsplash.com/photo-1566843972142-a7fcb70de1a5?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+      imageSrc: "/assets/marine-protection.jpg",
       title: "Marine",
       description: "Salt water resistant coating for boats and marine structures",
       link: "/marinas"
