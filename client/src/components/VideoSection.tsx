@@ -53,7 +53,7 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
                   ></iframe>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2">{activeVideo.title}</h3>
+                  <GradientHeading level={3} className="text-xl mb-2" variant="fire">{activeVideo.title}</GradientHeading>
                   <p className="text-gray-300 mb-4">{activeVideo.description}</p>
                   <div className="flex flex-wrap items-center justify-between">
                     <span className="bg-primary-800 text-primary-300 px-3 py-1 rounded-full text-sm font-medium">
@@ -71,7 +71,7 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
                   <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary-800 mb-4">
                     <Play className="h-8 w-8 text-primary-500" />
                   </div>
-                  <h3 className="text-xl font-medium mb-2">No Videos Available</h3>
+                  <GradientHeading level={3} className="text-xl mb-2" variant="blue">No Videos Available</GradientHeading>
                   <p className="text-gray-400 max-w-md">
                     Please check back later for video demonstrations.
                   </p>
@@ -82,9 +82,9 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
 
           <div>
             <div className="bg-primary-950 rounded-xl border border-primary-800 p-6">
-              <h3 className="text-xl font-bold mb-4 pb-3 border-b border-primary-800">
+              <GradientHeading level={3} className="text-xl mb-4 pb-3 border-b border-primary-800" variant="mixed">
                 Video Library
-              </h3>
+              </GradientHeading>
 
               <div className="mb-6">
                 <div className="flex flex-wrap gap-2">
@@ -155,7 +155,7 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
                   <Star className="h-8 w-8 text-yellow-500" />
                 </div>
                 <div>
-                  <h4 className="text-lg font-bold mb-2">Request Custom Demonstration</h4>
+                  <GradientHeading level={4} className="text-lg mb-2" variant="fire">Request Custom Demonstration</GradientHeading>
                   <p className="text-gray-300 text-sm mb-4">
                     Need to see a specific application technique? Request a personalized video demonstration from our experts.
                   </p>
