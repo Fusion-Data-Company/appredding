@@ -5,9 +5,9 @@ const HeroSection = () => {
     <section 
       className="relative bg-black h-[80vh] flex flex-col items-center justify-end pb-20" 
       style={{
-        backgroundImage: "url('/assets/fire-water-hands-cropped.jpg')",
+        backgroundImage: "url('/assets/fire-water-hands-hd.jpg')",
         backgroundSize: "contain",
-        backgroundPosition: "center bottom",
+        backgroundPosition: "center 40%",
         backgroundRepeat: "no-repeat"
       }}
     >
