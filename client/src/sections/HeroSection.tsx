@@ -13,24 +13,26 @@ const HeroSection = () => {
     >
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto animate-fadeIn">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            Protecting your{" "}
-            <AnimatedTextCycle 
-              words={[
-                "buildings",
-                "pools",
-                "marine vessels",
-                "industrial equipment",
-                "municipalities",
-                "fire apparatus",
-                "construction sites",
-                "mobile homes"
-              ]}
-              interval={3000}
-              className="text-primary-500"
-            />{" "}
-            from extreme elements
-          </h1>
+          <div className="text-4xl md:text-5xl font-bold mb-4 flex flex-col items-center">
+            <div>Protecting your</div>
+            <div className="my-2">
+              <AnimatedTextCycle 
+                words={[
+                  "buildings",
+                  "pools",
+                  "marine vessels",
+                  "industrial equipment",
+                  "municipalities",
+                  "fire apparatus",
+                  "construction sites",
+                  "mobile homes"
+                ]}
+                interval={3000}
+                className="text-primary-500"
+              />
+            </div>
+            <div>from extreme elements</div>
+          </div>
           <p className="text-[#a0a0a0] text-lg md:text-xl mb-8">
             Industry-leading solutions that protect against fire, water, and environmental damage. Trusted by professionals worldwide.
           </p>
