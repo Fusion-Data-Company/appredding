@@ -42,7 +42,7 @@ export const MenuItem = ({
               <motion.div
                 transition={transition}
                 layoutId="active" // layoutId ensures smooth animation
-                className="bg-gradient-to-b from-primary-900/90 to-primary-950/90 backdrop-blur-xl rounded-xl overflow-hidden border border-[#ff6a00]/40 shadow-[0_10px_25px_-5px_rgba(0,0,0,0.5)]"
+                className="bg-gradient-to-b from-primary-900/90 to-primary-950/90 backdrop-blur-2xl rounded-xl overflow-hidden border border-[#ff6a00]/40 shadow-[0_10px_25px_-5px_rgba(0,0,0,0.5)]"
               >
                 <motion.div
                   layout // layout ensures smooth animation
@@ -88,7 +88,7 @@ export const ProductItem = ({
   imgSrc: string;
 }) => {
   return (
-    <Link href={href} className="flex space-x-3 bg-primary-900/85 backdrop-blur-md p-4 rounded-lg hover:bg-primary-800/85 transition-all border border-primary-700/40 hover:border-[#ff6a00]/40 shadow-md hover:shadow-lg">
+    <Link href={href} className="flex space-x-3 bg-primary-900/85 backdrop-blur-xl p-4 rounded-lg hover:bg-primary-800/85 transition-all border border-primary-700/40 hover:border-[#ff6a00]/40 shadow-md hover:shadow-lg">
       <img
         src={imgSrc}
         width={140}
