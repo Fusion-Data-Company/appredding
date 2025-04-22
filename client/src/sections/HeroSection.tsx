@@ -1,10 +1,9 @@
 import { Button } from "@/components/ui/button";
-import AnimatedTextCycle from "@/components/ui/animated-text-cycle";
 
 const HeroSection = () => {
   return (
     <section 
-      className="relative bg-black h-[70vh] flex flex-col items-center justify-center" 
+      className="relative bg-black h-[70vh] flex flex-col items-center justify-end pb-20" 
       style={{
         backgroundImage: "url('/assets/fire-water-hands-hd.jpg')",
         backgroundSize: "contain",
@@ -12,7 +11,7 @@ const HeroSection = () => {
         backgroundRepeat: "no-repeat"
       }}
     >
-      <div className="z-10 flex flex-col items-center space-y-6 mt-32">
+      <div className="z-10 mt-4">
         <div className="space-x-4">
           <a 
             href="#applications" 
@@ -26,28 +25,6 @@ const HeroSection = () => {
           >
             Contact Us
           </a>
-        </div>
-        
-        <div className="text-center">
-          <h1 className="text-xl md:text-2xl font-bold text-white">
-            <span>Element-proof protection for your </span>
-            <AnimatedTextCycle 
-              words={[
-                "home & living spaces",
-                "pool & entertainment areas", 
-                "boats & watercraft",
-                "industrial equipment",
-                "critical infrastructure",
-                "construction projects",
-                "commercial buildings",
-                "pipes & metal fixtures",
-                "outdoor structures",
-                "vulnerable surfaces"
-              ]}
-              interval={3000}
-              className="text-primary-500 inline"
-            />
-          </h1>
         </div>
       </div>
     </section>
