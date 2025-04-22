@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Button } from "@/components/ui/button";
+import { GradientButton } from "@/components/ui/gradient-button";
 import { GradientHeading } from "@/components/ui/gradient-heading";
 import fireBgImage from "@assets/fire-bg.jpg";
 
@@ -83,9 +83,9 @@ const FirePrevention = () => {
                 </div>
                 
                 <div className="mt-8">
-                  <Button className="bg-gradient-to-r from-orange-600 to-yellow-500 hover:from-orange-500 hover:to-yellow-400 text-white border-0">
+                  <GradientButton>
                     Request Wildfire Assessment
-                  </Button>
+                  </GradientButton>
                 </div>
               </div>
 

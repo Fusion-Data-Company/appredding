@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Button } from "@/components/ui/button";
+import { GradientButton } from "@/components/ui/gradient-button";
 import { GradientHeading } from "@/components/ui/gradient-heading";
 import mobileHomeBgImage from "@assets/mobile-homes-bg.jpg";
 
@@ -98,9 +98,9 @@ const MobileHome = () => {
                 </div>
                 
                 <div className="mt-8">
-                  <Button className="bg-gradient-to-r from-orange-600 to-blue-500 hover:from-orange-500 hover:to-blue-400 text-white border-0">
+                  <GradientButton variant="variant">
                     Schedule Free Assessment
-                  </Button>
+                  </GradientButton>
                 </div>
               </div>
 
@@ -227,9 +227,9 @@ const MobileHome = () => {
               </div>
               
               <div className="text-center">
-                <Button className="bg-gradient-to-r from-orange-600 to-blue-500 hover:from-orange-500 hover:to-blue-400 text-white border-0 px-8">
+                <GradientButton variant="variant">
                   Get Your Free Quote Today
-                </Button>
+                </GradientButton>
               </div>
             </div>
           </div>
