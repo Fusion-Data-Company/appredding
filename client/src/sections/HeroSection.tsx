@@ -11,7 +11,7 @@ const HeroSection = () => {
         backgroundRepeat: "no-repeat"
       }}
     >
-      <div className="absolute bottom-12 z-10">
+      <div className="relative mt-8 z-10">
         <div className="space-x-4">
           <a 
             href="#applications" 
