@@ -1,5 +1,6 @@
 import { Link } from "wouter";
 import { GradientButton } from "@/components/ui/gradient-button";
+import { GradientHeading } from "@/components/ui/gradient-heading";
 
 interface ApplicationCardProps {
   imageSrc: string;
@@ -85,7 +86,7 @@ const ApplicationsSection = () => {
     <section className="py-20 bg-[#1e1e1e]" id="applications">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Specialized Applications</h2>
+          <GradientHeading className="text-3xl md:text-4xl mb-4">Specialized Applications</GradientHeading>
           <p className="text-[#a0a0a0] max-w-2xl mx-auto">
             Our protective coatings are engineered for specific environments and challenges across various industries.
           </p>

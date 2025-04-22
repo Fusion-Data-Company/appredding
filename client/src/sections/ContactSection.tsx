@@ -2,6 +2,7 @@ import { useState } from "react";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 import { GradientButton } from "@/components/ui/gradient-button";
+import { GradientHeading } from "@/components/ui/gradient-heading";
 
 interface FormData {
   firstName: string;
@@ -127,7 +128,7 @@ const ContactSection = () => {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Get In Touch</h2>
+            <GradientHeading level={2} className="text-3xl md:text-4xl mb-4">Get In Touch</GradientHeading>
             <p className="text-[#a0a0a0] mb-8">
               Have questions about our products or services? Contact our team of coating experts for personalized assistance.
             </p>
@@ -226,7 +227,7 @@ const ContactSection = () => {
           <div>
             <div className="bg-[#1e1e1e] rounded-lg overflow-hidden h-full">
               <div className="p-8">
-                <h3 className="text-xl font-semibold mb-6">Contact Information</h3>
+                <GradientHeading level={3} className="text-xl mb-6" variant="blue">Contact Information</GradientHeading>
                 
                 <div className="space-y-6">
                   <div className="flex items-start">
