@@ -13,7 +13,7 @@ const HeroSection = () => {
     >
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto animate-fadeIn">
-          <div className="text-4xl md:text-5xl font-bold mb-6 flex flex-col items-center text-center">
+          <div className="text-3xl md:text-4xl font-bold mb-4 text-center space-y-0 leading-tight">
             <div>Element-proof protection for your</div>
             <AnimatedTextCycle 
               words={[
@@ -29,7 +29,7 @@ const HeroSection = () => {
                 "vulnerable surfaces"
               ]}
               interval={3000}
-              className="text-primary-500"
+              className="text-primary-500 block my-1"
             />
             <div>with advanced defense technology</div>
           </div>
