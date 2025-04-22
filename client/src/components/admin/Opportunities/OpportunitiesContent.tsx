@@ -288,8 +288,7 @@ export default function OpportunitiesContent() {
                             </div>
                             <Progress 
                               value={opportunity.probability} 
-                              className="h-2" 
-                              indicatorClassName={getProgressColor(opportunity.probability)}
+                              className={`h-2 ${getProgressColor(opportunity.probability)}`}
                             />
                           </div>
                         </TableCell>

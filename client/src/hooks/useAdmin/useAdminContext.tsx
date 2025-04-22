@@ -53,10 +53,10 @@ export function AdminProvider({ children }: { children: ReactNode }) {
           description: "You don't have permission to access the admin dashboard.",
           variant: "destructive",
         });
-        navigate("/");
+        setLocation("/");
       }
     }
-  }, [user, toast, navigate]);
+  }, [user, toast, setLocation]);
 
   // Toggle sidebar
   const toggleSidebar = () => {
