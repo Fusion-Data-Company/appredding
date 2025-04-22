@@ -423,7 +423,7 @@ export default function AuthPage() {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="font-medium">Direct Communication</h3>
+                      <GradientHeading level={3} className="font-medium text-base" variant="mixed">Direct Communication</GradientHeading>
                       <p className="text-gray-400">Communicate with our team through the project portal</p>
                     </div>
                   </div>
@@ -435,7 +435,7 @@ export default function AuthPage() {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="font-medium">Request New Projects</h3>
+                      <GradientHeading level={3} className="font-medium text-base" variant="fire">Request New Projects</GradientHeading>
                       <p className="text-gray-400">Submit requests for new coating projects directly</p>
                     </div>
                   </div>
@@ -449,7 +449,7 @@ export default function AuthPage() {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="font-semibold text-lg">Need assistance?</h3>
+                      <GradientHeading level={3} className="font-semibold text-lg" variant="blue">Need assistance?</GradientHeading>
                       <p className="text-gray-400">Contact our support team at support@praetoriancoatings.com</p>
                     </div>
                   </div>

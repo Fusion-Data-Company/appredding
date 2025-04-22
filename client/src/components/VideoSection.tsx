@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Play, Info, Star } from "lucide-react";
+import { GradientHeading } from "@/components/ui/gradient-heading";
 
 interface Video {
   id: string;
@@ -32,7 +33,7 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
     <section className="py-24 bg-primary-900" id="videos">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-4xl font-bold mb-4">Video Demonstrations</h2>
+          <GradientHeading level={2} className="text-4xl mb-4" variant="mixed">Video Demonstrations</GradientHeading>
           <p className="text-lg text-gray-300">
             Watch our experts demonstrate application techniques and showcase the superior performance of our protective coatings.
           </p>

@@ -4,6 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { GradientHeading } from "@/components/ui/gradient-heading";
 
 interface FAQProps {
   faqs: {
@@ -20,7 +21,7 @@ const FAQSection = ({ faqs }: FAQProps) => {
     <section className="py-24 bg-primary-950" id="faq">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-4xl font-bold mb-4">Frequently Asked Questions</h2>
+          <GradientHeading level={2} className="text-4xl mb-4" variant="mixed">Frequently Asked Questions</GradientHeading>
           <p className="text-lg text-gray-300">
             Find answers to common questions about our protective coating products and services.
           </p>
@@ -29,9 +30,9 @@ const FAQSection = ({ faqs }: FAQProps) => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           {faqs.map((category, idx) => (
             <div key={idx} className="bg-primary-900 rounded-xl p-6 border border-primary-800">
-              <h3 className="text-xl font-bold mb-6 pb-4 border-b border-primary-800">
+              <GradientHeading level={3} className="text-xl mb-6 pb-4 border-b border-primary-800" variant={idx % 3 === 0 ? "fire" : idx % 3 === 1 ? "blue" : "mixed"}>
                 {category.category}
-              </h3>
+              </GradientHeading>
               <Accordion type="single" collapsible className="space-y-4">
                 {category.questions.map((faq, idx) => (
                   <AccordionItem key={idx} value={`item-${idx}`} className="border-none">
