@@ -27,7 +27,7 @@ export const MenuItem = ({
     <div onMouseEnter={() => setActive(item)} className="relative">
       <motion.p
         transition={{ duration: 0.3 }}
-        className="cursor-pointer text-gray-800 hover:text-primary-700 font-medium"
+        className="cursor-pointer text-gray-200 hover:text-[#ff6a00] font-medium"
       >
         {item}
       </motion.p>
@@ -42,7 +42,7 @@ export const MenuItem = ({
               <motion.div
                 transition={transition}
                 layoutId="active" // layoutId ensures smooth animation
-                className="bg-white rounded-xl overflow-hidden border border-gray-200 shadow-xl"
+                className="bg-[#1a1a1a] rounded-xl overflow-hidden border-2 border-[#ff6a00]/30 shadow-xl"
               >
                 <motion.div
                   layout // layout ensures smooth animation
