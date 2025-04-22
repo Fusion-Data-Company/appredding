@@ -9,10 +9,12 @@ interface ApplicationCardProps {
 
 const ApplicationCard = ({ imageSrc, title, description, link }: ApplicationCardProps) => {
   return (
-    <div className="group relative rounded-lg overflow-hidden h-64 block cursor-pointer" onClick={() => window.location.href = link}>
+    <div className="group relative rounded-lg overflow-hidden h-[450px] block cursor-pointer" onClick={() => window.location.href = link}>
       <img 
         src={imageSrc} 
         alt={title} 
+        width={800}
+        height={450}
         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
@@ -30,7 +32,7 @@ const ApplicationCard = ({ imageSrc, title, description, link }: ApplicationCard
 const ApplicationsSection = () => {
   const applications = [
     {
-      imageSrc: "https://images.unsplash.com/photo-1551023911-28a2dfc5679b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+      imageSrc: "/assets/wildfire-protection.jpg",
       title: "Wildfire Protection",
       description: "Class-A fire retardant for homes in wildfire-prone areas",
       link: "/fire-prevention"
