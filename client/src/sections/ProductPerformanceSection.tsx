@@ -1,11 +1,12 @@
 import React from 'react';
+import { GradientHeading } from "@/components/ui/gradient-heading";
 
 const ProductPerformanceSection = () => {
   return (
     <section className="py-20 bg-primary-800/50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Product Performance Data</h2>
+          <GradientHeading level={2} className="text-3xl md:text-4xl mb-4" variant="mixed">Product Performance Data</GradientHeading>
           <p className="text-gray-300 max-w-2xl mx-auto">
             Our protective coatings are rigorously tested and proven to deliver exceptional performance across a range of metrics.
           </p>
@@ -14,25 +15,25 @@ const ProductPerformanceSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
           <div className="bg-primary-800 premium-border rounded-lg p-6 text-center hover-lift">
             <div className="text-5xl font-bold text-primary-400 mb-3">98.7%</div>
-            <h3 className="text-xl font-semibold mb-2">UV Resistance</h3>
+            <GradientHeading level={3} className="text-xl mb-2" variant="mixed">UV Resistance</GradientHeading>
             <p className="text-gray-300">Retention of original properties after 5,000 hours of accelerated UV exposure testing</p>
           </div>
           
           <div className="bg-primary-800 premium-border rounded-lg p-6 text-center hover-lift">
             <div className="text-5xl font-bold text-primary-400 mb-3">15+</div>
-            <h3 className="text-xl font-semibold mb-2">Years Durability</h3>
+            <GradientHeading level={3} className="text-xl mb-2" variant="fire">Years Durability</GradientHeading>
             <p className="text-gray-300">Average lifespan of our premium protective coating systems in real-world applications</p>
           </div>
           
           <div className="bg-primary-800 premium-border rounded-lg p-6 text-center hover-lift">
             <div className="text-5xl font-bold text-primary-400 mb-3">30%</div>
-            <h3 className="text-xl font-semibold mb-2">Energy Savings</h3>
+            <GradientHeading level={3} className="text-xl mb-2" variant="blue">Energy Savings</GradientHeading>
             <p className="text-gray-300">Reduction in cooling costs with our thermal reflective coating technology</p>
           </div>
           
           <div className="bg-primary-800 premium-border rounded-lg p-6 text-center hover-lift">
             <div className="text-5xl font-bold text-primary-400 mb-3">9.2/10</div>
-            <h3 className="text-xl font-semibold mb-2">Customer Satisfaction</h3>
+            <GradientHeading level={3} className="text-xl mb-2" variant="fire">Customer Satisfaction</GradientHeading>
             <p className="text-gray-300">Average rating from our post-installation customer satisfaction surveys</p>
           </div>
         </div>
@@ -40,7 +41,7 @@ const ProductPerformanceSection = () => {
         <div className="bg-primary-900 rounded-xl p-8 premium-border glass-effect">
           <div className="grid md:grid-cols-2 gap-8">
             <div>
-              <h3 className="text-2xl font-bold mb-4">Industry-Leading Product Testing</h3>
+              <GradientHeading level={3} className="text-2xl mb-4" variant="mixed">Industry-Leading Product Testing</GradientHeading>
               <p className="mb-6">
                 Our comprehensive testing program ensures that every Praetorian product exceeds industry standards and delivers consistent results in even the most challenging environments.
               </p>
@@ -79,7 +80,7 @@ const ProductPerformanceSection = () => {
             </div>
             
             <div>
-              <h3 className="text-2xl font-bold mb-4">Product Comparison Chart</h3>
+              <GradientHeading level={3} className="text-2xl mb-4" variant="fire">Product Comparison Chart</GradientHeading>
               <div className="overflow-x-auto">
                 <table className="w-full">
                   <thead>
