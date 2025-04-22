@@ -7,11 +7,11 @@ const IntroSection = () => {
     <section className="bg-gradient-to-b from-black to-gray-900 py-16">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center">
-          <div className="space-y-4">
-            <GradientHeading level={1} className="text-3xl md:text-4xl" variant="mixed">
+          <div className="flex flex-col">
+            <GradientHeading level={1} className="text-3xl md:text-4xl mb-4" variant="mixed">
               Element-proof protection for your
             </GradientHeading>
-            <div className="text-4xl md:text-5xl font-bold py-2">
+            <div className="text-4xl md:text-5xl font-bold py-3">
               <AnimatedTextCycle 
                 words={[
                   "home & living spaces",
@@ -29,9 +29,11 @@ const IntroSection = () => {
                 className="text-white"
               />
             </div>
-            <GradientHeading level={2} className="text-3xl md:text-4xl" variant="mixed">
-              with superior defense technology.
-            </GradientHeading>
+            <div className="mt-6">
+              <GradientHeading level={2} className="text-3xl md:text-4xl" variant="mixed">
+                with superior defense technology.
+              </GradientHeading>
+            </div>
           </div>
           <p className="text-[#d0d0d0] text-lg md:text-xl mt-6 mb-8">
             Industry-leading solutions that protect against fire, water, and environmental damage. Trusted by professionals worldwide.
