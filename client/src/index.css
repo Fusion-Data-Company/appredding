@@ -210,6 +210,14 @@
     display: inline-block;
   }
   
+  .gradient-heading-mixed {
+    background: linear-gradient(90deg, #ffffff 0%, #0077be 30%, #38b0de 45%, #ff8c00 75%, #ff4500 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block;
+  }
+  
   /* Gradient Button Styles */
   .gradient-button {
     @apply relative appearance-none cursor-pointer;
