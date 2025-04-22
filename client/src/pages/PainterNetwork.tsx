@@ -52,7 +52,7 @@ const PainterNetwork = () => {
                     <div className="text-center backdrop-blur-sm bg-primary-900/70 rounded-lg p-6 max-w-xs premium-border">
                       <i className="fas fa-map-marker-alt text-4xl mb-3 text-primary-400"></i>
                       <p className="mb-4">Interactive painter network map would be displayed here</p>
-                      <GradientButton variant="variant">
+                      <GradientButton variant="default">
                         Find Nearby Painters
                       </GradientButton>
                     </div>
@@ -106,7 +106,7 @@ const PainterNetwork = () => {
                 </div>
                 
                 <div className="mt-8">
-                  <GradientButton variant="fire">
+                  <GradientButton variant="default">
                     Join Our Network
                   </GradientButton>
                 </div>
@@ -193,7 +193,7 @@ const PainterNetwork = () => {
                       </select>
                     </div>
                     
-                    <GradientButton className="w-full" variant="fire">
+                    <GradientButton className="w-full" variant="default">
                       Submit Application
                     </GradientButton>
                   </form>
