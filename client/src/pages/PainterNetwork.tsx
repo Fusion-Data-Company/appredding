@@ -30,7 +30,12 @@ const PainterNetwork = () => {
         <section className="py-16 md:py-24 relative z-10">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto text-center mb-16 backdrop-blur-sm bg-primary-900/60 p-8 rounded-xl shadow-lg">
-              <GradientHeading level={1} className="text-4xl md:text-5xl mb-6 glow-text" variant="fire">Professional Painter Network</GradientHeading>
+              <div className="tracking-tight flex flex-col items-center">
+                <h1 className="text-4xl md:text-5xl mb-6 font-bold">
+                  <span className="gradient-text-blue">Professional </span>
+                  <span className="gradient-text-fire">Painter Network</span>
+                </h1>
+              </div>
               <p className="text-xl text-white mb-8">
                 Our nationwide network of certified application professionals ensures your project is completed to the highest standards.
               </p>
@@ -61,7 +66,12 @@ const PainterNetwork = () => {
               </div>
               
               <div className="backdrop-blur-sm bg-primary-900/60 p-8 rounded-xl shadow-lg order-1 md:order-2">
-                <GradientHeading level={2} className="text-3xl mb-6" variant="fire">Network Benefits</GradientHeading>
+                <div className="tracking-tight mb-6">
+                  <h2 className="text-3xl font-bold">
+                    <span className="gradient-text-blue">Network </span>
+                    <span className="gradient-text-fire">Benefits</span>
+                  </h2>
+                </div>
                 
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
@@ -114,7 +124,12 @@ const PainterNetwork = () => {
             </div>
 
             <div className="backdrop-blur-sm bg-primary-900/60 p-8 rounded-xl shadow-lg">
-              <GradientHeading level={2} className="text-3xl mb-8 text-center" variant="fire">Become a Certified Painter</GradientHeading>
+              <div className="tracking-tight flex flex-col items-center mb-8">
+                <h2 className="text-3xl font-bold">
+                  <span className="gradient-text-blue">Become a </span>
+                  <span className="gradient-text-fire">Certified Painter</span>
+                </h2>
+              </div>
               
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
@@ -206,7 +221,12 @@ const PainterNetwork = () => {
         <section className="py-16 relative z-10">
           <div className="container mx-auto">
             <div className="backdrop-blur-sm bg-primary-900/60 p-8 rounded-xl shadow-lg">
-              <GradientHeading level={2} className="text-3xl md:text-4xl mb-12 text-center" variant="fire">Benefits of Working With Certified Painters</GradientHeading>
+              <div className="tracking-tight flex flex-col items-center mb-12">
+                <h2 className="text-3xl md:text-4xl font-bold text-center">
+                  <span className="gradient-text-blue">Benefits of Working With </span>
+                  <span className="gradient-text-fire">Certified Painters</span>
+                </h2>
+              </div>
               
               <div className="grid md:grid-cols-3 gap-8">
                 <div className="bg-primary-800/70 backdrop-blur-sm rounded-lg p-6 hover-lift">
@@ -234,7 +254,12 @@ const PainterNetwork = () => {
         <section className="py-16 relative z-10">
           <div className="container mx-auto">
             <div className="max-w-3xl mx-auto backdrop-blur-sm bg-primary-900/60 rounded-xl p-8 shadow-lg">
-              <GradientHeading level={2} className="text-3xl md:text-4xl mb-6 text-center" variant="fire">Success Stories</GradientHeading>
+              <div className="tracking-tight flex flex-col items-center mb-6">
+                <h2 className="text-3xl md:text-4xl font-bold text-center">
+                  <span className="gradient-text-blue">Success </span>
+                  <span className="gradient-text-fire">Stories</span>
+                </h2>
+              </div>
               
               <div className="space-y-6">
                 <div className="bg-primary-800/70 backdrop-blur-sm rounded-lg p-6">
