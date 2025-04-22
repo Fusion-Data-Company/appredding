@@ -186,10 +186,28 @@
     background: linear-gradient(to right, hsl(210, 60%, 20%), hsl(210, 60%, 30%));
   }
   
-  .gradient-text {
-    background: linear-gradient(to right, hsl(210, 100%, 70%), hsl(200, 100%, 80%));
+  .gradient-text-blue {
+    background: linear-gradient(90deg, #ffffff 0%, #38b0de 60%, #0077be 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block;
+  }
+  
+  .gradient-text-fire {
+    background: linear-gradient(90deg, #ffffff 0%, #ff8c00 50%, #ff4500 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block;
+  }
+  
+  .fire-water-shield {
+    background: linear-gradient(135deg, #0077be 0%, #38b0de 45%, #ff6a00 55%, #ff4500 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block;
   }
   
   /* Gradient Button Styles */

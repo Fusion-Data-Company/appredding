@@ -39,10 +39,11 @@ const Header = () => {
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         <Link href="/" className="text-2xl font-heading font-bold flex items-center gap-2 group z-10">
-          <i className="fas fa-shield-alt text-[#ff6a00] group-hover:text-[#ff8c00] transition-colors"></i>
-          <span className="tracking-tight text-white">
-            Praetorian<span className="text-[#ff6a00] group-hover:text-[#ff8c00] transition-colors">Coatings</span>
-          </span>
+          <i className="fas fa-shield-alt fire-water-shield text-2xl transition-colors"></i>
+          <div className="tracking-tight flex items-center gap-0.5">
+            <span className="gradient-text-blue mr-0.5">Praetorian</span>
+            <span className="gradient-text-fire">Coatings</span>
+          </div>
         </Link>
 
         {/* Desktop Navigation */}
