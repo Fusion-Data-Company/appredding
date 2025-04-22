@@ -17,6 +17,7 @@ import Applications from "@/pages/Applications";
 import ProductComparison from "@/pages/ProductComparison";
 import AuthPage from "@/pages/auth-page";
 import ClientDashboard from "@/pages/client-dashboard";
+import AdminDashboard from "@/pages/admin-dashboard";
 import { AuthProvider } from "@/hooks/use-auth";
 import { ProtectedRoute } from "@/components/ProtectedRoute";
 
@@ -36,6 +37,7 @@ function Router() {
       <Route path="/product-comparison" component={ProductComparison} />
       <Route path="/auth" component={AuthPage} />
       <ProtectedRoute path="/client-dashboard" component={ClientDashboard} />
+      <ProtectedRoute path="/admin-dashboard" component={AdminDashboard} adminOnly={true} />
       {/* Fallback to 404 */}
       <Route component={NotFound} />
     </Switch>
