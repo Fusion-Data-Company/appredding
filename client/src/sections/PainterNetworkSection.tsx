@@ -1,3 +1,5 @@
+import { GradientHeading } from "@/components/ui/gradient-heading";
+
 const PainterNetworkSection = () => {
   return (
     <section className="py-20 bg-[#121212]" id="painters">
@@ -5,7 +7,7 @@ const PainterNetworkSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="bg-[#1e1e1e] rounded-lg overflow-hidden shadow-xl">
             <div className="p-6 border-b border-[#333333]">
-              <h3 className="text-xl font-semibold">Certified Painter Network</h3>
+              <GradientHeading level={3} className="text-xl" variant="mixed">Certified Painter Network</GradientHeading>
               <p className="text-[#a0a0a0]">Find approved application professionals in your area</p>
             </div>
             <div className="h-[400px] bg-gray-800 relative">
@@ -27,7 +29,7 @@ const PainterNetworkSection = () => {
           </div>
           
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Professional Painter Network</h2>
+            <GradientHeading level={2} className="text-3xl md:text-4xl mb-4" variant="mixed">Professional Painter Network</GradientHeading>
             <p className="text-[#a0a0a0] mb-6">
               Our nationwide network of certified application professionals ensures your project is completed to the highest standards.
             </p>

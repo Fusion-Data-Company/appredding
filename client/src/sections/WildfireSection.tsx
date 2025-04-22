@@ -1,3 +1,5 @@
+import { GradientHeading } from "@/components/ui/gradient-heading";
+
 const WildfireSection = () => {
   return (
     <section 
@@ -11,7 +13,7 @@ const WildfireSection = () => {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#ff4d4d]">Wildfire Defense Solutions</h2>
+            <GradientHeading level={2} className="text-3xl md:text-4xl mb-4" variant="fire">Wildfire Defense Solutions</GradientHeading>
             <p className="mb-6">
               Protect your home and property from devastating wildfires with our Class-A fire retardant coatings. Proven effective in the most severe wildfire conditions.
             </p>
@@ -43,7 +45,7 @@ const WildfireSection = () => {
           
           <div className="bg-[#1e1e1e] rounded-lg overflow-hidden shadow-lg">
             <div className="p-6 border-b border-[#333333]">
-              <h3 className="text-xl font-semibold">Wildfire Risk Map</h3>
+              <GradientHeading level={3} className="text-xl" variant="fire">Wildfire Risk Map</GradientHeading>
               <p className="text-[#a0a0a0]">View wildfire risk zones in your area</p>
             </div>
             <div className="h-[350px] bg-gray-800 relative">
