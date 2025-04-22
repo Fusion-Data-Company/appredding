@@ -78,36 +78,31 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold mb-4">Products</h3>
+            <h3 className="text-lg font-semibold mb-4">Our Product</h3>
             <ul className="space-y-2">
               <li>
                 <a href="#" className="text-[#a0a0a0] hover:text-[#0070f3] transition-colors">
-                  FireGuard Pro
+                  Protective Coating
                 </a>
               </li>
               <li>
                 <a href="#" className="text-[#a0a0a0] hover:text-[#0070f3] transition-colors">
-                  MarineShield Ultra
+                  Product Benefits
                 </a>
               </li>
               <li>
                 <a href="#" className="text-[#a0a0a0] hover:text-[#0070f3] transition-colors">
-                  AquaGuard
+                  Performance Data
                 </a>
               </li>
               <li>
                 <a href="#" className="text-[#a0a0a0] hover:text-[#0070f3] transition-colors">
-                  ConstructShield
+                  Technical Specifications
                 </a>
               </li>
               <li>
                 <a href="#" className="text-[#a0a0a0] hover:text-[#0070f3] transition-colors">
-                  WeatherGuard
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-[#a0a0a0] hover:text-[#0070f3] transition-colors">
-                  Safety Data Sheets
+                  Safety Data Sheet
                 </a>
               </li>
             </ul>

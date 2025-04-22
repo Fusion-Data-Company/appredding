@@ -60,29 +60,6 @@ const Header = () => {
               </div>
             </MenuItem>
             
-            <MenuItem setActive={setActiveItem} active={activeItem} item="Products">
-              <div className="flex flex-col space-y-2 p-2 w-[200px]">
-                {isHomePage ? (
-                  <a 
-                    href="#products" 
-                    className="text-gray-700 hover:text-primary-700 font-medium py-1"
-                  >
-                    All Products
-                  </a>
-                ) : (
-                  <Link
-                    href="/#products"
-                    className="text-gray-700 hover:text-primary-700 font-medium py-1"
-                  >
-                    All Products
-                  </Link>
-                )}
-                <HoveredLink href="/product-details/coatings">Protective Coatings</HoveredLink>
-                <HoveredLink href="/product-details/sealants">Sealants</HoveredLink>
-                <HoveredLink href="/product-details/primers">Primers</HoveredLink>
-              </div>
-            </MenuItem>
-            
             <MenuItem setActive={setActiveItem} active={activeItem} item="About">
               <div className="flex flex-col space-y-2 p-2 w-[200px]">
                 <HoveredLink href="/about">Company</HoveredLink>

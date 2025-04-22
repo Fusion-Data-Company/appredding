@@ -71,14 +71,6 @@ const MobileMenu = ({ isOpen, onClose, isHomePage = true }: MobileMenuProps) => 
             <>
               <li className="py-1">
                 <a
-                  href="#products"
-                  className="mobile-menu-link text-gray-800 hover:text-primary-700 transition-colors font-medium block py-2 px-3 hover:bg-gray-50 rounded-md"
-                >
-                  <i className="fas fa-paint-roller mr-2 text-primary-600 w-6"></i> Products
-                </a>
-              </li>
-              <li className="py-1">
-                <a
                   href="#contact"
                   className="mobile-menu-link text-gray-800 hover:text-primary-700 transition-colors font-medium block py-2 px-3 hover:bg-gray-50 rounded-md"
                 >
