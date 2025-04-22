@@ -1,5 +1,4 @@
 import React from "react";
-import AnimatedTextCycle from "@/components/ui/animated-text-cycle";
 
 const IntroSection = () => {
   return (
@@ -7,23 +6,6 @@ const IntroSection = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center">
           <h1 className="text-3xl md:text-4xl font-bold mb-4 text-white space-y-1 leading-tight">
-            <div>Element-proof protection for your</div>
-            <AnimatedTextCycle 
-              words={[
-                "home & living spaces",
-                "pool & entertainment areas", 
-                "boats & watercraft",
-                "industrial equipment",
-                "critical infrastructure",
-                "construction projects",
-                "commercial buildings",
-                "pipes & metal fixtures",
-                "outdoor structures",
-                "vulnerable surfaces"
-              ]}
-              interval={3000}
-              className="text-primary-500 block"
-            />
             <div>with superior defense technology</div>
           </h1>
           <p className="text-[#d0d0d0] text-lg md:text-xl mt-6 mb-8">
