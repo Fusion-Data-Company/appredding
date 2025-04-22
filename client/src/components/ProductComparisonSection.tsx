@@ -45,7 +45,7 @@ const ProductComparisonSection = () => {
                 <ImageComparisonSlider className="w-1 bg-white/60 backdrop-blur-sm">
                   <div className="absolute left-1/2 top-1/2 h-10 w-10 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center shadow-md">
                     <div className="w-6 h-6 flex items-center justify-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="text-primary-600">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-primary-600">
                         <path d="m9 18 6-6-6-6"/>
                       </svg>
                     </div>
@@ -85,7 +85,7 @@ const ProductComparisonSection = () => {
                 <ImageComparisonSlider className="w-1 bg-white/60 backdrop-blur-sm">
                   <div className="absolute left-1/2 top-1/2 h-10 w-10 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center shadow-md">
                     <div className="w-6 h-6 flex items-center justify-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="text-primary-600">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-primary-600">
                         <path d="m9 18 6-6-6-6"/>
                       </svg>
                     </div>
@@ -127,7 +127,7 @@ const ProductComparisonSection = () => {
                 <ImageComparisonSlider className="w-1 bg-white/60 backdrop-blur-sm">
                   <div className="absolute left-1/2 top-1/2 h-10 w-10 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center shadow-md">
                     <div className="w-6 h-6 flex items-center justify-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="text-primary-600">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-primary-600">
                         <path d="m9 18 6-6-6-6"/>
                       </svg>
                     </div>
@@ -167,7 +167,7 @@ const ProductComparisonSection = () => {
                 <ImageComparisonSlider className="w-1 bg-white/60 backdrop-blur-sm">
                   <div className="absolute left-1/2 top-1/2 h-10 w-10 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center shadow-md">
                     <div className="w-6 h-6 flex items-center justify-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="text-primary-600">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-primary-600">
                         <path d="m9 18 6-6-6-6"/>
                       </svg>
                     </div>
