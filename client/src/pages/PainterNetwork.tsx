@@ -1,48 +1,67 @@
 import React from "react";
 import Header from "@/components/Header";
-import { Button } from "@/components/ui/button";
+import Footer from "@/components/Footer";
+import { GradientButton } from "@/components/ui/gradient-button";
+import { GradientHeading } from "@/components/ui/gradient-heading";
+import painterImage from "@assets/iStock-1214149737.jpg";
 
 const PainterNetwork = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
       
-      <main className="flex-grow">
-        <section className="py-16 md:py-24">
+      <main className="flex-grow relative">
+        {/* Full-page painter background */}
+        <div 
+          className="fixed inset-0 z-0 bg-center bg-cover bg-no-repeat" 
+          style={{ 
+            backgroundImage: `url(${painterImage})`,
+            backgroundAttachment: 'fixed',
+            backgroundPosition: 'center',
+            backgroundSize: 'cover',
+            opacity: 0.95
+          }}
+        />
+        
+        {/* Semi-transparent dark overlay to make text readable */}
+        <div className="fixed inset-0 z-0 bg-black/50"></div>
+        
+        {/* Main content section */}
+        <section className="py-16 md:py-24 relative z-10">
           <div className="container mx-auto">
-            <div className="max-w-4xl mx-auto text-center mb-16">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6 glow-text">Professional Painter Network</h1>
-              <p className="text-xl text-gray-200 mb-8">
+            <div className="max-w-4xl mx-auto text-center mb-16 backdrop-blur-sm bg-primary-900/60 p-8 rounded-xl shadow-lg">
+              <GradientHeading level={1} className="text-4xl md:text-5xl mb-6 glow-text" variant="fire">Professional Painter Network</GradientHeading>
+              <p className="text-xl text-white mb-8">
                 Our nationwide network of certified application professionals ensures your project is completed to the highest standards.
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16">
-              <div className="bg-primary-800 premium-border rounded-xl overflow-hidden shadow-premium-lg order-2 md:order-1">
+              <div className="backdrop-blur-sm bg-primary-900/60 premium-border rounded-xl overflow-hidden shadow-lg order-2 md:order-1">
                 <div className="p-6 border-b border-primary-700">
                   <h3 className="text-xl font-semibold">Certified Painter Network</h3>
                   <p className="text-gray-300">Find approved application professionals in your area</p>
                 </div>
-                <div className="h-[400px] bg-primary-700 relative">
+                <div className="h-[400px] bg-primary-700/50 relative">
                   <img 
                     src="https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
                     alt="Painter network map" 
                     className="w-full h-full object-cover opacity-70"
                   />
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-center bg-primary-800/90 rounded-lg p-6 max-w-xs premium-border">
+                    <div className="text-center backdrop-blur-sm bg-primary-900/70 rounded-lg p-6 max-w-xs premium-border">
                       <i className="fas fa-map-marker-alt text-4xl mb-3 text-primary-400"></i>
                       <p className="mb-4">Interactive painter network map would be displayed here</p>
-                      <Button className="bg-primary-500 hover:bg-primary-400">
+                      <GradientButton variant="variant">
                         Find Nearby Painters
-                      </Button>
+                      </GradientButton>
                     </div>
                   </div>
                 </div>
               </div>
               
-              <div className="order-1 md:order-2">
-                <h2 className="text-3xl font-bold mb-6">Network Benefits</h2>
+              <div className="backdrop-blur-sm bg-primary-900/60 p-8 rounded-xl shadow-lg order-1 md:order-2">
+                <GradientHeading level={2} className="text-3xl mb-6" variant="fire">Network Benefits</GradientHeading>
                 
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
@@ -87,15 +106,15 @@ const PainterNetwork = () => {
                 </div>
                 
                 <div className="mt-8">
-                  <Button className="bg-primary-500 hover:bg-primary-400">
+                  <GradientButton variant="fire">
                     Join Our Network
-                  </Button>
+                  </GradientButton>
                 </div>
               </div>
             </div>
 
-            <div className="bg-primary-800 premium-border rounded-xl p-8 glass-effect">
-              <h2 className="text-3xl font-bold mb-8 text-center">Become a Certified Painter</h2>
+            <div className="backdrop-blur-sm bg-primary-900/60 p-8 rounded-xl shadow-lg">
+              <GradientHeading level={2} className="text-3xl mb-8 text-center" variant="fire">Become a Certified Painter</GradientHeading>
               
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
@@ -123,7 +142,7 @@ const PainterNetwork = () => {
                   </div>
                 </div>
                 
-                <div className="bg-primary-700 rounded-lg p-6">
+                <div className="bg-primary-800/70 backdrop-blur-sm rounded-lg p-6">
                   <h3 className="text-xl font-bold mb-4">Apply to Join Our Network</h3>
                   
                   <form className="space-y-4">
@@ -174,9 +193,9 @@ const PainterNetwork = () => {
                       </select>
                     </div>
                     
-                    <Button className="w-full bg-primary-500 hover:bg-primary-400">
+                    <GradientButton className="w-full" variant="fire">
                       Submit Application
-                    </Button>
+                    </GradientButton>
                   </form>
                 </div>
               </div>
@@ -184,39 +203,41 @@ const PainterNetwork = () => {
           </div>
         </section>
 
-        <section className="py-16 bg-primary-800/50">
+        <section className="py-16 relative z-10">
           <div className="container mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Benefits of Working With Certified Painters</h2>
-            
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="bg-primary-800 premium-border rounded-lg p-6 hover-lift">
-                <i className="fas fa-medal text-primary-400 text-4xl mb-4"></i>
-                <h3 className="text-xl font-bold mb-3">Expert Application</h3>
-                <p>Our certified painters have undergone extensive training on proper application techniques for all our specialized protective coatings.</p>
-              </div>
+            <div className="backdrop-blur-sm bg-primary-900/60 p-8 rounded-xl shadow-lg">
+              <GradientHeading level={2} className="text-3xl md:text-4xl mb-12 text-center" variant="fire">Benefits of Working With Certified Painters</GradientHeading>
               
-              <div className="bg-primary-800 premium-border rounded-lg p-6 hover-lift">
-                <i className="fas fa-clock text-primary-400 text-4xl mb-4"></i>
-                <h3 className="text-xl font-bold mb-3">Timely Project Completion</h3>
-                <p>Experience efficient project management and timely completion with our network of professional painters.</p>
-              </div>
-              
-              <div className="bg-primary-800 premium-border rounded-lg p-6 hover-lift">
-                <i className="fas fa-check-double text-primary-400 text-4xl mb-4"></i>
-                <h3 className="text-xl font-bold mb-3">Quality Assurance</h3>
-                <p>Every project completed by our certified network undergoes a rigorous quality check to ensure perfect application.</p>
+              <div className="grid md:grid-cols-3 gap-8">
+                <div className="bg-primary-800/70 backdrop-blur-sm rounded-lg p-6 hover-lift">
+                  <i className="fas fa-medal text-primary-400 text-4xl mb-4"></i>
+                  <h3 className="text-xl font-bold mb-3">Expert Application</h3>
+                  <p>Our certified painters have undergone extensive training on proper application techniques for all our specialized protective coatings.</p>
+                </div>
+                
+                <div className="bg-primary-800/70 backdrop-blur-sm rounded-lg p-6 hover-lift">
+                  <i className="fas fa-clock text-primary-400 text-4xl mb-4"></i>
+                  <h3 className="text-xl font-bold mb-3">Timely Project Completion</h3>
+                  <p>Experience efficient project management and timely completion with our network of professional painters.</p>
+                </div>
+                
+                <div className="bg-primary-800/70 backdrop-blur-sm rounded-lg p-6 hover-lift">
+                  <i className="fas fa-check-double text-primary-400 text-4xl mb-4"></i>
+                  <h3 className="text-xl font-bold mb-3">Quality Assurance</h3>
+                  <p>Every project completed by our certified network undergoes a rigorous quality check to ensure perfect application.</p>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="py-16 bg-[url('https://images.unsplash.com/photo-1604014056132-90240dc029ea?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center">
+        <section className="py-16 relative z-10">
           <div className="container mx-auto">
-            <div className="max-w-3xl mx-auto bg-primary-800/90 premium-border rounded-xl p-8 glass-effect">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">Success Stories</h2>
+            <div className="max-w-3xl mx-auto backdrop-blur-sm bg-primary-900/60 rounded-xl p-8 shadow-lg">
+              <GradientHeading level={2} className="text-3xl md:text-4xl mb-6 text-center" variant="fire">Success Stories</GradientHeading>
               
               <div className="space-y-6">
-                <div className="bg-primary-700/50 rounded-lg p-6">
+                <div className="bg-primary-800/70 backdrop-blur-sm rounded-lg p-6">
                   <div className="flex items-start gap-4">
                     <div className="bg-primary-600 w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
                       <i className="fas fa-user text-white"></i>
@@ -235,7 +256,7 @@ const PainterNetwork = () => {
                   </div>
                 </div>
                 
-                <div className="bg-primary-700/50 rounded-lg p-6">
+                <div className="bg-primary-800/70 backdrop-blur-sm rounded-lg p-6">
                   <div className="flex items-start gap-4">
                     <div className="bg-primary-600 w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0">
                       <i className="fas fa-user text-white"></i>
@@ -258,6 +279,7 @@ const PainterNetwork = () => {
           </div>
         </section>
       </main>
+      <Footer />
     </div>
   );
 };
