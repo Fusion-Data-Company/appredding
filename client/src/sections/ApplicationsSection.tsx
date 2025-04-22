@@ -1,4 +1,5 @@
 import { Link } from "wouter";
+import { GradientButton } from "@/components/ui/gradient-button";
 
 interface ApplicationCardProps {
   imageSrc: string;

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
+import { GradientButton } from "@/components/ui/gradient-button";
 
 interface FormData {
   firstName: string;
@@ -212,13 +213,13 @@ const ContactSection = () => {
                 ></textarea>
               </div>
               
-              <button 
+              <GradientButton 
                 type="submit" 
-                className="w-full bg-[#0070f3] hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-colors"
+                className="w-full"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? "Sending..." : "Send Message"}
-              </button>
+              </GradientButton>
             </form>
           </div>
           

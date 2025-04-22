@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { GradientButton } from "@/components/ui/gradient-button";
 
 const HeroSection = () => {
   return (
@@ -15,15 +15,19 @@ const HeroSection = () => {
         <div className="space-x-4">
           <a 
             href="#applications" 
-            className="bg-[#0070f3] hover:bg-blue-700 text-white font-medium py-3 px-8 rounded-lg transition-colors inline-block shadow-lg"
+            className="inline-block"
           >
-            Explore Applications
+            <GradientButton>
+              Explore Applications
+            </GradientButton>
           </a>
           <a 
             href="#contact" 
-            className="bg-transparent border border-[#f5f5f5] text-[#f5f5f5] hover:bg-white/10 font-medium py-3 px-8 rounded-lg transition-colors inline-block shadow-lg"
+            className="inline-block"
           >
-            Contact Us
+            <GradientButton variant="variant">
+              Contact Us
+            </GradientButton>
           </a>
         </div>
       </div>
