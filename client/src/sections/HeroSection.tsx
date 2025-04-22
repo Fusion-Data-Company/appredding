@@ -3,15 +3,15 @@ import { Button } from "@/components/ui/button";
 const HeroSection = () => {
   return (
     <section 
-      className="relative bg-black h-screen flex items-center justify-center" 
+      className="relative bg-black h-[80vh] flex flex-col items-center justify-end pb-20" 
       style={{
         backgroundImage: "url('/assets/fire-water-hands-hd.jpg')",
         backgroundSize: "contain",
-        backgroundPosition: "center",
+        backgroundPosition: "center 40%",
         backgroundRepeat: "no-repeat"
       }}
     >
-      <div className="relative mt-8 z-10">
+      <div className="z-10 mt-4">
         <div className="space-x-4">
           <a 
             href="#applications" 
