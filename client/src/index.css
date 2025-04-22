@@ -195,6 +195,13 @@
   /* Gradient Button Styles */
   .gradient-button {
     @apply relative appearance-none cursor-pointer;
+    --color-1: #300000;
+    --color-2: #800000;
+    --color-3: #993300;
+    --color-4: #661100;
+    --color-5: #220000;
+    --border-color-1: hsla(15, 100%, 50%, 0.1);
+    --border-color-2: hsla(25, 100%, 50%, 0.4);
     background: radial-gradient(
       var(--spread-x) var(--spread-y) at var(--pos-x) var(--pos-y),
       var(--color-1) var(--stop-1),
@@ -244,14 +251,14 @@
     --pos-y: 91.51%;
     --spread-x: 120.24%;
     --spread-y: 103.18%;
-    --color-1: #c96287;
-    --color-2: #c66c64;
-    --color-3: #cc7d23;
-    --color-4: #37140a;
+    --color-1: #ff4500;
+    --color-2: #ff6a00;
+    --color-3: #ff8c00;
+    --color-4: #cc4400;
     --color-5: #000;
     --border-angle: 190deg;
-    --border-color-1: hsla(340, 78%, 90%, 0.1);
-    --border-color-2: hsla(340, 75%, 90%, 0.6);
+    --border-color-1: hsla(20, 100%, 70%, 0.2);
+    --border-color-2: hsla(25, 100%, 55%, 0.75);
     --stop-1: 0%;
     --stop-2: 8.8%;
     --stop-3: 21.44%;
@@ -261,12 +268,12 @@
 
   .gradient-button-variant {
     --color-1: #000022;
-    --color-2: #1f3f6d;
-    --color-3: #469396;
-    --color-4: #f1ffa5;
+    --color-2: #0077be;
+    --color-3: #38b0de;
+    --color-4: #87ceeb;
     --border-angle: 200deg;
-    --border-color-1: hsla(320, 75%, 90%, 0.6);
-    --border-color-2: hsla(320, 50%, 90%, 0.15);
+    --border-color-1: hsla(200, 100%, 80%, 0.6);
+    --border-color-2: hsla(210, 90%, 65%, 0.2);
   }
 
   .gradient-button-variant:hover {
@@ -275,9 +282,9 @@
     --spread-x: 110.24%;
     --spread-y: 110.2%;
     --color-1: #000020;
-    --color-2: #f1ffa5;
-    --color-3: #469396;
-    --color-4: #1f3f6d;
+    --color-2: #87ceeb;
+    --color-3: #38b0de;
+    --color-4: #0077be;
     --color-5: #000;
     --stop-1: 0%;
     --stop-2: 10%;
@@ -285,8 +292,8 @@
     --stop-4: 71.34%;
     --stop-5: 90.76%;
     --border-angle: 210deg;
-    --border-color-1: hsla(320, 75%, 90%, 0.2);
-    --border-color-2: hsla(320, 50%, 90%, 0.75);
+    --border-color-1: hsla(200, 100%, 80%, 0.3);
+    --border-color-2: hsla(210, 90%, 65%, 0.8);
   }
 }
 
