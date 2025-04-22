@@ -14,20 +14,17 @@
     background: linear-gradient(
       to bottom, 
       #ffffff 0%,
-      #ffd700 25%,
-      #f0f0f0 50%,
-      #d4af37 75%,
-      #966c23 100%
+      #f8f8f8 40%,
+      #e0e0e0 60%,
+      #d0d0d0 80%,
+      #c0c0c0 100%
     );
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     display: inline-block;
-    text-shadow: 
-      0px 2px 3px rgba(0,0,0,0.5),
-      0px 4px 8px rgba(0,0,0,0.3);
+    text-shadow: 0px 2px 3px rgba(0,0,0,0.4);
     filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.5));
-    transform: perspective(500px) rotateX(10deg);
   }
 }
 

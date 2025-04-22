@@ -11,11 +11,11 @@ const IntroSection = () => {
             <GradientHeading level={1} className="text-3xl md:text-4xl mb-4" variant="mixed">
               Element-proof protection for your
             </GradientHeading>
-            <div className="text-4xl md:text-5xl py-3">
+            <div className="text-3xl md:text-4xl py-3">
               <AnimatedTextCycle 
                 words={[
                   "home & living spaces",
-                  "pool & entertainment areas", 
+                  "pool & pool deck", 
                   "boats & watercraft",
                   "industrial equipment",
                   "critical infrastructure",
