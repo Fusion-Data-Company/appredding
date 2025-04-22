@@ -23,7 +23,7 @@ const IntroSection = () => {
                 "vulnerable surfaces"
               ]}
               interval={3000}
-              className="text-primary-500 block"
+              className="text-white block"
             />
             <div>with superior defense technology.</div>
           </GradientHeading>
