@@ -24,7 +24,7 @@ const IntroSection = () => {
               interval={3000}
               className="text-primary-500 block"
             />
-            <div>with superior defense technology</div>
+            <div>with superior defense technology.</div>
           </h1>
           <p className="text-[#d0d0d0] text-lg md:text-xl mt-6 mb-8">
             Industry-leading solutions that protect against fire, water, and environmental damage. Trusted by professionals worldwide.
