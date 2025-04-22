@@ -7,11 +7,11 @@ const IntroSection = () => {
     <section className="bg-gradient-to-b from-black to-gray-900 py-16">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center">
-          <div className="space-y-2">
+          <div className="space-y-4">
             <GradientHeading level={1} className="text-3xl md:text-4xl" variant="mixed">
               Element-proof protection for your
             </GradientHeading>
-            <div className="text-3xl md:text-4xl font-bold">
+            <div className="text-4xl md:text-5xl font-bold py-2">
               <AnimatedTextCycle 
                 words={[
                   "home & living spaces",
