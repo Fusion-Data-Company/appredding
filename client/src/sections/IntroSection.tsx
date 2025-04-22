@@ -11,7 +11,7 @@ const IntroSection = () => {
             <GradientHeading level={1} className="text-3xl md:text-4xl mb-4" variant="mixed">
               Element-proof protection for your
             </GradientHeading>
-            <div className="text-4xl md:text-5xl font-bold py-3">
+            <div className="text-4xl md:text-5xl py-3">
               <AnimatedTextCycle 
                 words={[
                   "home & living spaces",
@@ -26,7 +26,7 @@ const IntroSection = () => {
                   "vulnerable surfaces"
                 ]}
                 interval={3000}
-                className="text-white"
+                className="metallic-text"
               />
             </div>
             <div className="mt-6">

@@ -1,8 +1,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap');
+@import '@fontsource/cinzel/400.css';
+@import '@fontsource/cinzel/700.css';
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .metallic-text {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    background: linear-gradient(
+      to bottom, 
+      #ffffff 0%,
+      #ffd700 25%,
+      #f0f0f0 50%,
+      #d4af37 75%,
+      #966c23 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    text-shadow: 
+      0px 2px 3px rgba(0,0,0,0.5),
+      0px 4px 8px rgba(0,0,0,0.3);
+    filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.5));
+    transform: perspective(500px) rotateX(10deg);
+  }
+}
 
 @layer base {
   :root {
