@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import MobileMenu from "./MobileMenu";
+import { Menu, MenuItem, HoveredLink } from "@/components/ui/navbar-menu";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeItem, setActiveItem] = useState<string | null>(null);
   const [location] = useLocation();
   const isHomePage = location === "/";
 
@@ -36,7 +38,7 @@ const Header = () => {
       }`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <Link href="/" className="text-2xl font-heading font-bold flex items-center gap-2 group">
+        <Link href="/" className="text-2xl font-heading font-bold flex items-center gap-2 group z-10">
           <i className="fas fa-shield-alt text-primary-600 group-hover:text-primary-700 transition-colors"></i>
           <span className="tracking-tight">
             Praetorian<span className="text-primary-600 group-hover:text-primary-700 transition-colors">Coatings</span>
@@ -44,84 +46,79 @@ const Header = () => {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:block">
-          <ul className="flex space-x-6">
-            <li>
-              <Link
-                href="/"
-                className="text-gray-700 hover:text-primary-700 font-medium px-2 py-1 transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:bg-primary-600 after:transition-all"
-              >
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/applications"
-                className="text-gray-700 hover:text-primary-700 font-medium px-2 py-1 transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:bg-primary-600 after:transition-all"
-              >
-                Applications
-              </Link>
-            </li>
-
-            <li>
-              <Link
-                href="/painter-network"
-                className="text-gray-700 hover:text-primary-700 font-medium px-2 py-1 transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:bg-primary-600 after:transition-all"
-              >
-                Painter Network
-              </Link>
-            </li>
-            {isHomePage && (
-              <>
-                <li>
-                  <a
-                    href="#products"
-                    className="text-gray-700 hover:text-primary-700 font-medium px-2 py-1 transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:bg-primary-600 after:transition-all"
+        <div className="hidden md:flex items-center">
+          <Menu setActive={setActiveItem}>
+            <MenuItem setActive={setActiveItem} active={activeItem} item="Applications">
+              <div className="grid grid-cols-2 gap-4 p-2 w-[400px]">
+                <HoveredLink href="/pools">Pools</HoveredLink>
+                <HoveredLink href="/marinas">Marinas</HoveredLink>
+                <HoveredLink href="/fire-prevention">Fire Prevention</HoveredLink>
+                <HoveredLink href="/construction">Construction</HoveredLink>
+                <HoveredLink href="/mobile-home">Mobile Home</HoveredLink>
+                <HoveredLink href="/municipality">Municipality</HoveredLink>
+                <HoveredLink href="/painter-network">Painter Network</HoveredLink>
+              </div>
+            </MenuItem>
+            
+            <MenuItem setActive={setActiveItem} active={activeItem} item="Products">
+              <div className="flex flex-col space-y-2 p-2 w-[200px]">
+                {isHomePage ? (
+                  <a 
+                    href="#products" 
+                    className="text-gray-700 hover:text-primary-700 font-medium py-1"
                   >
-                    Products
+                    All Products
                   </a>
-                </li>
-                <li>
-                  <a
-                    href="#contact"
-                    className="text-gray-700 hover:text-primary-700 font-medium px-2 py-1 transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:bg-primary-600 after:transition-all"
+                ) : (
+                  <Link
+                    href="/#products"
+                    className="text-gray-700 hover:text-primary-700 font-medium py-1"
                   >
-                    Contact
+                    All Products
+                  </Link>
+                )}
+                <HoveredLink href="/product-details/coatings">Protective Coatings</HoveredLink>
+                <HoveredLink href="/product-details/sealants">Sealants</HoveredLink>
+                <HoveredLink href="/product-details/primers">Primers</HoveredLink>
+              </div>
+            </MenuItem>
+            
+            <MenuItem setActive={setActiveItem} active={activeItem} item="About">
+              <div className="flex flex-col space-y-2 p-2 w-[200px]">
+                <HoveredLink href="/about">Company</HoveredLink>
+                <HoveredLink href="/team">Team</HoveredLink>
+                {isHomePage ? (
+                  <a 
+                    href="#contact" 
+                    className="text-gray-700 hover:text-primary-700 font-medium py-1"
+                  >
+                    Contact Us
                   </a>
-                </li>
-              </>
-            )}
-            <li>
-              <Link
-                href="/client-dashboard"
-                className="bg-primary-600 hover:bg-primary-700 text-white font-medium px-4 py-2 rounded-md transition-colors shadow-sm hover:shadow mr-2"
-              >
-                Client Dashboard
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/admin-dashboard"
-                className="bg-primary-600 hover:bg-primary-700 text-white font-medium px-4 py-2 rounded-md transition-colors shadow-sm hover:shadow mr-2"
-              >
-                Admin Dashboard
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/crm"
-                className="bg-primary-600 hover:bg-primary-700 text-white font-medium px-4 py-2 rounded-md transition-colors shadow-sm hover:shadow"
-              >
-                Team CRM
-              </Link>
-            </li>
-          </ul>
-        </nav>
+                ) : (
+                  <Link
+                    href="/#contact"
+                    className="text-gray-700 hover:text-primary-700 font-medium py-1"
+                  >
+                    Contact Us
+                  </Link>
+                )}
+              </div>
+            </MenuItem>
+            
+            <MenuItem setActive={setActiveItem} active={activeItem} item="Access">
+              <div className="flex flex-col space-y-2 p-2 w-[200px]">
+                <HoveredLink href="/client-dashboard">Client Dashboard</HoveredLink>
+                <HoveredLink href="/admin-dashboard">Admin Dashboard</HoveredLink>
+                <HoveredLink href="/crm">Team CRM</HoveredLink>
+              </div>
+            </MenuItem>
+          </Menu>
+        </div>
 
         {/* Mobile Menu Button */}
         <button
           onClick={toggleMobileMenu}
-          className="md:hidden text-gray-800 p-1 rounded-md hover:bg-gray-100 transition-colors"
+          className="md:hidden text-gray-800 p-1 rounded-md hover:bg-gray-100 transition-colors z-10"
           aria-label="Toggle mobile menu"
         >
           <i className={`fas ${mobileMenuOpen ? "fa-times" : "fa-bars"} text-xl`}></i>
