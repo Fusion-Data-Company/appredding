@@ -292,9 +292,9 @@ const Pools = () => {
                 </div>
                 
                 <div className="mt-8">
-                  <Button className="bg-primary-500 hover:bg-primary-400">
+                  <GradientButton variant="variant">
                     Get a Free Consultation
-                  </Button>
+                  </GradientButton>
                 </div>
               </div>
             </div>
@@ -495,26 +495,27 @@ const Pools = () => {
                         </div>
                       </CardContent>
                       <CardFooter className="flex justify-center">
-                        <Button 
-                          variant="outline" 
+                        <GradientButton 
+                          variant="variant"
                           onClick={resetCalculator}
                           className="mr-2"
                         >
                           Reset
-                        </Button>
-                        <Button>
+                        </GradientButton>
+                        <GradientButton>
                           Request Quote
-                        </Button>
+                        </GradientButton>
                       </CardFooter>
                     </Card>
                   </div>
                 ) : (
-                  <Button 
-                    className="w-full bg-primary-500 hover:bg-primary-400 py-3 text-lg"
+                  <GradientButton 
+                    className="w-full py-3 text-lg"
                     onClick={calculateCoatingNeeded}
+                    variant="variant"
                   >
                     Calculate Materials Needed
-                  </Button>
+                  </GradientButton>
                 )}
               </div>
             </div>
@@ -545,7 +546,7 @@ const Pools = () => {
                       <span>15-year expected lifespan</span>
                     </li>
                   </ul>
-                  <Button className="w-full">Learn More</Button>
+                  <GradientButton className="w-full" variant="variant">Learn More</GradientButton>
                 </div>
                 
                 <div className="bg-primary-800/70 backdrop-blur-sm premium-border rounded-lg p-6 hover-lift">
@@ -565,7 +566,7 @@ const Pools = () => {
                       <span>12-year expected lifespan</span>
                     </li>
                   </ul>
-                  <Button className="w-full">Learn More</Button>
+                  <GradientButton className="w-full" variant="variant">Learn More</GradientButton>
                 </div>
                 
                 <div className="bg-primary-800/70 backdrop-blur-sm premium-border rounded-lg p-6 hover-lift">
@@ -585,7 +586,7 @@ const Pools = () => {
                       <span>10-year expected lifespan</span>
                     </li>
                   </ul>
-                  <Button className="w-full">Learn More</Button>
+                  <GradientButton className="w-full" variant="variant">Learn More</GradientButton>
                 </div>
               </div>
             </div>
@@ -653,9 +654,9 @@ const Pools = () => {
               </div>
               
               <div className="text-center mt-16">
-                <Button className="bg-primary-500 hover:bg-primary-400 px-8 py-3 text-lg">
+                <GradientButton className="px-8 py-3 text-lg" variant="variant">
                   Schedule Your Pool Coating
-                </Button>
+                </GradientButton>
               </div>
             </div>
           </div>
