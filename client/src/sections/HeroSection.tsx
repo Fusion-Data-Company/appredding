@@ -6,7 +6,7 @@ const HeroSection = () => {
     <section 
       className="relative bg-gradient-to-r from-gray-900 to-black h-[600px] flex items-center text-center" 
       style={{
-        backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('/assets/fire-water-hands.jpg')",
+        backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('/assets/fire-water-hands-hd.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat"
