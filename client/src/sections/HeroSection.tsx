@@ -4,17 +4,17 @@ import AnimatedTextCycle from "@/components/ui/animated-text-cycle";
 const HeroSection = () => {
   return (
     <section 
-      className="relative bg-gradient-to-r from-gray-900 to-black h-[600px] flex items-center text-center" 
+      className="relative bg-gradient-to-r from-gray-900 to-black h-[700px] flex items-end pb-20 text-center" 
       style={{
-        backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('/assets/fire-water-hands-hd.jpg')",
+        backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6)), url('/assets/fire-water-hands-hd.jpg')",
         backgroundSize: "cover",
-        backgroundPosition: "center",
+        backgroundPosition: "center 25%",
         backgroundRepeat: "no-repeat"
       }}
     >
       <div className="container mx-auto px-4">
-        <div className="max-w-3xl mx-auto animate-fadeIn">
-          <div className="text-3xl md:text-4xl font-bold mb-4 text-center space-y-0 leading-tight">
+        <div className="max-w-3xl mx-auto animate-fadeIn pt-10">
+          <div className="text-3xl md:text-4xl font-bold mb-4 text-center space-y-0 leading-tight backdrop-blur-sm bg-black/20 p-4 rounded-lg">
             <div>Element-proof protection for your</div>
             <AnimatedTextCycle 
               words={[
@@ -34,10 +34,10 @@ const HeroSection = () => {
             />
             <div>with superior defense technology</div>
           </div>
-          <p className="text-[#a0a0a0] text-lg md:text-xl mb-8">
+          <p className="text-[#d0d0d0] text-lg md:text-xl mb-8 backdrop-blur-sm bg-black/20 p-3 rounded-lg">
             Industry-leading solutions that protect against fire, water, and environmental damage. Trusted by professionals worldwide.
           </p>
-          <div className="space-x-4">
+          <div className="space-x-4 backdrop-blur-sm bg-black/10 p-4 rounded-lg inline-block">
             <a 
               href="#applications" 
               className="bg-[#0070f3] hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-colors inline-block"
