@@ -32,7 +32,7 @@ const PainterNetwork = () => {
             <div className="max-w-4xl mx-auto text-center mb-16 backdrop-blur-sm bg-primary-900/60 p-8 rounded-xl shadow-lg">
               <div className="tracking-tight flex flex-col items-center">
                 <h1 className="text-4xl md:text-5xl mb-6 font-bold">
-                  <span className="gradient-text-blue">Professional </span>
+                  <span className="gradient-text-blue">Professional</span>{" "}
                   <span className="gradient-text-fire">Painter Network</span>
                 </h1>
               </div>
@@ -68,7 +68,7 @@ const PainterNetwork = () => {
               <div className="backdrop-blur-sm bg-primary-900/60 p-8 rounded-xl shadow-lg order-1 md:order-2">
                 <div className="tracking-tight mb-6">
                   <h2 className="text-3xl font-bold">
-                    <span className="gradient-text-blue">Network </span>
+                    <span className="gradient-text-blue">Network</span>{" "}
                     <span className="gradient-text-fire">Benefits</span>
                   </h2>
                 </div>
@@ -126,7 +126,7 @@ const PainterNetwork = () => {
             <div className="backdrop-blur-sm bg-primary-900/60 p-8 rounded-xl shadow-lg">
               <div className="tracking-tight flex flex-col items-center mb-8">
                 <h2 className="text-3xl font-bold">
-                  <span className="gradient-text-blue">Become a </span>
+                  <span className="gradient-text-blue">Become a</span>{" "}
                   <span className="gradient-text-fire">Certified Painter</span>
                 </h2>
               </div>
@@ -223,7 +223,7 @@ const PainterNetwork = () => {
             <div className="backdrop-blur-sm bg-primary-900/60 p-8 rounded-xl shadow-lg">
               <div className="tracking-tight flex flex-col items-center mb-12">
                 <h2 className="text-3xl md:text-4xl font-bold text-center">
-                  <span className="gradient-text-blue">Benefits of Working With </span>
+                  <span className="gradient-text-blue">Benefits of Working With</span>{" "}
                   <span className="gradient-text-fire">Certified Painters</span>
                 </h2>
               </div>
@@ -256,7 +256,7 @@ const PainterNetwork = () => {
             <div className="max-w-3xl mx-auto backdrop-blur-sm bg-primary-900/60 rounded-xl p-8 shadow-lg">
               <div className="tracking-tight flex flex-col items-center mb-6">
                 <h2 className="text-3xl md:text-4xl font-bold text-center">
-                  <span className="gradient-text-blue">Success </span>
+                  <span className="gradient-text-blue">Success</span>{" "}
                   <span className="gradient-text-fire">Stories</span>
                 </h2>
               </div>
