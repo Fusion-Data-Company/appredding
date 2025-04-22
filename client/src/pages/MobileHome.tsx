@@ -83,7 +83,7 @@ const MobileHome = () => {
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <span className="bg-gradient-to-r from-green-600 to-blue-500 rounded-full p-2 mt-1 shadow-lg">
+                    <span className="bg-gradient-to-r from-orange-600 to-blue-500 rounded-full p-2 mt-1 shadow-lg">
                       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
                         <circle cx="12" cy="12" r="1"></circle>
                         <circle cx="12" cy="12" r="5"></circle>
@@ -91,7 +91,7 @@ const MobileHome = () => {
                       </svg>
                     </span>
                     <div>
-                      <h3 className="text-xl font-semibold mb-2 text-blue-100">Extends Lifespan by 15+ Years</h3>
+                      <h3 className="text-xl font-semibold mb-2 text-white">Extends Lifespan by 15+ Years</h3>
                       <p className="text-gray-100">Our protective coatings significantly extend the life of your mobile home's roof and exterior, providing long-term value.</p>
                     </div>
                   </div>
@@ -110,41 +110,41 @@ const MobileHome = () => {
                 
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
-                    <div className="bg-gradient-to-r from-green-600 to-blue-500 w-8 h-8 rounded-full flex items-center justify-center shadow-lg flex-shrink-0">
+                    <div className="bg-gradient-to-r from-orange-600 to-blue-500 w-8 h-8 rounded-full flex items-center justify-center shadow-lg flex-shrink-0">
                       <span className="text-lg font-bold text-white">1</span>
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold mb-1 text-blue-100">Thorough Inspection & Assessment</h3>
+                      <h3 className="text-lg font-semibold mb-1 text-white">Thorough Inspection & Assessment</h3>
                       <p className="text-gray-200">We evaluate your mobile home's current condition, identify problem areas, and create a customized protection plan.</p>
                     </div>
                   </div>
                   
                   <div className="flex items-start gap-4">
-                    <div className="bg-gradient-to-r from-green-600 to-blue-500 w-8 h-8 rounded-full flex items-center justify-center shadow-lg flex-shrink-0">
+                    <div className="bg-gradient-to-r from-orange-600 to-blue-500 w-8 h-8 rounded-full flex items-center justify-center shadow-lg flex-shrink-0">
                       <span className="text-lg font-bold text-white">2</span>
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold mb-1 text-blue-100">Professional Surface Preparation</h3>
+                      <h3 className="text-lg font-semibold mb-1 text-white">Professional Surface Preparation</h3>
                       <p className="text-gray-200">Surfaces are thoroughly cleaned, repaired, and primed to ensure maximum adhesion and longevity of the protective coating.</p>
                     </div>
                   </div>
                   
                   <div className="flex items-start gap-4">
-                    <div className="bg-gradient-to-r from-green-600 to-blue-500 w-8 h-8 rounded-full flex items-center justify-center shadow-lg flex-shrink-0">
+                    <div className="bg-gradient-to-r from-orange-600 to-blue-500 w-8 h-8 rounded-full flex items-center justify-center shadow-lg flex-shrink-0">
                       <span className="text-lg font-bold text-white">3</span>
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold mb-1 text-blue-100">Precision Application & Coverage</h3>
+                      <h3 className="text-lg font-semibold mb-1 text-white">Precision Application & Coverage</h3>
                       <p className="text-gray-200">Our certified technicians apply the specialized coating using advanced equipment for consistent, uniform coverage.</p>
                     </div>
                   </div>
                   
                   <div className="flex items-start gap-4">
-                    <div className="bg-gradient-to-r from-green-600 to-blue-500 w-8 h-8 rounded-full flex items-center justify-center shadow-lg flex-shrink-0">
+                    <div className="bg-gradient-to-r from-orange-600 to-blue-500 w-8 h-8 rounded-full flex items-center justify-center shadow-lg flex-shrink-0">
                       <span className="text-lg font-bold text-white">4</span>
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold mb-1 text-blue-100">Quality Inspection & Warranty</h3>
+                      <h3 className="text-lg font-semibold mb-1 text-white">Quality Inspection & Warranty</h3>
                       <p className="text-gray-200">Final inspection ensures every surface is properly protected, and we provide a comprehensive warranty on materials and workmanship.</p>
                     </div>
                   </div>
@@ -161,17 +161,17 @@ const MobileHome = () => {
               
               <div className="grid md:grid-cols-3 gap-8">
                 <div className="backdrop-blur-sm bg-primary-800/80 border border-blue-500/30 rounded-lg p-6 hover-lift shadow-lg">
-                  <div className="w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center bg-gradient-to-r from-green-600 to-blue-500 shadow-lg">
+                  <div className="w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center bg-gradient-to-r from-orange-600 to-blue-500 shadow-lg">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
                       <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path>
                     </svg>
                   </div>
-                  <h3 className="text-xl font-bold mb-3 text-center text-blue-100">Roof Protection</h3>
+                  <h3 className="text-xl font-bold mb-3 text-center text-white">Roof Protection</h3>
                   <p className="text-center text-gray-100">Seamless, waterproof membrane that reflects heat, prevents leaks, and extends your roof's lifespan by 15+ years. Available in multiple colors.</p>
                 </div>
                 
                 <div className="backdrop-blur-sm bg-primary-800/80 border border-blue-500/30 rounded-lg p-6 hover-lift shadow-lg">
-                  <div className="w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center bg-gradient-to-r from-green-600 to-blue-500 shadow-lg">
+                  <div className="w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center bg-gradient-to-r from-orange-600 to-blue-500 shadow-lg">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
                       <rect x="4" y="5" width="16" height="16" rx="2"></rect>
                       <line x1="16" y1="3" x2="16" y2="7"></line>
@@ -180,18 +180,18 @@ const MobileHome = () => {
                       <line x1="10" y1="16" x2="14" y2="16"></line>
                     </svg>
                   </div>
-                  <h3 className="text-xl font-bold mb-3 text-center text-blue-100">Exterior Wall Coating</h3>
+                  <h3 className="text-xl font-bold mb-3 text-center text-white">Exterior Wall Coating</h3>
                   <p className="text-center text-gray-100">Durable, elastomeric coatings that flex with temperature changes while providing exceptional weather resistance and improved appearance.</p>
                 </div>
                 
                 <div className="backdrop-blur-sm bg-primary-800/80 border border-blue-500/30 rounded-lg p-6 hover-lift shadow-lg">
-                  <div className="w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center bg-gradient-to-r from-green-600 to-blue-500 shadow-lg">
+                  <div className="w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center bg-gradient-to-r from-orange-600 to-blue-500 shadow-lg">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
                       <path d="M5 4c-2.5 5 -2.5 10 0 16m14 -16c2.5 5 2.5 10 0 16m-10 -11h1c1.5 0 3 .5 3 2s-1.5 2 -3 2h-1"></path>
                       <path d="M9 16h2"></path>
                     </svg>
                   </div>
-                  <h3 className="text-xl font-bold mb-3 text-center text-blue-100">Skirting & Foundation</h3>
+                  <h3 className="text-xl font-bold mb-3 text-center text-white">Skirting & Foundation</h3>
                   <p className="text-center text-gray-100">Protective barriers that prevent moisture damage, pest intrusion, and heat loss while enhancing the structural integrity of your home.</p>
                 </div>
               </div>
@@ -206,7 +206,7 @@ const MobileHome = () => {
               
               <div className="grid md:grid-cols-2 gap-8 mb-8">
                 <div className="backdrop-blur-sm bg-primary-800/60 border border-blue-500/30 rounded-lg p-5 shadow-lg">
-                  <h3 className="text-xl font-bold mb-3 text-blue-100">Specialized in Mobile Homes</h3>
+                  <h3 className="text-xl font-bold mb-3 text-white">Specialized in Mobile Homes</h3>
                   <p className="text-gray-100">Our technicians are specifically trained in the unique requirements of mobile home protection, unlike general contractors who may lack this specialized expertise.</p>
                 </div>
                 
@@ -227,7 +227,7 @@ const MobileHome = () => {
               </div>
               
               <div className="text-center">
-                <Button className="bg-gradient-to-r from-green-600 to-blue-500 hover:from-green-500 hover:to-blue-400 text-white border-0 px-8">
+                <Button className="bg-gradient-to-r from-orange-600 to-blue-500 hover:from-orange-500 hover:to-blue-400 text-white border-0 px-8">
                   Get Your Free Quote Today
                 </Button>
               </div>
