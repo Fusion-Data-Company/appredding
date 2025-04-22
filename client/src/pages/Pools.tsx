@@ -236,8 +236,8 @@ const Pools = () => {
 
               <div>
                 <img 
-                  src="@assets/peakpx (3).jpg" 
-                  alt="Beautiful luxury pool with Praetorian coating" 
+                  src="@assets/Screenshot 2025-04-22 at 14.04.08.png" 
+                  alt="Elegant luxury pool with pristine Praetorian coating" 
                   className="rounded-xl w-full h-64 object-cover mb-8"
                 />
                 
