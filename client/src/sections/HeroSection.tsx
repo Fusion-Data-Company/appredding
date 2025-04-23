@@ -1,8 +1,11 @@
 import { GradientButton } from "@/components/ui/gradient-button";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+// Import the optimized video directly - better for Vite to handle
+import fireWaterHandsVideo from "/videos/fire-water-hands-optimized.mp4";
 
 const HeroSection = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     // Freeze on the last frame when video ends
@@ -13,26 +16,45 @@ const HeroSection = () => {
       }
     };
 
+    // Handle when video can play
+    const handleCanPlay = () => {
+      setIsLoading(false);
+    };
+
     const videoElement = videoRef.current;
     if (videoElement) {
       videoElement.addEventListener('ended', handleVideoEnded);
+      videoElement.addEventListener('canplay', handleCanPlay);
+      
+      // Preload the video
+      videoElement.preload = "auto";
       
       // Start playing when component mounts
       videoElement.play().catch(error => {
         console.error("Error playing video:", error);
+        // If we can't autoplay, at least show the video
+        setIsLoading(false);
       });
     }
 
-    // Cleanup event listener on unmount
+    // Cleanup event listeners on unmount
     return () => {
       if (videoElement) {
         videoElement.removeEventListener('ended', handleVideoEnded);
+        videoElement.removeEventListener('canplay', handleCanPlay);
       }
     };
   }, []);
 
   return (
     <section className="relative bg-black h-[85vh] flex flex-col items-center justify-end pb-10 overflow-hidden">
+      {/* Loading indicator */}
+      {isLoading && (
+        <div className="absolute inset-0 flex items-center justify-center bg-black z-10">
+          <div className="w-16 h-16 border-t-4 border-orange-500 border-solid rounded-full animate-spin"></div>
+        </div>
+      )}
+      
       {/* Video background */}
       <div className="absolute inset-0 w-full h-full flex items-center justify-center overflow-hidden">
         <video 
@@ -41,8 +63,9 @@ const HeroSection = () => {
           autoPlay
           muted
           playsInline
+          poster="/images/fire-water-hands-poster.jpg"
         >
-          <source src="/videos/fire-water-hands.mp4" type="video/mp4" />
+          <source src={fireWaterHandsVideo} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </div>
