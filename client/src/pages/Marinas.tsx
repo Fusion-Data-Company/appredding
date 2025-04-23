@@ -6,7 +6,7 @@ import { GradientHeading } from "@/components/ui/gradient-heading";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Anchor, ShieldCheck, Sun, Leaf, Ship, Factory, Waves } from "lucide-react";
-import poolWaterBg from "@assets/pool-water-bg.jpg"; // Temporary placeholder until new image is provided
+import sailboatBg from "@assets/peakpx (8).jpg";
 
 const Marinas = () => {
   const [vesselType, setVesselType] = useState("");
@@ -27,7 +27,7 @@ const Marinas = () => {
         <div 
           className="fixed inset-0 z-0 bg-center bg-cover bg-no-repeat" 
           style={{ 
-            backgroundImage: `url(${poolWaterBg})`, // Will be replaced with marina background
+            backgroundImage: `url(${sailboatBg})`,
             backgroundAttachment: 'fixed',
             backgroundPosition: 'center',
             backgroundSize: 'cover',
@@ -118,17 +118,17 @@ const Marinas = () => {
                 </div>
               </div>
 
-              <div className="backdrop-blur-sm bg-primary-900/60 p-8 rounded-xl shadow-lg">
+              <div className="backdrop-blur-sm bg-primary-900/60 p-8 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] h-full flex flex-col">
                 <GradientHeading level={2} className="text-3xl font-bold mb-6" variant="blue">Marine Protection Benefits</GradientHeading>
                 
-                <div className="space-y-6">
+                <div className="space-y-4 flex-grow">
                   <div className="flex items-start gap-4">
                     <span className="bg-blue-600 rounded-full p-2 mt-1">
                       <Anchor className="h-5 w-5 text-white" />
                     </span>
                     <div>
-                      <h3 className="text-xl font-semibold mb-2 text-blue-300">Anti-fouling technology prevents marine growth buildup</h3>
-                      <p className="text-white">Our advanced anti-fouling formulations prevent barnacles, algae, and other marine growth from adhering to hulls and underwater structures.</p>
+                      <h3 className="text-xl font-semibold mb-1 text-blue-300">Anti-fouling technology prevents marine growth</h3>
+                      <p className="text-white">Our advanced formulations prevent barnacles, algae, and other marine growth from adhering to vessel surfaces.</p>
                     </div>
                   </div>
 
@@ -137,7 +137,7 @@ const Marinas = () => {
                       <ShieldCheck className="h-5 w-5 text-white" />
                     </span>
                     <div>
-                      <h3 className="text-xl font-semibold mb-2 text-blue-300">Corrosion-resistant formulas prevent salt water damage</h3>
+                      <h3 className="text-xl font-semibold mb-1 text-blue-300">Corrosion-resistant formulas prevent damage</h3>
                       <p className="text-white">Specially designed to protect against the harsh corrosive effects of salt water on metals and other materials.</p>
                     </div>
                   </div>
@@ -147,7 +147,7 @@ const Marinas = () => {
                       <Sun className="h-5 w-5 text-white" />
                     </span>
                     <div>
-                      <h3 className="text-xl font-semibold mb-2 text-blue-300">UV-stable finishes maintain appearance in constant sun exposure</h3>
+                      <h3 className="text-xl font-semibold mb-1 text-blue-300">UV-stable finishes maintain appearance</h3>
                       <p className="text-white">Our coatings resist fading, chalking, and degradation from intense sunlight, keeping your vessel looking great for years.</p>
                     </div>
                   </div>
@@ -157,14 +157,14 @@ const Marinas = () => {
                       <Leaf className="h-5 w-5 text-white" />
                     </span>
                     <div>
-                      <h3 className="text-xl font-semibold mb-2 text-blue-300">Environmentally responsible formulations meet EPA requirements</h3>
-                      <p className="text-white">Our marine coatings are designed to be effective while minimizing environmental impact and meeting strict regulatory standards.</p>
+                      <h3 className="text-xl font-semibold mb-1 text-blue-300">Environmentally responsible formulations</h3>
+                      <p className="text-white">Our marine coatings are designed to be effective while minimizing environmental impact and meeting EPA standards.</p>
                     </div>
                   </div>
                 </div>
                 
-                <div className="mt-8">
-                  <GradientButton variant="variant" className="w-full md:w-auto">
+                <div className="mt-6">
+                  <GradientButton variant="variant" className="w-full">
                     Explore Marine Products
                   </GradientButton>
                 </div>
