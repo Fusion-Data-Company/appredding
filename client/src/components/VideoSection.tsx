@@ -30,7 +30,7 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
     : videos.filter((video) => video.category === activeCategory);
 
   return (
-    <section className="py-24 bg-primary-900" id="videos">
+    <section className="py-20 bg-gray-400/20 backdrop-blur-xl" id="videos">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <GradientHeading level={2} className="text-4xl mb-4" variant="mixed">Video Demonstrations</GradientHeading>
@@ -42,7 +42,7 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
           <div className="lg:col-span-2">
             {activeVideo ? (
-              <div className="bg-primary-950 rounded-xl overflow-hidden border border-primary-800">
+              <div className="bg-gradient-to-r from-gray-800/90 to-gray-700/90 rounded-xl overflow-hidden border border-gray-600/40 shadow-[0_0_20px_rgba(255,255,255,0.2)]">
                 <div className="relative pb-[56.25%] h-0 overflow-hidden">
                   <iframe
                     className="absolute top-0 left-0 w-full h-full"
@@ -66,7 +66,7 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
                 </div>
               </div>
             ) : (
-              <div className="bg-primary-950 rounded-xl border border-primary-800 p-8 flex items-center justify-center h-full">
+              <div className="bg-gradient-to-r from-gray-800/90 to-gray-700/90 rounded-xl border border-gray-600/40 shadow-[0_0_20px_rgba(255,255,255,0.2)] p-8 flex items-center justify-center h-full">
                 <div className="text-center">
                   <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary-800 mb-4">
                     <Play className="h-8 w-8 text-primary-500" />
@@ -81,7 +81,7 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
           </div>
 
           <div>
-            <div className="bg-primary-950 rounded-xl border border-primary-800 p-6">
+            <div className="bg-gradient-to-r from-gray-800/90 to-gray-700/90 rounded-xl border border-gray-600/40 shadow-[0_0_20px_rgba(255,255,255,0.2)] p-6">
               <GradientHeading level={3} className="text-xl mb-4 pb-3 border-b border-primary-800" variant="mixed">
                 Video Library
               </GradientHeading>
@@ -109,8 +109,8 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
                       key={video.id}
                       className={`flex gap-3 p-3 rounded-lg cursor-pointer transition-colors ${
                         activeVideo?.id === video.id
-                          ? "bg-primary-700"
-                          : "bg-primary-800 hover:bg-primary-700"
+                          ? "bg-gray-700/80"
+                          : "bg-gray-800/60 hover:bg-gray-700/70"
                       }`}
                       onClick={() => setActiveVideo(video)}
                     >
@@ -135,21 +135,21 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
                     </div>
                   ))
                 ) : (
-                  <div className="text-center py-6 bg-primary-800/30 rounded-lg">
+                  <div className="text-center py-6 bg-gray-800/60 rounded-lg">
                     <Info className="h-8 w-8 text-gray-500 mx-auto mb-2" />
                     <p className="text-gray-400">No videos in this category</p>
                   </div>
                 )}
               </div>
 
-              <div className="mt-6 pt-4 border-t border-primary-800">
+              <div className="mt-6 pt-4 border-t border-gray-600/40">
                 <Button variant="outline" className="w-full">
                   <i className="fab fa-youtube mr-2 text-red-500"></i> Visit Our YouTube Channel
                 </Button>
               </div>
             </div>
 
-            <div className="bg-primary-950 rounded-xl border border-primary-800 p-6 mt-6">
+            <div className="bg-gradient-to-r from-gray-800/90 to-gray-700/90 rounded-xl border border-gray-600/40 shadow-[0_0_20px_rgba(255,255,255,0.2)] p-6 mt-6">
               <div className="flex items-start">
                 <div className="mr-4">
                   <Star className="h-8 w-8 text-yellow-500" />
