@@ -219,10 +219,10 @@ const MunicipalityPage = () => {
           </div>
         </section>
 
-        <section className="py-16 relative z-10">
+        <section className="py-16 relative z-10 backdrop-blur-lg bg-primary-900/40">
           <div className="container mx-auto">
             <div className="backdrop-blur-sm bg-primary-900/80 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] p-8">
-              <GradientHeading level={2} className="text-2xl font-bold mb-6 text-center" variant="mixed">Request a Municipal Infrastructure Assessment</GradientHeading>
+              <GradientHeading level={2} className="text-3xl md:text-4xl mb-6" variant="mixed">Request a Municipal Infrastructure Assessment</GradientHeading>
               <p className="text-white text-center mb-8">Our experts will evaluate your public infrastructure and recommend tailored protective coating systems that maximize longevity and minimize lifecycle costs.</p>
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
