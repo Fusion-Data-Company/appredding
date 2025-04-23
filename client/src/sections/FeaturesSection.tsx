@@ -39,10 +39,12 @@ const FeaturesSection = () => {
     <section className="py-20 bg-gray-400/20 backdrop-blur-xl" id="features">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <GradientHeading level={2} className="text-3xl md:text-4xl mb-4" variant="mixed">Superior Protection Features</GradientHeading>
-          <p className="text-[#a0a0a0] max-w-2xl mx-auto">
-            Our specially formulated coatings are designed to withstand extreme conditions while providing long-lasting protection for your assets.
-          </p>
+          <div className="bg-gray-800/60 backdrop-blur-xl rounded-xl border border-gray-600/40 shadow-[0_0_20px_rgba(255,255,255,0.2)] py-8 px-6 md:px-10 mx-auto max-w-4xl mb-8">
+            <GradientHeading level={2} className="text-3xl md:text-4xl mb-4" variant="mixed">Superior Protection Features</GradientHeading>
+            <p className="text-[#a0a0a0] max-w-2xl mx-auto">
+              Our specially formulated coatings are designed to withstand extreme conditions while providing long-lasting protection for your assets.
+            </p>
+          </div>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
