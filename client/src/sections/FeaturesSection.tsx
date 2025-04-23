@@ -6,9 +6,9 @@ const FeatureCard = ({ icon, title, description, index }: { icon: string; title:
   const variant = variants[index % variants.length] as "fire" | "blue" | "mixed";
   
   return (
-    <div className="bg-gradient-to-r from-gray-800/95 to-gray-700/95 backdrop-blur-xl rounded-lg p-8 text-center hover:transform hover:-translate-y-1 transition-transform border border-gray-600/40 shadow-[0_0_15px_rgba(255,255,255,0.15)]">
-      <div className="text-5xl text-[#0070f3] mb-6">
-        <i className={icon}></i>
+    <div className="bg-gradient-to-r from-gray-800/95 to-gray-700/95 backdrop-blur-xl rounded-lg p-8 text-center hover:transform hover:-translate-y-1 transition-transform border border-gray-600/40 shadow-[0_0_20px_rgba(255,255,255,0.2)]">
+      <div className="inline-flex items-center justify-center w-16 h-16 mb-6 bg-gradient-to-r from-gray-700 to-gray-600 rounded-full shadow-[0_0_10px_rgba(255,255,255,0.15)]">
+        <i className={`${icon} text-white text-3xl`}></i>
       </div>
       <GradientHeading level={3} className="text-xl mb-3" variant={variant}>{title}</GradientHeading>
       <p className="text-[#a0a0a0]">{description}</p>
@@ -36,7 +36,7 @@ const FeaturesSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-[#121212]" id="features">
+    <section className="py-20 bg-gray-700/60 backdrop-blur-md" id="features">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <GradientHeading level={2} className="text-3xl md:text-4xl mb-4" variant="mixed">Superior Protection Features</GradientHeading>
