@@ -199,7 +199,7 @@ const Pools = () => {
         <section className="py-16 md:py-24 relative z-10">
           <div className="container mx-auto">
             {/* Header section */}
-            <div className="max-w-4xl mx-auto text-center mb-16 backdrop-blur-sm bg-primary-900/60 p-8 rounded-xl shadow-lg">
+            <div className="max-w-4xl mx-auto text-center mb-16 backdrop-blur-sm bg-primary-900/60 p-8 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)]">
               <GradientHeading level={1} className="text-4xl md:text-5xl mb-6 glow-text" variant="blue">Premium Pool Protection Systems</GradientHeading>
               <p className="text-xl text-white mb-8">
                 Our specialized pool coatings provide superior protection and beautiful finishes, enhancing both the durability and appearance of your pool surfaces.
@@ -208,7 +208,7 @@ const Pools = () => {
 
             {/* Features grid section */}
             <div className="grid md:grid-cols-2 gap-12 mb-16">
-              <div className="backdrop-blur-sm bg-primary-900/60 premium-border rounded-xl p-8 shadow-lg">
+              <div className="backdrop-blur-sm bg-primary-900/60 border-4 border-white rounded-xl p-8 shadow-[0_0_60px_rgba(255,255,255,0.4)]">
                 <GradientHeading level={2} className="text-3xl mb-6" variant="blue">Pool Surface Solutions</GradientHeading>
                 <p className="mb-8">Our advanced coating systems are designed to provide years of durable protection for all types of pool surfaces</p>
                 
@@ -255,7 +255,7 @@ const Pools = () => {
                 </div>
               </div>
 
-              <div className="backdrop-blur-sm bg-primary-900/60 premium-border rounded-xl p-8 shadow-lg">
+              <div className="backdrop-blur-sm bg-primary-900/60 border-4 border-white rounded-xl p-8 shadow-[0_0_60px_rgba(255,255,255,0.4)]">
                 <img 
                   src={poolImage} 
                   alt="Elegant luxury pool with pristine Praetorian coating" 
@@ -304,7 +304,7 @@ const Pools = () => {
         {/* Calculator section */}
         <section className="py-16 relative z-10">
           <div className="container mx-auto">
-            <div className="backdrop-blur-sm bg-primary-900/60 p-8 rounded-xl shadow-lg mb-12">
+            <div className="backdrop-blur-sm bg-primary-900/60 p-8 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] mb-12">
               <GradientHeading level={2} className="text-3xl md:text-4xl mb-12 text-center" variant="blue">Pool Coverage Calculator</GradientHeading>
               <div className="max-w-4xl mx-auto">
                 <h3 className="text-2xl font-bold mb-4 text-center">Calculate How Much Coating You Need</h3>
@@ -525,7 +525,7 @@ const Pools = () => {
         {/* Coating systems section */}
         <section className="py-16 relative z-10">
           <div className="container mx-auto">
-            <div className="backdrop-blur-sm bg-primary-900/60 p-8 rounded-xl shadow-lg mb-12">
+            <div className="backdrop-blur-sm bg-primary-900/60 p-8 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] mb-12">
               <GradientHeading level={2} className="text-3xl md:text-4xl mb-12 text-center" variant="blue">Our Pool Coating Systems</GradientHeading>
               
               <div className="grid md:grid-cols-3 gap-8">

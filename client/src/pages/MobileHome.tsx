@@ -156,7 +156,7 @@ const MobileHome = () => {
 
         <section className="py-16 relative z-10">
           <div className="container mx-auto">
-            <div className="backdrop-blur-sm bg-primary-900/60 p-8 rounded-xl shadow-lg mb-12">
+            <div className="backdrop-blur-sm bg-primary-900/60 p-8 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] mb-12">
               <GradientHeading level={2} className="text-3xl md:text-4xl text-center mb-12" variant="mixed">Mobile Home Protection Solutions</GradientHeading>
               
               <div className="grid md:grid-cols-3 gap-8">
