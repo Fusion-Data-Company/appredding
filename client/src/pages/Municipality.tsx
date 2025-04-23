@@ -15,7 +15,7 @@ const MunicipalityPage = () => {
         <div 
           className="fixed inset-0 z-0 bg-center bg-cover bg-no-repeat" 
           style={{ 
-            backgroundImage: "url('/images/municipality-bg.jpg')",
+            backgroundImage: "url('/images/oceanside-treatment-plant.jpg')",
             backgroundAttachment: 'fixed',
             backgroundPosition: 'center',
             backgroundSize: 'cover',
@@ -23,8 +23,7 @@ const MunicipalityPage = () => {
           }}
         />
         
-        {/* Very light overlay to maintain readability without blurring */}
-        <div className="fixed inset-0 z-0 bg-black/10"></div>
+        {/* No overlay to keep background perfectly clear */}
         
         {/* Main content section */}
         <section className="py-16 md:py-24 relative z-10">
@@ -172,7 +171,7 @@ const MunicipalityPage = () => {
           </div>
         </section>
 
-        <section className="py-16 backdrop-blur-sm bg-primary-900/40 relative z-10">
+        <section className="py-16 backdrop-blur-sm bg-primary-900/60 relative z-10">
           <div className="container mx-auto">
             <div className="text-center mb-12">
               <div className="bg-primary-900/60 backdrop-blur-xl rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] py-8 px-6 md:px-10 mx-auto max-w-3xl mb-8 inline-block">
