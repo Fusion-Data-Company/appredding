@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import MobileMenu from "./MobileMenu";
 import { Menu, MenuItem, HoveredLink } from "@/components/ui/navbar-menu";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -47,7 +48,8 @@ const Header = () => {
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center">
+        <div className="hidden md:flex items-center gap-4">
+          <ThemeToggle />
           <Menu setActive={setActiveItem}>
             <MenuItem setActive={setActiveItem} active={activeItem} item="Applications">
               <div className="grid grid-cols-2 gap-4 p-2 w-[420px] text-center">

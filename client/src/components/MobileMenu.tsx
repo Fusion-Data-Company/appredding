@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Link } from "wouter";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -42,6 +43,9 @@ const MobileMenu = ({ isOpen, onClose, isHomePage = true }: MobileMenuProps) => 
       }`}
     >
       <div className="container mx-auto py-6 px-4">
+        <div className="flex justify-end mb-4">
+          <ThemeToggle />
+        </div>
         <ul className="space-y-5 divide-y divide-gray-100">
           <li className="pb-1">
             <Link
