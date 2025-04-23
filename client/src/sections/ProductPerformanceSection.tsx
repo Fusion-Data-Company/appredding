@@ -3,7 +3,7 @@ import { GradientHeading } from "@/components/ui/gradient-heading";
 
 const ProductPerformanceSection = () => {
   return (
-    <section className="py-20 bg-gray-700/60 backdrop-blur-md">
+    <section className="py-20 bg-gray-800/30 backdrop-blur-xl">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <GradientHeading level={2} className="text-3xl md:text-4xl mb-4" variant="mixed">Product Performance Data</GradientHeading>
@@ -13,32 +13,32 @@ const ProductPerformanceSection = () => {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-          <div className="bg-gradient-to-r from-gray-800/90 to-gray-700/90 border border-gray-600/40 rounded-lg p-6 text-center hover-lift shadow-[0_0_20px_rgba(255,255,255,0.2)]">
+          <div className="bg-gradient-to-r from-gray-800/60 to-gray-700/50 backdrop-blur-xl border border-gray-600/40 rounded-lg p-6 text-center hover-lift shadow-[0_0_20px_rgba(255,255,255,0.2)]">
             <div className="text-5xl font-bold text-primary-400 mb-3">98.7%</div>
             <GradientHeading level={3} className="text-xl mb-2" variant="mixed">UV Resistance</GradientHeading>
             <p className="text-gray-300">Retention of original properties after 5,000 hours of accelerated UV exposure testing</p>
           </div>
           
-          <div className="bg-gradient-to-r from-gray-800/90 to-gray-700/90 border border-gray-600/40 rounded-lg p-6 text-center hover-lift shadow-[0_0_20px_rgba(255,255,255,0.2)]">
+          <div className="bg-gradient-to-r from-gray-800/60 to-gray-700/50 backdrop-blur-xl border border-gray-600/40 rounded-lg p-6 text-center hover-lift shadow-[0_0_20px_rgba(255,255,255,0.2)]">
             <div className="text-5xl font-bold text-primary-400 mb-3">15+</div>
             <GradientHeading level={3} className="text-xl mb-2" variant="fire">Years Durability</GradientHeading>
             <p className="text-gray-300">Average lifespan of our premium protective coating systems in real-world applications</p>
           </div>
           
-          <div className="bg-gradient-to-r from-gray-800/90 to-gray-700/90 border border-gray-600/40 rounded-lg p-6 text-center hover-lift shadow-[0_0_20px_rgba(255,255,255,0.2)]">
+          <div className="bg-gradient-to-r from-gray-800/60 to-gray-700/50 backdrop-blur-xl border border-gray-600/40 rounded-lg p-6 text-center hover-lift shadow-[0_0_20px_rgba(255,255,255,0.2)]">
             <div className="text-5xl font-bold text-primary-400 mb-3">30%</div>
             <GradientHeading level={3} className="text-xl mb-2" variant="blue">Energy Savings</GradientHeading>
             <p className="text-gray-300">Reduction in cooling costs with our thermal reflective coating technology</p>
           </div>
           
-          <div className="bg-gradient-to-r from-gray-800/90 to-gray-700/90 border border-gray-600/40 rounded-lg p-6 text-center hover-lift shadow-[0_0_20px_rgba(255,255,255,0.2)]">
+          <div className="bg-gradient-to-r from-gray-800/60 to-gray-700/50 backdrop-blur-xl border border-gray-600/40 rounded-lg p-6 text-center hover-lift shadow-[0_0_20px_rgba(255,255,255,0.2)]">
             <div className="text-5xl font-bold text-primary-400 mb-3">9.2/10</div>
             <GradientHeading level={3} className="text-xl mb-2" variant="fire">Customer Satisfaction</GradientHeading>
             <p className="text-gray-300">Average rating from our post-installation customer satisfaction surveys</p>
           </div>
         </div>
         
-        <div className="bg-gradient-to-r from-gray-800/95 to-gray-700/95 rounded-xl p-8 border border-gray-600/40 shadow-[0_0_20px_rgba(255,255,255,0.2)] backdrop-blur-xl">
+        <div className="bg-gradient-to-r from-gray-800/60 to-gray-700/50 rounded-xl p-8 border border-gray-600/40 shadow-[0_0_20px_rgba(255,255,255,0.2)] backdrop-blur-xl">
           <div className="grid md:grid-cols-2 gap-8">
             <div>
               <GradientHeading level={3} className="text-2xl mb-4" variant="mixed">Industry-Leading Product Testing</GradientHeading>
