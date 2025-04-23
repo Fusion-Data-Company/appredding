@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import { GradientButton } from "@/components/ui/gradient-button";
+import { GradientHeading } from "@/components/ui/gradient-heading";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Anchor, ShieldCheck, Sun, Leaf, Ship, Factory, Waves } from "lucide-react";
+import poolWaterBg from "@assets/pool-water-bg.jpg"; // Temporary placeholder until new image is provided
 
 const Marinas = () => {
   const [vesselType, setVesselType] = useState("");
@@ -17,28 +22,44 @@ const Marinas = () => {
     <div className="min-h-screen flex flex-col">
       <Header />
       
-      <main className="flex-grow">
-        <section className="py-16 md:py-24">
+      <main className="flex-grow relative">
+        {/* Full-page water background */}
+        <div 
+          className="fixed inset-0 z-0 bg-center bg-cover bg-no-repeat" 
+          style={{ 
+            backgroundImage: `url(${poolWaterBg})`, // Will be replaced with marina background
+            backgroundAttachment: 'fixed',
+            backgroundPosition: 'center',
+            backgroundSize: 'cover',
+            opacity: 0.95
+          }}
+        />
+        
+        {/* Semi-transparent dark overlay to make text readable */}
+        <div className="fixed inset-0 z-0 bg-black/40"></div>
+        
+        {/* Main content section */}
+        <section className="py-16 md:py-24 relative z-10">
           <div className="container mx-auto">
-            <div className="max-w-4xl mx-auto text-center mb-16">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6 glow-text">Marine Protection Systems</h1>
-              <p className="text-xl text-gray-200 mb-8">
+            <div className="max-w-4xl mx-auto text-center mb-16 backdrop-blur-sm bg-primary-900/60 p-8 rounded-xl shadow-lg">
+              <GradientHeading level={1} className="text-4xl md:text-5xl mb-6 glow-text" variant="blue">Marine Protection Systems</GradientHeading>
+              <p className="text-xl text-white mb-8">
                 Our marine coatings provide superior protection against salt water, UV damage, and marine growth for all types of watercraft and marine structures.
               </p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-12 mb-16">
-              <div className="bg-primary-800 premium-border rounded-xl p-8 shadow-premium-lg">
-                <h2 className="text-3xl font-bold mb-6">Marine Application Configurator</h2>
-                <p className="mb-8">Find the right marine coating for your vessel</p>
+              <div className="backdrop-blur-sm bg-primary-900/60 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] p-8">
+                <GradientHeading level={2} className="text-3xl font-bold mb-6" variant="blue">Marine Application Configurator</GradientHeading>
+                <p className="mb-8 text-white">Find the right marine coating for your vessel</p>
                 
                 <div className="space-y-6">
                   <div>
-                    <label className="block text-sm font-medium mb-2" htmlFor="vessel-type">
+                    <label className="block text-sm font-medium mb-2 text-blue-300" htmlFor="vessel-type">
                       Vessel Type
                     </label>
                     <Select onValueChange={(value) => setVesselType(value)}>
-                      <SelectTrigger id="vessel-type" className="w-full bg-primary-900">
+                      <SelectTrigger id="vessel-type" className="w-full bg-primary-900/90 border-blue-500/50">
                         <SelectValue placeholder="Select vessel type" />
                       </SelectTrigger>
                       <SelectContent>
@@ -52,11 +73,11 @@ const Marinas = () => {
                   </div>
                   
                   <div>
-                    <label className="block text-sm font-medium mb-2" htmlFor="water-type">
+                    <label className="block text-sm font-medium mb-2 text-blue-300" htmlFor="water-type">
                       Water Type
                     </label>
                     <Select onValueChange={(value) => setWaterType(value)}>
-                      <SelectTrigger id="water-type" className="w-full bg-primary-900">
+                      <SelectTrigger id="water-type" className="w-full bg-primary-900/90 border-blue-500/50">
                         <SelectValue placeholder="Select water type" />
                       </SelectTrigger>
                       <SelectContent>
@@ -70,11 +91,11 @@ const Marinas = () => {
                   </div>
                   
                   <div>
-                    <label className="block text-sm font-medium mb-2" htmlFor="surface-material">
+                    <label className="block text-sm font-medium mb-2 text-blue-300" htmlFor="surface-material">
                       Surface Material
                     </label>
                     <Select onValueChange={(value) => setMaterial(value)}>
-                      <SelectTrigger id="surface-material" className="w-full bg-primary-900">
+                      <SelectTrigger id="surface-material" className="w-full bg-primary-900/90 border-blue-500/50">
                         <SelectValue placeholder="Select material" />
                       </SelectTrigger>
                       <SelectContent>
@@ -87,111 +108,112 @@ const Marinas = () => {
                     </Select>
                   </div>
                   
-                  <Button 
+                  <GradientButton 
                     onClick={handleFindCoatings}
-                    className="w-full bg-primary-500 hover:bg-primary-400"
+                    variant="variant"
+                    className="w-full"
                   >
                     Find Recommended Coatings
-                  </Button>
+                  </GradientButton>
                 </div>
               </div>
 
-              <div>
-                <h2 className="text-3xl font-bold mb-6">Marine Protection Benefits</h2>
+              <div className="backdrop-blur-sm bg-primary-900/60 p-8 rounded-xl shadow-lg">
+                <GradientHeading level={2} className="text-3xl font-bold mb-6" variant="blue">Marine Protection Benefits</GradientHeading>
                 
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
-                    <span className="bg-primary-600 rounded-full p-2 mt-1">
-                      <i className="fas fa-ban text-white"></i>
+                    <span className="bg-blue-600 rounded-full p-2 mt-1">
+                      <Anchor className="h-5 w-5 text-white" />
                     </span>
                     <div>
-                      <h3 className="text-xl font-semibold mb-2">Anti-fouling technology prevents marine growth buildup</h3>
-                      <p>Our advanced anti-fouling formulations prevent barnacles, algae, and other marine growth from adhering to hulls and underwater structures.</p>
+                      <h3 className="text-xl font-semibold mb-2 text-blue-300">Anti-fouling technology prevents marine growth buildup</h3>
+                      <p className="text-white">Our advanced anti-fouling formulations prevent barnacles, algae, and other marine growth from adhering to hulls and underwater structures.</p>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <span className="bg-primary-600 rounded-full p-2 mt-1">
-                      <i className="fas fa-shield-alt text-white"></i>
+                    <span className="bg-blue-600 rounded-full p-2 mt-1">
+                      <ShieldCheck className="h-5 w-5 text-white" />
                     </span>
                     <div>
-                      <h3 className="text-xl font-semibold mb-2">Corrosion-resistant formulas prevent salt water damage</h3>
-                      <p>Specially designed to protect against the harsh corrosive effects of salt water on metals and other materials.</p>
+                      <h3 className="text-xl font-semibold mb-2 text-blue-300">Corrosion-resistant formulas prevent salt water damage</h3>
+                      <p className="text-white">Specially designed to protect against the harsh corrosive effects of salt water on metals and other materials.</p>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <span className="bg-primary-600 rounded-full p-2 mt-1">
-                      <i className="fas fa-sun text-white"></i>
+                    <span className="bg-blue-600 rounded-full p-2 mt-1">
+                      <Sun className="h-5 w-5 text-white" />
                     </span>
                     <div>
-                      <h3 className="text-xl font-semibold mb-2">UV-stable finishes maintain appearance in constant sun exposure</h3>
-                      <p>Our coatings resist fading, chalking, and degradation from intense sunlight, keeping your vessel looking great for years.</p>
+                      <h3 className="text-xl font-semibold mb-2 text-blue-300">UV-stable finishes maintain appearance in constant sun exposure</h3>
+                      <p className="text-white">Our coatings resist fading, chalking, and degradation from intense sunlight, keeping your vessel looking great for years.</p>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <span className="bg-primary-600 rounded-full p-2 mt-1">
-                      <i className="fas fa-leaf text-white"></i>
+                    <span className="bg-blue-600 rounded-full p-2 mt-1">
+                      <Leaf className="h-5 w-5 text-white" />
                     </span>
                     <div>
-                      <h3 className="text-xl font-semibold mb-2">Environmentally responsible formulations meet EPA requirements</h3>
-                      <p>Our marine coatings are designed to be effective while minimizing environmental impact and meeting strict regulatory standards.</p>
+                      <h3 className="text-xl font-semibold mb-2 text-blue-300">Environmentally responsible formulations meet EPA requirements</h3>
+                      <p className="text-white">Our marine coatings are designed to be effective while minimizing environmental impact and meeting strict regulatory standards.</p>
                     </div>
                   </div>
                 </div>
                 
                 <div className="mt-8">
-                  <Button className="bg-primary-500 hover:bg-primary-400">
+                  <GradientButton variant="variant" className="w-full md:w-auto">
                     Explore Marine Products
-                  </Button>
+                  </GradientButton>
                 </div>
               </div>
             </div>
 
             {showResults && (
-              <div className="bg-primary-700 rounded-xl p-8 premium-border glow animate-fade-in">
-                <h2 className="text-2xl font-bold mb-6">Recommended Coating Systems</h2>
+              <div className="backdrop-blur-sm bg-primary-900/60 rounded-xl p-8 border border-gray-600/40 shadow-[0_0_20px_rgba(255,255,255,0.2)] animate-fade-in">
+                <GradientHeading level={2} className="text-2xl font-bold mb-6" variant="blue">Recommended Coating Systems</GradientHeading>
                 
                 <div className="grid md:grid-cols-2 gap-6">
-                  <div className="bg-primary-800 rounded-lg p-4 premium-border">
-                    <h3 className="text-xl font-bold mb-2">PraetorianMarine™ Anti-Fouling System</h3>
-                    <p className="mb-4">A complete coating system designed specifically for {vesselType} in {waterType} conditions.</p>
+                  <div className="backdrop-blur-sm bg-primary-900/80 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] p-6">
+                    <h3 className="text-xl font-bold mb-2 text-blue-300">PraetorianMarine™ Anti-Fouling System</h3>
+                    <p className="mb-4 text-white">A complete coating system designed specifically for {vesselType || "your vessel"} in {waterType || "marine"} conditions.</p>
                     <ul className="space-y-2 mb-4">
-                      <li className="flex items-center gap-2">
-                        <i className="fas fa-check text-primary-400"></i>
+                      <li className="flex items-center gap-2 text-white">
+                        <span className="text-blue-400">✓</span>
                         <span>Premium anti-fouling base coat</span>
                       </li>
-                      <li className="flex items-center gap-2">
-                        <i className="fas fa-check text-primary-400"></i>
-                        <span>Advanced barrier primer for {material} surfaces</span>
+                      <li className="flex items-center gap-2 text-white">
+                        <span className="text-blue-400">✓</span>
+                        <span>Advanced barrier primer for {material || "various"} surfaces</span>
                       </li>
-                      <li className="flex items-center gap-2">
-                        <i className="fas fa-check text-primary-400"></i>
+                      <li className="flex items-center gap-2 text-white">
+                        <span className="text-blue-400">✓</span>
                         <span>UV-resistant topcoat in your choice of color</span>
                       </li>
                     </ul>
-                    <Button className="w-full">View Details</Button>
+                    <GradientButton variant="variant" className="w-full">View Details</GradientButton>
                   </div>
                   
-                  <div className="bg-primary-800 rounded-lg p-4 premium-border">
-                    <h3 className="text-xl font-bold mb-2">PraetorianMarine™ Commercial Grade</h3>
-                    <p className="mb-4">Heavy-duty protection designed for extreme conditions and extended service life.</p>
+                  <div className="backdrop-blur-sm bg-primary-900/80 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] p-6">
+                    <h3 className="text-xl font-bold mb-2 text-blue-300">PraetorianMarine™ Commercial Grade</h3>
+                    <p className="mb-4 text-white">Heavy-duty protection designed for extreme conditions and extended service life.</p>
                     <ul className="space-y-2 mb-4">
-                      <li className="flex items-center gap-2">
-                        <i className="fas fa-check text-primary-400"></i>
+                      <li className="flex items-center gap-2 text-white">
+                        <span className="text-blue-400">✓</span>
                         <span>Ultra-durable anti-fouling compound</span>
                       </li>
-                      <li className="flex items-center gap-2">
-                        <i className="fas fa-check text-primary-400"></i>
+                      <li className="flex items-center gap-2 text-white">
+                        <span className="text-blue-400">✓</span>
                         <span>Advanced corrosion inhibitors</span>
                       </li>
-                      <li className="flex items-center gap-2">
-                        <i className="fas fa-check text-primary-400"></i>
+                      <li className="flex items-center gap-2 text-white">
+                        <span className="text-blue-400">✓</span>
                         <span>Extended service life (up to 5 years)</span>
                       </li>
                     </ul>
-                    <Button className="w-full">View Details</Button>
+                    <GradientButton variant="variant" className="w-full">View Details</GradientButton>
                   </div>
                 </div>
               </div>
@@ -199,32 +221,47 @@ const Marinas = () => {
           </div>
         </section>
 
-        <section className="py-16 bg-primary-800/50">
+        <section className="py-16 backdrop-blur-sm bg-primary-900/40 relative z-10">
           <div className="container mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Marine Application Solutions</h2>
+            <div className="text-center mb-12">
+              <div className="bg-gray-800/60 backdrop-blur-xl rounded-xl border border-gray-600/40 shadow-[0_0_20px_rgba(255,255,255,0.2)] py-8 px-6 md:px-10 mx-auto max-w-3xl mb-8 inline-block">
+                <GradientHeading level={2} className="text-3xl md:text-4xl mb-4" variant="blue">Marine Application Solutions</GradientHeading>
+                <p className="text-[#a0a0a0] max-w-2xl mx-auto">
+                  Specialized coatings for every marine application, from personal watercraft to commercial vessels
+                </p>
+              </div>
+            </div>
             
             <div className="grid md:grid-cols-3 gap-8">
-              <div className="bg-primary-800 premium-border rounded-lg p-6 hover-lift">
-                <i className="fas fa-ship text-primary-400 text-4xl mb-4"></i>
-                <h3 className="text-xl font-bold mb-3">Pleasure Craft</h3>
-                <p>Specialized coatings for personal watercraft, sailboats, and motor yachts that provide excellent protection and beautiful finishes.</p>
+              <div className="backdrop-blur-sm bg-primary-900/60 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] p-6 hover:translate-y-[-5px] transition-transform duration-300">
+                <div className="bg-blue-600 p-4 rounded-full inline-block mb-4">
+                  <Ship className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold mb-3 text-blue-300">Pleasure Craft</h3>
+                <p className="text-white">Specialized coatings for personal watercraft, sailboats, and motor yachts that provide excellent protection and beautiful finishes.</p>
               </div>
               
-              <div className="bg-primary-800 premium-border rounded-lg p-6 hover-lift">
-                <i className="fas fa-industry text-primary-400 text-4xl mb-4"></i>
-                <h3 className="text-xl font-bold mb-3">Commercial Vessels</h3>
-                <p>Heavy-duty solutions for commercial ships, fishing vessels, and working boats that enhance durability and reduce maintenance.</p>
+              <div className="backdrop-blur-sm bg-primary-900/60 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] p-6 hover:translate-y-[-5px] transition-transform duration-300">
+                <div className="bg-blue-600 p-4 rounded-full inline-block mb-4">
+                  <Factory className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold mb-3 text-blue-300">Commercial Vessels</h3>
+                <p className="text-white">Heavy-duty solutions for commercial ships, fishing vessels, and working boats that enhance durability and reduce maintenance.</p>
               </div>
               
-              <div className="bg-primary-800 premium-border rounded-lg p-6 hover-lift">
-                <i className="fas fa-water text-primary-400 text-4xl mb-4"></i>
-                <h3 className="text-xl font-bold mb-3">Marine Structures</h3>
-                <p>Protective systems for docks, marinas, offshore platforms and other structures exposed to harsh marine environments.</p>
+              <div className="backdrop-blur-sm bg-primary-900/60 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] p-6 hover:translate-y-[-5px] transition-transform duration-300">
+                <div className="bg-blue-600 p-4 rounded-full inline-block mb-4">
+                  <Waves className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="text-xl font-bold mb-3 text-blue-300">Marine Structures</h3>
+                <p className="text-white">Protective systems for docks, marinas, offshore platforms and other structures exposed to harsh marine environments.</p>
               </div>
             </div>
           </div>
         </section>
       </main>
+      
+      <Footer />
     </div>
   );
 };
