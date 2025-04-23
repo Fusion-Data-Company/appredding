@@ -1,7 +1,8 @@
 import { GradientButton } from "@/components/ui/gradient-button";
 import { useEffect, useRef, useState } from "react";
-// Import the optimized video directly - better for Vite to handle
-import fireWaterHandsVideo from "/videos/fire-water-hands-optimized.mp4";
+// Import directly from assets directory for better build optimization
+import fireWaterHandsVideo from "../assets_dir/videos/fire-water-hands-optimized.mp4";
+import posterImage from "../assets_dir/images/fire-water-hands-poster.jpg";
 
 const HeroSection = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -63,7 +64,7 @@ const HeroSection = () => {
           autoPlay
           muted
           playsInline
-          poster="/images/fire-water-hands-poster.jpg"
+          poster={posterImage}
         >
           <source src={fireWaterHandsVideo} type="video/mp4" />
           Your browser does not support the video tag.
