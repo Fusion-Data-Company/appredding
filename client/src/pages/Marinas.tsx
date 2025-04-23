@@ -223,7 +223,7 @@ const Marinas = () => {
         <section className="py-16 backdrop-blur-sm bg-primary-900/40 relative z-10">
           <div className="container mx-auto">
             <div className="text-center mb-12">
-              <div className="bg-gray-800/60 backdrop-blur-xl rounded-xl border border-gray-600/40 shadow-[0_0_20px_rgba(255,255,255,0.2)] py-8 px-6 md:px-10 mx-auto max-w-3xl mb-8 inline-block">
+              <div className="bg-gray-800/60 backdrop-blur-xl rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] py-8 px-6 md:px-10 mx-auto max-w-3xl mb-8 inline-block">
                 <GradientHeading level={2} className="text-3xl md:text-4xl mb-4" variant="blue">Marine Application Solutions</GradientHeading>
                 <p className="text-[#a0a0a0] max-w-2xl mx-auto">
                   Specialized coatings for every marine application, from personal watercraft to commercial vessels
