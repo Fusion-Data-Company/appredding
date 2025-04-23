@@ -529,7 +529,7 @@ const Pools = () => {
               <GradientHeading level={2} className="text-3xl md:text-4xl mb-12 text-center" variant="blue">Our Pool Coating Systems</GradientHeading>
               
               <div className="grid md:grid-cols-3 gap-8">
-                <div className="bg-primary-800/70 backdrop-blur-sm premium-border rounded-lg p-6 hover-lift">
+                <div className="bg-primary-800/70 backdrop-blur-sm border-4 border-white rounded-lg p-6 hover:translate-y-[-5px] transition-transform duration-300 shadow-[0_0_60px_rgba(255,255,255,0.4)]">
                   <h3 className="text-xl font-bold mb-3">PraetorianPebble™</h3>
                   <p className="mb-4">A luxurious aggregate finish that combines the durability of quartz with the beauty of natural pebbles.</p>
                   <ul className="space-y-2 mb-6">
@@ -549,7 +549,7 @@ const Pools = () => {
                   <GradientButton className="w-full" variant="variant">Learn More</GradientButton>
                 </div>
                 
-                <div className="bg-primary-800/70 backdrop-blur-sm premium-border rounded-lg p-6 hover-lift">
+                <div className="bg-primary-800/70 backdrop-blur-sm border-4 border-white rounded-lg p-6 hover:translate-y-[-5px] transition-transform duration-300 shadow-[0_0_60px_rgba(255,255,255,0.4)]">
                   <h3 className="text-xl font-bold mb-3">PraetorianQuartz™</h3>
                   <p className="mb-4">A premium quartz-based finish that delivers extraordinary durability and a silky-smooth texture.</p>
                   <ul className="space-y-2 mb-6">
@@ -569,7 +569,7 @@ const Pools = () => {
                   <GradientButton className="w-full" variant="variant">Learn More</GradientButton>
                 </div>
                 
-                <div className="bg-primary-800/70 backdrop-blur-sm premium-border rounded-lg p-6 hover-lift">
+                <div className="bg-primary-800/70 backdrop-blur-sm border-4 border-white rounded-lg p-6 hover:translate-y-[-5px] transition-transform duration-300 shadow-[0_0_60px_rgba(255,255,255,0.4)]">
                   <h3 className="text-xl font-bold mb-3">PraetorianEpoxy™</h3>
                   <p className="mb-4">A high-performance epoxy coating system ideal for commercial pools and demanding environments.</p>
                   <ul className="space-y-2 mb-6">
@@ -596,7 +596,7 @@ const Pools = () => {
         {/* Process section */}
         <section className="py-16 relative z-10">
           <div className="container mx-auto">
-            <div className="backdrop-blur-sm bg-primary-900/60 p-8 rounded-xl shadow-lg mb-12">
+            <div className="backdrop-blur-sm bg-primary-900/60 p-8 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] mb-12">
               <GradientHeading level={2} className="text-3xl md:text-4xl mb-12 text-center" variant="blue">Pool Application Process</GradientHeading>
             
               <div className="max-w-5xl mx-auto">
