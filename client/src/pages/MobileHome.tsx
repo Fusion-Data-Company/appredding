@@ -29,7 +29,7 @@ const MobileHome = () => {
         {/* Main content section */}
         <section className="py-16 md:py-24 relative z-10">
           <div className="container mx-auto">
-            <div className="max-w-4xl mx-auto text-center mb-16 backdrop-blur-sm bg-primary-900/60 p-8 rounded-xl shadow-lg">
+            <div className="max-w-4xl mx-auto text-center mb-16 backdrop-blur-sm bg-primary-900/60 p-8 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)]">
               <GradientHeading level={1} className="text-4xl md:text-5xl mb-6 glow-text" variant="mixed">Mobile Home Protection Solutions</GradientHeading>
               <p className="text-xl text-white mb-8">
                 Extend the life and enhance the appearance of your mobile home with our specialized protective coatings. Shield your investment from the elements with our industry-leading solutions.
@@ -37,7 +37,7 @@ const MobileHome = () => {
             </div>
 
             <div className="grid md:grid-cols-2 gap-12 mb-16">
-              <div className="backdrop-blur-sm bg-primary-900/60 premium-border rounded-xl p-8 shadow-lg">
+              <div className="backdrop-blur-sm bg-primary-900/60 border-4 border-white rounded-xl p-8 shadow-[0_0_60px_rgba(255,255,255,0.4)]">
                 <GradientHeading level={2} className="text-3xl mb-6" variant="mixed">Superior Protection Benefits</GradientHeading>
                 
                 <div className="space-y-6">
@@ -104,7 +104,7 @@ const MobileHome = () => {
                 </div>
               </div>
 
-              <div className="backdrop-blur-sm bg-primary-900/60 premium-border rounded-xl p-8 shadow-lg">
+              <div className="backdrop-blur-sm bg-primary-900/60 border-4 border-white rounded-xl p-8 shadow-[0_0_60px_rgba(255,255,255,0.4)]">
                 <GradientHeading level={2} className="text-3xl mb-6" variant="mixed">Application Process</GradientHeading>
                 <p className="mb-8 text-gray-100">Our comprehensive mobile home protection process delivers outstanding results</p>
                 
@@ -160,7 +160,7 @@ const MobileHome = () => {
               <GradientHeading level={2} className="text-3xl md:text-4xl text-center mb-12" variant="mixed">Mobile Home Protection Solutions</GradientHeading>
               
               <div className="grid md:grid-cols-3 gap-8">
-                <div className="backdrop-blur-sm bg-primary-800/80 border border-blue-500/30 rounded-lg p-6 hover-lift shadow-lg">
+                <div className="backdrop-blur-sm bg-primary-800/80 border-4 border-white rounded-lg p-6 hover:translate-y-[-5px] transition-transform duration-300 shadow-[0_0_60px_rgba(255,255,255,0.4)]">
                   <div className="w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center bg-gradient-to-r from-orange-600 to-blue-500 shadow-lg">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
                       <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path>
@@ -170,7 +170,7 @@ const MobileHome = () => {
                   <p className="text-center text-gray-100">Seamless, waterproof membrane that reflects heat, prevents leaks, and extends your roof's lifespan by 15+ years. Available in multiple colors.</p>
                 </div>
                 
-                <div className="backdrop-blur-sm bg-primary-800/80 border border-blue-500/30 rounded-lg p-6 hover-lift shadow-lg">
+                <div className="backdrop-blur-sm bg-primary-800/80 border-4 border-white rounded-lg p-6 hover:translate-y-[-5px] transition-transform duration-300 shadow-[0_0_60px_rgba(255,255,255,0.4)]">
                   <div className="w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center bg-gradient-to-r from-orange-600 to-blue-500 shadow-lg">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
                       <rect x="4" y="5" width="16" height="16" rx="2"></rect>
@@ -184,7 +184,7 @@ const MobileHome = () => {
                   <p className="text-center text-gray-100">Durable, elastomeric coatings that flex with temperature changes while providing exceptional weather resistance and improved appearance.</p>
                 </div>
                 
-                <div className="backdrop-blur-sm bg-primary-800/80 border border-blue-500/30 rounded-lg p-6 hover-lift shadow-lg">
+                <div className="backdrop-blur-sm bg-primary-800/80 border-4 border-white rounded-lg p-6 hover:translate-y-[-5px] transition-transform duration-300 shadow-[0_0_60px_rgba(255,255,255,0.4)]">
                   <div className="w-16 h-16 mx-auto mb-6 rounded-full flex items-center justify-center bg-gradient-to-r from-orange-600 to-blue-500 shadow-lg">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
                       <path d="M5 4c-2.5 5 -2.5 10 0 16m14 -16c2.5 5 2.5 10 0 16m-10 -11h1c1.5 0 3 .5 3 2s-1.5 2 -3 2h-1"></path>
@@ -201,26 +201,26 @@ const MobileHome = () => {
 
         <section className="py-16 relative z-10">
           <div className="container mx-auto">
-            <div className="max-w-4xl mx-auto backdrop-blur-sm bg-primary-900/60 premium-border rounded-xl p-8 shadow-lg">
+            <div className="max-w-4xl mx-auto backdrop-blur-sm bg-primary-900/60 border-4 border-white rounded-xl p-8 shadow-[0_0_60px_rgba(255,255,255,0.4)]">
               <GradientHeading level={2} className="text-3xl font-bold mb-8 text-center" variant="mixed">Why Choose Praetorian?</GradientHeading>
               
               <div className="grid md:grid-cols-2 gap-8 mb-8">
-                <div className="backdrop-blur-sm bg-primary-800/60 border border-blue-500/30 rounded-lg p-5 shadow-lg">
+                <div className="backdrop-blur-sm bg-primary-800/60 border-4 border-white rounded-lg p-5 hover:translate-y-[-5px] transition-transform duration-300 shadow-[0_0_60px_rgba(255,255,255,0.4)]">
                   <h3 className="text-xl font-bold mb-3 text-white">Specialized in Mobile Homes</h3>
                   <p className="text-gray-100">Our technicians are specifically trained in the unique requirements of mobile home protection, unlike general contractors who may lack this specialized expertise.</p>
                 </div>
                 
-                <div className="backdrop-blur-sm bg-primary-800/60 border border-blue-500/30 rounded-lg p-5 shadow-lg">
+                <div className="backdrop-blur-sm bg-primary-800/60 border-4 border-white rounded-lg p-5 hover:translate-y-[-5px] transition-transform duration-300 shadow-[0_0_60px_rgba(255,255,255,0.4)]">
                   <h3 className="text-xl font-bold mb-3 text-white">Extended Warranty</h3>
                   <p className="text-gray-100">We stand behind our work with an industry-leading 15-year warranty on materials and workmanship, transferable to new owners if you sell your home.</p>
                 </div>
                 
-                <div className="backdrop-blur-sm bg-primary-800/60 border border-blue-500/30 rounded-lg p-5 shadow-lg">
+                <div className="backdrop-blur-sm bg-primary-800/60 border-4 border-white rounded-lg p-5 hover:translate-y-[-5px] transition-transform duration-300 shadow-[0_0_60px_rgba(255,255,255,0.4)]">
                   <h3 className="text-xl font-bold mb-3 text-white">Eco-Friendly Solutions</h3>
                   <p className="text-gray-100">Our coatings are low-VOC and environmentally responsible, providing protection without harsh chemicals or harmful emissions.</p>
                 </div>
                 
-                <div className="backdrop-blur-sm bg-primary-800/60 border border-blue-500/30 rounded-lg p-5 shadow-lg">
+                <div className="backdrop-blur-sm bg-primary-800/60 border-4 border-white rounded-lg p-5 hover:translate-y-[-5px] transition-transform duration-300 shadow-[0_0_60px_rgba(255,255,255,0.4)]">
                   <h3 className="text-xl font-bold mb-3 text-white">Financing Available</h3>
                   <p className="text-gray-100">Affordable monthly payment options make protecting your investment accessible, with no money down and interest-free periods available.</p>
                 </div>
@@ -241,7 +241,7 @@ const MobileHome = () => {
               <GradientHeading level={2} className="text-3xl md:text-4xl font-bold mb-12 text-center" variant="mixed">Customer Testimonials</GradientHeading>
               
               <div className="grid md:grid-cols-3 gap-8">
-                <div className="backdrop-blur-sm bg-primary-800/80 border border-blue-500/30 rounded-lg p-6 shadow-lg">
+                <div className="backdrop-blur-sm bg-primary-800/80 border-4 border-white rounded-lg p-6 hover:translate-y-[-5px] transition-transform duration-300 shadow-[0_0_60px_rgba(255,255,255,0.4)]">
                   <div className="flex mb-4">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="text-yellow-400">
                       <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
@@ -263,7 +263,7 @@ const MobileHome = () => {
                   <div className="font-semibold text-orange-200">- David M., Phoenix, AZ</div>
                 </div>
                 
-                <div className="backdrop-blur-sm bg-primary-800/80 border border-blue-500/30 rounded-lg p-6 shadow-lg">
+                <div className="backdrop-blur-sm bg-primary-800/80 border-4 border-white rounded-lg p-6 hover:translate-y-[-5px] transition-transform duration-300 shadow-[0_0_60px_rgba(255,255,255,0.4)]">
                   <div className="flex mb-4">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="text-yellow-400">
                       <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
@@ -285,7 +285,7 @@ const MobileHome = () => {
                   <div className="font-semibold text-orange-200">- Linda W., Tucson, AZ</div>
                 </div>
                 
-                <div className="backdrop-blur-sm bg-primary-800/80 border border-blue-500/30 rounded-lg p-6 shadow-lg">
+                <div className="backdrop-blur-sm bg-primary-800/80 border-4 border-white rounded-lg p-6 hover:translate-y-[-5px] transition-transform duration-300 shadow-[0_0_60px_rgba(255,255,255,0.4)]">
                   <div className="flex mb-4">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="text-yellow-400">
                       <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
