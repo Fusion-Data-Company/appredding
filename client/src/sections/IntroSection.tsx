@@ -40,15 +40,15 @@ const IntroSection = () => {
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-            <div className="bg-gray-800/50 p-6 rounded-lg shadow-md">
+            <div className="bg-gradient-to-r from-gray-800/90 to-gray-700/90 p-6 rounded-lg border border-gray-600/40 shadow-[0_0_20px_rgba(255,255,255,0.2)]">
               <GradientHeading level={3} className="text-xl mb-3" variant="fire">Advanced Protection</GradientHeading>
               <p className="text-gray-300">Our specialized coatings create an impenetrable barrier against extreme elements, ensuring lasting protection.</p>
             </div>
-            <div className="bg-gray-800/50 p-6 rounded-lg shadow-md">
+            <div className="bg-gradient-to-r from-gray-800/90 to-gray-700/90 p-6 rounded-lg border border-gray-600/40 shadow-[0_0_20px_rgba(255,255,255,0.2)]">
               <GradientHeading level={3} className="text-xl mb-3" variant="blue">Industry Expertise</GradientHeading>
               <p className="text-gray-300">With decades of experience, our solutions are tailored to meet the specific needs of multiple industries.</p>
             </div>
-            <div className="bg-gray-800/50 p-6 rounded-lg shadow-md">
+            <div className="bg-gradient-to-r from-gray-800/90 to-gray-700/90 p-6 rounded-lg border border-gray-600/40 shadow-[0_0_20px_rgba(255,255,255,0.2)]">
               <GradientHeading level={3} className="text-xl mb-3" variant="mixed">Superior Materials</GradientHeading>
               <p className="text-gray-300">We use only premium-grade materials engineered to deliver exceptional performance in harsh conditions.</p>
             </div>

@@ -140,7 +140,7 @@ const ContactSection = () => {
                   <input 
                     type="text" 
                     id="firstName" 
-                    className={`w-full bg-gradient-to-r from-gray-800/90 to-gray-700/90 border ${formErrors.firstName ? 'border-red-500' : 'border-gray-600/40'} rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#0070f3] shadow-[0_0_8px_rgba(255,255,255,0.05)]`}
+                    className={`w-full bg-gradient-to-r from-gray-800/90 to-gray-700/90 border ${formErrors.firstName ? 'border-red-500' : 'border-gray-600/40'} rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#0070f3] shadow-[0_0_15px_rgba(255,255,255,0.15)]`}
                     value={formData.firstName}
                     onChange={handleInputChange}
                     required
@@ -152,7 +152,7 @@ const ContactSection = () => {
                   <input 
                     type="text" 
                     id="lastName" 
-                    className={`w-full bg-gradient-to-r from-gray-800/90 to-gray-700/90 border ${formErrors.lastName ? 'border-red-500' : 'border-gray-600/40'} rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#0070f3] shadow-[0_0_8px_rgba(255,255,255,0.05)]`}
+                    className={`w-full bg-gradient-to-r from-gray-800/90 to-gray-700/90 border ${formErrors.lastName ? 'border-red-500' : 'border-gray-600/40'} rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#0070f3] shadow-[0_0_15px_rgba(255,255,255,0.15)]`}
                     value={formData.lastName}
                     onChange={handleInputChange}
                     required
@@ -166,7 +166,7 @@ const ContactSection = () => {
                 <input 
                   type="email" 
                   id="email" 
-                  className={`w-full bg-gradient-to-r from-gray-800/90 to-gray-700/90 border ${formErrors.email ? 'border-red-500' : 'border-gray-600/40'} rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#0070f3] shadow-[0_0_8px_rgba(255,255,255,0.05)]`}
+                  className={`w-full bg-gradient-to-r from-gray-800/90 to-gray-700/90 border ${formErrors.email ? 'border-red-500' : 'border-gray-600/40'} rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#0070f3] shadow-[0_0_15px_rgba(255,255,255,0.15)]`}
                   value={formData.email}
                   onChange={handleInputChange}
                   required
@@ -179,7 +179,7 @@ const ContactSection = () => {
                 <input 
                   type="tel" 
                   id="phone" 
-                  className="w-full bg-gradient-to-r from-gray-800/90 to-gray-700/90 border border-gray-600/40 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#0070f3] shadow-[0_0_8px_rgba(255,255,255,0.05)]"
+                  className="w-full bg-gradient-to-r from-gray-800/90 to-gray-700/90 border border-gray-600/40 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#0070f3] shadow-[0_0_15px_rgba(255,255,255,0.15)]"
                   value={formData.phone}
                   onChange={handleInputChange}
                 />
@@ -189,7 +189,7 @@ const ContactSection = () => {
                 <label htmlFor="interest" className="block text-sm font-medium mb-2">I'm interested in</label>
                 <select 
                   id="interest" 
-                  className="w-full bg-gradient-to-r from-gray-800/90 to-gray-700/90 border border-gray-600/40 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#0070f3] shadow-[0_0_8px_rgba(255,255,255,0.05)]"
+                  className="w-full bg-gradient-to-r from-gray-800/90 to-gray-700/90 border border-gray-600/40 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#0070f3] shadow-[0_0_15px_rgba(255,255,255,0.15)]"
                   value={formData.interest}
                   onChange={handleSelectChange}
                 >
@@ -208,7 +208,7 @@ const ContactSection = () => {
                 <textarea 
                   id="message" 
                   rows={4} 
-                  className="w-full bg-gradient-to-r from-gray-800/90 to-gray-700/90 border border-gray-600/40 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#0070f3] shadow-[0_0_8px_rgba(255,255,255,0.05)] resize-none"
+                  className="w-full bg-gradient-to-r from-gray-800/90 to-gray-700/90 border border-gray-600/40 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#0070f3] shadow-[0_0_15px_rgba(255,255,255,0.15)] resize-none"
                   value={formData.message}
                   onChange={handleInputChange}
                 ></textarea>
@@ -225,14 +225,14 @@ const ContactSection = () => {
           </div>
           
           <div>
-            <div className="bg-gradient-to-r from-gray-800/95 to-gray-700/95 backdrop-blur-xl rounded-lg overflow-hidden h-full border border-gray-600/40 shadow-[0_0_15px_rgba(255,255,255,0.15)]">
+            <div className="bg-gradient-to-r from-gray-800/95 to-gray-700/95 backdrop-blur-xl rounded-lg overflow-hidden h-full border border-gray-600/40 shadow-[0_0_20px_rgba(255,255,255,0.2)]">
               <div className="p-8">
                 <GradientHeading level={3} className="text-xl mb-6" variant="blue">Contact Information</GradientHeading>
                 
                 <div className="space-y-6">
                   <div className="flex items-start">
-                    <div className="bg-[#0070f3]/20 rounded-full p-2 mr-4 mt-1">
-                      <i className="fas fa-map-marker-alt text-[#0070f3]"></i>
+                    <div className="bg-gradient-to-r from-gray-700 to-gray-600 rounded-full p-2 mr-4 mt-1 shadow-[0_0_5px_rgba(255,255,255,0.15)]">
+                      <i className="fas fa-map-marker-alt text-white"></i>
                     </div>
                     <div>
                       <h4 className="font-semibold mb-1">Address</h4>
@@ -241,8 +241,8 @@ const ContactSection = () => {
                   </div>
                   
                   <div className="flex items-start">
-                    <div className="bg-[#0070f3]/20 rounded-full p-2 mr-4 mt-1">
-                      <i className="fas fa-phone-alt text-[#0070f3]"></i>
+                    <div className="bg-gradient-to-r from-gray-700 to-gray-600 rounded-full p-2 mr-4 mt-1 shadow-[0_0_5px_rgba(255,255,255,0.15)]">
+                      <i className="fas fa-phone-alt text-white"></i>
                     </div>
                     <div>
                       <h4 className="font-semibold mb-1">Phone</h4>

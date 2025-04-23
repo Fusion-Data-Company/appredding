@@ -1,4 +1,5 @@
 import { GradientHeading } from "@/components/ui/gradient-heading";
+import { GradientButton } from "@/components/ui/gradient-button";
 
 const ProductHistorySection = () => {
   return (
@@ -35,43 +36,43 @@ const ProductHistorySection = () => {
                 <span>Industry-leading R&D laboratory and testing facility</span>
               </li>
             </ul>
-            <a 
-              href="#contact" 
-              className="bg-primary-600 hover:bg-primary-500 text-white font-medium py-3 px-6 rounded-lg transition-colors inline-block"
+            <GradientButton 
+              size="lg"
+              onClick={() => window.location.href="#contact"}
             >
               Learn About Our Story
-            </a>
+            </GradientButton>
           </div>
           
-          <div className="bg-primary-800 rounded-lg overflow-hidden shadow-lg">
-            <div className="p-6 border-b border-primary-700">
+          <div className="bg-gradient-to-r from-gray-800/90 to-gray-700/90 rounded-lg overflow-hidden border border-gray-600/40 shadow-[0_0_20px_rgba(255,255,255,0.2)]">
+            <div className="p-6 border-b border-gray-600/40">
               <GradientHeading level={3} className="text-xl" variant="blue">Product Innovation Timeline</GradientHeading>
               <p className="text-gray-300">Explore our history of protective coating innovations</p>
             </div>
             <div className="p-6 space-y-6">
-              <div className="relative pl-8 border-l-2 border-primary-600 pb-6">
-                <div className="absolute -left-2 top-0 w-4 h-4 rounded-full bg-primary-600"></div>
+              <div className="relative pl-8 border-l-2 border-gray-600/40 pb-6">
+                <div className="absolute -left-2 top-0 w-4 h-4 rounded-full bg-gradient-to-r from-gray-700 to-gray-600 shadow-[0_0_5px_rgba(255,255,255,0.15)]"></div>
                 <div className="font-bold">1978</div>
                 <div className="text-lg font-semibold">Company Founded</div>
                 <p className="text-gray-300">Praetorian Protective Coatings established in Portland, Oregon</p>
               </div>
               
-              <div className="relative pl-8 border-l-2 border-primary-600 pb-6">
-                <div className="absolute -left-2 top-0 w-4 h-4 rounded-full bg-primary-600"></div>
+              <div className="relative pl-8 border-l-2 border-gray-600/40 pb-6">
+                <div className="absolute -left-2 top-0 w-4 h-4 rounded-full bg-gradient-to-r from-gray-700 to-gray-600 shadow-[0_0_5px_rgba(255,255,255,0.15)]"></div>
                 <div className="font-bold">1985</div>
                 <div className="text-lg font-semibold">First Marine Coating</div>
                 <p className="text-gray-300">Launched revolutionary salt-resistant technology</p>
               </div>
               
-              <div className="relative pl-8 border-l-2 border-primary-600 pb-6">
-                <div className="absolute -left-2 top-0 w-4 h-4 rounded-full bg-primary-600"></div>
+              <div className="relative pl-8 border-l-2 border-gray-600/40 pb-6">
+                <div className="absolute -left-2 top-0 w-4 h-4 rounded-full bg-gradient-to-r from-gray-700 to-gray-600 shadow-[0_0_5px_rgba(255,255,255,0.15)]"></div>
                 <div className="font-bold">1998</div>
                 <div className="text-lg font-semibold">Fire Retardant Breakthrough</div>
                 <p className="text-gray-300">Developed Class-A intumescent coating technology</p>
               </div>
               
               <div className="relative pl-8">
-                <div className="absolute -left-2 top-0 w-4 h-4 rounded-full bg-primary-600"></div>
+                <div className="absolute -left-2 top-0 w-4 h-4 rounded-full bg-gradient-to-r from-gray-700 to-gray-600 shadow-[0_0_5px_rgba(255,255,255,0.15)]"></div>
                 <div className="font-bold">2010 - Present</div>
                 <div className="text-lg font-semibold">Smart Coating Systems</div>
                 <p className="text-gray-300">Introduction of self-healing and indicator coating technologies</p>
