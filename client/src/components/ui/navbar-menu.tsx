@@ -27,7 +27,7 @@ export const MenuItem = ({
     <div onMouseEnter={() => setActive(item)} className="relative">
       <motion.p
         transition={{ duration: 0.3 }}
-        className="cursor-pointer text-gray-200 hover:text-[#ff6a00] relative px-3 py-1.5 text-lg font-bold tracking-wide uppercase after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:rounded-full after:origin-bottom after:scale-x-0 hover:after:scale-x-100 after:bg-gradient-to-r after:from-[#ff4500] after:via-[#ff6a00] after:to-[#ff8c00] after:transition-transform after:duration-300"
+        className="cursor-pointer relative px-3 py-1.5 text-lg font-bold tracking-wide uppercase after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:rounded-full after:origin-bottom after:scale-x-0 hover:after:scale-x-100 after:bg-gradient-to-r after:from-[#ff4500] after:via-[#ff6a00] after:to-[#ff8c00] after:transition-transform after:duration-300 font-heading gradient-text-blue hover:gradient-text-fire"
       >
         {item}
       </motion.p>
@@ -97,7 +97,7 @@ export const ProductItem = ({
         className="flex-shrink-0 rounded-md shadow-md border border-[#ff6a00]/20 hover:border-[#ff6a00]/40 transition-colors"
       />
       <div>
-        <h4 className="text-lg font-extrabold mb-1 text-white group-hover:text-[#ff6a00] transition-colors uppercase tracking-wide">
+        <h4 className="text-lg font-extrabold mb-1 uppercase tracking-wide font-heading gradient-text-blue group-hover:gradient-text-fire transition-colors">
           {title}
         </h4>
         <p className="text-gray-300 text-sm max-w-[10rem]">
@@ -112,7 +112,7 @@ export const HoveredLink = ({ children, ...rest }: any) => {
   return (
     <Link
       {...rest}
-      className="text-gray-200 hover:text-[#ff6a00] font-bold text-base uppercase tracking-wide transition-all px-2 py-1.5 block rounded-md relative after:absolute after:bottom-0 after:left-2 after:right-2 after:h-[2px] after:rounded-full after:origin-bottom after:scale-x-0 hover:after:scale-x-100 after:bg-gradient-to-r after:from-[#ff4500]/50 after:via-[#ff6a00]/50 after:to-[#ff8c00]/50 after:transition-transform after:duration-300 hover:bg-white/5"
+      className="gradient-text-blue hover:gradient-text-fire font-bold text-base uppercase tracking-wide transition-all px-2 py-1.5 block rounded-md relative after:absolute after:bottom-0 after:left-2 after:right-2 after:h-[2px] after:rounded-full after:origin-bottom after:scale-x-0 hover:after:scale-x-100 after:bg-gradient-to-r after:from-[#ff4500]/50 after:via-[#ff6a00]/50 after:to-[#ff8c00]/50 after:transition-transform after:duration-300 hover:bg-white/5 font-heading"
     >
       {children}
     </Link>
