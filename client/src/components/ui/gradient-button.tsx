@@ -25,7 +25,7 @@ export const gradientButtonVariants = cva(
 )
 
 export interface GradientButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+  extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'href'>,
     VariantProps<typeof gradientButtonVariants> {
   asChild?: boolean
   href?: string
@@ -35,24 +35,13 @@ export const GradientButton = React.forwardRef<HTMLButtonElement, GradientButton
   ({ className, variant, size, asChild = false, href, ...props }, ref) => {
     const Comp = asChild ? Slot : href ? "a" : "button"
     
-    // Strip out button-specific props if using an anchor
-    if (href) {
-      const { type, ...rest } = props;
-      return (
-        <Comp
-          className={cn(gradientButtonVariants({ variant, size, className }))}
-          ref={ref as any}
-          href={href}
-          {...rest}
-        />
-      );
-    }
-    
     return (
       <Comp
         className={cn(gradientButtonVariants({ variant, size, className }))}
-        ref={ref}
-        {...props}
+        ref={ref as any}
+        href={href}
+        {...(href ? {} : props)}
+        {...(href ? { "aria-label": props["aria-label"] } : {})}
       />
     );
   }
