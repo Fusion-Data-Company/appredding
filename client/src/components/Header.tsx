@@ -50,7 +50,7 @@ const Header = () => {
         <div className="hidden md:flex items-center">
           <Menu setActive={setActiveItem}>
             <MenuItem setActive={setActiveItem} active={activeItem} item="Applications">
-              <div className="grid grid-cols-2 gap-4 p-2 w-[400px]">
+              <div className="grid grid-cols-2 gap-4 p-2 w-[420px] text-center">
                 <HoveredLink href="/pools">Pools</HoveredLink>
                 <HoveredLink href="/marinas">Marinas</HoveredLink>
                 <HoveredLink href="/fire-prevention">Fire Prevention</HoveredLink>
@@ -62,20 +62,20 @@ const Header = () => {
             </MenuItem>
             
             <MenuItem setActive={setActiveItem} active={activeItem} item="About">
-              <div className="flex flex-col space-y-2 p-2 w-[200px]">
+              <div className="flex flex-col space-y-2 p-2 w-[200px] text-center">
                 <HoveredLink href="/about">Company</HoveredLink>
                 <HoveredLink href="/team">Team</HoveredLink>
                 {isHomePage ? (
                   <a 
                     href="#contact" 
-                    className="text-gray-200 hover:text-[#ff6a00] font-medium transition-colors px-2 py-1.5 block"
+                    className="gradient-text-blue hover:gradient-text-fire font-bold text-base uppercase tracking-wide transition-all px-2 py-1.5 block rounded-md relative font-heading text-center"
                   >
                     Contact Us
                   </a>
                 ) : (
                   <Link
                     href="/#contact"
-                    className="text-gray-200 hover:text-[#ff6a00] font-medium transition-colors px-2 py-1.5 block"
+                    className="gradient-text-blue hover:gradient-text-fire font-bold text-base uppercase tracking-wide transition-all px-2 py-1.5 block rounded-md relative font-heading text-center"
                   >
                     Contact Us
                   </Link>
@@ -84,7 +84,7 @@ const Header = () => {
             </MenuItem>
             
             <MenuItem setActive={setActiveItem} active={activeItem} item="Access">
-              <div className="flex flex-col space-y-2 p-2 w-[200px]">
+              <div className="flex flex-col space-y-2 p-2 w-[200px] text-center">
                 <HoveredLink href="/client-dashboard">Client Dashboard</HoveredLink>
                 <HoveredLink href="/admin-dashboard">Admin Dashboard</HoveredLink>
                 <HoveredLink href="/crm">Team CRM</HoveredLink>
