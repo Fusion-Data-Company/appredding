@@ -36,7 +36,7 @@ const FeaturesSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-gray-800/30 backdrop-blur-xl" id="features">
+    <section className="py-20 bg-gray-400/20 backdrop-blur-xl" id="features">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <GradientHeading level={2} className="text-3xl md:text-4xl mb-4" variant="mixed">Superior Protection Features</GradientHeading>

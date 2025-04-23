@@ -3,7 +3,7 @@ import { GradientHeading } from "@/components/ui/gradient-heading";
 
 const ProductPerformanceSection = () => {
   return (
-    <section className="py-20 bg-gray-800/30 backdrop-blur-xl">
+    <section className="py-20 bg-gray-400/20 backdrop-blur-xl">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <GradientHeading level={2} className="text-3xl md:text-4xl mb-4" variant="mixed">Product Performance Data</GradientHeading>
