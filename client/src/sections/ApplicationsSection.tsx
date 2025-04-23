@@ -57,7 +57,7 @@ const ApplicationsSection = () => {
       link: "/marinas"
     },
     {
-      imageSrc: "https://images.unsplash.com/photo-1560090995-01632a28895b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+      imageSrc: "/assets/pool-protection.jpg",
       title: "Pool",
       description: "Chemical resistant finishes for pool surfaces",
       link: "/pools"
@@ -70,7 +70,7 @@ const ApplicationsSection = () => {
     },
     {
       imageSrc: "/assets/mobile-home-protection.jpg",
-      title: "Mobile Home & R.V.",
+      title: "Mobile Home",
       description: "Specialized coatings for manufactured housing",
       link: "/mobile-home"
     },
