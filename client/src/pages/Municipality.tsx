@@ -15,7 +15,7 @@ const MunicipalityPage = () => {
         <div 
           className="fixed inset-0 z-0 bg-center bg-cover bg-no-repeat" 
           style={{ 
-            backgroundImage: "url('/images/fire-water-planet-hq.jpg')",
+            backgroundImage: "url('/images/municipality-bg.jpg')",
             backgroundAttachment: 'fixed',
             backgroundPosition: 'center',
             backgroundSize: 'cover',
