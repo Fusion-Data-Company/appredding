@@ -5,12 +5,11 @@ const HeroSection = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    // Ensure smooth looping by handling the 'ended' event
+    // Freeze on the last frame when video ends
     const handleVideoEnded = () => {
       if (videoRef.current) {
-        videoRef.current.play().catch(error => {
-          console.error("Error playing video:", error);
-        });
+        // Do not replay - keep the last frame visible
+        videoRef.current.currentTime = videoRef.current.duration - 0.01;
       }
     };
 
@@ -42,7 +41,6 @@ const HeroSection = () => {
           autoPlay
           muted
           playsInline
-          loop
         >
           <source src="/videos/fire-water-hands.mp4" type="video/mp4" />
           Your browser does not support the video tag.
