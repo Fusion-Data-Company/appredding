@@ -27,7 +27,7 @@ export const MenuItem = ({
     <div onMouseEnter={() => setActive(item)} className="relative">
       <motion.p
         transition={{ duration: 0.3 }}
-        className="cursor-pointer relative px-3 py-4 text-lg font-bold tracking-wide uppercase after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:rounded-full after:origin-bottom after:scale-x-0 hover:after:scale-x-100 after:bg-gradient-to-r after:from-[#ff4500] after:via-[#ff6a00] after:to-[#ff8c00] after:transition-transform after:duration-300 font-heading gradient-text-blue hover:gradient-text-fire text-center"
+        className="cursor-pointer relative px-2 py-2 text-lg font-bold tracking-wide uppercase after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:rounded-full after:origin-bottom after:scale-x-0 hover:after:scale-x-100 after:bg-gradient-to-r after:from-[#ff4500] after:via-[#ff6a00] after:to-[#ff8c00] after:transition-transform after:duration-300 font-heading gradient-text-blue hover:gradient-text-fire text-center"
       >
         {item}
       </motion.p>
@@ -69,7 +69,7 @@ export const Menu = ({
   return (
     <nav
       onMouseLeave={() => setActive(null)} // resets the state
-      className="relative rounded-full border-2 border-[#ff6a00]/40 bg-gradient-to-r from-gray-800/75 to-gray-700/75 backdrop-blur-xl shadow-[0_0_15px_rgba(255,106,0,0.3)] flex justify-center items-center space-x-10 px-10 py-8"
+      className="relative rounded-full border-2 border-[#ff6a00]/40 bg-gradient-to-r from-gray-800/75 to-gray-700/75 backdrop-blur-xl shadow-[0_0_15px_rgba(255,106,0,0.3)] flex justify-center items-center space-x-4 px-4 py-3 w-max mx-auto"
     >
       {children}
     </nav>
