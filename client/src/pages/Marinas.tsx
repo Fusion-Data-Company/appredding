@@ -6,7 +6,6 @@ import { GradientHeading } from "@/components/ui/gradient-heading";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Anchor, ShieldCheck, Sun, Leaf, Ship, Factory, Waves } from "lucide-react";
-import sailboatBg from "@assets/peakpx (8).jpg";
 
 const Marinas = () => {
   const [vesselType, setVesselType] = useState("");
@@ -27,7 +26,7 @@ const Marinas = () => {
         <div 
           className="fixed inset-0 z-0 bg-center bg-cover bg-no-repeat" 
           style={{ 
-            backgroundImage: `url(${sailboatBg})`,
+            backgroundImage: "url('/images/sailboat-bg.jpg')",
             backgroundAttachment: 'fixed',
             backgroundPosition: 'center',
             backgroundSize: 'cover',
@@ -41,7 +40,7 @@ const Marinas = () => {
         {/* Main content section */}
         <section className="py-16 md:py-24 relative z-10">
           <div className="container mx-auto">
-            <div className="max-w-4xl mx-auto text-center mb-16 backdrop-blur-sm bg-primary-900/60 p-8 rounded-xl shadow-lg">
+            <div className="max-w-4xl mx-auto text-center mb-16 backdrop-blur-sm bg-primary-900/60 p-8 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)]">
               <GradientHeading level={1} className="text-4xl md:text-5xl mb-6 glow-text" variant="blue">Marine Protection Systems</GradientHeading>
               <p className="text-xl text-white mb-8">
                 Our marine coatings provide superior protection against salt water, UV damage, and marine growth for all types of watercraft and marine structures.
