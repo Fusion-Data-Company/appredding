@@ -38,15 +38,15 @@ export const MenuItem = ({
           transition={transition}
         >
           {active === item && (
-            <div className="absolute top-[calc(100%_+_1.8rem)] left-1/2 transform -translate-x-1/2 pt-4 z-50">
+            <div className="absolute top-[calc(100%_+_0.5rem)] left-1/2 transform -translate-x-1/2 pt-1 z-50">
               <motion.div
                 transition={transition}
                 layoutId="active" // layoutId ensures smooth animation
-                className="bg-gradient-to-b from-gray-700/95 to-gray-800/95 backdrop-blur-3xl backdrop-filter before:absolute before:inset-0 before:bg-gray-600/50 before:z-[-1] relative rounded-xl overflow-hidden border border-[#ff6a00]/40 shadow-[0_10px_25px_-5px_rgba(0,0,0,0.3)]"
+                className="bg-gradient-to-b from-gray-700/95 to-gray-800/95 backdrop-blur-3xl backdrop-filter before:absolute before:inset-0 before:bg-gray-600/50 before:z-[-1] relative rounded-xl overflow-hidden border border-[#ff6a00]/40 shadow-[0_10px_25px_-5px_rgba(0,0,0,0.3)] min-w-max"
               >
                 <motion.div
                   layout // layout ensures smooth animation
-                  className="w-max h-full p-4"
+                  className="h-full p-4"
                 >
                   {children}
                 </motion.div>
@@ -69,7 +69,7 @@ export const Menu = ({
   return (
     <nav
       onMouseLeave={() => setActive(null)} // resets the state
-      className="relative rounded-full border-2 border-[#ff6a00]/40 bg-gradient-to-r from-gray-800/75 to-gray-700/75 backdrop-blur-xl shadow-[0_0_15px_rgba(255,106,0,0.3)] flex justify-center items-end space-x-4 px-4 py-0 h-12 w-max mx-auto"
+      className="relative rounded-full border-2 border-[#ff6a00]/40 bg-gradient-to-r from-gray-800/75 to-gray-700/75 backdrop-blur-xl shadow-[0_0_15px_rgba(255,106,0,0.3)] flex justify-center items-center space-x-4 px-4 py-1 w-max mx-auto"
     >
       {children}
     </nav>
@@ -112,7 +112,7 @@ export const HoveredLink = ({ children, ...rest }: any) => {
   return (
     <Link
       {...rest}
-      className="gradient-text-blue hover:gradient-text-fire font-bold text-base uppercase tracking-wide transition-all px-2 py-0 block rounded-md relative after:absolute after:bottom-[-1px] after:left-2 after:right-2 after:h-[2px] after:rounded-full after:origin-bottom after:scale-x-0 hover:after:scale-x-100 after:bg-gradient-to-r after:from-[#ff4500]/50 after:via-[#ff6a00]/50 after:to-[#ff8c00]/50 after:transition-transform after:duration-300 hover:bg-white/5 font-heading text-center flex items-end pb-1 h-full"
+      className="gradient-text-blue hover:gradient-text-fire font-bold text-base uppercase tracking-wide transition-all px-2 py-1.5 block rounded-md relative after:absolute after:bottom-[-1px] after:left-2 after:right-2 after:h-[2px] after:rounded-full after:origin-bottom after:scale-x-0 hover:after:scale-x-100 after:bg-gradient-to-r after:from-[#ff4500]/50 after:via-[#ff6a00]/50 after:to-[#ff8c00]/50 after:transition-transform after:duration-300 hover:bg-white/5 font-heading text-center"
     >
       {children}
     </Link>
