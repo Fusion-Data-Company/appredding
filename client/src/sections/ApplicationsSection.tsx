@@ -14,7 +14,7 @@ const ApplicationCard = ({ imageSrc, title, description, link }: ApplicationCard
   const isWaterRelated = title === "Marine" || title === "Pool";
   
   return (
-    <div className="group relative rounded-lg overflow-hidden h-[450px] block cursor-pointer shadow-[0_0_20px_rgba(255,255,255,0.2)] border border-gray-600/40">
+    <div className="group relative rounded-lg overflow-hidden h-[450px] block cursor-pointer shadow-[0_0_60px_rgba(255,255,255,0.4)] border-4 border-white">
       <img 
         src={imageSrc} 
         alt={title} 
@@ -70,7 +70,7 @@ const ApplicationsSection = () => {
     },
     {
       imageSrc: "/assets/mobile-home-protection.jpg",
-      title: "Mobile Home",
+      title: "Mobile Home & R.V.",
       description: "Specialized coatings for manufactured housing",
       link: "/mobile-home"
     },
