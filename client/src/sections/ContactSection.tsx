@@ -251,8 +251,8 @@ const ContactSection = () => {
                   </div>
                   
                   <div className="flex items-start">
-                    <div className="bg-[#0070f3]/20 rounded-full p-2 mr-4 mt-1">
-                      <i className="fas fa-envelope text-[#0070f3]"></i>
+                    <div className="bg-gradient-to-r from-gray-700 to-gray-600 rounded-full p-2 mr-4 mt-1 shadow-[0_0_5px_rgba(255,255,255,0.15)]">
+                      <i className="fas fa-envelope text-white"></i>
                     </div>
                     <div>
                       <h4 className="font-semibold mb-1">Email</h4>
@@ -261,8 +261,8 @@ const ContactSection = () => {
                   </div>
                   
                   <div className="flex items-start">
-                    <div className="bg-[#0070f3]/20 rounded-full p-2 mr-4 mt-1">
-                      <i className="fas fa-clock text-[#0070f3]"></i>
+                    <div className="bg-gradient-to-r from-gray-700 to-gray-600 rounded-full p-2 mr-4 mt-1 shadow-[0_0_5px_rgba(255,255,255,0.15)]">
+                      <i className="fas fa-clock text-white"></i>
                     </div>
                     <div>
                       <h4 className="font-semibold mb-1">Hours</h4>
@@ -274,17 +274,17 @@ const ContactSection = () => {
                 <div className="mt-8">
                   <h4 className="font-semibold mb-3">Follow Us</h4>
                   <div className="flex space-x-4">
-                    <a href="#" className="bg-white/10 hover:bg-[#0070f3]/20 w-10 h-10 rounded-full flex items-center justify-center transition-colors">
-                      <i className="fab fa-facebook-f text-[#0070f3]"></i>
+                    <a href="#" className="bg-gradient-to-r from-gray-700 to-gray-600 w-10 h-10 rounded-full flex items-center justify-center transition-colors hover:opacity-80 shadow-[0_0_5px_rgba(255,255,255,0.15)]">
+                      <i className="fab fa-facebook-f text-white"></i>
                     </a>
-                    <a href="#" className="bg-white/10 hover:bg-[#0070f3]/20 w-10 h-10 rounded-full flex items-center justify-center transition-colors">
-                      <i className="fab fa-twitter text-[#0070f3]"></i>
+                    <a href="#" className="bg-gradient-to-r from-gray-700 to-gray-600 w-10 h-10 rounded-full flex items-center justify-center transition-colors hover:opacity-80 shadow-[0_0_5px_rgba(255,255,255,0.15)]">
+                      <i className="fab fa-twitter text-white"></i>
                     </a>
-                    <a href="#" className="bg-white/10 hover:bg-[#0070f3]/20 w-10 h-10 rounded-full flex items-center justify-center transition-colors">
-                      <i className="fab fa-linkedin-in text-[#0070f3]"></i>
+                    <a href="#" className="bg-gradient-to-r from-gray-700 to-gray-600 w-10 h-10 rounded-full flex items-center justify-center transition-colors hover:opacity-80 shadow-[0_0_5px_rgba(255,255,255,0.15)]">
+                      <i className="fab fa-linkedin-in text-white"></i>
                     </a>
-                    <a href="#" className="bg-white/10 hover:bg-[#0070f3]/20 w-10 h-10 rounded-full flex items-center justify-center transition-colors">
-                      <i className="fab fa-instagram text-[#0070f3]"></i>
+                    <a href="#" className="bg-gradient-to-r from-gray-700 to-gray-600 w-10 h-10 rounded-full flex items-center justify-center transition-colors hover:opacity-80 shadow-[0_0_5px_rgba(255,255,255,0.15)]">
+                      <i className="fab fa-instagram text-white"></i>
                     </a>
                   </div>
                 </div>
