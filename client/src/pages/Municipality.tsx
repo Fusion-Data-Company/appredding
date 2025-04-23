@@ -128,7 +128,11 @@ const MunicipalityPage = () => {
             </div>
 
             <div className="backdrop-blur-sm bg-primary-900/80 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] p-8 mb-16">
-              <GradientHeading level={2} className="text-2xl font-bold mb-6 text-center" variant="mixed">Municipal Infrastructure Protection</GradientHeading>
+              <h2 className="mb-6 text-3xl md:text-4xl font-bold text-center">
+                <span className="text-blue-300">Municipal </span>
+                <span className="text-white">Infrastructure </span>
+                <span className="text-orange-400">Protection</span>
+              </h2>
               <p className="text-white mb-8 text-center max-w-3xl mx-auto">
                 Our specialized municipal coatings are designed to provide long-lasting protection for public infrastructure, 
                 enhancing durability while reducing maintenance costs and extending service life. Engineered with advanced polymer technology, 
