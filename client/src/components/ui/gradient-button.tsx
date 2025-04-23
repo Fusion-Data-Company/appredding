@@ -31,6 +31,13 @@ export interface GradientButtonProps
   href?: string
 }
 
+/**
+ * GradientButton component that can render as either a button or an anchor tag.
+ * 
+ * Note: Using `as any` for the ref typing is necessary here as TypeScript doesn't 
+ * handle polymorphic refs well. This is a common pattern for components that can 
+ * render as different elements while maintaining proper accessibility.
+ */
 export const GradientButton = React.forwardRef<HTMLButtonElement, GradientButtonProps>(
   ({ className, variant, size, asChild = false, href, ...props }, ref) => {
     const Comp = asChild ? Slot : href ? "a" : "button"
@@ -40,8 +47,7 @@ export const GradientButton = React.forwardRef<HTMLButtonElement, GradientButton
         className={cn(gradientButtonVariants({ variant, size, className }))}
         ref={ref as any}
         href={href}
-        {...(href ? {} : props)}
-        {...(href ? { "aria-label": props["aria-label"] } : {})}
+        {...props} 
       />
     );
   }
