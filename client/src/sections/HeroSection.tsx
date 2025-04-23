@@ -1,8 +1,5 @@
 import { GradientButton } from "@/components/ui/gradient-button";
 import { useEffect, useRef, useState } from "react";
-// Import directly from assets directory for better build optimization
-import fireWaterHandsVideo from "../assets_dir/videos/fire-water-hands-optimized.mp4";
-import posterImage from "../assets_dir/images/fire-water-hands-poster.jpg";
 
 const HeroSection = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -64,9 +61,13 @@ const HeroSection = () => {
           autoPlay
           muted
           playsInline
-          poster={posterImage}
+          poster="/images/fire-water-hands-poster.jpg"
+          preload="auto"
         >
-          <source src={fireWaterHandsVideo} type="video/mp4" />
+          {/* WebM for Chrome, Firefox and modern browsers (usually loads faster) */}
+          <source src="/videos/fire-water-hands.webm" type="video/webm" />
+          {/* MP4 fallback for Safari and iOS */}
+          <source src="/videos/fire-water-hands-optimized.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </div>
