@@ -40,7 +40,7 @@ const FeaturesSection = () => {
       className="py-20 relative" 
       id="features"
       style={{
-        backgroundImage: 'url("/images/fire-water-background.jpg")',
+        backgroundImage: 'url("/images/premium-fire-bg.jpg")',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
