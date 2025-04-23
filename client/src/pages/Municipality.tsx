@@ -19,12 +19,12 @@ const MunicipalityPage = () => {
             backgroundAttachment: 'fixed',
             backgroundPosition: 'center',
             backgroundSize: 'cover',
-            opacity: 0.95
+            opacity: 1
           }}
         />
         
-        {/* Semi-transparent dark overlay to make text readable */}
-        <div className="fixed inset-0 z-0 bg-black/50"></div>
+        {/* Very light overlay to maintain readability without blurring */}
+        <div className="fixed inset-0 z-0 bg-black/10"></div>
         
         {/* Main content section */}
         <section className="py-16 md:py-24 relative z-10">
