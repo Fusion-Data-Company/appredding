@@ -15,7 +15,7 @@ const MunicipalityPage = () => {
         <div 
           className="fixed inset-0 z-0 bg-center bg-cover bg-no-repeat" 
           style={{ 
-            backgroundImage: "url('/images/municipality-bg.jpg')",
+            backgroundImage: "url('/images/fire-water-planet-hq.jpg')",
             backgroundAttachment: 'fixed',
             backgroundPosition: 'center',
             backgroundSize: 'cover',
@@ -281,7 +281,7 @@ const MunicipalityPage = () => {
                       <textarea placeholder="Project Details" rows={4} className="w-full p-3 rounded-md bg-gray-800/90 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-orange-500/50"></textarea>
                     </div>
                     <div>
-                      <GradientButton variant="mixed" className="w-full py-3">Submit Request</GradientButton>
+                      <GradientButton variant="default" className="w-full py-3">Submit Request</GradientButton>
                     </div>
                   </form>
                 </div>
