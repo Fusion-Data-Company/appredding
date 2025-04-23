@@ -2,7 +2,7 @@ import { GradientHeading } from "@/components/ui/gradient-heading";
 
 const TestimonialsSection = () => {
   return (
-    <section className="py-20 bg-[#1e1e1e]">
+    <section className="py-20 bg-[#121212]">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <GradientHeading level={2} className="text-3xl md:text-4xl mb-4" variant="mixed">What Our Clients Say</GradientHeading>
@@ -13,7 +13,7 @@ const TestimonialsSection = () => {
         
         <div className="max-w-4xl mx-auto">
           <div className="grid grid-cols-1 gap-8">
-            <div className="bg-[#121212] rounded-lg p-8 shadow-lg">
+            <div className="bg-gradient-to-r from-gray-800/95 to-gray-700/95 backdrop-blur-xl rounded-lg p-8 border border-gray-600/40 shadow-[0_0_15px_rgba(255,255,255,0.15)]">
               <div className="flex items-center mb-4">
                 <div className="text-[#0070f3]">
                   <i className="fas fa-star"></i>

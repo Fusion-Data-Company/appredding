@@ -83,7 +83,7 @@ const ApplicationsSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-[#1e1e1e]" id="applications">
+    <section className="py-20 bg-[#121212]" id="applications">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <GradientHeading className="text-3xl md:text-4xl mb-4">Specialized Applications</GradientHeading>

@@ -6,7 +6,7 @@ const FeatureCard = ({ icon, title, description, index }: { icon: string; title:
   const variant = variants[index % variants.length] as "fire" | "blue" | "mixed";
   
   return (
-    <div className="bg-[#1e1e1e] rounded-lg p-8 text-center hover:transform hover:-translate-y-1 transition-transform">
+    <div className="bg-gradient-to-r from-gray-800/95 to-gray-700/95 backdrop-blur-xl rounded-lg p-8 text-center hover:transform hover:-translate-y-1 transition-transform border border-gray-600/40 shadow-[0_0_15px_rgba(255,255,255,0.15)]">
       <div className="text-5xl text-[#0070f3] mb-6">
         <i className={icon}></i>
       </div>

@@ -140,7 +140,7 @@ const ContactSection = () => {
                   <input 
                     type="text" 
                     id="firstName" 
-                    className={`w-full bg-[#1e1e1e] border ${formErrors.firstName ? 'border-red-500' : 'border-[#333333]'} rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#0070f3]`}
+                    className={`w-full bg-gradient-to-r from-gray-800/90 to-gray-700/90 border ${formErrors.firstName ? 'border-red-500' : 'border-gray-600/40'} rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#0070f3] shadow-[0_0_8px_rgba(255,255,255,0.05)]`}
                     value={formData.firstName}
                     onChange={handleInputChange}
                     required
@@ -152,7 +152,7 @@ const ContactSection = () => {
                   <input 
                     type="text" 
                     id="lastName" 
-                    className={`w-full bg-[#1e1e1e] border ${formErrors.lastName ? 'border-red-500' : 'border-[#333333]'} rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#0070f3]`}
+                    className={`w-full bg-gradient-to-r from-gray-800/90 to-gray-700/90 border ${formErrors.lastName ? 'border-red-500' : 'border-gray-600/40'} rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#0070f3] shadow-[0_0_8px_rgba(255,255,255,0.05)]`}
                     value={formData.lastName}
                     onChange={handleInputChange}
                     required
@@ -225,7 +225,7 @@ const ContactSection = () => {
           </div>
           
           <div>
-            <div className="bg-[#1e1e1e] rounded-lg overflow-hidden h-full">
+            <div className="bg-gradient-to-r from-gray-800/95 to-gray-700/95 backdrop-blur-xl rounded-lg overflow-hidden h-full border border-gray-600/40 shadow-[0_0_15px_rgba(255,255,255,0.15)]">
               <div className="p-8">
                 <GradientHeading level={3} className="text-xl mb-6" variant="blue">Contact Information</GradientHeading>
                 
