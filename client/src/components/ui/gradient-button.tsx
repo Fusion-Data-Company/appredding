@@ -28,15 +28,17 @@ export interface GradientButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof gradientButtonVariants> {
   asChild?: boolean
+  href?: string
 }
 
-export const GradientButton = React.forwardRef<HTMLButtonElement, GradientButtonProps>(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
-    const Comp = asChild ? Slot : "button"
+export const GradientButton = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, GradientButtonProps>(
+  ({ className, variant, size, asChild = false, href, ...props }, ref) => {
+    const Comp = asChild ? Slot : href ? "a" : "button"
     return (
       <Comp
         className={cn(gradientButtonVariants({ variant, size, className }))}
-        ref={ref}
+        ref={ref as any}
+        href={href}
         {...props}
       />
     )

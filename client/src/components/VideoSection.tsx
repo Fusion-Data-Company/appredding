@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Play, Info, Star } from "lucide-react";
 import { GradientHeading } from "@/components/ui/gradient-heading";
+import { GradientButton } from "@/components/ui/gradient-button";
 
 interface Video {
   id: string;
@@ -159,7 +160,7 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
                   <p className="text-gray-300 text-sm mb-4">
                     Need to see a specific application technique? Request a personalized video demonstration from our experts.
                   </p>
-                  <Button size="sm">Request Demo</Button>
+                  <GradientButton size="sm">Request Demo</GradientButton>
                 </div>
               </div>
             </div>
