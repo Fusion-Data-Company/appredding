@@ -84,29 +84,29 @@ const ProductPerformanceSection = () => {
               <div className="overflow-x-auto">
                 <table className="w-full">
                   <thead>
-                    <tr className="border-b border-primary-700">
+                    <tr className="border-b border-gray-600/40">
                       <th className="text-left py-3">Performance Metric</th>
                       <th className="text-center py-3">Industry Standard</th>
                       <th className="text-center py-3">Praetorian</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr className="border-b border-primary-700">
+                    <tr className="border-b border-gray-600/40">
                       <td className="py-3">Abrasion Resistance</td>
                       <td className="text-center">Good</td>
                       <td className="text-center text-primary-400 font-semibold">Excellent</td>
                     </tr>
-                    <tr className="border-b border-primary-700">
+                    <tr className="border-b border-gray-600/40">
                       <td className="py-3">Salt Spray Resistance</td>
                       <td className="text-center">1,000 hours</td>
                       <td className="text-center text-primary-400 font-semibold">3,500+ hours</td>
                     </tr>
-                    <tr className="border-b border-primary-700">
+                    <tr className="border-b border-gray-600/40">
                       <td className="py-3">Impact Resistance</td>
                       <td className="text-center">160 in-lb</td>
                       <td className="text-center text-primary-400 font-semibold">200+ in-lb</td>
                     </tr>
-                    <tr className="border-b border-primary-700">
+                    <tr className="border-b border-gray-600/40">
                       <td className="py-3">VOC Content</td>
                       <td className="text-center">100-250 g/L</td>
                       <td className="text-center text-primary-400 font-semibold">&lt;50 g/L</td>
