@@ -22,7 +22,7 @@ const ApplicationCard = ({ imageSrc, title, description, link }: ApplicationCard
         height={450}
         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-gray-800/30 backdrop-blur-md"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
       <div className="absolute bottom-0 left-0 p-6 w-full">
         <h3 className="text-xl font-semibold mb-1">{title}</h3>
         <p className="text-[#a0a0a0] text-sm mb-4">{description}</p>
