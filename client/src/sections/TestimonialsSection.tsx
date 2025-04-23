@@ -5,10 +5,12 @@ const TestimonialsSection = () => {
     <section className="py-20 bg-[#121212]">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <GradientHeading level={2} className="text-3xl md:text-4xl mb-4" variant="mixed">What Our Clients Say</GradientHeading>
-          <p className="text-[#a0a0a0] max-w-2xl mx-auto">
-            Hear from satisfied customers who trust Praetorian coatings to protect their valuable assets.
-          </p>
+          <div className="bg-gray-800/60 backdrop-blur-xl rounded-xl border border-gray-600/40 shadow-[0_0_20px_rgba(255,255,255,0.2)] py-8 px-6 md:px-10 mx-auto max-w-3xl mb-8 inline-block">
+            <GradientHeading level={2} className="text-3xl md:text-4xl mb-4" variant="mixed">What Our Clients Say</GradientHeading>
+            <p className="text-[#a0a0a0] max-w-2xl mx-auto">
+              Hear from satisfied customers who trust Praetorian coatings to protect their valuable assets.
+            </p>
+          </div>
         </div>
         
         <div className="max-w-4xl mx-auto">
