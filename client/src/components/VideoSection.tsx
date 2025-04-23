@@ -82,7 +82,7 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
 
           <div>
             <div className="bg-gradient-to-r from-gray-800/90 to-gray-700/90 rounded-xl border border-gray-600/40 shadow-[0_0_20px_rgba(255,255,255,0.2)] p-6">
-              <GradientHeading level={3} className="text-xl mb-4 pb-3 border-b border-primary-800" variant="mixed">
+              <GradientHeading level={3} className="text-xl mb-4 pb-3 border-b border-gray-600/40" variant="mixed">
                 Video Library
               </GradientHeading>
 
@@ -114,7 +114,7 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
                       }`}
                       onClick={() => setActiveVideo(video)}
                     >
-                      <div className="relative flex-shrink-0 w-20 h-20 bg-primary-900 rounded-md overflow-hidden">
+                      <div className="relative flex-shrink-0 w-20 h-20 bg-gray-800 rounded-md overflow-hidden">
                         <img
                           src={video.thumbnail || `https://i.ytimg.com/vi/${video.id}/mqdefault.jpg`}
                           alt={video.title}
