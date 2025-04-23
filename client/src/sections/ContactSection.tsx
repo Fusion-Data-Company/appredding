@@ -166,7 +166,7 @@ const ContactSection = () => {
                 <input 
                   type="email" 
                   id="email" 
-                  className={`w-full bg-[#1e1e1e] border ${formErrors.email ? 'border-red-500' : 'border-[#333333]'} rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#0070f3]`}
+                  className={`w-full bg-gradient-to-r from-gray-800/90 to-gray-700/90 border ${formErrors.email ? 'border-red-500' : 'border-gray-600/40'} rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#0070f3] shadow-[0_0_8px_rgba(255,255,255,0.05)]`}
                   value={formData.email}
                   onChange={handleInputChange}
                   required
@@ -179,7 +179,7 @@ const ContactSection = () => {
                 <input 
                   type="tel" 
                   id="phone" 
-                  className="w-full bg-[#1e1e1e] border border-[#333333] rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#0070f3]"
+                  className="w-full bg-gradient-to-r from-gray-800/90 to-gray-700/90 border border-gray-600/40 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#0070f3] shadow-[0_0_8px_rgba(255,255,255,0.05)]"
                   value={formData.phone}
                   onChange={handleInputChange}
                 />
@@ -189,7 +189,7 @@ const ContactSection = () => {
                 <label htmlFor="interest" className="block text-sm font-medium mb-2">I'm interested in</label>
                 <select 
                   id="interest" 
-                  className="w-full bg-[#1e1e1e] border border-[#333333] rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#0070f3]"
+                  className="w-full bg-gradient-to-r from-gray-800/90 to-gray-700/90 border border-gray-600/40 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#0070f3] shadow-[0_0_8px_rgba(255,255,255,0.05)]"
                   value={formData.interest}
                   onChange={handleSelectChange}
                 >
@@ -208,7 +208,7 @@ const ContactSection = () => {
                 <textarea 
                   id="message" 
                   rows={4} 
-                  className="w-full bg-[#1e1e1e] border border-[#333333] rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#0070f3] resize-none"
+                  className="w-full bg-gradient-to-r from-gray-800/90 to-gray-700/90 border border-gray-600/40 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#0070f3] shadow-[0_0_8px_rgba(255,255,255,0.05)] resize-none"
                   value={formData.message}
                   onChange={handleInputChange}
                 ></textarea>
