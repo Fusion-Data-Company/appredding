@@ -215,7 +215,9 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    display: inline-block;
+    display: block;
+    width: 100%;
+    text-align: center;
   }
   
   .gradient-text-fire {
@@ -223,7 +225,9 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    display: inline-block;
+    display: block;
+    width: 100%;
+    text-align: center;
   }
   
   .fire-water-shield {
@@ -231,7 +235,9 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    display: inline-block;
+    display: block;
+    width: 100%;
+    text-align: center;
   }
   
   .gradient-heading-mixed {
@@ -239,7 +245,9 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    display: inline-block;
+    display: block;
+    width: 100%;
+    text-align: center;
   }
   
   /* Gradient Button Styles */
