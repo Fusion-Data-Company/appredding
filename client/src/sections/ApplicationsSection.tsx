@@ -87,7 +87,7 @@ const ApplicationsSection = () => {
       className="py-20 relative" 
       id="applications"
       style={{
-        backgroundImage: 'url("/images/fire-water-planet.jpg")',
+        backgroundImage: 'url("/images/fire-water-planet-hq.jpg")',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
