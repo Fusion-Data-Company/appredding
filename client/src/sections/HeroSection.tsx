@@ -33,12 +33,12 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative bg-black h-[65vh] flex flex-col items-center justify-end pb-10 overflow-hidden">
+    <section className="relative bg-black h-[85vh] flex flex-col items-center justify-end pb-10 overflow-hidden">
       {/* Video background */}
-      <div className="absolute inset-0 w-full h-full flex items-center justify-center">
+      <div className="absolute inset-0 w-full h-full flex items-center justify-center overflow-hidden">
         <video 
           ref={videoRef}
-          className="object-contain max-h-full max-w-full"
+          className="absolute w-full h-full object-fill min-w-full min-h-full"
           autoPlay
           muted
           playsInline
