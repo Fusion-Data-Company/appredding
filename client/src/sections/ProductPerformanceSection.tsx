@@ -3,7 +3,7 @@ import { GradientHeading } from "@/components/ui/gradient-heading";
 
 const ProductPerformanceSection = () => {
   return (
-    <section className="py-20 bg-primary-800/50">
+    <section className="py-20 bg-gray-900/90">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <GradientHeading level={2} className="text-3xl md:text-4xl mb-4" variant="mixed">Product Performance Data</GradientHeading>
@@ -13,32 +13,32 @@ const ProductPerformanceSection = () => {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-          <div className="bg-primary-800 premium-border rounded-lg p-6 text-center hover-lift">
+          <div className="bg-gradient-to-r from-gray-800/90 to-gray-700/90 border border-gray-600/40 rounded-lg p-6 text-center hover-lift shadow-[0_0_20px_rgba(255,255,255,0.2)]">
             <div className="text-5xl font-bold text-primary-400 mb-3">98.7%</div>
             <GradientHeading level={3} className="text-xl mb-2" variant="mixed">UV Resistance</GradientHeading>
             <p className="text-gray-300">Retention of original properties after 5,000 hours of accelerated UV exposure testing</p>
           </div>
           
-          <div className="bg-primary-800 premium-border rounded-lg p-6 text-center hover-lift">
+          <div className="bg-gradient-to-r from-gray-800/90 to-gray-700/90 border border-gray-600/40 rounded-lg p-6 text-center hover-lift shadow-[0_0_20px_rgba(255,255,255,0.2)]">
             <div className="text-5xl font-bold text-primary-400 mb-3">15+</div>
             <GradientHeading level={3} className="text-xl mb-2" variant="fire">Years Durability</GradientHeading>
             <p className="text-gray-300">Average lifespan of our premium protective coating systems in real-world applications</p>
           </div>
           
-          <div className="bg-primary-800 premium-border rounded-lg p-6 text-center hover-lift">
+          <div className="bg-gradient-to-r from-gray-800/90 to-gray-700/90 border border-gray-600/40 rounded-lg p-6 text-center hover-lift shadow-[0_0_20px_rgba(255,255,255,0.2)]">
             <div className="text-5xl font-bold text-primary-400 mb-3">30%</div>
             <GradientHeading level={3} className="text-xl mb-2" variant="blue">Energy Savings</GradientHeading>
             <p className="text-gray-300">Reduction in cooling costs with our thermal reflective coating technology</p>
           </div>
           
-          <div className="bg-primary-800 premium-border rounded-lg p-6 text-center hover-lift">
+          <div className="bg-gradient-to-r from-gray-800/90 to-gray-700/90 border border-gray-600/40 rounded-lg p-6 text-center hover-lift shadow-[0_0_20px_rgba(255,255,255,0.2)]">
             <div className="text-5xl font-bold text-primary-400 mb-3">9.2/10</div>
             <GradientHeading level={3} className="text-xl mb-2" variant="fire">Customer Satisfaction</GradientHeading>
             <p className="text-gray-300">Average rating from our post-installation customer satisfaction surveys</p>
           </div>
         </div>
         
-        <div className="bg-primary-900 rounded-xl p-8 premium-border glass-effect">
+        <div className="bg-gradient-to-r from-gray-800/95 to-gray-700/95 rounded-xl p-8 border border-gray-600/40 shadow-[0_0_20px_rgba(255,255,255,0.2)] backdrop-blur-xl">
           <div className="grid md:grid-cols-2 gap-8">
             <div>
               <GradientHeading level={3} className="text-2xl mb-4" variant="mixed">Industry-Leading Product Testing</GradientHeading>
@@ -48,8 +48,8 @@ const ProductPerformanceSection = () => {
               
               <div className="space-y-4">
                 <div className="flex items-start gap-4">
-                  <div className="bg-primary-800 rounded-full p-2 mt-1">
-                    <i className="fas fa-flask text-primary-400"></i>
+                  <div className="bg-gradient-to-r from-gray-700 to-gray-600 rounded-full p-2 mt-1 shadow-[0_0_5px_rgba(255,255,255,0.15)]">
+                    <i className="fas fa-flask text-white"></i>
                   </div>
                   <div>
                     <h4 className="font-semibold">Chemical Resistance Testing</h4>
@@ -58,8 +58,8 @@ const ProductPerformanceSection = () => {
                 </div>
                 
                 <div className="flex items-start gap-4">
-                  <div className="bg-primary-800 rounded-full p-2 mt-1">
-                    <i className="fas fa-temperature-high text-primary-400"></i>
+                  <div className="bg-gradient-to-r from-gray-700 to-gray-600 rounded-full p-2 mt-1 shadow-[0_0_5px_rgba(255,255,255,0.15)]">
+                    <i className="fas fa-temperature-high text-white"></i>
                   </div>
                   <div>
                     <h4 className="font-semibold">Extreme Temperature Cycles</h4>
@@ -68,8 +68,8 @@ const ProductPerformanceSection = () => {
                 </div>
                 
                 <div className="flex items-start gap-4">
-                  <div className="bg-primary-800 rounded-full p-2 mt-1">
-                    <i className="fas fa-water text-primary-400"></i>
+                  <div className="bg-gradient-to-r from-gray-700 to-gray-600 rounded-full p-2 mt-1 shadow-[0_0_5px_rgba(255,255,255,0.15)]">
+                    <i className="fas fa-water text-white"></i>
                   </div>
                   <div>
                     <h4 className="font-semibold">Immersion and Humidity Testing</h4>
