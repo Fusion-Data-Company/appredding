@@ -139,7 +139,7 @@ const MunicipalityPage = () => {
                 these coatings create a resilient barrier against environmental damage, corrosion, and wear.
               </p>
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div className="backdrop-blur-sm bg-primary-900/80 rounded-xl p-6 border border-orange-500/30 shadow-lg">
+                <div className="backdrop-blur-sm bg-primary-900/80 rounded-xl p-6 border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] hover:translate-y-[-5px] transition-transform duration-300">
                   <div className="bg-gradient-to-r from-orange-600 to-blue-500 w-12 h-12 rounded-full flex items-center justify-center mb-4">
                     <Clock className="h-6 w-6 text-white" />
                   </div>
@@ -147,7 +147,7 @@ const MunicipalityPage = () => {
                   <p className="text-white">Significantly extends the service life of municipal infrastructure, reducing replacement frequency and costs.</p>
                 </div>
                 
-                <div className="backdrop-blur-sm bg-primary-900/80 rounded-xl p-6 border border-blue-500/30 shadow-lg">
+                <div className="backdrop-blur-sm bg-primary-900/80 rounded-xl p-6 border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] hover:translate-y-[-5px] transition-transform duration-300">
                   <div className="bg-gradient-to-r from-orange-600 to-blue-500 w-12 h-12 rounded-full flex items-center justify-center mb-4">
                     <ParkingCircle className="h-6 w-6 text-white" />
                   </div>
@@ -155,7 +155,7 @@ const MunicipalityPage = () => {
                   <p className="text-white">Durable coatings designed to withstand heavy vehicle traffic and constant use in public facilities.</p>
                 </div>
                 
-                <div className="backdrop-blur-sm bg-primary-900/80 rounded-xl p-6 border border-orange-500/30 shadow-lg">
+                <div className="backdrop-blur-sm bg-primary-900/80 rounded-xl p-6 border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] hover:translate-y-[-5px] transition-transform duration-300">
                   <div className="bg-gradient-to-r from-orange-600 to-blue-500 w-12 h-12 rounded-full flex items-center justify-center mb-4">
                     <BadgeAlert className="h-6 w-6 text-white" />
                   </div>
@@ -163,7 +163,7 @@ const MunicipalityPage = () => {
                   <p className="text-white">Specialized coatings for critical infrastructure that must remain operational during emergencies.</p>
                 </div>
                 
-                <div className="backdrop-blur-sm bg-primary-900/80 rounded-xl p-6 border border-blue-500/30 shadow-lg">
+                <div className="backdrop-blur-sm bg-primary-900/80 rounded-xl p-6 border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] hover:translate-y-[-5px] transition-transform duration-300">
                   <div className="bg-gradient-to-r from-orange-600 to-blue-500 w-12 h-12 rounded-full flex items-center justify-center mb-4">
                     <Landmark className="h-6 w-6 text-white" />
                   </div>
@@ -258,20 +258,20 @@ const MunicipalityPage = () => {
                   <form className="space-y-4">
                     <div className="grid grid-cols-2 gap-4">
                       <div>
-                        <input type="text" placeholder="First Name" className="w-full p-3 rounded-md bg-gray-800/90 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-orange-500/50" />
+                        <input type="text" placeholder="First Name" className="w-full p-3 rounded-md bg-gray-800/90 border-2 border-white/70 text-white focus:outline-none focus:ring-2 focus:ring-orange-500/50 shadow-[0_0_15px_rgba(255,255,255,0.3)]" />
                       </div>
                       <div>
-                        <input type="text" placeholder="Last Name" className="w-full p-3 rounded-md bg-gray-800/90 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-orange-500/50" />
+                        <input type="text" placeholder="Last Name" className="w-full p-3 rounded-md bg-gray-800/90 border-2 border-white/70 text-white focus:outline-none focus:ring-2 focus:ring-orange-500/50 shadow-[0_0_15px_rgba(255,255,255,0.3)]" />
                       </div>
                     </div>
                     <div>
-                      <input type="email" placeholder="Email Address" className="w-full p-3 rounded-md bg-gray-800/90 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-orange-500/50" />
+                      <input type="email" placeholder="Email Address" className="w-full p-3 rounded-md bg-gray-800/90 border-2 border-white/70 text-white focus:outline-none focus:ring-2 focus:ring-orange-500/50 shadow-[0_0_15px_rgba(255,255,255,0.3)]" />
                     </div>
                     <div>
-                      <input type="text" placeholder="Municipality/Department" className="w-full p-3 rounded-md bg-gray-800/90 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-orange-500/50" />
+                      <input type="text" placeholder="Municipality/Department" className="w-full p-3 rounded-md bg-gray-800/90 border-2 border-white/70 text-white focus:outline-none focus:ring-2 focus:ring-orange-500/50 shadow-[0_0_15px_rgba(255,255,255,0.3)]" />
                     </div>
                     <div>
-                      <select className="w-full p-3 rounded-md bg-gray-800/90 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-orange-500/50">
+                      <select className="w-full p-3 rounded-md bg-gray-800/90 border-2 border-white/70 text-white focus:outline-none focus:ring-2 focus:ring-orange-500/50 shadow-[0_0_15px_rgba(255,255,255,0.3)]">
                         <option value="">Select Infrastructure Type</option>
                         <option value="water">Water Infrastructure</option>
                         <option value="transportation">Transportation Systems</option>
@@ -281,7 +281,7 @@ const MunicipalityPage = () => {
                       </select>
                     </div>
                     <div>
-                      <textarea placeholder="Project Details" rows={4} className="w-full p-3 rounded-md bg-gray-800/90 border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-orange-500/50"></textarea>
+                      <textarea placeholder="Project Details" rows={4} className="w-full p-3 rounded-md bg-gray-800/90 border-2 border-white/70 text-white focus:outline-none focus:ring-2 focus:ring-orange-500/50 shadow-[0_0_15px_rgba(255,255,255,0.3)]"></textarea>
                     </div>
                     <div>
                       <GradientButton variant="default" className="w-full py-3">Submit Request</GradientButton>
