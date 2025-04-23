@@ -28,7 +28,7 @@ const MunicipalityPage = () => {
         {/* Main content section */}
         <section className="py-16 md:py-24 relative z-10">
           <div className="container mx-auto">
-            <div className="max-w-4xl mx-auto text-center mb-16 backdrop-blur-sm bg-primary-900/60 p-8 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)]">
+            <div className="max-w-4xl mx-auto text-center mb-16 backdrop-blur-sm bg-primary-900/80 p-8 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)]">
               <GradientHeading level={1} className="text-4xl md:text-5xl mb-6 glow-text" variant="mixed">Municipal Infrastructure Solutions</GradientHeading>
               <p className="text-xl text-white mb-8">
                 Advanced protective coatings designed specifically for municipal infrastructure, providing superior durability and protection for public facilities and critical city systems.
@@ -36,7 +36,7 @@ const MunicipalityPage = () => {
             </div>
 
             <div className="grid md:grid-cols-2 gap-12 mb-16">
-              <div className="backdrop-blur-sm bg-primary-900/60 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] p-8">
+              <div className="backdrop-blur-sm bg-primary-900/80 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] p-8">
                 <GradientHeading level={2} className="text-3xl font-bold mb-6" variant="mixed">Municipal-Grade Protection</GradientHeading>
                 
                 <div className="space-y-6">
@@ -82,7 +82,7 @@ const MunicipalityPage = () => {
                 </div>
               </div>
 
-              <div className="backdrop-blur-sm bg-primary-900/60 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] p-8 flex flex-col">
+              <div className="backdrop-blur-sm bg-primary-900/80 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] p-8 flex flex-col">
                 <GradientHeading level={2} className="text-3xl font-bold mb-6" variant="mixed">City-Wide Applications</GradientHeading>
                 <p className="mb-4 text-white">Our municipal coatings can be customized for a wide range of public infrastructure:</p>
                 <div className="grid md:grid-cols-2 gap-4 mb-6 flex-grow">
@@ -127,7 +127,7 @@ const MunicipalityPage = () => {
               </div>
             </div>
 
-            <div className="backdrop-blur-sm bg-primary-900/60 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] p-8 mb-16">
+            <div className="backdrop-blur-sm bg-primary-900/80 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] p-8 mb-16">
               <GradientHeading level={2} className="text-2xl font-bold mb-6 text-center" variant="mixed">Municipal Infrastructure Protection</GradientHeading>
               <p className="text-white mb-8 text-center max-w-3xl mx-auto">
                 Our specialized municipal coatings are designed to provide long-lasting protection for public infrastructure, 
@@ -171,10 +171,10 @@ const MunicipalityPage = () => {
           </div>
         </section>
 
-        <section className="py-16 backdrop-blur-sm bg-primary-900/60 relative z-10">
+        <section className="py-16 backdrop-blur-sm bg-primary-900/80 relative z-10">
           <div className="container mx-auto">
             <div className="text-center mb-12">
-              <div className="bg-primary-900/60 backdrop-blur-xl rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] py-8 px-6 md:px-10 mx-auto max-w-3xl mb-8 inline-block">
+              <div className="bg-primary-900/80 backdrop-blur-xl rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] py-8 px-6 md:px-10 mx-auto max-w-3xl mb-8 inline-block">
                 <GradientHeading level={2} className="text-3xl md:text-4xl mb-4" variant="mixed">Municipal Coating Systems</GradientHeading>
                 <p className="text-[#a0a0a0] max-w-2xl mx-auto">
                   Specialized protection for public infrastructure, from water treatment facilities to transportation systems
