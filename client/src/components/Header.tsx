@@ -34,8 +34,8 @@ const Header = () => {
 
   return (
     <header 
-      className={`bg-[#121212] border-b border-[#ff6a00]/20 sticky top-0 z-50 transition-all duration-300 ${
-        scrolled ? "shadow-[0_4px_20px_rgba(255,106,0,0.1)] py-3" : "py-4"
+      className={`dark:bg-[#121212] bg-gray-100 border-b dark:border-[#ff6a00]/20 border-gray-300 sticky top-0 z-50 transition-all duration-300 ${
+        scrolled ? "dark:shadow-[0_4px_20px_rgba(255,106,0,0.1)] shadow-[0_4px_20px_rgba(0,0,0,0.1)] py-3" : "py-4"
       }`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
@@ -98,10 +98,10 @@ const Header = () => {
         {/* Mobile Menu Button */}
         <button
           onClick={toggleMobileMenu}
-          className="md:hidden text-white p-1 rounded-md hover:bg-[#ff6a00]/10 transition-colors z-10"
+          className="md:hidden dark:text-white text-gray-800 p-1 rounded-md dark:hover:bg-[#ff6a00]/10 hover:bg-gray-300/50 transition-colors z-10"
           aria-label="Toggle mobile menu"
         >
-          <i className={`fas ${mobileMenuOpen ? "fa-times" : "fa-bars"} text-xl text-[#ff6a00]`}></i>
+          <i className={`fas ${mobileMenuOpen ? "fa-times" : "fa-bars"} text-xl dark:text-[#ff6a00] text-orange-500`}></i>
         </button>
       </div>
 
