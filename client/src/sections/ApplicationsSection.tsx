@@ -24,7 +24,7 @@ const ApplicationCard = ({ imageSrc, title, description, link }: ApplicationCard
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
       <div className="absolute bottom-0 left-0 p-6 w-full">
-        <h3 className="text-xl font-semibold mb-1">{title}</h3>
+        <h3 className="text-xl font-semibold mb-1 text-white">{title}</h3>
         <p className="dark:text-[#a0a0a0] text-gray-300 text-sm mb-4">{description}</p>
         <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
           <Link href={link}>
@@ -97,7 +97,7 @@ const ApplicationsSection = () => {
       <div className="absolute inset-0 bg-black/20"></div>
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
-          <div className="dark:bg-gray-800/60 bg-white/90 backdrop-blur-xl rounded-xl dark:border dark:border-gray-600/40 border border-gray-200 dark:shadow-[0_0_20px_rgba(255,255,255,0.2)] shadow-[0_0_20px_rgba(0,0,0,0.1)] py-8 px-6 md:px-10 mx-auto max-w-3xl mb-8 inline-block">
+          <div className="dark:bg-gray-800/60 bg-gray-100/90 backdrop-blur-xl rounded-xl dark:border dark:border-gray-600/40 border border-gray-300 dark:shadow-[0_0_20px_rgba(255,255,255,0.25)] shadow-[0_0_20px_rgba(0,0,0,0.25)] py-8 px-6 md:px-10 mx-auto max-w-3xl mb-8 inline-block">
             <GradientHeading className="text-3xl md:text-4xl mb-4">Specialized Applications</GradientHeading>
             <p className="dark:text-[#a0a0a0] text-gray-700 max-w-2xl mx-auto">
               Our protective coatings are engineered for specific environments and challenges across various industries.

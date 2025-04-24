@@ -50,7 +50,7 @@ const FeaturesSection = () => {
       <div className="absolute inset-0 bg-black/20"></div>
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
-          <div className="dark:bg-gray-800/60 bg-white/90 backdrop-blur-xl rounded-xl dark:border dark:border-gray-600/40 border border-gray-200 dark:shadow-[0_0_20px_rgba(255,255,255,0.2)] shadow-[0_0_20px_rgba(0,0,0,0.1)] py-8 px-6 md:px-10 mx-auto max-w-3xl mb-8 inline-block">
+          <div className="dark:bg-gray-800/60 bg-gray-100/90 backdrop-blur-xl rounded-xl dark:border dark:border-gray-600/40 border border-gray-300 dark:shadow-[0_0_20px_rgba(255,255,255,0.25)] shadow-[0_0_20px_rgba(0,0,0,0.25)] py-8 px-6 md:px-10 mx-auto max-w-3xl mb-8 inline-block">
             <GradientHeading level={2} className="text-3xl md:text-4xl mb-4" variant="mixed">Superior Protection Features</GradientHeading>
             <p className="dark:text-[#a0a0a0] text-gray-700 max-w-2xl mx-auto">
               Our specially formulated coatings are designed to withstand extreme conditions while providing long-lasting protection for your assets.
