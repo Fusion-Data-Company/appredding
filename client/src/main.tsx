@@ -4,7 +4,13 @@ import App from "./App";
 import "./index.css";
 
 createRoot(document.getElementById("root")!).render(
-  <ThemeProvider attribute="class">
+  <ThemeProvider 
+    attribute="class" 
+    defaultTheme="system" 
+    enableSystem 
+    disableTransitionOnChange 
+    storageKey="theme"
+  >
     <App />
   </ThemeProvider>
 );

@@ -4,14 +4,19 @@ import { useEffect, useRef, useState } from "react";
 const HeroSection = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [isVideoError, setIsVideoError] = useState(false);
 
   useEffect(() => {
+    // Performance optimization - load smaller video first then show it
+    let hasVideoPlayedSuccessfully = false;
+
     // Freeze on the last frame when video ends
     const handleVideoEnded = () => {
       if (videoRef.current) {
         // Do not replay - keep the last frame visible
         videoRef.current.currentTime = videoRef.current.duration - 0.01;
       }
+      hasVideoPlayedSuccessfully = true;
     };
 
     // Handle when video can play
@@ -19,20 +24,37 @@ const HeroSection = () => {
       setIsLoading(false);
     };
 
+    // Handle video loading error
+    const handleError = () => {
+      console.error("Video loading error");
+      setIsVideoError(true);
+      setIsLoading(false);
+    };
+
     const videoElement = videoRef.current;
     if (videoElement) {
       videoElement.addEventListener('ended', handleVideoEnded);
       videoElement.addEventListener('canplay', handleCanPlay);
+      videoElement.addEventListener('error', handleError);
       
-      // Preload the video
+      // Enhance video loading performance
+      videoElement.playsInline = true;
+      videoElement.muted = true;
       videoElement.preload = "auto";
       
-      // Start playing when component mounts
-      videoElement.play().catch(error => {
-        console.error("Error playing video:", error);
-        // If we can't autoplay, at least show the video
-        setIsLoading(false);
-      });
+      // Set low playback rate initially to prevent skipping
+      videoElement.playbackRate = 0.9;
+      
+      // Start playing when component mounts with low priority
+      setTimeout(() => {
+        if (!hasVideoPlayedSuccessfully) {
+          videoElement.play().catch(error => {
+            console.error("Error playing video:", error);
+            // If we can't autoplay, at least show the poster
+            setIsLoading(false);
+          });
+        }
+      }, 100);
     }
 
     // Cleanup event listeners on unmount
@@ -40,6 +62,7 @@ const HeroSection = () => {
       if (videoElement) {
         videoElement.removeEventListener('ended', handleVideoEnded);
         videoElement.removeEventListener('canplay', handleCanPlay);
+        videoElement.removeEventListener('error', handleError);
       }
     };
   }, []);
@@ -55,21 +78,28 @@ const HeroSection = () => {
       
       {/* Video background */}
       <div className="absolute inset-0 w-full h-full flex items-center justify-center overflow-hidden">
-        <video 
-          ref={videoRef}
-          className="absolute w-full h-full object-fill min-w-full min-h-full"
-          autoPlay
-          muted
-          playsInline
-          poster="/images/fire-water-hands-poster.jpg"
-          preload="auto"
-        >
-          {/* WebM for Chrome, Firefox and modern browsers (usually loads faster) */}
-          <source src="/videos/fire-water-hands.webm" type="video/webm" />
-          {/* MP4 fallback for Safari and iOS */}
-          <source src="/videos/fire-water-hands-optimized.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        {isVideoError ? (
+          <div 
+            className="absolute w-full h-full bg-cover bg-center"
+            style={{ backgroundImage: "url('/images/fire-water-hands-poster.jpg')" }}
+          />
+        ) : (
+          <video 
+            ref={videoRef}
+            className="absolute w-full h-full object-cover min-w-full min-h-full"
+            autoPlay
+            muted
+            playsInline
+            poster="/images/fire-water-hands-poster.jpg"
+            preload="auto"
+          >
+            {/* MP4 (smaller file) for faster initial loading */}
+            <source src="/videos/fire-water-hands-optimized.mp4" type="video/mp4" />
+            {/* WebM as fallback */}
+            <source src="/videos/fire-water-hands.webm" type="video/webm" />
+            Your browser does not support the video tag.
+          </video>
+        )}
       </div>
       
       {/* Buttons */}
