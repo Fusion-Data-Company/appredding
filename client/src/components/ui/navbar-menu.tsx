@@ -69,7 +69,7 @@ export const Menu = ({
   return (
     <nav
       onMouseLeave={() => setActive(null)} // resets the state
-      className="relative rounded-full border-2 border-[#ff6a00]/40 bg-gradient-to-r from-gray-800/75 to-gray-700/75 backdrop-blur-xl shadow-[0_0_15px_rgba(255,106,0,0.3)] flex justify-center items-center space-x-4 px-4 py-1 w-max mx-auto"
+      className="relative rounded-full border-2 border-[#ff6a00]/40 bg-gradient-to-r from-[#38b0de]/85 via-white/75 to-[#ff6a00]/85 backdrop-blur-xl shadow-[0_0_15px_rgba(255,106,0,0.3)] flex justify-center items-center space-x-4 px-4 py-1 w-max mx-auto"
     >
       {children}
     </nav>
@@ -112,7 +112,7 @@ export const HoveredLink = ({ children, ...rest }: any) => {
   return (
     <Link
       {...rest}
-      className="gradient-text-blue hover:gradient-text-fire font-bold text-base uppercase tracking-wide transition-all px-2 py-1.5 block rounded-md relative after:absolute after:bottom-[-1px] after:left-2 after:right-2 after:h-[2px] after:rounded-full after:origin-bottom after:scale-x-0 hover:after:scale-x-100 after:bg-gradient-to-r after:from-[#ff4500]/50 after:via-[#ff6a00]/50 after:to-[#ff8c00]/50 after:transition-transform after:duration-300 hover:bg-white/5 font-heading text-center"
+      className="text-gray-800 hover:text-gray-900 font-bold text-base uppercase tracking-wide transition-all px-2 py-1.5 block rounded-md relative after:absolute after:bottom-[-1px] after:left-2 after:right-2 after:h-[2px] after:rounded-full after:origin-bottom after:scale-x-0 hover:after:scale-x-100 after:bg-gradient-to-r after:from-[#ff4500] after:via-[#ff6a00] after:to-[#ff8c00] after:transition-transform after:duration-300 hover:bg-[#ff6a00]/20 font-heading text-center"
     >
       {children}
     </Link>
