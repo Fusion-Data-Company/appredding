@@ -311,13 +311,13 @@
     display: block;
     width: 100%;
     text-align: center;
-    -webkit-text-stroke: 0.5px rgba(0,0,0,0.7);
-    text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+    -webkit-text-stroke: 0.25px rgba(0,0,0,0.4);
+    text-shadow: 0 1px 1px rgba(0,0,0,0.3);
   }
   
   .dark .gradient-text-blue {
-    -webkit-text-stroke: 0.5px rgba(255,255,255,0.7);
-    text-shadow: 0 1px 3px rgba(255,255,255,0.5), 0 0 5px rgba(255,255,255,0.3);
+    -webkit-text-stroke: 0.25px rgba(255,255,255,0.4);
+    text-shadow: 0 1px 2px rgba(255,255,255,0.3), 0 0 3px rgba(255,255,255,0.2);
   }
   
   .gradient-text-fire {
@@ -328,13 +328,13 @@
     display: block;
     width: 100%;
     text-align: center;
-    -webkit-text-stroke: 0.5px rgba(0,0,0,0.7);
-    text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+    -webkit-text-stroke: 0.25px rgba(0,0,0,0.4);
+    text-shadow: 0 1px 1px rgba(0,0,0,0.3);
   }
   
   .dark .gradient-text-fire {
-    -webkit-text-stroke: 0.5px rgba(255,255,255,0.7);
-    text-shadow: 0 1px 3px rgba(255,255,255,0.5), 0 0 5px rgba(255,255,255,0.3);
+    -webkit-text-stroke: 0.25px rgba(255,255,255,0.4);
+    text-shadow: 0 1px 2px rgba(255,255,255,0.3), 0 0 3px rgba(255,255,255,0.2);
   }
   
   .fire-water-shield {
@@ -345,13 +345,13 @@
     display: block;
     width: 100%;
     text-align: center;
-    -webkit-text-stroke: 0.5px rgba(0,0,0,0.8);
-    text-shadow: 0 1px 2px rgba(0,0,0,0.7);
+    -webkit-text-stroke: 0.25px rgba(0,0,0,0.4);
+    text-shadow: 0 1px 1px rgba(0,0,0,0.3);
   }
   
   .dark .fire-water-shield {
-    -webkit-text-stroke: 0.5px rgba(255,255,255,0.8);
-    text-shadow: 0 1px 3px rgba(255,255,255,0.6), 0 0 5px rgba(255,255,255,0.4);
+    -webkit-text-stroke: 0.25px rgba(255,255,255,0.4);
+    text-shadow: 0 1px 2px rgba(255,255,255,0.3), 0 0 3px rgba(255,255,255,0.2);
   }
   
   .gradient-heading-mixed {
@@ -362,13 +362,13 @@
     display: block;
     width: 100%;
     text-align: center;
-    -webkit-text-stroke: 0.5px rgba(0,0,0,0.8);
-    text-shadow: 0 1px 3px rgba(0,0,0,0.7);
+    -webkit-text-stroke: 0.25px rgba(0,0,0,0.4);
+    text-shadow: 0 1px 1px rgba(0,0,0,0.3);
   }
   
   .dark .gradient-heading-mixed {
-    -webkit-text-stroke: 0.5px rgba(255,255,255,0.8);
-    text-shadow: 0 1px 3px rgba(255,255,255,0.6), 0 0 5px rgba(255,255,255,0.4);
+    -webkit-text-stroke: 0.25px rgba(255,255,255,0.4);
+    text-shadow: 0 1px 2px rgba(255,255,255,0.3), 0 0 3px rgba(255,255,255,0.2);
   }
   
   /* Gradient Button Styles */
