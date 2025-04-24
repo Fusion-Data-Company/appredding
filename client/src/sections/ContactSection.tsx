@@ -124,7 +124,7 @@ const ContactSection = () => {
   };
 
   return (
-    <section className="py-20 bg-[#121212]" id="contact">
+    <section className="py-20 dark:bg-[#121212] bg-[#f5f2e8]" id="contact">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <div>
@@ -231,8 +231,8 @@ const ContactSection = () => {
                 
                 <div className="space-y-6">
                   <div className="flex items-start">
-                    <div className="bg-gradient-to-r from-gray-700 to-gray-600 rounded-full p-2 mr-4 mt-1 shadow-[0_0_5px_rgba(255,255,255,0.15)]">
-                      <i className="fas fa-map-marker-alt text-white"></i>
+                    <div className="dark:bg-gradient-to-r dark:from-gray-700 dark:to-gray-600 bg-gradient-to-r from-gray-300 to-gray-200 rounded-full p-2 mr-4 mt-1 dark:shadow-[0_0_5px_rgba(255,255,255,0.15)] shadow-[0_0_5px_rgba(0,0,0,0.15)]">
+                      <i className="fas fa-map-marker-alt dark:text-white text-gray-700"></i>
                     </div>
                     <div>
                       <h4 className="font-semibold mb-1">Address</h4>
@@ -241,8 +241,8 @@ const ContactSection = () => {
                   </div>
                   
                   <div className="flex items-start">
-                    <div className="bg-gradient-to-r from-gray-700 to-gray-600 rounded-full p-2 mr-4 mt-1 shadow-[0_0_5px_rgba(255,255,255,0.15)]">
-                      <i className="fas fa-phone-alt text-white"></i>
+                    <div className="dark:bg-gradient-to-r dark:from-gray-700 dark:to-gray-600 bg-gradient-to-r from-gray-300 to-gray-200 rounded-full p-2 mr-4 mt-1 dark:shadow-[0_0_5px_rgba(255,255,255,0.15)] shadow-[0_0_5px_rgba(0,0,0,0.15)]">
+                      <i className="fas fa-phone-alt dark:text-white text-gray-700"></i>
                     </div>
                     <div>
                       <h4 className="font-semibold mb-1">Phone</h4>
@@ -251,8 +251,8 @@ const ContactSection = () => {
                   </div>
                   
                   <div className="flex items-start">
-                    <div className="bg-gradient-to-r from-gray-700 to-gray-600 rounded-full p-2 mr-4 mt-1 shadow-[0_0_5px_rgba(255,255,255,0.15)]">
-                      <i className="fas fa-envelope text-white"></i>
+                    <div className="dark:bg-gradient-to-r dark:from-gray-700 dark:to-gray-600 bg-gradient-to-r from-gray-300 to-gray-200 rounded-full p-2 mr-4 mt-1 dark:shadow-[0_0_5px_rgba(255,255,255,0.15)] shadow-[0_0_5px_rgba(0,0,0,0.15)]">
+                      <i className="fas fa-envelope dark:text-white text-gray-700"></i>
                     </div>
                     <div>
                       <h4 className="font-semibold mb-1">Email</h4>
@@ -261,12 +261,12 @@ const ContactSection = () => {
                   </div>
                   
                   <div className="flex items-start">
-                    <div className="bg-gradient-to-r from-gray-700 to-gray-600 rounded-full p-2 mr-4 mt-1 shadow-[0_0_5px_rgba(255,255,255,0.15)]">
-                      <i className="fas fa-clock text-white"></i>
+                    <div className="dark:bg-gradient-to-r dark:from-gray-700 dark:to-gray-600 bg-gradient-to-r from-gray-300 to-gray-200 rounded-full p-2 mr-4 mt-1 dark:shadow-[0_0_5px_rgba(255,255,255,0.15)] shadow-[0_0_5px_rgba(0,0,0,0.15)]">
+                      <i className="fas fa-clock dark:text-white text-gray-700"></i>
                     </div>
                     <div>
                       <h4 className="font-semibold mb-1">Hours</h4>
-                      <p className="text-[#a0a0a0]">Monday-Friday: 8am - 6pm PST<br/>Saturday: 9am - 2pm PST</p>
+                      <p className="dark:text-[#a0a0a0] text-gray-700">Monday-Friday: 8am - 6pm PST<br/>Saturday: 9am - 2pm PST</p>
                     </div>
                   </div>
                 </div>
@@ -274,17 +274,17 @@ const ContactSection = () => {
                 <div className="mt-8">
                   <h4 className="font-semibold mb-3">Follow Us</h4>
                   <div className="flex space-x-4">
-                    <a href="#" className="bg-gradient-to-r from-gray-700 to-gray-600 w-10 h-10 rounded-full flex items-center justify-center transition-colors hover:opacity-80 shadow-[0_0_5px_rgba(255,255,255,0.15)]">
-                      <i className="fab fa-facebook-f text-white"></i>
+                    <a href="#" className="dark:bg-gradient-to-r dark:from-gray-700 dark:to-gray-600 bg-gradient-to-r from-gray-300 to-gray-200 w-10 h-10 rounded-full flex items-center justify-center transition-colors hover:opacity-80 dark:shadow-[0_0_5px_rgba(255,255,255,0.15)] shadow-[0_0_5px_rgba(0,0,0,0.15)]">
+                      <i className="fab fa-facebook-f dark:text-white text-gray-700"></i>
                     </a>
-                    <a href="#" className="bg-gradient-to-r from-gray-700 to-gray-600 w-10 h-10 rounded-full flex items-center justify-center transition-colors hover:opacity-80 shadow-[0_0_5px_rgba(255,255,255,0.15)]">
-                      <i className="fab fa-twitter text-white"></i>
+                    <a href="#" className="dark:bg-gradient-to-r dark:from-gray-700 dark:to-gray-600 bg-gradient-to-r from-gray-300 to-gray-200 w-10 h-10 rounded-full flex items-center justify-center transition-colors hover:opacity-80 dark:shadow-[0_0_5px_rgba(255,255,255,0.15)] shadow-[0_0_5px_rgba(0,0,0,0.15)]">
+                      <i className="fab fa-twitter dark:text-white text-gray-700"></i>
                     </a>
-                    <a href="#" className="bg-gradient-to-r from-gray-700 to-gray-600 w-10 h-10 rounded-full flex items-center justify-center transition-colors hover:opacity-80 shadow-[0_0_5px_rgba(255,255,255,0.15)]">
-                      <i className="fab fa-linkedin-in text-white"></i>
+                    <a href="#" className="dark:bg-gradient-to-r dark:from-gray-700 dark:to-gray-600 bg-gradient-to-r from-gray-300 to-gray-200 w-10 h-10 rounded-full flex items-center justify-center transition-colors hover:opacity-80 dark:shadow-[0_0_5px_rgba(255,255,255,0.15)] shadow-[0_0_5px_rgba(0,0,0,0.15)]">
+                      <i className="fab fa-linkedin-in dark:text-white text-gray-700"></i>
                     </a>
-                    <a href="#" className="bg-gradient-to-r from-gray-700 to-gray-600 w-10 h-10 rounded-full flex items-center justify-center transition-colors hover:opacity-80 shadow-[0_0_5px_rgba(255,255,255,0.15)]">
-                      <i className="fab fa-instagram text-white"></i>
+                    <a href="#" className="dark:bg-gradient-to-r dark:from-gray-700 dark:to-gray-600 bg-gradient-to-r from-gray-300 to-gray-200 w-10 h-10 rounded-full flex items-center justify-center transition-colors hover:opacity-80 dark:shadow-[0_0_5px_rgba(255,255,255,0.15)] shadow-[0_0_5px_rgba(0,0,0,0.15)]">
+                      <i className="fab fa-instagram dark:text-white text-gray-700"></i>
                     </a>
                   </div>
                 </div>
