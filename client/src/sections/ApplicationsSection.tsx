@@ -14,7 +14,7 @@ const ApplicationCard = ({ imageSrc, title, description, link }: ApplicationCard
   const isWaterRelated = title === "Marine" || title === "Pool";
   
   return (
-    <div className="group relative rounded-lg overflow-hidden h-[450px] block cursor-pointer shadow-[0_0_60px_rgba(255,255,255,0.4)] border-4 border-white">
+    <div className="group relative rounded-lg overflow-hidden h-[450px] block cursor-pointer dark:shadow-[0_0_60px_rgba(255,255,255,0.4)] shadow-[0_0_30px_rgba(0,0,0,0.25)] border-4 dark:border-white border-gray-300">
       <img 
         src={imageSrc} 
         alt={title} 
@@ -25,7 +25,7 @@ const ApplicationCard = ({ imageSrc, title, description, link }: ApplicationCard
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
       <div className="absolute bottom-0 left-0 p-6 w-full">
         <h3 className="text-xl font-semibold mb-1 text-white">{title}</h3>
-        <p className="dark:text-[#a0a0a0] text-gray-300 text-sm mb-4">{description}</p>
+        <p className="dark:text-[#a0a0a0] text-gray-200 text-sm mb-4">{description}</p>
         <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
           <Link href={link}>
             <GradientButton 

@@ -31,7 +31,7 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
     : videos.filter((video) => video.category === activeCategory);
 
   return (
-    <section className="py-20 bg-gray-400/20 backdrop-blur-xl" id="videos">
+    <section className="py-20 dark:bg-gray-400/20 bg-gray-100 backdrop-blur-xl" id="videos">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <div className="dark:bg-gray-800/60 bg-gray-100/90 backdrop-blur-xl rounded-xl dark:border dark:border-gray-600/40 border border-gray-300 dark:shadow-[0_0_20px_rgba(255,255,255,0.25)] shadow-[0_0_20px_rgba(0,0,0,0.25)] py-8 px-6 md:px-10 mx-auto max-w-3xl mb-8 inline-block">
@@ -60,7 +60,7 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
                   <GradientHeading level={3} className="text-xl mb-2" variant="fire">{activeVideo.title}</GradientHeading>
                   <p className="dark:text-gray-300 text-gray-700 mb-4">{activeVideo.description}</p>
                   <div className="flex flex-wrap items-center justify-between">
-                    <span className="dark:bg-primary-800 dark:text-primary-300 bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-sm font-medium">
+                    <span className="dark:bg-primary-800 dark:text-primary-300 bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-sm font-medium border dark:border-gray-600/40 border-gray-300">
                       {activeVideo.category}
                     </span>
                     <span className="dark:text-gray-400 text-gray-500 text-sm">
@@ -139,9 +139,9 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
                     </div>
                   ))
                 ) : (
-                  <div className="text-center py-6 dark:bg-gray-800/60 bg-gray-100/90 rounded-lg">
-                    <Info className="h-8 w-8 dark:text-gray-500 text-gray-400 mx-auto mb-2" />
-                    <p className="dark:text-gray-400 text-gray-500">No videos in this category</p>
+                  <div className="text-center py-6 dark:bg-gray-800/60 bg-gray-100/90 rounded-lg border dark:border-gray-600/40 border-gray-300 shadow-[0_0_15px_rgba(0,0,0,0.15)]">
+                    <Info className="h-8 w-8 dark:text-gray-500 text-gray-500 mx-auto mb-2" />
+                    <p className="dark:text-gray-400 text-gray-600">No videos in this category</p>
                   </div>
                 )}
               </div>
