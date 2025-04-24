@@ -20,9 +20,9 @@ const Home = () => {
       <Header />
       <main>
         <HeroSection />
+        <ApplicationsSection />
         <IntroSection />
         <FeaturesSection />
-        <ApplicationsSection />
         <ProductHistorySection />
         <ProductPerformanceSection />
 
