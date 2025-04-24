@@ -152,7 +152,7 @@ const ContactSection = () => {
                   <input 
                     type="text" 
                     id="lastName" 
-                    className={`w-full bg-gradient-to-r from-gray-800/90 to-gray-700/90 border ${formErrors.lastName ? 'border-red-500' : 'border-gray-600/40'} rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#0070f3] shadow-[0_0_15px_rgba(255,255,255,0.15)]`}
+                    className={`w-full dark:bg-gradient-to-r dark:from-gray-800/90 dark:to-gray-700/90 bg-gray-100/90 border ${formErrors.lastName ? 'border-red-500' : 'dark:border-gray-600/40 border-gray-300'} rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#0070f3] dark:shadow-[0_0_15px_rgba(255,255,255,0.25)] shadow-[0_0_15px_rgba(0,0,0,0.25)] dark:text-white text-gray-800`}
                     value={formData.lastName}
                     onChange={handleInputChange}
                     required
@@ -166,7 +166,7 @@ const ContactSection = () => {
                 <input 
                   type="email" 
                   id="email" 
-                  className={`w-full bg-gradient-to-r from-gray-800/90 to-gray-700/90 border ${formErrors.email ? 'border-red-500' : 'border-gray-600/40'} rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#0070f3] shadow-[0_0_15px_rgba(255,255,255,0.15)]`}
+                  className={`w-full dark:bg-gradient-to-r dark:from-gray-800/90 dark:to-gray-700/90 bg-gray-100/90 border ${formErrors.email ? 'border-red-500' : 'dark:border-gray-600/40 border-gray-300'} rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#0070f3] dark:shadow-[0_0_15px_rgba(255,255,255,0.25)] shadow-[0_0_15px_rgba(0,0,0,0.25)] dark:text-white text-gray-800`}
                   value={formData.email}
                   onChange={handleInputChange}
                   required
@@ -179,7 +179,7 @@ const ContactSection = () => {
                 <input 
                   type="tel" 
                   id="phone" 
-                  className="w-full bg-gradient-to-r from-gray-800/90 to-gray-700/90 border border-gray-600/40 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#0070f3] shadow-[0_0_15px_rgba(255,255,255,0.15)]"
+                  className="w-full dark:bg-gradient-to-r dark:from-gray-800/90 dark:to-gray-700/90 bg-gray-100/90 border dark:border-gray-600/40 border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#0070f3] dark:shadow-[0_0_15px_rgba(255,255,255,0.25)] shadow-[0_0_15px_rgba(0,0,0,0.25)] dark:text-white text-gray-800"
                   value={formData.phone}
                   onChange={handleInputChange}
                 />
@@ -189,7 +189,7 @@ const ContactSection = () => {
                 <label htmlFor="interest" className="block text-sm font-medium mb-2">I'm interested in</label>
                 <select 
                   id="interest" 
-                  className="w-full bg-gradient-to-r from-gray-800/90 to-gray-700/90 border border-gray-600/40 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#0070f3] shadow-[0_0_15px_rgba(255,255,255,0.15)]"
+                  className="w-full dark:bg-gradient-to-r dark:from-gray-800/90 dark:to-gray-700/90 bg-gray-100/90 border dark:border-gray-600/40 border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#0070f3] dark:shadow-[0_0_15px_rgba(255,255,255,0.25)] shadow-[0_0_15px_rgba(0,0,0,0.25)] dark:text-white text-gray-800"
                   value={formData.interest}
                   onChange={handleSelectChange}
                 >
@@ -208,7 +208,7 @@ const ContactSection = () => {
                 <textarea 
                   id="message" 
                   rows={4} 
-                  className="w-full bg-gradient-to-r from-gray-800/90 to-gray-700/90 border border-gray-600/40 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#0070f3] shadow-[0_0_15px_rgba(255,255,255,0.15)] resize-none"
+                  className="w-full dark:bg-gradient-to-r dark:from-gray-800/90 dark:to-gray-700/90 bg-gray-100/90 border dark:border-gray-600/40 border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#0070f3] dark:shadow-[0_0_15px_rgba(255,255,255,0.25)] shadow-[0_0_15px_rgba(0,0,0,0.25)] dark:text-white text-gray-800 resize-none"
                   value={formData.message}
                   onChange={handleInputChange}
                 ></textarea>
@@ -225,7 +225,7 @@ const ContactSection = () => {
           </div>
           
           <div>
-            <div className="bg-gradient-to-r from-gray-800/95 to-gray-700/95 backdrop-blur-xl rounded-lg overflow-hidden h-full border border-gray-600/40 shadow-[0_0_20px_rgba(255,255,255,0.2)]">
+            <div className="dark:bg-gradient-to-r dark:from-gray-800/95 dark:to-gray-700/95 bg-gray-100/90 backdrop-blur-xl rounded-lg overflow-hidden h-full dark:border-gray-600/40 border-gray-300 border-4 dark:shadow-[0_0_20px_rgba(255,255,255,0.2)] shadow-[0_0_20px_rgba(0,0,0,0.2)]">
               <div className="p-8">
                 <GradientHeading level={3} className="text-xl mb-6" variant="blue">Contact Information</GradientHeading>
                 
@@ -236,7 +236,7 @@ const ContactSection = () => {
                     </div>
                     <div>
                       <h4 className="font-semibold mb-1">Address</h4>
-                      <p className="text-[#a0a0a0]">1250 Industrial Parkway<br/>San Diego, CA 92154</p>
+                      <p className="dark:text-[#a0a0a0] text-gray-700">1250 Industrial Parkway<br/>San Diego, CA 92154</p>
                     </div>
                   </div>
                   
@@ -246,7 +246,7 @@ const ContactSection = () => {
                     </div>
                     <div>
                       <h4 className="font-semibold mb-1">Phone</h4>
-                      <p className="text-[#a0a0a0]">Main: (800) 555-7890<br/>Support: (800) 555-7891</p>
+                      <p className="dark:text-[#a0a0a0] text-gray-700">Main: (800) 555-7890<br/>Support: (800) 555-7891</p>
                     </div>
                   </div>
                   
@@ -256,7 +256,7 @@ const ContactSection = () => {
                     </div>
                     <div>
                       <h4 className="font-semibold mb-1">Email</h4>
-                      <p className="text-[#a0a0a0]">sales@praetoriancoatings.com<br/>support@praetoriancoatings.com</p>
+                      <p className="dark:text-[#a0a0a0] text-gray-700">sales@praetoriancoatings.com<br/>support@praetoriancoatings.com</p>
                     </div>
                   </div>
                   
