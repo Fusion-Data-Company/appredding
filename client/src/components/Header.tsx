@@ -39,8 +39,8 @@ const Header = () => {
       }`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <Link href="/" className="text-3xl font-heading font-bold flex items-center gap-3 group z-10">
-          <i className="fas fa-shield-alt fire-water-shield text-3xl transition-colors"></i>
+        <Link href="/" className="text-4xl font-heading font-bold flex items-center gap-4 group z-10">
+          <i className="fas fa-shield-alt fire-water-shield text-4xl transition-colors"></i>
           <div className="tracking-tight flex items-center gap-0.5">
             <span className="gradient-text-blue mr-0.5">Praetorian</span>
             <span className="gradient-text-fire">Coatings</span>
