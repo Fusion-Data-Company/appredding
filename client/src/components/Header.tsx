@@ -34,7 +34,7 @@ const Header = () => {
 
   return (
     <header 
-      className={`dark:bg-[#121212] bg-gray-100 border-b dark:border-[#ff6a00]/20 border-gray-300 sticky top-0 z-50 transition-all duration-300 ${
+      className={`dark:bg-[#121212] bg-[#f0ece0] border-b dark:border-[#ff6a00]/20 border-gray-300 sticky top-0 z-50 transition-all duration-300 ${
         scrolled ? "dark:shadow-[0_4px_20px_rgba(255,106,0,0.1)] shadow-[0_4px_20px_rgba(0,0,0,0.1)] py-3" : "py-4"
       }`}
     >
