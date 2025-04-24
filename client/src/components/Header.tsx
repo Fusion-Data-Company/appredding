@@ -42,8 +42,8 @@ const Header = () => {
         <Link href="/" className="text-2xl font-heading font-bold flex items-center gap-2 group z-10">
           <i className="fas fa-shield-alt fire-water-shield text-2xl transition-colors"></i>
           <div className="tracking-tight flex items-center gap-0.5">
-            <span className="gradient-text-blue mr-0.5">Praetorian</span>
-            <span className="gradient-text-fire">Coatings</span>
+            <span className="gradient-text-blue mr-0.5 dark:text-shadow-none text-shadow-[0_0_1px_rgba(0,0,0,0.7)]">Praetorian</span>
+            <span className="gradient-text-fire dark:text-shadow-none text-shadow-[0_0_1px_rgba(0,0,0,0.7)]">Coatings</span>
           </div>
         </Link>
 
@@ -70,14 +70,14 @@ const Header = () => {
                 {isHomePage ? (
                   <a 
                     href="#contact" 
-                    className="gradient-text-blue hover:gradient-text-fire font-bold text-base uppercase tracking-wide transition-all px-2 py-1.5 block rounded-md relative font-heading text-center"
+                    className="gradient-text-blue hover:gradient-text-fire font-bold text-base uppercase tracking-wide transition-all px-2 py-1.5 block rounded-md relative font-heading text-center dark:text-shadow-none text-shadow-[0_0_1px_rgba(0,0,0,0.7)]"
                   >
                     Contact Us
                   </a>
                 ) : (
                   <Link
                     href="/#contact"
-                    className="gradient-text-blue hover:gradient-text-fire font-bold text-base uppercase tracking-wide transition-all px-2 py-1.5 block rounded-md relative font-heading text-center"
+                    className="gradient-text-blue hover:gradient-text-fire font-bold text-base uppercase tracking-wide transition-all px-2 py-1.5 block rounded-md relative font-heading text-center dark:text-shadow-none text-shadow-[0_0_1px_rgba(0,0,0,0.7)]"
                   >
                     Contact Us
                   </Link>
