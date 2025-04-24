@@ -19,9 +19,18 @@ export function ThemeToggle() {
     );
   }
 
+  const toggleTheme = () => {
+    const newTheme = theme === "dark" ? "light" : "dark";
+    setTheme(newTheme);
+    // Also save to localStorage for persistence
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('theme', newTheme);
+    }
+  };
+  
   return (
     <button
-      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+      onClick={toggleTheme}
       className={`w-10 h-10 flex items-center justify-center rounded-md backdrop-blur-sm transition-all duration-200 ${
         theme === "dark" 
           ? "bg-white/90 hover:bg-white text-gray-800 border border-gray-200 shadow-[0_0_15px_rgba(255,255,255,0.3)]" 

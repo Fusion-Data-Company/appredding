@@ -30,9 +30,29 @@
     
     <!-- Preload critical resources -->
     <link rel="preload" as="style" href="/src/index.css">
-    <link rel="preload" as="video" href="/videos/fire-water-hands.webm" type="video/webm">
-    <link rel="preload" as="video" href="/videos/fire-water-hands-optimized.mp4" type="video/mp4">
-    <link rel="preload" as="image" href="/images/fire-water-hands-poster.jpg">
+    <link rel="preload" href="/videos/fire-water-hands.webm" as="video" type="video/webm" fetchpriority="high">
+    <link rel="preload" href="/videos/fire-water-hands-optimized.mp4" as="video" type="video/mp4" fetchpriority="high">
+    
+    <!-- Theme script to avoid theme flashing on load -->
+    <script>
+      // Check for saved theme preference or get OS preference
+      (function() {
+        function getThemePreference() {
+          if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+            return localStorage.getItem('theme');
+          }
+          return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        
+        const theme = getThemePreference();
+        
+        if (theme === 'dark') {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
