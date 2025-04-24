@@ -34,9 +34,9 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
     <section className="py-20 bg-gray-400/20 backdrop-blur-xl" id="videos">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <div className="bg-gray-800/60 backdrop-blur-xl rounded-xl border border-gray-600/40 shadow-[0_0_20px_rgba(255,255,255,0.2)] py-8 px-6 md:px-10 mx-auto max-w-3xl mb-8 inline-block">
+          <div className="dark:bg-gray-800/60 bg-white/90 backdrop-blur-xl rounded-xl dark:border dark:border-gray-600/40 border border-gray-200 dark:shadow-[0_0_20px_rgba(255,255,255,0.2)] shadow-[0_0_20px_rgba(0,0,0,0.1)] py-8 px-6 md:px-10 mx-auto max-w-3xl mb-8 inline-block">
             <GradientHeading level={2} className="text-4xl mb-4" variant="mixed">Video Demonstrations</GradientHeading>
-            <p className="text-lg text-gray-300">
+            <p className="text-lg dark:text-gray-300 text-gray-700">
               Watch our experts demonstrate application techniques and showcase<br />
               the superior performance of our protective coatings.
             </p>
@@ -46,7 +46,7 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
           <div className="lg:col-span-2">
             {activeVideo ? (
-              <div className="bg-gradient-to-r from-gray-800/90 to-gray-700/90 rounded-xl overflow-hidden border border-gray-600/40 shadow-[0_0_20px_rgba(255,255,255,0.2)]">
+              <div className="dark:bg-gradient-to-r dark:from-gray-800/90 dark:to-gray-700/90 bg-white/90 rounded-xl overflow-hidden dark:border dark:border-gray-600/40 border border-gray-200 dark:shadow-[0_0_20px_rgba(255,255,255,0.2)] shadow-[0_0_20px_rgba(0,0,0,0.1)]">
                 <div className="relative pb-[56.25%] h-0 overflow-hidden">
                   <iframe
                     className="absolute top-0 left-0 w-full h-full"
@@ -58,25 +58,25 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
                 </div>
                 <div className="p-6">
                   <GradientHeading level={3} className="text-xl mb-2" variant="fire">{activeVideo.title}</GradientHeading>
-                  <p className="text-gray-300 mb-4">{activeVideo.description}</p>
+                  <p className="dark:text-gray-300 text-gray-700 mb-4">{activeVideo.description}</p>
                   <div className="flex flex-wrap items-center justify-between">
-                    <span className="bg-primary-800 text-primary-300 px-3 py-1 rounded-full text-sm font-medium">
+                    <span className="dark:bg-primary-800 dark:text-primary-300 bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-sm font-medium">
                       {activeVideo.category}
                     </span>
-                    <span className="text-gray-400 text-sm">
+                    <span className="dark:text-gray-400 text-gray-500 text-sm">
                       <i className="fas fa-clock mr-1"></i> {activeVideo.duration}
                     </span>
                   </div>
                 </div>
               </div>
             ) : (
-              <div className="bg-gradient-to-r from-gray-800/90 to-gray-700/90 rounded-xl border border-gray-600/40 shadow-[0_0_20px_rgba(255,255,255,0.2)] p-8 flex items-center justify-center h-full">
+              <div className="dark:bg-gradient-to-r dark:from-gray-800/90 dark:to-gray-700/90 bg-white/90 rounded-xl dark:border dark:border-gray-600/40 border border-gray-200 dark:shadow-[0_0_20px_rgba(255,255,255,0.2)] shadow-[0_0_20px_rgba(0,0,0,0.1)] p-8 flex items-center justify-center h-full">
                 <div className="text-center">
-                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary-800 mb-4">
-                    <Play className="h-8 w-8 text-primary-500" />
+                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-full dark:bg-primary-800 bg-primary-100 mb-4">
+                    <Play className="h-8 w-8 dark:text-primary-500 text-primary-600" />
                   </div>
                   <GradientHeading level={3} className="text-xl mb-2" variant="blue">No Videos Available</GradientHeading>
-                  <p className="text-gray-400 max-w-md">
+                  <p className="dark:text-gray-400 text-gray-500 max-w-md">
                     Please check back later for video demonstrations.
                   </p>
                 </div>
