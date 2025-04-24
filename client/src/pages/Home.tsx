@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import HeroSection from "@/sections/HeroSection";
+import RotatingTextSection from "@/sections/RotatingTextSection";
 import IntroSection from "@/sections/IntroSection";
 import FeaturesSection from "@/sections/FeaturesSection";
 import ApplicationsSection from "@/sections/ApplicationsSection";
@@ -20,6 +21,7 @@ const Home = () => {
       <Header />
       <main>
         <HeroSection />
+        <RotatingTextSection />
         <ApplicationsSection />
         <IntroSection />
         <FeaturesSection />
