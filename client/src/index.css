@@ -311,13 +311,13 @@
     display: block;
     width: 100%;
     text-align: center;
-    -webkit-text-stroke: 1px rgba(0,0,0,0.8);
-    text-shadow: 0 2px 4px rgba(0,0,0,0.8), 0 0 5px rgba(0,0,0,0.6);
+    -webkit-text-stroke: 0.5px rgba(0,0,0,0.7);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.6);
   }
   
   .dark .gradient-text-blue {
-    -webkit-text-stroke: 1px rgba(255,255,255,0.8);
-    text-shadow: 0 2px 5px rgba(255,255,255,0.6), 0 0 10px rgba(255,255,255,0.4);
+    -webkit-text-stroke: 0.5px rgba(255,255,255,0.7);
+    text-shadow: 0 1px 3px rgba(255,255,255,0.5), 0 0 5px rgba(255,255,255,0.3);
   }
   
   .gradient-text-fire {
@@ -328,13 +328,13 @@
     display: block;
     width: 100%;
     text-align: center;
-    -webkit-text-stroke: 1px rgba(0,0,0,0.8);
-    text-shadow: 0 2px 4px rgba(0,0,0,0.8), 0 0 5px rgba(0,0,0,0.6);
+    -webkit-text-stroke: 0.5px rgba(0,0,0,0.7);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.6);
   }
   
   .dark .gradient-text-fire {
-    -webkit-text-stroke: 1px rgba(255,255,255,0.8);
-    text-shadow: 0 2px 5px rgba(255,255,255,0.6), 0 0 10px rgba(255,255,255,0.4);
+    -webkit-text-stroke: 0.5px rgba(255,255,255,0.7);
+    text-shadow: 0 1px 3px rgba(255,255,255,0.5), 0 0 5px rgba(255,255,255,0.3);
   }
   
   .fire-water-shield {
@@ -345,13 +345,13 @@
     display: block;
     width: 100%;
     text-align: center;
-    -webkit-text-stroke: 1px rgba(0,0,0,0.8);
-    text-shadow: 0 2px 4px rgba(0,0,0,0.8), 0 0 5px rgba(0,0,0,0.6);
+    -webkit-text-stroke: 0.5px rgba(0,0,0,0.8);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.7);
   }
   
   .dark .fire-water-shield {
-    -webkit-text-stroke: 1px rgba(255,255,255,0.8);
-    text-shadow: 0 2px 5px rgba(255,255,255,0.6), 0 0 10px rgba(255,255,255,0.4);
+    -webkit-text-stroke: 0.5px rgba(255,255,255,0.8);
+    text-shadow: 0 1px 3px rgba(255,255,255,0.6), 0 0 5px rgba(255,255,255,0.4);
   }
   
   .gradient-heading-mixed {
@@ -362,13 +362,13 @@
     display: block;
     width: 100%;
     text-align: center;
-    -webkit-text-stroke: 1px rgba(0,0,0,0.8);
-    text-shadow: 0 2px 4px rgba(0,0,0,0.8), 0 0 5px rgba(0,0,0,0.6);
+    -webkit-text-stroke: 0.5px rgba(0,0,0,0.8);
+    text-shadow: 0 1px 3px rgba(0,0,0,0.7);
   }
   
   .dark .gradient-heading-mixed {
-    -webkit-text-stroke: 1px rgba(255,255,255,0.8);
-    text-shadow: 0 2px 5px rgba(255,255,255,0.6), 0 0 10px rgba(255,255,255,0.4);
+    -webkit-text-stroke: 0.5px rgba(255,255,255,0.8);
+    text-shadow: 0 1px 3px rgba(255,255,255,0.6), 0 0 5px rgba(255,255,255,0.4);
   }
   
   /* Gradient Button Styles */

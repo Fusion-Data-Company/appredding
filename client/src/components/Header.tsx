@@ -77,7 +77,7 @@ const Header = () => {
                 ) : (
                   <Link
                     href="/#contact"
-                    className="gradient-text-blue hover:gradient-text-fire font-bold text-base uppercase tracking-wide transition-all px-2 py-1.5 block rounded-md relative font-heading text-center dark:text-shadow-[0_0_8px_rgba(255,255,255,0.5)] text-shadow-[0_0_1px_rgba(0,0,0,1),0_2px_3px_rgba(0,0,0,0.5)]"
+                    className="gradient-text-blue hover:gradient-text-fire font-bold text-base uppercase tracking-wide transition-all px-2 py-1.5 block rounded-md relative font-heading text-center"
                   >
                     Contact Us
                   </Link>
