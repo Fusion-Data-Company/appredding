@@ -34,7 +34,7 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
     <section className="py-20 bg-gray-400/20 backdrop-blur-xl" id="videos">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <div className="dark:bg-gray-800/60 bg-white/90 backdrop-blur-xl rounded-xl dark:border dark:border-gray-600/40 border border-gray-200 dark:shadow-[0_0_20px_rgba(255,255,255,0.2)] shadow-[0_0_20px_rgba(0,0,0,0.1)] py-8 px-6 md:px-10 mx-auto max-w-3xl mb-8 inline-block">
+          <div className="dark:bg-gray-800/60 bg-gray-100/90 backdrop-blur-xl rounded-xl dark:border dark:border-gray-600/40 border border-gray-300 dark:shadow-[0_0_20px_rgba(255,255,255,0.25)] shadow-[0_0_20px_rgba(0,0,0,0.25)] py-8 px-6 md:px-10 mx-auto max-w-3xl mb-8 inline-block">
             <GradientHeading level={2} className="text-4xl mb-4" variant="mixed">Video Demonstrations</GradientHeading>
             <p className="text-lg dark:text-gray-300 text-gray-700">
               Watch our experts demonstrate application techniques and showcase<br />
@@ -46,7 +46,7 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
           <div className="lg:col-span-2">
             {activeVideo ? (
-              <div className="dark:bg-gradient-to-r dark:from-gray-800/90 dark:to-gray-700/90 bg-white/90 rounded-xl overflow-hidden dark:border dark:border-gray-600/40 border border-gray-200 dark:shadow-[0_0_20px_rgba(255,255,255,0.2)] shadow-[0_0_20px_rgba(0,0,0,0.1)]">
+              <div className="dark:bg-gradient-to-r dark:from-gray-800/90 dark:to-gray-700/90 bg-gray-100/90 rounded-xl overflow-hidden dark:border dark:border-gray-600/40 border border-gray-300 dark:shadow-[0_0_20px_rgba(255,255,255,0.25)] shadow-[0_0_20px_rgba(0,0,0,0.25)]">
                 <div className="relative pb-[56.25%] h-0 overflow-hidden">
                   <iframe
                     className="absolute top-0 left-0 w-full h-full"
@@ -70,9 +70,9 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
                 </div>
               </div>
             ) : (
-              <div className="dark:bg-gradient-to-r dark:from-gray-800/90 dark:to-gray-700/90 bg-white/90 rounded-xl dark:border dark:border-gray-600/40 border border-gray-200 dark:shadow-[0_0_20px_rgba(255,255,255,0.2)] shadow-[0_0_20px_rgba(0,0,0,0.1)] p-8 flex items-center justify-center h-full">
+              <div className="dark:bg-gradient-to-r dark:from-gray-800/90 dark:to-gray-700/90 bg-gray-100/90 rounded-xl dark:border dark:border-gray-600/40 border border-gray-300 dark:shadow-[0_0_20px_rgba(255,255,255,0.25)] shadow-[0_0_20px_rgba(0,0,0,0.25)] p-8 flex items-center justify-center h-full">
                 <div className="text-center">
-                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-full dark:bg-primary-800 bg-primary-100 mb-4">
+                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-full dark:bg-primary-800 bg-gray-200 mb-4">
                     <Play className="h-8 w-8 dark:text-primary-500 text-primary-600" />
                   </div>
                   <GradientHeading level={3} className="text-xl mb-2" variant="blue">No Videos Available</GradientHeading>
