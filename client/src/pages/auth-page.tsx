@@ -6,6 +6,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { GradientHeading } from "@/components/ui/gradient-heading";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { GradientButton } from "@/components/ui/gradient-button";
 import { Label } from "@/components/ui/label";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -163,7 +164,7 @@ export default function AuthPage() {
                         )}
                       />
                       
-                      <Button
+                      <GradientButton
                         type="submit"
                         className="w-full"
                         disabled={loginMutation.isPending}
@@ -176,7 +177,7 @@ export default function AuthPage() {
                         ) : (
                           "Sign In"
                         )}
-                      </Button>
+                      </GradientButton>
                       
                       <div className="text-center text-sm">
                         <span className="text-gray-400">Don't have an account? </span>
@@ -350,7 +351,7 @@ export default function AuthPage() {
                         />
                       </div>
                       
-                      <Button
+                      <GradientButton
                         type="submit"
                         className="w-full"
                         disabled={registerMutation.isPending}
@@ -363,7 +364,7 @@ export default function AuthPage() {
                         ) : (
                           "Create Account"
                         )}
-                      </Button>
+                      </GradientButton>
                       
                       <div className="text-center text-sm">
                         <span className="text-gray-400">Already have an account? </span>
