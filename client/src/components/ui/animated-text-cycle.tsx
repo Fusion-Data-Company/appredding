@@ -58,7 +58,7 @@ export default function AnimatedTextCycle({
           exit="exit"
           className={`inline-block uppercase gradient-text-vertical text-[120%] font-semibold tracking-wide ${className}`}
           style={{ 
-            WebkitTextStroke: '0.2px rgba(0,0,0,0.1)',
+            WebkitTextStroke: '0.1px rgba(0,0,0,0.05)',
             filter: 'none',
             position: 'relative',
             zIndex: 5
