@@ -70,6 +70,9 @@ export const Menu = ({
     <nav
       onMouseLeave={() => setActive(null)} // resets the state
       className="relative rounded-full border-2 border-[#ff6a00]/40 bg-gradient-to-b from-[#38b0de]/85 via-white/75 to-[#ff6a00]/85 backdrop-blur-xl shadow-[0_0_15px_rgba(255,106,0,0.3)] flex justify-center items-center space-x-4 px-4 py-1.5 w-max mx-auto"
+      style={{
+        background: "linear-gradient(to bottom, rgba(56, 176, 222, 0.85) 0%, rgba(56, 176, 222, 0.85) 46%, rgba(255, 255, 255, 0.75) 46%, rgba(255, 255, 255, 0.75) 54%, rgba(255, 106, 0, 0.85) 54%, rgba(255, 106, 0, 0.85) 100%)"
+      }}
     >
       {children}
     </nav>
