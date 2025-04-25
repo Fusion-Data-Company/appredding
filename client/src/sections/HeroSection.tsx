@@ -105,11 +105,11 @@ const HeroSection = () => {
         </div>
       )}
 
-      {/* Blue diamond plate background as direct HTML */}
+      {/* Fire-water diamond plate background as direct HTML */}
       <div 
         className="absolute top-0 left-0 w-full h-full" 
         style={{ 
-          backgroundImage: "url('/images/blue-diamond-plate.jpg')", 
+          backgroundImage: "url('/images/diamond-plate-fire-water.jpg')", 
           backgroundSize: "cover" 
         }}
       ></div>

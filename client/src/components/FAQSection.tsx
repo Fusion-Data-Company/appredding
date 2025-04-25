@@ -23,7 +23,7 @@ const FAQSection = ({ faqs }: FAQProps) => {
       className="py-24 relative" 
       id="faq"
       style={{ 
-        backgroundImage: "url('/images/orange-diamond-plate.jpg')",
+        backgroundImage: "url('/images/diamond-plate-fire-water.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat"
