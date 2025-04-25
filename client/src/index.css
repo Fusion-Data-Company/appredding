@@ -340,11 +340,10 @@
   
   .gradient-text-combined {
     background: linear-gradient(90deg, 
-      #38b0de 0%, 
-      #38b0de 25%, 
-      #ff8c00 40%,
-      #ff4500 55%,
-      #38b0de 70%, 
+      #ff4500 0%, 
+      #ff8c00 20%, 
+      #ffffff 50%,
+      #87ceeb 80%, 
       #38b0de 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

@@ -42,10 +42,8 @@ const Header = () => {
         <Link href="/" className="text-4xl font-heading font-bold flex items-center gap-4 group z-10">
           <i className="fas fa-shield-alt fire-water-shield text-4xl transition-colors"></i>
           <div className="tracking-tight flex items-center">
-            <div className="flex items-center text-[1.5rem] sm:text-[1.65rem] md:text-[1.8rem] leading-none whitespace-nowrap">
-              <span className="gradient-text-blue">Praetorian</span>
-              <span className="gradient-text-fire">SmartCoat</span>
-              <span className="gradient-text-blue">Solutions</span>
+            <div className="text-[1.5rem] sm:text-[1.65rem] md:text-[1.8rem] leading-none whitespace-nowrap">
+              <span className="gradient-text-combined">Praetorian SmartCoat Solutions</span>
             </div>
           </div>
         </Link>
