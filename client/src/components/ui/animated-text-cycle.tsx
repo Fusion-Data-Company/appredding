@@ -56,7 +56,13 @@ export default function AnimatedTextCycle({
           initial="enter"
           animate="center"
           exit="exit"
-          className={`inline-block uppercase ${className}`}
+          className={`inline-block uppercase gradient-text-vertical text-[120%] font-semibold tracking-wide ${className}`}
+          style={{ 
+            WebkitTextStroke: '0.5px rgba(0,0,0,0.8)',
+            filter: 'drop-shadow(0px 3px 4px rgba(0,0,0,0.95))',
+            position: 'relative',
+            zIndex: 5
+          }}
         >
           {words[currentIndex]}
         </motion.span>
