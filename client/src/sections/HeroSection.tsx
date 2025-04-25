@@ -139,7 +139,7 @@ const HeroSection = () => {
       
       {/* Buttons - positioned lower to avoid covering "SOLUTIONS" text */}
       <div className="z-10 mt-16">
-        <div className="space-x-8">
+        <div className="space-x-20">
           <a 
             href="#applications" 
             className="inline-block"
