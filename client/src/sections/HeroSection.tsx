@@ -97,7 +97,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative h-[90vh] flex flex-col items-center justify-end pb-10 overflow-hidden -mt-[1px]">
+    <section className="relative h-[85vh] flex flex-col items-center justify-end pb-16 overflow-hidden">
       {/* Loading indicator */}
       {isLoading && (
         <div className="absolute inset-0 flex items-center justify-center bg-black z-10">
@@ -115,27 +115,39 @@ const HeroSection = () => {
       ></div>
       
       {/* Video container stretched edge to edge */}
-      <div className="absolute inset-0 flex items-start justify-center z-10 w-full">
+      <div className="absolute inset-0 flex items-center justify-center z-10 overflow-hidden">
         {isVideoError ? (
-          <img 
-            src="/images/fire-water-gen4-turbo-poster.jpg" 
-            alt="Fire and Water" 
-            className="w-screen h-auto object-cover object-top" 
-          />
+          <div className="relative w-full h-full overflow-hidden">
+            <img 
+              src="/images/fire-water-gen4-turbo-poster.jpg" 
+              alt="Fire and Water" 
+              className="absolute top-0 left-0 right-0 w-full"
+              style={{ 
+                transform: "scale(1.2)", 
+                transformOrigin: "top center"
+              }}
+            />
+          </div>
         ) : (
-          <video 
-            ref={videoRef}
-            className="w-screen h-auto min-h-full object-cover object-top"
-            autoPlay
-            muted
-            playsInline
-            preload="auto"
-          >
-            <source src="/videos/fire-water-gen4-turbo-small.mp4" type="video/mp4" />
-            <source src="/videos/fire-water-gen4-turbo.mp4" type="video/mp4" />
-            <source src="/videos/fire-water-hands-optimized.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
+          <div className="relative w-full h-full overflow-hidden">
+            <video 
+              ref={videoRef}
+              className="absolute top-0 left-0 right-0 w-full"
+              style={{ 
+                transform: "scale(1.2)", 
+                transformOrigin: "top center"
+              }}
+              autoPlay
+              muted
+              playsInline
+              preload="auto"
+            >
+              <source src="/videos/fire-water-gen4-turbo-small.mp4" type="video/mp4" />
+              <source src="/videos/fire-water-gen4-turbo.mp4" type="video/mp4" />
+              <source src="/videos/fire-water-hands-optimized.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
         )}
       </div>
     </section>
