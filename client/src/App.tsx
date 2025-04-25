@@ -3,6 +3,7 @@ import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { ImagePreloader } from "@/components/ui/image-preloader";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import CRM from "@/pages/CRM";
@@ -45,12 +46,22 @@ function Router() {
 }
 
 function App() {
+  // Critical background images to preload
+  const criticalImages = [
+    '/images/optimized/diamond-plate-fire-water.jpg',
+    '/images/optimized/diamond-plate-fire-water-2.jpg',
+    '/images/optimized/diamond-plate-orange-blue.jpg',
+    '/images/optimized/diamond-plate-fire-red.jpg'
+  ];
+
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
         <AuthProvider>
-          <Router />
+          <ImagePreloader imageUrls={criticalImages}>
+            <Router />
+          </ImagePreloader>
         </AuthProvider>
       </TooltipProvider>
     </QueryClientProvider>

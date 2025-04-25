@@ -6,7 +6,7 @@ const IntroSection = () => {
     <section 
       className="py-16 relative"
       style={{ 
-        backgroundImage: "url('/images/diamond-plate-orange-blue.jpg')",
+        backgroundImage: "url('/images/optimized/diamond-plate-orange-blue.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat"

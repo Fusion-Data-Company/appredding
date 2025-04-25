@@ -5,7 +5,7 @@ const TestimonialsSection = () => {
     <section 
       className="py-20 relative"
       style={{ 
-        backgroundImage: "url('/images/diamond-plate-fire-red.jpg')",
+        backgroundImage: "url('/images/optimized/diamond-plate-fire-red.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat"
