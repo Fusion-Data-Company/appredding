@@ -137,8 +137,8 @@ const HeroSection = () => {
         )}
       </div>
       
-      {/* Buttons - positioned at the bottom of the screen */}
-      <div className="z-10 mt-auto mb-10">
+      {/* Buttons - positioned at the very bottom of the screen */}
+      <div className="z-10 mt-auto mb-4">
         <div className="space-x-50">
           <a 
             href="#applications" 
