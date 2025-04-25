@@ -10,13 +10,15 @@ const HeroSection = () => {
     // Performance optimization - load smaller video first then show it
     let hasVideoPlayedSuccessfully = false;
 
-    // Freeze on the last frame when video ends
+    // Freeze on the last frame when video ends - this is crucial for the new video
     const handleVideoEnded = () => {
       if (videoRef.current) {
-        // Do not replay - keep the last frame visible
+        // Set to exactly the last frame
         videoRef.current.currentTime = videoRef.current.duration - 0.01;
+        // Set a flag in state to know we're on the last frame
+        hasVideoPlayedSuccessfully = true;
+        console.log("Video ended and paused on last frame");
       }
-      hasVideoPlayedSuccessfully = true;
     };
 
     // Handle when video can play
@@ -37,15 +39,15 @@ const HeroSection = () => {
       videoElement.addEventListener('canplay', handleCanPlay);
       videoElement.addEventListener('error', handleError);
       
-      // Enhance video loading performance
+      // Enhanced video loading performance
       videoElement.playsInline = true;
       videoElement.muted = true;
       videoElement.preload = "auto";
       
-      // Set low playback rate initially to prevent skipping
-      videoElement.playbackRate = 0.9;
+      // Set normal playback rate for the new video
+      videoElement.playbackRate = 1.0;
       
-      // Start playing when component mounts with low priority
+      // Start playing when component mounts
       setTimeout(() => {
         if (!hasVideoPlayedSuccessfully) {
           videoElement.play().catch(error => {
@@ -81,7 +83,7 @@ const HeroSection = () => {
         {isVideoError ? (
           <div 
             className="absolute w-full h-full bg-cover bg-center"
-            style={{ backgroundImage: "url('/images/fire-water-hands-poster.jpg')" }}
+            style={{ backgroundImage: "url('/images/fire-water-gen4-turbo-poster.jpg')" }}
           />
         ) : (
           <video 
@@ -90,12 +92,13 @@ const HeroSection = () => {
             autoPlay
             muted
             playsInline
-            poster="/images/fire-water-hands-poster.jpg"
+            poster="/images/fire-water-gen4-turbo-poster.jpg"
             preload="auto"
           >
-            {/* MP4 (smaller file) for faster initial loading */}
+            {/* New Gen-4 Turbo video */}
+            <source src="/videos/fire-water-gen4-turbo.mp4" type="video/mp4" />
+            {/* Fallback to previous videos if needed */}
             <source src="/videos/fire-water-hands-optimized.mp4" type="video/mp4" />
-            {/* WebM as fallback */}
             <source src="/videos/fire-water-hands.webm" type="video/webm" />
             Your browser does not support the video tag.
           </video>
