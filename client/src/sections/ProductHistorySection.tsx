@@ -6,34 +6,37 @@ const ProductHistorySection = () => {
     <section 
       className="py-20 relative" 
       style={{
-        backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1516156008625-3a9d6067fab5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80')",
+        backgroundImage: "url('/images/diamond-plate-fire-water-2.jpg')",
         backgroundSize: "cover",
-        backgroundPosition: "center"
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat"
       }}
     >
-      <div className="container mx-auto px-4">
+      {/* Semi-transparent overlay for better readability */}
+      <div className="absolute inset-0 bg-black/30"></div>
+      <div className="container mx-auto px-4 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div>
             <GradientHeading level={2} className="text-3xl md:text-4xl mb-4" variant="fire">Our Heritage of Protection</GradientHeading>
-            <p className="mb-6">
+            <p className="mb-6 text-white">
               For over 40 years, Praetorian SmartCoat Solutions has been at the forefront of developing advanced coating technologies that protect what matters most.
             </p>
             <ul className="space-y-3 mb-8">
               <li className="flex items-start">
                 <i className="fas fa-check-circle text-primary-400 mt-1 mr-3"></i>
-                <span>Founded by chemical engineers with a passion for protection</span>
+                <span className="dark:text-white text-white">Founded by chemical engineers with a passion for protection</span>
               </li>
               <li className="flex items-start">
                 <i className="fas fa-check-circle text-primary-400 mt-1 mr-3"></i>
-                <span>Pioneered environmentally-friendly protective solutions</span>
+                <span className="dark:text-white text-white">Pioneered environmentally-friendly protective solutions</span>
               </li>
               <li className="flex items-start">
                 <i className="fas fa-check-circle text-primary-400 mt-1 mr-3"></i>
-                <span>Over 10,000 successful installations across North America</span>
+                <span className="dark:text-white text-white">Over 10,000 successful installations across North America</span>
               </li>
               <li className="flex items-start">
                 <i className="fas fa-check-circle text-primary-400 mt-1 mr-3"></i>
-                <span>Industry-leading R&D laboratory and testing facility</span>
+                <span className="dark:text-white text-white">Industry-leading R&D laboratory and testing facility</span>
               </li>
             </ul>
             <GradientButton 
