@@ -97,7 +97,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative bg-black h-[85vh] flex flex-col items-center justify-end pb-10 overflow-hidden">
+    <section className="relative h-[85vh] flex flex-col items-center justify-end pb-10 overflow-hidden">
       {/* Loading indicator */}
       {isLoading && (
         <div className="absolute inset-0 flex items-center justify-center bg-black z-10">
@@ -105,26 +105,28 @@ const HeroSection = () => {
         </div>
       )}
       
-      {/* Metal diamond plate background - higher z-index to ensure visibility */}
+      {/* Metal diamond plate background - plain background with no overlays */}
       <div 
-        className="absolute inset-0 w-full h-full bg-cover bg-center z-0" 
-        style={{ backgroundImage: "url('/images/metal-diamond-plate.jpg')" }}
-      >
-        {/* Lighter gradient overlay to let more of the background show through */}
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900/40 to-black/40"></div>
-      </div>
+        className="absolute inset-0 w-full h-full" 
+        style={{ 
+          backgroundImage: "url('/images/metal-diamond-plate.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat"
+        }}
+      ></div>
       
-      {/* Video foreground with reduced opacity to see background */}
-      <div className="absolute inset-0 w-full h-full flex items-center justify-center overflow-hidden z-10">
+      {/* Video foreground - nothing but the video, no extra styling */}
+      <div className="absolute inset-0 w-full h-full flex items-center justify-center overflow-hidden">
         {isVideoError ? (
           <div 
-            className="absolute w-[160%] h-[95%] bg-contain bg-no-repeat bg-center mx-auto left-0 right-0 top-0 bottom-0 transform scale-100 opacity-90"
+            className="absolute w-[120%] h-[80%] bg-contain bg-no-repeat bg-center mx-auto left-0 right-0 top-0 bottom-0"
             style={{ backgroundImage: "url('/images/fire-water-gen4-turbo-poster.jpg')" }}
           />
         ) : (
           <video 
             ref={videoRef}
-            className="absolute w-[160%] h-[95%] object-contain transform scale-100 mx-auto my-auto left-0 right-0 top-0 bottom-0 opacity-90"
+            className="absolute w-[120%] h-[80%] object-contain mx-auto my-auto left-0 right-0 top-0 bottom-0"
             autoPlay
             muted
             playsInline
