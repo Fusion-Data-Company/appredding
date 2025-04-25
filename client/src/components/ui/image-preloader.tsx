@@ -27,14 +27,17 @@ export function ImagePreloader({ imageUrls, children }: ImagePreloaderProps) {
       img.src = url;
       img.onload = () => {
         loadedCount++;
+        console.log(`Successfully preloaded image: ${url}`);
         if (loadedCount === totalImages) {
+          console.log('✅ All critical images preloaded successfully');
           setImagesLoaded(true);
         }
       };
       img.onerror = () => {
         loadedCount++;
-        console.warn(`Failed to preload image: ${url}`);
+        console.warn(`⚠️ Failed to preload image: ${url}`);
         if (loadedCount === totalImages) {
+          console.warn('⚠️ Some images failed to preload');
           setImagesLoaded(true);
         }
       };
