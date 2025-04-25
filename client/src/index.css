@@ -360,8 +360,9 @@
   
   .gradient-text-vertical {
     background: linear-gradient(to bottom, 
-      #38b0de 0%, 
-      #87ceeb 25%, 
+      #0033a0 0%,
+      #0077be 15%, 
+      #38b0de 30%, 
       #ffffff 50%,
       #ff8c00 75%, 
       #ff4500 100%);
