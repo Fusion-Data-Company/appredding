@@ -7,33 +7,28 @@ const HeroSection = () => {
   const [isVideoError, setIsVideoError] = useState(false);
 
   useEffect(() => {
-    // Performance optimization - load smaller video first then show it
-    let hasVideoPlayedSuccessfully = false;
-    let freezeFrameTimeout: NodeJS.Timeout | null = null;
+    // We'll have a timer to freeze the video after 3.3 seconds
+    let freezeTimer: NodeJS.Timeout | null = null;
+    let hasVideoFrozen = false;
 
-    // Enhanced method to freeze on the last frame when video ends
-    const handleVideoEnded = () => {
-      if (videoRef.current) {
-        // Set to exactly the last frame
-        videoRef.current.currentTime = videoRef.current.duration - 0.01;
-        
-        // Add an additional check to make sure it stays on the last frame
-        // This helps prevent any potential browser behaviors that might reset the position
-        freezeFrameTimeout = setTimeout(() => {
-          if (videoRef.current) {
-            videoRef.current.currentTime = videoRef.current.duration - 0.01;
-          }
-        }, 50);
-        
-        // Set a flag in state to know we're on the last frame
-        hasVideoPlayedSuccessfully = true;
-        console.log("Video ended and paused on last frame");
+    // Function to pause and freeze the video
+    const freezeVideoAt3Seconds = () => {
+      if (videoRef.current && !hasVideoFrozen) {
+        // Pause the video at exactly 3.3 seconds
+        videoRef.current.pause();
+        hasVideoFrozen = true;
+        console.log("Video paused at 3.3 seconds");
       }
     };
 
     // Handle when video can play
     const handleCanPlay = () => {
       setIsLoading(false);
+      
+      // Once the video can play, set a timer to freeze it after 3.3 seconds
+      if (videoRef.current && !hasVideoFrozen) {
+        freezeTimer = setTimeout(freezeVideoAt3Seconds, 3300); // 3.3 seconds
+      }
     };
 
     // Handle video loading error
@@ -43,21 +38,29 @@ const HeroSection = () => {
       setIsLoading(false);
     };
 
-    // Handle seeking to keep video on the last frame if needed
-    const handleSeeking = () => {
-      if (hasVideoPlayedSuccessfully && videoRef.current) {
-        // If we've already played the video and it's seeking,
-        // make sure it stays at the end
-        videoRef.current.currentTime = videoRef.current.duration - 0.01;
+    // Also handle timeupdate events to make sure we freeze at the right time
+    const handleTimeUpdate = () => {
+      if (videoRef.current && videoRef.current.currentTime >= 3.3 && !hasVideoFrozen) {
+        freezeVideoAt3Seconds();
+      }
+    };
+
+    // Prevent playing again if user clicks on the video
+    const handleClick = (e: Event) => {
+      if (hasVideoFrozen) {
+        e.preventDefault();
+        if (videoRef.current) {
+          videoRef.current.pause(); // Make sure it stays paused
+        }
       }
     };
 
     const videoElement = videoRef.current;
     if (videoElement) {
-      videoElement.addEventListener('ended', handleVideoEnded);
       videoElement.addEventListener('canplay', handleCanPlay);
       videoElement.addEventListener('error', handleError);
-      videoElement.addEventListener('seeking', handleSeeking);
+      videoElement.addEventListener('timeupdate', handleTimeUpdate);
+      videoElement.addEventListener('click', handleClick);
       
       // Enhanced video loading performance
       videoElement.playsInline = true;
@@ -70,10 +73,9 @@ const HeroSection = () => {
       
       // Start playing when component mounts
       setTimeout(() => {
-        if (!hasVideoPlayedSuccessfully) {
+        if (!hasVideoFrozen) {
           videoElement.play().catch(error => {
             console.error("Error playing video:", error);
-            // If we can't autoplay, at least show the poster
             setIsLoading(false);
           });
         }
@@ -83,14 +85,14 @@ const HeroSection = () => {
     // Cleanup event listeners on unmount
     return () => {
       if (videoElement) {
-        videoElement.removeEventListener('ended', handleVideoEnded);
         videoElement.removeEventListener('canplay', handleCanPlay);
         videoElement.removeEventListener('error', handleError);
-        videoElement.removeEventListener('seeking', handleSeeking);
+        videoElement.removeEventListener('timeupdate', handleTimeUpdate);
+        videoElement.removeEventListener('click', handleClick);
       }
       
-      if (freezeFrameTimeout) {
-        clearTimeout(freezeFrameTimeout);
+      if (freezeTimer) {
+        clearTimeout(freezeTimer);
       }
     };
   }, []);
