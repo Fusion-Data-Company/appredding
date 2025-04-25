@@ -4,8 +4,18 @@ import { GradientButton } from "@/components/ui/gradient-button";
 
 const RotatingTextSection = () => {
   return (
-    <section className="dark:bg-gradient-to-b dark:from-black dark:to-gray-900 bg-gradient-to-b from-[#f5f2e8] to-[#f8f5ee] py-20">
-      <div className="container mx-auto px-4">
+    <section 
+      className="py-20 relative"
+      style={{ 
+        backgroundImage: "url('/images/diamond-plate-orange-blue.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat"
+      }}
+    >
+      {/* Semi-transparent overlay for better readability */}
+      <div className="absolute inset-0 bg-black/30"></div>
+      <div className="container mx-auto px-4 relative z-10">
         {/* Buttons - positioned at the top of this section */}
         <div className="flex justify-center gap-20 mb-12">
             <a 
