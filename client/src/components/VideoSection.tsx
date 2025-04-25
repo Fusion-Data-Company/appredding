@@ -122,14 +122,14 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
                   filteredVideos.map((video) => (
                     <div
                       key={video.id}
-                      className={`flex gap-3 p-3 rounded-lg cursor-pointer transition-colors ${
+                      className={`flex flex-col gap-3 p-3 rounded-lg cursor-pointer transition-colors ${
                         activeVideo?.id === video.id
                           ? "dark:bg-gray-700/80 bg-gray-200/90"
                           : "dark:bg-gray-800/60 dark:hover:bg-gray-700/70 bg-gray-100/90 hover:bg-gray-200/80"
                       }`}
                       onClick={() => setActiveVideo(video)}
                     >
-                      <div className="relative flex-shrink-0 w-20 h-20 bg-gray-800 rounded-md overflow-hidden">
+                      <div className="relative flex-shrink-0 w-[200px] h-[95px] bg-gray-800 rounded-md overflow-hidden mx-auto">
                         <img
                           src={video.thumbnail || `https://i.ytimg.com/vi/${video.id}/mqdefault.jpg`}
                           alt={video.title}
@@ -139,9 +139,9 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
                           <Play className="h-6 w-6 text-white" />
                         </div>
                       </div>
-                      <div className="flex-grow min-w-0">
+                      <div className="flex-grow min-w-0 text-center">
                         <h4 className="font-medium text-sm mb-1 line-clamp-2">{video.title}</h4>
-                        <div className="flex items-center text-xs text-gray-400">
+                        <div className="flex items-center justify-center text-xs text-gray-400">
                           <span>{video.duration}</span>
                           <span className="mx-1">•</span>
                           <span className="capitalize">{video.category}</span>
