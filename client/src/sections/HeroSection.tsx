@@ -97,7 +97,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative h-[95vh] flex flex-col items-center justify-end pb-10 overflow-hidden mt-8">
+    <section className="relative h-[90vh] flex flex-col items-center justify-end pb-10 overflow-hidden -mt-[1px]">
       {/* Loading indicator */}
       {isLoading && (
         <div className="absolute inset-0 flex items-center justify-center bg-black z-10">

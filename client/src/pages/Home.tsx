@@ -19,7 +19,7 @@ const Home = () => {
   return (
     <div className="min-h-screen flex flex-col bg-primary-dark">
       <Header />
-      <main>
+      <main className="flex-1 flex flex-col">
         <HeroSection />
         <RotatingTextSection />
         <ApplicationsSection />
