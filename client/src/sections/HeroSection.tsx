@@ -97,7 +97,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative h-[85vh] flex flex-col items-center justify-end pb-10 overflow-hidden">
+    <section className="relative h-[95vh] flex flex-col items-center justify-end pb-10 overflow-hidden mt-8">
       {/* Loading indicator */}
       {isLoading && (
         <div className="absolute inset-0 flex items-center justify-center bg-black z-10">
@@ -114,18 +114,18 @@ const HeroSection = () => {
         }}
       ></div>
       
-      {/* Video container (back to original size) */}
-      <div className="absolute inset-0 flex items-center justify-center z-10">
+      {/* Video container stretched edge to edge */}
+      <div className="absolute inset-0 flex items-start justify-center z-10 w-full">
         {isVideoError ? (
           <img 
             src="/images/fire-water-gen4-turbo-poster.jpg" 
             alt="Fire and Water" 
-            className="w-[160%] h-[95%] object-contain" 
+            className="w-screen h-auto object-cover object-top" 
           />
         ) : (
           <video 
             ref={videoRef}
-            className="w-[160%] h-[95%] object-contain"
+            className="w-screen h-auto min-h-full object-cover object-top"
             autoPlay
             muted
             playsInline
