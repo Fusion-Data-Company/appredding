@@ -16,7 +16,7 @@ const ProductHistorySection = () => {
           <div>
             <GradientHeading level={2} className="text-3xl md:text-4xl mb-4" variant="fire">Our Heritage of Protection</GradientHeading>
             <p className="mb-6">
-              For over 40 years, Praetorian Protective Coatings has been at the forefront of developing advanced coating technologies that protect what matters most.
+              For over 40 years, Praetorian SmartCoat Solutions has been at the forefront of developing advanced coating technologies that protect what matters most.
             </p>
             <ul className="space-y-3 mb-8">
               <li className="flex items-start">
@@ -54,7 +54,7 @@ const ProductHistorySection = () => {
                 <div className="absolute -left-2 top-0 w-4 h-4 rounded-full dark:bg-gradient-to-r dark:from-gray-700 dark:to-gray-600 bg-gradient-to-r from-orange-400 to-orange-500 dark:shadow-[0_0_5px_rgba(255,255,255,0.15)] shadow-[0_0_5px_rgba(0,0,0,0.15)]"></div>
                 <div className="font-bold">1978</div>
                 <div className="text-lg font-semibold">Company Founded</div>
-                <p className="dark:text-gray-300 text-gray-700">Praetorian Protective Coatings established in Portland, Oregon</p>
+                <p className="dark:text-gray-300 text-gray-700">Praetorian SmartCoat Solutions established in Portland, Oregon</p>
               </div>
               
               <div className="relative pl-8 dark:border-l-2 dark:border-gray-600/40 border-l-2 border-gray-400/60 pb-6">

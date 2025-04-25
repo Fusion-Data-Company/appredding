@@ -256,7 +256,7 @@ const ContactSection = () => {
                     </div>
                     <div>
                       <h4 className="font-semibold mb-1">Email</h4>
-                      <p className="dark:text-[#a0a0a0] text-gray-700">sales@praetoriancoatings.com<br/>support@praetoriancoatings.com</p>
+                      <p className="dark:text-[#a0a0a0] text-gray-700">sales@praetoriansmartcoat.com<br/>support@praetoriansmartcoat.com</p>
                     </div>
                   </div>
                   
