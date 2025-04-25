@@ -361,12 +361,14 @@
   .gradient-text-vertical {
     background: linear-gradient(to bottom, 
       #0033a0 0%,
-      #0077be 25%, 
-      #38b0de 45%, 
-      #ffffff 48%,
-      #ffffff 52%,
-      #ff8c00 55%, 
-      #ff6a00 75%,
+      #0077be 15%, 
+      #38b0de 30%, 
+      #38b0de 48%, 
+      #ffffff 49%,
+      #ffffff 51%,
+      #ff8c00 52%, 
+      #ff8c00 70%,
+      #ff6a00 85%,
       #ff4500 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
