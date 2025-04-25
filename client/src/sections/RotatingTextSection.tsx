@@ -7,8 +7,7 @@ const RotatingTextSection = () => {
     <section className="dark:bg-gradient-to-b dark:from-black dark:to-gray-900 bg-gradient-to-b from-[#f5f2e8] to-[#f8f5ee] py-20">
       <div className="container mx-auto px-4">
         {/* Buttons - positioned at the top of this section */}
-        <div className="flex justify-center mb-12">
-          <div className="space-x-50">
+        <div className="flex justify-center gap-20 mb-12">
             <a 
               href="#applications" 
               className="inline-block"
@@ -19,13 +18,12 @@ const RotatingTextSection = () => {
             </a>
             <a 
               href="#contact" 
-              className="inline-block"
+              className="inline-block ml-20"
             >
               <GradientButton variant="variant">
                 Contact Us
               </GradientButton>
             </a>
-          </div>
         </div>
         
         <div className="max-w-3xl mx-auto text-center pt-8">
