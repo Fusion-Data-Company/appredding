@@ -114,18 +114,18 @@ const HeroSection = () => {
         }}
       ></div>
       
-      {/* Video container (smaller than full size) */}
+      {/* Video container (back to original size) */}
       <div className="absolute inset-0 flex items-center justify-center z-10">
         {isVideoError ? (
           <img 
             src="/images/fire-water-gen4-turbo-poster.jpg" 
             alt="Fire and Water" 
-            className="w-4/5 h-4/5 object-contain" 
+            className="w-[160%] h-[95%] object-contain" 
           />
         ) : (
           <video 
             ref={videoRef}
-            className="w-4/5 h-4/5 object-contain"
+            className="w-[160%] h-[95%] object-contain"
             autoPlay
             muted
             playsInline
