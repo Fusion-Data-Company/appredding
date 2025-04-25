@@ -136,28 +136,6 @@ const HeroSection = () => {
           </video>
         )}
       </div>
-      
-      {/* Buttons - positioned at the very bottom of the screen */}
-      <div className="z-10 mt-auto mb-4">
-        <div className="space-x-50">
-          <a 
-            href="#applications" 
-            className="inline-block"
-          >
-            <GradientButton>
-              Explore Applications
-            </GradientButton>
-          </a>
-          <a 
-            href="#contact" 
-            className="inline-block"
-          >
-            <GradientButton variant="variant">
-              Contact Us
-            </GradientButton>
-          </a>
-        </div>
-      </div>
     </section>
   );
 };
