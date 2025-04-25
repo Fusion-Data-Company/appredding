@@ -105,26 +105,26 @@ const HeroSection = () => {
         </div>
       )}
       
-      {/* Metal diamond plate background */}
+      {/* Metal diamond plate background - higher z-index to ensure visibility */}
       <div 
-        className="absolute inset-0 w-full h-full bg-cover bg-center" 
+        className="absolute inset-0 w-full h-full bg-cover bg-center z-0" 
         style={{ backgroundImage: "url('/images/metal-diamond-plate.jpg')" }}
       >
-        {/* Add a gradient overlay to ensure video stands out */}
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900/70 to-black/70"></div>
+        {/* Lighter gradient overlay to let more of the background show through */}
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900/40 to-black/40"></div>
       </div>
       
-      {/* Video foreground */}
+      {/* Video foreground with reduced opacity to see background */}
       <div className="absolute inset-0 w-full h-full flex items-center justify-center overflow-hidden z-10">
         {isVideoError ? (
           <div 
-            className="absolute w-[160%] h-[95%] bg-contain bg-no-repeat bg-center mx-auto left-0 right-0 top-0 bottom-0 transform scale-100"
+            className="absolute w-[160%] h-[95%] bg-contain bg-no-repeat bg-center mx-auto left-0 right-0 top-0 bottom-0 transform scale-100 opacity-90"
             style={{ backgroundImage: "url('/images/fire-water-gen4-turbo-poster.jpg')" }}
           />
         ) : (
           <video 
             ref={videoRef}
-            className="absolute w-[160%] h-[95%] object-contain transform scale-100 mx-auto my-auto left-0 right-0 top-0 bottom-0"
+            className="absolute w-[160%] h-[95%] object-contain transform scale-100 mx-auto my-auto left-0 right-0 top-0 bottom-0 opacity-90"
             autoPlay
             muted
             playsInline
