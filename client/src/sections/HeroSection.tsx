@@ -105,19 +105,16 @@ const HeroSection = () => {
         </div>
       )}
       
-      {/* Metal diamond plate background - plain background with no overlays */}
+      {/* Video foreground with blue diamond plate background */}
       <div 
-        className="absolute inset-0 w-full h-full" 
+        className="absolute inset-0 w-full h-full flex items-center justify-center overflow-hidden"
         style={{ 
-          backgroundImage: "url('/images/metal-diamond-plate.jpg')",
+          backgroundImage: "url('/images/blue-diamond-plate.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat"
         }}
-      ></div>
-      
-      {/* Video foreground - nothing but the video, no extra styling */}
-      <div className="absolute inset-0 w-full h-full flex items-center justify-center overflow-hidden">
+      >
         {isVideoError ? (
           <div 
             className="absolute w-[120%] h-[80%] bg-contain bg-no-repeat bg-center mx-auto left-0 right-0 top-0 bottom-0"
