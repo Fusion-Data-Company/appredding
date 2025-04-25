@@ -104,41 +104,36 @@ const HeroSection = () => {
           <div className="w-16 h-16 border-t-4 border-orange-500 border-solid rounded-full animate-spin"></div>
         </div>
       )}
-      
-      {/* Video foreground with blue diamond plate background */}
+
+      {/* Blue diamond plate background as direct HTML */}
       <div 
-        className="absolute inset-0 w-full h-full flex items-center justify-center overflow-hidden"
+        className="absolute top-0 left-0 w-full h-full" 
         style={{ 
-          backgroundImage: "url('/images/blue-diamond-plate.jpg')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat"
+          backgroundImage: "url('/images/blue-diamond-plate.jpg')", 
+          backgroundSize: "cover" 
         }}
-      >
+      ></div>
+      
+      {/* Video container (smaller than full size) */}
+      <div className="absolute inset-0 flex items-center justify-center z-10">
         {isVideoError ? (
-          <div 
-            className="absolute w-[100%] h-[75%] bg-contain bg-no-repeat bg-center mx-auto left-0 right-0 top-0 bottom-0"
-            style={{ backgroundImage: "url('/images/fire-water-gen4-turbo-poster.jpg')" }}
+          <img 
+            src="/images/fire-water-gen4-turbo-poster.jpg" 
+            alt="Fire and Water" 
+            className="w-4/5 h-4/5 object-contain" 
           />
         ) : (
           <video 
             ref={videoRef}
-            className="absolute w-[100%] h-[75%] object-contain mx-auto my-auto left-0 right-0 top-0 bottom-0"
+            className="w-4/5 h-4/5 object-contain"
             autoPlay
             muted
             playsInline
-            poster="/images/fire-water-gen4-turbo-poster.jpg"
             preload="auto"
           >
-            {/* Smaller Gen-4 Turbo video (better memory efficiency) - try this first */}
             <source src="/videos/fire-water-gen4-turbo-small.mp4" type="video/mp4" />
-            {/* Medium quality Gen-4 Turbo video */}
             <source src="/videos/fire-water-gen4-turbo.mp4" type="video/mp4" />
-            {/* 4K version - highest quality but larger file size */}
-            <source src="/videos/fire-water-gen4-turbo-4k.mp4" type="video/mp4" />
-            {/* Original videos as final fallback */}
             <source src="/videos/fire-water-hands-optimized.mp4" type="video/mp4" />
-            <source src="/videos/fire-water-hands.webm" type="video/webm" />
             Your browser does not support the video tag.
           </video>
         )}
