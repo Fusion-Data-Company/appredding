@@ -31,8 +31,19 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
     : videos.filter((video) => video.category === activeCategory);
 
   return (
-    <section className="py-20 dark:bg-gray-400/20 bg-gray-100 backdrop-blur-xl" id="videos">
-      <div className="container mx-auto px-4">
+    <section 
+      className="py-20 relative" 
+      id="videos"
+      style={{ 
+        backgroundImage: "url('/images/orange-diamond-plate.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat"
+      }}
+    >
+      {/* Semi-transparent overlay for better readability */}
+      <div className="absolute inset-0 bg-black/30"></div>
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
           <div className="dark:bg-gray-800/60 bg-gray-100/90 backdrop-blur-xl rounded-xl dark:border dark:border-gray-600/40 border border-gray-300 dark:shadow-[0_0_20px_rgba(255,255,255,0.25)] shadow-[0_0_20px_rgba(0,0,0,0.25)] py-8 px-6 md:px-10 mx-auto max-w-3xl mb-8 inline-block">
             <GradientHeading level={2} className="text-4xl mb-4" variant="mixed">Video Demonstrations</GradientHeading>
