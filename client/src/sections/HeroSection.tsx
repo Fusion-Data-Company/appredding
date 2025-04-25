@@ -137,8 +137,8 @@ const HeroSection = () => {
         )}
       </div>
       
-      {/* Buttons - positioned below the video */}
-      <div className="z-10 mt-24">
+      {/* Buttons - positioned at the bottom of the screen */}
+      <div className="z-10 mt-auto mb-10">
         <div className="space-x-50">
           <a 
             href="#applications" 
