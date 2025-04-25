@@ -9,12 +9,22 @@ const HeroSection = () => {
   useEffect(() => {
     // Performance optimization - load smaller video first then show it
     let hasVideoPlayedSuccessfully = false;
+    let freezeFrameTimeout: NodeJS.Timeout | null = null;
 
-    // Freeze on the last frame when video ends - this is crucial for the new video
+    // Enhanced method to freeze on the last frame when video ends
     const handleVideoEnded = () => {
       if (videoRef.current) {
         // Set to exactly the last frame
         videoRef.current.currentTime = videoRef.current.duration - 0.01;
+        
+        // Add an additional check to make sure it stays on the last frame
+        // This helps prevent any potential browser behaviors that might reset the position
+        freezeFrameTimeout = setTimeout(() => {
+          if (videoRef.current) {
+            videoRef.current.currentTime = videoRef.current.duration - 0.01;
+          }
+        }, 50);
+        
         // Set a flag in state to know we're on the last frame
         hasVideoPlayedSuccessfully = true;
         console.log("Video ended and paused on last frame");
@@ -33,16 +43,27 @@ const HeroSection = () => {
       setIsLoading(false);
     };
 
+    // Handle seeking to keep video on the last frame if needed
+    const handleSeeking = () => {
+      if (hasVideoPlayedSuccessfully && videoRef.current) {
+        // If we've already played the video and it's seeking,
+        // make sure it stays at the end
+        videoRef.current.currentTime = videoRef.current.duration - 0.01;
+      }
+    };
+
     const videoElement = videoRef.current;
     if (videoElement) {
       videoElement.addEventListener('ended', handleVideoEnded);
       videoElement.addEventListener('canplay', handleCanPlay);
       videoElement.addEventListener('error', handleError);
+      videoElement.addEventListener('seeking', handleSeeking);
       
       // Enhanced video loading performance
       videoElement.playsInline = true;
       videoElement.muted = true;
       videoElement.preload = "auto";
+      videoElement.loop = false; // Ensure loop is disabled
       
       // Set normal playback rate for the new video
       videoElement.playbackRate = 1.0;
@@ -65,6 +86,11 @@ const HeroSection = () => {
         videoElement.removeEventListener('ended', handleVideoEnded);
         videoElement.removeEventListener('canplay', handleCanPlay);
         videoElement.removeEventListener('error', handleError);
+        videoElement.removeEventListener('seeking', handleSeeking);
+      }
+      
+      if (freezeFrameTimeout) {
+        clearTimeout(freezeFrameTimeout);
       }
     };
   }, []);
@@ -95,9 +121,13 @@ const HeroSection = () => {
             poster="/images/fire-water-gen4-turbo-poster.jpg"
             preload="auto"
           >
-            {/* New Gen-4 Turbo video */}
+            {/* Smaller Gen-4 Turbo video (better memory efficiency) - try this first */}
+            <source src="/videos/fire-water-gen4-turbo-small.mp4" type="video/mp4" />
+            {/* Medium quality Gen-4 Turbo video */}
             <source src="/videos/fire-water-gen4-turbo.mp4" type="video/mp4" />
-            {/* Fallback to previous videos if needed */}
+            {/* 4K version - highest quality but larger file size */}
+            <source src="/videos/fire-water-gen4-turbo-4k.mp4" type="video/mp4" />
+            {/* Original videos as final fallback */}
             <source src="/videos/fire-water-hands-optimized.mp4" type="video/mp4" />
             <source src="/videos/fire-water-hands.webm" type="video/webm" />
             Your browser does not support the video tag.
