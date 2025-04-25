@@ -8,7 +8,7 @@ const TestimonialsSection = () => {
           <div className="dark:bg-gray-800/60 bg-gray-100/90 backdrop-blur-xl rounded-xl dark:border dark:border-gray-600/40 border border-gray-300 dark:shadow-[0_0_20px_rgba(255,255,255,0.25)] shadow-[0_0_20px_rgba(0,0,0,0.25)] py-8 px-6 md:px-10 mx-auto max-w-3xl mb-8 inline-block">
             <GradientHeading level={2} className="text-3xl md:text-4xl mb-4" variant="mixed">What Our Clients Say</GradientHeading>
             <p className="dark:text-[#a0a0a0] text-gray-700 max-w-2xl mx-auto">
-              Hear from satisfied customers who trust Praetorian coatings to protect their valuable assets.
+              Hear from satisfied customers who trust Praetorian SmartCoat Solutions to protect their valuable assets.
             </p>
           </div>
         </div>
@@ -26,7 +26,7 @@ const TestimonialsSection = () => {
                 </div>
               </div>
               <p className="text-lg italic mb-6 dark:text-white text-gray-800">
-                "After applying Praetorian's FireGuard Pro to our mountain cabin, we had peace of mind during wildfire season. 
+                "After applying Praetorian SmartCoat's FireGuard Pro to our mountain cabin, we had peace of mind during wildfire season. 
                 When fires swept through our area last summer, our home was one of the few left standing. 
                 The investment literally saved our family home."
               </p>
