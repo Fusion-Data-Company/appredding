@@ -117,13 +117,13 @@ const HeroSection = () => {
       >
         {isVideoError ? (
           <div 
-            className="absolute w-[120%] h-[80%] bg-contain bg-no-repeat bg-center mx-auto left-0 right-0 top-0 bottom-0"
+            className="absolute w-[100%] h-[75%] bg-contain bg-no-repeat bg-center mx-auto left-0 right-0 top-0 bottom-0"
             style={{ backgroundImage: "url('/images/fire-water-gen4-turbo-poster.jpg')" }}
           />
         ) : (
           <video 
             ref={videoRef}
-            className="absolute w-[120%] h-[80%] object-contain mx-auto my-auto left-0 right-0 top-0 bottom-0"
+            className="absolute w-[100%] h-[75%] object-contain mx-auto my-auto left-0 right-0 top-0 bottom-0"
             autoPlay
             muted
             playsInline
