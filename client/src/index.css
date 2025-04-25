@@ -349,13 +349,15 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
     display: inline-block;
-    -webkit-text-stroke: 0.25px rgba(0,0,0,0.5);
-    filter: drop-shadow(0px 2px 2px rgba(0,0,0,0.8));
+    -webkit-text-stroke: 0.5px rgba(0,0,0,0.8);
+    filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.95));
+    position: relative;
+    z-index: 5;
   }
   
   .dark .gradient-text-combined {
-    -webkit-text-stroke: 0.25px rgba(255,255,255,0.4);
-    filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.9));
+    -webkit-text-stroke: 0.5px rgba(0,0,0,0.8);
+    filter: drop-shadow(0px 3px 4px rgba(0,0,0,0.95));
   }
   
   .gradient-text-vertical {
@@ -374,13 +376,15 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
     display: inline-block;
-    -webkit-text-stroke: 0.25px rgba(0,0,0,0.5);
-    filter: drop-shadow(0px 2px 2px rgba(0,0,0,0.8));
+    -webkit-text-stroke: 0.5px rgba(0,0,0,0.8);
+    filter: drop-shadow(0px 3px 4px rgba(0,0,0,0.95));
+    position: relative;
+    z-index: 5;
   }
   
   .dark .gradient-text-vertical {
-    -webkit-text-stroke: 0.25px rgba(255,255,255,0.4);
-    filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.9));
+    -webkit-text-stroke: 0.5px rgba(0,0,0,0.8);
+    filter: drop-shadow(0px 3px 4px rgba(0,0,0,0.95));
   }
   
   .fire-water-shield {
@@ -391,13 +395,15 @@
     display: block;
     width: 100%;
     text-align: center;
-    -webkit-text-stroke: 0.25px rgba(0,0,0,0.5);
-    filter: drop-shadow(0px 2px 2px rgba(0,0,0,0.8));
+    -webkit-text-stroke: 0.5px rgba(0,0,0,0.8);
+    filter: drop-shadow(0px 3px 4px rgba(0,0,0,0.95));
+    position: relative;
+    z-index: 5;
   }
   
   .dark .fire-water-shield {
-    -webkit-text-stroke: 0.25px rgba(255,255,255,0.4);
-    filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.9));
+    -webkit-text-stroke: 0.5px rgba(0,0,0,0.8);
+    filter: drop-shadow(0px 3px 4px rgba(0,0,0,0.95));
   }
   
   .gradient-heading-mixed {
@@ -408,13 +414,15 @@
     display: block;
     width: 100%;
     text-align: center;
-    -webkit-text-stroke: 0.25px rgba(0,0,0,0.4);
-    filter: drop-shadow(0px 1px 1px rgba(0,0,0,0.7));
+    -webkit-text-stroke: 0.5px rgba(0,0,0,0.8);
+    filter: drop-shadow(0px 3px 4px rgba(0,0,0,0.95));
+    position: relative;
+    z-index: 5;
   }
   
   .dark .gradient-heading-mixed {
-    -webkit-text-stroke: 0.25px rgba(255,255,255,0.4);
-    filter: drop-shadow(0px 1px 2px rgba(0,0,0,0.8));
+    -webkit-text-stroke: 0.5px rgba(0,0,0,0.8);
+    filter: drop-shadow(0px 3px 4px rgba(0,0,0,0.95));
   }
   
   /* Gradient Button Styles */
