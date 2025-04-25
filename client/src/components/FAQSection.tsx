@@ -23,14 +23,14 @@ const FAQSection = ({ faqs }: FAQProps) => {
       className="py-24 relative" 
       id="faq"
       style={{ 
-        backgroundImage: "url('/images/optimized/orange-diamond-plate.jpg')",
+        backgroundImage: "url('/images/optimized/diamond-plate-fire-blue.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat"
       }}
     >
       {/* Semi-transparent overlay for better readability */}
-      <div className="absolute inset-0 bg-black/30"></div>
+      <div className="absolute inset-0 bg-black/25"></div>
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
           <div className="bg-gray-800/60 backdrop-blur-xl rounded-xl border border-gray-600/40 shadow-[0_0_20px_rgba(255,255,255,0.2)] py-8 px-6 md:px-10 mx-auto max-w-3xl mb-8 inline-block">
