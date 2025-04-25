@@ -109,7 +109,7 @@ const HeroSection = () => {
       <div 
         className="absolute top-0 left-0 w-full h-full" 
         style={{ 
-          backgroundImage: "url('/images/diamond-plate-fire-water.jpg')", 
+          backgroundImage: "url('/images/optimized/diamond-plate-fire-water.jpg')", 
           backgroundSize: "cover" 
         }}
       ></div>

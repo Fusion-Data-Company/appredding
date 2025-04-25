@@ -35,7 +35,7 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
       className="py-20 relative" 
       id="videos"
       style={{ 
-        backgroundImage: "url('/images/diamond-plate-fire-water.jpg')",
+        backgroundImage: "url('/images/optimized/diamond-plate-fire-water.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat"
