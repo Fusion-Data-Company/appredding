@@ -19,8 +19,19 @@ interface FAQProps {
 
 const FAQSection = ({ faqs }: FAQProps) => {
   return (
-    <section className="py-24 bg-gray-400/20 backdrop-blur-xl" id="faq">
-      <div className="container mx-auto px-4">
+    <section 
+      className="py-24 relative" 
+      id="faq"
+      style={{ 
+        backgroundImage: "url('/images/orange-diamond-plate.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat"
+      }}
+    >
+      {/* Semi-transparent overlay for better readability */}
+      <div className="absolute inset-0 bg-black/30"></div>
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
           <div className="bg-gray-800/60 backdrop-blur-xl rounded-xl border border-gray-600/40 shadow-[0_0_20px_rgba(255,255,255,0.2)] py-8 px-6 md:px-10 mx-auto max-w-3xl mb-8 inline-block">
             <GradientHeading level={2} className="text-3xl md:text-4xl mb-4" variant="mixed">Frequently Asked Questions</GradientHeading>
