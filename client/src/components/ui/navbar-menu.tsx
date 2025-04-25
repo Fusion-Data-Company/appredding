@@ -42,7 +42,7 @@ export const MenuItem = ({
               <motion.div
                 transition={transition}
                 layoutId="active" // layoutId ensures smooth animation
-                className="bg-gradient-to-b from-gray-700/95 to-gray-800/95 backdrop-blur-3xl backdrop-filter before:absolute before:inset-0 before:bg-gray-600/50 before:z-[-1] relative rounded-xl overflow-hidden border border-[#ff6a00]/40 shadow-[0_10px_25px_-5px_rgba(0,0,0,0.3)] min-w-max"
+                className="bg-gradient-to-b from-[#38b0de]/40 via-gray-800/70 to-[#ff6a00]/40 backdrop-blur-3xl backdrop-filter before:absolute before:inset-0 before:bg-gray-600/50 before:z-[-1] relative rounded-xl overflow-hidden border border-[#ff6a00]/40 shadow-[0_10px_25px_-5px_rgba(0,0,0,0.3)] min-w-max"
               >
                 <motion.div
                   layout // layout ensures smooth animation
@@ -69,7 +69,7 @@ export const Menu = ({
   return (
     <nav
       onMouseLeave={() => setActive(null)} // resets the state
-      className="relative rounded-full border-2 border-[#ff6a00]/40 bg-gradient-to-r from-[#38b0de]/85 via-white/75 to-[#ff6a00]/85 backdrop-blur-xl shadow-[0_0_15px_rgba(255,106,0,0.3)] flex justify-center items-center space-x-4 px-4 py-1.5 w-max mx-auto"
+      className="relative rounded-full border-2 border-[#ff6a00]/40 bg-gradient-to-b from-[#38b0de]/85 via-white/75 to-[#ff6a00]/85 backdrop-blur-xl shadow-[0_0_15px_rgba(255,106,0,0.3)] flex justify-center items-center space-x-4 px-4 py-1.5 w-max mx-auto"
     >
       {children}
     </nav>
