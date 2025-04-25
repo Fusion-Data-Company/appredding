@@ -1,4 +1,3 @@
-import { GradientButton } from "@/components/ui/gradient-button";
 import { useEffect, useRef, useState } from "react";
 
 const HeroSection = () => {
@@ -106,8 +105,17 @@ const HeroSection = () => {
         </div>
       )}
       
-      {/* Video background */}
-      <div className="absolute inset-0 w-full h-full flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 to-black">
+      {/* Metal diamond plate background */}
+      <div 
+        className="absolute inset-0 w-full h-full bg-cover bg-center" 
+        style={{ backgroundImage: "url('/images/metal-diamond-plate.jpg')" }}
+      >
+        {/* Add a gradient overlay to ensure video stands out */}
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900/70 to-black/70"></div>
+      </div>
+      
+      {/* Video foreground */}
+      <div className="absolute inset-0 w-full h-full flex items-center justify-center overflow-hidden z-10">
         {isVideoError ? (
           <div 
             className="absolute w-[160%] h-[95%] bg-contain bg-no-repeat bg-center mx-auto left-0 right-0 top-0 bottom-0 transform scale-100"
