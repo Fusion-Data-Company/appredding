@@ -6,7 +6,7 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div>
-            <GradientHeading level={3} className="text-xl mb-4" variant="mixed">Praetorian Coatings</GradientHeading>
+            <GradientHeading level={3} className="text-xl mb-4" variant="mixed">Praetorian SmartCoat</GradientHeading>
             <p className="dark:text-[#a0a0a0] text-gray-700 mb-6">
               Industry-leading protective coatings engineered to defend against the elements,
               preserve structures, and provide peace of mind.
@@ -148,7 +148,7 @@ const Footer = () => {
         </div>
 
         <div className="pt-6 border-t dark:border-[#333333] border-gray-300 text-center dark:text-[#a0a0a0] text-gray-700 text-sm">
-          <p>&copy; {new Date().getFullYear()} Praetorian Protective Coatings. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Praetorian SmartCoat Solutions. All rights reserved.</p>
           <div className="mt-2 space-x-4">
             <a href="#" className="text-[#a0a0a0] hover:text-[#0070f3] transition-colors">
               Privacy Policy
