@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Link } from "wouter";
-import { ThemeToggle } from "@/components/ui/theme-toggle";
+import { LightPullThemeSwitcher } from "@/components/ui/light-pull-theme-switcher";
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -44,7 +44,7 @@ const MobileMenu = ({ isOpen, onClose, isHomePage = true }: MobileMenuProps) => 
     >
       <div className="container mx-auto py-6 px-4">
         <div className="flex justify-end mb-4">
-          <ThemeToggle />
+          <LightPullThemeSwitcher />
         </div>
         <ul className="space-y-5 divide-y dark:divide-gray-800 divide-gray-300">
           <li className="pb-1">
