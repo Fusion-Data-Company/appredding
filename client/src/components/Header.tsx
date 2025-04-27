@@ -39,7 +39,7 @@ const Header = () => {
         scrolled ? "dark:shadow-[0_4px_20px_rgba(255,106,0,0.1)] shadow-[0_4px_20px_rgba(0,0,0,0.1)] py-3" : "py-4"
       }`}
     >
-      <div className="container mx-auto px-4 flex justify-between items-center">
+      <div className="w-full px-4 flex justify-between items-center">
         <Link href="/" className="text-4xl font-heading font-bold flex items-center gap-4 group z-10">
           <i className="fas fa-shield-alt fire-water-shield text-4xl transition-colors"></i>
           <div className="tracking-tight flex items-center">
@@ -50,8 +50,8 @@ const Header = () => {
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center justify-end ml-auto">
-          <div className="flex items-center mr-6">
+        <div className="hidden md:flex items-center justify-end ml-auto pr-10">
+          <div className="flex items-center mr-10">
             <div className="relative pl-3 mr-3">
               <Sun size={24} className="absolute -left-8 bottom-2 text-yellow-500 dark:text-yellow-400" />
               <div className="relative">
