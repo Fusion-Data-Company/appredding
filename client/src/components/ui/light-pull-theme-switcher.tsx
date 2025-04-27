@@ -24,11 +24,11 @@ export function LightPullThemeSwitcher() {
                 <div className="flex justify-center absolute bottom-1 left-0 right-0">
                     <div className="h-4 w-12 ml-4 rounded-md bg-gray-300 opacity-70"></div>
                 </div>
-                <div className="absolute left-0 bottom-1">
-                    <div className="h-3 w-3 ml-1 rounded-full bg-gray-300 opacity-70"></div>
+                <div className="absolute left-3 bottom-1">
+                    <div className="h-3 w-3 rounded-full bg-gray-300 opacity-70"></div>
                 </div>
-                <div className="absolute right-0 bottom-1">
-                    <div className="h-3 w-3 mr-1 rounded-full bg-gray-300 opacity-70"></div>
+                <div className="absolute right-3 bottom-1">
+                    <div className="h-3 w-3 rounded-full bg-gray-300 opacity-70"></div>
                 </div>
             </div>
         );
@@ -67,11 +67,11 @@ export function LightPullThemeSwitcher() {
         </div>
         
         {/* Icons positioned at sides of the box */}
-        <div className="absolute left-0 bottom-1">
-          <Sun size={12} className="text-yellow-500 dark:text-yellow-400 ml-1" />
+        <div className="absolute left-3 bottom-1">
+          <Sun size={12} className="text-yellow-500 dark:text-yellow-400" />
         </div>
-        <div className="absolute right-0 bottom-1">
-          <Moon size={12} className="text-blue-600 dark:text-blue-400 mr-1" />
+        <div className="absolute right-3 bottom-1">
+          <Moon size={12} className="text-blue-600 dark:text-blue-400" />
         </div>
       </div>
     );
