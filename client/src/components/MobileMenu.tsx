@@ -43,8 +43,10 @@ const MobileMenu = ({ isOpen, onClose, isHomePage = true }: MobileMenuProps) => 
       }`}
     >
       <div className="container mx-auto py-6 px-4">
-        <div className="flex justify-end mb-4">
-          <LightPullThemeSwitcher />
+        <div className="flex justify-center mb-6">
+          <div className="w-36 bg-gray-100 dark:bg-gray-800 rounded-lg py-2 px-3 shadow-md">
+            <LightPullThemeSwitcher />
+          </div>
         </div>
         <ul className="space-y-5 divide-y dark:divide-gray-800 divide-gray-300">
           <li className="pb-1">
