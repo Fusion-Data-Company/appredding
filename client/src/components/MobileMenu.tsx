@@ -46,7 +46,7 @@ const MobileMenu = ({ isOpen, onClose, isHomePage = true }: MobileMenuProps) => 
       <div className="container mx-auto py-6 px-4">
         <div className="flex justify-center mb-6">
           <div className="flex items-center">
-            <div className="relative">
+            <div className="relative pl-3 mr-3">
               <Sun size={24} className="absolute -left-8 bottom-2 text-yellow-500 dark:text-yellow-400" />
               <div className="relative">
                 <div className="bg-gray-100 dark:bg-gray-800 rounded-lg py-2 px-3 shadow-md">
