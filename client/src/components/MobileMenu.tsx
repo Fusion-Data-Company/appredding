@@ -47,7 +47,7 @@ const MobileMenu = ({ isOpen, onClose, isHomePage = true }: MobileMenuProps) => 
         <div className="flex justify-center mb-6">
           <div className="flex items-center">
             <div className="relative">
-              <Sun size={18} className="absolute -left-6 bottom-2 text-yellow-500 dark:text-yellow-400" />
+              <Sun size={24} className="absolute -left-8 bottom-2 text-yellow-500 dark:text-yellow-400" />
               <div className="relative">
                 <div className="bg-gray-100 dark:bg-gray-800 rounded-lg py-2 px-3 shadow-md">
                   <LightPullThemeSwitcher />
@@ -56,7 +56,7 @@ const MobileMenu = ({ isOpen, onClose, isHomePage = true }: MobileMenuProps) => 
                   <ChevronDown size={18} className="text-black dark:text-white animate-bounce" />
                 </div>
               </div>
-              <Moon size={18} className="absolute -right-6 bottom-2 text-blue-600 dark:text-blue-400" />
+              <Moon size={24} className="absolute -right-8 bottom-2 text-blue-600 dark:text-blue-400" />
             </div>
           </div>
         </div>

@@ -53,7 +53,7 @@ const Header = () => {
         <div className="hidden md:flex items-center gap-4">
           <div className="flex items-center">
             <div className="relative">
-              <Sun size={18} className="absolute -left-6 bottom-2 text-yellow-500 dark:text-yellow-400" />
+              <Sun size={24} className="absolute -left-8 bottom-2 text-yellow-500 dark:text-yellow-400" />
               <div className="relative">
                 <div className="bg-gray-100/80 dark:bg-gray-800/80 rounded-lg shadow-md backdrop-blur-sm px-1">
                   <LightPullThemeSwitcher />
@@ -62,7 +62,7 @@ const Header = () => {
                   <ChevronDown size={18} className="text-black dark:text-white animate-bounce" />
                 </div>
               </div>
-              <Moon size={18} className="absolute -right-6 bottom-2 text-blue-600 dark:text-blue-400" />
+              <Moon size={24} className="absolute -right-8 bottom-2 text-blue-600 dark:text-blue-400" />
             </div>
           </div>
           <Menu setActive={setActiveItem}>
