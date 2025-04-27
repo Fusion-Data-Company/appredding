@@ -19,24 +19,17 @@ export function LightPullThemeSwitcher() {
 
     if (!mounted) {
         return (
-            <div className="relative py-4 p-3 overflow-hidden">
-                <div className="py-1 px-2 opacity-70">
-                    <div className="h-10 w-20 rounded-md bg-gray-300"></div>
+            <div className="relative py-1 px-2 overflow-hidden">
+                <div className="h-10 w-10 mx-auto rounded-full bg-gray-300 opacity-70"></div>
+                <div className="flex justify-center mt-1">
+                    <div className="h-4 w-16 rounded-md bg-gray-300 opacity-70"></div>
                 </div>
             </div>
         );
     }
 
     return (
-      <div className="relative py-2 px-2 overflow-hidden">
-        {/* Pull Text with Icons */}
-        <div className="flex items-center justify-center mb-1 gap-1 text-xs font-medium">
-          <Sun size={12} className="text-yellow-500 dark:text-yellow-400" />
-          <span className="text-black dark:text-white">PULL</span>
-          <Moon size={12} className="text-blue-600 dark:text-blue-400" />
-          <ChevronDown size={14} className="ml-1 text-black dark:text-white animate-bounce" />
-        </div>
-        
+      <div className="relative py-1 px-2 overflow-hidden">
         <motion.div
           drag="y"
           dragDirectionLock
@@ -49,7 +42,7 @@ export function LightPullThemeSwitcher() {
           dragTransition={{ bounceStiffness: 500, bounceDamping: 15 }}
           dragElastic={0.075}
           whileDrag={{ cursor: "grabbing" }}
-          className="relative bottom-0 w-10 h-10 mx-auto rounded-full 
+          className="relative bottom-0 w-10 h-10 mx-auto rounded-full -mb-1
                bg-[radial-gradient(circle_at_center,_#facc15,_#fcd34d,_#fef9c3)] 
                dark:bg-[radial-gradient(circle_at_center,_#4b5563,_#1f2937,_#000)] 
                shadow-[0_0_20px_8px_rgba(250,204,21,0.5)] 
@@ -60,6 +53,14 @@ export function LightPullThemeSwitcher() {
           <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-0.5 h-[9999px] 
                 bg-black dark:bg-white opacity-40 dark:opacity-30"></div>
         </motion.div>
+        
+        {/* Pull Text with Icons */}
+        <div className="flex items-center justify-center mt-1 gap-1 text-xs font-medium">
+          <Sun size={12} className="text-yellow-500 dark:text-yellow-400" />
+          <span className="text-black dark:text-white">PULL</span>
+          <Moon size={12} className="text-blue-600 dark:text-blue-400" />
+          <ChevronDown size={14} className="ml-1 text-black dark:text-white animate-bounce" />
+        </div>
       </div>
     );
 }
