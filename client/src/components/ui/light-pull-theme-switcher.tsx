@@ -20,15 +20,15 @@ export function LightPullThemeSwitcher() {
     if (!mounted) {
         return (
             <div className="relative py-1 px-2 overflow-hidden mt-3 mb-2 h-24">
-                <div className="h-10 w-10 mx-auto rounded-full bg-gray-300 opacity-70 mt-8"></div>
+                <div className="h-7 w-7 mx-auto rounded-full bg-gray-300 opacity-70 mt-8"></div>
                 <div className="flex justify-center absolute bottom-1 left-0 right-0">
                     <div className="h-4 w-12 ml-4 rounded-md bg-gray-300 opacity-70"></div>
                 </div>
                 <div className="absolute left-3 bottom-1">
-                    <div className="h-3 w-3 rounded-full bg-gray-300 opacity-70"></div>
+                    <div className="h-4 w-4 rounded-full bg-gray-300 opacity-70"></div>
                 </div>
                 <div className="absolute right-3 bottom-1">
-                    <div className="h-3 w-3 rounded-full bg-gray-300 opacity-70"></div>
+                    <div className="h-4 w-4 rounded-full bg-gray-300 opacity-70"></div>
                 </div>
             </div>
         );
@@ -48,11 +48,11 @@ export function LightPullThemeSwitcher() {
           dragTransition={{ bounceStiffness: 500, bounceDamping: 15 }}
           dragElastic={0.075}
           whileDrag={{ cursor: "grabbing" }}
-          className="relative bottom-0 w-10 h-10 mx-auto rounded-full mt-8
+          className="relative bottom-0 w-7 h-7 mx-auto rounded-full mt-8
                bg-[radial-gradient(circle_at_center,_#facc15,_#fcd34d,_#fef9c3)] 
                dark:bg-[radial-gradient(circle_at_center,_#4b5563,_#1f2937,_#000)] 
-               shadow-[0_0_20px_8px_rgba(250,204,21,0.5)] 
-               dark:shadow-[0_0_20px_6px_rgba(31,41,55,0.7)]
+               shadow-[0_0_15px_6px_rgba(250,204,21,0.5)] 
+               dark:shadow-[0_0_15px_4px_rgba(31,41,55,0.7)]
                border-2 dark:border-gray-800 border-white
                cursor-pointer"
         >
@@ -68,10 +68,10 @@ export function LightPullThemeSwitcher() {
         
         {/* Icons positioned at sides of the box */}
         <div className="absolute left-3 bottom-1">
-          <Sun size={12} className="text-yellow-500 dark:text-yellow-400" />
+          <Sun size={16} className="text-yellow-500 dark:text-yellow-400" />
         </div>
         <div className="absolute right-3 bottom-1">
-          <Moon size={12} className="text-blue-600 dark:text-blue-400" />
+          <Moon size={16} className="text-blue-600 dark:text-blue-400" />
         </div>
       </div>
     );

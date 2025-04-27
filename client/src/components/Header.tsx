@@ -50,7 +50,7 @@ const Header = () => {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-4">
-          <div className="bg-gray-100/80 dark:bg-gray-800/80 rounded-lg shadow-md backdrop-blur-sm px-2 w-36">
+          <div className="bg-gray-100/80 dark:bg-gray-800/80 rounded-lg shadow-md backdrop-blur-sm px-1">
             <LightPullThemeSwitcher />
           </div>
           <Menu setActive={setActiveItem}>
