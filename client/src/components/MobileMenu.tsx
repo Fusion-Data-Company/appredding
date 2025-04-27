@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Link } from "wouter";
 import { LightPullThemeSwitcher } from "@/components/ui/light-pull-theme-switcher";
+import { Sun, Moon } from "lucide-react";
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -44,8 +45,14 @@ const MobileMenu = ({ isOpen, onClose, isHomePage = true }: MobileMenuProps) => 
     >
       <div className="container mx-auto py-6 px-4">
         <div className="flex justify-center mb-6">
-          <div className="bg-gray-100 dark:bg-gray-800 rounded-lg py-2 px-3 shadow-md">
-            <LightPullThemeSwitcher />
+          <div className="flex items-center">
+            <div className="relative">
+              <Sun size={18} className="absolute -left-6 bottom-2 text-yellow-500 dark:text-yellow-400" />
+              <div className="bg-gray-100 dark:bg-gray-800 rounded-lg py-2 px-3 shadow-md">
+                <LightPullThemeSwitcher />
+              </div>
+              <Moon size={18} className="absolute -right-6 bottom-2 text-blue-600 dark:text-blue-400" />
+            </div>
           </div>
         </div>
         <ul className="space-y-5 divide-y dark:divide-gray-800 divide-gray-300">

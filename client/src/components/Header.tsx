@@ -3,6 +3,7 @@ import { Link, useLocation } from "wouter";
 import MobileMenu from "./MobileMenu";
 import { Menu, MenuItem, HoveredLink } from "@/components/ui/navbar-menu";
 import { LightPullThemeSwitcher } from "@/components/ui/light-pull-theme-switcher";
+import { Sun, Moon } from "lucide-react";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -50,8 +51,14 @@ const Header = () => {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-4">
-          <div className="bg-gray-100/80 dark:bg-gray-800/80 rounded-lg shadow-md backdrop-blur-sm px-1">
-            <LightPullThemeSwitcher />
+          <div className="flex items-center">
+            <div className="relative">
+              <Sun size={18} className="absolute -left-6 bottom-2 text-yellow-500 dark:text-yellow-400" />
+              <div className="bg-gray-100/80 dark:bg-gray-800/80 rounded-lg shadow-md backdrop-blur-sm px-1">
+                <LightPullThemeSwitcher />
+              </div>
+              <Moon size={18} className="absolute -right-6 bottom-2 text-blue-600 dark:text-blue-400" />
+            </div>
           </div>
           <Menu setActive={setActiveItem}>
             <MenuItem setActive={setActiveItem} active={activeItem} item="Applications">
