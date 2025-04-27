@@ -50,8 +50,8 @@ const Header = () => {
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-4">
-          <div className="flex items-center">
+        <div className="hidden md:flex items-center justify-end ml-auto">
+          <div className="flex items-center mr-6">
             <div className="relative pl-3 mr-3">
               <Sun size={24} className="absolute -left-8 bottom-2 text-yellow-500 dark:text-yellow-400" />
               <div className="relative">
