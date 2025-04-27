@@ -19,9 +19,9 @@ export function LightPullThemeSwitcher() {
 
     if (!mounted) {
         return (
-            <div className="relative py-1 px-2 overflow-hidden">
-                <div className="h-10 w-10 mx-auto rounded-full bg-gray-300 opacity-70"></div>
-                <div className="flex justify-center mt-1">
+            <div className="relative py-1 px-2 overflow-hidden mt-3 mb-2 h-24">
+                <div className="h-10 w-10 mx-auto rounded-full bg-gray-300 opacity-70 mt-8"></div>
+                <div className="flex justify-center absolute bottom-1 left-0 right-0">
                     <div className="h-4 w-16 rounded-md bg-gray-300 opacity-70"></div>
                 </div>
             </div>
@@ -29,7 +29,7 @@ export function LightPullThemeSwitcher() {
     }
 
     return (
-      <div className="relative py-1 px-2 overflow-hidden">
+      <div className="relative py-1 px-2 overflow-hidden mt-3 mb-2 h-24">
         <motion.div
           drag="y"
           dragDirectionLock
@@ -42,7 +42,7 @@ export function LightPullThemeSwitcher() {
           dragTransition={{ bounceStiffness: 500, bounceDamping: 15 }}
           dragElastic={0.075}
           whileDrag={{ cursor: "grabbing" }}
-          className="relative bottom-0 w-10 h-10 mx-auto rounded-full -mb-1
+          className="relative bottom-0 w-10 h-10 mx-auto rounded-full mt-8
                bg-[radial-gradient(circle_at_center,_#facc15,_#fcd34d,_#fef9c3)] 
                dark:bg-[radial-gradient(circle_at_center,_#4b5563,_#1f2937,_#000)] 
                shadow-[0_0_20px_8px_rgba(250,204,21,0.5)] 
@@ -54,8 +54,8 @@ export function LightPullThemeSwitcher() {
                 bg-black dark:bg-white opacity-40 dark:opacity-30"></div>
         </motion.div>
         
-        {/* Pull Text with Icons */}
-        <div className="flex items-center justify-center mt-1 gap-1 text-xs font-medium">
+        {/* Pull Text with Icons - positioned at bottom */}
+        <div className="flex items-center justify-center mt-1 gap-1 text-xs font-medium absolute bottom-1 left-0 right-0">
           <Sun size={12} className="text-yellow-500 dark:text-yellow-400" />
           <span className="text-black dark:text-white">PULL</span>
           <Moon size={12} className="text-blue-600 dark:text-blue-400" />
