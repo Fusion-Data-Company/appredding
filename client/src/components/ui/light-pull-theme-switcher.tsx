@@ -21,8 +21,8 @@ export function LightPullThemeSwitcher() {
         return (
             <div className="relative py-1 px-2 overflow-hidden mt-3 mb-2 h-24">
                 <div className="h-7 w-7 mx-auto rounded-full bg-gray-300 opacity-70 mt-8"></div>
-                <div className="flex justify-center absolute bottom-1 left-0 right-0">
-                    <div className="h-4 w-12 rounded-md bg-gray-300 opacity-70"></div>
+                <div className="flex justify-center absolute bottom-2 left-0 right-0">
+                    <div className="h-4 w-8 rounded-md bg-gray-300 opacity-70"></div>
                 </div>
             </div>
         );
@@ -54,10 +54,9 @@ export function LightPullThemeSwitcher() {
                 bg-black dark:bg-white opacity-40 dark:opacity-30"></div>
         </motion.div>
         
-        {/* Pull Text positioned at bottom */}
-        <div className="flex justify-center mt-1 text-xs font-medium absolute bottom-1 left-0 right-0">
-          <span className="text-black dark:text-white">PULL</span>
-          <ChevronDown size={14} className="ml-1 text-black dark:text-white animate-bounce" />
+        {/* Text positioned in center of component */}
+        <div className="flex justify-center mt-1 text-xs font-medium absolute bottom-2 left-0 right-0">
+          <span className="text-black dark:text-white text-center">PULL</span>
         </div>
       </div>
     );
