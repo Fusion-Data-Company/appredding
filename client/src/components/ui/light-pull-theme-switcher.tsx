@@ -22,7 +22,13 @@ export function LightPullThemeSwitcher() {
             <div className="relative py-1 px-2 overflow-hidden mt-3 mb-2 h-24">
                 <div className="h-10 w-10 mx-auto rounded-full bg-gray-300 opacity-70 mt-8"></div>
                 <div className="flex justify-center absolute bottom-1 left-0 right-0">
-                    <div className="h-4 w-16 rounded-md bg-gray-300 opacity-70"></div>
+                    <div className="h-4 w-12 ml-4 rounded-md bg-gray-300 opacity-70"></div>
+                </div>
+                <div className="absolute left-0 bottom-1">
+                    <div className="h-3 w-3 ml-1 rounded-full bg-gray-300 opacity-70"></div>
+                </div>
+                <div className="absolute right-0 bottom-1">
+                    <div className="h-3 w-3 mr-1 rounded-full bg-gray-300 opacity-70"></div>
                 </div>
             </div>
         );
@@ -54,12 +60,18 @@ export function LightPullThemeSwitcher() {
                 bg-black dark:bg-white opacity-40 dark:opacity-30"></div>
         </motion.div>
         
-        {/* Pull Text with Icons - positioned at bottom */}
-        <div className="flex items-center justify-center mt-1 gap-1 text-xs font-medium absolute bottom-1 left-0 right-0">
-          <Sun size={12} className="text-yellow-500 dark:text-yellow-400" />
-          <span className="text-black dark:text-white">PULL</span>
-          <Moon size={12} className="text-blue-600 dark:text-blue-400" />
+        {/* Pull Text positioned at bottom */}
+        <div className="flex justify-center mt-1 text-xs font-medium absolute bottom-1 left-0 right-0">
+          <span className="ml-4 text-black dark:text-white">PULL</span>
           <ChevronDown size={14} className="ml-1 text-black dark:text-white animate-bounce" />
+        </div>
+        
+        {/* Icons positioned at sides of the box */}
+        <div className="absolute left-0 bottom-1">
+          <Sun size={12} className="text-yellow-500 dark:text-yellow-400 ml-1" />
+        </div>
+        <div className="absolute right-0 bottom-1">
+          <Moon size={12} className="text-blue-600 dark:text-blue-400 mr-1" />
         </div>
       </div>
     );
