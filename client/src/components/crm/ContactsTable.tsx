@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { useQuery, useMutation } from "@tanstack/react-query";
 import { queryClient } from "@/lib/queryClient";
-import { Contact, contactStatusEnum, leadSourceEnum } from "@shared/schema";
+import { Contact, contactStatusEnum, leadSourceEnum, Company } from "@shared/schema";
 import { Loader2, Search, Filter, ChevronDown, ChevronUp, MoreHorizontal } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -20,6 +20,40 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import ContactDrawer from "./ContactDrawer";
+
+// Extended Contact type that includes populated company relation
+type ContactWithCompany = {
+  id: number;
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string | null;
+  mobilePhone: string | null;
+  jobTitle: string | null;
+  department: string | null;
+  address: string | null;
+  city: string | null;
+  state: string | null;
+  zipCode: string | null;
+  country: string | null;
+  website: string | null;
+  source: string | null;
+  status: string | null;
+  interestedInApplications?: string[] | null;
+  notes: string | null;
+  birthday: string | null;
+  linkedinUrl: string | null;
+  twitterUrl: string | null;
+  facebookUrl: string | null;
+  instagramUrl: string | null;
+  lastContactedDate: string | null;
+  createdAt: string;
+  updatedAt: string;
+  createdBy: number | null;
+  assignedTo: number | null;
+  company?: Company;
+  companyId?: number;
+}
 
 const applicationTypes = [
   { value: "painter_network", label: "Painter Network", color: "bg-blue-500" },
@@ -64,7 +98,7 @@ interface Column {
 
 const ContactsTable = () => {
   const [searchText, setSearchText] = useState("");
-  const [selectedContact, setSelectedContact] = useState<Contact | null>(null);
+  const [selectedContact, setSelectedContact] = useState<ContactWithCompany | null>(null);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [sortColumn, setSortColumn] = useState<string | null>(null);
   const [sortDirection, setSortDirection] = useState<"asc" | "desc">("asc");
@@ -79,7 +113,7 @@ const ContactsTable = () => {
     startWidth: number;
   }>({ column: null, startX: 0, startWidth: 0 });
 
-  const { data: contacts, isLoading, error } = useQuery<Contact[]>({
+  const { data: contacts, isLoading, error } = useQuery<ContactWithCompany[]>({
     queryKey: ["/api/contacts"],
     queryFn: async () => {
       const response = await fetch("/api/contacts");
@@ -296,7 +330,7 @@ const ContactsTable = () => {
     document.removeEventListener("mouseup", handleEndResize);
   };
 
-  const handleViewContact = (contact: Contact) => {
+  const handleViewContact = (contact: ContactWithCompany) => {
     setSelectedContact(contact);
     setIsDrawerOpen(true);
   };

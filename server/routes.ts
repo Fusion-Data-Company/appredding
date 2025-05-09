@@ -10,6 +10,13 @@ import {
 import { z } from "zod";
 import { fromZodError } from "zod-validation-error";
 import { setupAuth } from "./auth";
+import { 
+  getContacts, 
+  getContactById, 
+  createContact as createCRMContact, 
+  updateContact, 
+  deleteContact 
+} from "./api/contacts";
 
 // Authentication middleware
 function isAuthenticated(req: Request, res: Response, next: NextFunction) {
@@ -38,6 +45,25 @@ function isAdmin(req: Request, res: Response, next: NextFunction) {
 export async function registerRoutes(app: Express): Promise<Server> {
   // Setup authentication routes
   setupAuth(app);
+  
+  // ========================
+  // CRM Routes
+  // ========================
+  
+  // Get all contacts
+  app.get("/api/contacts", getContacts);
+  
+  // Get contact by ID
+  app.get("/api/contacts/:id", getContactById);
+  
+  // Create a new contact
+  app.post("/api/contacts", createCRMContact);
+  
+  // Update a contact
+  app.put("/api/contacts/:id", updateContact);
+  
+  // Delete a contact
+  app.delete("/api/contacts/:id", deleteContact);
   
   // Contact form submission endpoint
   app.post("/api/contact", async (req: Request, res: Response) => {
