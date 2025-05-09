@@ -13,7 +13,7 @@ export const LampContainer = ({
   return (
     <div
       className={cn(
-        "relative flex min-h-[400px] flex-col items-center justify-center overflow-hidden bg-slate-950 w-full rounded-md z-0",
+        "relative flex min-h-[500px] flex-col items-center justify-center overflow-hidden bg-slate-950 w-full rounded-md z-0",
         className
       )}
     >
@@ -95,7 +95,7 @@ export function CRMHeader() {
           duration: 0.8,
           ease: "easeInOut",
         }}
-        className="mt-8 bg-gradient-to-br from-orange-300 to-yellow-100 py-4 bg-clip-text text-center text-4xl font-bold tracking-tight text-transparent md:text-5xl text-shadow-sm drop-shadow-lg"
+        className="mt-24 bg-gradient-to-br from-orange-300 to-yellow-100 py-4 bg-clip-text text-center text-4xl font-bold tracking-tight text-transparent md:text-5xl text-shadow-sm drop-shadow-lg"
       >
         Team CRM Dashboard
       </motion.h1>
