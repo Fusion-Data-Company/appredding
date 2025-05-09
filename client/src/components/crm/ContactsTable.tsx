@@ -102,8 +102,8 @@ const ContactsTable = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [sortColumn, setSortColumn] = useState<string | null>(null);
   const [sortDirection, setSortDirection] = useState<"asc" | "desc">("asc");
-  const [filterStatus, setFilterStatus] = useState<string>("");
-  const [filterSource, setFilterSource] = useState<string>("");
+  const [filterStatus, setFilterStatus] = useState<string>("all");
+  const [filterSource, setFilterSource] = useState<string>("all");
   const [filterInterests, setFilterInterests] = useState<string[]>([]);
   const [columnWidths, setColumnWidths] = useState<{[key: string]: number}>({});
 
@@ -135,10 +135,10 @@ const ContactsTable = () => {
           contact.phone?.toLowerCase().includes(searchLower);
 
         const matchesStatus =
-          filterStatus === "" || contact.status === filterStatus;
+          filterStatus === "all" || contact.status === filterStatus;
           
         const matchesSource =
-          filterSource === "" || contact.source === filterSource;
+          filterSource === "all" || contact.source === filterSource;
           
         const matchesInterests =
           filterInterests.length === 0 ||
@@ -379,7 +379,7 @@ const ContactsTable = () => {
               <SelectValue placeholder="Status" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="">All Statuses</SelectItem>
+              <SelectItem value="all">All Statuses</SelectItem>
               {Object.keys(contactStatusEnum.enumValues).map((status) => (
                 <SelectItem key={status} value={status}>{status.replace("_", " ")}</SelectItem>
               ))}
@@ -391,7 +391,7 @@ const ContactsTable = () => {
               <SelectValue placeholder="Source" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="">All Sources</SelectItem>
+              <SelectItem value="all">All Sources</SelectItem>
               {Object.keys(leadSourceEnum.enumValues).map((source) => (
                 <SelectItem key={source} value={source}>{source.replace("_", " ")}</SelectItem>
               ))}
