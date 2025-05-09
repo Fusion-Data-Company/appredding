@@ -1,90 +1,146 @@
+import { useState } from "react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Plus, Users, Building2, Briefcase, Calendar, Activity } from "lucide-react";
+import ContactsTable from "@/components/crm/ContactsTable";
+
 const CRMSection = () => {
+  const [activeTab, setActiveTab] = useState("contacts");
+
   return (
-    <section className="py-20 bg-[#1e1e1e]">
+    <section className="py-8 bg-[#1e1e1e]">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Integrated CRM Solution</h2>
-            <p className="text-[#a0a0a0] mb-6">
-              Our proprietary customer relationship management system connects contractors, painters, and homeowners for seamless project management.
-            </p>
-            <ul className="space-y-5 mb-8">
-              <li className="flex items-start">
-                <div className="bg-[#0070f3]/20 rounded-full p-2 mr-4 mt-1">
-                  <i className="fas fa-tasks text-[#0070f3]"></i>
-                </div>
-                <div>
-                  <h4 className="font-semibold mb-1">Project Tracking</h4>
-                  <p className="text-[#a0a0a0] text-sm">Monitor application progress, set milestones, and track completion status</p>
-                </div>
-              </li>
-              <li className="flex items-start">
-                <div className="bg-[#0070f3]/20 rounded-full p-2 mr-4 mt-1">
-                  <i className="fas fa-calendar-alt text-[#0070f3]"></i>
-                </div>
-                <div>
-                  <h4 className="font-semibold mb-1">Scheduling</h4>
-                  <p className="text-[#a0a0a0] text-sm">Coordinate painter availability and project timelines efficiently</p>
-                </div>
-              </li>
-              <li className="flex items-start">
-                <div className="bg-[#0070f3]/20 rounded-full p-2 mr-4 mt-1">
-                  <i className="fas fa-file-invoice-dollar text-[#0070f3]"></i>
-                </div>
-                <div>
-                  <h4 className="font-semibold mb-1">Invoicing & Payments</h4>
-                  <p className="text-[#a0a0a0] text-sm">Streamlined payment processing and financial tracking</p>
-                </div>
-              </li>
-              <li className="flex items-start">
-                <div className="bg-[#0070f3]/20 rounded-full p-2 mr-4 mt-1">
-                  <i className="fas fa-chart-line text-[#0070f3]"></i>
-                </div>
-                <div>
-                  <h4 className="font-semibold mb-1">Reporting</h4>
-                  <p className="text-[#a0a0a0] text-sm">Detailed analytics on project performance and customer satisfaction</p>
-                </div>
-              </li>
-            </ul>
-            <a 
-              href="#" 
-              className="bg-[#0070f3] hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-colors inline-block"
-            >
-              Request CRM Demo
-            </a>
+        <div className="flex flex-col space-y-6">
+          {/* Dashboard Stats */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <Card className="bg-[#121212] border-[#333333]">
+              <CardHeader className="pb-2">
+                <CardTitle className="text-lg flex items-center gap-2">
+                  <Users className="h-5 w-5 text-blue-500" />
+                  Contacts
+                </CardTitle>
+                <CardDescription>Total contacts in system</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="text-2xl font-bold">124</div>
+                <p className="text-xs text-muted-foreground mt-1">+12 this month</p>
+              </CardContent>
+            </Card>
+            
+            <Card className="bg-[#121212] border-[#333333]">
+              <CardHeader className="pb-2">
+                <CardTitle className="text-lg flex items-center gap-2">
+                  <Building2 className="h-5 w-5 text-purple-500" />
+                  Companies
+                </CardTitle>
+                <CardDescription>Active companies</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="text-2xl font-bold">36</div>
+                <p className="text-xs text-muted-foreground mt-1">+3 this month</p>
+              </CardContent>
+            </Card>
+            
+            <Card className="bg-[#121212] border-[#333333]">
+              <CardHeader className="pb-2">
+                <CardTitle className="text-lg flex items-center gap-2">
+                  <Briefcase className="h-5 w-5 text-green-500" />
+                  Opportunities
+                </CardTitle>
+                <CardDescription>Active deals</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="text-2xl font-bold">24</div>
+                <p className="text-xs text-muted-foreground mt-1">$1.2M pipeline</p>
+              </CardContent>
+            </Card>
+            
+            <Card className="bg-[#121212] border-[#333333]">
+              <CardHeader className="pb-2">
+                <CardTitle className="text-lg flex items-center gap-2">
+                  <Activity className="h-5 w-5 text-red-500" />
+                  Activities
+                </CardTitle>
+                <CardDescription>Pending activities</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="text-2xl font-bold">18</div>
+                <p className="text-xs text-muted-foreground mt-1">5 overdue</p>
+              </CardContent>
+            </Card>
           </div>
           
-          <div className="bg-[#121212] rounded-lg overflow-hidden shadow-xl">
-            <div className="border-b border-[#333333] p-4 flex items-center">
-              <div className="flex space-x-2">
-                <div className="w-3 h-3 rounded-full bg-[#ff4d4d]"></div>
-                <div className="w-3 h-3 rounded-full bg-[#ff9900]"></div>
-                <div className="w-3 h-3 rounded-full bg-green-500"></div>
-              </div>
-              <div className="ml-4 text-sm text-[#a0a0a0]">Praetorian CRM Dashboard</div>
+          {/* Main Tabs */}
+          <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-4">
+            <div className="flex items-center justify-between">
+              <TabsList className="bg-[#121212]">
+                <TabsTrigger value="contacts" className="data-[state=active]:bg-[#0070f3] data-[state=active]:text-white">
+                  Contacts
+                </TabsTrigger>
+                <TabsTrigger value="companies" className="data-[state=active]:bg-[#0070f3] data-[state=active]:text-white">
+                  Companies
+                </TabsTrigger>
+                <TabsTrigger value="opportunities" className="data-[state=active]:bg-[#0070f3] data-[state=active]:text-white">
+                  Opportunities
+                </TabsTrigger>
+                <TabsTrigger value="activities" className="data-[state=active]:bg-[#0070f3] data-[state=active]:text-white">
+                  Activities
+                </TabsTrigger>
+              </TabsList>
+              
+              <Button className="bg-[#0070f3] hover:bg-blue-600">
+                <Plus className="h-4 w-4 mr-2" />
+                Add {activeTab.slice(0, -1)}
+              </Button>
             </div>
-            <div className="p-6">
-              <img 
-                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
-                alt="CRM Dashboard mockup" 
-                className="rounded-lg shadow-lg w-full"
-              />
-              <div className="mt-6 grid grid-cols-3 gap-4">
-                <div className="bg-[#1e1e1e] rounded-lg p-4">
-                  <div className="text-sm text-[#a0a0a0] mb-1">Active Projects</div>
-                  <div className="text-2xl font-bold">24</div>
-                </div>
-                <div className="bg-[#1e1e1e] rounded-lg p-4">
-                  <div className="text-sm text-[#a0a0a0] mb-1">Pending Quotes</div>
-                  <div className="text-2xl font-bold">12</div>
-                </div>
-                <div className="bg-[#1e1e1e] rounded-lg p-4">
-                  <div className="text-sm text-[#a0a0a0] mb-1">Completion Rate</div>
-                  <div className="text-2xl font-bold">98%</div>
-                </div>
+            
+            <TabsContent value="contacts" className="m-0">
+              <ContactsTable />
+            </TabsContent>
+            
+            <TabsContent value="companies" className="m-0">
+              <div className="bg-[#121212] border border-[#333333] rounded-lg p-8 text-center">
+                <Building2 className="h-12 w-12 mx-auto mb-4 text-[#666666]" />
+                <h3 className="text-xl font-semibold mb-2">Companies Module</h3>
+                <p className="text-[#a0a0a0] mb-4 max-w-md mx-auto">
+                  List and manage all your business accounts in one place.
+                </p>
+                <Button className="bg-[#0070f3] hover:bg-blue-600">
+                  <Plus className="h-4 w-4 mr-2" />
+                  Add Company
+                </Button>
               </div>
-            </div>
-          </div>
+            </TabsContent>
+            
+            <TabsContent value="opportunities" className="m-0">
+              <div className="bg-[#121212] border border-[#333333] rounded-lg p-8 text-center">
+                <Briefcase className="h-12 w-12 mx-auto mb-4 text-[#666666]" />
+                <h3 className="text-xl font-semibold mb-2">Opportunities Module</h3>
+                <p className="text-[#a0a0a0] mb-4 max-w-md mx-auto">
+                  Track all your deals from lead to close in a customizable pipeline.
+                </p>
+                <Button className="bg-[#0070f3] hover:bg-blue-600">
+                  <Plus className="h-4 w-4 mr-2" />
+                  Add Opportunity
+                </Button>
+              </div>
+            </TabsContent>
+            
+            <TabsContent value="activities" className="m-0">
+              <div className="bg-[#121212] border border-[#333333] rounded-lg p-8 text-center">
+                <Calendar className="h-12 w-12 mx-auto mb-4 text-[#666666]" />
+                <h3 className="text-xl font-semibold mb-2">Activities Module</h3>
+                <p className="text-[#a0a0a0] mb-4 max-w-md mx-auto">
+                  Schedule and track all your customer interactions in one place.
+                </p>
+                <Button className="bg-[#0070f3] hover:bg-blue-600">
+                  <Plus className="h-4 w-4 mr-2" />
+                  Add Activity
+                </Button>
+              </div>
+            </TabsContent>
+          </Tabs>
         </div>
       </div>
     </section>
