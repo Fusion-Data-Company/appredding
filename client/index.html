@@ -29,20 +29,32 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
-    <!-- Preload critical resources -->
+    <!-- Critical styles to prevent FOUC (Flash of Unstyled Content) -->
     <link rel="preload" as="style" href="/src/index.css">
     
     <!-- Video poster image preload - much faster than loading the video -->
-    <link rel="preload" href="/images/fire-water-gen4-turbo-poster.jpg" as="image" fetchpriority="high">
+    <link rel="preload" href="/images/fire-water-gen4-turbo-poster.jpg" as="image" fetchpriority="high" 
+          imagesizes="100vw" imagesrcset="/images/fire-water-gen4-turbo-poster.jpg">
     
-    <!-- Preload smallest video file only to improve initial load time -->
-    <link rel="preload" href="/videos/fire-water-gen4-turbo-small.mp4" as="video" type="video/mp4" fetchpriority="high">
+    <!-- Preload only the smallest video file to improve initial load time -->
+    <link rel="preload" as="fetch" href="/videos/fire-water-gen4-turbo-small.mp4" 
+          type="video/mp4" fetchpriority="high" crossorigin="anonymous">
     
-    <!-- Preload optimized background images -->
-    <link rel="preload" href="/images/optimized/diamond-plate-fire-water.jpg" as="image" fetchpriority="high">
-    <link rel="preload" href="/images/optimized/diamond-plate-fire-water-2.jpg" as="image" fetchpriority="high">
-    <link rel="preload" href="/images/optimized/diamond-plate-orange-blue.jpg" as="image" fetchpriority="high">
-    <link rel="preload" href="/images/optimized/diamond-plate-fire-red.jpg" as="image" fetchpriority="high">
+    <!-- Resource hints to improve loading performance -->
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Preconnect to external resources to start handshakes early -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    
+    <!-- Crucial metadata for improving video and image loading -->
+    <meta http-equiv="Accept-CH" content="DPR, Width, Viewport-Width">
+    <meta http-equiv="Cache-Control" content="max-age=86400, public, stale-while-revalidate=31536000">
+    
+    <!-- Critical page loading optimizations -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     
     <!-- Theme script to avoid theme flashing on load -->
     <script>
@@ -71,9 +83,36 @@
     </script>
   </head>
   <body>
-    <div id="root"></div>
+    <!-- Add loading state class to help with transitions -->
+    <div id="root" class="loading"></div>
+    
+    <!-- Critical JS chunk - minimal JS to bootstrap the app -->
     <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- Performance monitoring script -->
+    <script>
+      // Add performance mark for page fully loaded
+      window.addEventListener('load', () => {
+        // Mark when page is fully loaded
+        if (window.performance && window.performance.mark) {
+          window.performance.mark('app_loaded');
+        }
+        
+        // Remove loading class after a small delay to ensure smooth transitions
+        setTimeout(() => {
+          document.getElementById('root').classList.remove('loading');
+        }, 50);
+      });
+      
+      // Listen for errors to provide better UX for video loading issues
+      window.addEventListener('error', (e) => {
+        if (e.target && (e.target.tagName === 'VIDEO' || e.target.tagName === 'SOURCE')) {
+          console.warn('Video element error detected, using fallback image:', e);
+        }
+      }, true);
+    </script>
+    
     <!-- This is a replit script which adds a banner on the top of the page when opened in development mode outside the replit environment -->
-    <script type="text/javascript" src="https://replit.com/public/js/replit-dev-banner.js"></script>
+    <script type="text/javascript" src="https://replit.com/public/js/replit-dev-banner.js" async></script>
   </body>
 </html>

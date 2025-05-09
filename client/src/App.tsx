@@ -1,9 +1,10 @@
-import { Switch, Route } from "wouter";
+import { Switch, Route, useLocation } from "wouter";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { ImagePreloader } from "@/components/ui/image-preloader";
+import { useEffect } from "react";
+import { preloadCriticalImages } from "@/utils/image-preloader";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import CRM from "@/pages/CRM";
@@ -25,6 +26,24 @@ import { AuthProvider } from "@/hooks/use-auth";
 import { ProtectedRoute } from "@/components/ProtectedRoute";
 
 function Router() {
+  const [location] = useLocation();
+  
+  // Preload images when routes change
+  useEffect(() => {
+    // Add a slight delay to ensure animation performance is prioritized
+    const timer = setTimeout(() => {
+      // This is a good place to prefetch images for the current route
+      // For example, you could prefetch different images based on location
+      if (location === '/') {
+        // Home page already preloads critical images
+      } else if (location.includes('/fire-prevention')) {
+        // Preload fire prevention specific images
+      }
+    }, 200);
+    
+    return () => clearTimeout(timer);
+  }, [location]);
+  
   return (
     <Switch>
       <Route path="/" component={Home} />
@@ -50,22 +69,32 @@ function Router() {
 }
 
 function App() {
-  // Critical background images to preload
-  const criticalImages = [
-    '/images/optimized/diamond-plate-fire-water.jpg',
-    '/images/optimized/diamond-plate-fire-water-2.jpg',
-    '/images/optimized/diamond-plate-orange-blue.jpg',
-    '/images/optimized/diamond-plate-fire-red.jpg'
-  ];
+  // Preload critical images once when app loads
+  useEffect(() => {
+    // This triggers preloading of all critical site images
+    preloadCriticalImages();
+    
+    // Add performance monitoring
+    if (typeof window !== 'undefined') {
+      // Report largest contentful paint for performance monitoring
+      const observer = new PerformanceObserver((list) => {
+        const entries = list.getEntries();
+        const lastEntry = entries[entries.length - 1];
+        if (lastEntry && lastEntry.startTime > 0) {
+          console.log(`Largest Contentful Paint: ${lastEntry.startTime}ms`);
+        }
+      });
+      
+      observer.observe({ type: 'largest-contentful-paint', buffered: true });
+    }
+  }, []);
 
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
         <AuthProvider>
-          <ImagePreloader imageUrls={criticalImages}>
-            <Router />
-          </ImagePreloader>
+          <Router />
         </AuthProvider>
       </TooltipProvider>
     </QueryClientProvider>
