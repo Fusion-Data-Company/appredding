@@ -42,13 +42,13 @@
     
     <!-- Theme script to avoid theme flashing on load -->
     <script>
-      // Check for saved theme preference or get OS preference
+      // Check for saved theme preference or use dark mode by default
       (function() {
         function getThemePreference() {
           if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
             return localStorage.getItem('theme');
           }
-          return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+          return 'dark'; // Always use dark by default
         }
         
         const theme = getThemePreference();
@@ -57,6 +57,11 @@
           document.documentElement.classList.add('dark');
         } else {
           document.documentElement.classList.remove('dark');
+        }
+
+        // Also save dark theme to localStorage if no preference is set
+        if (typeof localStorage !== 'undefined' && !localStorage.getItem('theme')) {
+          localStorage.setItem('theme', 'dark');
         }
       })();
     </script>

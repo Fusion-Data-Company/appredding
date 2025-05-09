@@ -6,8 +6,8 @@ import "./index.css";
 createRoot(document.getElementById("root")!).render(
   <ThemeProvider 
     attribute="class" 
-    defaultTheme="system" 
-    enableSystem 
+    defaultTheme="dark" 
+    enableSystem={false}
     disableTransitionOnChange 
     storageKey="theme"
   >

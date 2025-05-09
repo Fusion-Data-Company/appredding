@@ -15,6 +15,11 @@ export function LightPullThemeSwitcher() {
     const toggleTheme = () => {
         const newTheme = theme === "dark" ? "light" : "dark";
         setTheme(newTheme);
+        
+        // Also save to localStorage for persistence
+        if (typeof window !== 'undefined') {
+            localStorage.setItem('theme', newTheme);
+        }
     };
 
     if (!mounted) {
