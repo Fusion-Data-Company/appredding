@@ -4,6 +4,14 @@ const HeroSection = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isVideoError, setIsVideoError] = useState(false);
+  const [posterLoaded, setPosterLoaded] = useState(false);
+
+  // Preload the poster image
+  useEffect(() => {
+    const img = new Image();
+    img.src = '/images/fire-water-gen4-turbo-poster.jpg';
+    img.onload = () => setPosterLoaded(true);
+  }, []);
 
   useEffect(() => {
     // Timer to freeze the video after 3.3 seconds
@@ -53,6 +61,14 @@ const HeroSection = () => {
       }
     };
 
+    // If loading takes too long, show content anyway after timeout
+    const loadingTimeoutId = setTimeout(() => {
+      if (isLoading) {
+        setIsLoading(false);
+        console.warn("Loading timeout reached, showing content anyway");
+      }
+    }, 2000); // 2 seconds timeout
+
     const videoElement = videoRef.current;
     if (videoElement) {
       videoElement.addEventListener('canplay', handleCanPlay);
@@ -60,36 +76,41 @@ const HeroSection = () => {
       videoElement.addEventListener('timeupdate', handleTimeUpdate);
       videoElement.addEventListener('click', handleClick);
       
-      // Start playing when component mounts
-      setTimeout(() => {
+      // Start playing when component mounts with a shorter delay
+      const playTimeoutId = setTimeout(() => {
         videoElement.play().catch(error => {
           console.error("Error playing video:", error);
           setIsLoading(false);
+          setIsVideoError(true);
         });
-      }, 100);
-    }
-
-    // Cleanup event listeners
-    return () => {
-      if (videoElement) {
+      }, 50);
+      
+      // Cleanup event listeners and timeouts
+      return () => {
         videoElement.removeEventListener('canplay', handleCanPlay);
         videoElement.removeEventListener('error', handleError);
         videoElement.removeEventListener('timeupdate', handleTimeUpdate);
         videoElement.removeEventListener('click', handleClick);
-      }
-      
-      if (freezeTimer) {
-        clearTimeout(freezeTimer);
-      }
+        
+        clearTimeout(loadingTimeoutId);
+        clearTimeout(playTimeoutId);
+        if (freezeTimer) clearTimeout(freezeTimer);
+      };
+    }
+    
+    return () => {
+      clearTimeout(loadingTimeoutId);
+      if (freezeTimer) clearTimeout(freezeTimer);
     };
   }, []);
 
   return (
     <section className="relative flex flex-col bg-black">
-      {/* Loading indicator */}
+      {/* Loading indicator with better UI */}
       {isLoading && (
-        <div className="absolute inset-0 flex items-center justify-center bg-black z-20">
-          <div className="w-16 h-16 border-t-4 border-orange-500 border-solid rounded-full animate-spin"></div>
+        <div className="absolute inset-0 flex flex-col items-center justify-center bg-black z-20">
+          <div className="w-16 h-16 border-t-4 border-orange-500 border-solid rounded-full animate-spin mb-3"></div>
+          <p className="text-white/80 text-sm">Loading video...</p>
         </div>
       )}
 
@@ -104,31 +125,33 @@ const HeroSection = () => {
         ) : (
           <video 
             ref={videoRef}
-            className="w-full h-auto"
+            className="w-full h-auto will-change-contents"
             autoPlay
             muted
             playsInline
-            preload="auto"
+            poster="/images/fire-water-gen4-turbo-poster.jpg"
+            preload="metadata"
           >
+            {/* Smallest file first for faster loading */}
             <source src="/videos/fire-water-gen4-turbo-small.mp4" type="video/mp4" />
-            <source src="/videos/fire-water-gen4-turbo.mp4" type="video/mp4" />
             <source src="/videos/fire-water-hands-optimized.mp4" type="video/mp4" />
+            <source src="/videos/fire-water-gen4-turbo.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         )}
       </div>
 
-      {/* Buttons below the video */}
-      <div className="flex justify-center gap-6 mt-8 mb-10">
+      {/* Buttons below the video with smoother animations */}
+      <div className="flex flex-col sm:flex-row justify-center gap-6 mt-8 mb-10 animate-fadeIn" style={{animationDuration: '0.5s'}}>
         <a 
           href="#explore" 
-          className="gradient-button py-3 px-8 rounded-md text-white font-semibold tracking-wide uppercase text-lg"
+          className="gradient-button py-3 px-8 rounded-md text-white font-semibold tracking-wide uppercase text-lg will-change-transform transition-transform duration-300 hover:scale-105"
         >
           Explore Applications
         </a>
         <a 
           href="#contact" 
-          className="gradient-button-variant py-3 px-8 rounded-md text-white font-semibold tracking-wide uppercase text-lg"
+          className="gradient-button-variant py-3 px-8 rounded-md text-white font-semibold tracking-wide uppercase text-lg will-change-transform transition-transform duration-300 hover:scale-105"
         >
           Contact Us
         </a>

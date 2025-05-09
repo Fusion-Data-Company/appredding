@@ -31,8 +31,12 @@
     
     <!-- Preload critical resources -->
     <link rel="preload" as="style" href="/src/index.css">
-    <link rel="preload" href="/videos/fire-water-hands.webm" as="video" type="video/webm" fetchpriority="high">
-    <link rel="preload" href="/videos/fire-water-hands-optimized.mp4" as="video" type="video/mp4" fetchpriority="high">
+    
+    <!-- Video poster image preload - much faster than loading the video -->
+    <link rel="preload" href="/images/fire-water-gen4-turbo-poster.jpg" as="image" fetchpriority="high">
+    
+    <!-- Preload smallest video file only to improve initial load time -->
+    <link rel="preload" href="/videos/fire-water-gen4-turbo-small.mp4" as="video" type="video/mp4" fetchpriority="high">
     
     <!-- Preload optimized background images -->
     <link rel="preload" href="/images/optimized/diamond-plate-fire-water.jpg" as="image" fetchpriority="high">
