@@ -9,7 +9,7 @@ const CRMSection = () => {
   const [activeTab, setActiveTab] = useState("contacts");
 
   return (
-    <section className="py-8 bg-[#1e1e1e]">
+    <section className="py-8 bg-black">
       <div className="container mx-auto px-4">
         <div className="flex flex-col space-y-6">
           {/* Dashboard Stats */}

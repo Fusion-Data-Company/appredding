@@ -5,10 +5,10 @@ import { CRMHeader } from "@/components/ui/lamp";
 
 const CRM = () => {
   return (
-    <div className="min-h-screen flex flex-col bg-primary-dark">
+    <div className="min-h-screen flex flex-col bg-black">
       <Header />
       <main>
-        <div className="container mx-auto px-4 pt-24">
+        <div className="container mx-auto px-4 pt-24 bg-black">
           <CRMHeader />
         </div>
         <CRMSection />
