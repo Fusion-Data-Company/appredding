@@ -8,7 +8,7 @@ const CRM = () => {
     <div className="min-h-screen flex flex-col bg-primary-dark">
       <Header />
       <main>
-        <div className="container mx-auto px-4 pt-10">
+        <div className="container mx-auto px-4 pt-24">
           <CRMHeader />
         </div>
         <CRMSection />
