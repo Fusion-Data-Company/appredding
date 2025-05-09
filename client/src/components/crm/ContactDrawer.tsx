@@ -8,8 +8,42 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useToast } from "@/hooks/use-toast";
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 
+// Extended Contact type that includes populated company relation
+type ContactWithCompany = {
+  id: number;
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string | null;
+  mobilePhone: string | null;
+  jobTitle: string | null;
+  department: string | null;
+  address: string | null;
+  city: string | null;
+  state: string | null;
+  zipCode: string | null;
+  country: string | null;
+  website: string | null;
+  source: string | null;
+  status: string | null;
+  interestedInApplications?: string[] | null;
+  notes: string | null;
+  birthday: string | null;
+  linkedinUrl: string | null;
+  twitterUrl: string | null;
+  facebookUrl: string | null;
+  instagramUrl: string | null;
+  lastContactedDate: string | null;
+  createdAt: string;
+  updatedAt: string;
+  createdBy: number | null;
+  assignedTo: number | null;
+  company?: Company;
+  companyId?: number;
+}
+
 interface ContactDrawerProps {
-  contact: Contact;
+  contact: ContactWithCompany;
   isOpen: boolean;
   onClose: () => void;
 }
@@ -19,7 +53,7 @@ const ContactDrawer = ({ contact, isOpen, onClose }: ContactDrawerProps) => {
   const queryClient = useQueryClient();
   const { toast } = useToast();
 
-  const getContactStatus = (status: string | undefined) => {
+  const getContactStatus = (status: string | undefined | null) => {
     switch (status) {
       case "lead":
         return <Badge className="bg-blue-500 text-white">Lead</Badge>;
@@ -34,7 +68,7 @@ const ContactDrawer = ({ contact, isOpen, onClose }: ContactDrawerProps) => {
     }
   };
 
-  const getLeadSource = (source: string | undefined) => {
+  const getLeadSource = (source: string | undefined | null) => {
     switch (source) {
       case "website":
         return <Badge className="bg-blue-500 text-white">Website</Badge>;
@@ -53,7 +87,7 @@ const ContactDrawer = ({ contact, isOpen, onClose }: ContactDrawerProps) => {
     }
   };
 
-  const formatDate = (dateString: string | undefined) => {
+  const formatDate = (dateString: string | undefined | null) => {
     if (!dateString) return "N/A";
     return new Date(dateString).toLocaleDateString("en-US", {
       year: "numeric",

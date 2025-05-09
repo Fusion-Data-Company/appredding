@@ -1,118 +1,121 @@
 import { Request, Response } from "express";
-import { db } from "../db";
-import { contacts, companies } from "@shared/schema";
-import { eq } from "drizzle-orm";
+import { storage } from "../storage";
+import { z } from "zod";
+import { fromZodError } from "zod-validation-error";
+import { insertContactSchema } from "@shared/schema";
 
-// Get all contacts with their company information
+/**
+ * Get all contacts
+ */
 export async function getContacts(req: Request, res: Response) {
   try {
-    // Get all contacts with a SQL join to companies
-    const result = await db.query.contacts.findMany({
-      with: {
-        company: true,
-      },
-    });
-
-    return res.status(200).json(result);
+    const contacts = await storage.getContacts();
+    res.json(contacts);
   } catch (error) {
     console.error("Error fetching contacts:", error);
-    return res.status(500).json({ message: "Failed to fetch contacts" });
+    res.status(500).json({ message: "Failed to fetch contacts" });
   }
 }
 
-// Get a single contact by ID
+/**
+ * Get contact by ID
+ */
 export async function getContactById(req: Request, res: Response) {
   try {
     const contactId = parseInt(req.params.id);
-    
     if (isNaN(contactId)) {
       return res.status(400).json({ message: "Invalid contact ID" });
     }
-    
-    const contact = await db.query.contacts.findFirst({
-      where: eq(contacts.id, contactId),
-      with: {
-        company: true,
-      },
-    });
-    
+
+    const contact = await storage.getContact(contactId);
+
     if (!contact) {
       return res.status(404).json({ message: "Contact not found" });
     }
-    
-    return res.status(200).json(contact);
+
+    res.json(contact);
   } catch (error) {
     console.error("Error fetching contact:", error);
-    return res.status(500).json({ message: "Failed to fetch contact" });
+    res.status(500).json({ message: "Failed to fetch contact details" });
   }
 }
 
-// Create a new contact
-export async function createContact(req: Request, res: Response) {
+/**
+ * Create a new CRM contact
+ */
+export async function createCRMContact(req: Request, res: Response) {
   try {
-    const newContact = req.body;
+    // Validate request body
+    const validatedData = insertContactSchema.parse(req.body);
+
+    // Store contact in database
+    const contact = await storage.createContact(validatedData);
     
-    // Insert the contact into the database
-    const result = await db.insert(contacts).values(newContact).returning();
-    
-    return res.status(201).json(result[0]);
+    // Return success response
+    res.status(201).json(contact);
   } catch (error) {
-    console.error("Error creating contact:", error);
-    return res.status(500).json({ message: "Failed to create contact" });
+    // Handle validation errors
+    if (error instanceof z.ZodError) {
+      const validationError = fromZodError(error);
+      res.status(400).json({
+        message: "Validation error",
+        errors: validationError.details,
+      });
+    } else {
+      console.error("Error creating contact:", error);
+      res.status(500).json({ message: "An unexpected error occurred" });
+    }
   }
 }
 
-// Update an existing contact
+/**
+ * Update a contact
+ */
 export async function updateContact(req: Request, res: Response) {
   try {
     const contactId = parseInt(req.params.id);
-    
     if (isNaN(contactId)) {
       return res.status(400).json({ message: "Invalid contact ID" });
     }
-    
-    const contactData = req.body;
-    
-    // Update the contact in the database
-    const result = await db
-      .update(contacts)
-      .set(contactData)
-      .where(eq(contacts.id, contactId))
-      .returning();
-    
-    if (result.length === 0) {
+
+    const contact = await storage.getContact(contactId);
+    if (!contact) {
       return res.status(404).json({ message: "Contact not found" });
     }
-    
-    return res.status(200).json(result[0]);
+
+    // Update contact in database
+    const updatedContact = await storage.updateContact(contactId, req.body);
+
+    if (!updatedContact) {
+      return res.status(500).json({ message: "Failed to update contact" });
+    }
+
+    res.json(updatedContact);
   } catch (error) {
     console.error("Error updating contact:", error);
-    return res.status(500).json({ message: "Failed to update contact" });
+    res.status(500).json({ message: "Failed to update contact" });
   }
 }
 
-// Delete a contact
+/**
+ * Delete a contact
+ */
 export async function deleteContact(req: Request, res: Response) {
   try {
     const contactId = parseInt(req.params.id);
-    
     if (isNaN(contactId)) {
       return res.status(400).json({ message: "Invalid contact ID" });
     }
-    
-    // Delete the contact from the database
-    const result = await db
-      .delete(contacts)
-      .where(eq(contacts.id, contactId))
-      .returning();
-    
-    if (result.length === 0) {
-      return res.status(404).json({ message: "Contact not found" });
+
+    const success = await storage.deleteContact(contactId);
+
+    if (!success) {
+      return res.status(404).json({ message: "Contact not found or could not be deleted" });
     }
-    
-    return res.status(200).json({ message: "Contact deleted successfully" });
+
+    res.status(204).end();
   } catch (error) {
     console.error("Error deleting contact:", error);
-    return res.status(500).json({ message: "Failed to delete contact" });
+    res.status(500).json({ message: "Failed to delete contact" });
   }
 }

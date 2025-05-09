@@ -39,6 +39,8 @@ export interface IStorage {
   getContacts(): Promise<Contact[]>;
   getContact(id: number): Promise<Contact | undefined>;
   createContact(contact: InsertContact): Promise<Contact>;
+  updateContact(id: number, contactData: Partial<Contact>): Promise<Contact | undefined>;
+  deleteContact(id: number): Promise<boolean>;
   
   // Project methods
   getProjects(clientId?: number): Promise<Project[]>;
@@ -118,6 +120,28 @@ export class DatabaseStorage implements IStorage {
       .values(insertContact)
       .returning();
     return contact;
+  }
+
+  async updateContact(id: number, contactData: Partial<Contact>): Promise<Contact | undefined> {
+    const [updatedContact] = await db
+      .update(contacts)
+      .set({
+        ...contactData,
+        updatedAt: new Date(),
+      })
+      .where(eq(contacts.id, id))
+      .returning();
+    return updatedContact;
+  }
+  
+  async deleteContact(id: number): Promise<boolean> {
+    try {
+      await db.delete(contacts).where(eq(contacts.id, id));
+      return true;
+    } catch (error) {
+      console.error("Error deleting contact:", error);
+      return false;
+    }
   }
   
   // Project methods

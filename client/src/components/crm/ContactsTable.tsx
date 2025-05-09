@@ -169,8 +169,8 @@ const ContactsTable = () => {
     
     // For date sorting
     if (sortColumn === "createdAt" || sortColumn === "lastContactedDate") {
-      valueA = valueA ? new Date(valueA).getTime() : 0;
-      valueB = valueB ? new Date(valueB).getTime() : 0;
+      valueA = valueA && typeof valueA === 'string' ? new Date(valueA).getTime() : 0;
+      valueB = valueB && typeof valueB === 'string' ? new Date(valueB).getTime() : 0;
     }
     
     if (valueA < valueB) return sortDirection === "asc" ? -1 : 1;
@@ -467,8 +467,10 @@ const ContactsTable = () => {
                       style={{ width: `${columnWidths[column.key] || column.width}px`, minWidth: `${columnWidths[column.key] || column.width}px` }}
                     >
                       {column.render
-                        ? column.render(contact[column.key as keyof Contact], contact)
-                        : contact[column.key as keyof Contact] || "-"}
+                        ? column.render(contact[column.key as keyof ContactWithCompany], contact)
+                        : (column.key in contact 
+                           ? String(contact[column.key as keyof ContactWithCompany] || "-")
+                           : "-")}
                     </td>
                   ))}
                 </tr>

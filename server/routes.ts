@@ -13,7 +13,7 @@ import { setupAuth } from "./auth";
 import { 
   getContacts, 
   getContactById, 
-  createContact as createCRMContact, 
+  createCRMContact, 
   updateContact, 
   deleteContact 
 } from "./api/contacts";
