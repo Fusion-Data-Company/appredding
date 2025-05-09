@@ -19,7 +19,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import ContactDrawer from "./ContactDrawer";
+import ContactDrawer from "../crm/ContactDrawer";
 
 // Extended Contact type that includes populated company relation
 type ContactWithCompany = {

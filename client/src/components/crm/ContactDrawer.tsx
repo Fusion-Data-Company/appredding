@@ -270,7 +270,7 @@ const ContactDrawer = ({ contact, isOpen, onClose }: ContactDrawerProps) => {
                 <div className="flex flex-wrap gap-2">
                   {contact.interestedInApplications && Array.isArray(contact.interestedInApplications) && contact.interestedInApplications.length > 0 ? (
                     contact.interestedInApplications.map((app: string) => {
-                      const appType = {
+                      const applicationTypes = {
                         painter_network: { label: "Painter Network", color: "bg-blue-500" },
                         marina: { label: "Marina", color: "bg-cyan-500" },
                         fire_prevention: { label: "Fire Prevention", color: "bg-red-500" },
@@ -278,7 +278,8 @@ const ContactDrawer = ({ contact, isOpen, onClose }: ContactDrawerProps) => {
                         construction: { label: "Construction", color: "bg-yellow-500" },
                         mobile_home: { label: "Mobile Home", color: "bg-purple-500" },
                         municipality: { label: "Municipality", color: "bg-orange-500" },
-                      }[app as keyof typeof applicationTypes] || { label: app, color: "bg-gray-500" };
+                      };
+                      const appType = applicationTypes[app as keyof typeof applicationTypes] || { label: app, color: "bg-gray-500" };
                       
                       return (
                         <Badge key={app} className={`${appType.color} text-white`}>
