@@ -17,6 +17,28 @@ import {
   updateContact, 
   deleteContact 
 } from "./api/contacts";
+import { 
+  getCompanies,
+  getCompanyById,
+  createCompany,
+  updateCompany,
+  deleteCompany
+} from "./api/companies";
+import {
+  getOpportunities,
+  getOpportunityById,
+  createOpportunity,
+  updateOpportunity,
+  deleteOpportunity
+} from "./api/opportunities";
+import {
+  getActivities,
+  getActivityById,
+  createActivity,
+  updateActivity,
+  completeActivity,
+  deleteActivity
+} from "./api/activities";
 import { getCRMAnalytics } from "./api/analytics";
 
 // Authentication middleware
@@ -68,6 +90,28 @@ export async function registerRoutes(app: Express): Promise<Server> {
   
   // Delete a contact
   app.delete("/api/contacts/:id", deleteContact);
+  
+  // Companies routes
+  app.get("/api/companies", getCompanies);
+  app.get("/api/companies/:id", getCompanyById);
+  app.post("/api/companies", createCompany);
+  app.put("/api/companies/:id", updateCompany);
+  app.delete("/api/companies/:id", deleteCompany);
+  
+  // Opportunities routes
+  app.get("/api/opportunities", getOpportunities);
+  app.get("/api/opportunities/:id", getOpportunityById);
+  app.post("/api/opportunities", createOpportunity);
+  app.put("/api/opportunities/:id", updateOpportunity);
+  app.delete("/api/opportunities/:id", deleteOpportunity);
+  
+  // Activities routes
+  app.get("/api/activities", getActivities);
+  app.get("/api/activities/:id", getActivityById);
+  app.post("/api/activities", createActivity);
+  app.put("/api/activities/:id", updateActivity);
+  app.post("/api/activities/:id/complete", completeActivity);
+  app.delete("/api/activities/:id", deleteActivity);
   
   // Contact form submission endpoint
   app.post("/api/contact", async (req: Request, res: Response) => {

@@ -1,6 +1,9 @@
 import {
   users,
   contacts,
+  companies,
+  opportunities,
+  activities,
   projects,
   projectFiles,
   projectUpdates,
@@ -8,6 +11,12 @@ import {
   type InsertUser,
   type Contact,
   type InsertContact,
+  type Company,
+  type InsertCompany,
+  type Opportunity,
+  type InsertOpportunity,
+  type Activity,
+  type InsertActivity,
   type Project,
   type InsertProject,
   type ProjectFile,
@@ -41,6 +50,27 @@ export interface IStorage {
   createContact(contact: InsertContact): Promise<Contact>;
   updateContact(id: number, contactData: Partial<Contact>): Promise<Contact | undefined>;
   deleteContact(id: number): Promise<boolean>;
+  
+  // Company methods
+  getCompanies(): Promise<Company[]>;
+  getCompany(id: number): Promise<Company | undefined>;
+  createCompany(company: InsertCompany): Promise<Company>;
+  updateCompany(id: number, companyData: Partial<Company>): Promise<Company | undefined>;
+  deleteCompany(id: number): Promise<boolean>;
+  
+  // Opportunity methods
+  getOpportunities(clientId?: number): Promise<Opportunity[]>;
+  getOpportunity(id: number): Promise<Opportunity | undefined>;
+  createOpportunity(opportunity: InsertOpportunity): Promise<Opportunity>;
+  updateOpportunity(id: number, opportunityData: Partial<Opportunity>): Promise<Opportunity | undefined>;
+  deleteOpportunity(id: number): Promise<boolean>;
+  
+  // Activity methods
+  getActivities(contactId?: number, companyId?: number, opportunityId?: number): Promise<Activity[]>;
+  getActivity(id: number): Promise<Activity | undefined>;
+  createActivity(activity: InsertActivity): Promise<Activity>;
+  updateActivity(id: number, activityData: Partial<Activity>): Promise<Activity | undefined>;
+  deleteActivity(id: number): Promise<boolean>;
   
   // Project methods
   getProjects(clientId?: number): Promise<Project[]>;
