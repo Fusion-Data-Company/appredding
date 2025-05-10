@@ -305,6 +305,423 @@ const Marinas = () => {
                 </div>
               </div>
             )}
+            
+            {/* Registration Form */}
+            {showRegistrationForm && !registrationSuccess && (
+              <div className="backdrop-blur-md bg-primary-900/70 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] p-8 mt-12 animate-fade-in">
+                <GradientHeading level={2} className="text-3xl font-bold mb-6 text-center" variant="blue">
+                  Marina Professional Registration
+                </GradientHeading>
+                <p className="text-white text-center mb-8">
+                  Join the Praetorian network of qualified marine professionals to access exclusive product discounts, training, and customer referrals.
+                </p>
+                
+                <Form {...form}>
+                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      {/* Personal Information */}
+                      <div className="space-y-4">
+                        <h3 className="text-xl font-semibold text-blue-300 border-b border-blue-500/30 pb-2">
+                          Personal Information
+                        </h3>
+                        
+                        <FormField
+                          control={form.control}
+                          name="firstName"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="text-blue-200">First Name</FormLabel>
+                              <FormControl>
+                                <Input 
+                                  placeholder="Enter your first name" 
+                                  className="bg-primary-900/90 border-blue-500/50 text-white" 
+                                  {...field}
+                                />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                        
+                        <FormField
+                          control={form.control}
+                          name="lastName"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="text-blue-200">Last Name</FormLabel>
+                              <FormControl>
+                                <Input 
+                                  placeholder="Enter your last name" 
+                                  className="bg-primary-900/90 border-blue-500/50 text-white" 
+                                  {...field}
+                                />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                        
+                        <FormField
+                          control={form.control}
+                          name="email"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="text-blue-200">Email Address</FormLabel>
+                              <FormControl>
+                                <Input 
+                                  placeholder="Enter your email address" 
+                                  type="email"
+                                  className="bg-primary-900/90 border-blue-500/50 text-white" 
+                                  {...field}
+                                />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                        
+                        <FormField
+                          control={form.control}
+                          name="phone"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="text-blue-200">Phone Number</FormLabel>
+                              <FormControl>
+                                <Input 
+                                  placeholder="Enter your phone number" 
+                                  className="bg-primary-900/90 border-blue-500/50 text-white" 
+                                  {...field}
+                                />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                      </div>
+                      
+                      {/* Business Information */}
+                      <div className="space-y-4">
+                        <h3 className="text-xl font-semibold text-blue-300 border-b border-blue-500/30 pb-2">
+                          Business Information
+                        </h3>
+                        
+                        <FormField
+                          control={form.control}
+                          name="companyName"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="text-blue-200">Company Name</FormLabel>
+                              <FormControl>
+                                <Input 
+                                  placeholder="Enter your company name" 
+                                  className="bg-primary-900/90 border-blue-500/50 text-white" 
+                                  {...field}
+                                />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                        
+                        <FormField
+                          control={form.control}
+                          name="jobTitle"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="text-blue-200">Job Title</FormLabel>
+                              <FormControl>
+                                <Input 
+                                  placeholder="Enter your job title" 
+                                  className="bg-primary-900/90 border-blue-500/50 text-white" 
+                                  {...field}
+                                />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                        
+                        <FormField
+                          control={form.control}
+                          name="licenseNumber"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="text-blue-200">License Number (if applicable)</FormLabel>
+                              <FormControl>
+                                <Input 
+                                  placeholder="Enter your license number" 
+                                  className="bg-primary-900/90 border-blue-500/50 text-white" 
+                                  {...field}
+                                />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                        
+                        <FormField
+                          control={form.control}
+                          name="yearsInBusiness"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="text-blue-200">Years in Business</FormLabel>
+                              <FormControl>
+                                <Input 
+                                  placeholder="Enter years in business" 
+                                  type="number"
+                                  min={0}
+                                  className="bg-primary-900/90 border-blue-500/50 text-white" 
+                                  {...field}
+                                  onChange={e => field.onChange(parseInt(e.target.value) || 0)}
+                                  value={field.value || ""}
+                                />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                      </div>
+                    </div>
+                    
+                    {/* Location Information */}
+                    <div className="space-y-4">
+                      <h3 className="text-xl font-semibold text-blue-300 border-b border-blue-500/30 pb-2">
+                        Location Information
+                      </h3>
+                      
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <FormField
+                          control={form.control}
+                          name="address"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="text-blue-200">Street Address</FormLabel>
+                              <FormControl>
+                                <Input 
+                                  placeholder="Enter your street address" 
+                                  className="bg-primary-900/90 border-blue-500/50 text-white" 
+                                  {...field}
+                                />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                        
+                        <FormField
+                          control={form.control}
+                          name="city"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="text-blue-200">City</FormLabel>
+                              <FormControl>
+                                <Input 
+                                  placeholder="Enter your city" 
+                                  className="bg-primary-900/90 border-blue-500/50 text-white" 
+                                  {...field}
+                                />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                        
+                        <FormField
+                          control={form.control}
+                          name="state"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="text-blue-200">State</FormLabel>
+                              <FormControl>
+                                <Input 
+                                  placeholder="Enter your state" 
+                                  className="bg-primary-900/90 border-blue-500/50 text-white" 
+                                  {...field}
+                                />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                        
+                        <FormField
+                          control={form.control}
+                          name="zipCode"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="text-blue-200">ZIP Code</FormLabel>
+                              <FormControl>
+                                <Input 
+                                  placeholder="Enter your ZIP code" 
+                                  className="bg-primary-900/90 border-blue-500/50 text-white" 
+                                  {...field}
+                                />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                      </div>
+                    </div>
+                    
+                    {/* Professional Information */}
+                    <div className="space-y-4">
+                      <h3 className="text-xl font-semibold text-blue-300 border-b border-blue-500/30 pb-2">
+                        Professional Information
+                      </h3>
+                      
+                      <FormField
+                        control={form.control}
+                        name="vesselTypes"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-blue-200">Vessel Types Serviced</FormLabel>
+                            <FormControl>
+                              <Textarea 
+                                placeholder="List all types of vessels you service (e.g., sailboats, yachts, commercial vessels)" 
+                                className="bg-primary-900/90 border-blue-500/50 text-white min-h-[80px]" 
+                                {...field}
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      
+                      <FormField
+                        control={form.control}
+                        name="specialties"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-blue-200">Specialties & Services</FormLabel>
+                            <FormControl>
+                              <Textarea 
+                                placeholder="Describe your specialties and services offered" 
+                                className="bg-primary-900/90 border-blue-500/50 text-white min-h-[80px]" 
+                                {...field}
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      
+                      <FormField
+                        control={form.control}
+                        name="experienceDescription"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-blue-200">Experience Description</FormLabel>
+                            <FormControl>
+                              <Textarea 
+                                placeholder="Briefly describe your experience in the marine industry" 
+                                className="bg-primary-900/90 border-blue-500/50 text-white min-h-[80px]" 
+                                {...field}
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      
+                      <FormField
+                        control={form.control}
+                        name="serviceAreas"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-blue-200">Service Areas</FormLabel>
+                            <FormControl>
+                              <Textarea 
+                                placeholder="List the geographic areas you service" 
+                                className="bg-primary-900/90 border-blue-500/50 text-white min-h-[80px]" 
+                                {...field}
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      
+                      <FormField
+                        control={form.control}
+                        name="notes"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-blue-200">Additional Notes</FormLabel>
+                            <FormControl>
+                              <Textarea 
+                                placeholder="Any additional information you'd like to share" 
+                                className="bg-primary-900/90 border-blue-500/50 text-white min-h-[80px]" 
+                                {...field}
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+                    
+                    {/* Terms & Submission */}
+                    <div className="space-y-4">
+                      <FormField
+                        control={form.control}
+                        name="agreesToTerms"
+                        render={({ field }) => (
+                          <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md p-4 bg-primary-900/60">
+                            <FormControl>
+                              <input
+                                type="checkbox"
+                                className="h-5 w-5 mt-1"
+                                checked={field.value}
+                                onChange={field.onChange}
+                              />
+                            </FormControl>
+                            <div className="space-y-1 leading-none">
+                              <FormLabel className="text-blue-200">Terms and Conditions</FormLabel>
+                              <p className="text-sm text-blue-100/70">
+                                I agree to Praetorian SmartCoat Solutions' terms of service and privacy policy. I understand my information will be used to contact me about products, services, and events.
+                              </p>
+                            </div>
+                          </FormItem>
+                        )}
+                      />
+                      
+                      <div className="flex justify-center pt-4">
+                        <GradientButton 
+                          type="submit" 
+                          disabled={registerMutation.isPending}
+                          className="px-8 py-2 w-full md:w-auto"
+                        >
+                          {registerMutation.isPending ? "Submitting..." : "Submit Registration"}
+                        </GradientButton>
+                      </div>
+                    </div>
+                  </form>
+                </Form>
+              </div>
+            )}
+            
+            {/* Registration Success Message */}
+            {registrationSuccess && (
+              <div className="backdrop-blur-md bg-primary-900/70 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] p-8 mt-12 animate-fade-in text-center">
+                <div className="inline-flex items-center justify-center bg-blue-600 rounded-full p-3 mb-4">
+                  <CheckCircle className="h-10 w-10 text-white" />
+                </div>
+                <GradientHeading level={2} className="text-3xl font-bold mb-4" variant="blue">
+                  Registration Successful!
+                </GradientHeading>
+                <p className="text-white text-lg mb-6">
+                  Thank you for registering as a Marina Professional with Praetorian SmartCoat Solutions. Our team will review your information and contact you shortly.
+                </p>
+                <Button 
+                  onClick={() => setRegistrationSuccess(false)} 
+                  variant="secondary" 
+                  className="bg-blue-600/40 hover:bg-blue-600/60 text-white"
+                >
+                  Return to Marina Page
+                </Button>
+              </div>
+            )}
           </div>
         </section>
 
