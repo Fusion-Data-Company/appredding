@@ -1,5 +1,5 @@
 // Import directly from assets
-import heroImage from '../assets_dir/images/praetorian-buckets-hero-v2.png';
+import heroImage from '../assets_dir/images/praetorian-hero-final.png';
 import { BeamsBackground } from '@/components/ui/beams-background';
 
 const HeroSection = () => {
