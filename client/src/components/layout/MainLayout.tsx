@@ -18,7 +18,7 @@ export default function MainLayout({ children, className, fullWidth = false }: M
       <ProfessionalHeader />
       
       <main className={cn(
-        "flex-1 pt-32", // Padding for the fixed header
+        "flex-1 pt-36", // Increased padding for the taller fixed header
         className
       )}>
         {fullWidth ? (

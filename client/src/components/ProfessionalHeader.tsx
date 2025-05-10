@@ -99,7 +99,7 @@ const ProfessionalHeader = () => {
   return (
     <header 
       className={cn(
-        "fixed w-full border-b z-50 transition-all duration-300 h-[120px] flex items-center",
+        "fixed w-full border-b z-50 transition-all duration-300 h-[144px] flex items-center",
         scrolled 
           ? "bg-[conic-gradient(at_bottom_right,_var(--tw-gradient-stops))] from-slate-200 via-zinc-400 to-gray-600 dark:from-zinc-800 dark:via-zinc-900 dark:to-black backdrop-blur-lg border-slate-400 dark:border-zinc-800 shadow-metal" 
           : "bg-[conic-gradient(at_top_left,_var(--tw-gradient-stops))] from-slate-300 via-zinc-400 to-gray-500 dark:from-zinc-800 dark:via-zinc-900 dark:to-black backdrop-blur-md border-slate-400/80 dark:border-zinc-800/80",
