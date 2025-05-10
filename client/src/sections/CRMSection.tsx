@@ -14,59 +14,59 @@ const CRMSection = () => {
         <div className="flex flex-col space-y-6">
           {/* Dashboard Stats */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            <Card className="bg-[#121212] border-[#333333]">
+            <Card className="card-premium card-glow-cyan transition-all duration-300 animate-fade-in-up">
               <CardHeader className="pb-2">
                 <CardTitle className="text-lg flex items-center gap-2">
-                  <Users className="h-5 w-5 text-blue-500" />
+                  <Users className="h-5 w-5 text-cyan-400 animate-glow-pulse" />
                   Contacts
                 </CardTitle>
-                <CardDescription>Total contacts in system</CardDescription>
+                <CardDescription className="text-gray-300">Total contacts in system</CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">124</div>
-                <p className="text-xs text-muted-foreground mt-1">+12 this month</p>
+                <div className="text-2xl font-bold text-white">124</div>
+                <p className="text-xs text-cyan-300/80 mt-1">+12 this month</p>
               </CardContent>
             </Card>
             
-            <Card className="bg-[#121212] border-[#333333]">
+            <Card className="card-premium transition-all duration-300 animate-fade-in-up" style={{animationDelay: '0.1s'}}>
               <CardHeader className="pb-2">
                 <CardTitle className="text-lg flex items-center gap-2">
-                  <Building2 className="h-5 w-5 text-purple-500" />
+                  <Building2 className="h-5 w-5 text-purple-400" />
                   Companies
                 </CardTitle>
-                <CardDescription>Active companies</CardDescription>
+                <CardDescription className="text-gray-300">Active companies</CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">36</div>
-                <p className="text-xs text-muted-foreground mt-1">+3 this month</p>
+                <div className="text-2xl font-bold text-white">36</div>
+                <p className="text-xs text-purple-300/80 mt-1">+3 this month</p>
               </CardContent>
             </Card>
             
-            <Card className="bg-[#121212] border-[#333333]">
+            <Card className="card-premium card-glow-orange transition-all duration-300 animate-fade-in-up" style={{animationDelay: '0.2s'}}>
               <CardHeader className="pb-2">
                 <CardTitle className="text-lg flex items-center gap-2">
-                  <Briefcase className="h-5 w-5 text-green-500" />
+                  <Briefcase className="h-5 w-5 text-orange-400 animate-glow-pulse-orange" />
                   Opportunities
                 </CardTitle>
-                <CardDescription>Active deals</CardDescription>
+                <CardDescription className="text-gray-300">Active deals</CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">24</div>
-                <p className="text-xs text-muted-foreground mt-1">$1.2M pipeline</p>
+                <div className="text-2xl font-bold text-white">24</div>
+                <p className="text-xs text-orange-300/80 mt-1">$1.2M pipeline</p>
               </CardContent>
             </Card>
             
-            <Card className="bg-[#121212] border-[#333333]">
+            <Card className="card-premium transition-all duration-300 animate-fade-in-up" style={{animationDelay: '0.3s'}}>
               <CardHeader className="pb-2">
                 <CardTitle className="text-lg flex items-center gap-2">
-                  <Activity className="h-5 w-5 text-red-500" />
+                  <Activity className="h-5 w-5 text-red-400" />
                   Activities
                 </CardTitle>
-                <CardDescription>Pending activities</CardDescription>
+                <CardDescription className="text-gray-300">Pending activities</CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">18</div>
-                <p className="text-xs text-muted-foreground mt-1">5 overdue</p>
+                <div className="text-2xl font-bold text-white">18</div>
+                <p className="text-xs text-red-300/80 mt-1">5 overdue</p>
               </CardContent>
             </Card>
           </div>
