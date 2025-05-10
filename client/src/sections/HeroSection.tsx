@@ -25,10 +25,11 @@ const HeroSection = () => {
               maxWidth: "none", 
               width: "110vw",
               marginLeft: "-5vw", // Stretch to 110% for maximum edge coverage
-              marginTop: "-36px", // Moved up additional quarter inch (12px) to prevent bottom overlap
-              marginBottom: "8px", // Add space at bottom to prevent overlap
+              marginTop: "12px", // Move DOWN half inch (48px) instead of up
+              marginBottom: "-48px", // Negative margin to create overlap with section below
               filter: "drop-shadow(0 0 25px rgba(0,0,0,0.9))",
-              zIndex: 10 // Bring to front
+              zIndex: 50, // Increased z-index to ensure it stays in front of everything
+              position: "relative" // Ensure z-index works properly
             }}
           />
         </div>
