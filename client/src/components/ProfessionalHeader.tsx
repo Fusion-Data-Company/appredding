@@ -268,26 +268,26 @@ const ProfessionalHeader = () => {
                   <User className="h-5 w-5" />
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-[200px] bg-white/95 dark:bg-gray-900/95 border border-amber-600/20 shadow-lg rounded-sm">
-                <DropdownMenuLabel className="font-serif bg-gradient-to-r from-amber-900 to-amber-800 dark:from-amber-400 dark:to-amber-300 bg-clip-text text-transparent">
+              <DropdownMenuContent align="end" className="w-[200px] bg-white/95 dark:bg-gray-900/95 border border-gray-300 dark:border-gray-700 shadow-lg rounded-sm">
+                <DropdownMenuLabel className="font-medium bg-gradient-to-r from-gray-900 to-gray-700 dark:from-gray-100 dark:to-white bg-clip-text text-transparent">
                   Account
                 </DropdownMenuLabel>
-                <DropdownMenuSeparator className="bg-amber-600/20" />
-                <DropdownMenuItem className="focus:bg-amber-50/50 dark:focus:bg-amber-900/30">
-                  <User className="mr-2 h-4 w-4" />
+                <DropdownMenuSeparator className="bg-gray-300 dark:bg-gray-700" />
+                <DropdownMenuItem className="focus:bg-gray-100 dark:focus:bg-gray-800">
+                  <User className="mr-2 h-4 w-4 text-gray-700 dark:text-gray-300" />
                   <span>Profile</span>
                 </DropdownMenuItem>
-                <DropdownMenuItem className="focus:bg-amber-50/50 dark:focus:bg-amber-900/30">
-                  <Settings className="mr-2 h-4 w-4" />
+                <DropdownMenuItem className="focus:bg-gray-100 dark:focus:bg-gray-800">
+                  <Settings className="mr-2 h-4 w-4 text-gray-700 dark:text-gray-300" />
                   <span>Settings</span>
                 </DropdownMenuItem>
-                <DropdownMenuItem className="focus:bg-amber-50/50 dark:focus:bg-amber-900/30">
-                  <HelpCircle className="mr-2 h-4 w-4" />
+                <DropdownMenuItem className="focus:bg-gray-100 dark:focus:bg-gray-800">
+                  <HelpCircle className="mr-2 h-4 w-4 text-gray-700 dark:text-gray-300" />
                   <span>Help</span>
                 </DropdownMenuItem>
-                <DropdownMenuSeparator className="bg-amber-600/20" />
-                <DropdownMenuItem className="focus:bg-amber-50/50 dark:focus:bg-amber-900/30">
-                  <LogOut className="mr-2 h-4 w-4" />
+                <DropdownMenuSeparator className="bg-gray-300 dark:bg-gray-700" />
+                <DropdownMenuItem className="focus:bg-gray-100 dark:focus:bg-gray-800">
+                  <LogOut className="mr-2 h-4 w-4 text-gray-700 dark:text-gray-300" />
                   <span>Log out</span>
                 </DropdownMenuItem>
               </DropdownMenuContent>
@@ -296,17 +296,17 @@ const ProfessionalHeader = () => {
             <Button 
               variant="ghost" 
               size="icon" 
-              className="rounded-sm bg-gradient-to-br from-amber-100/70 to-amber-200/50 dark:from-amber-900/40 dark:to-amber-800/20 
-              text-amber-900 dark:text-amber-300 border border-amber-700/20 shadow-inner shadow-amber-100/30 dark:shadow-amber-900/20
-              hover:shadow-amber-300/20 dark:hover:shadow-amber-700/30 hover:border-amber-600/30 transition-all duration-300 relative"
+              className="rounded-sm bg-gradient-to-br from-gray-100 to-white dark:from-gray-800 dark:to-gray-900 
+              text-gray-800 dark:text-gray-200 border border-gray-300 dark:border-gray-700 shadow-sm
+              hover:shadow-md hover:border-gray-400 dark:hover:border-gray-600 transition-all duration-300 relative"
               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
             >
-              <div className="absolute inset-0 rounded-sm opacity-0 hover:opacity-100 bg-gradient-to-t from-amber-300/10 to-amber-200/5 dark:from-amber-600/20 dark:to-amber-700/10 transition-opacity duration-300" />
+              <div className="absolute inset-0 rounded-sm opacity-0 hover:opacity-100 bg-gradient-to-t from-gray-200 to-white dark:from-gray-700 dark:to-gray-800 transition-opacity duration-300" />
               {mounted && (
                 theme === 'dark' ? (
-                  <Sun className="h-5 w-5 text-amber-400" />
+                  <Sun className="h-5 w-5 text-gray-100" />
                 ) : (
-                  <Moon className="h-5 w-5 text-amber-900" />
+                  <Moon className="h-5 w-5 text-gray-800" />
                 )
               )}
             </Button>
@@ -316,15 +316,15 @@ const ProfessionalHeader = () => {
         {/* Mobile Menu Button */}
         <button
           onClick={toggleMobileMenu}
-          className="lg:hidden p-2 z-10 rounded-sm bg-gradient-to-br from-amber-100/70 to-amber-200/50 dark:from-amber-900/40 dark:to-amber-800/20 
-          text-amber-900 dark:text-amber-300 border border-amber-700/20 shadow-inner shadow-amber-100/30 dark:shadow-amber-900/20 
-          hover:shadow-amber-300/20 dark:hover:shadow-amber-700/30 hover:border-amber-600/30 transition-all duration-300 relative"
+          className="lg:hidden p-2 z-10 rounded-sm bg-gradient-to-br from-gray-100 to-white dark:from-gray-800 dark:to-gray-900
+          text-gray-800 dark:text-gray-200 border border-gray-300 dark:border-gray-700 shadow-sm
+          hover:shadow-md hover:border-gray-400 dark:hover:border-gray-600 transition-all duration-300 relative"
         >
-          <div className="absolute inset-0 rounded-sm opacity-0 hover:opacity-100 bg-gradient-to-t from-amber-300/10 to-amber-200/5 dark:from-amber-600/20 dark:to-amber-700/10 transition-opacity duration-300" />
+          <div className="absolute inset-0 rounded-sm opacity-0 hover:opacity-100 bg-gradient-to-t from-gray-200 to-white dark:from-gray-700 dark:to-gray-800 transition-opacity duration-300" />
           {mobileMenuOpen ? (
-            <X className="h-5 w-5 relative z-10" />
+            <X className="h-5 w-5 text-gray-800 dark:text-gray-200 relative z-10" />
           ) : (
-            <MenuIcon className="h-5 w-5 relative z-10" />
+            <MenuIcon className="h-5 w-5 text-gray-800 dark:text-gray-200 relative z-10" />
           )}
         </button>
       </div>
