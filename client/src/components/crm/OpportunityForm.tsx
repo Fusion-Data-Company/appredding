@@ -136,7 +136,7 @@ export function OpportunityForm({ isOpen, onClose, contacts, companies }: Opport
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent className="bg-gray-900 border-gray-700">
-                        <SelectItem value="">None</SelectItem>
+                        <SelectItem value="none">None</SelectItem>
                         {companies.map(company => (
                           <SelectItem key={company.id} value={company.id.toString()}>
                             {company.name}
@@ -164,7 +164,7 @@ export function OpportunityForm({ isOpen, onClose, contacts, companies }: Opport
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent className="bg-gray-900 border-gray-700">
-                        <SelectItem value="">None</SelectItem>
+                        <SelectItem value="none">None</SelectItem>
                         {contacts.map(contact => (
                           <SelectItem key={contact.id} value={contact.id.toString()}>
                             {contact.firstName} {contact.lastName}

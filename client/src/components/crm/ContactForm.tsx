@@ -202,7 +202,7 @@ export function ContactForm({ isOpen, onClose, companies }: ContactFormProps) {
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent className="bg-gray-900 border-gray-700">
-                        <SelectItem value="">None</SelectItem>
+                        <SelectItem value="none">None</SelectItem>
                         {companies.map(company => (
                           <SelectItem key={company.id} value={company.id.toString()}>
                             {company.name}
