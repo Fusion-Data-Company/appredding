@@ -183,6 +183,7 @@ export function ContactForm({ isOpen, onClose, companies }: ContactFormProps) {
                         placeholder="Enter first name" 
                         className="bg-gray-900/50 border-gray-700" 
                         {...field} 
+                        value={field.value || ''}
                       />
                     </FormControl>
                     <FormMessage />
@@ -200,6 +201,7 @@ export function ContactForm({ isOpen, onClose, companies }: ContactFormProps) {
                         placeholder="Enter last name" 
                         className="bg-gray-900/50 border-gray-700" 
                         {...field} 
+                        value={field.value || ''}
                       />
                     </FormControl>
                     <FormMessage />
@@ -219,6 +221,7 @@ export function ContactForm({ isOpen, onClose, companies }: ContactFormProps) {
                       placeholder="email@example.com" 
                       className="bg-gray-900/50 border-gray-700" 
                       {...field} 
+                      value={field.value || ''}
                     />
                   </FormControl>
                   <FormMessage />
@@ -256,6 +259,7 @@ export function ContactForm({ isOpen, onClose, companies }: ContactFormProps) {
                         placeholder="e.g. Project Manager" 
                         className="bg-gray-900/50 border-gray-700" 
                         {...field} 
+                        value={field.value || ''}
                       />
                     </FormControl>
                     <FormMessage />
