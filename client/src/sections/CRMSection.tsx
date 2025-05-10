@@ -372,6 +372,10 @@ export default function CRMSection() {
             </PraetorianButton>
           </div>
         </TabsContent>
+        
+        <TabsContent value="registrations" className="mt-6">
+          <RegistrationTabs />
+        </TabsContent>
       </Tabs>
 
       {/* Form Modals */}

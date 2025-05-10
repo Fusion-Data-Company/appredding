@@ -177,9 +177,9 @@ export default function RegistrationTabs() {
                       </TableCell>
                       <TableCell>
                         <Badge 
-                          variant={registration.status === 'verified' ? 'success' : 
+                          variant={registration.status === 'verified' ? 'default' : 
                                  registration.status === 'rejected' ? 'destructive' : 'outline'}
-                          className="text-white"
+                          className={`text-white ${registration.status === 'verified' ? 'bg-green-600' : ''}`}
                         >
                           {registration.status || 'pending'}
                         </Badge>
