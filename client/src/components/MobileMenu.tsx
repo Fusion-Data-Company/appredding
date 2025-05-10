@@ -100,7 +100,7 @@ const MobileMenu = ({ isOpen, onClose, isHomePage = true }: MobileMenuProps) => 
           <li className="pt-4 pb-2">
             <Link
               href="/client-dashboard"
-              className="mobile-menu-link bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-medium block py-3 px-4 rounded-md text-center transition-all duration-300 shadow-md hover:shadow-lg"
+              className="mobile-menu-link gradient-button font-medium block py-3 px-4 rounded-md text-center transition-all duration-300 shadow-md hover:shadow-lg"
             >
               <i className="fas fa-user-shield mr-2"></i> Client Dashboard
             </Link>
@@ -108,7 +108,7 @@ const MobileMenu = ({ isOpen, onClose, isHomePage = true }: MobileMenuProps) => 
           <li className="pt-2 pb-2">
             <Link
               href="/admin-dashboard"
-              className="mobile-menu-link bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-medium block py-3 px-4 rounded-md text-center transition-all duration-300 shadow-md hover:shadow-lg"
+              className="mobile-menu-link gradient-button font-medium block py-3 px-4 rounded-md text-center transition-all duration-300 shadow-md hover:shadow-lg"
             >
               <i className="fas fa-user-cog mr-2"></i> Admin Dashboard
             </Link>
@@ -116,7 +116,7 @@ const MobileMenu = ({ isOpen, onClose, isHomePage = true }: MobileMenuProps) => 
           <li className="pt-2 pb-2">
             <Link
               href="/crm"
-              className="mobile-menu-link bg-gradient-to-r from-orange-500 to-blue-600 hover:from-orange-600 hover:to-blue-700 text-white font-medium block py-3 px-4 rounded-md text-center transition-all duration-300 shadow-md hover:shadow-lg"
+              className="mobile-menu-link gradient-button font-medium block py-3 px-4 rounded-md text-center transition-all duration-300 shadow-md hover:shadow-lg"
             >
               <i className="fas fa-chart-line mr-2"></i> Team CRM
             </Link>
@@ -124,7 +124,7 @@ const MobileMenu = ({ isOpen, onClose, isHomePage = true }: MobileMenuProps) => 
           <li className="pt-2">
             <Link
               href="/style-showcase"
-              className="mobile-menu-link bg-gradient-to-r from-orange-500 via-white to-cyan-500 text-transparent bg-clip-text font-bold block py-3 px-4 rounded-md text-center transition-all duration-300 border-2 border-gray-700/30"
+              className="mobile-menu-link gradient-text-combined font-bold block py-3 px-4 rounded-md text-center transition-all duration-300 border-2 border-gray-700/30"
             >
               <i className="fas fa-palette mr-2"></i> Style Showcase
             </Link>
