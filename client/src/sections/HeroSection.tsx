@@ -1,5 +1,5 @@
 // Import directly from assets
-import heroImage from '../assets_dir/images/praetorian-guards.png';
+import heroImage from '../assets_dir/images/praetorian-buckets-hero.png';
 import { BeamsBackground } from '@/components/ui/beams-background';
 
 const HeroSection = () => {
@@ -12,12 +12,12 @@ const HeroSection = () => {
           {/* The image stretched horizontally to screen edges */}
           <img 
             src={heroImage} 
-            alt="Praetorian Guards with Stone Tablet" 
-            className="w-screen h-auto object-cover"
+            alt="Praetorian Protection Products" 
+            className="w-screen h-auto object-contain my-8 md:my-12"
             style={{ 
               maxWidth: "none", 
               width: "100vw",
-              filter: "drop-shadow(0 0 8px rgba(0,0,0,0.5))"
+              filter: "drop-shadow(0 0 15px rgba(0,0,0,0.7))"
             }}
           />
         </div>
