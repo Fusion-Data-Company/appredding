@@ -105,24 +105,24 @@ const ProfessionalHeader = () => {
     >
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-3 z-10 group relative">
+        <Link href="/" className="flex items-center gap-5 z-10 group relative">
           <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-amber-400/0 via-amber-500/5 to-amber-400/0 opacity-0 group-hover:opacity-100 blur-md transition-opacity duration-500"></div>
           
           <div className="relative flex items-center">
             {/* Outer glow */}
-            <div className="absolute -inset-2.5 rounded-full bg-gradient-to-r from-amber-400/30 to-orange-500/30 blur-md opacity-60 group-hover:opacity-100 transition duration-300"></div>
+            <div className="absolute -inset-4 rounded-full bg-gradient-to-r from-amber-400/30 to-orange-500/30 blur-md opacity-60 group-hover:opacity-100 transition duration-300"></div>
             
             {/* Middle glow */}
-            <div className="absolute -inset-1.5 rounded-full bg-gradient-to-br from-amber-700/30 to-amber-300/40 blur-sm opacity-40 group-hover:opacity-80 transition-opacity duration-300"></div>
+            <div className="absolute -inset-3 rounded-full bg-gradient-to-br from-amber-700/30 to-amber-300/40 blur-sm opacity-40 group-hover:opacity-80 transition-opacity duration-300"></div>
             
             {/* Inner glow - pulsing */}
-            <div className="absolute -inset-1 rounded-full bg-gradient-to-tr from-amber-500/30 to-amber-400/50 blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse"></div>
+            <div className="absolute -inset-2 rounded-full bg-gradient-to-tr from-amber-500/30 to-amber-400/50 blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse"></div>
             
             {/* Shield image */}
             <img 
               src={praetorianShield} 
               alt="Praetorian Shield" 
-              className="h-16 w-auto relative filter drop-shadow-lg group-hover:drop-shadow-2xl transition-all duration-300"
+              className="h-24 w-auto relative -my-4 filter drop-shadow-lg group-hover:drop-shadow-2xl transition-all duration-300"
             />
           </div>
           
