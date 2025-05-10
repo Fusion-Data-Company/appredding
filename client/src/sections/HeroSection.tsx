@@ -13,11 +13,11 @@ const HeroSection = () => {
           <img 
             src={heroImage} 
             alt="Praetorian Protection Products" 
-            className="w-screen h-auto object-contain my-8 md:my-12"
+            className="w-screen h-auto object-contain my-4 md:my-6 scale-125 md:scale-150"
             style={{ 
               maxWidth: "none", 
               width: "100vw",
-              filter: "drop-shadow(0 0 15px rgba(0,0,0,0.7))"
+              filter: "drop-shadow(0 0 20px rgba(0,0,0,0.8))"
             }}
           />
         </div>
