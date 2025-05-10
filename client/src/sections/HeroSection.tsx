@@ -1,12 +1,18 @@
+// Import directly - the most reliable way to handle images in Vite/React
+import heroImage from '../assets_dir/images/praetorian-main.jpg';
+
 const HeroSection = () => {
   return (
-    <div className="w-full overflow-hidden bg-black" style={{maxHeight: '70vh'}}>
-      <img 
-        src="/praetorian-hero-main.jpg" 
-        alt="Praetorian Guards with Tablet" 
-        className="w-full object-cover"
-      />
-    </div>
+    <section className="w-full bg-black py-4">
+      <div className="container mx-auto">
+        <img 
+          src={heroImage} 
+          alt="Praetorian SmartCoat with Guards" 
+          className="w-full h-auto mx-auto shadow-lg"
+          style={{maxWidth: '1200px'}}
+        />
+      </div>
+    </section>
   );
 };
 
