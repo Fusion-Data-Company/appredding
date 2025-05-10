@@ -40,6 +40,7 @@ import {
   deleteActivity
 } from "./api/activities";
 import { getCRMAnalytics } from "./api/analytics";
+import { importCSV } from "./api/import-csv";
 
 // Authentication middleware
 function isAuthenticated(req: Request, res: Response, next: NextFunction) {
@@ -112,6 +113,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.put("/api/activities/:id", updateActivity);
   app.post("/api/activities/:id/complete", completeActivity);
   app.delete("/api/activities/:id", deleteActivity);
+  
+  // CSV Import route
+  app.post("/api/import-csv", importCSV);
   
   // Contact form submission endpoint
   app.post("/api/contact", async (req: Request, res: Response) => {
