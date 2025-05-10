@@ -1,11 +1,93 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { GradientButton } from "@/components/ui/gradient-button";
 import { GradientHeading } from "@/components/ui/gradient-heading";
 import painterImage from "@assets/iStock-1214149737.jpg";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { insertPainterSchema } from "@shared/schema";
+import * as z from "zod";
+import { useMutation } from "@tanstack/react-query";
+import { apiRequest } from "@/lib/queryClient";
+import { Loader2 } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
+import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Checkbox } from "@/components/ui/checkbox";
+
+// Extended schema with additional validation
+const painterFormSchema = insertPainterSchema.extend({
+  confirmEmail: z.string().email("Invalid email format"),
+  termsAccepted: z.boolean().refine(val => val === true, {
+    message: "You must accept the terms and conditions",
+  })
+}).refine((data) => data.email === data.confirmEmail, {
+  message: "Emails don't match",
+  path: ["confirmEmail"],
+});
+
+type PainterFormValues = z.infer<typeof painterFormSchema>;
 
 const PainterNetwork = () => {
+  const { toast } = useToast();
+  const [formSubmitted, setFormSubmitted] = useState(false);
+  
+  const form = useForm<PainterFormValues>({
+    resolver: zodResolver(painterFormSchema),
+    defaultValues: {
+      companyName: "",
+      contactName: "",
+      email: "",
+      confirmEmail: "",
+      phone: "",
+      address: "",
+      city: "",
+      state: "",
+      zipCode: "",
+      website: "",
+      licenseNumber: "",
+      licenseExpiryDate: undefined,
+      insuranceInfo: "",
+      yearsInBusiness: 0,
+      specialties: "",
+      serviceAreas: "",
+      teamSize: 0,
+      hourlyRate: undefined,
+      minProjectSize: undefined,
+      portfolio: "",
+      certifications: "",
+      notes: "",
+      termsAccepted: false,
+    },
+  });
+  
+  const registerPainterMutation = useMutation({
+    mutationFn: async (data: PainterFormValues) => {
+      // Remove confirmEmail and termsAccepted as they're not in the database schema
+      const { confirmEmail, termsAccepted, ...painterData } = data;
+      const res = await apiRequest("POST", "/api/professionals/painters", painterData);
+      return res.json();
+    },
+    onSuccess: () => {
+      toast({
+        title: "Registration Successful",
+        description: "Thank you for registering with our Painter Network! We'll contact you soon.",
+        variant: "default"
+      });
+      setFormSubmitted(true);
+      form.reset();
+    },
+    onError: (error: any) => {
+      console.error("Registration error:", error);
+      toast({
+        title: "Registration Failed",
+        description: error.message || "There was an error submitting your application. Please try again.",
+        variant: "destructive",
+      });
+    },
+  });
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
@@ -160,58 +242,329 @@ const PainterNetwork = () => {
                 <div className="bg-primary-800/70 backdrop-blur-sm rounded-lg p-6">
                   <h3 className="text-xl font-bold mb-4">Apply to Join Our Network</h3>
                   
-                  <form className="space-y-4">
-                    <div>
-                      <label className="block text-sm font-medium mb-1">Company Name</label>
-                      <input 
-                        type="text" 
-                        className="w-full p-2 rounded bg-primary-800 border border-primary-600"
-                        placeholder="Your company name"
-                      />
+                  {formSubmitted ? (
+                    <div className="rounded-lg bg-primary-700/50 p-6 text-center shadow-inner">
+                      <div className="mb-4 text-primary-200">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                          <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                      </div>
+                      <h4 className="text-xl font-bold mb-2">Application Submitted!</h4>
+                      <p className="mb-4">Thank you for your interest in joining our painter network. Our team will review your application and contact you shortly.</p>
+                      <GradientButton 
+                        variant="default" 
+                        onClick={() => setFormSubmitted(false)}
+                      >
+                        Submit Another Application
+                      </GradientButton>
                     </div>
-                    
-                    <div>
-                      <label className="block text-sm font-medium mb-1">Contact Name</label>
-                      <input 
-                        type="text" 
-                        className="w-full p-2 rounded bg-primary-800 border border-primary-600"
-                        placeholder="Your name"
-                      />
-                    </div>
-                    
-                    <div>
-                      <label className="block text-sm font-medium mb-1">Email</label>
-                      <input 
-                        type="email" 
-                        className="w-full p-2 rounded bg-primary-800 border border-primary-600"
-                        placeholder="Your email address"
-                      />
-                    </div>
-                    
-                    <div>
-                      <label className="block text-sm font-medium mb-1">Phone</label>
-                      <input 
-                        type="tel" 
-                        className="w-full p-2 rounded bg-primary-800 border border-primary-600"
-                        placeholder="Your phone number"
-                      />
-                    </div>
-                    
-                    <div>
-                      <label className="block text-sm font-medium mb-1">Years in Business</label>
-                      <select className="w-full p-2 rounded bg-primary-800 border border-primary-600">
-                        <option value="">Select experience</option>
-                        <option value="1-2">1-2 years</option>
-                        <option value="3-5">3-5 years</option>
-                        <option value="6-10">6-10 years</option>
-                        <option value="10+">10+ years</option>
-                      </select>
-                    </div>
-                    
-                    <GradientButton className="w-full" variant="default">
-                      Submit Application
-                    </GradientButton>
-                  </form>
+                  ) : (
+                    <Form {...form}>
+                      <form onSubmit={form.handleSubmit((values) => registerPainterMutation.mutate(values))} className="space-y-4">
+                        <FormField
+                          control={form.control}
+                          name="companyName"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>Company Name</FormLabel>
+                              <FormControl>
+                                <Input 
+                                  placeholder="Your company name" 
+                                  className="bg-primary-800 border-primary-600"
+                                  {...field} 
+                                />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                        
+                        <FormField
+                          control={form.control}
+                          name="contactName"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>Contact Name</FormLabel>
+                              <FormControl>
+                                <Input 
+                                  placeholder="Your full name" 
+                                  className="bg-primary-800 border-primary-600"
+                                  {...field} 
+                                />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                        
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          <FormField
+                            control={form.control}
+                            name="email"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel>Email</FormLabel>
+                                <FormControl>
+                                  <Input 
+                                    type="email"
+                                    placeholder="Your email address" 
+                                    className="bg-primary-800 border-primary-600"
+                                    {...field} 
+                                  />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                          
+                          <FormField
+                            control={form.control}
+                            name="confirmEmail"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel>Confirm Email</FormLabel>
+                                <FormControl>
+                                  <Input 
+                                    type="email"
+                                    placeholder="Confirm your email" 
+                                    className="bg-primary-800 border-primary-600"
+                                    {...field} 
+                                  />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                        </div>
+                        
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          <FormField
+                            control={form.control}
+                            name="phone"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel>Phone</FormLabel>
+                                <FormControl>
+                                  <Input 
+                                    type="tel"
+                                    placeholder="Your phone number" 
+                                    className="bg-primary-800 border-primary-600"
+                                    {...field} 
+                                  />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                          
+                          <FormField
+                            control={form.control}
+                            name="yearsInBusiness"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel>Years in Business</FormLabel>
+                                <FormControl>
+                                  <Input 
+                                    type="number"
+                                    min={0}
+                                    placeholder="Years of experience" 
+                                    className="bg-primary-800 border-primary-600"
+                                    {...field}
+                                    onChange={(e) => field.onChange(parseInt(e.target.value) || 0)}
+                                  />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                        </div>
+                        
+                        <FormField
+                          control={form.control}
+                          name="address"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>Business Address</FormLabel>
+                              <FormControl>
+                                <Input 
+                                  placeholder="Street address" 
+                                  className="bg-primary-800 border-primary-600"
+                                  {...field} 
+                                />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                        
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                          <FormField
+                            control={form.control}
+                            name="city"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel>City</FormLabel>
+                                <FormControl>
+                                  <Input 
+                                    placeholder="City" 
+                                    className="bg-primary-800 border-primary-600"
+                                    {...field} 
+                                  />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                          
+                          <FormField
+                            control={form.control}
+                            name="state"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel>State</FormLabel>
+                                <FormControl>
+                                  <Input 
+                                    placeholder="State" 
+                                    className="bg-primary-800 border-primary-600"
+                                    {...field} 
+                                  />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                          
+                          <FormField
+                            control={form.control}
+                            name="zipCode"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel>Zip Code</FormLabel>
+                                <FormControl>
+                                  <Input 
+                                    placeholder="Zip code" 
+                                    className="bg-primary-800 border-primary-600"
+                                    {...field} 
+                                  />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                        </div>
+                        
+                        <FormField
+                          control={form.control}
+                          name="specializations"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>Specializations</FormLabel>
+                              <FormControl>
+                                <Textarea 
+                                  placeholder="Tell us about your painting specialties (commercial, residential, industrial, etc.)" 
+                                  className="bg-primary-800 border-primary-600"
+                                  {...field} 
+                                />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                        
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          <FormField
+                            control={form.control}
+                            name="licenseNumber"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel>License Number</FormLabel>
+                                <FormControl>
+                                  <Input 
+                                    placeholder="Your professional license number" 
+                                    className="bg-primary-800 border-primary-600"
+                                    {...field} 
+                                  />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                          
+                          <FormField
+                            control={form.control}
+                            name="insuranceInfo"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel>Insurance Information</FormLabel>
+                                <FormControl>
+                                  <Input 
+                                    placeholder="Insurance carrier and policy number" 
+                                    className="bg-primary-800 border-primary-600"
+                                    {...field} 
+                                  />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                        </div>
+                        
+                        <FormField
+                          control={form.control}
+                          name="referralSource"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>How Did You Hear About Us?</FormLabel>
+                              <FormControl>
+                                <Input 
+                                  placeholder="Referral source" 
+                                  className="bg-primary-800 border-primary-600"
+                                  {...field} 
+                                />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                        
+                        <FormField
+                          control={form.control}
+                          name="termsAccepted"
+                          render={({ field }) => (
+                            <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md p-2">
+                              <FormControl>
+                                <Checkbox
+                                  checked={field.value}
+                                  onCheckedChange={field.onChange}
+                                />
+                              </FormControl>
+                              <div className="space-y-1 leading-none">
+                                <FormLabel>
+                                  I accept the terms and conditions and agree to maintain Praetorian's quality standards
+                                </FormLabel>
+                                <FormMessage />
+                              </div>
+                            </FormItem>
+                          )}
+                        />
+                        
+                        <GradientButton 
+                          className="w-full" 
+                          variant="default"
+                          type="submit"
+                          disabled={registerPainterMutation.isPending}
+                        >
+                          {registerPainterMutation.isPending ? (
+                            <>
+                              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                              Processing...
+                            </>
+                          ) : "Submit Application"}
+                        </GradientButton>
+                      </form>
+                    </Form>
+                  )}
                 </div>
               </div>
             </div>
