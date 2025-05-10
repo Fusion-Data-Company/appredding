@@ -123,11 +123,11 @@ export async function importCSV(req: Request, res: Response) {
         // Ensure numeric and date fields are properly converted
         mappedData = mappedData.map(item => ({
           ...item,
-          contactId: item.contactId ? parseInt(item.contactId as string, 10) : undefined,
-          companyId: item.companyId ? parseInt(item.companyId as string, 10) : undefined,
-          amount: item.amount ? parseFloat(item.amount as string) : undefined,
-          probability: item.probability ? parseInt(item.probability as string, 10) : undefined,
-          expectedCloseDate: item.expectedCloseDate ? new Date(item.expectedCloseDate as string) : undefined
+          contactId: item.contactId ? parseInt(String(item.contactId), 10) : undefined,
+          companyId: item.companyId ? parseInt(String(item.companyId), 10) : undefined,
+          amount: item.amount ? parseFloat(String(item.amount)) : undefined,
+          probability: item.probability ? parseInt(String(item.probability), 10) : undefined,
+          expectedCloseDate: item.expectedCloseDate ? new Date(String(item.expectedCloseDate)) : undefined
         }));
         importResults = await Promise.all(mappedData.map(opportunity => 
           storage.createOpportunity(opportunity as InsertOpportunity)

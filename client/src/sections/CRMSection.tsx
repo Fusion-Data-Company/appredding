@@ -18,6 +18,7 @@ import { ContactForm } from '@/components/crm/ContactForm';
 import { CompanyForm } from '@/components/crm/CompanyForm';
 import { OpportunityForm } from '@/components/crm/OpportunityForm';
 import { ActivityForm } from '@/components/crm/ActivityForm';
+import { CSVImportForm } from '@/components/crm/CSVImportForm';
 
 export default function CRMSection() {
   // Modal states
@@ -89,6 +90,16 @@ export default function CRMSection() {
         </div>
         
         <div className="flex flex-wrap gap-2">
+          {/* CSV Import Button */}
+          <CSVImportForm 
+            onSuccess={() => {
+              // Refresh data after successful import
+              refetchContacts();
+              refetchCompanies();
+              refetchOpportunities();
+            }} 
+          />
+          
           <PraetorianButton
             variant="water"
             size="md"
