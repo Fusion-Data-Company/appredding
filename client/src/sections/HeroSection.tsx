@@ -24,7 +24,7 @@ const HeroSection = () => {
             style={{ 
               maxWidth: "none", 
               width: "100vw",
-              marginTop: "48px", // Half inch (48px) downward position adjustment
+              marginTop: "-48px", // One inch (96px) upward adjustment from previous position
               filter: "drop-shadow(0 0 25px rgba(0,0,0,0.9))",
               zIndex: 0
             }}
