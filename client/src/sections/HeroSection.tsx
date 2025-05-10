@@ -20,11 +20,11 @@ const HeroSection = () => {
           <img 
             src={heroImage} 
             alt="Praetorian Protection Products" 
-            className="w-screen h-auto object-contain my-4 md:my-6 scale-110 md:scale-125 relative"
+            className="w-screen h-auto object-contain my-4 md:my-6 scale-100 md:scale-110 relative"
             style={{ 
               maxWidth: "none", 
               width: "100vw",
-              marginTop: "-48px", // One inch (96px) upward adjustment from previous position
+              marginTop: "-24px", // Adjusted for optimal vertical positioning with the smaller scale
               filter: "drop-shadow(0 0 25px rgba(0,0,0,0.9))",
               zIndex: 0
             }}
