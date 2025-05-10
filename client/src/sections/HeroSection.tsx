@@ -79,7 +79,7 @@ const HeroSection = () => {
             style={{ 
               filter: "drop-shadow(0 0 8px rgba(0,0,0,0.5))",
               height: '40vh',
-              transform: 'scaleX(6.0) scaleY(1.2)', // Extreme horizontal stretching
+              transform: 'scaleX(4.0) scaleY(1.1)', // Horizontal stretching only
               transformOrigin: 'center center'
             }}
           />
