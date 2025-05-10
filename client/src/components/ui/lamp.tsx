@@ -1,116 +1,194 @@
-"use client";
-import React from "react";
-import { motion } from "framer-motion";
-import { cn } from "@/lib/utils";
+import React, { useEffect, useRef } from 'react';
+import { cn } from '@/lib/utils';
+import { cva, type VariantProps } from 'class-variance-authority';
 
-export const LampContainer = ({
-  children,
+const lampVariants = cva(
+  "relative w-full max-w-md mx-auto overflow-hidden isolate",
+  {
+    variants: {
+      variant: {
+        default: "h-[400px]",
+        small: "h-[300px]",
+        large: "h-[500px]",
+        hero: "h-[600px]",
+      },
+      shape: {
+        rounded: "rounded-xl",
+        circle: "rounded-full",
+        square: "rounded-none",
+        pill: "rounded-[28px]",
+      },
+      border: {
+        none: "",
+        thin: "border border-gray-800",
+        medium: "border-2 border-gray-800",
+        glow: "border border-gray-800 shadow-[0_0_15px_rgba(255,255,255,0.1)]",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+      shape: "rounded",
+      border: "thin",
+    },
+  }
+);
+
+export interface LampProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    VariantProps<typeof lampVariants> {
+  blobs?: "minimal" | "standard" | "complex";
+  initialGlowScale?: number;
+  pulseEffect?: boolean;
+  freeze?: boolean;
+  freezeTime?: number;
+  interactive?: boolean;
+}
+
+export function Lamp({
   className,
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) => {
+  variant,
+  shape,
+  border,
+  blobs = "standard",
+  initialGlowScale = 1.0,
+  pulseEffect = true,
+  freeze = false,
+  freezeTime = 3300, // Default to 3.3 seconds
+  interactive = false,
+  children,
+  ...props
+}: LampProps) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const freezeTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const isFreezingRef = useRef<boolean>(freeze);
+  const isFrozenRef = useRef<boolean>(false);
+  
+  // Handle interactive pointer movements
+  useEffect(() => {
+    if (!interactive || isFrozenRef.current) return;
+    
+    const container = containerRef.current;
+    if (!container) return;
+    
+    function handlePointerMove(event: PointerEvent) {
+      if (isFrozenRef.current || !container) return;
+      
+      const rect = container.getBoundingClientRect();
+      const x = (event.clientX - rect.left) / rect.width;
+      const y = (event.clientY - rect.top) / rect.height;
+      
+      const orangeGlow = container.querySelector('.orange-glow') as HTMLElement | null;
+      const blueGlow = container.querySelector('.blue-glow') as HTMLElement | null;
+      
+      if (orangeGlow && blueGlow) {
+        // Move the orange glow based on pointer position
+        orangeGlow.style.transform = `translate(${(x - 0.5) * 50}%, ${(y - 0.5) * 30}%)`;
+        
+        // Move the blue glow in the opposite direction
+        blueGlow.style.transform = `translate(${(0.5 - x) * 50}%, ${(0.5 - y) * 30}%)`;
+      }
+    }
+    
+    container.addEventListener('pointermove', handlePointerMove);
+    
+    return () => {
+      container.removeEventListener('pointermove', handlePointerMove);
+    };
+  }, [interactive]);
+  
+  // Freeze effect after specified time
+  useEffect(() => {
+    if (!isFreezingRef.current || isFrozenRef.current) return;
+    
+    freezeTimerRef.current = setTimeout(() => {
+      console.log('Freezing lamp animation');
+      isFrozenRef.current = true;
+      
+      // Apply frozen styles
+      const container = containerRef.current;
+      if (container) {
+        const orangeGlow = container.querySelector('.orange-glow') as HTMLElement;
+        const blueGlow = container.querySelector('.blue-glow') as HTMLElement;
+        
+        if (orangeGlow) {
+          orangeGlow.style.animation = 'none';
+          orangeGlow.style.opacity = '0.9';
+        }
+        
+        if (blueGlow) {
+          blueGlow.style.animation = 'none';
+          blueGlow.style.opacity = '0.9';
+        }
+      }
+    }, freezeTime);
+    
+    return () => {
+      if (freezeTimerRef.current) {
+        clearTimeout(freezeTimerRef.current);
+      }
+    };
+  }, [freezeTime]);
+
   return (
-    <div
-      className={cn(
-        "relative flex min-h-[750px] flex-col items-center justify-center overflow-hidden bg-slate-950 w-full rounded-md z-0",
-        className
-      )}
+    <div 
+      ref={containerRef}
+      className={cn(lampVariants({ variant, shape, border }), className)}
+      {...props}
     >
-      <div className="relative flex w-full flex-1 scale-y-125 items-center justify-center isolate z-0 ">
-        <motion.div
-          initial={{ opacity: 0.5, width: "15rem" }}
-          whileInView={{ opacity: 1, width: "30rem" }}
-          transition={{
-            delay: 0.3,
-            duration: 0.8,
-            ease: "easeInOut",
-          }}
-          style={{
-            backgroundImage: `conic-gradient(var(--conic-position), var(--tw-gradient-stops))`,
-          }}
-          className="absolute inset-auto right-1/2 h-56 overflow-visible w-[30rem] bg-gradient-conic from-orange-400 via-transparent to-transparent text-white [--conic-position:from_70deg_at_center_top]"
-        >
-          <div className="absolute  w-[100%] left-0 bg-slate-950 h-40 bottom-0 z-20 [mask-image:linear-gradient(to_top,white,transparent)]" />
-          <div className="absolute  w-40 h-[100%] left-0 bg-slate-950  bottom-0 z-20 [mask-image:linear-gradient(to_right,white,transparent)]" />
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0.5, width: "15rem" }}
-          whileInView={{ opacity: 1, width: "30rem" }}
-          transition={{
-            delay: 0.3,
-            duration: 0.8,
-            ease: "easeInOut",
-          }}
-          style={{
-            backgroundImage: `conic-gradient(var(--conic-position), var(--tw-gradient-stops))`,
-          }}
-          className="absolute inset-auto left-1/2 h-56 w-[30rem] bg-gradient-conic from-transparent via-transparent to-orange-400 text-white [--conic-position:from_290deg_at_center_top]"
-        >
-          <div className="absolute  w-40 h-[100%] right-0 bg-slate-950  bottom-0 z-20 [mask-image:linear-gradient(to_left,white,transparent)]" />
-          <div className="absolute  w-[100%] right-0 bg-slate-950 h-40 bottom-0 z-20 [mask-image:linear-gradient(to_top,white,transparent)]" />
-        </motion.div>
-        <div className="absolute top-1/2 h-48 w-full translate-y-12 scale-x-150 bg-slate-950 blur-2xl"></div>
-        <div className="absolute top-1/2 z-50 h-48 w-full bg-transparent opacity-10 backdrop-blur-md"></div>
-        <div className="absolute inset-auto z-50 h-36 w-[28rem] -translate-y-1/2 rounded-full bg-orange-500 opacity-60 blur-3xl"></div>
-        <motion.div
-          initial={{ width: "8rem" }}
-          whileInView={{ width: "16rem" }}
-          transition={{
-            delay: 0.3,
-            duration: 0.8,
-            ease: "easeInOut",
-          }}
-          className="absolute inset-auto z-30 h-36 w-64 -translate-y-[6rem] rounded-full bg-orange-400 blur-2xl"
-        ></motion.div>
-        <motion.div
-          initial={{ width: "15rem" }}
-          whileInView={{ width: "30rem" }}
-          transition={{
-            delay: 0.3,
-            duration: 0.8,
-            ease: "easeInOut",
-          }}
-          className="absolute inset-auto z-50 h-0.5 w-[30rem] -translate-y-[7rem] bg-orange-400 "
-        ></motion.div>
-
-        <div className="absolute inset-auto z-40 h-44 w-full -translate-y-[12.5rem] bg-slate-950 "></div>
-      </div>
-
-      <div className="relative z-50 flex -translate-y-36 flex-col items-center px-5">
+      {/* Fire glow */}
+      <div 
+        className={cn(
+          "orange-glow absolute w-[200%] aspect-square rounded-[40%] bg-gradient-radial from-orange-500/80 via-orange-500/50 to-transparent -top-[50%] -right-[50%] mix-blend-soft-light",
+          pulseEffect && !isFrozenRef.current && "animate-pulse-slow"
+        )}
+        style={{ 
+          transform: `scale(${initialGlowScale})`,
+          opacity: 0.8,
+        }}
+      />
+      
+      {/* Water glow */}
+      <div 
+        className={cn(
+          "blue-glow absolute w-[200%] aspect-square rounded-[40%] bg-gradient-radial from-cyan-500/80 via-cyan-500/50 to-transparent -bottom-[50%] -left-[50%] mix-blend-soft-light",
+          pulseEffect && !isFrozenRef.current && "animate-pulse-slow"
+        )}
+        style={{ 
+          transform: `scale(${initialGlowScale})`,
+          opacity: 0.8,
+          animationDelay: "1000ms"
+        }}
+      />
+      
+      {/* Additional complex blobs for more organic look */}
+      {blobs === "complex" && (
+        <>
+          <div 
+            className="absolute w-[50%] aspect-square rounded-full bg-gradient-radial from-orange-600/30 via-orange-600/20 to-transparent top-[10%] right-[20%] mix-blend-soft-light animate-float-slow"
+            style={{ animationDelay: "700ms" }}
+          />
+          <div 
+            className="absolute w-[40%] aspect-square rounded-full bg-gradient-radial from-cyan-600/30 via-cyan-600/20 to-transparent bottom-[15%] left-[15%] mix-blend-soft-light animate-float-slow"
+            style={{ animationDelay: "1400ms" }}
+          />
+        </>
+      )}
+      
+      {/* Standard additional blobs */}
+      {(blobs === "standard" || blobs === "complex") && (
+        <>
+          <div className="absolute w-[80%] aspect-square rounded-[60%] bg-gradient-radial from-orange-500/10 via-orange-500/5 to-transparent top-[25%] right-[25%] mix-blend-soft-light" />
+          <div className="absolute w-[80%] aspect-square rounded-[60%] bg-gradient-radial from-cyan-500/10 via-cyan-500/5 to-transparent bottom-[25%] left-[25%] mix-blend-soft-light" />
+        </>
+      )}
+      
+      {/* Glass-like background with subtle texture */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-gray-900/30 to-black/60 backdrop-blur-md" />
+      
+      {/* Content layer */}
+      <div className="relative z-10 h-full flex items-center justify-center">
         {children}
       </div>
     </div>
-  );
-};
-
-export function CRMHeader() {
-  return (
-    <LampContainer className="mb-10">
-      <motion.h1
-        initial={{ opacity: 0.5, y: 100 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{
-          delay: 0.3,
-          duration: 0.8,
-          ease: "easeInOut",
-        }}
-        className="mt-24 bg-gradient-to-br from-orange-300 to-yellow-100 py-4 bg-clip-text text-center text-4xl font-bold tracking-tight text-transparent md:text-5xl text-shadow-sm drop-shadow-lg"
-      >
-        Team CRM Dashboard
-      </motion.h1>
-      <motion.p
-        initial={{ opacity: 0, y: 100 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{
-          delay: 0.5,
-          duration: 0.8,
-          ease: "easeInOut",
-        }}
-        className="mt-4 text-center text-orange-100/90 text-lg max-w-3xl font-medium drop-shadow-md"
-      >
-        Access your customer relationship management tools and project tracking system.
-      </motion.p>
-    </LampContainer>
   );
 }

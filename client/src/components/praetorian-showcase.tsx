@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import { PraetorianButton } from './ui/praetorian-button';
 import { PraetorianCard } from './ui/praetorian-card';
 import { PraetorianGradientText } from './ui/praetorian-gradient-text';
+import { Lamp } from './ui/lamp';
 import { Flame, Droplets, Layers, Zap, ArrowRight, Check, RefreshCw } from 'lucide-react';
 
 export const PraetorianShowcase = () => {
-  const [activeTab, setActiveTab] = useState<'buttons' | 'cards' | 'text'>('buttons');
+  const [activeTab, setActiveTab] = useState<'buttons' | 'cards' | 'text' | 'lamps'>('buttons');
   
   return (
     <div className="w-full flex flex-col gap-8 p-8 bg-black/60 backdrop-blur-sm min-h-screen">
@@ -22,7 +23,7 @@ export const PraetorianShowcase = () => {
       
       {/* Tab navigation */}
       <div className="flex justify-center mb-8">
-        <div className="bg-gray-900/80 p-1 rounded-lg border border-gray-800 flex">
+        <div className="bg-gray-900/80 p-1 rounded-lg border border-gray-800 flex flex-wrap justify-center">
           <button
             onClick={() => setActiveTab('buttons')}
             className={`px-5 py-2 rounded-md transition-all ${
@@ -52,6 +53,16 @@ export const PraetorianShowcase = () => {
             }`}
           >
             Text
+          </button>
+          <button
+            onClick={() => setActiveTab('lamps')}
+            className={`px-5 py-2 rounded-md transition-all ${
+              activeTab === 'lamps'
+                ? 'bg-gradient-to-r from-orange-500 via-gray-700 to-cyan-500 text-white shadow-md'
+                : 'text-gray-400 hover:text-white'
+            }`}
+          >
+            Lamps
           </button>
         </div>
       </div>
@@ -333,6 +344,79 @@ export const PraetorianShowcase = () => {
                   </div>
                 </div>
               </div>
+            </div>
+          </PraetorianCard>
+        </section>
+      )}
+      
+      {/* Lamp Showcase */}
+      {activeTab === 'lamps' && (
+        <section className="space-y-12">
+          <PraetorianCard variant="premium" className="p-8">
+            <h3 className="text-2xl font-bold mb-6 text-white">Fire & Water Lamps</h3>
+            <p className="text-gray-300 mb-6">Premium interactive UI component featuring our tactical-industrial fire-water duality theming</p>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+              <div className="space-y-4">
+                <h4 className="text-sm uppercase text-gray-500 mb-2">Standard Lamp</h4>
+                <Lamp className="mb-4">
+                  <PraetorianGradientText variant="dual" size="3xl" glow="md">
+                    PRAETORIAN
+                  </PraetorianGradientText>
+                </Lamp>
+                <p className="text-sm text-gray-400">Standard lamp with dual fire-water glow effects and automatic 3.3 second animation freeze.</p>
+              </div>
+              
+              <div className="space-y-4">
+                <h4 className="text-sm uppercase text-gray-500 mb-2">Interactive Lamp</h4>
+                <Lamp interactive pulseEffect={false} freeze={false}>
+                  <PraetorianGradientText variant="water" size="3xl" glow="lg">
+                    INTERACTIVE
+                  </PraetorianGradientText>
+                </Lamp>
+                <p className="text-sm text-gray-400">Interactive lamp that responds to mouse movements with realtime glow adjustments.</p>
+              </div>
+              
+              <div className="space-y-4">
+                <h4 className="text-sm uppercase text-gray-500 mb-2">Complex Blob Design</h4>
+                <Lamp blobs="complex" shape="pill" variant="small">
+                  <PraetorianGradientText variant="fire" size="2xl" glow="md">
+                    COMPLEX
+                  </PraetorianGradientText>
+                </Lamp>
+                <p className="text-sm text-gray-400">Lamp with complex organic blob design and pill-shaped container.</p>
+              </div>
+              
+              <div className="space-y-4">
+                <h4 className="text-sm uppercase text-gray-500 mb-2">Minimal with Border</h4>
+                <Lamp blobs="minimal" shape="square" border="glow" variant="small">
+                  <PraetorianGradientText variant="metal" size="2xl" glow="sm">
+                    MINIMAL
+                  </PraetorianGradientText>
+                </Lamp>
+                <p className="text-sm text-gray-400">Minimal lamp with square shape, border glow, and simple design.</p>
+              </div>
+            </div>
+            
+            <div className="mt-12">
+              <h4 className="text-sm uppercase text-gray-500 mb-4">Hero Lamp</h4>
+              <Lamp variant="hero" blobs="complex" shape="pill" border="glow">
+                <div className="text-center space-y-4">
+                  <PraetorianGradientText variant="dual" size="5xl" glow="lg" weight="extrabold">
+                    PRAETORIAN
+                  </PraetorianGradientText>
+                  <p className="text-white text-xl">SmartCoat Solutions</p>
+                  <div className="flex gap-4 justify-center mt-6">
+                    <PraetorianButton variant="fire" size="lg">
+                      Fire Protection
+                    </PraetorianButton>
+                    <PraetorianButton variant="water" size="lg">
+                      Water Resistance
+                    </PraetorianButton>
+                  </div>
+                </div>
+              </Lamp>
+              <p className="text-sm text-gray-400 mt-4">Hero-sized lamp for prominent feature showcases with complex glow patterns.</p>
             </div>
           </PraetorianCard>
         </section>

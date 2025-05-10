@@ -1,7 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CRMSection from "@/sections/CRMSection";
-import { CRMHeader } from "@/components/ui/lamp";
+import { CRMHeader } from "@/components/crm/CRMHeader";
 
 const CRM = () => {
   return (

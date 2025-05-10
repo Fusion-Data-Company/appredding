@@ -160,6 +160,8 @@ export default {
         "heatWave": "heatWave 6s linear infinite",
         "borderGlow": "borderGlow 3s ease-in-out infinite",
         "holoRise": "holoRise 0.5s ease-out forwards",
+        "pulse-slow": "pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+        "float-slow": "float 8s ease-in-out infinite",
         
         // Original animations
         "accordion-down": "accordion-down 0.2s ease-out",
