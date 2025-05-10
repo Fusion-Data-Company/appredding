@@ -4,7 +4,7 @@ import { z } from "zod";
 import { relations } from "drizzle-orm";
 
 // Enums
-export const userTypeEnum = pgEnum('user_type', ['super_admin', 'admin', 'sales', 'client', 'painter']);
+export const userTypeEnum = pgEnum('user_type', ['super_admin', 'admin', 'sales', 'client', 'painter', 'pool_worker', 'lobbyist', 'distributor']);
 export const projectStatusEnum = pgEnum('project_status', ['pending', 'in_progress', 'completed', 'cancelled']);
 export const taskPriorityEnum = pgEnum('task_priority', ['low', 'medium', 'high', 'urgent']);
 export const taskStatusEnum = pgEnum('task_status', ['pending', 'in_progress', 'completed', 'cancelled', 'overdue']);
@@ -12,6 +12,8 @@ export const applicationTypeEnum = pgEnum('application_type', ['painter_network'
 export const leadSourceEnum = pgEnum('lead_source', ['website', 'referral', 'social_media', 'direct', 'trade_show', 'other']);
 export const contactStatusEnum = pgEnum('contact_status', ['lead', 'prospect', 'customer', 'inactive']);
 export const socialMediaTypeEnum = pgEnum('social_media_type', ['facebook', 'instagram', 'twitter', 'linkedin', 'youtube', 'tiktok', 'other']);
+export const reviewStatusEnum = pgEnum('review_status', ['pending', 'approved', 'rejected']);
+export const verificationStatusEnum = pgEnum('verification_status', ['pending', 'verified', 'rejected']);
 
 // Tables
 export const users = pgTable("users", {
@@ -710,3 +712,280 @@ export type ProjectFile = typeof projectFiles.$inferSelect;
 
 export type InsertProjectUpdate = z.infer<typeof insertProjectUpdateSchema>;
 export type ProjectUpdate = typeof projectUpdates.$inferSelect;
+
+// Specialized Professionals Tables
+
+// Painters Network professionals
+export const painters = pgTable("painters", {
+  id: serial("id").primaryKey(),
+  userId: integer("user_id").references(() => users.id),
+  companyName: text("company_name").notNull(),
+  contactName: text("contact_name").notNull(),
+  email: text("email").notNull().unique(),
+  phone: text("phone").notNull(),
+  address: text("address"),
+  city: text("city"),
+  state: text("state"),
+  zipCode: text("zip_code"),
+  website: text("website"),
+  licenseNumber: text("license_number"),
+  licenseExpiryDate: date("license_expiry_date"),
+  insuranceInfo: text("insurance_info"),
+  yearsInBusiness: integer("years_in_business"),
+  specialties: jsonb("specialties"), // Array of specialties (residential, commercial, industrial, etc.)
+  serviceAreas: jsonb("service_areas"), // Array of service area zip codes
+  teamSize: integer("team_size"),
+  hourlyRate: decimal("hourly_rate", { precision: 10, scale: 2 }),
+  minProjectSize: decimal("min_project_size", { precision: 10, scale: 2 }),
+  portfolio: jsonb("portfolio"), // Array of URLs to portfolio images
+  certifications: jsonb("certifications"), // Array of certification names/details
+  verificationStatus: verificationStatusEnum("verification_status").default('pending'),
+  notes: text("notes"),
+  rating: integer("rating"), // 1-5 star rating
+  reviewCount: integer("review_count").default(0),
+  completedProjects: integer("completed_projects").default(0),
+  createdAt: timestamp("created_at").notNull().defaultNow(),
+  updatedAt: timestamp("updated_at").notNull().defaultNow(),
+});
+
+// Pool professional workers
+export const poolProfessionals = pgTable("pool_professionals", {
+  id: serial("id").primaryKey(),
+  userId: integer("user_id").references(() => users.id),
+  companyName: text("company_name").notNull(),
+  contactName: text("contact_name").notNull(),
+  email: text("email").notNull().unique(),
+  phone: text("phone").notNull(),
+  address: text("address"),
+  city: text("city"),
+  state: text("state"),
+  zipCode: text("zip_code"),
+  website: text("website"),
+  licenseNumber: text("license_number"),
+  licenseExpiryDate: date("license_expiry_date"),
+  insuranceInfo: text("insurance_info"),
+  yearsInBusiness: integer("years_in_business"),
+  specialties: jsonb("specialties"), // Array of specialties (residential, commercial, etc.)
+  serviceAreas: jsonb("service_areas"), // Array of service area zip codes
+  poolTypes: jsonb("pool_types"), // Types of pools they service
+  materialsExperience: jsonb("materials_experience"), // Array of materials they're experienced with
+  hourlyRate: decimal("hourly_rate", { precision: 10, scale: 2 }),
+  certifications: jsonb("certifications"), // Array of certification names/details
+  verificationStatus: verificationStatusEnum("verification_status").default('pending'),
+  notes: text("notes"),
+  rating: integer("rating"), // 1-5 star rating
+  reviewCount: integer("review_count").default(0),
+  completedProjects: integer("completed_projects").default(0),
+  createdAt: timestamp("created_at").notNull().defaultNow(),
+  updatedAt: timestamp("updated_at").notNull().defaultNow(),
+});
+
+// Municipal consultants and lobbyists
+export const municipalityProfessionals = pgTable("municipality_professionals", {
+  id: serial("id").primaryKey(),
+  userId: integer("user_id").references(() => users.id),
+  companyName: text("company_name").notNull(),
+  contactName: text("contact_name").notNull(),
+  email: text("email").notNull().unique(),
+  phone: text("phone").notNull(),
+  address: text("address"),
+  city: text("city"),
+  state: text("state"),
+  zipCode: text("zip_code"),
+  website: text("website"),
+  professionalType: text("professional_type").notNull(), // consultant or lobbyist
+  specialties: jsonb("specialties"), // Array of specialties (water infrastructure, etc.)
+  jurisdictions: jsonb("jurisdictions"), // Array of jurisdictions they operate in
+  clientTypes: jsonb("client_types"), // Types of clients they represent
+  credentials: text("credentials"),
+  experienceYears: integer("experience_years"),
+  registrationNumber: text("registration_number"), // Lobbyist registration number if applicable
+  verificationStatus: verificationStatusEnum("verification_status").default('pending'),
+  projectExperience: jsonb("project_experience"), // Past projects or experiences
+  notes: text("notes"),
+  rating: integer("rating"), // 1-5 star rating
+  reviewCount: integer("review_count").default(0),
+  successfulProjects: integer("successful_projects").default(0),
+  createdAt: timestamp("created_at").notNull().defaultNow(),
+  updatedAt: timestamp("updated_at").notNull().defaultNow(),
+});
+
+// Construction distributors
+export const constructionDistributors = pgTable("construction_distributors", {
+  id: serial("id").primaryKey(),
+  userId: integer("user_id").references(() => users.id),
+  companyName: text("company_name").notNull(),
+  contactName: text("contact_name").notNull(),
+  email: text("email").notNull().unique(),
+  phone: text("phone").notNull(),
+  address: text("address"),
+  city: text("city"),
+  state: text("state"),
+  zipCode: text("zip_code"),
+  website: text("website"),
+  businessType: text("business_type").notNull(), // retailer, wholesaler, etc.
+  foundedYear: integer("founded_year"),
+  employeeCount: integer("employee_count"),
+  annualRevenue: text("annual_revenue"),
+  coverageAreas: jsonb("coverage_areas"), // Geographic areas they serve
+  productCategories: jsonb("product_categories"), // Types of products they distribute
+  certifications: jsonb("certifications"), // Business certifications
+  verificationStatus: verificationStatusEnum("verification_status").default('pending'),
+  notes: text("notes"),
+  warehouseLocations: jsonb("warehouse_locations"), // Array of locations
+  deliveryOptions: jsonb("delivery_options"), // Delivery service details
+  createdAt: timestamp("created_at").notNull().defaultNow(),
+  updatedAt: timestamp("updated_at").notNull().defaultNow(),
+});
+
+// Professional reviews
+export const professionalReviews = pgTable("professional_reviews", {
+  id: serial("id").primaryKey(),
+  professionalType: text("professional_type").notNull(), // painter, pool_professional, municipality_professional, construction_distributor
+  professionalId: integer("professional_id").notNull(),
+  userId: integer("user_id").references(() => users.id), // Person leaving the review
+  rating: integer("rating").notNull(), // 1-5 stars
+  title: text("title"),
+  comment: text("comment"),
+  projectId: integer("project_id").references(() => projects.id),
+  reviewDate: timestamp("review_date").notNull().defaultNow(),
+  status: reviewStatusEnum("status").default('pending'),
+  response: text("response"), // Professional's response to the review
+  responseDate: timestamp("response_date"),
+  helpful: integer("helpful").default(0), // Number of users who found this review helpful
+  createdAt: timestamp("created_at").notNull().defaultNow(),
+  updatedAt: timestamp("updated_at").notNull().defaultNow(),
+});
+
+// Relations
+export const paintersRelations = relations(painters, ({ one }) => ({
+  user: one(users, { fields: [painters.userId], references: [users.id] }),
+}));
+
+export const poolProfessionalsRelations = relations(poolProfessionals, ({ one }) => ({
+  user: one(users, { fields: [poolProfessionals.userId], references: [users.id] }),
+}));
+
+export const municipalityProfessionalsRelations = relations(municipalityProfessionals, ({ one }) => ({
+  user: one(users, { fields: [municipalityProfessionals.userId], references: [users.id] }),
+}));
+
+export const constructionDistributorsRelations = relations(constructionDistributors, ({ one }) => ({
+  user: one(users, { fields: [constructionDistributors.userId], references: [users.id] }),
+}));
+
+// Create insert schemas for the professional tables
+export const insertPainterSchema = createInsertSchema(painters).pick({
+  companyName: true,
+  contactName: true,
+  email: true,
+  phone: true,
+  address: true,
+  city: true,
+  state: true,
+  zipCode: true,
+  website: true,
+  licenseNumber: true,
+  licenseExpiryDate: true,
+  insuranceInfo: true,
+  yearsInBusiness: true,
+  specialties: true,
+  serviceAreas: true,
+  teamSize: true,
+  hourlyRate: true,
+  minProjectSize: true,
+  portfolio: true,
+  certifications: true,
+  notes: true,
+});
+
+export const insertPoolProfessionalSchema = createInsertSchema(poolProfessionals).pick({
+  companyName: true,
+  contactName: true,
+  email: true,
+  phone: true,
+  address: true,
+  city: true,
+  state: true,
+  zipCode: true,
+  website: true,
+  licenseNumber: true,
+  licenseExpiryDate: true,
+  insuranceInfo: true,
+  yearsInBusiness: true,
+  specialties: true,
+  serviceAreas: true,
+  poolTypes: true,
+  materialsExperience: true,
+  hourlyRate: true,
+  certifications: true,
+  notes: true,
+});
+
+export const insertMunicipalityProfessionalSchema = createInsertSchema(municipalityProfessionals).pick({
+  companyName: true,
+  contactName: true,
+  email: true,
+  phone: true,
+  address: true,
+  city: true,
+  state: true,
+  zipCode: true,
+  website: true,
+  professionalType: true,
+  specialties: true,
+  jurisdictions: true,
+  clientTypes: true,
+  credentials: true,
+  experienceYears: true,
+  registrationNumber: true,
+  projectExperience: true,
+  notes: true,
+});
+
+export const insertConstructionDistributorSchema = createInsertSchema(constructionDistributors).pick({
+  companyName: true,
+  contactName: true,
+  email: true,
+  phone: true,
+  address: true,
+  city: true,
+  state: true,
+  zipCode: true,
+  website: true,
+  businessType: true,
+  foundedYear: true,
+  employeeCount: true,
+  annualRevenue: true,
+  coverageAreas: true,
+  productCategories: true,
+  certifications: true,
+  notes: true,
+  warehouseLocations: true,
+  deliveryOptions: true,
+});
+
+export const insertProfessionalReviewSchema = createInsertSchema(professionalReviews).pick({
+  professionalType: true,
+  professionalId: true,
+  rating: true,
+  title: true,
+  comment: true,
+  projectId: true,
+});
+
+// Export types for the professional tables
+export type InsertPainter = z.infer<typeof insertPainterSchema>;
+export type Painter = typeof painters.$inferSelect;
+
+export type InsertPoolProfessional = z.infer<typeof insertPoolProfessionalSchema>;
+export type PoolProfessional = typeof poolProfessionals.$inferSelect;
+
+export type InsertMunicipalityProfessional = z.infer<typeof insertMunicipalityProfessionalSchema>;
+export type MunicipalityProfessional = typeof municipalityProfessionals.$inferSelect;
+
+export type InsertConstructionDistributor = z.infer<typeof insertConstructionDistributorSchema>;
+export type ConstructionDistributor = typeof constructionDistributors.$inferSelect;
+
+export type InsertProfessionalReview = z.infer<typeof insertProfessionalReviewSchema>;
+export type ProfessionalReview = typeof professionalReviews.$inferSelect;

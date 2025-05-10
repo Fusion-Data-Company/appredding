@@ -16,6 +16,7 @@ import { format } from "date-fns";
 import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
+import { useToast } from '@/hooks/use-toast';
 
 export const opportunityFormSchema = z.object({
   name: z.string()
@@ -89,26 +90,95 @@ export function OpportunityForm({ isOpen, onClose, contacts, companies }: Opport
     },
   });
 
+  const { toast } = useToast();
+  
   const createOpportunityMutation = useMutation({
     mutationFn: async (data: OpportunityFormValues) => {
-      const formattedData = {
-        ...data,
-        contactId: data.contactId ? parseInt(data.contactId) : undefined,
-        companyId: data.companyId ? parseInt(data.companyId) : undefined,
-      };
+      // Implement retry mechanism
+      const maxRetries = 3;
+      let retryCount = 0;
+      let lastError: Error | null = null;
       
-      const res = await apiRequest('POST', '/api/opportunities', formattedData);
-      if (!res.ok) {
-        const error = await res.json();
-        throw new Error(error.message || 'Failed to create opportunity');
+      while (retryCount < maxRetries) {
+        try {
+          // Carefully sanitize and prepare the data
+          const formattedData = {
+            ...data,
+            name: data.name.trim(),
+            // Safely convert string IDs to numbers, handling null/undefined
+            contactId: data.contactId && data.contactId !== 'none' 
+              ? parseInt(data.contactId) 
+              : undefined,
+            companyId: data.companyId && data.companyId !== 'none' 
+              ? parseInt(data.companyId) 
+              : undefined,
+            // Make sure numeric fields are properly formatted
+            amount: data.amount !== undefined && data.amount !== null 
+              ? Number(data.amount) 
+              : undefined,
+            probability: data.probability ?? 50,
+            // Sanitize text fields
+            description: data.description?.trim(),
+            location: data.location?.trim(),
+            notes: data.notes?.trim(),
+          };
+          
+          const res = await apiRequest('POST', '/api/opportunities', formattedData);
+          
+          if (!res.ok) {
+            const error = await res.json().catch(() => ({ message: 'Unknown server error' }));
+            throw new Error(error.message || 'Failed to create opportunity');
+          }
+          
+          return await res.json();
+        } catch (error: any) {
+          lastError = error;
+          console.error(`Attempt ${retryCount + 1} failed:`, error);
+          
+          // Show retry toast on non-final attempts
+          if (retryCount < maxRetries - 1) {
+            toast({
+              title: `Retry ${retryCount + 1}/${maxRetries}`,
+              description: "Connection issue - retrying submission",
+              variant: "default",
+            });
+            
+            // Wait before retrying (exponential backoff)
+            await new Promise(resolve => setTimeout(resolve, Math.min(1000 * Math.pow(2, retryCount), 5000)));
+          }
+          
+          retryCount++;
+        }
       }
-      return res.json();
+      
+      // If we've exhausted all retries, throw the last error
+      if (lastError) {
+        throw lastError;
+      }
+      
+      throw new Error('Failed to create opportunity after multiple attempts');
     },
     onSuccess: () => {
+      // Refresh all related data
       queryClient.invalidateQueries({ queryKey: ['/api/opportunities'] });
-      queryClient.invalidateQueries({ queryKey: ['/api/crm/analytics'] });
+      queryClient.invalidateQueries({ queryKey: ['/api/analytics'] });
+      queryClient.invalidateQueries({ queryKey: ['/api/contacts'] });
+      queryClient.invalidateQueries({ queryKey: ['/api/companies'] });
+      
+      toast({
+        title: "Success!",
+        description: "Opportunity created successfully",
+      });
+      
       onClose();
       form.reset();
+    },
+    onError: (error: Error) => {
+      toast({
+        title: "Failed to create opportunity",
+        description: error.message || "An unexpected error occurred",
+        variant: "destructive",
+      });
     },
   });
 

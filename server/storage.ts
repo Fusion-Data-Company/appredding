@@ -89,6 +89,38 @@ export interface IStorage {
   // Project updates methods
   getProjectUpdates(projectId: number): Promise<ProjectUpdate[]>;
   createProjectUpdate(update: InsertProjectUpdate): Promise<ProjectUpdate>;
+  
+  // Painter professional methods
+  getPainters(): Promise<Painter[]>;
+  getPainter(id: number): Promise<Painter | undefined>;
+  getPainterByEmail(email: string): Promise<Painter | undefined>;
+  createPainter(painter: InsertPainter): Promise<Painter>;
+  updatePainter(id: number, painterData: Partial<Painter>): Promise<Painter | undefined>;
+  
+  // Pool professional methods
+  getPoolProfessionals(): Promise<PoolProfessional[]>;
+  getPoolProfessional(id: number): Promise<PoolProfessional | undefined>;
+  getPoolProfessionalByEmail(email: string): Promise<PoolProfessional | undefined>;
+  createPoolProfessional(professional: InsertPoolProfessional): Promise<PoolProfessional>;
+  updatePoolProfessional(id: number, professionalData: Partial<PoolProfessional>): Promise<PoolProfessional | undefined>;
+  
+  // Municipality professional methods
+  getMunicipalityProfessionals(): Promise<MunicipalityProfessional[]>;
+  getMunicipalityProfessional(id: number): Promise<MunicipalityProfessional | undefined>;
+  getMunicipalityProfessionalByEmail(email: string): Promise<MunicipalityProfessional | undefined>;
+  createMunicipalityProfessional(professional: InsertMunicipalityProfessional): Promise<MunicipalityProfessional>;
+  updateMunicipalityProfessional(id: number, professionalData: Partial<MunicipalityProfessional>): Promise<MunicipalityProfessional | undefined>;
+  
+  // Construction distributor methods
+  getConstructionDistributors(): Promise<ConstructionDistributor[]>;
+  getConstructionDistributor(id: number): Promise<ConstructionDistributor | undefined>;
+  getConstructionDistributorByEmail(email: string): Promise<ConstructionDistributor | undefined>;
+  createConstructionDistributor(distributor: InsertConstructionDistributor): Promise<ConstructionDistributor>;
+  updateConstructionDistributor(id: number, distributorData: Partial<ConstructionDistributor>): Promise<ConstructionDistributor | undefined>;
+  
+  // Professional review methods
+  getProfessionalReviews(professionalType: string, professionalId: number): Promise<ProfessionalReview[]>;
+  createProfessionalReview(review: InsertProfessionalReview): Promise<ProfessionalReview>;
 }
 
 export class DatabaseStorage implements IStorage {

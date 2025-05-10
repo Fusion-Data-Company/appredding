@@ -16,16 +16,49 @@ import { format } from "date-fns";
 import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
+import { useToast } from '@/hooks/use-toast';
 
 export const activityFormSchema = z.object({
-  type: z.string().min(1, 'Activity type is required'),
-  subject: z.string().min(2, 'Subject must be at least 2 characters'),
-  details: z.string().optional(),
-  contactId: z.string().optional(),
-  companyId: z.string().optional(),
-  opportunityId: z.string().optional(),
-  scheduledAt: z.date().optional(),
-  duration: z.coerce.number().min(1, 'Duration must be at least 1 minute').optional(),
+  type: z.string()
+    .min(1, 'Activity type is required')
+    .refine(value => ['call', 'meeting', 'email', 'note', 'task', 'follow_up'].includes(value), {
+      message: 'Please select a valid activity type'
+    }),
+  subject: z.string()
+    .min(2, 'Subject must be at least 2 characters')
+    .max(100, 'Subject cannot exceed 100 characters')
+    .trim()
+    .refine(value => value.length > 0, {
+      message: 'Subject is required'
+    }),
+  details: z.string()
+    .max(1000, 'Details cannot exceed 1000 characters')
+    .optional()
+    .nullable()
+    .transform(val => val === '' ? null : val),
+  contactId: z.string()
+    .optional()
+    .nullable()
+    .transform(val => val === '' ? null : val),
+  companyId: z.string()
+    .optional()
+    .nullable()
+    .transform(val => val === '' ? null : val),
+  opportunityId: z.string()
+    .optional()
+    .nullable()
+    .transform(val => val === '' ? null : val),
+  scheduledAt: z.date()
+    .optional()
+    .nullable(),
+  duration: z.preprocess(
+    val => val === '' ? null : val,
+    z.coerce.number()
+      .min(1, 'Duration must be at least 1 minute')
+      .max(1440, 'Duration cannot exceed 24 hours (1440 minutes)')
+      .nullable()
+      .optional()
+  ),
 });
 
 type ActivityFormValues = z.infer<typeof activityFormSchema>;
@@ -49,27 +82,93 @@ export function ActivityForm({ isOpen, onClose, contacts, companies, opportuniti
     },
   });
 
+  const { toast } = useToast();
+  
   const createActivityMutation = useMutation({
     mutationFn: async (data: ActivityFormValues) => {
-      const formattedData = {
-        ...data,
-        contactId: data.contactId ? parseInt(data.contactId) : undefined,
-        companyId: data.companyId ? parseInt(data.companyId) : undefined,
-        opportunityId: data.opportunityId ? parseInt(data.opportunityId) : undefined,
-      };
+      // Implement retry mechanism
+      const maxRetries = 3;
+      let retryCount = 0;
+      let lastError: Error | null = null;
       
-      const res = await apiRequest('POST', '/api/activities', formattedData);
-      if (!res.ok) {
-        const error = await res.json();
-        throw new Error(error.message || 'Failed to create activity');
+      while (retryCount < maxRetries) {
+        try {
+          // Carefully sanitize and prepare the data
+          const formattedData = {
+            ...data,
+            subject: data.subject.trim(),
+            // Safely convert string IDs to numbers, handling null/undefined
+            contactId: data.contactId && data.contactId !== 'none' 
+              ? parseInt(data.contactId) 
+              : undefined,
+            companyId: data.companyId && data.companyId !== 'none' 
+              ? parseInt(data.companyId) 
+              : undefined,
+            opportunityId: data.opportunityId && data.opportunityId !== 'none' 
+              ? parseInt(data.opportunityId) 
+              : undefined,
+            // Sanitize text fields
+            details: data.details?.trim(),
+          };
+          
+          const res = await apiRequest('POST', '/api/activities', formattedData);
+          
+          if (!res.ok) {
+            const error = await res.json().catch(() => ({ message: 'Unknown server error' }));
+            throw new Error(error.message || 'Failed to create activity');
+          }
+          
+          return await res.json();
+        } catch (error: any) {
+          lastError = error;
+          console.error(`Attempt ${retryCount + 1} failed:`, error);
+          
+          // Show retry toast on non-final attempts
+          if (retryCount < maxRetries - 1) {
+            toast({
+              title: `Retry ${retryCount + 1}/${maxRetries}`,
+              description: "Connection issue - retrying submission",
+              variant: "default",
+            });
+            
+            // Wait before retrying (exponential backoff)
+            await new Promise(resolve => setTimeout(resolve, Math.min(1000 * Math.pow(2, retryCount), 5000)));
+          }
+          
+          retryCount++;
+        }
       }
-      return res.json();
+      
+      // If we've exhausted all retries, throw the last error
+      if (lastError) {
+        throw lastError;
+      }
+      
+      throw new Error('Failed to create activity after multiple attempts');
     },
     onSuccess: () => {
+      // Refresh all related data
       queryClient.invalidateQueries({ queryKey: ['/api/activities'] });
-      queryClient.invalidateQueries({ queryKey: ['/api/crm/analytics'] });
+      queryClient.invalidateQueries({ queryKey: ['/api/analytics'] });
+      // Also refresh related entities that might be affected
+      queryClient.invalidateQueries({ queryKey: ['/api/contacts'] });
+      queryClient.invalidateQueries({ queryKey: ['/api/companies'] });
+      queryClient.invalidateQueries({ queryKey: ['/api/opportunities'] });
+      
+      toast({
+        title: "Success!",
+        description: "Activity created successfully",
+      });
+      
       onClose();
       form.reset();
+    },
+    onError: (error: Error) => {
+      toast({
+        title: "Failed to create activity",
+        description: error.message || "An unexpected error occurred",
+        variant: "destructive",
+      });
     },
   });
 
