@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { cn } from "@/lib/utils";
 import bucketImg from "@/assets_dir/icons/praetorian-bucket.png";
+import praetorianBucketNew from "@/assets_dir/icons/praetorian-bucket-new.png";
 import praetorianHeaderImg from "@/assets_dir/images/praetorian-header-no-bg.png";
 import { 
   NavigationMenu,
@@ -111,7 +112,38 @@ const ProfessionalHeader = () => {
         <Link href="/" className="flex items-center gap-5 z-10 group relative">
           <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-transparent via-slate-100/10 to-transparent dark:via-zinc-300/10 opacity-0 group-hover:opacity-100 animate-shimmer transition-opacity duration-300"></div>
           
-
+          <div className="relative flex items-center">
+            {/* Outer glow */}
+            <div className="absolute -inset-4 rounded-full bg-gradient-to-r from-slate-300/30 to-slate-600/30 blur-md opacity-60 group-hover:opacity-100 transition duration-300"></div>
+            
+            {/* Middle glow - enhanced metallic effect */}
+            <div className="absolute -inset-3 rounded-full bg-[conic-gradient(at_top_right,_var(--tw-gradient-stops))] from-slate-400/30 via-slate-500/30 to-slate-600/30 blur-sm opacity-40 group-hover:opacity-80 transition-opacity duration-300"></div>
+            
+            {/* Inner glow - metallic shimmer */}
+            <div className="absolute -inset-2 rounded-full bg-gradient-to-tr from-slate-200/30 to-slate-600/40 blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse"></div>
+            
+            {/* Highlight reflection */}
+            <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-white/10 to-transparent blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-subtle-pulse" style={{ transform: 'rotate(-45deg) translateX(-5px)' }}></div>
+            
+            {/* Extra metallic flare */}
+            <div className="absolute -inset-2 rounded-full bg-gradient-to-bl from-white/5 via-transparent to-slate-400/10 opacity-0 group-hover:opacity-100 transition-all duration-500" style={{ transform: 'rotate(30deg)' }}></div>
+            
+            {/* Bucket image with enhanced 3D effect */}
+            <div className="relative">
+              {/* Drop shadow for 3D depth */}
+              <div className="absolute inset-0 opacity-70 blur-md bg-gradient-to-br from-slate-500/30 to-slate-800/40 dark:from-gray-700/30 dark:to-black/40 translate-y-1 translate-x-1 rounded-full group-hover:opacity-100 transition-all duration-300"></div>
+              
+              <img 
+                src={praetorianBucketNew} 
+                alt="Praetorian Bucket" 
+                className="h-24 w-auto relative -my-4 filter drop-shadow-lg group-hover:drop-shadow-2xl transition-all duration-300 group-hover:scale-105 will-change-transform"
+                style={{ 
+                  transform: 'perspective(800px) rotateY(-5deg)', 
+                  transformStyle: 'preserve-3d',
+                }}
+              />
+            </div>
+          </div>
           
           <div className="flex flex-col justify-center relative">
             {/* Shine overlay for metallic effect */}
