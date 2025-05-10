@@ -12,17 +12,41 @@ import { PraetorianButton } from '@/components/ui/praetorian-button';
 import { X } from 'lucide-react';
 import { useMutation } from '@tanstack/react-query';
 import { queryClient, apiRequest } from '@/lib/queryClient';
+import { useToast } from '@/hooks/use-toast';
 
 export const contactFormSchema = z.object({
-  firstName: z.string().min(2, 'First name must be at least 2 characters'),
-  lastName: z.string().min(2, 'Last name must be at least 2 characters'),
-  email: z.string().email('Please enter a valid email address'),
-  phone: z.string().optional(),
-  jobTitle: z.string().optional(),
+  firstName: z.string()
+    .min(2, 'First name must be at least 2 characters')
+    .max(50, 'First name cannot exceed 50 characters')
+    .trim()
+    .refine(value => /^[a-zA-Z\s\-'.]+$/.test(value), {
+      message: 'First name should only contain letters, spaces, hyphens, apostrophes, and periods'
+    }),
+  lastName: z.string()
+    .min(2, 'Last name must be at least 2 characters')
+    .max(50, 'Last name cannot exceed 50 characters')
+    .trim()
+    .refine(value => /^[a-zA-Z\s\-'.]+$/.test(value), {
+      message: 'Last name should only contain letters, spaces, hyphens, apostrophes, and periods'
+    }),
+  email: z.string()
+    .email('Please enter a valid email address')
+    .trim()
+    .toLowerCase(),
+  phone: z.string()
+    .optional()
+    .refine(value => !value || /^[\d\+\-\(\)\s\.]{7,20}$/.test(value), {
+      message: 'Please enter a valid phone number'
+    }),
+  jobTitle: z.string()
+    .max(100, 'Job title cannot exceed 100 characters')
+    .optional(),
   companyId: z.string().optional(),
   source: z.string().default('website'),
   status: z.string().default('lead'),
-  notes: z.string().optional(),
+  notes: z.string()
+    .max(500, 'Notes cannot exceed 500 characters')
+    .optional(),
 });
 
 type ContactFormValues = z.infer<typeof contactFormSchema>;
@@ -48,23 +72,77 @@ export function ContactForm({ isOpen, onClose, companies }: ContactFormProps) {
     },
   });
 
+  const { toast } = useToast();
+  
   const createContactMutation = useMutation({
     mutationFn: async (data: ContactFormValues) => {
-      const res = await apiRequest('POST', '/api/contacts', {
-        ...data,
-        companyId: data.companyId ? parseInt(data.companyId) : undefined,
-      });
-      if (!res.ok) {
-        const error = await res.json();
-        throw new Error(error.message || 'Failed to create contact');
+      // Implement retry mechanism
+      const maxRetries = 3;
+      let retryCount = 0;
+      let lastError: Error | null = null;
+      
+      while (retryCount < maxRetries) {
+        try {
+          const sanitizedData = {
+            ...data,
+            // Ensure proper data conversion
+            firstName: data.firstName.trim(),
+            lastName: data.lastName.trim(),
+            email: data.email.trim().toLowerCase(),
+            companyId: data.companyId && data.companyId !== 'none' 
+              ? parseInt(data.companyId) 
+              : undefined,
+            // Strip any potential dangerous characters
+            phone: data.phone?.replace(/[^\d\+\-\(\)\s\.]/g, ''),
+            jobTitle: data.jobTitle?.trim(),
+            notes: data.notes?.trim(),
+          };
+          
+          const res = await apiRequest('POST', '/api/contacts', sanitizedData);
+          
+          if (!res.ok) {
+            const errorData = await res.json();
+            throw new Error(errorData.message || 'Failed to create contact');
+          }
+          
+          return await res.json();
+        } catch (error: any) {
+          lastError = error;
+          retryCount++;
+          
+          // Only wait between retries, not after the last one
+          if (retryCount < maxRetries) {
+            // Exponential backoff
+            await new Promise(resolve => setTimeout(resolve, 1000 * Math.pow(2, retryCount - 1)));
+          }
+        }
       }
-      return res.json();
+      
+      // If we've exhausted all retries, throw the last error
+      throw lastError || new Error('Failed to create contact after multiple attempts');
     },
-    onSuccess: () => {
+    onSuccess: (data) => {
+      // Invalidate queries to update data
       queryClient.invalidateQueries({ queryKey: ['/api/contacts'] });
-      queryClient.invalidateQueries({ queryKey: ['/api/crm/analytics'] });
+      queryClient.invalidateQueries({ queryKey: ['/api/analytics'] });
+      
+      // Show success message
+      toast({
+        title: "Contact Created",
+        description: `Successfully created contact: ${data.firstName} ${data.lastName}`,
+        variant: "default",
+      });
+      
+      // Close modal and reset form
       onClose();
       form.reset();
+    },
+    onError: (error: Error) => {
+      toast({
+        title: "Failed to Create Contact",
+        description: error.message || "An error occurred while creating the contact",
+        variant: "destructive",
+      });
     },
   });
 

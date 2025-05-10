@@ -1,4 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
+import { getQueryFn } from '@/lib/queryClient';
 
 // Define the analytics data structure
 export interface CRMAnalyticsData {
@@ -73,7 +74,11 @@ export const defaultAnalyticsData: CRMAnalyticsData = {
 export function useCRMAnalytics() {
   return useQuery<CRMAnalyticsData>({
     queryKey: ['/api/analytics'],
+    queryFn: getQueryFn(),
     refetchInterval: 5 * 60 * 1000, // 5 minutes
-    placeholderData: defaultAnalyticsData
+    retry: 3, // Retry failed requests up to 3 times
+    retryDelay: attemptIndex => Math.min(1000 * 2 ** attemptIndex, 30000), // Exponential backoff with max 30s
+    placeholderData: defaultAnalyticsData,
+    staleTime: 1 * 60 * 1000 // Consider data stale after 1 minute
   });
 }
