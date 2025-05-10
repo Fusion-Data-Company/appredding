@@ -1,11 +1,109 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { GradientButton } from "@/components/ui/gradient-button";
 import { GradientHeading } from "@/components/ui/gradient-heading";
-import { HardHat, Droplets, ShieldCheck, Leaf, Building, PaintBucket, Umbrella, HardDrive, Hammer, Ruler, Wrench } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { 
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage
+} from "@/components/ui/form";
+import { HardHat, Droplets, ShieldCheck, Leaf, Building, PaintBucket, Umbrella, HardDrive, Hammer, Ruler, Wrench, CheckCircle, Warehouse, Truck, Award } from "lucide-react";
+import { insertConstructionDistributorSchema } from "@shared/schema";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useMutation } from "@tanstack/react-query";
+import { apiRequest } from "@/lib/queryClient";
+import { useToast } from "@/hooks/use-toast";
 
 const ConstructionPage = () => {
+  const [showRegistrationForm, setShowRegistrationForm] = useState(false);
+  const [registrationSuccess, setRegistrationSuccess] = useState(false);
+  const { toast } = useToast();
+  
+  // Setup form for construction distributor registration
+  const form = useForm({
+    resolver: zodResolver(insertConstructionDistributorSchema),
+    defaultValues: {
+      companyName: "",
+      contactName: "",
+      email: "",
+      phone: "",
+      address: "",
+      city: "",
+      state: "",
+      zipCode: "",
+      website: "",
+      businessType: "retailer", // Default value
+      foundedYear: 0,
+      employeeCount: 0,
+      annualRevenue: "",
+      coverageAreas: [],
+      productCategories: [],
+      certifications: [],
+      notes: "",
+      warehouseLocations: [],
+      deliveryOptions: []
+    },
+  });
+
+  // Construction Distributor registration mutation
+  const registerMutation = useMutation({
+    mutationFn: async (data: any) => {
+      // Convert empty strings to nulls for optional fields
+      const formattedData = { ...data };
+      ["website", "address", "city", "state", "zipCode"].forEach(field => {
+        if (formattedData[field] === "") formattedData[field] = null;
+      });
+      
+      // Ensure array fields are properly formatted
+      ["coverageAreas", "productCategories", "certifications", "warehouseLocations", "deliveryOptions"].forEach(field => {
+        if (typeof formattedData[field] === "string" && formattedData[field]) {
+          formattedData[field] = formattedData[field].split(",").map((item: string) => item.trim());
+        }
+      });
+      
+      const response = await apiRequest("POST", "/api/professionals/construction-distributors", formattedData);
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || "Registration failed");
+      }
+      return response.json();
+    },
+    onSuccess: () => {
+      toast({
+        title: "Registration Successful",
+        description: "Your construction distributor profile has been created",
+        variant: "default",
+      });
+      setRegistrationSuccess(true);
+      form.reset();
+    },
+    onError: (error: Error) => {
+      toast({
+        title: "Registration Failed",
+        description: error.message,
+        variant: "destructive",
+      });
+    },
+  });
+
+  const onSubmit = (data: any) => {
+    registerMutation.mutate(data);
+  };
+  
+  const handleShowRegistrationForm = () => {
+    setShowRegistrationForm(true);
+  };
+  
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
@@ -121,7 +219,7 @@ const ConstructionPage = () => {
                   </div>
                 </div>
                 <div className="mt-6">
-                  <GradientButton variant="variant" className="w-full">
+                  <GradientButton variant="variant" className="w-full" onClick={handleShowRegistrationForm}>
                     Request a Consultation
                   </GradientButton>
                 </div>
@@ -225,60 +323,491 @@ const ConstructionPage = () => {
             <div className="backdrop-blur-sm bg-primary-900/60 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] p-8">
               <GradientHeading level={2} className="text-2xl font-bold mb-6 text-center" variant="mixed">Request a Construction Coating Consultation</GradientHeading>
               <p className="text-white text-center mb-8">Our experts will evaluate your project requirements and recommend the ideal coating system for your needs.</p>
-              <div className="grid md:grid-cols-2 gap-8">
-                <div>
-                  <h3 className="text-xl font-semibold mb-4 bg-gradient-to-r from-orange-500 to-blue-500 bg-clip-text text-transparent">Why Choose Our Construction Coatings?</h3>
-                  <ul className="space-y-3">
-                    <li className="flex items-start gap-2">
-                      <span className="text-orange-400 mt-1">✓</span>
-                      <span className="text-white">Superior adhesion to various construction materials</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-blue-400 mt-1">✓</span>
-                      <span className="text-white">Extended service life compared to conventional coatings</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-orange-400 mt-1">✓</span>
-                      <span className="text-white">Reduced maintenance requirements and lifecycle costs</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-blue-400 mt-1">✓</span>
-                      <span className="text-white">Expert application by certified contractors</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-orange-400 mt-1">✓</span>
-                      <span className="text-white">Comprehensive warranty programs</span>
-                    </li>
-                  </ul>
+              
+              {!showRegistrationForm && !registrationSuccess && (
+                <div className="grid md:grid-cols-2 gap-8">
+                  <div>
+                    <h3 className="text-xl font-semibold mb-4 bg-gradient-to-r from-orange-500 to-blue-500 bg-clip-text text-transparent">Why Choose Our Construction Coatings?</h3>
+                    <ul className="space-y-3">
+                      <li className="flex items-start gap-2">
+                        <span className="text-orange-400 mt-1">✓</span>
+                        <span className="text-white">Superior adhesion to various construction materials</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-blue-400 mt-1">✓</span>
+                        <span className="text-white">Extended service life compared to conventional coatings</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-orange-400 mt-1">✓</span>
+                        <span className="text-white">Reduced maintenance requirements and lifecycle costs</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-blue-400 mt-1">✓</span>
+                        <span className="text-white">Expert application by certified contractors</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-orange-400 mt-1">✓</span>
+                        <span className="text-white">Comprehensive warranty programs</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div>
+                    <div className="p-4 mb-4 bg-primary-800/70 border border-orange-500/30 rounded-lg">
+                      <h3 className="text-xl font-semibold mb-2 text-white">Request a Consultation</h3>
+                      <p className="text-[#a0a0a0] mb-4">For the fastest service, please register as a construction distributor to access our full range of services and resources.</p>
+                      <GradientButton 
+                        variant="variant" 
+                        className="w-full"
+                        onClick={handleShowRegistrationForm}
+                      >
+                        Register as a Construction Distributor
+                      </GradientButton>
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <form className="space-y-4">
-                    <div className="grid grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-sm font-medium mb-1 text-blue-300">First Name</label>
-                        <input type="text" className="w-full p-2 bg-primary-900/90 rounded border border-blue-500/50" />
-                      </div>
-                      <div>
-                        <label className="block text-sm font-medium mb-1 text-orange-300">Last Name</label>
-                        <input type="text" className="w-full p-2 bg-primary-900/90 rounded border border-orange-500/50" />
-                      </div>
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium mb-1 text-blue-300">Email</label>
-                      <input type="email" className="w-full p-2 bg-primary-900/90 rounded border border-blue-500/50" />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium mb-1 text-orange-300">Phone</label>
-                      <input type="tel" className="w-full p-2 bg-primary-900/90 rounded border border-orange-500/50" />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium mb-1 text-blue-300">Project Description</label>
-                      <textarea className="w-full p-2 bg-primary-900/90 rounded border border-blue-500/50 h-32"></textarea>
-                    </div>
-                    <GradientButton variant="variant" className="w-full">Submit Request</GradientButton>
-                  </form>
+              )}
+              
+              {/* Registration Success Message */}
+              {registrationSuccess && (
+                <div className="max-w-2xl mx-auto text-center p-8 bg-primary-800/70 border-2 border-white/30 rounded-xl">
+                  <div className="bg-gradient-to-r from-orange-600 to-blue-500 p-4 rounded-full inline-block mb-4">
+                    <CheckCircle className="h-12 w-12 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-orange-500 to-blue-500 bg-clip-text text-transparent">Registration Successful!</h3>
+                  <p className="text-white mb-6">Thank you for registering as a construction distributor with Praetorian SmartCoat Solutions. Our team will review your information and contact you soon.</p>
+                  <p className="text-[#a0a0a0] mb-6">You'll receive access to our exclusive distributor resources and specialized products for the construction industry.</p>
+                  <GradientButton variant="default" onClick={() => setRegistrationSuccess(false)} className="px-8">
+                    Return to Construction Page
+                  </GradientButton>
                 </div>
-              </div>
+              )}
+              
+              {/* Registration Form */}
+              {showRegistrationForm && !registrationSuccess && (
+                <div className="max-w-3xl mx-auto">
+                  <div className="bg-primary-800/70 border border-orange-500/30 rounded-lg p-6 mb-8">
+                    <h3 className="text-xl font-bold mb-4 bg-gradient-to-r from-orange-500 to-blue-500 bg-clip-text text-transparent">Construction Distributor Registration</h3>
+                    <p className="text-[#a0a0a0] mb-6">Complete this form to register as an authorized distributor for our construction coating products.</p>
+                    
+                    <Form {...form}>
+                      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                          {/* Company Information */}
+                          <FormField
+                            control={form.control}
+                            name="companyName"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel className="text-white">Company Name*</FormLabel>
+                                <FormControl>
+                                  <Input 
+                                    placeholder="Enter company name" 
+                                    className="bg-primary-900/70 border-orange-500/30 text-white"
+                                    {...field} 
+                                  />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                          
+                          <FormField
+                            control={form.control}
+                            name="contactName"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel className="text-white">Contact Person*</FormLabel>
+                                <FormControl>
+                                  <Input 
+                                    placeholder="Enter contact name" 
+                                    className="bg-primary-900/70 border-orange-500/30 text-white"
+                                    {...field} 
+                                  />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                          
+                          <FormField
+                            control={form.control}
+                            name="email"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel className="text-white">Email*</FormLabel>
+                                <FormControl>
+                                  <Input 
+                                    placeholder="Enter email address" 
+                                    type="email"
+                                    className="bg-primary-900/70 border-orange-500/30 text-white"
+                                    {...field} 
+                                  />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                          
+                          <FormField
+                            control={form.control}
+                            name="phone"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel className="text-white">Phone Number*</FormLabel>
+                                <FormControl>
+                                  <Input 
+                                    placeholder="Enter phone number" 
+                                    className="bg-primary-900/70 border-orange-500/30 text-white"
+                                    {...field} 
+                                  />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                          
+                          <FormField
+                            control={form.control}
+                            name="website"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel className="text-white">Website</FormLabel>
+                                <FormControl>
+                                  <Input 
+                                    placeholder="Enter company website" 
+                                    className="bg-primary-900/70 border-orange-500/30 text-white"
+                                    {...field} 
+                                  />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                          
+                          <FormField
+                            control={form.control}
+                            name="businessType"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel className="text-white">Business Type*</FormLabel>
+                                <Select 
+                                  onValueChange={field.onChange} 
+                                  defaultValue={field.value}
+                                >
+                                  <FormControl>
+                                    <SelectTrigger className="bg-primary-900/70 border-orange-500/30 text-white">
+                                      <SelectValue placeholder="Select business type" />
+                                    </SelectTrigger>
+                                  </FormControl>
+                                  <SelectContent className="bg-primary-800 text-white border-blue-500/30">
+                                    <SelectItem value="retailer">Retailer</SelectItem>
+                                    <SelectItem value="wholesaler">Wholesaler</SelectItem>
+                                    <SelectItem value="manufacturer">Manufacturer</SelectItem>
+                                    <SelectItem value="contractor">Contractor</SelectItem>
+                                    <SelectItem value="other">Other</SelectItem>
+                                  </SelectContent>
+                                </Select>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                          
+                          <FormField
+                            control={form.control}
+                            name="foundedYear"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel className="text-white">Year Founded</FormLabel>
+                                <FormControl>
+                                  <Input 
+                                    placeholder="YYYY" 
+                                    type="number"
+                                    className="bg-primary-900/70 border-orange-500/30 text-white"
+                                    {...field}
+                                    onChange={(e) => field.onChange(e.target.value === "" ? 0 : parseInt(e.target.value))}
+                                  />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                          
+                          <FormField
+                            control={form.control}
+                            name="employeeCount"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel className="text-white">Number of Employees</FormLabel>
+                                <FormControl>
+                                  <Input 
+                                    placeholder="Enter employee count" 
+                                    type="number" 
+                                    className="bg-primary-900/70 border-orange-500/30 text-white"
+                                    {...field} 
+                                    onChange={(e) => field.onChange(e.target.value === "" ? 0 : parseInt(e.target.value))}
+                                  />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                          
+                          <FormField
+                            control={form.control}
+                            name="annualRevenue"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel className="text-white">Annual Revenue</FormLabel>
+                                <FormControl>
+                                  <Input 
+                                    placeholder="Optional revenue range" 
+                                    className="bg-primary-900/70 border-orange-500/30 text-white"
+                                    {...field} 
+                                  />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                        </div>
+                        
+                        <div className="border-t border-white/10 pt-6"></div>
+                        
+                        {/* Address Information */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                          <FormField
+                            control={form.control}
+                            name="address"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel className="text-white">Address</FormLabel>
+                                <FormControl>
+                                  <Input 
+                                    placeholder="Enter street address" 
+                                    className="bg-primary-900/70 border-orange-500/30 text-white"
+                                    {...field} 
+                                  />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                          
+                          <FormField
+                            control={form.control}
+                            name="city"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel className="text-white">City</FormLabel>
+                                <FormControl>
+                                  <Input 
+                                    placeholder="Enter city" 
+                                    className="bg-primary-900/70 border-orange-500/30 text-white"
+                                    {...field} 
+                                  />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                          
+                          <FormField
+                            control={form.control}
+                            name="state"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel className="text-white">State/Province</FormLabel>
+                                <FormControl>
+                                  <Input 
+                                    placeholder="Enter state/province" 
+                                    className="bg-primary-900/70 border-orange-500/30 text-white"
+                                    {...field} 
+                                  />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                          
+                          <FormField
+                            control={form.control}
+                            name="zipCode"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel className="text-white">ZIP/Postal Code</FormLabel>
+                                <FormControl>
+                                  <Input 
+                                    placeholder="Enter ZIP/postal code" 
+                                    className="bg-primary-900/70 border-orange-500/30 text-white"
+                                    {...field} 
+                                  />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                        </div>
+                        
+                        <div className="border-t border-white/10 pt-6"></div>
+                        
+                        {/* Business Details */}
+                        <div className="grid grid-cols-1 gap-6">
+                          <FormField
+                            control={form.control}
+                            name="coverageAreas"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel className="text-white">Geographic Coverage Areas</FormLabel>
+                                <FormControl>
+                                  <Textarea 
+                                    placeholder="Enter areas served, separated by commas (e.g., Northeast, Mid-Atlantic, Southeast)" 
+                                    className="bg-primary-900/70 border-orange-500/30 text-white min-h-[80px]"
+                                    {...field} 
+                                  />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                          
+                          <FormField
+                            control={form.control}
+                            name="productCategories"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel className="text-white">Product Categories of Interest</FormLabel>
+                                <FormControl>
+                                  <Textarea 
+                                    placeholder="Enter product categories, separated by commas (e.g., Floor Coatings, Wall Systems, Waterproofing)" 
+                                    className="bg-primary-900/70 border-orange-500/30 text-white min-h-[80px]"
+                                    {...field} 
+                                  />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                          
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <FormField
+                              control={form.control}
+                              name="certifications"
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormLabel className="text-white">
+                                    <div className="flex items-center gap-2">
+                                      <Award className="h-4 w-4 text-blue-400" />
+                                      <span>Certifications/Accreditations</span>
+                                    </div>
+                                  </FormLabel>
+                                  <FormControl>
+                                    <Textarea 
+                                      placeholder="Enter certifications, separated by commas" 
+                                      className="bg-primary-900/70 border-orange-500/30 text-white min-h-[80px]"
+                                      {...field} 
+                                    />
+                                  </FormControl>
+                                  <FormMessage />
+                                </FormItem>
+                              )}
+                            />
+                            
+                            <FormField
+                              control={form.control}
+                              name="warehouseLocations"
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormLabel className="text-white">
+                                    <div className="flex items-center gap-2">
+                                      <Warehouse className="h-4 w-4 text-orange-400" />
+                                      <span>Warehouse Locations</span>
+                                    </div>
+                                  </FormLabel>
+                                  <FormControl>
+                                    <Textarea 
+                                      placeholder="Enter warehouse locations, separated by commas" 
+                                      className="bg-primary-900/70 border-orange-500/30 text-white min-h-[80px]"
+                                      {...field} 
+                                    />
+                                  </FormControl>
+                                  <FormMessage />
+                                </FormItem>
+                              )}
+                            />
+                          </div>
+                          
+                          <FormField
+                            control={form.control}
+                            name="deliveryOptions"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel className="text-white">
+                                  <div className="flex items-center gap-2">
+                                    <Truck className="h-4 w-4 text-blue-400" />
+                                    <span>Delivery/Logistics Capabilities</span>
+                                  </div>
+                                </FormLabel>
+                                <FormControl>
+                                  <Textarea 
+                                    placeholder="Enter delivery options, separated by commas (e.g., In-house delivery, Third-party logistics)" 
+                                    className="bg-primary-900/70 border-orange-500/30 text-white min-h-[80px]"
+                                    {...field} 
+                                  />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                          
+                          <FormField
+                            control={form.control}
+                            name="notes"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel className="text-white">Additional Information</FormLabel>
+                                <FormControl>
+                                  <Textarea 
+                                    placeholder="Enter any additional information about your business" 
+                                    className="bg-primary-900/70 border-orange-500/30 text-white min-h-[100px]"
+                                    {...field} 
+                                  />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                        </div>
+                        
+                        <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                          <Button
+                            type="button"
+                            variant="outline"
+                            onClick={() => setShowRegistrationForm(false)}
+                            className="border-blue-500/30 text-white hover:bg-blue-950/30"
+                          >
+                            Cancel
+                          </Button>
+                          <GradientButton 
+                            type="submit" 
+                            variant="default"
+                            className="flex-1"
+                            disabled={registerMutation.isPending}
+                          >
+                            {registerMutation.isPending ? (
+                              <div className="flex items-center gap-2">
+                                <div className="h-4 w-4 border-2 border-white/20 border-t-white rounded-full animate-spin"></div>
+                                <span>Submitting...</span>
+                              </div>
+                            ) : (
+                              "Register as Construction Distributor"
+                            )}
+                          </GradientButton>
+                        </div>
+                      </form>
+                    </Form>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </section>
