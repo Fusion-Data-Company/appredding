@@ -1,9 +1,516 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { GradientButton } from "@/components/ui/gradient-button";
 import { GradientHeading } from "@/components/ui/gradient-heading";
-import { Building, Droplets, ShieldCheck, Leaf, Clock, ParkingCircle, BadgeAlert, Landmark, PenTool, Blocks, Activity } from "lucide-react";
+import { Building, Droplets, ShieldCheck, Leaf, Clock, ParkingCircle, BadgeAlert, Landmark, PenTool, Blocks, Activity, Loader2 } from "lucide-react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { insertMunicipalityProfessionalSchema } from "@shared/schema";
+import * as z from "zod";
+import { useMutation } from "@tanstack/react-query";
+import { apiRequest } from "@/lib/queryClient";
+import { useToast } from "@/hooks/use-toast";
+import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+
+// Extended schema with additional validation for municipality professional registration
+const municipalityProfessionalFormSchema = insertMunicipalityProfessionalSchema.extend({
+  confirmEmail: z.string().email("Invalid email format"),
+  termsAccepted: z.boolean().refine(val => val === true, {
+    message: "You must accept the terms and conditions",
+  })
+}).refine((data) => data.email === data.confirmEmail, {
+  message: "Emails don't match",
+  path: ["confirmEmail"],
+});
+
+type MunicipalityProfessionalFormValues = z.infer<typeof municipalityProfessionalFormSchema>;
+
+// Municipality Professional Registration Form Component
+const MunicipalityProfessionalForm = () => {
+  const { toast } = useToast();
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+  
+  const form = useForm<MunicipalityProfessionalFormValues>({
+    resolver: zodResolver(municipalityProfessionalFormSchema),
+    defaultValues: {
+      companyName: "",
+      contactName: "",
+      email: "",
+      confirmEmail: "",
+      phone: "",
+      address: "",
+      city: "",
+      state: "",
+      zipCode: "",
+      website: "",
+      professionalType: "",
+      specialties: "",
+      jurisdictions: "",
+      clientTypes: "",
+      credentials: "",
+      experienceYears: undefined,
+      registrationNumber: "",
+      projectExperience: "",
+      notes: "",
+      termsAccepted: false,
+    },
+  });
+
+  const registerMutation = useMutation({
+    mutationFn: async (data: MunicipalityProfessionalFormValues) => {
+      // Remove fields that aren't in the database schema
+      const { confirmEmail, termsAccepted, ...registerData } = data;
+      const res = await apiRequest("POST", "/api/professionals/municipality-professionals", registerData);
+      
+      if (!res.ok) {
+        const errorData = await res.json();
+        throw new Error(errorData.message || "Registration failed");
+      }
+      
+      return await res.json();
+    },
+    onSuccess: () => {
+      toast({
+        title: "Registration Successful",
+        description: "Thank you for registering with our Municipality Professional network!",
+        variant: "default",
+      });
+      setShowSuccessMessage(true);
+      form.reset();
+    },
+    onError: (error: Error) => {
+      toast({
+        title: "Registration Failed",
+        description: error.message,
+        variant: "destructive",
+      });
+    },
+  });
+
+  function onSubmit(data: MunicipalityProfessionalFormValues) {
+    registerMutation.mutate(data);
+  }
+  
+  // Professional type options
+  const professionalTypes = [
+    { value: "consultant", label: "Consultant" },
+    { value: "engineer", label: "Engineer" },
+    { value: "lobbyist", label: "Lobbyist" },
+    { value: "contractor", label: "Contractor" },
+    { value: "public_official", label: "Public Official" },
+    { value: "regulatory_expert", label: "Regulatory Expert" },
+    { value: "other", label: "Other" },
+  ];
+  
+  return (
+    <div className="w-full">
+      {showSuccessMessage ? (
+        <div className="p-6 bg-primary-800/80 rounded-xl border-2 border-white shadow-[0_0_30px_rgba(255,255,255,0.3)]">
+          <GradientHeading level={3} className="text-2xl mb-4" variant="mixed">
+            Registration Complete!
+          </GradientHeading>
+          <p className="mb-6">
+            Thank you for registering as a municipality professional with Praetorian SmartCoat Solutions. 
+            Our team will review your application and be in touch with you shortly.
+          </p>
+          <GradientButton variant="variant" onClick={() => setShowSuccessMessage(false)}>
+            Register Another Professional
+          </GradientButton>
+        </div>
+      ) : (
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+            <GradientHeading level={3} className="text-2xl mb-4" variant="mixed">
+              Municipality Professional Registration
+            </GradientHeading>
+            
+            <p className="mb-6">
+              Register to join our network of trusted municipality professionals. Complete the form below to apply.
+            </p>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Basic Information */}
+              <div className="space-y-4">
+                <FormField
+                  control={form.control}
+                  name="companyName"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Company/Organization Name*</FormLabel>
+                      <FormControl>
+                        <Input placeholder="Your company name" {...field} className="bg-primary-800 border-primary-600" />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                
+                <FormField
+                  control={form.control}
+                  name="contactName"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Contact Name*</FormLabel>
+                      <FormControl>
+                        <Input placeholder="Full name" {...field} className="bg-primary-800 border-primary-600" />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                
+                <FormField
+                  control={form.control}
+                  name="professionalType"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Professional Type*</FormLabel>
+                      <Select 
+                        onValueChange={field.onChange} 
+                        defaultValue={field.value}
+                      >
+                        <FormControl>
+                          <SelectTrigger className="bg-primary-800 border-primary-600">
+                            <SelectValue placeholder="Select professional type" />
+                          </SelectTrigger>
+                        </FormControl>
+                        <SelectContent>
+                          {professionalTypes.map((type) => (
+                            <SelectItem key={type.value} value={type.value}>
+                              {type.label}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                
+                <FormField
+                  control={form.control}
+                  name="email"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Email*</FormLabel>
+                      <FormControl>
+                        <Input placeholder="email@example.com" {...field} className="bg-primary-800 border-primary-600" />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                
+                <FormField
+                  control={form.control}
+                  name="confirmEmail"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Confirm Email*</FormLabel>
+                      <FormControl>
+                        <Input placeholder="Confirm email" {...field} className="bg-primary-800 border-primary-600" />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                
+                <FormField
+                  control={form.control}
+                  name="phone"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Phone Number*</FormLabel>
+                      <FormControl>
+                        <Input placeholder="(555) 555-5555" {...field} className="bg-primary-800 border-primary-600" />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
+              
+              {/* Address & Qualifications */}
+              <div className="space-y-4">
+                <FormField
+                  control={form.control}
+                  name="address"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Address*</FormLabel>
+                      <FormControl>
+                        <Input placeholder="Street address" {...field} className="bg-primary-800 border-primary-600" />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                
+                <div className="grid grid-cols-2 gap-4">
+                  <FormField
+                    control={form.control}
+                    name="city"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>City*</FormLabel>
+                        <FormControl>
+                          <Input placeholder="City" {...field} className="bg-primary-800 border-primary-600" />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  
+                  <FormField
+                    control={form.control}
+                    name="state"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>State*</FormLabel>
+                        <FormControl>
+                          <Input placeholder="State" {...field} className="bg-primary-800 border-primary-600" />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+                
+                <FormField
+                  control={form.control}
+                  name="zipCode"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Zip Code*</FormLabel>
+                      <FormControl>
+                        <Input placeholder="Zip code" {...field} className="bg-primary-800 border-primary-600" />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                
+                <FormField
+                  control={form.control}
+                  name="website"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Website</FormLabel>
+                      <FormControl>
+                        <Input placeholder="https://www.example.com" {...field} className="bg-primary-800 border-primary-600" />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                
+                <FormField
+                  control={form.control}
+                  name="registrationNumber"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Registration/License Number</FormLabel>
+                      <FormControl>
+                        <Input placeholder="Registration number" {...field} className="bg-primary-800 border-primary-600" />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
+            </div>
+            
+            {/* Professional Experience */}
+            <div className="space-y-4">
+              <GradientHeading level={4} className="text-xl mb-2" variant="mixed">
+                Professional Experience & Expertise
+              </GradientHeading>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <FormField
+                  control={form.control}
+                  name="specialties"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Specialties*</FormLabel>
+                      <FormControl>
+                        <Textarea 
+                          placeholder="Water treatment, public works, regulatory compliance, etc."
+                          {...field}
+                          className="bg-primary-800 border-primary-600 min-h-[100px]"
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                
+                <FormField
+                  control={form.control}
+                  name="jurisdictions"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Jurisdictions/Areas*</FormLabel>
+                      <FormControl>
+                        <Textarea 
+                          placeholder="Cities, counties, or regions you service"
+                          {...field}
+                          className="bg-primary-800 border-primary-600 min-h-[100px]"
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <FormField
+                  control={form.control}
+                  name="credentials"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Credentials/Certifications</FormLabel>
+                      <FormControl>
+                        <Textarea 
+                          placeholder="Relevant certifications, credentials, or qualifications"
+                          {...field}
+                          className="bg-primary-800 border-primary-600 min-h-[100px]"
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                
+                <FormField
+                  control={form.control}
+                  name="clientTypes"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Client Types*</FormLabel>
+                      <FormControl>
+                        <Textarea 
+                          placeholder="City governments, county utilities, state agencies, etc."
+                          {...field}
+                          className="bg-primary-800 border-primary-600 min-h-[100px]"
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
+              
+              <FormField
+                control={form.control}
+                name="experienceYears"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Years of Experience*</FormLabel>
+                    <FormControl>
+                      <Input 
+                        type="number" 
+                        placeholder="Years" 
+                        {...field} 
+                        onChange={(e) => field.onChange(e.target.value ? parseInt(e.target.value) : undefined)}
+                        className="bg-primary-800 border-primary-600 max-w-[200px]" 
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              
+              <FormField
+                control={form.control}
+                name="projectExperience"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Project Experience*</FormLabel>
+                    <FormControl>
+                      <Textarea 
+                        placeholder="Please describe your relevant municipal project experience"
+                        {...field}
+                        className="bg-primary-800 border-primary-600 min-h-[120px]"
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              
+              <FormField
+                control={form.control}
+                name="notes"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Additional Notes</FormLabel>
+                    <FormControl>
+                      <Textarea 
+                        placeholder="Any additional information you'd like to provide"
+                        {...field}
+                        className="bg-primary-800 border-primary-600 min-h-[100px]"
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              
+              <FormField
+                control={form.control}
+                name="termsAccepted"
+                render={({ field }) => (
+                  <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border border-primary-700 p-4 bg-primary-900/50">
+                    <FormControl>
+                      <Checkbox
+                        checked={field.value}
+                        onCheckedChange={field.onChange}
+                      />
+                    </FormControl>
+                    <div className="space-y-1 leading-none">
+                      <FormLabel>
+                        I agree to the terms and conditions*
+                      </FormLabel>
+                      <FormDescription>
+                        By checking this box, I agree to receive communications about Praetorian SmartCoat Solutions products and services.
+                      </FormDescription>
+                    </div>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+            
+            <div className="pt-4">
+              <GradientButton 
+                type="submit" 
+                variant="variant" 
+                className="w-full md:w-auto"
+                disabled={registerMutation.isPending}
+              >
+                {registerMutation.isPending ? (
+                  <>
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    Submitting...
+                  </>
+                ) : (
+                  "Register as Municipality Professional"
+                )}
+              </GradientButton>
+            </div>
+          </form>
+        </Form>
+      )}
+    </div>
+  );
+};
 
 const MunicipalityPage = () => {
   return (
@@ -287,6 +794,71 @@ const MunicipalityPage = () => {
                       <GradientButton variant="default" className="w-full py-3">Submit Request</GradientButton>
                     </div>
                   </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        {/* Municipality Professional Registration Section */}
+        <section className="py-16 relative z-10 backdrop-blur-sm bg-primary-900/40">
+          <div className="container mx-auto">
+            <div className="backdrop-blur-sm bg-primary-900/80 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] p-8">
+              <GradientHeading level={2} className="text-3xl md:text-4xl mb-8 text-center" variant="mixed">
+                Join Our Municipality Professional Network
+              </GradientHeading>
+              
+              <div className="grid md:grid-cols-2 gap-12">
+                <div className="space-y-6">
+                  <p className="text-lg">
+                    Become part of our network of municipality professionals and gain access to our premium municipal coating solutions, specialized training, and exclusive project opportunities.
+                  </p>
+                  
+                  <div className="space-y-4">
+                    <div className="flex items-start gap-3">
+                      <span className="bg-gradient-to-r from-orange-600 to-blue-500 rounded-full p-2 mt-1 flex-shrink-0">
+                        <ShieldCheck className="h-5 w-5 text-white" />
+                      </span>
+                      <div>
+                        <h3 className="text-xl font-semibold mb-1 text-blue-300">Certified Professional Status</h3>
+                        <p className="text-white">Gain recognition as a certified professional for municipal infrastructure projects</p>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-start gap-3">
+                      <span className="bg-gradient-to-r from-orange-600 to-blue-500 rounded-full p-2 mt-1 flex-shrink-0">
+                        <Building className="h-5 w-5 text-white" />
+                      </span>
+                      <div>
+                        <h3 className="text-xl font-semibold mb-1 text-orange-300">Public Sector Connections</h3>
+                        <p className="text-white">Access to our network of public sector clients and project opportunities</p>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-start gap-3">
+                      <span className="bg-gradient-to-r from-orange-600 to-blue-500 rounded-full p-2 mt-1 flex-shrink-0">
+                        <Droplets className="h-5 w-5 text-white" />
+                      </span>
+                      <div>
+                        <h3 className="text-xl font-semibold mb-1 text-blue-300">Specialized Training</h3>
+                        <p className="text-white">Receive training on our advanced municipal coating systems and applications</p>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-start gap-3">
+                      <span className="bg-gradient-to-r from-orange-600 to-blue-500 rounded-full p-2 mt-1 flex-shrink-0">
+                        <Landmark className="h-5 w-5 text-white" />
+                      </span>
+                      <div>
+                        <h3 className="text-xl font-semibold mb-1 text-orange-300">Regulatory Expertise</h3>
+                        <p className="text-white">Access to our team of regulatory experts for municipal infrastructure projects</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div>
+                  <MunicipalityProfessionalForm />
                 </div>
               </div>
             </div>
