@@ -90,56 +90,125 @@ export function CSVImportForm({ onSuccess }: CSVImportFormProps) {
       return;
     }
     
+    // Check file size to prevent large file uploads that might cause timeouts
+    const maxSizeInMB = 5;
+    const fileSizeInMB = file.size / (1024 * 1024);
+    if (fileSizeInMB > maxSizeInMB) {
+      toast({
+        title: 'File too large',
+        description: `Please select a file smaller than ${maxSizeInMB}MB (current file: ${fileSizeInMB.toFixed(2)}MB)`,
+        variant: 'destructive',
+      });
+      return;
+    }
+    
     setIsSubmitting(true);
     setImportResult(null);
 
-    try {
-      // Read the file content
-      const fileContent = await file.text();
-      
-      // Send the file content to the API
-      const res = await apiRequest('POST', '/api/import-csv', {
-        type: importType,
-        csv: fileContent
-      });
-      
-      const data = await res.json();
-      
-      if (res.ok) {
-        setImportResult({
-          success: true,
-          imported: data.imported,
-          message: `Successfully imported ${data.imported} ${importType}`
-        });
+    // Set up retry mechanism
+    const maxRetries = 3;
+    let retryCount = 0;
+    let success = false;
+
+    while (retryCount < maxRetries && !success) {
+      try {
+        // Read the file content
+        const fileContent = await file.text();
         
-        // Invalidate queries to refresh data
-        queryClient.invalidateQueries({ queryKey: [`/api/${importType}`] });
-        queryClient.invalidateQueries({ queryKey: ['/api/analytics'] });
-        
-        // Reset file
-        setFile(null);
-        
-        // Call success callback if provided
-        if (onSuccess) {
-          onSuccess(data);
+        // Quick validation of CSV format
+        const firstLine = fileContent.split('\n')[0];
+        if (!firstLine || !firstLine.includes(',')) {
+          toast({
+            title: 'Invalid CSV format',
+            description: 'The file does not appear to be a valid CSV file with comma-separated values',
+            variant: 'destructive',
+          });
+          setIsSubmitting(false);
+          return;
         }
-      } else {
-        setImportResult({
-          success: false,
-          imported: 0,
-          message: data.error || 'Failed to import data'
+        
+        // Send the file content to the API with timeout handling
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 30000); // 30 second timeout
+        
+        const res = await apiRequest('POST', '/api/import-csv', {
+          type: importType,
+          csv: fileContent
         });
+        
+        clearTimeout(timeoutId);
+        
+        const data = await res.json();
+        
+        if (res.ok) {
+          success = true;
+          setImportResult({
+            success: true,
+            imported: data.imported,
+            message: `Successfully imported ${data.imported} ${importType}`
+          });
+          
+          // Invalidate queries to refresh data
+          queryClient.invalidateQueries({ queryKey: [`/api/${importType}`] });
+          queryClient.invalidateQueries({ queryKey: ['/api/analytics'] });
+          
+          // Ensure all related data is refreshed
+          queryClient.invalidateQueries({ queryKey: ['/api/contacts'] });
+          queryClient.invalidateQueries({ queryKey: ['/api/companies'] });
+          queryClient.invalidateQueries({ queryKey: ['/api/opportunities'] });
+          
+          // Reset file
+          setFile(null);
+          
+          // Call success callback if provided
+          if (onSuccess) {
+            onSuccess(data);
+          }
+          
+          toast({
+            title: 'Import Successful',
+            description: `Successfully imported ${data.imported} ${importType}`,
+            variant: 'default',
+          });
+        } else {
+          // If we're on the last retry, show the error
+          if (retryCount === maxRetries - 1) {
+            setImportResult({
+              success: false,
+              imported: 0,
+              message: data.error || 'Failed to import data'
+            });
+            
+            toast({
+              title: 'Import Failed',
+              description: data.error || 'Failed to import data. Please check your CSV file format.',
+              variant: 'destructive',
+            });
+          }
+          retryCount++;
+        }
+      } catch (error: any) {
+        console.error('Error importing CSV:', error);
+        
+        // If we're on the last retry, show the error
+        if (retryCount === maxRetries - 1) {
+          setImportResult({
+            success: false,
+            imported: 0,
+            message: error.message || 'An error occurred while importing the CSV file'
+          });
+          
+          toast({
+            title: 'Import Failed',
+            description: error.message || 'An error occurred while importing the CSV file',
+            variant: 'destructive',
+          });
+        }
+        retryCount++;
       }
-    } catch (error) {
-      console.error('Error importing CSV:', error);
-      setImportResult({
-        success: false,
-        imported: 0,
-        message: 'An error occurred while importing the CSV file'
-      });
-    } finally {
-      setIsSubmitting(false);
     }
+    
+    setIsSubmitting(false);
   };
 
   const handleClose = () => {
