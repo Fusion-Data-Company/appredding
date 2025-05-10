@@ -118,12 +118,12 @@ const ProfessionalHeader = () => {
               <img 
                 src={praetorianBucketNew} 
                 alt="Praetorian Bucket" 
-                className="h-[110px] w-auto object-contain relative"
+                className="h-[140px] w-auto object-contain absolute"
                 style={{ 
-                  transform: 'perspective(800px) rotateY(-5deg) translateX(10px)', 
+                  transform: 'perspective(800px) rotateY(-5deg) scale(1.2) translateX(-25px) translateY(-12px)', 
                   transformStyle: 'preserve-3d',
                   transformOrigin: 'center center',
-                  position: 'relative',
+                  position: 'absolute',
                   zIndex: 20
                 }}
               />
