@@ -1,5 +1,5 @@
 import React from 'react';
-import { useCRMAnalytics } from '@/hooks/use-crm-analytics';
+import { useCRMAnalytics, CRMAnalyticsData } from '@/hooks/use-crm-analytics';
 import AnalyticsCard from './AnalyticsCard';
 import { 
   Users, 
@@ -20,15 +20,17 @@ export default function AnalyticsDashboard() {
   const { data, isLoading, error } = useCRMAnalytics();
   
   // Set up default values to avoid null/undefined errors
-  const contacts = data?.contacts || { total: 0, newThisMonth: 0, leadsThisMonth: 0, leadsConvertedThisMonth: 0 };
-  const companies = data?.companies || { total: 0, newThisMonth: 0 };
-  const opportunities = data?.opportunities || { 
-    total: 0, open: 0, won: 0, lost: 0, totalAmount: 0, wonAmount: 0,
-    averageDealSize: 0, conversionRate: 0, averageSalesCycle: 0, winProbability: 0
-  };
-  const activities = data?.activities || {
-    total: 0, completed: 0, upcoming: 0, overdue: 0,
-    completedThisWeek: 0, dueTomorrow: 0, overdueCritical: 0
+  const analyticsData: CRMAnalyticsData = data || {
+    contacts: { total: 0, newThisMonth: 0, leadsThisMonth: 0, leadsConvertedThisMonth: 0 },
+    companies: { total: 0, newThisMonth: 0 },
+    opportunities: { 
+      total: 0, open: 0, won: 0, lost: 0, totalAmount: 0, wonAmount: 0,
+      averageDealSize: 0, conversionRate: 0, averageSalesCycle: 0, winProbability: 0
+    },
+    activities: {
+      total: 0, completed: 0, upcoming: 0, overdue: 0,
+      completedThisWeek: 0, dueTomorrow: 0, overdueCritical: 0
+    }
   };
 
   if (isLoading) {
@@ -62,38 +64,38 @@ export default function AnalyticsDashboard() {
       {/* Contacts Analytics */}
       <AnalyticsCard 
         title="Total Contacts" 
-        value={contacts.total} 
-        changePercent={contacts.newThisMonth > 0 ? 
-          (contacts.newThisMonth / Math.max(1, contacts.total - contacts.newThisMonth) * 100).toFixed(0) : 0
+        value={analyticsData.contacts.total} 
+        changePercent={analyticsData.contacts.newThisMonth > 0 ? 
+          (analyticsData.contacts.newThisMonth / Math.max(1, analyticsData.contacts.total - analyticsData.contacts.newThisMonth) * 100).toFixed(0) : 0
         }
-        changeText={`${contacts.newThisMonth} new this month`}
+        changeText={`${analyticsData.contacts.newThisMonth} new this month`}
         icon={<Users />}
         glowColor="cyan"
       />
       
       <AnalyticsCard 
         title="Total Companies" 
-        value={companies.total} 
-        changePercent={companies.newThisMonth > 0 ? 
-          (companies.newThisMonth / Math.max(1, companies.total - companies.newThisMonth) * 100).toFixed(0) : 0
+        value={analyticsData.companies.total} 
+        changePercent={analyticsData.companies.newThisMonth > 0 ? 
+          (analyticsData.companies.newThisMonth / Math.max(1, analyticsData.companies.total - analyticsData.companies.newThisMonth) * 100).toFixed(0) : 0
         }
-        changeText={`${companies.newThisMonth} new this month`}
+        changeText={`${analyticsData.companies.newThisMonth} new this month`}
         icon={<Building2 />}
         glowColor="orange"
       />
       
       <AnalyticsCard 
         title="Open Opportunities" 
-        value={opportunities.open} 
-        changeText={`$${(opportunities.totalAmount / 1000).toFixed(1)}k total value`}
+        value={analyticsData.opportunities.open} 
+        changeText={`$${(analyticsData.opportunities.totalAmount / 1000).toFixed(1)}k total value`}
         icon={<FileEdit />}
         glowColor="amber"
       />
       
       <AnalyticsCard 
         title="Conversion Rate" 
-        value={`${opportunities.conversionRate}%`}
-        changeText={`From ${opportunities.total} total opportunities`}
+        value={`${analyticsData.opportunities.conversionRate}%`}
+        changeText={`From ${analyticsData.opportunities.total} total opportunities`}
         icon={<TrendingUp />}
         glowColor="emerald"
       />
@@ -101,35 +103,35 @@ export default function AnalyticsDashboard() {
       {/* Activity Analytics */}
       <AnalyticsCard 
         title="Completed Activities" 
-        value={activities.completed} 
-        changePercent={activities.completedThisWeek > 0 ? 
-          (activities.completedThisWeek / Math.max(1, activities.total) * 100).toFixed(0) : 0
+        value={analyticsData.activities.completed} 
+        changePercent={analyticsData.activities.completedThisWeek > 0 ? 
+          (analyticsData.activities.completedThisWeek / Math.max(1, analyticsData.activities.total) * 100).toFixed(0) : 0
         }
-        changeText={`${activities.completedThisWeek} this week`}
+        changeText={`${analyticsData.activities.completedThisWeek} this week`}
         icon={<CheckSquare />}
         glowColor="green"
       />
       
       <AnalyticsCard 
         title="Upcoming Activities" 
-        value={activities.upcoming}
-        changeText={`${activities.dueTomorrow} due tomorrow`}
+        value={analyticsData.activities.upcoming}
+        changeText={`${analyticsData.activities.dueTomorrow} due tomorrow`}
         icon={<Calendar />}
         glowColor="blue"
       />
       
       <AnalyticsCard 
         title="Overdue Activities" 
-        value={activities.overdue}
-        changeText={`${activities.overdueCritical} critical`}
+        value={analyticsData.activities.overdue}
+        changeText={`${analyticsData.activities.overdueCritical} critical`}
         icon={<Clock />}
         glowColor="red"
       />
       
       <AnalyticsCard 
         title="Pipeline Value" 
-        value={`$${(opportunities.totalAmount / 1000).toFixed(1)}k`}
-        changeText={`${opportunities.winProbability}% avg. probability`}
+        value={`$${(analyticsData.opportunities.totalAmount / 1000).toFixed(1)}k`}
+        changeText={`${analyticsData.opportunities.winProbability}% avg. probability`}
         icon={<DollarSign />}
         glowColor="purple"
       />
@@ -137,32 +139,32 @@ export default function AnalyticsDashboard() {
       {/* Additional Analytics */}
       <AnalyticsCard 
         title="New Leads" 
-        value={contacts.leadsThisMonth}
-        changeText={`${contacts.leadsConvertedThisMonth} converted to customers`}
+        value={analyticsData.contacts.leadsThisMonth}
+        changeText={`${analyticsData.contacts.leadsConvertedThisMonth} converted to customers`}
         icon={<UserPlus />}
         glowColor="indigo"
       />
       
       <AnalyticsCard 
         title="Deals Won" 
-        value={opportunities.won}
-        changeText={`$${(opportunities.wonAmount / 1000).toFixed(1)}k value`}
+        value={analyticsData.opportunities.won}
+        changeText={`$${(analyticsData.opportunities.wonAmount / 1000).toFixed(1)}k value`}
         icon={<BarChart3 />}
         glowColor="teal"
       />
       
       <AnalyticsCard 
         title="Avg. Deal Size" 
-        value={`$${(opportunities.averageDealSize / 1000).toFixed(1)}k`}
-        changeText={`From ${opportunities.total} opportunities`}
+        value={`$${(analyticsData.opportunities.averageDealSize / 1000).toFixed(1)}k`}
+        changeText={`From ${analyticsData.opportunities.total} opportunities`}
         icon={<DollarSign />}
         glowColor="yellow"
       />
       
       <AnalyticsCard 
         title="Avg. Sales Cycle" 
-        value={`${opportunities.averageSalesCycle} days`}
-        changeText={`Based on ${opportunities.won} closed deals`}
+        value={`${analyticsData.opportunities.averageSalesCycle} days`}
+        changeText={`Based on ${analyticsData.opportunities.won} closed deals`}
         icon={<Hourglass />}
         glowColor="lime"
       />
