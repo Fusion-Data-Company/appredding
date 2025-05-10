@@ -1,20 +1,17 @@
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import MainLayout from "@/components/layout/MainLayout";
 import CRMSection from "@/sections/CRMSection";
 import { CRMHeader } from "@/components/crm/CRMHeader";
 
 const CRM = () => {
   return (
-    <div className="min-h-screen flex flex-col bg-black">
-      <Header />
-      <main>
-        <div className="container mx-auto px-4 pt-24 bg-black">
+    <MainLayout fullWidth={true}>
+      <div className="bg-black">
+        <div className="container mx-auto px-4 pt-6">
           <CRMHeader />
         </div>
         <CRMSection />
-      </main>
-      <Footer />
-    </div>
+      </div>
+    </MainLayout>
   );
 };
 

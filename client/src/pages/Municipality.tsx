@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import MainLayout from "@/components/layout/MainLayout";
 import { GradientButton } from "@/components/ui/gradient-button";
 import { GradientHeading } from "@/components/ui/gradient-heading";
 import { Building, Droplets, ShieldCheck, Leaf, Clock, ParkingCircle, BadgeAlert, Landmark, PenTool, Blocks, Activity, Loader2 } from "lucide-react";
@@ -514,10 +513,8 @@ const MunicipalityProfessionalForm = () => {
 
 const MunicipalityPage = () => {
   return (
-    <div className="min-h-screen flex flex-col">
-      <Header />
-      
-      <main className="flex-grow relative">
+    <MainLayout fullWidth={true}>
+      <div className="relative">
         {/* Full-page municipality background - will be added when available */}
         <div 
           className="fixed inset-0 z-0 bg-center bg-cover bg-no-repeat" 
@@ -864,10 +861,8 @@ const MunicipalityPage = () => {
             </div>
           </div>
         </section>
-      </main>
-
-      <Footer />
-    </div>
+      </div>
+    </MainLayout>
   );
 };
 

@@ -117,10 +117,8 @@ const MobileHome = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <Header />
-      
-      <main className="flex-grow relative">
+    <MainLayout fullWidth={true}>
+      <div className="relative">
         {/* Full-page mobile home background */}
         <div 
           className="fixed inset-0 z-0 bg-center bg-cover bg-no-repeat" 
@@ -998,10 +996,8 @@ const MobileHome = () => {
             </div>
           </div>
         </section>
-      </main>
-      
-      <Footer />
-    </div>
+      </div>
+    </MainLayout>
   );
 };
 
