@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { cn } from "@/lib/utils";
 import bucketImg from "@/assets_dir/icons/praetorian-bucket.png";
+import praetorianHeaderImg from "@/assets_dir/images/praetorian-header.jpg";
 import { 
   NavigationMenu,
   NavigationMenuContent,
@@ -150,13 +151,13 @@ const ProfessionalHeader = () => {
             {/* Shine overlay for metallic effect */}
             <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
             
-            <span className={cn(
-              "font-serif text-3xl font-bold bg-gradient-to-br from-slate-900 via-slate-300 to-slate-800 dark:from-slate-100 dark:via-white dark:to-slate-300 bg-clip-text text-transparent",
-              "border-b border-slate-400/30 dark:border-slate-500/30 leading-tight tracking-wide drop-shadow-sm pb-[2px]",
-              "group-hover:bg-gradient-to-r group-hover:from-slate-900 group-hover:via-slate-500 group-hover:to-slate-800 dark:group-hover:from-white dark:group-hover:via-gray-100 dark:group-hover:to-slate-200 transition-all duration-500 group-hover:animate-shimmer"
-            )}>
-              PRAETORIAN
-            </span>
+            <div className="h-12 mb-1">
+              <img 
+                src={praetorianHeaderImg} 
+                alt="PRAETORIAN" 
+                className="h-full object-contain drop-shadow-sm"
+              />
+            </div>
             <span className="text-[0.8rem] text-slate-700 dark:text-slate-400 font-medium tracking-widest uppercase group-hover:text-black dark:group-hover:text-white transition-colors duration-300 mt-[1px]">
               <span className="bg-gradient-to-r from-slate-700 to-slate-900 dark:from-slate-300 dark:to-slate-400 bg-clip-text text-transparent group-hover:from-slate-800 group-hover:to-black dark:group-hover:from-gray-200 dark:group-hover:to-white transition-all duration-500">SmartCoat Solutions</span>
             </span>
