@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import MainLayout from "@/components/layout/MainLayout";
 import { GradientButton } from "@/components/ui/gradient-button";
 import { GradientHeading } from "@/components/ui/gradient-heading";
 import { Button } from "@/components/ui/button";
