@@ -11,6 +11,7 @@ const lampVariants = cva(
         small: "h-[300px]",
         large: "h-[500px]",
         hero: "h-[600px]",
+        fullWidth: "w-full max-w-none", // Added full width variant
       },
       shape: {
         rounded: "rounded-xl",
