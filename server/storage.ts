@@ -12,6 +12,7 @@ import {
   municipalityProfessionals,
   constructionDistributors,
   marinaProfessionals,
+  mobileHomeProfessionals,
   firePreventionHomeowners,
   professionalReviews,
   type User,
@@ -40,6 +41,8 @@ import {
   type InsertConstructionDistributor,
   type MarinaProfessional,
   type InsertMarinaProfessional,
+  type MobileHomeProfessional,
+  type InsertMobileHomeProfessional,
   type FirePreventionHomeowner,
   type InsertFirePreventionHomeowner,
   type ProfessionalReview,
@@ -145,6 +148,13 @@ export interface IStorage {
   getMarinaProfessionalByEmail(email: string): Promise<MarinaProfessional | undefined>;
   createMarinaProfessional(professional: InsertMarinaProfessional): Promise<MarinaProfessional>;
   updateMarinaProfessional(id: number, professionalData: Partial<MarinaProfessional>): Promise<MarinaProfessional | undefined>;
+  
+  // Mobile home professional methods
+  getMobileHomeProfessionals(): Promise<MobileHomeProfessional[]>;
+  getMobileHomeProfessional(id: number): Promise<MobileHomeProfessional | undefined>;
+  getMobileHomeProfessionalByEmail(email: string): Promise<MobileHomeProfessional | undefined>;
+  createMobileHomeProfessional(professional: InsertMobileHomeProfessional): Promise<MobileHomeProfessional>;
+  updateMobileHomeProfessional(id: number, professionalData: Partial<MobileHomeProfessional>): Promise<MobileHomeProfessional | undefined>;
   
   // Fire prevention homeowner methods
   getFirePreventionHomeowners(): Promise<FirePreventionHomeowner[]>;

@@ -1191,6 +1191,9 @@ export const insertFirePreventionHomeownerSchema = createInsertSchema(firePreven
 export type InsertMarinaProfessional = z.infer<typeof insertMarinaProfessionalSchema>;
 export type MarinaProfessional = typeof marinaProfessionals.$inferSelect;
 
+export type InsertMobileHomeProfessional = z.infer<typeof insertMobileHomeProfessionalSchema>;
+export type MobileHomeProfessional = typeof mobileHomeProfessionals.$inferSelect;
+
 export type InsertFirePreventionHomeowner = z.infer<typeof insertFirePreventionHomeownerSchema>;
 export type FirePreventionHomeowner = typeof firePreventionHomeowners.$inferSelect;
 
