@@ -1,17 +1,14 @@
 const HeroSection = () => {
   return (
-    <section className="relative flex flex-col bg-black">
-      {/* Hero background image */}
-      <div className="w-full relative" style={{ height: "calc(100vh - 80px)", minHeight: "600px", maxHeight: "1000px" }}>
+    <section className="relative w-full bg-black">
+      <div className="container mx-auto px-4 py-16 flex justify-center items-center">
         <img 
-          src="/images/praetorian-hero-new.png"
+          src="/images/praetorian-hero.jpg"
           alt="Praetorian SmartCoat - Fire and water protected by armored guards"
-          className="w-full h-full object-cover object-center"
-          loading="eager"
+          className="max-w-full h-auto"
+          style={{ maxHeight: "calc(100vh - 200px)" }}
         />
       </div>
-
-      {/* Buttons removed as requested */}
     </section>
   );
 };
