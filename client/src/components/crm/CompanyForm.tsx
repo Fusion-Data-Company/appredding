@@ -11,20 +11,83 @@ import { PraetorianButton } from '@/components/ui/praetorian-button';
 import { X } from 'lucide-react';
 import { useMutation } from '@tanstack/react-query';
 import { queryClient, apiRequest } from '@/lib/queryClient';
+import { useToast } from '@/hooks/use-toast';
 
 export const companyFormSchema = z.object({
-  name: z.string().min(2, 'Company name must be at least 2 characters'),
-  industry: z.string().optional(),
-  website: z.string().optional(),
-  phone: z.string().optional(),
-  address: z.string().optional(),
-  city: z.string().optional(),
-  state: z.string().optional(),
-  zipCode: z.string().optional(),
-  country: z.string().optional(),
-  description: z.string().optional(),
-  employeeCount: z.coerce.number().optional(),
-  notes: z.string().optional(),
+  name: z.string()
+    .min(2, 'Company name must be at least 2 characters')
+    .max(100, 'Company name cannot exceed 100 characters')
+    .trim()
+    .refine(value => value.length > 0, {
+      message: 'Company name is required'
+    }),
+  industry: z.string()
+    .max(50, 'Industry cannot exceed 50 characters')
+    .optional()
+    .nullable()
+    .transform(val => val === '' ? null : val),
+  website: z.string()
+    .max(200, 'Website URL cannot exceed 200 characters')
+    .optional()
+    .nullable()
+    .transform(val => val === '' ? null : val)
+    .refine(value => !value || /^(https?:\/\/)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)$/.test(value), {
+      message: 'Please enter a valid website URL'
+    }),
+  phone: z.string()
+    .max(20, 'Phone number cannot exceed 20 characters')
+    .optional()
+    .nullable()
+    .transform(val => val === '' ? null : val)
+    .refine(value => !value || /^[\d\+\-\(\)\s\.]{7,20}$/.test(value), {
+      message: 'Please enter a valid phone number'
+    }),
+  address: z.string()
+    .max(200, 'Address cannot exceed 200 characters')
+    .optional()
+    .nullable()
+    .transform(val => val === '' ? null : val),
+  city: z.string()
+    .max(100, 'City cannot exceed 100 characters')
+    .optional()
+    .nullable()
+    .transform(val => val === '' ? null : val),
+  state: z.string()
+    .max(50, 'State cannot exceed 50 characters')
+    .optional()
+    .nullable()
+    .transform(val => val === '' ? null : val),
+  zipCode: z.string()
+    .max(20, 'ZIP/Postal code cannot exceed 20 characters')
+    .optional()
+    .nullable()
+    .transform(val => val === '' ? null : val)
+    .refine(value => !value || /^[a-zA-Z0-9\s\-]{3,10}$/.test(value), {
+      message: 'Please enter a valid ZIP/Postal code'
+    }),
+  country: z.string()
+    .max(100, 'Country cannot exceed 100 characters')
+    .optional()
+    .nullable()
+    .transform(val => val === '' ? null : val),
+  description: z.string()
+    .max(1000, 'Description cannot exceed 1000 characters')
+    .optional()
+    .nullable()
+    .transform(val => val === '' ? null : val),
+  employeeCount: z.coerce.number()
+    .int('Employee count must be a whole number')
+    .positive('Employee count must be positive')
+    .optional()
+    .nullable()
+    .refine(val => !val || (val >= 0 && val <= 1000000), {
+      message: 'Employee count must be between 0 and 1,000,000'
+    }),
+  notes: z.string()
+    .max(1000, 'Notes cannot exceed 1000 characters')
+    .optional()
+    .nullable()
+    .transform(val => val === '' ? null : val),
 });
 
 type CompanyFormValues = z.infer<typeof companyFormSchema>;
@@ -35,6 +98,8 @@ interface CompanyFormProps {
 }
 
 export function CompanyForm({ isOpen, onClose }: CompanyFormProps) {
+  const { toast } = useToast();
+  
   const form = useForm<CompanyFormValues>({
     resolver: zodResolver(companyFormSchema),
     defaultValues: {
@@ -53,24 +118,97 @@ export function CompanyForm({ isOpen, onClose }: CompanyFormProps) {
     },
   });
 
+  // Helper function to sanitize form data before submission
+  const sanitizeFormData = (data: CompanyFormValues): CompanyFormValues => {
+    return {
+      ...data,
+      // Ensure empty strings are properly converted to null
+      industry: data.industry || null,
+      website: data.website || null,
+      phone: data.phone || null,
+      address: data.address || null,
+      city: data.city || null,
+      state: data.state || null,
+      zipCode: data.zipCode || null,
+      country: data.country || null,
+      description: data.description || null,
+      employeeCount: typeof data.employeeCount === 'number' ? data.employeeCount : null,
+      notes: data.notes || null,
+    };
+  };
+
   const createCompanyMutation = useMutation({
     mutationFn: async (data: CompanyFormValues) => {
-      const res = await apiRequest('POST', '/api/companies', data);
-      if (!res.ok) {
-        const error = await res.json();
-        throw new Error(error.message || 'Failed to create company');
+      const sanitizedData = sanitizeFormData(data);
+      
+      // Setup retry mechanism
+      let attempts = 0;
+      const maxAttempts = 3;
+      let success = false;
+      let lastError;
+
+      while (attempts < maxAttempts && !success) {
+        try {
+          attempts++;
+          const res = await apiRequest('POST', '/api/companies', sanitizedData);
+          
+          if (!res.ok) {
+            const errorData = await res.json().catch(() => ({ message: 'Unknown error occurred' }));
+            throw new Error(errorData.message || `Failed to create company (Attempt ${attempts}/${maxAttempts})`);
+          }
+          
+          success = true;
+          return res.json();
+        } catch (err) {
+          lastError = err;
+          if (attempts >= maxAttempts) {
+            throw err;
+          }
+          // Wait before retrying (exponential backoff)
+          await new Promise(resolve => setTimeout(resolve, 1000 * Math.pow(2, attempts - 1)));
+        }
       }
-      return res.json();
+      
+      throw lastError || new Error('Failed to create company after multiple attempts');
     },
-    onSuccess: () => {
+    onSuccess: (data) => {
       queryClient.invalidateQueries({ queryKey: ['/api/companies'] });
-      queryClient.invalidateQueries({ queryKey: ['/api/crm/analytics'] });
+      queryClient.invalidateQueries({ queryKey: ['/api/analytics'] });
+      
+      toast({
+        title: "Company created",
+        description: `${data.name} has been successfully added to your CRM.`,
+        variant: "default",
+      });
+      
       onClose();
       form.reset();
     },
+    onError: (error: Error) => {
+      toast({
+        title: "Failed to create company",
+        description: error.message || "An unexpected error occurred. Please try again.",
+        variant: "destructive",
+      });
+    }
   });
 
   function onSubmit(data: CompanyFormValues) {
+    // Validate before submission
+    const validationResult = companyFormSchema.safeParse(data);
+    if (!validationResult.success) {
+      const errors = validationResult.error.flatten().fieldErrors;
+      const errorFields = Object.keys(errors);
+      
+      toast({
+        title: "Validation Failed",
+        description: `Please check the following fields: ${errorFields.join(', ')}`,
+        variant: "destructive",
+      });
+      
+      return;
+    }
+    
     createCompanyMutation.mutate(data);
   }
 
