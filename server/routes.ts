@@ -74,7 +74,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // ========================
   
   // Get CRM analytics for dashboard
-  app.get("/api/crm/analytics", getCRMAnalytics);
+  app.get("/api/analytics", getCRMAnalytics);
   
   // Get all contacts
   app.get("/api/contacts", getContacts);
