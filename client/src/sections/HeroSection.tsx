@@ -23,8 +23,8 @@ const HeroSection = () => {
             className="w-screen h-auto object-cover my-4 md:my-6 scale-95 md:scale-100 relative"
             style={{ 
               maxWidth: "none", 
-              width: "105vw",
-              marginLeft: "-2.5vw", // Stretch beyond screen edges
+              width: "107vw",
+              marginLeft: "-3.5vw", // Stretch further beyond screen edges
               marginTop: "-36px", // Moved up additional quarter inch (12px) to prevent bottom overlap
               marginBottom: "8px", // Add space at bottom to prevent overlap
               filter: "drop-shadow(0 0 25px rgba(0,0,0,0.9))",
