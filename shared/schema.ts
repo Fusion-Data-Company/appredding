@@ -987,5 +987,142 @@ export type MunicipalityProfessional = typeof municipalityProfessionals.$inferSe
 export type InsertConstructionDistributor = z.infer<typeof insertConstructionDistributorSchema>;
 export type ConstructionDistributor = typeof constructionDistributors.$inferSelect;
 
+// Marina professionals
+export const marinaProfessionals = pgTable("marina_professionals", {
+  id: serial("id").primaryKey(),
+  userId: integer("user_id").references(() => users.id),
+  companyName: text("company_name").notNull(),
+  contactName: text("contact_name").notNull(),
+  email: text("email").notNull().unique(),
+  phone: text("phone").notNull(),
+  address: text("address"),
+  city: text("city"),
+  state: text("state"),
+  zipCode: text("zip_code"),
+  website: text("website"),
+  serviceTypes: jsonb("service_types"), // Array of marina service types (dock maintenance, boat repair, etc.)
+  certifications: jsonb("certifications"), // Array of certifications
+  experienceYears: integer("experience_years"),
+  specializations: jsonb("specializations"), // Array of specializations
+  workingHours: text("working_hours"),
+  emergencyAvailable: boolean("emergency_available").default(false),
+  insuranceInfo: text("insurance_info"),
+  equipmentOwned: jsonb("equipment_owned"), // Array of equipment
+  preferredBoatTypes: jsonb("preferred_boat_types"), // Types of boats they typically work with
+  marinaTypes: jsonb("marina_types"), // Types of marinas they service
+  serviceAreas: jsonb("service_areas"), // Geographic areas they serve
+  licenseNumber: text("license_number"),
+  verificationStatus: verificationStatusEnum("verification_status").default('pending'),
+  notes: text("notes"),
+  rating: integer("rating"), // 1-5 star rating
+  reviewCount: integer("review_count").default(0),
+  createdAt: timestamp("created_at").notNull().defaultNow(),
+  updatedAt: timestamp("updated_at").notNull().defaultNow(),
+});
+
+// Fire prevention homeowners
+export const firePreventionHomeowners = pgTable("fire_prevention_homeowners", {
+  id: serial("id").primaryKey(),
+  userId: integer("user_id").references(() => users.id),
+  firstName: text("first_name").notNull(),
+  lastName: text("last_name").notNull(),
+  email: text("email").notNull().unique(),
+  phone: text("phone").notNull(),
+  address: text("address").notNull(),
+  city: text("city").notNull(),
+  state: text("state").notNull(),
+  zipCode: text("zip_code").notNull(),
+  propertyType: text("property_type").notNull(), // Single family, multi-family, etc.
+  propertySize: text("property_size"), // In acres or square feet
+  constructionMaterial: text("construction_material"), // Wood, brick, etc.
+  roofMaterial: text("roof_material"), 
+  yearBuilt: integer("year_built"),
+  fireSeverityZone: text("fire_severity_zone"), // Very High, High, Moderate, etc.
+  vegetationTypes: jsonb("vegetation_types"), // Types of vegetation surrounding property
+  distanceToForest: text("distance_to_forest"),
+  previousFireDamage: boolean("previous_fire_damage").default(false),
+  fireInsurance: boolean("fire_insurance").default(false),
+  homeownersAssociation: boolean("homeowners_association").default(false),
+  evacuationPlan: boolean("evacuation_plan").default(false),
+  existingFireProtection: jsonb("existing_fire_protection"), // Sprinklers, fire-resistant materials, etc.
+  desiredServices: jsonb("desired_services"), // Assessment, application, consultation
+  projectTimeline: text("project_timeline"),
+  budgetRange: text("budget_range"),
+  additionalComments: text("additional_comments"),
+  createdAt: timestamp("created_at").notNull().defaultNow(),
+  updatedAt: timestamp("updated_at").notNull().defaultNow(),
+});
+
+// Relations for marina professionals
+export const marinaProfessionalsRelations = relations(marinaProfessionals, ({ one }) => ({
+  user: one(users, { fields: [marinaProfessionals.userId], references: [users.id] }),
+}));
+
+// Relations for fire prevention homeowners
+export const firePreventionHomeownersRelations = relations(firePreventionHomeowners, ({ one }) => ({
+  user: one(users, { fields: [firePreventionHomeowners.userId], references: [users.id] }),
+}));
+
+// Insert schemas for the new tables
+export const insertMarinaProfessionalSchema = createInsertSchema(marinaProfessionals).pick({
+  companyName: true,
+  contactName: true,
+  email: true,
+  phone: true,
+  address: true,
+  city: true,
+  state: true,
+  zipCode: true,
+  website: true,
+  serviceTypes: true,
+  certifications: true,
+  experienceYears: true,
+  specializations: true,
+  workingHours: true,
+  emergencyAvailable: true,
+  insuranceInfo: true,
+  equipmentOwned: true,
+  preferredBoatTypes: true,
+  marinaTypes: true,
+  serviceAreas: true,
+  licenseNumber: true,
+  notes: true,
+});
+
+export const insertFirePreventionHomeownerSchema = createInsertSchema(firePreventionHomeowners).pick({
+  firstName: true,
+  lastName: true,
+  email: true,
+  phone: true,
+  address: true,
+  city: true,
+  state: true,
+  zipCode: true,
+  propertyType: true,
+  propertySize: true,
+  constructionMaterial: true,
+  roofMaterial: true,
+  yearBuilt: true,
+  fireSeverityZone: true,
+  vegetationTypes: true,
+  distanceToForest: true,
+  previousFireDamage: true,
+  fireInsurance: true,
+  homeownersAssociation: true,
+  evacuationPlan: true,
+  existingFireProtection: true,
+  desiredServices: true,
+  projectTimeline: true,
+  budgetRange: true,
+  additionalComments: true,
+});
+
+// Type exports for the new tables
+export type InsertMarinaProfessional = z.infer<typeof insertMarinaProfessionalSchema>;
+export type MarinaProfessional = typeof marinaProfessionals.$inferSelect;
+
+export type InsertFirePreventionHomeowner = z.infer<typeof insertFirePreventionHomeownerSchema>;
+export type FirePreventionHomeowner = typeof firePreventionHomeowners.$inferSelect;
+
 export type InsertProfessionalReview = z.infer<typeof insertProfessionalReviewSchema>;
 export type ProfessionalReview = typeof professionalReviews.$inferSelect;
