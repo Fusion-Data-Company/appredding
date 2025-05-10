@@ -44,10 +44,19 @@ export const RomanHeader = ({
 
 export const RomanDivider = ({ className }: { className?: string }) => {
   return (
-    <div className={cn("flex items-center justify-center w-full py-2", className)}>
-      <div className="h-[2px] w-full max-w-[100px] bg-gradient-to-r from-transparent via-amber-600 to-transparent"></div>
-      <div className="mx-2 text-amber-600">•</div>
-      <div className="h-[2px] w-full max-w-[100px] bg-gradient-to-r from-transparent via-amber-600 to-transparent"></div>
+    <div className={cn("flex items-center justify-center w-full py-2 group", className)}>
+      <div className="relative">
+        <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-amber-600/70 to-transparent"></div>
+        <div className="absolute inset-0 h-[2px] w-full bg-gradient-to-r from-transparent via-amber-400/30 to-transparent blur-sm"></div>
+      </div>
+      <div className="relative mx-3 text-amber-600">
+        <span className="relative z-10 inline-block group-hover:rotate-45 transition-transform duration-700">◆</span>
+        <span className="absolute left-0 top-0 text-amber-400/40 blur-sm group-hover:text-amber-400/30 transition-colors duration-700">◆</span>
+      </div>
+      <div className="relative">
+        <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-amber-600/70 to-transparent"></div>
+        <div className="absolute inset-0 h-[2px] w-full bg-gradient-to-r from-transparent via-amber-400/30 to-transparent blur-sm"></div>
+      </div>
     </div>
   );
 };
