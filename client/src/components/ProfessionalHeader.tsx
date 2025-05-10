@@ -103,7 +103,7 @@ const ProfessionalHeader = () => {
         scrolled 
           ? "bg-[conic-gradient(at_bottom_right,_var(--tw-gradient-stops))] from-slate-200 via-zinc-400 to-gray-600 dark:from-zinc-800 dark:via-zinc-900 dark:to-black backdrop-blur-lg border-slate-400 dark:border-zinc-800 shadow-metal" 
           : "bg-[conic-gradient(at_top_left,_var(--tw-gradient-stops))] from-slate-300 via-zinc-400 to-gray-500 dark:from-zinc-800 dark:via-zinc-900 dark:to-black backdrop-blur-md border-slate-400/80 dark:border-zinc-800/80",
-        "after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[1px] after:bg-gradient-to-r after:from-transparent after:via-slate-400/40 dark:after:via-zinc-400/30 after:to-transparent",
+        "after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[1px] after:bg-gradient-to-r after:from-slate-400/40 dark:after:from-zinc-400/30 after:via-slate-400/40 dark:after:via-zinc-400/30 after:to-slate-400/40 dark:after:to-zinc-400/30",
         "before:absolute before:inset-0 before:bg-[url('/src/assets_dir/images/noise.svg')] before:opacity-[0.04] before:bg-repeat before:bg-[length:200px_200px] before:mix-blend-overlay before:pointer-events-none before:animate-subtle-pulse"
       )}
     >
