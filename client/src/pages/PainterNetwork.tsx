@@ -65,10 +65,21 @@ const PainterNetwork = () => {
   
   const registerPainterMutation = useMutation({
     mutationFn: async (data: PainterFormValues) => {
-      // Remove confirmEmail and termsAccepted as they're not in the database schema
-      const { confirmEmail, termsAccepted, ...painterData } = data;
-      const res = await apiRequest("POST", "/api/professionals/painters", painterData);
-      return res.json();
+      try {
+        // Remove confirmEmail and termsAccepted as they're not in the database schema
+        const { confirmEmail, termsAccepted, ...painterData } = data;
+        const res = await apiRequest("POST", "/api/professionals/painters", painterData);
+        
+        if (!res.ok) {
+          const errorData = await res.json().catch(() => ({ message: "Failed to register painter" }));
+          throw new Error(errorData.message || "Failed to register painter");
+        }
+        
+        return res.json();
+      } catch (error) {
+        console.error("Registration error:", error);
+        throw error;
+      }
     },
     onSuccess: () => {
       toast({
@@ -456,7 +467,7 @@ const PainterNetwork = () => {
                         
                         <FormField
                           control={form.control}
-                          name="specializations"
+                          name="specialties"
                           render={({ field }) => (
                             <FormItem>
                               <FormLabel>Specializations</FormLabel>
@@ -512,7 +523,7 @@ const PainterNetwork = () => {
                         
                         <FormField
                           control={form.control}
-                          name="referralSource"
+                          name="notes"
                           render={({ field }) => (
                             <FormItem>
                               <FormLabel>How Did You Hear About Us?</FormLabel>
