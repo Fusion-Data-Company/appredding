@@ -1,0 +1,66 @@
+import React from 'react';
+import { cn } from '@/lib/utils';
+import { Cinzel } from '@fontsource/cinzel';
+
+interface RomanHeaderProps {
+  children: React.ReactNode;
+  className?: string;
+  level?: 1 | 2 | 3 | 4 | 5 | 6;
+  variant?: 'gold' | 'platinum' | 'imperial';
+  serif?: boolean;
+  uppercase?: boolean;
+  ornate?: boolean;
+}
+
+export const RomanHeader = ({
+  children,
+  className,
+  level = 2,
+  variant = 'imperial',
+  serif = true,
+  uppercase = true,
+  ornate = false,
+}: RomanHeaderProps) => {
+  const variantClasses = {
+    gold: 'bg-gradient-to-r from-amber-700 via-yellow-400 to-amber-700 text-transparent bg-clip-text',
+    platinum: 'bg-gradient-to-r from-gray-500 via-gray-200 to-gray-500 text-transparent bg-clip-text',
+    imperial: 'bg-gradient-to-r from-amber-900 via-amber-300 to-amber-900 text-transparent bg-clip-text',
+  }
+  
+  const Tag = `h${level}` as keyof JSX.IntrinsicElements;
+  
+  return (
+    <Tag className={cn(
+      "font-serif tracking-wide relative",
+      serif && "font-serif",
+      uppercase && "uppercase",
+      variantClasses[variant],
+      ornate && "px-8 before:content-['•'] before:absolute before:left-1 before:top-1/2 before:-translate-y-1/2 before:text-amber-600 after:content-['•'] after:absolute after:right-1 after:top-1/2 after:-translate-y-1/2 after:text-amber-600",
+      className
+    )}>
+      {children}
+    </Tag>
+  );
+};
+
+export const RomanDivider = ({ className }: { className?: string }) => {
+  return (
+    <div className={cn("flex items-center justify-center w-full py-2", className)}>
+      <div className="h-[2px] w-full max-w-[100px] bg-gradient-to-r from-transparent via-amber-600 to-transparent"></div>
+      <div className="mx-2 text-amber-600">•</div>
+      <div className="h-[2px] w-full max-w-[100px] bg-gradient-to-r from-transparent via-amber-600 to-transparent"></div>
+    </div>
+  );
+};
+
+export const RomanCard = ({ children, className }: { children: React.ReactNode, className?: string }) => {
+  return (
+    <div className={cn(
+      "relative border border-amber-800/30 rounded-sm bg-gradient-to-b from-amber-50/5 to-amber-100/10 p-6 backdrop-blur-sm",
+      "before:absolute before:inset-0 before:border-2 before:border-amber-600/20 before:rounded-sm before:m-1 before:pointer-events-none",
+      className
+    )}>
+      {children}
+    </div>
+  );
+};
