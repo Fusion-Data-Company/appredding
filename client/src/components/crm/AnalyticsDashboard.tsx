@@ -16,6 +16,20 @@ import {
 
 export default function AnalyticsDashboard() {
   const { data, isLoading, error } = useCRMAnalytics();
+  
+  // Create empty object for default data
+  const analytics = data || {
+    contacts: { total: 0, newThisMonth: 0, leadsThisMonth: 0, leadsConvertedThisMonth: 0 },
+    companies: { total: 0, newThisMonth: 0 },
+    opportunities: { 
+      total: 0, open: 0, won: 0, lost: 0, totalAmount: 0, wonAmount: 0,
+      averageDealSize: 0, conversionRate: 0, averageSalesCycle: 0, winProbability: 0
+    },
+    activities: {
+      total: 0, completed: 0, upcoming: 0, overdue: 0,
+      completedThisWeek: 0, dueTomorrow: 0, overdueCritical: 0
+    }
+  };
 
   if (isLoading) {
     return (

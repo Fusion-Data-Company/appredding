@@ -36,7 +36,7 @@ export interface CRMAnalyticsData {
 }
 
 // Default data structure if no data is returned
-const defaultAnalyticsData: CRMAnalyticsData = {
+export const defaultAnalyticsData: CRMAnalyticsData = {
   contacts: {
     total: 0,
     newThisMonth: 0,
@@ -72,7 +72,7 @@ const defaultAnalyticsData: CRMAnalyticsData = {
 
 export function useCRMAnalytics() {
   return useQuery<CRMAnalyticsData>({
-    queryKey: ['/api/analytics'],
+    queryKey: ['/api/crm/analytics'],
     refetchInterval: 5 * 60 * 1000, // 5 minutes
     placeholderData: defaultAnalyticsData
   });

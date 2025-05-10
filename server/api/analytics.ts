@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { storage } from '../storage';
 import { db } from '../db';
-import { contact, contact as contacts, company as companies, opportunity as opportunities, activity as activities } from '@shared/schema';
+import { Contact, Company, Opportunity, Activity } from '@shared/schema';
 import { eq, and, count, gte, lte, sql, sum, avg } from 'drizzle-orm';
 
 /**
@@ -52,8 +52,8 @@ export async function getCRMAnalytics(req: Request, res: Response) {
     const lostOpportunities = opportunitiesData.filter(o => o.status === 'cancelled');
     
     // Calculate opportunity financial metrics
-    const totalOpportunityAmount = opportunitiesData.reduce((sum, o) => sum + (o.amount || 0), 0);
-    const wonOpportunityAmount = wonOpportunities.reduce((sum, o) => sum + (o.amount || 0), 0);
+    const totalOpportunityAmount = opportunitiesData.reduce((sum, o) => sum + (typeof o.amount === 'number' ? o.amount : 0), 0);
+    const wonOpportunityAmount = wonOpportunities.reduce((sum, o) => sum + (typeof o.amount === 'number' ? o.amount : 0), 0);
     const averageDealSize = opportunitiesData.length > 0 ? 
       totalOpportunityAmount / opportunitiesData.length : 0;
     

@@ -26,18 +26,56 @@ export default function CRMSection() {
   const [opportunityModalOpen, setOpportunityModalOpen] = useState(false);
   const [activityModalOpen, setActivityModalOpen] = useState(false);
   
+  // Define types for our data
+  interface Contact {
+    id: number;
+    firstName: string;
+    lastName: string;
+    email: string;
+    phone?: string;
+    jobTitle?: string;
+    companyId?: number;
+    companyName?: string;
+    status?: string;
+    createdAt?: string;
+  }
+  
+  interface Company {
+    id: number;
+    name: string;
+    industry?: string;
+    phone?: string;
+    website?: string;
+    address?: string;
+    createdAt?: string;
+  }
+  
+  interface Opportunity {
+    id: number;
+    name: string;
+    companyId?: number;
+    companyName?: string;
+    contactId?: number;
+    amount?: number;
+    status?: string;
+    probability?: number;
+    expectedCloseDate?: string;
+    createdAt?: string;
+    updatedAt?: string;
+  }
+
   // Fetch data for dropdowns in forms
-  const { data: contacts = [] } = useQuery({
+  const { data: contacts = [] } = useQuery<Contact[]>({
     queryKey: ['/api/contacts'],
     staleTime: 5 * 60 * 1000, // 5 minutes
   });
   
-  const { data: companies = [] } = useQuery({
+  const { data: companies = [] } = useQuery<Company[]>({
     queryKey: ['/api/companies'],
     staleTime: 5 * 60 * 1000,
   });
   
-  const { data: opportunities = [] } = useQuery({
+  const { data: opportunities = [] } = useQuery<Opportunity[]>({
     queryKey: ['/api/opportunities'],
     staleTime: 5 * 60 * 1000,
   });
