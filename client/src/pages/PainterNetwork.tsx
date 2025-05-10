@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import MainLayout from "@/components/layout/MainLayout";
 import { GradientButton } from "@/components/ui/gradient-button";
 import { GradientHeading } from "@/components/ui/gradient-heading";
 import painterImage from "@assets/iStock-1214149737.jpg";
@@ -100,10 +99,8 @@ const PainterNetwork = () => {
     },
   });
   return (
-    <div className="min-h-screen flex flex-col">
-      <Header />
-      
-      <main className="flex-grow relative">
+    <MainLayout fullWidth>
+      <div className="relative">
         {/* Full-page painter background */}
         <div 
           className="fixed inset-0 z-0 bg-center bg-cover bg-no-repeat" 
@@ -667,9 +664,8 @@ const PainterNetwork = () => {
             </div>
           </div>
         </section>
-      </main>
-      <Footer />
-    </div>
+      </div>
+    </MainLayout>
   );
 };
 
