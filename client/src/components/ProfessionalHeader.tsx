@@ -98,16 +98,16 @@ const ProfessionalHeader = () => {
       className={cn(
         "fixed w-full border-b z-50 transition-all duration-300",
         scrolled 
-          ? "py-2 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-100 via-slate-300 to-slate-500 dark:from-zinc-800 dark:via-zinc-900 dark:to-black backdrop-blur-lg border-slate-400 dark:border-zinc-800 shadow-[0_4px_20px_rgba(0,0,0,0.3)]" 
-          : "py-4 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-100 via-slate-200 to-slate-400 dark:from-zinc-800 dark:via-zinc-900 dark:to-black backdrop-blur-md border-slate-400/80 dark:border-zinc-800/80",
+          ? "py-2 bg-[conic-gradient(at_bottom_right,_var(--tw-gradient-stops))] from-slate-200 via-zinc-400 to-gray-600 dark:from-zinc-800 dark:via-zinc-900 dark:to-black backdrop-blur-lg border-slate-400 dark:border-zinc-800 shadow-metal" 
+          : "py-4 bg-[conic-gradient(at_top_left,_var(--tw-gradient-stops))] from-slate-300 via-zinc-400 to-gray-500 dark:from-zinc-800 dark:via-zinc-900 dark:to-black backdrop-blur-md border-slate-400/80 dark:border-zinc-800/80",
         "after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[1px] after:bg-gradient-to-r after:from-transparent after:via-slate-400/40 dark:after:via-zinc-400/30 after:to-transparent",
-        "before:absolute before:inset-0 before:bg-[url('/src/assets_dir/images/noise.svg')] before:opacity-[0.03] before:bg-repeat before:bg-[length:200px_200px] before:mix-blend-overlay before:pointer-events-none",
+        "before:absolute before:inset-0 before:bg-[url('/src/assets_dir/images/noise.svg')] before:opacity-[0.04] before:bg-repeat before:bg-[length:200px_200px] before:mix-blend-overlay before:pointer-events-none before:animate-subtle-pulse",
       )}
     >
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-5 z-10 group relative">
-          <div className="absolute inset-0 rounded-xl bg-[linear-gradient(110deg,transparent_0%,rgba(0,0,0,0.05)_5%,rgba(0,0,0,0)_10%,rgba(0,0,0,0.05)_15%,rgba(0,0,0,0)_20%,rgba(0,0,0,0.05)_25%,rgba(0,0,0,0)_30%,rgba(0,0,0,0.05)_35%,rgba(0,0,0,0)_40%)] dark:bg-[linear-gradient(110deg,transparent_0%,rgba(255,255,255,0.05)_5%,rgba(255,255,255,0)_10%,rgba(255,255,255,0.05)_15%,rgba(255,255,255,0)_20%,rgba(255,255,255,0.05)_25%,rgba(255,255,255,0)_30%,rgba(255,255,255,0.05)_35%,rgba(255,255,255,0)_40%)] opacity-0 group-hover:opacity-100 animate-shimmer bg-[length:400%_100%] transition-opacity duration-300"></div>
+          <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-transparent via-slate-100/10 to-transparent dark:via-zinc-300/10 opacity-0 group-hover:opacity-100 animate-shimmer transition-opacity duration-300"></div>
           
           <div className="relative flex items-center">
             {/* Outer glow */}

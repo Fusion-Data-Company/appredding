@@ -152,6 +152,10 @@ export default {
           "0%": { opacity: "0", transform: "translateY(20px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
+        "subtle-pulse": {
+          "0%, 100%": { opacity: "0.9" },
+          "50%": { opacity: "1" },
+        },
       },
       animation: {
         // Praetorian animations
@@ -173,6 +177,7 @@ export default {
         "rotate-slow": "rotate-slow 10s linear infinite",
         "float": "float 6s ease-in-out infinite",
         "fade-in-up": "fade-in-up 0.5s ease-out forwards",
+        "subtle-pulse": "subtle-pulse 4s ease-in-out infinite",
       },
     },
   },
