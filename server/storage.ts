@@ -7,6 +7,11 @@ import {
   projects,
   projectFiles,
   projectUpdates,
+  painters,
+  poolProfessionals,
+  municipalityProfessionals,
+  constructionDistributors,
+  professionalReviews,
   type User,
   type InsertUser,
   type Contact,
@@ -23,6 +28,16 @@ import {
   type InsertProjectFile,
   type ProjectUpdate,
   type InsertProjectUpdate,
+  type Painter,
+  type InsertPainter,
+  type PoolProfessional,
+  type InsertPoolProfessional,
+  type MunicipalityProfessional,
+  type InsertMunicipalityProfessional,
+  type ConstructionDistributor,
+  type InsertConstructionDistributor,
+  type ProfessionalReview,
+  type InsertProfessionalReview,
 } from "@shared/schema";
 import { db } from "./db";
 import { eq, and, desc } from "drizzle-orm";
@@ -451,7 +466,139 @@ export class DatabaseStorage implements IStorage {
     const result = await db
       .delete(activities)
       .where(eq(activities.id, id));
-    return result.rowCount > 0;
+    return result.rowCount ? result.rowCount > 0 : false;
+  }
+
+  // Painter methods
+  async getPainters(): Promise<Painter[]> {
+    return await db.select().from(painters).orderBy(desc(painters.createdAt));
+  }
+
+  async getPainter(id: number): Promise<Painter | undefined> {
+    const [painter] = await db.select().from(painters).where(eq(painters.id, id));
+    return painter;
+  }
+
+  async getPainterByEmail(email: string): Promise<Painter | undefined> {
+    const [painter] = await db.select().from(painters).where(eq(painters.email, email));
+    return painter;
+  }
+
+  async createPainter(insertPainter: InsertPainter): Promise<Painter> {
+    const [painter] = await db.insert(painters).values(insertPainter).returning();
+    return painter;
+  }
+
+  async updatePainter(id: number, painterData: Partial<Painter>): Promise<Painter | undefined> {
+    const [updatedPainter] = await db
+      .update(painters)
+      .set(painterData)
+      .where(eq(painters.id, id))
+      .returning();
+    return updatedPainter;
+  }
+
+  // Pool Professional methods
+  async getPoolProfessionals(): Promise<PoolProfessional[]> {
+    return await db.select().from(poolProfessionals).orderBy(desc(poolProfessionals.createdAt));
+  }
+
+  async getPoolProfessional(id: number): Promise<PoolProfessional | undefined> {
+    const [professional] = await db.select().from(poolProfessionals).where(eq(poolProfessionals.id, id));
+    return professional;
+  }
+
+  async getPoolProfessionalByEmail(email: string): Promise<PoolProfessional | undefined> {
+    const [professional] = await db.select().from(poolProfessionals).where(eq(poolProfessionals.email, email));
+    return professional;
+  }
+
+  async createPoolProfessional(insertProfessional: InsertPoolProfessional): Promise<PoolProfessional> {
+    const [professional] = await db.insert(poolProfessionals).values(insertProfessional).returning();
+    return professional;
+  }
+
+  async updatePoolProfessional(id: number, professionalData: Partial<PoolProfessional>): Promise<PoolProfessional | undefined> {
+    const [updatedProfessional] = await db
+      .update(poolProfessionals)
+      .set(professionalData)
+      .where(eq(poolProfessionals.id, id))
+      .returning();
+    return updatedProfessional;
+  }
+
+  // Municipality Professional methods
+  async getMunicipalityProfessionals(): Promise<MunicipalityProfessional[]> {
+    return await db.select().from(municipalityProfessionals).orderBy(desc(municipalityProfessionals.createdAt));
+  }
+
+  async getMunicipalityProfessional(id: number): Promise<MunicipalityProfessional | undefined> {
+    const [professional] = await db.select().from(municipalityProfessionals).where(eq(municipalityProfessionals.id, id));
+    return professional;
+  }
+
+  async getMunicipalityProfessionalByEmail(email: string): Promise<MunicipalityProfessional | undefined> {
+    const [professional] = await db.select().from(municipalityProfessionals).where(eq(municipalityProfessionals.email, email));
+    return professional;
+  }
+
+  async createMunicipalityProfessional(insertProfessional: InsertMunicipalityProfessional): Promise<MunicipalityProfessional> {
+    const [professional] = await db.insert(municipalityProfessionals).values(insertProfessional).returning();
+    return professional;
+  }
+
+  async updateMunicipalityProfessional(id: number, professionalData: Partial<MunicipalityProfessional>): Promise<MunicipalityProfessional | undefined> {
+    const [updatedProfessional] = await db
+      .update(municipalityProfessionals)
+      .set(professionalData)
+      .where(eq(municipalityProfessionals.id, id))
+      .returning();
+    return updatedProfessional;
+  }
+
+  // Construction Distributor methods
+  async getConstructionDistributors(): Promise<ConstructionDistributor[]> {
+    return await db.select().from(constructionDistributors).orderBy(desc(constructionDistributors.createdAt));
+  }
+
+  async getConstructionDistributor(id: number): Promise<ConstructionDistributor | undefined> {
+    const [distributor] = await db.select().from(constructionDistributors).where(eq(constructionDistributors.id, id));
+    return distributor;
+  }
+
+  async getConstructionDistributorByEmail(email: string): Promise<ConstructionDistributor | undefined> {
+    const [distributor] = await db.select().from(constructionDistributors).where(eq(constructionDistributors.email, email));
+    return distributor;
+  }
+
+  async createConstructionDistributor(insertDistributor: InsertConstructionDistributor): Promise<ConstructionDistributor> {
+    const [distributor] = await db.insert(constructionDistributors).values(insertDistributor).returning();
+    return distributor;
+  }
+
+  async updateConstructionDistributor(id: number, distributorData: Partial<ConstructionDistributor>): Promise<ConstructionDistributor | undefined> {
+    const [updatedDistributor] = await db
+      .update(constructionDistributors)
+      .set(distributorData)
+      .where(eq(constructionDistributors.id, id))
+      .returning();
+    return updatedDistributor;
+  }
+
+  // Professional Review methods
+  async getProfessionalReviews(professionalType: string, professionalId: number): Promise<ProfessionalReview[]> {
+    return await db.select()
+      .from(professionalReviews)
+      .where(and(
+        eq(professionalReviews.professionalType, professionalType),
+        eq(professionalReviews.professionalId, professionalId)
+      ))
+      .orderBy(desc(professionalReviews.createdAt));
+  }
+
+  async createProfessionalReview(insertReview: InsertProfessionalReview): Promise<ProfessionalReview> {
+    const [review] = await db.insert(professionalReviews).values(insertReview).returning();
+    return review;
   }
 }
 

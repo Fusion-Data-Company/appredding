@@ -71,6 +71,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Setup authentication routes
   setupAuth(app);
   
+  // Register professionals API routes
+  app.use("/api/professionals", professionalsRoutes);
+  
   // ========================
   // CRM Routes
   // ========================
