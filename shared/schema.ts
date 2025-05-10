@@ -1020,6 +1020,43 @@ export const marinaProfessionals = pgTable("marina_professionals", {
   updatedAt: timestamp("updated_at").notNull().defaultNow(),
 });
 
+// Mobile home professionals
+export const mobileHomeProfessionals = pgTable("mobile_home_professionals", {
+  id: serial("id").primaryKey(),
+  userId: integer("user_id").references(() => users.id),
+  companyName: text("company_name").notNull(),
+  contactName: text("contact_name").notNull(),
+  email: text("email").notNull().unique(),
+  phone: text("phone").notNull(),
+  address: text("address"),
+  city: text("city"),
+  state: text("state"),
+  zipCode: text("zip_code"),
+  website: text("website"),
+  licenseNumber: text("license_number"),
+  licenseExpiryDate: date("license_expiry_date"),
+  insuranceInfo: text("insurance_info"),
+  yearsInBusiness: integer("years_in_business"),
+  specialties: jsonb("specialties"), // Array of specialties (residential, commercial, etc.)
+  serviceAreas: jsonb("service_areas"), // Geographic areas they serve
+  materialTypes: jsonb("material_types"), // Types of materials they work with
+  installationTypes: jsonb("installation_types"), // Types of installations they perform
+  repairServices: jsonb("repair_services"), // Types of repair services offered
+  emergencyService: boolean("emergency_service").default(false),
+  hourlyRate: decimal("hourly_rate", { precision: 10, scale: 2 }),
+  mobileHomeTypes: jsonb("mobile_home_types"), // Types of mobile homes they service
+  rvTypes: jsonb("rv_types"), // Types of RVs they service
+  certifications: jsonb("certifications"), // Array of certifications
+  manufacturerAuthorizations: jsonb("manufacturer_authorizations"), // Mobile home manufacturers they're authorized for
+  verificationStatus: verificationStatusEnum("verification_status").default('pending'),
+  notes: text("notes"),
+  rating: integer("rating"), // 1-5 star rating
+  reviewCount: integer("review_count").default(0),
+  completedProjects: integer("completed_projects").default(0),
+  createdAt: timestamp("created_at").notNull().defaultNow(),
+  updatedAt: timestamp("updated_at").notNull().defaultNow(),
+});
+
 // Fire prevention homeowners
 export const firePreventionHomeowners = pgTable("fire_prevention_homeowners", {
   id: serial("id").primaryKey(),
@@ -1058,6 +1095,11 @@ export const marinaProfessionalsRelations = relations(marinaProfessionals, ({ on
   user: one(users, { fields: [marinaProfessionals.userId], references: [users.id] }),
 }));
 
+// Relations for mobile home professionals
+export const mobileHomeProfessionalsRelations = relations(mobileHomeProfessionals, ({ one }) => ({
+  user: one(users, { fields: [mobileHomeProfessionals.userId], references: [users.id] }),
+}));
+
 // Relations for fire prevention homeowners
 export const firePreventionHomeownersRelations = relations(firePreventionHomeowners, ({ one }) => ({
   user: one(users, { fields: [firePreventionHomeowners.userId], references: [users.id] }),
@@ -1086,6 +1128,34 @@ export const insertMarinaProfessionalSchema = createInsertSchema(marinaProfessio
   marinaTypes: true,
   serviceAreas: true,
   licenseNumber: true,
+  notes: true,
+});
+
+export const insertMobileHomeProfessionalSchema = createInsertSchema(mobileHomeProfessionals).pick({
+  companyName: true,
+  contactName: true,
+  email: true,
+  phone: true,
+  address: true,
+  city: true,
+  state: true,
+  zipCode: true,
+  website: true,
+  licenseNumber: true,
+  licenseExpiryDate: true,
+  insuranceInfo: true,
+  yearsInBusiness: true,
+  specialties: true,
+  serviceAreas: true,
+  materialTypes: true,
+  installationTypes: true,
+  repairServices: true,
+  emergencyService: true,
+  hourlyRate: true,
+  mobileHomeTypes: true,
+  rvTypes: true,
+  certifications: true,
+  manufacturerAuthorizations: true,
   notes: true,
 });
 
