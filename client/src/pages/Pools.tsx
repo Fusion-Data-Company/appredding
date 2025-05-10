@@ -124,7 +124,7 @@ const PoolProfessionalForm = () => {
     mutationFn: async (data: PoolProfessionalFormValues) => {
       // Remove fields that aren't in the database schema
       const { confirmEmail, termsAccepted, ...registerData } = data;
-      const res = await apiRequest("POST", "/api/professionals/pool", registerData);
+      const res = await apiRequest("POST", "/api/professionals/pool-professionals", registerData);
       
       if (!res.ok) {
         const errorData = await res.json();
@@ -1166,6 +1166,71 @@ const Pools = () => {
                 <GradientButton className="px-8 py-3 text-lg" variant="variant">
                   Schedule Your Pool Coating
                 </GradientButton>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        {/* Pool Professional Registration Section */}
+        <section className="py-16 relative z-10">
+          <div className="container mx-auto">
+            <div className="backdrop-blur-sm bg-primary-900/60 p-8 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)]">
+              <GradientHeading level={2} className="text-3xl md:text-4xl mb-8 text-center" variant="blue">
+                Join Our Network of Pool Professionals
+              </GradientHeading>
+              
+              <div className="grid md:grid-cols-2 gap-12">
+                <div className="space-y-6">
+                  <p className="text-lg">
+                    Become a certified Praetorian Pool Professional and gain access to our premium pool coating products, training, and exclusive client referrals.
+                  </p>
+                  
+                  <div className="space-y-4">
+                    <div className="flex items-start gap-3">
+                      <span className="bg-primary-600/80 rounded-full p-2 mt-1 flex-shrink-0">
+                        <i className="fas fa-dollar-sign text-white"></i>
+                      </span>
+                      <div>
+                        <h3 className="text-xl font-semibold mb-1">Increased Revenue</h3>
+                        <p>Access to premium clients looking for high-quality pool coating solutions</p>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-start gap-3">
+                      <span className="bg-primary-600/80 rounded-full p-2 mt-1 flex-shrink-0">
+                        <i className="fas fa-certificate text-white"></i>
+                      </span>
+                      <div>
+                        <h3 className="text-xl font-semibold mb-1">Professional Certification</h3>
+                        <p>Become certified in the application of our advanced coating systems</p>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-start gap-3">
+                      <span className="bg-primary-600/80 rounded-full p-2 mt-1 flex-shrink-0">
+                        <i className="fas fa-tools text-white"></i>
+                      </span>
+                      <div>
+                        <h3 className="text-xl font-semibold mb-1">Technical Support</h3>
+                        <p>Access to our technical team for project support and troubleshooting</p>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-start gap-3">
+                      <span className="bg-primary-600/80 rounded-full p-2 mt-1 flex-shrink-0">
+                        <i className="fas fa-user-friends text-white"></i>
+                      </span>
+                      <div>
+                        <h3 className="text-xl font-semibold mb-1">Lead Generation</h3>
+                        <p>Get connected with clients seeking professional pool coating services</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div>
+                  <PoolProfessionalForm />
+                </div>
               </div>
             </div>
           </div>
