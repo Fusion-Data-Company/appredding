@@ -115,8 +115,8 @@ const ProfessionalHeader = () => {
 
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
         {/* Logo (text portion) */}
-        <div className="flex items-center gap-5 z-10 group relative" style={{ marginLeft: '-392px', marginTop: '-48px' }}>
-          <Link href="/" className="flex items-center w-96 ml-0 mt-6">
+        <div className="flex items-center z-10 group relative max-w-[450px] ml-[120px]">
+          <Link href="/" className="flex items-center w-full">
             <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-transparent via-slate-100/10 to-transparent dark:via-zinc-300/10 opacity-0 group-hover:opacity-100 animate-shimmer transition-opacity duration-300"></div>
             
             <div className="flex flex-col justify-center relative">
