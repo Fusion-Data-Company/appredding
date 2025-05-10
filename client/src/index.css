@@ -428,7 +428,9 @@
   .glass-effect {
     background: rgba(15, 23, 42, 0.6);
     backdrop-filter: blur(12px);
-    
+    -webkit-backdrop-filter: blur(12px);
+  }
+  
   /* Original Praetorian gradient styles */
   .gradient-text-blue {
     background: linear-gradient(90deg, 
@@ -510,8 +512,6 @@
   .dark .gradient-text-vertical {
     -webkit-text-stroke: 0.25px rgba(255,255,255,0.4);
     filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.9));
-  }
-    -webkit-backdrop-filter: blur(12px);
   }
   
   /* Custom scrollbar for video section */
