@@ -1,11 +1,13 @@
 const HeroSection = () => {
   return (
     <div className="w-full bg-black py-10 md:py-20">
-      <div className="container mx-auto px-4 flex justify-center">
+      <div className="max-w-5xl mx-auto px-4 flex justify-center">
         <img 
-          src="/images/praetorian-hero.jpg" 
+          src="/praetorian-hero-main.jpg" 
           alt="Praetorian SmartCoat with Guards" 
-          className="max-w-full h-auto"
+          width={1200}
+          height={400}
+          className="max-w-full h-auto border-0"
         />
       </div>
     </div>
