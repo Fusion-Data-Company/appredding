@@ -98,25 +98,29 @@ const ProfessionalHeader = () => {
       className={cn(
         "fixed w-full border-b z-50 transition-all duration-300",
         scrolled 
-          ? "py-2 bg-gradient-to-r from-white via-gray-50 to-white dark:from-gray-900 dark:via-black dark:to-gray-900 backdrop-blur-lg border-gray-300 dark:border-gray-800 shadow-[0_4px_20px_rgba(0,0,0,0.2)]" 
-          : "py-4 bg-gradient-to-r from-white/90 via-gray-50/90 to-white/90 dark:from-gray-900/95 dark:via-black/95 dark:to-gray-900/95 backdrop-blur-md border-gray-300 dark:border-gray-800",
-        "after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[1px] after:bg-gradient-to-r after:from-transparent after:via-gray-400/30 dark:after:via-gray-600/30 after:to-transparent",
+          ? "py-2 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-100 via-slate-300 to-slate-500 dark:from-zinc-800 dark:via-zinc-900 dark:to-black backdrop-blur-lg border-slate-400 dark:border-zinc-800 shadow-[0_4px_20px_rgba(0,0,0,0.3)]" 
+          : "py-4 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-100 via-slate-200 to-slate-400 dark:from-zinc-800 dark:via-zinc-900 dark:to-black backdrop-blur-md border-slate-400/80 dark:border-zinc-800/80",
+        "after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[1px] after:bg-gradient-to-r after:from-transparent after:via-slate-400/40 dark:after:via-zinc-400/30 after:to-transparent",
+        "before:absolute before:inset-0 before:bg-[url('/src/assets_dir/images/noise.svg')] before:opacity-[0.03] before:bg-repeat before:bg-[length:200px_200px] before:mix-blend-overlay before:pointer-events-none",
       )}
     >
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-5 z-10 group relative">
-          <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-gray-400/0 via-gray-500/5 to-gray-400/0 opacity-0 group-hover:opacity-100 blur-md transition-opacity duration-500"></div>
+          <div className="absolute inset-0 rounded-xl bg-[linear-gradient(110deg,transparent_0%,rgba(0,0,0,0.05)_5%,rgba(0,0,0,0)_10%,rgba(0,0,0,0.05)_15%,rgba(0,0,0,0)_20%,rgba(0,0,0,0.05)_25%,rgba(0,0,0,0)_30%,rgba(0,0,0,0.05)_35%,rgba(0,0,0,0)_40%)] dark:bg-[linear-gradient(110deg,transparent_0%,rgba(255,255,255,0.05)_5%,rgba(255,255,255,0)_10%,rgba(255,255,255,0.05)_15%,rgba(255,255,255,0)_20%,rgba(255,255,255,0.05)_25%,rgba(255,255,255,0)_30%,rgba(255,255,255,0.05)_35%,rgba(255,255,255,0)_40%)] opacity-0 group-hover:opacity-100 animate-shimmer bg-[length:400%_100%] transition-opacity duration-300"></div>
           
           <div className="relative flex items-center">
             {/* Outer glow */}
-            <div className="absolute -inset-4 rounded-full bg-gradient-to-r from-gray-400/30 to-gray-500/30 blur-md opacity-60 group-hover:opacity-100 transition duration-300"></div>
+            <div className="absolute -inset-4 rounded-full bg-gradient-to-r from-slate-300/20 to-slate-600/20 blur-md opacity-60 group-hover:opacity-100 transition duration-300"></div>
             
             {/* Middle glow */}
-            <div className="absolute -inset-3 rounded-full bg-gradient-to-br from-gray-700/30 to-gray-300/40 blur-sm opacity-40 group-hover:opacity-80 transition-opacity duration-300"></div>
+            <div className="absolute -inset-3 rounded-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-400/20 via-slate-500/20 to-slate-600/20 blur-sm opacity-40 group-hover:opacity-80 transition-opacity duration-300"></div>
             
-            {/* Inner glow - pulsing */}
-            <div className="absolute -inset-2 rounded-full bg-gradient-to-tr from-gray-500/30 to-gray-400/50 blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse"></div>
+            {/* Inner glow - metallic effect */}
+            <div className="absolute -inset-2 rounded-full bg-gradient-to-tr from-slate-200/20 to-slate-600/30 blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse"></div>
+            
+            {/* Highlight reflection */}
+            <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-white/5 to-transparent blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ transform: 'rotate(-45deg) translateX(-5px)' }}></div>
             
             {/* Shield image */}
             <img 
@@ -128,14 +132,14 @@ const ProfessionalHeader = () => {
           
           <div className="flex flex-col justify-center">
             <span className={cn(
-              "font-serif text-3xl font-bold bg-gradient-to-r from-gray-900 via-gray-700 to-gray-800 dark:from-gray-100 dark:via-white dark:to-gray-300 bg-clip-text text-transparent",
-              "border-b border-gray-400/30 dark:border-gray-600/30 leading-tight tracking-wide drop-shadow-sm",
-              "group-hover:bg-gradient-to-r group-hover:from-black group-hover:via-gray-800 group-hover:to-gray-700 dark:group-hover:from-white dark:group-hover:via-gray-200 dark:group-hover:to-gray-300 transition-all duration-300"
+              "font-serif text-3xl font-bold bg-gradient-to-br from-slate-800 via-slate-400 to-slate-700 dark:from-slate-100 dark:via-white dark:to-slate-300 bg-clip-text text-transparent",
+              "border-b border-slate-400/30 dark:border-slate-500/30 leading-tight tracking-wide drop-shadow-sm pb-[2px]",
+              "group-hover:bg-gradient-to-r group-hover:from-slate-900 group-hover:via-slate-500 group-hover:to-slate-800 dark:group-hover:from-white dark:group-hover:via-gray-100 dark:group-hover:to-slate-200 transition-all duration-300"
             )}>
               PRAETORIAN
             </span>
-            <span className="text-[0.8rem] text-gray-700 dark:text-gray-300 font-medium tracking-widest uppercase group-hover:text-black dark:group-hover:text-white transition-colors duration-300">
-              SmartCoat Solutions
+            <span className="text-[0.8rem] text-slate-700 dark:text-slate-400 font-medium tracking-widest uppercase group-hover:text-black dark:group-hover:text-white transition-colors duration-300 mt-[1px]">
+              <span className="bg-gradient-to-r from-slate-600 to-slate-800 dark:from-slate-300 dark:to-slate-500 bg-clip-text text-transparent">SmartCoat Solutions</span>
             </span>
           </div>
         </Link>
