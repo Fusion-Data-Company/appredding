@@ -112,11 +112,13 @@ const ProfessionalHeader = () => {
         <img 
           src={praetorianBucketNew} 
           alt="Praetorian Bucket" 
-          className="h-[120px] w-auto"
+          className="h-[140px] w-auto"
           style={{ 
-            filter: 'contrast(1.2) brightness(1.1)',
-            transform: 'perspective(800px) rotateY(-5deg)',
-            transformStyle: 'preserve-3d'
+            filter: 'contrast(1.3) brightness(1.15)',
+            transform: 'perspective(800px) rotateY(-5deg) scale(1.5)',
+            transformStyle: 'preserve-3d',
+            marginLeft: '-15px',
+            marginTop: '5px'
           }}
         />
       </Link>
