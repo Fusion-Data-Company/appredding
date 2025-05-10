@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { cn } from "@/lib/utils";
 import bucketImg from "@/assets_dir/icons/praetorian-bucket.png";
-import praetorianHeaderImg from "@/assets_dir/images/praetorian-header.jpg";
+import praetorianHeaderImg from "@/assets_dir/images/praetorian-header-no-bg.png";
 import { 
   NavigationMenu,
   NavigationMenuContent,
@@ -141,9 +141,7 @@ const ProfessionalHeader = () => {
                   transformStyle: 'preserve-3d',
                 }}
               />
-              
-              {/* Subtle highlight */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 rounded-full"></div>
+
             </div>
           </div>
           
