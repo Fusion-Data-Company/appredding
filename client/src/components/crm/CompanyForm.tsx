@@ -341,7 +341,7 @@ export function CompanyForm({ isOpen, onClose }: CompanyFormProps) {
                       placeholder="Enter street address" 
                       className="bg-gray-900/50 border-gray-700" 
                       {...field} 
-                      value={field.value ?? ''}
+                      value={field.value || ''}
                     />
                   </FormControl>
                   <FormMessage />
@@ -361,7 +361,7 @@ export function CompanyForm({ isOpen, onClose }: CompanyFormProps) {
                         placeholder="City" 
                         className="bg-gray-900/50 border-gray-700" 
                         {...field} 
-                        value={field.value ?? ''}
+                        value={field.value || ''}
                       />
                     </FormControl>
                     <FormMessage />
@@ -379,7 +379,7 @@ export function CompanyForm({ isOpen, onClose }: CompanyFormProps) {
                         placeholder="State" 
                         className="bg-gray-900/50 border-gray-700" 
                         {...field} 
-                        value={field.value ?? ''}
+                        value={field.value || ''}
                       />
                     </FormControl>
                     <FormMessage />
@@ -400,7 +400,7 @@ export function CompanyForm({ isOpen, onClose }: CompanyFormProps) {
                         placeholder="Zip code" 
                         className="bg-gray-900/50 border-gray-700" 
                         {...field} 
-                        value={field.value ?? ''}
+                        value={field.value || ''}
                       />
                     </FormControl>
                     <FormMessage />
@@ -438,7 +438,7 @@ export function CompanyForm({ isOpen, onClose }: CompanyFormProps) {
                       placeholder="Brief description of the company" 
                       className="bg-gray-900/50 border-gray-700 min-h-[100px]" 
                       {...field} 
-                      value={field.value ?? ''}
+                      value={field.value || ''}
                     />
                   </FormControl>
                   <FormMessage />

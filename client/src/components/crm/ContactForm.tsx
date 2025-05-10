@@ -238,6 +238,7 @@ export function ContactForm({ isOpen, onClose, companies }: ContactFormProps) {
                         placeholder="(555) 123-4567" 
                         className="bg-gray-900/50 border-gray-700" 
                         {...field} 
+                        value={field.value || ''}
                       />
                     </FormControl>
                     <FormMessage />
@@ -333,6 +334,7 @@ export function ContactForm({ isOpen, onClose, companies }: ContactFormProps) {
                       placeholder="Add any relevant notes about this contact" 
                       className="bg-gray-900/50 border-gray-700 min-h-[100px]" 
                       {...field} 
+                      value={field.value || ''}
                     />
                   </FormControl>
                   <FormMessage />
