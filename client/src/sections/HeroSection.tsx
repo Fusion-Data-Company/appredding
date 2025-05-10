@@ -18,22 +18,7 @@ const HeroSection = () => {
         className="h-auto"
       />
 
-      {/* Buttons below the video with smoother animations */}
-      <div className="flex flex-col sm:flex-row justify-center gap-6 mt-8 mb-10 animate-fadeIn" 
-           style={{animationDuration: '0.6s', animationDelay: '0.3s', animationFillMode: 'both'}}>
-        <a 
-          href="#explore" 
-          className="gradient-button py-3 px-8 rounded-md text-white font-semibold tracking-wide uppercase text-lg will-change-transform transition-all duration-300 hover:scale-105 hover:shadow-lg"
-        >
-          Explore Applications
-        </a>
-        <a 
-          href="#contact" 
-          className="gradient-button-variant py-3 px-8 rounded-md text-white font-semibold tracking-wide uppercase text-lg will-change-transform transition-all duration-300 hover:scale-105 hover:shadow-lg"
-        >
-          Contact Us
-        </a>
-      </div>
+      {/* Buttons removed as requested */}
     </section>
   );
 };
