@@ -62,7 +62,7 @@ export function BeamsBackground({
     const opacityMap = {
         subtle: 0.7,
         medium: 0.85,
-        strong: 1,
+        strong: 1.25, // Increased brightness for "strong" intensity
     };
 
     useEffect(() => {
@@ -120,11 +120,10 @@ export function BeamsBackground({
             ctx.translate(beam.x, beam.y);
             ctx.rotate((beam.angle * Math.PI) / 180);
 
-            // Calculate pulsing opacity
-            const pulsingOpacity =
-                beam.opacity *
-                (0.8 + Math.sin(beam.pulse) * 0.2) *
-                opacityMap[intensity];
+            // Calculate pulsing opacity with safety checks to avoid NaN
+            const basePulse = 0.8 + Math.sin(beam.pulse || 0) * 0.2;
+            const intensityMultiplier = opacityMap[intensity] || 1;
+            const pulsingOpacity = beam.opacity * basePulse * intensityMultiplier;
 
             const gradient = ctx.createLinearGradient(0, 0, 0, beam.length);
             
@@ -135,45 +134,45 @@ export function BeamsBackground({
             // Fire beams (orange/red) have higher saturation and brightness
             // Water beams (blue/cyan) have slightly lower saturation for contrast
             if (isFireBeam) {
-                // Fire beam gradient (orange/red)
-                gradient.addColorStop(0, `hsla(${beam.hue}, 100%, 70%, 0)`);
+                // Fire beam gradient (orange/red) - increased lightness and opacity
+                gradient.addColorStop(0, `hsla(${beam.hue}, 100%, 75%, 0)`);
                 gradient.addColorStop(
                     0.1,
-                    `hsla(${beam.hue}, 100%, 70%, ${pulsingOpacity * 0.6})`
+                    `hsla(${beam.hue}, 100%, 75%, ${pulsingOpacity * 0.7})`
                 );
                 gradient.addColorStop(
                     0.4,
-                    `hsla(${beam.hue}, 100%, 70%, ${pulsingOpacity * 1.2})`
+                    `hsla(${beam.hue}, 100%, 75%, ${pulsingOpacity * 1.3})`
                 );
                 gradient.addColorStop(
                     0.6,
-                    `hsla(${beam.hue}, 100%, 70%, ${pulsingOpacity * 1.2})`
+                    `hsla(${beam.hue}, 100%, 75%, ${pulsingOpacity * 1.3})`
                 );
                 gradient.addColorStop(
                     0.9,
-                    `hsla(${beam.hue}, 100%, 70%, ${pulsingOpacity * 0.6})`
+                    `hsla(${beam.hue}, 100%, 75%, ${pulsingOpacity * 0.7})`
                 );
-                gradient.addColorStop(1, `hsla(${beam.hue}, 100%, 70%, 0)`);
+                gradient.addColorStop(1, `hsla(${beam.hue}, 100%, 75%, 0)`);
             } else {
-                // Water beam gradient (blue/cyan)
-                gradient.addColorStop(0, `hsla(${beam.hue}, 90%, 65%, 0)`);
+                // Water beam gradient (blue/cyan) - increased lightness and opacity
+                gradient.addColorStop(0, `hsla(${beam.hue}, 90%, 70%, 0)`);
                 gradient.addColorStop(
                     0.1,
-                    `hsla(${beam.hue}, 90%, 65%, ${pulsingOpacity * 0.5})`
+                    `hsla(${beam.hue}, 90%, 70%, ${pulsingOpacity * 0.6})`
                 );
                 gradient.addColorStop(
                     0.4,
-                    `hsla(${beam.hue}, 90%, 65%, ${pulsingOpacity})`
+                    `hsla(${beam.hue}, 90%, 70%, ${pulsingOpacity * 1.2})`
                 );
                 gradient.addColorStop(
                     0.6,
-                    `hsla(${beam.hue}, 90%, 65%, ${pulsingOpacity})`
+                    `hsla(${beam.hue}, 90%, 70%, ${pulsingOpacity * 1.2})`
                 );
                 gradient.addColorStop(
                     0.9,
-                    `hsla(${beam.hue}, 90%, 65%, ${pulsingOpacity * 0.5})`
+                    `hsla(${beam.hue}, 90%, 70%, ${pulsingOpacity * 0.6})`
                 );
-                gradient.addColorStop(1, `hsla(${beam.hue}, 90%, 65%, 0)`);
+                gradient.addColorStop(1, `hsla(${beam.hue}, 90%, 70%, 0)`);
             }
 
             ctx.fillStyle = gradient;
