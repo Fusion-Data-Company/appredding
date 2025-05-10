@@ -98,9 +98,9 @@ const ProfessionalHeader = () => {
       className={cn(
         "fixed w-full border-b z-50 transition-all duration-300",
         scrolled 
-          ? "py-2 bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg border-amber-900/20 shadow-[0_4px_20px_rgba(0,0,0,0.2)]" 
-          : "py-4 bg-white/80 dark:bg-gray-900/90 backdrop-blur-md border-b-2 border-amber-800/30",
-        "after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[1px] after:bg-gradient-to-r after:from-transparent after:via-amber-500/50 after:to-transparent",
+          ? "py-2 bg-gradient-to-r from-white via-gray-50 to-white dark:from-gray-900 dark:via-black dark:to-gray-900 backdrop-blur-lg border-gray-300 dark:border-gray-800 shadow-[0_4px_20px_rgba(0,0,0,0.2)]" 
+          : "py-4 bg-gradient-to-r from-white/90 via-gray-50/90 to-white/90 dark:from-gray-900/95 dark:via-black/95 dark:to-gray-900/95 backdrop-blur-md border-gray-300 dark:border-gray-800",
+        "after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[1px] after:bg-gradient-to-r after:from-transparent after:via-gray-400/30 dark:after:via-gray-600/30 after:to-transparent",
       )}
     >
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
@@ -128,13 +128,13 @@ const ProfessionalHeader = () => {
           
           <div className="flex flex-col justify-center">
             <span className={cn(
-              "font-serif text-3xl font-bold bg-gradient-to-r from-amber-900 via-amber-500 to-amber-800 bg-clip-text text-transparent",
-              "border-b border-amber-600/30 leading-tight tracking-wide drop-shadow-md",
-              "group-hover:bg-gradient-to-r group-hover:from-amber-700 group-hover:via-yellow-500 group-hover:to-amber-700 transition-all duration-300"
+              "font-serif text-3xl font-bold bg-gradient-to-r from-gray-900 via-gray-700 to-gray-800 dark:from-gray-100 dark:via-white dark:to-gray-300 bg-clip-text text-transparent",
+              "border-b border-gray-400/30 dark:border-gray-600/30 leading-tight tracking-wide drop-shadow-sm",
+              "group-hover:bg-gradient-to-r group-hover:from-black group-hover:via-gray-800 group-hover:to-gray-700 dark:group-hover:from-white dark:group-hover:via-gray-200 dark:group-hover:to-gray-300 transition-all duration-300"
             )}>
               PRAETORIAN
             </span>
-            <span className="text-[0.8rem] text-amber-800 dark:text-amber-300 font-medium tracking-widest uppercase group-hover:text-amber-600 dark:group-hover:text-amber-200 transition-colors duration-300">
+            <span className="text-[0.8rem] text-gray-700 dark:text-gray-300 font-medium tracking-widest uppercase group-hover:text-black dark:group-hover:text-white transition-colors duration-300">
               SmartCoat Solutions
             </span>
           </div>
@@ -146,32 +146,32 @@ const ProfessionalHeader = () => {
             <NavigationMenuList className="space-x-1">
               <NavigationMenuItem>
                 <NavigationMenuTrigger 
-                  className="bg-transparent hover:bg-gradient-to-br hover:from-amber-100/50 hover:to-amber-200/30 dark:hover:from-amber-900/40 dark:hover:to-amber-800/20 
-                  font-serif text-amber-900 dark:text-amber-300 border border-transparent hover:border-amber-600/20 rounded-sm 
+                  className="bg-transparent hover:bg-gradient-to-br hover:from-gray-100 hover:to-gray-200/30 dark:hover:from-gray-800 dark:hover:to-gray-900/80 
+                  font-medium text-gray-800 dark:text-gray-200 border border-transparent hover:border-gray-300 dark:hover:border-gray-700 rounded-sm 
                   transition-all duration-300 group"
                 >
-                  <span className="bg-gradient-to-r from-amber-900 to-amber-800 dark:from-amber-400 dark:to-amber-300 bg-clip-text text-transparent group-hover:from-amber-800 group-hover:to-amber-600 dark:group-hover:from-amber-300 dark:group-hover:to-amber-200 transition-all duration-300">
+                  <span className="bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300 bg-clip-text text-transparent group-hover:from-black group-hover:to-gray-800 dark:group-hover:from-white dark:group-hover:to-gray-100 transition-all duration-300">
                     Applications
                   </span>
-                  <ChevronDown className="h-4 w-4 text-amber-700 dark:text-amber-400 transition-transform group-data-[state=open]:rotate-180" />
+                  <ChevronDown className="h-4 w-4 text-gray-700 dark:text-gray-300 transition-transform group-data-[state=open]:rotate-180" />
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <ul className="grid w-[500px] gap-1 p-4 md:grid-cols-2 bg-white/95 dark:bg-gray-900/95 border border-amber-600/20 shadow-lg">
+                  <ul className="grid w-[500px] gap-1 p-4 md:grid-cols-2 bg-white/95 dark:bg-gray-900/95 border border-gray-300 dark:border-gray-700 shadow-lg rounded-sm">
                     {applicationCategories.map((category) => (
                       <li key={category.href}>
                         <NavigationMenuLink asChild>
                           <Link 
                             href={category.href}
                             className="flex p-3 select-none space-x-2 rounded-sm border border-transparent 
-                            hover:border-amber-600/20 hover:bg-gradient-to-r hover:from-amber-50/30 hover:to-amber-100/10 
-                            dark:hover:from-amber-900/20 dark:hover:to-amber-800/10 
-                            hover:text-amber-800 dark:hover:text-amber-200 transition-all duration-300"
+                            hover:border-gray-300 dark:hover:border-gray-700 hover:bg-gradient-to-r hover:from-gray-100 hover:to-gray-50 
+                            dark:hover:from-gray-800 dark:hover:to-gray-900 
+                            hover:text-gray-900 dark:hover:text-white transition-all duration-300"
                           >
                             <div className="w-full">
-                              <div className="text-sm font-serif font-medium text-amber-900 dark:text-amber-300">
+                              <div className="text-sm font-medium text-gray-900 dark:text-gray-100">
                                 {category.label}
                               </div>
-                              <p className="text-xs text-muted-foreground line-clamp-1">
+                              <p className="text-xs text-gray-600 dark:text-gray-400 line-clamp-1">
                                 {category.description}
                               </p>
                             </div>
