@@ -361,24 +361,31 @@ const ContactsTable = () => {
   }
 
   return (
-    <div className="bg-background rounded-lg border shadow-sm overflow-hidden">
-      <div className="p-4 border-b flex flex-col gap-4 md:flex-row md:items-center md:justify-between bg-muted/30">
+    <div className="card-premium overflow-hidden animate-fadeIn">
+      <div className="p-4 border-b border-gray-800 flex flex-col gap-4 md:flex-row md:items-center md:justify-between bg-black/60 backdrop-blur-sm shadow-lg">
         <div className="flex items-center w-full md:w-1/3">
-          <Search className="w-4 h-4 mr-2 text-muted-foreground" />
-          <Input
-            placeholder="Search contacts..."
-            value={searchText}
-            onChange={(e) => setSearchText(e.target.value)}
-            className="w-full"
-          />
+          <div className="relative flex w-full">
+            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+              <Search className="w-4 h-4 text-gray-400" />
+            </div>
+            <Input
+              placeholder="Search contacts..."
+              value={searchText}
+              onChange={(e) => setSearchText(e.target.value)}
+              className="w-full pl-10 bg-gray-900/80 border-gray-700 focus:border-cyan-600 focus:ring-1 focus:ring-cyan-500/50 transition-all duration-300"
+            />
+          </div>
         </div>
 
-        <div className="flex items-center space-x-2 w-full md:w-2/3 justify-end">
+        <div className="flex flex-wrap items-center gap-3 w-full md:w-2/3 justify-end">
           <Select value={filterStatus} onValueChange={setFilterStatus}>
-            <SelectTrigger className="w-[150px]">
-              <SelectValue placeholder="Status" />
+            <SelectTrigger className="w-[150px] bg-gray-900/80 border-gray-700 focus:border-cyan-600 hover:bg-gray-800 transition-all duration-300">
+              <div className="flex items-center">
+                <div className="h-2 w-2 rounded-full mr-2 bg-cyan-500 animate-pulse"></div>
+                <SelectValue placeholder="Status" />
+              </div>
             </SelectTrigger>
-            <SelectContent>
+            <SelectContent className="bg-gray-900 border-gray-700 text-white">
               <SelectItem value="all">All Statuses</SelectItem>
               {Object.keys(contactStatusEnum.enumValues).map((status) => (
                 <SelectItem key={status} value={status}>{status.replace("_", " ")}</SelectItem>
@@ -387,10 +394,13 @@ const ContactsTable = () => {
           </Select>
 
           <Select value={filterSource} onValueChange={setFilterSource}>
-            <SelectTrigger className="w-[150px]">
-              <SelectValue placeholder="Source" />
+            <SelectTrigger className="w-[150px] bg-gray-900/80 border-gray-700 focus:border-orange-600 hover:bg-gray-800 transition-all duration-300">
+              <div className="flex items-center">
+                <div className="h-2 w-2 rounded-full mr-2 bg-orange-500 animate-pulse"></div>
+                <SelectValue placeholder="Source" />
+              </div>
             </SelectTrigger>
-            <SelectContent>
+            <SelectContent className="bg-gray-900 border-gray-700 text-white">
               <SelectItem value="all">All Sources</SelectItem>
               {Object.keys(leadSourceEnum.enumValues).map((source) => (
                 <SelectItem key={source} value={source}>{source.replace("_", " ")}</SelectItem>
@@ -398,7 +408,7 @@ const ContactsTable = () => {
             </SelectContent>
           </Select>
 
-          <Button variant="outline" size="icon">
+          <Button variant="outline" size="icon" className="bg-gray-900/80 border-gray-700 hover:bg-gray-800 text-gray-300 hover:text-white transition-all duration-300">
             <Filter className="h-4 w-4" />
           </Button>
         </div>
