@@ -8,7 +8,7 @@ const HeroSection = () => {
       {/* Using the BeamsBackground component for the animated background with increased brightness */}
       <BeamsBackground intensity="strong">
         {/* Edge-to-edge image container with z-index to keep it above the beams */}
-        <div className="w-full flex justify-center items-center overflow-visible relative" style={{ isolation: "isolate", zIndex: 10 }}>
+        <div className="w-full flex justify-center items-center overflow-visible relative" style={{ isolation: "isolate", zIndex: 9999 }}>
           {/* Overlay for soft edge shading */}
           <div className="absolute inset-0 pointer-events-none" style={{
             background: "radial-gradient(circle at center, transparent 40%, black 100%)",
