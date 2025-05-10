@@ -254,7 +254,7 @@ const ProfessionalHeader = () => {
                 <Button 
                   variant="ghost" 
                   size="icon" 
-                  className="rounded-sm bg-gradient-to-br from-amber-100/70 to-amber-200/50 dark:from-amber-900/40 dark:to-amber-800/20 
+                  className="rounded-sm h-9 w-9 bg-gradient-to-br from-amber-100/70 to-amber-200/50 dark:from-amber-900/40 dark:to-amber-800/20 
                   text-amber-900 dark:text-amber-300 border border-amber-700/20 shadow-metal
                   hover:shadow-glow-orange hover:border-amber-600/30 transition-all duration-300 relative overflow-hidden"
                 >
@@ -264,7 +264,13 @@ const ProfessionalHeader = () => {
                   {/* Button gradient hover effect */}
                   <div className="absolute inset-0 rounded-sm opacity-0 hover:opacity-100 bg-gradient-to-t from-amber-300/20 to-amber-200/10 dark:from-amber-600/30 dark:to-amber-700/20 transition-opacity duration-300" />
                   
-                  <Shield className="h-5 w-5 relative z-10" />
+                  <div className="h-7 w-7 relative z-10 flex items-center justify-center">
+                    <img 
+                      src="/images/icons/praetorian-bucket.png" 
+                      alt="Praetorian bucket" 
+                      className="h-full w-full object-contain drop-shadow-sm"
+                    />
+                  </div>
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-[220px] bg-white/95 dark:bg-gray-900/95 border border-amber-600/20 shadow-lg rounded-sm">
