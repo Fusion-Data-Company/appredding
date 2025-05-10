@@ -20,7 +20,7 @@ const HeroSection = () => {
           <img 
             src={heroImage} 
             alt="Praetorian Protection Products" 
-            className="w-screen h-auto object-contain my-4 md:my-6 scale-100 md:scale-110 relative"
+            className="w-screen h-auto object-contain my-4 md:my-6 scale-95 md:scale-100 relative"
             style={{ 
               maxWidth: "none", 
               width: "100vw",
