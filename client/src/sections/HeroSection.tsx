@@ -4,7 +4,7 @@ import { BeamsBackground } from '@/components/ui/beams-background';
 
 const HeroSection = () => {
   return (
-    <section className="w-full bg-transparent overflow-hidden pt-0 -mt-12">
+    <section className="w-full bg-transparent overflow-hidden pt-0 -mt-1">
       {/* Using the BeamsBackground component for the animated background with increased brightness */}
       <BeamsBackground intensity="strong">
         {/* Edge-to-edge image container with z-index to keep it above the beams */}
@@ -23,9 +23,9 @@ const HeroSection = () => {
             className="w-screen h-auto object-cover my-0 scale-95 md:scale-100 relative"
             style={{ 
               maxWidth: "none", 
-              width: "120vw",
-              marginLeft: "-10vw", // Stretch to 120% for maximum edge coverage
-              marginTop: "-120px", // Force image up to completely eliminate any gap with header
+              width: "102vw", // Minimal stretch to avoid cutting content
+              marginLeft: "-1vw", // Slight adjustment for centering
+              marginTop: "-6px", // Just enough to remove the gap
               marginBottom: "8px", // Add space at bottom to prevent overlap
               filter: "drop-shadow(0 0 25px rgba(0,0,0,0.9))",
               zIndex: 30 // Bring to front at higher level than other elements
