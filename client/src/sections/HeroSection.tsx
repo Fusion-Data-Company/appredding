@@ -1,22 +1,17 @@
-import { LazyVideo } from "@/components/ui/lazy-video";
+import HeroBackground from "@/components/ui/hero-background";
 
 const HeroSection = () => {
-  const videoSources = [
-    // Smallest file first for fastest loading
-    { src: "/videos/fire-water-gen4-turbo-small.mp4", type: "video/mp4" },
-    { src: "/videos/fire-water-hands-optimized.mp4", type: "video/mp4" },
-    { src: "/videos/fire-water-gen4-turbo.mp4", type: "video/mp4" }
-  ];
-
   return (
     <section className="relative flex flex-col bg-black">
-      {/* Optimized video with lazy loading and performance enhancements */}
-      <LazyVideo 
-        sources={videoSources}
-        poster="/images/fire-water-gen4-turbo-poster.jpg"
-        freezeAt={3.3}
-        className="h-auto"
-      />
+      {/* Hero background image */}
+      <div className="w-full" style={{ height: "calc(100vh - 80px)", minHeight: "600px", maxHeight: "1000px" }}>
+        <HeroBackground 
+          src="/images/praetorian-hero.png"
+          alt="Praetorian SmartCoat - Fire and water protected by armored guards"
+          priority={true}
+          className="h-full"
+        />
+      </div>
 
       {/* Buttons removed as requested */}
     </section>
