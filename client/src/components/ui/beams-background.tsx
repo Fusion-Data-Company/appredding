@@ -249,7 +249,7 @@ export function BeamsBackground({
             />
 
             {children && (
-                <div className="relative w-full" style={{ zIndex: 5 }}>
+                <div className="relative z-1 w-full">
                     {children}
                 </div>
             )}
