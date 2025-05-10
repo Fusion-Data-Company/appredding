@@ -55,7 +55,14 @@ export function preloadImages(sources: string[]): Promise<void[]> {
  * Call this early in the application lifecycle
  */
 export function preloadCriticalImages(): void {
+  // Import hero image
+  import('../assets_dir/imageExports').then(module => {
+    const heroImage = module.PRAETORIAN_HERO_IMAGE;
+    console.log("Hero image path:", heroImage);
+  }).catch(err => console.error("Failed to import hero image:", err));
+  
   const criticalImages = [
+    '/praetorian-hero-main.jpg', // Hero image
     '/images/fire-water-gen4-turbo-poster.jpg',
     '/images/optimized/diamond-plate-fire-water.jpg',
     '/images/optimized/diamond-plate-fire-water-2.jpg',
