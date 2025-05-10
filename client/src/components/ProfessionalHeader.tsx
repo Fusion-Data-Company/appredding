@@ -112,23 +112,20 @@ const ProfessionalHeader = () => {
         <Link href="/" className="flex items-center gap-5 z-10 group relative w-80">
           <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-transparent via-slate-100/10 to-transparent dark:via-zinc-300/10 opacity-0 group-hover:opacity-100 animate-shimmer transition-opacity duration-300"></div>
           
-          <div className="relative flex items-center w-28 flex-shrink-0 overflow-visible">
+          <div className="flex items-center mr-4">
             {/* Bucket image with simple shadow */}
-            <div className="relative overflow-visible">
+            <div className="relative">
               <img 
                 src={praetorianBucketNew} 
                 alt="Praetorian Bucket" 
-                className="h-28 w-auto relative -my-2 overflow-visible"
+                className="h-24 w-auto"
                 style={{ 
-                  transform: 'perspective(800px) rotateY(-5deg) scale(2.2)', 
+                  filter: 'contrast(1.2) brightness(1.1)',
+                  transform: 'perspective(800px) rotateY(-5deg) scale(1.5)',
                   transformStyle: 'preserve-3d',
-                  transformOrigin: 'left center',
-                  position: 'absolute',
-                  left: '-25px',
+                  position: 'relative',
                   zIndex: 20,
-                  filter: 'contrast(1.1) brightness(1.05)',
-                  width: '140%',
-                  maxWidth: 'none'
+                  marginLeft: '-10px'
                 }}
               />
             </div>
