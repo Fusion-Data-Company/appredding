@@ -435,66 +435,87 @@ const ContactsTable = () => {
 
   return (
     <div className="card-premium overflow-hidden animate-fadeIn">
-      <div className="p-4 border-b border-gray-800 flex flex-col gap-4 md:flex-row md:items-center md:justify-between bg-black/60 backdrop-blur-sm shadow-lg">
+      <div className="p-4 border-b border-gray-800 flex flex-col gap-5 md:flex-row md:items-center md:justify-between bg-gradient-to-b from-gray-900 via-black to-black backdrop-blur-sm shadow-lg">
         <div className="flex items-center w-full md:w-1/3">
-          <div className="relative flex w-full">
+          <div className="relative flex w-full group">
             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-              <Search className="w-4 h-4 text-gray-400" />
+              <Search className="w-4 h-4 text-gray-400 group-focus-within:text-cyan-400 transition-colors duration-200" />
             </div>
             <Input
               placeholder="Search contacts..."
               value={searchText}
               onChange={(e) => setSearchText(e.target.value)}
-              className="w-full pl-10 bg-gray-900/80 border-gray-700 focus:border-cyan-600 focus:ring-1 focus:ring-cyan-500/50 transition-all duration-300"
+              className="w-full pl-10 bg-gray-900/80 border-gray-800 focus:border-cyan-600 focus:ring-1 focus:ring-cyan-500/50 transition-all duration-300 placeholder-gray-500"
             />
+            {searchText && (
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                className="absolute inset-y-0 right-0 h-full px-2 text-gray-400 hover:text-white"
+                onClick={() => setSearchText("")}
+              >
+                <div className="h-4 w-4 rounded-full border border-gray-400 hover:border-white flex items-center justify-center">
+                  ×
+                </div>
+              </Button>
+            )}
           </div>
         </div>
 
         <div className="flex flex-wrap items-center gap-3 w-full md:w-2/3 justify-end">
-          <Select value={filterStatus} onValueChange={setFilterStatus}>
-            <SelectTrigger className="w-[150px] bg-gray-900/80 border-gray-700 focus:border-cyan-600 hover:bg-gray-800 transition-all duration-300">
-              <div className="flex items-center">
-                <div className="h-2 w-2 rounded-full mr-2 bg-cyan-500 animate-pulse"></div>
-                <SelectValue placeholder="Status" />
-              </div>
-            </SelectTrigger>
-            <SelectContent className="bg-gray-900 border-gray-700 text-white">
-              <SelectItem value="all">All Statuses</SelectItem>
-              {Object.keys(contactStatusEnum.enumValues).map((status) => (
-                <SelectItem key={status} value={status}>{status.replace("_", " ")}</SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+          <div className="rounded-md p-1 bg-gray-800/50 border border-gray-700 flex gap-0.5">
+            <Select value={filterStatus} onValueChange={setFilterStatus}>
+              <SelectTrigger className="min-w-[130px] bg-black/80 border-gray-700 focus:border-cyan-500 hover:bg-gray-800 focus:ring-1 focus:ring-cyan-500/20 transition-all duration-300">
+                <div className="flex items-center">
+                  <div className="h-2 w-2 rounded-full mr-2 bg-cyan-500 animate-pulse"></div>
+                  <SelectValue placeholder="Status" />
+                </div>
+              </SelectTrigger>
+              <SelectContent className="bg-gray-900 border-gray-700 text-white">
+                <SelectItem value="all">All Statuses</SelectItem>
+                {Object.keys(contactStatusEnum.enumValues).map((status) => (
+                  <SelectItem key={status} value={status}>{status.replace("_", " ")}</SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
 
-          <Select value={filterSource} onValueChange={setFilterSource}>
-            <SelectTrigger className="w-[150px] bg-gray-900/80 border-gray-700 focus:border-orange-600 hover:bg-gray-800 transition-all duration-300">
-              <div className="flex items-center">
-                <div className="h-2 w-2 rounded-full mr-2 bg-orange-500 animate-pulse"></div>
-                <SelectValue placeholder="Source" />
-              </div>
-            </SelectTrigger>
-            <SelectContent className="bg-gray-900 border-gray-700 text-white">
-              <SelectItem value="all">All Sources</SelectItem>
-              {Object.keys(leadSourceEnum.enumValues).map((source) => (
-                <SelectItem key={source} value={source}>{source.replace("_", " ")}</SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+            <Select value={filterSource} onValueChange={setFilterSource}>
+              <SelectTrigger className="min-w-[130px] bg-black/80 border-gray-700 focus:border-orange-500 hover:bg-gray-800 focus:ring-1 focus:ring-orange-500/20 transition-all duration-300">
+                <div className="flex items-center">
+                  <div className="h-2 w-2 rounded-full mr-2 bg-orange-500 animate-pulse"></div>
+                  <SelectValue placeholder="Source" />
+                </div>
+              </SelectTrigger>
+              <SelectContent className="bg-gray-900 border-gray-700 text-white">
+                <SelectItem value="all">All Sources</SelectItem>
+                {Object.keys(leadSourceEnum.enumValues).map((source) => (
+                  <SelectItem key={source} value={source}>{source.replace("_", " ")}</SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
 
-          <Button variant="outline" size="icon" className="bg-gray-900/80 border-gray-700 hover:bg-gray-800 text-gray-300 hover:text-white transition-all duration-300">
-            <Filter className="h-4 w-4" />
+          <Button 
+            variant="default" 
+            size="icon" 
+            className="bg-gradient-to-br from-orange-600 to-orange-700 hover:from-orange-700 hover:to-orange-800 border-orange-500/10 shadow-md shadow-orange-500/20 hover:shadow-orange-500/30"
+          >
+            <div className="relative">
+              <div className="absolute -right-1 -top-1 w-2 h-2 rounded-full bg-cyan-400 border border-cyan-400/40 shadow-sm shadow-cyan-500/50"></div>
+              <Filter className="h-4 w-4" />
+            </div>
           </Button>
         </div>
       </div>
 
       <div className="overflow-x-auto">
         <table className="w-full">
-          <thead className="bg-black sticky top-0 z-10">
-            <tr>
+          <thead className="sticky top-0 z-10">
+            <tr className="bg-gradient-to-b from-gray-900 to-black border-b border-gray-800">
               {columns.map((column) => (
                 <th
                   key={column.key}
-                  className="text-left p-3 font-medium text-gray-300 text-sm border-b border-gray-800 relative"
+                  className="text-left px-3 py-4 font-semibold text-gray-200 text-sm relative first:rounded-tl-md"
                   style={{ width: `${columnWidths[column.key] || column.width}px`, minWidth: `${columnWidths[column.key] || column.width}px` }}
                 >
                   <div className="flex items-center">
@@ -503,27 +524,29 @@ const ContactsTable = () => {
                         className="flex items-center focus:outline-none hover:text-white transition-colors group"
                         onClick={() => handleSort(column.key)}
                       >
-                        {column.title}
-                        <div className="ml-1 flex items-center">
+                        <span className={`${sortColumn === column.key ? 'text-cyan-400' : ''}`}>
+                          {column.title}
+                        </span>
+                        <div className="ml-1.5 flex items-center">
                           {sortColumn === column.key ? (
                             sortDirection === "asc" ? 
-                              <ChevronUp className="h-4 w-4 text-cyan-400" /> : 
-                              <ChevronDown className="h-4 w-4 text-cyan-400" />
+                              <ChevronUp className="h-4 w-4 text-cyan-400 animate-fadeIn shadow-cyan-400/50" /> : 
+                              <ChevronDown className="h-4 w-4 text-cyan-400 animate-fadeIn shadow-cyan-400/50" />
                           ) : (
-                            <div className="opacity-0 group-hover:opacity-50 transition-opacity">
+                            <div className="opacity-0 group-hover:opacity-70 transition-opacity">
                               <ChevronUp className="h-3 w-3" />
                             </div>
                           )}
                         </div>
                       </button>
                     ) : (
-                      column.title
+                      <span className="text-gray-300">{column.title}</span>
                     )}
                   </div>
                   
                   {/* Resize handle */}
                   <div
-                    className="absolute top-0 right-0 h-full w-1 cursor-col-resize group hover:bg-cyan-600/30"
+                    className="absolute top-0 right-0 h-full w-1 cursor-col-resize hover:bg-cyan-600/50 hover:w-1.5 transition-all duration-150"
                     onMouseDown={(e) => handleStartResize(e, column.key)}
                   />
                 </th>
@@ -537,27 +560,36 @@ const ContactsTable = () => {
                   colSpan={columns.length}
                   className="text-center p-8 text-gray-400"
                 >
-                  <div className="flex flex-col items-center justify-center py-8">
-                    <div className="relative w-20 h-20 mb-6">
-                      <div className="absolute inset-0 rounded-full bg-gray-800/80 animate-pulse"></div>
-                      <div className="absolute inset-0 rounded-full flex items-center justify-center bg-gradient-to-br from-gray-700 to-gray-900 border border-gray-700 shadow-lg">
-                        <UserX className="h-10 w-10 text-gray-500" />
+                  <div className="flex flex-col items-center justify-center py-10">
+                    <div className="relative w-24 h-24 mb-6">
+                      <div className="absolute inset-0 rounded-full bg-orange-500/10 animate-glow-pulse"></div>
+                      <div className="h-24 w-24 rounded-full bg-gradient-to-br from-orange-500 to-orange-700 flex items-center justify-center relative z-10 border border-orange-400/20 shadow-xl shadow-orange-500/10">
+                        <UserX className="h-12 w-12 text-white/90" />
                       </div>
                     </div>
-                    <p className="text-xl font-medium text-white mb-2">No contacts found</p>
-                    <p className="text-gray-400 mb-4 max-w-md text-center">Try adjusting your search or filter criteria to find what you're looking for.</p>
-                    <Button 
-                      variant="outline" 
-                      className="border-gray-700 bg-gray-900/50 hover:bg-gray-800 text-gray-300"
-                      onClick={() => {
-                        setSearchText("");
-                        setFilterStatus("all");
-                        setFilterSource("all");
-                      }}
-                    >
-                      <RefreshCcw className="h-4 w-4 mr-2" />
-                      Reset filters
-                    </Button>
+                    <p className="text-2xl font-medium text-white mb-2">No contacts found</p>
+                    <p className="text-gray-400 mb-6 max-w-md text-center">Try adjusting your search or filter criteria to find what you're looking for.</p>
+                    <div className="flex gap-3">
+                      <Button 
+                        variant="outline" 
+                        className="border-gray-700 bg-gray-900/50 hover:bg-gray-800 text-gray-300 hover:border-cyan-500/40 hover:text-cyan-400 transition-all duration-300"
+                        onClick={() => {
+                          setSearchText("");
+                          setFilterStatus("all");
+                          setFilterSource("all");
+                        }}
+                      >
+                        <RefreshCcw className="h-4 w-4 mr-2" />
+                        Reset filters
+                      </Button>
+                      <Button 
+                        className="bg-gradient-to-r from-orange-600 to-orange-700 hover:from-orange-700 hover:to-orange-800 shadow-lg shadow-orange-500/20 transition-all duration-300 hover:shadow-orange-500/30 border border-orange-500/20"
+                      >
+                        <div className="flex items-center">
+                          Add Contact
+                        </div>
+                      </Button>
+                    </div>
                   </div>
                 </td>
               </tr>
@@ -565,9 +597,9 @@ const ContactsTable = () => {
               sortedContacts.map((contact, idx) => (
                 <tr
                   key={contact.id}
-                  className={`${
+                  className={`group ${
                     idx % 2 === 0 ? "bg-gray-900/30" : "bg-black"
-                  } hover:bg-gray-800 cursor-pointer transition-all duration-150 border-b border-gray-800`}
+                  } hover:bg-gray-800/70 cursor-pointer transition-all duration-200 border-b border-gray-800 border-l-4 border-l-transparent hover:border-l-orange-500`}
                   onClick={() => handleViewContact(contact)}
                 >
                   {columns.map((column) => (
@@ -576,11 +608,13 @@ const ContactsTable = () => {
                       className="p-3 text-gray-300"
                       style={{ width: `${columnWidths[column.key] || column.width}px`, minWidth: `${columnWidths[column.key] || column.width}px` }}
                     >
+                      <div className="transition-all duration-200 group-hover:translate-x-1">
                       {column.render
                         ? column.render(contact[column.key as keyof ContactWithCompany], contact)
                         : (column.key in contact 
                            ? String(contact[column.key as keyof ContactWithCompany] || "-")
                            : "-")}
+                      </div>
                     </td>
                   ))}
                 </tr>
