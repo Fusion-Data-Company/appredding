@@ -1,5 +1,4 @@
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import MainLayout from "@/components/layout/MainLayout";
 import HeroSection from "@/sections/HeroSection";
 import RotatingTextSection from "@/sections/RotatingTextSection";
 import IntroSection from "@/sections/IntroSection";
@@ -17,9 +16,8 @@ import { faqData, videoData } from "@/data/content";
 
 const Home = () => {
   return (
-    <div className="min-h-screen flex flex-col bg-primary-dark">
-      <Header />
-      <main className="flex-1 flex flex-col">
+    <MainLayout fullWidth>
+      <div className="flex-1 flex flex-col">
         <HeroSection />
         <RotatingTextSection />
         <ApplicationsSection />
@@ -32,9 +30,8 @@ const Home = () => {
         <VideoSection videos={videoData} />
         <FAQSection faqs={faqData} />
         <ContactSection />
-      </main>
-      <Footer />
-    </div>
+      </div>
+    </MainLayout>
   );
 };
 

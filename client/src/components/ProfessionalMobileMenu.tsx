@@ -17,7 +17,6 @@ import {
   Flame,
   Building,
   Home,
-  Buildings,
   PanelLeft
 } from "lucide-react";
 import { RomanDivider } from "@/components/ui/roman-header";
