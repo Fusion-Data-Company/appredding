@@ -25,17 +25,27 @@ interface Beam {
 
 function createBeam(width: number, height: number): Beam {
     const angle = -35 + Math.random() * 10;
+    // Determine if this is a fire (orange/red) or water (blue/cyan) beam
+    const isFireBeam = Math.random() > 0.5;
+    
+    // Fire colors: more orange-red (15-30)
+    // Water colors: more cyan-blue (190-210)
+    const hue = isFireBeam ? 
+                15 + Math.random() * 15 : 
+                190 + Math.random() * 20;
+    
+    // Make beams larger and more visible
     return {
         x: Math.random() * width * 1.5 - width * 0.25,
         y: Math.random() * height * 1.5 - height * 0.25,
-        width: 30 + Math.random() * 60,
-        length: height * 2.5,
+        width: 50 + Math.random() * 80, // Wider beams
+        length: height * 3, // Longer beams
         angle: angle,
-        speed: 0.6 + Math.random() * 1.2,
-        opacity: 0.12 + Math.random() * 0.16,
-        hue: 190 + Math.random() * 70,
+        speed: 0.4 + Math.random() * 0.8, // Slightly slower for better visual
+        opacity: 0.2 + Math.random() * 0.25, // Higher opacity
+        hue: hue,
         pulse: Math.random() * Math.PI * 2,
-        pulseSpeed: 0.02 + Math.random() * 0.03,
+        pulseSpeed: 0.01 + Math.random() * 0.025, // Slightly slower pulsing
     };
 }
 
@@ -84,16 +94,24 @@ export function BeamsBackground({
             
             const column = index % 3;
             const spacing = canvas.width / 3;
+            
+            // Alternate fire and water beams based on column for better distribution
+            const isFireBeam = index % 2 === 0;
+            const hue = isFireBeam ? 
+                        // Fire colors: orange/red range (15-30)
+                        15 + Math.random() * 15 : 
+                        // Water colors: blue/cyan range (190-210)
+                        190 + Math.random() * 20;
 
             beam.y = canvas.height + 100;
             beam.x =
                 column * spacing +
                 spacing / 2 +
                 (Math.random() - 0.5) * spacing * 0.5;
-            beam.width = 100 + Math.random() * 100;
-            beam.speed = 0.5 + Math.random() * 0.4;
-            beam.hue = 190 + (index * 70) / totalBeams;
-            beam.opacity = 0.2 + Math.random() * 0.1;
+            beam.width = 50 + Math.random() * 80; // Keep consistent with createBeam
+            beam.speed = 0.4 + Math.random() * 0.8; // Keep consistent with createBeam
+            beam.hue = hue;
+            beam.opacity = 0.2 + Math.random() * 0.25; // Keep consistent with createBeam
             return beam;
         }
 
@@ -109,26 +127,54 @@ export function BeamsBackground({
                 opacityMap[intensity];
 
             const gradient = ctx.createLinearGradient(0, 0, 0, beam.length);
-
-            // Enhanced gradient with multiple color stops
-            gradient.addColorStop(0, `hsla(${beam.hue}, 85%, 65%, 0)`);
-            gradient.addColorStop(
-                0.1,
-                `hsla(${beam.hue}, 85%, 65%, ${pulsingOpacity * 0.5})`
-            );
-            gradient.addColorStop(
-                0.4,
-                `hsla(${beam.hue}, 85%, 65%, ${pulsingOpacity})`
-            );
-            gradient.addColorStop(
-                0.6,
-                `hsla(${beam.hue}, 85%, 65%, ${pulsingOpacity})`
-            );
-            gradient.addColorStop(
-                0.9,
-                `hsla(${beam.hue}, 85%, 65%, ${pulsingOpacity * 0.5})`
-            );
-            gradient.addColorStop(1, `hsla(${beam.hue}, 85%, 65%, 0)`);
+            
+            // Determine if this is a fire beam based on hue value
+            const isFireBeam = beam.hue < 50;
+            
+            // Enhanced gradient with multiple color stops and higher saturation
+            // Fire beams (orange/red) have higher saturation and brightness
+            // Water beams (blue/cyan) have slightly lower saturation for contrast
+            if (isFireBeam) {
+                // Fire beam gradient (orange/red)
+                gradient.addColorStop(0, `hsla(${beam.hue}, 100%, 70%, 0)`);
+                gradient.addColorStop(
+                    0.1,
+                    `hsla(${beam.hue}, 100%, 70%, ${pulsingOpacity * 0.6})`
+                );
+                gradient.addColorStop(
+                    0.4,
+                    `hsla(${beam.hue}, 100%, 70%, ${pulsingOpacity * 1.2})`
+                );
+                gradient.addColorStop(
+                    0.6,
+                    `hsla(${beam.hue}, 100%, 70%, ${pulsingOpacity * 1.2})`
+                );
+                gradient.addColorStop(
+                    0.9,
+                    `hsla(${beam.hue}, 100%, 70%, ${pulsingOpacity * 0.6})`
+                );
+                gradient.addColorStop(1, `hsla(${beam.hue}, 100%, 70%, 0)`);
+            } else {
+                // Water beam gradient (blue/cyan)
+                gradient.addColorStop(0, `hsla(${beam.hue}, 90%, 65%, 0)`);
+                gradient.addColorStop(
+                    0.1,
+                    `hsla(${beam.hue}, 90%, 65%, ${pulsingOpacity * 0.5})`
+                );
+                gradient.addColorStop(
+                    0.4,
+                    `hsla(${beam.hue}, 90%, 65%, ${pulsingOpacity})`
+                );
+                gradient.addColorStop(
+                    0.6,
+                    `hsla(${beam.hue}, 90%, 65%, ${pulsingOpacity})`
+                );
+                gradient.addColorStop(
+                    0.9,
+                    `hsla(${beam.hue}, 90%, 65%, ${pulsingOpacity * 0.5})`
+                );
+                gradient.addColorStop(1, `hsla(${beam.hue}, 90%, 65%, 0)`);
+            }
 
             ctx.fillStyle = gradient;
             ctx.fillRect(-beam.width / 2, 0, beam.width, beam.length);
@@ -170,10 +216,18 @@ export function BeamsBackground({
     return (
         <div
             className={cn(
-                "relative w-full overflow-hidden bg-neutral-950",
+                "relative w-full overflow-hidden bg-black",
                 className
             )}
         >
+            {/* Dark background gradient with subtle fire-water color hints */}
+            <div 
+                className="absolute inset-0 bg-gradient-to-b from-black via-black to-black"
+                style={{
+                    background: "radial-gradient(circle at 75% 10%, rgba(255, 69, 0, 0.07) 0%, rgba(0, 0, 0, 0) 40%), radial-gradient(circle at 25% 90%, rgba(0, 153, 255, 0.07) 0%, rgba(0, 0, 0, 0) 40%), black"
+                }}
+            />
+            
             <canvas
                 ref={canvasRef}
                 className="absolute inset-0"
@@ -181,9 +235,9 @@ export function BeamsBackground({
             />
 
             <motion.div
-                className="absolute inset-0 bg-neutral-950/5"
+                className="absolute inset-0 bg-black/20"
                 animate={{
-                    opacity: [0.05, 0.15, 0.05],
+                    opacity: [0.2, 0.3, 0.2],
                 }}
                 transition={{
                     duration: 10,
@@ -191,7 +245,7 @@ export function BeamsBackground({
                     repeat: Number.POSITIVE_INFINITY,
                 }}
                 style={{
-                    backdropFilter: "blur(50px)",
+                    backdropFilter: "blur(15px)",
                 }}
             />
 
