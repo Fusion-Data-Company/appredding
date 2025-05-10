@@ -128,38 +128,40 @@ const ProfessionalHeader = () => {
             filter: 'contrast(1.3) brightness(1.15)',
             transform: 'perspective(800px) rotateY(-5deg) scale(1.5)',
             transformStyle: 'preserve-3d',
-            marginLeft: '-15px',
-            marginTop: '5px'
+            marginLeft: '-5px',
+            marginTop: '15px'
           }}
         />
       </Link>
 
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
         {/* Logo (text portion) */}
-        <Link href="/" className="flex items-center gap-5 z-10 group relative w-96 ml-16">
-          <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-transparent via-slate-100/10 to-transparent dark:via-zinc-300/10 opacity-0 group-hover:opacity-100 animate-shimmer transition-opacity duration-300"></div>
-          
-          <div className="flex flex-col justify-center relative">
-            {/* Shine overlay for metallic effect */}
-            <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+        <div className="flex items-center gap-5 z-10 group relative" style={{ marginLeft: '-80px' }}>
+          <Link href="/" className="flex items-center w-96 ml-0 mt-6">
+            <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-transparent via-slate-100/10 to-transparent dark:via-zinc-300/10 opacity-0 group-hover:opacity-100 animate-shimmer transition-opacity duration-300"></div>
             
-            <div className="h-32 mb-1 relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gray-200/5 to-transparent opacity-0 group-hover:opacity-100 animate-shimmer-slow"></div>
-              <img 
-                src={praetorianHeaderImg} 
-                alt="PRAETORIAN" 
-                className="h-full object-contain drop-shadow-lg transition-all duration-500 ease-in-out"
-                style={{
-                  filter: 'contrast(1.3) brightness(1.15) saturate(1.05)',
-                  transform: 'scale(1.15)',
-                }}
-              />
+            <div className="flex flex-col justify-center relative">
+              {/* Shine overlay for metallic effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+              
+              <div className="h-32 mb-1 relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gray-200/5 to-transparent opacity-0 group-hover:opacity-100 animate-shimmer-slow"></div>
+                <img 
+                  src={praetorianHeaderImg} 
+                  alt="PRAETORIAN" 
+                  className="h-full object-contain drop-shadow-lg transition-all duration-500 ease-in-out"
+                  style={{
+                    filter: 'contrast(1.3) brightness(1.15) saturate(1.05)',
+                    transform: 'scale(1.15)',
+                  }}
+                />
+              </div>
+              <span className="text-[1.05rem] text-slate-700 dark:text-slate-400 font-medium tracking-widest uppercase group-hover:text-black dark:group-hover:text-white transition-colors duration-300 mt-[1px]">
+                <span className="bg-gradient-to-r from-slate-700 to-slate-900 dark:from-slate-300 dark:to-slate-400 bg-clip-text text-transparent group-hover:from-slate-800 group-hover:to-black dark:group-hover:from-gray-200 dark:group-hover:to-white transition-all duration-500 font-semibold">SmartCoat Solutions</span>
+              </span>
             </div>
-            <span className="text-[1.05rem] text-slate-700 dark:text-slate-400 font-medium tracking-widest uppercase group-hover:text-black dark:group-hover:text-white transition-colors duration-300 mt-[1px]">
-              <span className="bg-gradient-to-r from-slate-700 to-slate-900 dark:from-slate-300 dark:to-slate-400 bg-clip-text text-transparent group-hover:from-slate-800 group-hover:to-black dark:group-hover:from-gray-200 dark:group-hover:to-white transition-all duration-500 font-semibold">SmartCoat Solutions</span>
-            </span>
-          </div>
-        </Link>
+          </Link>
+        </div>
 
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center space-x-8">
