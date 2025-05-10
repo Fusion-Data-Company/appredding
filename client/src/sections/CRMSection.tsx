@@ -66,17 +66,26 @@ export default function CRMSection() {
   }
 
   // Fetch data for dropdowns in forms
-  const { data: contacts = [] } = useQuery<Contact[]>({
+  const { 
+    data: contacts = [],
+    refetch: refetchContacts 
+  } = useQuery<Contact[]>({
     queryKey: ['/api/contacts'],
     staleTime: 5 * 60 * 1000, // 5 minutes
   });
   
-  const { data: companies = [] } = useQuery<Company[]>({
+  const { 
+    data: companies = [],
+    refetch: refetchCompanies 
+  } = useQuery<Company[]>({
     queryKey: ['/api/companies'],
     staleTime: 5 * 60 * 1000,
   });
   
-  const { data: opportunities = [] } = useQuery<Opportunity[]>({
+  const { 
+    data: opportunities = [],
+    refetch: refetchOpportunities 
+  } = useQuery<Opportunity[]>({
     queryKey: ['/api/opportunities'],
     staleTime: 5 * 60 * 1000,
   });
@@ -90,7 +99,7 @@ export default function CRMSection() {
         </div>
         
         <div className="flex flex-wrap gap-2">
-          {/* CSV Import Button */}
+          {/* CSV Import Button with data refresh */}
           <CSVImportForm 
             onSuccess={() => {
               // Refresh data after successful import
