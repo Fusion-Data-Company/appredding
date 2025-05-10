@@ -249,7 +249,7 @@ export function BeamsBackground({
             />
 
             {children && (
-                <div className="relative z-10 w-full">
+                <div className="relative z-1 w-full">
                     {children}
                 </div>
             )}

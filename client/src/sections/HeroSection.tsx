@@ -11,22 +11,24 @@ const HeroSection = () => {
         <div className="w-full flex justify-center items-center overflow-hidden">
           {/* Overlay for soft edge shading */}
           <div className="absolute inset-0 pointer-events-none" style={{
-            background: "radial-gradient(circle at center, transparent 30%, black 100%)",
-            opacity: 0.7,
-            zIndex: 1
+            background: "radial-gradient(circle at center, transparent 40%, black 100%)",
+            opacity: 0.65,
+            zIndex: 9 // Below the image (10) but above other elements
           }}></div>
           
           {/* The image stretched horizontally to screen edges */}
           <img 
             src={heroImage} 
             alt="Praetorian Protection Products" 
-            className="w-screen h-auto object-contain my-4 md:my-6 scale-95 md:scale-100 relative"
+            className="w-screen h-auto object-cover my-4 md:my-6 scale-95 md:scale-100 relative"
             style={{ 
               maxWidth: "none", 
-              width: "100vw",
+              width: "105vw",
+              marginLeft: "-2.5vw", // Stretch beyond screen edges
               marginTop: "-36px", // Moved up additional quarter inch (12px) to prevent bottom overlap
+              marginBottom: "8px", // Add space at bottom to prevent overlap
               filter: "drop-shadow(0 0 25px rgba(0,0,0,0.9))",
-              zIndex: 0
+              zIndex: 10 // Bring to front
             }}
           />
         </div>
