@@ -14,12 +14,7 @@ export async function getCRMAnalytics(req: Request, res: Response) {
       db.select({ count: count() }).from(contacts),
       // New contacts this month
       db.select({ count: count() }).from(contacts).where(
-        and(
-          gt(
-            contacts.createdAt,
-            sql`date_trunc('month', CURRENT_DATE)`
-          )
-        )
+        sql`CAST(${contacts.createdAt} AS timestamp) > date_trunc('month', CURRENT_DATE)`
       )
     ]);
 
@@ -29,12 +24,7 @@ export async function getCRMAnalytics(req: Request, res: Response) {
       db.select({ count: count() }).from(companies),
       // New companies this month
       db.select({ count: count() }).from(companies).where(
-        and(
-          gt(
-            companies.createdAt,
-            sql`date_trunc('month', CURRENT_DATE)`
-          )
-        )
+        sql`CAST(${companies.createdAt} AS timestamp) > date_trunc('month', CURRENT_DATE)`
       )
     ]);
 
