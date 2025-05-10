@@ -122,14 +122,14 @@ const ProfessionalHeader = () => {
       <Link href="/" className="absolute left-0 top-0 h-full flex items-center z-20">
         <div className="relative">
           {/* Dark drop shadow behind the bucket */}
-          <div className="absolute inset-0 rounded-full bg-black/30 blur-md -z-10 scale-90 translate-y-1 translate-x-1 -translate-y-[5px]"></div>
+          <div className="absolute inset-0 rounded-full bg-black/30 blur-md -z-10 scale-91 translate-y-1 translate-x-1 -translate-y-[5px]"></div>
           <img 
             src={praetorianBucketNew} 
             alt="Praetorian Bucket" 
             className="h-[140px] w-auto relative"
             style={{ 
               filter: 'contrast(1.3) brightness(1.15)',
-              transform: 'perspective(800px) rotateY(-5deg) scale(1.5) translateY(-5px)',
+              transform: 'perspective(800px) rotateY(-5deg) scale(1.51) translateY(-5px)',
               transformStyle: 'preserve-3d',
               marginLeft: '-5px'
             }}
@@ -161,7 +161,7 @@ const ProfessionalHeader = () => {
                   }}
                 />
               </div>
-              <span className="text-[1.05rem] text-slate-700 dark:text-slate-400 font-medium tracking-widest uppercase group-hover:text-black dark:group-hover:text-white transition-colors duration-300 mt-[-29px] whitespace-nowrap relative z-30" style={{ marginLeft: '-36px' }}>
+              <span className="text-[1.05rem] text-slate-700 dark:text-slate-400 font-medium tracking-widest uppercase group-hover:text-black dark:group-hover:text-white transition-colors duration-300 mt-[-29px] whitespace-nowrap relative z-30" style={{ marginLeft: '-32px' }}>
                 <span className="bg-gradient-to-r from-slate-700 to-slate-900 dark:from-slate-300 dark:to-slate-400 bg-clip-text text-transparent group-hover:from-slate-800 group-hover:to-black dark:group-hover:from-gray-200 dark:group-hover:to-white transition-all duration-500 font-semibold">SmartCoat Solutions</span>
               </span>
             </div>
