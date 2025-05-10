@@ -10,7 +10,8 @@ import {
   PlusCircle, 
   Mail,
   Phone,
-  FileEdit
+  FileEdit,
+  UserPlus
 } from 'lucide-react';
 
 import AnalyticsDashboard from '@/components/crm/AnalyticsDashboard';
@@ -19,6 +20,7 @@ import { CompanyForm } from '@/components/crm/CompanyForm';
 import { OpportunityForm } from '@/components/crm/OpportunityForm';
 import { ActivityForm } from '@/components/crm/ActivityForm';
 import { CSVImportForm } from '@/components/crm/CSVImportForm';
+import RegistrationTabs from '@/components/crm/RegistrationTabs';
 
 export default function CRMSection() {
   // Modal states
@@ -148,7 +150,7 @@ export default function CRMSection() {
       </div>
 
       <Tabs defaultValue="analytics" className="w-full">
-        <TabsList className="grid w-full grid-cols-2 md:grid-cols-5 bg-gray-800/50 rounded-lg p-1">
+        <TabsList className="grid w-full grid-cols-2 md:grid-cols-6 bg-gray-800/50 rounded-lg p-1">
           <TabsTrigger value="analytics" className="flex items-center gap-2">
             <BarChart3 className="h-4 w-4" />
             <span className="hidden md:inline">Analytics</span>
@@ -168,6 +170,10 @@ export default function CRMSection() {
           <TabsTrigger value="calendar" className="flex items-center gap-2">
             <Calendar className="h-4 w-4" />
             <span className="hidden md:inline">Calendar</span>
+          </TabsTrigger>
+          <TabsTrigger value="registrations" className="flex items-center gap-2">
+            <UserPlus className="h-4 w-4" />
+            <span className="hidden md:inline">Registrations</span>
           </TabsTrigger>
         </TabsList>
 
