@@ -3,10 +3,21 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { GradientButton } from "@/components/ui/gradient-button";
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import { CircleDollarSign, DropletIcon, HelpCircle, Info } from "lucide-react";
+import { CircleDollarSign, DropletIcon, HelpCircle, Info, Loader2 } from "lucide-react";
 import { GradientHeading } from "@/components/ui/gradient-heading";
 import poolImage from "@assets/Screenshot 2025-04-22 at 14.04.08.png";
 import waterBgImage from "@assets/pool-water-bg.jpg";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { insertPoolProfessionalSchema } from "@shared/schema";
+import * as z from "zod";
+import { useMutation } from "@tanstack/react-query";
+import { apiRequest } from "@/lib/queryClient";
+import { useToast } from "@/hooks/use-toast";
+import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Checkbox } from "@/components/ui/checkbox";
 import { 
   Card, 
   CardContent,
@@ -21,6 +32,19 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+
+// Extended schema with additional validation for pool professional registration
+const poolProfessionalFormSchema = insertPoolProfessionalSchema.extend({
+  confirmEmail: z.string().email("Invalid email format"),
+  termsAccepted: z.boolean().refine(val => val === true, {
+    message: "You must accept the terms and conditions",
+  })
+}).refine((data) => data.email === data.confirmEmail, {
+  message: "Emails don't match",
+  path: ["confirmEmail"],
+});
+
+type PoolProfessionalFormValues = z.infer<typeof poolProfessionalFormSchema>;
 
 // Constants for pool coating calculator
 interface CoatingProduct {
@@ -61,6 +85,491 @@ const surfaceFactors = {
   smooth: 1.0, // No additional material needed
   moderate: 1.2, // 20% more material needed
   rough: 1.4 // 40% more material needed
+};
+
+// Pool Professional Registration Form Component
+const PoolProfessionalForm = () => {
+  const { toast } = useToast();
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+  
+  const form = useForm<PoolProfessionalFormValues>({
+    resolver: zodResolver(poolProfessionalFormSchema),
+    defaultValues: {
+      companyName: "",
+      contactName: "",
+      email: "",
+      confirmEmail: "",
+      phone: "",
+      address: "",
+      city: "",
+      state: "",
+      zipCode: "",
+      website: "",
+      licenseNumber: "",
+      licenseExpiryDate: undefined,
+      insuranceInfo: "",
+      yearsInBusiness: undefined,
+      specialties: "",
+      serviceAreas: "",
+      poolTypes: "",
+      materialsExperience: "",
+      hourlyRate: undefined,
+      certifications: "",
+      notes: "",
+      termsAccepted: false,
+    },
+  });
+
+  const registerMutation = useMutation({
+    mutationFn: async (data: PoolProfessionalFormValues) => {
+      // Remove fields that aren't in the database schema
+      const { confirmEmail, termsAccepted, ...registerData } = data;
+      const res = await apiRequest("POST", "/api/professionals/pool", registerData);
+      
+      if (!res.ok) {
+        const errorData = await res.json();
+        throw new Error(errorData.message || "Registration failed");
+      }
+      
+      return await res.json();
+    },
+    onSuccess: () => {
+      toast({
+        title: "Registration Successful",
+        description: "Thank you for registering with our Pool Professional network!",
+        variant: "default",
+      });
+      setShowSuccessMessage(true);
+      form.reset();
+    },
+    onError: (error: Error) => {
+      toast({
+        title: "Registration Failed",
+        description: error.message,
+        variant: "destructive",
+      });
+    },
+  });
+
+  function onSubmit(data: PoolProfessionalFormValues) {
+    registerMutation.mutate(data);
+  }
+  
+  return (
+    <div className="w-full">
+      {showSuccessMessage ? (
+        <div className="p-6 bg-primary-800/80 rounded-xl border-2 border-white shadow-[0_0_30px_rgba(255,255,255,0.3)]">
+          <GradientHeading level={3} className="text-2xl mb-4" variant="blue">
+            Registration Complete!
+          </GradientHeading>
+          <p className="mb-6">
+            Thank you for registering as a pool professional with Praetorian SmartCoat Solutions. 
+            Our team will review your application and be in touch with you shortly.
+          </p>
+          <GradientButton variant="variant" onClick={() => setShowSuccessMessage(false)}>
+            Register Another Professional
+          </GradientButton>
+        </div>
+      ) : (
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+            <GradientHeading level={3} className="text-2xl mb-4" variant="blue">
+              Pool Professional Registration
+            </GradientHeading>
+            
+            <p className="mb-6">
+              Register to join our network of trusted pool professionals. Complete the form below to apply.
+            </p>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Company Information */}
+              <div className="space-y-4">
+                <FormField
+                  control={form.control}
+                  name="companyName"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Company Name*</FormLabel>
+                      <FormControl>
+                        <Input placeholder="Your company name" {...field} className="bg-primary-800 border-primary-600" />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                
+                <FormField
+                  control={form.control}
+                  name="contactName"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Contact Name*</FormLabel>
+                      <FormControl>
+                        <Input placeholder="Full name" {...field} className="bg-primary-800 border-primary-600" />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                
+                <FormField
+                  control={form.control}
+                  name="email"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Email*</FormLabel>
+                      <FormControl>
+                        <Input placeholder="email@example.com" {...field} className="bg-primary-800 border-primary-600" />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                
+                <FormField
+                  control={form.control}
+                  name="confirmEmail"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Confirm Email*</FormLabel>
+                      <FormControl>
+                        <Input placeholder="Confirm email" {...field} className="bg-primary-800 border-primary-600" />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                
+                <FormField
+                  control={form.control}
+                  name="phone"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Phone Number*</FormLabel>
+                      <FormControl>
+                        <Input placeholder="(555) 555-5555" {...field} className="bg-primary-800 border-primary-600" />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                
+                <FormField
+                  control={form.control}
+                  name="website"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Website</FormLabel>
+                      <FormControl>
+                        <Input placeholder="https://www.example.com" {...field} className="bg-primary-800 border-primary-600" />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
+              
+              {/* Address & Qualifications */}
+              <div className="space-y-4">
+                <FormField
+                  control={form.control}
+                  name="address"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Address*</FormLabel>
+                      <FormControl>
+                        <Input placeholder="Street address" {...field} className="bg-primary-800 border-primary-600" />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                
+                <div className="grid grid-cols-2 gap-4">
+                  <FormField
+                    control={form.control}
+                    name="city"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>City*</FormLabel>
+                        <FormControl>
+                          <Input placeholder="City" {...field} className="bg-primary-800 border-primary-600" />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  
+                  <FormField
+                    control={form.control}
+                    name="state"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>State*</FormLabel>
+                        <FormControl>
+                          <Input placeholder="State" {...field} className="bg-primary-800 border-primary-600" />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+                
+                <FormField
+                  control={form.control}
+                  name="zipCode"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Zip Code*</FormLabel>
+                      <FormControl>
+                        <Input placeholder="Zip code" {...field} className="bg-primary-800 border-primary-600" />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                
+                <FormField
+                  control={form.control}
+                  name="licenseNumber"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>License Number*</FormLabel>
+                      <FormControl>
+                        <Input placeholder="License number" {...field} className="bg-primary-800 border-primary-600" />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                
+                <FormField
+                  control={form.control}
+                  name="yearsInBusiness"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Years in Business*</FormLabel>
+                      <FormControl>
+                        <Input 
+                          type="number" 
+                          placeholder="Years" 
+                          {...field} 
+                          onChange={(e) => field.onChange(e.target.value ? parseInt(e.target.value) : undefined)}
+                          className="bg-primary-800 border-primary-600" 
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
+            </div>
+            
+            {/* Pool Experience */}
+            <div className="space-y-4">
+              <GradientHeading level={4} className="text-xl mb-2" variant="blue">
+                Pool Experience & Specialties
+              </GradientHeading>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <FormField
+                  control={form.control}
+                  name="specialties"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Specialties*</FormLabel>
+                      <FormControl>
+                        <Textarea 
+                          placeholder="Pool cleaning, maintenance, repairs, installation, etc."
+                          {...field}
+                          className="bg-primary-800 border-primary-600 min-h-[100px]"
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                
+                <FormField
+                  control={form.control}
+                  name="poolTypes"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Pool Types Experience*</FormLabel>
+                      <FormControl>
+                        <Textarea 
+                          placeholder="Residential, commercial, in-ground, above-ground, etc."
+                          {...field}
+                          className="bg-primary-800 border-primary-600 min-h-[100px]"
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <FormField
+                  control={form.control}
+                  name="materialsExperience"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Materials Experience*</FormLabel>
+                      <FormControl>
+                        <Textarea 
+                          placeholder="Concrete, fiberglass, vinyl, pebble, gunite, etc."
+                          {...field}
+                          className="bg-primary-800 border-primary-600 min-h-[100px]"
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                
+                <FormField
+                  control={form.control}
+                  name="serviceAreas"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Service Areas*</FormLabel>
+                      <FormControl>
+                        <Textarea 
+                          placeholder="Cities, counties, or regions you service"
+                          {...field}
+                          className="bg-primary-800 border-primary-600 min-h-[100px]"
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <FormField
+                  control={form.control}
+                  name="certifications"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Certifications</FormLabel>
+                      <FormControl>
+                        <Textarea 
+                          placeholder="List any relevant certifications"
+                          {...field}
+                          className="bg-primary-800 border-primary-600 min-h-[80px]"
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                
+                <FormField
+                  control={form.control}
+                  name="insuranceInfo"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Insurance Information*</FormLabel>
+                      <FormControl>
+                        <Textarea 
+                          placeholder="Details of your liability insurance"
+                          {...field}
+                          className="bg-primary-800 border-primary-600 min-h-[80px]"
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
+              
+              <FormField
+                control={form.control}
+                name="hourlyRate"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Hourly Rate ($)</FormLabel>
+                    <FormControl>
+                      <Input 
+                        type="number" 
+                        placeholder="Your standard hourly rate" 
+                        {...field} 
+                        onChange={(e) => field.onChange(e.target.value ? parseInt(e.target.value) : undefined)}
+                        className="bg-primary-800 border-primary-600 max-w-[200px]" 
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              
+              <FormField
+                control={form.control}
+                name="notes"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Additional Notes</FormLabel>
+                    <FormControl>
+                      <Textarea 
+                        placeholder="Any additional information you'd like to provide"
+                        {...field}
+                        className="bg-primary-800 border-primary-600 min-h-[100px]"
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              
+              <FormField
+                control={form.control}
+                name="termsAccepted"
+                render={({ field }) => (
+                  <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border border-primary-700 p-4 bg-primary-900/50">
+                    <FormControl>
+                      <Checkbox
+                        checked={field.value}
+                        onCheckedChange={field.onChange}
+                      />
+                    </FormControl>
+                    <div className="space-y-1 leading-none">
+                      <FormLabel>
+                        I agree to the terms and conditions*
+                      </FormLabel>
+                      <FormDescription>
+                        By checking this box, I agree to receive communications about Praetorian SmartCoat Solutions products and services.
+                      </FormDescription>
+                    </div>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+            
+            <div className="pt-4">
+              <GradientButton 
+                type="submit" 
+                variant="variant" 
+                className="w-full md:w-auto"
+                disabled={registerMutation.isPending}
+              >
+                {registerMutation.isPending ? (
+                  <>
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    Submitting...
+                  </>
+                ) : (
+                  "Register as Pool Professional"
+                )}
+              </GradientButton>
+            </div>
+          </form>
+        </Form>
+      )}
+    </div>
+  );
 };
 
 const Pools = () => {
