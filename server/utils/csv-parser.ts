@@ -69,9 +69,13 @@ export function mapCSVFieldsToDatabaseFields<T>(
     
     Object.entries(row).forEach(([csvField, value]) => {
       const dbField = columnMapping[csvField];
-      if (dbField && value !== '') {
-        // @ts-ignore
-        mappedRow[dbField] = value;
+      // Only map non-empty values to avoid saving empty strings
+      // This allows database defaults to be applied for empty fields
+      if (dbField) {
+        if (value !== undefined && value !== null && value.trim() !== '') {
+          // @ts-ignore
+          mappedRow[dbField] = value;
+        }
       }
     });
     

@@ -275,7 +275,8 @@ export async function importCSV(req: Request, res: Response) {
                   });
                   continue;
                 }
-                mappedData[i].amount = amount;
+                // Convert to string to match schema type
+                mappedData[i].amount = String(amount);
               }
               
               if (mappedData[i].probability) {
@@ -296,7 +297,8 @@ export async function importCSV(req: Request, res: Response) {
                   if (isNaN(date.getTime())) {
                     throw new Error('Invalid date format');
                   }
-                  mappedData[i].expectedCloseDate = date;
+                  // Store as ISO date string to match schema type
+                  mappedData[i].expectedCloseDate = date.toISOString();
                 } catch (dateError) {
                   errorRows.push({ 
                     rowIndex: i + 1, 
