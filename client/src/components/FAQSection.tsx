@@ -23,14 +23,15 @@ const FAQSection = ({ faqs }: FAQProps) => {
       className="py-24 relative" 
       id="faq"
       style={{ 
-        backgroundImage: "url('/images/optimized/diamond-plate-fire-blue.jpg')",
+        backgroundImage: "url('/images/backgrounds/praetorian-buckets.png')",
         backgroundSize: "cover",
         backgroundPosition: "center",
-        backgroundRepeat: "no-repeat"
+        backgroundRepeat: "no-repeat",
+        backgroundAttachment: "fixed"
       }}
     >
-      {/* Semi-transparent overlay for better readability */}
-      <div className="absolute inset-0 bg-black/25"></div>
+      {/* Semi-transparent overlay for better readability with darkened effect for the buckets image */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/65"></div>
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
           <div className="bg-gray-800/60 backdrop-blur-xl rounded-xl border border-gray-600/40 shadow-[0_0_20px_rgba(255,255,255,0.2)] py-8 px-6 md:px-10 mx-auto max-w-3xl mb-8 inline-block">
