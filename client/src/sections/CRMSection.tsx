@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Plus, Users, Building2, Briefcase, Calendar, Activity } from "lucide-react";
 import ContactsTable from "@/components/crm/ContactsTable";
+import AnalyticsDashboard from "@/components/crm/AnalyticsDashboard";
 
 const CRMSection = () => {
   const [activeTab, setActiveTab] = useState("contacts");
@@ -13,63 +13,7 @@ const CRMSection = () => {
       <div className="container mx-auto px-4">
         <div className="flex flex-col space-y-6">
           {/* Dashboard Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            <Card className="card-premium card-glow-cyan transition-all duration-300 animate-fade-in-up">
-              <CardHeader className="pb-2">
-                <CardTitle className="text-lg flex items-center gap-2">
-                  <Users className="h-5 w-5 text-cyan-400 animate-glow-pulse" />
-                  Contacts
-                </CardTitle>
-                <CardDescription className="text-gray-300">Total contacts in system</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="text-2xl font-bold text-white">124</div>
-                <p className="text-xs text-cyan-300/80 mt-1">+12 this month</p>
-              </CardContent>
-            </Card>
-            
-            <Card className="card-premium transition-all duration-300 animate-fade-in-up" style={{animationDelay: '0.1s'}}>
-              <CardHeader className="pb-2">
-                <CardTitle className="text-lg flex items-center gap-2">
-                  <Building2 className="h-5 w-5 text-purple-400" />
-                  Companies
-                </CardTitle>
-                <CardDescription className="text-gray-300">Active companies</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="text-2xl font-bold text-white">36</div>
-                <p className="text-xs text-purple-300/80 mt-1">+3 this month</p>
-              </CardContent>
-            </Card>
-            
-            <Card className="card-premium card-glow-orange transition-all duration-300 animate-fade-in-up" style={{animationDelay: '0.2s'}}>
-              <CardHeader className="pb-2">
-                <CardTitle className="text-lg flex items-center gap-2">
-                  <Briefcase className="h-5 w-5 text-orange-400 animate-glow-pulse-orange" />
-                  Opportunities
-                </CardTitle>
-                <CardDescription className="text-gray-300">Active deals</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="text-2xl font-bold text-white">24</div>
-                <p className="text-xs text-orange-300/80 mt-1">$1.2M pipeline</p>
-              </CardContent>
-            </Card>
-            
-            <Card className="card-premium transition-all duration-300 animate-fade-in-up" style={{animationDelay: '0.3s'}}>
-              <CardHeader className="pb-2">
-                <CardTitle className="text-lg flex items-center gap-2">
-                  <Activity className="h-5 w-5 text-red-400" />
-                  Activities
-                </CardTitle>
-                <CardDescription className="text-gray-300">Pending activities</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="text-2xl font-bold text-white">18</div>
-                <p className="text-xs text-red-300/80 mt-1">5 overdue</p>
-              </CardContent>
-            </Card>
-          </div>
+          <AnalyticsDashboard />
           
           {/* Main Tabs */}
           <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-4 animate-fade-in-up" style={{animationDelay: '0.3s'}}>

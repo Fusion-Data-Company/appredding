@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { db } from "../db";
 import { eq, count, sql, and, isNull, gt, lt } from "drizzle-orm";
-import { contacts, companies, opportunities, activities } from "@shared/schema";
+import { contacts, companies, opportunities, activities, projectStatusEnum } from "@shared/schema";
 
 /**
  * Get CRM dashboard analytics data
@@ -40,10 +40,10 @@ export async function getCRMAnalytics(req: Request, res: Response) {
 
     // Get opportunities count and total amount
     const opportunitiesResult = await Promise.all([
-      // Total active opportunities
+      // Total in-progress opportunities
       db.select({ count: count() }).from(opportunities).where(
         and(
-          eq(opportunities.status, 'active'),
+          sql`${opportunities.status} = 'in_progress'`,
           isNull(opportunities.actualCloseDate)
         )
       ),
@@ -52,7 +52,7 @@ export async function getCRMAnalytics(req: Request, res: Response) {
         totalValue: sql<number>`SUM(amount)`
       }).from(opportunities).where(
         and(
-          eq(opportunities.status, 'active'),
+          sql`${opportunities.status} = 'in_progress'`,
           isNull(opportunities.actualCloseDate)
         )
       )
