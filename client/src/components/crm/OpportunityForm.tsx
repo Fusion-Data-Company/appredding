@@ -18,17 +18,53 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { cn } from "@/lib/utils";
 
 export const opportunityFormSchema = z.object({
-  name: z.string().min(2, 'Opportunity name must be at least 2 characters'),
-  contactId: z.string().optional(),
-  companyId: z.string().optional(),
+  name: z.string()
+    .min(2, 'Opportunity name must be at least 2 characters')
+    .max(100, 'Opportunity name cannot exceed 100 characters')
+    .trim()
+    .refine(value => value.length > 0, {
+      message: 'Opportunity name is required'
+    }),
+  contactId: z.string()
+    .optional()
+    .nullable()
+    .transform(val => val === '' ? null : val),
+  companyId: z.string()
+    .optional()
+    .nullable()
+    .transform(val => val === '' ? null : val),
   status: z.string().default('pending'),
-  amount: z.coerce.number().min(0, 'Amount must be a positive number').optional(),
-  probability: z.coerce.number().min(0, 'Probability must be at least 0%').max(100, 'Probability cannot exceed 100%').default(50),
-  expectedCloseDate: z.date().optional(),
-  description: z.string().optional(),
+  amount: z.preprocess(
+    val => val === '' ? null : val,
+    z.coerce.number()
+      .min(0, 'Amount must be a positive number')
+      .nullable()
+      .optional()
+  ),
+  probability: z.preprocess(
+    val => val === '' ? 50 : val,
+    z.coerce.number()
+      .min(0, 'Probability must be at least 0%')
+      .max(100, 'Probability cannot exceed 100%')
+      .default(50)
+  ),
+  expectedCloseDate: z.date().optional().nullable(),
+  description: z.string()
+    .max(1000, 'Description cannot exceed 1000 characters')
+    .optional()
+    .nullable()
+    .transform(val => val === '' ? null : val),
   source: z.string().default('website'),
-  location: z.string().optional(),
-  notes: z.string().optional(),
+  location: z.string()
+    .max(200, 'Location cannot exceed 200 characters')
+    .optional()
+    .nullable()
+    .transform(val => val === '' ? null : val),
+  notes: z.string()
+    .max(1000, 'Notes cannot exceed 1000 characters')
+    .optional()
+    .nullable()
+    .transform(val => val === '' ? null : val),
 });
 
 type OpportunityFormValues = z.infer<typeof opportunityFormSchema>;

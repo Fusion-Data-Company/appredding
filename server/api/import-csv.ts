@@ -275,8 +275,9 @@ export async function importCSV(req: Request, res: Response) {
                   });
                   continue;
                 }
-                // Convert to string to match schema type
-                mappedData[i].amount = String(amount);
+                // For decimal columns, we need to ensure it's a valid decimal string
+                // that matches the precision/scale in the schema
+                mappedData[i].amount = amount.toFixed(2);
               }
               
               if (mappedData[i].probability) {
@@ -297,8 +298,11 @@ export async function importCSV(req: Request, res: Response) {
                   if (isNaN(date.getTime())) {
                     throw new Error('Invalid date format');
                   }
-                  // Store as ISO date string to match schema type
-                  mappedData[i].expectedCloseDate = date.toISOString();
+                  // Format as YYYY-MM-DD for date column
+                  const yyyy = date.getFullYear();
+                  const mm = String(date.getMonth() + 1).padStart(2, '0');
+                  const dd = String(date.getDate()).padStart(2, '0');
+                  mappedData[i].expectedCloseDate = `${yyyy}-${mm}-${dd}`;
                 } catch (dateError) {
                   errorRows.push({ 
                     rowIndex: i + 1, 
