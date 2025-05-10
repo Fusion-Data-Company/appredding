@@ -259,7 +259,7 @@ export function ActivityForm({ isOpen, onClose, contacts, companies, opportuniti
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent className="bg-gray-900 border-gray-700">
-                        <SelectItem value="">None</SelectItem>
+                        <SelectItem value="none">None</SelectItem>
                         {opportunities.map(opportunity => (
                           <SelectItem key={opportunity.id} value={opportunity.id.toString()}>
                             {opportunity.name}
