@@ -144,7 +144,7 @@ const ProfessionalHeader = () => {
               {/* Shine overlay for metallic effect */}
               <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
               
-              <div className="h-32 mb-1 relative overflow-hidden">
+              <div className="h-24 mb-1 relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gray-200/5 to-transparent opacity-0 group-hover:opacity-100 animate-shimmer-slow"></div>
                 <img 
                   src={praetorianHeaderImg} 
@@ -152,7 +152,7 @@ const ProfessionalHeader = () => {
                   className="h-full object-contain drop-shadow-lg transition-all duration-500 ease-in-out"
                   style={{
                     filter: 'contrast(1.3) brightness(1.15) saturate(1.05)',
-                    transform: 'scale(1.15)',
+                    transform: 'scale(1.05)',
                   }}
                 />
               </div>
