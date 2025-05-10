@@ -109,24 +109,32 @@ const ProfessionalHeader = () => {
           <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-amber-400/0 via-amber-500/5 to-amber-400/0 opacity-0 group-hover:opacity-100 blur-md transition-opacity duration-500"></div>
           
           <div className="relative flex items-center">
-            <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-amber-400/20 to-orange-500/20 blur opacity-70 group-hover:opacity-100 transition duration-300"></div>
-            <div className="absolute -inset-0.5 rounded-full bg-gradient-to-br from-amber-700/20 to-amber-300/30 blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse"></div>
+            {/* Outer glow */}
+            <div className="absolute -inset-2.5 rounded-full bg-gradient-to-r from-amber-400/30 to-orange-500/30 blur-md opacity-60 group-hover:opacity-100 transition duration-300"></div>
+            
+            {/* Middle glow */}
+            <div className="absolute -inset-1.5 rounded-full bg-gradient-to-br from-amber-700/30 to-amber-300/40 blur-sm opacity-40 group-hover:opacity-80 transition-opacity duration-300"></div>
+            
+            {/* Inner glow - pulsing */}
+            <div className="absolute -inset-1 rounded-full bg-gradient-to-tr from-amber-500/30 to-amber-400/50 blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse"></div>
+            
+            {/* Shield image */}
             <img 
               src={praetorianShield} 
               alt="Praetorian Shield" 
-              className="h-11 w-auto relative filter drop-shadow-lg group-hover:drop-shadow-2xl transition-all duration-300"
+              className="h-16 w-auto relative filter drop-shadow-lg group-hover:drop-shadow-2xl transition-all duration-300"
             />
           </div>
           
           <div className="flex flex-col justify-center">
             <span className={cn(
-              "font-serif text-2xl font-bold bg-gradient-to-r from-amber-900 via-amber-500 to-amber-800 bg-clip-text text-transparent",
-              "border-b border-amber-600/30 leading-tight tracking-wide drop-shadow-sm",
+              "font-serif text-3xl font-bold bg-gradient-to-r from-amber-900 via-amber-500 to-amber-800 bg-clip-text text-transparent",
+              "border-b border-amber-600/30 leading-tight tracking-wide drop-shadow-md",
               "group-hover:bg-gradient-to-r group-hover:from-amber-700 group-hover:via-yellow-500 group-hover:to-amber-700 transition-all duration-300"
             )}>
               PRAETORIAN
             </span>
-            <span className="text-[0.7rem] text-amber-800 dark:text-amber-300 font-medium tracking-widest uppercase group-hover:text-amber-600 dark:group-hover:text-amber-200 transition-colors duration-300">
+            <span className="text-[0.8rem] text-amber-800 dark:text-amber-300 font-medium tracking-widest uppercase group-hover:text-amber-600 dark:group-hover:text-amber-200 transition-colors duration-300">
               SmartCoat Solutions
             </span>
           </div>
