@@ -58,7 +58,7 @@ const ProfessionalMobileMenu = ({ isOpen, onClose, isHomePage = true }: Professi
     { label: "Fire Prevention", href: "/fire-prevention", icon: <Flame className="h-4 w-4" /> },
     { label: "Construction", href: "/construction", icon: <Building className="h-4 w-4" /> },
     { label: "Mobile Home", href: "/mobile-home", icon: <Home className="h-4 w-4" /> },
-    { label: "Municipality", href: "/municipality", icon: <Buildings className="h-4 w-4" /> },
+    { label: "Municipality", href: "/municipality", icon: <Building className="h-4 w-4" /> },
     { label: "Painter Network", href: "/painter-network", icon: <Users className="h-4 w-4" /> },
   ];
 
