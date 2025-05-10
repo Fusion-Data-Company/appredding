@@ -22,6 +22,7 @@ import ClientDashboard from "@/pages/client-dashboard";
 import AdminDashboard from "@/pages/admin-dashboard";
 import About from "@/pages/About";
 import Team from "@/pages/Team";
+import StyleShowcase from "@/pages/StyleShowcase";
 import { AuthProvider } from "@/hooks/use-auth";
 import { ProtectedRoute } from "@/components/ProtectedRoute";
 
@@ -60,6 +61,7 @@ function Router() {
       <Route path="/about" component={About} />
       <Route path="/team" component={Team} />
       <Route path="/auth" component={AuthPage} />
+      <Route path="/style-showcase" component={StyleShowcase} />
       <ProtectedRoute path="/client-dashboard" component={ClientDashboard} />
       <ProtectedRoute path="/admin-dashboard" component={AdminDashboard} adminOnly={true} />
       {/* Fallback to 404 */}

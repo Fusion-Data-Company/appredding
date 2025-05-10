@@ -111,13 +111,13 @@ export const generatePraetorianClasses = {
 // Animation keyframes for Tailwind config
 export const praetorianAnimationKeyframes = {
   firePulse: {
-    '0%, 100%': { opacity: 0.6, transform: 'scale(1)' },
-    '50%': { opacity: 1, transform: 'scale(1.05)' },
+    '0%, 100%': { opacity: '0.6', transform: 'scale(1)' },
+    '50%': { opacity: '1', transform: 'scale(1.05)' },
   },
   waterRipple: {
-    '0%': { transform: 'scale(0.95)', opacity: 0.7 },
-    '50%': { transform: 'scale(1.05)', opacity: 0.9 },
-    '100%': { transform: 'scale(0.95)', opacity: 0.7 },
+    '0%': { transform: 'scale(0.95)', opacity: '0.7' },
+    '50%': { transform: 'scale(1.05)', opacity: '0.9' },
+    '100%': { transform: 'scale(0.95)', opacity: '0.7' },
   },
   heatWave: {
     '0%': { backgroundPosition: '0% 50%' },
@@ -132,8 +132,8 @@ export const praetorianAnimationKeyframes = {
     '100%': { backgroundPosition: '200% 50%' },
   },
   holoRise: {
-    '0%': { transform: 'translateY(20px)', opacity: 0 },
-    '100%': { transform: 'translateY(0)', opacity: 1 },
+    '0%': { transform: 'translateY(20px)', opacity: '0' },
+    '100%': { transform: 'translateY(0)', opacity: '1' },
   },
 };
 
