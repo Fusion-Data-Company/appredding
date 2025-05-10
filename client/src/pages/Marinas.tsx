@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import MainLayout from "@/components/layout/MainLayout";
 import { GradientButton } from "@/components/ui/gradient-button";
 import { GradientHeading } from "@/components/ui/gradient-heading";
 import { Button } from "@/components/ui/button";
@@ -99,10 +98,8 @@ const Marinas = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <Header />
-      
-      <main className="flex-grow relative">
+    <MainLayout fullWidth={true}>
+      <div className="relative">
         {/* Full-page water background */}
         <div 
           className="fixed inset-0 z-0 bg-center bg-cover bg-no-repeat" 
@@ -763,10 +760,8 @@ const Marinas = () => {
             </div>
           </div>
         </section>
-      </main>
-      
-      <Footer />
-    </div>
+      </div>
+    </MainLayout>
   );
 };
 
