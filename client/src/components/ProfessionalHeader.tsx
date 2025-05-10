@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { cn } from "@/lib/utils";
+import bucketImg from "@/assets_dir/icons/praetorian-bucket.png";
 import { 
   NavigationMenu,
   NavigationMenuContent,
@@ -266,7 +267,7 @@ const ProfessionalHeader = () => {
                   
                   <div className="h-7 w-7 relative z-10 flex items-center justify-center">
                     <img 
-                      src="/images/icons/praetorian-bucket.png" 
+                      src={bucketImg} 
                       alt="Praetorian bucket" 
                       className="h-full w-full object-contain drop-shadow-sm"
                     />
