@@ -72,7 +72,7 @@ export const defaultAnalyticsData: CRMAnalyticsData = {
 
 export function useCRMAnalytics() {
   return useQuery<CRMAnalyticsData>({
-    queryKey: ['/api/crm/analytics'],
+    queryKey: ['/api/analytics'],
     refetchInterval: 5 * 60 * 1000, // 5 minutes
     placeholderData: defaultAnalyticsData
   });
