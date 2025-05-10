@@ -111,35 +111,53 @@ const ProfessionalHeader = () => {
           
           <div className="relative flex items-center">
             {/* Outer glow */}
-            <div className="absolute -inset-4 rounded-full bg-gradient-to-r from-slate-300/20 to-slate-600/20 blur-md opacity-60 group-hover:opacity-100 transition duration-300"></div>
+            <div className="absolute -inset-4 rounded-full bg-gradient-to-r from-slate-300/30 to-slate-600/30 blur-md opacity-60 group-hover:opacity-100 transition duration-300"></div>
             
-            {/* Middle glow */}
-            <div className="absolute -inset-3 rounded-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-400/20 via-slate-500/20 to-slate-600/20 blur-sm opacity-40 group-hover:opacity-80 transition-opacity duration-300"></div>
+            {/* Middle glow - enhanced metallic effect */}
+            <div className="absolute -inset-3 rounded-full bg-[conic-gradient(at_top_right,_var(--tw-gradient-stops))] from-slate-400/30 via-slate-500/30 to-slate-600/30 blur-sm opacity-40 group-hover:opacity-80 transition-opacity duration-300"></div>
             
-            {/* Inner glow - metallic effect */}
-            <div className="absolute -inset-2 rounded-full bg-gradient-to-tr from-slate-200/20 to-slate-600/30 blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse"></div>
+            {/* Inner glow - metallic shimmer */}
+            <div className="absolute -inset-2 rounded-full bg-gradient-to-tr from-slate-200/30 to-slate-600/40 blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse"></div>
             
             {/* Highlight reflection */}
-            <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-white/5 to-transparent blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ transform: 'rotate(-45deg) translateX(-5px)' }}></div>
+            <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-white/10 to-transparent blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-subtle-pulse" style={{ transform: 'rotate(-45deg) translateX(-5px)' }}></div>
             
-            {/* Shield image */}
-            <img 
-              src={praetorianShield} 
-              alt="Praetorian Shield" 
-              className="h-24 w-auto relative -my-4 filter drop-shadow-lg group-hover:drop-shadow-2xl transition-all duration-300"
-            />
+            {/* Extra metallic flare */}
+            <div className="absolute -inset-2 rounded-full bg-gradient-to-bl from-white/5 via-transparent to-slate-400/10 opacity-0 group-hover:opacity-100 transition-all duration-500" style={{ transform: 'rotate(30deg)' }}></div>
+            
+            {/* Shield image with enhanced 3D effect */}
+            <div className="relative">
+              {/* Drop shadow for 3D depth */}
+              <div className="absolute inset-0 opacity-70 blur-md bg-gradient-to-br from-slate-500/30 to-slate-800/40 dark:from-gray-700/30 dark:to-black/40 translate-y-1 translate-x-1 rounded-full group-hover:opacity-100 transition-all duration-300"></div>
+              
+              <img 
+                src={praetorianShield} 
+                alt="Praetorian Shield" 
+                className="h-24 w-auto relative -my-4 filter drop-shadow-lg group-hover:drop-shadow-2xl transition-all duration-300 group-hover:scale-105 will-change-transform"
+                style={{ 
+                  transform: 'perspective(800px) rotateY(-5deg)', 
+                  transformStyle: 'preserve-3d',
+                }}
+              />
+              
+              {/* Subtle highlight */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 rounded-full"></div>
+            </div>
           </div>
           
-          <div className="flex flex-col justify-center">
+          <div className="flex flex-col justify-center relative">
+            {/* Shine overlay for metallic effect */}
+            <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+            
             <span className={cn(
-              "font-serif text-3xl font-bold bg-gradient-to-br from-slate-800 via-slate-400 to-slate-700 dark:from-slate-100 dark:via-white dark:to-slate-300 bg-clip-text text-transparent",
+              "font-serif text-3xl font-bold bg-gradient-to-br from-slate-900 via-slate-300 to-slate-800 dark:from-slate-100 dark:via-white dark:to-slate-300 bg-clip-text text-transparent",
               "border-b border-slate-400/30 dark:border-slate-500/30 leading-tight tracking-wide drop-shadow-sm pb-[2px]",
-              "group-hover:bg-gradient-to-r group-hover:from-slate-900 group-hover:via-slate-500 group-hover:to-slate-800 dark:group-hover:from-white dark:group-hover:via-gray-100 dark:group-hover:to-slate-200 transition-all duration-300"
+              "group-hover:bg-gradient-to-r group-hover:from-slate-900 group-hover:via-slate-500 group-hover:to-slate-800 dark:group-hover:from-white dark:group-hover:via-gray-100 dark:group-hover:to-slate-200 transition-all duration-500 group-hover:animate-shimmer"
             )}>
               PRAETORIAN
             </span>
             <span className="text-[0.8rem] text-slate-700 dark:text-slate-400 font-medium tracking-widest uppercase group-hover:text-black dark:group-hover:text-white transition-colors duration-300 mt-[1px]">
-              <span className="bg-gradient-to-r from-slate-600 to-slate-800 dark:from-slate-300 dark:to-slate-500 bg-clip-text text-transparent">SmartCoat Solutions</span>
+              <span className="bg-gradient-to-r from-slate-700 to-slate-900 dark:from-slate-300 dark:to-slate-400 bg-clip-text text-transparent group-hover:from-slate-800 group-hover:to-black dark:group-hover:from-gray-200 dark:group-hover:to-white transition-all duration-500">SmartCoat Solutions</span>
             </span>
           </div>
         </Link>
@@ -237,11 +255,16 @@ const ProfessionalHeader = () => {
                   variant="ghost" 
                   size="icon" 
                   className="rounded-sm bg-gradient-to-br from-amber-100/70 to-amber-200/50 dark:from-amber-900/40 dark:to-amber-800/20 
-                  text-amber-900 dark:text-amber-300 border border-amber-700/20 shadow-inner shadow-amber-100/30 dark:shadow-amber-900/20
-                  hover:shadow-amber-300/20 dark:hover:shadow-amber-700/30 hover:border-amber-600/30 transition-all duration-300 relative"
+                  text-amber-900 dark:text-amber-300 border border-amber-700/20 shadow-metal
+                  hover:shadow-glow-orange hover:border-amber-600/30 transition-all duration-300 relative overflow-hidden"
                 >
-                  <div className="absolute inset-0 rounded-sm opacity-0 hover:opacity-100 bg-gradient-to-t from-amber-300/10 to-amber-200/5 dark:from-amber-600/20 dark:to-amber-700/10 transition-opacity duration-300" />
-                  <Shield className="h-5 w-5" />
+                  {/* Shimmer overlay */}
+                  <div className="absolute inset-0 rounded-sm opacity-0 hover:opacity-100 bg-gradient-to-r from-transparent via-amber-200/30 to-transparent dark:via-amber-500/20 animate-shimmer transition-opacity duration-300" />
+                  
+                  {/* Button gradient hover effect */}
+                  <div className="absolute inset-0 rounded-sm opacity-0 hover:opacity-100 bg-gradient-to-t from-amber-300/20 to-amber-200/10 dark:from-amber-600/30 dark:to-amber-700/20 transition-opacity duration-300" />
+                  
+                  <Shield className="h-5 w-5 relative z-10" />
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-[220px] bg-white/95 dark:bg-gray-900/95 border border-amber-600/20 shadow-lg rounded-sm">
@@ -264,12 +287,17 @@ const ProfessionalHeader = () => {
                 <Button 
                   variant="ghost" 
                   size="icon" 
-                  className="rounded-sm bg-gradient-to-br from-gray-100 to-white dark:from-gray-800 dark:to-gray-900 
-                  text-gray-800 dark:text-gray-200 border border-gray-300 dark:border-gray-700 shadow-sm
-                  hover:shadow-md hover:border-gray-400 dark:hover:border-gray-600 transition-all duration-300 relative"
+                  className="rounded-sm bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 
+                  text-gray-800 dark:text-gray-200 border border-gray-300 dark:border-gray-700 shadow-metal
+                  hover:shadow-glow-cyan hover:border-gray-400 dark:hover:border-gray-600 transition-all duration-300 relative overflow-hidden"
                 >
-                  <div className="absolute inset-0 rounded-sm opacity-0 hover:opacity-100 bg-gradient-to-t from-gray-200 to-white dark:from-gray-700 dark:to-gray-800 transition-opacity duration-300" />
-                  <User className="h-5 w-5 text-gray-700 dark:text-gray-300" />
+                  {/* Shimmer overlay */}
+                  <div className="absolute inset-0 rounded-sm opacity-0 hover:opacity-100 bg-gradient-to-r from-transparent via-gray-100/30 to-transparent dark:via-gray-500/20 animate-shimmer transition-opacity duration-300" />
+                  
+                  {/* Button gradient hover effect */}
+                  <div className="absolute inset-0 rounded-sm opacity-0 hover:opacity-100 bg-gradient-to-t from-gray-300/20 to-white/10 dark:from-gray-700/30 dark:to-gray-800/20 transition-opacity duration-300" />
+                  
+                  <User className="h-5 w-5 text-gray-700 dark:text-gray-300 relative z-10" />
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-[200px] bg-white/95 dark:bg-gray-900/95 border border-gray-300 dark:border-gray-700 shadow-lg rounded-sm">
