@@ -216,9 +216,16 @@ const ContactsTable = () => {
       title: "Company",
       width: 180,
       sortable: true,
-      render: (_, record) => (
-        <div>{record.company?.name || "-"}</div>
-      ),
+      render: (_, record) => {
+        if (!record.company?.name) return <span className="text-gray-500">-</span>;
+        
+        return (
+          <div className="inline-flex items-center px-2.5 py-1 rounded-md bg-black/60 border border-gray-800 text-white shadow-inner">
+            <div className="w-2 h-2 rounded-full bg-orange-500 mr-2 animate-pulse"></div>
+            <span className="font-medium">{record.company.name}</span>
+          </div>
+        );
+      },
     },
     {
       key: "status",
