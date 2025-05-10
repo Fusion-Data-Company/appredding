@@ -122,8 +122,9 @@ const ProfessionalHeader = () => {
                 style={{ 
                   transform: 'perspective(800px) rotateY(-5deg) scale(2.2)', 
                   transformStyle: 'preserve-3d',
-                  transformOrigin: 'center center',
-                  position: 'relative',
+                  transformOrigin: 'left center',
+                  position: 'absolute',
+                  left: '-25px',
                   zIndex: 20,
                   filter: 'contrast(1.1) brightness(1.05)',
                   width: '140%',
