@@ -46,7 +46,8 @@ const HeroSection = () => {
       {/* Background container with glow effects */}
       <div 
         ref={containerRef}
-        className="relative w-full py-12 isolate"
+        className="relative w-full isolate"
+        style={{ padding: 0 }}
       >
         {/* Fire (orange) glow - background only */}
         <div 
@@ -69,14 +70,18 @@ const HeroSection = () => {
           </div>
         </div>
         
-        {/* Image container with z-index to keep it above glow effects */}
-        <div className="relative z-20 container mx-auto px-4 py-8">
-          {/* The image with transparent background */}
+        {/* Edge-to-edge image container with z-index to keep it above glow effects */}
+        <div className="relative z-20 w-full flex justify-center items-center overflow-hidden">
+          {/* The image stretched horizontally to screen edges */}
           <img 
             src={heroImage} 
             alt="Praetorian Guards with Stone Tablet" 
-            className="w-full max-w-5xl h-auto mx-auto"
-            style={{ filter: "drop-shadow(0 0 8px rgba(0,0,0,0.5))" }}
+            className="w-screen h-auto object-cover"
+            style={{ 
+              maxWidth: "none", 
+              width: "100vw",
+              filter: "drop-shadow(0 0 8px rgba(0,0,0,0.5))"
+            }}
           />
         </div>
       </div>
