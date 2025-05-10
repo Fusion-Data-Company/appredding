@@ -97,6 +97,14 @@ const Header = () => {
                     Contact Us
                   </Link>
                 )}
+                <div className="pt-2 mt-2 border-t border-gray-700/50">
+                  <Link
+                    href="/style-showcase"
+                    className="bg-gradient-to-r from-orange-500 via-white to-cyan-500 bg-clip-text text-transparent font-bold text-base tracking-wide transition-all px-2 py-1.5 block rounded-md relative font-heading text-center"
+                  >
+                    Style Showcase
+                  </Link>
+                </div>
               </div>
             </MenuItem>
             

@@ -1,142 +1,120 @@
-import React from 'react';
-import { cva, type VariantProps } from 'class-variance-authority';
+import React, { HTMLAttributes } from "react";
+import { VariantProps, cva } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
-import { generatePraetorianClasses } from '@/styles/praetorianEngine';
 
-// Create a class variance authority configuration for the card
 const cardVariants = cva(
-  // Base styles applied to all cards
-  'relative overflow-hidden transition-all duration-300',
+  "relative transition-all duration-300",
   {
     variants: {
       variant: {
-        // Default premium dark card with subtle gradient
-        premium: 'bg-gradient-to-b from-gray-900 via-gray-900 to-black border border-gray-800/70 rounded-xl shadow-xl backdrop-blur-sm',
-        
-        // Fire-themed card with orange accents and glow
-        fire: 'bg-gradient-to-b from-gray-900 via-gray-900 to-black border border-fire-900/50 rounded-xl shadow-xl shadow-fire-500/10 backdrop-blur-sm',
-        
-        // Water-themed card with cyan accents and glow
-        water: 'bg-gradient-to-b from-gray-900 via-gray-900 to-black border border-water-900/50 rounded-xl shadow-xl shadow-water-500/10 backdrop-blur-sm',
-        
-        // Metal-style card with beveled edges and subtle lighting effects
-        metal: 'bg-gradient-to-b from-gray-800 via-gray-850 to-gray-900 border border-gray-700 rounded-xl shadow-metal backdrop-blur-sm',
-        
-        // Glass-style card with high transparency
-        glass: 'bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl shadow-glass',
-        
-        // Outline card with minimal styling
-        outline: 'bg-transparent border border-gray-800 rounded-xl',
-      },
-      hover: {
-        // Different hover effects
-        none: '',
-        lift: 'hover:translate-y-[-4px] hover:shadow-lg',
-        scale: 'hover:scale-[1.02]',
-        glow: 'hover:shadow-lg',
-        border: 'hover:border-gray-700',
-      },
-      animation: {
-        none: '',
-        fadeIn: 'animate-fadeIn',
-        float: 'animate-float',
+        fire: "bg-gradient-to-br from-black via-gray-900 to-fire-950 border border-fire-900/40 shadow-md text-white",
+        water: "bg-gradient-to-br from-black via-gray-900 to-water-950 border border-water-900/40 shadow-md text-white",
+        metal: "bg-gradient-to-br from-gray-900 via-gray-800 to-gray-950 border border-gray-700/40 shadow-md text-white bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-gray-700/40 via-gray-900 to-black",
+        glass: "bg-black/40 backdrop-blur-md border border-white/10 shadow-xl text-white",
+        premium: "bg-gradient-to-br from-gray-900 via-gray-800 to-gray-950 border border-orange-500/30 shadow-lg text-white",
+        outline: "bg-black/60 border border-gray-700/50 text-white",
       },
       roundness: {
-        none: 'rounded-none',
-        sm: 'rounded-md',
-        md: 'rounded-xl',
-        lg: 'rounded-2xl',
-        full: 'rounded-3xl',
+        none: "rounded-none",
+        sm: "rounded-sm",
+        md: "rounded-md",
+        lg: "rounded-lg",
+        xl: "rounded-xl",
+        full: "rounded-[28px]",
+      },
+      withShimmer: {
+        true: "overflow-hidden",
+        false: "",
+      },
+      withInnerGlow: {
+        true: "relative",
+        false: "",
+      },
+      hover: {
+        none: "",
+        lift: "hover:-translate-y-1 hover:shadow-lg",
+        scale: "hover:scale-[1.02]",
+        border: "hover:border-white/40",
+        glow: "hover:shadow-[0_0_15px_rgba(255,255,255,0.2)]",
+      },
+      animation: {
+        none: "",
+        float: "animate-float",
+        pulse: "animate-pulse",
+        shimmer: "after:shimmer",
+        fadeIn: "animate-fade-in",
       },
     },
     defaultVariants: {
-      variant: 'premium',
-      hover: 'lift',
-      animation: 'none',
-      roundness: 'md',
+      variant: "fire",
+      roundness: "md",
+      withShimmer: false,
+      withInnerGlow: false,
+      hover: "none",
+      animation: "none",
     },
   }
 );
 
-// Define card props interface
-export interface PraetorianCardProps
-  extends React.HTMLAttributes<HTMLDivElement>,
+export interface PraetorianCardProps 
+  extends HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof cardVariants> {
-  withShimmer?: boolean;
-  withInnerGlow?: boolean;
-  glowColor?: 'cyan' | 'orange' | 'white';
-  customClasses?: string;
+    glowColor?: 'orange' | 'cyan' | 'white' | 'purple';
+    customClasses?: string;
+    children: React.ReactNode;
 }
 
-// Create the PraetorianCard component
-const PraetorianCard = React.forwardRef<HTMLDivElement, PraetorianCardProps>(
-  (
-    {
-      className,
-      variant,
-      hover,
-      animation,
-      roundness,
-      withShimmer,
-      withInnerGlow,
-      glowColor = 'cyan',
-      customClasses,
-      children,
-      ...props
-    },
-    ref
-  ) => {
-    // Set up the glow color class based on the glowColor prop
-    const glowColorClass = glowColor === 'orange' 
-      ? 'from-orange-500/20 via-orange-500/5 to-transparent' 
-      : glowColor === 'white'
-      ? 'from-white/20 via-white/5 to-transparent'
-      : 'from-cyan-500/20 via-cyan-500/5 to-transparent';
-    
-    return (
-      <div
-        className={cn(
-          cardVariants({
-            variant,
-            hover,
-            animation,
-            roundness,
-          }),
-          className,
-          customClasses
-        )}
-        ref={ref}
-        {...props}
-      >
-        {/* Optional inner lighting effect */}
-        {withInnerGlow && (
-          <div className={`absolute inset-0 rounded-[inherit] bg-gradient-radial ${glowColorClass} opacity-60 pointer-events-none`}></div>
-        )}
-        
-        {/* Optional shimmer effect */}
-        {withShimmer && (
-          <div 
-            className="absolute inset-0 -z-10 rounded-[inherit] bg-gradient-to-r from-transparent via-white/5 to-transparent bg-[length:200%_100%] animate-shimmer pointer-events-none"
-          ></div>
-        )}
-        
-        {/* Card content */}
-        <div className="relative z-10">
-          {children}
+export const PraetorianCard = ({
+  variant,
+  roundness,
+  withShimmer,
+  withInnerGlow,
+  hover,
+  animation,
+  glowColor = 'white',
+  customClasses,
+  children,
+  ...props
+}: PraetorianCardProps) => {
+  // Map glow colors
+  const glowColorMap = {
+    orange: "from-orange-500/30",
+    cyan: "from-cyan-500/30",
+    purple: "from-purple-500/30",
+    white: "from-white/20"
+  };
+  
+  const selectedGlowColor = glowColorMap[glowColor];
+  
+  return (
+    <div
+      className={cn(
+        cardVariants({ variant, roundness, withShimmer, withInnerGlow, hover, animation }),
+        customClasses
+      )}
+      {...props}
+    >
+      {/* Add an inner glow effect */}
+      {withInnerGlow && (
+        <div className={`absolute inset-0 ${roundness !== 'none' ? cardVariants({ roundness }) : ''} bg-gradient-radial ${selectedGlowColor} via-transparent to-transparent opacity-60 pointer-events-none`}></div>
+      )}
+      
+      {/* Shimmer effect */}
+      {withShimmer && (
+        <div className="absolute inset-0 w-full overflow-hidden">
+          <div className="absolute -inset-[100%] animate-[metalShimmer_4s_ease-in-out_infinite] bg-gradient-to-r from-transparent via-white/5 to-transparent transform rotate-45"></div>
         </div>
-        
-        {/* Variant-specific effects */}
-        {variant === 'fire' && (
-          <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-fire-900 via-fire-600 to-fire-900"></div>
-        )}
-        {variant === 'water' && (
-          <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-water-900 via-water-600 to-water-900"></div>
-        )}
+      )}
+      
+      {/* Content - with relative position to go above effects */}
+      <div className="relative z-10">
+        {children}
       </div>
-    );
-  }
-);
-
-PraetorianCard.displayName = 'PraetorianCard';
-
-export { PraetorianCard, cardVariants };
+      
+      {/* Premium border effect for 'premium' variant */}
+      {variant === 'premium' && (
+        <div className="absolute -inset-[1px] rounded-md bg-gradient-to-r from-orange-500/50 via-transparent to-cyan-500/50 opacity-20 blur-sm -z-10"></div>
+      )}
+    </div>
+  );
+};

@@ -1,80 +1,64 @@
 import React from 'react';
-import { cva, type VariantProps } from 'class-variance-authority';
+import { VariantProps, cva } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
-import { generatePraetorianClasses } from '@/styles/praetorianEngine';
 
-// Create a class variance authority configuration for gradient text
 const gradientTextVariants = cva(
-  // Base styles applied to all gradient text
-  'bg-clip-text text-transparent bg-gradient-to-r font-bold',
+  "bg-clip-text text-transparent inline-block",
   {
     variants: {
       variant: {
-        // Fire gradient (orange, red)
-        fire: 'from-fire-300 via-fire-500 to-fire-700',
-        
-        // Water gradient (cyan, blue)
-        water: 'from-water-300 via-water-500 to-water-700',
-        
-        // Dual gradient with both fire and water colors
-        dual: 'from-fire-500 via-white to-water-500',
-        
-        // Metallic silver gradient
-        metal: 'from-gray-300 via-gray-100 to-gray-400',
-        
-        // Purple theme gradient
-        purple: 'from-purple-400 via-purple-600 to-indigo-700',
-        
-        // Rainbow gradient
-        rainbow: 'from-red-500 via-yellow-500 via-green-500 via-blue-500 to-purple-500',
+        fire: "bg-gradient-to-r from-fire-400 via-orange-500 to-red-500",
+        water: "bg-gradient-to-r from-blue-400 via-cyan-500 to-water-500",
+        dual: "bg-gradient-to-r from-fire-500 via-white to-water-500",
+        metal: "bg-gradient-to-r from-gray-300 via-gray-100 to-gray-400",
+        purple: "bg-gradient-to-r from-purple-400 via-fuchsia-500 to-purple-600",
+        rainbow: "bg-gradient-to-r from-red-500 via-yellow-500 via-green-500 via-blue-500 to-purple-500",
       },
       size: {
-        xs: 'text-xs',
-        sm: 'text-sm',
-        md: 'text-base',
-        lg: 'text-lg',
-        xl: 'text-xl',
-        '2xl': 'text-2xl',
-        '3xl': 'text-3xl',
-        '4xl': 'text-4xl',
-        '5xl': 'text-5xl',
-        '6xl': 'text-6xl',
+        xs: "text-xs",
+        sm: "text-sm",
+        base: "text-base",
+        lg: "text-lg",
+        xl: "text-xl",
+        "2xl": "text-2xl",
+        "3xl": "text-3xl",
+        "4xl": "text-4xl",
+        "5xl": "text-5xl",
+        "6xl": "text-6xl",
       },
       weight: {
-        normal: 'font-normal',
-        medium: 'font-medium',
-        semibold: 'font-semibold',
-        bold: 'font-bold',
-        extrabold: 'font-extrabold',
-      },
-      glow: {
-        none: '',
-        sm: 'drop-shadow(0 0 2px currentColor)',
-        md: 'drop-shadow(0 0 4px currentColor)',
-        lg: 'drop-shadow(0 0 8px currentColor)',
-      },
-      animation: {
-        none: '',
-        pulse: 'animate-pulse',
-        shimmer: 'animate-shimmer bg-[length:200%_100%]',
+        normal: "font-normal",
+        medium: "font-medium",
+        bold: "font-bold",
+        extrabold: "font-extrabold",
       },
       capitalize: {
-        true: 'uppercase',
-        false: 'normal-case',
+        true: "uppercase",
+        false: "",
+      },
+      glow: {
+        none: "",
+        sm: "text-shadow-sm",
+        md: "text-shadow-md",
+        lg: "text-shadow-lg",
+      },
+      animation: {
+        none: "",
+        pulse: "animate-pulse",
+        shimmer: "animate-shimmer-text",
       },
     },
     defaultVariants: {
-      variant: 'fire',
-      size: 'xl',
-      weight: 'bold',
-      glow: 'none',
-      animation: 'none',
+      variant: "dual",
+      size: "xl",
+      weight: "bold",
       capitalize: false,
+      glow: "none",
+      animation: "none",
     },
   }
 );
 
-// Define gradient text props interface
 export interface PraetorianGradientTextProps
   extends React.HTMLAttributes<HTMLSpanElement>,
     VariantProps<typeof gradientTextVariants> {
@@ -82,47 +66,70 @@ export interface PraetorianGradientTextProps
   customClasses?: string;
 }
 
-// Create the PraetorianGradientText component
-const PraetorianGradientText = React.forwardRef<HTMLSpanElement, PraetorianGradientTextProps>(
-  (
-    {
-      className,
-      variant,
-      size,
-      weight,
-      glow,
-      animation,
-      capitalize,
-      as: Component = 'span',
-      customClasses,
-      children,
-      ...props
-    },
-    ref
-  ) => {
-    return (
-      <Component
-        className={cn(
-          gradientTextVariants({
-            variant,
-            size,
-            weight,
-            glow,
-            animation,
-            capitalize,
-          }),
-          className,
-          customClasses
-        )}
-        ref={ref}
-        {...props}
-      >
-        {children}
-      </Component>
-    );
-  }
-);
+export const PraetorianGradientText = ({
+  variant,
+  size,
+  weight,
+  capitalize,
+  glow,
+  animation,
+  as: Component = "span",
+  customClasses,
+  children,
+  ...props
+}: PraetorianGradientTextProps) => {
+  // Generate shadow colors based on variant
+  const shadowColorMap = {
+    fire: "var(--fire-glow-color, rgba(255, 106, 0, 0.7))",
+    water: "var(--water-glow-color, rgba(0, 238, 255, 0.7))",
+    dual: "var(--dual-glow-color, rgba(255, 255, 255, 0.7))",
+    metal: "var(--metal-glow-color, rgba(200, 200, 200, 0.5))",
+    purple: "var(--purple-glow-color, rgba(172, 92, 255, 0.7))",
+    rainbow: "var(--rainbow-glow-color, rgba(255, 255, 255, 0.7))",
+  };
+  
+  // Apply text shadow based on glow intensity
+  const glowStyles = glow !== 'none' && variant ? {
+    '--fire-glow-color': 'rgba(255, 106, 0, 0.7)',
+    '--water-glow-color': 'rgba(0, 238, 255, 0.7)', 
+    '--dual-glow-color': 'rgba(255, 255, 255, 0.7)',
+    '--metal-glow-color': 'rgba(200, 200, 200, 0.5)',
+    '--purple-glow-color': 'rgba(172, 92, 255, 0.7)',
+    '--rainbow-glow-color': 'rgba(255, 255, 255, 0.7)',
+    textShadow: glow === 'sm' 
+      ? `0 0 5px ${shadowColorMap[variant!]}`
+      : glow === 'md'
+      ? `0 0 10px ${shadowColorMap[variant!]}, 0 0 5px ${shadowColorMap[variant!]}`
+      : `0 0 15px ${shadowColorMap[variant!]}, 0 0 10px ${shadowColorMap[variant!]}, 0 0 5px ${shadowColorMap[variant!]}`
+  } as React.CSSProperties : {};
 
-PraetorianGradientText.displayName = 'PraetorianGradientText';
-
-export { PraetorianGradientText, gradientTextVariants };
+  // Apply animation styles
+  const animationStyles = animation === 'shimmer' ? {
+    backgroundSize: '200% auto',
+    animation: 'shimmer-text 3s linear infinite',
+  } as React.CSSProperties : {};
+  
+  return (
+    <Component
+      className={cn(
+        gradientTextVariants({ 
+          variant, 
+          size, 
+          weight, 
+          capitalize, 
+          glow, 
+          animation 
+        }),
+        customClasses
+      )}
+      style={{
+        ...glowStyles,
+        ...animationStyles,
+        ...props.style,
+      }}
+      {...props}
+    >
+      {children}
+    </Component>
+  );
+};

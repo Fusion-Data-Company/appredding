@@ -1,166 +1,206 @@
-export const PraetorianStyleEngine = {
-  palette: {
-    firePrimary: 'linear-gradient(to right, #ff0000, #ff8c00, #ffff00)',
-    waterPrimary: 'linear-gradient(to right, #00d9ff, #ffffff)',
-    background: 'radial-gradient(circle at 50% 50%, #0a0a0a, #000000)',
-    metalDark: '#1e1e1e',
-    accentOrange: '#ff5e00',
-    accentBlue: '#00e6f6',
+/**
+ * PraetorianStyleEngine.ts
+ * 
+ * A comprehensive styling engine for the Praetorian SmartCoat Solutions application
+ * Defines core color palette, animations, and style constants for consistent tactical-industrial theming
+ */
+
+// COLORS: Fire & Water Dual-Tone Color System
+export const praetorianExtendedColors = {
+  // Fire palette (orange/amber spectrum)
+  fire: {
+    50: '#fff7ed',  // Lightest
+    100: '#ffedd5',
+    200: '#fed7aa',
+    300: '#fdba74',
+    400: '#fb923c',
+    500: '#f97316', // Base orange
+    600: '#ea580c',
+    700: '#c2410c',
+    800: '#9a3412',
+    900: '#7c2d12',
+    950: '#431407'   // Darkest
   },
-
-  shadows: {
-    fireGlow: '0 0 8px rgba(255, 120, 0, 0.4), 0 0 24px rgba(255, 0, 0, 0.2)',
-    waterGlow: '0 0 10px rgba(0, 240, 255, 0.3), 0 0 30px rgba(0, 240, 255, 0.2)',
-    softMetal: 'inset 1px 1px 3px rgba(255,255,255,0.05), inset -1px -1px 3px rgba(0,0,0,0.3)',
+  
+  // Water palette (cyan/blue spectrum)
+  water: {
+    50: '#ecfeff',  // Lightest
+    100: '#cffafe',
+    200: '#a5f3fc',
+    300: '#67e8f9',
+    400: '#22d3ee',
+    500: '#06b6d4', // Base cyan
+    600: '#0891b2',
+    700: '#0e7490',
+    800: '#155e75',
+    900: '#164e63',
+    950: '#083344'   // Darkest
   },
-
-  animations: {
-    firePulse: 'firePulse 2.5s ease-in-out infinite',
-    waterRipple: 'waterRipple 3s ease-in-out infinite',
-    heatWave: 'heatWave 6s linear infinite',
-    floatHover: 'float 5s ease-in-out infinite',
+  
+  // Metal palette (steel grays)
+  metal: {
+    50: '#fafafa',   // Lightest
+    100: '#f4f4f5',
+    200: '#e4e4e7',
+    300: '#d4d4d8',
+    400: '#a1a1aa',
+    500: '#71717a',  // Base gray
+    600: '#52525b',
+    700: '#3f3f46',
+    800: '#27272a',
+    900: '#18181b',
+    950: '#09090b'   // Darkest
   },
-
-  textures: {
-    metal: 'url("/textures/brushed-steel-dark.jpg")',
-    fireSurface: 'url("/textures/fire-gradient-blend.jpg")',
-    waterSurface: 'url("/textures/water-blur-wave.jpg")',
-  },
-
-  buttons: {
-    base: 'rounded-xl px-6 py-2 font-bold transition-all duration-300',
-    fire: 'bg-[image:var(--fireSurface)] shadow-fireGlow hover:scale-105',
-    water: 'bg-[image:var(--waterSurface)] shadow-waterGlow hover:scale-105',
-  },
-
-  modals: {
-    base: 'bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl shadow-glow animate-holoRise',
-  },
-};
-
-// Custom CSS class generator functions
-export const generatePraetorianClasses = {
-  // Fire-themed button with gradient and glow effect
-  fireButton: (extraClasses = '') => 
-    `relative overflow-hidden bg-gradient-to-r from-orange-700 via-orange-500 to-orange-600 text-white rounded-lg 
-     px-6 py-2.5 font-medium shadow-lg shadow-orange-500/30 
-     hover:shadow-orange-500/50 hover:scale-[1.02] transition-all duration-300 
-     focus:ring-2 focus:ring-orange-500/50 focus:outline-none ${extraClasses}`,
-     
-  // Water-themed button with gradient and glow effect
-  waterButton: (extraClasses = '') => 
-    `relative overflow-hidden bg-gradient-to-r from-cyan-700 via-cyan-500 to-cyan-600 text-white rounded-lg 
-     px-6 py-2.5 font-medium shadow-lg shadow-cyan-500/30 
-     hover:shadow-cyan-500/50 hover:scale-[1.02] transition-all duration-300 
-     focus:ring-2 focus:ring-cyan-500/50 focus:outline-none ${extraClasses}`,
-     
-  // Premium metal-style card with beveled edges and subtle lighting effects
-  metalCard: (extraClasses = '') => 
-    `relative bg-gradient-to-b from-gray-900 via-gray-900 to-black border border-gray-800 rounded-xl 
-     shadow-xl overflow-hidden backdrop-blur-sm ${extraClasses}`,
-     
-  // Fire-themed premium card with orange glow effects
-  fireCard: (extraClasses = '') => 
-    `relative bg-gradient-to-b from-gray-900 via-gray-900 to-black border border-orange-900/50 rounded-xl 
-     shadow-xl shadow-orange-500/10 overflow-hidden backdrop-blur-sm ${extraClasses}`,
-     
-  // Water-themed premium card with cyan glow effects
-  waterCard: (extraClasses = '') => 
-    `relative bg-gradient-to-b from-gray-900 via-gray-900 to-black border border-cyan-900/50 rounded-xl 
-     shadow-xl shadow-cyan-500/10 overflow-hidden backdrop-blur-sm ${extraClasses}`,
-
-  // Premium gradient text with fire effect (orange to red)
-  fireGradientText: (extraClasses = '') =>
-    `bg-clip-text text-transparent bg-gradient-to-r from-orange-300 via-orange-500 to-red-600 
-     ${extraClasses}`,
-     
-  // Premium gradient text with water effect (cyan to blue)
-  waterGradientText: (extraClasses = '') =>
-    `bg-clip-text text-transparent bg-gradient-to-r from-cyan-300 via-cyan-500 to-blue-600 
-     ${extraClasses}`,
-     
-  // Combined fire-water gradient text effect
-  dualGradientText: (extraClasses = '') =>
-    `bg-clip-text text-transparent bg-gradient-to-r from-orange-500 via-white to-cyan-500 
-     ${extraClasses}`,
-     
-  // Background with animated heat wave effect
-  heatWaveBackground: (extraClasses = '') =>
-    `relative bg-black ${extraClasses} before:content-[''] before:absolute before:inset-0 
-     before:bg-gradient-to-r before:from-transparent before:via-orange-500/10 before:to-transparent 
-     before:animate-heatWave before:bg-[length:200%_100%]`,
-     
-  // Animated glowing border
-  glowingBorder: (color = 'orange', extraClasses = '') => {
-    const colorMap = {
-      orange: 'orange-500',
-      cyan: 'cyan-500',
-      blue: 'blue-500',
-      purple: 'purple-500',
-    };
-    
-    const mappedColor = colorMap[color as keyof typeof colorMap] || colorMap.orange;
-    
-    return `relative border border-${mappedColor}/30 ${extraClasses} 
-      before:absolute before:inset-0 before:rounded-[inherit] before:p-[1px] 
-      before:bg-gradient-to-r before:from-transparent before:via-${mappedColor}/50 before:to-transparent 
-      before:animate-borderGlow before:bg-[length:200%_100%]`;
+  
+  // Accent colors
+  accent: {
+    purple: {
+      light: '#9333ea',
+      DEFAULT: '#7e22ce',
+      dark: '#6b21a8'
+    },
+    amber: {
+      light: '#fbbf24',
+      DEFAULT: '#f59e0b',
+      dark: '#d97706'
+    },
+    emerald: {
+      light: '#10b981',
+      DEFAULT: '#059669',
+      dark: '#047857'
+    }
   }
 };
 
-// Animation keyframes for Tailwind config
+// ANIMATIONS: Premium Tactile Effects
 export const praetorianAnimationKeyframes = {
-  firePulse: {
-    '0%, 100%': { opacity: '0.6', transform: 'scale(1)' },
-    '50%': { opacity: '1', transform: 'scale(1.05)' },
+  // Fire-themed animations
+  "firePulse": {
+    "0%, 100%": { opacity: "0.8", boxShadow: "0 0 15px rgba(255,106,0,0.4), 0 0 40px rgba(255,106,0,0.2)" },
+    "50%": { opacity: "1", boxShadow: "0 0 25px rgba(255,106,0,0.5), 0 0 60px rgba(255,106,0,0.3)" }
   },
-  waterRipple: {
-    '0%': { transform: 'scale(0.95)', opacity: '0.7' },
-    '50%': { transform: 'scale(1.05)', opacity: '0.9' },
-    '100%': { transform: 'scale(0.95)', opacity: '0.7' },
+  
+  // Water-themed animations
+  "waterRipple": {
+    "0%": { boxShadow: "0 0 0 0 rgba(6,182,212,0.7)" },
+    "70%": { boxShadow: "0 0 0 10px rgba(6,182,212,0)" },
+    "100%": { boxShadow: "0 0 0 0 rgba(6,182,212,0)" }
   },
-  heatWave: {
-    '0%': { backgroundPosition: '0% 50%' },
-    '100%': { backgroundPosition: '200% 50%' },
+  
+  // Heat shimmer/distortion effect
+  "heatWave": {
+    "0%": { transform: "translateY(0) scaleX(1.0)", opacity: "0.8" },
+    "25%": { transform: "translateY(-2px) scaleX(1.01)", opacity: "0.9" },
+    "50%": { transform: "translateY(0) scaleX(1.0)", opacity: "1" },
+    "75%": { transform: "translateY(2px) scaleX(0.99)", opacity: "0.9" },
+    "100%": { transform: "translateY(0) scaleX(1.0)", opacity: "0.8" }
   },
-  float: {
-    '0%, 100%': { transform: 'translateY(0)' },
-    '50%': { transform: 'translateY(-10px)' },
+  
+  // Border glow effect (fire/water alternating)
+  "borderGlow": {
+    "0%, 100%": { borderColor: "rgba(255,106,0,0.7)" },
+    "50%": { borderColor: "rgba(6,182,212,0.7)" },
   },
-  borderGlow: {
-    '0%': { backgroundPosition: '0% 50%' },
-    '100%': { backgroundPosition: '200% 50%' },
+  
+  // Holographic rise effect
+  "holoRise": {
+    "0%": { transform: "translateY(20px)", opacity: "0" },
+    "100%": { transform: "translateY(0)", opacity: "1" },
   },
-  holoRise: {
-    '0%': { transform: 'translateY(20px)', opacity: '0' },
-    '100%': { transform: 'translateY(0)', opacity: '1' },
+  
+  // Metal shimmer effect
+  "metalShimmer": {
+    "0%": { transform: "translateX(-100%) rotate(45deg)" },
+    "50%": { transform: "translateX(100%) rotate(45deg)" },
+    "100%": { transform: "translateX(100%) rotate(45deg)" }
   },
+  
+  // Shimmer text animation
+  "shimmer-text": {
+    "0%": { backgroundPosition: "200% 0" },
+    "100%": { backgroundPosition: "-200% 0" }
+  },
+  
+  // Fade in animation
+  "fade-in": {
+    "0%": { opacity: "0" },
+    "100%": { opacity: "1" }
+  }
 };
 
-// Extended color palette for Tailwind config
-export const praetorianExtendedColors = {
-  'fire': {
-    50: '#fff5f0',
-    100: '#ffede3',
-    200: '#ffd6bc',
-    300: '#ffb48a',
-    400: '#ff8547',
-    500: '#ff5e00',
-    600: '#e54600',
-    700: '#c13400',
-    800: '#9f2d0a',
-    900: '#7e250d',
+// SHADOWS: Premium 3D Effects
+export const praetorianShadowStyles = {
+  cardShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)",
+  innerShadow: "inset 0 2px 4px 0 rgba(0, 0, 0, 0.05)",
+  textShadow: {
+    sm: "0 1px 2px rgba(0, 0, 0, 0.1)",
+    md: "0 2px 4px rgba(0, 0, 0, 0.2)",
+    lg: "0 4px 8px rgba(0, 0, 0, 0.4)"
   },
-  'water': {
-    50: '#f0f9ff',
-    100: '#e0f3fe',
-    200: '#bae8fd',
-    300: '#7cd7fd',
-    400: '#37c5f8',
-    500: '#00e6f6',
-    600: '#018ecc',
-    700: '#0274a8',
-    800: '#016189',
-    900: '#065373',
-  },
+  glowShadow: {
+    fire: "0 0 15px rgba(255, 106, 0, 0.5), 0 0 30px rgba(255, 106, 0, 0.3)",
+    water: "0 0 15px rgba(6, 182, 212, 0.5), 0 0 30px rgba(6, 182, 212, 0.3)",
+    white: "0 0 15px rgba(255, 255, 255, 0.5), 0 0 30px rgba(255, 255, 255, 0.3)",
+    purple: "0 0 15px rgba(147, 51, 234, 0.5), 0 0 30px rgba(147, 51, 234, 0.3)"
+  }
+};
+
+// GRADIENTS: Premium Color Combinations
+export const praetorianGradients = {
+  fireGradient: "linear-gradient(to right, #f97316, #c2410c)",
+  waterGradient: "linear-gradient(to right, #06b6d4, #0e7490)",
+  dualGradient: "linear-gradient(to right, #f97316, #ffffff, #06b6d4)",
+  metalGradient: "linear-gradient(to bottom, #d4d4d8, #a1a1aa, #71717a)",
+  glassGradient: "linear-gradient(to bottom, rgba(255,255,255,0.1), rgba(255,255,255,0.05))",
+  premiumGradient: "linear-gradient(to right, #f97316, #fef3c7, #06b6d4)"
+};
+
+// BORDERS: Premium Edge Treatments
+export const praetorianBorders = {
+  thin: "1px solid",
+  medium: "2px solid",
+  thick: "4px solid",
+  dashed: "2px dashed",
+  fireColor: "rgba(255, 106, 0, 0.7)",
+  waterColor: "rgba(6, 182, 212, 0.7)",
+  metalColor: "rgba(113, 113, 122, 0.5)",
+  glassColor: "rgba(255, 255, 255, 0.1)"
+};
+
+// TEXTURES: Industrial Patterns
+export const praetorianTextures = {
+  metalPlate: "url('/textures/metal-plate.png')",
+  carbonFiber: "url('/textures/carbon-fiber.png')",
+  diagonal: "url('/textures/diagonal-lines.png')",
+  noise: "url('/textures/noise.png')"
+};
+
+// Z-INDEX: Layer Management
+export const praetorianZIndex = {
+  background: -10,
+  base: 0,
+  content: 10,
+  overlay: 20,
+  modal: 30,
+  toast: 40,
+  tooltip: 50
+};
+
+// SPACING: Consistent Layout
+export const praetorianSpacing = {
+  xs: '0.25rem',   // 4px
+  sm: '0.5rem',    // 8px
+  md: '1rem',      // 16px
+  lg: '1.5rem',    // 24px
+  xl: '2rem',      // 32px
+  '2xl': '2.5rem', // 40px
+  '3xl': '3rem'    // 48px
+};
+
+// TRANSITIONS: Smooth Motion
+export const praetorianTransitions = {
+  fast: "150ms ease",
+  medium: "300ms ease",
+  slow: "500ms ease",
+  bounce: "300ms cubic-bezier(0.68, -0.55, 0.27, 1.55)"
 };

@@ -113,12 +113,20 @@ const MobileMenu = ({ isOpen, onClose, isHomePage = true }: MobileMenuProps) => 
               <i className="fas fa-user-cog mr-2"></i> Admin Dashboard
             </Link>
           </li>
-          <li className="pt-2">
+          <li className="pt-2 pb-2">
             <Link
               href="/crm"
               className="mobile-menu-link bg-gradient-to-r from-orange-500 to-blue-600 hover:from-orange-600 hover:to-blue-700 text-white font-medium block py-3 px-4 rounded-md text-center transition-all duration-300 shadow-md hover:shadow-lg"
             >
               <i className="fas fa-chart-line mr-2"></i> Team CRM
+            </Link>
+          </li>
+          <li className="pt-2">
+            <Link
+              href="/style-showcase"
+              className="mobile-menu-link bg-gradient-to-r from-orange-500 via-white to-cyan-500 text-transparent bg-clip-text font-bold block py-3 px-4 rounded-md text-center transition-all duration-300 border-2 border-gray-700/30"
+            >
+              <i className="fas fa-palette mr-2"></i> Style Showcase
             </Link>
           </li>
         </ul>
