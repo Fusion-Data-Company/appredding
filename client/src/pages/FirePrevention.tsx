@@ -94,10 +94,8 @@ const FirePrevention = () => {
   };
   
   return (
-    <div className="min-h-screen flex flex-col">
-      <Header />
-      
-      <main className="flex-grow relative">
+    <MainLayout fullWidth={true}>
+      <div className="relative">
         {/* Full-page fire background */}
         <div 
           className="fixed inset-0 z-0 bg-center bg-cover bg-no-repeat" 
@@ -810,10 +808,8 @@ const FirePrevention = () => {
             </div>
           </div>
         </section>
-      </main>
-      
-      <Footer />
-    </div>
+      </div>
+    </MainLayout>
   );
 };
 
