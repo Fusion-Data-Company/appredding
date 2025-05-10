@@ -16,7 +16,7 @@ import {
   FormMessage
 } from "@/components/ui/form";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { CalendarIcon, Home, Tool, Wrench, Clock, Shield, CheckCircle } from "lucide-react";
+import { CalendarIcon, Home, Wrench, Clock, Shield, CheckCircle, BadgeCheck, Building } from "lucide-react";
 import { insertMobileHomeProfessionalSchema } from "@shared/schema";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
@@ -37,7 +37,86 @@ const mobileHomeProfessionalFormSchema = insertMobileHomeProfessionalSchema.exte
   })
 });
 
+// Define the form values type
+type MobileHomeProfessionalFormValues = z.infer<typeof mobileHomeProfessionalFormSchema>;
+
 const MobileHome = () => {
+  const [showRegistrationForm, setShowRegistrationForm] = useState(false);
+  const [registrationSuccess, setRegistrationSuccess] = useState(false);
+  const { toast } = useToast();
+
+  // Setup form for mobile home professional registration
+  const form = useForm<MobileHomeProfessionalFormValues>({
+    resolver: zodResolver(mobileHomeProfessionalFormSchema),
+    defaultValues: {
+      companyName: "",
+      contactName: "",
+      email: "",
+      confirmEmail: "",
+      phone: "",
+      address: "",
+      city: "",
+      state: "",
+      zipCode: "",
+      website: "",
+      licenseNumber: "",
+      licenseExpiryDate: undefined,
+      insuranceInfo: "",
+      yearsInBusiness: 0,
+      specialties: [],
+      serviceAreas: [],
+      materialTypes: [],
+      installationTypes: [],
+      repairServices: [],
+      emergencyService: false,
+      hourlyRate: undefined,
+      mobileHomeTypes: [],
+      rvTypes: [],
+      certifications: [],
+      manufacturerAuthorizations: [],
+      notes: "",
+      termsAccepted: false
+    },
+  });
+
+  // Mobile Home Professional registration mutation
+  const registerMutation = useMutation({
+    mutationFn: async (data: MobileHomeProfessionalFormValues) => {
+      // Remove form-specific fields
+      const { confirmEmail, termsAccepted, ...registerData } = data;
+      const response = await apiRequest("POST", "/api/professionals/mobile-home-professionals", registerData);
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || "Registration failed");
+      }
+      return response.json();
+    },
+    onSuccess: () => {
+      toast({
+        title: "Registration Successful",
+        description: "Your mobile home professional profile has been created",
+        variant: "default",
+      });
+      setRegistrationSuccess(true);
+      form.reset();
+    },
+    onError: (error: Error) => {
+      toast({
+        title: "Registration Failed",
+        description: error.message,
+        variant: "destructive",
+      });
+    },
+  });
+
+  const onSubmit = (data: MobileHomeProfessionalFormValues) => {
+    registerMutation.mutate(data);
+  };
+  
+  const handleShowRegistrationForm = () => {
+    setShowRegistrationForm(true);
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
@@ -227,6 +306,584 @@ const MobileHome = () => {
                   <p className="text-center text-gray-100">Protective barriers that prevent moisture damage, pest intrusion, and heat loss while enhancing the structural integrity of your home.</p>
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-16 relative z-10">
+          <div className="container mx-auto">
+            <div className="max-w-4xl mx-auto backdrop-blur-sm bg-primary-900/60 border-4 border-white rounded-xl p-8 shadow-[0_0_60px_rgba(255,255,255,0.4)] mb-12">
+              <GradientHeading level={2} className="text-3xl text-center mb-8" variant="mixed">Join Our Mobile Home Professional Network</GradientHeading>
+              <p className="text-lg text-center text-white mb-6">
+                Become part of our network of mobile home protection specialists and gain access to exclusive products, training, and customer referrals.
+              </p>
+              
+              {!showRegistrationForm && !registrationSuccess && (
+                <div className="flex justify-center">
+                  <GradientButton variant="variant" onClick={handleShowRegistrationForm} className="text-lg px-8 py-3">
+                    Apply to Join Our Network
+                  </GradientButton>
+                </div>
+              )}
+              
+              {showRegistrationForm && !registrationSuccess && (
+                <div className="mt-8">
+                  <Form {...form}>
+                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+                      <div className="backdrop-blur-sm bg-primary-800/60 p-6 rounded-lg border-2 border-white mb-8">
+                        <GradientHeading level={3} className="text-xl mb-6" variant="mixed">Company Information</GradientHeading>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                          <FormField
+                            control={form.control}
+                            name="companyName"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel className="text-white">Company Name</FormLabel>
+                                <FormControl>
+                                  <Input placeholder="Enter company name" {...field} className="bg-primary-700/50 border-white/30 text-white" />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                          
+                          <FormField
+                            control={form.control}
+                            name="contactName"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel className="text-white">Contact Name</FormLabel>
+                                <FormControl>
+                                  <Input placeholder="Enter contact name" {...field} className="bg-primary-700/50 border-white/30 text-white" />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                          
+                          <FormField
+                            control={form.control}
+                            name="email"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel className="text-white">Email</FormLabel>
+                                <FormControl>
+                                  <Input placeholder="Enter email address" {...field} className="bg-primary-700/50 border-white/30 text-white" />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                          
+                          <FormField
+                            control={form.control}
+                            name="confirmEmail"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel className="text-white">Confirm Email</FormLabel>
+                                <FormControl>
+                                  <Input placeholder="Confirm email address" {...field} className="bg-primary-700/50 border-white/30 text-white" />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                          
+                          <FormField
+                            control={form.control}
+                            name="phone"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel className="text-white">Phone Number</FormLabel>
+                                <FormControl>
+                                  <Input placeholder="Enter phone number" {...field} className="bg-primary-700/50 border-white/30 text-white" />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                          
+                          <FormField
+                            control={form.control}
+                            name="website"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel className="text-white">Website (Optional)</FormLabel>
+                                <FormControl>
+                                  <Input placeholder="Enter website URL" {...field} className="bg-primary-700/50 border-white/30 text-white" />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                        </div>
+                      </div>
+                    
+                      <div className="backdrop-blur-sm bg-primary-800/60 p-6 rounded-lg border-2 border-white mb-8">
+                        <GradientHeading level={3} className="text-xl mb-6" variant="mixed">Address Information</GradientHeading>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                          <FormField
+                            control={form.control}
+                            name="address"
+                            render={({ field }) => (
+                              <FormItem className="md:col-span-2">
+                                <FormLabel className="text-white">Address</FormLabel>
+                                <FormControl>
+                                  <Input placeholder="Enter street address" {...field} className="bg-primary-700/50 border-white/30 text-white" />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                          
+                          <FormField
+                            control={form.control}
+                            name="city"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel className="text-white">City</FormLabel>
+                                <FormControl>
+                                  <Input placeholder="Enter city" {...field} className="bg-primary-700/50 border-white/30 text-white" />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                          
+                          <FormField
+                            control={form.control}
+                            name="state"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel className="text-white">State</FormLabel>
+                                <FormControl>
+                                  <Input placeholder="Enter state" {...field} className="bg-primary-700/50 border-white/30 text-white" />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                          
+                          <FormField
+                            control={form.control}
+                            name="zipCode"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel className="text-white">ZIP Code</FormLabel>
+                                <FormControl>
+                                  <Input placeholder="Enter ZIP code" {...field} className="bg-primary-700/50 border-white/30 text-white" />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                        </div>
+                      </div>
+                      
+                      <div className="backdrop-blur-sm bg-primary-800/60 p-6 rounded-lg border-2 border-white mb-8">
+                        <GradientHeading level={3} className="text-xl mb-6" variant="mixed">Business Credentials</GradientHeading>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                          <FormField
+                            control={form.control}
+                            name="licenseNumber"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel className="text-white">License Number</FormLabel>
+                                <FormControl>
+                                  <Input placeholder="Enter license number" {...field} className="bg-primary-700/50 border-white/30 text-white" />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                          
+                          <FormField
+                            control={form.control}
+                            name="licenseExpiryDate"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel className="text-white">License Expiry Date</FormLabel>
+                                <Popover>
+                                  <PopoverTrigger asChild>
+                                    <FormControl>
+                                      <Button
+                                        variant="outline"
+                                        className={`w-full pl-3 text-left font-normal bg-primary-700/50 border-white/30 text-white ${!field.value ? "text-muted-foreground" : ""}`}
+                                      >
+                                        {field.value ? (
+                                          format(field.value, "PPP")
+                                        ) : (
+                                          <span>Select expiry date</span>
+                                        )}
+                                        <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
+                                      </Button>
+                                    </FormControl>
+                                  </PopoverTrigger>
+                                  <PopoverContent className="w-auto p-0" align="start">
+                                    <Calendar
+                                      mode="single"
+                                      selected={field.value}
+                                      onSelect={field.onChange}
+                                      disabled={(date) => date < new Date()}
+                                      initialFocus
+                                    />
+                                  </PopoverContent>
+                                </Popover>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                          
+                          <FormField
+                            control={form.control}
+                            name="yearsInBusiness"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel className="text-white">Years in Business</FormLabel>
+                                <FormControl>
+                                  <Input 
+                                    type="number" 
+                                    placeholder="Enter years in business" 
+                                    {...field}
+                                    onChange={(e) => field.onChange(parseInt(e.target.value) || 0)} 
+                                    className="bg-primary-700/50 border-white/30 text-white" 
+                                  />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                          
+                          <FormField
+                            control={form.control}
+                            name="insuranceInfo"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel className="text-white">Insurance Information</FormLabel>
+                                <FormControl>
+                                  <Input placeholder="Enter insurance details" {...field} className="bg-primary-700/50 border-white/30 text-white" />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                        </div>
+                      </div>
+
+                      <div className="backdrop-blur-sm bg-primary-800/60 p-6 rounded-lg border-2 border-white mb-8">
+                        <GradientHeading level={3} className="text-xl mb-6" variant="mixed">Specializations</GradientHeading>
+                        <div className="grid grid-cols-1 gap-6">
+                          <FormField
+                            control={form.control}
+                            name="specialties"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel className="text-white">Specialties</FormLabel>
+                                <FormControl>
+                                  <Textarea 
+                                    placeholder="List your specialties (e.g., roof coatings, exterior painting, etc.)" 
+                                    className="bg-primary-700/50 border-white/30 text-white min-h-[100px]" 
+                                    value={Array.isArray(field.value) ? field.value.join(", ") : ""}
+                                    onChange={(e) => field.onChange(e.target.value.split(",").map(item => item.trim()))}
+                                  />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                          
+                          <FormField
+                            control={form.control}
+                            name="serviceAreas"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel className="text-white">Service Areas</FormLabel>
+                                <FormControl>
+                                  <Textarea 
+                                    placeholder="List your service areas (e.g., cities, counties, regions)" 
+                                    className="bg-primary-700/50 border-white/30 text-white min-h-[100px]" 
+                                    value={Array.isArray(field.value) ? field.value.join(", ") : ""}
+                                    onChange={(e) => field.onChange(e.target.value.split(",").map(item => item.trim()))}
+                                  />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                          
+                          <FormField
+                            control={form.control}
+                            name="materialTypes"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel className="text-white">Material Types</FormLabel>
+                                <FormControl>
+                                  <Textarea 
+                                    placeholder="List material types you work with (e.g., elastomeric coatings, silicone, etc.)" 
+                                    className="bg-primary-700/50 border-white/30 text-white min-h-[100px]" 
+                                    value={Array.isArray(field.value) ? field.value.join(", ") : ""}
+                                    onChange={(e) => field.onChange(e.target.value.split(",").map(item => item.trim()))}
+                                  />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                        </div>
+                      </div>
+
+                      <div className="backdrop-blur-sm bg-primary-800/60 p-6 rounded-lg border-2 border-white mb-8">
+                        <GradientHeading level={3} className="text-xl mb-6" variant="mixed">Services & Experience</GradientHeading>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                          <FormField
+                            control={form.control}
+                            name="installationTypes"
+                            render={({ field }) => (
+                              <FormItem className="md:col-span-2">
+                                <FormLabel className="text-white">Installation Types</FormLabel>
+                                <FormControl>
+                                  <Textarea 
+                                    placeholder="List installation types you offer (e.g., roof coatings, siding, windows, etc.)" 
+                                    className="bg-primary-700/50 border-white/30 text-white min-h-[100px]" 
+                                    value={Array.isArray(field.value) ? field.value.join(", ") : ""}
+                                    onChange={(e) => field.onChange(e.target.value.split(",").map(item => item.trim()))}
+                                  />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                          
+                          <FormField
+                            control={form.control}
+                            name="repairServices"
+                            render={({ field }) => (
+                              <FormItem className="md:col-span-2">
+                                <FormLabel className="text-white">Repair Services</FormLabel>
+                                <FormControl>
+                                  <Textarea 
+                                    placeholder="List repair services you offer (e.g., leak repair, damage restoration, etc.)" 
+                                    className="bg-primary-700/50 border-white/30 text-white min-h-[100px]" 
+                                    value={Array.isArray(field.value) ? field.value.join(", ") : ""}
+                                    onChange={(e) => field.onChange(e.target.value.split(",").map(item => item.trim()))}
+                                  />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                          
+                          <FormField
+                            control={form.control}
+                            name="emergencyService"
+                            render={({ field }) => (
+                              <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md p-4 bg-primary-700/30">
+                                <FormControl>
+                                  <Checkbox
+                                    checked={field.value}
+                                    onCheckedChange={field.onChange}
+                                    className="data-[state=checked]:bg-gradient-to-r from-orange-600 to-blue-500 data-[state=checked]:border-none"
+                                  />
+                                </FormControl>
+                                <div className="space-y-1 leading-none">
+                                  <FormLabel className="text-white">
+                                    Emergency Service Available
+                                  </FormLabel>
+                                </div>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                          
+                          <FormField
+                            control={form.control}
+                            name="hourlyRate"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel className="text-white">Hourly Rate (USD)</FormLabel>
+                                <FormControl>
+                                  <Input 
+                                    type="number" 
+                                    placeholder="Enter hourly rate" 
+                                    {...field}
+                                    onChange={(e) => field.onChange(e.target.value ? parseFloat(e.target.value) : undefined)}
+                                    className="bg-primary-700/50 border-white/30 text-white" 
+                                  />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                        </div>
+                      </div>
+
+                      <div className="backdrop-blur-sm bg-primary-800/60 p-6 rounded-lg border-2 border-white mb-8">
+                        <GradientHeading level={3} className="text-xl mb-6" variant="mixed">Mobile Home & RV Specific</GradientHeading>
+                        <div className="grid grid-cols-1 gap-6">
+                          <FormField
+                            control={form.control}
+                            name="mobileHomeTypes"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel className="text-white">Mobile Home Types</FormLabel>
+                                <FormControl>
+                                  <Textarea 
+                                    placeholder="List mobile home types you service (e.g., single-wide, double-wide, modular, manufactured, etc.)" 
+                                    className="bg-primary-700/50 border-white/30 text-white min-h-[100px]" 
+                                    value={Array.isArray(field.value) ? field.value.join(", ") : ""}
+                                    onChange={(e) => field.onChange(e.target.value.split(",").map(item => item.trim()))}
+                                  />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                          
+                          <FormField
+                            control={form.control}
+                            name="rvTypes"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel className="text-white">RV Types</FormLabel>
+                                <FormControl>
+                                  <Textarea 
+                                    placeholder="List RV types you service (e.g., Class A, Class C, Fifth Wheel, etc.)" 
+                                    className="bg-primary-700/50 border-white/30 text-white min-h-[100px]" 
+                                    value={Array.isArray(field.value) ? field.value.join(", ") : ""}
+                                    onChange={(e) => field.onChange(e.target.value.split(",").map(item => item.trim()))}
+                                  />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                          
+                          <FormField
+                            control={form.control}
+                            name="certifications"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel className="text-white">Certifications</FormLabel>
+                                <FormControl>
+                                  <Textarea 
+                                    placeholder="List relevant certifications for mobile home/RV work" 
+                                    className="bg-primary-700/50 border-white/30 text-white min-h-[100px]" 
+                                    value={Array.isArray(field.value) ? field.value.join(", ") : ""}
+                                    onChange={(e) => field.onChange(e.target.value.split(",").map(item => item.trim()))}
+                                  />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                          
+                          <FormField
+                            control={form.control}
+                            name="manufacturerAuthorizations"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel className="text-white">Manufacturer Authorizations</FormLabel>
+                                <FormControl>
+                                  <Textarea 
+                                    placeholder="List any mobile home or RV manufacturers you're authorized to service" 
+                                    className="bg-primary-700/50 border-white/30 text-white min-h-[100px]" 
+                                    value={Array.isArray(field.value) ? field.value.join(", ") : ""}
+                                    onChange={(e) => field.onChange(e.target.value.split(",").map(item => item.trim()))}
+                                  />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                        </div>
+                      </div>
+
+                      <div className="backdrop-blur-sm bg-primary-800/60 p-6 rounded-lg border-2 border-white mb-8">
+                        <GradientHeading level={3} className="text-xl mb-6" variant="mixed">Additional Information</GradientHeading>
+                        <div className="grid grid-cols-1 gap-6">
+                          <FormField
+                            control={form.control}
+                            name="notes"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel className="text-white">Additional Notes</FormLabel>
+                                <FormControl>
+                                  <Textarea 
+                                    placeholder="Any additional information you'd like to share about your services" 
+                                    className="bg-primary-700/50 border-white/30 text-white min-h-[150px]" 
+                                    {...field}
+                                  />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                          
+                          <FormField
+                            control={form.control}
+                            name="termsAccepted"
+                            render={({ field }) => (
+                              <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md p-4 bg-primary-700/30">
+                                <FormControl>
+                                  <Checkbox
+                                    checked={field.value}
+                                    onCheckedChange={field.onChange}
+                                    className="data-[state=checked]:bg-gradient-to-r from-orange-600 to-blue-500 data-[state=checked]:border-none"
+                                  />
+                                </FormControl>
+                                <div className="space-y-1 leading-none">
+                                  <FormLabel className="text-white">
+                                    I agree to the terms and conditions for Praetorian professional network membership
+                                  </FormLabel>
+                                </div>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                        </div>
+                      </div>
+
+                      <div className="flex justify-center">
+                        <Button 
+                          type="submit" 
+                          className="bg-gradient-to-r from-orange-600 to-blue-500 hover:from-orange-700 hover:to-blue-600 text-white font-semibold py-2 px-8 rounded-lg shadow-lg text-lg"
+                          disabled={registerMutation.isPending}
+                        >
+                          {registerMutation.isPending ? (
+                            <>
+                              <span className="mr-2">Submitting</span>
+                              <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                              </svg>
+                            </>
+                          ) : (
+                            "Submit Application"
+                          )}
+                        </Button>
+                      </div>
+                    </form>
+                  </Form>
+                </div>
+              )}
+              
+              {registrationSuccess && (
+                <div className="text-center bg-primary-800/60 p-8 rounded-lg border-2 border-white">
+                  <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <CheckCircle size={32} className="text-white" />
+                  </div>
+                  <GradientHeading level={3} className="text-xl mb-4" variant="mixed">Registration Successful!</GradientHeading>
+                  <p className="text-white mb-6">
+                    Thank you for applying to join the Praetorian Mobile Home Professional Network. Our team will review your application and contact you shortly.
+                  </p>
+                  <Button 
+                    className="bg-gradient-to-r from-orange-600 to-blue-500 hover:from-orange-700 hover:to-blue-600 text-white" 
+                    onClick={() => setRegistrationSuccess(false)}
+                  >
+                    Return to Mobile Home Solutions
+                  </Button>
+                </div>
+              )}
             </div>
           </div>
         </section>
