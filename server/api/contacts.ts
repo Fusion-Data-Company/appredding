@@ -41,12 +41,18 @@ export async function getContactById(req: Request, res: Response) {
 }
 
 /**
- * Create a new CRM contact
+ * Create a new contact (CRM specific)
  */
 export async function createCRMContact(req: Request, res: Response) {
   try {
     // Validate request body
     const validatedData = insertContactSchema.parse(req.body);
+
+    // Add created by if authenticated
+    if (req.user) {
+      validatedData.createdBy = req.user.id;
+      validatedData.assignedTo = req.user.id; // Default to self-assigned
+    }
 
     // Store contact in database
     const contact = await storage.createContact(validatedData);

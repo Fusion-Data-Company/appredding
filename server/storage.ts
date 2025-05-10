@@ -268,6 +268,159 @@ export class DatabaseStorage implements IStorage {
     const [update] = await db.insert(projectUpdates).values(insertUpdate).returning();
     return update;
   }
+
+  // ========================
+  // CRM Company methods
+  // ========================
+  
+  async getCompanies(): Promise<Company[]> {
+    return await db
+      .select()
+      .from(companies)
+      .orderBy(desc(companies.createdAt));
+  }
+  
+  async getCompany(id: number): Promise<Company | undefined> {
+    const [company] = await db
+      .select()
+      .from(companies)
+      .where(eq(companies.id, id));
+    return company;
+  }
+  
+  async createCompany(insertCompany: InsertCompany): Promise<Company> {
+    const [company] = await db
+      .insert(companies)
+      .values(insertCompany)
+      .returning();
+    return company;
+  }
+  
+  async updateCompany(id: number, companyData: Partial<Company>): Promise<Company | undefined> {
+    const [company] = await db
+      .update(companies)
+      .set({
+        ...companyData,
+        updatedAt: new Date(),
+      })
+      .where(eq(companies.id, id))
+      .returning();
+    return company;
+  }
+  
+  async deleteCompany(id: number): Promise<boolean> {
+    const result = await db
+      .delete(companies)
+      .where(eq(companies.id, id));
+    return result.rowCount > 0;
+  }
+  
+  // ========================
+  // CRM Opportunity methods
+  // ========================
+  
+  async getOpportunities(clientId?: number): Promise<Opportunity[]> {
+    if (clientId) {
+      return await db
+        .select()
+        .from(opportunities)
+        .where(eq(opportunities.createdBy, clientId))
+        .orderBy(desc(opportunities.createdAt));
+    }
+    
+    return await db
+      .select()
+      .from(opportunities)
+      .orderBy(desc(opportunities.createdAt));
+  }
+  
+  async getOpportunity(id: number): Promise<Opportunity | undefined> {
+    const [opportunity] = await db
+      .select()
+      .from(opportunities)
+      .where(eq(opportunities.id, id));
+    return opportunity;
+  }
+  
+  async createOpportunity(insertOpportunity: InsertOpportunity): Promise<Opportunity> {
+    const [opportunity] = await db
+      .insert(opportunities)
+      .values(insertOpportunity)
+      .returning();
+    return opportunity;
+  }
+  
+  async updateOpportunity(id: number, opportunityData: Partial<Opportunity>): Promise<Opportunity | undefined> {
+    const [opportunity] = await db
+      .update(opportunities)
+      .set({
+        ...opportunityData,
+        updatedAt: new Date(),
+      })
+      .where(eq(opportunities.id, id))
+      .returning();
+    return opportunity;
+  }
+  
+  async deleteOpportunity(id: number): Promise<boolean> {
+    const result = await db
+      .delete(opportunities)
+      .where(eq(opportunities.id, id));
+    return result.rowCount > 0;
+  }
+  
+  // ========================
+  // CRM Activity methods
+  // ========================
+  
+  async getActivities(contactId?: number, companyId?: number, opportunityId?: number): Promise<Activity[]> {
+    let query = db.select().from(activities);
+    
+    if (contactId) {
+      query = query.where(eq(activities.contactId, contactId));
+    } else if (companyId) {
+      query = query.where(eq(activities.companyId, companyId));
+    } else if (opportunityId) {
+      query = query.where(eq(activities.opportunityId, opportunityId));
+    }
+    
+    return await query.orderBy(desc(activities.createdAt));
+  }
+  
+  async getActivity(id: number): Promise<Activity | undefined> {
+    const [activity] = await db
+      .select()
+      .from(activities)
+      .where(eq(activities.id, id));
+    return activity;
+  }
+  
+  async createActivity(insertActivity: InsertActivity): Promise<Activity> {
+    const [activity] = await db
+      .insert(activities)
+      .values(insertActivity)
+      .returning();
+    return activity;
+  }
+  
+  async updateActivity(id: number, activityData: Partial<Activity>): Promise<Activity | undefined> {
+    const [activity] = await db
+      .update(activities)
+      .set({
+        ...activityData,
+        updatedAt: new Date(),
+      })
+      .where(eq(activities.id, id))
+      .returning();
+    return activity;
+  }
+  
+  async deleteActivity(id: number): Promise<boolean> {
+    const result = await db
+      .delete(activities)
+      .where(eq(activities.id, id));
+    return result.rowCount > 0;
+  }
 }
 
 export const storage = new DatabaseStorage();
