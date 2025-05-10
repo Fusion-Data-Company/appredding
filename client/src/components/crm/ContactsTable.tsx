@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { useQuery, useMutation } from "@tanstack/react-query";
 import { queryClient } from "@/lib/queryClient";
 import { Contact, contactStatusEnum, leadSourceEnum, Company } from "@shared/schema";
-import { Loader2, Search, Filter, ChevronDown, ChevronUp, MoreHorizontal } from "lucide-react";
+import { Loader2, Search, Filter, ChevronDown, ChevronUp, MoreHorizontal, AlertTriangle, RefreshCcw, UserX } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -186,11 +186,14 @@ const ContactsTable = () => {
       sortable: true,
       render: (_, record) => (
         <div className="flex items-center">
-          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-semibold mr-3">
-            {record.firstName[0]}{record.lastName[0]}
+          <div className="relative w-10 h-10 flex-shrink-0">
+            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-cyan-500 to-blue-700 opacity-50 blur-sm animate-glow-pulse"></div>
+            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-cyan-500 to-blue-700 flex items-center justify-center text-white font-semibold shadow-lg border border-cyan-400/30">
+              {record.firstName[0]}{record.lastName[0]}
+            </div>
           </div>
-          <div>
-            <div className="font-medium">{`${record.firstName} ${record.lastName}`}</div>
+          <div className="ml-3">
+            <div className="font-medium text-white">{`${record.firstName} ${record.lastName}`}</div>
             <div className="text-xs text-gray-400">{record.jobTitle || ""}</div>
           </div>
         </div>
@@ -222,34 +225,62 @@ const ContactsTable = () => {
       title: "Status",
       width: 120,
       sortable: true,
-      render: (value) => (
-        <Badge className={`${statusColors[value as keyof typeof statusColors] || "bg-gray-500"} text-white capitalize`}>
-          {value?.replace("_", " ")}
-        </Badge>
-      ),
+      render: (value) => {
+        const color = statusColors[value as keyof typeof statusColors] || "bg-gray-500";
+        const glowClass = color === "bg-blue-500" ? "shadow-blue-500/30" : 
+                         color === "bg-orange-500" ? "shadow-orange-500/30" : 
+                         color === "bg-green-500" ? "shadow-green-500/30" : 
+                         "shadow-gray-500/30";
+                         
+        return (
+          <Badge className={`${color} text-white capitalize rounded-full px-3 py-0.5 shadow-sm ${glowClass} border border-white/10`}>
+            {value?.replace("_", " ")}
+          </Badge>
+        );
+      },
     },
     {
       key: "source",
       title: "Source",
       width: 140,
       sortable: true,
-      render: (value) => (
-        <Badge className={`${leadSourceColors[value as keyof typeof leadSourceColors] || "bg-gray-500"} text-white capitalize`}>
-          {value?.replace("_", " ")}
-        </Badge>
-      ),
+      render: (value) => {
+        const color = leadSourceColors[value as keyof typeof leadSourceColors] || "bg-gray-500";
+        const glowClass = color === "bg-blue-500" ? "shadow-blue-500/30" : 
+                         color === "bg-green-500" ? "shadow-green-500/30" : 
+                         color === "bg-purple-500" ? "shadow-purple-500/30" : 
+                         color === "bg-red-500" ? "shadow-red-500/30" : 
+                         color === "bg-yellow-500" ? "shadow-yellow-500/30" : 
+                         "shadow-gray-500/30";
+                         
+        return (
+          <Badge className={`${color} text-white capitalize rounded-full px-3 py-0.5 shadow-sm ${glowClass} border border-white/10`}>
+            {value?.replace("_", " ")}
+          </Badge>
+        );
+      },
     },
     {
       key: "interests",
       title: "Interests",
       width: 200,
       render: (_, record) => (
-        <div className="flex flex-wrap gap-1">
+        <div className="flex flex-wrap gap-1.5">
           {record.interestedInApplications && Array.isArray(record.interestedInApplications) ? 
             record.interestedInApplications.map((app: string) => {
               const appType = applicationTypes.find(t => t.value === app);
+              const color = appType?.color || "bg-gray-500";
+              
+              // Extract the color to determine the glow
+              const colorMatch = color.match(/bg-([\w-]+)-\d+/);
+              const colorBase = colorMatch ? colorMatch[1] : "gray";
+              const glowClass = `shadow-${colorBase}-500/30`;
+              
               return (
-                <Badge key={app} className={`${appType?.color || "bg-gray-500"} text-white text-xs`}>
+                <Badge 
+                  key={app} 
+                  className={`${color} text-white text-xs rounded-full px-2.5 py-0.5 shadow-sm ${glowClass} border border-white/10`}
+                >
                   {appType?.label || app}
                 </Badge>
               );
@@ -346,16 +377,51 @@ const ContactsTable = () => {
 
   if (isLoading) {
     return (
-      <div className="flex justify-center items-center h-64">
-        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+      <div className="card-premium overflow-hidden animate-fadeIn">
+        <div className="p-4 border-b border-gray-800 bg-black/60 backdrop-blur-sm shadow-lg">
+          <div className="h-9 w-1/3 bg-gray-800/50 animate-pulse rounded"></div>
+        </div>
+        <div className="p-8 flex justify-center items-center">
+          <div className="flex flex-col items-center">
+            <div className="relative">
+              <div className="h-12 w-12 rounded-full bg-cyan-500/20 animate-pulse absolute"></div>
+              <div className="h-12 w-12 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center relative z-10">
+                <Loader2 className="h-6 w-6 animate-spin text-white" />
+              </div>
+            </div>
+            <p className="mt-4 text-gray-400 animate-pulse">Loading contacts...</p>
+          </div>
+        </div>
       </div>
     );
   }
 
   if (error) {
     return (
-      <div className="text-center text-red-500 p-4">
-        Error loading contacts: {(error as Error).message}
+      <div className="card-premium overflow-hidden animate-fadeIn">
+        <div className="p-4 border-b border-gray-800 bg-black/60 backdrop-blur-sm shadow-lg">
+          <div className="flex items-center">
+            <AlertTriangle className="h-5 w-5 text-red-500 mr-2" />
+            <h3 className="text-white font-medium">Error</h3>
+          </div>
+        </div>
+        <div className="p-8 flex justify-center items-center">
+          <div className="max-w-md text-center">
+            <div className="inline-flex h-20 w-20 rounded-full bg-red-500/10 items-center justify-center mb-4">
+              <AlertTriangle className="h-10 w-10 text-red-500" />
+            </div>
+            <h3 className="text-xl font-semibold text-white mb-2">Failed to load contacts</h3>
+            <p className="text-gray-400 mb-4">{(error as Error).message}</p>
+            <Button 
+              variant="outline" 
+              onClick={() => window.location.reload()}
+              className="bg-red-950/30 border-red-800/50 hover:bg-red-900/50 text-red-100"
+            >
+              <RefreshCcw className="h-4 w-4 mr-2" />
+              Retry
+            </Button>
+          </div>
+        </div>
       </div>
     );
   }
@@ -416,26 +482,32 @@ const ContactsTable = () => {
 
       <div className="overflow-x-auto">
         <table className="w-full">
-          <thead className="bg-muted/50 sticky top-0 z-10">
+          <thead className="bg-black sticky top-0 z-10">
             <tr>
               {columns.map((column) => (
                 <th
                   key={column.key}
-                  className="text-left p-3 font-medium text-muted-foreground text-sm border-b relative"
+                  className="text-left p-3 font-medium text-gray-300 text-sm border-b border-gray-800 relative"
                   style={{ width: `${columnWidths[column.key] || column.width}px`, minWidth: `${columnWidths[column.key] || column.width}px` }}
                 >
                   <div className="flex items-center">
                     {column.sortable ? (
                       <button
-                        className="flex items-center focus:outline-none"
+                        className="flex items-center focus:outline-none hover:text-white transition-colors group"
                         onClick={() => handleSort(column.key)}
                       >
                         {column.title}
-                        {sortColumn === column.key && (
-                          sortDirection === "asc" ? 
-                            <ChevronUp className="ml-1 h-4 w-4" /> : 
-                            <ChevronDown className="ml-1 h-4 w-4" />
-                        )}
+                        <div className="ml-1 flex items-center">
+                          {sortColumn === column.key ? (
+                            sortDirection === "asc" ? 
+                              <ChevronUp className="h-4 w-4 text-cyan-400" /> : 
+                              <ChevronDown className="h-4 w-4 text-cyan-400" />
+                          ) : (
+                            <div className="opacity-0 group-hover:opacity-50 transition-opacity">
+                              <ChevronUp className="h-3 w-3" />
+                            </div>
+                          )}
+                        </div>
                       </button>
                     ) : (
                       column.title
@@ -444,21 +516,42 @@ const ContactsTable = () => {
                   
                   {/* Resize handle */}
                   <div
-                    className="absolute top-0 right-0 h-full w-1 cursor-col-resize group hover:bg-primary/30"
+                    className="absolute top-0 right-0 h-full w-1 cursor-col-resize group hover:bg-cyan-600/30"
                     onMouseDown={(e) => handleStartResize(e, column.key)}
                   />
                 </th>
               ))}
             </tr>
           </thead>
-          <tbody>
+          <tbody className="divide-y divide-gray-800">
             {sortedContacts.length === 0 ? (
               <tr>
                 <td
                   colSpan={columns.length}
-                  className="text-center p-4 text-muted-foreground"
+                  className="text-center p-8 text-gray-400"
                 >
-                  No contacts found.
+                  <div className="flex flex-col items-center justify-center py-8">
+                    <div className="relative w-20 h-20 mb-6">
+                      <div className="absolute inset-0 rounded-full bg-gray-800/80 animate-pulse"></div>
+                      <div className="absolute inset-0 rounded-full flex items-center justify-center bg-gradient-to-br from-gray-700 to-gray-900 border border-gray-700 shadow-lg">
+                        <UserX className="h-10 w-10 text-gray-500" />
+                      </div>
+                    </div>
+                    <p className="text-xl font-medium text-white mb-2">No contacts found</p>
+                    <p className="text-gray-400 mb-4 max-w-md text-center">Try adjusting your search or filter criteria to find what you're looking for.</p>
+                    <Button 
+                      variant="outline" 
+                      className="border-gray-700 bg-gray-900/50 hover:bg-gray-800 text-gray-300"
+                      onClick={() => {
+                        setSearchText("");
+                        setFilterStatus("all");
+                        setFilterSource("all");
+                      }}
+                    >
+                      <RefreshCcw className="h-4 w-4 mr-2" />
+                      Reset filters
+                    </Button>
+                  </div>
                 </td>
               </tr>
             ) : (
@@ -466,14 +559,14 @@ const ContactsTable = () => {
                 <tr
                   key={contact.id}
                   className={`${
-                    idx % 2 === 0 ? "bg-background" : "bg-muted/10"
-                  } hover:bg-muted/30 cursor-pointer transition-colors border-b`}
+                    idx % 2 === 0 ? "bg-gray-900/30" : "bg-black"
+                  } hover:bg-gray-800 cursor-pointer transition-all duration-150 border-b border-gray-800`}
                   onClick={() => handleViewContact(contact)}
                 >
                   {columns.map((column) => (
                     <td
                       key={`${contact.id}-${column.key}`}
-                      className="p-3"
+                      className="p-3 text-gray-300"
                       style={{ width: `${columnWidths[column.key] || column.width}px`, minWidth: `${columnWidths[column.key] || column.width}px` }}
                     >
                       {column.render
