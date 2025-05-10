@@ -74,7 +74,7 @@ export const defaultAnalyticsData: CRMAnalyticsData = {
 export function useCRMAnalytics() {
   return useQuery<CRMAnalyticsData>({
     queryKey: ['/api/analytics'],
-    queryFn: getQueryFn({ on401: 'throwError' }),
+    queryFn: getQueryFn({ on401: 'redirect' }),
     refetchInterval: 5 * 60 * 1000, // 5 minutes
     retry: 3, // Retry failed requests up to 3 times
     retryDelay: attemptIndex => Math.min(1000 * 2 ** attemptIndex, 30000), // Exponential backoff with max 30s
