@@ -99,29 +99,33 @@ const ProfessionalHeader = () => {
   return (
     <header 
       className={cn(
-        "fixed w-full border-b z-50 transition-all duration-300",
+        "fixed w-full border-b z-50 transition-all duration-300 h-[120px] flex items-center",
         scrolled 
-          ? "py-2 bg-[conic-gradient(at_bottom_right,_var(--tw-gradient-stops))] from-slate-200 via-zinc-400 to-gray-600 dark:from-zinc-800 dark:via-zinc-900 dark:to-black backdrop-blur-lg border-slate-400 dark:border-zinc-800 shadow-metal" 
-          : "py-4 bg-[conic-gradient(at_top_left,_var(--tw-gradient-stops))] from-slate-300 via-zinc-400 to-gray-500 dark:from-zinc-800 dark:via-zinc-900 dark:to-black backdrop-blur-md border-slate-400/80 dark:border-zinc-800/80",
+          ? "bg-[conic-gradient(at_bottom_right,_var(--tw-gradient-stops))] from-slate-200 via-zinc-400 to-gray-600 dark:from-zinc-800 dark:via-zinc-900 dark:to-black backdrop-blur-lg border-slate-400 dark:border-zinc-800 shadow-metal" 
+          : "bg-[conic-gradient(at_top_left,_var(--tw-gradient-stops))] from-slate-300 via-zinc-400 to-gray-500 dark:from-zinc-800 dark:via-zinc-900 dark:to-black backdrop-blur-md border-slate-400/80 dark:border-zinc-800/80",
         "after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[1px] after:bg-gradient-to-r after:from-transparent after:via-slate-400/40 dark:after:via-zinc-400/30 after:to-transparent",
         "before:absolute before:inset-0 before:bg-[url('/src/assets_dir/images/noise.svg')] before:opacity-[0.04] before:bg-repeat before:bg-[length:200px_200px] before:mix-blend-overlay before:pointer-events-none before:animate-subtle-pulse",
       )}
     >
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-5 z-10 group relative">
+        <Link href="/" className="flex items-center gap-5 z-10 group relative w-80">
           <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-transparent via-slate-100/10 to-transparent dark:via-zinc-300/10 opacity-0 group-hover:opacity-100 animate-shimmer transition-opacity duration-300"></div>
           
-          <div className="relative flex items-center">
+          <div className="relative flex items-center w-28 flex-shrink-0 overflow-visible">
             {/* Bucket image with simple shadow */}
-            <div className="relative">
+            <div className="relative overflow-visible">
               <img 
                 src={praetorianBucketNew} 
                 alt="Praetorian Bucket" 
-                className="h-32 w-auto relative -my-2 filter drop-shadow-md group-hover:drop-shadow-lg transition-all duration-300"
+                className="h-28 w-auto relative -my-2 overflow-visible"
                 style={{ 
-                  transform: 'perspective(800px) rotateY(-5deg)', 
+                  transform: 'perspective(800px) rotateY(-5deg) scale(2)', 
                   transformStyle: 'preserve-3d',
+                  transformOrigin: 'center center',
+                  position: 'relative',
+                  zIndex: 20,
+                  filter: 'contrast(1.1) brightness(1.05)'
                 }}
               />
             </div>
