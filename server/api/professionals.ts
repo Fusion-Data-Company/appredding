@@ -1,6 +1,13 @@
 import { Request, Response, Router } from "express";
 import { storage } from "../storage";
-import { insertPainterSchema, insertPoolProfessionalSchema, insertMunicipalityProfessionalSchema, insertConstructionDistributorSchema } from "@shared/schema";
+import { 
+  insertPainterSchema, 
+  insertPoolProfessionalSchema, 
+  insertMunicipalityProfessionalSchema, 
+  insertConstructionDistributorSchema,
+  insertMarinaProfessionalSchema,
+  insertFirePreventionHomeownerSchema
+} from "@shared/schema";
 import { z } from "zod";
 
 const router = Router();
@@ -122,6 +129,66 @@ router.post("/construction-distributors", async (req: Request, res: Response) =>
   } catch (error) {
     console.error("Error creating construction distributor:", error);
     return res.status(500).json({ error: "Failed to register construction distributor" });
+  }
+});
+
+// Marina professional registration
+router.post("/marina-professionals", async (req: Request, res: Response) => {
+  try {
+    // Validate the request body
+    const result = insertMarinaProfessionalSchema.safeParse(req.body);
+    
+    if (!result.success) {
+      return res.status(400).json({ 
+        error: "Invalid marina professional data", 
+        details: result.error.format() 
+      });
+    }
+    
+    // Check if marina professional with this email already exists
+    const existingProfessional = await storage.getMarinaProfessionalByEmail(result.data.email);
+    if (existingProfessional) {
+      return res.status(409).json({ error: "A marina professional with this email already exists" });
+    }
+    
+    // Create the marina professional
+    const professional = await storage.createMarinaProfessional(result.data);
+    
+    // Return the professional data
+    return res.status(201).json(professional);
+  } catch (error) {
+    console.error("Error creating marina professional:", error);
+    return res.status(500).json({ error: "Failed to register marina professional" });
+  }
+});
+
+// Fire prevention homeowner registration
+router.post("/fire-prevention-homeowners", async (req: Request, res: Response) => {
+  try {
+    // Validate the request body
+    const result = insertFirePreventionHomeownerSchema.safeParse(req.body);
+    
+    if (!result.success) {
+      return res.status(400).json({ 
+        error: "Invalid fire prevention homeowner data", 
+        details: result.error.format() 
+      });
+    }
+    
+    // Check if fire prevention homeowner with this email already exists
+    const existingHomeowner = await storage.getFirePreventionHomeownerByEmail(result.data.email);
+    if (existingHomeowner) {
+      return res.status(409).json({ error: "A fire prevention homeowner with this email already exists" });
+    }
+    
+    // Create the fire prevention homeowner
+    const homeowner = await storage.createFirePreventionHomeowner(result.data);
+    
+    // Return the homeowner data
+    return res.status(201).json(homeowner);
+  } catch (error) {
+    console.error("Error creating fire prevention homeowner:", error);
+    return res.status(500).json({ error: "Failed to register fire prevention homeowner" });
   }
 });
 

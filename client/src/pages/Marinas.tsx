@@ -4,17 +4,98 @@ import Footer from "@/components/Footer";
 import { GradientButton } from "@/components/ui/gradient-button";
 import { GradientHeading } from "@/components/ui/gradient-heading";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { 
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage
+} from "@/components/ui/form";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Anchor, ShieldCheck, Sun, Leaf, Ship, Factory, Waves } from "lucide-react";
+import { Anchor, ShieldCheck, Sun, Leaf, Ship, Factory, Waves, CheckCircle } from "lucide-react";
+import { insertMarinaProfessionalSchema } from "@shared/schema";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useMutation } from "@tanstack/react-query";
+import { apiRequest } from "@/lib/queryClient";
+import { useToast } from "@/hooks/use-toast";
 
 const Marinas = () => {
   const [vesselType, setVesselType] = useState("");
   const [waterType, setWaterType] = useState("");
   const [material, setMaterial] = useState("");
   const [showResults, setShowResults] = useState(false);
+  const [showRegistrationForm, setShowRegistrationForm] = useState(false);
+  const [registrationSuccess, setRegistrationSuccess] = useState(false);
+  const { toast } = useToast();
+  
+  // Setup form for marina professional registration
+  const form = useForm({
+    resolver: zodResolver(insertMarinaProfessionalSchema),
+    defaultValues: {
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      companyName: "",
+      jobTitle: "",
+      address: "",
+      city: "",
+      state: "",
+      zipCode: "",
+      licenseNumber: "",
+      yearsInBusiness: 0,
+      vesselTypes: "",
+      specialties: "",
+      experienceDescription: "",
+      serviceAreas: "",
+      isPremiumMember: false,
+      agreesToTerms: false,
+      notes: ""
+    },
+  });
+
+  // Marina Professional registration mutation
+  const registerMutation = useMutation({
+    mutationFn: async (data: any) => {
+      const response = await apiRequest("POST", "/api/professionals/marina-professionals", data);
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || "Registration failed");
+      }
+      return response.json();
+    },
+    onSuccess: () => {
+      toast({
+        title: "Registration Successful",
+        description: "Your marina professional profile has been created",
+        variant: "default",
+      });
+      setRegistrationSuccess(true);
+      form.reset();
+    },
+    onError: (error: Error) => {
+      toast({
+        title: "Registration Failed",
+        description: error.message,
+        variant: "destructive",
+      });
+    },
+  });
+
+  const onSubmit = (data: any) => {
+    registerMutation.mutate(data);
+  };
 
   const handleFindCoatings = () => {
     setShowResults(true);
+  };
+  
+  const handleShowRegistrationForm = () => {
+    setShowRegistrationForm(true);
   };
 
   return (
@@ -162,10 +243,17 @@ const Marinas = () => {
                   </div>
                 </div>
                 
-                <div className="mt-6">
+                <div className="mt-6 space-y-3">
                   <GradientButton variant="variant" className="w-full">
                     Explore Marine Products
                   </GradientButton>
+                  <Button 
+                    onClick={handleShowRegistrationForm} 
+                    variant="secondary" 
+                    className="w-full bg-blue-600/40 hover:bg-blue-600/60 text-white"
+                  >
+                    Register as a Marina Professional
+                  </Button>
                 </div>
               </div>
             </div>
