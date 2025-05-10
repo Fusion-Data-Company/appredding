@@ -118,14 +118,13 @@ const ProfessionalHeader = () => {
               <img 
                 src={praetorianBucketNew} 
                 alt="Praetorian Bucket" 
-                className="h-28 w-auto relative -my-2 overflow-visible"
+                className="w-[85px] h-auto object-contain relative"
                 style={{ 
-                  transform: 'perspective(800px) rotateY(-5deg) scale(2)', 
+                  transform: 'perspective(800px) rotateY(-5deg)', 
                   transformStyle: 'preserve-3d',
                   transformOrigin: 'center center',
                   position: 'relative',
-                  zIndex: 20,
-                  filter: 'contrast(1.1) brightness(1.05)'
+                  zIndex: 20
                 }}
               />
             </div>
