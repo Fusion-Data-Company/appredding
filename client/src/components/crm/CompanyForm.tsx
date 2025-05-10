@@ -281,6 +281,7 @@ export function CompanyForm({ isOpen, onClose }: CompanyFormProps) {
                         placeholder="https://example.com" 
                         className="bg-gray-900/50 border-gray-700" 
                         {...field} 
+                        value={field.value ?? ''}
                       />
                     </FormControl>
                     <FormMessage />
@@ -301,6 +302,7 @@ export function CompanyForm({ isOpen, onClose }: CompanyFormProps) {
                         placeholder="(555) 123-4567" 
                         className="bg-gray-900/50 border-gray-700" 
                         {...field} 
+                        value={field.value ?? ''}
                       />
                     </FormControl>
                     <FormMessage />
@@ -319,6 +321,7 @@ export function CompanyForm({ isOpen, onClose }: CompanyFormProps) {
                         placeholder="e.g. 100" 
                         className="bg-gray-900/50 border-gray-700" 
                         {...field} 
+                        value={field.value === null ? '' : field.value}
                       />
                     </FormControl>
                     <FormMessage />
@@ -338,6 +341,7 @@ export function CompanyForm({ isOpen, onClose }: CompanyFormProps) {
                       placeholder="Enter street address" 
                       className="bg-gray-900/50 border-gray-700" 
                       {...field} 
+                      value={field.value ?? ''}
                     />
                   </FormControl>
                   <FormMessage />
@@ -357,6 +361,7 @@ export function CompanyForm({ isOpen, onClose }: CompanyFormProps) {
                         placeholder="City" 
                         className="bg-gray-900/50 border-gray-700" 
                         {...field} 
+                        value={field.value ?? ''}
                       />
                     </FormControl>
                     <FormMessage />
@@ -374,6 +379,7 @@ export function CompanyForm({ isOpen, onClose }: CompanyFormProps) {
                         placeholder="State" 
                         className="bg-gray-900/50 border-gray-700" 
                         {...field} 
+                        value={field.value ?? ''}
                       />
                     </FormControl>
                     <FormMessage />
@@ -394,6 +400,7 @@ export function CompanyForm({ isOpen, onClose }: CompanyFormProps) {
                         placeholder="Zip code" 
                         className="bg-gray-900/50 border-gray-700" 
                         {...field} 
+                        value={field.value ?? ''}
                       />
                     </FormControl>
                     <FormMessage />
