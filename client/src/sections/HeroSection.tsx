@@ -24,7 +24,7 @@ const HeroSection = () => {
             style={{ 
               maxWidth: "none", 
               width: "100vw",
-              marginTop: "-24px", // Adjusted for optimal vertical positioning with the smaller scale
+              marginTop: "-36px", // Moved up additional quarter inch (12px) to prevent bottom overlap
               filter: "drop-shadow(0 0 25px rgba(0,0,0,0.9))",
               zIndex: 0
             }}
