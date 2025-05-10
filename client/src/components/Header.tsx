@@ -4,6 +4,7 @@ import MobileMenu from "./MobileMenu";
 import { Menu, MenuItem, HoveredLink } from "@/components/ui/navbar-menu";
 import { LightPullThemeSwitcher } from "@/components/ui/light-pull-theme-switcher";
 import { Sun, Moon, ChevronDown } from "lucide-react";
+import praetorianShield from "@assets/Untitled design (6).png";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -41,7 +42,14 @@ const Header = () => {
     >
       <div className="w-full px-4 flex justify-between items-center">
         <Link href="/" className="text-4xl font-heading font-bold flex items-center gap-4 group z-10">
-          <i className="fas fa-shield-alt fire-water-shield text-4xl transition-colors"></i>
+          <div className="relative group">
+            <div className="absolute inset-0 bg-gradient-to-r from-orange-500/20 to-blue-500/20 filter blur-md rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <img 
+              src={praetorianShield} 
+              alt="Praetorian Shield" 
+              className="h-12 w-auto relative z-10 transition-all duration-300 hover:scale-105 filter drop-shadow-lg"
+            />
+          </div>
           <div className="tracking-tight flex items-center">
             <div className="text-[1.5rem] sm:text-[1.65rem] md:text-[1.8rem] leading-none whitespace-nowrap">
               <span className="gradient-text-combined">Praetorian SmartCoat Solutions</span>
@@ -121,10 +129,12 @@ const Header = () => {
         {/* Mobile Menu Button */}
         <button
           onClick={toggleMobileMenu}
-          className="md:hidden dark:text-white text-gray-800 p-1 rounded-md dark:hover:bg-[#ff6a00]/10 hover:bg-gray-300/50 transition-colors z-10"
+          className="md:hidden p-2 rounded-md transition-all duration-300 z-10 relative bg-gradient-to-r from-orange-600/10 to-blue-600/10 hover:from-orange-600/20 hover:to-blue-600/20 border border-transparent hover:border-orange-500/30 shadow-md"
           aria-label="Toggle mobile menu"
         >
-          <i className={`fas ${mobileMenuOpen ? "fa-times" : "fa-bars"} text-xl dark:text-[#ff6a00] text-orange-500`}></i>
+          <span className={`block ${mobileMenuOpen ? 'rotate-45 translate-y-1.5' : ''} h-0.5 w-6 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full transform transition-all duration-300 mb-1.5`}></span>
+          <span className={`block ${mobileMenuOpen ? 'opacity-0' : 'opacity-100'} h-0.5 w-6 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full transform transition-all duration-300 mb-1.5`}></span>
+          <span className={`block ${mobileMenuOpen ? '-rotate-45 -translate-y-1.5' : ''} h-0.5 w-6 bg-gradient-to-r from-orange-500 to-blue-500 rounded-full transform transition-all duration-300`}></span>
         </button>
       </div>
 
