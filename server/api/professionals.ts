@@ -6,6 +6,7 @@ import {
   insertMunicipalityProfessionalSchema, 
   insertConstructionDistributorSchema,
   insertMarinaProfessionalSchema,
+  insertMobileHomeProfessionalSchema,
   insertFirePreventionHomeownerSchema
 } from "@shared/schema";
 import { z } from "zod";
@@ -159,6 +160,36 @@ router.post("/marina-professionals", async (req: Request, res: Response) => {
   } catch (error) {
     console.error("Error creating marina professional:", error);
     return res.status(500).json({ error: "Failed to register marina professional" });
+  }
+});
+
+// Mobile Home professional registration
+router.post("/mobile-home-professionals", async (req: Request, res: Response) => {
+  try {
+    // Validate the request body
+    const result = insertMobileHomeProfessionalSchema.safeParse(req.body);
+    
+    if (!result.success) {
+      return res.status(400).json({ 
+        error: "Invalid mobile home professional data", 
+        details: result.error.format() 
+      });
+    }
+    
+    // Check if mobile home professional with this email already exists
+    const existingProfessional = await storage.getMobileHomeProfessionalByEmail(result.data.email);
+    if (existingProfessional) {
+      return res.status(409).json({ error: "A mobile home professional with this email already exists" });
+    }
+    
+    // Create the mobile home professional
+    const professional = await storage.createMobileHomeProfessional(result.data);
+    
+    // Return the professional data
+    return res.status(201).json(professional);
+  } catch (error) {
+    console.error("Error creating mobile home professional:", error);
+    return res.status(500).json({ error: "Failed to register mobile home professional" });
   }
 });
 

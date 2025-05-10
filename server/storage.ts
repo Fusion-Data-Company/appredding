@@ -644,9 +644,38 @@ export class DatabaseStorage implements IStorage {
     return updatedProfessional;
   }
   
+  // Mobile home professional methods
+  async getMobileHomeProfessionals(): Promise<MobileHomeProfessional[]> {
+    return await db.select().from(mobileHomeProfessionals).orderBy(desc(mobileHomeProfessionals.createdAt));
+  }
+  
+  async getMobileHomeProfessional(id: number): Promise<MobileHomeProfessional | undefined> {
+    const [professional] = await db.select().from(mobileHomeProfessionals).where(eq(mobileHomeProfessionals.id, id));
+    return professional;
+  }
+  
+  async getMobileHomeProfessionalByEmail(email: string): Promise<MobileHomeProfessional | undefined> {
+    const [professional] = await db.select().from(mobileHomeProfessionals).where(eq(mobileHomeProfessionals.email, email));
+    return professional;
+  }
+  
+  async createMobileHomeProfessional(insertProfessional: InsertMobileHomeProfessional): Promise<MobileHomeProfessional> {
+    const [professional] = await db.insert(mobileHomeProfessionals).values(insertProfessional).returning();
+    return professional;
+  }
+  
+  async updateMobileHomeProfessional(id: number, professionalData: Partial<MobileHomeProfessional>): Promise<MobileHomeProfessional | undefined> {
+    const [updatedProfessional] = await db
+      .update(mobileHomeProfessionals)
+      .set(professionalData)
+      .where(eq(mobileHomeProfessionals.id, id))
+      .returning();
+    return updatedProfessional;
+  }
+  
   // Fire prevention homeowner methods
   async getFirePreventionHomeowners(): Promise<FirePreventionHomeowner[]> {
-    return await db.select().from(firePreventionHomeowners);
+    return await db.select().from(firePreventionHomeowners).orderBy(desc(firePreventionHomeowners.createdAt));
   }
   
   async getFirePreventionHomeowner(id: number): Promise<FirePreventionHomeowner | undefined> {
