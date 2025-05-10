@@ -17,6 +17,7 @@ import {
   updateContact, 
   deleteContact 
 } from "./api/contacts";
+import { getCRMAnalytics } from "./api/analytics";
 
 // Authentication middleware
 function isAuthenticated(req: Request, res: Response, next: NextFunction) {
@@ -49,6 +50,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // ========================
   // CRM Routes
   // ========================
+  
+  // Get CRM analytics for dashboard
+  app.get("/api/crm/analytics", getCRMAnalytics);
   
   // Get all contacts
   app.get("/api/contacts", getContacts);
