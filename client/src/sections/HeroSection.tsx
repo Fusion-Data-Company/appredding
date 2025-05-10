@@ -43,10 +43,10 @@ const HeroSection = () => {
   
   return (
     <section className="w-full bg-black overflow-hidden">
-      {/* Background container with glow effects */}
+      {/* Background container with glow effects - no padding for full width */}
       <div 
         ref={containerRef}
-        className="relative w-full py-12 isolate"
+        className="relative w-full py-0 isolate"
       >
         {/* Fire (orange) glow - background only */}
         <div 
@@ -69,14 +69,19 @@ const HeroSection = () => {
           </div>
         </div>
         
-        {/* Image container with z-index to keep it above glow effects */}
-        <div className="relative z-20 container mx-auto px-4 py-8">
-          {/* The image with transparent background */}
+        {/* Full viewport width container - no constraints */}
+        <div className="relative z-20 w-screen overflow-visible py-0 flex justify-center items-center" style={{ height: '40vh' }}>
+          {/* The image stretched extra wide */}
           <img 
             src={heroImage} 
             alt="Praetorian Guards with Stone Tablet" 
-            className="w-full max-w-5xl h-auto mx-auto"
-            style={{ filter: "drop-shadow(0 0 8px rgba(0,0,0,0.5))" }}
+            className="w-screen object-cover object-center"
+            style={{ 
+              filter: "drop-shadow(0 0 8px rgba(0,0,0,0.5))",
+              height: '40vh',
+              transform: 'scaleX(6.0) scaleY(1.2)', // Extreme horizontal stretching
+              transformOrigin: 'center center'
+            }}
           />
         </div>
       </div>
