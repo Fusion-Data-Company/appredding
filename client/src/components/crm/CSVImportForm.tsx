@@ -33,16 +33,46 @@ export function CSVImportForm({ onSuccess }: CSVImportFormProps) {
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
       const selectedFile = e.target.files[0];
+      
+      // Validate file type
       if (selectedFile.type !== 'text/csv' && !selectedFile.name.endsWith('.csv')) {
         toast({
           title: 'Invalid file type',
-          description: 'Please upload a CSV file',
+          description: 'Please upload a CSV file (.csv extension)',
           variant: 'destructive',
         });
         return;
       }
+      
+      // Validate file size (max 5MB)
+      const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB in bytes
+      if (selectedFile.size > MAX_FILE_SIZE) {
+        toast({
+          title: 'File too large',
+          description: `The maximum file size is 5MB. Current file: ${(selectedFile.size / (1024 * 1024)).toFixed(2)}MB`,
+          variant: 'destructive',
+        });
+        return;
+      }
+      
+      // Validate file is not empty
+      if (selectedFile.size === 0) {
+        toast({
+          title: 'Empty file',
+          description: 'The uploaded file is empty',
+          variant: 'destructive',
+        });
+        return;
+      }
+      
       setFile(selectedFile);
       setImportResult(null);
+      
+      // Add successful selection feedback
+      toast({
+        title: 'File selected',
+        description: `${selectedFile.name} (${(selectedFile.size / 1024).toFixed(1)} KB)`,
+      });
     }
   };
 
@@ -65,16 +95,46 @@ export function CSVImportForm({ onSuccess }: CSVImportFormProps) {
     
     if (e.dataTransfer.files && e.dataTransfer.files[0]) {
       const droppedFile = e.dataTransfer.files[0];
+      
+      // Validate file type
       if (droppedFile.type !== 'text/csv' && !droppedFile.name.endsWith('.csv')) {
         toast({
           title: 'Invalid file type',
-          description: 'Please upload a CSV file',
+          description: 'Please upload a CSV file (.csv extension)',
           variant: 'destructive',
         });
         return;
       }
+      
+      // Validate file size (max 5MB)
+      const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB in bytes
+      if (droppedFile.size > MAX_FILE_SIZE) {
+        toast({
+          title: 'File too large',
+          description: `The maximum file size is 5MB. Current file: ${(droppedFile.size / (1024 * 1024)).toFixed(2)}MB`,
+          variant: 'destructive',
+        });
+        return;
+      }
+      
+      // Validate file is not empty
+      if (droppedFile.size === 0) {
+        toast({
+          title: 'Empty file',
+          description: 'The uploaded file is empty',
+          variant: 'destructive',
+        });
+        return;
+      }
+      
       setFile(droppedFile);
       setImportResult(null);
+      
+      // Add successful selection feedback
+      toast({
+        title: 'File selected',
+        description: `${droppedFile.name} (${(droppedFile.size / 1024).toFixed(1)} KB)`,
+      });
     }
   };
 
@@ -115,8 +175,20 @@ export function CSVImportForm({ onSuccess }: CSVImportFormProps) {
         // Read the file content
         const fileContent = await file.text();
         
-        // Quick validation of CSV format
-        const firstLine = fileContent.split('\n')[0];
+        // Enhanced CSV validation
+        const lines = fileContent.trim().split('\n').filter(line => line.trim() !== '');
+        
+        if (lines.length < 2) {
+          toast({
+            title: 'Invalid CSV structure',
+            description: 'The file must contain a header row and at least one data row',
+            variant: 'destructive',
+          });
+          setIsSubmitting(false);
+          return;
+        }
+        
+        const firstLine = lines[0];
         if (!firstLine || !firstLine.includes(',')) {
           toast({
             title: 'Invalid CSV format',
@@ -127,20 +199,64 @@ export function CSVImportForm({ onSuccess }: CSVImportFormProps) {
           return;
         }
         
+        // Check if required columns exist based on import type
+        const headers = firstLine.split(',').map(h => h.trim().toLowerCase());
+        
+        // Validate required columns based on import type
+        let missingColumns: string[] = [];
+        
+        if (importType === 'contacts') {
+          if (!headers.includes('firstname')) missingColumns.push('firstName');
+          if (!headers.includes('lastname')) missingColumns.push('lastName');
+        } else if (importType === 'companies') {
+          if (!headers.includes('name')) missingColumns.push('name');
+        } else if (importType === 'opportunities') {
+          if (!headers.includes('name')) missingColumns.push('name');
+        }
+        
+        if (missingColumns.length > 0) {
+          toast({
+            title: 'Missing required columns',
+            description: `The following required columns are missing: ${missingColumns.join(', ')}`,
+            variant: 'destructive',
+          });
+          setIsSubmitting(false);
+          return;
+        }
+        
         // Send the file content to the API with timeout handling
         const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 30000); // 30 second timeout
+        const timeoutId = setTimeout(() => {
+          controller.abort();
+          if (retryCount === maxRetries - 1) {
+            toast({
+              title: 'Request Timeout',
+              description: 'The import request timed out. Please try with a smaller file or try again later.',
+              variant: 'destructive',
+            });
+          }
+        }, 30000); // 30 second timeout
         
-        const res = await apiRequest('POST', '/api/import-csv', {
-          type: importType,
-          csv: fileContent
-        });
+        let response: Response;
+        let data: any;
         
-        clearTimeout(timeoutId);
-        
-        const data = await res.json();
-        
-        if (res.ok) {
+        try {
+          response = await apiRequest('POST', '/api/import-csv', {
+            type: importType,
+            csv: fileContent
+          });
+          
+          clearTimeout(timeoutId);
+          
+          // Process response
+          if (!response.ok) {
+            const errorData = await response.json().catch(() => ({ error: 'Unknown server error' }));
+            throw new Error(errorData.error || `Failed to import ${importType} (Attempt ${retryCount + 1}/${maxRetries})`);
+          }
+          
+          data = await response.json();
+          
+          // Process successful response
           success = true;
           setImportResult({
             success: true,
@@ -170,21 +286,52 @@ export function CSVImportForm({ onSuccess }: CSVImportFormProps) {
             description: `Successfully imported ${data.imported} ${importType}`,
             variant: 'default',
           });
-        } else {
+          
+          // Break out of retry loop on success
+          break;
+          
+        } catch (error: any) {
+          clearTimeout(timeoutId);
+          
+          // Handle specific error types
+          if (error.name === 'AbortError') {
+            console.error('Request timed out:', error);
+            throw new Error('Request timed out. The file may be too large or the server is busy.');
+          }
+          
+          // Handle network errors
+          if (error.message?.includes('network') || error.message?.includes('fetch')) {
+            console.error('Network error:', error);
+            throw new Error('Network error. Please check your connection and try again.');
+          }
+          
+          console.error(`Import attempt ${retryCount + 1} failed:`, error);
+          
           // If we're on the last retry, show the error
           if (retryCount === maxRetries - 1) {
             setImportResult({
               success: false,
               imported: 0,
-              message: data.error || 'Failed to import data'
+              message: error.message || 'Failed to import data'
             });
             
             toast({
               title: 'Import Failed',
-              description: data.error || 'Failed to import data. Please check your CSV file format.',
+              description: error.message || 'Failed to import data. Please check your CSV file format.',
               variant: 'destructive',
             });
+          } else {
+            // Show retry message
+            toast({
+              title: `Retry ${retryCount + 1}/${maxRetries}`,
+              description: 'Import failed, retrying...',
+              variant: 'default',
+            });
+            
+            // Wait before retrying (exponential backoff)
+            await new Promise(resolve => setTimeout(resolve, Math.min(1000 * Math.pow(2, retryCount), 5000)));
           }
+          
           retryCount++;
         }
       } catch (error: any) {

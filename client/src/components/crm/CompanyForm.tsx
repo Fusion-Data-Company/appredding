@@ -263,6 +263,7 @@ export function CompanyForm({ isOpen, onClose }: CompanyFormProps) {
                         placeholder="e.g. Construction" 
                         className="bg-gray-900/50 border-gray-700" 
                         {...field} 
+                        value={field.value ?? ''}
                       />
                     </FormControl>
                     <FormMessage />
