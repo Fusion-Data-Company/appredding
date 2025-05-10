@@ -13,8 +13,8 @@ const RotatingTextSection = () => {
         backgroundRepeat: "no-repeat"
       }}
     >
-      {/* Semi-transparent overlay for better readability */}
-      <div className="absolute inset-0 bg-black/30"></div>
+      {/* Semi-transparent overlay for better readability - top moved down half inch (48px) */}
+      <div className="absolute inset-0 top-[48px] bg-black/30"></div>
       <div className="container mx-auto px-4 relative z-10">
         {/* Buttons - positioned at the top of this section */}
         <div className="flex justify-center gap-20 mb-12">
