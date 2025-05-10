@@ -4,15 +4,6 @@ import { cn } from "@/lib/utils";
 import bucketImg from "@/assets_dir/icons/praetorian-bucket.png";
 import praetorianBucketNew from "@/assets_dir/icons/praetorian-bucket-new.png";
 import praetorianHeaderImg from "@/assets_dir/images/praetorian-header-no-bg.png";
-import { 
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle
-} from "@/components/ui/navigation-menu";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -27,9 +18,7 @@ import {
   Sun, 
   Menu as MenuIcon, 
   X, 
-  ChevronDown,
   User,
-  Shield,
   Settings,
   HelpCircle,
   LogOut
@@ -37,6 +26,7 @@ import {
 import { useTheme } from "next-themes";
 import { RomanDivider } from "@/components/ui/roman-header";
 import MobileMenu from "./MobileMenu";
+import { PremiumNavbar } from "@/components/ui/premium-navbar";
 
 
 const ProfessionalHeader = () => {
@@ -168,89 +158,9 @@ const ProfessionalHeader = () => {
           </Link>
         </div>
 
-        {/* Desktop Navigation */}
+        {/* Premium Desktop Navigation */}
         <div className="hidden lg:flex items-center space-x-8">
-          <NavigationMenu>
-            <NavigationMenuList className="space-x-1">
-              <NavigationMenuItem>
-                <NavigationMenuTrigger 
-                  className="bg-transparent hover:bg-gradient-to-br hover:from-gray-100 hover:to-gray-200/30 dark:hover:from-gray-800 dark:hover:to-gray-900/80 
-                  font-medium text-gray-800 dark:text-gray-200 border border-transparent hover:border-gray-300 dark:hover:border-gray-700 rounded-sm 
-                  transition-all duration-300 group"
-                >
-                  <span className="bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300 bg-clip-text text-transparent group-hover:from-black group-hover:to-gray-800 dark:group-hover:from-white dark:group-hover:to-gray-100 transition-all duration-300">
-                    Applications
-                  </span>
-                  <ChevronDown className="h-4 w-4 text-gray-700 dark:text-gray-300 transition-transform group-data-[state=open]:rotate-180" />
-                </NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <ul className="grid w-[500px] gap-1 p-4 md:grid-cols-2 bg-white/95 dark:bg-gray-900/95 border border-gray-300 dark:border-gray-700 shadow-lg rounded-sm">
-                    {applicationCategories.map((category) => (
-                      <li key={category.href}>
-                        <NavigationMenuLink asChild>
-                          <Link 
-                            href={category.href}
-                            className="flex p-3 select-none space-x-2 rounded-sm border border-transparent 
-                            hover:border-gray-300 dark:hover:border-gray-700 hover:bg-gradient-to-r hover:from-gray-100 hover:to-gray-50 
-                            dark:hover:from-gray-800 dark:hover:to-gray-900 
-                            hover:text-gray-900 dark:hover:text-white transition-all duration-300"
-                          >
-                            <div className="w-full">
-                              <div className="text-sm font-medium text-gray-900 dark:text-gray-100">
-                                {category.label}
-                              </div>
-                              <p className="text-xs text-gray-600 dark:text-gray-400 line-clamp-1">
-                                {category.description}
-                              </p>
-                            </div>
-                          </Link>
-                        </NavigationMenuLink>
-                      </li>
-                    ))}
-                  </ul>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-              
-              <NavigationMenuItem>
-                <NavigationMenuTrigger 
-                  className="bg-transparent hover:bg-gradient-to-br hover:from-gray-100 hover:to-gray-50 dark:hover:from-gray-800 dark:hover:to-gray-900
-                  font-medium text-gray-800 dark:text-gray-200 border border-transparent hover:border-gray-300 dark:hover:border-gray-700 rounded-sm 
-                  transition-all duration-300 group"
-                >
-                  <span className="bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300 bg-clip-text text-transparent group-hover:from-black group-hover:to-gray-800 dark:group-hover:from-white dark:group-hover:to-gray-100 transition-all duration-300">
-                    Resources
-                  </span>
-                  <ChevronDown className="h-4 w-4 text-gray-700 dark:text-gray-300 transition-transform group-data-[state=open]:rotate-180" />
-                </NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <ul className="grid w-[300px] gap-1 p-4 bg-white/95 dark:bg-gray-900/95 border border-gray-300 dark:border-gray-700 shadow-lg rounded-sm">
-                    {resources.map((resource) => (
-                      <li key={resource.label}>
-                        <NavigationMenuLink asChild>
-                          <Link 
-                            href={resource.href}
-                            className="flex p-3 select-none space-x-2 rounded-sm border border-transparent
-                            hover:border-gray-300 dark:hover:border-gray-700 hover:bg-gradient-to-r hover:from-gray-100 hover:to-gray-50
-                            dark:hover:from-gray-800 dark:hover:to-gray-900
-                            hover:text-gray-900 dark:hover:text-white transition-all duration-300"
-                          >
-                            <div className="w-full">
-                              <div className="text-sm font-medium text-gray-900 dark:text-gray-100">
-                                {resource.label}
-                              </div>
-                              <p className="text-xs text-gray-600 dark:text-gray-400 line-clamp-1">
-                                {resource.description}
-                              </p>
-                            </div>
-                          </Link>
-                        </NavigationMenuLink>
-                      </li>
-                    ))}
-                  </ul>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-            </NavigationMenuList>
-          </NavigationMenu>
+          <PremiumNavbar />
           
           <RomanDivider className="w-[120px]" />
           
