@@ -120,12 +120,14 @@ const ProfessionalHeader = () => {
                 alt="Praetorian Bucket" 
                 className="h-28 w-auto relative -my-2 overflow-visible"
                 style={{ 
-                  transform: 'perspective(800px) rotateY(-5deg) scale(2)', 
+                  transform: 'perspective(800px) rotateY(-5deg) scale(2.2)', 
                   transformStyle: 'preserve-3d',
                   transformOrigin: 'center center',
                   position: 'relative',
                   zIndex: 20,
-                  filter: 'contrast(1.1) brightness(1.05)'
+                  filter: 'contrast(1.1) brightness(1.05)',
+                  width: '140%',
+                  maxWidth: 'none'
                 }}
               />
             </div>
