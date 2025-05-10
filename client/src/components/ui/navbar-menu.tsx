@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "wouter";
@@ -27,7 +26,7 @@ export const MenuItem = ({
     <div onMouseEnter={() => setActive(item)} className="relative">
       <motion.p
         transition={{ duration: 0.3 }}
-        className="cursor-pointer relative px-2 pb-0 pt-2 mt-1 text-2xl font-bold tracking-wide uppercase after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:rounded-full after:origin-bottom after:scale-x-0 hover:after:scale-x-100 after:bg-gradient-to-r after:from-[#ff4500] after:via-[#ff6a00] after:to-[#ff8c00] after:transition-transform after:duration-300 font-heading gradient-text-vertical hover:gradient-text-fire text-center dark:text-shadow-[0_0_8px_rgba(0,0,0,0.8)] text-shadow-[0_0_2px_rgba(0,0,0,1),0_2px_4px_rgba(0,0,0,0.8)]"
+        className="cursor-pointer text-white/90 hover:text-white dark:text-white font-cinzel uppercase tracking-wide text-sm lg:text-base"
       >
         {item}
       </motion.p>
@@ -38,15 +37,15 @@ export const MenuItem = ({
           transition={transition}
         >
           {active === item && (
-            <div className="absolute top-[calc(100%_+_0.5rem)] left-1/2 transform -translate-x-1/2 pt-1 z-50">
+            <div className="absolute top-[calc(100%_+_1.2rem)] left-1/2 transform -translate-x-1/2 pt-4 z-50">
               <motion.div
                 transition={transition}
                 layoutId="active" // layoutId ensures smooth animation
-                className="bg-gradient-to-b from-[#38b0de]/40 via-gray-800/70 to-[#ff6a00]/40 backdrop-blur-3xl backdrop-filter before:absolute before:inset-0 before:bg-gray-600/50 before:z-[-1] relative rounded-xl overflow-hidden border border-[#ff6a00]/40 shadow-[0_10px_25px_-5px_rgba(0,0,0,0.3)] min-w-max"
+                className="bg-black/90 backdrop-blur-sm rounded-md overflow-hidden border border-white/[0.2] shadow-xl"
               >
                 <motion.div
                   layout // layout ensures smooth animation
-                  className="h-full p-4"
+                  className="w-max h-full p-4"
                 >
                   {children}
                 </motion.div>
@@ -69,7 +68,7 @@ export const Menu = ({
   return (
     <nav
       onMouseLeave={() => setActive(null)} // resets the state
-      className="relative rounded-full border-2 border-[#ff6a00]/40 bg-gradient-to-b from-[#38b0de]/85 via-white/75 to-[#ff6a00]/85 backdrop-blur-xl shadow-[0_0_15px_rgba(255,106,0,0.3)] flex justify-center items-center space-x-4 px-4 py-1.5 w-max mx-auto"
+      className="relative flex justify-center space-x-8 px-4 py-2"
     >
       {children}
     </nav>
@@ -80,27 +79,27 @@ export const ProductItem = ({
   title,
   description,
   href,
-  imgSrc,
+  src,
 }: {
   title: string;
   description: string;
   href: string;
-  imgSrc: string;
+  src: string;
 }) => {
   return (
-    <Link href={href} className="flex space-x-3 bg-gray-700/95 backdrop-blur-3xl backdrop-filter relative before:absolute before:inset-0 before:bg-gray-600/50 before:z-[-1] p-4 rounded-lg hover:bg-gray-600/95 transition-all border border-gray-600/50 hover:border-[#ff6a00]/40 shadow-md hover:shadow-lg">
+    <Link href={href} className="flex space-x-3 group">
       <img
-        src={imgSrc}
-        width={140}
-        height={70}
+        src={src}
+        width={160}
+        height={90}
         alt={title}
-        className="flex-shrink-0 rounded-md shadow-md border border-[#ff6a00]/20 hover:border-[#ff6a00]/40 transition-colors"
+        className="flex-shrink-0 rounded-md shadow-lg object-cover border border-gray-700 group-hover:border-gray-400 transition-colors duration-300"
       />
       <div>
-        <h4 className="text-lg font-extrabold mb-1 uppercase tracking-wide font-heading gradient-text-blue group-hover:gradient-text-fire transition-colors">
+        <h4 className="text-lg font-bold mb-1 text-white group-hover:text-blue-300 transition-colors duration-300">
           {title}
         </h4>
-        <p className="text-gray-300 text-sm max-w-[10rem]">
+        <p className="text-gray-300 text-sm max-w-[12rem] group-hover:text-gray-200 transition-colors duration-300">
           {description}
         </p>
       </div>
@@ -112,7 +111,7 @@ export const HoveredLink = ({ children, ...rest }: any) => {
   return (
     <Link
       {...rest}
-      className="text-gray-800 hover:text-gray-900 font-bold text-base uppercase tracking-wide transition-all px-2 py-1.5 block rounded-md relative after:absolute after:bottom-[-1px] after:left-2 after:right-2 after:h-[2px] after:rounded-full after:origin-bottom after:scale-x-0 hover:after:scale-x-100 after:bg-gradient-to-r after:from-[#ff4500] after:via-[#ff6a00] after:to-[#ff8c00] after:transition-transform after:duration-300 hover:bg-[#ff6a00]/20 font-heading text-center dark:text-shadow-[0_0_8px_rgba(0,0,0,0.8)] text-shadow-[0_0_2px_rgba(0,0,0,1),0_2px_4px_rgba(0,0,0,0.8)]"
+      className="text-gray-300 hover:text-white transition-colors duration-300 py-1 block"
     >
       {children}
     </Link>
