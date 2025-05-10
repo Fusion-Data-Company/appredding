@@ -10,6 +10,7 @@ import {
 import { z } from "zod";
 import { fromZodError } from "zod-validation-error";
 import { setupAuth } from "./auth";
+import professionalsRoutes from "./api/professionals";
 import { 
   getContacts, 
   getContactById, 
