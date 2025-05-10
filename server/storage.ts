@@ -11,6 +11,8 @@ import {
   poolProfessionals,
   municipalityProfessionals,
   constructionDistributors,
+  marinaProfessionals,
+  firePreventionHomeowners,
   professionalReviews,
   type User,
   type InsertUser,
@@ -36,6 +38,10 @@ import {
   type InsertMunicipalityProfessional,
   type ConstructionDistributor,
   type InsertConstructionDistributor,
+  type MarinaProfessional,
+  type InsertMarinaProfessional,
+  type FirePreventionHomeowner,
+  type InsertFirePreventionHomeowner,
   type ProfessionalReview,
   type InsertProfessionalReview,
 } from "@shared/schema";
@@ -132,6 +138,20 @@ export interface IStorage {
   getConstructionDistributorByEmail(email: string): Promise<ConstructionDistributor | undefined>;
   createConstructionDistributor(distributor: InsertConstructionDistributor): Promise<ConstructionDistributor>;
   updateConstructionDistributor(id: number, distributorData: Partial<ConstructionDistributor>): Promise<ConstructionDistributor | undefined>;
+  
+  // Marina professional methods
+  getMarinaProfessionals(): Promise<MarinaProfessional[]>;
+  getMarinaProfessional(id: number): Promise<MarinaProfessional | undefined>;
+  getMarinaProfessionalByEmail(email: string): Promise<MarinaProfessional | undefined>;
+  createMarinaProfessional(professional: InsertMarinaProfessional): Promise<MarinaProfessional>;
+  updateMarinaProfessional(id: number, professionalData: Partial<MarinaProfessional>): Promise<MarinaProfessional | undefined>;
+  
+  // Fire prevention homeowner methods
+  getFirePreventionHomeowners(): Promise<FirePreventionHomeowner[]>;
+  getFirePreventionHomeowner(id: number): Promise<FirePreventionHomeowner | undefined>;
+  getFirePreventionHomeownerByEmail(email: string): Promise<FirePreventionHomeowner | undefined>;
+  createFirePreventionHomeowner(homeowner: InsertFirePreventionHomeowner): Promise<FirePreventionHomeowner>;
+  updateFirePreventionHomeowner(id: number, homeownerData: Partial<FirePreventionHomeowner>): Promise<FirePreventionHomeowner | undefined>;
   
   // Professional review methods
   getProfessionalReviews(professionalType: string, professionalId: number): Promise<ProfessionalReview[]>;
@@ -583,6 +603,64 @@ export class DatabaseStorage implements IStorage {
       .where(eq(constructionDistributors.id, id))
       .returning();
     return updatedDistributor;
+  }
+  
+  // Marina professional methods
+  async getMarinaProfessionals(): Promise<MarinaProfessional[]> {
+    return await db.select().from(marinaProfessionals);
+  }
+  
+  async getMarinaProfessional(id: number): Promise<MarinaProfessional | undefined> {
+    const [professional] = await db.select().from(marinaProfessionals).where(eq(marinaProfessionals.id, id));
+    return professional;
+  }
+  
+  async getMarinaProfessionalByEmail(email: string): Promise<MarinaProfessional | undefined> {
+    const [professional] = await db.select().from(marinaProfessionals).where(eq(marinaProfessionals.email, email));
+    return professional;
+  }
+  
+  async createMarinaProfessional(insertProfessional: InsertMarinaProfessional): Promise<MarinaProfessional> {
+    const [professional] = await db.insert(marinaProfessionals).values(insertProfessional).returning();
+    return professional;
+  }
+  
+  async updateMarinaProfessional(id: number, professionalData: Partial<MarinaProfessional>): Promise<MarinaProfessional | undefined> {
+    const [updatedProfessional] = await db
+      .update(marinaProfessionals)
+      .set(professionalData)
+      .where(eq(marinaProfessionals.id, id))
+      .returning();
+    return updatedProfessional;
+  }
+  
+  // Fire prevention homeowner methods
+  async getFirePreventionHomeowners(): Promise<FirePreventionHomeowner[]> {
+    return await db.select().from(firePreventionHomeowners);
+  }
+  
+  async getFirePreventionHomeowner(id: number): Promise<FirePreventionHomeowner | undefined> {
+    const [homeowner] = await db.select().from(firePreventionHomeowners).where(eq(firePreventionHomeowners.id, id));
+    return homeowner;
+  }
+  
+  async getFirePreventionHomeownerByEmail(email: string): Promise<FirePreventionHomeowner | undefined> {
+    const [homeowner] = await db.select().from(firePreventionHomeowners).where(eq(firePreventionHomeowners.email, email));
+    return homeowner;
+  }
+  
+  async createFirePreventionHomeowner(insertHomeowner: InsertFirePreventionHomeowner): Promise<FirePreventionHomeowner> {
+    const [homeowner] = await db.insert(firePreventionHomeowners).values(insertHomeowner).returning();
+    return homeowner;
+  }
+  
+  async updateFirePreventionHomeowner(id: number, homeownerData: Partial<FirePreventionHomeowner>): Promise<FirePreventionHomeowner | undefined> {
+    const [updatedHomeowner] = await db
+      .update(firePreventionHomeowners)
+      .set(homeownerData)
+      .where(eq(firePreventionHomeowners.id, id))
+      .returning();
+    return updatedHomeowner;
   }
 
   // Professional Review methods
