@@ -107,7 +107,7 @@ export async function getCRMAnalytics(req: Request, res: Response) {
     });
     
     // For critical activities, we'll just take a portion of the overdue ones
-    // Since we don't have a priority field
+    // Since we don't have a priority field in the schema
     const criticalOverdueActivities = overdueActivities.slice(0, Math.ceil(overdueActivities.length * 0.3));
 
     // Assemble response

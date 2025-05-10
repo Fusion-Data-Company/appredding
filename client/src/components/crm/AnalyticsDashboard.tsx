@@ -21,15 +21,36 @@ export default function AnalyticsDashboard() {
   
   // Set up default values to avoid null/undefined errors
   const analyticsData: CRMAnalyticsData = data || {
-    contacts: { total: 0, newThisMonth: 0, leadsThisMonth: 0, leadsConvertedThisMonth: 0 },
-    companies: { total: 0, newThisMonth: 0 },
-    opportunities: { 
-      total: 0, open: 0, won: 0, lost: 0, totalAmount: 0, wonAmount: 0,
-      averageDealSize: 0, conversionRate: 0, averageSalesCycle: 0, winProbability: 0
+    contacts: {
+      total: 0,
+      newThisMonth: 0,
+      leadsThisMonth: 0,
+      leadsConvertedThisMonth: 0
+    },
+    companies: {
+      total: 0,
+      newThisMonth: 0
+    },
+    opportunities: {
+      total: 0,
+      open: 0,
+      won: 0,
+      lost: 0,
+      totalAmount: 0,
+      wonAmount: 0,
+      averageDealSize: 0,
+      conversionRate: 0,
+      averageSalesCycle: 0,
+      winProbability: 0
     },
     activities: {
-      total: 0, completed: 0, upcoming: 0, overdue: 0,
-      completedThisWeek: 0, dueTomorrow: 0, overdueCritical: 0
+      total: 0,
+      completed: 0,
+      upcoming: 0,
+      overdue: 0,
+      completedThisWeek: 0,
+      dueTomorrow: 0,
+      overdueCritical: 0
     }
   };
 
