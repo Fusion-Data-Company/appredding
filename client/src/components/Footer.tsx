@@ -123,8 +123,8 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div>
-            <GradientHeading level={3} className="text-base mb-2 text-left -ml-4" variant="mixed">Our Product</GradientHeading>
+          <div className="-ml-8">
+            <GradientHeading level={3} className="text-base mb-2 text-left" variant="mixed">Our Product</GradientHeading>
             <ul className="space-y-1">
               <li>
                 <a href="#" className="text-[#a0a0a0] hover:text-[#0070f3] transition-colors text-sm">
