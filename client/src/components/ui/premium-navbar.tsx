@@ -70,29 +70,18 @@ export function PremiumNavbar() {
         </MenuItem>
         <MenuItem setActive={setActive} active={active} item="Products">
           <div className="flex flex-col space-y-3 text-sm">
-            <HoveredLink href="/products/industrial">Industrial</HoveredLink>
-            <HoveredLink href="/products/residential">Residential</HoveredLink>
-            <HoveredLink href="/products/commercial">Commercial</HoveredLink>
-            <HoveredLink href="/products/marine">Marine</HoveredLink>
-            <HoveredLink href="/products/fire">Fire Prevention</HoveredLink>
+            <HoveredLink href="/products">All Products</HoveredLink>
           </div>
         </MenuItem>
         <MenuItem setActive={setActive} active={active} item="About">
           <div className="flex flex-col space-y-3 text-sm">
-            <HoveredLink href="/about/company">Company</HoveredLink>
-            <HoveredLink href="/about/team">Team</HoveredLink>
-            <HoveredLink href="/about/technology">Technology</HoveredLink>
-            <HoveredLink href="/about/process">Process</HoveredLink>
-            <HoveredLink href="/about/contact">Contact</HoveredLink>
+            <HoveredLink href="/about">About Us</HoveredLink>
+            <HoveredLink href="/contact">Contact</HoveredLink>
           </div>
         </MenuItem>
         <MenuItem setActive={setActive} active={active} item="CRM">
           <div className="flex flex-col space-y-3 text-sm">
-            <HoveredLink href="/crm/dashboard">Dashboard</HoveredLink>
-            <HoveredLink href="/crm/contacts">Contacts</HoveredLink>
-            <HoveredLink href="/crm/companies">Companies</HoveredLink>
-            <HoveredLink href="/crm/opportunities">Opportunities</HoveredLink>
-            <HoveredLink href="/crm/activities">Activities</HoveredLink>
+            <HoveredLink href="/crm">Customer Relationship Management</HoveredLink>
           </div>
         </MenuItem>
       </Menu>
