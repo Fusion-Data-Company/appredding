@@ -49,7 +49,7 @@ const FeaturesSection = () => {
     >
       {/* Overlay to ensure text readability */}
       <div className="absolute inset-0 bg-black/20"></div>
-      <div className="container mx-auto px-6 md:px-10 relative z-10 max-w-[1440px]">
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16 md:mb-20">
           <div className="dark:bg-gray-800/60 bg-gray-100/90 backdrop-blur-xl rounded-xl dark:border-4 dark:border-gray-600/40 border-4 border-gray-300 dark:shadow-[0_0_40px_rgba(255,255,255,0.25)] shadow-[0_0_30px_rgba(0,0,0,0.3)] py-8 px-6 md:py-10 md:px-12 mx-auto max-w-4xl mb-8 inline-block">
             <GradientHeading level={2} className="text-3xl md:text-4xl mb-4" variant="mixed">Superior Protection Features</GradientHeading>

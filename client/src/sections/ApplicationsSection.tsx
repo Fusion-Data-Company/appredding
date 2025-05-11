@@ -24,14 +24,14 @@ const ApplicationCard = ({ imageSrc, title, description, link }: ApplicationCard
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
       <div className="absolute bottom-0 left-0 p-8 w-full">
-        <h3 className="text-2xl font-semibold mb-2 text-white">{title}</h3>
-        <p className="dark:text-[#a0a0a0] text-gray-200 text-base mb-6">{description}</p>
+        <h3 className="text-3xl font-semibold mb-3 text-white">{title}</h3>
+        <p className="text-gray-200 text-lg mb-8">{description}</p>
         <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
           <Link href={link}>
             <GradientButton 
               size="lg"
               variant={isWaterRelated ? "variant" : "default"}
-              className="w-full md:w-auto font-semibold tracking-wider"
+              className="w-full md:w-auto font-semibold tracking-wider text-lg"
             >
               Learn more
             </GradientButton>
@@ -96,17 +96,17 @@ const ApplicationsSection = () => {
     >
       {/* Overlay to ensure text readability */}
       <div className="absolute inset-0 bg-black/20"></div>
-      <div className="container mx-auto px-6 md:px-10 relative z-10 max-w-[1440px]">
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-20">
-          <div className="dark:bg-gray-800/60 bg-gray-100/90 backdrop-blur-xl rounded-xl dark:border dark:border-gray-600/40 border border-gray-300 dark:shadow-[0_0_20px_rgba(255,255,255,0.25)] shadow-[0_0_20px_rgba(0,0,0,0.25)] py-10 px-8 md:px-12 mx-auto max-w-4xl mb-10 inline-block">
-            <GradientHeading className="text-3xl md:text-4xl mb-4">Specialized Applications</GradientHeading>
-            <p className="dark:text-[#a0a0a0] text-gray-700 max-w-2xl mx-auto">
+          <div className="dark:bg-gray-800/60 bg-gray-100/90 backdrop-blur-xl rounded-xl dark:border-4 dark:border-gray-600/40 border-4 border-gray-300 dark:shadow-[0_0_40px_rgba(255,255,255,0.25)] shadow-[0_0_30px_rgba(0,0,0,0.3)] py-12 px-12 mx-auto max-w-4xl mb-10 inline-block">
+            <GradientHeading className="text-4xl md:text-5xl mb-6" variant="mixed">Specialized Applications</GradientHeading>
+            <p className="dark:text-[#a0a0a0] text-gray-700 text-xl max-w-2xl mx-auto">
               Our protective coatings are engineered for specific environments and challenges across various industries.
             </p>
           </div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12 xl:gap-x-12 xl:gap-y-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {applications.map((app, index) => (
             <ApplicationCard
               key={index}
