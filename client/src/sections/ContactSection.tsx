@@ -247,7 +247,7 @@ const ContactSection = () => {
                     </div>
                     <div>
                       <h4 className="font-semibold mb-1">Phone</h4>
-                      <p className="dark:text-[#a0a0a0] text-gray-700">Main: (800) 555-7890<br/>Support: (800) 555-7891</p>
+                      <p className="dark:text-[#a0a0a0] text-gray-700">(916) 809-6619<br/><span className="text-sm">(Call or text welcome)</span></p>
                     </div>
                   </div>
                   

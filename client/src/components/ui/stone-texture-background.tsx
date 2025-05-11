@@ -32,7 +32,7 @@ export const StoneTextureBackground: React.FC<StoneTextureBackgroundProps> = ({
         className="absolute inset-0 z-0"
         style={{
           background: 'linear-gradient(to bottom, rgba(180, 180, 190, 0.2), rgba(40, 40, 50, 0.4))',
-          backdropFilter: 'blur(12px)',
+          backdropFilter: 'blur(4px)', // Reduced blur effect
           boxShadow: 'inset 0 0 100px rgba(0,0,0,0.2)',
         }}
       />
