@@ -98,7 +98,7 @@ export function StarsBackground({
       />
 
       {children && (
-        <div className="relative z-1 w-full">
+        <div className="relative z-20 w-full">
           {children}
         </div>
       )}
