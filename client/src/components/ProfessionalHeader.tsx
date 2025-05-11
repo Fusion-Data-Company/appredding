@@ -131,9 +131,9 @@ const ProfessionalHeader = () => {
                   }}
                 />
                 
-                <div className="absolute bottom-[-29px] left-[356px] whitespace-nowrap">
+                <div className="absolute bottom-[-29px] left-[260px] whitespace-nowrap text-center w-[268px]">
                   <span className="text-[1.05rem] text-slate-700 dark:text-slate-400 font-medium tracking-widest uppercase group-hover:text-black dark:group-hover:text-white transition-colors duration-300">
-                    <span className="bg-gradient-to-r from-slate-700 to-slate-900 dark:from-slate-300 dark:to-slate-400 bg-clip-text text-transparent group-hover:from-slate-800 group-hover:to-black dark:group-hover:from-gray-200 dark:group-hover:to-white transition-all duration-500 font-semibold">SmartCoat Solutions</span>
+                    <span className="bg-gradient-to-r from-slate-700 to-slate-900 dark:from-slate-300 dark:to-slate-400 bg-clip-text text-transparent group-hover:from-slate-800 group-hover:to-black dark:group-hover:from-gray-200 dark:group-hover:to-white transition-all duration-500 font-semibold">SmartCoat</span>
                   </span>
                 </div>
               </div>

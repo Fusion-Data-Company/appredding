@@ -25,10 +25,10 @@ const HeroSection = () => {
               maxWidth: "none", 
               width: "102vw", // Minimal stretch to avoid cutting content
               marginLeft: "-1vw", // Slight adjustment for centering
-              marginTop: "-6px", // Just enough to remove the gap
+              marginTop: "-50px", // Push up past the header
               marginBottom: "8px", // Add space at bottom to prevent overlap
               filter: "drop-shadow(0 0 25px rgba(0,0,0,0.9))",
-              zIndex: 30 // Bring to front at higher level than other elements
+              zIndex: 10 // Behind the header elements
             }}
           />
         </div>
