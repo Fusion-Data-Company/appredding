@@ -3,7 +3,7 @@ import StoneTextureBackground from "@/components/ui/stone-texture-background";
 
 const Footer = () => {
   return (
-    <footer className="relative border-t dark:border-[#333333] border-gray-300 pt-12 pb-6 mt-auto overflow-hidden">
+    <footer className="relative border-t dark:border-[#333333] border-gray-300 pt-8 pb-4 mt-auto overflow-hidden">
       {/* Stone texture background with frosted glass overlay */}
       <StoneTextureBackground 
         className="absolute inset-0" 
@@ -14,12 +14,11 @@ const Footer = () => {
       <div className="absolute inset-0 bg-[url('/src/assets_dir/images/noise.svg')] opacity-[0.04] bg-repeat bg-[length:200px_200px] mix-blend-overlay pointer-events-none animate-subtle-pulse"></div>
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
           <div>
-            <GradientHeading level={3} className="text-xl mb-4" variant="mixed">Praetorian SmartCoat</GradientHeading>
-            <p className="dark:text-[#a0a0a0] text-gray-700 mb-6">
-              Industry-leading protective coatings engineered to defend against the elements,
-              preserve structures, and provide peace of mind.
+            <GradientHeading level={3} className="text-base mb-2" variant="mixed">Praetorian SmartCoat</GradientHeading>
+            <p className="dark:text-[#a0a0a0] text-gray-700 mb-3 text-sm">
+              Industry-leading protective coatings engineered to defend against the elements.
             </p>
             <div className="flex space-x-4">
               <a
