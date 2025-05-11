@@ -39,7 +39,7 @@ const RotatingTextSection = () => {
               className="inline-block"
               style={{ 
                 position: "absolute",
-                right: "-96px", /* Mirror position of Explore Applications button */
+                right: "-144px", /* Moved an additional half inch (48px) to the left */
                 top: "-168px", /* Same height as other button */
                 zIndex: 9999 /* Absolute front */
               }} 
