@@ -76,7 +76,7 @@ export const CRMHeader = () => {
         </PraetorianButton>
         
         <PraetorianButton 
-          variant="outline" 
+          variant="ghost" 
           leftIcon={<Settings size={18} />}
           fullWidth
         >
