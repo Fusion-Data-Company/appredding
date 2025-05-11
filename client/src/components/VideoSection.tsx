@@ -5,8 +5,6 @@ import { GradientHeading } from "@/components/ui/gradient-heading";
 import { GradientButton } from "@/components/ui/gradient-button";
 // Import the video from assets_dir
 import productDemoVideo from "../assets_dir/videos/product-demo.mp4";
-// Import the same background image used in FAQSection
-import backgroundImg from "../assets_dir/images/praetorian-buckets-hero.png";
 
 interface Video {
   id: string;
@@ -49,12 +47,7 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
       className="py-20 relative md:py-24 lg:py-28" 
       id="videos"
       style={{ 
-        backgroundImage: `url(${backgroundImg})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center bottom", // Position at bottom to continue from FAQ section
-        backgroundRepeat: "no-repeat",
-        backgroundAttachment: "scroll", // Changed from fixed for better mobile performance
-        backgroundColor: "#111111",
+        backgroundColor: "transparent",
         position: "relative", 
         zIndex: 0
       }}
