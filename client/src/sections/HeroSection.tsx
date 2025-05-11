@@ -28,13 +28,13 @@ const HeroSection = () => {
           right: 0,
           zIndex: 999999
         }}>
-          <div className="container mx-auto px-4 relative">
-            {/* Left button centered under left guard */}
+          <div className="w-full relative px-4">
+            {/* Left button positioned under left guard's feet */}
             <a 
               href="#applications" 
               className="inline-block absolute"
               style={{ 
-                left: "0%", /* Moved right to the left edge */
+                left: "17%", /* Positioned under left guard's feet */
                 transform: "translateX(-50%)",
               }}
             >
@@ -43,12 +43,12 @@ const HeroSection = () => {
               </GradientButton>
             </a>
             
-            {/* Right button centered under right guard */}
+            {/* Right button positioned under right guard's feet */}
             <a 
               href="#contact" 
               className="inline-block absolute"
               style={{ 
-                right: "0%", /* Moved right to the right edge */
+                right: "17%", /* Positioned under right guard's feet */
                 transform: "translateX(50%)",
               }}
             >
