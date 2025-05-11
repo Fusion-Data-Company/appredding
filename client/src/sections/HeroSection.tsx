@@ -16,27 +16,30 @@ const HeroSection = () => {
         
         {/* The hero image with enhanced styling for ultra-realistic appearance */}
         <div className="relative w-full h-full overflow-visible">
-          <img 
-            src={heroImage} 
-            alt="Praetorian SmartCoat Products" 
-            className="w-full h-auto"
-            style={{ 
-              position: "absolute",
-              display: "block",
-              objectFit: "cover",
-              objectPosition: "center 0%", // Aligned to show top portion
-              width: "110%", 
-              height: "auto",
-              minWidth: "110%",
-              left: "50%",
-              transform: "translateX(-50%)",
-              marginTop: "-384px", // Move image up by 4 inches (384px)
-              marginBottom: "-30px",
-              filter: "contrast(1.05) saturate(1.1)", // Enhance colors slightly for ultra-realistic look
-              boxShadow: "0 5px 20px rgba(0,0,0,0.5)", // Subtle shadow for depth
-              zIndex: 5,
-            }}
-          />
+          <div className="absolute inset-0" style={{ 
+            overflow: 'visible',
+            width: '120%',
+            height: '100%',
+            left: '-10%',
+            zIndex: 5
+          }}>
+            <img 
+              src={heroImage} 
+              alt="Praetorian SmartCoat Products" 
+              className="absolute inset-0"
+              style={{ 
+                display: "block",
+                objectFit: "cover",
+                objectPosition: "center 0%", // Aligned to show top portion
+                width: "100%", 
+                height: "auto",
+                marginTop: "-384px", // Move image up by 4 inches (384px)
+                marginBottom: "-30px",
+                filter: "contrast(1.05) saturate(1.1)", // Enhance colors slightly for ultra-realistic look
+                boxShadow: "0 5px 20px rgba(0,0,0,0.5)", // Subtle shadow for depth
+              }}
+            />
+          </div>
         </div>
         
         {/* Subtle gradient overlay at the bottom for text legibility */}
