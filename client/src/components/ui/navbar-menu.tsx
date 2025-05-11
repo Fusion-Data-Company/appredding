@@ -23,10 +23,11 @@ export const MenuItem = ({
   children?: React.ReactNode;
 }) => {
   return (
-    <div onMouseEnter={() => setActive(item)} className="relative">
+    <div onMouseEnter={() => setActive(item)} className="relative" style={{ zIndex: 9000 }}>
       <motion.p
         transition={{ duration: 0.3 }}
-        className="cursor-pointer text-white/90 hover:text-white dark:text-white font-cinzel uppercase tracking-wide text-sm lg:text-base"
+        className="cursor-pointer text-white/90 hover:text-white dark:text-white font-cinzel uppercase tracking-wide text-sm lg:text-base relative"
+        style={{ zIndex: 9000 }}
       >
         {item}
       </motion.p>
@@ -35,9 +36,10 @@ export const MenuItem = ({
           initial={{ opacity: 0, scale: 0.85, y: 10 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={transition}
+          style={{ zIndex: 9500 }}
         >
           {active === item && (
-            <div className="absolute top-[calc(100%_+_1.2rem)] left-1/2 transform -translate-x-1/2 pt-4 z-[1000]">
+            <div className="absolute top-[calc(100%_+_1.2rem)] left-1/2 transform -translate-x-1/2 pt-4 z-[9999]" style={{ position: 'relative' }}>
               <motion.div
                 transition={transition}
                 layoutId="active" // layoutId ensures smooth animation

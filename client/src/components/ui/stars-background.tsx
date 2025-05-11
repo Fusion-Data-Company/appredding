@@ -34,14 +34,15 @@ export function StarsBackground({
       <div 
           className="absolute inset-0 bg-gradient-to-b from-black via-black to-black"
           style={{
-              background: "radial-gradient(circle at 75% 10%, rgba(255, 69, 0, 0.1) 0%, rgba(0, 0, 0, 0) 40%), radial-gradient(circle at 25% 90%, rgba(0, 153, 255, 0.1) 0%, rgba(0, 0, 0, 0) 40%), black"
+              background: "radial-gradient(circle at 75% 10%, rgba(255, 69, 0, 0.1) 0%, rgba(0, 0, 0, 0) 40%), radial-gradient(circle at 25% 90%, rgba(0, 153, 255, 0.1) 0%, rgba(0, 0, 0, 0) 40%), black",
+              zIndex: 0
           }}
       />
       
       {/* Static stars background */}
       <div 
         className="stars absolute inset-0" 
-        style={{ opacity: starsOpacity }}
+        style={{ opacity: starsOpacity, zIndex: 0 }}
       />
 
       {/* Multiple shooting star layers with different colors and speeds - ULTRA BRIGHT */}
@@ -98,7 +99,7 @@ export function StarsBackground({
       />
 
       {children && (
-        <div className="relative z-20 w-full">
+        <div className="relative w-full" style={{ zIndex: 5 }}>
           {children}
         </div>
       )}

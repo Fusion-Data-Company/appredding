@@ -7,17 +7,17 @@ const HeroSection = () => {
     <section className="w-full bg-transparent overflow-hidden pt-0 -mt-28">
       {/* Using the StarsBackground component for an epic starry night sky with shooting stars */}
       <StarsBackground intensity="strong">
-        {/* Edge-to-edge image container with z-index to keep it above the stars but BELOW navigation */}
-        <div className="w-full flex justify-center items-center overflow-hidden py-0 my-0 relative z-10">
+        {/* Edge-to-edge image container with z-index to keep it BELOW EVERYTHING */}
+        <div className="w-full flex justify-center items-center overflow-hidden py-0 my-0 relative z-[1]">
           {/* Overlay for soft edge shading */}
           <div className="absolute inset-0 pointer-events-none" style={{
             background: "radial-gradient(circle at center, transparent 40%, black 100%)",
             opacity: 0.65,
-            zIndex: 11 // Below the image and below navigation
+            zIndex: 2 // Below the image and WELL below navigation
           }}></div>
           
           {/* Black bar to cover the navy line */}
-          <div className="absolute top-0 left-0 right-0 h-4 bg-black z-[12]"></div>
+          <div className="absolute top-0 left-0 right-0 h-4 bg-black z-[3]"></div>
           
           {/* The image stretched horizontally to screen edges */}
           <img 
