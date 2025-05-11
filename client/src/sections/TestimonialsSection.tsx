@@ -3,13 +3,13 @@ import { GradientHeading } from "@/components/ui/gradient-heading";
 const TestimonialsSection = () => {
   return (
     <section 
-      className="py-32 relative"
+      className="py-24 md:py-28 lg:py-32 relative"
       style={{ 
         backgroundImage: "url('/images/optimized/diamond-plate-fire-red.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        minHeight: "100vh" // Ensure minimum height to avoid compression
+        minHeight: "auto" // Let content define height for better proportions
       }}
     >
       {/* Semi-transparent overlay for better readability */}
@@ -26,7 +26,7 @@ const TestimonialsSection = () => {
         
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 gap-10">
-            <div className="bg-gradient-to-r from-gray-800/90 to-gray-700/90 backdrop-blur-xl rounded-lg p-12 md:p-16 border-4 border-gray-600/40 shadow-[0_0_50px_rgba(255,255,255,0.3)]">
+            <div className="bg-gradient-to-r from-gray-800/90 to-gray-700/90 backdrop-blur-xl rounded-lg p-10 md:p-12 lg:p-14 border-4 border-gray-600/40 shadow-[0_0_40px_rgba(255,255,255,0.25)]">
               <div className="flex items-center mb-6">
                 <div className="text-amber-400 text-2xl flex space-x-2">
                   <i className="fas fa-star"></i>
@@ -36,7 +36,7 @@ const TestimonialsSection = () => {
                   <i className="fas fa-star"></i>
                 </div>
               </div>
-              <p className="text-2xl italic mb-12 text-white leading-relaxed">
+              <p className="text-lg sm:text-xl md:text-2xl italic mb-8 md:mb-10 text-white leading-relaxed">
                 "After applying Praetorian SmartCoat's FireGuard Pro to our mountain cabin, we had peace of mind during wildfire season. 
                 When fires swept through our area last summer, our home was one of the few left standing. 
                 The investment literally saved our family home."

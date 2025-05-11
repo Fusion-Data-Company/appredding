@@ -14,7 +14,7 @@ const ApplicationCard = ({ imageSrc, title, description, link }: ApplicationCard
   const isWaterRelated = title === "Marine" || title === "Pool";
   
   return (
-    <div className="group relative rounded-lg overflow-hidden h-80 md:h-96 lg:h-[35rem] w-full block cursor-pointer dark:shadow-[0_0_60px_rgba(255,255,255,0.4)] shadow-[0_0_30px_rgba(0,0,0,0.25)] border-4 dark:border-white border-gray-300 transform transition-transform hover:scale-[1.03]">
+    <div className="group relative rounded-lg overflow-hidden h-[300px] sm:h-[350px] md:h-[400px] lg:h-[500px] w-full block cursor-pointer dark:shadow-[0_0_60px_rgba(255,255,255,0.4)] shadow-[0_0_30px_rgba(0,0,0,0.25)] border-4 dark:border-white border-gray-300 transform transition-transform hover:scale-[1.03]">
       <img 
         src={imageSrc} 
         alt={title} 
@@ -84,14 +84,14 @@ const ApplicationsSection = () => {
 
   return (
     <section 
-      className="py-32 relative" 
+      className="py-24 md:py-28 lg:py-32 relative" 
       id="applications"
       style={{
         backgroundImage: 'url("/images/optimized/diamond-plate-fire-water-2.jpg")',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
-        minHeight: "100vh" // Ensure minimum height to avoid compression
+        minHeight: "auto" // Let content define height for better proportions
       }}
     >
       {/* Overlay to ensure text readability */}
@@ -106,7 +106,7 @@ const ApplicationsSection = () => {
           </div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12 xl:gap-x-12 xl:gap-y-16">
           {applications.map((app, index) => (
             <ApplicationCard
               key={index}

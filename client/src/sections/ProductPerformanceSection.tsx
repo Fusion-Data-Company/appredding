@@ -4,13 +4,13 @@ import { GradientHeading } from "@/components/ui/gradient-heading";
 const ProductPerformanceSection = () => {
   return (
     <section 
-      className="py-32 relative"
+      className="py-24 md:py-28 lg:py-32 relative"
       style={{ 
         backgroundImage: "url('/images/optimized/diamond-plate-orange-blue.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        minHeight: "100vh" // Ensure minimum height to avoid compression
+        minHeight: "auto" // Let content define height for better proportions
       }}
     >
       {/* Semi-transparent overlay for better readability */}
