@@ -28,7 +28,7 @@ const HeroSection = () => {
               width: "100%", 
               height: "auto",
               minWidth: "100%",
-              marginTop: "-25px", // Move image up to show above guards' heads
+              marginTop: "-384px", // Move image up by 4 inches (384px)
               marginBottom: "-30px",
               filter: "contrast(1.05) saturate(1.1)", // Enhance colors slightly for ultra-realistic look
               boxShadow: "0 5px 20px rgba(0,0,0,0.5)", // Subtle shadow for depth
