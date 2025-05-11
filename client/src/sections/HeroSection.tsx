@@ -1,55 +1,44 @@
-// Import directly from assets - using the final image
-import heroImage from '../assets_dir/images/praetorian-hero-final.png';
+import React from 'react';
+import heroImage from '@/assets_dir/images/praetorian-main.jpg';
+import { StarsBackground } from '@/components/ui/stars-background';
 import { GradientButton } from "@/components/ui/gradient-button";
-import ResponsiveImage from '@/components/ResponsiveImage';
 
 const HeroSection = () => {
   return (
-    <section className="w-full bg-black overflow-hidden pt-0 mt-0 mb-0 relative" style={{ zIndex: 20 }}>
-      {/* Hero image container with responsive height */}
-      <div className="relative w-full flex justify-center items-center" style={{ width: "100%" }}>
-        {/* Hero image with natural proportions - responsive and optimized */}
-        {/* Using our ResponsiveImage component for optimized loading */}
-        <ResponsiveImage 
-          src={heroImage} 
-          alt="Praetorian SmartCoat Products" 
-          className="w-full h-auto"
-          priority={true}
-          width={1600}
-          height={800}
-          style={{ 
-            objectFit: "contain",
-            objectPosition: "top",
-            width: "100%",
-            maxHeight: "90vh",
-            filter: "contrast(1.05) saturate(1.1)",
-            transformOrigin: "center",
-            transform: "scaleX(1.025)" /* Stretch by 2.5% horizontally */
-          }}
-        />
-        
-        {/* Buttons positioned responsively over the image */}
-        <div className="absolute w-full md:w-auto" style={{ 
-          bottom: { 
-            xs: "15%", 
-            sm: "20%", 
-            md: "calc(27% - 336px)" 
-          }[window.innerWidth < 640 ? 'xs' : window.innerWidth < 768 ? 'sm' : 'md'],
-          left: 0,
-          right: 0,
-          zIndex: 999
-        }}>
-          <div className="w-full relative px-4 flex flex-col md:flex-row md:justify-center gap-4 md:gap-12">
-            {/* Mobile-friendly button placement (centered on small screens, absolute on larger) */}
-            <div className="text-center md:inline-block md:absolute md:left-[10%] md:transform md:-translate-x-1/2">
+    <section className="w-full mt-0 mb-0 pt-0 pb-0 relative">
+      <StarsBackground intensity="strong">
+        <div className="w-full flex justify-center">
+          {/* Simple image display with natural dimensions */}
+          <img 
+            src={heroImage}
+            alt="Praetorian Protection Products"
+            className="w-full max-w-[1600px]"
+            style={{ 
+              height: 'auto',
+              marginTop: '0',
+              marginBottom: '0'
+            }}
+          />
+          
+          {/* Overlay gradient */}
+          <div 
+            className="absolute inset-0 pointer-events-none" 
+            style={{
+              background: "radial-gradient(circle at center, transparent 40%, black 100%)",
+              opacity: 0.65,
+              zIndex: 2
+            }}
+          />
+          
+          {/* Buttons positioned responsively over the image */}
+          <div className="absolute bottom-[15%] sm:bottom-[20%] md:bottom-[22%] w-full z-30">
+            <div className="w-full px-4 flex flex-col md:flex-row justify-center items-center gap-4 md:gap-12">
               <a href="#applications">
                 <GradientButton size="lg" className="font-semibold tracking-wider shadow-2xl shadow-black/80 w-full md:w-auto">
                   Explore Applications
                 </GradientButton>
               </a>
-            </div>
-            
-            <div className="text-center md:inline-block md:absolute md:right-[10%] md:transform md:translate-x-1/2">
+              
               <a href="#contact">
                 <GradientButton size="lg" className="font-semibold tracking-wider shadow-2xl shadow-black/80 w-full md:w-auto">
                   Contact Us
@@ -58,7 +47,7 @@ const HeroSection = () => {
             </div>
           </div>
         </div>
-      </div>
+      </StarsBackground>
     </section>
   );
 };
