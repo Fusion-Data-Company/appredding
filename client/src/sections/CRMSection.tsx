@@ -11,13 +11,15 @@ import {
   Mail,
   Phone,
   FileEdit,
-  UserPlus
+  UserPlus,
+  Package
 } from 'lucide-react';
 
 import AnalyticsDashboard from '@/components/crm/AnalyticsDashboard';
 import { ContactForm } from '@/components/crm/ContactForm';
 import { CompanyForm } from '@/components/crm/CompanyForm';
 import { OpportunityForm } from '@/components/crm/OpportunityForm';
+import { InventoryTable } from '@/components/crm/InventoryTable';
 import { ActivityForm } from '@/components/crm/ActivityForm';
 import { CSVImportForm } from '@/components/crm/CSVImportForm';
 import RegistrationTabs from '@/components/crm/RegistrationTabs';
