@@ -11,7 +11,8 @@ const RotatingTextSection = () => {
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        marginTop: "384px" // Move down by 4 inches
+        marginTop: "550px", // Adjusted to let hero image overlap just enough
+        zIndex: 1 // Ensure it's behind the hero but visible
       }}
     >
       {/* Semi-transparent overlay for better readability - top moved down half inch (48px) */}
@@ -26,7 +27,7 @@ const RotatingTextSection = () => {
                 position: "absolute",
                 left: "-96px", /* 1 inch to the left of the left edge */
                 top: "-168px", /* 1.75 inches up from its container (2.25 - 0.5) */
-                zIndex: 100 /* Bring all the way to the front */
+                zIndex: 9999 /* Absolute front */
               }} 
             >
               <GradientButton size="lg" className="font-semibold tracking-wider">
@@ -35,7 +36,13 @@ const RotatingTextSection = () => {
             </a>
             <a 
               href="#contact" 
-              className="inline-block ml-20"
+              className="inline-block"
+              style={{ 
+                position: "absolute",
+                right: "-96px", /* Mirror position of Explore Applications button */
+                top: "-168px", /* Same height as other button */
+                zIndex: 9999 /* Absolute front */
+              }} 
             >
               <GradientButton size="lg" className="font-semibold tracking-wider">
                 Contact Us

@@ -3,7 +3,7 @@ import heroImage from '../assets_dir/images/praetorian-hero-new.png';
 
 const HeroSection = () => {
   return (
-    <section className="w-full bg-black overflow-visible pt-0 mt-0 relative" style={{ marginBottom: "-30px", zIndex: 20 }}>
+    <section className="w-full bg-black overflow-visible pt-0 mt-0 relative" style={{ marginBottom: "-120px", zIndex: 20 }}>
       {/* Ultra-realistic HD hero image stretched edge-to-edge */}
       <div className="w-full flex justify-center items-center overflow-visible py-0 my-0" style={{ minHeight: "650px" }}>
         {/* Removed vignette overlay */}
