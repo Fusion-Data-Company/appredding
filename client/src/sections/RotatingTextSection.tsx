@@ -26,7 +26,7 @@ const RotatingTextSection = () => {
               style={{ 
                 position: "absolute",
                 left: "-96px", /* 1 inch to the left of the left edge */
-                top: "-60px", /* Position above the rotating text section */
+                top: "-96px", /* Position above the rotating text section - adjusted for taller hero */
                 zIndex: 9999 /* Absolute front */
               }} 
             >
@@ -40,7 +40,7 @@ const RotatingTextSection = () => {
               style={{ 
                 position: "absolute",
                 right: "-48px", /* Moved a half inch (48px) to the left (less negative means more left) */
-                top: "-60px", /* Same height as other button */
+                top: "-96px", /* Same height as other button - adjusted for taller hero */
                 zIndex: 9999 /* Absolute front */
               }} 
             >

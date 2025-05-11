@@ -1,17 +1,17 @@
-// Import directly from assets - using the optimized image
-import heroImage from '../assets_dir/images/praetorian-hero-optimized.png';
+// Import directly from assets - using the bigger image
+import heroImage from '../assets_dir/images/praetorian-hero-bigger.png';
 
 const HeroSection = () => {
   return (
     <section className="w-full bg-black overflow-visible pt-0 mt-0 relative" style={{ marginBottom: "0", zIndex: 20 }}>
       {/* Ultra-realistic HD hero image stretched edge-to-edge */}
-      <div className="w-full flex justify-center items-center overflow-visible py-0 my-0" style={{ height: "480px" }}>
+      <div className="w-full flex justify-center items-center overflow-visible py-0 my-0" style={{ height: "864px" }}>
         {/* Removed vignette overlay */}
         
         {/* Removed black bar */}
         
         {/* The hero image with enhanced styling for ultra-realistic appearance */}
-        <div className="relative w-full overflow-visible" style={{ height: "480px" }}>
+        <div className="relative w-full overflow-visible" style={{ height: "864px" }}>
           <div className="absolute inset-0" style={{ 
             overflow: 'hidden',
             width: '100%', // Using exact hero section width
@@ -30,7 +30,7 @@ const HeroSection = () => {
                 objectPosition: "center", // Center the image
                 width: "100%", // Match hero section width exactly
                 maxWidth: "100vw", // Never exceed viewport width
-                height: "480px", // Match hero section height
+                height: "864px", // Increased by 4 inches (384px)
                 filter: "contrast(1.05) saturate(1.1)" // Enhance colors slightly for ultra-realistic look
               }}
             />
