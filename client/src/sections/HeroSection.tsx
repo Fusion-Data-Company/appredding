@@ -14,23 +14,31 @@ const HeroSection = () => {
         <div className="relative w-full overflow-visible" style={{ height: "864px" }}>
           <div className="absolute inset-0" style={{ 
             overflow: 'hidden',
-            width: '100%', // Using exact hero section width
+            width: '100%', // Using full width of the container
             height: '100%',
             left: '0',
             right: '0',
+            padding: 0,
+            margin: 0,
             zIndex: 5
           }}>
             <img 
               src={heroImage} 
               alt="Praetorian SmartCoat Products" 
-              className="absolute"
+              className="w-full h-full"
               style={{ 
                 display: "block",
-                objectFit: "contain",
-                objectPosition: "top center", // Show full image including bottom
-                width: "100%", // Match hero section width exactly
-                maxWidth: "100vw", // Never exceed viewport width
-                height: "864px", // Increased by 4 inches (384px)
+                objectFit: "fill", // Stretches to fill the container
+                objectPosition: "center",
+                width: "100%", // Full width
+                height: "100%", // Full height
+                maxWidth: "none", // Allow stretching beyond viewport if needed
+                minWidth: "100%", // Ensure minimum width is container width
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
                 filter: "contrast(1.05) saturate(1.1)" // Enhance colors slightly for ultra-realistic look
               }}
             />
