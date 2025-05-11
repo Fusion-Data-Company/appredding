@@ -125,7 +125,7 @@ const Footer = () => {
 
           <div style={{ transform: "translateX(-96px)" }}>
             <GradientHeading level={3} className="text-base mb-4 text-left !mx-0" variant="mixed">Our Product</GradientHeading>
-            <ul className="space-y-3">
+            <ul className="space-y-3 pl-24" style={{ marginLeft: "60px" }}>
               <li>
                 <a href="#" className="text-[#a0a0a0] hover:text-[#0070f3] transition-colors text-sm">
                   Protective Coating
