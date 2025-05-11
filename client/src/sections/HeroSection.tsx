@@ -23,7 +23,7 @@ const HeroSection = () => {
         
         {/* Buttons positioned directly over the image, below the guards (moved down 3 inches) */}
         <div className="absolute w-full" style={{ 
-          bottom: "calc(27% - 288px)",
+          bottom: "calc(27% - 336px)", /* Moved down 3.5 inches (original + 48px) */
           left: 0,
           right: 0,
           zIndex: 999999
