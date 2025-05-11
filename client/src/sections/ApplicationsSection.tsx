@@ -14,7 +14,7 @@ const ApplicationCard = ({ imageSrc, title, description, link }: ApplicationCard
   const isWaterRelated = title === "Marine" || title === "Pool";
   
   return (
-    <div className="group relative rounded-lg overflow-hidden h-[500px] w-full block cursor-pointer dark:shadow-[0_0_60px_rgba(255,255,255,0.4)] shadow-[0_0_30px_rgba(0,0,0,0.25)] border-4 dark:border-white border-gray-300 transform transition-transform hover:scale-[1.03]">
+    <div className="group relative rounded-lg overflow-hidden h-[500px] min-h-[500px] w-full block cursor-pointer dark:shadow-[0_0_60px_rgba(255,255,255,0.4)] shadow-[0_0_30px_rgba(0,0,0,0.25)] border-4 dark:border-white border-gray-300 transform transition-transform hover:scale-[1.03]">
       <img 
         src={imageSrc} 
         alt={title} 
@@ -84,7 +84,7 @@ const ApplicationsSection = () => {
 
   return (
     <section 
-      className="py-32 relative" 
+      className="py-32 md:py-40 relative" 
       id="applications"
       style={{
         backgroundImage: 'url("/images/optimized/diamond-plate-fire-water-2.jpg")',
@@ -106,7 +106,7 @@ const ApplicationsSection = () => {
           </div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 xl:gap-16">
           {applications.map((app, index) => (
             <ApplicationCard
               key={index}
