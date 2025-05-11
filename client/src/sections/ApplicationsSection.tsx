@@ -14,7 +14,7 @@ const ApplicationCard = ({ imageSrc, title, description, link }: ApplicationCard
   const isWaterRelated = title === "Marine" || title === "Pool";
   
   return (
-    <div className="group relative rounded-lg overflow-hidden h-[500px] block cursor-pointer dark:shadow-[0_0_60px_rgba(255,255,255,0.4)] shadow-[0_0_30px_rgba(0,0,0,0.25)] border-4 dark:border-white border-gray-300 transform transition-transform hover:scale-105">
+    <div className="group relative rounded-lg overflow-hidden h-80 md:h-96 lg:h-[35rem] w-full block cursor-pointer dark:shadow-[0_0_60px_rgba(255,255,255,0.4)] shadow-[0_0_30px_rgba(0,0,0,0.25)] border-4 dark:border-white border-gray-300 transform transition-transform hover:scale-[1.03]">
       <img 
         src={imageSrc} 
         alt={title} 
@@ -23,13 +23,13 @@ const ApplicationCard = ({ imageSrc, title, description, link }: ApplicationCard
         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-      <div className="absolute bottom-0 left-0 p-6 w-full">
-        <h3 className="text-xl font-semibold mb-1 text-white">{title}</h3>
-        <p className="dark:text-[#a0a0a0] text-gray-200 text-sm mb-4">{description}</p>
+      <div className="absolute bottom-0 left-0 p-8 w-full">
+        <h3 className="text-2xl font-semibold mb-2 text-white">{title}</h3>
+        <p className="dark:text-[#a0a0a0] text-gray-200 text-base mb-6">{description}</p>
         <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
           <Link href={link}>
             <GradientButton 
-              size="sm" 
+              size="lg"
               variant={isWaterRelated ? "variant" : "default"}
               className="w-full md:w-auto font-semibold tracking-wider"
             >
@@ -84,19 +84,19 @@ const ApplicationsSection = () => {
 
   return (
     <section 
-      className="py-24 relative" 
+      className="py-32 relative" 
       id="applications"
       style={{
         backgroundImage: 'url("/images/optimized/diamond-plate-fire-water-2.jpg")',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
-        minHeight: "90vh" // Ensure minimum height to avoid compression
+        minHeight: "100vh" // Ensure minimum height to avoid compression
       }}
     >
       {/* Overlay to ensure text readability */}
       <div className="absolute inset-0 bg-black/20"></div>
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-6 md:px-10 relative z-10 max-w-[1440px]">
         <div className="text-center mb-20">
           <div className="dark:bg-gray-800/60 bg-gray-100/90 backdrop-blur-xl rounded-xl dark:border dark:border-gray-600/40 border border-gray-300 dark:shadow-[0_0_20px_rgba(255,255,255,0.25)] shadow-[0_0_20px_rgba(0,0,0,0.25)] py-10 px-8 md:px-12 mx-auto max-w-4xl mb-10 inline-block">
             <GradientHeading className="text-3xl md:text-4xl mb-4">Specialized Applications</GradientHeading>
@@ -106,7 +106,7 @@ const ApplicationsSection = () => {
           </div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16">
           {applications.map((app, index) => (
             <ApplicationCard
               key={index}
