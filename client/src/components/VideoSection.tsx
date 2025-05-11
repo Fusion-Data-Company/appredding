@@ -5,6 +5,8 @@ import { GradientHeading } from "@/components/ui/gradient-heading";
 import { GradientButton } from "@/components/ui/gradient-button";
 // Import the video from assets_dir
 import productDemoVideo from "../assets_dir/videos/product-demo.mp4";
+// Import the same background image used in FAQSection
+import backgroundImg from "../assets_dir/images/praetorian-buckets-hero.png";
 
 interface Video {
   id: string;
@@ -47,15 +49,19 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
       className="py-20 relative" 
       id="videos"
       style={{ 
-        backgroundImage: "url('/images/optimized/diamond-plate-fire-blue.jpg')",
+        backgroundImage: `url(${backgroundImg})`,
         backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat"
+        backgroundPosition: "center bottom", // Position at bottom to continue from FAQ section
+        backgroundRepeat: "no-repeat",
+        backgroundAttachment: "fixed", // This creates the parallax effect
+        backgroundColor: "#111111",
+        position: "relative", 
+        zIndex: 0
       }}
     >
       {/* Semi-transparent overlay for better readability */}
-      <div className="absolute inset-0 bg-black/25"></div>
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-black/50" style={{ zIndex: 1 }}></div>
+      <div className="container mx-auto px-4 relative" style={{ zIndex: 2 }}>
         <div className="text-center mb-16">
           <div className="dark:bg-gray-800/60 bg-gray-100/90 backdrop-blur-xl rounded-xl dark:border dark:border-gray-600/40 border border-gray-300 dark:shadow-[0_0_20px_rgba(255,255,255,0.25)] shadow-[0_0_20px_rgba(0,0,0,0.25)] py-8 px-6 md:px-10 mx-auto max-w-3xl mb-8 inline-block">
             <GradientHeading level={2} className="text-4xl mb-4" variant="mixed">Video Demonstrations</GradientHeading>
