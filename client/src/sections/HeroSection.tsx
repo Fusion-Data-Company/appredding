@@ -35,15 +35,13 @@ const HeroSection = () => {
                 height: "auto",
                 marginTop: "-336px", // Move image up by 3.5 inches (moving back up by half an inch)
                 marginBottom: "-30px",
-                filter: "contrast(1.05) saturate(1.1)", // Enhance colors slightly for ultra-realistic look
-                boxShadow: "0 5px 20px rgba(0,0,0,0.5)", // Subtle shadow for depth
+                filter: "contrast(1.05) saturate(1.1)" // Enhance colors slightly for ultra-realistic look
               }}
             />
           </div>
         </div>
         
-        {/* Subtle gradient overlay at the bottom for text legibility */}
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black to-transparent opacity-60 z-10"></div>
+        {/* Gradient overlay removed */}
       </div>
     </section>
   );
