@@ -222,32 +222,34 @@ const ChatWidget = () => {
     <div className="fixed bottom-4 right-4 z-50 flex flex-col items-end">
       {/* Main Chat Widget */}
       {isOpen && (
-        <Card className="w-[450px] h-[600px] mb-4 shadow-[0_0_25px_rgba(255,255,255,0.2)] dark:bg-gray-900/90 backdrop-blur-lg flex flex-col overflow-hidden animate-in slide-in-from-bottom-10 duration-300 border-2 dark:border-gray-700">
-          <CardHeader className="flex-shrink-0 border-b py-4 px-6 flex flex-row items-center justify-between bg-gradient-to-r from-blue-900/70 to-orange-900/70">
-            <CardTitle className="text-lg font-semibold flex items-center gap-3 text-white">
-              <MessageSquare className="h-5 w-5" />
+        <Card className="w-[500px] h-[650px] mb-4 shadow-[0_0_40px_rgba(255,255,255,0.25)] dark:bg-gray-900/90 backdrop-blur-lg flex flex-col overflow-hidden animate-in slide-in-from-bottom-10 duration-300 border-2 dark:border-gray-700/70">
+          <CardHeader className="flex-shrink-0 border-b py-5 px-8 flex flex-row items-center justify-between bg-gradient-to-r from-blue-900/80 to-orange-900/80 shadow-md">
+            <CardTitle className="text-xl font-semibold flex items-center gap-4 text-white">
+              <div className="h-10 w-10 rounded-full bg-gradient-to-r from-blue-600 to-orange-600 flex items-center justify-center shadow-[0_0_15px_rgba(255,130,30,0.3)]">
+                <MessageSquare className="h-5 w-5" />
+              </div>
               {currentSession?.title || 'Praetorian Assistant'}
             </CardTitle>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-3">
               <Button
                 variant="ghost"
                 size="icon"
-                className="h-8 w-8 rounded-full bg-white/10 hover:bg-white/20 text-white"
+                className="h-9 w-9 rounded-full bg-white/10 hover:bg-white/20 text-white shadow-md"
                 onClick={() => setIsHistoryOpen(!isHistoryOpen)}
               >
                 {isHistoryOpen ? (
-                  <ChevronUp className="h-4 w-4" />
+                  <ChevronUp className="h-5 w-5" />
                 ) : (
-                  <ChevronDown className="h-4 w-4" />
+                  <ChevronDown className="h-5 w-5" />
                 )}
               </Button>
               <Button
                 variant="ghost"
                 size="icon"
-                className="h-8 w-8 rounded-full bg-white/10 hover:bg-white/20 text-white"
+                className="h-9 w-9 rounded-full bg-white/10 hover:bg-white/20 text-white shadow-md"
                 onClick={toggleWidget}
               >
-                <X className="h-4 w-4" />
+                <X className="h-5 w-5" />
               </Button>
             </div>
           </CardHeader>
