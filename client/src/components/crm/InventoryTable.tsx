@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { Inventory } from "@shared/crm-schema";
 import { apiRequest } from "@/lib/queryClient";
@@ -45,10 +45,28 @@ export function InventoryTable({ isAdmin }: InventoryTableProps) {
     data: inventory,
     isLoading,
     error,
+    refetch
   } = useQuery<Inventory[]>({
     queryKey: ["/api/crm/inventory"],
     refetchInterval: 30000, // Refresh every 30 seconds
+    retry: 3,
+    retryDelay: 1000
   });
+  
+  // Effect to attempt a refetch on initial error
+  useEffect(() => {
+    // Log error and attempt to refetch
+    if (error) {
+      console.error("Error fetching inventory:", error);
+      
+      // Attempt to refetch after a delay
+      const timer = setTimeout(() => {
+        refetch();
+      }, 2000);
+      
+      return () => clearTimeout(timer);
+    }
+  }, [error, refetch]);
   
   // Mutation to restock inventory (admin only)
   const restockMutation = useMutation({
