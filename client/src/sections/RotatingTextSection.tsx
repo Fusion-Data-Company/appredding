@@ -12,7 +12,7 @@ const RotatingTextSection = () => {
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         zIndex: 10, // Higher than hero's content but lower than buttons
-        marginTop: "100px" // Extra spacing below hero section
+        marginTop: "20px" // Reduced spacing to match new hero height
       }}
     >
       {/* Semi-transparent overlay for better readability - top moved down half inch (48px) */}
@@ -26,7 +26,7 @@ const RotatingTextSection = () => {
               style={{ 
                 position: "absolute",
                 left: "-96px", /* 1 inch to the left of the left edge */
-                top: "0", /* At the top of the rotating text section */
+                top: "-60px", /* Position above the rotating text section */
                 zIndex: 9999 /* Absolute front */
               }} 
             >
@@ -40,7 +40,7 @@ const RotatingTextSection = () => {
               style={{ 
                 position: "absolute",
                 right: "-48px", /* Moved a half inch (48px) to the left (less negative means more left) */
-                top: "-168px", /* Same height as other button */
+                top: "-60px", /* Same height as other button */
                 zIndex: 9999 /* Absolute front */
               }} 
             >
