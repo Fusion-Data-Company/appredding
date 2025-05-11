@@ -25,6 +25,7 @@ import Team from "@/pages/Team";
 import StyleShowcase from "@/pages/StyleShowcase";
 import CrmLogin from "@/pages/crm-login";
 import CrmDashboard from "@/pages/crm-dashboard";
+import RAGDocumentsPage from "@/pages/rag-documents";
 import { AuthProvider } from "@/hooks/use-auth";
 import { ProtectedRoute } from "@/components/ProtectedRoute";
 

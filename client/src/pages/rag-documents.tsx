@@ -259,7 +259,7 @@ const RAGDocumentsPage = () => {
                         <FormItem>
                           <FormLabel>Source (Optional)</FormLabel>
                           <FormControl>
-                            <Input placeholder="Where this document is from" {...field} />
+                            <Input placeholder="Where this document is from" {...field} value={field.value || ''} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -272,7 +272,7 @@ const RAGDocumentsPage = () => {
                         <FormItem>
                           <FormLabel>Category (Optional)</FormLabel>
                           <FormControl>
-                            <Input placeholder="Document category" {...field} />
+                            <Input placeholder="Document category" {...field} value={field.value || ''} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -435,7 +435,7 @@ const RAGDocumentsPage = () => {
                       <FormItem>
                         <FormLabel>Source (Optional)</FormLabel>
                         <FormControl>
-                          <Input placeholder="Where this document is from" {...field} />
+                          <Input placeholder="Where this document is from" {...field} value={field.value || ''} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -448,7 +448,7 @@ const RAGDocumentsPage = () => {
                       <FormItem>
                         <FormLabel>Category (Optional)</FormLabel>
                         <FormControl>
-                          <Input placeholder="Document category" {...field} />
+                          <Input placeholder="Document category" {...field} value={field.value || ''} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
