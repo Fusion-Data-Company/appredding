@@ -13,6 +13,8 @@ import { setupAuth } from "./auth";
 import professionalsRoutes from "./api/professionals";
 import { setupCRM } from "./crm";
 import { seedDatabase } from "./crm/seed";
+import ragRoutes from "./routes/rag";
+import chatRoutes from "./routes/chat";
 import { 
   getContacts, 
   getContactById, 
@@ -86,6 +88,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
   
   // Register professionals API routes
   app.use("/api/professionals", professionalsRoutes);
+  
+  // Register RAG document management routes
+  app.use("/api/rag", ragRoutes);
+  
+  // Register chatbot routes
+  app.use("/api/chat", chatRoutes);
   
   // ========================
   // CRM Routes

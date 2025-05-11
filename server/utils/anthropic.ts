@@ -13,6 +13,12 @@ const anthropic = new Anthropic({
 
 export async function generateChatResponse(messages: { role: string; content: string }[], contextText?: string) {
   try {
+    // Convert the messages to the format expected by Anthropic
+    const formattedMessages = messages.map(msg => ({
+      role: msg.role === "user" ? "user" : "assistant" as "user" | "assistant",
+      content: msg.content
+    }));
+
     const systemPrompt = contextText 
       ? `You are a friendly, helpful assistant for Praetorian SmartCoat Solutions, a company that provides industrial coating technology. 
       You help customers by providing information about their products and services.
@@ -33,10 +39,10 @@ export async function generateChatResponse(messages: { role: string; content: st
       model: MODEL,
       max_tokens: 2048,
       system: systemPrompt,
-      messages: messages,
+      messages: formattedMessages,
     });
 
-    return response.content[0].text;
+    return response.content[0].type === 'text' ? response.content[0].text : "I'm sorry, I couldn't process that request.";
   } catch (error) {
     console.error("Error generating chat response:", error);
     throw new Error("Failed to generate chat response. Please try again later.");
