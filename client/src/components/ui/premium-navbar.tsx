@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { HoveredLink, Menu, MenuItem, ProductItem } from "./navbar-menu";
+import { HoveredLink, Menu, MenuItem, ProductItem } from "./navbar-menu-fixed";
 
 // Images for various products/solutions
 const productImages = {

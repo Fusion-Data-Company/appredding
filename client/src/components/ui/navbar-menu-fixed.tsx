@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "wouter";
+import { DropdownPortal } from './dropdown-portal';
 
 const transition = {
   type: "spring",
@@ -10,8 +11,6 @@ const transition = {
   restDelta: 0.001,
   restSpeed: 0.001,
 };
-
-import { DropdownPortal } from './dropdown-portal';
 
 export const MenuItem = ({
   setActive,
@@ -69,9 +68,8 @@ export const Menu = ({
 }) => {
   return (
     <nav
-      onMouseLeave={() => setActive(null)} // resets the state
+      onMouseLeave={() => setActive(null)}
       className="relative flex justify-center space-x-8 px-4 py-2"
-      style={{ zIndex: 2147483646, position: 'relative' }}
     >
       {children}
     </nav>
