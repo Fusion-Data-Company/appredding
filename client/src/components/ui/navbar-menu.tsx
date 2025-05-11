@@ -39,11 +39,12 @@ export const MenuItem = ({
           style={{ zIndex: 9500 }}
         >
           {active === item && (
-            <div className="absolute top-[calc(100%_+_1.2rem)] left-1/2 transform -translate-x-1/2 pt-4 z-[9999]" style={{ position: 'relative' }}>
+            <div className="fixed top-[4.5rem] left-1/2 transform -translate-x-1/2 pt-4" style={{ position: 'fixed', zIndex: 99999 }}>
               <motion.div
                 transition={transition}
                 layoutId="active" // layoutId ensures smooth animation
-                className="bg-black/90 backdrop-blur-sm rounded-md overflow-hidden border border-white/[0.2] shadow-xl"
+                className="bg-black/95 backdrop-blur-sm rounded-md overflow-hidden border border-white/[0.2] shadow-xl"
+                style={{ zIndex: 99999 }}
               >
                 <motion.div
                   layout // layout ensures smooth animation
@@ -71,6 +72,7 @@ export const Menu = ({
     <nav
       onMouseLeave={() => setActive(null)} // resets the state
       className="relative flex justify-center space-x-8 px-4 py-2"
+      style={{ zIndex: 9999, position: 'relative' }}
     >
       {children}
     </nav>

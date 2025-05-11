@@ -125,13 +125,13 @@ const ProfessionalHeader = () => {
         </div>
       </Link>
 
-      <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
+      <div className="container mx-auto px-4 md:px-6 flex items-center justify-between" style={{ zIndex: 10000, position: 'relative' }}>
         {/* Empty space where the logo used to be */}
         <div className="flex-grow"></div>
 
         {/* Premium Desktop Navigation */}
-        <div className="hidden lg:flex items-center justify-end space-x-8 flex-grow">
-          <div className="flex-grow flex justify-end">
+        <div className="hidden lg:flex items-center justify-end space-x-8 flex-grow" style={{ zIndex: 10000, position: 'relative' }}>
+          <div className="flex-grow flex justify-end" style={{ zIndex: 10000, position: 'relative' }}>
             <PremiumNavbar />
           </div>
           
