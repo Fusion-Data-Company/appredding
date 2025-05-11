@@ -124,8 +124,19 @@ const ContactSection = () => {
   };
 
   return (
-    <section className="py-20 dark:bg-[#121212] bg-[#f5f2e8]" id="contact">
-      <div className="container mx-auto px-4">
+    <section className="py-20 dark:bg-[#121212] bg-[#f5f2e8] relative" id="contact">
+      {/* Premium layered background with subtle texture */}
+      <div className="absolute inset-0 z-0 dark:opacity-30 opacity-20" 
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23000000' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E")`,
+          backgroundSize: '100px 100px'
+        }}
+      ></div>
+      
+      {/* Premium radial gradient overlay */}
+      <div className="absolute inset-0 z-0 dark:bg-gradient-to-br dark:from-gray-900/70 dark:via-gray-800/60 dark:to-gray-900/70 bg-gradient-to-br from-amber-50/70 via-stone-100/60 to-amber-50/70"></div>
+      
+      <div className="container mx-auto px-4 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <div>
             <GradientHeading level={2} className="text-3xl md:text-4xl mb-4">Get In Touch</GradientHeading>
@@ -226,14 +237,23 @@ const ContactSection = () => {
           </div>
           
           <div>
-            <div className="dark:bg-gradient-to-r dark:from-gray-800/95 dark:to-gray-700/95 bg-gray-100/90 backdrop-blur-xl rounded-lg overflow-hidden h-full dark:border-gray-600/40 border-gray-300 border-4 dark:shadow-[0_0_20px_rgba(255,255,255,0.2)] shadow-[0_0_20px_rgba(0,0,0,0.2)]">
-              <div className="p-8">
+            <div className="relative dark:bg-gradient-to-r dark:from-black/80 dark:to-gray-900/80 bg-white/90 backdrop-blur-xl rounded-lg overflow-hidden h-full border-[3px] dark:border-[#222]/70 border-gray-200/50 shadow-[0_5px_30px_rgba(0,0,0,0.3)] dark:shadow-[0_5px_30px_rgba(255,130,30,0.15),_0_-5px_30px_rgba(30,144,255,0.15)]">
+              {/* Fire effect border top */}
+              <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-amber-600 via-red-600 to-amber-600 animate-pulse z-10"></div>
+              
+              {/* Water effect border bottom */}
+              <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-gradient-to-r from-blue-600 via-cyan-400 to-blue-600 animate-pulse z-10"></div>
+              
+              {/* Premium glassmorphism effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/10 dark:from-white/5 dark:via-transparent dark:to-white/5"></div>
+              
+              <div className="p-8 relative z-20">
                 <GradientHeading level={3} className="text-xl mb-6" variant="blue">Contact Information</GradientHeading>
                 
                 <div className="space-y-6">
                   <div className="flex items-start">
-                    <div className="dark:bg-gradient-to-r dark:from-gray-700 dark:to-gray-600 bg-gradient-to-r from-gray-300 to-gray-200 rounded-full p-2 mr-4 mt-1 dark:shadow-[0_0_5px_rgba(255,255,255,0.15)] shadow-[0_0_5px_rgba(0,0,0,0.15)]">
-                      <i className="fas fa-map-marker-alt dark:text-white text-gray-700"></i>
+                    <div className="dark:bg-gradient-to-br dark:from-gray-800 dark:via-gray-700 dark:to-gray-900 bg-gradient-to-br from-gray-100 via-white to-gray-200 rounded-full p-3 mr-4 mt-1 dark:shadow-[0_0_15px_rgba(255,130,30,0.25)] shadow-[0_0_15px_rgba(0,0,0,0.15)] border border-gray-200/30 dark:border-orange-500/20 flex items-center justify-center">
+                      <i className="fas fa-map-marker-alt dark:text-orange-400 text-gray-700"></i>
                     </div>
                     <div>
                       <h4 className="font-semibold mb-1">Serving</h4>
@@ -242,8 +262,8 @@ const ContactSection = () => {
                   </div>
                   
                   <div className="flex items-start">
-                    <div className="dark:bg-gradient-to-r dark:from-gray-700 dark:to-gray-600 bg-gradient-to-r from-gray-300 to-gray-200 rounded-full p-2 mr-4 mt-1 dark:shadow-[0_0_5px_rgba(255,255,255,0.15)] shadow-[0_0_5px_rgba(0,0,0,0.15)]">
-                      <i className="fas fa-phone-alt dark:text-white text-gray-700"></i>
+                    <div className="dark:bg-gradient-to-br dark:from-gray-800 dark:via-gray-700 dark:to-gray-900 bg-gradient-to-br from-gray-100 via-white to-gray-200 rounded-full p-3 mr-4 mt-1 dark:shadow-[0_0_15px_rgba(255,130,30,0.25)] shadow-[0_0_15px_rgba(0,0,0,0.15)] border border-gray-200/30 dark:border-orange-500/20 flex items-center justify-center">
+                      <i className="fas fa-phone-alt dark:text-orange-400 text-gray-700"></i>
                     </div>
                     <div>
                       <h4 className="font-semibold mb-1">Phone</h4>
@@ -252,8 +272,8 @@ const ContactSection = () => {
                   </div>
                   
                   <div className="flex items-start">
-                    <div className="dark:bg-gradient-to-r dark:from-gray-700 dark:to-gray-600 bg-gradient-to-r from-gray-300 to-gray-200 rounded-full p-2 mr-4 mt-1 dark:shadow-[0_0_5px_rgba(255,255,255,0.15)] shadow-[0_0_5px_rgba(0,0,0,0.15)]">
-                      <i className="fas fa-envelope dark:text-white text-gray-700"></i>
+                    <div className="dark:bg-gradient-to-br dark:from-gray-800 dark:via-gray-700 dark:to-gray-900 bg-gradient-to-br from-gray-100 via-white to-gray-200 rounded-full p-3 mr-4 mt-1 dark:shadow-[0_0_15px_rgba(30,144,255,0.25)] shadow-[0_0_15px_rgba(0,0,0,0.15)] border border-gray-200/30 dark:border-blue-500/20 flex items-center justify-center">
+                      <i className="fas fa-envelope dark:text-blue-400 text-gray-700"></i>
                     </div>
                     <div>
                       <h4 className="font-semibold mb-1">Email</h4>
