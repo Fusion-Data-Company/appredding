@@ -21,9 +21,9 @@ const HeroSection = () => {
           }}
         />
         
-        {/* Buttons positioned directly over the image, below the guards */}
+        {/* Buttons positioned directly over the image, below the guards (moved down 3 inches) */}
         <div className="absolute w-full" style={{ 
-          bottom: "27%",
+          bottom: "calc(27% - 288px)",
           left: 0,
           right: 0,
           zIndex: 999999
