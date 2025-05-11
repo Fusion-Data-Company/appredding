@@ -1,12 +1,10 @@
 import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
-import { cacheControlMiddleware } from "./middleware/cacheControl";
 
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cacheControlMiddleware); // Apply cache control headers
 
 app.use((req, res, next) => {
   const start = Date.now();
