@@ -62,13 +62,16 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
               <div className="dark:bg-gradient-to-r dark:from-gray-800/90 dark:to-gray-700/90 bg-gray-100/90 rounded-xl overflow-hidden dark:border dark:border-gray-600/40 border border-gray-300 dark:shadow-[0_0_20px_rgba(255,255,255,0.25)] shadow-[0_0_20px_rgba(0,0,0,0.25)]">
                 <div className="relative pb-[56.25%] h-0 overflow-hidden">
                   {activeVideo.id === "localVideo" ? (
-                    <video 
-                      className="absolute top-0 left-0 w-full h-full object-cover"
-                      src="/videos/product-demo.mp4"
-                      title={activeVideo.title}
-                      controls
-                      preload="metadata"
-                    ></video>
+                    <div className="absolute top-0 left-0 w-full h-full">
+                      <video 
+                        className="w-full h-full object-cover"
+                        controls
+                        preload="metadata"
+                      >
+                        <source src="/videos/product-demo.mp4" type="video/mp4" />
+                        Your browser does not support the video tag.
+                      </video>
+                    </div>
                   ) : (
                     <iframe
                       className="absolute top-0 left-0 w-full h-full"
@@ -143,8 +146,9 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
                     >
                       <div className="relative flex-shrink-0 w-[200px] h-[95px] bg-gray-800 rounded-md overflow-hidden mx-auto">
                         {video.id === "localVideo" ? (
-                          <div className="w-full h-full bg-primary-900 flex items-center justify-center">
-                            <div className="text-white text-xs font-medium">Praetorian Demo</div>
+                          <div className="w-full h-full bg-gradient-to-br from-primary-900 to-primary-700 flex flex-col items-center justify-center">
+                            <div className="text-white text-xs font-semibold mb-1">Premium Demo</div>
+                            <div className="text-primary-300 text-[10px]">Praetorian Exclusive</div>
                           </div>
                         ) : (
                           <img

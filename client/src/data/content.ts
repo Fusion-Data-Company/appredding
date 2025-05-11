@@ -72,7 +72,7 @@ export const videoData = [
     title: "Premium Coating Application: Professional Techniques Showcase",
     description: "This exclusive demonstration showcases our proprietary application techniques for Praetorian's premium protective coatings. See how our certified professionals achieve optimal coverage and finish quality.",
     category: "application",
-    thumbnail: "/videos/product-demo.mp4",
+    thumbnail: "",  // We'll use a custom thumbnail element instead
     duration: "3:58"
   },
   {
