@@ -14,9 +14,10 @@ const HeroSection = () => {
         <div className="relative w-full overflow-visible" style={{ height: "480px" }}>
           <div className="absolute inset-0" style={{ 
             overflow: 'hidden',
-            width: '100%', // Using exact width for optimized image
+            width: '100%', // Using exact hero section width
             height: '100%',
             left: '0',
+            right: '0',
             zIndex: 5
           }}>
             <img 
@@ -25,10 +26,11 @@ const HeroSection = () => {
               className="absolute"
               style={{ 
                 display: "block",
-                objectFit: "contain",
+                objectFit: "cover",
                 objectPosition: "center", // Center the image
-                width: "100%", 
-                height: "480px", // Adjusted for the optimized image
+                width: "100%", // Match hero section width exactly
+                maxWidth: "100vw", // Never exceed viewport width
+                height: "480px", // Match hero section height
                 filter: "contrast(1.05) saturate(1.1)" // Enhance colors slightly for ultra-realistic look
               }}
             />
