@@ -83,17 +83,7 @@ const ProfessionalHeader = () => {
         "before:absolute before:inset-0 before:bg-[url('/src/assets_dir/images/noise.svg')] before:opacity-[0.04] before:bg-repeat before:bg-[length:200px_200px] before:mix-blend-overlay before:pointer-events-none before:animate-subtle-pulse"
       )}
     >
-      {/* Background PRAETORIAN text watermark */}
-      <div className="absolute right-[120px] top-[10px] w-[400px] h-[120px] opacity-[0.07] mix-blend-overlay pointer-events-none z-0">
-        <img 
-          src={praetorianHeaderImg} 
-          alt="" 
-          className="w-full h-full object-contain"
-          style={{
-            filter: 'contrast(1.1) brightness(1.2)',
-          }}
-        />
-      </div>
+
       {/* Bucket logo positioned at far left edge */}
       <Link href="/" className="absolute left-0 top-0 h-full flex items-center z-20">
         <div className="relative">
@@ -113,38 +103,14 @@ const ProfessionalHeader = () => {
               }}
             />
             
-            {/* SmartCoat text directly under PRAETORIAN */}
-            <div className="absolute bottom-[-20px] left-[25px] text-center">
-              <span className="text-[1.05rem] text-slate-700 dark:text-slate-400 font-medium tracking-widest uppercase hover:text-black dark:hover:text-white transition-colors duration-300">
-                <span className="bg-gradient-to-r from-slate-700 to-slate-900 dark:from-slate-300 dark:to-slate-400 bg-clip-text text-transparent hover:from-slate-800 hover:to-black dark:hover:from-gray-200 dark:hover:to-white transition-all duration-500 font-semibold">SmartCoat</span>
-              </span>
-            </div>
+
           </div>
         </div>
       </Link>
 
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
-        {/* Logo (text portion) */}
-        <div className="flex items-center z-10 group relative max-w-[450px] ml-[120px]">
-          <Link href="/" className="flex items-center w-full">
-            <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-transparent via-slate-100/10 to-transparent dark:via-zinc-300/10 opacity-0 group-hover:opacity-100 animate-shimmer transition-opacity duration-300"></div>
-            
-            <div className="flex flex-col justify-center relative">
-              <div className="h-24 mb-0 relative overflow-visible" style={{ marginLeft: '-392px' }}>
-                <img 
-                  src={praetorianHeaderImg} 
-                  alt="PRAETORIAN" 
-                  className="h-full object-contain"
-                  style={{
-                    filter: 'contrast(1.3) brightness(1.15) saturate(1.05)',
-                  }}
-                />
-                
-
-              </div>
-            </div>
-          </Link>
-        </div>
+        {/* Empty space where the logo used to be */}
+        <div className="flex-grow"></div>
 
         {/* Premium Desktop Navigation */}
         <div className="hidden lg:flex items-center justify-end space-x-8 flex-grow">
