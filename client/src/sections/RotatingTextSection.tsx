@@ -10,7 +10,8 @@ const RotatingTextSection = () => {
         backgroundImage: "url('/images/optimized/diamond-plate-orange-blue.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
-        backgroundRepeat: "no-repeat"
+        backgroundRepeat: "no-repeat",
+        marginTop: "384px" // Move down by 4 inches
       }}
     >
       {/* Semi-transparent overlay for better readability - top moved down half inch (48px) */}
