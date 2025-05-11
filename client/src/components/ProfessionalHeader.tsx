@@ -108,7 +108,7 @@ const ProfessionalHeader = () => {
               transform: 'perspective(800px) rotateY(-5deg) scale(1.6) translateY(0px)',
               transformStyle: 'preserve-3d',
               marginLeft: '-5px',
-              marginTop: '-16px'
+              marginTop: '-15px'
             }}
           />
         </div>
