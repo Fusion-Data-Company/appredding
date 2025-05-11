@@ -34,7 +34,7 @@ const HeroSection = () => {
               href="#applications" 
               className="inline-block absolute"
               style={{ 
-                left: "25%",
+                left: "15%", /* Moved 10% further left (outward) */
                 transform: "translateX(-50%)",
               }}
             >
