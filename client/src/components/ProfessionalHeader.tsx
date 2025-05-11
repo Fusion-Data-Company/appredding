@@ -129,8 +129,11 @@ const ProfessionalHeader = () => {
             {/* Shimmer overlay */}
             <div className="absolute inset-0 rounded-sm opacity-0 hover:opacity-100 bg-gradient-to-r from-transparent via-blue-100/30 to-transparent dark:via-blue-500/20 animate-shimmer transition-opacity duration-300" />
             
-            {/* Button gradient hover effect */}
-            <div className="absolute inset-0 rounded-sm opacity-0 hover:opacity-100 bg-gradient-to-t from-blue-300/20 to-white/10 dark:from-blue-700/30 dark:to-blue-800/20 transition-opacity duration-300" />
+            {/* Button gradient hover effect - moved 3 inches to the right */}
+            <div 
+              className="absolute inset-0 rounded-sm opacity-0 hover:opacity-100 bg-gradient-to-t from-blue-300/20 to-white/10 dark:from-blue-700/30 dark:to-blue-800/20 transition-opacity duration-300" 
+              style={{ transform: 'translateX(3in)' }}
+            />
             
             {mounted && (
               theme === 'dark' ? (

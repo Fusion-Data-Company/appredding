@@ -24,28 +24,33 @@ interface Beam {
 }
 
 function createBeam(width: number, height: number): Beam {
-    const angle = -35 + Math.random() * 10;
+    // Create dramatic circus spotlight beams
     // Determine if this is a fire (orange/red) or water (blue/cyan) beam
     const isFireBeam = Math.random() > 0.5;
     
-    // Fire colors: more orange-red (15-30)
-    // Water colors: more cyan-blue (190-210)
+    // Fire colors: vibrant orange-red (15-40)
+    // Water colors: vibrant cyan-blue (190-220)
     const hue = isFireBeam ? 
-                15 + Math.random() * 15 : 
-                190 + Math.random() * 20;
+                15 + Math.random() * 25 : 
+                190 + Math.random() * 30;
     
-    // Make beams larger and more visible
+    // Setup for dramatic circus-style spotlights
+    const angle = isFireBeam ? 
+                -40 + Math.random() * 15 : // Fire beams coming from left-ish
+                -30 + Math.random() * 15;  // Water beams coming from right-ish
+    
     return {
-        x: Math.random() * width * 1.5 - width * 0.25,
-        y: Math.random() * height * 1.5 - height * 0.25,
-        width: 50 + Math.random() * 80, // Wider beams
-        length: height * 3, // Longer beams
+        // More focused and intentional positioning
+        x: (Math.random() * width * 0.8) + width * 0.1, // More constrained to center area
+        y: height * 1.1, // Start from below the screen
+        width: 80 + Math.random() * 150, // Much wider beams for spotlight effect
+        length: height * 4, // Longer beams to ensure they cross the entire screen
         angle: angle,
-        speed: 0.4 + Math.random() * 0.8, // Slightly slower for better visual
-        opacity: 0.2 + Math.random() * 0.25, // Higher opacity
+        speed: 0.2 + Math.random() * 0.4, // Slower for more dramatic effect
+        opacity: 0.35 + Math.random() * 0.3, // Higher opacity for more visibility
         hue: hue,
         pulse: Math.random() * Math.PI * 2,
-        pulseSpeed: 0.01 + Math.random() * 0.025, // Slightly slower pulsing
+        pulseSpeed: 0.01 + Math.random() * 0.02, // Subtle pulsing
     };
 }
 
@@ -57,7 +62,8 @@ export function BeamsBackground({
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const beamsRef = useRef<Beam[]>([]);
     const animationFrameRef = useRef<number>(0);
-    const MINIMUM_BEAMS = 20;
+    // Increased number of beams for more intense spotlight effect
+    const MINIMUM_BEAMS = 30;
 
     const opacityMap = {
         subtle: 0.7,
@@ -92,26 +98,39 @@ export function BeamsBackground({
         function resetBeam(beam: Beam, index: number, totalBeams: number) {
             if (!canvas) return beam;
             
-            const column = index % 3;
-            const spacing = canvas.width / 3;
+            // Create more focused spotlights by having defined positions
+            // Use 5 possible spotlight positions across the screen
+            const spotCount = 5;
+            const spotPosition = index % spotCount;
+            const spotWidth = canvas.width / spotCount;
             
-            // Alternate fire and water beams based on column for better distribution
+            // Determine if this is a fire beam or water beam
+            // Fire beams will come from left-ish, water beams from right-ish
             const isFireBeam = index % 2 === 0;
+            
+            // Enhanced, more vibrant colors
             const hue = isFireBeam ? 
-                        // Fire colors: orange/red range (15-30)
-                        15 + Math.random() * 15 : 
-                        // Water colors: blue/cyan range (190-210)
-                        190 + Math.random() * 20;
+                        // Fire colors: vibrant orange-red range (15-40)
+                        15 + Math.random() * 25 : 
+                        // Water colors: vibrant cyan-blue range (190-220)
+                        190 + Math.random() * 30;
+            
+            // Set angle based on beam type - creates crossing pattern
+            const angle = isFireBeam ? 
+                        -40 + Math.random() * 15 : // Fire beams from left
+                        -30 + Math.random() * 15;  // Water beams from right
 
-            beam.y = canvas.height + 100;
-            beam.x =
-                column * spacing +
-                spacing / 2 +
-                (Math.random() - 0.5) * spacing * 0.5;
-            beam.width = 50 + Math.random() * 80; // Keep consistent with createBeam
-            beam.speed = 0.4 + Math.random() * 0.8; // Keep consistent with createBeam
+            // Position the beam
+            beam.y = canvas.height * 1.1; // Start from below screen
+            beam.x = spotPosition * spotWidth + (spotWidth/2) + (Math.random() - 0.5) * spotWidth * 0.5;
+            
+            // Make the beams much wider and more dramatic (spotlight effect)
+            beam.width = 80 + Math.random() * 150; 
+            beam.angle = angle;
+            beam.speed = 0.2 + Math.random() * 0.4; // Slower for more dramatic effect
             beam.hue = hue;
-            beam.opacity = 0.2 + Math.random() * 0.25; // Keep consistent with createBeam
+            beam.opacity = 0.35 + Math.random() * 0.3; // Higher opacity for more visibility
+            
             return beam;
         }
 
@@ -120,63 +139,59 @@ export function BeamsBackground({
             ctx.translate(beam.x, beam.y);
             ctx.rotate((beam.angle * Math.PI) / 180);
 
-            // Calculate pulsing opacity with safety checks to avoid NaN
-            const basePulse = 0.8 + Math.sin(beam.pulse || 0) * 0.2;
+            // More dramatic pulsing effect - circus spotlights have more dramatic light changes
+            const basePulse = 0.7 + Math.sin(beam.pulse || 0) * 0.3; // More dramatic pulsing
             const intensityMultiplier = opacityMap[intensity] || 1;
-            const pulsingOpacity = beam.opacity * basePulse * intensityMultiplier;
+            const pulsingOpacity = beam.opacity * basePulse * intensityMultiplier * 1.2; // Increase overall brightness
 
+            // Create a spotlight cone effect with gradient
             const gradient = ctx.createLinearGradient(0, 0, 0, beam.length);
             
             // Determine if this is a fire beam based on hue value
             const isFireBeam = beam.hue < 50;
             
-            // Enhanced gradient with multiple color stops and higher saturation
-            // Fire beams (orange/red) have higher saturation and brightness
-            // Water beams (blue/cyan) have slightly lower saturation for contrast
+            // Create more dramatic circus-style spotlights with higher brightnesses and more contrast
             if (isFireBeam) {
-                // Fire beam gradient (orange/red) - increased lightness and opacity
-                gradient.addColorStop(0, `hsla(${beam.hue}, 100%, 75%, 0)`);
-                gradient.addColorStop(
-                    0.1,
-                    `hsla(${beam.hue}, 100%, 75%, ${pulsingOpacity * 0.7})`
-                );
-                gradient.addColorStop(
-                    0.4,
-                    `hsla(${beam.hue}, 100%, 75%, ${pulsingOpacity * 1.3})`
-                );
-                gradient.addColorStop(
-                    0.6,
-                    `hsla(${beam.hue}, 100%, 75%, ${pulsingOpacity * 1.3})`
-                );
-                gradient.addColorStop(
-                    0.9,
-                    `hsla(${beam.hue}, 100%, 75%, ${pulsingOpacity * 0.7})`
-                );
-                gradient.addColorStop(1, `hsla(${beam.hue}, 100%, 75%, 0)`);
+                // Fire beam gradient (dramatic orange/red spotlight)
+                // Increased saturation and brightness for more "pop"
+                gradient.addColorStop(0, `hsla(${beam.hue}, 100%, 80%, 0)`); // Invisible at start
+                
+                // Create a spotlight cone effect - narrower at top, wider at bottom
+                gradient.addColorStop(0.05, `hsla(${beam.hue}, 100%, 80%, ${pulsingOpacity * 0.8})`); // Quick fade in
+                gradient.addColorStop(0.2, `hsla(${beam.hue}, 100%, 80%, ${pulsingOpacity * 1.5})`); // Very bright center
+                gradient.addColorStop(0.5, `hsla(${beam.hue}, 100%, 70%, ${pulsingOpacity * 1.2})`); // Still bright but fading
+                gradient.addColorStop(0.8, `hsla(${beam.hue}, 100%, 65%, ${pulsingOpacity * 0.8})`); // Fading further
+                gradient.addColorStop(0.95, `hsla(${beam.hue}, 100%, 60%, ${pulsingOpacity * 0.4})`); // Almost faded
+                gradient.addColorStop(1, `hsla(${beam.hue}, 100%, 60%, 0)`); // Invisible at end
             } else {
-                // Water beam gradient (blue/cyan) - increased lightness and opacity
-                gradient.addColorStop(0, `hsla(${beam.hue}, 90%, 70%, 0)`);
-                gradient.addColorStop(
-                    0.1,
-                    `hsla(${beam.hue}, 90%, 70%, ${pulsingOpacity * 0.6})`
-                );
-                gradient.addColorStop(
-                    0.4,
-                    `hsla(${beam.hue}, 90%, 70%, ${pulsingOpacity * 1.2})`
-                );
-                gradient.addColorStop(
-                    0.6,
-                    `hsla(${beam.hue}, 90%, 70%, ${pulsingOpacity * 1.2})`
-                );
-                gradient.addColorStop(
-                    0.9,
-                    `hsla(${beam.hue}, 90%, 70%, ${pulsingOpacity * 0.6})`
-                );
-                gradient.addColorStop(1, `hsla(${beam.hue}, 90%, 70%, 0)`);
+                // Water beam gradient (dramatic blue/cyan spotlight)
+                // Higher saturation for better contrast with fire
+                gradient.addColorStop(0, `hsla(${beam.hue}, 100%, 75%, 0)`); // Invisible at start
+                
+                // Similar cone effect for water beams
+                gradient.addColorStop(0.05, `hsla(${beam.hue}, 100%, 75%, ${pulsingOpacity * 0.8})`); // Quick fade in
+                gradient.addColorStop(0.2, `hsla(${beam.hue}, 100%, 75%, ${pulsingOpacity * 1.5})`); // Very bright center
+                gradient.addColorStop(0.5, `hsla(${beam.hue}, 100%, 70%, ${pulsingOpacity * 1.2})`); // Still bright but fading
+                gradient.addColorStop(0.8, `hsla(${beam.hue}, 100%, 65%, ${pulsingOpacity * 0.8})`); // Fading further
+                gradient.addColorStop(0.95, `hsla(${beam.hue}, 100%, 60%, ${pulsingOpacity * 0.4})`); // Almost faded
+                gradient.addColorStop(1, `hsla(${beam.hue}, 100%, 60%, 0)`); // Invisible at end
             }
 
+            // Draw the spotlight beam with a slightly wider base to create a cone effect
+            const startWidth = beam.width * 0.6; // Narrower at top
+            const endWidth = beam.width;         // Wider at bottom
+            
+            // Draw a trapezoid shape to better represent spotlight cone
+            ctx.beginPath();
+            ctx.moveTo(-startWidth / 2, 0);
+            ctx.lineTo(startWidth / 2, 0);
+            ctx.lineTo(endWidth / 2, beam.length);
+            ctx.lineTo(-endWidth / 2, beam.length);
+            ctx.closePath();
+            
             ctx.fillStyle = gradient;
-            ctx.fillRect(-beam.width / 2, 0, beam.width, beam.length);
+            ctx.fill();
+            
             ctx.restore();
         }
 
@@ -184,7 +199,8 @@ export function BeamsBackground({
             if (!canvas || !ctx) return;
 
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.filter = "blur(35px)";
+            // Increased blur for more dramatic circus spotlight effect
+            ctx.filter = "blur(60px)";
 
             const totalBeams = beamsRef.current.length;
             beamsRef.current.forEach((beam, index) => {
@@ -230,7 +246,10 @@ export function BeamsBackground({
             <canvas
                 ref={canvasRef}
                 className="absolute inset-0"
-                style={{ filter: "blur(15px)" }}
+                style={{ 
+                  filter: "blur(35px) saturate(1.5)", 
+                  mixBlendMode: "soft-light" 
+                }}
             />
 
             <motion.div
