@@ -34,7 +34,7 @@ const HeroSection = () => {
               href="#applications" 
               className="inline-block absolute"
               style={{ 
-                left: "17%", /* Positioned under left guard's feet */
+                left: "10%", /* Positioned exactly under left guard's feet */
                 transform: "translateX(-50%)",
               }}
             >
@@ -48,7 +48,7 @@ const HeroSection = () => {
               href="#contact" 
               className="inline-block absolute"
               style={{ 
-                right: "17%", /* Positioned under right guard's feet */
+                right: "10%", /* Positioned exactly under right guard's feet */
                 transform: "translateX(50%)",
               }}
             >
