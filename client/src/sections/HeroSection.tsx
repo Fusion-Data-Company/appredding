@@ -1,13 +1,13 @@
 // Import directly from assets
 import heroImage from '../assets_dir/images/praetorian-hero-new.png';
-import { BeamsBackground } from '@/components/ui/beams-background';
+import { StarsBackground } from '@/components/ui/stars-background';
 
 const HeroSection = () => {
   return (
     <section className="w-full bg-transparent overflow-hidden pt-0 -mt-1">
-      {/* Using the BeamsBackground component for the animated background with increased brightness */}
-      <BeamsBackground intensity="strong">
-        {/* Edge-to-edge image container with z-index to keep it above the beams */}
+      {/* Using the StarsBackground component for an epic starry night sky with shooting stars */}
+      <StarsBackground intensity="strong">
+        {/* Edge-to-edge image container with z-index to keep it above the stars */}
         <div className="w-full flex justify-center items-center overflow-hidden py-0 my-0">
           {/* Overlay for soft edge shading */}
           <div className="absolute inset-0 pointer-events-none" style={{
@@ -32,7 +32,7 @@ const HeroSection = () => {
             }}
           />
         </div>
-      </BeamsBackground>
+      </StarsBackground>
     </section>
   );
 };
