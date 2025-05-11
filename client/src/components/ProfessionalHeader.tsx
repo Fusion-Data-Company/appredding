@@ -13,6 +13,7 @@ import {
 import { useTheme } from "next-themes";
 import MobileMenu from "./MobileMenu";
 import { PremiumNavbar } from "@/components/ui/premium-navbar";
+import StoneTextureBackground from "@/components/ui/stone-texture-background";
 
 
 const ProfessionalHeader = () => {
@@ -75,14 +76,21 @@ const ProfessionalHeader = () => {
   return (
     <header 
       className={cn(
-        "fixed w-full border-b z-50 transition-all duration-300 h-[144px] flex items-center",
+        "fixed w-full border-b z-50 transition-all duration-300 h-[144px] flex items-center overflow-hidden",
         scrolled 
-          ? "bg-[conic-gradient(at_bottom_right,_var(--tw-gradient-stops))] from-slate-200 via-zinc-400 to-gray-600 dark:from-zinc-800 dark:via-zinc-900 dark:to-black backdrop-blur-lg border-slate-400 dark:border-zinc-800 shadow-metal" 
-          : "bg-[conic-gradient(at_top_left,_var(--tw-gradient-stops))] from-slate-300 via-zinc-400 to-gray-500 dark:from-zinc-800 dark:via-zinc-900 dark:to-black backdrop-blur-md border-slate-400/80 dark:border-zinc-800/80",
-        "after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[1px] after:bg-gradient-to-r after:from-slate-400/40 dark:after:from-zinc-400/30 after:via-slate-400/40 dark:after:via-zinc-400/30 after:to-slate-400/40 dark:after:to-zinc-400/30",
-        "before:absolute before:inset-0 before:bg-[url('/src/assets_dir/images/noise.svg')] before:opacity-[0.04] before:bg-repeat before:bg-[length:200px_200px] before:mix-blend-overlay before:pointer-events-none before:animate-subtle-pulse"
+          ? "border-slate-400 dark:border-zinc-800 shadow-metal" 
+          : "border-slate-400/80 dark:border-zinc-800/80",
+        "after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[1px] after:bg-gradient-to-r after:from-slate-400/40 dark:after:from-zinc-400/30 after:via-slate-400/40 dark:after:via-zinc-400/30 after:to-slate-400/40 dark:after:to-zinc-400/30"
       )}
     >
+      {/* Stone texture background with frosted glass overlay */}
+      <StoneTextureBackground 
+        className="absolute inset-0" 
+        frostGlassOpacity={scrolled ? 0.45 : 0.35}
+      />
+      
+      {/* Noise texture overlay */}
+      <div className="absolute inset-0 bg-[url('/src/assets_dir/images/noise.svg')] opacity-[0.04] bg-repeat bg-[length:200px_200px] mix-blend-overlay pointer-events-none animate-subtle-pulse"></div>
 
       {/* Bucket logo positioned at far left edge */}
       <Link href="/" className="absolute left-0 top-0 h-full flex items-center z-20">
