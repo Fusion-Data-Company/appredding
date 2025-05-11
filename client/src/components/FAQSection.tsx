@@ -23,16 +23,18 @@ const FAQSection = ({ faqs }: FAQProps) => {
       className="py-24 relative" 
       id="faq"
       style={{ 
-        backgroundImage: "url('/images/backgrounds/praetorian-buckets.png')",
+        backgroundImage: "url('./images/backgrounds/praetorian-buckets.png')",
         backgroundSize: "cover",
         backgroundPosition: "center", 
         backgroundRepeat: "no-repeat",
         backgroundAttachment: "fixed",
-        backgroundColor: "#111111"
+        backgroundColor: "#111111",
+        position: "relative", // ensure position is relative for z-index to work
+        zIndex: 0 // base z-index
       }}
     >
       {/* Semi-transparent overlay for better readability with darkened effect for the buckets image */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/65"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/80" style={{ zIndex: 1 }}></div>
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
           <div className="bg-gray-800/60 backdrop-blur-xl rounded-xl border border-gray-600/40 shadow-[0_0_20px_rgba(255,255,255,0.2)] py-8 px-6 md:px-10 mx-auto max-w-3xl mb-8 inline-block">
