@@ -18,9 +18,9 @@ const HeroSection = () => {
         <div className="relative w-full h-full overflow-visible">
           <div className="absolute inset-0" style={{ 
             overflow: 'visible',
-            width: '120%',
+            width: '122%',
             height: '100%',
-            left: '-10%',
+            left: '-12%',
             zIndex: 5
           }}>
             <img 
