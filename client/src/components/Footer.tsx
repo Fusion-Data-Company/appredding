@@ -137,7 +137,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <GradientHeading level={3} className="text-lg mb-4" variant="blue">Contact Us</GradientHeading>
+            <GradientHeading level={3} className="text-lg mb-4" variant="blue">Main Contact</GradientHeading>
             <ul className="space-y-3">
               <li className="flex items-start">
                 <span className="text-amber-500 mr-2 mt-1">
@@ -167,6 +167,38 @@ const Footer = () => {
                   </a>
                 </div>
               </li>
+              <li className="flex items-start">
+                <span className="text-amber-500 mr-2 mt-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                  </svg>
+                </span>
+                <div>
+                  <p className="text-gray-400 font-semibold mb-0">Phone:</p>
+                  <a href="tel:+19168096619" className="text-[#a0a0a0] hover:text-amber-500 transition-colors">
+                    (916) 809-6619
+                  </a>
+                  <p className="text-[#808080] text-xs mt-1">Call or text welcome</p>
+                </div>
+              </li>
+              <li className="flex items-start">
+                <span className="text-amber-500 mr-2 mt-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+                  </svg>
+                </span>
+                <div>
+                  <a href="/contact" className="text-[#a0a0a0] hover:text-[#0070f3] transition-colors">
+                    Contact Form
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </div>
+          
+          <div>
+            <GradientHeading level={3} className="text-lg mb-4" variant="fire">Department Contacts</GradientHeading>
+            <ul className="space-y-3">
               <li className="flex items-start">
                 <span className="text-amber-500 mr-2 mt-1">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -223,33 +255,6 @@ const Footer = () => {
                   <p className="text-gray-400 font-semibold mb-0">Register:</p>
                   <a href="mailto:register@praetoriansmartcoat.com" className="text-[#a0a0a0] hover:text-amber-500 transition-colors break-all">
                     register@praetoriansmartcoat.com
-                  </a>
-                </div>
-              </li>
-              
-              <li className="flex items-start">
-                <span className="text-amber-500 mr-2 mt-1">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
-                  </svg>
-                </span>
-                <div>
-                  <p className="text-gray-400 font-semibold mb-0">Phone:</p>
-                  <a href="tel:+19168096619" className="text-[#a0a0a0] hover:text-amber-500 transition-colors">
-                    (916) 809-6619
-                  </a>
-                  <p className="text-[#808080] text-xs mt-1">Call or text welcome</p>
-                </div>
-              </li>
-              <li className="flex items-start">
-                <span className="text-amber-500 mr-2 mt-1">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                    <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
-                  </svg>
-                </span>
-                <div>
-                  <a href="/contact" className="text-[#a0a0a0] hover:text-[#0070f3] transition-colors">
-                    Contact Form
                   </a>
                 </div>
               </li>
