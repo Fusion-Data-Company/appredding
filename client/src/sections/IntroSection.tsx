@@ -4,43 +4,43 @@ import { GradientHeading } from "@/components/ui/gradient-heading";
 const IntroSection = () => {
   return (
     <section 
-      className="py-28 relative"
+      className="py-36 relative"
       style={{ 
         backgroundImage: "url('/images/optimized/diamond-plate-orange-blue.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        minHeight: "90vh" // Ensure minimum height to avoid compression
+        minHeight: "100vh" // Ensure minimum height to avoid compression
       }}
     >
       {/* Semi-transparent overlay for better readability */}
       <div className="absolute inset-0 bg-black/30"></div>
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="dark:bg-gray-800/60 bg-gray-100/90 backdrop-blur-xl rounded-xl border-4 dark:border-white border-gray-300 dark:shadow-[0_0_40px_rgba(255,255,255,0.4)] shadow-[0_0_30px_rgba(0,0,0,0.25)] py-10 px-8 md:px-12 mx-auto max-w-4xl mb-12">
-            <GradientHeading level={1} className="text-4xl md:text-5xl mb-6" variant="mixed">
+      <div className="container mx-auto px-6 md:px-10 relative z-10 max-w-[1440px]">
+        <div className="max-w-5xl mx-auto text-center">
+          <div className="dark:bg-gray-800/60 bg-gray-100/90 backdrop-blur-xl rounded-xl border-4 dark:border-white border-gray-300 dark:shadow-[0_0_80px_rgba(255,255,255,0.5)] shadow-[0_0_40px_rgba(0,0,0,0.35)] py-14 px-10 md:px-16 mx-auto max-w-5xl mb-16">
+            <GradientHeading level={1} className="text-4xl md:text-6xl mb-8" variant="mixed">
               Advanced Protection Technology
             </GradientHeading>
-            <p className="dark:text-gray-300 text-gray-700 text-lg md:text-xl">
+            <p className="dark:text-gray-300 text-gray-700 text-xl md:text-2xl max-w-3xl mx-auto">
               Our cutting-edge solutions provide unmatched durability and performance in the most extreme conditions.
             </p>
           </div>
-          <p className="dark:text-[#d0d0d0] text-gray-700 text-xl md:text-2xl mt-8 mb-12">
+          <p className="dark:text-[#e0e0e0] text-gray-700 text-xl md:text-2xl mt-10 mb-16 max-w-4xl mx-auto font-medium drop-shadow-lg">
             Industry-leading solutions that protect against fire, water, and environmental damage. Trusted by professionals worldwide.
           </p>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-16">
-            <div className="dark:bg-gray-800/70 bg-gray-100/90 backdrop-blur-xl border-4 dark:border-white border-gray-300 rounded-lg p-8 transform transition-all hover:scale-105 hover:translate-y-[-5px] dark:shadow-[0_0_60px_rgba(255,255,255,0.4)] shadow-[0_0_30px_rgba(0,0,0,0.25)]">
-              <GradientHeading level={3} className="text-2xl mb-5" variant="fire">Advanced Protection</GradientHeading>
-              <p className="dark:text-gray-300 text-gray-700 text-lg">Our specialized coatings create an impenetrable barrier against extreme elements, ensuring lasting protection.</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-16 mt-24">
+            <div className="dark:bg-gray-800/70 bg-gray-100/90 backdrop-blur-xl border-4 dark:border-white border-gray-300 rounded-lg p-10 transform transition-all hover:scale-105 hover:translate-y-[-10px] dark:shadow-[0_0_80px_rgba(255,255,255,0.5)] shadow-[0_0_40px_rgba(0,0,0,0.3)] h-full min-h-[280px] flex flex-col justify-between">
+              <GradientHeading level={3} className="text-2xl md:text-3xl mb-6" variant="fire">Advanced Protection</GradientHeading>
+              <p className="dark:text-gray-300 text-gray-700 text-lg md:text-xl">Our specialized coatings create an impenetrable barrier against extreme elements, ensuring lasting protection.</p>
             </div>
-            <div className="dark:bg-gray-800/70 bg-gray-100/90 backdrop-blur-xl border-4 dark:border-white border-gray-300 rounded-lg p-8 transform transition-all hover:scale-105 hover:translate-y-[-5px] dark:shadow-[0_0_60px_rgba(255,255,255,0.4)] shadow-[0_0_30px_rgba(0,0,0,0.25)]">
-              <GradientHeading level={3} className="text-2xl mb-5" variant="blue">Industry Expertise</GradientHeading>
-              <p className="dark:text-gray-300 text-gray-700 text-lg">With decades of experience, our solutions are tailored to meet the specific needs of multiple industries.</p>
+            <div className="dark:bg-gray-800/70 bg-gray-100/90 backdrop-blur-xl border-4 dark:border-white border-gray-300 rounded-lg p-10 transform transition-all hover:scale-105 hover:translate-y-[-10px] dark:shadow-[0_0_80px_rgba(255,255,255,0.5)] shadow-[0_0_40px_rgba(0,0,0,0.3)] h-full min-h-[280px] flex flex-col justify-between">
+              <GradientHeading level={3} className="text-2xl md:text-3xl mb-6" variant="blue">Industry Expertise</GradientHeading>
+              <p className="dark:text-gray-300 text-gray-700 text-lg md:text-xl">With decades of experience, our solutions are tailored to meet the specific needs of multiple industries.</p>
             </div>
-            <div className="dark:bg-gray-800/70 bg-gray-100/90 backdrop-blur-xl border-4 dark:border-white border-gray-300 rounded-lg p-8 transform transition-all hover:scale-105 hover:translate-y-[-5px] dark:shadow-[0_0_60px_rgba(255,255,255,0.4)] shadow-[0_0_30px_rgba(0,0,0,0.25)]">
-              <GradientHeading level={3} className="text-2xl mb-5" variant="mixed">Superior Materials</GradientHeading>
-              <p className="dark:text-gray-300 text-gray-700 text-lg">We use only premium-grade materials engineered to deliver exceptional performance in harsh conditions.</p>
+            <div className="dark:bg-gray-800/70 bg-gray-100/90 backdrop-blur-xl border-4 dark:border-white border-gray-300 rounded-lg p-10 transform transition-all hover:scale-105 hover:translate-y-[-10px] dark:shadow-[0_0_80px_rgba(255,255,255,0.5)] shadow-[0_0_40px_rgba(0,0,0,0.3)] h-full min-h-[280px] flex flex-col justify-between">
+              <GradientHeading level={3} className="text-2xl md:text-3xl mb-6" variant="mixed">Superior Materials</GradientHeading>
+              <p className="dark:text-gray-300 text-gray-700 text-lg md:text-xl">We use only premium-grade materials engineered to deliver exceptional performance in harsh conditions.</p>
             </div>
           </div>
         </div>
