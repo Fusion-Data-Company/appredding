@@ -27,31 +27,31 @@ const ProductPerformanceSection = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-14 mb-32">
           <div className="bg-gradient-to-r from-gray-800/90 to-gray-700/90 border-4 border-gray-600/40 rounded-lg p-10 text-center hover-lift shadow-[0_0_40px_rgba(255,255,255,0.25)] transform transition-transform hover:scale-105">
-            <div className="text-6xl font-bold text-primary-400 mb-5">98.7%</div>
+            <div className="text-7xl font-bold text-primary-400 mb-5 drop-shadow-[0_0_10px_rgba(245,158,11,0.5)]">98.7%</div>
             <GradientHeading level={3} className="text-xl mb-4" variant="mixed">UV Resistance</GradientHeading>
             <p className="text-gray-300">Retention of original properties after 5,000 hours of accelerated UV exposure testing</p>
           </div>
           
-          <div className="bg-gradient-to-r from-gray-800/90 to-gray-700/90 border border-gray-600/40 rounded-lg p-8 text-center hover-lift shadow-[0_0_20px_rgba(255,255,255,0.2)] transform transition-transform hover:scale-105">
-            <div className="text-6xl font-bold text-primary-400 mb-5">15+</div>
+          <div className="bg-gradient-to-r from-gray-800/90 to-gray-700/90 border-4 border-gray-600/40 rounded-lg p-10 text-center hover-lift shadow-[0_0_40px_rgba(255,255,255,0.25)] transform transition-transform hover:scale-105">
+            <div className="text-7xl font-bold text-primary-400 mb-5 drop-shadow-[0_0_10px_rgba(245,158,11,0.5)]">15+</div>
             <GradientHeading level={3} className="text-xl mb-4" variant="fire">Years Durability</GradientHeading>
             <p className="text-gray-300">Average lifespan of our premium protective coating systems in real-world applications</p>
           </div>
           
-          <div className="bg-gradient-to-r from-gray-800/90 to-gray-700/90 border border-gray-600/40 rounded-lg p-8 text-center hover-lift shadow-[0_0_20px_rgba(255,255,255,0.2)] transform transition-transform hover:scale-105">
-            <div className="text-6xl font-bold text-primary-400 mb-5">30%</div>
+          <div className="bg-gradient-to-r from-gray-800/90 to-gray-700/90 border-4 border-gray-600/40 rounded-lg p-10 text-center hover-lift shadow-[0_0_40px_rgba(255,255,255,0.25)] transform transition-transform hover:scale-105">
+            <div className="text-7xl font-bold text-primary-400 mb-5 drop-shadow-[0_0_10px_rgba(245,158,11,0.5)]">30%</div>
             <GradientHeading level={3} className="text-xl mb-4" variant="blue">Energy Savings</GradientHeading>
             <p className="text-gray-300">Reduction in cooling costs with our thermal reflective coating technology</p>
           </div>
           
-          <div className="bg-gradient-to-r from-gray-800/90 to-gray-700/90 border border-gray-600/40 rounded-lg p-8 text-center hover-lift shadow-[0_0_20px_rgba(255,255,255,0.2)] transform transition-transform hover:scale-105">
-            <div className="text-6xl font-bold text-primary-400 mb-5">9.2/10</div>
+          <div className="bg-gradient-to-r from-gray-800/90 to-gray-700/90 border-4 border-gray-600/40 rounded-lg p-10 text-center hover-lift shadow-[0_0_40px_rgba(255,255,255,0.25)] transform transition-transform hover:scale-105">
+            <div className="text-7xl font-bold text-primary-400 mb-5 drop-shadow-[0_0_10px_rgba(245,158,11,0.5)]">9.2/10</div>
             <GradientHeading level={3} className="text-xl mb-4" variant="fire">Customer Satisfaction</GradientHeading>
             <p className="text-gray-300">Average rating from our post-installation customer satisfaction surveys</p>
           </div>
         </div>
         
-        <div className="bg-gradient-to-r from-gray-800/90 to-gray-700/90 rounded-xl p-10 border border-gray-600/40 shadow-[0_0_20px_rgba(255,255,255,0.2)]">
+        <div className="bg-gradient-to-r from-gray-800/90 to-gray-700/90 rounded-xl p-12 md:p-16 border-4 border-gray-600/40 shadow-[0_0_40px_rgba(255,255,255,0.25)]">
           <div className="grid md:grid-cols-2 gap-12">
             <div>
               <GradientHeading level={3} className="text-2xl mb-6" variant="mixed">Industry-Leading Product Testing</GradientHeading>
