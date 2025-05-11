@@ -38,28 +38,28 @@ const ProductPerformanceSection = () => {
             <p className="text-gray-300">Average lifespan of our premium protective coating systems in real-world applications</p>
           </div>
           
-          <div className="bg-gradient-to-r from-gray-800/90 to-gray-700/90 border border-gray-600/40 rounded-lg p-6 text-center hover-lift shadow-[0_0_20px_rgba(255,255,255,0.2)]">
-            <div className="text-5xl font-bold text-primary-400 mb-3">30%</div>
-            <GradientHeading level={3} className="text-xl mb-2" variant="blue">Energy Savings</GradientHeading>
+          <div className="bg-gradient-to-r from-gray-800/90 to-gray-700/90 border border-gray-600/40 rounded-lg p-8 text-center hover-lift shadow-[0_0_20px_rgba(255,255,255,0.2)] transform transition-transform hover:scale-105">
+            <div className="text-6xl font-bold text-primary-400 mb-5">30%</div>
+            <GradientHeading level={3} className="text-xl mb-4" variant="blue">Energy Savings</GradientHeading>
             <p className="text-gray-300">Reduction in cooling costs with our thermal reflective coating technology</p>
           </div>
           
-          <div className="bg-gradient-to-r from-gray-800/90 to-gray-700/90 border border-gray-600/40 rounded-lg p-6 text-center hover-lift shadow-[0_0_20px_rgba(255,255,255,0.2)]">
-            <div className="text-5xl font-bold text-primary-400 mb-3">9.2/10</div>
-            <GradientHeading level={3} className="text-xl mb-2" variant="fire">Customer Satisfaction</GradientHeading>
+          <div className="bg-gradient-to-r from-gray-800/90 to-gray-700/90 border border-gray-600/40 rounded-lg p-8 text-center hover-lift shadow-[0_0_20px_rgba(255,255,255,0.2)] transform transition-transform hover:scale-105">
+            <div className="text-6xl font-bold text-primary-400 mb-5">9.2/10</div>
+            <GradientHeading level={3} className="text-xl mb-4" variant="fire">Customer Satisfaction</GradientHeading>
             <p className="text-gray-300">Average rating from our post-installation customer satisfaction surveys</p>
           </div>
         </div>
         
-        <div className="bg-gradient-to-r from-gray-800/90 to-gray-700/90 rounded-xl p-8 border border-gray-600/40 shadow-[0_0_20px_rgba(255,255,255,0.2)]">
-          <div className="grid md:grid-cols-2 gap-8">
+        <div className="bg-gradient-to-r from-gray-800/90 to-gray-700/90 rounded-xl p-10 border border-gray-600/40 shadow-[0_0_20px_rgba(255,255,255,0.2)]">
+          <div className="grid md:grid-cols-2 gap-12">
             <div>
-              <GradientHeading level={3} className="text-2xl mb-4" variant="mixed">Industry-Leading Product Testing</GradientHeading>
+              <GradientHeading level={3} className="text-2xl mb-6" variant="mixed">Industry-Leading Product Testing</GradientHeading>
               <p className="mb-6">
                 Our comprehensive testing program ensures that every Praetorian product exceeds industry standards and delivers consistent results in even the most challenging environments.
               </p>
               
-              <div className="space-y-4">
+              <div className="space-y-8">
                 <div className="flex items-start gap-4">
                   <div className="bg-gradient-to-r from-gray-700 to-gray-600 rounded-full p-2 mt-1 shadow-[0_0_5px_rgba(255,255,255,0.15)]">
                     <i className="fas fa-flask text-white"></i>
@@ -93,31 +93,31 @@ const ProductPerformanceSection = () => {
             </div>
             
             <div>
-              <GradientHeading level={3} className="text-2xl mb-4" variant="fire">Product Comparison Chart</GradientHeading>
+              <GradientHeading level={3} className="text-2xl mb-6" variant="fire">Product Comparison Chart</GradientHeading>
               <div className="overflow-x-auto">
                 <table className="w-full">
                   <thead>
                     <tr className="border-b border-gray-600/40">
-                      <th className="text-left py-3">Performance Metric</th>
-                      <th className="text-center py-3">Industry Standard</th>
-                      <th className="text-center py-3">Praetorian</th>
+                      <th className="text-left py-4 px-2">Performance Metric</th>
+                      <th className="text-center py-4 px-2">Industry Standard</th>
+                      <th className="text-center py-4 px-2">Praetorian</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr className="border-b border-gray-600/40">
-                      <td className="py-3">Abrasion Resistance</td>
-                      <td className="text-center">Good</td>
-                      <td className="text-center text-primary-400 font-semibold">Excellent</td>
+                      <td className="py-4 px-2">Abrasion Resistance</td>
+                      <td className="text-center py-4 px-2">Good</td>
+                      <td className="text-center py-4 px-2 text-primary-400 font-semibold">Excellent</td>
                     </tr>
                     <tr className="border-b border-gray-600/40">
-                      <td className="py-3">Salt Spray Resistance</td>
-                      <td className="text-center">1,000 hours</td>
-                      <td className="text-center text-primary-400 font-semibold">3,500+ hours</td>
+                      <td className="py-4 px-2">Salt Spray Resistance</td>
+                      <td className="text-center py-4 px-2">1,000 hours</td>
+                      <td className="text-center py-4 px-2 text-primary-400 font-semibold">3,500+ hours</td>
                     </tr>
                     <tr className="border-b border-gray-600/40">
-                      <td className="py-3">Impact Resistance</td>
-                      <td className="text-center">160 in-lb</td>
-                      <td className="text-center text-primary-400 font-semibold">200+ in-lb</td>
+                      <td className="py-4 px-2">Impact Resistance</td>
+                      <td className="text-center py-4 px-2">160 in-lb</td>
+                      <td className="text-center py-4 px-2 text-primary-400 font-semibold">200+ in-lb</td>
                     </tr>
                     <tr className="border-b border-gray-600/40">
                       <td className="py-3">VOC Content</td>
