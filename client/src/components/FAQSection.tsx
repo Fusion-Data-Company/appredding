@@ -25,11 +25,10 @@ const FAQSection = ({ faqs }: FAQProps) => {
       style={{ 
         backgroundImage: "url('/images/backgrounds/praetorian-buckets.png')",
         backgroundSize: "cover",
-        backgroundPosition: "center",
+        backgroundPosition: "center", 
         backgroundRepeat: "no-repeat",
         backgroundAttachment: "fixed",
-        backgroundBlendMode: "overlay",
-        backgroundColor: "rgba(0,0,0,0.05)"
+        backgroundColor: "#111111"
       }}
     >
       {/* Semi-transparent overlay for better readability with darkened effect for the buckets image */}

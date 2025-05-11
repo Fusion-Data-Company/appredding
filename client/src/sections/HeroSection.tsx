@@ -6,17 +6,16 @@ const HeroSection = () => {
   return (
     <section className="w-full bg-black overflow-visible pt-0 mt-0 mb-0 relative" style={{ zIndex: 20 }}>
       {/* Hero image container with responsive height */}
-      <div className="relative w-full">
-        {/* Hero image with natural proportions */}
+      <div className="relative w-full overflow-hidden">
+        {/* Hero image with natural proportions, width extended to the left by adding negative margin */}
         <img 
           src={heroImage} 
           alt="Praetorian SmartCoat Products" 
-          className="w-full h-auto"
+          className="w-[calc(100%+24px)] h-auto -ml-6"
           style={{ 
             display: "block",
-            objectFit: "contain",
-            objectPosition: "top",
-            width: "100%",
+            objectFit: "cover",
+            objectPosition: "center top",
             filter: "contrast(1.05) saturate(1.1)"
           }}
         />
