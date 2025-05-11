@@ -48,7 +48,7 @@ export default function AnimatedTextCycle({
   };
 
   return (
-    <div className="flex justify-center items-center overflow-hidden text-center">
+    <div className="flex justify-center items-center overflow-hidden text-center w-full">
       <AnimatePresence mode="wait" initial={false}>
         <motion.span
           key={currentIndex}
@@ -58,7 +58,9 @@ export default function AnimatedTextCycle({
           exit="exit"
           className={`inline-block uppercase font-bold tracking-wide ${className}`}
           style={{ 
-            fontSize: "180%", // Much larger text
+            fontSize: "3vw", // Relative to viewport width to ensure it fits
+            minWidth: "100%", // Use full container width
+            maxWidth: "100%", // Constrain to container
             background: "linear-gradient(to bottom, #e0e0e0 0%, #b0b0b0 20%, #707070 40%, #505050 60%, #999 80%, #d8d8d8 100%)",
             WebkitBackgroundClip: "text",
             backgroundClip: "text",
@@ -68,11 +70,11 @@ export default function AnimatedTextCycle({
             filter: "drop-shadow(0 0 1px #ffffff70) brightness(1.2) contrast(1.1)",
             position: 'relative',
             zIndex: 5,
-            letterSpacing: "0.05em",
+            letterSpacing: "0.02em", // Tighter letter spacing for longer words
             fontWeight: 700,
             padding: "0.1em 0",
             display: "inline-block",
-            transform: "scale(1.05)"
+            whiteSpace: "nowrap" // Prevent line breaks
           }}
         >
           {words[currentIndex]}
