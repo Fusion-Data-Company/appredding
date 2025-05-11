@@ -222,17 +222,17 @@ const ChatWidget = () => {
     <div className="fixed bottom-4 right-4 z-50 flex flex-col items-end">
       {/* Main Chat Widget */}
       {isOpen && (
-        <Card className="w-[400px] h-[600px] mb-4 shadow-xl flex flex-col overflow-hidden animate-in slide-in-from-bottom-10 duration-300">
-          <CardHeader className="flex-shrink-0 border-b py-3 px-4 flex flex-row items-center justify-between bg-accent/50">
-            <CardTitle className="text-lg font-medium flex items-center gap-2">
+        <Card className="w-[450px] h-[600px] mb-4 shadow-[0_0_25px_rgba(255,255,255,0.2)] dark:bg-gray-900/90 backdrop-blur-lg flex flex-col overflow-hidden animate-in slide-in-from-bottom-10 duration-300 border-2 dark:border-gray-700">
+          <CardHeader className="flex-shrink-0 border-b py-4 px-6 flex flex-row items-center justify-between bg-gradient-to-r from-blue-900/70 to-orange-900/70">
+            <CardTitle className="text-lg font-semibold flex items-center gap-3 text-white">
               <MessageSquare className="h-5 w-5" />
               {currentSession?.title || 'Praetorian Assistant'}
             </CardTitle>
-            <div className="flex items-center gap-1">
+            <div className="flex items-center gap-2">
               <Button
                 variant="ghost"
                 size="icon"
-                className="h-7 w-7"
+                className="h-8 w-8 rounded-full bg-white/10 hover:bg-white/20 text-white"
                 onClick={() => setIsHistoryOpen(!isHistoryOpen)}
               >
                 {isHistoryOpen ? (
@@ -244,7 +244,7 @@ const ChatWidget = () => {
               <Button
                 variant="ghost"
                 size="icon"
-                className="h-7 w-7"
+                className="h-8 w-8 rounded-full bg-white/10 hover:bg-white/20 text-white"
                 onClick={toggleWidget}
               >
                 <X className="h-4 w-4" />
@@ -349,13 +349,13 @@ const ChatWidget = () => {
                 >
                   <div
                     className={cn(
-                      "px-4 py-2 rounded-lg max-w-[80%]",
+                      "px-5 py-3 rounded-lg max-w-[85%] shadow-md",
                       msg.role === "user"
-                        ? "bg-primary text-primary-foreground"
-                        : "bg-accent text-accent-foreground"
+                        ? "bg-gradient-to-r from-orange-600 to-orange-500 text-white"
+                        : "bg-gradient-to-r from-blue-700 to-blue-600 text-white"
                     )}
                   >
-                    <p className="text-sm whitespace-pre-wrap">{msg.content}</p>
+                    <p className="text-sm whitespace-pre-wrap leading-relaxed">{msg.content}</p>
                   </div>
                   
                   {msg.role === "assistant" && msg.citedDocuments && msg.citedDocuments.length > 0 && (
@@ -380,7 +380,7 @@ const ChatWidget = () => {
           </CardContent>
           
           {/* Input Area */}
-          <CardFooter className="flex-shrink-0 border-t p-4 bg-background">
+          <CardFooter className="flex-shrink-0 border-t p-5 bg-gradient-to-r from-gray-900/80 to-gray-800/80 backdrop-blur-lg">
             <div className="flex flex-col gap-2 w-full">
               <div className="flex items-center justify-between mb-1">
                 <div className="flex items-center space-x-2">

@@ -25,22 +25,22 @@ const IntroSection = () => {
               Our cutting-edge solutions provide unmatched durability and performance in the most extreme conditions.
             </p>
           </div>
-          <p className="dark:text-[#d0d0d0] text-gray-700 text-lg md:text-xl mt-6 mb-8">
+          <p className="dark:text-[#d0d0d0] text-gray-700 text-xl md:text-2xl mt-8 mb-12">
             Industry-leading solutions that protect against fire, water, and environmental damage. Trusted by professionals worldwide.
           </p>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-            <div className="dark:bg-gray-800/70 bg-gray-100/90 backdrop-blur-xl border-4 dark:border-white border-gray-300 rounded-lg p-6 hover:translate-y-[-5px] transition-transform duration-300 dark:shadow-[0_0_60px_rgba(255,255,255,0.4)] shadow-[0_0_30px_rgba(0,0,0,0.25)]">
-              <GradientHeading level={3} className="text-xl mb-3" variant="fire">Advanced Protection</GradientHeading>
-              <p className="dark:text-gray-300 text-gray-700">Our specialized coatings create an impenetrable barrier against extreme elements, ensuring lasting protection.</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-16">
+            <div className="dark:bg-gray-800/70 bg-gray-100/90 backdrop-blur-xl border-4 dark:border-white border-gray-300 rounded-lg p-8 transform transition-all hover:scale-105 hover:translate-y-[-5px] dark:shadow-[0_0_60px_rgba(255,255,255,0.4)] shadow-[0_0_30px_rgba(0,0,0,0.25)]">
+              <GradientHeading level={3} className="text-2xl mb-5" variant="fire">Advanced Protection</GradientHeading>
+              <p className="dark:text-gray-300 text-gray-700 text-lg">Our specialized coatings create an impenetrable barrier against extreme elements, ensuring lasting protection.</p>
             </div>
-            <div className="dark:bg-gray-800/70 bg-gray-100/90 backdrop-blur-xl border-4 dark:border-white border-gray-300 rounded-lg p-6 hover:translate-y-[-5px] transition-transform duration-300 dark:shadow-[0_0_60px_rgba(255,255,255,0.4)] shadow-[0_0_30px_rgba(0,0,0,0.25)]">
-              <GradientHeading level={3} className="text-xl mb-3" variant="blue">Industry Expertise</GradientHeading>
-              <p className="dark:text-gray-300 text-gray-700">With decades of experience, our solutions are tailored to meet the specific needs of multiple industries.</p>
+            <div className="dark:bg-gray-800/70 bg-gray-100/90 backdrop-blur-xl border-4 dark:border-white border-gray-300 rounded-lg p-8 transform transition-all hover:scale-105 hover:translate-y-[-5px] dark:shadow-[0_0_60px_rgba(255,255,255,0.4)] shadow-[0_0_30px_rgba(0,0,0,0.25)]">
+              <GradientHeading level={3} className="text-2xl mb-5" variant="blue">Industry Expertise</GradientHeading>
+              <p className="dark:text-gray-300 text-gray-700 text-lg">With decades of experience, our solutions are tailored to meet the specific needs of multiple industries.</p>
             </div>
-            <div className="dark:bg-gray-800/70 bg-gray-100/90 backdrop-blur-xl border-4 dark:border-white border-gray-300 rounded-lg p-6 hover:translate-y-[-5px] transition-transform duration-300 dark:shadow-[0_0_60px_rgba(255,255,255,0.4)] shadow-[0_0_30px_rgba(0,0,0,0.25)]">
-              <GradientHeading level={3} className="text-xl mb-3" variant="mixed">Superior Materials</GradientHeading>
-              <p className="dark:text-gray-300 text-gray-700">We use only premium-grade materials engineered to deliver exceptional performance in harsh conditions.</p>
+            <div className="dark:bg-gray-800/70 bg-gray-100/90 backdrop-blur-xl border-4 dark:border-white border-gray-300 rounded-lg p-8 transform transition-all hover:scale-105 hover:translate-y-[-5px] dark:shadow-[0_0_60px_rgba(255,255,255,0.4)] shadow-[0_0_30px_rgba(0,0,0,0.25)]">
+              <GradientHeading level={3} className="text-2xl mb-5" variant="mixed">Superior Materials</GradientHeading>
+              <p className="dark:text-gray-300 text-gray-700 text-lg">We use only premium-grade materials engineered to deliver exceptional performance in harsh conditions.</p>
             </div>
           </div>
         </div>
