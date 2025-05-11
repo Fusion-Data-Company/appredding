@@ -25,9 +25,11 @@ const HeroSection = () => {
               display: "block",
               objectFit: "cover",
               objectPosition: "center 0%", // Aligned to show top portion
-              width: "100%", 
+              width: "110%", 
               height: "auto",
-              minWidth: "100%",
+              minWidth: "110%",
+              left: "50%",
+              transform: "translateX(-50%)",
               marginTop: "-384px", // Move image up by 4 inches (384px)
               marginBottom: "-30px",
               filter: "contrast(1.05) saturate(1.1)", // Enhance colors slightly for ultra-realistic look
