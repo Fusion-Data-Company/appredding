@@ -18,36 +18,9 @@ const RotatingTextSection = () => {
       {/* Semi-transparent overlay for better readability - top moved down half inch (48px) */}
       <div className="absolute inset-0 top-[48px] bg-black/30"></div>
       <div className="container mx-auto px-4 relative z-10">
-        {/* Buttons - positioned at the top of this section */}
+        {/* Buttons moved to HeroSection */}
         <div className="flex justify-center gap-20 mb-12">
-            <a 
-              href="#applications" 
-              className="inline-block"
-              style={{ 
-                position: "absolute",
-                left: "-96px", /* 1 inch to the left of the left edge */
-                top: "-96px", /* Position above the rotating text section - adjusted for taller hero */
-                zIndex: 9999 /* Absolute front */
-              }} 
-            >
-              <GradientButton size="lg" className="font-semibold tracking-wider">
-                Explore Applications
-              </GradientButton>
-            </a>
-            <a 
-              href="#contact" 
-              className="inline-block"
-              style={{ 
-                position: "absolute",
-                right: "-48px", /* Moved a half inch (48px) to the left (less negative means more left) */
-                top: "-96px", /* Same height as other button - adjusted for taller hero */
-                zIndex: 9999 /* Absolute front */
-              }} 
-            >
-              <GradientButton size="lg" className="font-semibold tracking-wider">
-                Contact Us
-              </GradientButton>
-            </a>
+            {/* Buttons removed from here and moved to HeroSection */}
         </div>
         
         <div className="w-full mx-auto text-center pt-8" style={{ maxWidth: "90vw" }}>

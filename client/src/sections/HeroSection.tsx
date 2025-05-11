@@ -1,6 +1,8 @@
 // Import directly from assets - using the final image
 import heroImage from '../assets_dir/images/praetorian-hero-final.png';
 
+import { GradientButton } from "@/components/ui/gradient-button";
+
 const HeroSection = () => {
   return (
     <section className="w-full bg-black overflow-visible pt-0 mt-0 mb-0 relative" style={{ zIndex: 20 }}>
