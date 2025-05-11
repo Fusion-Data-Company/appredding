@@ -3,7 +3,7 @@ import heroImage from '../assets_dir/images/praetorian-hero-new.png';
 
 const HeroSection = () => {
   return (
-    <section className="w-full bg-black overflow-visible pt-0 mt-0 relative" style={{ marginBottom: "-40px", zIndex: 20 }}>
+    <section className="w-full bg-black overflow-visible pt-0 mt-0 relative" style={{ marginBottom: "-60px", zIndex: 20 }}>
       {/* Ultra-realistic HD hero image stretched edge-to-edge */}
       <div className="w-full flex justify-center items-center overflow-visible py-0 my-0">
         {/* Ultra-subtle vignette overlay for depth */}
@@ -15,7 +15,7 @@ const HeroSection = () => {
         <div className="absolute top-0 left-0 right-0 h-4 bg-black z-20"></div>
         
         {/* The hero image with enhanced styling for ultra-realistic appearance */}
-        <div className="w-screen overflow-visible relative" style={{ height: "calc(100% + 40px)" }}>
+        <div className="w-screen overflow-visible relative" style={{ height: "calc(100% + 60px)" }}>
           <img 
             src={heroImage} 
             alt="Praetorian SmartCoat Products" 
@@ -28,7 +28,7 @@ const HeroSection = () => {
               marginLeft: "50%", // Center it
               transform: "translateX(-50%)", // Center it
               marginTop: "0",
-              marginBottom: "-40px", // Create overlap with next section
+              marginBottom: "-60px", // Create overlap with next section
               filter: "contrast(1.05) saturate(1.1)", // Enhance colors slightly for ultra-realistic look
               boxShadow: "0 5px 20px rgba(0,0,0,0.5)", // Subtle shadow for depth
               zIndex: 5,
