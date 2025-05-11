@@ -26,7 +26,7 @@ const RotatingTextSection = () => {
                 position: "absolute",
                 left: "-96px", /* 1 inch to the left of the left edge */
                 top: "-168px", /* 1.75 inches up from its container (2.25 - 0.5) */
-                zIndex: 20
+                zIndex: 100 /* Bring all the way to the front */
               }} 
             >
               <GradientButton size="lg" className="font-semibold tracking-wider">
