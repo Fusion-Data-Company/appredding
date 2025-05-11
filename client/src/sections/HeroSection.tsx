@@ -20,15 +20,15 @@ const HeroSection = () => {
           <img 
             src={heroImage} 
             alt="Praetorian Protection Products" 
-            className="w-screen h-auto object-cover my-0 scale-100 md:scale-105 relative"
+            className="w-screen h-auto object-cover my-0 scale-110 md:scale-115 relative"
             style={{ 
               maxWidth: "none", 
-              width: "106vw", // Wider stretch to reach past edges
-              marginLeft: "-3vw", // Adjustment for centering
-              marginTop: "-70px", // Push up further past the header
-              marginBottom: "8px", // Add space at bottom to prevent overlap
+              width: "110vw", // Wider stretch to reach past edges
+              marginLeft: "-5vw", // Adjustment for centering
+              marginTop: "-120px", // Force push up by half an inch
+              marginBottom: "0", // Remove bottom margin
               filter: "drop-shadow(0 0 25px rgba(0,0,0,0.9))",
-              zIndex: 10 // Behind the header elements
+              zIndex: 100 // Move to the front
             }}
           />
         </div>
