@@ -14,7 +14,7 @@ const ApplicationCard = ({ imageSrc, title, description, link }: ApplicationCard
   const isWaterRelated = title === "Marine" || title === "Pool";
   
   return (
-    <div className="group relative rounded-lg overflow-hidden h-[720px] min-h-[720px] w-full block cursor-pointer dark:shadow-[0_0_60px_rgba(255,255,255,0.4)] shadow-[0_0_30px_rgba(0,0,0,0.25)] border-4 dark:border-white border-gray-300 transform transition-transform hover:scale-[1.03]" style={{height: "720px", minHeight: "720px", width: "100%"}}>
+    <div className="group relative rounded-lg overflow-hidden h-[580px] min-h-[580px] w-full block cursor-pointer dark:shadow-[0_0_60px_rgba(255,255,255,0.4)] shadow-[0_0_30px_rgba(0,0,0,0.25)] border-4 dark:border-white border-gray-300 transform transition-transform hover:scale-[1.03]" style={{height: "580px", minHeight: "580px", width: "100%"}}>
       <img 
         src={imageSrc} 
         alt={title} 
@@ -23,15 +23,15 @@ const ApplicationCard = ({ imageSrc, title, description, link }: ApplicationCard
         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-      <div className="absolute bottom-0 left-0 p-12 w-full">
-        <h3 className="text-5xl font-semibold mb-6 text-white">{title}</h3>
-        <p className="text-gray-200 text-2xl mb-12">{description}</p>
-        <div className="mt-8 opacity-0 group-hover:opacity-100 transition-opacity">
+      <div className="absolute bottom-0 left-0 p-10 w-full">
+        <h3 className="text-4xl font-semibold mb-5 text-white">{title}</h3>
+        <p className="text-gray-200 text-xl mb-10">{description}</p>
+        <div className="mt-6 opacity-0 group-hover:opacity-100 transition-opacity">
           <Link href={link}>
             <GradientButton 
               size="lg"
               variant={isWaterRelated ? "variant" : "default"}
-              className="w-full md:w-auto font-semibold tracking-wider text-2xl px-10 py-4"
+              className="w-full md:w-auto font-semibold tracking-wider text-xl px-8 py-3"
             >
               Learn more
             </GradientButton>
@@ -98,7 +98,7 @@ const ApplicationsSection = () => {
     >
       {/* Overlay to ensure text readability */}
       <div className="absolute inset-0 bg-black/20"></div>
-      <div className="container mx-auto px-0 max-w-full relative z-10">
+      <div className="container mx-auto px-4 md:px-8 max-w-[1600px] relative z-10">
         <div className="text-center mb-20">
           <div className="dark:bg-gray-800/60 bg-gray-100/90 backdrop-blur-xl rounded-xl dark:border-4 dark:border-gray-600/40 border-4 border-gray-300 dark:shadow-[0_0_40px_rgba(255,255,255,0.25)] shadow-[0_0_30px_rgba(0,0,0,0.3)] py-12 px-12 mx-auto max-w-4xl mb-10 inline-block">
             <GradientHeading className="text-4xl md:text-5xl mb-6" variant="mixed">Specialized Applications</GradientHeading>
@@ -108,7 +108,7 @@ const ApplicationsSection = () => {
           </div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-0 px-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10 px-16">
           {applications.map((app, index) => (
             <ApplicationCard
               key={index}
