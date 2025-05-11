@@ -1,5 +1,5 @@
-// Import directly from assets - using the bigger image
-import heroImage from '../assets_dir/images/praetorian-hero-bigger.png';
+// Import directly from assets - using the final image
+import heroImage from '../assets_dir/images/praetorian-hero-final.png';
 
 const HeroSection = () => {
   return (
