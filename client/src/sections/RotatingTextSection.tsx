@@ -24,7 +24,7 @@ const RotatingTextSection = () => {
               className="inline-block"
               style={{ 
                 position: "absolute",
-                left: "0", /* All the way to the left edge */
+                left: "-96px", /* 1 inch to the left of the left edge */
                 top: "-144px", /* 1.5 inches up from its container */
                 zIndex: 20
               }} 
