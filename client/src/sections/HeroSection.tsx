@@ -4,19 +4,22 @@ import { GradientButton } from "@/components/ui/gradient-button";
 
 const HeroSection = () => {
   return (
-    <section className="w-full bg-black overflow-visible pt-0 mt-0 mb-0 relative" style={{ zIndex: 20 }}>
+    <section className="w-full bg-black overflow-hidden pt-0 mt-0 mb-0 relative" style={{ zIndex: 20 }}>
       {/* Hero image container with responsive height */}
-      <div className="relative w-full overflow-hidden">
-        {/* Hero image with natural proportions, width extended to the left by adding negative margin */}
+      <div className="relative w-screen" style={{ marginLeft: "calc(50% - 50vw)" }}>
+        {/* Hero image with natural proportions */}
         <img 
           src={heroImage} 
           alt="Praetorian SmartCoat Products" 
-          className="w-[calc(100%+24px)] h-auto -ml-6"
+          className="w-full h-auto"
           style={{ 
             display: "block",
-            objectFit: "cover",
-            objectPosition: "center top",
-            filter: "contrast(1.05) saturate(1.1)"
+            objectFit: "contain",
+            objectPosition: "top",
+            width: "100%",
+            filter: "contrast(1.05) saturate(1.1)",
+            transformOrigin: "center",
+            transform: "scaleX(1.025)" /* Stretch by 2.5% horizontally */
           }}
         />
         
