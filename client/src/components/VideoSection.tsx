@@ -3,8 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Play, Info, Star } from "lucide-react";
 import { GradientHeading } from "@/components/ui/gradient-heading";
 import { GradientButton } from "@/components/ui/gradient-button";
-// Import the video directly
-import productDemoVideo from "@assets/93fd96aa-db4d-423d-ab35-8610f17bca78.mp4";
+// Import the video from assets_dir
+import productDemoVideo from "../assets_dir/videos/product-demo.mp4";
 
 interface Video {
   id: string;
@@ -72,10 +72,11 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
               <div className="dark:bg-gradient-to-r dark:from-gray-800/90 dark:to-gray-700/90 bg-gray-100/90 rounded-xl overflow-hidden dark:border dark:border-gray-600/40 border border-gray-300 dark:shadow-[0_0_20px_rgba(255,255,255,0.25)] shadow-[0_0_20px_rgba(0,0,0,0.25)]">
                 <div className="relative pb-[56.25%] h-0 overflow-hidden">
                   {activeVideo.id === "localVideo" ? (
-                    <div className="absolute top-0 left-0 w-full h-full bg-black">
+                    <div className="absolute top-0 left-0 w-full h-full bg-black flex items-center justify-center">
                       <video 
                         ref={videoRef}
-                        className="w-full h-full"
+                        className="w-full h-full object-contain"
+                        src={productDemoVideo}
                         controls
                         autoPlay
                         muted
@@ -83,10 +84,7 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
                         playsInline
                         onLoadedData={() => console.log("Video loaded successfully")}
                         onError={(e) => console.error("Video error:", e)}
-                      >
-                        <source src={productDemoVideo} type="video/mp4" />
-                        Your browser does not support the video tag.
-                      </video>
+                      ></video>
                     </div>
                   ) : (
                     <iframe
