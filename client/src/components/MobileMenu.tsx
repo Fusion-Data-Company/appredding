@@ -195,9 +195,40 @@ const MobileMenu = ({ isOpen, onClose, isHomePage = true }: MobileMenuProps) => 
             </Link>
           </li>
           
-          <li className="py-1">
+          <li className="pt-4 pb-1">
+            <div className="font-serif font-medium text-amber-800 dark:text-amber-400 mb-2 px-4 text-sm uppercase tracking-wider border-l-2 border-amber-600/30">
+              CRM System
+            </div>
             <Link
               href="/crm"
+              className="mobile-menu-link relative overflow-hidden font-medium block py-3 px-4 
+              rounded-sm text-center transition-all duration-300 
+              bg-gradient-to-br from-amber-100/70 to-amber-200/50 dark:from-amber-900/40 dark:to-amber-800/20 
+              border border-amber-700/20 shadow-inner shadow-amber-100/30 dark:shadow-amber-900/20
+              hover:shadow-amber-300/20 dark:hover:shadow-amber-700/30 hover:border-amber-600/30 mb-2"
+            >
+              <div className="absolute inset-0 opacity-0 hover:opacity-100 bg-gradient-to-t from-amber-300/10 to-amber-200/5 dark:from-amber-600/20 dark:to-amber-700/10 transition-opacity duration-300" />
+              <span className="relative z-10 font-serif bg-gradient-to-r from-amber-900 to-amber-800 dark:from-amber-400 dark:to-amber-300 bg-clip-text text-transparent">CRM Overview</span>
+            </Link>
+          </li>
+          
+          <li className="py-1">
+            <Link
+              href="/crm-dashboard"
+              className="mobile-menu-link relative overflow-hidden font-medium block py-3 px-4 
+              rounded-sm text-center transition-all duration-300 
+              bg-gradient-to-br from-amber-100/70 to-amber-200/50 dark:from-amber-900/40 dark:to-amber-800/20 
+              border border-amber-700/20 shadow-inner shadow-amber-100/30 dark:shadow-amber-900/20
+              hover:shadow-amber-300/20 dark:hover:shadow-amber-700/30 hover:border-amber-600/30 mb-2"
+            >
+              <div className="absolute inset-0 opacity-0 hover:opacity-100 bg-gradient-to-t from-amber-300/10 to-amber-200/5 dark:from-amber-600/20 dark:to-amber-700/10 transition-opacity duration-300" />
+              <span className="relative z-10 font-serif bg-gradient-to-r from-amber-900 to-amber-800 dark:from-amber-400 dark:to-amber-300 bg-clip-text text-transparent">CRM Dashboard</span>
+            </Link>
+          </li>
+          
+          <li className="py-1">
+            <Link
+              href="/crm-login"
               className="mobile-menu-link relative overflow-hidden font-medium block py-3 px-4 
               rounded-sm text-center transition-all duration-300 
               bg-gradient-to-br from-amber-100/70 to-amber-200/50 dark:from-amber-900/40 dark:to-amber-800/20 
@@ -205,7 +236,7 @@ const MobileMenu = ({ isOpen, onClose, isHomePage = true }: MobileMenuProps) => 
               hover:shadow-amber-300/20 dark:hover:shadow-amber-700/30 hover:border-amber-600/30"
             >
               <div className="absolute inset-0 opacity-0 hover:opacity-100 bg-gradient-to-t from-amber-300/10 to-amber-200/5 dark:from-amber-600/20 dark:to-amber-700/10 transition-opacity duration-300" />
-              <span className="relative z-10 font-serif bg-gradient-to-r from-amber-900 to-amber-800 dark:from-amber-400 dark:to-amber-300 bg-clip-text text-transparent">Team CRM</span>
+              <span className="relative z-10 font-serif bg-gradient-to-r from-amber-900 to-amber-800 dark:from-amber-400 dark:to-amber-300 bg-clip-text text-transparent">CRM Admin Login</span>
             </Link>
           </li>
         </ul>

@@ -2,7 +2,7 @@ import React from 'react';
 import { Lamp } from '@/components/ui/lamp';
 import { PraetorianGradientText } from '@/components/ui/praetorian-gradient-text';
 import { PraetorianButton } from '@/components/ui/praetorian-button';
-import { PlusCircle, Database, Users, Settings } from 'lucide-react';
+import { PlusCircle, Database, Users, Settings, Package, LogIn } from 'lucide-react';
 
 export const CRMHeader = () => {
   return (
@@ -29,9 +29,38 @@ export const CRMHeader = () => {
         </div>
       </Lamp>
       
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mt-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
         <PraetorianButton 
           variant="fire" 
+          leftIcon={<Package size={18} />}
+          fullWidth
+          href="/crm-dashboard?tab=inventory"
+        >
+          Inventory Management
+        </PraetorianButton>
+        
+        <PraetorianButton 
+          variant="water" 
+          leftIcon={<Database size={18} />}
+          fullWidth
+          href="/crm-dashboard"
+        >
+          CRM Dashboard
+        </PraetorianButton>
+        
+        <PraetorianButton 
+          variant="premium" 
+          leftIcon={<LogIn size={18} />}
+          fullWidth
+          href="/crm-login"
+        >
+          Admin Login
+        </PraetorianButton>
+      </div>
+      
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+        <PraetorianButton 
+          variant="metal" 
           leftIcon={<PlusCircle size={18} />}
           fullWidth
         >
@@ -39,15 +68,7 @@ export const CRMHeader = () => {
         </PraetorianButton>
         
         <PraetorianButton 
-          variant="water" 
-          leftIcon={<Database size={18} />}
-          fullWidth
-        >
-          Projects Database
-        </PraetorianButton>
-        
-        <PraetorianButton 
-          variant="metal" 
+          variant="ghost" 
           leftIcon={<Users size={18} />}
           fullWidth
         >
@@ -55,7 +76,7 @@ export const CRMHeader = () => {
         </PraetorianButton>
         
         <PraetorianButton 
-          variant="ghost" 
+          variant="outline" 
           leftIcon={<Settings size={18} />}
           fullWidth
         >
