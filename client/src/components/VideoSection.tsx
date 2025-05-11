@@ -19,7 +19,9 @@ interface VideoSectionProps {
 
 const VideoSection = ({ videos }: VideoSectionProps) => {
   const [activeCategory, setActiveCategory] = useState("all");
-  const [activeVideo, setActiveVideo] = useState<Video | null>(videos.length > 0 ? videos[0] : null);
+  // Set the local video as active by default if it exists
+  const localVideo = videos.find(video => video.id === "localVideo");
+  const [activeVideo, setActiveVideo] = useState<Video | null>(localVideo || (videos.length > 0 ? videos[0] : null));
 
   const categories = [
     "all",
@@ -59,13 +61,23 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
             {activeVideo ? (
               <div className="dark:bg-gradient-to-r dark:from-gray-800/90 dark:to-gray-700/90 bg-gray-100/90 rounded-xl overflow-hidden dark:border dark:border-gray-600/40 border border-gray-300 dark:shadow-[0_0_20px_rgba(255,255,255,0.25)] shadow-[0_0_20px_rgba(0,0,0,0.25)]">
                 <div className="relative pb-[56.25%] h-0 overflow-hidden">
-                  <iframe
-                    className="absolute top-0 left-0 w-full h-full"
-                    src={`https://www.youtube.com/embed/${activeVideo.id}`}
-                    title={activeVideo.title}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  ></iframe>
+                  {activeVideo.id === "localVideo" ? (
+                    <video 
+                      className="absolute top-0 left-0 w-full h-full object-cover"
+                      src="/videos/product-demo.mp4"
+                      title={activeVideo.title}
+                      controls
+                      preload="metadata"
+                    ></video>
+                  ) : (
+                    <iframe
+                      className="absolute top-0 left-0 w-full h-full"
+                      src={`https://www.youtube.com/embed/${activeVideo.id}`}
+                      title={activeVideo.title}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    ></iframe>
+                  )}
                 </div>
                 <div className="p-6">
                   <GradientHeading level={3} className="text-xl mb-2" variant="fire">{activeVideo.title}</GradientHeading>
@@ -130,11 +142,17 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
                       onClick={() => setActiveVideo(video)}
                     >
                       <div className="relative flex-shrink-0 w-[200px] h-[95px] bg-gray-800 rounded-md overflow-hidden mx-auto">
-                        <img
-                          src={video.thumbnail || `https://i.ytimg.com/vi/${video.id}/mqdefault.jpg`}
-                          alt={video.title}
-                          className="w-full h-full object-cover"
-                        />
+                        {video.id === "localVideo" ? (
+                          <div className="w-full h-full bg-primary-900 flex items-center justify-center">
+                            <div className="text-white text-xs font-medium">Praetorian Demo</div>
+                          </div>
+                        ) : (
+                          <img
+                            src={video.thumbnail || `https://i.ytimg.com/vi/${video.id}/mqdefault.jpg`}
+                            alt={video.title}
+                            className="w-full h-full object-cover"
+                          />
+                        )}
                         <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 hover:bg-opacity-10 transition-all">
                           <Play className="h-6 w-6 text-white" />
                         </div>

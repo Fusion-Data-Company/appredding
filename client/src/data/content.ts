@@ -68,6 +68,14 @@ export const faqData = [
 // Video Demonstration Data
 export const videoData = [
   {
+    id: "localVideo",
+    title: "Premium Coating Application: Professional Techniques Showcase",
+    description: "This exclusive demonstration showcases our proprietary application techniques for Praetorian's premium protective coatings. See how our certified professionals achieve optimal coverage and finish quality.",
+    category: "application",
+    thumbnail: "/videos/product-demo.mp4",
+    duration: "3:58"
+  },
+  {
     id: "2g811Eo7K8U",
     title: "FireShield Pro Application Guide: Ultimate Wildfire Protection",
     description: "Learn the professional application techniques for our premium fire-resistant coating. This comprehensive guide covers surface preparation, proper application thickness, and finishing touches.",
