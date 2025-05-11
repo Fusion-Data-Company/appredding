@@ -43,7 +43,7 @@ export const CRMHeader = () => {
           variant="water" 
           leftIcon={<Database size={18} />}
           fullWidth
-          href="/crm-dashboard"
+          href="/crm"
         >
           CRM Dashboard
         </PraetorianButton>
