@@ -121,27 +121,22 @@ const ProfessionalHeader = () => {
             <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-transparent via-slate-100/10 to-transparent dark:via-zinc-300/10 opacity-0 group-hover:opacity-100 animate-shimmer transition-opacity duration-300"></div>
             
             <div className="flex flex-col justify-center relative">
-              {/* Shine overlay for metallic effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
-              
-              <div className="h-24 mb-0 relative overflow-hidden">
-                {/* Dark drop shadow behind the PRAETORIAN text */}
-                <div className="absolute inset-0 bg-black/30 blur-md -z-10 scale-95 translate-y-1"></div>
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gray-200/5 to-transparent opacity-0 group-hover:opacity-100 animate-shimmer-slow"></div>
+              <div className="h-24 mb-0 relative overflow-visible" style={{ marginLeft: '-392px' }}>
                 <img 
                   src={praetorianHeaderImg} 
                   alt="PRAETORIAN" 
-                  className="h-full object-contain transition-all duration-500 ease-in-out relative"
+                  className="h-full object-contain"
                   style={{
                     filter: 'contrast(1.3) brightness(1.15) saturate(1.05)',
-                    transform: 'scale(1.05)',
-                    marginLeft: '-392px',
                   }}
                 />
+                
+                <div className="absolute bottom-[-29px] left-[356px] whitespace-nowrap">
+                  <span className="text-[1.05rem] text-slate-700 dark:text-slate-400 font-medium tracking-widest uppercase group-hover:text-black dark:group-hover:text-white transition-colors duration-300">
+                    <span className="bg-gradient-to-r from-slate-700 to-slate-900 dark:from-slate-300 dark:to-slate-400 bg-clip-text text-transparent group-hover:from-slate-800 group-hover:to-black dark:group-hover:from-gray-200 dark:group-hover:to-white transition-all duration-500 font-semibold">SmartCoat Solutions</span>
+                  </span>
+                </div>
               </div>
-              <span className="text-[1.05rem] text-slate-700 dark:text-slate-400 font-medium tracking-widest uppercase group-hover:text-black dark:group-hover:text-white transition-colors duration-300 mt-[-29px] whitespace-nowrap relative z-30" style={{ marginLeft: '-36px', marginTop: '-29px' }}>
-                <span className="bg-gradient-to-r from-slate-700 to-slate-900 dark:from-slate-300 dark:to-slate-400 bg-clip-text text-transparent group-hover:from-slate-800 group-hover:to-black dark:group-hover:from-gray-200 dark:group-hover:to-white transition-all duration-500 font-semibold">SmartCoat Solutions</span>
-              </span>
             </div>
           </Link>
         </div>
