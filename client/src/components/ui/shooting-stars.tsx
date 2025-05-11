@@ -120,24 +120,50 @@ export const ShootingStars: React.FC<ShootingStarsProps> = ({
       className={cn("w-full h-full absolute inset-0", className)}
     >
       {star && (
-        <rect
-          key={star.id}
-          x={star.x}
-          y={star.y}
-          width={starWidth * star.scale}
-          height={starHeight}
-          fill="url(#gradient)"
-          transform={`rotate(${star.angle}, ${
-            star.x + (starWidth * star.scale) / 2
-          }, ${star.y + starHeight / 2})`}
-        />
+        <>
+          {/* Enhanced main shooting star with glow effect */}
+          <rect
+            key={star.id}
+            x={star.x}
+            y={star.y}
+            width={starWidth * star.scale}
+            height={starHeight}
+            fill="url(#gradient)"
+            transform={`rotate(${star.angle}, ${
+              star.x + (starWidth * star.scale) / 2
+            }, ${star.y + starHeight / 2})`}
+            style={{ filter: 'drop-shadow(0 0 3px rgba(255,255,255,0.8))' }}
+          />
+          {/* Additional trail effect */}
+          <rect
+            key={`glow-${star.id}`}
+            x={star.x - (starWidth * star.scale * 0.1)}
+            y={star.y}
+            width={starWidth * star.scale * 1.1}
+            height={starHeight * 1.5}
+            fill="url(#gradient-glow)"
+            opacity={0.7}
+            transform={`rotate(${star.angle}, ${
+              star.x + (starWidth * star.scale) / 2
+            }, ${star.y + starHeight / 2})`}
+          />
+        </>
       )}
       <defs>
         <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" style={{ stopColor: trailColor, stopOpacity: 0 }} />
+          <stop offset="90%" style={{ stopColor: trailColor, stopOpacity: 0.5 }} />
           <stop
             offset="100%"
             style={{ stopColor: starColor, stopOpacity: 1 }}
+          />
+        </linearGradient>
+        <linearGradient id="gradient-glow" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style={{ stopColor: trailColor, stopOpacity: 0 }} />
+          <stop offset="80%" style={{ stopColor: trailColor, stopOpacity: 0.2 }} />
+          <stop
+            offset="100%"
+            style={{ stopColor: starColor, stopOpacity: 0.8 }}
           />
         </linearGradient>
       </defs>
