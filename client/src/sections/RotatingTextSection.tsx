@@ -50,8 +50,15 @@ const RotatingTextSection = () => {
             </a>
         </div>
         
-        <div className="max-w-3xl mx-auto text-center pt-8">
-          <div className="dark:bg-gray-800/60 bg-gray-100/90 backdrop-blur-2xl rounded-xl border-4 dark:border-white border-gray-300 dark:shadow-[0_0_60px_rgba(255,255,255,0.4)] shadow-[0_0_30px_rgba(0,0,0,0.25)] py-8 px-6 md:px-10 mx-auto max-w-3xl">
+        <div className="w-full mx-auto text-center pt-8" style={{ maxWidth: "90vw" }}>
+          <div 
+            className="dark:bg-gray-800/60 bg-gray-100/90 backdrop-blur-2xl rounded-xl border-4 dark:border-white border-gray-300 dark:shadow-[0_0_60px_rgba(255,255,255,0.4)] shadow-[0_0_30px_rgba(0,0,0,0.25)] mx-auto"
+            style={{ 
+              width: "calc(48rem + 384px)", /* 3xl (48rem) + 4 inches (384px) wider */
+              padding: "calc(2rem + 192px) 2.5rem", /* 2rem top padding + 2 inches (192px) taller */
+              margin: "0 auto", /* Keep centered */
+              maxWidth: "90vw" /* Prevent overflow on small screens */
+            }}>
             <div className="flex flex-col">
               <GradientHeading level={1} className="text-3xl md:text-4xl mb-4" variant="mixed">
                 Element-proof protection for your
