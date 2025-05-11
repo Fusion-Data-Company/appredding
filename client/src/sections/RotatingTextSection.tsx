@@ -27,16 +27,16 @@ const RotatingTextSection = () => {
           <div 
             className="dark:bg-gray-800/50 bg-gray-100/90 backdrop-blur-2xl rounded-xl border-4 dark:border-white border-gray-300 dark:shadow-[0_0_40px_rgba(255,255,255,0.25)] shadow-[0_0_30px_rgba(0,0,0,0.15)] mx-auto"
             style={{ 
-              width: "calc(48rem + 384px)", /* 3xl (48rem) + 4 inches (384px) wider */
-              padding: "calc(2rem + 96px) 2.5rem", /* Reduced by 1 inch (96px) on top and bottom */
+              width: "calc(48rem + 768px)", /* 3xl (48rem) + 8 inches (768px) wider */
+              padding: "calc(3rem + 48px) 3.5rem", /* Increased top/bottom padding for better spacing */
               margin: "0 auto", /* Keep centered */
-              maxWidth: "90vw" /* Prevent overflow on small screens */
+              maxWidth: "95vw" /* Prevent overflow but allow more width */
             }}>
             <div className="flex flex-col">
-              <GradientHeading level={1} className="text-3xl md:text-4xl mb-4" variant="mixed">
+              <GradientHeading level={1} className="text-3xl md:text-4xl mb-8" variant="mixed">
                 Element-proof protection for your
               </GradientHeading>
-              <div className="text-3xl md:text-4xl py-3">
+              <div className="text-3xl md:text-4xl py-10">
                 <AnimatedTextCycle 
                   words={[
                     "home & living spaces",
@@ -54,7 +54,7 @@ const RotatingTextSection = () => {
                   className="metallic-text"
                 />
               </div>
-              <div className="mt-6">
+              <div className="mt-10">
                 <GradientHeading level={2} className="text-3xl md:text-4xl" variant="mixed">
                   with superior defense technology.
                 </GradientHeading>

@@ -72,7 +72,7 @@ export default function AnimatedTextCycle({
             zIndex: 5,
             letterSpacing: "0.02em", // Tighter letter spacing for longer words
             fontWeight: 700,
-            padding: "0.1em 0",
+            padding: "0.5em 0",
             display: "inline-block",
             whiteSpace: "nowrap" // Prevent line breaks
           }}
