@@ -98,16 +98,17 @@ const ProfessionalHeader = () => {
       <Link href="/" className="absolute left-0 top-0 h-full flex items-center z-20">
         <div className="relative">
           {/* Dark drop shadow behind the bucket */}
-          <div className="absolute inset-0 rounded-full bg-black/30 blur-md -z-10 scale-91 translate-x-1 translate-y-[2px]"></div>
+          <div className="absolute inset-0 rounded-full bg-black/30 blur-md -z-10 scale-91 translate-x-1 translate-y-[0px]"></div>
           <img 
             src={praetorianBucketNew} 
             alt="Praetorian Bucket" 
             className="h-[140px] w-auto relative"
             style={{ 
               filter: 'contrast(1.3) brightness(1.15)',
-              transform: 'perspective(800px) rotateY(-5deg) scale(1.6) translateY(2px)',
+              transform: 'perspective(800px) rotateY(-5deg) scale(1.6) translateY(0px)',
               transformStyle: 'preserve-3d',
-              marginLeft: '-5px'
+              marginLeft: '-5px',
+              marginTop: '-16px'
             }}
           />
         </div>
