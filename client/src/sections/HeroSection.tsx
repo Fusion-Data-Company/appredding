@@ -6,13 +6,9 @@ const HeroSection = () => {
     <section className="w-full bg-black overflow-visible pt-0 mt-0 relative" style={{ marginBottom: "-30px", zIndex: 20 }}>
       {/* Ultra-realistic HD hero image stretched edge-to-edge */}
       <div className="w-full flex justify-center items-center overflow-visible py-0 my-0" style={{ minHeight: "650px" }}>
-        {/* Ultra-subtle vignette overlay for depth */}
-        <div className="absolute inset-0 pointer-events-none z-10" style={{
-          background: "radial-gradient(circle at center, transparent 50%, rgba(0,0,0,0.4) 100%)",
-        }}></div>
+        {/* Removed vignette overlay */}
         
-        {/* Black bar to cover any potential gaps */}
-        <div className="absolute top-0 left-0 right-0 h-4 bg-black z-20"></div>
+        {/* Removed black bar */}
         
         {/* The hero image with enhanced styling for ultra-realistic appearance */}
         <div className="relative w-full h-full overflow-visible">
