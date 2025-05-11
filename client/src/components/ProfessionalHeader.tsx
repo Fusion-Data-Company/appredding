@@ -76,12 +76,13 @@ const ProfessionalHeader = () => {
   return (
     <header 
       className={cn(
-        "fixed w-full border-b z-[999] transition-all duration-300 h-[144px] flex items-center overflow-hidden",
+        "fixed w-full border-b transition-all duration-300 h-[144px] flex items-center overflow-hidden",
         scrolled 
           ? "border-slate-400 dark:border-zinc-800 shadow-metal" 
           : "border-slate-400/80 dark:border-zinc-800/80",
         "after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[1px] after:bg-gradient-to-r after:from-slate-400/40 dark:after:from-zinc-400/30 after:via-slate-400/40 dark:after:via-zinc-400/30 after:to-slate-400/40 dark:after:to-zinc-400/30"
       )}
+      style={{ zIndex: 2147483646 }}
     >
       {/* Stone texture background with frosted glass overlay */}
       <StoneTextureBackground 
@@ -125,13 +126,13 @@ const ProfessionalHeader = () => {
         </div>
       </Link>
 
-      <div className="container mx-auto px-4 md:px-6 flex items-center justify-between" style={{ zIndex: 10000, position: 'relative' }}>
+      <div className="container mx-auto px-4 md:px-6 flex items-center justify-between" style={{ zIndex: 2147483646, position: 'relative' }}>
         {/* Empty space where the logo used to be */}
         <div className="flex-grow"></div>
 
         {/* Premium Desktop Navigation */}
-        <div className="hidden lg:flex items-center justify-end space-x-8 flex-grow" style={{ zIndex: 10000, position: 'relative' }}>
-          <div className="flex-grow flex justify-end" style={{ zIndex: 10000, position: 'relative' }}>
+        <div className="hidden lg:flex items-center justify-end space-x-8 flex-grow" style={{ zIndex: 2147483646, position: 'relative' }}>
+          <div className="flex-grow flex justify-end" style={{ zIndex: 2147483646, position: 'relative' }}>
             <PremiumNavbar />
           </div>
           

@@ -23,11 +23,11 @@ export const MenuItem = ({
   children?: React.ReactNode;
 }) => {
   return (
-    <div onMouseEnter={() => setActive(item)} className="relative" style={{ zIndex: 9000 }}>
+    <div onMouseEnter={() => setActive(item)} className="relative" style={{ zIndex: 2147483646, position: 'relative' }}>
       <motion.p
         transition={{ duration: 0.3 }}
         className="cursor-pointer text-white/90 hover:text-white dark:text-white font-cinzel uppercase tracking-wide text-sm lg:text-base relative"
-        style={{ zIndex: 9000 }}
+        style={{ zIndex: 2147483646, position: 'relative' }}
       >
         {item}
       </motion.p>
@@ -36,19 +36,27 @@ export const MenuItem = ({
           initial={{ opacity: 0, scale: 0.85, y: 10 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={transition}
-          style={{ zIndex: 9500 }}
+          style={{ zIndex: 2147483647 }}
         >
           {active === item && (
-            <div className="fixed top-[4.5rem] left-1/2 transform -translate-x-1/2 pt-4" style={{ position: 'fixed', zIndex: 99999 }}>
+            <div className="fixed top-[4.5rem] left-1/2 transform -translate-x-1/2 pt-4" style={{ 
+              position: 'fixed', 
+              zIndex: 2147483647, /* Maximum possible z-index value */
+              pointerEvents: 'auto'
+            }}>
               <motion.div
                 transition={transition}
                 layoutId="active" // layoutId ensures smooth animation
                 className="bg-black/95 backdrop-blur-sm rounded-md overflow-hidden border border-white/[0.2] shadow-xl"
-                style={{ zIndex: 99999 }}
+                style={{ 
+                  zIndex: 2147483647,  /* Maximum possible z-index value */
+                  position: 'relative'
+                }}
               >
                 <motion.div
                   layout // layout ensures smooth animation
                   className="w-max h-full p-4"
+                  style={{ position: 'relative', zIndex: 2147483647 }}
                 >
                   {children}
                 </motion.div>
@@ -72,7 +80,7 @@ export const Menu = ({
     <nav
       onMouseLeave={() => setActive(null)} // resets the state
       className="relative flex justify-center space-x-8 px-4 py-2"
-      style={{ zIndex: 9999, position: 'relative' }}
+      style={{ zIndex: 2147483646, position: 'relative' }}
     >
       {children}
     </nav>

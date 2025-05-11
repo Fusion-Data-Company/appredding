@@ -16,7 +16,7 @@ export function PremiumNavbar() {
   const [active, setActive] = useState<string | null>(null);
   
   return (
-    <div className="flex-grow flex justify-end" style={{ zIndex: 10000, position: 'relative' }}>
+    <div className="flex-grow flex justify-end" style={{ zIndex: 2147483646, position: 'relative' }}>
       <Menu setActive={setActive}>
         <MenuItem setActive={setActive} active={active} item="Solutions">
           <div className="grid grid-cols-2 gap-6 p-4">
