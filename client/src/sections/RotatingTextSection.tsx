@@ -11,7 +11,7 @@ const RotatingTextSection = () => {
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        marginTop: "550px", // Adjusted to let hero image overlap just enough
+        marginTop: "400px", // Reduced to make section visible below hero
         zIndex: 1 // Ensure it's behind the hero but visible
       }}
     >
@@ -39,7 +39,7 @@ const RotatingTextSection = () => {
               className="inline-block"
               style={{ 
                 position: "absolute",
-                right: "-144px", /* Moved an additional half inch (48px) to the left */
+                right: "-48px", /* Moved a half inch (48px) to the left (less negative means more left) */
                 top: "-168px", /* Same height as other button */
                 zIndex: 9999 /* Absolute front */
               }} 
