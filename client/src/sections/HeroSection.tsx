@@ -6,58 +6,67 @@ const HeroSection = () => {
   return (
     <section className="w-full bg-black overflow-hidden pt-0 mt-0 mb-0 relative" style={{ zIndex: 20 }}>
       {/* Hero image container with responsive height */}
-      <div className="relative w-screen" style={{ marginLeft: "calc(50% - 50vw)" }}>
-        {/* Hero image with natural proportions */}
-        <img 
-          src={heroImage} 
-          alt="Praetorian SmartCoat Products" 
-          className="w-full h-auto"
-          style={{ 
-            display: "block",
-            objectFit: "contain",
-            objectPosition: "top",
-            width: "100%",
-            filter: "contrast(1.05) saturate(1.1)",
-            transformOrigin: "center",
-            transform: "scaleX(1.025)" /* Stretch by 2.5% horizontally */
-          }}
-        />
+      <div className="relative w-full flex justify-center items-center" style={{ width: "100%" }}>
+        {/* Hero image with natural proportions - responsive and optimized */}
+        <picture>
+          {/* AVIF format for browsers that support it */}
+          <source 
+            srcSet={`${heroImage.replace('.png', '.avif')}`} 
+            type="image/avif" 
+          />
+          {/* WebP format for browsers that support it */}
+          <source 
+            srcSet={`${heroImage.replace('.png', '.webp')}`} 
+            type="image/webp" 
+          />
+          {/* Fallback to original PNG */}
+          <img 
+            src={heroImage} 
+            alt="Praetorian SmartCoat Products" 
+            className="w-full h-auto"
+            loading="eager"
+            fetchpriority="high"
+            style={{ 
+              display: "block",
+              objectFit: "contain",
+              objectPosition: "top",
+              width: "100%",
+              maxHeight: "90vh",
+              filter: "contrast(1.05) saturate(1.1)",
+              transformOrigin: "center",
+              transform: "scaleX(1.025)" /* Stretch by 2.5% horizontally */
+            }}
+          />
+        </picture>
         
-        {/* Buttons positioned directly over the image, below the guards (moved down 3 inches) */}
-        <div className="absolute w-full" style={{ 
-          bottom: "calc(27% - 336px)", /* Moved down 3.5 inches (original + 48px) */
+        {/* Buttons positioned responsively over the image */}
+        <div className="absolute w-full md:w-auto" style={{ 
+          bottom: { 
+            xs: "15%", 
+            sm: "20%", 
+            md: "calc(27% - 336px)" 
+          }[window.innerWidth < 640 ? 'xs' : window.innerWidth < 768 ? 'sm' : 'md'],
           left: 0,
           right: 0,
-          zIndex: 999999
+          zIndex: 999
         }}>
-          <div className="w-full relative px-4">
-            {/* Left button positioned under left guard's feet */}
-            <a 
-              href="#applications" 
-              className="inline-block absolute"
-              style={{ 
-                left: "10%", /* Positioned exactly under left guard's feet */
-                transform: "translateX(-50%)",
-              }}
-            >
-              <GradientButton size="lg" className="font-semibold tracking-wider shadow-2xl shadow-black/80">
-                Explore Applications
-              </GradientButton>
-            </a>
+          <div className="w-full relative px-4 flex flex-col md:flex-row md:justify-center gap-4 md:gap-12">
+            {/* Mobile-friendly button placement (centered on small screens, absolute on larger) */}
+            <div className="text-center md:inline-block md:absolute md:left-[10%] md:transform md:-translate-x-1/2">
+              <a href="#applications">
+                <GradientButton size="lg" className="font-semibold tracking-wider shadow-2xl shadow-black/80 w-full md:w-auto">
+                  Explore Applications
+                </GradientButton>
+              </a>
+            </div>
             
-            {/* Right button positioned under right guard's feet */}
-            <a 
-              href="#contact" 
-              className="inline-block absolute"
-              style={{ 
-                right: "10%", /* Positioned exactly under right guard's feet */
-                transform: "translateX(50%)",
-              }}
-            >
-              <GradientButton size="lg" className="font-semibold tracking-wider shadow-2xl shadow-black/80">
-                Contact Us
-              </GradientButton>
-            </a>
+            <div className="text-center md:inline-block md:absolute md:right-[10%] md:transform md:translate-x-1/2">
+              <a href="#contact">
+                <GradientButton size="lg" className="font-semibold tracking-wider shadow-2xl shadow-black/80 w-full md:w-auto">
+                  Contact Us
+                </GradientButton>
+              </a>
+            </div>
           </div>
         </div>
       </div>

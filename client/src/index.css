@@ -336,6 +336,10 @@
   body {
     @apply font-sans antialiased;
     font-family: var(--font-body);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    width: 100%;
   }
 
   /* Light mode specific styling */
@@ -496,6 +500,63 @@
     background: rgba(15, 23, 42, 0.6);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
+  }
+  
+  /* Mobile-first responsive breakpoints */
+  @media (max-width: 600px) {
+    .hero {
+      flex-direction: column;
+      padding: 2rem 1rem;
+    }
+    
+    .hero h1 {
+      font-size: 6vw;
+    }
+    
+    .section {
+      padding: 2rem 1rem;
+    }
+    
+    .container {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  }
+  
+  /* Tablet breakpoint */
+  @media (min-width: 601px) and (max-width: 768px) {
+    .section {
+      padding: 3rem 1.5rem;
+    }
+    
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+  
+  /* Desktop breakpoint */
+  @media (min-width: 769px) and (max-width: 992px) {
+    .section {
+      padding: 4rem 2rem;
+    }
+    
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+  
+  /* Large desktop breakpoint */
+  @media (min-width: 993px) {
+    .section {
+      padding: 5rem 2.5rem;
+    }
+    
+    .container {
+      padding-left: 2.5rem;
+      padding-right: 2.5rem;
+    }
   }
   
   /* Fire-water glow animation classes */
