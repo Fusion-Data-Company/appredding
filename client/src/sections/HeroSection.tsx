@@ -1,6 +1,7 @@
 // Import directly from assets - using the final image
 import heroImage from '../assets_dir/images/praetorian-hero-final.png';
 import { GradientButton } from "@/components/ui/gradient-button";
+import ResponsiveImage from '@/components/ResponsiveImage';
 
 const HeroSection = () => {
   return (
@@ -8,16 +9,15 @@ const HeroSection = () => {
       {/* Hero image container with responsive height */}
       <div className="relative w-full flex justify-center items-center" style={{ width: "100%" }}>
         {/* Hero image with natural proportions - responsive and optimized */}
-        {/* Using standard img tag with optimized loading attributes */}
-        <img 
+        {/* Using our ResponsiveImage component for optimized loading */}
+        <ResponsiveImage 
           src={heroImage} 
           alt="Praetorian SmartCoat Products" 
           className="w-full h-auto"
-          loading="eager"
-          width="1600"
-          height="800"
+          priority={true}
+          width={1600}
+          height={800}
           style={{ 
-            display: "block",
             objectFit: "contain",
             objectPosition: "top",
             width: "100%",
