@@ -1199,3 +1199,74 @@ export type FirePreventionHomeowner = typeof firePreventionHomeowners.$inferSele
 
 export type InsertProfessionalReview = z.infer<typeof insertProfessionalReviewSchema>;
 export type ProfessionalReview = typeof professionalReviews.$inferSelect;
+
+// RAG System Tables for Claude Chatbot
+export const ragDocuments = pgTable("rag_documents", {
+  id: serial("id").primaryKey(),
+  title: text("title").notNull(),
+  content: text("content").notNull(),
+  source: text("source"), // Where the document came from
+  category: text("category"), // Document category for filtering
+  metadata: jsonb("metadata"), // Additional information about the document
+  createdAt: timestamp("created_at").notNull().defaultNow(),
+  updatedAt: timestamp("updated_at").notNull().defaultNow(),
+  createdBy: integer("created_by").references(() => users.id),
+});
+
+export const ragChunks = pgTable("rag_chunks", {
+  id: serial("id").primaryKey(),
+  documentId: integer("document_id").notNull().references(() => ragDocuments.id, { onDelete: 'cascade' }),
+  content: text("content").notNull(),
+  chunkIndex: integer("chunk_index").notNull(), // Position in the original document
+  embedding: text("embedding"), // Text representation of vector embedding
+  metadata: jsonb("metadata"), // Additional chunk-specific information
+  createdAt: timestamp("created_at").notNull().defaultNow(),
+});
+
+export const ragChunkRelations = relations(ragChunks, ({ one }) => ({
+  document: one(ragDocuments, { fields: [ragChunks.documentId], references: [ragDocuments.id] }),
+}));
+
+export const chatSessions = pgTable("chat_sessions", {
+  id: serial("id").primaryKey(),
+  userId: integer("user_id").references(() => users.id),
+  sessionId: text("session_id").notNull().unique(), // Client-side generated UUID
+  title: text("title"), // Can be updated by the user or generated from the first message
+  active: boolean("active").notNull().default(true),
+  createdAt: timestamp("created_at").notNull().defaultNow(),
+  updatedAt: timestamp("updated_at").notNull().defaultNow(),
+});
+
+export const chatMessages = pgTable("chat_messages", {
+  id: serial("id").primaryKey(),
+  sessionId: text("session_id").notNull().references(() => chatSessions.sessionId, { onDelete: 'cascade' }),
+  role: text("role").notNull(), // 'user' or 'assistant'
+  content: text("content").notNull(),
+  citedDocuments: jsonb("cited_documents"), // Array of document IDs that were referenced
+  createdAt: timestamp("created_at").notNull().defaultNow(),
+});
+
+export const chatSessionRelations = relations(chatSessions, ({ many }) => ({
+  messages: many(chatMessages),
+}));
+
+export const chatMessageRelations = relations(chatMessages, ({ one }) => ({
+  session: one(chatSessions, { fields: [chatMessages.sessionId], references: [chatSessions.sessionId] }),
+}));
+
+// Insert schemas for RAG
+export const insertRagDocumentSchema = createInsertSchema(ragDocuments).omit({ id: true, createdAt: true, updatedAt: true });
+export type InsertRagDocument = z.infer<typeof insertRagDocumentSchema>;
+export type RagDocument = typeof ragDocuments.$inferSelect;
+
+export const insertRagChunkSchema = createInsertSchema(ragChunks).omit({ id: true, createdAt: true });
+export type InsertRagChunk = z.infer<typeof insertRagChunkSchema>;
+export type RagChunk = typeof ragChunks.$inferSelect;
+
+export const insertChatSessionSchema = createInsertSchema(chatSessions).omit({ id: true, createdAt: true, updatedAt: true });
+export type InsertChatSession = z.infer<typeof insertChatSessionSchema>;
+export type ChatSession = typeof chatSessions.$inferSelect;
+
+export const insertChatMessageSchema = createInsertSchema(chatMessages).omit({ id: true, createdAt: true });
+export type InsertChatMessage = z.infer<typeof insertChatMessageSchema>;
+export type ChatMessage = typeof chatMessages.$inferSelect;
