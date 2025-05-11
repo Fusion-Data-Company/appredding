@@ -3,7 +3,7 @@ import heroImage from '../assets_dir/images/praetorian-hero-final.png';
 
 const HeroSection = () => {
   return (
-    <section className="w-full bg-black overflow-visible pt-0 mt-0 relative" style={{ marginBottom: "0", zIndex: 20 }}>
+    <section className="w-full bg-black overflow-visible pt-0 mt-0 mb-0 relative" style={{ zIndex: 20 }}>
       {/* Ultra-realistic HD hero image stretched edge-to-edge */}
       <div className="w-full flex justify-center items-center overflow-visible py-0 my-0" style={{ height: "864px" }}>
         {/* Removed vignette overlay */}
@@ -26,8 +26,8 @@ const HeroSection = () => {
               className="absolute"
               style={{ 
                 display: "block",
-                objectFit: "cover",
-                objectPosition: "center", // Center the image
+                objectFit: "contain",
+                objectPosition: "top center", // Show full image including bottom
                 width: "100%", // Match hero section width exactly
                 maxWidth: "100vw", // Never exceed viewport width
                 height: "864px", // Increased by 4 inches (384px)
