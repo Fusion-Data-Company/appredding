@@ -27,12 +27,12 @@ export const StoneTextureBackground: React.FC<StoneTextureBackgroundProps> = ({
         }}
       />
       
-      {/* Frosted glass overlay */}
+      {/* Light grey to dark grey gradient overlay */}
       <div 
         className="absolute inset-0 z-0"
         style={{
+          background: 'linear-gradient(to bottom, rgba(180, 180, 190, 0.2), rgba(40, 40, 50, 0.4))',
           backdropFilter: 'blur(12px)',
-          backgroundColor: `rgba(20, 20, 30, ${frostGlassOpacity})`,
           boxShadow: 'inset 0 0 100px rgba(0,0,0,0.2)',
         }}
       />

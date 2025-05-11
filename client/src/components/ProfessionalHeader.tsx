@@ -89,6 +89,15 @@ const ProfessionalHeader = () => {
         frostGlassOpacity={scrolled ? 0.4 : 0.3}
       />
       
+      {/* Light grey to dark grey gradient overlay */}
+      <div 
+        className="absolute inset-0 z-[1]"
+        style={{
+          background: 'linear-gradient(to bottom, rgba(200, 200, 210, 0.3), rgba(60, 60, 70, 0.5))',
+          pointerEvents: 'none',
+        }}
+      />
+      
       {/* Noise texture overlay */}
       <div className="absolute inset-0 bg-[url('/src/assets_dir/images/noise.svg')] opacity-[0.04] bg-repeat bg-[length:200px_200px] mix-blend-overlay pointer-events-none animate-subtle-pulse"></div>
 
