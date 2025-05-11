@@ -14,7 +14,7 @@ const ApplicationCard = ({ imageSrc, title, description, link }: ApplicationCard
   const isWaterRelated = title === "Marine" || title === "Pool";
   
   return (
-    <div className="group relative rounded-lg overflow-hidden h-[580px] min-h-[580px] w-full block cursor-pointer dark:shadow-[0_0_60px_rgba(255,255,255,0.4)] shadow-[0_0_30px_rgba(0,0,0,0.25)] border-4 dark:border-white border-gray-300 transform transition-transform hover:scale-[1.03]" style={{height: "580px", minHeight: "580px", width: "100%"}}>
+    <div className="group relative rounded-lg overflow-hidden h-[400px] w-full block cursor-pointer dark:shadow-[0_0_60px_rgba(255,255,255,0.4)] shadow-[0_0_30px_rgba(0,0,0,0.25)] border-4 dark:border-white border-gray-300 transform transition-transform hover:scale-[1.03]">
       <img 
         src={imageSrc} 
         alt={title} 
@@ -23,15 +23,15 @@ const ApplicationCard = ({ imageSrc, title, description, link }: ApplicationCard
         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-      <div className="absolute bottom-0 left-0 p-10 w-full">
-        <h3 className="text-4xl font-semibold mb-5 text-white">{title}</h3>
-        <p className="text-gray-200 text-xl mb-10">{description}</p>
-        <div className="mt-6 opacity-0 group-hover:opacity-100 transition-opacity">
+      <div className="absolute bottom-0 left-0 p-6 w-full">
+        <h3 className="text-3xl font-semibold mb-3 text-white">{title}</h3>
+        <p className="text-gray-200 text-lg mb-6">{description}</p>
+        <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
           <Link href={link}>
             <GradientButton 
-              size="lg"
+              size="default"
               variant={isWaterRelated ? "variant" : "default"}
-              className="w-full md:w-auto font-semibold tracking-wider text-xl px-8 py-3"
+              className="w-full md:w-auto font-semibold tracking-wider"
             >
               Learn more
             </GradientButton>
@@ -108,7 +108,7 @@ const ApplicationsSection = () => {
           </div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10 px-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-2">
           {applications.map((app, index) => (
             <ApplicationCard
               key={index}
