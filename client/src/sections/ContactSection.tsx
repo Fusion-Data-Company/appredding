@@ -216,7 +216,8 @@ const ContactSection = () => {
               
               <GradientButton 
                 type="submit" 
-                className="w-full"
+                className="w-full font-semibold tracking-wider"
+                size="lg"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? "Sending..." : "Send Message"}

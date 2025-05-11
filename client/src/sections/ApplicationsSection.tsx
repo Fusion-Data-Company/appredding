@@ -31,7 +31,7 @@ const ApplicationCard = ({ imageSrc, title, description, link }: ApplicationCard
             <GradientButton 
               size="sm" 
               variant={isWaterRelated ? "variant" : "default"}
-              className="w-full md:w-auto"
+              className="w-full md:w-auto font-semibold tracking-wider"
             >
               Learn more
             </GradientButton>

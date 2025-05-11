@@ -22,7 +22,7 @@ const RotatingTextSection = () => {
               href="#applications" 
               className="inline-block"
             >
-              <GradientButton>
+              <GradientButton size="lg" className="font-semibold tracking-wider">
                 Explore Applications
               </GradientButton>
             </a>
@@ -30,7 +30,7 @@ const RotatingTextSection = () => {
               href="#contact" 
               className="inline-block ml-20"
             >
-              <GradientButton variant="variant">
+              <GradientButton size="lg" className="font-semibold tracking-wider">
                 Contact Us
               </GradientButton>
             </a>
