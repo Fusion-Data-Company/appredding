@@ -377,7 +377,21 @@ export default function CRMSection() {
         
         <TabsContent value="inventory" className="mt-6">
           <div className="card-premium p-6">
-            <h2 className="text-xl font-bold mb-4">Product Inventory</h2>
+            <div className="flex justify-between items-center mb-6">
+              <div>
+                <h2 className="text-xl font-bold gradient-text-orange mb-1">Product Inventory</h2>
+                <p className="text-gray-400 text-sm">Manage SmartCoat product stock levels</p>
+              </div>
+              
+              <PraetorianButton
+                variant="fire"
+                size="sm"
+                leftIcon={<PlusCircle size={16} />}
+                href="/crm-dashboard?tab=inventory"
+              >
+                Full Inventory
+              </PraetorianButton>
+            </div>
             <InventoryTable isAdmin={true} />
           </div>
         </TabsContent>

@@ -151,7 +151,7 @@ export function InventoryTable({ isAdmin }: InventoryTableProps) {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {inventory?.map((item) => (
+          {inventory && inventory.map((item: Inventory) => (
             <TableRow 
               key={item.id}
               className={isLowStock(item.quantity) ? "bg-red-50 dark:bg-red-950/20" : ""}

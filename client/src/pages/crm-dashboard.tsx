@@ -155,7 +155,17 @@ export default function CRMDashboard() {
           </TabsList>
           
           <TabsContent value="inventory" className="space-y-8">
-            <InventoryTable isAdmin={user.role === "admin"} />
+            <div className="bg-white dark:bg-gray-800 shadow rounded-lg p-6">
+              <div className="flex justify-between items-center mb-6">
+                <div>
+                  <h2 className="text-xl font-bold gradient-text-orange mb-1">Product Inventory</h2>
+                  <p className="text-gray-500 dark:text-gray-400 text-sm">
+                    Manage SmartCoat product stock levels and reorder supplies
+                  </p>
+                </div>
+              </div>
+              <InventoryTable isAdmin={user.role === "admin"} />
+            </div>
           </TabsContent>
           
           <TabsContent value="orders" className="space-y-8">
