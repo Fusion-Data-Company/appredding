@@ -25,10 +25,10 @@ const HeroSection = () => {
               maxWidth: "none", 
               width: "110vw", // Wider stretch to reach past edges
               marginLeft: "-5vw", // Adjustment for centering
-              marginTop: "-120px", // Force push up by half an inch
+              marginTop: "-25px", // Force push up by half an inch
               marginBottom: "0", // Remove bottom margin
               filter: "drop-shadow(0 0 25px rgba(0,0,0,0.9))",
-              zIndex: 100 // Move to the front
+              zIndex: 10 // Move to the front
             }}
           />
         </div>
