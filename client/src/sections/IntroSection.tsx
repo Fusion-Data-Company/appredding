@@ -4,23 +4,24 @@ import { GradientHeading } from "@/components/ui/gradient-heading";
 const IntroSection = () => {
   return (
     <section 
-      className="py-16 relative"
+      className="py-28 relative"
       style={{ 
         backgroundImage: "url('/images/optimized/diamond-plate-orange-blue.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
-        backgroundRepeat: "no-repeat"
+        backgroundRepeat: "no-repeat",
+        minHeight: "90vh" // Ensure minimum height to avoid compression
       }}
     >
       {/* Semi-transparent overlay for better readability */}
       <div className="absolute inset-0 bg-black/30"></div>
       <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-3xl mx-auto text-center">
-          <div className="dark:bg-gray-800/60 bg-gray-100/90 backdrop-blur-xl rounded-xl border-4 dark:border-white border-gray-300 dark:shadow-[0_0_40px_rgba(255,255,255,0.4)] shadow-[0_0_30px_rgba(0,0,0,0.25)] py-8 px-6 md:px-10 mx-auto max-w-3xl mb-8">
-            <GradientHeading level={1} className="text-3xl md:text-4xl mb-4" variant="mixed">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="dark:bg-gray-800/60 bg-gray-100/90 backdrop-blur-xl rounded-xl border-4 dark:border-white border-gray-300 dark:shadow-[0_0_40px_rgba(255,255,255,0.4)] shadow-[0_0_30px_rgba(0,0,0,0.25)] py-10 px-8 md:px-12 mx-auto max-w-4xl mb-12">
+            <GradientHeading level={1} className="text-4xl md:text-5xl mb-6" variant="mixed">
               Advanced Protection Technology
             </GradientHeading>
-            <p className="dark:text-gray-300 text-gray-700">
+            <p className="dark:text-gray-300 text-gray-700 text-lg md:text-xl">
               Our cutting-edge solutions provide unmatched durability and performance in the most extreme conditions.
             </p>
           </div>

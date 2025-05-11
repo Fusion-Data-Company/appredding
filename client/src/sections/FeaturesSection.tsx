@@ -6,12 +6,12 @@ const FeatureCard = ({ icon, title, description, index }: { icon: string; title:
   const variant = variants[index % variants.length] as "fire" | "blue" | "mixed";
   
   return (
-    <div className="dark:bg-gradient-to-r dark:from-gray-800/90 dark:to-gray-700/90 bg-gray-100/90 backdrop-blur-md rounded-lg p-8 text-center hover:transform hover:-translate-y-1 transition-transform dark:border dark:border-gray-600/40 border border-gray-300 dark:shadow-[0_0_20px_rgba(255,255,255,0.25)] shadow-[0_0_20px_rgba(0,0,0,0.25)]">
-      <div className="inline-flex items-center justify-center w-16 h-16 mb-6 dark:bg-gradient-to-r dark:from-gray-700 dark:to-gray-600 bg-gradient-to-r from-gray-200 to-gray-300 rounded-full dark:shadow-[0_0_10px_rgba(255,255,255,0.2)] shadow-[0_0_10px_rgba(0,0,0,0.15)]">
-        <i className={`${icon} dark:text-white text-gray-700 text-3xl`}></i>
+    <div className="dark:bg-gradient-to-r dark:from-gray-800/90 dark:to-gray-700/90 bg-gray-100/90 backdrop-blur-md rounded-lg p-10 text-center transform transition-all hover:-translate-y-2 hover:scale-105 dark:border dark:border-gray-600/40 border border-gray-300 dark:shadow-[0_0_20px_rgba(255,255,255,0.25)] shadow-[0_0_20px_rgba(0,0,0,0.25)]">
+      <div className="inline-flex items-center justify-center w-20 h-20 mb-8 dark:bg-gradient-to-r dark:from-gray-700 dark:to-gray-600 bg-gradient-to-r from-gray-200 to-gray-300 rounded-full dark:shadow-[0_0_10px_rgba(255,255,255,0.2)] shadow-[0_0_10px_rgba(0,0,0,0.15)]">
+        <i className={`${icon} dark:text-white text-gray-700 text-4xl`}></i>
       </div>
-      <GradientHeading level={3} className="text-xl mb-3" variant={variant}>{title}</GradientHeading>
-      <p className="dark:text-[#a0a0a0] text-gray-700">{description}</p>
+      <GradientHeading level={3} className="text-2xl mb-5" variant={variant}>{title}</GradientHeading>
+      <p className="dark:text-[#a0a0a0] text-gray-700 text-lg">{description}</p>
     </div>
   );
 };
@@ -37,20 +37,21 @@ const FeaturesSection = () => {
 
   return (
     <section 
-      className="py-20 relative" 
+      className="py-28 relative" 
       id="features"
       style={{
         backgroundImage: 'url("/images/fire-water-hq.jpg")',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
+        minHeight: "85vh" // Ensure minimum height to avoid compression
       }}
     >
       {/* Overlay to ensure text readability */}
       <div className="absolute inset-0 bg-black/20"></div>
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-16">
-          <div className="dark:bg-gray-800/60 bg-gray-100/90 backdrop-blur-xl rounded-xl dark:border dark:border-gray-600/40 border border-gray-300 dark:shadow-[0_0_20px_rgba(255,255,255,0.25)] shadow-[0_0_20px_rgba(0,0,0,0.25)] py-8 px-6 md:px-10 mx-auto max-w-3xl mb-8 inline-block">
+        <div className="text-center mb-24">
+          <div className="dark:bg-gray-800/60 bg-gray-100/90 backdrop-blur-xl rounded-xl dark:border dark:border-gray-600/40 border border-gray-300 dark:shadow-[0_0_20px_rgba(255,255,255,0.25)] shadow-[0_0_20px_rgba(0,0,0,0.25)] py-10 px-8 md:px-12 mx-auto max-w-4xl mb-10 inline-block">
             <GradientHeading level={2} className="text-3xl md:text-4xl mb-4" variant="mixed">Superior Protection Features</GradientHeading>
             <p className="dark:text-[#a0a0a0] text-gray-700 max-w-2xl mx-auto">
               Our specially formulated coatings are designed to withstand extreme conditions while providing long-lasting protection for your assets.
@@ -58,7 +59,7 @@ const FeaturesSection = () => {
           </div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {features.map((feature, index) => (
             <FeatureCard
               key={index}
