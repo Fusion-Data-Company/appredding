@@ -14,7 +14,7 @@ const ApplicationCard = ({ imageSrc, title, description, link }: ApplicationCard
   const isWaterRelated = title === "Marine" || title === "Pool";
   
   return (
-    <div className="group relative rounded-lg overflow-hidden h-[450px] block cursor-pointer dark:shadow-[0_0_60px_rgba(255,255,255,0.4)] shadow-[0_0_30px_rgba(0,0,0,0.25)] border-4 dark:border-white border-gray-300">
+    <div className="group relative rounded-lg overflow-hidden h-[500px] block cursor-pointer dark:shadow-[0_0_60px_rgba(255,255,255,0.4)] shadow-[0_0_30px_rgba(0,0,0,0.25)] border-4 dark:border-white border-gray-300 transform transition-transform hover:scale-105">
       <img 
         src={imageSrc} 
         alt={title} 
@@ -84,20 +84,21 @@ const ApplicationsSection = () => {
 
   return (
     <section 
-      className="py-20 relative" 
+      className="py-24 relative" 
       id="applications"
       style={{
         backgroundImage: 'url("/images/optimized/diamond-plate-fire-water-2.jpg")',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
+        minHeight: "90vh" // Ensure minimum height to avoid compression
       }}
     >
       {/* Overlay to ensure text readability */}
       <div className="absolute inset-0 bg-black/20"></div>
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-16">
-          <div className="dark:bg-gray-800/60 bg-gray-100/90 backdrop-blur-xl rounded-xl dark:border dark:border-gray-600/40 border border-gray-300 dark:shadow-[0_0_20px_rgba(255,255,255,0.25)] shadow-[0_0_20px_rgba(0,0,0,0.25)] py-8 px-6 md:px-10 mx-auto max-w-3xl mb-8 inline-block">
+        <div className="text-center mb-20">
+          <div className="dark:bg-gray-800/60 bg-gray-100/90 backdrop-blur-xl rounded-xl dark:border dark:border-gray-600/40 border border-gray-300 dark:shadow-[0_0_20px_rgba(255,255,255,0.25)] shadow-[0_0_20px_rgba(0,0,0,0.25)] py-10 px-8 md:px-12 mx-auto max-w-4xl mb-10 inline-block">
             <GradientHeading className="text-3xl md:text-4xl mb-4">Specialized Applications</GradientHeading>
             <p className="dark:text-[#a0a0a0] text-gray-700 max-w-2xl mx-auto">
               Our protective coatings are engineered for specific environments and challenges across various industries.
@@ -105,7 +106,7 @@ const ApplicationsSection = () => {
           </div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {applications.map((app, index) => (
             <ApplicationCard
               key={index}

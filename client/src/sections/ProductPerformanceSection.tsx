@@ -120,14 +120,14 @@ const ProductPerformanceSection = () => {
                       <td className="text-center py-4 px-2 text-primary-400 font-semibold">200+ in-lb</td>
                     </tr>
                     <tr className="border-b border-gray-600/40">
-                      <td className="py-3">VOC Content</td>
-                      <td className="text-center">100-250 g/L</td>
-                      <td className="text-center text-primary-400 font-semibold">&lt;50 g/L</td>
+                      <td className="py-4 px-2">VOC Content</td>
+                      <td className="text-center py-4 px-2">100-250 g/L</td>
+                      <td className="text-center py-4 px-2 text-primary-400 font-semibold">&lt;50 g/L</td>
                     </tr>
                     <tr>
-                      <td className="py-3">Application Temperature Range</td>
-                      <td className="text-center">50-90°F</td>
-                      <td className="text-center text-primary-400 font-semibold">35-110°F</td>
+                      <td className="py-4 px-2">Application Temperature Range</td>
+                      <td className="text-center py-4 px-2">50-90°F</td>
+                      <td className="text-center py-4 px-2 text-primary-400 font-semibold">35-110°F</td>
                     </tr>
                   </tbody>
                 </table>
