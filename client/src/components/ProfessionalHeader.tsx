@@ -99,18 +99,27 @@ const ProfessionalHeader = () => {
         <div className="relative">
           {/* Dark drop shadow behind the bucket */}
           <div className="absolute inset-0 rounded-full bg-black/30 blur-md -z-10 scale-91 translate-x-1 translate-y-[0px]"></div>
-          <img 
-            src={praetorianBucketNew} 
-            alt="Praetorian Bucket" 
-            className="h-[140px] w-auto relative"
-            style={{ 
-              filter: 'contrast(1.3) brightness(1.15)',
-              transform: 'perspective(800px) rotateY(-5deg) scale(1.6) translateY(0px)',
-              transformStyle: 'preserve-3d',
-              marginLeft: '-5px',
-              marginTop: '-15px'
-            }}
-          />
+          <div className="relative">
+            <img 
+              src={praetorianBucketNew} 
+              alt="Praetorian Bucket" 
+              className="h-[140px] w-auto relative"
+              style={{ 
+                filter: 'contrast(1.3) brightness(1.15)',
+                transform: 'perspective(800px) rotateY(-5deg) scale(1.6) translateY(0px)',
+                transformStyle: 'preserve-3d',
+                marginLeft: '-5px',
+                marginTop: '-15px'
+              }}
+            />
+            
+            {/* SmartCoat text centered below bucket */}
+            <div className="absolute bottom-[-35px] left-0 right-0 flex justify-center w-[180px] text-center translate-x-[35px]">
+              <span className="text-[1.05rem] text-slate-700 dark:text-slate-400 font-medium tracking-widest uppercase hover:text-black dark:hover:text-white transition-colors duration-300">
+                <span className="bg-gradient-to-r from-slate-700 to-slate-900 dark:from-slate-300 dark:to-slate-400 bg-clip-text text-transparent hover:from-slate-800 hover:to-black dark:hover:from-gray-200 dark:hover:to-white transition-all duration-500 font-semibold">SmartCoat</span>
+              </span>
+            </div>
+          </div>
         </div>
       </Link>
 
@@ -131,11 +140,7 @@ const ProfessionalHeader = () => {
                   }}
                 />
                 
-                <div className="absolute bottom-[-29px] left-[260px] whitespace-nowrap text-center w-[268px]">
-                  <span className="text-[1.05rem] text-slate-700 dark:text-slate-400 font-medium tracking-widest uppercase group-hover:text-black dark:group-hover:text-white transition-colors duration-300">
-                    <span className="bg-gradient-to-r from-slate-700 to-slate-900 dark:from-slate-300 dark:to-slate-400 bg-clip-text text-transparent group-hover:from-slate-800 group-hover:to-black dark:group-hover:from-gray-200 dark:group-hover:to-white transition-all duration-500 font-semibold">SmartCoat</span>
-                  </span>
-                </div>
+
               </div>
             </div>
           </Link>
