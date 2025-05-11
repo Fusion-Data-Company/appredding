@@ -28,30 +28,60 @@ async function optimizeImages() {
     const inputPath = path.join(imagesDir, file);
     const fileStats = fs.statSync(inputPath);
     const fileSizeMB = fileStats.size / (1024 * 1024);
+    const filename = path.parse(file).name;
     
-    // Skip small files under 1MB
-    if (fileSizeMB < 1) {
-      console.log(`Skipping ${file} (${fileSizeMB.toFixed(2)}MB) - already small`);
+    // Skip small files under 100KB
+    if (fileSizeMB < 0.1) {
+      console.log(`Skipping ${file} (${(fileSizeMB * 1024).toFixed(2)}KB) - already small`);
       continue;
     }
     
-    const outputPath = path.join(optimizedDir, file);
+    const outputJpg = path.join(optimizedDir, file);
+    const outputWebp = path.join(optimizedDir, `${filename}.webp`);
+    const outputAvif = path.join(optimizedDir, `${filename}.avif`);
     
     try {
       // More aggressive compression for larger files
       const quality = fileSizeMB > 10 ? 60 : fileSizeMB > 5 ? 70 : 80;
+      const avifQuality = Math.max(quality - 15, 40); // AVIF can use lower quality with good results
       
-      console.log(`Optimizing ${file} (${fileSizeMB.toFixed(2)}MB) with quality ${quality}...`);
+      console.log(`Optimizing ${file} (${fileSizeMB.toFixed(2)}MB) to multiple formats...`);
       
-      await sharp(inputPath)
+      // Original format optimized with mozjpeg
+      const originalImage = sharp(inputPath);
+      await originalImage
         .jpeg({ quality, mozjpeg: true })
-        .toFile(outputPath);
+        .toFile(outputJpg);
       
-      const newStats = fs.statSync(outputPath);
-      const newSizeMB = newStats.size / (1024 * 1024);
-      const savings = ((1 - newSizeMB / fileSizeMB) * 100).toFixed(2);
+      // WebP version (typically 25-35% smaller than JPEG)
+      await originalImage
+        .webp({ quality, effort: 6 })
+        .toFile(outputWebp);
       
-      console.log(`Optimized ${file}: ${fileSizeMB.toFixed(2)}MB → ${newSizeMB.toFixed(2)}MB (${savings}% reduction)`);
+      // AVIF version (typically 50% smaller than JPEG)
+      await originalImage
+        .avif({ quality: avifQuality, effort: 9 })
+        .toFile(outputAvif);
+      
+      // Report file size reductions
+      const newJpgStats = fs.statSync(outputJpg);
+      const newWebpStats = fs.statSync(outputWebp);
+      const newAvifStats = fs.statSync(outputAvif);
+      
+      const newJpgSizeMB = newJpgStats.size / (1024 * 1024);
+      const newWebpSizeMB = newWebpStats.size / (1024 * 1024);
+      const newAvifSizeMB = newAvifStats.size / (1024 * 1024);
+      
+      const jpgSavings = ((1 - newJpgSizeMB / fileSizeMB) * 100).toFixed(2);
+      const webpSavings = ((1 - newWebpSizeMB / fileSizeMB) * 100).toFixed(2);
+      const avifSavings = ((1 - newAvifSizeMB / fileSizeMB) * 100).toFixed(2);
+      
+      console.log(`Image ${file} optimized:
+        Original: ${fileSizeMB.toFixed(2)}MB
+        JPEG:     ${newJpgSizeMB.toFixed(2)}MB (${jpgSavings}% reduction)
+        WebP:     ${newWebpSizeMB.toFixed(2)}MB (${webpSavings}% reduction)
+        AVIF:     ${newAvifSizeMB.toFixed(2)}MB (${avifSavings}% reduction)
+      `);
     } catch (err) {
       console.error(`Error processing ${file}:`, err);
     }

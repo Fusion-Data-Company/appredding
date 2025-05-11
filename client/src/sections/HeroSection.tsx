@@ -8,36 +8,25 @@ const HeroSection = () => {
       {/* Hero image container with responsive height */}
       <div className="relative w-full flex justify-center items-center" style={{ width: "100%" }}>
         {/* Hero image with natural proportions - responsive and optimized */}
-        <picture>
-          {/* AVIF format for browsers that support it */}
-          <source 
-            srcSet={`${heroImage.replace('.png', '.avif')}`} 
-            type="image/avif" 
-          />
-          {/* WebP format for browsers that support it */}
-          <source 
-            srcSet={`${heroImage.replace('.png', '.webp')}`} 
-            type="image/webp" 
-          />
-          {/* Fallback to original PNG */}
-          <img 
-            src={heroImage} 
-            alt="Praetorian SmartCoat Products" 
-            className="w-full h-auto"
-            loading="eager"
-            fetchpriority="high"
-            style={{ 
-              display: "block",
-              objectFit: "contain",
-              objectPosition: "top",
-              width: "100%",
-              maxHeight: "90vh",
-              filter: "contrast(1.05) saturate(1.1)",
-              transformOrigin: "center",
-              transform: "scaleX(1.025)" /* Stretch by 2.5% horizontally */
-            }}
-          />
-        </picture>
+        {/* Using standard img tag with optimized loading attributes */}
+        <img 
+          src={heroImage} 
+          alt="Praetorian SmartCoat Products" 
+          className="w-full h-auto"
+          loading="eager"
+          width="1600"
+          height="800"
+          style={{ 
+            display: "block",
+            objectFit: "contain",
+            objectPosition: "top",
+            width: "100%",
+            maxHeight: "90vh",
+            filter: "contrast(1.05) saturate(1.1)",
+            transformOrigin: "center",
+            transform: "scaleX(1.025)" /* Stretch by 2.5% horizontally */
+          }}
+        />
         
         {/* Buttons positioned responsively over the image */}
         <div className="absolute w-full md:w-auto" style={{ 

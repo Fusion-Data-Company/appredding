@@ -46,14 +46,14 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
 
   return (
     <section 
-      className="py-20 relative" 
+      className="py-20 relative md:py-24 lg:py-28" 
       id="videos"
       style={{ 
         backgroundImage: `url(${backgroundImg})`,
         backgroundSize: "cover",
         backgroundPosition: "center bottom", // Position at bottom to continue from FAQ section
         backgroundRepeat: "no-repeat",
-        backgroundAttachment: "fixed", // This creates the parallax effect
+        backgroundAttachment: "scroll", // Changed from fixed for better mobile performance
         backgroundColor: "#111111",
         position: "relative", 
         zIndex: 0
@@ -82,15 +82,17 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
                       <video 
                         ref={videoRef}
                         className="w-full h-full object-contain"
-                        src={productDemoVideo}
+                        preload="metadata"
+                        poster="/images/video-poster.jpg"
                         controls
-                        autoPlay
                         muted
-                        loop
                         playsInline
                         onLoadedData={() => console.log("Video loaded successfully")}
                         onError={(e) => console.error("Video error:", e)}
-                      ></video>
+                      >
+                        <source src={productDemoVideo} type="video/mp4" />
+                        Your browser does not support the video tag.
+                      </video>
                     </div>
                   ) : (
                     <iframe
