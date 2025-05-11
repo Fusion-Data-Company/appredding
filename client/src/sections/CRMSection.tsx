@@ -162,7 +162,7 @@ export default function CRMSection() {
       </div>
 
       <Tabs defaultValue="analytics" className="w-full">
-        <TabsList className="grid w-full grid-cols-2 md:grid-cols-6 bg-gray-800/50 rounded-lg p-1">
+        <TabsList className="grid w-full grid-cols-2 md:grid-cols-7 bg-gray-800/50 rounded-lg p-1">
           <TabsTrigger value="analytics" className="flex items-center gap-2">
             <BarChart3 className="h-4 w-4" />
             <span className="hidden md:inline">Analytics</span>
@@ -178,6 +178,10 @@ export default function CRMSection() {
           <TabsTrigger value="opportunities" className="flex items-center gap-2">
             <FileEdit className="h-4 w-4" />
             <span className="hidden md:inline">Opportunities</span>
+          </TabsTrigger>
+          <TabsTrigger value="inventory" className="flex items-center gap-2">
+            <Package className="h-4 w-4" />
+            <span className="hidden md:inline">Inventory</span>
           </TabsTrigger>
           <TabsTrigger value="calendar" className="flex items-center gap-2">
             <Calendar className="h-4 w-4" />
@@ -369,6 +373,13 @@ export default function CRMSection() {
               ))}
             </div>
           )}
+        </TabsContent>
+        
+        <TabsContent value="inventory" className="mt-6">
+          <div className="card-premium p-6">
+            <h2 className="text-xl font-bold mb-4">Product Inventory</h2>
+            <InventoryTable isAdmin={true} />
+          </div>
         </TabsContent>
 
         <TabsContent value="calendar" className="mt-6">
