@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useLocation, useNavigate } from "wouter";
+import { useLocation } from "wouter";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -42,15 +42,17 @@ export default function CrmLoginPage() {
   const { toast } = useToast();
   
   // Check if user is already logged in
-  const { data: currentUser, isLoading: checkingAuth } = useQuery({
+  const { data: currentUser, isLoading: checkingAuth } = useQuery<any>({
     queryKey: ["/api/crm/auth/me"],
-    retry: false,
-    onSuccess: (data) => {
-      if (data) {
-        navigate("/crm-dashboard");
-      }
-    },
+    retry: false
   });
+  
+  // Redirect if user is logged in
+  React.useEffect(() => {
+    if (currentUser) {
+      window.location.href = "/crm-dashboard";
+    }
+  }, [currentUser]);
   
   // Login mutation
   const loginMutation = useMutation({
@@ -63,7 +65,7 @@ export default function CrmLoginPage() {
         title: "Login successful",
         description: "Welcome to the Praetorian CRM",
       });
-      navigate("/crm-dashboard");
+      window.location.href = "/crm-dashboard";
     },
     onError: (error: Error) => {
       toast({
@@ -104,7 +106,7 @@ export default function CrmLoginPage() {
   
   return (
     <div className="flex flex-col min-h-screen">
-      <ProfessionalHeader hideButtons />
+      <ProfessionalHeader />
       
       <div className="flex-1 flex items-center justify-center px-4 py-12">
         <div className="w-full max-w-md space-y-4">
