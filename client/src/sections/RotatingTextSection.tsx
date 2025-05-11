@@ -22,7 +22,12 @@ const RotatingTextSection = () => {
             <a 
               href="#applications" 
               className="inline-block"
-              style={{ marginLeft: "-288px" }} 
+              style={{ 
+                marginLeft: "0px", /* Reset left margin */
+                position: "relative",
+                right: "-288px", /* Move 3 inches right */
+                top: "-288px"  /* Move 3 inches up */
+              }} 
             >
               <GradientButton size="lg" className="font-semibold tracking-wider">
                 Explore Applications
