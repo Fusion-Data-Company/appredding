@@ -7,19 +7,16 @@ const HeroSection = () => {
   return (
     <section className="w-full bg-black overflow-visible pt-0 mt-0 mb-0 relative" style={{ zIndex: 20 }}>
       {/* Ultra-realistic HD hero image stretched edge-to-edge */}
-      <div className="w-full flex justify-center items-center overflow-visible py-0 my-0" style={{ height: "864px" }}>
+      <div className="w-full flex justify-center items-center overflow-visible py-0 my-0" style={{ height: "auto" }}>
         {/* Removed vignette overlay */}
         
         {/* Removed black bar */}
         
         {/* The hero image with enhanced styling for ultra-realistic appearance */}
-        <div className="relative w-full overflow-visible" style={{ height: "864px" }}>
-          <div className="absolute inset-0" style={{ 
-            overflow: 'hidden',
+        <div className="relative w-full overflow-visible" style={{ height: "auto" }}>
+          <div className="relative w-full" style={{ 
+            overflow: 'visible',
             width: '100%', // Using full width of the container
-            height: '100%',
-            left: '0',
-            right: '0',
             padding: 0,
             margin: 0,
             zIndex: 5
@@ -30,17 +27,13 @@ const HeroSection = () => {
               className="w-full h-full"
               style={{ 
                 display: "block",
-                objectFit: "fill", // Stretches to fill the container
-                objectPosition: "center",
+                objectFit: "contain", // Maintain aspect ratio
+                objectPosition: "top",
                 width: "100%", // Full width
-                height: "100%", // Full height
+                height: "auto", // Auto height to maintain aspect ratio
                 maxWidth: "none", // Allow stretching beyond viewport if needed
                 minWidth: "100%", // Ensure minimum width is container width
-                position: "absolute",
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
+                position: "relative", // Changed to relative
                 filter: "contrast(1.05) saturate(1.1)" // Enhance colors slightly for ultra-realistic look
               }}
             />
@@ -50,16 +43,21 @@ const HeroSection = () => {
         {/* Gradient overlay removed */}
       </div>
       
-      {/* Buttons positioned absolutely on top with maximum z-index */}
-      <div className="fixed top-0 left-0 right-0 w-full" style={{ zIndex: 999999, pointerEvents: "none" }}>
-        <div className="container mx-auto relative" style={{ height: "864px" }}>
+      {/* Buttons positioned over the hero image, next to the buckets */}
+      <div className="absolute w-full" style={{ 
+        zIndex: 999999, 
+        pointerEvents: "none",
+        top: "67%", /* Position aligned with the buckets */
+        left: 0,
+        right: 0
+      }}>
+        <div className="container mx-auto px-4 relative">
           <a 
             href="#applications" 
             className="inline-block"
             style={{ 
               position: "absolute",
-              left: "0", 
-              bottom: "32px",
+              left: "15%", /* Left bucket position */
               pointerEvents: "auto"
             }} 
           >
@@ -72,8 +70,7 @@ const HeroSection = () => {
             className="inline-block"
             style={{ 
               position: "absolute",
-              right: "0", 
-              bottom: "32px",
+              right: "15%", /* Right bucket position */
               pointerEvents: "auto"
             }} 
           >
