@@ -317,24 +317,34 @@ const ChatWidget = () => {
           {/* Messages Container */}
           <CardContent className="flex-1 overflow-y-auto p-4 flex flex-col gap-4">
             {isLoadingMessages ? (
-              <div className="flex justify-center items-center h-full">
-                <Loader2 className="h-8 w-8 animate-spin text-primary" />
+              <div className="flex flex-col justify-center items-center h-full gap-3">
+                <div className="w-16 h-16 rounded-full bg-gradient-to-r from-blue-700 to-orange-700 flex items-center justify-center shadow-[0_0_20px_rgba(255,255,255,0.15)]">
+                  <Loader2 className="h-8 w-8 animate-spin text-white" />
+                </div>
+                <p className="text-gray-400 font-medium">Loading conversation...</p>
               </div>
             ) : isMessagesError ? (
-              <div className="flex justify-center items-center h-full">
-                <p className="text-destructive">
-                  Failed to load messages. Please try again.
-                </p>
+              <div className="flex flex-col justify-center items-center h-full gap-4">
+                <div className="w-16 h-16 rounded-full bg-red-700/80 flex items-center justify-center shadow-[0_0_20px_rgba(255,100,100,0.3)]">
+                  <X className="h-8 w-8 text-white" />
+                </div>
+                <div className="bg-gray-900/90 p-5 rounded-lg border border-red-500/30 shadow-lg">
+                  <p className="text-red-400 font-medium">
+                    Failed to load messages. Please try again.
+                  </p>
+                </div>
               </div>
             ) : messages.length === 0 ? (
-              <div className="flex flex-col justify-center items-center h-full gap-4 text-center">
-                <MessageSquare className="h-12 w-12 text-muted-foreground" />
-                <div>
-                  <h3 className="text-lg font-medium text-foreground mb-1">
+              <div className="flex flex-col justify-center items-center h-full gap-6 text-center">
+                <div className="w-20 h-20 rounded-full bg-gradient-to-r from-blue-700 to-orange-700 flex items-center justify-center shadow-[0_0_30px_rgba(255,255,255,0.2)]">
+                  <MessageSquare className="h-10 w-10 text-white" />
+                </div>
+                <div className="bg-gradient-to-r from-gray-900/80 to-gray-800/80 backdrop-blur-xl p-6 rounded-xl border border-white/10 shadow-lg max-w-sm">
+                  <h3 className="text-xl font-semibold text-white mb-3">
                     Welcome to Praetorian Chat
                   </h3>
-                  <p className="text-sm text-muted-foreground max-w-xs">
-                    Ask me anything about Praetorian SmartCoat products, applications, or services!
+                  <p className="text-gray-300 max-w-xs leading-relaxed">
+                    Ask me anything about Praetorian SmartCoat products, applications, or services. I'm here to assist with technical specifications, application guides, and product recommendations.
                   </p>
                 </div>
               </div>
@@ -359,8 +369,8 @@ const ChatWidget = () => {
                   </div>
                   
                   {msg.role === "assistant" && msg.citedDocuments && msg.citedDocuments.length > 0 && (
-                    <div className="mt-1 text-xs text-muted-foreground">
-                      <p>Sources: Documents {msg.citedDocuments.join(', ')}</p>
+                    <div className="mt-2 text-xs bg-gray-800/80 text-gray-300 px-3 py-2 rounded-md border border-blue-500/30 inline-block shadow-sm">
+                      <p className="font-medium">Sources: <span className="text-blue-300">Documents {msg.citedDocuments.join(', ')}</span></p>
                     </div>
                   )}
                 </div>
@@ -368,10 +378,14 @@ const ChatWidget = () => {
             )}
             {sendMessageMutation.isPending && (
               <div className="flex items-start">
-                <div className="bg-accent text-accent-foreground px-4 py-2 rounded-lg">
-                  <div className="flex items-center gap-2">
-                    <Loader2 className="h-4 w-4 animate-spin" />
-                    <span className="text-sm">Thinking...</span>
+                <div className="bg-gradient-to-r from-blue-800 to-blue-700 text-white px-5 py-3 rounded-lg shadow-md">
+                  <div className="flex items-center gap-3">
+                    <div className="flex space-x-1">
+                      <span className="w-2 h-2 bg-white rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></span>
+                      <span className="w-2 h-2 bg-white rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></span>
+                      <span className="w-2 h-2 bg-white rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></span>
+                    </div>
+                    <span className="text-sm font-medium">Praetorian Assistant is thinking...</span>
                   </div>
                 </div>
               </div>
@@ -382,19 +396,20 @@ const ChatWidget = () => {
           {/* Input Area */}
           <CardFooter className="flex-shrink-0 border-t p-5 bg-gradient-to-r from-gray-900/80 to-gray-800/80 backdrop-blur-lg">
             <div className="flex flex-col gap-2 w-full">
-              <div className="flex items-center justify-between mb-1">
-                <div className="flex items-center space-x-2">
+              <div className="flex items-center justify-between mb-3">
+                <div className="flex items-center space-x-3">
                   <Switch
                     id="use-rag"
                     checked={useRAG}
                     onCheckedChange={setUseRAG}
+                    className="data-[state=checked]:bg-gradient-to-r from-blue-600 to-orange-600"
                   />
-                  <Label htmlFor="use-rag" className="text-xs">
-                    Use knowledge base
+                  <Label htmlFor="use-rag" className="text-sm text-white/80 font-medium">
+                    Use Praetorian knowledge base
                   </Label>
                 </div>
               </div>
-              <div className="flex w-full items-center gap-2">
+              <div className="flex w-full items-center gap-3">
                 <Input
                   ref={inputRef}
                   placeholder="Type your message..."
@@ -402,14 +417,15 @@ const ChatWidget = () => {
                   onChange={(e) => setMessage(e.target.value)}
                   onKeyDown={handleKeyDown}
                   disabled={sendMessageMutation.isPending}
-                  className="flex-1"
+                  className="flex-1 bg-white/10 border-white/20 text-white placeholder:text-white/60 py-6 rounded-lg"
                 />
                 <Button
                   onClick={handleSendMessage}
                   disabled={!message.trim() || sendMessageMutation.isPending}
                   size="icon"
+                  className="h-12 w-12 rounded-full bg-gradient-to-r from-blue-600 to-orange-600 hover:from-blue-500 hover:to-orange-500 text-white"
                 >
-                  <Send className="h-4 w-4" />
+                  <Send className="h-5 w-5" />
                 </Button>
               </div>
             </div>
@@ -421,9 +437,9 @@ const ChatWidget = () => {
       <Button
         onClick={toggleWidget}
         size="icon"
-        className="h-12 w-12 rounded-full shadow-lg"
+        className="h-14 w-14 rounded-full shadow-[0_0_20px_rgba(255,255,255,0.25)] bg-gradient-to-r from-blue-700 to-orange-700 hover:from-blue-600 hover:to-orange-600 border-2 border-white/20"
       >
-        <MessageSquare className="h-6 w-6" />
+        <MessageSquare className="h-7 w-7 text-white" />
       </Button>
     </div>
   );
