@@ -49,6 +49,40 @@ const HeroSection = () => {
         
         {/* Gradient overlay removed */}
       </div>
+      
+      {/* Buttons positioned absolutely on top with maximum z-index */}
+      <div className="fixed top-0 left-0 right-0 w-full" style={{ zIndex: 999999, pointerEvents: "none" }}>
+        <div className="container mx-auto relative" style={{ height: "864px" }}>
+          <a 
+            href="#applications" 
+            className="inline-block"
+            style={{ 
+              position: "absolute",
+              left: "0", 
+              bottom: "32px",
+              pointerEvents: "auto"
+            }} 
+          >
+            <GradientButton size="lg" className="font-semibold tracking-wider shadow-2xl shadow-black/80">
+              Explore Applications
+            </GradientButton>
+          </a>
+          <a 
+            href="#contact" 
+            className="inline-block"
+            style={{ 
+              position: "absolute",
+              right: "0", 
+              bottom: "32px",
+              pointerEvents: "auto"
+            }} 
+          >
+            <GradientButton size="lg" className="font-semibold tracking-wider shadow-2xl shadow-black/80">
+              Contact Us
+            </GradientButton>
+          </a>
+        </div>
+      </div>
     </section>
   );
 };
