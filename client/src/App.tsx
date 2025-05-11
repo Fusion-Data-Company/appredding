@@ -26,6 +26,7 @@ import StyleShowcase from "@/pages/StyleShowcase";
 import CrmLogin from "@/pages/crm-login";
 import CrmDashboard from "@/pages/crm-dashboard";
 import RAGDocumentsPage from "@/pages/rag-documents";
+import ChatPage from "@/pages/chat";
 import { AuthProvider } from "@/hooks/use-auth";
 import { ProtectedRoute } from "@/components/ProtectedRoute";
 
@@ -67,6 +68,8 @@ function Router() {
       <Route path="/style-showcase" component={StyleShowcase} />
       <Route path="/crm-login" component={CrmLogin} />
       <Route path="/crm-dashboard" component={CrmDashboard} />
+      <Route path="/rag-documents" component={RAGDocumentsPage} />
+      <Route path="/chat" component={ChatPage} />
       <ProtectedRoute path="/client-dashboard" component={ClientDashboard} />
       <ProtectedRoute path="/admin-dashboard" component={AdminDashboard} adminOnly={true} />
       {/* Fallback to 404 */}

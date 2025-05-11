@@ -2,7 +2,7 @@ import React from 'react';
 import { Lamp } from '@/components/ui/lamp';
 import { PraetorianGradientText } from '@/components/ui/praetorian-gradient-text';
 import { PraetorianButton } from '@/components/ui/praetorian-button';
-import { PlusCircle, Database, Users, Settings, Package, LogIn } from 'lucide-react';
+import { PlusCircle, Database, Users, Settings, Package, LogIn, MessageSquare, FileText } from 'lucide-react';
 
 export const CRMHeader = () => {
   return (
