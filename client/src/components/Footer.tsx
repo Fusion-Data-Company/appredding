@@ -148,7 +148,7 @@ const Footer = () => {
                 </span>
                 <div>
                   <p className="text-gray-400 font-semibold mb-0">General Information:</p>
-                  <a href="mailto:info@praetoriansmartcoat.com" className="text-[#a0a0a0] hover:text-[#0070f3] transition-colors break-all">
+                  <a href="mailto:info@praetoriansmartcoat.com" className="text-[#a0a0a0] hover:text-amber-500 transition-colors break-all">
                     info@praetoriansmartcoat.com
                   </a>
                 </div>
@@ -161,12 +161,72 @@ const Footer = () => {
                   </svg>
                 </span>
                 <div>
-                  <p className="text-gray-400 font-semibold mb-0">Sales & Management:</p>
-                  <a href="mailto:rob@praetoriansmartcoat.com" className="text-[#a0a0a0] hover:text-[#0070f3] transition-colors break-all">
+                  <p className="text-gray-400 font-semibold mb-0">Management:</p>
+                  <a href="mailto:rob@praetoriansmartcoat.com" className="text-[#a0a0a0] hover:text-amber-500 transition-colors break-all">
                     rob@praetoriansmartcoat.com
                   </a>
                 </div>
               </li>
+              <li className="flex items-start">
+                <span className="text-amber-500 mr-2 mt-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                  </svg>
+                </span>
+                <div>
+                  <p className="text-gray-400 font-semibold mb-0">Orders:</p>
+                  <a href="mailto:orders@praetoriansmartcoat.com" className="text-[#a0a0a0] hover:text-amber-500 transition-colors break-all">
+                    orders@praetoriansmartcoat.com
+                  </a>
+                </div>
+              </li>
+              
+              <li className="flex items-start">
+                <span className="text-amber-500 mr-2 mt-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                  </svg>
+                </span>
+                <div>
+                  <p className="text-gray-400 font-semibold mb-0">Office:</p>
+                  <a href="mailto:office@praetoriansmartcoat.com" className="text-[#a0a0a0] hover:text-amber-500 transition-colors break-all">
+                    office@praetoriansmartcoat.com
+                  </a>
+                </div>
+              </li>
+              
+              <li className="flex items-start">
+                <span className="text-amber-500 mr-2 mt-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                  </svg>
+                </span>
+                <div>
+                  <p className="text-gray-400 font-semibold mb-0">Distributors:</p>
+                  <a href="mailto:distributors@praetoriansmartcoat.com" className="text-[#a0a0a0] hover:text-amber-500 transition-colors break-all">
+                    distributors@praetoriansmartcoat.com
+                  </a>
+                </div>
+              </li>
+              
+              <li className="flex items-start">
+                <span className="text-amber-500 mr-2 mt-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                  </svg>
+                </span>
+                <div>
+                  <p className="text-gray-400 font-semibold mb-0">Register:</p>
+                  <a href="mailto:register@praetoriansmartcoat.com" className="text-[#a0a0a0] hover:text-amber-500 transition-colors break-all">
+                    register@praetoriansmartcoat.com
+                  </a>
+                </div>
+              </li>
+              
               <li className="flex items-start">
                 <span className="text-amber-500 mr-2 mt-1">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -175,7 +235,7 @@ const Footer = () => {
                 </span>
                 <div>
                   <p className="text-gray-400 font-semibold mb-0">Phone:</p>
-                  <a href="tel:+19168096619" className="text-[#a0a0a0] hover:text-[#0070f3] transition-colors">
+                  <a href="tel:+19168096619" className="text-[#a0a0a0] hover:text-amber-500 transition-colors">
                     (916) 809-6619
                   </a>
                   <p className="text-[#808080] text-xs mt-1">Call or text welcome</p>
