@@ -84,6 +84,11 @@ function App() {
     // This triggers preloading of all critical site images
     preloadCriticalImages();
     
+    // Force dark mode for both development and production
+    document.documentElement.classList.add('dark');
+    document.body.style.backgroundColor = '#000';
+    document.body.classList.add('dark');
+    
     // Add performance monitoring
     if (typeof window !== 'undefined') {
       // Report largest contentful paint for performance monitoring
