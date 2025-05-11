@@ -27,7 +27,9 @@ const FAQSection = ({ faqs }: FAQProps) => {
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        backgroundAttachment: "fixed"
+        backgroundAttachment: "fixed",
+        backgroundBlendMode: "overlay",
+        backgroundColor: "rgba(0,0,0,0.05)"
       }}
     >
       {/* Semi-transparent overlay for better readability with darkened effect for the buckets image */}
