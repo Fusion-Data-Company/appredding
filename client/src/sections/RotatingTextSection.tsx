@@ -25,7 +25,7 @@ const RotatingTextSection = () => {
               style={{ 
                 position: "absolute",
                 left: "-96px", /* 1 inch to the left of the left edge */
-                top: "-144px", /* 1.5 inches up from its container */
+                top: "-216px", /* 2.25 inches up from its container (1.5 + 0.75) */
                 zIndex: 20
               }} 
             >
