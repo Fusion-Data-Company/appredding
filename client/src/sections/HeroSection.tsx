@@ -15,25 +15,26 @@ const HeroSection = () => {
         <div className="absolute top-0 left-0 right-0 h-4 bg-black z-20"></div>
         
         {/* The hero image with enhanced styling for ultra-realistic appearance */}
-        <div className="w-screen overflow-visible relative" style={{ height: "calc(100% + 60px)" }}>
-          <img 
-            src={heroImage} 
-            alt="Praetorian SmartCoat Products" 
-            className="w-full h-auto relative"
-            style={{ 
-              objectFit: "cover",
-              objectPosition: "center center",
-              width: "100vw", // Full viewport width
-              maxWidth: "none", // Override any max-width constraints
-              marginLeft: "50%", // Center it
-              transform: "translateX(-50%)", // Center it
-              marginTop: "0",
-              marginBottom: "-60px", // Create overlap with next section
-              filter: "contrast(1.05) saturate(1.1)", // Enhance colors slightly for ultra-realistic look
-              boxShadow: "0 5px 20px rgba(0,0,0,0.5)", // Subtle shadow for depth
-              zIndex: 5,
-            }}
-          />
+        <div className="w-full overflow-visible relative flex justify-center items-center" style={{ height: "calc(100% + 60px)" }}>
+          <div className="absolute inset-0 w-screen left-1/2 -translate-x-1/2 overflow-visible flex justify-center items-center">
+            <img 
+              src={heroImage} 
+              alt="Praetorian SmartCoat Products" 
+              className="h-auto"
+              style={{ 
+                objectFit: "cover",
+                objectPosition: "center center",
+                width: "100vw", // Full viewport width
+                maxWidth: "none", // Override any max-width constraints
+                minWidth: "100%", // Ensure it's at least as wide as its container
+                marginTop: "0",
+                marginBottom: "-60px", // Create overlap with next section
+                filter: "contrast(1.05) saturate(1.1)", // Enhance colors slightly for ultra-realistic look
+                boxShadow: "0 5px 20px rgba(0,0,0,0.5)", // Subtle shadow for depth
+                zIndex: 5,
+              }}
+            />
+          </div>
         </div>
         
         {/* Subtle gradient overlay at the bottom for text legibility */}
