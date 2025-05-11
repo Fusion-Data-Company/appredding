@@ -4,28 +4,28 @@ import { GradientHeading } from "@/components/ui/gradient-heading";
 const ProductPerformanceSection = () => {
   return (
     <section 
-      className="py-24 md:py-28 lg:py-32 relative"
+      className="py-32 relative"
       style={{ 
         backgroundImage: "url('/images/optimized/diamond-plate-orange-blue.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        minHeight: "auto" // Let content define height for better proportions
+        minHeight: "100vh" 
       }}
     >
       {/* Semi-transparent overlay for better readability */}
       <div className="absolute inset-0 bg-black/30"></div>
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-20">
-          <div className="bg-gray-800/60 backdrop-blur-xl rounded-xl border border-gray-600/40 shadow-[0_0_20px_rgba(255,255,255,0.2)] py-10 px-8 md:px-12 mx-auto max-w-4xl mb-10 inline-block">
-            <GradientHeading level={2} className="text-3xl md:text-4xl mb-4" variant="mixed">Product Performance Data</GradientHeading>
-            <p className="text-gray-300 max-w-2xl mx-auto">
+          <div className="bg-gray-800/60 backdrop-blur-xl rounded-xl border-4 border-gray-600/40 shadow-[0_0_40px_rgba(255,255,255,0.25)] py-12 px-12 mx-auto max-w-4xl mb-10 inline-block">
+            <GradientHeading level={2} className="text-4xl md:text-5xl mb-6" variant="mixed">Product Performance Data</GradientHeading>
+            <p className="text-gray-300 text-xl max-w-2xl mx-auto">
               Our protective coatings are rigorously tested and proven to deliver exceptional performance across a range of metrics.
             </p>
           </div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-14 mb-32">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-32">
           <div className="bg-gradient-to-r from-gray-800/90 to-gray-700/90 border-4 border-gray-600/40 rounded-lg p-10 text-center hover-lift shadow-[0_0_40px_rgba(255,255,255,0.25)] transform transition-transform hover:scale-105">
             <div className="text-7xl font-bold text-primary-400 mb-5 drop-shadow-[0_0_10px_rgba(245,158,11,0.5)]">98.7%</div>
             <GradientHeading level={3} className="text-xl mb-4" variant="mixed">UV Resistance</GradientHeading>

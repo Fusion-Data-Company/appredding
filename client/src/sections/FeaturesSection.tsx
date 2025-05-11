@@ -37,14 +37,14 @@ const FeaturesSection = () => {
 
   return (
     <section 
-      className="py-24 md:py-28 lg:py-32 relative" 
+      className="py-32 relative" 
       id="features"
       style={{
         backgroundImage: 'url("/images/fire-water-hq.jpg")',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
-        minHeight: "auto" // Let content define height for better proportions
+        minHeight: "100vh"
       }}
     >
       {/* Overlay to ensure text readability */}
@@ -59,7 +59,7 @@ const FeaturesSection = () => {
           </div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-10 lg:gap-x-10 xl:gap-x-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {features.map((feature, index) => (
             <FeatureCard
               key={index}

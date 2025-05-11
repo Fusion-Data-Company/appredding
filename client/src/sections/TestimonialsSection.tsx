@@ -3,13 +3,13 @@ import { GradientHeading } from "@/components/ui/gradient-heading";
 const TestimonialsSection = () => {
   return (
     <section 
-      className="py-24 md:py-28 lg:py-32 relative"
+      className="py-32 relative"
       style={{ 
         backgroundImage: "url('/images/optimized/diamond-plate-fire-red.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        minHeight: "auto" // Let content define height for better proportions
+        minHeight: "100vh"
       }}
     >
       {/* Semi-transparent overlay for better readability */}
