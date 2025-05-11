@@ -32,6 +32,9 @@
     <!-- Critical styles to prevent FOUC (Flash of Unstyled Content) -->
     <link rel="preload" as="style" href="/src/index.css">
     
+    <!-- Preload hero image - highest priority since it's LCP -->
+    <link rel="preload" href="/images/praetorian-main.jpg" as="image" fetchpriority="high">
+    
     <!-- Video poster image preload - much faster than loading the video -->
     <link rel="preload" href="/images/fire-water-gen4-turbo-poster.jpg" as="image" fetchpriority="high" 
           imagesizes="100vw" imagesrcset="/images/fire-water-gen4-turbo-poster.jpg">

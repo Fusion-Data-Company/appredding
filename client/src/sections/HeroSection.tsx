@@ -1,7 +1,9 @@
-// Import directly from assets - using the final image
-import heroImage from '../assets_dir/images/praetorian-hero-final.png';
+// Import from optimized public assets
 import { GradientButton } from "@/components/ui/gradient-button";
 import ResponsiveImage from '@/components/ResponsiveImage';
+
+// Use optimized images from public directory
+const heroImage = '/images/optimized/praetorian-main.jpg';
 
 const HeroSection = () => {
   return (
