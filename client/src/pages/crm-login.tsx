@@ -27,7 +27,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Loader2 } from "lucide-react";
-import { ProfessionalHeader } from "@/components/ProfessionalHeader";
+import ProfessionalHeader from "@/components/ProfessionalHeader";
 
 // Form validation schema
 const loginSchema = z.object({

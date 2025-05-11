@@ -56,6 +56,7 @@ export interface PraetorianButtonProps
   children: ReactNode;
   withShine?: boolean;
   customClasses?: string;
+  href?: string;
 }
 
 export const PraetorianButton = ({
@@ -70,15 +71,52 @@ export const PraetorianButton = ({
   children,
   withShine = false,
   customClasses,
+  href,
   ...props
 }: PraetorianButtonProps) => {
+  const buttonClassNames = cn(
+    buttonVariants({ variant, size, roundness, fullWidth, glowEffect }),
+    withShine && "overflow-hidden",
+    customClasses
+  );
+  
+  // If href is provided, render an anchor tag instead of a button
+  if (href) {
+    return (
+      <a
+        href={href}
+        className={buttonClassNames}
+        {...props as any}
+      >
+        {isLoading ? (
+          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+        ) : leftIcon ? (
+          <span className="mr-2 flex items-center">{leftIcon}</span>
+        ) : null}
+
+        <span className="relative z-10">{children}</span>
+
+        {!isLoading && rightIcon && (
+          <span className="ml-2 flex items-center">{rightIcon}</span>
+        )}
+
+        {withShine && (
+          <div className="absolute inset-0 overflow-hidden rounded-md">
+            <div className="absolute -inset-[400%] animate-[shine_8s_ease-in-out_infinite] bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+          </div>
+        )}
+
+        {variant === "premium" && (
+          <div className="absolute -inset-px rounded-md bg-gradient-to-r from-amber-300 via-yellow-300 to-amber-300 opacity-30 blur-sm"></div>
+        )}
+      </a>
+    );
+  }
+  
+  // Otherwise, render a button
   return (
     <button
-      className={cn(
-        buttonVariants({ variant, size, roundness, fullWidth, glowEffect }),
-        withShine && "overflow-hidden",
-        customClasses
-      )}
+      className={buttonClassNames}
       disabled={isLoading || props.disabled}
       {...props}
     >

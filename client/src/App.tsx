@@ -23,6 +23,8 @@ import AdminDashboard from "@/pages/admin-dashboard";
 import About from "@/pages/About";
 import Team from "@/pages/Team";
 import StyleShowcase from "@/pages/StyleShowcase";
+import CrmLogin from "@/pages/crm-login";
+import CrmDashboard from "@/pages/crm-dashboard";
 import { AuthProvider } from "@/hooks/use-auth";
 import { ProtectedRoute } from "@/components/ProtectedRoute";
 
@@ -62,6 +64,8 @@ function Router() {
       <Route path="/team" component={Team} />
       <Route path="/auth" component={AuthPage} />
       <Route path="/style-showcase" component={StyleShowcase} />
+      <Route path="/crm-login" component={CrmLogin} />
+      <Route path="/crm-dashboard" component={CrmDashboard} />
       <ProtectedRoute path="/client-dashboard" component={ClientDashboard} />
       <ProtectedRoute path="/admin-dashboard" component={AdminDashboard} adminOnly={true} />
       {/* Fallback to 404 */}

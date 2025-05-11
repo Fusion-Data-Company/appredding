@@ -101,6 +101,16 @@ export default function CRMSection() {
         </div>
         
         <div className="flex flex-wrap gap-2">
+          {/* Admin CRM Login Button */}
+          <PraetorianButton
+            variant="premium"
+            size="md"
+            leftIcon={<Users size={16} />}
+            href="/crm-login"
+          >
+            CRM Admin Login
+          </PraetorianButton>
+          
           {/* CSV Import Button with data refresh */}
           <CSVImportForm 
             onSuccess={() => {
