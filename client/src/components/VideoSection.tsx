@@ -66,7 +66,10 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
                       <video 
                         className="w-full h-full object-cover"
                         controls
-                        preload="metadata"
+                        autoPlay
+                        loop
+                        playsInline
+                        preload="auto"
                       >
                         <source src="/videos/product-demo.mp4" type="video/mp4" />
                         Your browser does not support the video tag.
@@ -146,9 +149,10 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
                     >
                       <div className="relative flex-shrink-0 w-[200px] h-[95px] bg-gray-800 rounded-md overflow-hidden mx-auto">
                         {video.id === "localVideo" ? (
-                          <div className="w-full h-full bg-gradient-to-br from-primary-900 to-primary-700 flex flex-col items-center justify-center">
-                            <div className="text-white text-xs font-semibold mb-1">Premium Demo</div>
-                            <div className="text-primary-300 text-[10px]">Praetorian Exclusive</div>
+                          <div className="w-full h-full bg-gradient-to-br from-primary-900 to-primary-700 flex flex-col items-center justify-center relative overflow-hidden">
+                            <div className="absolute top-2 left-2 bg-primary-600 text-white text-[10px] px-2 py-0.5 rounded-sm">Premium</div>
+                            <div className="text-white text-xs font-semibold">Coating Application</div>
+                            <div className="text-primary-300 text-[10px]">3:58 • Application</div>
                           </div>
                         ) : (
                           <img
