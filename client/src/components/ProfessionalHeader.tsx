@@ -113,8 +113,8 @@ const ProfessionalHeader = () => {
               }}
             />
             
-            {/* SmartCoat text centered below bucket */}
-            <div className="absolute bottom-[-35px] left-0 right-0 flex justify-center w-[180px] text-center translate-x-[35px]">
+            {/* SmartCoat text directly under PRAETORIAN */}
+            <div className="absolute bottom-[-20px] left-[25px] text-center">
               <span className="text-[1.05rem] text-slate-700 dark:text-slate-400 font-medium tracking-widest uppercase hover:text-black dark:hover:text-white transition-colors duration-300">
                 <span className="bg-gradient-to-r from-slate-700 to-slate-900 dark:from-slate-300 dark:to-slate-400 bg-clip-text text-transparent hover:from-slate-800 hover:to-black dark:hover:from-gray-200 dark:hover:to-white transition-all duration-500 font-semibold">SmartCoat</span>
               </span>
