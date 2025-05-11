@@ -14,11 +14,11 @@ const TestimonialsSection = () => {
     >
       {/* Semi-transparent overlay for better readability */}
       <div className="absolute inset-0 bg-black/30"></div>
-      <div className="container mx-auto px-6 md:px-10 relative z-10 max-w-[1440px]">
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-20">
-          <div className="bg-gray-800/60 backdrop-blur-xl rounded-xl border border-gray-600/40 shadow-[0_0_20px_rgba(255,255,255,0.2)] py-10 px-8 md:px-12 mx-auto max-w-4xl mb-10 inline-block">
-            <GradientHeading level={2} className="text-3xl md:text-4xl mb-4" variant="fire">What Our Clients Say</GradientHeading>
-            <p className="text-gray-300 max-w-2xl mx-auto">
+          <div className="bg-gray-800/60 backdrop-blur-xl rounded-xl border-4 border-gray-600/40 shadow-[0_0_40px_rgba(255,255,255,0.25)] py-12 px-12 mx-auto max-w-4xl mb-10 inline-block">
+            <GradientHeading level={2} className="text-4xl md:text-5xl mb-6" variant="fire">What Our Clients Say</GradientHeading>
+            <p className="text-gray-300 text-xl max-w-2xl mx-auto">
               Hear from satisfied customers who trust Praetorian SmartCoat Solutions to protect their valuable assets.
             </p>
           </div>
