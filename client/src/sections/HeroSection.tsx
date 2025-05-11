@@ -23,12 +23,14 @@ const HeroSection = () => {
           <img 
             src={heroImage} 
             alt="Praetorian Protection Products" 
-            className="w-screen h-auto object-cover my-0 scale-95 md:scale-95 relative"
+            className="w-screen my-0 scale-95 md:scale-95 relative"
             style={{ 
               maxWidth: "none", 
               width: "100vw", // No extra width expansion
+              height: "auto", // Let height be determined naturally by aspect ratio
+              objectFit: "contain", // Show the entire image without cropping
               marginLeft: "0", // No offset needed
-              marginTop: "-10px", // Force push up by a third of an inch
+              marginTop: "-20px", // Push it up a bit more
               marginBottom: "0", // Remove bottom margin
               filter: "drop-shadow(0 0 25px rgba(0,0,0,0.9))",
               zIndex: 32 // Move to the front
