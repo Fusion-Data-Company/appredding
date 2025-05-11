@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Play, Info, Star } from "lucide-react";
 import { GradientHeading } from "@/components/ui/gradient-heading";
 import { GradientButton } from "@/components/ui/gradient-button";
+// Import the video directly
+import productDemoVideo from "@assets/93fd96aa-db4d-423d-ab35-8610f17bca78.mp4";
 
 interface Video {
   id: string;
@@ -22,6 +24,14 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
   // Set the local video as active by default if it exists
   const localVideo = videos.find(video => video.id === "localVideo");
   const [activeVideo, setActiveVideo] = useState<Video | null>(localVideo || (videos.length > 0 ? videos[0] : null));
+  const videoRef = useRef<HTMLVideoElement>(null);
+  
+  useEffect(() => {
+    // Try to load the video when the component mounts
+    if (videoRef.current) {
+      videoRef.current.load();
+    }
+  }, []);
 
   const categories = [
     "all",
@@ -62,16 +72,19 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
               <div className="dark:bg-gradient-to-r dark:from-gray-800/90 dark:to-gray-700/90 bg-gray-100/90 rounded-xl overflow-hidden dark:border dark:border-gray-600/40 border border-gray-300 dark:shadow-[0_0_20px_rgba(255,255,255,0.25)] shadow-[0_0_20px_rgba(0,0,0,0.25)]">
                 <div className="relative pb-[56.25%] h-0 overflow-hidden">
                   {activeVideo.id === "localVideo" ? (
-                    <div className="absolute top-0 left-0 w-full h-full">
+                    <div className="absolute top-0 left-0 w-full h-full bg-black">
                       <video 
-                        className="w-full h-full object-cover"
+                        ref={videoRef}
+                        className="w-full h-full"
                         controls
                         autoPlay
+                        muted
                         loop
                         playsInline
-                        preload="auto"
+                        onLoadedData={() => console.log("Video loaded successfully")}
+                        onError={(e) => console.error("Video error:", e)}
                       >
-                        <source src="/videos/product-demo.mp4" type="video/mp4" />
+                        <source src={productDemoVideo} type="video/mp4" />
                         Your browser does not support the video tag.
                       </video>
                     </div>
