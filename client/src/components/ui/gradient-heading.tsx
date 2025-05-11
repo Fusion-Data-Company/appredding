@@ -24,7 +24,7 @@ export const GradientHeading = ({
   const Tag = `h${level}` as keyof JSX.IntrinsicElements;
   
   return (
-    <Tag className={cn("font-heading font-bold", gradientClass, className)}>
+    <Tag className={cn("font-heading font-bold text-center mx-auto", gradientClass, className)}>
       {children}
     </Tag>
   );

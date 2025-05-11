@@ -16,7 +16,7 @@ const Footer = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
           <div>
-            <GradientHeading level={3} className="text-base mb-2" variant="fire">Department Contacts</GradientHeading>
+            <GradientHeading level={3} className="text-base mb-2 text-left" variant="fire">Department Contacts</GradientHeading>
             <ul className="space-y-2">
               <li className="flex items-start">
                 <span className="text-amber-500 mr-1 mt-0.5">
@@ -88,7 +88,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <GradientHeading level={3} className="text-base mb-2" variant="fire">Applications</GradientHeading>
+            <GradientHeading level={3} className="text-base mb-2 text-left" variant="fire">Applications</GradientHeading>
             <ul className="space-y-1">
               <li>
                 <a href="#" className="dark:text-[#a0a0a0] text-gray-600 hover:text-[#0070f3] transition-colors text-sm">
@@ -124,7 +124,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <GradientHeading level={3} className="text-base mb-2" variant="mixed">Our Product</GradientHeading>
+            <GradientHeading level={3} className="text-base mb-2 text-left" variant="mixed">Our Product</GradientHeading>
             <ul className="space-y-1">
               <li>
                 <a href="#" className="text-[#a0a0a0] hover:text-[#0070f3] transition-colors text-sm">
@@ -155,7 +155,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <GradientHeading level={3} className="text-base mb-2" variant="blue">Main Contact</GradientHeading>
+            <GradientHeading level={3} className="text-base mb-2 text-left" variant="blue">Main Contact</GradientHeading>
             <ul className="space-y-2">
               <li className="flex items-start">
                 <span className="text-amber-500 mr-1 mt-0.5">
