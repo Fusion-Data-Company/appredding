@@ -1,5 +1,5 @@
 import { db } from "../db";
-import { users, inventory } from "@shared/crm-schema";
+import { crmUsers, inventory } from "@shared/crm-schema";
 import { hashPassword } from "./auth";
 import { eq } from "drizzle-orm";
 
@@ -8,13 +8,13 @@ async function seedDatabase() {
 
   // Seed users
   const adminEmail = "admin@praetoriansmartcoat.com";
-  const adminUser = await db.select().from(users).where(eq(users.email, adminEmail)).limit(1);
+  const adminUser = await db.select().from(crmUsers).where(eq(crmUsers.email, adminEmail)).limit(1);
   
   if (adminUser.length === 0) {
     console.log("Seeding users...");
     
     // Create admin user
-    await db.insert(users).values({
+    await db.insert(crmUsers).values({
       email: "admin@praetoriansmartcoat.com",
       passwordHash: await hashPassword("Praetorian1$"),
       role: "admin",
@@ -22,21 +22,21 @@ async function seedDatabase() {
     });
     
     // Create sales users
-    await db.insert(users).values({
+    await db.insert(crmUsers).values({
       email: "rob@praetoriansmartcoat.com",
       passwordHash: await hashPassword("Praetorian1$"),
       role: "sales",
       notificationMode: "in-app"
     });
     
-    await db.insert(users).values({
+    await db.insert(crmUsers).values({
       email: "joe@praetoriansmartcoat.com",
       passwordHash: await hashPassword("Praetorian1$"),
       role: "sales",
       notificationMode: "in-app"
     });
     
-    await db.insert(users).values({
+    await db.insert(crmUsers).values({
       email: "greg@praetoriansmartcoat.com",
       passwordHash: await hashPassword("Praetorian1$"),
       role: "sales",
@@ -76,17 +76,7 @@ async function seedDatabase() {
   console.log("Database seed process completed successfully!");
 }
 
-// Execute the seed function
-if (require.main === module) {
-  seedDatabase()
-    .then(() => {
-      console.log("Seed complete");
-      process.exit(0);
-    })
-    .catch(error => {
-      console.error("Seed failed:", error);
-      process.exit(1);
-    });
-}
+// The seedDatabase function will be called from registerRoutes
+// No need for direct execution check in ES modules
 
 export { seedDatabase };

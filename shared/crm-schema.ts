@@ -9,7 +9,7 @@ export const roleEnum = pgEnum("role", ["admin", "sales"]);
 export const notificationModeEnum = pgEnum("notification_mode", ["in-app", "email", "console"]);
 
 // Users table
-export const users = pgTable("users", {
+export const crmUsers = pgTable("crm_users", {
   id: serial("id").primaryKey(),
   email: text("email").notNull().unique(),
   passwordHash: text("password_hash").notNull(),
@@ -25,19 +25,19 @@ export const inventory = pgTable("inventory", {
 });
 
 // Orders table
-export const orders = pgTable("orders", {
+export const crmOrders = pgTable("crm_orders", {
   id: serial("id").primaryKey(),
   productId: integer("product_id").references(() => inventory.id),
   quantity: integer("quantity").notNull(),
   confirmed: boolean("confirmed").notNull().default(false),
-  orderedBy: integer("ordered_by").references(() => users.id),
+  orderedBy: integer("ordered_by").references(() => crmUsers.id),
   createdAt: timestamp("created_at").defaultNow(),
 });
 
 // Type definitions
-export type User = typeof users.$inferSelect;
-export type InsertUser = typeof users.$inferInsert;
-export const insertUserSchema = createInsertSchema(users)
+export type CrmUser = typeof crmUsers.$inferSelect;
+export type InsertCrmUser = typeof crmUsers.$inferInsert;
+export const insertCrmUserSchema = createInsertSchema(crmUsers)
   .omit({ id: true })
   .extend({
     password: z.string().min(8),
@@ -47,6 +47,6 @@ export type Inventory = typeof inventory.$inferSelect;
 export type InsertInventory = typeof inventory.$inferInsert;
 export const insertInventorySchema = createInsertSchema(inventory).omit({ id: true });
 
-export type Order = typeof orders.$inferSelect;
-export type InsertOrder = typeof orders.$inferInsert;
-export const insertOrderSchema = createInsertSchema(orders).omit({ id: true, createdAt: true });
+export type CrmOrder = typeof crmOrders.$inferSelect;
+export type InsertCrmOrder = typeof crmOrders.$inferInsert;
+export const insertCrmOrderSchema = createInsertSchema(crmOrders).omit({ id: true, createdAt: true });

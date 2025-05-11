@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from "express";
 import { scrypt, randomBytes, timingSafeEqual } from "crypto";
 import { promisify } from "util";
 import { db } from "../db";
-import { users } from "@shared/crm-schema";
+import { crmUsers } from "@shared/crm-schema";
 import { eq } from "drizzle-orm";
 
 const scryptAsync = promisify(scrypt);
@@ -48,12 +48,12 @@ export function isSales(req: Request, res: Response, next: NextFunction) {
 
 // Get user by email
 export async function getUserByEmail(email: string) {
-  const [user] = await db.select().from(users).where(eq(users.email, email));
+  const [user] = await db.select().from(crmUsers).where(eq(crmUsers.email, email));
   return user;
 }
 
 // Get user by ID
 export async function getUserById(id: number) {
-  const [user] = await db.select().from(users).where(eq(users.id, id));
+  const [user] = await db.select().from(crmUsers).where(eq(crmUsers.id, id));
   return user;
 }

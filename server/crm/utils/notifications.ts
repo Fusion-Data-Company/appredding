@@ -1,5 +1,5 @@
 import { db } from "../../db";
-import { inventory, users } from "@shared/crm-schema";
+import { inventory, crmUsers } from "@shared/crm-schema";
 import { eq } from "drizzle-orm";
 import nodemailer from "nodemailer";
 
@@ -71,7 +71,7 @@ export class NotificationService {
     const message = `Inventory for ${product.productName} is low. Current quantity: ${currentQty} (below threshold of ${threshold})`;
     
     // Get all users with their notification preferences
-    const allUsers = await db.select().from(users);
+    const allUsers = await db.select().from(crmUsers);
 
     // Send notifications based on each user's preference
     for (const user of allUsers) {

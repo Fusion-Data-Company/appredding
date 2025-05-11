@@ -11,6 +11,8 @@ import { z } from "zod";
 import { fromZodError } from "zod-validation-error";
 import { setupAuth } from "./auth";
 import professionalsRoutes from "./api/professionals";
+import { setupCRM } from "./crm";
+import { seedDatabase } from "./crm/seed";
 import { 
   getContacts, 
   getContactById, 
@@ -70,6 +72,17 @@ function isAdmin(req: Request, res: Response, next: NextFunction) {
 export async function registerRoutes(app: Express): Promise<Server> {
   // Setup authentication routes
   setupAuth(app);
+  
+  // Run seed function to populate initial CRM data (if needed)
+  try {
+    await seedDatabase();
+    console.log("CRM database initialization completed");
+  } catch (error) {
+    console.error("Error initializing CRM database:", error);
+  }
+  
+  // Setup CRM routes and middleware
+  setupCRM(app);
   
   // Register professionals API routes
   app.use("/api/professionals", professionalsRoutes);
