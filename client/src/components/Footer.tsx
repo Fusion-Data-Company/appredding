@@ -1,9 +1,19 @@
 import { GradientHeading } from "@/components/ui/gradient-heading";
+import StoneTextureBackground from "@/components/ui/stone-texture-background";
 
 const Footer = () => {
   return (
-    <footer className="dark:bg-[#1e1e1e] bg-gray-100 border-t dark:border-[#333333] border-gray-300 pt-12 pb-6 mt-auto">
-      <div className="container mx-auto px-4">
+    <footer className="relative border-t dark:border-[#333333] border-gray-300 pt-12 pb-6 mt-auto overflow-hidden">
+      {/* Stone texture background with frosted glass overlay */}
+      <StoneTextureBackground 
+        className="absolute inset-0" 
+        frostGlassOpacity={0.25}
+      />
+      
+      {/* Noise texture overlay */}
+      <div className="absolute inset-0 bg-[url('/src/assets_dir/images/noise.svg')] opacity-[0.04] bg-repeat bg-[length:200px_200px] mix-blend-overlay pointer-events-none animate-subtle-pulse"></div>
+      
+      <div className="container mx-auto px-4 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div>
             <GradientHeading level={3} className="text-xl mb-4" variant="mixed">Praetorian SmartCoat</GradientHeading>
@@ -147,16 +157,16 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="pt-6 border-t dark:border-[#333333] border-gray-300 text-center dark:text-[#a0a0a0] text-gray-700 text-sm">
-          <p>&copy; {new Date().getFullYear()} Praetorian SmartCoat Solutions. All rights reserved.</p>
+        <div className="pt-6 border-t dark:border-[#333333] border-gray-300 text-center dark:text-[#a0a0a0] text-gray-700 text-sm relative">
+          <p className="dark:text-gray-300 text-gray-700">&copy; {new Date().getFullYear()} Praetorian SmartCoat Solutions. All rights reserved.</p>
           <div className="mt-2 space-x-4">
-            <a href="#" className="text-[#a0a0a0] hover:text-[#0070f3] transition-colors">
+            <a href="#" className="dark:text-gray-300 text-gray-700 hover:text-[#0070f3] transition-colors">
               Privacy Policy
             </a>
-            <a href="#" className="text-[#a0a0a0] hover:text-[#0070f3] transition-colors">
+            <a href="#" className="dark:text-gray-300 text-gray-700 hover:text-[#0070f3] transition-colors">
               Terms of Service
             </a>
-            <a href="#" className="text-[#a0a0a0] hover:text-[#0070f3] transition-colors">
+            <a href="#" className="dark:text-gray-300 text-gray-700 hover:text-[#0070f3] transition-colors">
               Site Map
             </a>
           </div>

@@ -11,7 +11,7 @@ interface StoneTextureBackgroundProps {
 export const StoneTextureBackground: React.FC<StoneTextureBackgroundProps> = ({
   className,
   children,
-  frostGlassOpacity = 0.7, // Default frost glass opacity (0-1)
+  frostGlassOpacity = 0.5, // Default frost glass opacity (0-1)
 }) => {
   return (
     <div className={cn("relative overflow-hidden", className)}>
@@ -21,8 +21,9 @@ export const StoneTextureBackground: React.FC<StoneTextureBackgroundProps> = ({
         style={{
           backgroundImage: `url(${stoneTexturePath})`,
           backgroundRepeat: 'repeat',
-          backgroundSize: '500px auto', // Stretch texture slightly
-          opacity: 0.5, // 50% opacity for the texture
+          backgroundSize: '400px auto', // Stretch texture slightly
+          opacity: 0.35, // Reduced opacity for subtlety
+          transform: 'scale(1.05)', // Slight scale to avoid hard edges
         }}
       />
       
@@ -30,8 +31,9 @@ export const StoneTextureBackground: React.FC<StoneTextureBackgroundProps> = ({
       <div 
         className="absolute inset-0 z-0"
         style={{
-          backdropFilter: 'blur(8px)',
+          backdropFilter: 'blur(12px)',
           backgroundColor: `rgba(20, 20, 30, ${frostGlassOpacity})`,
+          boxShadow: 'inset 0 0 100px rgba(0,0,0,0.2)',
         }}
       />
       

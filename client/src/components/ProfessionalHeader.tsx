@@ -86,7 +86,7 @@ const ProfessionalHeader = () => {
       {/* Stone texture background with frosted glass overlay */}
       <StoneTextureBackground 
         className="absolute inset-0" 
-        frostGlassOpacity={scrolled ? 0.45 : 0.35}
+        frostGlassOpacity={scrolled ? 0.4 : 0.3}
       />
       
       {/* Noise texture overlay */}
