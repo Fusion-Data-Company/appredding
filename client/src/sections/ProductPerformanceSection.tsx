@@ -53,9 +53,9 @@ const ProductPerformanceSection = () => {
         
         <div className="bg-gradient-to-r from-gray-800/90 to-gray-700/90 rounded-xl p-14 md:p-20 border-4 border-white/40 shadow-[0_0_60px_rgba(255,255,255,0.3)] transform hover:scale-[1.01] transition-transform duration-500">
           <div className="text-center mb-14">
-            <GradientHeading level={2} className="text-3xl md:text-4xl lg:text-5xl mb-6" variant="mixed">Industry-Leading Product Testing</GradientHeading>
+            <GradientHeading level={2} className="text-3xl md:text-4xl lg:text-5xl mb-6" variant="mixed">NASA-Grade Testing Protocols</GradientHeading>
             <p className="text-xl text-gray-200 max-w-4xl mx-auto">
-              Our comprehensive testing program ensures that every Praetorian product exceeds industry standards and delivers consistent results in even the most challenging environments.
+              Our products undergo rigorous testing validated by NASA, UL, Factory Mutual, and American Bureau of Shipping, including extreme temperature differential tests at 2,732°F (1,500°C) for 20+ minutes while maintaining a 2,177°F temperature differential.
             </p>
           </div>
           
@@ -64,11 +64,11 @@ const ProductPerformanceSection = () => {
               <div className="space-y-10">
                 <div className="flex items-start gap-6">
                   <div className="bg-gradient-to-r from-gray-700 to-gray-600 rounded-full p-4 mt-1 shadow-[0_0_10px_rgba(255,255,255,0.25)]">
-                    <i className="fas fa-flask text-white text-2xl"></i>
+                    <i className="fas fa-fire text-white text-2xl"></i>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-2xl mb-2">Chemical Resistance Testing</h4>
-                    <p className="text-lg text-gray-300">Our coatings are tested against over 100 different chemicals and compounds to ensure durability in any environment</p>
+                    <h4 className="font-semibold text-2xl mb-2">ASTM E84 Fire Testing</h4>
+                    <p className="text-lg text-gray-300">Perfect Class A ratings with 0/100 scores for both Flame Spread Index and Smoke Development Index, confirmed through independent laboratory testing</p>
                   </div>
                 </div>
                 
@@ -77,18 +77,18 @@ const ProductPerformanceSection = () => {
                     <i className="fas fa-temperature-high text-white text-2xl"></i>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-2xl mb-2">Extreme Temperature Cycles</h4>
-                    <p className="text-lg text-gray-300">Products undergo rapid temperature cycling from -40°F to 180°F to simulate decades of seasonal changes</p>
+                    <h4 className="font-semibold text-2xl mb-2">Extreme Heat Differential Tests</h4>
+                    <p className="text-lg text-gray-300">5-6 coats applied to 1/4 inch steel passed tests against 1550°F (843°C) flame for 25+ minutes while maintaining structural integrity</p>
                   </div>
                 </div>
                 
                 <div className="flex items-start gap-6">
                   <div className="bg-gradient-to-r from-gray-700 to-gray-600 rounded-full p-4 mt-1 shadow-[0_0_10px_rgba(255,255,255,0.25)]">
-                    <i className="fas fa-water text-white text-2xl"></i>
+                    <i className="fas fa-sun text-white text-2xl"></i>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-2xl mb-2">Immersion and Humidity Testing</h4>
-                    <p className="text-lg text-gray-300">Continuous exposure to water, salt spray, and high humidity conditions validates long-term performance</p>
+                    <h4 className="font-semibold text-2xl mb-2">Solar Reflectance Testing</h4>
+                    <p className="text-lg text-gray-300">Verified by Cool Roof Rating Council with 89% reflection and 89% emittance — blocking 95% of solar radiation with only 1% degradation over 3 years</p>
                   </div>
                 </div>
               </div>
@@ -107,29 +107,29 @@ const ProductPerformanceSection = () => {
                   </thead>
                   <tbody>
                     <tr className="border-b border-gray-600/40">
-                      <td className="py-5 px-4">Abrasion Resistance</td>
-                      <td className="text-center py-5 px-4">Good</td>
-                      <td className="text-center py-5 px-4 text-primary-400 font-semibold text-xl">Excellent</td>
+                      <td className="py-5 px-4">Fire Rating (ASTM E84)</td>
+                      <td className="text-center py-5 px-4">Class B-C (25-75/100)</td>
+                      <td className="text-center py-5 px-4 text-primary-400 font-semibold text-xl">Class A (0/100)</td>
                     </tr>
                     <tr className="border-b border-gray-600/40">
-                      <td className="py-5 px-4">Salt Spray Resistance</td>
-                      <td className="text-center py-5 px-4">1,000 hours</td>
-                      <td className="text-center py-5 px-4 text-primary-400 font-semibold text-xl">3,500+ hours</td>
+                      <td className="py-5 px-4">Solar Reflection</td>
+                      <td className="text-center py-5 px-4">70-80%</td>
+                      <td className="text-center py-5 px-4 text-primary-400 font-semibold text-xl">89%</td>
                     </tr>
                     <tr className="border-b border-gray-600/40">
-                      <td className="py-5 px-4">Impact Resistance</td>
-                      <td className="text-center py-5 px-4">160 in-lb</td>
-                      <td className="text-center py-5 px-4 text-primary-400 font-semibold text-xl">200+ in-lb</td>
+                      <td className="py-5 px-4">Thermal Emittance</td>
+                      <td className="text-center py-5 px-4">70-80%</td>
+                      <td className="text-center py-5 px-4 text-primary-400 font-semibold text-xl">89%</td>
                     </tr>
                     <tr className="border-b border-gray-600/40">
-                      <td className="py-5 px-4">VOC Content</td>
-                      <td className="text-center py-5 px-4">100-250 g/L</td>
-                      <td className="text-center py-5 px-4 text-primary-400 font-semibold text-xl">&lt;50 g/L</td>
+                      <td className="py-5 px-4">Elastomeric Elongation</td>
+                      <td className="text-center py-5 px-4">100%</td>
+                      <td className="text-center py-5 px-4 text-primary-400 font-semibold text-xl">156%</td>
                     </tr>
                     <tr>
-                      <td className="py-5 px-4">Application Temperature Range</td>
-                      <td className="text-center py-5 px-4">50-90°F</td>
-                      <td className="text-center py-5 px-4 text-primary-400 font-semibold text-xl">35-110°F</td>
+                      <td className="py-5 px-4">Heat Resistance</td>
+                      <td className="text-center py-5 px-4">500-900°F</td>
+                      <td className="text-center py-5 px-4 text-primary-400 font-semibold text-xl">2,732°F</td>
                     </tr>
                   </tbody>
                 </table>
