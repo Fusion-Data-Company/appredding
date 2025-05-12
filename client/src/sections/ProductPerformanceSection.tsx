@@ -55,7 +55,7 @@ const ProductPerformanceSection = () => {
           <div className="text-center mb-14">
             <GradientHeading level={2} className="text-3xl md:text-4xl lg:text-5xl mb-6" variant="mixed">NASA-Grade Testing Protocols</GradientHeading>
             <p className="text-xl text-gray-200 max-w-4xl mx-auto">
-              Our products undergo rigorous testing validated by NASA, UL, Factory Mutual, and American Bureau of Shipping, including extreme temperature differential tests at 2,732°F (1,500°C) for 20+ minutes while maintaining a 2,177°F temperature differential.
+              Our triple-component system utilizes vacuum-filled ceramic microspheres in a water-based acrylic elastomeric polymer with 156% elongation capability. When tested at 2,732°F (1,500°C), our coatings maintain a 2,177°F temperature differential, with the surface at 2,296°F while the back surface remains at only 150°F.
             </p>
           </div>
           
@@ -68,7 +68,7 @@ const ProductPerformanceSection = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-2xl mb-2">ASTM E84 Fire Testing</h4>
-                    <p className="text-lg text-gray-300">Perfect Class A ratings with 0/100 scores for both Flame Spread Index and Smoke Development Index, confirmed through independent laboratory testing</p>
+                    <p className="text-lg text-gray-300">Perfect Class A ratings with 0/100 scores for both Flame Spread Index and Smoke Development Index, verified by NASA, UL, and Factory Mutual. Competing ceramic coatings only achieve Class B-C ratings (25-75/100).</p>
                   </div>
                 </div>
                 
@@ -78,7 +78,7 @@ const ProductPerformanceSection = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-2xl mb-2">Extreme Heat Differential Tests</h4>
-                    <p className="text-lg text-gray-300">5-6 coats applied to 1/4 inch steel passed tests against 1550°F (843°C) flame for 25+ minutes while maintaining structural integrity</p>
+                    <p className="text-lg text-gray-300">Advanced ceramic microspheres create physical impossibility for heat traversal through vacuum spaces. 5-6 coats (30 mils) on 1/4 inch steel withstand 1550°F (843°C) for 25+ minutes, significantly outperforming conventional systems.</p>
                   </div>
                 </div>
                 
@@ -88,7 +88,7 @@ const ProductPerformanceSection = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-2xl mb-2">Solar Reflectance Testing</h4>
-                    <p className="text-lg text-gray-300">Verified by Cool Roof Rating Council with 89% reflection and 89% emittance — blocking 95% of solar radiation with only 1% degradation over 3 years</p>
+                    <p className="text-lg text-gray-300">Titanium Dioxide reflective technology verified by Cool Roof Rating Council with 89% reflection and 89% thermal emittance. Blocks 95% of solar radiation with only 1% degradation over 3 years compared to 10-20% degradation in competing products.</p>
                   </div>
                 </div>
               </div>

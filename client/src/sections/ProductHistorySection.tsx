@@ -20,7 +20,7 @@ const ProductHistorySection = () => {
           <div>
             <GradientHeading level={2} className="text-4xl md:text-5xl lg:text-6xl mb-8" variant="fire">Space Technology Heritage</GradientHeading>
             <p className="mb-8 text-white text-xl leading-relaxed">
-              Praetorian SmartCoat's foundation is built upon NASA space shuttle thermal protection technology, utilizing vacuum-filled ceramic microspheres in a specialized elastomeric matrix with 156% flexibility. Our triple-component system creates a thermal barrier that addresses radiation, conduction, and convection simultaneously while providing Class A fire protection.
+              Praetorian SmartCoat's foundation is built upon NASA space shuttle thermal protection technology, utilizing 80-160 micron vacuum-filled ceramic microspheres in a specialized elastomeric matrix with 156% flexibility. Each microsphere contains a vacuum void that creates a physical heat traversal impossibility (0.00543 W/cm²/K conductivity) in our triple-component system, addressing radiation, conduction, and convection simultaneously while providing Class A fire protection.
             </p>
             <ul className="space-y-5 mb-10">
               <li className="flex items-start">
@@ -33,7 +33,7 @@ const ProductHistorySection = () => {
               </li>
               <li className="flex items-start">
                 <i className="fas fa-check-circle text-primary-400 mt-1 mr-4 text-2xl"></i>
-                <span className="dark:text-white text-white text-lg">US Air Force tests in Arizona demonstrated metal buildings maintaining 85°F interior temperature while ambient temperatures reached 111-113°F, preventing 95% of solar radiation from affecting structures</span>
+                <span className="dark:text-white text-white text-lg">US Air Force tests in Arizona demonstrated metal buildings maintaining 85°F interior temperature while ambient temperatures reached 111-113°F, with coatings demonstrating solar reflectivity of 89% and thermal emissivity of 89%, effectively blocking 95% of solar radiation</span>
               </li>
               <li className="flex items-start">
                 <i className="fas fa-check-circle text-primary-400 mt-1 mr-4 text-2xl"></i>
@@ -59,7 +59,7 @@ const ProductHistorySection = () => {
                 <div className="absolute -left-3 top-0 w-6 h-6 rounded-full dark:bg-gradient-to-r dark:from-gray-700 dark:to-gray-600 bg-gradient-to-r from-orange-400 to-orange-500 dark:shadow-[0_0_8px_rgba(255,255,255,0.25)] shadow-[0_0_8px_rgba(0,0,0,0.25)]"></div>
                 <div className="font-bold text-xl">1989</div>
                 <div className="text-2xl font-semibold mb-1">NASA Technology Adaptation</div>
-                <p className="dark:text-gray-300 text-gray-700 text-lg">First successful adaptation of NASA ceramic microsphere technology for commercial fire protection applications</p>
+                <p className="dark:text-gray-300 text-gray-700 text-lg">First successful adaptation of NASA's 80-160 micron vacuum-filled ceramic microspheres (0.00543 W/cm²/K conductivity) for commercial fire protection applications</p>
               </div>
               
               <div className="relative pl-10 dark:border-l-3 dark:border-gray-600/40 border-l-3 border-gray-400/60 pb-10">
