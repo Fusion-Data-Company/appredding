@@ -185,8 +185,8 @@ const MobileHome = () => {
                       </svg>
                     </span>
                     <div>
-                      <h3 className="text-xl font-semibold mb-2 text-white">Leak Prevention & Waterproofing</h3>
-                      <p className="text-gray-100">Seamless membrane creates an impenetrable barrier against water intrusion, protecting the structure from costly water damage.</p>
+                      <h3 className="text-xl font-semibold mb-2 text-white">Ceramic Microsphere Waterproofing</h3>
+                      <p className="text-gray-100">NASA-derived ceramic microspheres create a 156% elastomeric waterproof membrane that remains 100% waterproof even after 10,000+ salt spray hours with self-healing properties for long-term protection.</p>
                     </div>
                   </div>
 
@@ -199,8 +199,8 @@ const MobileHome = () => {
                       </svg>
                     </span>
                     <div>
-                      <h3 className="text-xl font-semibold mb-2 text-white">Extends Lifespan by 15+ Years</h3>
-                      <p className="text-gray-100">Our protective coatings significantly extend the life of your mobile home's roof and exterior, providing long-term value.</p>
+                      <h3 className="text-xl font-semibold mb-2 text-white">Fire Protection & Extended Lifespan</h3>
+                      <p className="text-gray-100">Class A fire-rated protection (perfect 0/100 scores in ASTM E84 testing) with NASA ceramic technology that extends lifespan 30+ years with verified test data showing no degradation after decades of exposure.</p>
                     </div>
                   </div>
                 </div>
@@ -213,8 +213,8 @@ const MobileHome = () => {
               </div>
 
               <div className="backdrop-blur-sm bg-primary-900/60 border-4 border-white rounded-xl p-8 shadow-[0_0_60px_rgba(255,255,255,0.4)]">
-                <GradientHeading level={2} className="text-3xl mb-6" variant="mixed">Application Process</GradientHeading>
-                <p className="mb-8 text-gray-100">Our comprehensive mobile home protection process delivers outstanding results</p>
+                <GradientHeading level={2} className="text-3xl mb-6" variant="mixed">NASA Ceramic Application Process</GradientHeading>
+                <p className="mb-8 text-gray-100">Our certified application process for NASA-derived ceramic microsphere technology ensures perfect adhesion and maximum performance</p>
                 
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
@@ -265,7 +265,7 @@ const MobileHome = () => {
         <section className="py-16 relative z-10">
           <div className="container mx-auto">
             <div className="backdrop-blur-sm bg-primary-900/60 p-8 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] mb-12">
-              <GradientHeading level={2} className="text-3xl md:text-4xl text-center mb-12" variant="mixed">Mobile Home Protection Solutions</GradientHeading>
+              <GradientHeading level={2} className="text-3xl md:text-4xl text-center mb-12" variant="mixed">NASA Ceramic Technology Applications</GradientHeading>
               
               <div className="grid md:grid-cols-3 gap-8">
                 <div className="backdrop-blur-sm bg-primary-800/80 border-4 border-white rounded-lg p-6 hover:translate-y-[-5px] transition-transform duration-300 shadow-[0_0_60px_rgba(255,255,255,0.4)]">
