@@ -243,24 +243,24 @@ const ConstructionPage = () => {
                   <div className="bg-gradient-to-r from-orange-600 to-blue-500 w-12 h-12 rounded-full flex items-center justify-center mb-4">
                     <PaintBucket className="h-6 w-6 text-white" />
                   </div>
-                  <h3 className="text-lg font-bold mb-2 text-blue-300">Decorative Finishes</h3>
-                  <p className="text-white">Beautiful, long-lasting aesthetic options with unlimited color choices and textures.</p>
+                  <h3 className="text-lg font-bold mb-2 text-blue-300">Thermal Reflective Technology</h3>
+                  <p className="text-white">89% solar reflection and thermal emittance documented by Cool Roof Rating Council with only 1% reflectivity loss after 3 years (vs 10-20% for competitors).</p>
                 </div>
                 
                 <div className="backdrop-blur-sm bg-primary-900/80 rounded-xl p-6 border border-orange-500/30 shadow-lg">
                   <div className="bg-gradient-to-r from-orange-600 to-blue-500 w-12 h-12 rounded-full flex items-center justify-center mb-4">
                     <Umbrella className="h-6 w-6 text-white" />
                   </div>
-                  <h3 className="text-lg font-bold mb-2 text-orange-300">Waterproofing</h3>
-                  <p className="text-white">Prevents water infiltration and damage with seamless waterproof membrane technology.</p>
+                  <h3 className="text-lg font-bold mb-2 text-orange-300">Advanced Waterproofing</h3>
+                  <p className="text-white">156% elastomeric flexibility with permanent waterproofing using ceramic microsphere self-healing technology. 100% waterproof even after 10,000 salt spray hours.</p>
                 </div>
                 
                 <div className="backdrop-blur-sm bg-primary-900/80 rounded-xl p-6 border border-blue-500/30 shadow-lg">
                   <div className="bg-gradient-to-r from-orange-600 to-blue-500 w-12 h-12 rounded-full flex items-center justify-center mb-4">
                     <HardDrive className="h-6 w-6 text-white" />
                   </div>
-                  <h3 className="text-lg font-bold mb-2 text-blue-300">Safety Compliance</h3>
-                  <p className="text-white">Meets or exceeds building codes and safety standards for commercial construction.</p>
+                  <h3 className="text-lg font-bold mb-2 text-blue-300">NASA Certification & Standards</h3>
+                  <p className="text-white">Exceeds ASTM E84, NFPA 286, ASTM C1396, UL 723, and all commercial building codes with documented NASA technology transfer certification.</p>
                 </div>
               </div>
             </div>

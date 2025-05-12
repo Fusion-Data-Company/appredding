@@ -138,15 +138,15 @@ const MobileHome = () => {
         <section className="py-16 md:py-24 relative z-10">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto text-center mb-16 backdrop-blur-sm bg-primary-900/60 p-8 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)]">
-              <GradientHeading level={1} className="text-4xl md:text-5xl mb-6 glow-text" variant="mixed">Mobile Home Protection Solutions</GradientHeading>
+              <GradientHeading level={1} className="text-4xl md:text-5xl mb-6 glow-text" variant="mixed">NASA Ceramic Technology for Mobile Homes</GradientHeading>
               <p className="text-xl text-white mb-8">
-                Extend the life and enhance the appearance of your mobile home with our specialized protective coatings. Shield your investment from the elements with our industry-leading solutions.
+                Protect your mobile home with our revolutionary NASA-derived ceramic microsphere coating technology. Our Class A fire-rated system (perfect 0/100 ASTM E84 scores) provides unmatched thermal protection, extending your home's lifespan by 15+ years with documented 87% energy cost reduction.
               </p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-12 mb-16">
               <div className="backdrop-blur-sm bg-primary-900/60 border-4 border-white rounded-xl p-8 shadow-[0_0_60px_rgba(255,255,255,0.4)]">
-                <GradientHeading level={2} className="text-3xl mb-6" variant="mixed">Superior Protection Benefits</GradientHeading>
+                <GradientHeading level={2} className="text-3xl mb-6" variant="mixed">NASA Ceramic Microsphere Benefits</GradientHeading>
                 
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
@@ -158,8 +158,8 @@ const MobileHome = () => {
                       </svg>
                     </span>
                     <div>
-                      <h3 className="text-xl font-semibold mb-2 text-white">Weather and UV Resistance</h3>
-                      <p className="text-gray-100">Protects against harsh sun, rain, snow, and temperature fluctuations, preventing premature aging and deterioration.</p>
+                      <h3 className="text-xl font-semibold mb-2 text-white">NASA Ceramic UV Shield</h3>
+                      <p className="text-gray-100">NASA-derived ceramic microspheres provide 89% UV reflection (verified by Cool Roof Rating Council) and resist extreme temperature fluctuations (-40°F to 300°F) with only 1% reflectivity loss after 3 years.</p>
                     </div>
                   </div>
 
@@ -170,8 +170,8 @@ const MobileHome = () => {
                       </svg>
                     </span>
                     <div>
-                      <h3 className="text-xl font-semibold mb-2 text-white">Enhanced Energy Efficiency</h3>
-                      <p className="text-gray-100">Our reflective coatings can reduce cooling costs by up to 30% by reflecting solar heat away from your home.</p>
+                      <h3 className="text-xl font-semibold mb-2 text-white">NASA-Verified Energy Efficiency</h3>
+                      <p className="text-gray-100">Ceramic microsphere technology delivers documented 87% energy reduction (Sony Koda case study) with thermal barrier properties that reduce cooling costs 30-40% more than standard reflective coatings.</p>
                     </div>
                   </div>
 
