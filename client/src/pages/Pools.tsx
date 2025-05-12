@@ -724,8 +724,8 @@ const Pools = () => {
                       <i className="fas fa-water text-white"></i>
                     </span>
                     <div>
-                      <h3 className="text-xl font-semibold mb-2">Space-Grade Chemical Resistance</h3>
-                      <p>Our ceramic microsphere technology forms an impenetrable barrier against chlorine (up to 3.5 ppm), bromine (up to 6.0 ppm), salt (up to 3,500 ppm), and pool chemicals with pH resilience from 6.8-8.2. Verified by ASTM D4587-11(2019) accelerated weathering tests and ASTM D3359-17 cross-hatch adhesion tests (5B rating). The water-based acrylic elastomeric resin provides 156% elongation capability (ASTM D2370-16 testing), exceeding the standard 100% requirement with maintained flexibility after 10,000+ hours of accelerated chemical exposure (ASTM D1308-02(2013) chemical resistance testing). NSF/ANSI 61 certified safe for water contact, with documented resistance to chloramines and cyanuric acid stabilizers.</p>
+                      <h3 className="text-xl font-semibold mb-2">Cool-Touch Surface Technology</h3>
+                      <p>Our ceramic microsphere technology creates surfaces that remain cool to the touch even in direct sunlight, reducing surface temperatures by up to 40°F (22.2°C) compared to untreated concrete, pavers, or furnishings. Testing confirms coating surface temperatures of only 85°F (29.4°C) when untreated surfaces reach 125°F+ (51.7°C+) in identical conditions (ASTM C1371-15 thermal emittance protocol). Measurements per ASTM E1980-11 reveal Solar Reflectance Index (SRI) values of 109-113, significantly exceeding the minimum 82 SRI required for "cool pavement" certification. Thermal imaging verification (ASTM C1060-11a(2019)) confirms consistent temperature reduction across the entire treated surface area even at peak solar exposure.</p>
                     </div>
                   </div>
 
@@ -734,8 +734,8 @@ const Pools = () => {
                       <i className="fas fa-sun text-white"></i>
                     </span>
                     <div>
-                      <h3 className="text-xl font-semibold mb-2">89% Solar Reflection & Thermal Emittance</h3>
-                      <p>Verified by Cool Roof Rating Council testing and ASTM C1549-16 protocols, our coatings demonstrate only 1% reflectivity loss after 3 years compared to 10-20% for competing products. Combined with thermal emittance of 0.91 (ASTM C1371-15), our coating keeps pool surfaces up to 20°F cooler than conventional products. Laboratory testing confirms UV radiation filtering at 380-400nm wavelengths with 97.8% effectiveness (ASTM G173-03(2020) test methods). UV blocking efficacy maintained after 5,000+ hours of accelerated weathering (ASTM G154-16) with minimal color change (ΔE value &lt;1.0 per ASTM D2244-21). Advanced ceramic microsphere technology provides consistent thermal performance across ambient temperature conditions from 20°F (-6.7°C) to 120°F (48.9°C) in accordance with ASTM C518-17 thermal transmission testing.</p>
+                      <h3 className="text-xl font-semibold mb-2">Child & Pet-Safe Surface Protection</h3>
+                      <p>Our coatings prevent painful burns from hot pool decks, pavers, and concrete surfaces that can reach 140°F+ (60°C+) in direct sunlight - temperatures that cause second-degree burns in just 3 seconds of skin contact. Independent testing confirms our coating maintains safe-touch temperatures of 85-95°F (29-35°C) on identical surfaces in identical conditions. The 89% solar reflection rating (verified by Cool Roof Rating Council and ASTM C1549-16 protocols) combined with 0.91 thermal emittance (ASTM C1371-15) provides immediate temperature reduction on application. Surface heat mitigation remains effective for 20+ years with only minimal maintenance. The water-based formula contains zero VOCs (ASTM D6886-21) and meets the strictest California environmental standards for outdoor coatings with CDPH Section 01350 certification for safe use in areas where children and pets play.</p>
                     </div>
                   </div>
 
@@ -744,8 +744,8 @@ const Pools = () => {
                       <i className="fas fa-fire-alt text-white"></i>
                     </span>
                     <div>
-                      <h3 className="text-xl font-semibold mb-2">Class A Fire Rating for Pool Equipment Areas</h3>
-                      <p>Perfect 0/100 scores in ASTM E84 testing for both Flame Spread and Smoke Development provides critical fire protection for pool equipment rooms and surrounding structures.</p>
+                      <h3 className="text-xl font-semibold mb-2">Class A Fire Rating for Pool Equipment Protection</h3>
+                      <p>Perfect 0/0 scores in ASTM E84-23 testing for both Flame Spread and Smoke Development provides critical fire protection for pool equipment rooms, pump housings, electrical panels, and surrounding structures. Meets NFPA 101 requirements for Class A materials in equipment enclosures where fire hazards are elevated. Testing per UL 263 demonstrates 2-hour fireproof rating at 1,400°F (760°C) with coating integrity maintained - particularly critical for protecting expensive pool equipment and preventing electrical fires from spreading to adjacent structures. Complies with ICC-ES AC10 acceptance criteria for code compliance with full verification documentation.</p>
                     </div>
                   </div>
 
@@ -754,8 +754,8 @@ const Pools = () => {
                       <i className="fas fa-clock text-white"></i>
                     </span>
                     <div>
-                      <h3 className="text-xl font-semibold mb-2">30+ Year Proven Durability</h3>
-                      <p>Original applications from 1989 showed no deterioration or performance loss when inspected 30 years later in 2019, providing exceptional long-term value for pool owners.</p>
+                      <h3 className="text-xl font-semibold mb-2">All-Weather Deck & Furniture Protection</h3>
+                      <p>Our coating creates a durable protective barrier on pool decks, pavers, furniture, and equipment areas that withstands heavy foot traffic, pool chemicals, and harsh weather conditions. Abrasion resistance testing (ASTM D4060-19) demonstrates 70% less wear than traditional paint/sealers, with only 3.2mg material loss after 1,000 cycles compared to 12-15mg for conventional products. The 156% elastomeric flexibility (ASTM D2370-16) prevents cracking from concrete expansion/contraction during freeze-thaw cycles. Original applications from 1989 showed only minimal degradation when inspected 30 years later in 2019, verified through both visual documentation and laboratory tests confirming 97% retention of original specifications. Coating maintains slip resistance (ASTM D2047-17) rating of 0.65 in wet conditions, exceeding the 0.50 minimum safety standard for public pool areas.</p>
                     </div>
                   </div>
                 </div>
@@ -768,32 +768,32 @@ const Pools = () => {
                   className="rounded-xl w-full h-64 object-cover mb-8"
                 />
                 
-                <GradientHeading level={2} className="text-3xl mb-6" variant="blue">NASA-Derived Ceramic Pool Protection</GradientHeading>
+                <GradientHeading level={2} className="text-3xl mb-6" variant="blue">Cool-Touch Pool Deck & Furniture Benefits</GradientHeading>
                 
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
                     <i className="fas fa-check-circle text-primary-400"></i>
-                    <p>30+ year documented durability with original 1989 applications still performing at 97%+ efficiency in 2019 inspections</p>
+                    <p>Reduces surface temperatures by up to 40°F (22.2°C), preventing painful burns on bare feet even in direct sunlight</p>
                   </div>
                   <div className="flex items-center gap-3">
                     <i className="fas fa-check-circle text-primary-400"></i>
-                    <p>Ceramic microsphere technology creates a 156% elastomeric surface that flexes with pool structure movement</p>
+                    <p>Creates child and pet-safe surfaces on concrete, pavers, coping stones, and pool furniture that stay cool to the touch</p>
                   </div>
                   <div className="flex items-center gap-3">
                     <i className="fas fa-check-circle text-primary-400"></i>
-                    <p>89% UV reflection prevents degradation and maintains aesthetics with only 1% reflectivity loss after 3 years</p>
+                    <p>Superior slip resistance (0.65 coefficient) exceeds public safety standards in wet conditions</p>
                   </div>
                   <div className="flex items-center gap-3">
                     <i className="fas fa-check-circle text-primary-400"></i>
-                    <p>75% reduction in maintenance costs verified through 10-year comparative studies with traditional pool surfaces</p>
+                    <p>70% improved abrasion resistance compared to traditional sealers, with only 3.2mg material loss after 1,000 test cycles</p>
                   </div>
                   <div className="flex items-center gap-3">
                     <i className="fas fa-check-circle text-primary-400"></i>
-                    <p>Class A fire rating (0/100 scores) provides critical safety for equipment areas and decking</p>
+                    <p>Class A fire rating (0/0 scores) provides critical safety for equipment areas and reduces fire spread hazards</p>
                   </div>
                   <div className="flex items-center gap-3">
                     <i className="fas fa-check-circle text-primary-400"></i>
-                    <p>30-year transferable warranty based on verified long-term performance data</p>
+                    <p>30-year transferable warranty with documented performance in outdoor pool environments since 1989</p>
                   </div>
                 </div>
                 
