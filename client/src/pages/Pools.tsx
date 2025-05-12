@@ -830,17 +830,31 @@ const Pools = () => {
                 
                 <div className="grid md:grid-cols-2 gap-6 mb-6">
                   <div>
-                    <label className="block text-sm font-medium mb-2">Deck Area Shape</label>
+                    <label className="block text-sm font-medium mb-2">
+                      Deck Area Shape
+                      <TooltipProvider>
+                        <Tooltip>
+                          <TooltipTrigger asChild>
+                            <span className="inline-block ml-1">
+                              <HelpCircle className="h-4 w-4 inline text-gray-400" />
+                            </span>
+                          </TooltipTrigger>
+                          <TooltipContent>
+                            <p className="w-60">Select the layout that best matches your pool deck area to get an accurate estimate.</p>
+                          </TooltipContent>
+                        </Tooltip>
+                      </TooltipProvider>
+                    </label>
                     <select 
                       className="w-full bg-primary-900 border border-primary-700 rounded p-2"
                       value={poolShape}
                       onChange={(e) => setPoolShape(e.target.value)}
                     >
-                      <option value="rectangular">Rectangular</option>
-                      <option value="oval">Oval/Curved</option>
-                      <option value="kidney">L-Shaped</option>
-                      <option value="freeform">Free Form</option>
-                      <option value="custom">Custom</option>
+                      <option value="rectangular">Rectangular Deck</option>
+                      <option value="oval">Curved/Circular Deck</option>
+                      <option value="kidney">L-Shaped Deck</option>
+                      <option value="freeform">Irregular/Custom Shape</option>
+                      <option value="custom">Multi-Level/Complex</option>
                     </select>
                   </div>
                   
@@ -977,12 +991,12 @@ const Pools = () => {
                           Calculation Results
                         </CardTitle>
                         <CardDescription className="text-center text-primary-200">
-                          Based on your pool dimensions and selected coating system
+                          Based on your deck dimensions and selected coating system
                         </CardDescription>
                       </CardHeader>
                       <CardContent className="grid gap-4">
                         <div className="grid grid-cols-2 items-center gap-4">
-                          <div className="text-sm font-medium">Surface Area:</div>
+                          <div className="text-sm font-medium">Deck Surface Area:</div>
                           <div className="text-right">{calculationResult.surfaceArea.toLocaleString()} sq ft</div>
                         </div>
                         <div className="grid grid-cols-2 items-center gap-4">
