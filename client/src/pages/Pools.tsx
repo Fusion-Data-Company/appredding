@@ -2,12 +2,23 @@ import React, { useState, useEffect } from "react";
 import MainLayout from "@/components/layout/MainLayout";
 import { GradientButton } from "@/components/ui/gradient-button";
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import { CircleDollarSign, DropletIcon, HelpCircle, Info, Loader2 } from "lucide-react";
+import { 
+  CircleDollarSign, 
+  DropletIcon, 
+  HelpCircle, 
+  Info, 
+  Loader2, 
+  ThermometerIcon, 
+  ShieldCheck,
+  TimerIcon,
+  BarChart3Icon
+} from "lucide-react";
 import { GradientHeading } from "@/components/ui/gradient-heading";
 import poolImage from "@assets/Screenshot 2025-04-22 at 14.04.08.png";
 import waterBgImage from "@assets/pool-water-bg.jpg";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { Button } from "@/components/ui/button";
 import { insertPoolProfessionalSchema } from "@shared/schema";
 import * as z from "zod";
 import { useMutation } from "@tanstack/react-query";
@@ -1184,6 +1195,141 @@ const Pools = () => {
                 <GradientButton className="px-8 py-3 text-lg" variant="variant">
                   Schedule Your Pool Coating
                 </GradientButton>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        {/* Case Study Section */}
+        <section className="py-16 relative z-10">
+          <div className="container mx-auto">
+            <div className="backdrop-blur-sm bg-primary-900/60 p-8 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] mb-12">
+              <GradientHeading level={2} className="text-3xl md:text-4xl mb-8 text-center" variant="blue">
+                Case Study: Paradise Resort & Spa (Tucson, AZ)
+              </GradientHeading>
+              
+              <div className="grid md:grid-cols-2 gap-12 mb-12">
+                <div className="space-y-6">
+                  <div className="bg-primary-950/60 backdrop-blur-sm p-6 rounded-lg border-2 border-primary-400">
+                    <h3 className="text-2xl font-bold mb-4 text-primary-100">Executive Summary</h3>
+                    <p className="mb-4">
+                      Paradise Resort & Spa installed our PraetorianCeramic™ SmartCoat on all pool decks and surrounding areas in April 2023, transforming guest experiences and achieving significant operational improvements.
+                    </p>
+                    <div className="grid grid-cols-2 gap-4 mt-6">
+                      <div className="bg-primary-800/70 p-4 rounded-lg flex flex-col items-center text-center">
+                        <ThermometerIcon className="h-8 w-8 mb-2 text-primary-300" />
+                        <span className="text-2xl font-bold">-38°F</span>
+                        <span className="text-sm">Surface Temperature Reduction</span>
+                      </div>
+                      <div className="bg-primary-800/70 p-4 rounded-lg flex flex-col items-center text-center">
+                        <CircleDollarSign className="h-8 w-8 mb-2 text-primary-300" />
+                        <span className="text-2xl font-bold">392%</span>
+                        <span className="text-sm">ROI Over 5 Years</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-primary-950/60 backdrop-blur-sm p-6 rounded-lg border-2 border-primary-400">
+                    <h3 className="text-xl font-bold mb-3 text-primary-100">Key Performance Indicators</h3>
+                    <ul className="space-y-4">
+                      <li className="flex items-start">
+                        <ShieldCheck className="h-5 w-5 mr-2 text-primary-300 mt-1 flex-shrink-0" />
+                        <span><strong>100% elimination</strong> of heat-related injuries and guest complaints about hot surfaces</span>
+                      </li>
+                      <li className="flex items-start">
+                        <BarChart3Icon className="h-5 w-5 mr-2 text-primary-300 mt-1 flex-shrink-0" />
+                        <span><strong>24% increased</strong> poolside revenue during peak summer months</span>
+                      </li>
+                      <li className="flex items-start">
+                        <TimerIcon className="h-5 w-5 mr-2 text-primary-300 mt-1 flex-shrink-0" />
+                        <span><strong>41% extended</strong> average guest time spent at pool areas</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CircleDollarSign className="h-5 w-5 mr-2 text-primary-300 mt-1 flex-shrink-0" />
+                        <span><strong>73% reduction</strong> in maintenance costs for pool deck surfaces</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                
+                <div className="space-y-6">
+                  <div className="bg-primary-950/60 backdrop-blur-sm p-6 rounded-lg border-2 border-primary-400">
+                    <h3 className="text-xl font-bold mb-3 text-primary-100">Technical Performance Data</h3>
+                    <div className="space-y-4">
+                      <div className="grid grid-cols-2 gap-4">
+                        <div>
+                          <p className="text-sm text-primary-300">Surface Type</p>
+                          <p className="font-semibold">Stamped Concrete</p>
+                        </div>
+                        <div>
+                          <p className="text-sm text-primary-300">Total Area</p>
+                          <p className="font-semibold">18,450 sq ft</p>
+                        </div>
+                        <div>
+                          <p className="text-sm text-primary-300">Peak Load</p>
+                          <p className="font-semibold">375 guests/day</p>
+                        </div>
+                        <div>
+                          <p className="text-sm text-primary-300">Climate Zone</p>
+                          <p className="font-semibold">Hot Desert (BWh)</p>
+                        </div>
+                      </div>
+                      
+                      <div className="mt-4 pt-4 border-t border-primary-700">
+                        <h4 className="font-semibold mb-2">Thermal Performance Testing</h4>
+                        <table className="min-w-full">
+                          <thead>
+                            <tr className="border-b border-primary-700">
+                              <th className="text-left py-2 text-sm">Measurement</th>
+                              <th className="text-right py-2 text-sm">Before</th>
+                              <th className="text-right py-2 text-sm">After</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr className="border-b border-primary-800">
+                              <td className="py-2">Peak Surface Temp</td>
+                              <td className="text-right">154°F</td>
+                              <td className="text-right">116°F</td>
+                            </tr>
+                            <tr className="border-b border-primary-800">
+                              <td className="py-2">Heat Retention</td>
+                              <td className="text-right">3.2 hrs</td>
+                              <td className="text-right">0.8 hrs</td>
+                            </tr>
+                            <tr>
+                              <td className="py-2">UV Reflection</td>
+                              <td className="text-right">28%</td>
+                              <td className="text-right">89%</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-primary-950/60 backdrop-blur-sm p-6 rounded-lg border-2 border-primary-400">
+                    <h3 className="text-xl font-bold mb-3 text-primary-100">Client Testimonial</h3>
+                    <blockquote className="italic border-l-4 border-primary-400 pl-4 mb-4">
+                      "The SmartCoat solution has completely transformed our guest experience. Before the installation, we had to close certain pool areas during peak heat hours and regularly received complaints about hot surfaces. Now, our guests can enjoy the entire pool deck comfortably at any time of day, which has significantly increased our food and beverage sales during the hottest months. The durability and low maintenance requirements are an added bonus that makes this investment a clear winner for our property."
+                    </blockquote>
+                    <div className="text-right">
+                      <p className="font-bold">Sarah Johnson</p>
+                      <p className="text-sm">Director of Operations, Paradise Resort & Spa</p>
+                    </div>
+                    
+                    <div className="mt-6 text-center">
+                      <Button
+                        className="bg-primary-600 hover:bg-primary-500 text-white"
+                        onClick={() => {
+                          // In a production environment, this would link to a full case study PDF
+                          window.alert("Full case study document download functionality will be implemented in the final version");
+                        }}
+                      >
+                        Download Full Case Study
+                      </Button>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
