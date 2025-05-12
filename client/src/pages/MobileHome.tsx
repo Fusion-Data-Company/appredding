@@ -1242,73 +1242,119 @@ const MobileHome = () => {
         <section className="py-16 relative z-10">
           <div className="container mx-auto">
             <div className="backdrop-blur-sm bg-primary-900/60 p-8 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)]">
-              <GradientHeading level={2} className="text-3xl md:text-4xl font-bold mb-12 text-center" variant="mixed">Customer Testimonials</GradientHeading>
+              <GradientHeading level={2} className="text-3xl md:text-4xl font-bold mb-8 md:mb-12 text-center" variant="mixed">Customer Testimonials</GradientHeading>
               
-              <div className="grid md:grid-cols-3 gap-8">
-                <div className="backdrop-blur-sm bg-primary-800/80 border-4 border-white rounded-lg p-6 hover:translate-y-[-5px] transition-transform duration-300 shadow-[0_0_60px_rgba(255,255,255,0.4)]">
-                  <div className="flex mb-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="text-yellow-400">
-                      <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="text-yellow-400">
-                      <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="text-yellow-400">
-                      <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="text-yellow-400">
-                      <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="text-yellow-400">
-                      <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
-                    </svg>
+              {/* Mobile-optimized testimonials section */}
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                <div className="backdrop-blur-sm bg-gradient-to-br from-primary-800/90 to-primary-900/80 border-2 md:border-4 border-white/80 rounded-lg p-5 md:p-6 hover:translate-y-[-5px] transition-transform duration-300 shadow-[0_0_40px_rgba(255,255,255,0.3)]">
+                  {/* Testimonial header with avatar */}
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="h-12 w-12 rounded-full bg-gradient-to-r from-orange-500 to-orange-300 flex items-center justify-center text-lg font-bold text-white">
+                      DM
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-white text-sm">David M.</h4>
+                      <p className="text-xs text-orange-200">Phoenix, AZ</p>
+                    </div>
                   </div>
-                  <p className="mb-4 italic text-white">"After applying Praetorian's roof coating, our energy bills dropped by almost 25%! The technicians were professional and finished the job in just two days. My mobile home looks better than it has in years."</p>
-                  <div className="font-semibold text-orange-200">- David M., Phoenix, AZ</div>
+                  
+                  {/* Star rating */}
+                  <div className="flex mb-3">
+                    {[1, 2, 3, 4, 5].map((star) => (
+                      <svg key={star} xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" className="text-yellow-400">
+                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+                      </svg>
+                    ))}
+                  </div>
+                  
+                  {/* Testimonial content */}
+                  <div className="relative">
+                    <div className="absolute -top-2 -left-1 text-4xl text-orange-400/20">"</div>
+                    <p className="mb-4 italic text-white relative z-10 leading-relaxed text-sm md:text-base">After applying Praetorian's roof coating, our energy bills dropped by almost 25%! The technicians were professional and finished the job in just two days. My mobile home looks better than it has in years.</p>
+                  </div>
+                  
+                  {/* Verification badge */}
+                  <div className="mt-3 pt-3 border-t border-white/10 flex items-center text-xs">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4 mr-1 text-green-400">
+                      <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path>
+                      <path d="m9 12 2 2 4-4"></path>
+                    </svg>
+                    <span className="text-blue-200">Verified Customer</span>
+                  </div>
                 </div>
                 
-                <div className="backdrop-blur-sm bg-primary-800/80 border-4 border-white rounded-lg p-6 hover:translate-y-[-5px] transition-transform duration-300 shadow-[0_0_60px_rgba(255,255,255,0.4)]">
-                  <div className="flex mb-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="text-yellow-400">
-                      <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="text-yellow-400">
-                      <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="text-yellow-400">
-                      <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="text-yellow-400">
-                      <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="text-yellow-400">
-                      <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
-                    </svg>
+                <div className="backdrop-blur-sm bg-gradient-to-br from-primary-800/90 to-primary-900/80 border-2 md:border-4 border-white/80 rounded-lg p-5 md:p-6 hover:translate-y-[-5px] transition-transform duration-300 shadow-[0_0_40px_rgba(255,255,255,0.3)]">
+                  {/* Testimonial header with avatar */}
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="h-12 w-12 rounded-full bg-gradient-to-r from-orange-500 to-orange-300 flex items-center justify-center text-lg font-bold text-white">
+                      LW
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-white text-sm">Linda W.</h4>
+                      <p className="text-xs text-orange-200">Tucson, AZ</p>
+                    </div>
                   </div>
-                  <p className="mb-4 italic text-white">"We had persistent leaks for years that other companies couldn't fix. Praetorian's specialized coating sealed everything perfectly. It's been through two monsoon seasons without a single leak. Worth every penny!"</p>
-                  <div className="font-semibold text-orange-200">- Linda W., Tucson, AZ</div>
+                  
+                  {/* Star rating */}
+                  <div className="flex mb-3">
+                    {[1, 2, 3, 4, 5].map((star) => (
+                      <svg key={star} xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" className="text-yellow-400">
+                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+                      </svg>
+                    ))}
+                  </div>
+                  
+                  {/* Testimonial content */}
+                  <div className="relative">
+                    <div className="absolute -top-2 -left-1 text-4xl text-orange-400/20">"</div>
+                    <p className="mb-4 italic text-white relative z-10 leading-relaxed text-sm md:text-base">We had persistent leaks for years that other companies couldn't fix. Praetorian's specialized coating sealed everything perfectly. It's been through two monsoon seasons without a single leak. Worth every penny!</p>
+                  </div>
+                  
+                  {/* Verification badge */}
+                  <div className="mt-3 pt-3 border-t border-white/10 flex items-center text-xs">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4 mr-1 text-green-400">
+                      <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path>
+                      <path d="m9 12 2 2 4-4"></path>
+                    </svg>
+                    <span className="text-blue-200">Verified Customer</span>
+                  </div>
                 </div>
                 
-                <div className="backdrop-blur-sm bg-primary-800/80 border-4 border-white rounded-lg p-6 hover:translate-y-[-5px] transition-transform duration-300 shadow-[0_0_60px_rgba(255,255,255,0.4)]">
-                  <div className="flex mb-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="text-yellow-400">
-                      <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="text-yellow-400">
-                      <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="text-yellow-400">
-                      <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="text-yellow-400">
-                      <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="text-yellow-400">
-                      <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
-                    </svg>
+                <div className="backdrop-blur-sm bg-gradient-to-br from-primary-800/90 to-primary-900/80 border-2 md:border-4 border-white/80 rounded-lg p-5 md:p-6 hover:translate-y-[-5px] transition-transform duration-300 shadow-[0_0_40px_rgba(255,255,255,0.3)] sm:col-span-2 lg:col-span-1">
+                  {/* Testimonial header with avatar */}
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="h-12 w-12 rounded-full bg-gradient-to-r from-orange-500 to-orange-300 flex items-center justify-center text-lg font-bold text-white">
+                      RK
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-white text-sm">Robert & Susan K.</h4>
+                      <p className="text-xs text-orange-200">Mesa, AZ</p>
+                    </div>
                   </div>
-                  <p className="mb-4 italic text-white">"The financing options made it possible for us to protect our home on a fixed income. The difference in interior temperature during summer is amazing, and the exterior looks like new. Their customer service was outstanding."</p>
-                  <div className="font-semibold text-orange-200">- Robert & Susan K., Mesa, AZ</div>
+                  
+                  {/* Star rating */}
+                  <div className="flex mb-3">
+                    {[1, 2, 3, 4, 5].map((star) => (
+                      <svg key={star} xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" className="text-yellow-400">
+                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+                      </svg>
+                    ))}
+                  </div>
+                  
+                  {/* Testimonial content */}
+                  <div className="relative">
+                    <div className="absolute -top-2 -left-1 text-4xl text-orange-400/20">"</div>
+                    <p className="mb-4 italic text-white relative z-10 leading-relaxed text-sm md:text-base">The financing options made it possible for us to protect our home on a fixed income. The difference in interior temperature during summer is amazing, and the exterior looks like new. Their customer service was outstanding.</p>
+                  </div>
+                  
+                  {/* Verification badge */}
+                  <div className="mt-3 pt-3 border-t border-white/10 flex items-center text-xs">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4 mr-1 text-green-400">
+                      <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path>
+                      <path d="m9 12 2 2 4-4"></path>
+                    </svg>
+                    <span className="text-blue-200">Verified Customer</span>
+                  </div>
                 </div>
               </div>
             </div>
