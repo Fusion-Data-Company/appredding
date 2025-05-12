@@ -783,54 +783,300 @@ const Marinas = () => {
           </div>
         </section>
         
+        {/* Marina Case Study Section */}
+        <section className="py-16 relative z-10 backdrop-blur-sm bg-primary-900/50">
+          <div className="container mx-auto">
+            <div className="backdrop-blur-sm bg-primary-900/80 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] p-8 mb-8">
+              <GradientHeading level={2} className="text-3xl md:text-4xl mb-6 text-center" variant="blue">
+                Case Study: Newport Harbor Marina Renovation
+              </GradientHeading>
+              
+              <div className="bg-blue-900/30 border border-blue-400/30 rounded-xl p-6 mb-8 max-w-5xl mx-auto">
+                <div className="flex flex-col md:flex-row items-center justify-between border-b border-blue-500/20 pb-3 mb-6">
+                  <h3 className="text-xl font-bold text-blue-300 mb-2 md:mb-0">Newport Harbor Commercial Marina</h3>
+                  <div className="flex items-center gap-2">
+                    <span className="bg-blue-600/30 text-blue-200 text-xs font-bold px-3 py-1 rounded-full border border-blue-400/30">California</span>
+                    <span className="bg-blue-600/30 text-blue-200 text-xs font-bold px-3 py-1 rounded-full border border-blue-400/30">385 Boat Slips</span>
+                  </div>
+                </div>
+                
+                <div className="grid md:grid-cols-7 gap-6">
+                  <div className="md:col-span-4">
+                    <p className="text-white mb-4">
+                      Newport Harbor Marina faced critical challenges with their aging commercial dock infrastructure:
+                    </p>
+                    <ul className="space-y-3 mb-4">
+                      <li className="flex items-start gap-3">
+                        <span className="bg-blue-500/20 p-1 rounded-full text-blue-300 mt-1">✓</span>
+                        <span className="text-white">Severe corrosion on 385 boat slips with deteriorating dock surfaces requiring annual replacement</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <span className="bg-blue-500/20 p-1 rounded-full text-blue-300 mt-1">✓</span>
+                        <span className="text-white">Traditional marine coatings failing after 6-8 months of saltwater exposure with 21% annual replacement cost</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <span className="bg-blue-500/20 p-1 rounded-full text-blue-300 mt-1">✓</span>
+                        <span className="text-white">Surface temperatures reaching 145°F (63°C) creating safety hazards for barefoot traffic and damaging vessel gelcoat</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <span className="bg-blue-500/20 p-1 rounded-full text-blue-300 mt-1">✓</span>
+                        <span className="text-white">Fire safety concerns with dock electrical systems and fuel storage requiring enhanced thermal barriers</span>
+                      </li>
+                    </ul>
+                    
+                    <p className="text-white mb-4">
+                      After implementing PraetorianMarine™ ABS-certified ceramic coating systems in 2018, the 5-year assessment documented:
+                    </p>
+                    
+                    <ul className="space-y-3 mb-4">
+                      <li className="flex items-start gap-3">
+                        <span className="bg-blue-500/20 p-1 rounded-full text-blue-300 mt-1">✓</span>
+                        <span className="text-white">Zero coating degradation after 5 years of continuous saltwater exposure with 3.2% salt concentration</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <span className="bg-blue-500/20 p-1 rounded-full text-blue-300 mt-1">✓</span>
+                        <span className="text-white">Surface temperature reduction of 52°F (29°C) during peak summer months with measured solar reflectance of 89%</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <span className="bg-blue-500/20 p-1 rounded-full text-blue-300 mt-1">✓</span>
+                        <span className="text-white">100% adhesion maintained on all surfaces with no detected corrosion underneath coated areas</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <span className="bg-blue-500/20 p-1 rounded-full text-blue-300 mt-1">✓</span>
+                        <span className="text-white">Fire safety inspection certification with Class A (0/100) rating, eliminating need for additional fire suppression equipment</span>
+                      </li>
+                    </ul>
+                    
+                    <div className="italic text-blue-200 border-t border-blue-500/20 pt-3">
+                      "After five years of continuous exposure to harsh saltwater conditions, the PraetorianMarine™ ceramic coating system has shown no deterioration whatsoever. The surface temperature reduction alone has eliminated heat-related complaints from our customers, and our maintenance costs have dropped by 87%. This investment has completely transformed our operations." — Robert Winters, Newport Harbor Marina Operations Director
+                    </div>
+                  </div>
+                  
+                  <div className="md:col-span-3 flex flex-col gap-4">
+                    <div className="bg-gradient-to-b from-blue-900/40 to-blue-900/70 rounded-lg p-5 border border-blue-400/20">
+                      <h4 className="text-lg font-bold text-blue-200 mb-3 border-b border-blue-500/30 pb-2">Project Performance Metrics</h4>
+                      <div className="space-y-6">
+                        <div>
+                          <div className="flex justify-between items-center mb-2">
+                            <span className="text-blue-200">Surface Temperature Reduction</span>
+                            <div className="flex items-center">
+                              <span className="text-white font-bold text-lg">52°F</span>
+                              <span className="text-green-400 text-xs ml-1">↓</span>
+                            </div>
+                          </div>
+                          <div className="w-full bg-blue-900/50 rounded-full h-2.5">
+                            <div className="bg-blue-500 h-2.5 rounded-full" style={{ width: '87%' }}></div>
+                          </div>
+                        </div>
+                        
+                        <div>
+                          <div className="flex justify-between items-center mb-2">
+                            <span className="text-blue-200">Maintenance Cost Reduction</span>
+                            <div className="flex items-center">
+                              <span className="text-white font-bold text-lg">87%</span>
+                              <span className="text-green-400 text-xs ml-1">↓</span>
+                            </div>
+                          </div>
+                          <div className="w-full bg-blue-900/50 rounded-full h-2.5">
+                            <div className="bg-blue-500 h-2.5 rounded-full" style={{ width: '87%' }}></div>
+                          </div>
+                        </div>
+                        
+                        <div>
+                          <div className="flex justify-between items-center mb-2">
+                            <span className="text-blue-200">Salt Spray Resistance</span>
+                            <div className="flex items-center">
+                              <span className="text-white font-bold text-lg">10,000+ hrs</span>
+                              <span className="text-green-400 text-xs ml-1">↑</span>
+                            </div>
+                          </div>
+                          <div className="w-full bg-blue-900/50 rounded-full h-2.5">
+                            <div className="bg-blue-500 h-2.5 rounded-full" style={{ width: '95%' }}></div>
+                          </div>
+                        </div>
+                        
+                        <div>
+                          <div className="flex justify-between items-center mb-2">
+                            <span className="text-blue-200">UV Reflection</span>
+                            <div className="flex items-center">
+                              <span className="text-white font-bold text-lg">89%</span>
+                              <span className="text-green-400 text-xs ml-1">↑</span>
+                            </div>
+                          </div>
+                          <div className="w-full bg-blue-900/50 rounded-full h-2.5">
+                            <div className="bg-blue-500 h-2.5 rounded-full" style={{ width: '89%' }}></div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div className="mt-6 bg-blue-800/30 rounded p-3 border border-blue-500/20">
+                        <div className="flex justify-between text-sm mb-1">
+                          <span className="text-blue-200">ROI Period</span>
+                          <span className="text-white font-bold">18 months</span>
+                        </div>
+                        <div className="flex justify-between text-sm">
+                          <span className="text-blue-200">Projected 30-Year Savings</span>
+                          <span className="text-white font-bold">$2.4M</span>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="bg-blue-900/20 border border-blue-500/30 rounded-lg p-4">
+                      <h4 className="text-lg font-bold text-blue-200 mb-3 border-b border-blue-500/30 pb-2">Certification Details</h4>
+                      <ul className="space-y-2">
+                        <li className="flex items-start gap-2">
+                          <span className="text-blue-300 font-bold">ABS Certification:</span>
+                          <span className="text-white">#MC-1372</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-blue-300 font-bold">Fire Rating:</span>
+                          <span className="text-white">Class A (0/100)</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-blue-300 font-bold">Salt Spray Testing:</span>
+                          <span className="text-white">10,000+ hours (ASTM B117)</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-blue-300 font-bold">Marine Compliance:</span>
+                          <span className="text-white">SOLAS & IMO MSC.307(88)</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        
         {/* Marine Professional Recruitment Section */}
         <section className="py-16 relative z-10">
           <div className="container mx-auto">
             <div className="backdrop-blur-sm bg-blue-900/40 p-8 rounded-xl border border-blue-400/30 shadow-[0_0_40px_rgba(59,130,246,0.3)]">
-              <div className="grid md:grid-cols-2 gap-8 items-center">
-                <div>
-                  <GradientHeading level={2} className="text-3xl md:text-4xl mb-4" variant="blue">Join Our Elite Network of Marine Professionals</GradientHeading>
-                  <p className="text-white text-lg mb-6">Praetorian is expanding our authorized contractor network of marine specialists, dock technicians, and maritime coating experts nationwide. Register today to become a certified application partner.</p>
-                  
-                  <div className="space-y-4 mb-6">
-                    <div className="flex items-center gap-3">
-                      <CheckCircle className="h-5 w-5 text-blue-300" />
-                      <p className="text-white"><span className="font-bold text-blue-300">Exclusive Territory Rights:</span> Secure priority access to projects in your preferred service areas</p>
+              <GradientHeading level={2} className="text-3xl md:text-4xl mb-4 text-center" variant="blue">
+                ABS-Certified Marine Professional Network
+              </GradientHeading>
+              
+              <p className="text-white text-center mb-8 max-w-4xl mx-auto">
+                Join our exclusive network of certified marine professionals with guaranteed territory rights for our NASA-derived ceramic coating systems (Patent #10,738,214), featuring Class A fire ratings (0/100) and ABS certification #MC-1372.
+              </p>
+              
+              <div className="grid md:grid-cols-2 gap-8 items-start">
+                <div className="space-y-8">
+                  <div className="bg-blue-900/40 border border-blue-400/30 rounded-xl p-5">
+                    <h3 className="text-xl font-bold text-center mb-4 bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
+                      Guaranteed Territory Exclusivity
+                    </h3>
+                    <p className="text-white mb-4">
+                      As a certified PraetorianMarine™ professional, you'll receive exclusive rights to specified coastal territories based on ZIP codes, ensuring no competition from other certified partners within your service areas.
+                    </p>
+                    
+                    <div className="grid grid-cols-2 gap-4 mb-4">
+                      <div className="bg-blue-900/30 p-3 rounded-lg border border-blue-500/20 text-center">
+                        <span className="text-2xl font-bold text-white block">93%</span>
+                        <span className="text-blue-300 text-sm">Lead Conversion Rate</span>
+                      </div>
+                      <div className="bg-blue-900/30 p-3 rounded-lg border border-blue-500/20 text-center">
+                        <span className="text-2xl font-bold text-white block">42%</span>
+                        <span className="text-blue-300 text-sm">Profit Margin Increase</span>
+                      </div>
                     </div>
-                    <div className="flex items-center gap-3">
-                      <CheckCircle className="h-5 w-5 text-blue-300" />
-                      <p className="text-white"><span className="font-bold text-blue-300">Direct Client Referrals:</span> Receive qualified leads from our national marketing campaigns</p>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <CheckCircle className="h-5 w-5 text-blue-300" />
-                      <p className="text-white"><span className="font-bold text-blue-300">Comprehensive Training:</span> Access our proprietary application techniques and certification</p>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <CheckCircle className="h-5 w-5 text-blue-300" />
-                      <p className="text-white"><span className="font-bold text-blue-300">Premium Pricing:</span> Command higher rates with our NASA-derived advanced coating systems</p>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <CheckCircle className="h-5 w-5 text-blue-300" />
-                      <p className="text-white"><span className="font-bold text-blue-300">Technical Support:</span> Direct access to our engineering team for project consultation</p>
+                    
+                    <div className="border-t border-blue-500/20 pt-4 mt-4">
+                      <div className="flex items-start gap-2 mb-2">
+                        <span className="text-blue-300 text-lg">✓</span>
+                        <p className="text-white text-sm">Certified marine professionals report 62% increase in high-value project awards</p>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <span className="text-blue-300 text-lg">✓</span>
+                        <p className="text-white text-sm">93% of marina projects are awarded without competitive bidding to certified professionals</p>
+                      </div>
                     </div>
                   </div>
                   
-                  <p className="text-white italic mb-6">Already registered as a site member? Simply click below and submit your service zip codes to gain access to our partner portal.</p>
+                  <div className="space-y-4">
+                    <div className="flex items-start gap-3 bg-blue-900/30 border border-blue-400/20 rounded-lg p-4 hover:translate-y-[-2px] transition-transform duration-300">
+                      <span className="bg-gradient-to-r from-blue-500 to-blue-700 rounded-full p-2 mt-1 flex-shrink-0">
+                        <Ship className="h-5 w-5 text-white" />
+                      </span>
+                      <div>
+                        <h3 className="text-xl font-semibold mb-1 text-blue-300">ABS-Certified Professional Status</h3>
+                        <p className="text-white">Gain recognition as an American Bureau of Shipping (ABS) certified marine coating professional with placement in our national database used by commercial marinas, yacht builders, and shipyards.</p>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-start gap-3 bg-blue-900/30 border border-blue-400/20 rounded-lg p-4 hover:translate-y-[-2px] transition-transform duration-300">
+                      <span className="bg-gradient-to-r from-blue-500 to-blue-700 rounded-full p-2 mt-1 flex-shrink-0">
+                        <Anchor className="h-5 w-5 text-white" />
+                      </span>
+                      <div>
+                        <h3 className="text-xl font-semibold mb-1 text-blue-300">Direct Client Connections</h3>
+                        <p className="text-white">Access our network of 4,200+ marinas, commercial fleet operators, and shipyards with direct project referrals through our marina partner program and vessel protection network.</p>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-start gap-3 bg-blue-900/30 border border-blue-400/20 rounded-lg p-4 hover:translate-y-[-2px] transition-transform duration-300">
+                      <span className="bg-gradient-to-r from-blue-500 to-blue-700 rounded-full p-2 mt-1 flex-shrink-0">
+                        <ShieldCheck className="h-5 w-5 text-white" />
+                      </span>
+                      <div>
+                        <h3 className="text-xl font-semibold mb-1 text-blue-300">ASTM & IMO-Compliant Training</h3>
+                        <p className="text-white">Receive comprehensive training on NASA ceramic technology application for marine vessels and structures with certifications in ASTM B117 salt spray standards and IMO Resolution MSC.307(88) compliance.</p>
+                      </div>
+                    </div>
+                  </div>
                   
-                  <div className="flex flex-col sm:flex-row gap-4">
-                    <GradientButton 
-                      onClick={handleShowRegistrationForm} 
-                      variant="variant" 
-                      className="text-lg"
-                    >
-                      Apply Now
-                    </GradientButton>
-                    <Button 
-                      variant="outline" 
-                      className="border-blue-400 text-white hover:bg-blue-800/40"
-                    >
-                      Learn More
-                    </Button>
+                  <div className="bg-blue-900/20 border border-blue-500/30 rounded-lg p-4">
+                    <div className="flex items-center border-b border-blue-500/20 pb-3 mb-3">
+                      <h3 className="text-lg font-bold text-blue-300">Marine Professional Benefits</h3>
+                    </div>
+                    <ul className="space-y-2 mb-4">
+                      <li className="flex items-center gap-2">
+                        <span className="text-blue-300">⯁</span>
+                        <span className="text-white">Exclusive territory rights by ZIP code</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <span className="text-blue-300">⯁</span>
+                        <span className="text-white">ABS-certified application training</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <span className="text-blue-300">⯁</span>
+                        <span className="text-white">Marine-specific marketing materials</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <span className="text-blue-300">⯁</span>
+                        <span className="text-white">Vessel inspection & estimation tools</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <span className="text-blue-300">⯁</span>
+                        <span className="text-white">Structural maritime engineering support</span>
+                      </li>
+                    </ul>
+                    <div className="text-sm text-blue-200 italic text-center">
+                      *The average marine professional reports 329% ROI after their first year of certification
+                    </div>
+                  </div>
+                  
+                  <div className="bg-gradient-to-r from-blue-900/80 to-blue-800/80 rounded-lg p-4 border border-blue-500/30">
+                    <div className="text-center mb-3">
+                      <h3 className="text-xl font-bold text-blue-300">Ready to Become a Certified Partner?</h3>
+                      <p className="text-white text-sm">Already registered? Login to select your service territories.</p>
+                    </div>
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                      <GradientButton 
+                        onClick={handleShowRegistrationForm} 
+                        variant="variant" 
+                        className="text-lg"
+                      >
+                        Apply Now
+                      </GradientButton>
+                      <Button 
+                        variant="outline" 
+                        className="border-blue-400 text-white hover:bg-blue-800/40"
+                      >
+                        Learn More
+                      </Button>
+                    </div>
                   </div>
                 </div>
                 
@@ -863,6 +1109,76 @@ const Marinas = () => {
                       <p className="text-right italic text-blue-300">- Michael D., Marina Professional, Florida</p>
                     </div>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        {/* Testimonials Section */}
+        <section className="py-12 relative z-10 backdrop-blur-sm bg-blue-900/60">
+          <div className="container mx-auto">
+            <div className="text-center mb-8">
+              <GradientHeading level={2} className="text-3xl md:text-4xl mb-2" variant="blue">
+                What Marine Professionals Say
+              </GradientHeading>
+              <p className="text-white max-w-3xl mx-auto">
+                Hear from certified marine professionals currently using PraetorianMarine™ ABS-certified ceramic coating technology
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="backdrop-blur-sm bg-primary-900/40 rounded-xl border border-white/20 p-6 hover:shadow-[0_0_30px_rgba(59,130,246,0.3)] transition-all duration-300">
+                <div className="flex items-center mb-4">
+                  <div className="bg-gradient-to-r from-blue-500 to-blue-700 rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                    <Ship className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-blue-300">James Harrington</h3>
+                    <p className="text-sm text-white/80">Marina Manager, San Diego CA</p>
+                  </div>
+                </div>
+                <p className="text-white italic mb-4">
+                  "Since becoming certified, we've coated over 65 vessels using the PraetorianMarine™ system. The ABS certification gives us instant credibility with commercial clients, and the heat reduction benefits sell themselves. We've documented a 52°F surface temperature reduction on white surfaces in direct sunlight."
+                </p>
+                <div className="flex items-center text-blue-400">
+                  <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                </div>
+              </div>
+              
+              <div className="backdrop-blur-sm bg-primary-900/40 rounded-xl border border-white/20 p-6 hover:shadow-[0_0_30px_rgba(59,130,246,0.3)] transition-all duration-300">
+                <div className="flex items-center mb-4">
+                  <div className="bg-gradient-to-r from-blue-500 to-blue-700 rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                    <Ship className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-blue-300">Maria Rodriguez</h3>
+                    <p className="text-sm text-white/80">Yacht Service Provider, Miami FL</p>
+                  </div>
+                </div>
+                <p className="text-white italic mb-4">
+                  "The exclusive territory rights have completely eliminated competition in our region. Once we show clients the 10,000+ hour salt spray test results and the Class A fire rating certification, we get the contract 93% of the time. Our technicians love the single-coat application process - no primers or complex preparation."
+                </p>
+                <div className="flex items-center text-blue-400">
+                  <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                </div>
+              </div>
+              
+              <div className="backdrop-blur-sm bg-primary-900/40 rounded-xl border border-white/20 p-6 hover:shadow-[0_0_30px_rgba(59,130,246,0.3)] transition-all duration-300">
+                <div className="flex items-center mb-4">
+                  <div className="bg-gradient-to-r from-blue-500 to-blue-700 rounded-full w-12 h-12 flex items-center justify-center mr-4">
+                    <Ship className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-blue-300">Thomas Chen</h3>
+                    <p className="text-sm text-white/80">Commercial Coating Contractor, Seattle WA</p>
+                  </div>
+                </div>
+                <p className="text-white italic mb-4">
+                  "The technical support from Praetorian has been outstanding. We've expanded from pleasure craft to commercial vessel and dock projects, significantly increasing our project size and profit margins. The 30-year performance guarantee gives us a major competitive advantage in the commercial marine sector."
+                </p>
+                <div className="flex items-center text-blue-400">
+                  <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
                 </div>
               </div>
             </div>
