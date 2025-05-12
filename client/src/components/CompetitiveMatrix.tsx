@@ -1,0 +1,277 @@
+import React from "react";
+import { Badge } from "@/components/ui/badge";
+import { Info, CheckCircle2, Shield, Thermometer, Flame, Volume2, Zap } from "lucide-react";
+import { cn } from "@/lib/utils";
+
+export const CompetitiveMatrix = () => {
+  // Defining the column headers and data structure
+  const columns = [
+    { id: "feature", name: "Feature", className: "text-left" },
+    { 
+      id: "praetorian", 
+      name: "Praetorian Smart-Coat", 
+      description: "NASA-derived ceramic coating",
+      className: "bg-primary-900/30 border-b-2 border-primary-400" 
+    },
+    { 
+      id: "competitor_a", 
+      name: "Competitor A", 
+      description: "Ceramic-Based",
+      className: "bg-neutral-900/20" 
+    },
+    { 
+      id: "competitor_b", 
+      name: "Competitor B", 
+      description: "Elastomeric",
+      className: "bg-neutral-900/20" 
+    },
+    { 
+      id: "traditional", 
+      name: "Traditional Insulation", 
+      description: "Conventional",
+      className: "bg-neutral-900/20" 
+    },
+    { 
+      id: "standard", 
+      name: "Standard Paint", 
+      description: "Basic",
+      className: "bg-neutral-900/20" 
+    },
+  ];
+
+  // Define the actual data based on the comparison matrix
+  const data = [
+    {
+      category: "Performance Metrics",
+      items: [
+        {
+          feature: "Solar Reflection",
+          icon: <Thermometer className="h-4 w-4 text-blue-400 mr-1" />,
+          praetorian: { value: "89%", highlight: true },
+          competitor_a: { value: "80-85%" },
+          competitor_b: { value: "75-80%" },
+          traditional: { value: "N/A" },
+          standard: { value: "30-80%" },
+        },
+        {
+          feature: "Thermal Emittance",
+          icon: <Zap className="h-4 w-4 text-orange-400 mr-1" />,
+          praetorian: { value: "89%", highlight: true },
+          competitor_a: { value: "75-80%" },
+          competitor_b: { value: "70-75%" },
+          traditional: { value: "N/A" },
+          standard: { value: "60-80%" },
+        },
+        {
+          feature: "Fire Rating",
+          icon: <Flame className="h-4 w-4 text-red-400 mr-1" />,
+          praetorian: { value: "Class A (0/0)", highlight: true, description: "Perfect score - zero flame spread" },
+          competitor_a: { value: "Class B or lower", description: "Moderate flame resistance" },
+          competitor_b: { value: "Class C or lower", description: "Minimal flame resistance" },
+          traditional: { value: "Varies", description: "Often combustible" },
+          standard: { value: "Not rated", description: "No fire protection" },
+        },
+        {
+          feature: "Sound Reduction",
+          icon: <Volume2 className="h-4 w-4 text-purple-400 mr-1" />,
+          praetorian: { value: "50% average", highlight: true },
+          competitor_a: { value: "Minimal" },
+          competitor_b: { value: "Minimal" },
+          traditional: { value: "50-90%" },
+          standard: { value: "None" },
+        },
+        {
+          feature: "R-Value Equivalent",
+          icon: <Shield className="h-4 w-4 text-green-400 mr-1" />,
+          praetorian: { value: "High effective performance", highlight: true },
+          competitor_a: { value: "Moderate" },
+          competitor_b: { value: "Low-Moderate" },
+          traditional: { value: "High (thickness dependent)" },
+          standard: { value: "Negligible" },
+        },
+        {
+          feature: "Surface Temperature Reduction",
+          icon: <Thermometer className="h-4 w-4 text-blue-400 mr-1" />,
+          praetorian: { value: "30-40°F", highlight: true },
+          competitor_a: { value: "15-25°F" },
+          competitor_b: { value: "10-20°F" },
+          traditional: { value: "Varies" },
+          standard: { value: "5-15°F" },
+        },
+      ]
+    },
+    {
+      category: "Durability Factors",
+      items: [
+        {
+          feature: "Elastomeric Flexibility",
+          icon: <CheckCircle2 className="h-4 w-4 text-green-400 mr-1" />,
+          praetorian: { value: "156%", highlight: true, description: "Superior crack bridging" },
+          competitor_a: { value: "100-130%" },
+          competitor_b: { value: "110-140%" },
+          traditional: { value: "0%" },
+          standard: { value: "5-15%" },
+        },
+        {
+          feature: "Corrosion Resistance",
+          icon: <Shield className="h-4 w-4 text-blue-400 mr-1" />,
+          praetorian: { value: "10,000+ hours", highlight: true, description: "Salt spray test" },
+          competitor_a: { value: "3,000-5,000 hours" },
+          competitor_b: { value: "2,000-4,000 hours" },
+          traditional: { value: "N/A" },
+          standard: { value: "<1,000 hours" },
+        },
+        {
+          feature: "Expected Lifespan",
+          icon: <CheckCircle2 className="h-4 w-4 text-green-400 mr-1" />,
+          praetorian: { value: "30+ years", highlight: true, description: "Verified performance" },
+          competitor_a: { value: "10-15 years" },
+          competitor_b: { value: "7-12 years" },
+          traditional: { value: "15-25 years" },
+          standard: { value: "3-7 years" },
+        },
+      ]
+    },
+    {
+      category: "Application & Safety",
+      items: [
+        {
+          feature: "VOC Content",
+          icon: <Info className="h-4 w-4 text-blue-400 mr-1" />,
+          praetorian: { value: "Near zero", highlight: true },
+          competitor_a: { value: "Low" },
+          competitor_b: { value: "Low-Medium" },
+          traditional: { value: "N/A" },
+          standard: { value: "Medium-High" },
+        },
+        {
+          feature: "Application Method",
+          icon: <Info className="h-4 w-4 text-blue-400 mr-1" />,
+          praetorian: { value: "Spray, brush, roll", highlight: true },
+          competitor_a: { value: "Spray, roll" },
+          competitor_b: { value: "Spray, roll" },
+          traditional: { value: "Installation" },
+          standard: { value: "Spray, brush, roll" },
+        },
+        {
+          feature: "Certifications",
+          icon: <CheckCircle2 className="h-4 w-4 text-green-400 mr-1" />,
+          praetorian: { value: "ABS #MC-1372, NSF/ANSI 61", highlight: true, description: "Multiple industry certifications" },
+          competitor_a: { value: "Limited" },
+          competitor_b: { value: "Limited" },
+          traditional: { value: "Industry standard" },
+          standard: { value: "Basic" },
+        },
+      ]
+    }
+  ];
+
+  return (
+    <div className="bg-gradient-to-br from-blue-950/80 to-primary-950/90 rounded-xl border border-blue-500/30 shadow-xl overflow-hidden">
+      <div className="overflow-x-auto">
+        <table className="w-full min-w-[900px] border-collapse">
+          {/* Table Header */}
+          <thead>
+            <tr>
+              {columns.map((column) => (
+                <th 
+                  key={column.id} 
+                  className={cn(
+                    "px-4 py-3 font-semibold text-sm",
+                    column.id === "praetorian" ? "bg-primary-800/30 text-primary-300" : "text-gray-300",
+                    column.className
+                  )}
+                >
+                  <div className="flex flex-col items-center">
+                    <span>{column.name}</span>
+                    {column.description && (
+                      <span className="text-xs opacity-70 mt-1 font-normal">{column.description}</span>
+                    )}
+                  </div>
+                </th>
+              ))}
+            </tr>
+          </thead>
+          
+          {/* Table Body */}
+          <tbody>
+            {data.map((categoryData, categoryIndex) => (
+              <React.Fragment key={`category-${categoryIndex}`}>
+                {/* Category Row */}
+                <tr className="bg-primary-950/70">
+                  <td 
+                    colSpan={columns.length} 
+                    className="px-4 py-2 text-sm font-bold text-white border-t border-blue-500/30"
+                  >
+                    {categoryData.category}
+                  </td>
+                </tr>
+                
+                {/* Items in this category */}
+                {categoryData.items.map((item, itemIndex) => (
+                  <tr 
+                    key={`item-${categoryIndex}-${itemIndex}`}
+                    className={itemIndex % 2 === 0 ? "bg-primary-900/20" : "bg-primary-900/10"}
+                  >
+                    {/* Feature name */}
+                    <td className="px-4 py-3 text-sm text-left text-white border-t border-blue-800/30">
+                      <div className="flex items-center">
+                        {item.icon}
+                        <span>{item.feature}</span>
+                      </div>
+                    </td>
+                    
+                    {/* Each product column */}
+                    {columns.slice(1).map((column) => {
+                      const cellData = item[column.id];
+                      const isHighlighted = column.id === "praetorian" && cellData.highlight;
+                      
+                      return (
+                        <td 
+                          key={`cell-${column.id}-${categoryIndex}-${itemIndex}`}
+                          className={cn(
+                            "px-4 py-3 text-sm text-center border-t border-blue-800/30",
+                            column.id === "praetorian" ? "bg-primary-900/40" : "",
+                            isHighlighted ? "relative" : ""
+                          )}
+                        >
+                          <div className="flex flex-col items-center justify-center">
+                            <span className={cn(
+                              "font-medium",
+                              isHighlighted ? "text-primary-300" : "text-gray-200"
+                            )}>
+                              {cellData.value}
+                            </span>
+                            
+                            {cellData.description && (
+                              <span className="text-xs text-gray-400 mt-1">{cellData.description}</span>
+                            )}
+                            
+                            {isHighlighted && (
+                              <Badge 
+                                className="absolute top-1 right-1 bg-primary-600/70 text-[9px] py-0 px-2 font-bold"
+                              >
+                                BEST
+                              </Badge>
+                            )}
+                          </div>
+                        </td>
+                      );
+                    })}
+                  </tr>
+                ))}
+              </React.Fragment>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      
+      <div className="p-4 bg-primary-950/80 border-t border-blue-800/40 flex items-center justify-center text-xs text-gray-400">
+        <Info className="h-4 w-4 mr-2 text-blue-500" />
+        <span>All data independently verified through laboratory testing. Patent #10,738,214</span>
+      </div>
+    </div>
+  );
+};
+
+export default CompetitiveMatrix;
