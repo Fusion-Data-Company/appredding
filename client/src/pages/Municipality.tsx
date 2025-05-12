@@ -974,42 +974,54 @@ const MunicipalityPage = () => {
               </p>
             </div>
             
-            <div className="p-6 backdrop-blur-md bg-gradient-to-r from-primary-900/90 to-blue-900/90 rounded-xl border border-blue-400/30 max-w-5xl mx-auto">
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3">
-                <div className="bg-blue-900/70 rounded-lg p-3 border border-blue-500/30 text-center flex flex-col items-center">
-                  <span className="text-sm text-blue-300 mb-1">Fire Rating</span>
-                  <span className="text-lg font-bold text-white">Class A</span>
-                  <span className="text-xs text-blue-200 mt-1">0/100 Flame Spread</span>
+            <div className="p-4 md:p-6 backdrop-blur-md bg-gradient-to-r from-primary-900/90 to-blue-900/90 rounded-xl border border-blue-400/30 max-w-5xl mx-auto overflow-hidden">
+              {/* Mobile-friendly scrollable container for small screens */}
+              <div className="overflow-x-auto pb-2 -mx-1 px-1 sm:overflow-visible">
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2 md:gap-3 min-w-[580px] sm:min-w-0">
+                  <div className="bg-blue-900/70 rounded-lg p-2 md:p-3 border border-blue-500/30 text-center flex flex-col items-center">
+                    <span className="text-xs md:text-sm text-blue-300 mb-1">Fire Rating</span>
+                    <span className="text-base md:text-lg font-bold text-white">Class A</span>
+                    <span className="text-[10px] md:text-xs text-blue-200 mt-1">0/100 Flame Spread</span>
+                  </div>
+                  
+                  <div className="bg-blue-900/70 rounded-lg p-2 md:p-3 border border-blue-500/30 text-center flex flex-col items-center">
+                    <span className="text-xs md:text-sm text-blue-300 mb-1">UV Reflection</span>
+                    <span className="text-base md:text-lg font-bold text-white">89%</span>
+                    <span className="text-[10px] md:text-xs text-blue-200 mt-1">ASTM D6695</span>
+                  </div>
+                  
+                  <div className="bg-blue-900/70 rounded-lg p-2 md:p-3 border border-blue-500/30 text-center flex flex-col items-center">
+                    <span className="text-xs md:text-sm text-blue-300 mb-1">Elastomeric</span>
+                    <span className="text-base md:text-lg font-bold text-white">156%</span>
+                    <span className="text-[10px] md:text-xs text-blue-200 mt-1">ASTM D2370</span>
+                  </div>
+                  
+                  <div className="bg-blue-900/70 rounded-lg p-2 md:p-3 border border-blue-500/30 text-center flex flex-col items-center">
+                    <span className="text-xs md:text-sm text-blue-300 mb-1">Thermal</span>
+                    <span className="text-base md:text-lg font-bold text-white">0.00543</span>
+                    <span className="text-[10px] md:text-xs text-blue-200 mt-1">W/cm²/K</span>
+                  </div>
+                  
+                  <div className="bg-blue-900/70 rounded-lg p-2 md:p-3 border border-blue-500/30 text-center flex flex-col items-center">
+                    <span className="text-xs md:text-sm text-blue-300 mb-1">ABS Certified</span>
+                    <span className="text-base md:text-lg font-bold text-white">#MC-1372</span>
+                    <span className="text-[10px] md:text-xs text-blue-200 mt-1">NSF/ANSI 61</span>
+                  </div>
+                  
+                  <div className="bg-blue-900/70 rounded-lg p-2 md:p-3 border border-blue-500/30 text-center flex flex-col items-center">
+                    <span className="text-xs md:text-sm text-blue-300 mb-1">Patent No.</span>
+                    <span className="text-base md:text-lg font-bold text-white">10,738,214</span>
+                    <span className="text-[10px] md:text-xs text-blue-200 mt-1">USPTO</span>
+                  </div>
                 </div>
-                
-                <div className="bg-blue-900/70 rounded-lg p-3 border border-blue-500/30 text-center flex flex-col items-center">
-                  <span className="text-sm text-blue-300 mb-1">UV Reflection</span>
-                  <span className="text-lg font-bold text-white">89%</span>
-                  <span className="text-xs text-blue-200 mt-1">ASTM D6695</span>
-                </div>
-                
-                <div className="bg-blue-900/70 rounded-lg p-3 border border-blue-500/30 text-center flex flex-col items-center">
-                  <span className="text-sm text-blue-300 mb-1">Elastomeric</span>
-                  <span className="text-lg font-bold text-white">156%</span>
-                  <span className="text-xs text-blue-200 mt-1">ASTM D2370</span>
-                </div>
-                
-                <div className="bg-blue-900/70 rounded-lg p-3 border border-blue-500/30 text-center flex flex-col items-center">
-                  <span className="text-sm text-blue-300 mb-1">Thermal</span>
-                  <span className="text-lg font-bold text-white">0.00543</span>
-                  <span className="text-xs text-blue-200 mt-1">W/cm²/K</span>
-                </div>
-                
-                <div className="bg-blue-900/70 rounded-lg p-3 border border-blue-500/30 text-center flex flex-col items-center">
-                  <span className="text-sm text-blue-300 mb-1">ABS Certified</span>
-                  <span className="text-lg font-bold text-white">#MC-1372</span>
-                  <span className="text-xs text-blue-200 mt-1">NSF/ANSI 61</span>
-                </div>
-                
-                <div className="bg-blue-900/70 rounded-lg p-3 border border-blue-500/30 text-center flex flex-col items-center">
-                  <span className="text-sm text-blue-300 mb-1">Patent No.</span>
-                  <span className="text-lg font-bold text-white">10,738,214</span>
-                  <span className="text-xs text-blue-200 mt-1">USPTO</span>
+              </div>
+              
+              {/* Mobile indicator for scrollable content */}
+              <div className="mt-2 sm:hidden flex justify-center">
+                <div className="flex space-x-1">
+                  <div className="h-1 w-8 bg-blue-500/50 rounded-full"></div>
+                  <div className="h-1 w-1 bg-blue-500/30 rounded-full"></div>
+                  <div className="h-1 w-1 bg-blue-500/30 rounded-full"></div>
                 </div>
               </div>
               
