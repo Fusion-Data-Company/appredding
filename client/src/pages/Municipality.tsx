@@ -579,8 +579,8 @@ const MunicipalityPage = () => {
                       <Leaf className="h-5 w-5 text-white" />
                     </span>
                     <div>
-                      <h3 className="text-xl font-semibold mb-1 text-blue-300">Environmentally Compliant</h3>
-                      <p className="text-white">Eco-friendly formulations that meet or exceed local and federal environmental regulations while delivering professional-grade performance.</p>
+                      <h3 className="text-xl font-semibold mb-1 text-blue-300">89% Energy Efficiency</h3>
+                      <p className="text-white">NASA ceramic microsphere technology provides 89% UV reflection and reduces building energy consumption by up to 87% as verified in the Sony Koda case study, while exceeding all EPA environmental regulations.</p>
                     </div>
                   </div>
                 </div>
