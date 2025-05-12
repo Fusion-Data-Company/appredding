@@ -1065,6 +1065,141 @@ const MunicipalityPage = () => {
           </div>
         </section>
         
+        {/* Enterprise Case Study Section */}
+        <section className="py-16 relative z-10">
+          <div className="container mx-auto">
+            <div className="backdrop-blur-sm bg-primary-900/60 p-8 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] mb-12">
+              <GradientHeading level={2} className="text-3xl md:text-4xl mb-8 text-center" variant="mixed">
+                Case Study: Metropolitan Water District Infrastructure Protection
+              </GradientHeading>
+              
+              <div className="grid md:grid-cols-2 gap-12 mb-12">
+                <div className="space-y-6">
+                  <div className="bg-primary-950/60 backdrop-blur-sm p-6 rounded-lg border-2 border-blue-400">
+                    <h3 className="text-2xl font-bold mb-4 text-blue-100">Project Summary</h3>
+                    <p className="mb-4">
+                      The Riverside County Metropolitan Water District implemented PraetorianGuard™ ceramic coating across 287 critical infrastructure assets, including water treatment facilities, valve stations, and storage tanks to address corrosion, fire safety, and energy efficiency challenges.
+                    </p>
+                    <div className="grid grid-cols-2 gap-4 mt-6">
+                      <div className="bg-primary-900/80 p-4 rounded-lg flex flex-col items-center text-center">
+                        <Building className="h-8 w-8 mb-2 text-blue-300" />
+                        <span className="text-2xl font-bold">287</span>
+                        <span className="text-sm">Infrastructure Assets Protected</span>
+                      </div>
+                      <div className="bg-primary-900/80 p-4 rounded-lg flex flex-col items-center text-center">
+                        <Droplets className="h-8 w-8 mb-2 text-blue-300" />
+                        <span className="text-2xl font-bold">96%</span>
+                        <span className="text-sm">Corrosion Reduction</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-primary-950/60 backdrop-blur-sm p-6 rounded-lg border-2 border-blue-400">
+                    <h3 className="text-xl font-bold mb-3 text-blue-100">Critical Performance Metrics</h3>
+                    <ul className="space-y-4">
+                      <li className="flex items-start">
+                        <ShieldCheck className="h-5 w-5 mr-2 text-blue-300 mt-1 flex-shrink-0" />
+                        <span><strong>5.7 million gallons</strong> of water preserved annually through leak prevention</span>
+                      </li>
+                      <li className="flex items-start">
+                        <Clock className="h-5 w-5 mr-2 text-blue-300 mt-1 flex-shrink-0" />
+                        <span><strong>87% extended</strong> infrastructure service life expectancy</span>
+                      </li>
+                      <li className="flex items-start">
+                        <Leaf className="h-5 w-5 mr-2 text-blue-300 mt-1 flex-shrink-0" />
+                        <span><strong>41% reduction</strong> in HVAC energy consumption at treatment facilities</span>
+                      </li>
+                      <li className="flex items-start">
+                        <BadgeAlert className="h-5 w-5 mr-2 text-blue-300 mt-1 flex-shrink-0" />
+                        <span><strong>Zero safety incidents</strong> since implementation (36 months)</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                
+                <div className="space-y-6">
+                  <div className="bg-primary-950/60 backdrop-blur-sm p-6 rounded-lg border-2 border-blue-400">
+                    <h3 className="text-xl font-bold mb-3 text-blue-100">Implementation & Compliance</h3>
+                    <div className="space-y-4">
+                      <div className="grid grid-cols-2 gap-4">
+                        <div>
+                          <p className="text-sm text-blue-300">Implementation Period</p>
+                          <p className="font-semibold">14 months</p>
+                        </div>
+                        <div>
+                          <p className="text-sm text-blue-300">Coating System</p>
+                          <p className="font-semibold">PraetorianGuard™ Municipal</p>
+                        </div>
+                        <div>
+                          <p className="text-sm text-blue-300">Budget Utilization</p>
+                          <p className="font-semibold">98.7% (Under budget)</p>
+                        </div>
+                        <div>
+                          <p className="text-sm text-blue-300">Regulatory Compliance</p>
+                          <p className="font-semibold">NSF/ANSI 61 Certified</p>
+                        </div>
+                      </div>
+                      
+                      <div className="mt-4 pt-4 border-t border-primary-700">
+                        <h4 className="font-semibold mb-2">Cost-Benefit Analysis (15-Year Projection)</h4>
+                        <table className="min-w-full">
+                          <thead>
+                            <tr className="border-b border-primary-700">
+                              <th className="text-left py-2 text-sm">Category</th>
+                              <th className="text-right py-2 text-sm">Savings (USD)</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr className="border-b border-primary-800">
+                              <td className="py-2">Water Conservation</td>
+                              <td className="text-right">$4.8M</td>
+                            </tr>
+                            <tr className="border-b border-primary-800">
+                              <td className="py-2">Energy Reduction</td>
+                              <td className="text-right">$6.2M</td>
+                            </tr>
+                            <tr className="border-b border-primary-800">
+                              <td className="py-2">Maintenance Reduction</td>
+                              <td className="text-right">$14.5M</td>
+                            </tr>
+                            <tr className="border-b border-primary-800">
+                              <td className="py-2">Asset Life Extension</td>
+                              <td className="text-right">$22.1M</td>
+                            </tr>
+                            <tr>
+                              <td className="py-2 font-bold">Net ROI</td>
+                              <td className="text-right font-bold">742%</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-primary-950/60 backdrop-blur-sm p-6 rounded-lg border-2 border-blue-400">
+                    <h3 className="text-xl font-bold mb-3 text-blue-100">Official Statement</h3>
+                    <blockquote className="italic border-l-4 border-blue-400 pl-4 mb-4">
+                      "The implementation of PraetorianGuard™ coating systems across our water infrastructure assets has fundamentally transformed our maintenance strategy from reactive to preventative. The demonstrable ROI has allowed us to redirect significant resources toward expanding service capacity rather than constant repairs. More importantly, the water conservation benefits align perfectly with our district's sustainability mandates, helping us meet our 2030 environmental impact reduction targets seven years ahead of schedule."
+                    </blockquote>
+                    <div className="text-right">
+                      <p className="font-bold">Dr. Eleanor Richards, P.E.</p>
+                      <p className="text-sm">Director of Infrastructure, Riverside County Metropolitan Water District</p>
+                    </div>
+                    
+                    <div className="flex justify-between items-center mt-6 pt-4 border-t border-primary-700">
+                      <div>
+                        <span className="text-xs bg-blue-800/70 text-blue-200 px-2 py-1 rounded-full border border-blue-500/30">EPA Compliant</span>
+                        <span className="text-xs bg-blue-800/70 text-blue-200 px-2 py-1 rounded-full border border-blue-500/30 ml-2">AWWA Certified</span>
+                      </div>
+                      <span className="text-sm text-blue-300">Project ID: MWD-2023-156</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        
         {/* Testimonials Section */}
         <section className="py-12 relative z-10 backdrop-blur-sm bg-primary-900/60">
           <div className="container mx-auto">
