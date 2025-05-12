@@ -34,77 +34,77 @@ import {
   Building2,
   User,
   Tag,
-  PanelsTopLeft
+  PanelsTopLeft,
+  Loader2
 } from "lucide-react";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import toast from "react-hot-toast";
+import { format, formatDistanceToNow } from "date-fns";
 
-// Placeholder data
-const opportunitiesData = [
-  {
-    id: 1,
-    name: "Pool Coating Project",
-    company: "City Recreation Department",
-    contact: "Michael Williams",
-    amount: "$78,500",
-    probability: 90,
-    status: "in_progress",
-    application: "Pool",
-    stage: "Proposal Accepted",
-    closeDate: "May 15, 2025",
-    lastUpdated: "3 days ago"
-  },
-  {
-    id: 2,
-    name: "Marina Dock Restoration",
-    company: "Coastal Marinas LLC",
-    contact: "Sarah Johnson",
-    amount: "$45,000",
-    probability: 60,
-    status: "pending",
-    application: "Marina",
-    stage: "Negotiation",
-    closeDate: "June 10, 2025",
-    lastUpdated: "1 week ago"
-  },
-  {
-    id: 3,
-    name: "Fire Retardant Application",
-    company: "Regional Fire Prevention",
-    contact: "Emily Davis",
-    amount: "$32,000",
-    probability: 30,
-    status: "pending",
-    application: "Fire Prevention",
-    stage: "Initial Meeting",
-    closeDate: "July 5, 2025",
-    lastUpdated: "Just now"
-  },
-  {
-    id: 4,
-    name: "Building Waterproofing Project",
-    company: "ABC Construction",
-    contact: "John Smith",
-    amount: "$125,000",
-    probability: 75,
-    status: "in_progress",
-    application: "Construction",
-    stage: "Contract Review",
-    closeDate: "May 30, 2025",
-    lastUpdated: "2 days ago"
-  },
-  {
-    id: 5,
-    name: "Mobile Home Community Coating",
-    company: "Sunrise Mobile Estates",
-    contact: "David Miller",
-    amount: "$65,000",
-    probability: 100,
-    status: "completed",
-    application: "Mobile Home",
-    stage: "Completed",
-    closeDate: "Apr 10, 2025",
-    lastUpdated: "Yesterday"
+// Opportunity type definition from schema
+export interface Opportunity {
+  id: number;
+  name: string;
+  contactId: number | null;
+  companyId: number | null;
+  applicationTypes: string[] | null;
+  status: "pending" | "in_progress" | "completed" | "cancelled";
+  amount: string | null;
+  probability: number | null;
+  expectedCloseDate: string | null;
+  actualCloseDate: string | null;
+  description: string | null;
+  source: string | null;
+  location: string | null;
+  createdAt: string;
+  updatedAt: string;
+  createdBy: number | null;
+  assignedTo: number | null;
+  
+  // Joined fields through relations
+  contact?: { 
+    id: number;
+    firstName: string;
+    lastName: string;
+  };
+  company?: { 
+    id: number;
+    name: string;
+  };
+  assignedToUser?: {
+    id: number;
+    firstName: string;
+    lastName: string;
+  };
+  createdByUser?: {
+    id: number;
+    firstName: string;
+    lastName: string;
+  };
+}
+
+// Function to fetch opportunities
+async function fetchOpportunities(status?: string) {
+  const url = status && status !== 'all' ? `/api/opportunities?status=${status}` : '/api/opportunities';
+  const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error('Failed to fetch opportunities');
   }
-];
+  return response.json();
+}
+
+// Function to delete an opportunity
+async function deleteOpportunity(id: number) {
+  const response = await fetch(`/api/opportunities/${id}`, {
+    method: 'DELETE',
+  });
+  
+  if (!response.ok) {
+    throw new Error('Failed to delete opportunity');
+  }
+  
+  return true;
+}
 
 const getStatusColor = (status: string) => {
   switch (status) {
@@ -250,7 +250,7 @@ export default function OpportunitiesContent() {
                     </TableRow>
                   </TableHeader>
                   <TableBody>
-                    {opportunitiesData.map((opportunity) => (
+                    {filteredOpportunities.map((opportunity) => (
                       <TableRow key={opportunity.id}>
                         <TableCell>
                           <div>
