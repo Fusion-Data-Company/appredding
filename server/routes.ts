@@ -11,6 +11,7 @@ import { z } from "zod";
 import { fromZodError } from "zod-validation-error";
 import { setupAuth } from "./auth";
 import professionalsRoutes from "./api/professionals";
+import googleReviewsRoutes from "./api/googleReviews";
 import { setupCRM } from "./crm";
 import { seedDatabase } from "./crm/seed";
 import ragRoutes from "./routes/rag";
