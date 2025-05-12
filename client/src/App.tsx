@@ -22,7 +22,6 @@ import ClientDashboard from "@/pages/client-dashboard";
 import AdminDashboard from "@/pages/admin-dashboard";
 import About from "@/pages/About";
 import Team from "@/pages/Team";
-import StyleShowcase from "@/pages/StyleShowcase";
 import CrmLogin from "@/pages/crm-login";
 import CrmDashboard from "@/pages/crm-dashboard";
 import RAGDocumentsPage from "@/pages/rag-documents";
@@ -65,7 +64,6 @@ function Router() {
       <Route path="/about" component={About} />
       <Route path="/team" component={Team} />
       <Route path="/auth" component={AuthPage} />
-      <Route path="/style-showcase" component={StyleShowcase} />
       <Route path="/crm-login" component={CrmLogin} />
       <Route path="/crm-dashboard" component={CrmDashboard} />
       <Route path="/rag-documents" component={RAGDocumentsPage} />
