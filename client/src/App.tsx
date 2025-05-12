@@ -17,6 +17,7 @@ import MobileHome from "@/pages/MobileHome";
 import Municipality from "@/pages/Municipality";
 import Applications from "@/pages/Applications";
 import ProductComparison from "@/pages/ProductComparison";
+import Technology from "@/pages/Technology";
 import AuthPage from "@/pages/auth-page";
 import ClientDashboard from "@/pages/client-dashboard";
 import AdminDashboard from "@/pages/admin-dashboard";
@@ -63,6 +64,7 @@ function Router() {
       <Route path="/product-comparison" component={ProductComparison} />
       <Route path="/about" component={About} />
       <Route path="/team" component={Team} />
+      <Route path="/technology" component={Technology} />
       <Route path="/auth" component={AuthPage} />
       <Route path="/crm-login" component={CrmLogin} />
       <Route path="/crm-dashboard" component={CrmDashboard} />

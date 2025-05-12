@@ -3,6 +3,36 @@ import { Badge } from "@/components/ui/badge";
 import { Info, CheckCircle2, Shield, Thermometer, Flame, Volume2, Zap } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+// Define types for our data structure
+interface CellData {
+  value: string;
+  highlight?: boolean;
+  description?: string;
+}
+
+interface MatrixItem {
+  feature: string;
+  icon: React.ReactNode;
+  praetorian: CellData;
+  competitor_a: CellData;
+  competitor_b: CellData;
+  traditional: CellData;
+  standard: CellData;
+  [key: string]: any; // Index signature to allow dynamic access
+}
+
+interface CategoryData {
+  category: string;
+  items: MatrixItem[];
+}
+
+interface ColumnDef {
+  id: string;
+  name: string;
+  description?: string;
+  className?: string;
+}
+
 export const CompetitiveMatrix = () => {
   // Defining the column headers and data structure
   const columns = [
@@ -223,7 +253,7 @@ export const CompetitiveMatrix = () => {
                     
                     {/* Each product column */}
                     {columns.slice(1).map((column) => {
-                      const cellData = item[column.id];
+                      const cellData = item[column.id as keyof typeof item];
                       const isHighlighted = column.id === "praetorian" && cellData.highlight;
                       
                       return (
