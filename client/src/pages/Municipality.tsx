@@ -631,26 +631,105 @@ const MunicipalityPage = () => {
               </div>
             </div>
 
-            <div className="backdrop-blur-sm bg-primary-900/80 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] p-8 mb-16">
-              <h2 className="mb-6 text-3xl md:text-4xl font-bold text-center">
-                <span className="text-blue-300">Municipal </span>
-                <span className="text-white">Infrastructure </span>
-                <span className="text-orange-400">Protection</span>
-              </h2>
-              <p className="text-white mb-8 text-center max-w-3xl mx-auto">
-                Our NASA-derived ceramic microsphere technology provides documented ROI in 1-3 years with 20-87% energy cost reduction 
-                across municipal infrastructure. With 10-20 mils thickness, it achieves equivalent performance to inches of traditional 
-                insulation while delivering Class A fire protection (0/100 flame spread), perfect smoke development rating (0/100), 
-                and verified 30+ year performance with only 1% reflectivity degradation after 3 years.
-              </p>
+            {/* Key Benefits Section */}
+            <div className="backdrop-blur-sm bg-gradient-to-br from-primary-900/80 to-primary-950/90 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] p-8 md:p-12 mb-16">
+              <div className="flex flex-col items-center mb-8">
+                <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mb-4"></div>
+                <h2 className="text-3xl md:text-4xl font-bold text-center mb-2">
+                  <span className="text-blue-300">Municipal </span>
+                  <span className="text-white">Infrastructure </span>
+                  <span className="text-orange-400">Protection</span>
+                </h2>
+                <div className="w-36 h-1 bg-gradient-to-r from-orange-500 to-blue-500 rounded-full mb-6"></div>
+                <p className="text-white mb-4 text-center max-w-3xl mx-auto">
+                  Our NASA-derived ceramic microsphere technology provides documented ROI in 1-3 years with 20-87% energy cost reduction 
+                  across municipal infrastructure. With 10-20 mils thickness, it achieves equivalent performance to inches of traditional 
+                  insulation while delivering Class A fire protection (0/100 flame spread), perfect smoke development rating (0/100), 
+                  and verified 30+ year performance with only 1% reflectivity degradation after 3 years.
+                </p>
+              </div>
+              
+              {/* Key Benefits Cards */}
+              <div className="grid md:grid-cols-3 gap-8 mt-8">
+                <div className="bg-gradient-to-br from-primary-900/80 to-primary-950/90 backdrop-blur-md rounded-xl p-6 border border-primary-500/30 shadow-lg transform hover:scale-[1.02] transition-transform duration-300">
+                  <div className="flex justify-between items-start mb-4">
+                    <div className="bg-gradient-to-br from-primary-500/20 to-primary-700/20 p-3 rounded-full border border-primary-500/40">
+                      <ShieldCheck className="h-8 w-8 text-green-400" />
+                    </div>
+                    <div className="bg-primary-900/60 px-2 py-1 rounded-full text-xs font-semibold text-primary-300 border border-primary-700/30">
+                      PROVEN TECHNOLOGY
+                    </div>
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-3">Infrastructure Protection</h3>
+                  <p className="text-gray-200 mb-4">Shields municipal buildings and infrastructure from extreme temperatures, UV damage, moisture, and chemical exposure, extending asset lifespans by up to 30 years.</p>
+                  <div className="mt-auto pt-3 border-t border-primary-700/30">
+                    <div className="flex items-center justify-between">
+                      <span className="text-primary-300 text-sm">Asset Lifespan Increase</span>
+                      <span className="text-white font-mono font-semibold">+30 years</span>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="bg-gradient-to-br from-primary-900/80 to-primary-950/90 backdrop-blur-md rounded-xl p-6 border border-primary-500/30 shadow-lg transform hover:scale-[1.02] transition-transform duration-300">
+                  <div className="flex justify-between items-start mb-4">
+                    <div className="bg-gradient-to-br from-primary-500/20 to-primary-700/20 p-3 rounded-full border border-primary-500/40">
+                      <Leaf className="h-8 w-8 text-green-400" />
+                    </div>
+                    <div className="bg-primary-900/60 px-2 py-1 rounded-full text-xs font-semibold text-primary-300 border border-primary-700/30">
+                      ENERGY EFFICIENT
+                    </div>
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-3">Sustainability Impact</h3>
+                  <p className="text-gray-200 mb-4">Reduces energy consumption and carbon footprint, contributing to sustainability goals while decreasing HVAC costs by 20-40% through superior thermal insulation.</p>
+                  <div className="mt-auto pt-3 border-t border-primary-700/30">
+                    <div className="flex items-center justify-between">
+                      <span className="text-primary-300 text-sm">HVAC Cost Reduction</span>
+                      <span className="text-white font-mono font-semibold">20-40%</span>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="bg-gradient-to-br from-primary-900/80 to-primary-950/90 backdrop-blur-md rounded-xl p-6 border border-primary-500/30 shadow-lg transform hover:scale-[1.02] transition-transform duration-300">
+                  <div className="flex justify-between items-start mb-4">
+                    <div className="bg-gradient-to-br from-primary-500/20 to-primary-700/20 p-3 rounded-full border border-primary-500/40">
+                      <Clock className="h-8 w-8 text-blue-300" />
+                    </div>
+                    <div className="bg-primary-900/60 px-2 py-1 rounded-full text-xs font-semibold text-primary-300 border border-primary-700/30">
+                      LOW MAINTENANCE
+                    </div>
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-3">Extended Longevity</h3>
+                  <p className="text-gray-200 mb-4">Minimizes maintenance requirements and extends the service life of municipal assets, providing long-term protection against environmental degradation.</p>
+                  <div className="mt-auto pt-3 border-t border-primary-700/30">
+                    <div className="flex items-center justify-between">
+                      <span className="text-primary-300 text-sm">Maintenance Reduction</span>
+                      <span className="text-white font-mono font-semibold">Up to 65%</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
               
               {/* Lakewood Water Treatment Facility Case Study */}
-              <div className="bg-primary-800/70 border border-blue-400/30 rounded-xl p-6 mb-8 max-w-5xl mx-auto">
-                <div className="flex flex-col md:flex-row items-center justify-between border-b border-blue-500/20 pb-3 mb-6">
-                  <h3 className="text-xl font-bold text-blue-300 mb-2 md:mb-0">CASE STUDY: Lakewood Water Treatment Facility</h3>
-                  <div className="flex items-center gap-2">
-                    <span className="bg-blue-600/30 text-blue-200 text-xs font-bold px-3 py-1 rounded-full border border-blue-400/30">Colorado</span>
-                    <span className="bg-orange-600/30 text-orange-200 text-xs font-bold px-3 py-1 rounded-full border border-orange-400/30">38,000,000 Gallon Capacity</span>
+              <div className="bg-gradient-to-br from-blue-900/70 to-primary-950/80 backdrop-blur-md border border-blue-400/30 rounded-xl p-8 mt-12 mb-8 max-w-5xl mx-auto shadow-lg">
+                <div className="flex flex-col items-center mb-8">
+                  <div className="bg-gradient-to-r from-blue-500 to-blue-600 p-px rounded-full mb-6">
+                    <div className="bg-blue-900 rounded-full p-3">
+                      <Landmark className="h-6 w-6 text-blue-300" />
+                    </div>
+                  </div>
+                  <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-300 to-blue-100 bg-clip-text text-transparent mb-2">
+                    CASE STUDY: Lakewood Water Treatment Facility
+                  </h3>
+                  <div className="flex items-center gap-3 mt-2">
+                    <span className="bg-blue-800/50 text-blue-200 text-xs font-semibold px-3 py-1 rounded-full border border-blue-500/30">
+                      Colorado
+                    </span>
+                    <span className="bg-blue-800/50 text-blue-200 text-xs font-semibold px-3 py-1 rounded-full border border-blue-500/30">
+                      38,000,000 Gallon Capacity
+                    </span>
+                    <span className="bg-blue-800/50 text-blue-200 text-xs font-semibold px-3 py-1 rounded-full border border-blue-500/30">
+                      Completed 2017
+                    </span>
                   </div>
                 </div>
                 

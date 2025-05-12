@@ -1120,7 +1120,7 @@ const MobileHome = () => {
                           <p className="text-sm text-primary-300">VOC Content</p>
                         </div>
                         <div className="w-[70%] bg-primary-800/30 rounded px-3 py-2">
-                          <p className="text-white font-mono text-sm">&lt; 50 g/L (Low VOC)</p>
+                          <p className="text-white font-mono text-sm">< 50 g/L (Low VOC)</p>
                         </div>
                       </div>
                       
