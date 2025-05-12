@@ -115,15 +115,15 @@ const FirePrevention = () => {
         <section className="py-16 md:py-24 relative z-10">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto text-center mb-16 backdrop-blur-sm bg-primary-900/60 p-8 rounded-xl shadow-lg">
-              <GradientHeading level={1} className="text-4xl md:text-5xl mb-6 glow-text" variant="fire">Wildfire Defense Solutions</GradientHeading>
+              <GradientHeading level={1} className="text-4xl md:text-5xl mb-6 glow-text" variant="fire">NASA-Derived Wildfire Defense</GradientHeading>
               <p className="text-xl text-white mb-8">
-                Protect your home and property from devastating wildfires with our Class-A fire retardant coatings. Proven effective in the most severe wildfire conditions.
+                Protect your home with our Class A fire-rated ceramic coating system featuring perfect 0/100 scores in ASTM E84 testing for both Flame Spread and Smoke Development. Withstands extreme temperatures up to 2,732°F with a 2,177°F temperature differential.
               </p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-12 mb-16">
               <div className="backdrop-blur-sm bg-primary-900/60 premium-border rounded-xl p-8 shadow-lg">
-                <GradientHeading level={2} className="text-3xl mb-6" variant="fire">Advanced Protection Technology</GradientHeading>
+                <GradientHeading level={2} className="text-3xl mb-6" variant="fire">Ceramic Microsphere Technology</GradientHeading>
                 
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
@@ -131,8 +131,8 @@ const FirePrevention = () => {
                       <i className="fas fa-fire-alt text-white"></i>
                     </span>
                     <div>
-                      <h3 className="text-xl font-semibold mb-2">Intumescent technology creates an insulating barrier when exposed to high heat</h3>
-                      <p>Our proprietary formulations create an expanding carbonaceous foam layer that protects underlying surfaces during fire exposure.</p>
+                      <h3 className="text-xl font-semibold mb-2">Advanced Triple-Component Thermal Barrier System</h3>
+                      <p>Our ceramic microsphere technology creates multiple thermal breaks throughout the coating film. The fundamental principle exploits the physical impossibility of heat transfer through vacuum spaces inside each ceramic microsphere.</p>
                     </div>
                   </div>
 
@@ -141,8 +141,8 @@ const FirePrevention = () => {
                       <i className="fas fa-certificate text-white"></i>
                     </span>
                     <div>
-                      <h3 className="text-xl font-semibold mb-2">Exceeds California's stringent fire code requirements</h3>
-                      <p>Rigorously tested and certified to meet or exceed the most demanding fire protection standards in California and other high-risk regions.</p>
+                      <h3 className="text-xl font-semibold mb-2">5-6 Coats Passes 1550°F Flame Tests</h3>
+                      <p>When applied at approximately 30 mils thickness (5-6 coats) to 1/4 inch steel, our coating passes tests against 1550°F (843°C) flame for 25+ minutes while maintaining structural integrity of the substrate.</p>
                     </div>
                   </div>
 
@@ -151,8 +151,8 @@ const FirePrevention = () => {
                       <i className="fas fa-house-damage text-white"></i>
                     </span>
                     <div>
-                      <h3 className="text-xl font-semibold mb-2">Available for all exterior surfaces including wood, metal, and concrete</h3>
-                      <p>Versatile protection systems designed for virtually any building material, providing comprehensive wildfire defense for your entire property.</p>
+                      <h3 className="text-xl font-semibold mb-2">Verified by NASA, UL, Factory Mutual, and ASTM Test Standards</h3>
+                      <p>Our wildfire protection systems have been thoroughly tested and validated by the most respected fire protection authorities in the industry, offering unprecedented protection for structures in high-risk zones.</p>
                     </div>
                   </div>
 
@@ -161,8 +161,8 @@ const FirePrevention = () => {
                       <i className="fas fa-shield-alt text-white"></i>
                     </span>
                     <div>
-                      <h3 className="text-xl font-semibold mb-2">Insurance-approved for high-risk wildfire zones</h3>
-                      <p>Many insurance providers offer premium discounts for homes protected with our certified wildfire defense coatings.</p>
+                      <h3 className="text-xl font-semibold mb-2">Exceptional Durability Proven Over Decades</h3>
+                      <p>Original applications from 1989 showed no deterioration or performance loss when inspected 30 years later in 2019, ensuring long-term protection for your property investment against recurring wildfire threats.</p>
                     </div>
                   </div>
                 </div>
@@ -241,13 +241,13 @@ const FirePrevention = () => {
               
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
-                  <div className="text-5xl font-bold text-orange-500 mb-2">90%</div>
-                  <p className="text-xl text-white">of homes destroyed in wildfires ignite due to embers landing on flammable surfaces, not direct flames</p>
+                  <div className="text-5xl font-bold text-orange-500 mb-2">2,177°F</div>
+                  <p className="text-xl text-white">temperature differential maintained when our coating was tested at 2,732°F (1,500°C) for 20 minutes, with back surface at only 150°F</p>
                 </div>
                 
                 <div>
-                  <div className="text-5xl font-bold text-orange-500 mb-2">30%</div>
-                  <p className="text-xl text-white">reduction in fire insurance premiums may be available for homes with certified fire-resistant coatings</p>
+                  <div className="text-5xl font-bold text-orange-500 mb-2">0/100</div>
+                  <p className="text-xl text-white">perfect scores in ASTM E84 testing for both Flame Spread Index and Smoke Development Index - the highest possible Class A fire rating</p>
                 </div>
               </div>
               
