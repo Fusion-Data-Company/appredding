@@ -124,7 +124,7 @@ export const PitchDeckModal: React.FC<PitchDeckModalProps> = ({ isOpen, onClose 
               )}
               
               {/* Content area */}
-              <div className="relative h-[800px] overflow-hidden">
+              <div className="relative h-[875px] overflow-hidden">
                 <AnimatePresence initial={false} custom={slideDirection}>
                   {/* Slide 1: Challenges & Solution Overview */}
                   <PitchDeckSlide 
