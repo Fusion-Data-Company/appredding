@@ -1058,15 +1058,15 @@ const Pools = () => {
               <div className="grid md:grid-cols-3 gap-8">
                 <div className="bg-primary-800/70 backdrop-blur-sm border-4 border-white rounded-lg p-6 hover:translate-y-[-5px] transition-transform duration-300 shadow-[0_0_60px_rgba(255,255,255,0.4)]">
                   <h3 className="text-xl font-bold mb-3">PraetorianCeramic™ Premium</h3>
-                  <p className="mb-4">Our flagship NASA-derived ceramic microsphere coating with vacuum-filled ceramic technology for ultimate pool protection.</p>
+                  <p className="mb-4">Our flagship NASA-derived ceramic microsphere coating with cool-touch technology and vacuum-filled ceramic protection for pool decks.</p>
                   <ul className="space-y-2 mb-6">
                     <li className="flex items-center gap-2">
                       <i className="fas fa-check text-primary-400"></i>
-                      <span>Withstands 2,732°F (1,500°C) with extreme temperature differential</span>
+                      <span><span className="font-bold">Cool-Touch Surface:</span> Reduces surface temperature by 47°F in direct sunlight</span>
                     </li>
                     <li className="flex items-center gap-2">
                       <i className="fas fa-check text-primary-400"></i>
-                      <span>156% elastomeric flexibility with superb UV protection</span>
+                      <span>156% elastomeric flexibility prevents cracking and peeling</span>
                     </li>
                     <li className="flex items-center gap-2">
                       <i className="fas fa-check text-primary-400"></i>
@@ -1078,19 +1078,19 @@ const Pools = () => {
                 
                 <div className="bg-primary-800/70 backdrop-blur-sm border-4 border-white rounded-lg p-6 hover:translate-y-[-5px] transition-transform duration-300 shadow-[0_0_60px_rgba(255,255,255,0.4)]">
                   <h3 className="text-xl font-bold mb-3">PraetorianCeramic™ Commercial</h3>
-                  <p className="mb-4">Heavy-duty ceramic formulation specifically designed for high-traffic commercial pools and public facilities.</p>
+                  <p className="mb-4">Heavy-duty ceramic formulation with our coolest-to-touch technology specifically engineered for high-traffic commercial pools and resorts.</p>
                   <ul className="space-y-2 mb-6">
                     <li className="flex items-center gap-2">
                       <i className="fas fa-check text-primary-400"></i>
-                      <span>Class A fire rating (0/100 scores) for ultimate safety</span>
+                      <span><span className="font-bold">Ultra Cool-Touch™ Technology:</span> Surface remains comfortable even in extreme heat</span>
                     </li>
                     <li className="flex items-center gap-2">
                       <i className="fas fa-check text-primary-400"></i>
-                      <span>89% solar reflection maintains consistent water temperature</span>
+                      <span>89% solar reflection prevents heat absorption and hot spots</span>
                     </li>
                     <li className="flex items-center gap-2">
                       <i className="fas fa-check text-primary-400"></i>
-                      <span>Enhanced chemical resistance for commercial maintenance</span>
+                      <span>Enhanced slip resistance with wet-foot safety certification</span>
                     </li>
                   </ul>
                   <GradientButton className="w-full" variant="variant">Technical Specs</GradientButton>
@@ -1098,15 +1098,15 @@ const Pools = () => {
                 
                 <div className="bg-primary-800/70 backdrop-blur-sm border-4 border-white rounded-lg p-6 hover:translate-y-[-5px] transition-transform duration-300 shadow-[0_0_60px_rgba(255,255,255,0.4)]">
                   <h3 className="text-xl font-bold mb-3">PraetorianCeramic™ UV Shield</h3>
-                  <p className="mb-4">Specialized ceramic formulation with enhanced UV protection for outdoor pools in extreme sun exposure environments.</p>
+                  <p className="mb-4">Specialized cool-touch ceramic formulation with enhanced UV protection for pool decks in extreme sun exposure environments.</p>
                   <ul className="space-y-2 mb-6">
                     <li className="flex items-center gap-2">
                       <i className="fas fa-check text-primary-400"></i>
-                      <span>Enhanced 95% UV reflection with minimal degradation over time</span>
+                      <span><span className="font-bold">Cool-Touch Surface:</span> Maintains comfortable temperature even in 100°F+ weather</span>
                     </li>
                     <li className="flex items-center gap-2">
                       <i className="fas fa-check text-primary-400"></i>
-                      <span>Reduces surface temperature by 47°F compared to conventional coatings</span>
+                      <span>95% UV reflection prevents heat absorption and surface degradation</span>
                     </li>
                     <li className="flex items-center gap-2">
                       <i className="fas fa-check text-primary-400"></i>
@@ -1193,56 +1193,69 @@ const Pools = () => {
         <section className="py-16 relative z-10">
           <div className="container mx-auto">
             <div className="backdrop-blur-sm bg-primary-900/60 p-8 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)]">
-              <GradientHeading level={2} className="text-3xl md:text-4xl mb-8 text-center" variant="blue">
-                Join Our Network of Pool Professionals
+              <GradientHeading level={2} className="text-3xl md:text-4xl mb-6 text-center" variant="blue">
+                Join Our Elite Network of Pool Professionals
               </GradientHeading>
               
+              <p className="text-lg text-center mb-10 max-w-3xl mx-auto">
+                Praetorian is expanding our network of certified pool specialists authorized to install our premium Cool-Touch™ ceramic coatings. Register today to become an exclusive application partner in your area.
+              </p>
+              
               <div className="grid md:grid-cols-2 gap-12">
-                <div className="space-y-6">
-                  <p className="text-lg">
-                    Become a certified Praetorian Pool Professional and gain access to our premium pool coating products, training, and exclusive client referrals.
-                  </p>
+                <div className="space-y-8">
+                  <div className="backdrop-blur-sm bg-primary-800/50 p-6 rounded-xl border border-white/30">
+                    <h3 className="text-2xl font-bold mb-4 text-center text-primary-300">The Praetorian Partner Advantage</h3>
+                    
+                    <div className="space-y-4">
+                      <div className="flex items-start gap-3">
+                        <span className="bg-primary-600/80 rounded-full p-2 mt-1 flex-shrink-0">
+                          <CircleDollarSign className="h-5 w-5 text-white" />
+                        </span>
+                        <div>
+                          <h3 className="text-xl font-semibold mb-1">Premium Pricing Power</h3>
+                          <p>Command 30-45% higher rates with our advanced Cool-Touch™ technology that customers actively seek</p>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-start gap-3">
+                        <span className="bg-primary-600/80 rounded-full p-2 mt-1 flex-shrink-0">
+                          <i className="fas fa-map-marker-alt text-white"></i>
+                        </span>
+                        <div>
+                          <h3 className="text-xl font-semibold mb-1">Exclusive Territory Rights</h3>
+                          <p>Secure protected service areas based on your ZIP code registration with our lead-routing system</p>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-start gap-3">
+                        <span className="bg-primary-600/80 rounded-full p-2 mt-1 flex-shrink-0">
+                          <i className="fas fa-user-friends text-white"></i>
+                        </span>
+                        <div>
+                          <h3 className="text-xl font-semibold mb-1">Direct Client Referrals</h3>
+                          <p>Receive qualified leads from our national marketing campaigns worth $5K-$15K per project</p>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-start gap-3">
+                        <span className="bg-primary-600/80 rounded-full p-2 mt-1 flex-shrink-0">
+                          <i className="fas fa-tools text-white"></i>
+                        </span>
+                        <div>
+                          <h3 className="text-xl font-semibold mb-1">Comprehensive Training</h3>
+                          <p>Access our proprietary application techniques with hands-on certification training</p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="mt-6 pt-6 border-t border-primary-600/50">
+                      <p className="text-white text-center mb-4">"After becoming a Praetorian certified applicator, our pool service business revenue increased by 35% in just one season. The Cool-Touch technology sells itself when customers feel the difference."</p>
+                      <p className="text-right italic text-primary-300">- David M., Pool Professional, Arizona</p>
+                    </div>
+                  </div>
                   
-                  <div className="space-y-4">
-                    <div className="flex items-start gap-3">
-                      <span className="bg-primary-600/80 rounded-full p-2 mt-1 flex-shrink-0">
-                        <i className="fas fa-dollar-sign text-white"></i>
-                      </span>
-                      <div>
-                        <h3 className="text-xl font-semibold mb-1">Increased Revenue</h3>
-                        <p>Access to premium clients looking for high-quality pool coating solutions</p>
-                      </div>
-                    </div>
-                    
-                    <div className="flex items-start gap-3">
-                      <span className="bg-primary-600/80 rounded-full p-2 mt-1 flex-shrink-0">
-                        <i className="fas fa-certificate text-white"></i>
-                      </span>
-                      <div>
-                        <h3 className="text-xl font-semibold mb-1">Professional Certification</h3>
-                        <p>Become certified in the application of our advanced coating systems</p>
-                      </div>
-                    </div>
-                    
-                    <div className="flex items-start gap-3">
-                      <span className="bg-primary-600/80 rounded-full p-2 mt-1 flex-shrink-0">
-                        <i className="fas fa-tools text-white"></i>
-                      </span>
-                      <div>
-                        <h3 className="text-xl font-semibold mb-1">Technical Support</h3>
-                        <p>Access to our technical team for project support and troubleshooting</p>
-                      </div>
-                    </div>
-                    
-                    <div className="flex items-start gap-3">
-                      <span className="bg-primary-600/80 rounded-full p-2 mt-1 flex-shrink-0">
-                        <i className="fas fa-user-friends text-white"></i>
-                      </span>
-                      <div>
-                        <h3 className="text-xl font-semibold mb-1">Lead Generation</h3>
-                        <p>Get connected with clients seeking professional pool coating services</p>
-                      </div>
-                    </div>
+                  <div className="text-center">
+                    <p className="italic mb-4">Already registered as a site member? Simply complete the form and submit your service ZIP codes to gain immediate access to our partner portal.</p>
                   </div>
                 </div>
                 
