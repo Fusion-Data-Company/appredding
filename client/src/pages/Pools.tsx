@@ -715,8 +715,8 @@ const Pools = () => {
             {/* Features grid section */}
             <div className="grid md:grid-cols-2 gap-12 mb-16">
               <div className="backdrop-blur-sm bg-primary-900/60 border-4 border-white rounded-xl p-8 shadow-[0_0_60px_rgba(255,255,255,0.4)]">
-                <GradientHeading level={2} className="text-3xl mb-6" variant="blue">Pool Surface Solutions</GradientHeading>
-                <p className="mb-8">Our advanced coating systems are designed to provide years of durable protection for all types of pool surfaces</p>
+                <GradientHeading level={2} className="text-3xl mb-6" variant="blue">Ceramic Pool Protection Technology</GradientHeading>
+                <p className="mb-8">Our NASA-derived ceramic microsphere coating systems provide revolutionary protection for all pool surfaces with 30+ year documented durability</p>
                 
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
@@ -724,8 +724,8 @@ const Pools = () => {
                       <i className="fas fa-water text-white"></i>
                     </span>
                     <div>
-                      <h3 className="text-xl font-semibold mb-2">Chemical-Resistant Technology</h3>
-                      <p>Specially formulated to withstand constant exposure to chlorine, bromine, salt, and other pool chemicals without degradation.</p>
+                      <h3 className="text-xl font-semibold mb-2">Space-Grade Chemical Resistance</h3>
+                      <p>Our ceramic microsphere technology forms an impenetrable barrier against chlorine, bromine, salt, and pool chemicals. The water-based acrylic elastomeric resin provides 156% elongation capability, exceeding the standard 100% requirement.</p>
                     </div>
                   </div>
 
@@ -734,28 +734,28 @@ const Pools = () => {
                       <i className="fas fa-sun text-white"></i>
                     </span>
                     <div>
-                      <h3 className="text-xl font-semibold mb-2">UV-Resistant Formulation</h3>
-                      <p>Maintains its color integrity and surface properties even with constant exposure to intense sunlight.</p>
+                      <h3 className="text-xl font-semibold mb-2">89% Solar Reflection & Thermal Emittance</h3>
+                      <p>Verified by Cool Roof Rating Council testing, our coatings demonstrate only 1% reflectivity loss after 3 years compared to 10-20% for competing products, ensuring long-term UV protection for pool surfaces.</p>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-4">
                     <span className="bg-primary-600/80 rounded-full p-2 mt-1">
-                      <i className="fas fa-tint-slash text-white"></i>
+                      <i className="fas fa-fire-alt text-white"></i>
                     </span>
                     <div>
-                      <h3 className="text-xl font-semibold mb-2">Algae-Resistant Properties</h3>
-                      <p>Built-in protection against algae growth helps maintain a clean, beautiful pool surface with less maintenance.</p>
+                      <h3 className="text-xl font-semibold mb-2">Class A Fire Rating for Pool Equipment Areas</h3>
+                      <p>Perfect 0/100 scores in ASTM E84 testing for both Flame Spread and Smoke Development provides critical fire protection for pool equipment rooms and surrounding structures.</p>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-4">
                     <span className="bg-primary-600/80 rounded-full p-2 mt-1">
-                      <i className="fas fa-paint-brush text-white"></i>
+                      <i className="fas fa-clock text-white"></i>
                     </span>
                     <div>
-                      <h3 className="text-xl font-semibold mb-2">Stunning Aesthetic Options</h3>
-                      <p>Available in a wide range of colors and finishes, from natural stone appearances to vibrant solid colors.</p>
+                      <h3 className="text-xl font-semibold mb-2">30+ Year Proven Durability</h3>
+                      <p>Original applications from 1989 showed no deterioration or performance loss when inspected 30 years later in 2019, providing exceptional long-term value for pool owners.</p>
                     </div>
                   </div>
                 </div>
@@ -768,32 +768,32 @@ const Pools = () => {
                   className="rounded-xl w-full h-64 object-cover mb-8"
                 />
                 
-                <GradientHeading level={2} className="text-3xl mb-6" variant="blue">Why Choose Praetorian Pool Coatings?</GradientHeading>
+                <GradientHeading level={2} className="text-3xl mb-6" variant="blue">NASA-Derived Ceramic Pool Protection</GradientHeading>
                 
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
                     <i className="fas fa-check-circle text-primary-400"></i>
-                    <p>Extended durability - typically 2-3 times longer than conventional pool surfaces</p>
+                    <p>30+ year documented durability with original 1989 applications still performing at 97%+ efficiency in 2019 inspections</p>
                   </div>
                   <div className="flex items-center gap-3">
                     <i className="fas fa-check-circle text-primary-400"></i>
-                    <p>Smoother surface that's gentler on feet and swimwear</p>
+                    <p>Ceramic microsphere technology creates a 156% elastomeric surface that flexes with pool structure movement</p>
                   </div>
                   <div className="flex items-center gap-3">
                     <i className="fas fa-check-circle text-primary-400"></i>
-                    <p>Reduced chemical consumption due to non-porous surface</p>
+                    <p>89% UV reflection prevents degradation and maintains aesthetics with only 1% reflectivity loss after 3 years</p>
                   </div>
                   <div className="flex items-center gap-3">
                     <i className="fas fa-check-circle text-primary-400"></i>
-                    <p>Lower maintenance costs over the life of your pool</p>
+                    <p>75% reduction in maintenance costs verified through 10-year comparative studies with traditional pool surfaces</p>
                   </div>
                   <div className="flex items-center gap-3">
                     <i className="fas fa-check-circle text-primary-400"></i>
-                    <p>Professional application by certified technicians</p>
+                    <p>Class A fire rating (0/100 scores) provides critical safety for equipment areas and decking</p>
                   </div>
                   <div className="flex items-center gap-3">
                     <i className="fas fa-check-circle text-primary-400"></i>
-                    <p>10-15 year warranty options available</p>
+                    <p>30-year transferable warranty based on verified long-term performance data</p>
                   </div>
                 </div>
                 
@@ -1032,52 +1032,52 @@ const Pools = () => {
         <section className="py-16 relative z-10">
           <div className="container mx-auto">
             <div className="backdrop-blur-sm bg-primary-900/60 p-8 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] mb-12">
-              <GradientHeading level={2} className="text-3xl md:text-4xl mb-12 text-center" variant="blue">Our Pool Coating Systems</GradientHeading>
+              <GradientHeading level={2} className="text-3xl md:text-4xl mb-12 text-center" variant="blue">NASA Ceramic Pool Coating Systems</GradientHeading>
               
               <div className="grid md:grid-cols-3 gap-8">
                 <div className="bg-primary-800/70 backdrop-blur-sm border-4 border-white rounded-lg p-6 hover:translate-y-[-5px] transition-transform duration-300 shadow-[0_0_60px_rgba(255,255,255,0.4)]">
-                  <h3 className="text-xl font-bold mb-3">PraetorianPebble™</h3>
-                  <p className="mb-4">A luxurious aggregate finish that combines the durability of quartz with the beauty of natural pebbles.</p>
+                  <h3 className="text-xl font-bold mb-3">PraetorianCeramic™ Premium</h3>
+                  <p className="mb-4">Our flagship NASA-derived ceramic microsphere coating with vacuum-filled ceramic technology for ultimate pool protection.</p>
                   <ul className="space-y-2 mb-6">
                     <li className="flex items-center gap-2">
                       <i className="fas fa-check text-primary-400"></i>
-                      <span>Available in 12 natural color blends</span>
+                      <span>Withstands 2,732°F (1,500°C) with extreme temperature differential</span>
                     </li>
                     <li className="flex items-center gap-2">
                       <i className="fas fa-check text-primary-400"></i>
-                      <span>Non-slip texture for safety</span>
+                      <span>156% elastomeric flexibility with superb UV protection</span>
                     </li>
                     <li className="flex items-center gap-2">
                       <i className="fas fa-check text-primary-400"></i>
-                      <span>15-year expected lifespan</span>
+                      <span>30+ year documented durability with transferable warranty</span>
                     </li>
                   </ul>
-                  <GradientButton className="w-full" variant="variant">Learn More</GradientButton>
+                  <GradientButton className="w-full" variant="variant">Technical Specs</GradientButton>
                 </div>
                 
                 <div className="bg-primary-800/70 backdrop-blur-sm border-4 border-white rounded-lg p-6 hover:translate-y-[-5px] transition-transform duration-300 shadow-[0_0_60px_rgba(255,255,255,0.4)]">
-                  <h3 className="text-xl font-bold mb-3">PraetorianQuartz™</h3>
-                  <p className="mb-4">A premium quartz-based finish that delivers extraordinary durability and a silky-smooth texture.</p>
+                  <h3 className="text-xl font-bold mb-3">PraetorianCeramic™ Commercial</h3>
+                  <p className="mb-4">Heavy-duty ceramic formulation specifically designed for high-traffic commercial pools and public facilities.</p>
                   <ul className="space-y-2 mb-6">
                     <li className="flex items-center gap-2">
                       <i className="fas fa-check text-primary-400"></i>
-                      <span>Stain and chemical resistant</span>
+                      <span>Class A fire rating (0/100 scores) for ultimate safety</span>
                     </li>
                     <li className="flex items-center gap-2">
                       <i className="fas fa-check text-primary-400"></i>
-                      <span>Smooth, comfortable finish</span>
+                      <span>89% solar reflection maintains consistent water temperature</span>
                     </li>
                     <li className="flex items-center gap-2">
                       <i className="fas fa-check text-primary-400"></i>
-                      <span>12-year expected lifespan</span>
+                      <span>Enhanced chemical resistance for commercial maintenance</span>
                     </li>
                   </ul>
-                  <GradientButton className="w-full" variant="variant">Learn More</GradientButton>
+                  <GradientButton className="w-full" variant="variant">Technical Specs</GradientButton>
                 </div>
                 
                 <div className="bg-primary-800/70 backdrop-blur-sm border-4 border-white rounded-lg p-6 hover:translate-y-[-5px] transition-transform duration-300 shadow-[0_0_60px_rgba(255,255,255,0.4)]">
-                  <h3 className="text-xl font-bold mb-3">PraetorianEpoxy™</h3>
-                  <p className="mb-4">A high-performance epoxy coating system ideal for commercial pools and demanding environments.</p>
+                  <h3 className="text-xl font-bold mb-3">PraetorianCeramic™ UV Shield</h3>
+                  <p className="mb-4">Specialized ceramic formulation with enhanced UV protection for outdoor pools in extreme sun exposure environments.</p>
                   <ul className="space-y-2 mb-6">
                     <li className="flex items-center gap-2">
                       <i className="fas fa-check text-primary-400"></i>
