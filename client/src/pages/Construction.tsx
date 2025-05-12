@@ -230,6 +230,83 @@ const ConstructionPage = () => {
                 With perfect 0/100 scores in ASTM E84 testing, temperature resistance to 2,732°F (1,500°C), and 156% elastomeric flexibility, 
                 these coatings create an advanced protective barrier with 30+ year verified durability.
               </p>
+              
+              <div className="bg-primary-800/70 border border-blue-400/30 rounded-xl p-6 mb-8 max-w-4xl mx-auto">
+                <div className="flex items-center justify-between border-b border-blue-500/20 pb-3 mb-4">
+                  <h3 className="text-xl font-bold text-blue-300">CASE STUDY: The Horizon Tower Project</h3>
+                  <span className="bg-blue-600/30 text-blue-200 text-xs font-bold px-3 py-1 rounded-full border border-blue-400/30">Chicago, Illinois</span>
+                </div>
+                <div className="md:flex gap-8">
+                  <div className="md:w-2/3">
+                    <p className="text-white mb-4">
+                      The award-winning 47-story Horizon Tower commercial project in Chicago presented significant challenges with structural steel protection that needed to meet rigorous fire codes while providing superior corrosion resistance in a harsh urban environment.
+                    </p>
+                    <p className="text-white mb-4">
+                      Our NASA-derived ceramic coating was applied to 1.2 million square feet of exposed and interior structural steel components. Independent testing verified:
+                    </p>
+                    <ul className="space-y-2 mb-4">
+                      <li className="flex items-center gap-2">
+                        <span className="bg-blue-500/20 p-1 rounded-full text-blue-300">✓</span>
+                        <span className="text-white">3-hour fire rating achieved with 40% thinner application compared to traditional intumescent coatings</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <span className="bg-blue-500/20 p-1 rounded-full text-blue-300">✓</span>
+                        <span className="text-white">87% reduction in heating/cooling costs vs. comparable buildings</span>
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <span className="bg-blue-500/20 p-1 rounded-full text-blue-300">✓</span>
+                        <span className="text-white">53% faster application timeframe compared to traditional solutions</span>
+                      </li>
+                    </ul>
+                    <p className="text-white italic">
+                      "PraetorianGuard™ ceramic technology delivered exceptional thermal insulation while meeting our most stringent fire code requirements. The accelerated application timeline saved us substantial construction costs, and the energy performance has exceeded our expectations." - James Harrington, Lead Project Engineer
+                    </p>
+                  </div>
+                  <div className="md:w-1/3 mt-4 md:mt-0">
+                    <div className="bg-gradient-to-b from-blue-700/30 to-blue-900/60 rounded-lg p-5 border border-blue-400/20">
+                      <h4 className="text-lg font-bold text-blue-200 mb-3">Performance Metrics</h4>
+                      <div className="space-y-4">
+                        <div>
+                          <div className="flex justify-between text-sm mb-1">
+                            <span className="text-blue-200">Fire Rating</span>
+                            <span className="text-white font-bold">3-hour</span>
+                          </div>
+                          <div className="w-full bg-blue-900/50 rounded-full h-2">
+                            <div className="bg-blue-500 h-2 rounded-full" style={{ width: '100%' }}></div>
+                          </div>
+                        </div>
+                        <div>
+                          <div className="flex justify-between text-sm mb-1">
+                            <span className="text-blue-200">R-Value</span>
+                            <span className="text-white font-bold">R-19.8</span>
+                          </div>
+                          <div className="w-full bg-blue-900/50 rounded-full h-2">
+                            <div className="bg-blue-500 h-2 rounded-full" style={{ width: '90%' }}></div>
+                          </div>
+                        </div>
+                        <div>
+                          <div className="flex justify-between text-sm mb-1">
+                            <span className="text-blue-200">Corrosion Resistance</span>
+                            <span className="text-white font-bold">15,000+ hrs</span>
+                          </div>
+                          <div className="w-full bg-blue-900/50 rounded-full h-2">
+                            <div className="bg-blue-500 h-2 rounded-full" style={{ width: '95%' }}></div>
+                          </div>
+                        </div>
+                        <div>
+                          <div className="flex justify-between text-sm mb-1">
+                            <span className="text-blue-200">LEED Points</span>
+                            <span className="text-white font-bold">12 pts</span>
+                          </div>
+                          <div className="w-full bg-blue-900/50 rounded-full h-2">
+                            <div className="bg-blue-500 h-2 rounded-full" style={{ width: '80%' }}></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div className="backdrop-blur-sm bg-primary-900/80 rounded-xl p-6 border border-orange-500/30 shadow-lg">
                   <div className="bg-gradient-to-r from-orange-600 to-blue-500 w-12 h-12 rounded-full flex items-center justify-center mb-4">
@@ -309,6 +386,104 @@ const ConstructionPage = () => {
                 <p className="text-white">Advanced systems that provide exceptional protection for metal structures against corrosion, extending service life and reducing maintenance costs.</p>
                 <div className="mt-6">
                   <GradientButton variant="default" className="w-full">Learn More</GradientButton>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        {/* Construction Professional Recruitment Section */}
+        <section className="py-16 relative z-10">
+          <div className="container mx-auto">
+            <div className="backdrop-blur-sm bg-blue-900/40 p-8 rounded-xl border border-blue-400/30 shadow-[0_0_40px_rgba(59,130,246,0.3)]">
+              <div className="grid md:grid-cols-2 gap-10 items-center">
+                <div>
+                  <GradientHeading level={2} className="text-3xl md:text-4xl mb-4" variant="mixed">Join Our Construction Partners Network</GradientHeading>
+                  <p className="text-white text-lg mb-6">Praetorian SmartCoat is seeking established construction professionals, contractors, and building material distributors to join our exclusive certified applicator network.</p>
+                  
+                  <div className="space-y-4 mb-6">
+                    <div className="flex items-center gap-3">
+                      <CheckCircle className="h-5 w-5 text-blue-300" />
+                      <p className="text-white"><span className="font-bold text-blue-300">Exclusive Territory Rights:</span> Secure protected geographic areas with guaranteed customer referrals</p>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <CheckCircle className="h-5 w-5 text-blue-300" />
+                      <p className="text-white"><span className="font-bold text-blue-300">Premium Product Access:</span> Only our certified partners can offer our NASA-derived ceramic coatings</p>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <CheckCircle className="h-5 w-5 text-blue-300" />
+                      <p className="text-white"><span className="font-bold text-blue-300">Enterprise-Level Projects:</span> Access to commercial, industrial and government contracts</p>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <CheckCircle className="h-5 w-5 text-blue-300" />
+                      <p className="text-white"><span className="font-bold text-blue-300">Technical Support Team:</span> Direct access to our engineering and formulation experts</p>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <CheckCircle className="h-5 w-5 text-blue-300" />
+                      <p className="text-white"><span className="font-bold text-blue-300">Marketing & Lead Generation:</span> Co-branded materials and qualified prospect referrals</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    <GradientButton 
+                      onClick={handleShowRegistrationForm} 
+                      variant="variant" 
+                      className="text-lg"
+                    >
+                      Apply as Construction Partner
+                    </GradientButton>
+                    <Button 
+                      variant="outline" 
+                      className="border-blue-400 text-white hover:bg-blue-800/40"
+                    >
+                      Download Partner Guide
+                    </Button>
+                  </div>
+                </div>
+                
+                <div className="relative">
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600/80 to-transparent rounded-xl blur-2xl opacity-50"></div>
+                  <div className="relative backdrop-blur-sm bg-primary-900/60 p-6 rounded-xl border border-blue-400/50">
+                    <h3 className="text-2xl font-bold mb-4 text-center text-blue-300">Partner Success Profile</h3>
+                    
+                    <div className="grid grid-cols-1 gap-6 mb-6">
+                      <div className="bg-blue-900/30 rounded-lg p-4 border border-blue-500/20">
+                        <div className="flex items-center gap-3 mb-2">
+                          <Warehouse className="h-5 w-5 text-blue-300" />
+                          <h4 className="text-lg font-bold text-blue-200">Distributor Success</h4>
+                        </div>
+                        <p className="text-white mb-3">"Partnering with Praetorian has doubled our profit margins compared to traditional coatings. Our customers are amazed by the performance metrics, especially the energy efficiency gains."</p>
+                        <div className="flex justify-between items-center border-t border-blue-500/20 pt-2">
+                          <span className="text-blue-300 text-sm">Eric T., Building Products Distributor</span>
+                          <span className="bg-blue-800/50 text-blue-200 text-xs px-2 py-1 rounded border border-blue-500/30">+143% YoY Revenue</span>
+                        </div>
+                      </div>
+                      
+                      <div className="bg-blue-900/30 rounded-lg p-4 border border-blue-500/20">
+                        <div className="flex items-center gap-3 mb-2">
+                          <Truck className="h-5 w-5 text-blue-300" />
+                          <h4 className="text-lg font-bold text-blue-200">Contractor Success</h4>
+                        </div>
+                        <p className="text-white mb-3">"The exclusive territory rights have eliminated undercutting from competitors. I've expanded from 2 to 17 employees since becoming a certified Praetorian applicator."</p>
+                        <div className="flex justify-between items-center border-t border-blue-500/20 pt-2">
+                          <span className="text-blue-300 text-sm">Maria L., Commercial Contractor</span>
+                          <span className="bg-blue-800/50 text-blue-200 text-xs px-2 py-1 rounded border border-blue-500/30">12 ZIP Codes Protected</span>
+                        </div>
+                      </div>
+                      
+                      <div className="bg-blue-900/30 rounded-lg p-4 border border-blue-500/20">
+                        <div className="flex items-center gap-3 mb-2">
+                          <Award className="h-5 w-5 text-blue-300" />
+                          <h4 className="text-lg font-bold text-blue-200">Engineer Success</h4>
+                        </div>
+                        <p className="text-white mb-3">"The technical data and verified performance metrics make specification easy. My clients appreciate the documented test results and NASA technology heritage."</p>
+                        <div className="flex justify-between items-center border-t border-blue-500/20 pt-2">
+                          <span className="text-blue-300 text-sm">David K., Consulting Engineer</span>
+                          <span className="bg-blue-800/50 text-blue-200 text-xs px-2 py-1 rounded border border-blue-500/30">47 Projects Completed</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
