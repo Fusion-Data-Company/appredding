@@ -153,10 +153,88 @@ const getProgressColor = (probability: number) => {
   return "bg-green-600";
 };
 
+// Format amount value
+const formatAmount = (amount: string | null | undefined) => {
+  if (!amount) return "$0";
+  if (typeof amount === 'string' && amount.startsWith('$')) {
+    return amount;
+  }
+  try {
+    const numAmount = parseFloat(amount);
+    return new Intl.NumberFormat('en-US', { 
+      style: 'currency', 
+      currency: 'USD',
+      maximumFractionDigits: 0 
+    }).format(numAmount);
+  } catch (e) {
+    return amount || "$0";
+  }
+};
+
+// Format date to readable format
+const formatDate = (dateString: string | null | undefined) => {
+  if (!dateString) return 'No date set';
+  try {
+    return format(new Date(dateString), 'MMM d, yyyy');
+  } catch (e) {
+    return dateString;
+  }
+};
+
+// Get application type for display
+const getApplicationType = (opportunity: Opportunity) => {
+  if (opportunity.applicationTypes && opportunity.applicationTypes.length > 0) {
+    return opportunity.applicationTypes[0];
+  }
+  return "General";
+};
+
 export default function OpportunitiesContent() {
   const { refreshData } = useAdminContext();
   const [searchQuery, setSearchQuery] = useState("");
   const [view, setView] = useState<"table" | "kanban">("table");
+  const [activeTab, setActiveTab] = useState<string>("all");
+  const queryClient = useQueryClient();
+  
+  // Fetch opportunities from API, filtering by status if set
+  const { data: opportunities, isLoading, isError } = useQuery({
+    queryKey: ['opportunities', activeTab],
+    queryFn: () => fetchOpportunities(activeTab !== 'all' ? activeTab : undefined)
+  });
+  
+  // Filter opportunities based on search query
+  // Delete opportunity mutation
+  const deleteMutation = useMutation({
+    mutationFn: deleteOpportunity,
+    onSuccess: () => {
+      toast.success("Opportunity deleted successfully");
+      queryClient.invalidateQueries({ queryKey: ['opportunities'] });
+    },
+    onError: () => {
+      toast.error("Failed to delete opportunity");
+    }
+  });
+  
+  // Filter opportunities based on search query
+  const filteredOpportunities = opportunities?.filter(opportunity => {
+    if (!searchQuery) return true;
+    
+    const companyName = opportunity.company?.name || '';
+    const contactName = opportunity.contact 
+      ? `${opportunity.contact.firstName || ''} ${opportunity.contact.lastName || ''}`.trim()
+      : '';
+      
+    return opportunity.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+           companyName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+           contactName.toLowerCase().includes(searchQuery.toLowerCase());
+  }) || [];
+  
+  // Handle delete opportunity
+  const handleDeleteOpportunity = (id: number) => {
+    if (window.confirm("Are you sure you want to delete this opportunity?")) {
+      deleteMutation.mutate(id);
+    }
+  };
   
   return (
     <div className="space-y-4">
@@ -179,7 +257,11 @@ export default function OpportunitiesContent() {
         </div>
       </div>
 
-      <Tabs defaultValue="all" className="w-full">
+      <Tabs 
+        defaultValue="all" 
+        className="w-full"
+        onValueChange={(value) => setActiveTab(value)}
+      >
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
           <div className="flex justify-between w-full">
             <TabsList className="h-9">
@@ -256,29 +338,32 @@ export default function OpportunitiesContent() {
                           <div>
                             <p className="font-medium">{opportunity.name}</p>
                             <p className="text-xs text-muted-foreground md:hidden">
-                              {opportunity.company}
+                              {opportunity.company?.name || 'No company'}
                             </p>
                             <p className="text-xs text-muted-foreground md:hidden">
-                              {opportunity.amount}
+                              {formatAmount(opportunity.amount)}
                             </p>
                           </div>
                         </TableCell>
                         <TableCell className="hidden lg:table-cell">
                           <div className="flex items-center">
                             <Building2 className="h-3.5 w-3.5 mr-1 text-muted-foreground" />
-                            {opportunity.company}
+                            {opportunity.company?.name || 'No company'}
                           </div>
                         </TableCell>
                         <TableCell className="hidden md:table-cell">
                           <div className="flex items-center">
                             <User className="h-3.5 w-3.5 mr-1 text-muted-foreground" />
-                            {opportunity.contact}
+                            {opportunity.contact ? 
+                              `${opportunity.contact.firstName || ''} ${opportunity.contact.lastName || ''}`.trim() : 
+                              'No contact'
+                            }
                           </div>
                         </TableCell>
                         <TableCell className="hidden sm:table-cell">
                           <div className="flex items-center">
                             <DollarSign className="h-3.5 w-3.5 mr-1 text-muted-foreground" />
-                            {opportunity.amount}
+                            {formatAmount(opportunity.amount)}
                           </div>
                         </TableCell>
                         <TableCell className="hidden md:table-cell">
@@ -303,15 +388,15 @@ export default function OpportunitiesContent() {
                         <TableCell className="hidden lg:table-cell">
                           <Badge 
                             variant="outline" 
-                            className={`${getApplicationColor(opportunity.application)}`}
+                            className={`${getApplicationColor(getApplicationType(opportunity))}`}
                           >
-                            {opportunity.application}
+                            {getApplicationType(opportunity)}
                           </Badge>
                         </TableCell>
                         <TableCell className="hidden md:table-cell">
                           <div className="flex items-center">
                             <Calendar className="h-3.5 w-3.5 mr-1 text-muted-foreground" />
-                            {opportunity.closeDate}
+                            {formatDate(opportunity.expectedCloseDate)}
                           </div>
                         </TableCell>
                         <TableCell>
@@ -330,7 +415,13 @@ export default function OpportunitiesContent() {
                               <DropdownMenuItem>Add Task</DropdownMenuItem>
                               <DropdownMenuItem>Add Note</DropdownMenuItem>
                               <DropdownMenuSeparator />
-                              <DropdownMenuItem className="text-red-600">Delete</DropdownMenuItem>
+                              <DropdownMenuItem 
+                                className="text-red-600"
+                                onClick={() => handleDeleteOpportunity(opportunity.id)}
+                                disabled={deleteMutation.isPending}
+                              >
+                                Delete
+                              </DropdownMenuItem>
                             </DropdownMenuContent>
                           </DropdownMenu>
                         </TableCell>
