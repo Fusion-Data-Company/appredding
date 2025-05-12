@@ -111,82 +111,117 @@ const FirePrevention = () => {
         {/* Semi-transparent dark overlay to make text readable */}
         <div className="fixed inset-0 z-0 bg-black/40"></div>
         
-        {/* Main content section */}
-        <section className="py-16 md:py-24 relative z-10">
-          <div className="container mx-auto">
-            <div className="max-w-4xl mx-auto text-center mb-16 backdrop-blur-sm bg-primary-900/60 p-8 rounded-xl shadow-lg">
-              <GradientHeading level={1} className="text-4xl md:text-5xl mb-6 glow-text" variant="fire">NASA-Derived Wildfire Defense</GradientHeading>
-              <p className="text-xl text-white mb-8">
+        {/* Main content section - optimized for mobile */}
+        <section className="py-10 md:py-24 relative z-10">
+          <div className="container mx-auto px-4 sm:px-6">
+            <div className="max-w-4xl mx-auto text-center mb-10 md:mb-16 backdrop-blur-sm bg-gradient-to-b from-primary-900/70 to-primary-800/60 p-6 md:p-8 rounded-xl shadow-lg border border-primary-600/30">
+              <GradientHeading level={1} className="text-3xl sm:text-4xl md:text-5xl mb-4 md:mb-6 glow-text" variant="fire">NASA-Derived Wildfire Defense</GradientHeading>
+              <p className="text-base sm:text-lg md:text-xl text-white mb-6 md:mb-8 leading-relaxed">
                 Protect your home with our NASA-derived ceramic coating system (US Patent #10,738,214) featuring perfect Class A fire ratings (0/0 scores in ASTM E84-23 testing for both Flame Spread Index and Smoke Development Index). Our triple-component barrier containing millions of vacuum-filled ceramic microspheres (80-160 micron) withstands extreme temperatures up to 2,732°F (1,500°C) while maintaining a 2,177°F temperature differential per ASTM E119-22 testing protocols and UL 263 certification standards. Documented fire barrier performance exceeds WUI (Wildland-Urban Interface) codes per California Building Code Chapter 7A and NFPA 1144 requirements.
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-12 mb-16">
-              <div className="backdrop-blur-sm bg-primary-900/60 premium-border rounded-xl p-8 shadow-lg">
-                <GradientHeading level={2} className="text-3xl mb-6" variant="fire">Ceramic Microsphere Technology</GradientHeading>
+            <div className="grid md:grid-cols-2 gap-6 md:gap-12 mb-10 md:mb-16">
+              <div className="backdrop-blur-sm bg-gradient-to-b from-primary-900/70 to-primary-800/60 rounded-xl p-5 md:p-8 shadow-lg border border-primary-600/30">
+                <GradientHeading level={2} className="text-2xl md:text-3xl mb-4 md:mb-6" variant="fire">Ceramic Microsphere Technology</GradientHeading>
                 
                 <div className="space-y-6">
-                  <div className="flex items-start gap-4">
-                    <span className="bg-primary-600 rounded-full p-2 mt-1">
-                      <i className="fas fa-fire-alt text-white"></i>
+                  <div className="flex flex-col sm:flex-row items-start gap-3 md:gap-4">
+                    <span className="bg-gradient-to-br from-primary-600 to-primary-700 rounded-full p-2 mt-1 shadow-inner">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-orange-200">
+                        <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path>
+                      </svg>
                     </span>
                     <div>
-                      <h3 className="text-xl font-semibold mb-2">Advanced Triple-Component Thermal Barrier System</h3>
-                      <p>Our 80-160 micron ceramic microsphere technology (US Patent #10,738,214) creates millions of thermal breaks with thermal conductivity of just 0.00543 W/cm²/K (ASTM C177-19) throughout the coating film. The fundamental principle exploits the physical impossibility of heat transfer through vacuum spaces inside each microsphere (vacuum level 10⁻⁶ torr), creating a "space blanket" effect using the same principles as NASA shuttle thermal protection. Each microsphere contains a vacuum core with 3 distinct ceramic layers of varying compositions (SiO₂, Al₂O₃, ZrO₂) providing 30+ times the thermal insulation value per unit thickness compared to conventional intumescent coatings. Ceramic density gradient of 0.12-0.35 g/cm³ measured via helium pycnometry (ASTM D5965-19).</p>
+                      <h3 className="text-lg md:text-xl font-semibold mb-2 text-white">Advanced Triple-Component Thermal Barrier System</h3>
+                      <p className="text-sm md:text-base text-gray-100">Our 80-160 micron ceramic microsphere technology (US Patent #10,738,214) creates millions of thermal breaks with thermal conductivity of just 0.00543 W/cm²/K (ASTM C177-19) throughout the coating film. The fundamental principle exploits the physical impossibility of heat transfer through vacuum spaces inside each microsphere (vacuum level 10⁻⁶ torr), creating a "space blanket" effect using the same principles as NASA shuttle thermal protection. Each microsphere contains a vacuum core with 3 distinct ceramic layers of varying compositions (SiO₂, Al₂O₃, ZrO₂) providing 30+ times the thermal insulation value per unit thickness compared to conventional intumescent coatings. Ceramic density gradient of 0.12-0.35 g/cm³ measured via helium pycnometry (ASTM D5965-19).</p>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-4">
-                    <span className="bg-primary-600 rounded-full p-2 mt-1">
-                      <i className="fas fa-certificate text-white"></i>
+                  <div className="flex flex-col sm:flex-row items-start gap-3 md:gap-4">
+                    <span className="bg-gradient-to-br from-primary-600 to-primary-700 rounded-full p-2 mt-1 shadow-inner">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-orange-200">
+                        <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path>
+                        <path d="m9 12 2 2 4-4"></path>
+                      </svg>
                     </span>
                     <div>
-                      <h3 className="text-xl font-semibold mb-2">5-6 Coats Passes 1550°F Flame Tests</h3>
-                      <p>When applied at approximately 30 mils (762 μm) thickness (5-6 coats) to 1/4 inch steel, our coating passes tests against 1550°F (843°C) direct flame per ASTM E119-22 time-temperature curve for 25+ minutes while maintaining structural integrity. With a thermal conductivity of 0.00543 W/cm²/K (ASTM C177-19), the coating creates a 1,400°F temperature differential, keeping substrate temperatures below 150°F (66°C) - far cooler than the 600-900°F substrate temperatures seen with competing products. Certified fireproof performance under NFPA 285 standard test method and UL 1709 rapid temperature rise fire testing protocol. Testing confirms ignition resistance exceeds ASTM D1929 standards with flash ignition temperature of 950°F+ (510°C+) versus typical 500-650°F for conventional coatings.</p>
+                      <h3 className="text-lg md:text-xl font-semibold mb-2 text-white">5-6 Coats Passes 1550°F Flame Tests</h3>
+                      <p className="text-sm md:text-base text-gray-100">When applied at approximately 30 mils (762 μm) thickness (5-6 coats) to 1/4 inch steel, our coating passes tests against 1550°F (843°C) direct flame per ASTM E119-22 time-temperature curve for 25+ minutes while maintaining structural integrity. With a thermal conductivity of 0.00543 W/cm²/K (ASTM C177-19), the coating creates a 1,400°F temperature differential, keeping substrate temperatures below 150°F (66°C) - far cooler than the 600-900°F substrate temperatures seen with competing products. Certified fireproof performance under NFPA 285 standard test method and UL 1709 rapid temperature rise fire testing protocol. Testing confirms ignition resistance exceeds ASTM D1929 standards with flash ignition temperature of 950°F+ (510°C+) versus typical 500-650°F for conventional coatings.</p>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-4">
-                    <span className="bg-primary-600 rounded-full p-2 mt-1">
-                      <i className="fas fa-house-damage text-white"></i>
+                  <div className="flex flex-col sm:flex-row items-start gap-3 md:gap-4">
+                    <span className="bg-gradient-to-br from-primary-600 to-primary-700 rounded-full p-2 mt-1 shadow-inner">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-orange-200">
+                        <path d="M9 12l2 2 4-4"></path>
+                        <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path>
+                      </svg>
                     </span>
                     <div>
-                      <h3 className="text-xl font-semibold mb-2">Verified by NASA, UL, Factory Mutual, and ASTM Test Standards</h3>
-                      <p>Our wildfire protection systems have been rigorously tested according to ASTM E84-23 (surface burning characteristics), ASTM D2485-18 (high temperature service), ASTM D2794-93(2019) (impact resistance), and ASTM E119-22 (fire resistance) protocols. The perfect Class A fire rating (0/0) with zero flame spread and zero smoke development significantly outperforms competing products that only achieve Class B-C ratings (25-75/100 range). Fire test certification documentation includes UL 263 with 2-hour fire ratings, NFPA 285 wall assembly testing, and Factory Mutual (FM) 4975 approval. Coating meets all WUI (Wildland-Urban Interface) requirements in California Building Code Chapter 7A and exceeds ICC-ES AC10 acceptance criteria for quality control with full chain-of-custody documentation per ASTM D3023-98. Critical radiant flux measurements (ASTM E648-19) exceed 1.0 W/cm² threshold required for Class I fire resistance in ICC code requirements.</p>
+                      <h3 className="text-lg md:text-xl font-semibold mb-2 text-white">Verified by NASA, UL, Factory Mutual, and ASTM Test Standards</h3>
+                      <p className="text-sm md:text-base text-gray-100">Our wildfire protection systems have been rigorously tested according to ASTM E84-23 (surface burning characteristics), ASTM D2485-18 (high temperature service), ASTM D2794-93(2019) (impact resistance), and ASTM E119-22 (fire resistance) protocols. The perfect Class A fire rating (0/0) with zero flame spread and zero smoke development significantly outperforms competing products that only achieve Class B-C ratings (25-75/100 range). Fire test certification documentation includes UL 263 with 2-hour fire ratings, NFPA 285 wall assembly testing, and Factory Mutual (FM) 4975 approval. Coating meets all WUI (Wildland-Urban Interface) requirements in California Building Code Chapter 7A and exceeds ICC-ES AC10 acceptance criteria for quality control with full chain-of-custody documentation per ASTM D3023-98. Critical radiant flux measurements (ASTM E648-19) exceed 1.0 W/cm² threshold required for Class I fire resistance in ICC code requirements.</p>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-4">
-                    <span className="bg-primary-600 rounded-full p-2 mt-1">
-                      <i className="fas fa-shield-alt text-white"></i>
+                  <div className="flex flex-col sm:flex-row items-start gap-3 md:gap-4">
+                    <span className="bg-gradient-to-br from-primary-600 to-primary-700 rounded-full p-2 mt-1 shadow-inner">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-orange-200">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                      </svg>
                     </span>
                     <div>
-                      <h3 className="text-xl font-semibold mb-2">Exceptional Durability Proven Over Decades</h3>
-                      <p>Original applications from 1989 showed only 1% reflectivity degradation when inspected 30 years later in 2019 (measured via ASTM C1549-16 protocols), compared to competing products that lose 10-20% reflectivity in just 3 years. Our elastomeric polymer maintains 156% flexibility (ASTM D2370-16) even after decades of exposure to UV radiation and environmental stressors. Accelerated weathering tests (ASTM G154-16) equivalent to 15+ years of exposure show less than 3% degradation in protective properties. Documented service life exceeds 30 years with minimal maintenance requirements and zero coating delamination. Adhesion values measured at 425+ psi pull-off strength (ASTM D4541-17) maintained after 10,000+ hours of cyclic environmental exposure testing (ASTM D5894-16) with less than 5% reduction in initial values. Meets AAMA 2605-17a highest performance standards for architectural coatings.</p>
+                      <h3 className="text-lg md:text-xl font-semibold mb-2 text-white">Exceptional Durability Proven Over Decades</h3>
+                      <p className="text-sm md:text-base text-gray-100">Original applications from 1989 showed only 1% reflectivity degradation when inspected 30 years later in 2019 (measured via ASTM C1549-16 protocols), compared to competing products that lose 10-20% reflectivity in just 3 years. Our elastomeric polymer maintains 156% flexibility (ASTM D2370-16) even after decades of exposure to UV radiation and environmental stressors. Accelerated weathering tests (ASTM G154-16) equivalent to 15+ years of exposure show less than 3% degradation in protective properties. Documented service life exceeds 30 years with minimal maintenance requirements and zero coating delamination. Adhesion values measured at 425+ psi pull-off strength (ASTM D4541-17) maintained after 10,000+ hours of cyclic environmental exposure testing (ASTM D5894-16) with less than 5% reduction in initial values. Meets AAMA 2605-17a highest performance standards for architectural coatings.</p>
                     </div>
                   </div>
                   
-                  <div className="flex items-start gap-4">
-                    <span className="bg-primary-600 rounded-full p-2 mt-1">
-                      <Shield className="h-5 w-5 text-white" />
+                  {/* Mobile-friendly performance metrics */}
+                  <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3">
+                    <div className="bg-black/30 border border-primary-500/30 rounded-lg p-3 flex flex-col items-center text-center">
+                      <div className="text-orange-300 font-semibold text-sm mb-1">Thermal Differential</div>
+                      <div className="text-white text-lg font-bold">1,400°F</div>
+                    </div>
+                    <div className="bg-black/30 border border-primary-500/30 rounded-lg p-3 flex flex-col items-center text-center">
+                      <div className="text-orange-300 font-semibold text-sm mb-1">Flexibility</div>
+                      <div className="text-white text-lg font-bold">156%</div>
+                    </div>
+                    <div className="bg-black/30 border border-primary-500/30 rounded-lg p-3 flex flex-col items-center text-center">
+                      <div className="text-orange-300 font-semibold text-sm mb-1">UV Reflection</div>
+                      <div className="text-white text-lg font-bold">89%</div>
+                    </div>
+                    <div className="bg-black/30 border border-primary-500/30 rounded-lg p-3 flex flex-col items-center text-center">
+                      <div className="text-orange-300 font-semibold text-sm mb-1">Service Life</div>
+                      <div className="text-white text-lg font-bold">30+ Years</div>
+                    </div>
+                  </div>
+                  
+                  <div className="flex flex-col sm:flex-row items-start gap-3 md:gap-4">
+                    <span className="bg-gradient-to-br from-primary-600 to-primary-700 rounded-full p-2 mt-1 shadow-inner">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-orange-200">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                      </svg>
                     </span>
                     <div>
-                      <h3 className="text-xl font-semibold mb-2">Case Study: The Canyon Creek Fire Survival</h3>
-                      <p>During the devastating Canyon Creek Fire of 2022, which reached temperatures exceeding 1,800°F (982°C) and destroyed 73 structures in California's Wildland-Urban Interface zone, all 17 homes protected with our PraetorianGuard™ ceramic coating system survived with zero structural damage. Independent investigation by the California Department of Forestry and Fire Protection confirmed direct flame impingement on these structures lasted 7-12 minutes, with maximum external temperatures recorded at 1,832°F (1,000°C). Thermal imaging documentation showed that while neighboring unprotected homes reached internal temperatures of 600-900°F within 3 minutes of flame contact, PraetorianGuard™-protected structures maintained internal temperatures below 150°F (66°C) throughout the entire fire event. Laboratory analysis of coating samples collected post-fire showed 94.3% retention of original thermal properties with minimal degradation despite extreme conditions, validating our ceramic microsphere technology's real-world effectiveness under catastrophic wildfire conditions.</p>
+                      <h3 className="text-lg md:text-xl font-semibold mb-2 text-white">Case Study: The Canyon Creek Fire Survival</h3>
+                      <p className="text-sm md:text-base text-gray-100">During the devastating Canyon Creek Fire of 2022, which reached temperatures exceeding 1,800°F (982°C) and destroyed 73 structures in California's Wildland-Urban Interface zone, all 17 homes protected with our PraetorianGuard™ ceramic coating system survived with zero structural damage. Independent investigation by the California Department of Forestry and Fire Protection confirmed direct flame impingement on these structures lasted 7-12 minutes, with maximum external temperatures recorded at 1,832°F (1,000°C). Thermal imaging documentation showed that while neighboring unprotected homes reached internal temperatures of 600-900°F within 3 minutes of flame contact, PraetorianGuard™-protected structures maintained internal temperatures below 150°F (66°C) throughout the entire fire event. Laboratory analysis of coating samples collected post-fire showed 94.3% retention of original thermal properties with minimal degradation despite extreme conditions, validating our ceramic microsphere technology's real-world effectiveness under catastrophic wildfire conditions.</p>
                     </div>
                   </div>
                 </div>
                 
-                <div className="mt-8">
-                  <GradientButton>
+                <div className="mt-8 flex flex-wrap gap-3">
+                  <GradientButton size="sm" className="w-full sm:w-auto">
                     Request Wildfire Assessment
                   </GradientButton>
+                  <Button variant="outline" size="sm" className="bg-primary-900/50 border-primary-600/50 text-white w-full sm:w-auto">
+                    Download Technical Specifications
+                  </Button>
                 </div>
               </div>
 
-              <div className="backdrop-blur-sm bg-primary-900/60 premium-border rounded-xl p-8 shadow-lg">
-                <GradientHeading level={2} className="text-3xl mb-6" variant="fire">Wildfire Risk Map</GradientHeading>
-                <p className="mb-8">View wildfire risk zones in your area</p>
+              <div className="backdrop-blur-sm bg-gradient-to-b from-primary-900/70 to-primary-800/60 rounded-xl p-5 md:p-8 shadow-lg border border-primary-600/30">
+                <GradientHeading level={2} className="text-2xl md:text-3xl mb-4 md:mb-6" variant="fire">Wildfire Risk Map</GradientHeading>
+                <p className="mb-6 md:mb-8 text-sm md:text-base text-gray-100">View wildfire risk zones in your area</p>
                 
                 <div className="aspect-square rounded-lg overflow-hidden relative flex items-center justify-center bg-primary-900/80 backdrop-blur-sm border border-orange-600/40">
                   <div className="text-center p-8">
