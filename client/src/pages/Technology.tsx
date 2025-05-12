@@ -96,13 +96,6 @@ const Technology = () => {
           </div>
         </section>
         
-        {/* Application Diagram Section */}
-        <section className="relative py-16 z-10">
-          <div className="container mx-auto px-4">
-            <ApplicationDiagram />
-          </div>
-        </section>
-        
         {/* Executive Summary Section */}
         <section id="executive-summary" className="relative py-16 z-10 bg-primary-950/60 backdrop-blur-sm">
           <div className="container mx-auto px-4">
