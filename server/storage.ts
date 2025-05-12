@@ -114,6 +114,20 @@ export interface IStorage {
   updateProject(id: number, projectData: Partial<Project>): Promise<Project | undefined>;
   deleteProject(id: number): Promise<boolean>;
   
+  // Social Media methods
+  getSocialMediaPosts(filters?: {status?: string, platform?: string, campaignId?: number}): Promise<SocialMediaPost[]>;
+  getSocialMediaPost(id: number): Promise<SocialMediaPost | undefined>;
+  createSocialMediaPost(post: InsertSocialMediaPost): Promise<SocialMediaPost>;
+  updateSocialMediaPost(id: number, postData: Partial<SocialMediaPost>): Promise<SocialMediaPost | undefined>;
+  deleteSocialMediaPost(id: number): Promise<boolean>;
+  
+  // Marketing Campaign methods
+  getMarketingCampaigns(status?: string): Promise<MarketingCampaign[]>;
+  getMarketingCampaign(id: number): Promise<MarketingCampaign | undefined>;
+  createMarketingCampaign(campaign: InsertMarketingCampaign): Promise<MarketingCampaign>;
+  updateMarketingCampaign(id: number, campaignData: Partial<MarketingCampaign>): Promise<MarketingCampaign | undefined>;
+  deleteMarketingCampaign(id: number): Promise<boolean>;
+  
   // Project files methods
   getProjectFiles(projectId: number): Promise<ProjectFile[]>;
   getProjectFile(id: number): Promise<ProjectFile | undefined>;
@@ -782,6 +796,102 @@ export class DatabaseStorage implements IStorage {
   async createProfessionalReview(insertReview: InsertProfessionalReview): Promise<ProfessionalReview> {
     const [review] = await db.insert(professionalReviews).values(insertReview).returning();
     return review;
+  }
+
+  // Social Media methods
+  async getSocialMediaPosts(filters?: {status?: string, platform?: string, campaignId?: number}): Promise<SocialMediaPost[]> {
+    let query = db.select().from(socialMediaPosts);
+    
+    if (filters) {
+      if (filters.status) {
+        query = query.where(eq(socialMediaPosts.status, filters.status));
+      }
+      if (filters.platform) {
+        query = query.where(eq(socialMediaPosts.platform, filters.platform));
+      }
+      if (filters.campaignId) {
+        query = query.where(eq(socialMediaPosts.campaignId, filters.campaignId));
+      }
+    }
+    
+    // Order by scheduled date descending, with most recent first
+    return await query.orderBy(desc(socialMediaPosts.scheduledDate));
+  }
+
+  async getSocialMediaPost(id: number): Promise<SocialMediaPost | undefined> {
+    const [post] = await db
+      .select()
+      .from(socialMediaPosts)
+      .where(eq(socialMediaPosts.id, id));
+    return post;
+  }
+
+  async createSocialMediaPost(post: InsertSocialMediaPost): Promise<SocialMediaPost> {
+    const [newPost] = await db
+      .insert(socialMediaPosts)
+      .values(post)
+      .returning();
+    return newPost;
+  }
+
+  async updateSocialMediaPost(id: number, postData: Partial<SocialMediaPost>): Promise<SocialMediaPost | undefined> {
+    const [updatedPost] = await db
+      .update(socialMediaPosts)
+      .set(postData)
+      .where(eq(socialMediaPosts.id, id))
+      .returning();
+    return updatedPost;
+  }
+
+  async deleteSocialMediaPost(id: number): Promise<boolean> {
+    const result = await db
+      .delete(socialMediaPosts)
+      .where(eq(socialMediaPosts.id, id));
+    return result.rowCount > 0;
+  }
+
+  // Marketing Campaign methods
+  async getMarketingCampaigns(status?: string): Promise<MarketingCampaign[]> {
+    let query = db.select().from(marketingCampaigns);
+    
+    if (status) {
+      query = query.where(eq(marketingCampaigns.status, status));
+    }
+    
+    // Order by start date descending, with most recent first
+    return await query.orderBy(desc(marketingCampaigns.startDate));
+  }
+
+  async getMarketingCampaign(id: number): Promise<MarketingCampaign | undefined> {
+    const [campaign] = await db
+      .select()
+      .from(marketingCampaigns)
+      .where(eq(marketingCampaigns.id, id));
+    return campaign;
+  }
+
+  async createMarketingCampaign(campaign: InsertMarketingCampaign): Promise<MarketingCampaign> {
+    const [newCampaign] = await db
+      .insert(marketingCampaigns)
+      .values(campaign)
+      .returning();
+    return newCampaign;
+  }
+
+  async updateMarketingCampaign(id: number, campaignData: Partial<MarketingCampaign>): Promise<MarketingCampaign | undefined> {
+    const [updatedCampaign] = await db
+      .update(marketingCampaigns)
+      .set(campaignData)
+      .where(eq(marketingCampaigns.id, id))
+      .returning();
+    return updatedCampaign;
+  }
+
+  async deleteMarketingCampaign(id: number): Promise<boolean> {
+    const result = await db
+      .delete(marketingCampaigns)
+      .where(eq(marketingCampaigns.id, id));
+    return result.rowCount > 0;
   }
 }
 
