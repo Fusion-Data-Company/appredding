@@ -317,121 +317,163 @@ export default function SocialMediaContent() {
         <TabsContent value="posts" className="m-0">
           <Card>
             <CardContent className="p-0">
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead>Post</TableHead>
-                    <TableHead className="hidden md:table-cell">Platform</TableHead>
-                    <TableHead className="hidden lg:table-cell">Media</TableHead>
-                    <TableHead>Status</TableHead>
-                    <TableHead className="hidden md:table-cell">Date</TableHead>
-                    <TableHead className="hidden lg:table-cell">Campaign</TableHead>
-                    <TableHead className="hidden sm:table-cell">Engagement</TableHead>
-                    <TableHead className="w-[50px]"></TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {postsData.map((post) => (
-                    <TableRow key={post.id}>
-                      <TableCell>
-                        <div>
-                          <p className="font-medium">{post.title}</p>
-                          <p className="text-xs text-muted-foreground line-clamp-1">
-                            {post.content}
-                          </p>
-                        </div>
-                      </TableCell>
-                      <TableCell className="hidden md:table-cell">
-                        <div className="flex items-center space-x-2">
-                          <div className="h-8 w-8 rounded-full flex items-center justify-center bg-muted">
-                            {getPlatformIcon(post.platform)}
-                          </div>
-                          <span className="capitalize">{post.platform}</span>
-                        </div>
-                      </TableCell>
-                      <TableCell className="hidden lg:table-cell">
-                        <div className="flex space-x-1">
-                          {post.hasImage && (
-                            <Badge variant="outline" className="bg-gray-100 text-gray-800 border-gray-300">
-                              <Image className="h-3 w-3 mr-1" />
-                              Image
-                            </Badge>
-                          )}
-                          {post.hasVideo && (
-                            <Badge variant="outline" className="bg-gray-100 text-gray-800 border-gray-300">
-                              <Video className="h-3 w-3 mr-1" />
-                              Video
-                            </Badge>
-                          )}
-                        </div>
-                      </TableCell>
-                      <TableCell>
-                        <Badge 
-                          variant="outline" 
-                          className={`${getStatusColor(post.status)}`}
-                        >
-                          {post.status.charAt(0).toUpperCase() + post.status.slice(1)}
-                        </Badge>
-                      </TableCell>
-                      <TableCell className="hidden md:table-cell">
-                        <div className="flex flex-col">
-                          <div className="flex items-center">
-                            <Calendar className="h-3.5 w-3.5 mr-1 text-muted-foreground" />
-                            <span>{post.status === "published" ? post.publishedDate : post.scheduledDate}</span>
-                          </div>
-                          <p className="text-xs text-muted-foreground">
-                            {post.status === "published" ? "Published" : "Scheduled"}
-                          </p>
-                        </div>
-                      </TableCell>
-                      <TableCell className="hidden lg:table-cell">
-                        {post.campaign}
-                      </TableCell>
-                      <TableCell className="hidden sm:table-cell">
-                        {post.engagement ? (
-                          <div className="flex items-center space-x-2">
-                            <span className="text-sm">{
-                              post.engagement.likes + 
-                              (post.engagement.comments || 0) + 
-                              (post.engagement.shares || 0) +
-                              (post.engagement.views ? post.engagement.views / 100 : 0)
-                            }</span>
-                          </div>
-                        ) : (
-                          <span className="text-xs text-muted-foreground">-</span>
-                        )}
-                      </TableCell>
-                      <TableCell>
-                        <DropdownMenu>
-                          <DropdownMenuTrigger asChild>
-                            <Button variant="ghost" size="icon">
-                              <MoreHorizontal className="h-4 w-4" />
-                            </Button>
-                          </DropdownMenuTrigger>
-                          <DropdownMenuContent align="end">
-                            <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                            <DropdownMenuSeparator />
-                            <DropdownMenuItem>
-                              <Eye className="h-4 w-4 mr-2" />
-                              View Post
-                            </DropdownMenuItem>
-                            <DropdownMenuItem>
-                              <Edit className="h-4 w-4 mr-2" />
-                              Edit Post
-                            </DropdownMenuItem>
-                            <DropdownMenuItem>
-                              <Calendar className="h-4 w-4 mr-2" />
-                              Reschedule
-                            </DropdownMenuItem>
-                            <DropdownMenuSeparator />
-                            <DropdownMenuItem className="text-red-600">Delete</DropdownMenuItem>
-                          </DropdownMenuContent>
-                        </DropdownMenu>
-                      </TableCell>
+              {postsLoading ? (
+                <div className="flex justify-center items-center h-64">
+                  <Loader2 className="h-8 w-8 animate-spin text-primary" />
+                </div>
+              ) : postsError ? (
+                <div className="flex justify-center items-center h-64 text-center p-4">
+                  <div>
+                    <p className="text-red-500 mb-2">Failed to load social media posts</p>
+                    <Button variant="outline" size="sm" onClick={refetchPosts}>
+                      <RefreshCcw className="h-4 w-4 mr-2" />
+                      Try Again
+                    </Button>
+                  </div>
+                </div>
+              ) : posts && posts.length > 0 ? (
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead>Post</TableHead>
+                      <TableHead className="hidden md:table-cell">Platform</TableHead>
+                      <TableHead className="hidden lg:table-cell">Media</TableHead>
+                      <TableHead>Status</TableHead>
+                      <TableHead className="hidden md:table-cell">Date</TableHead>
+                      <TableHead className="hidden lg:table-cell">Campaign</TableHead>
+                      <TableHead className="hidden sm:table-cell">Engagement</TableHead>
+                      <TableHead className="w-[50px]"></TableHead>
                     </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
+                  </TableHeader>
+                  <TableBody>
+                    {posts.filter((post: SocialMediaPost) => {
+                      return (
+                        post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                        post.content.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                        post.platform.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                        (post.campaign?.name || '').toLowerCase().includes(searchQuery.toLowerCase())
+                      );
+                    }).map((post: SocialMediaPost) => (
+                      <TableRow key={post.id}>
+                        <TableCell>
+                          <div>
+                            <p className="font-medium">{post.title}</p>
+                            <p className="text-xs text-muted-foreground line-clamp-1">
+                              {post.content}
+                            </p>
+                          </div>
+                        </TableCell>
+                        <TableCell className="hidden md:table-cell">
+                          <div className="flex items-center space-x-2">
+                            <div className="h-8 w-8 rounded-full flex items-center justify-center bg-muted">
+                              {getPlatformIcon(post.platform)}
+                            </div>
+                            <span className="capitalize">{post.platform}</span>
+                          </div>
+                        </TableCell>
+                        <TableCell className="hidden lg:table-cell">
+                          <div className="flex space-x-1">
+                            {post.imageUrl && (
+                              <Badge variant="outline" className="bg-gray-100 text-gray-800 border-gray-300">
+                                <Image className="h-3 w-3 mr-1" />
+                                Image
+                              </Badge>
+                            )}
+                            {post.videoUrl && (
+                              <Badge variant="outline" className="bg-gray-100 text-gray-800 border-gray-300">
+                                <Video className="h-3 w-3 mr-1" />
+                                Video
+                              </Badge>
+                            )}
+                          </div>
+                        </TableCell>
+                        <TableCell>
+                          <Badge 
+                            variant="outline" 
+                            className={`${getStatusColor(post.status)}`}
+                          >
+                            {post.status.charAt(0).toUpperCase() + post.status.slice(1)}
+                          </Badge>
+                        </TableCell>
+                        <TableCell className="hidden md:table-cell">
+                          <div className="flex flex-col">
+                            <div className="flex items-center">
+                              <Calendar className="h-3.5 w-3.5 mr-1 text-muted-foreground" />
+                              <span>{
+                                post.status === "published" && post.publishedDate 
+                                  ? new Date(post.publishedDate).toLocaleDateString() 
+                                  : new Date(post.scheduledDate).toLocaleDateString()
+                              }</span>
+                            </div>
+                            <p className="text-xs text-muted-foreground">
+                              {post.status === "published" ? "Published" : "Scheduled"}
+                            </p>
+                          </div>
+                        </TableCell>
+                        <TableCell className="hidden lg:table-cell">
+                          {post.campaign?.name || '-'}
+                        </TableCell>
+                        <TableCell className="hidden sm:table-cell">
+                          {post.analyticsData ? (
+                            <div className="flex items-center space-x-2">
+                              <span className="text-sm">{
+                                (post.analyticsData.likes || 0) + 
+                                (post.analyticsData.comments || 0) + 
+                                (post.analyticsData.shares || 0) +
+                                (post.analyticsData.views ? Math.floor(post.analyticsData.views / 100) : 0)
+                              }</span>
+                            </div>
+                          ) : (
+                            <span className="text-xs text-muted-foreground">-</span>
+                          )}
+                        </TableCell>
+                        <TableCell>
+                          <DropdownMenu>
+                            <DropdownMenuTrigger asChild>
+                              <Button variant="ghost" size="icon">
+                                <MoreHorizontal className="h-4 w-4" />
+                              </Button>
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent align="end">
+                              <DropdownMenuLabel>Actions</DropdownMenuLabel>
+                              <DropdownMenuSeparator />
+                              <DropdownMenuItem>
+                                <Eye className="h-4 w-4 mr-2" />
+                                View Post
+                              </DropdownMenuItem>
+                              <DropdownMenuItem>
+                                <Edit className="h-4 w-4 mr-2" />
+                                Edit Post
+                              </DropdownMenuItem>
+                              <DropdownMenuItem>
+                                <Calendar className="h-4 w-4 mr-2" />
+                                Reschedule
+                              </DropdownMenuItem>
+                              <DropdownMenuSeparator />
+                              <DropdownMenuItem 
+                                className="text-red-600" 
+                                onClick={() => handleDeletePost(post.id)}
+                              >
+                                Delete
+                              </DropdownMenuItem>
+                            </DropdownMenuContent>
+                          </DropdownMenu>
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              ) : (
+                <div className="flex justify-center items-center h-64 text-center p-4">
+                  <div>
+                    <p className="text-muted-foreground mb-2">No social media posts found</p>
+                    <Button className="h-9">
+                      <Plus className="h-4 w-4 mr-2" />
+                      Create Post
+                    </Button>
+                  </div>
+                </div>
+              )}
             </CardContent>
           </Card>
         </TabsContent>
@@ -439,17 +481,32 @@ export default function SocialMediaContent() {
         <TabsContent value="campaigns" className="m-0">
           <Card>
             <CardContent className="p-0">
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead>Campaign</TableHead>
-                    <TableHead className="hidden md:table-cell">Status</TableHead>
-                    <TableHead className="hidden lg:table-cell">Date Range</TableHead>
-                    <TableHead className="hidden sm:table-cell">Posts</TableHead>
-                    <TableHead className="hidden md:table-cell">Primary Platform</TableHead>
-                    <TableHead className="w-[50px]"></TableHead>
-                  </TableRow>
-                </TableHeader>
+              {campaignsLoading ? (
+                <div className="flex justify-center items-center h-64">
+                  <Loader2 className="h-8 w-8 animate-spin text-primary" />
+                </div>
+              ) : campaignsError ? (
+                <div className="flex justify-center items-center h-64 text-center p-4">
+                  <div>
+                    <p className="text-red-500 mb-2">Failed to load marketing campaigns</p>
+                    <Button variant="outline" size="sm" onClick={refetchCampaigns}>
+                      <RefreshCcw className="h-4 w-4 mr-2" />
+                      Try Again
+                    </Button>
+                  </div>
+                </div>
+              ) : campaigns && campaigns.length > 0 ? (
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead>Campaign</TableHead>
+                      <TableHead className="hidden md:table-cell">Status</TableHead>
+                      <TableHead className="hidden lg:table-cell">Date Range</TableHead>
+                      <TableHead className="hidden sm:table-cell">Posts</TableHead>
+                      <TableHead className="hidden md:table-cell">Primary Platform</TableHead>
+                      <TableHead className="w-[50px]"></TableHead>
+                    </TableRow>
+                  </TableHeader>
                 <TableBody>
                   {campaignsData.map((campaign) => (
                     <TableRow key={campaign.id}>
