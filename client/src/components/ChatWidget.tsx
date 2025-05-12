@@ -349,20 +349,13 @@ const ChatWidget = () => {
                     Ask me anything about Praetorian SmartCoat products, applications, or services. I'm here to assist with technical specifications, application guides, and product recommendations.
                   </p>
                   <div className="w-full mt-2 p-4 bg-gradient-to-r from-gray-800/80 to-gray-700/80 rounded-lg border border-white/20 shadow-md">
-                    <p className="text-center text-white font-medium mb-3">Rather talk than type?</p>
-                    <div className="flex justify-start pl-[calc(50%-70px)]">
+                    <p className="text-center text-white font-medium mb-4">Rather talk than type?</p>
+                    <div className="flex justify-center">
                       <div 
+                        className="elevenlabs-container mx-auto bg-gray-800/90 py-3 px-5 rounded-lg border border-white/20 shadow-lg"
+                        style={{ width: "fit-content" }}
                         dangerouslySetInnerHTML={{
                           __html: `<elevenlabs-convai agent-id="ybtdqCeRrbskLzgWulrg"></elevenlabs-convai>`
-                        }}
-                        style={{ 
-                          backgroundColor: 'rgba(30, 41, 59, 0.8)',
-                          borderRadius: '8px',
-                          padding: '8px 16px',
-                          color: 'white',
-                          border: '1px solid rgba(255, 255, 255, 0.2)',
-                          boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2)',
-                          display: 'inline-block'
                         }}
                       />
                     </div>

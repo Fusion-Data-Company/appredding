@@ -102,6 +102,34 @@
         setTimeout(() => {
           document.getElementById('root').classList.remove('loading');
         }, 50);
+        
+        // Style the ElevenLabs widget to match our UI
+        setTimeout(() => {
+          const elevenLabsButton = document.querySelector('elevenlabs-convai');
+          if (elevenLabsButton) {
+            elevenLabsButton.style.backgroundColor = 'rgba(30, 41, 59, 0.8)';
+            elevenLabsButton.style.color = 'white';
+            elevenLabsButton.style.borderRadius = '8px';
+            elevenLabsButton.style.padding = '8px 16px';
+            elevenLabsButton.style.border = '1px solid rgba(255, 255, 255, 0.2)';
+            elevenLabsButton.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.2)';
+            elevenLabsButton.style.display = 'inline-block';
+            
+            const shadowRoot = elevenLabsButton.shadowRoot;
+            if (shadowRoot) {
+              const style = document.createElement('style');
+              style.textContent = `
+                :host {
+                  --elevenlabs-button-bg: rgba(30, 41, 59, 0.8) !important;
+                  --elevenlabs-button-text: white !important;
+                  --elevenlabs-button-border: 1px solid rgba(255, 255, 255, 0.2) !important;
+                  --elevenlabs-button-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+                }
+              `;
+              shadowRoot.appendChild(style);
+            }
+          }
+        }, 1000);
       });
       
       // Listen for errors to provide better UX for video loading issues
