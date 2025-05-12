@@ -18,26 +18,26 @@ const ProductHistorySection = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <div>
-            <GradientHeading level={2} className="text-4xl md:text-5xl lg:text-6xl mb-8" variant="fire">Our Heritage of Protection</GradientHeading>
+            <GradientHeading level={2} className="text-4xl md:text-5xl lg:text-6xl mb-8" variant="fire">Space Technology Heritage</GradientHeading>
             <p className="mb-8 text-white text-xl leading-relaxed">
-              For over 40 years, Praetorian SmartCoat Solutions has been at the forefront of developing advanced coating technologies that protect what matters most.
+              Praetorian SmartCoat's foundation is built upon NASA space shuttle thermal protection technology, adapted and enhanced for terrestrial applications with remarkable results.
             </p>
             <ul className="space-y-5 mb-10">
               <li className="flex items-start">
                 <i className="fas fa-check-circle text-primary-400 mt-1 mr-4 text-2xl"></i>
-                <span className="dark:text-white text-white text-lg">Founded by chemical engineers with a passion for protection</span>
+                <span className="dark:text-white text-white text-lg">Developed from NASA space shuttle ceramic technology for thermal protection during atmospheric re-entry</span>
               </li>
               <li className="flex items-start">
                 <i className="fas fa-check-circle text-primary-400 mt-1 mr-4 text-2xl"></i>
-                <span className="dark:text-white text-white text-lg">Pioneered environmentally-friendly protective solutions</span>
+                <span className="dark:text-white text-white text-lg">Original applications from 1989 still performing perfectly with minimal degradation when inspected in 2019</span>
               </li>
               <li className="flex items-start">
                 <i className="fas fa-check-circle text-primary-400 mt-1 mr-4 text-2xl"></i>
-                <span className="dark:text-white text-white text-lg">Over 10,000 successful installations across North America</span>
+                <span className="dark:text-white text-white text-lg">Chosen by the US Air Force for critical facilities after outperforming all alternatives in Arizona tests</span>
               </li>
               <li className="flex items-start">
                 <i className="fas fa-check-circle text-primary-400 mt-1 mr-4 text-2xl"></i>
-                <span className="dark:text-white text-white text-lg">Industry-leading R&D laboratory and testing facility</span>
+                <span className="dark:text-white text-white text-lg">American Bureau of Shipping (ABS) certified for marine applications in harsh saltwater environments</span>
               </li>
             </ul>
             <GradientButton 
@@ -57,30 +57,30 @@ const ProductHistorySection = () => {
             <div className="p-8 space-y-8">
               <div className="relative pl-10 dark:border-l-3 dark:border-gray-600/40 border-l-3 border-gray-400/60 pb-10">
                 <div className="absolute -left-3 top-0 w-6 h-6 rounded-full dark:bg-gradient-to-r dark:from-gray-700 dark:to-gray-600 bg-gradient-to-r from-orange-400 to-orange-500 dark:shadow-[0_0_8px_rgba(255,255,255,0.25)] shadow-[0_0_8px_rgba(0,0,0,0.25)]"></div>
-                <div className="font-bold text-xl">1978</div>
-                <div className="text-2xl font-semibold mb-1">Company Founded</div>
-                <p className="dark:text-gray-300 text-gray-700 text-lg">Praetorian SmartCoat Solutions established in Portland, Oregon</p>
+                <div className="font-bold text-xl">1989</div>
+                <div className="text-2xl font-semibold mb-1">NASA Technology Adaptation</div>
+                <p className="dark:text-gray-300 text-gray-700 text-lg">First successful adaptation of NASA ceramic microsphere technology for commercial fire protection applications</p>
               </div>
               
               <div className="relative pl-10 dark:border-l-3 dark:border-gray-600/40 border-l-3 border-gray-400/60 pb-10">
                 <div className="absolute -left-3 top-0 w-6 h-6 rounded-full dark:bg-gradient-to-r dark:from-gray-700 dark:to-gray-600 bg-gradient-to-r from-blue-400 to-blue-500 dark:shadow-[0_0_8px_rgba(255,255,255,0.25)] shadow-[0_0_8px_rgba(0,0,0,0.25)]"></div>
-                <div className="font-bold text-xl">1985</div>
-                <div className="text-2xl font-semibold mb-1">First Marine Coating</div>
-                <p className="dark:text-gray-300 text-gray-700 text-lg">Launched revolutionary salt-resistant technology</p>
+                <div className="font-bold text-xl">1995</div>
+                <div className="text-2xl font-semibold mb-1">Class A Fire Rating</div>
+                <p className="dark:text-gray-300 text-gray-700 text-lg">Achieved perfect 0/100 scores in ASTM E84 testing for both Flame Spread and Smoke Development with certified triple-component system</p>
               </div>
               
               <div className="relative pl-10 dark:border-l-3 dark:border-gray-600/40 border-l-3 border-gray-400/60 pb-10">
                 <div className="absolute -left-3 top-0 w-6 h-6 rounded-full dark:bg-gradient-to-r dark:from-gray-700 dark:to-gray-600 bg-gradient-to-r from-red-400 to-red-500 dark:shadow-[0_0_8px_rgba(255,255,255,0.25)] shadow-[0_0_8px_rgba(0,0,0,0.25)]"></div>
-                <div className="font-bold text-xl">1998</div>
-                <div className="text-2xl font-semibold mb-1">Fire Retardant Breakthrough</div>
-                <p className="dark:text-gray-300 text-gray-700 text-lg">Developed Class-A intumescent coating technology</p>
+                <div className="font-bold text-xl">2000s</div>
+                <div className="text-2xl font-semibold mb-1">Energy Efficiency Breakthrough</div>
+                <p className="dark:text-gray-300 text-gray-700 text-lg">Sony Koda facility documented 87% energy consumption reduction after Praetorian SmartCoat application, validating extreme efficiency claims</p>
               </div>
               
               <div className="relative pl-10 dark:border-l-3 dark:border-gray-600/40 border-l-3 border-gray-400/60">
                 <div className="absolute -left-3 top-0 w-6 h-6 rounded-full dark:bg-gradient-to-r dark:from-gray-700 dark:to-gray-600 bg-gradient-to-r from-purple-400 to-purple-500 dark:shadow-[0_0_8px_rgba(255,255,255,0.25)] shadow-[0_0_8px_rgba(0,0,0,0.25)]"></div>
-                <div className="font-bold text-xl">2010 - Present</div>
-                <div className="text-2xl font-semibold mb-1">Smart Coating Systems</div>
-                <p className="dark:text-gray-300 text-gray-700 text-lg">Introduction of self-healing and indicator coating technologies</p>
+                <div className="font-bold text-xl">2019</div>
+                <div className="text-2xl font-semibold mb-1">Long-Term Performance Validation</div>
+                <p className="dark:text-gray-300 text-gray-700 text-lg">30-year inspection of original 1989 installations showed no deterioration and continued performance, confirming exceptional durability claims</p>
               </div>
             </div>
           </div>
