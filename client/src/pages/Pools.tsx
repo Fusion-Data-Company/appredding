@@ -586,9 +586,9 @@ const Pools = () => {
   const [showResults, setShowResults] = useState(false);
   const [validationError, setValidationError] = useState<string | null>(null);
 
-  // Calculate the surface area based on pool shape and dimensions
+  // Calculate the deck surface area based on shape and dimensions
   const calculateSurfaceArea = () => {
-    if (!length || !width || !depth) {
+    if (!length || !width) {
       return 0;
     }
 
@@ -596,28 +596,27 @@ const Pools = () => {
     
     switch (poolShape) {
       case "rectangular":
-        // Calculate surface area for rectangular pool
-        // Bottom + 2 long sides + 2 short sides
-        surfaceArea = (length * width) + (2 * length * depth) + (2 * width * depth);
+        // Simple rectangular deck area calculation
+        surfaceArea = length * width;
         break;
       case "oval":
-        // Approximation for oval pool
-        // Using PI * (a * b) for the oval bottom + perimeter * depth for sides
+        // Approximation for oval/curved deck area
         const a = length / 2;
         const b = width / 2;
-        // Approximation of oval perimeter
-        const perimeter = 2 * Math.PI * Math.sqrt((a * a + b * b) / 2);
-        surfaceArea = (Math.PI * a * b) + (perimeter * depth);
+        // Use ellipse area formula
+        surfaceArea = Math.PI * a * b;
         break;
       case "kidney":
+        // L-shaped deck area (rectangular main area + extension)
+        surfaceArea = 0.85 * (length * width); // 0.85 adjustment factor for L-shape
+        break;
       case "freeform":
-        // For complex shapes, use a factor based on rectangular estimation
-        // This is an approximation - actual calculation would require more specific measurements
-        surfaceArea = 0.85 * ((length * width) + (2 * length * depth) + (2 * width * depth));
+        // For complex deck shapes, use an approximation based on rectangular with adjustment
+        surfaceArea = 0.9 * (length * width);
         break;
       case "custom":
-        // For custom, we just use a simplified rectangular calculation
-        surfaceArea = (length * width) + (2 * (length + width) * depth);
+        // For custom deck layout, use a rectangular base but allow for adjustment
+        surfaceArea = length * width;
         break;
       default:
         surfaceArea = 0;
@@ -632,12 +631,12 @@ const Pools = () => {
     setValidationError(null);
     
     // Validate inputs
-    if (!length || !width || !depth) {
-      setValidationError("Please enter all pool dimensions.");
+    if (!length || !width) {
+      setValidationError("Please enter all deck dimensions.");
       return;
     }
     
-    if (length <= 0 || width <= 0 || depth <= 0) {
+    if (length <= 0 || width <= 0) {
       setValidationError("Dimensions must be greater than zero.");
       return;
     }
@@ -646,8 +645,15 @@ const Pools = () => {
     const product = coatingProducts[coatingType];
     const surfaceFactor = surfaceFactors[surfaceCondition as keyof typeof surfaceFactors];
     
-    // Calculate surface area
-    const area = calculateSurfaceArea();
+    // Calculate base surface area
+    let area = calculateSurfaceArea();
+    
+    // Apply additional areas percentage if provided
+    if (depth) {
+      // The depth field is now used for additional areas percentage
+      const additionalAreaPercentage = depth / 100;
+      area = area * (1 + additionalAreaPercentage);
+    }
     
     // Calculate gallons needed based on coverage, number of coats, and surface condition
     const gallonsPerCoat = Math.ceil((area / product.coverage) * surfaceFactor);
@@ -936,7 +942,7 @@ const Pools = () => {
                   
                   <div>
                     <label className="block text-sm font-medium mb-2">
-                      Surface Condition
+                      Deck Surface Type
                       <TooltipProvider>
                         <Tooltip>
                           <TooltipTrigger asChild>
@@ -945,7 +951,7 @@ const Pools = () => {
                             </span>
                           </TooltipTrigger>
                           <TooltipContent>
-                            <p className="w-60">Surface condition affects how much coating material is needed. Rougher surfaces require more material.</p>
+                            <p className="w-60">Surface type affects how much coating material is needed. More porous or textured surfaces require additional material for complete coverage.</p>
                           </TooltipContent>
                         </Tooltip>
                       </TooltipProvider>
@@ -955,9 +961,9 @@ const Pools = () => {
                       value={surfaceCondition}
                       onChange={(e) => setSurfaceCondition(e.target.value)}
                     >
-                      <option value="smooth">Smooth (New/Refinished)</option>
-                      <option value="moderate">Moderate (Some Porosity)</option>
-                      <option value="rough">Rough (High Porosity)</option>
+                      <option value="smooth">Smooth (Polished Concrete, Tile)</option>
+                      <option value="moderate">Moderate (Standard Concrete, Pavers)</option>
+                      <option value="rough">Rough (Textured, Stamped, Stone)</option>
                     </select>
                   </div>
                 </div>
