@@ -2,7 +2,23 @@ import React, { useState } from "react";
 import MainLayout from "@/components/layout/MainLayout";
 import { GradientButton } from "@/components/ui/gradient-button";
 import { GradientHeading } from "@/components/ui/gradient-heading";
-import { Building, Droplets, ShieldCheck, Leaf, Clock, ParkingCircle, BadgeAlert, Landmark, PenTool, Blocks, Activity, Loader2 } from "lucide-react";
+import { 
+  Building, 
+  Droplets, 
+  ShieldCheck, 
+  Leaf, 
+  Clock, 
+  ParkingCircle, 
+  BadgeAlert, 
+  Landmark, 
+  PenTool, 
+  Blocks, 
+  Activity, 
+  Loader2,
+  CircleDollarSign,
+  TrendingUp,
+  BadgeCheck
+} from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { insertMunicipalityProfessionalSchema } from "@shared/schema";
@@ -786,70 +802,96 @@ const MunicipalityPage = () => {
                   </div>
                   
                   <div className="md:col-span-3 flex flex-col gap-4">
-                    <div className="bg-gradient-to-b from-blue-900/40 to-blue-900/70 rounded-lg p-5 border border-blue-400/20">
-                      <h4 className="text-lg font-bold text-blue-200 mb-3 border-b border-blue-500/30 pb-2">Project Metrics</h4>
-                      <div className="space-y-6">
-                        <div>
-                          <div className="flex justify-between items-center mb-2">
-                            <span className="text-blue-200">Energy Savings</span>
-                            <div className="flex items-center">
-                              <span className="text-white font-bold text-lg">87%</span>
-                              <span className="text-green-400 text-xs ml-1">↑</span>
-                            </div>
-                          </div>
-                          <div className="w-full bg-blue-900/50 rounded-full h-2.5">
-                            <div className="bg-blue-500 h-2.5 rounded-full" style={{ width: '87%' }}></div>
-                          </div>
-                        </div>
-                        
-                        <div>
-                          <div className="flex justify-between items-center mb-2">
-                            <span className="text-blue-200">Chemical Resistance</span>
-                            <div className="flex items-center">
-                              <span className="text-white font-bold text-lg">10,000+ hrs</span>
-                              <span className="text-green-400 text-xs ml-1">↑</span>
-                            </div>
-                          </div>
-                          <div className="w-full bg-blue-900/50 rounded-full h-2.5">
-                            <div className="bg-blue-500 h-2.5 rounded-full" style={{ width: '95%' }}></div>
-                          </div>
-                        </div>
-                        
-                        <div>
-                          <div className="flex justify-between items-center mb-2">
-                            <span className="text-blue-200">Installation Time</span>
-                            <div className="flex items-center">
-                              <span className="text-white font-bold text-lg">-64%</span>
-                              <span className="text-green-400 text-xs ml-1">↓</span>
-                            </div>
-                          </div>
-                          <div className="w-full bg-blue-900/50 rounded-full h-2.5">
-                            <div className="bg-blue-500 h-2.5 rounded-full" style={{ width: '36%' }}></div>
-                          </div>
-                        </div>
-                        
-                        <div>
-                          <div className="flex justify-between items-center mb-2">
-                            <span className="text-blue-200">Project Cost</span>
-                            <div className="flex items-center">
-                              <span className="text-white font-bold text-lg">-39%</span>
-                              <span className="text-green-400 text-xs ml-1">↓</span>
-                            </div>
-                          </div>
-                          <div className="w-full bg-blue-900/50 rounded-full h-2.5">
-                            <div className="bg-blue-500 h-2.5 rounded-full" style={{ width: '61%' }}></div>
-                          </div>
-                        </div>
+                    <div className="bg-gradient-to-br from-blue-900/40 to-blue-950/60 backdrop-blur-md rounded-xl border border-blue-500/30 overflow-hidden shadow-lg">
+                      <div className="bg-gradient-to-r from-blue-600/20 to-blue-900/20 p-4 border-b border-blue-500/30 flex justify-between items-center">
+                        <h4 className="text-blue-100 font-semibold text-lg flex items-center">
+                          <Activity className="h-5 w-5 mr-2 text-blue-300" />
+                          Project Metrics
+                        </h4>
+                        <span className="bg-blue-800/50 text-blue-200 text-xs px-2 py-1 rounded-full border border-blue-500/30">
+                          Independently Verified
+                        </span>
                       </div>
-                      
-                      <div className="mt-6 bg-blue-800/30 rounded p-3 border border-blue-500/20">
-                        <div className="flex justify-between text-sm mb-1">
-                          <span className="text-blue-200">Payback Period</span>
-                          <span className="text-white font-bold">11 months</span>
+                      <div className="p-6">
+                        <div className="space-y-6">
+                          <div>
+                            <div className="flex justify-between items-center mb-2">
+                              <span className="text-white text-sm flex items-center">
+                                <Leaf className="h-4 w-4 mr-2 text-green-400" />
+                                Energy Savings
+                              </span>
+                              <span className="font-mono font-semibold text-green-300">87%</span>
+                            </div>
+                            <div className="w-full bg-blue-950/60 rounded-full h-2">
+                              <div className="bg-gradient-to-r from-green-500 to-green-300 h-2 rounded-full w-[87%]"></div>
+                            </div>
+                            <div className="flex justify-between text-xs text-blue-300 mt-1">
+                              <span>$340,000 → $44,200 annually</span>
+                              <span>$295,800 saved/year</span>
+                            </div>
+                          </div>
+                          
+                          <div>
+                            <div className="flex justify-between items-center mb-2">
+                              <span className="text-white text-sm flex items-center">
+                                <Droplets className="h-4 w-4 mr-2 text-blue-400" />
+                                Chemical Resistance
+                              </span>
+                              <span className="font-mono font-semibold text-blue-300">10,000+ hrs</span>
+                            </div>
+                            <div className="w-full bg-blue-950/60 rounded-full h-2">
+                              <div className="bg-gradient-to-r from-blue-500 to-blue-300 h-2 rounded-full w-[95%]"></div>
+                            </div>
+                            <div className="flex justify-between text-xs text-blue-300 mt-1">
+                              <span>NSF/ANSI 61 certified</span>
+                              <span>0% degradation detected</span>
+                            </div>
+                          </div>
+                          
+                          <div>
+                            <div className="flex justify-between items-center mb-2">
+                              <span className="text-white text-sm flex items-center">
+                                <Clock className="h-4 w-4 mr-2 text-orange-400" />
+                                Installation Time
+                              </span>
+                              <span className="font-mono font-semibold text-orange-300">-64%</span>
+                            </div>
+                            <div className="w-full bg-blue-950/60 rounded-full h-2">
+                              <div className="bg-gradient-to-r from-orange-500 to-orange-300 h-2 rounded-full w-[36%]"></div>
+                            </div>
+                            <div className="flex justify-between text-xs text-blue-300 mt-1">
+                              <span>Industry avg: 75 days</span>
+                              <span>Completed: 27 days</span>
+                            </div>
+                          </div>
+                          
+                          <div>
+                            <div className="flex justify-between items-center mb-2">
+                              <span className="text-white text-sm flex items-center">
+                                <CircleDollarSign className="h-4 w-4 mr-2 text-blue-400" />
+                                Project Cost
+                              </span>
+                              <span className="font-mono font-semibold text-blue-300">-39%</span>
+                            </div>
+                            <div className="w-full bg-blue-950/60 rounded-full h-2">
+                              <div className="bg-gradient-to-r from-blue-500 to-blue-300 h-2 rounded-full w-[61%]"></div>
+                            </div>
+                            <div className="flex justify-between text-xs text-blue-300 mt-1">
+                              <span>$1.29M vs $2.1M estimate</span>
+                              <span>$810K savings</span>
+                            </div>
+                          </div>
                         </div>
-                        <div className="flex justify-between text-sm">
-                          <span className="text-blue-200">Projected 30-Year Savings</span>
-                          <span className="text-white font-bold">$8.23M</span>
+                      
+                        <div className="mt-6 bg-blue-800/30 rounded p-3 border border-blue-500/20">
+                          <div className="flex justify-between text-sm mb-1">
+                            <span className="text-blue-200">Payback Period</span>
+                            <span className="text-white font-bold">11 months</span>
+                          </div>
+                          <div className="flex justify-between text-sm">
+                            <span className="text-blue-200">Projected 30-Year Savings</span>
+                            <span className="text-white font-bold">$8.23M</span>
+                          </div>
                         </div>
                       </div>
                     </div>
