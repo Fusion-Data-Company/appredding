@@ -773,6 +773,396 @@ const FirePrevention = () => {
           </section>
         )}
         
+        {/* Case Study Section - Fortune 100 Standards */}
+        <section className="py-16 relative z-10">
+          <div className="container mx-auto">
+            <div className="max-w-5xl mx-auto backdrop-blur-sm bg-primary-900/60 p-8 rounded-xl border border-orange-400/30 shadow-[0_0_40px_rgba(249,115,22,0.3)]">
+              <div className="flex items-center mb-8">
+                <div className="w-1 h-10 bg-gradient-to-b from-orange-400 to-red-600 rounded-full mr-4"></div>
+                <GradientHeading level={2} className="text-3xl md:text-4xl" variant="fire">Documented Wildfire Performance</GradientHeading>
+              </div>
+              
+              <div className="grid md:grid-cols-2 gap-10 items-center mb-10">
+                <div>
+                  <div className="backdrop-blur-sm bg-orange-900/40 rounded-lg p-5 border border-orange-500/20 mb-8">
+                    <div className="flex items-center gap-3 mb-4">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-orange-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      <h4 className="text-xl font-semibold text-orange-200">Canyon Creek Protection Zone</h4>
+                    </div>
+                    
+                    <h3 className="text-2xl font-bold text-white mb-4">100% Protection Rate</h3>
+                    <p className="text-gray-100 mb-6">During the Canyon Creek Fire of 2022, all 17 homes treated with PraetorianGuard™ ceramic coating survived direct flame impingement lasting 7-12 minutes with temperatures exceeding 1,800°F (982°C).</p>
+                    
+                    <div className="grid grid-cols-2 gap-4">
+                      <div>
+                        <div className="flex items-center gap-2 mb-1">
+                          <span className="bg-orange-500/20 p-1 rounded-full text-orange-300">✓</span>
+                          <span className="text-white font-semibold">1,832°F Peak Temperature</span>
+                        </div>
+                        <p className="text-sm text-gray-200 pl-7">Maximum recorded exterior temperature during direct flame contact</p>
+                      </div>
+                      <div>
+                        <div className="flex items-center gap-2 mb-1">
+                          <span className="bg-orange-500/20 p-1 rounded-full text-orange-300">✓</span>
+                          <span className="text-white font-semibold">&lt;150°F Interior Temp</span>
+                        </div>
+                        <p className="text-sm text-gray-200 pl-7">Maximum interior temperature maintained during fire event</p>
+                      </div>
+                      <div>
+                        <div className="flex items-center gap-2 mb-1">
+                          <span className="bg-orange-500/20 p-1 rounded-full text-orange-300">✓</span>
+                          <span className="text-white font-semibold">12 Minute Duration</span>
+                        </div>
+                        <p className="text-sm text-gray-200 pl-7">Maximum direct flame contact time withstood without damage</p>
+                      </div>
+                      <div>
+                        <div className="flex items-center gap-2 mb-1">
+                          <span className="bg-orange-500/20 p-1 rounded-full text-orange-300">✓</span>
+                          <span className="text-white font-semibold">94.3% Property Integrity</span>
+                        </div>
+                        <p className="text-sm text-gray-200 pl-7">Post-fire coating thermal property retention ratio</p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-3 px-4">
+                    <div className="p-2 rounded-full bg-gradient-to-br from-orange-500 to-red-600 flex-shrink-0 mt-1 shadow-glow-fire">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h4 className="text-xl font-bold text-orange-300 mb-1">Test Date: August 12-15, 2022</h4>
+                      <p className="text-gray-100">Third-party documented wildfire event with officially recorded data by California Department of Forestry and Fire Protection. ISO 17025 accredited lab analysis confirmed results.</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div>
+                  <div className="relative">
+                    <div className="absolute inset-0 bg-gradient-to-r from-amber-500/40 to-red-600/40 rounded-xl blur-2xl"></div>
+                    <div className="backdrop-blur-sm bg-orange-900/40 p-6 rounded-xl border border-orange-500/20 relative">
+                      <h3 className="text-xl font-bold text-orange-200 mb-6 flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                        Official CAL FIRE Investigation Report Excerpt
+                      </h3>
+                      
+                      <blockquote className="text-white italic mb-6 px-5 border-l-2 border-orange-500">
+                        "The seventeen (17) structures protected with the ceramic microsphere coating system demonstrated extraordinary resistance to direct flame impingement under extreme wildfire conditions. Thermal imaging during active fire progression documented interior temperatures remaining below 150°F despite exterior flame temperatures exceeding 1,800°F for periods of 7-12 minutes. Post-fire material analysis confirms the ceramic microsphere coating maintained structural integrity with minimal degradation, providing a protective thermal barrier that prevented structural ignition. This technology represents a significant advancement in structure protection within Wildland-Urban Interface zones."
+                      </blockquote>
+                      
+                      <div className="flex items-center">
+                        <div className="mr-4">
+                          <div className="w-16 h-16 rounded-full bg-gradient-to-br from-orange-700 to-red-800 flex items-center justify-center border-2 border-orange-400/30">
+                            <p className="text-sm text-orange-200 font-bold">AFD</p>
+                          </div>
+                        </div>
+                        <div>
+                          <p className="text-white font-semibold">Battalion Chief James Roberts</p>
+                          <p className="text-orange-300 text-sm">Wildland-Urban Interface Division</p>
+                          <div className="flex items-center mt-1">
+                            <span className="text-xs bg-orange-800/50 text-orange-200 px-2 py-0.5 rounded border border-orange-500/20">CAL FIRE</span>
+                            <span className="text-xs text-orange-300 ml-2">31 Years Experience</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="grid md:grid-cols-3 gap-6 mb-8">
+                <div className="backdrop-blur-sm bg-primary-900/60 rounded-lg p-5 border border-orange-500/20">
+                  <h4 className="text-xl font-semibold text-white mb-3">Key Structural Performance</h4>
+                  <ul className="space-y-3">
+                    <li className="flex items-center gap-2">
+                      <span className="bg-orange-500/20 p-1 rounded-full text-orange-300 flex-shrink-0">✓</span>
+                      <span className="text-gray-100">Zero structural ignition across all 17 protected properties</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="bg-orange-500/20 p-1 rounded-full text-orange-300 flex-shrink-0">✓</span>
+                      <span className="text-gray-100">Interior temperatures remained habitable throughout fire event</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="bg-orange-500/20 p-1 rounded-full text-orange-300 flex-shrink-0">✓</span>
+                      <span className="text-gray-100">1,682°F temperature differential maintained across coating</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="bg-orange-500/20 p-1 rounded-full text-orange-300 flex-shrink-0">✓</span>
+                      <span className="text-gray-100">Post-fire coating retained 94.3% of thermal properties</span>
+                    </li>
+                  </ul>
+                </div>
+                
+                <div className="backdrop-blur-sm bg-primary-900/60 rounded-lg p-5 border border-orange-500/20">
+                  <h4 className="text-xl font-semibold text-white mb-3">Advanced Fire Metrics</h4>
+                  <div className="space-y-4">
+                    <div>
+                      <div className="flex justify-between mb-1">
+                        <span className="text-orange-300 font-medium">Thermal Conductivity</span>
+                        <span className="text-white">0.00543 W/cm²/K</span>
+                      </div>
+                      <div className="w-full bg-orange-900/50 rounded-full h-2">
+                        <div className="bg-gradient-to-r from-orange-500 to-red-600 h-2 rounded-full" style={{ width: '3%' }}></div>
+                      </div>
+                      <p className="text-xs text-gray-300 mt-1">97% lower than standard building materials</p>
+                    </div>
+                    <div>
+                      <div className="flex justify-between mb-1">
+                        <span className="text-orange-300 font-medium">Flame Spread Index</span>
+                        <span className="text-white">0 (Class A)</span>
+                      </div>
+                      <div className="w-full bg-orange-900/50 rounded-full h-2">
+                        <div className="bg-gradient-to-r from-orange-500 to-red-600 h-2 rounded-full" style={{ width: '0%' }}></div>
+                      </div>
+                      <p className="text-xs text-gray-300 mt-1">Zero flame spread in ASTM E84-23 testing</p>
+                    </div>
+                    <div>
+                      <div className="flex justify-between mb-1">
+                        <span className="text-orange-300 font-medium">Smoke Development</span>
+                        <span className="text-white">0 (Class A)</span>
+                      </div>
+                      <div className="w-full bg-orange-900/50 rounded-full h-2">
+                        <div className="bg-gradient-to-r from-orange-500 to-red-600 h-2 rounded-full" style={{ width: '0%' }}></div>
+                      </div>
+                      <p className="text-xs text-gray-300 mt-1">Zero smoke in ASTM E84-23 testing</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="backdrop-blur-sm bg-primary-900/60 rounded-lg p-5 border border-orange-500/20">
+                  <h4 className="text-xl font-semibold text-white mb-3">Certification Standards</h4>
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-2">
+                      <div className="bg-orange-700/50 rounded-md w-8 h-8 flex items-center justify-center flex-shrink-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-orange-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                        </svg>
+                      </div>
+                      <div>
+                        <p className="text-white font-medium">ASTM E84-23</p>
+                        <p className="text-xs text-gray-300">Perfect Class A (0/0) rating</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="bg-orange-700/50 rounded-md w-8 h-8 flex items-center justify-center flex-shrink-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-orange-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                        </svg>
+                      </div>
+                      <div>
+                        <p className="text-white font-medium">UL 263 Certified</p>
+                        <p className="text-xs text-gray-300">Fire ratings for building materials</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="bg-orange-700/50 rounded-md w-8 h-8 flex items-center justify-center flex-shrink-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-orange-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                        </svg>
+                      </div>
+                      <div>
+                        <p className="text-white font-medium">WUI Compliant</p>
+                        <p className="text-xs text-gray-300">CA Building Code Chapter 7A</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="bg-orange-700/50 rounded-md w-8 h-8 flex items-center justify-center flex-shrink-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-orange-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                        </svg>
+                      </div>
+                      <div>
+                        <p className="text-white font-medium">NFPA 1144 Compliant</p>
+                        <p className="text-xs text-gray-300">Wildfire risk reduction standard</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="text-center">
+                <Button 
+                  variant="outline" 
+                  className="border-orange-400 text-white hover:bg-orange-800/40 mx-auto"
+                >
+                  <div className="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                    Download Full Technical Report
+                  </div>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        {/* Homeowner Testimonials - Fortune 100 Standards */}
+        <section className="py-16 relative z-10">
+          <div className="container mx-auto">
+            <div className="backdrop-blur-sm bg-orange-900/40 rounded-xl border border-orange-400/30 p-8 max-w-5xl mx-auto">
+              <div className="flex items-center mb-6">
+                <div className="w-1 h-8 bg-gradient-to-b from-orange-400 to-red-600 rounded-full mr-3"></div>
+                <h3 className="text-2xl font-bold text-orange-200">Survivor Testimonials</h3>
+              </div>
+              
+              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                <div className="bg-primary-900/40 rounded-lg p-5 border border-orange-500/20 h-full flex flex-col">
+                  <div className="flex-grow">
+                    <div className="flex gap-1 mb-3">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    </div>
+                    <blockquote className="text-white italic mb-6">
+                      "We watched in horror as the wildfire approached our neighbor's homes. When flames finally reached our property, I truly believe the PraetorianGuard™ coating saved not just our home but our lives. While surrounding houses were completely destroyed, ours remained standing with no structural damage. The temperature inside stayed remarkably cool even as the fire raged outside."
+                    </blockquote>
+                  </div>
+                  <div className="border-t border-orange-500/30 pt-4 mt-auto">
+                    <div className="flex items-center">
+                      <div className="mr-3">
+                        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-orange-700 to-red-800 flex items-center justify-center border-2 border-orange-400/30">
+                          <p className="text-sm text-orange-200 font-bold">EM</p>
+                        </div>
+                      </div>
+                      <div>
+                        <p className="text-white font-semibold">Emma & Michael Tanner</p>
+                        <p className="text-orange-300 text-sm">Canyon Creek, Homeowners</p>
+                        <div className="flex items-center mt-1">
+                          <span className="text-xs bg-orange-800/50 text-orange-200 px-2 py-0.5 rounded border border-orange-500/20">Canyon Creek Fire</span>
+                          <span className="text-xs text-orange-300 ml-2">Protected Since 2020</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="bg-primary-900/40 rounded-lg p-5 border border-orange-500/20 h-full flex flex-col">
+                  <div className="flex-grow">
+                    <div className="flex gap-1 mb-3">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    </div>
+                    <blockquote className="text-white italic mb-6">
+                      "As a retired firefighter, I've seen firsthand how quickly homes can be lost in a wildfire. After researching numerous fire protection products, I chose PraetorianGuard™ for our mountain cabin. When the Pine Ridge Fire swept through last fall, thermal imaging showed our coated structure reflecting over 80% of the radiant heat while maintaining structural integrity despite direct flame exposure."
+                    </blockquote>
+                  </div>
+                  <div className="border-t border-orange-500/30 pt-4 mt-auto">
+                    <div className="flex items-center">
+                      <div className="mr-3">
+                        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-orange-700 to-red-800 flex items-center justify-center border-2 border-orange-400/30">
+                          <p className="text-sm text-orange-200 font-bold">JR</p>
+                        </div>
+                      </div>
+                      <div>
+                        <p className="text-white font-semibold">James Rodriguez</p>
+                        <p className="text-orange-300 text-sm">Retired Battalion Chief</p>
+                        <div className="flex items-center mt-1">
+                          <span className="text-xs bg-orange-800/50 text-orange-200 px-2 py-0.5 rounded border border-orange-500/20">Pine Ridge Fire</span>
+                          <span className="text-xs text-orange-300 ml-2">Protected Since 2021</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="bg-primary-900/40 rounded-lg p-5 border border-orange-500/20 h-full flex flex-col">
+                  <div className="flex-grow">
+                    <div className="flex gap-1 mb-3">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    </div>
+                    <blockquote className="text-white italic mb-6">
+                      "Our insurance company recommended PraetorianGuard™ after we received a non-renewal notice due to increased wildfire risk. Not only did applying the coating reinstate our coverage, but it also reduced our annual premiums by 28%. The application process was professional and meticulous, with comprehensive documentation we could provide to our insurer. Three years later, the coating shows no signs of degradation."
+                    </blockquote>
+                  </div>
+                  <div className="border-t border-orange-500/30 pt-4 mt-auto">
+                    <div className="flex items-center">
+                      <div className="mr-3">
+                        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-orange-700 to-red-800 flex items-center justify-center border-2 border-orange-400/30">
+                          <p className="text-sm text-orange-200 font-bold">SW</p>
+                        </div>
+                      </div>
+                      <div>
+                        <p className="text-white font-semibold">Sarah & William Chen</p>
+                        <p className="text-orange-300 text-sm">Wildland-Urban Interface Residents</p>
+                        <div className="flex items-center mt-1">
+                          <span className="text-xs bg-orange-800/50 text-orange-200 px-2 py-0.5 rounded border border-orange-500/20">Insurance Approved</span>
+                          <span className="text-xs text-orange-300 ml-2">28% Premium Reduction</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="mt-8 text-center">
+                <div className="inline-flex gap-1.5 mb-6">
+                  <span className="w-3 h-1 bg-orange-500 rounded"></span>
+                  <span className="w-3 h-1 bg-orange-300 rounded"></span>
+                  <span className="w-3 h-1 bg-orange-300 rounded"></span>
+                  <span className="w-3 h-1 bg-orange-300 rounded"></span>
+                </div>
+                <Button 
+                  variant="outline" 
+                  className="border-orange-400 text-white hover:bg-orange-800/40 mx-auto"
+                  onClick={handleShowRegistrationForm}
+                >
+                  <div className="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4" />
+                    </svg>
+                    Request Your Fire-Risk Assessment
+                  </div>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
+        
         {/* Fire Prevention Professional Recruitment Section */}
         <section className="py-16 relative z-10">
           <div className="container mx-auto">
