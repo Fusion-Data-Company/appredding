@@ -533,15 +533,15 @@ const MunicipalityPage = () => {
         <section className="py-16 md:py-24 relative z-10">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto text-center mb-16 backdrop-blur-sm bg-primary-900/80 p-8 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)]">
-              <GradientHeading level={1} className="text-4xl md:text-5xl mb-6 glow-text" variant="mixed">Municipal Infrastructure Solutions</GradientHeading>
+              <GradientHeading level={1} className="text-4xl md:text-5xl mb-6 glow-text" variant="mixed">NASA Ceramic Technology for Municipalities</GradientHeading>
               <p className="text-xl text-white mb-8">
-                Advanced protective coatings designed specifically for municipal infrastructure, providing superior durability and protection for public facilities and critical city systems.
+                Class A fire-rated coatings with NASA-derived ceramic microsphere technology provide superior protection for municipal infrastructure with perfect 0/100 flame spread ratings and independently verified 30+ year lifespan.
               </p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-12 mb-16">
               <div className="backdrop-blur-sm bg-primary-900/80 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] p-8">
-                <GradientHeading level={2} className="text-3xl font-bold mb-6" variant="mixed">Municipal-Grade Protection</GradientHeading>
+                <GradientHeading level={2} className="text-3xl font-bold mb-6" variant="mixed">NASA Ceramic Protection Technology</GradientHeading>
                 
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
@@ -549,8 +549,8 @@ const MunicipalityPage = () => {
                       <Building className="h-5 w-5 text-white" />
                     </span>
                     <div>
-                      <h3 className="text-xl font-semibold mb-1 text-orange-300">Infrastructure Preservation</h3>
-                      <p className="text-white">Our municipal coatings are engineered to extend the lifespan of public facilities and infrastructure while reducing maintenance costs.</p>
+                      <h3 className="text-xl font-semibold mb-1 text-orange-300">Class A Fire Protection</h3>
+                      <p className="text-white">NASA-derived ceramic microsphere technology provides perfect 0/100 flame spread and smoke development ratings (ASTM E84), ensuring maximum protection for critical municipal infrastructure.</p>
                     </div>
                   </div>
 
@@ -559,8 +559,8 @@ const MunicipalityPage = () => {
                       <Droplets className="h-5 w-5 text-white" />
                     </span>
                     <div>
-                      <h3 className="text-xl font-semibold mb-1 text-blue-300">Water-Treatment Compatible</h3>
-                      <p className="text-white">Specialized coatings for water treatment facilities that are safe for potable water and meet all NSF/ANSI 61 certification requirements.</p>
+                      <h3 className="text-xl font-semibold mb-1 text-blue-300">Chemical & Water-Treatment Resistant</h3>
+                      <p className="text-white">NASA ceramic microsphere technology creates a 156% elastomeric waterproof barrier that withstands harsh chemicals, maintaining NSF/ANSI 61 certification for potable water after 10,000+ hours of salt spray testing.</p>
                     </div>
                   </div>
 
@@ -569,8 +569,8 @@ const MunicipalityPage = () => {
                       <ShieldCheck className="h-5 w-5 text-white" />
                     </span>
                     <div>
-                      <h3 className="text-xl font-semibold mb-1 text-orange-300">Anti-Corrosion Technology</h3>
-                      <p className="text-white">Our coatings provide exceptional resistance to corrosion, protecting metal infrastructure from degradation in harsh environments.</p>
+                      <h3 className="text-xl font-semibold mb-1 text-orange-300">30+ Year Verified Performance</h3>
+                      <p className="text-white">NASA ceramic technology provides independently verified longevity, with original applications showing no degradation after 30+ years of extreme weather exposure, maintaining full EPA compliance.</p>
                     </div>
                   </div>
 
