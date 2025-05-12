@@ -706,9 +706,9 @@ const Pools = () => {
           <div className="container mx-auto">
             {/* Header section */}
             <div className="max-w-4xl mx-auto text-center mb-16 backdrop-blur-sm bg-primary-900/60 p-8 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)]">
-              <GradientHeading level={1} className="text-4xl md:text-5xl mb-6 glow-text" variant="blue">Premium Pool Protection Systems</GradientHeading>
+              <GradientHeading level={1} className="text-4xl md:text-5xl mb-6 glow-text" variant="blue">NASA-Derived Pool Protection</GradientHeading>
               <p className="text-xl text-white mb-8">
-                Our specialized pool coatings provide superior protection and beautiful finishes, enhancing both the durability and appearance of your pool surfaces.
+                Our ceramic microsphere technology provides unmatched chemical resistance and durability for pool surfaces, with 156% elastomeric flexibility, 89% UV reflection, and 30+ year service life — a revolutionary advancement in pool coating technology.
               </p>
             </div>
 

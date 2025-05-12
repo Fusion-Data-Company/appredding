@@ -119,9 +119,9 @@ const Marinas = () => {
         <section className="py-16 md:py-24 relative z-10">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto text-center mb-16 backdrop-blur-sm bg-primary-900/60 p-8 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)]">
-              <GradientHeading level={1} className="text-4xl md:text-5xl mb-6 glow-text" variant="blue">Marine Protection Systems</GradientHeading>
+              <GradientHeading level={1} className="text-4xl md:text-5xl mb-6 glow-text" variant="blue">ABS-Certified Marine Protection</GradientHeading>
               <p className="text-xl text-white mb-8">
-                Our marine coatings provide superior protection against salt water, UV damage, and marine growth for all types of watercraft and marine structures.
+                Our American Bureau of Shipping (ABS) certified ceramic coating systems provide unmatched protection in harsh saltwater environments, combining Class A fire rating with superior thermal insulation and corrosion resistance for marine vessels and structures.
               </p>
             </div>
 
@@ -196,7 +196,7 @@ const Marinas = () => {
               </div>
 
               <div className="backdrop-blur-sm bg-primary-900/60 p-8 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] h-full flex flex-col">
-                <GradientHeading level={2} className="text-3xl font-bold mb-6" variant="blue">Marine Protection Benefits</GradientHeading>
+                <GradientHeading level={2} className="text-3xl font-bold mb-6" variant="blue">NASA-Derived Marine Benefits</GradientHeading>
                 
                 <div className="space-y-4 flex-grow">
                   <div className="flex items-start gap-4">
@@ -204,8 +204,8 @@ const Marinas = () => {
                       <Anchor className="h-5 w-5 text-white" />
                     </span>
                     <div>
-                      <h3 className="text-xl font-semibold mb-1 text-blue-300">Anti-fouling technology prevents marine growth</h3>
-                      <p className="text-white">Our advanced formulations prevent barnacles, algae, and other marine growth from adhering to vessel surfaces.</p>
+                      <h3 className="text-xl font-semibold mb-1 text-blue-300">American Bureau of Shipping (ABS) Certified</h3>
+                      <p className="text-white">Our ceramic microsphere technology is specifically certified for marine applications by the American Bureau of Shipping, providing validation for use in the most demanding saltwater environments.</p>
                     </div>
                   </div>
 
@@ -214,8 +214,8 @@ const Marinas = () => {
                       <ShieldCheck className="h-5 w-5 text-white" />
                     </span>
                     <div>
-                      <h3 className="text-xl font-semibold mb-1 text-blue-300">Corrosion-resistant formulas prevent damage</h3>
-                      <p className="text-white">Specially designed to protect against the harsh corrosive effects of salt water on metals and other materials.</p>
+                      <h3 className="text-xl font-semibold mb-1 text-blue-300">Class A Fire Rating for Maritime Safety</h3>
+                      <p className="text-white">Perfect 0/100 scores in ASTM E84 testing for both Flame Spread and Smoke Development provides critical fire protection for vessels and marine structures, exceeding maritime safety standards.</p>
                     </div>
                   </div>
 
@@ -224,18 +224,18 @@ const Marinas = () => {
                       <Sun className="h-5 w-5 text-white" />
                     </span>
                     <div>
-                      <h3 className="text-xl font-semibold mb-1 text-blue-300">UV-stable finishes maintain appearance</h3>
-                      <p className="text-white">Our coatings resist fading, chalking, and degradation from intense sunlight, keeping your vessel looking great for years.</p>
+                      <h3 className="text-xl font-semibold mb-1 text-blue-300">89% Solar Reflection & 89% Thermal Emittance</h3>
+                      <p className="text-white">Verified by the Cool Roof Rating Council, our coatings provide superior protection against solar radiation with only 1% degradation after 3 years in marine environments, compared to 10-20% for competitors.</p>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-4">
                     <span className="bg-blue-600 rounded-full p-2 mt-1">
-                      <Leaf className="h-5 w-5 text-white" />
+                      <Waves className="h-5 w-5 text-white" />
                     </span>
                     <div>
-                      <h3 className="text-xl font-semibold mb-1 text-blue-300">Environmentally responsible formulations</h3>
-                      <p className="text-white">Our marine coatings are designed to be effective while minimizing environmental impact and meeting EPA standards.</p>
+                      <h3 className="text-xl font-semibold mb-1 text-blue-300">156% Elastomeric Flexibility</h3>
+                      <p className="text-white">Our water-based acrylic elastomeric resin provides exceptional adhesion while maintaining flexibility during thermal expansion/contraction cycles, exceeding the standard 100% requirement for maritime applications.</p>
                     </div>
                   </div>
                 </div>
@@ -261,40 +261,40 @@ const Marinas = () => {
                 
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="backdrop-blur-sm bg-primary-900/80 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] p-6">
-                    <h3 className="text-xl font-bold mb-2 text-blue-300">PraetorianMarine™ Anti-Fouling System</h3>
-                    <p className="mb-4 text-white">A complete coating system designed specifically for {vesselType || "your vessel"} in {waterType || "marine"} conditions.</p>
+                    <h3 className="text-xl font-bold mb-2 text-blue-300">PraetorianMarine™ Ceramic System</h3>
+                    <p className="mb-4 text-white">ABS-certified ceramic coating system with NASA-derived technology for {vesselType || "your vessel"} in {waterType || "marine"} conditions.</p>
                     <ul className="space-y-2 mb-4">
                       <li className="flex items-center gap-2 text-white">
                         <span className="text-blue-400">✓</span>
-                        <span>Premium anti-fouling base coat</span>
+                        <span>89% solar reflection & 89% thermal emittance</span>
                       </li>
                       <li className="flex items-center gap-2 text-white">
                         <span className="text-blue-400">✓</span>
-                        <span>Advanced barrier primer for {material || "various"} surfaces</span>
+                        <span>Perfect 0/100 fire rating for {material || "various"} surfaces</span>
                       </li>
                       <li className="flex items-center gap-2 text-white">
                         <span className="text-blue-400">✓</span>
-                        <span>UV-resistant topcoat in your choice of color</span>
+                        <span>156% elastomeric flexibility for durability in marine conditions</span>
                       </li>
                     </ul>
                     <GradientButton variant="variant" className="w-full">View Details</GradientButton>
                   </div>
                   
                   <div className="backdrop-blur-sm bg-primary-900/80 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] p-6">
-                    <h3 className="text-xl font-bold mb-2 text-blue-300">PraetorianMarine™ Commercial Grade</h3>
-                    <p className="mb-4 text-white">Heavy-duty protection designed for extreme conditions and extended service life.</p>
+                    <h3 className="text-xl font-bold mb-2 text-blue-300">PraetorianMarine™ Commercial Ceramic</h3>
+                    <p className="mb-4 text-white">NASA-derived high-performance coating with 30+ year durability for commercial marine applications.</p>
                     <ul className="space-y-2 mb-4">
                       <li className="flex items-center gap-2 text-white">
                         <span className="text-blue-400">✓</span>
-                        <span>Ultra-durable anti-fouling compound</span>
+                        <span>Withstands 2,732°F (1,500°C) with 2,177°F temperature differential</span>
                       </li>
                       <li className="flex items-center gap-2 text-white">
                         <span className="text-blue-400">✓</span>
-                        <span>Advanced corrosion inhibitors</span>
+                        <span>Only 1% reflectivity loss after 3 years (vs 10-20% for competitors)</span>
                       </li>
                       <li className="flex items-center gap-2 text-white">
                         <span className="text-blue-400">✓</span>
-                        <span>Extended service life (up to 5 years)</span>
+                        <span>Proven 30+ year service life with minimal maintenance</span>
                       </li>
                     </ul>
                     <GradientButton variant="variant" className="w-full">View Details</GradientButton>
