@@ -179,40 +179,40 @@ const ConstructionPage = () => {
               </div>
 
               <div className="backdrop-blur-sm bg-primary-900/60 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] p-8 flex flex-col">
-                <GradientHeading level={2} className="text-3xl font-bold mb-6" variant="mixed">Specialized Applications</GradientHeading>
-                <p className="mb-4 text-white">Our construction coatings can be customized for a wide range of specialized applications:</p>
+                <GradientHeading level={2} className="text-3xl font-bold mb-6" variant="mixed">NASA Ceramic Technology Applications</GradientHeading>
+                <p className="mb-4 text-white">Our NASA-derived ceramic microsphere technology is engineered for specific construction applications with verified performance metrics:</p>
                 <div className="grid md:grid-cols-2 gap-4 mb-6 flex-grow">
                   <div className="flex items-center gap-2 text-white">
                     <span className="text-blue-400">✓</span>
-                    <span>Commercial building exteriors</span>
+                    <span>Structural steel fire protection (ASTM E119 compliant, 3-hour rating)</span>
                   </div>
                   <div className="flex items-center gap-2 text-white">
                     <span className="text-orange-400">✓</span>
-                    <span>Industrial flooring systems</span>
+                    <span>Industrial flooring with 156% elastomeric flexibility for seismic zones</span>
                   </div>
                   <div className="flex items-center gap-2 text-white">
                     <span className="text-blue-400">✓</span>
-                    <span>Parking structures</span>
+                    <span>Concrete thermal protection (89% solar reflection, 47°F temperature reduction)</span>
                   </div>
                   <div className="flex items-center gap-2 text-white">
                     <span className="text-orange-400">✓</span>
-                    <span>Bridge infrastructure</span>
+                    <span>Bridge infrastructure (corrosion protection tested to 10,000+ salt spray hours)</span>
                   </div>
                   <div className="flex items-center gap-2 text-white">
                     <span className="text-blue-400">✓</span>
-                    <span>Roofing systems</span>
+                    <span>Building envelope thermal barriers (87% documented energy reduction)</span>
                   </div>
                   <div className="flex items-center gap-2 text-white">
                     <span className="text-orange-400">✓</span>
-                    <span>Waterproofing membranes</span>
+                    <span>Waterproofing systems with Class A fire rating (0/100 scores in ASTM E84)</span>
                   </div>
                   <div className="flex items-center gap-2 text-white">
                     <span className="text-blue-400">✓</span>
-                    <span>Concrete protection</span>
+                    <span>Concrete reinforcement (verified 30+ year performance without degradation)</span>
                   </div>
                   <div className="flex items-center gap-2 text-white">
                     <span className="text-orange-400">✓</span>
-                    <span>Steel structural coatings</span>
+                    <span>Historic preservation (meets National Park Service Technical Preservation Standards)</span>
                   </div>
                 </div>
                 <div className="mt-6">
@@ -224,19 +224,19 @@ const ConstructionPage = () => {
             </div>
 
             <div className="backdrop-blur-sm bg-primary-900/60 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] p-8 mb-16">
-              <GradientHeading level={2} className="text-2xl font-bold mb-6 text-center" variant="mixed">Complete Construction Protection</GradientHeading>
+              <GradientHeading level={2} className="text-2xl font-bold mb-6 text-center" variant="mixed">NASA Ceramic Microsphere Technology</GradientHeading>
               <p className="text-white mb-8 text-center max-w-3xl mx-auto">
-                Our specialized construction coatings are designed to provide long-lasting protection for all types of building materials, 
-                including concrete, steel, wood, and composite materials. Developed with advanced polymer technology, 
-                these coatings create a durable barrier against moisture, chemicals, abrasion, and UV damage.
+                Our construction coatings feature NASA-derived ceramic microsphere technology that provides unparalleled protection for concrete, steel, wood, and composites. 
+                With perfect 0/100 scores in ASTM E84 testing, temperature resistance to 2,732°F (1,500°C), and 156% elastomeric flexibility, 
+                these coatings create an advanced protective barrier with 30+ year verified durability.
               </p>
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div className="backdrop-blur-sm bg-primary-900/80 rounded-xl p-6 border border-orange-500/30 shadow-lg">
                   <div className="bg-gradient-to-r from-orange-600 to-blue-500 w-12 h-12 rounded-full flex items-center justify-center mb-4">
                     <Building className="h-6 w-6 text-white" />
                   </div>
-                  <h3 className="text-lg font-bold mb-2 text-orange-300">Structural Protection</h3>
-                  <p className="text-white">Preserves structural integrity by protecting against environmental damage and corrosion.</p>
+                  <h3 className="text-lg font-bold mb-2 text-orange-300">Fire-Rated Structural Protection</h3>
+                  <p className="text-white">ASTM E119 compliant with 3-hour fire rating and perfect 0/100 scores in flame spread/smoke development tests (ASTM E84).</p>
                 </div>
                 
                 <div className="backdrop-blur-sm bg-primary-900/80 rounded-xl p-6 border border-blue-500/30 shadow-lg">
