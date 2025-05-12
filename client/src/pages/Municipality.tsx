@@ -685,7 +685,7 @@ const MunicipalityPage = () => {
               <div className="bg-primary-900/80 backdrop-blur-xl rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] py-8 px-6 md:px-10 mx-auto max-w-3xl mb-8 inline-block">
                 <GradientHeading level={2} className="text-3xl md:text-4xl mb-4" variant="mixed">NASA Ceramic Coating Systems</GradientHeading>
                 <p className="text-[#a0a0a0] max-w-2xl mx-auto">
-                  Class A fire-rated ceramic technology with perfect 0/100 flame spread ratings provides 30+ year verified protection for critical municipal infrastructure
+                  NASA space shuttle derived vacuum ceramic microsphere technology with Class A fire rating (0/100 flame spread) provides 30+ year verified protection with 89% UV reflection and 156% elastomeric flexibility for critical municipal infrastructure
                 </p>
               </div>
             </div>
@@ -718,7 +718,7 @@ const MunicipalityPage = () => {
                   <Activity className="h-8 w-8 text-white" />
                 </div>
                 <h3 className="text-xl font-bold mb-3 text-blue-300">NASA Ceramic Public Safety</h3>
-                <p className="text-white">NASA-derived ceramic microsphere technology provides Class A fire protection (0/100 flame spread rating) for government buildings and public spaces while delivering 89% UV reflection for energy efficiency and 30+ year performance.</p>
+                <p className="text-white">NASA-derived ceramic microsphere technology provides Class A fire protection (0/100 flame spread rating) for government buildings and public spaces while delivering 89% UV reflection and 89% thermal emittance that reduces energy costs by up to 40%. Independently verified to maintain full performance after 30+ years with zero maintenance required.</p>
                 <div className="mt-6">
                   <GradientButton variant="default" className="w-full">Learn More</GradientButton>
                 </div>
