@@ -55,6 +55,18 @@ import {
   completeTask,
   deleteTask
 } from "./api/tasks";
+import {
+  getSocialMediaPosts,
+  getSocialMediaPostById,
+  createSocialMediaPost,
+  updateSocialMediaPost,
+  deleteSocialMediaPost,
+  getMarketingCampaigns,
+  getMarketingCampaignById,
+  createMarketingCampaign,
+  updateMarketingCampaign,
+  deleteMarketingCampaign
+} from "./api/socialMedia";
 
 // Authentication middleware
 function isAuthenticated(req: Request, res: Response, next: NextFunction) {
