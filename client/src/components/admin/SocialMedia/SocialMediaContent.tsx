@@ -525,12 +525,16 @@ export default function SocialMediaContent() {
                         </div>
                       </TableCell>
                       <TableCell className="hidden md:table-cell">
-                        <Badge 
-                          variant="outline" 
-                          className={`${getStatusColor(campaign.status)}`}
-                        >
-                          {campaign.status.charAt(0).toUpperCase() + campaign.status.slice(1)}
-                        </Badge>
+                        {campaign.status ? (
+                          <Badge 
+                            variant="outline" 
+                            className={`${getStatusColor(campaign.status || 'active')}`}
+                          >
+                            {campaign.status.charAt(0).toUpperCase() + campaign.status.slice(1)}
+                          </Badge>
+                        ) : (
+                          <span className="text-xs text-muted-foreground">Not set</span>
+                        )}
                       </TableCell>
                       <TableCell className="hidden lg:table-cell">
                         {campaign.startDate && campaign.endDate ? (
@@ -576,7 +580,12 @@ export default function SocialMediaContent() {
                             <DropdownMenuItem>Add Post</DropdownMenuItem>
                             <DropdownMenuItem>View Analytics</DropdownMenuItem>
                             <DropdownMenuSeparator />
-                            <DropdownMenuItem className="text-red-600">Delete</DropdownMenuItem>
+                            <DropdownMenuItem 
+                              className="text-red-600"
+                              onClick={() => handleDeleteCampaign(campaign.id)}
+                            >
+                              Delete
+                            </DropdownMenuItem>
                           </DropdownMenuContent>
                         </DropdownMenu>
                       </TableCell>
