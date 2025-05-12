@@ -45,7 +45,7 @@ const PitchDeckTrigger: React.FC<PitchDeckTriggerProps> = ({
     <>
       {/* Floating Action Button - Always visible */}
       <motion.button
-        className="fixed bottom-24 right-6 z-20 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white rounded-full p-3 shadow-xl"
+        className="fixed bottom-24 right-6 z-40 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white rounded-full p-3 shadow-xl"
         style={{
           boxShadow: "0 0 20px rgba(59, 130, 246, 0.4), 0 4px 10px rgba(0,0,0,0.3)"
         }}
@@ -62,7 +62,7 @@ const PitchDeckTrigger: React.FC<PitchDeckTriggerProps> = ({
       <AnimatePresence>
         {showMiniBanner && (
           <motion.div
-            className="fixed bottom-36 right-6 z-20 bg-gradient-to-r from-blue-900/90 to-primary-900/90 backdrop-blur-sm text-white rounded-lg shadow-xl border border-blue-500/30 p-4 pr-10 max-w-xs"
+            className="fixed bottom-36 right-6 z-40 bg-gradient-to-r from-blue-900/90 to-primary-900/90 backdrop-blur-sm text-white rounded-lg shadow-xl border border-blue-500/30 p-4 pr-10 max-w-xs"
             style={{
               boxShadow: "0 0 20px rgba(59, 130, 246, 0.3), 0 4px 10px rgba(0,0,0,0.3)"
             }}
