@@ -32,67 +32,61 @@ import {
   Users,
   DollarSign,
   Tag,
-  MapPin
+  MapPin,
+  Loader2
 } from "lucide-react";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import toast from "react-hot-toast";
+import { formatDistanceToNow } from "date-fns";
 
-// Placeholder data
-const companiesData = [
-  {
-    id: 1,
-    name: "ABC Construction",
-    industry: "Construction",
-    location: "Chicago, IL",
-    contacts: 5,
-    deals: 3,
-    revenue: "$125,000",
-    tags: ["Construction", "VIP Customer"],
-    lastActivity: "2 days ago"
-  },
-  {
-    id: 2,
-    name: "Coastal Marinas LLC",
-    industry: "Marine",
-    location: "Miami, FL",
-    contacts: 2,
-    deals: 1,
-    revenue: "$45,000",
-    tags: ["Marina", "New Client"],
-    lastActivity: "1 week ago"
-  },
-  {
-    id: 3,
-    name: "City Recreation Department",
-    industry: "Government",
-    location: "Denver, CO",
-    contacts: 3,
-    deals: 2,
-    revenue: "$78,500",
-    tags: ["Pool", "Government"],
-    lastActivity: "3 days ago"
-  },
-  {
-    id: 4,
-    name: "Regional Fire Prevention",
-    industry: "Safety",
-    location: "Phoenix, AZ",
-    contacts: 1,
-    deals: 1,
-    revenue: "$0",
-    tags: ["Fire Prevention", "Prospect"],
-    lastActivity: "Just now"
-  },
-  {
-    id: 5,
-    name: "Sunrise Mobile Estates",
-    industry: "Real Estate",
-    location: "Tampa, FL",
-    contacts: 4,
-    deals: 5,
-    revenue: "$230,000",
-    tags: ["Mobile Home", "Recurring"],
-    lastActivity: "Yesterday"
+// Company type definition
+export interface Company {
+  id: number;
+  name: string;
+  industry: string | null;
+  website: string | null;
+  phone: string | null;
+  address: string | null;
+  city: string | null;
+  state: string | null;
+  zipCode: string | null;
+  country: string | null;
+  description: string | null;
+  logoUrl: string | null;
+  annualRevenue: string | null;
+  employeeCount: number | null;
+  createdAt: string;
+  updatedAt: string;
+  
+  // Derived fields from relations
+  contactCount?: number;
+  opportunityCount?: number;
+  totalRevenue?: number;
+  tags?: { id: number; name: string; color: string }[];
+  lastActivityDate?: string;
+}
+
+// Function to fetch companies from the server
+async function fetchCompanies() {
+  const response = await fetch('/api/companies');
+  if (!response.ok) {
+    throw new Error('Failed to fetch companies');
   }
-];
+  return response.json();
+}
+
+// Function to delete a company
+async function deleteCompany(id: number) {
+  const response = await fetch(`/api/companies/${id}`, {
+    method: 'DELETE',
+  });
+  
+  if (!response.ok) {
+    throw new Error('Failed to delete company');
+  }
+  
+  return true;
+}
 
 const getTagColor = (tag: string) => {
   if (tag === "VIP Customer") return "bg-purple-100 text-purple-800 border-purple-300";
@@ -111,6 +105,106 @@ const getTagColor = (tag: string) => {
 export default function CompaniesContent() {
   const { refreshData } = useAdminContext();
   const [searchQuery, setSearchQuery] = useState("");
+  const [activeTab, setActiveTab] = useState<string>("all");
+  const queryClient = useQueryClient();
+  
+  // Fetch companies from API
+  const { data: companies, isLoading, isError } = useQuery({
+    queryKey: ['companies'],
+    queryFn: fetchCompanies
+  });
+  
+  // Delete company mutation
+  const deleteMutation = useMutation({
+    mutationFn: deleteCompany,
+    onSuccess: () => {
+      toast.success("Company deleted successfully");
+      queryClient.invalidateQueries({ queryKey: ['companies'] });
+    },
+    onError: () => {
+      toast.error("Failed to delete company");
+    }
+  });
+
+  // Filter companies based on search query
+  const filteredCompanies = companies?.filter(company => {
+    const matchesSearch = 
+      company.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      company.industry?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      `${company.city || ''} ${company.state || ''}`.toLowerCase().includes(searchQuery.toLowerCase());
+      
+    if (!matchesSearch) return false;
+    
+    // Filter by tab (in a real implementation, we'd filter by status or category)
+    if (activeTab === "customers") {
+      // For now, we'll consider all companies with opportunities as customers
+      return company.opportunityCount && company.opportunityCount > 0;
+    }
+    if (activeTab === "prospects") {
+      // Companies with contacts but no opportunities
+      return (company.contactCount && company.contactCount > 0) && 
+             (!company.opportunityCount || company.opportunityCount === 0);
+    }
+    if (activeTab === "inactive") {
+      // Companies with no recent activity (using a placeholder approach)
+      return false;
+    }
+    
+    // "all" tab or default
+    return true;
+  }) || [];
+  
+  // Format location from address components
+  const getLocation = (company: Company) => {
+    if (company.city && company.state) {
+      return `${company.city}, ${company.state}`;
+    } else if (company.city) {
+      return company.city;
+    } else if (company.state) {
+      return company.state;
+    } else {
+      return "No location";
+    }
+  };
+  
+  // Format revenue value
+  const formatRevenue = (revenue: string | number | null | undefined) => {
+    if (!revenue) return "$0";
+    if (typeof revenue === 'number') {
+      return new Intl.NumberFormat('en-US', { 
+        style: 'currency', 
+        currency: 'USD',
+        maximumFractionDigits: 0 
+      }).format(revenue);
+    }
+    return revenue;
+  };
+  
+  // Format last activity time to relative format
+  const getLastActivityTime = (lastActivityDate: string | undefined) => {
+    if (!lastActivityDate) return "Never";
+    try {
+      return formatDistanceToNow(new Date(lastActivityDate), { addSuffix: true });
+    } catch (e) {
+      return "Unknown";
+    }
+  };
+  
+  // Handle delete company
+  const handleDeleteCompany = (id: number) => {
+    if (window.confirm("Are you sure you want to delete this company?")) {
+      deleteMutation.mutate(id);
+    }
+  };
+  
+  // Get default tags for companies without tags
+  const getDefaultTags = (company: Company) => {
+    const industry = company.industry;
+    if (!industry) return [];
+    
+    // Generate a tag based on the industry
+    return [industry];
+  };
   
   return (
     <div className="space-y-4">
@@ -122,7 +216,12 @@ export default function CompaniesContent() {
           </p>
         </div>
         <div className="flex items-center gap-2">
-          <Button onClick={refreshData} size="sm" variant="outline" className="h-9">
+          <Button 
+            onClick={() => queryClient.invalidateQueries({ queryKey: ['companies'] })} 
+            size="sm" 
+            variant="outline" 
+            className="h-9"
+          >
             <RefreshCcw className="h-4 w-4 mr-2" />
             Refresh
           </Button>
@@ -133,7 +232,11 @@ export default function CompaniesContent() {
         </div>
       </div>
 
-      <Tabs defaultValue="all" className="w-full">
+      <Tabs 
+        defaultValue="all" 
+        className="w-full"
+        onValueChange={(value) => setActiveTab(value)}
+      >
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
           <TabsList className="h-9">
             <TabsTrigger value="all" className="text-xs sm:text-sm">All Companies</TabsTrigger>
@@ -166,128 +269,383 @@ export default function CompaniesContent() {
         <TabsContent value="all" className="m-0">
           <Card>
             <CardContent className="p-0">
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead>Company</TableHead>
-                    <TableHead className="hidden md:table-cell">Industry</TableHead>
-                    <TableHead className="hidden lg:table-cell">Location</TableHead>
-                    <TableHead className="hidden md:table-cell">Contacts</TableHead>
-                    <TableHead>Deals</TableHead>
-                    <TableHead className="hidden md:table-cell">Revenue</TableHead>
-                    <TableHead className="hidden lg:table-cell">Tags</TableHead>
-                    <TableHead>Last Activity</TableHead>
-                    <TableHead className="w-[50px]"></TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {companiesData.map((company) => (
-                    <TableRow key={company.id}>
-                      <TableCell>
-                        <div className="flex items-center space-x-2">
-                          <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
-                            <Building2 className="h-4 w-4 text-primary" />
-                          </div>
-                          <div>
-                            <p className="font-medium">{company.name}</p>
-                            <p className="text-xs text-muted-foreground md:hidden">
-                              {company.industry}
-                            </p>
-                          </div>
-                        </div>
-                      </TableCell>
-                      <TableCell className="hidden md:table-cell">{company.industry}</TableCell>
-                      <TableCell className="hidden lg:table-cell">
-                        <div className="flex items-center">
-                          <MapPin className="h-3.5 w-3.5 mr-1 text-muted-foreground" />
-                          {company.location}
-                        </div>
-                      </TableCell>
-                      <TableCell className="hidden md:table-cell">
-                        <div className="flex items-center">
-                          <Users className="h-3.5 w-3.5 mr-1 text-muted-foreground" />
-                          {company.contacts}
-                        </div>
-                      </TableCell>
-                      <TableCell>{company.deals}</TableCell>
-                      <TableCell className="hidden md:table-cell">
-                        <div className="flex items-center">
-                          <DollarSign className="h-3.5 w-3.5 mr-1 text-muted-foreground" />
-                          {company.revenue}
-                        </div>
-                      </TableCell>
-                      <TableCell className="hidden lg:table-cell">
-                        <div className="flex flex-wrap gap-1">
-                          {company.tags.map((tag, idx) => (
-                            <Badge 
-                              key={idx} 
-                              variant="outline" 
-                              className={`${getTagColor(tag)} flex items-center`}
-                            >
-                              <Tag className="h-3 w-3 mr-1" />
-                              {tag}
-                            </Badge>
-                          ))}
-                        </div>
-                      </TableCell>
-                      <TableCell>{company.lastActivity}</TableCell>
-                      <TableCell>
-                        <DropdownMenu>
-                          <DropdownMenuTrigger asChild>
-                            <Button variant="ghost" size="icon">
-                              <MoreHorizontal className="h-4 w-4" />
-                            </Button>
-                          </DropdownMenuTrigger>
-                          <DropdownMenuContent align="end">
-                            <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                            <DropdownMenuSeparator />
-                            <DropdownMenuItem>View Details</DropdownMenuItem>
-                            <DropdownMenuItem>Edit Company</DropdownMenuItem>
-                            <DropdownMenuItem>Add Contact</DropdownMenuItem>
-                            <DropdownMenuItem>Add Opportunity</DropdownMenuItem>
-                            <DropdownMenuItem>View Contacts</DropdownMenuItem>
-                            <DropdownMenuSeparator />
-                            <DropdownMenuItem className="text-red-600">Delete</DropdownMenuItem>
-                          </DropdownMenuContent>
-                        </DropdownMenu>
-                      </TableCell>
+              {isLoading ? (
+                <div className="flex items-center justify-center py-8">
+                  <Loader2 className="h-8 w-8 animate-spin text-primary/80" />
+                  <span className="ml-2">Loading companies...</span>
+                </div>
+              ) : isError ? (
+                <div className="flex items-center justify-center p-8 text-center text-red-500">
+                  <p>There was an error loading companies. Please try again.</p>
+                </div>
+              ) : filteredCompanies.length === 0 ? (
+                <div className="flex flex-col items-center justify-center p-8 text-center">
+                  <p className="mb-2 text-gray-500">No companies found</p>
+                  <Button variant="outline" size="sm" className="mt-2">
+                    <Plus className="h-4 w-4 mr-2" />
+                    Add New Company
+                  </Button>
+                </div>
+              ) : (
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead>Company</TableHead>
+                      <TableHead className="hidden md:table-cell">Industry</TableHead>
+                      <TableHead className="hidden lg:table-cell">Location</TableHead>
+                      <TableHead className="hidden md:table-cell">Contacts</TableHead>
+                      <TableHead>Deals</TableHead>
+                      <TableHead className="hidden md:table-cell">Revenue</TableHead>
+                      <TableHead className="hidden lg:table-cell">Tags</TableHead>
+                      <TableHead>Last Activity</TableHead>
+                      <TableHead className="w-[50px]"></TableHead>
                     </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
+                  </TableHeader>
+                  <TableBody>
+                    {filteredCompanies.map((company) => {
+                      const companyTags = company.tags || getDefaultTags(company);
+                      return (
+                        <TableRow key={company.id}>
+                          <TableCell>
+                            <div className="flex items-center space-x-2">
+                              <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
+                                <Building2 className="h-4 w-4 text-primary" />
+                              </div>
+                              <div>
+                                <p className="font-medium">{company.name}</p>
+                                <p className="text-xs text-muted-foreground md:hidden">
+                                  {company.industry || 'No industry'}
+                                </p>
+                              </div>
+                            </div>
+                          </TableCell>
+                          <TableCell className="hidden md:table-cell">{company.industry || 'No industry'}</TableCell>
+                          <TableCell className="hidden lg:table-cell">
+                            <div className="flex items-center">
+                              <MapPin className="h-3.5 w-3.5 mr-1 text-muted-foreground" />
+                              {getLocation(company)}
+                            </div>
+                          </TableCell>
+                          <TableCell className="hidden md:table-cell">
+                            <div className="flex items-center">
+                              <Users className="h-3.5 w-3.5 mr-1 text-muted-foreground" />
+                              {company.contactCount || 0}
+                            </div>
+                          </TableCell>
+                          <TableCell>{company.opportunityCount || 0}</TableCell>
+                          <TableCell className="hidden md:table-cell">
+                            <div className="flex items-center">
+                              <DollarSign className="h-3.5 w-3.5 mr-1 text-muted-foreground" />
+                              {formatRevenue(company.annualRevenue || company.totalRevenue)}
+                            </div>
+                          </TableCell>
+                          <TableCell className="hidden lg:table-cell">
+                            <div className="flex flex-wrap gap-1">
+                              {companyTags.map((tag, idx) => (
+                                <Badge 
+                                  key={idx} 
+                                  variant="outline" 
+                                  className={`${getTagColor(typeof tag === 'string' ? tag : tag.name)} flex items-center`}
+                                >
+                                  <Tag className="h-3 w-3 mr-1" />
+                                  {typeof tag === 'string' ? tag : tag.name}
+                                </Badge>
+                              ))}
+                            </div>
+                          </TableCell>
+                          <TableCell>{getLastActivityTime(company.lastActivityDate || company.updatedAt)}</TableCell>
+                          <TableCell>
+                            <DropdownMenu>
+                              <DropdownMenuTrigger asChild>
+                                <Button variant="ghost" size="icon">
+                                  <MoreHorizontal className="h-4 w-4" />
+                                </Button>
+                              </DropdownMenuTrigger>
+                              <DropdownMenuContent align="end">
+                                <DropdownMenuLabel>Actions</DropdownMenuLabel>
+                                <DropdownMenuSeparator />
+                                <DropdownMenuItem>View Details</DropdownMenuItem>
+                                <DropdownMenuItem>Edit Company</DropdownMenuItem>
+                                <DropdownMenuItem>Add Contact</DropdownMenuItem>
+                                <DropdownMenuItem>Add Opportunity</DropdownMenuItem>
+                                <DropdownMenuItem>View Contacts</DropdownMenuItem>
+                                <DropdownMenuSeparator />
+                                <DropdownMenuItem 
+                                  className="text-red-600"
+                                  onClick={() => handleDeleteCompany(company.id)}
+                                  disabled={deleteMutation.isPending}
+                                >
+                                  Delete
+                                </DropdownMenuItem>
+                              </DropdownMenuContent>
+                            </DropdownMenu>
+                          </TableCell>
+                        </TableRow>
+                      );
+                    })}
+                  </TableBody>
+                </Table>
+              )}
             </CardContent>
           </Card>
         </TabsContent>
 
         <TabsContent value="customers" className="m-0">
           <Card>
-            <CardContent className="p-6 flex flex-col items-center justify-center min-h-[300px] text-center">
-              <p className="text-muted-foreground">Filter applied: Customers</p>
-              <p className="text-sm text-muted-foreground mt-1">
-                This is a placeholder. The actual filter would show only customer companies.
-              </p>
+            <CardContent className="p-0">
+              {isLoading ? (
+                <div className="flex items-center justify-center py-8">
+                  <Loader2 className="h-8 w-8 animate-spin text-primary/80" />
+                  <span className="ml-2">Loading customer companies...</span>
+                </div>
+              ) : isError ? (
+                <div className="flex items-center justify-center p-8 text-center text-red-500">
+                  <p>There was an error loading companies. Please try again.</p>
+                </div>
+              ) : filteredCompanies.length === 0 ? (
+                <div className="flex flex-col items-center justify-center p-8 text-center">
+                  <p className="text-gray-500">No customer companies found</p>
+                </div>
+              ) : (
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead>Company</TableHead>
+                      <TableHead className="hidden md:table-cell">Industry</TableHead>
+                      <TableHead className="hidden lg:table-cell">Location</TableHead>
+                      <TableHead className="hidden md:table-cell">Contacts</TableHead>
+                      <TableHead>Deals</TableHead>
+                      <TableHead className="hidden md:table-cell">Revenue</TableHead>
+                      <TableHead className="hidden lg:table-cell">Tags</TableHead>
+                      <TableHead>Last Activity</TableHead>
+                      <TableHead className="w-[50px]"></TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {filteredCompanies.map((company) => {
+                      const companyTags = company.tags || getDefaultTags(company);
+                      return (
+                        <TableRow key={company.id}>
+                          <TableCell>
+                            <div className="flex items-center space-x-2">
+                              <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
+                                <Building2 className="h-4 w-4 text-primary" />
+                              </div>
+                              <div>
+                                <p className="font-medium">{company.name}</p>
+                                <p className="text-xs text-muted-foreground md:hidden">
+                                  {company.industry || 'No industry'}
+                                </p>
+                              </div>
+                            </div>
+                          </TableCell>
+                          <TableCell className="hidden md:table-cell">{company.industry || 'No industry'}</TableCell>
+                          <TableCell className="hidden lg:table-cell">
+                            <div className="flex items-center">
+                              <MapPin className="h-3.5 w-3.5 mr-1 text-muted-foreground" />
+                              {getLocation(company)}
+                            </div>
+                          </TableCell>
+                          <TableCell className="hidden md:table-cell">
+                            <div className="flex items-center">
+                              <Users className="h-3.5 w-3.5 mr-1 text-muted-foreground" />
+                              {company.contactCount || 0}
+                            </div>
+                          </TableCell>
+                          <TableCell>{company.opportunityCount || 0}</TableCell>
+                          <TableCell className="hidden md:table-cell">
+                            <div className="flex items-center">
+                              <DollarSign className="h-3.5 w-3.5 mr-1 text-muted-foreground" />
+                              {formatRevenue(company.annualRevenue || company.totalRevenue)}
+                            </div>
+                          </TableCell>
+                          <TableCell className="hidden lg:table-cell">
+                            <div className="flex flex-wrap gap-1">
+                              {companyTags.map((tag, idx) => (
+                                <Badge 
+                                  key={idx} 
+                                  variant="outline" 
+                                  className={`${getTagColor(typeof tag === 'string' ? tag : tag.name)} flex items-center`}
+                                >
+                                  <Tag className="h-3 w-3 mr-1" />
+                                  {typeof tag === 'string' ? tag : tag.name}
+                                </Badge>
+                              ))}
+                            </div>
+                          </TableCell>
+                          <TableCell>{getLastActivityTime(company.lastActivityDate || company.updatedAt)}</TableCell>
+                          <TableCell>
+                            <DropdownMenu>
+                              <DropdownMenuTrigger asChild>
+                                <Button variant="ghost" size="icon">
+                                  <MoreHorizontal className="h-4 w-4" />
+                                </Button>
+                              </DropdownMenuTrigger>
+                              <DropdownMenuContent align="end">
+                                <DropdownMenuLabel>Actions</DropdownMenuLabel>
+                                <DropdownMenuSeparator />
+                                <DropdownMenuItem>View Details</DropdownMenuItem>
+                                <DropdownMenuItem>Edit Company</DropdownMenuItem>
+                                <DropdownMenuItem>Add Contact</DropdownMenuItem>
+                                <DropdownMenuItem>Add Opportunity</DropdownMenuItem>
+                                <DropdownMenuItem>View Contacts</DropdownMenuItem>
+                                <DropdownMenuSeparator />
+                                <DropdownMenuItem 
+                                  className="text-red-600"
+                                  onClick={() => handleDeleteCompany(company.id)}
+                                  disabled={deleteMutation.isPending}
+                                >
+                                  Delete
+                                </DropdownMenuItem>
+                              </DropdownMenuContent>
+                            </DropdownMenu>
+                          </TableCell>
+                        </TableRow>
+                      );
+                    })}
+                  </TableBody>
+                </Table>
+              )}
             </CardContent>
           </Card>
         </TabsContent>
 
         <TabsContent value="prospects" className="m-0">
           <Card>
-            <CardContent className="p-6 flex flex-col items-center justify-center min-h-[300px] text-center">
-              <p className="text-muted-foreground">Filter applied: Prospects</p>
-              <p className="text-sm text-muted-foreground mt-1">
-                This is a placeholder. The actual filter would show only prospect companies.
-              </p>
+            <CardContent className="p-0">
+              {isLoading ? (
+                <div className="flex items-center justify-center py-8">
+                  <Loader2 className="h-8 w-8 animate-spin text-primary/80" />
+                  <span className="ml-2">Loading prospect companies...</span>
+                </div>
+              ) : isError ? (
+                <div className="flex items-center justify-center p-8 text-center text-red-500">
+                  <p>There was an error loading companies. Please try again.</p>
+                </div>
+              ) : filteredCompanies.length === 0 ? (
+                <div className="flex flex-col items-center justify-center p-8 text-center">
+                  <p className="text-gray-500">No prospect companies found</p>
+                </div>
+              ) : (
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead>Company</TableHead>
+                      <TableHead className="hidden md:table-cell">Industry</TableHead>
+                      <TableHead className="hidden lg:table-cell">Location</TableHead>
+                      <TableHead className="hidden md:table-cell">Contacts</TableHead>
+                      <TableHead>Deals</TableHead>
+                      <TableHead className="hidden md:table-cell">Revenue</TableHead>
+                      <TableHead className="hidden lg:table-cell">Tags</TableHead>
+                      <TableHead>Last Activity</TableHead>
+                      <TableHead className="w-[50px]"></TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {filteredCompanies.map((company) => {
+                      const companyTags = company.tags || getDefaultTags(company);
+                      return (
+                        <TableRow key={company.id}>
+                          <TableCell>
+                            <div className="flex items-center space-x-2">
+                              <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
+                                <Building2 className="h-4 w-4 text-primary" />
+                              </div>
+                              <div>
+                                <p className="font-medium">{company.name}</p>
+                                <p className="text-xs text-muted-foreground md:hidden">
+                                  {company.industry || 'No industry'}
+                                </p>
+                              </div>
+                            </div>
+                          </TableCell>
+                          <TableCell className="hidden md:table-cell">{company.industry || 'No industry'}</TableCell>
+                          <TableCell className="hidden lg:table-cell">
+                            <div className="flex items-center">
+                              <MapPin className="h-3.5 w-3.5 mr-1 text-muted-foreground" />
+                              {getLocation(company)}
+                            </div>
+                          </TableCell>
+                          <TableCell className="hidden md:table-cell">
+                            <div className="flex items-center">
+                              <Users className="h-3.5 w-3.5 mr-1 text-muted-foreground" />
+                              {company.contactCount || 0}
+                            </div>
+                          </TableCell>
+                          <TableCell>{company.opportunityCount || 0}</TableCell>
+                          <TableCell className="hidden md:table-cell">
+                            <div className="flex items-center">
+                              <DollarSign className="h-3.5 w-3.5 mr-1 text-muted-foreground" />
+                              {formatRevenue(company.annualRevenue || company.totalRevenue)}
+                            </div>
+                          </TableCell>
+                          <TableCell className="hidden lg:table-cell">
+                            <div className="flex flex-wrap gap-1">
+                              {companyTags.map((tag, idx) => (
+                                <Badge 
+                                  key={idx} 
+                                  variant="outline" 
+                                  className={`${getTagColor(typeof tag === 'string' ? tag : tag.name)} flex items-center`}
+                                >
+                                  <Tag className="h-3 w-3 mr-1" />
+                                  {typeof tag === 'string' ? tag : tag.name}
+                                </Badge>
+                              ))}
+                            </div>
+                          </TableCell>
+                          <TableCell>{getLastActivityTime(company.lastActivityDate || company.updatedAt)}</TableCell>
+                          <TableCell>
+                            <DropdownMenu>
+                              <DropdownMenuTrigger asChild>
+                                <Button variant="ghost" size="icon">
+                                  <MoreHorizontal className="h-4 w-4" />
+                                </Button>
+                              </DropdownMenuTrigger>
+                              <DropdownMenuContent align="end">
+                                <DropdownMenuLabel>Actions</DropdownMenuLabel>
+                                <DropdownMenuSeparator />
+                                <DropdownMenuItem>View Details</DropdownMenuItem>
+                                <DropdownMenuItem>Edit Company</DropdownMenuItem>
+                                <DropdownMenuItem>Add Contact</DropdownMenuItem>
+                                <DropdownMenuItem>Add Opportunity</DropdownMenuItem>
+                                <DropdownMenuItem>View Contacts</DropdownMenuItem>
+                                <DropdownMenuSeparator />
+                                <DropdownMenuItem 
+                                  className="text-red-600"
+                                  onClick={() => handleDeleteCompany(company.id)}
+                                  disabled={deleteMutation.isPending}
+                                >
+                                  Delete
+                                </DropdownMenuItem>
+                              </DropdownMenuContent>
+                            </DropdownMenu>
+                          </TableCell>
+                        </TableRow>
+                      );
+                    })}
+                  </TableBody>
+                </Table>
+              )}
             </CardContent>
           </Card>
         </TabsContent>
 
         <TabsContent value="inactive" className="m-0">
           <Card>
-            <CardContent className="p-6 flex flex-col items-center justify-center min-h-[300px] text-center">
-              <p className="text-muted-foreground">Filter applied: Inactive</p>
-              <p className="text-sm text-muted-foreground mt-1">
-                This is a placeholder. The actual filter would show only inactive companies.
-              </p>
+            <CardContent className="p-0">
+              {isLoading ? (
+                <div className="flex items-center justify-center py-8">
+                  <Loader2 className="h-8 w-8 animate-spin text-primary/80" />
+                  <span className="ml-2">Loading inactive companies...</span>
+                </div>
+              ) : (
+                <div className="flex flex-col items-center justify-center p-8 text-center">
+                  <p className="text-gray-500">No inactive companies found</p>
+                  <p className="text-sm text-muted-foreground mt-1">
+                    Companies without recent activity will appear here.
+                  </p>
+                </div>
+              )}
             </CardContent>
           </Card>
         </TabsContent>
