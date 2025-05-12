@@ -51,17 +51,40 @@ const Technology = () => {
                 Scientific analysis of Praetorian's patented NASA-derived ceramic microsphere technology, featuring Class A fire rating (0/0 flame spread), 156% elastomeric flexibility, and independently verified 30+ year performance.
               </p>
               
-              <div className="flex flex-wrap gap-4 justify-center">
-                <a href="#technical-data" className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white px-5 py-3 rounded-lg font-medium transition-all duration-300 shadow-lg shadow-blue-900/30">
-                  <Beaker className="h-5 w-5" />
-                  <span>Technical Specifications</span>
-                  <ChevronRight className="h-4 w-4" />
+              <div className="flex flex-wrap gap-3 justify-center">
+                <a href="#executive-summary" className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300 shadow-lg shadow-blue-900/30 text-sm">
+                  <Shield className="h-4 w-4" />
+                  <span>Executive Summary</span>
                 </a>
                 
-                <a href="#case-studies" className="inline-flex items-center gap-2 bg-gradient-to-r from-gray-800 to-gray-700 hover:from-gray-700 hover:to-gray-600 text-white px-5 py-3 rounded-lg font-medium transition-all duration-300 shadow-lg shadow-gray-900/30">
-                  <FlaskConical className="h-5 w-5" />
-                  <span>Scientific Case Studies</span>
-                  <ChevronRight className="h-4 w-4" />
+                <a href="#technical-data" className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300 shadow-lg shadow-blue-900/30 text-sm">
+                  <Beaker className="h-4 w-4" />
+                  <span>Technical Specs</span>
+                </a>
+                
+                <a href="#physical-mechanics" className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300 shadow-lg shadow-blue-900/30 text-sm">
+                  <Microscope className="h-4 w-4" />
+                  <span>Physical Mechanics</span>
+                </a>
+                
+                <a href="#application-diagram" className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300 shadow-lg shadow-blue-900/30 text-sm">
+                  <Shield className="h-4 w-4" />
+                  <span>System Architecture</span>
+                </a>
+                
+                <a href="#performance-comparison" className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300 shadow-lg shadow-blue-900/30 text-sm">
+                  <Shield className="h-4 w-4" />
+                  <span>Performance Comparison</span>
+                </a>
+                
+                <a href="#case-studies" className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300 shadow-lg shadow-blue-900/30 text-sm">
+                  <FlaskConical className="h-4 w-4" />
+                  <span>Case Studies</span>
+                </a>
+                
+                <a href="#technical-faq" className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300 shadow-lg shadow-blue-900/30 text-sm">
+                  <Shield className="h-4 w-4" />
+                  <span>Technical FAQ</span>
                 </a>
               </div>
             </div>
@@ -75,15 +98,42 @@ const Technology = () => {
           </div>
         </section>
         
+        {/* Executive Summary Section */}
+        <section id="executive-summary" className="relative py-16 z-10 bg-primary-950/60 backdrop-blur-sm">
+          <div className="container mx-auto px-4">
+            <ExecutiveSummary />
+          </div>
+        </section>
+
         {/* Technical Data Sheet Section */}
-        <section id="technical-data" className="relative py-16 z-10 bg-primary-950/60 backdrop-blur-sm">
+        <section id="technical-data" className="relative py-16 z-10">
           <div className="container mx-auto px-4">
             <TechnicalDataSheet />
           </div>
         </section>
         
+        {/* Physical Mechanics Section */}
+        <section id="physical-mechanics" className="relative py-16 z-10 bg-primary-950/60 backdrop-blur-sm">
+          <div className="container mx-auto px-4">
+            <PhysicalMechanics />
+          </div>
+        </section>
+        
+        {/* Application Diagram Section */}
+        <section id="application-diagram" className="relative py-16 z-10">
+          <div className="container mx-auto px-4">
+            <GradientHeading level={2} className="text-2xl md:text-3xl font-bold text-center mb-6" variant="blue">
+              NASA Ceramic Coating System Architecture
+            </GradientHeading>
+            <p className="text-gray-400 text-center mb-8 max-w-3xl mx-auto">
+              Cross-sectional analysis of Praetorian's multi-layer ceramic protective system
+            </p>
+            <ApplicationDiagram />
+          </div>
+        </section>
+        
         {/* Competitive Matrix Section */}
-        <section className="relative py-16 z-10">
+        <section id="performance-comparison" className="relative py-16 z-10 bg-primary-950/60 backdrop-blur-sm">
           <div className="container mx-auto px-4">
             <GradientHeading level={2} className="text-2xl md:text-3xl font-bold text-center mb-6" variant="blue">
               Scientific Performance Comparison
@@ -96,7 +146,7 @@ const Technology = () => {
         </section>
         
         {/* Case Study Section */}
-        <section id="case-studies" className="relative py-16 z-10 bg-primary-950/60 backdrop-blur-sm">
+        <section id="case-studies" className="relative py-16 z-10">
           <div className="container mx-auto px-4">
             <GradientHeading level={2} className="text-2xl md:text-3xl font-bold text-center mb-6" variant="blue">
               Verified Implementation Case Studies
@@ -109,7 +159,7 @@ const Technology = () => {
         </section>
         
         {/* Technical FAQ Section */}
-        <section className="relative py-16 z-10">
+        <section id="technical-faq" className="relative py-16 z-10 bg-primary-950/60 backdrop-blur-sm">
           <div className="container mx-auto px-4">
             <TechnicalFAQ />
           </div>
