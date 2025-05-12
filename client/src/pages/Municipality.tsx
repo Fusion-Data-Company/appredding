@@ -706,8 +706,8 @@ const MunicipalityPage = () => {
                 <div className="bg-gradient-to-r from-orange-600 to-blue-500 p-4 rounded-full inline-block mb-4">
                   <Blocks className="h-8 w-8 text-white" />
                 </div>
-                <h3 className="text-xl font-bold mb-3 text-orange-300">Transportation Systems</h3>
-                <p className="text-white">Protective coatings for bridges, highways, tunnels, and transit facilities that withstand extreme weather, heavy traffic, and environmental challenges.</p>
+                <h3 className="text-xl font-bold mb-3 text-orange-300">NASA Ceramic Transport Protection</h3>
+                <p className="text-white">NASA-derived ceramic microsphere technology provides Class A fire protection (0/100 flame spread) for tunnels and transit facilities while delivering 156% elastomeric flexibility for bridges and highways exposed to extreme temperature variations.</p>
                 <div className="mt-6">
                   <GradientButton variant="variant" className="w-full">Learn More</GradientButton>
                 </div>
@@ -717,8 +717,8 @@ const MunicipalityPage = () => {
                 <div className="bg-gradient-to-r from-orange-600 to-blue-500 p-4 rounded-full inline-block mb-4">
                   <Activity className="h-8 w-8 text-white" />
                 </div>
-                <h3 className="text-xl font-bold mb-3 text-blue-300">Public Facilities</h3>
-                <p className="text-white">High-performance coatings for government buildings, recreational facilities, and public spaces that balance durability with aesthetic appeal.</p>
+                <h3 className="text-xl font-bold mb-3 text-blue-300">NASA Ceramic Public Safety</h3>
+                <p className="text-white">NASA-derived ceramic microsphere technology provides Class A fire protection (0/100 flame spread rating) for government buildings and public spaces while delivering 89% UV reflection for energy efficiency and 30+ year performance.</p>
                 <div className="mt-6">
                   <GradientButton variant="default" className="w-full">Learn More</GradientButton>
                 </div>
@@ -734,27 +734,27 @@ const MunicipalityPage = () => {
               <p className="text-white text-center mb-8">Our certified experts will evaluate your municipal infrastructure and recommend NASA-derived ceramic microsphere technology solutions for maximum fire protection, energy efficiency, and 30+ year lifecycle performance.</p>
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
-                  <h3 className="text-xl font-semibold mb-4 bg-gradient-to-r from-orange-500 to-blue-500 bg-clip-text text-transparent">Why Municipalities Choose Our Coatings</h3>
+                  <h3 className="text-xl font-semibold mb-4 bg-gradient-to-r from-orange-500 to-blue-500 bg-clip-text text-transparent">Why NASA Ceramic Technology</h3>
                   <ul className="space-y-3">
                     <li className="flex items-start gap-2">
                       <span className="text-orange-400 mt-1">✓</span>
-                      <span className="text-white">Budget-friendly lifecycle cost reduction</span>
+                      <span className="text-white">Class A fire protection (0/100 flame spread) for safety</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-blue-400 mt-1">✓</span>
-                      <span className="text-white">Compliant with government regulations and standards</span>
+                      <span className="text-white">NSF/ANSI 61 certified for water infrastructure safety</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-orange-400 mt-1">✓</span>
-                      <span className="text-white">Minimized facility downtime during application</span>
+                      <span className="text-white">156% elastomeric flexibility for temperature variations</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-blue-400 mt-1">✓</span>
-                      <span className="text-white">Expert support from specification to completion</span>
+                      <span className="text-white">89% UV reflection reduces energy costs by up to 40%</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-orange-400 mt-1">✓</span>
-                      <span className="text-white">Extended warranty options for additional protection</span>
+                      <span className="text-white">NASA-verified 30+ year performance with zero maintenance</span>
                     </li>
                   </ul>
                 </div>
