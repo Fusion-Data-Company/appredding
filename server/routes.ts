@@ -47,6 +47,14 @@ import {
 } from "./api/activities";
 import { getCRMAnalytics } from "./api/analytics";
 import { importCSV } from "./api/import-csv";
+import {
+  getTasks,
+  getTaskById,
+  createTask,
+  updateTask,
+  completeTask,
+  deleteTask
+} from "./api/tasks";
 
 // Authentication middleware
 function isAuthenticated(req: Request, res: Response, next: NextFunction) {
@@ -142,6 +150,14 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.put("/api/activities/:id", updateActivity);
   app.post("/api/activities/:id/complete", completeActivity);
   app.delete("/api/activities/:id", deleteActivity);
+  
+  // Tasks routes
+  app.get("/api/tasks", getTasks);
+  app.get("/api/tasks/:id", getTaskById);
+  app.post("/api/tasks", createTask);
+  app.put("/api/tasks/:id", updateTask);
+  app.post("/api/tasks/:id/complete", completeTask);
+  app.delete("/api/tasks/:id", deleteTask);
   
   // CSV Import route
   app.post("/api/import-csv", importCSV);

@@ -32,81 +32,73 @@ import {
   Clock,
   User,
   Building2,
-  Tag
+  Tag,
+  Loader2
 } from "lucide-react";
+import { format } from "date-fns";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import toast from "react-hot-toast";
 
-// Placeholder data
-const tasksData = [
-  {
-    id: 1,
-    title: "Follow up with John Smith",
-    description: "Construction project estimate",
-    dueDate: "Apr 22, 2025",
-    priority: "high",
-    status: "overdue",
-    assignedTo: "You",
-    relatedTo: {
-      type: "contact",
-      name: "John Smith",
-      company: "ABC Construction"
-    }
-  },
-  {
-    id: 2,
-    title: "Send quote to Marina project",
-    description: "Protective coatings for docks",
-    dueDate: "Apr 25, 2025",
-    priority: "medium",
-    status: "pending",
-    assignedTo: "Robert Yeager",
-    relatedTo: {
-      type: "company",
-      name: "Coastal Marinas LLC"
-    }
-  },
-  {
-    id: 3,
-    title: "Schedule meeting with painters",
-    description: "Pool coating training session",
-    dueDate: "Apr 27, 2025",
-    priority: "medium",
-    status: "pending",
-    assignedTo: "You",
-    relatedTo: {
-      type: "opportunity",
-      name: "Pool Coating Project",
-      company: "City Recreation Department"
-    }
-  },
-  {
-    id: 4,
-    title: "Prepare fire prevention presentation",
-    description: "For Regional Fire Prevention proposal",
-    dueDate: "Apr 30, 2025",
-    priority: "low",
-    status: "in_progress",
-    assignedTo: "Robert Yeager",
-    relatedTo: {
-      type: "opportunity",
-      name: "Fire Retardant Application",
-      company: "Regional Fire Prevention"
-    }
-  },
-  {
-    id: 5,
-    title: "Call vendor for material pricing",
-    description: "Update pricing for mobile home application",
-    dueDate: "May 2, 2025",
-    priority: "high",
-    status: "in_progress",
-    assignedTo: "You",
-    relatedTo: {
-      type: "contact",
-      name: "David Miller",
-      company: "Sunrise Mobile Estates"
-    }
+// Task types
+export interface Task {
+  id: number;
+  title: string;
+  description: string | null;
+  priority: "low" | "medium" | "high" | "urgent";
+  status: "pending" | "in_progress" | "completed" | "cancelled" | "overdue";
+  dueDate: string | null;
+  completedDate: string | null;
+  reminderDate: string | null;
+  contactId: number | null;
+  companyId: number | null;
+  opportunityId: number | null;
+  assignedBy: number;
+  assignedTo: number;
+  createdAt: string;
+  updatedAt: string;
+  assignedToName?: string;
+  assignedByName?: string;
+  contact?: { firstName: string; lastName: string; companyName?: string };
+  company?: { name: string };
+  opportunity?: { name: string; company?: { name: string } };
+}
+
+// Fetch and mutation functions
+async function fetchTasks(status?: string) {
+  const url = status ? `/api/tasks?status=${status}` : '/api/tasks';
+  const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error('Failed to fetch tasks');
   }
-];
+  return response.json();
+}
+
+async function completeTask(id: number) {
+  const response = await fetch(`/api/tasks/${id}/complete`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+  
+  if (!response.ok) {
+    throw new Error('Failed to complete task');
+  }
+  
+  return response.json();
+}
+
+async function deleteTaskById(id: number) {
+  const response = await fetch(`/api/tasks/${id}`, {
+    method: 'DELETE',
+  });
+  
+  if (!response.ok) {
+    throw new Error('Failed to delete task');
+  }
+  
+  return response.json();
+}
 
 const getPriorityColor = (priority: string) => {
   switch (priority) {
@@ -160,6 +152,94 @@ const getStatusText = (status: string) => {
 export default function TasksContent() {
   const { refreshData } = useAdminContext();
   const [searchQuery, setSearchQuery] = useState("");
+  const [activeTab, setActiveTab] = useState<string>("all");
+  const queryClient = useQueryClient();
+  
+  // Fetch tasks based on the active tab
+  const { data: tasks, isLoading, isError } = useQuery({
+    queryKey: ['tasks', activeTab],
+    queryFn: () => {
+      if (activeTab === 'overdue') {
+        return fetchTasks('overdue');
+      } else if (activeTab === 'completed') {
+        return fetchTasks('completed');
+      } else {
+        return fetchTasks();
+      }
+    }
+  });
+  
+  // Complete task mutation
+  const completeMutation = useMutation({
+    mutationFn: completeTask,
+    onSuccess: () => {
+      toast.success('Task marked as completed');
+      queryClient.invalidateQueries({ queryKey: ['tasks'] });
+    },
+    onError: () => {
+      toast.error('Failed to complete task');
+    }
+  });
+  
+  // Delete task mutation
+  const deleteMutation = useMutation({
+    mutationFn: deleteTaskById,
+    onSuccess: () => {
+      toast.success('Task deleted successfully');
+      queryClient.invalidateQueries({ queryKey: ['tasks'] });
+    },
+    onError: () => {
+      toast.error('Failed to delete task');
+    }
+  });
+
+  // Filter tasks based on search query
+  const filteredTasks = tasks?.filter(task => 
+    task.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    task.description?.toLowerCase().includes(searchQuery.toLowerCase())
+  ) || [];
+  
+  // Function to handle marking a task as complete
+  const handleCompleteTask = (id: number) => {
+    completeMutation.mutate(id);
+  };
+  
+  // Function to handle deleting a task
+  const handleDeleteTask = (id: number) => {
+    if (window.confirm('Are you sure you want to delete this task?')) {
+      deleteMutation.mutate(id);
+    }
+  };
+  
+  // Format date from ISO string
+  const formatDate = (dateString: string | null) => {
+    if (!dateString) return 'No date';
+    return format(new Date(dateString), 'MMM d, yyyy');
+  };
+  
+  // Get related entity details
+  const getRelatedInfo = (task: Task) => {
+    if (task.contactId && task.contact) {
+      return {
+        type: 'contact',
+        name: `${task.contact.firstName} ${task.contact.lastName}`,
+        company: task.contact.companyName
+      };
+    } else if (task.companyId && task.company) {
+      return {
+        type: 'company',
+        name: task.company.name
+      };
+    } else if (task.opportunityId && task.opportunity) {
+      return {
+        type: 'opportunity',
+        name: task.opportunity.name,
+        company: task.opportunity.company?.name
+      };
+    }
+    
+    return { type: 'none', name: 'Not related' };
+  };
   
   return (
     <div className="space-y-4">
@@ -171,7 +251,12 @@ export default function TasksContent() {
           </p>
         </div>
         <div className="flex items-center gap-2">
-          <Button onClick={refreshData} size="sm" variant="outline" className="h-9">
+          <Button 
+            onClick={() => queryClient.invalidateQueries({ queryKey: ['tasks'] })} 
+            size="sm" 
+            variant="outline" 
+            className="h-9"
+          >
             <RefreshCcw className="h-4 w-4 mr-2" />
             Refresh
           </Button>
@@ -182,7 +267,11 @@ export default function TasksContent() {
         </div>
       </div>
 
-      <Tabs defaultValue="all" className="w-full">
+      <Tabs 
+        defaultValue="all" 
+        className="w-full"
+        onValueChange={(value) => setActiveTab(value)}
+      >
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
           <TabsList className="h-9">
             <TabsTrigger value="all" className="text-xs sm:text-sm">All Tasks</TabsTrigger>
@@ -211,130 +300,432 @@ export default function TasksContent() {
         <TabsContent value="all" className="m-0">
           <Card>
             <CardContent className="p-0">
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead className="w-[40px]"></TableHead>
-                    <TableHead>Task</TableHead>
-                    <TableHead className="hidden md:table-cell">Related To</TableHead>
-                    <TableHead className="hidden lg:table-cell">Due Date</TableHead>
-                    <TableHead className="hidden sm:table-cell">Priority</TableHead>
-                    <TableHead>Status</TableHead>
-                    <TableHead className="hidden md:table-cell">Assigned To</TableHead>
-                    <TableHead className="w-[50px]"></TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {tasksData.map((task) => (
-                    <TableRow key={task.id}>
-                      <TableCell>
-                        <Checkbox id={`task-${task.id}`} />
-                      </TableCell>
-                      <TableCell>
-                        <div>
-                          <p className="font-medium">{task.title}</p>
-                          <p className="text-xs text-muted-foreground">
-                            {task.description}
-                          </p>
-                        </div>
-                      </TableCell>
-                      <TableCell className="hidden md:table-cell">
-                        <div className="flex items-center">
-                          {getRelatedIcon(task.relatedTo.type)}
-                          <div>
-                            <p className="text-sm">{task.relatedTo.name}</p>
-                            {task.relatedTo.company && (
-                              <p className="text-xs text-muted-foreground">
-                                {task.relatedTo.company}
-                              </p>
-                            )}
-                          </div>
-                        </div>
-                      </TableCell>
-                      <TableCell className="hidden lg:table-cell">
-                        <div className="flex items-center">
-                          <Calendar className="h-3.5 w-3.5 mr-1 text-muted-foreground" />
-                          {task.dueDate}
-                        </div>
-                      </TableCell>
-                      <TableCell className="hidden sm:table-cell">
-                        <Badge 
-                          variant="outline" 
-                          className={`${getPriorityColor(task.priority)}`}
-                        >
-                          {task.priority.charAt(0).toUpperCase() + task.priority.slice(1)}
-                        </Badge>
-                      </TableCell>
-                      <TableCell>
-                        <Badge 
-                          variant="outline" 
-                          className={`${getStatusColor(task.status)}`}
-                        >
-                          {getStatusText(task.status)}
-                        </Badge>
-                      </TableCell>
-                      <TableCell className="hidden md:table-cell">
-                        <div className="flex items-center">
-                          <User className="h-3.5 w-3.5 mr-1 text-muted-foreground" />
-                          {task.assignedTo}
-                        </div>
-                      </TableCell>
-                      <TableCell>
-                        <DropdownMenu>
-                          <DropdownMenuTrigger asChild>
-                            <Button variant="ghost" size="icon">
-                              <MoreHorizontal className="h-4 w-4" />
-                            </Button>
-                          </DropdownMenuTrigger>
-                          <DropdownMenuContent align="end">
-                            <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                            <DropdownMenuSeparator />
-                            <DropdownMenuItem>Edit Task</DropdownMenuItem>
-                            <DropdownMenuItem>Mark Complete</DropdownMenuItem>
-                            <DropdownMenuItem>Reassign</DropdownMenuItem>
-                            <DropdownMenuItem>Add Reminder</DropdownMenuItem>
-                            <DropdownMenuSeparator />
-                            <DropdownMenuItem className="text-red-600">Delete</DropdownMenuItem>
-                          </DropdownMenuContent>
-                        </DropdownMenu>
-                      </TableCell>
+              {isLoading ? (
+                <div className="flex items-center justify-center py-8">
+                  <Loader2 className="h-8 w-8 animate-spin text-primary/80" />
+                  <span className="ml-2">Loading tasks...</span>
+                </div>
+              ) : isError ? (
+                <div className="flex items-center justify-center p-8 text-center text-red-500">
+                  <p>There was an error loading the tasks. Please try again.</p>
+                </div>
+              ) : filteredTasks.length === 0 ? (
+                <div className="flex flex-col items-center justify-center p-8 text-center">
+                  <p className="mb-2 text-gray-500">No tasks found</p>
+                  <Button variant="outline" size="sm" className="mt-2">
+                    <Plus className="h-4 w-4 mr-2" />
+                    Add New Task
+                  </Button>
+                </div>
+              ) : (
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead className="w-[40px]"></TableHead>
+                      <TableHead>Task</TableHead>
+                      <TableHead className="hidden md:table-cell">Related To</TableHead>
+                      <TableHead className="hidden lg:table-cell">Due Date</TableHead>
+                      <TableHead className="hidden sm:table-cell">Priority</TableHead>
+                      <TableHead>Status</TableHead>
+                      <TableHead className="hidden md:table-cell">Assigned To</TableHead>
+                      <TableHead className="w-[50px]"></TableHead>
                     </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
+                  </TableHeader>
+                  <TableBody>
+                    {filteredTasks.map((task) => {
+                      const relatedInfo = getRelatedInfo(task);
+                      return (
+                        <TableRow key={task.id}>
+                          <TableCell>
+                            <Checkbox 
+                              id={`task-${task.id}`} 
+                              checked={task.status === 'completed'} 
+                              onCheckedChange={
+                                () => task.status !== 'completed' && handleCompleteTask(task.id)
+                              } 
+                              disabled={task.status === 'completed' || completeMutation.isPending}
+                            />
+                          </TableCell>
+                          <TableCell>
+                            <div>
+                              <p className="font-medium">{task.title}</p>
+                              <p className="text-xs text-muted-foreground">
+                                {task.description || "No description"}
+                              </p>
+                            </div>
+                          </TableCell>
+                          <TableCell className="hidden md:table-cell">
+                            <div className="flex items-center">
+                              {getRelatedIcon(relatedInfo.type)}
+                              <div>
+                                <p className="text-sm">{relatedInfo.name}</p>
+                                {relatedInfo.company && (
+                                  <p className="text-xs text-muted-foreground">
+                                    {relatedInfo.company}
+                                  </p>
+                                )}
+                              </div>
+                            </div>
+                          </TableCell>
+                          <TableCell className="hidden lg:table-cell">
+                            <div className="flex items-center">
+                              <Calendar className="h-3.5 w-3.5 mr-1 text-muted-foreground" />
+                              {formatDate(task.dueDate)}
+                            </div>
+                          </TableCell>
+                          <TableCell className="hidden sm:table-cell">
+                            <Badge 
+                              variant="outline" 
+                              className={`${getPriorityColor(task.priority)}`}
+                            >
+                              {task.priority.charAt(0).toUpperCase() + task.priority.slice(1)}
+                            </Badge>
+                          </TableCell>
+                          <TableCell>
+                            <Badge 
+                              variant="outline" 
+                              className={`${getStatusColor(task.status)}`}
+                            >
+                              {getStatusText(task.status)}
+                            </Badge>
+                          </TableCell>
+                          <TableCell className="hidden md:table-cell">
+                            <div className="flex items-center">
+                              <User className="h-3.5 w-3.5 mr-1 text-muted-foreground" />
+                              {task.assignedToName || `User ${task.assignedTo}`}
+                            </div>
+                          </TableCell>
+                          <TableCell>
+                            <DropdownMenu>
+                              <DropdownMenuTrigger asChild>
+                                <Button variant="ghost" size="icon">
+                                  <MoreHorizontal className="h-4 w-4" />
+                                </Button>
+                              </DropdownMenuTrigger>
+                              <DropdownMenuContent align="end">
+                                <DropdownMenuLabel>Actions</DropdownMenuLabel>
+                                <DropdownMenuSeparator />
+                                <DropdownMenuItem>Edit Task</DropdownMenuItem>
+                                <DropdownMenuItem 
+                                  onClick={() => handleCompleteTask(task.id)}
+                                  disabled={task.status === 'completed' || completeMutation.isPending}
+                                >
+                                  Mark Complete
+                                </DropdownMenuItem>
+                                <DropdownMenuItem>Reassign</DropdownMenuItem>
+                                <DropdownMenuItem>Add Reminder</DropdownMenuItem>
+                                <DropdownMenuSeparator />
+                                <DropdownMenuItem 
+                                  className="text-red-600"
+                                  onClick={() => handleDeleteTask(task.id)}
+                                  disabled={deleteMutation.isPending}
+                                >
+                                  Delete
+                                </DropdownMenuItem>
+                              </DropdownMenuContent>
+                            </DropdownMenu>
+                          </TableCell>
+                        </TableRow>
+                      );
+                    })}
+                  </TableBody>
+                </Table>
+              )}
             </CardContent>
           </Card>
         </TabsContent>
 
         <TabsContent value="my_tasks" className="m-0">
           <Card>
-            <CardContent className="p-6 flex flex-col items-center justify-center min-h-[300px] text-center">
-              <p className="text-muted-foreground">Filter applied: My Tasks</p>
-              <p className="text-sm text-muted-foreground mt-1">
-                This is a placeholder. The actual filter would show only your assigned tasks.
-              </p>
+            <CardContent className="p-0">
+              {isLoading ? (
+                <div className="flex items-center justify-center py-8">
+                  <Loader2 className="h-8 w-8 animate-spin text-primary/80" />
+                  <span className="ml-2">Loading tasks...</span>
+                </div>
+              ) : (
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead className="w-[40px]"></TableHead>
+                      <TableHead>Task</TableHead>
+                      <TableHead className="hidden md:table-cell">Related To</TableHead>
+                      <TableHead className="hidden lg:table-cell">Due Date</TableHead>
+                      <TableHead className="hidden sm:table-cell">Priority</TableHead>
+                      <TableHead>Status</TableHead>
+                      <TableHead className="w-[50px]"></TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {/* Filter my tasks will be implemented here */}
+                    <TableRow>
+                      <TableCell colSpan={7} className="text-center py-8">
+                        <p className="text-muted-foreground">My Tasks filter is coming soon</p>
+                        <p className="text-sm text-muted-foreground mt-1">
+                          This feature is in development.
+                        </p>
+                      </TableCell>
+                    </TableRow>
+                  </TableBody>
+                </Table>
+              )}
             </CardContent>
           </Card>
         </TabsContent>
 
         <TabsContent value="overdue" className="m-0">
           <Card>
-            <CardContent className="p-6 flex flex-col items-center justify-center min-h-[300px] text-center">
-              <p className="text-muted-foreground">Filter applied: Overdue</p>
-              <p className="text-sm text-muted-foreground mt-1">
-                This is a placeholder. The actual filter would show only overdue tasks.
-              </p>
+            <CardContent className="p-0">
+              {isLoading ? (
+                <div className="flex items-center justify-center py-8">
+                  <Loader2 className="h-8 w-8 animate-spin text-primary/80" />
+                  <span className="ml-2">Loading overdue tasks...</span>
+                </div>
+              ) : isError ? (
+                <div className="flex items-center justify-center p-8 text-center text-red-500">
+                  <p>There was an error loading the tasks. Please try again.</p>
+                </div>
+              ) : filteredTasks.length === 0 ? (
+                <div className="flex flex-col items-center justify-center p-8 text-center">
+                  <p className="text-gray-500">No overdue tasks found</p>
+                </div>
+              ) : (
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead className="w-[40px]"></TableHead>
+                      <TableHead>Task</TableHead>
+                      <TableHead className="hidden md:table-cell">Related To</TableHead>
+                      <TableHead className="hidden lg:table-cell">Due Date</TableHead>
+                      <TableHead className="hidden sm:table-cell">Priority</TableHead>
+                      <TableHead>Status</TableHead>
+                      <TableHead className="hidden md:table-cell">Assigned To</TableHead>
+                      <TableHead className="w-[50px]"></TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {filteredTasks.map((task) => {
+                      const relatedInfo = getRelatedInfo(task);
+                      return (
+                        <TableRow key={task.id}>
+                          <TableCell>
+                            <Checkbox 
+                              id={`task-${task.id}`} 
+                              checked={task.status === 'completed'} 
+                              onCheckedChange={
+                                () => task.status !== 'completed' && handleCompleteTask(task.id)
+                              } 
+                              disabled={task.status === 'completed' || completeMutation.isPending}
+                            />
+                          </TableCell>
+                          <TableCell>
+                            <div>
+                              <p className="font-medium">{task.title}</p>
+                              <p className="text-xs text-muted-foreground">
+                                {task.description || "No description"}
+                              </p>
+                            </div>
+                          </TableCell>
+                          <TableCell className="hidden md:table-cell">
+                            <div className="flex items-center">
+                              {getRelatedIcon(relatedInfo.type)}
+                              <div>
+                                <p className="text-sm">{relatedInfo.name}</p>
+                                {relatedInfo.company && (
+                                  <p className="text-xs text-muted-foreground">
+                                    {relatedInfo.company}
+                                  </p>
+                                )}
+                              </div>
+                            </div>
+                          </TableCell>
+                          <TableCell className="hidden lg:table-cell">
+                            <div className="flex items-center">
+                              <Calendar className="h-3.5 w-3.5 mr-1 text-muted-foreground" />
+                              {formatDate(task.dueDate)}
+                            </div>
+                          </TableCell>
+                          <TableCell className="hidden sm:table-cell">
+                            <Badge 
+                              variant="outline" 
+                              className={`${getPriorityColor(task.priority)}`}
+                            >
+                              {task.priority.charAt(0).toUpperCase() + task.priority.slice(1)}
+                            </Badge>
+                          </TableCell>
+                          <TableCell>
+                            <Badge 
+                              variant="outline" 
+                              className={`${getStatusColor(task.status)}`}
+                            >
+                              {getStatusText(task.status)}
+                            </Badge>
+                          </TableCell>
+                          <TableCell className="hidden md:table-cell">
+                            <div className="flex items-center">
+                              <User className="h-3.5 w-3.5 mr-1 text-muted-foreground" />
+                              {task.assignedToName || `User ${task.assignedTo}`}
+                            </div>
+                          </TableCell>
+                          <TableCell>
+                            <DropdownMenu>
+                              <DropdownMenuTrigger asChild>
+                                <Button variant="ghost" size="icon">
+                                  <MoreHorizontal className="h-4 w-4" />
+                                </Button>
+                              </DropdownMenuTrigger>
+                              <DropdownMenuContent align="end">
+                                <DropdownMenuLabel>Actions</DropdownMenuLabel>
+                                <DropdownMenuSeparator />
+                                <DropdownMenuItem>Edit Task</DropdownMenuItem>
+                                <DropdownMenuItem 
+                                  onClick={() => handleCompleteTask(task.id)}
+                                  disabled={task.status === 'completed' || completeMutation.isPending}
+                                >
+                                  Mark Complete
+                                </DropdownMenuItem>
+                                <DropdownMenuItem>Reassign</DropdownMenuItem>
+                                <DropdownMenuItem>Add Reminder</DropdownMenuItem>
+                                <DropdownMenuSeparator />
+                                <DropdownMenuItem 
+                                  className="text-red-600"
+                                  onClick={() => handleDeleteTask(task.id)}
+                                  disabled={deleteMutation.isPending}
+                                >
+                                  Delete
+                                </DropdownMenuItem>
+                              </DropdownMenuContent>
+                            </DropdownMenu>
+                          </TableCell>
+                        </TableRow>
+                      );
+                    })}
+                  </TableBody>
+                </Table>
+              )}
             </CardContent>
           </Card>
         </TabsContent>
 
         <TabsContent value="completed" className="m-0">
           <Card>
-            <CardContent className="p-6 flex flex-col items-center justify-center min-h-[300px] text-center">
-              <p className="text-muted-foreground">Filter applied: Completed</p>
-              <p className="text-sm text-muted-foreground mt-1">
-                This is a placeholder. The actual filter would show only completed tasks.
-              </p>
+            <CardContent className="p-0">
+              {isLoading ? (
+                <div className="flex items-center justify-center py-8">
+                  <Loader2 className="h-8 w-8 animate-spin text-primary/80" />
+                  <span className="ml-2">Loading completed tasks...</span>
+                </div>
+              ) : isError ? (
+                <div className="flex items-center justify-center p-8 text-center text-red-500">
+                  <p>There was an error loading the tasks. Please try again.</p>
+                </div>
+              ) : filteredTasks.length === 0 ? (
+                <div className="flex flex-col items-center justify-center p-8 text-center">
+                  <p className="text-gray-500">No completed tasks found</p>
+                </div>
+              ) : (
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead className="w-[40px]"></TableHead>
+                      <TableHead>Task</TableHead>
+                      <TableHead className="hidden md:table-cell">Related To</TableHead>
+                      <TableHead className="hidden lg:table-cell">Completed Date</TableHead>
+                      <TableHead className="hidden sm:table-cell">Priority</TableHead>
+                      <TableHead>Status</TableHead>
+                      <TableHead className="hidden md:table-cell">Assigned To</TableHead>
+                      <TableHead className="w-[50px]"></TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {filteredTasks.map((task) => {
+                      const relatedInfo = getRelatedInfo(task);
+                      return (
+                        <TableRow key={task.id} className="opacity-80">
+                          <TableCell>
+                            <Checkbox 
+                              id={`task-${task.id}`} 
+                              checked={true} 
+                              disabled={true}
+                            />
+                          </TableCell>
+                          <TableCell>
+                            <div>
+                              <p className="font-medium line-through">{task.title}</p>
+                              <p className="text-xs text-muted-foreground">
+                                {task.description || "No description"}
+                              </p>
+                            </div>
+                          </TableCell>
+                          <TableCell className="hidden md:table-cell">
+                            <div className="flex items-center">
+                              {getRelatedIcon(relatedInfo.type)}
+                              <div>
+                                <p className="text-sm">{relatedInfo.name}</p>
+                                {relatedInfo.company && (
+                                  <p className="text-xs text-muted-foreground">
+                                    {relatedInfo.company}
+                                  </p>
+                                )}
+                              </div>
+                            </div>
+                          </TableCell>
+                          <TableCell className="hidden lg:table-cell">
+                            <div className="flex items-center">
+                              <Calendar className="h-3.5 w-3.5 mr-1 text-muted-foreground" />
+                              {formatDate(task.completedDate)}
+                            </div>
+                          </TableCell>
+                          <TableCell className="hidden sm:table-cell">
+                            <Badge 
+                              variant="outline" 
+                              className={`${getPriorityColor(task.priority)}`}
+                            >
+                              {task.priority.charAt(0).toUpperCase() + task.priority.slice(1)}
+                            </Badge>
+                          </TableCell>
+                          <TableCell>
+                            <Badge 
+                              variant="outline" 
+                              className={`${getStatusColor(task.status)}`}
+                            >
+                              {getStatusText(task.status)}
+                            </Badge>
+                          </TableCell>
+                          <TableCell className="hidden md:table-cell">
+                            <div className="flex items-center">
+                              <User className="h-3.5 w-3.5 mr-1 text-muted-foreground" />
+                              {task.assignedToName || `User ${task.assignedTo}`}
+                            </div>
+                          </TableCell>
+                          <TableCell>
+                            <DropdownMenu>
+                              <DropdownMenuTrigger asChild>
+                                <Button variant="ghost" size="icon">
+                                  <MoreHorizontal className="h-4 w-4" />
+                                </Button>
+                              </DropdownMenuTrigger>
+                              <DropdownMenuContent align="end">
+                                <DropdownMenuLabel>Actions</DropdownMenuLabel>
+                                <DropdownMenuSeparator />
+                                <DropdownMenuItem>View Details</DropdownMenuItem>
+                                <DropdownMenuSeparator />
+                                <DropdownMenuItem 
+                                  className="text-red-600"
+                                  onClick={() => handleDeleteTask(task.id)}
+                                  disabled={deleteMutation.isPending}
+                                >
+                                  Delete
+                                </DropdownMenuItem>
+                              </DropdownMenuContent>
+                            </DropdownMenu>
+                          </TableCell>
+                        </TableRow>
+                      );
+                    })}
+                  </TableBody>
+                </Table>
+              )}
             </CardContent>
           </Card>
         </TabsContent>

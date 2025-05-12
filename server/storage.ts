@@ -15,6 +15,7 @@ import {
   mobileHomeProfessionals,
   firePreventionHomeowners,
   professionalReviews,
+  taskStatusEnum,
   type User,
   type InsertUser,
   type Contact,
@@ -47,6 +48,9 @@ import {
   type InsertFirePreventionHomeowner,
   type ProfessionalReview,
   type InsertProfessionalReview,
+  type Task,
+  type InsertTask,
+  tasks,
 } from "@shared/schema";
 import { db } from "./db";
 import { eq, and, desc } from "drizzle-orm";
@@ -444,6 +448,62 @@ export class DatabaseStorage implements IStorage {
       .delete(opportunities)
       .where(eq(opportunities.id, id));
     return result.rowCount > 0;
+  }
+  
+  // ========================
+  // CRM Task methods
+  // ========================
+  
+  async getTasks(assignedToId?: number, status?: string): Promise<Task[]> {
+    let query = db.select().from(tasks);
+    
+    if (assignedToId) {
+      query = query.where(eq(tasks.assignedTo, assignedToId));
+    }
+    
+    if (status && status in taskStatusEnum.enumValues) {
+      query = query.where(eq(tasks.status, status as any));
+    }
+    
+    return await query.orderBy(desc(tasks.createdAt));
+  }
+  
+  async getTask(id: number): Promise<Task | undefined> {
+    const [task] = await db
+      .select()
+      .from(tasks)
+      .where(eq(tasks.id, id));
+    return task;
+  }
+  
+  async createTask(insertTask: InsertTask): Promise<Task> {
+    const [task] = await db
+      .insert(tasks)
+      .values(insertTask)
+      .returning();
+    return task;
+  }
+  
+  async updateTask(id: number, taskData: Partial<Task>): Promise<Task | undefined> {
+    const [task] = await db
+      .update(tasks)
+      .set({
+        ...taskData,
+        updatedAt: new Date(),
+      })
+      .where(eq(tasks.id, id))
+      .returning();
+    return task;
+  }
+  
+  async deleteTask(id: number): Promise<boolean> {
+    try {
+      await db.delete(tasks).where(eq(tasks.id, id));
+      return true;
+    } catch (error) {
+      console.error("Error deleting task:", error);
+      return false;
+    }
   }
   
   // ========================
