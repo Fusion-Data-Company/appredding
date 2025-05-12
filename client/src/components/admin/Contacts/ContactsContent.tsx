@@ -31,67 +31,54 @@ import {
   RefreshCcw,
   Mail,
   Phone,
-  Tag
+  Tag,
+  Loader2
 } from "lucide-react";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import toast from "react-hot-toast";
+import { formatDistanceToNow } from "date-fns";
 
-// Placeholder data
-const contactsData = [
-  {
-    id: 1,
-    name: "John Smith",
-    email: "john.smith@example.com",
-    phone: "(555) 123-4567",
-    company: "ABC Construction",
-    title: "Project Manager",
-    status: "customer",
-    tags: ["Construction", "VIP"],
-    lastContact: "2 days ago"
-  },
-  {
-    id: 2,
-    name: "Sarah Johnson",
-    email: "sarah.j@coastalmarinas.com",
-    phone: "(555) 987-6543",
-    company: "Coastal Marinas LLC",
-    title: "Operations Director",
-    status: "lead",
-    tags: ["Marina", "Interested"],
-    lastContact: "1 week ago"
-  },
-  {
-    id: 3,
-    name: "Michael Williams",
-    email: "m.williams@citypool.gov",
-    phone: "(555) 456-7890",
-    company: "City Recreation Dept",
-    title: "Facilities Manager",
-    status: "customer",
-    tags: ["Pool", "Government"],
-    lastContact: "3 days ago"
-  },
-  {
-    id: 4,
-    name: "Emily Davis",
-    email: "emily@firesafety.org",
-    phone: "(555) 234-5678",
-    company: "Regional Fire Prevention",
-    title: "Safety Officer",
-    status: "prospect",
-    tags: ["Fire Prevention"],
-    lastContact: "Just now"
-  },
-  {
-    id: 5,
-    name: "David Miller",
-    email: "dmiller@mobileestates.com",
-    phone: "(555) 876-5432",
-    company: "Sunrise Mobile Estates",
-    title: "Property Manager",
-    status: "customer",
-    tags: ["Mobile Home", "Recurring"],
-    lastContact: "Yesterday"
+// Contact type definition
+export interface Contact {
+  id: number;
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string | null;
+  mobilePhone: string | null;
+  jobTitle: string | null;
+  department: string | null;
+  status: "lead" | "prospect" | "customer" | "inactive";
+  companyId: number | null;
+  companyName?: string;
+  lastContactedDate: string | null;
+  createdAt: string;
+  updatedAt: string;
+  source?: string;
+  tags?: { id: number; name: string; color: string }[];
+}
+
+// Function to fetch contacts from the server
+async function fetchContacts() {
+  const response = await fetch('/api/contacts');
+  if (!response.ok) {
+    throw new Error('Failed to fetch contacts');
   }
-];
+  return response.json();
+}
+
+// Function to delete a contact
+async function deleteContact(id: number) {
+  const response = await fetch(`/api/contacts/${id}`, {
+    method: 'DELETE',
+  });
+  
+  if (!response.ok) {
+    throw new Error('Failed to delete contact');
+  }
+  
+  return true;
+}
 
 const getStatusColor = (status: string) => {
   switch (status) {
@@ -124,6 +111,67 @@ const getTagColor = (tag: string) => {
 export default function ContactsContent() {
   const { refreshData } = useAdminContext();
   const [searchQuery, setSearchQuery] = useState("");
+  const [activeTab, setActiveTab] = useState<string>("all");
+  const queryClient = useQueryClient();
+  
+  // Fetch contacts from API
+  const { data: contacts, isLoading, isError } = useQuery({
+    queryKey: ['contacts'],
+    queryFn: fetchContacts
+  });
+  
+  // Delete contact mutation
+  const deleteMutation = useMutation({
+    mutationFn: deleteContact,
+    onSuccess: () => {
+      toast.success("Contact deleted successfully");
+      queryClient.invalidateQueries({ queryKey: ['contacts'] });
+    },
+    onError: () => {
+      toast.error("Failed to delete contact");
+    }
+  });
+
+  // Filter contacts based on search query and active tab
+  const filteredContacts = contacts?.filter(contact => {
+    const matchesSearch = 
+      `${contact.firstName} ${contact.lastName}`.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      contact.email.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      contact.companyName?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      contact.jobTitle?.toLowerCase().includes(searchQuery.toLowerCase());
+      
+    if (!matchesSearch) return false;
+    
+    // Filter by status tab
+    if (activeTab === "customers") return contact.status === "customer";
+    if (activeTab === "leads") return contact.status === "lead";
+    if (activeTab === "prospects") return contact.status === "prospect";
+    
+    // "all" tab or default
+    return true;
+  }) || [];
+  
+  // Format last contacted time to relative format (2 days ago, etc.)
+  const getLastContactedTime = (lastContactedDate: string | null) => {
+    if (!lastContactedDate) return "Never";
+    try {
+      return formatDistanceToNow(new Date(lastContactedDate), { addSuffix: true });
+    } catch (e) {
+      return "Unknown";
+    }
+  };
+  
+  // Handle delete contact
+  const handleDeleteContact = (id: number) => {
+    if (window.confirm("Are you sure you want to delete this contact?")) {
+      deleteMutation.mutate(id);
+    }
+  };
+  
+  // Get full name from first and last name
+  const getFullName = (firstName: string, lastName: string) => {
+    return `${firstName} ${lastName}`;
+  };
   
   return (
     <div className="space-y-4">
@@ -135,7 +183,12 @@ export default function ContactsContent() {
           </p>
         </div>
         <div className="flex items-center gap-2">
-          <Button onClick={refreshData} size="sm" variant="outline" className="h-9">
+          <Button 
+            onClick={() => queryClient.invalidateQueries({ queryKey: ['contacts'] })} 
+            size="sm" 
+            variant="outline" 
+            className="h-9"
+          >
             <RefreshCcw className="h-4 w-4 mr-2" />
             Refresh
           </Button>
@@ -146,7 +199,11 @@ export default function ContactsContent() {
         </div>
       </div>
 
-      <Tabs defaultValue="all" className="w-full">
+      <Tabs 
+        defaultValue="all" 
+        className="w-full"
+        onValueChange={(value) => setActiveTab(value)}
+      >
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
           <TabsList className="h-9">
             <TabsTrigger value="all" className="text-xs sm:text-sm">All Contacts</TabsTrigger>
@@ -179,125 +236,439 @@ export default function ContactsContent() {
         <TabsContent value="all" className="m-0">
           <Card>
             <CardContent className="p-0">
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead>Name</TableHead>
-                    <TableHead className="hidden md:table-cell">Contact</TableHead>
-                    <TableHead className="hidden md:table-cell">Company</TableHead>
-                    <TableHead className="hidden lg:table-cell">Title</TableHead>
-                    <TableHead>Status</TableHead>
-                    <TableHead className="hidden lg:table-cell">Tags</TableHead>
-                    <TableHead>Last Contact</TableHead>
-                    <TableHead className="w-[50px]"></TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {contactsData.map((contact) => (
-                    <TableRow key={contact.id}>
-                      <TableCell>
-                        <div className="flex items-center space-x-2">
-                          <Avatar className="h-8 w-8">
-                            <AvatarFallback>{contact.name.charAt(0)}</AvatarFallback>
-                          </Avatar>
-                          <div>
-                            <p className="font-medium">{contact.name}</p>
-                            <p className="text-xs text-muted-foreground md:hidden">
-                              {contact.company}
-                            </p>
-                          </div>
-                        </div>
-                      </TableCell>
-                      <TableCell className="hidden md:table-cell">
-                        <div className="flex flex-col">
-                          <div className="flex items-center text-sm">
-                            <Mail className="h-3.5 w-3.5 mr-1 text-muted-foreground" />
-                            <span>{contact.email}</span>
-                          </div>
-                          <div className="flex items-center text-sm mt-1">
-                            <Phone className="h-3.5 w-3.5 mr-1 text-muted-foreground" />
-                            <span>{contact.phone}</span>
-                          </div>
-                        </div>
-                      </TableCell>
-                      <TableCell className="hidden md:table-cell">{contact.company}</TableCell>
-                      <TableCell className="hidden lg:table-cell">{contact.title}</TableCell>
-                      <TableCell>
-                        <Badge variant="outline" className={`${getStatusColor(contact.status)}`}>
-                          {contact.status.charAt(0).toUpperCase() + contact.status.slice(1)}
-                        </Badge>
-                      </TableCell>
-                      <TableCell className="hidden lg:table-cell">
-                        <div className="flex flex-wrap gap-1">
-                          {contact.tags.map((tag, idx) => (
-                            <Badge 
-                              key={idx} 
-                              variant="outline" 
-                              className={`${getTagColor(tag)} flex items-center`}
-                            >
-                              <Tag className="h-3 w-3 mr-1" />
-                              {tag}
-                            </Badge>
-                          ))}
-                        </div>
-                      </TableCell>
-                      <TableCell>{contact.lastContact}</TableCell>
-                      <TableCell>
-                        <DropdownMenu>
-                          <DropdownMenuTrigger asChild>
-                            <Button variant="ghost" size="icon">
-                              <MoreHorizontal className="h-4 w-4" />
-                            </Button>
-                          </DropdownMenuTrigger>
-                          <DropdownMenuContent align="end">
-                            <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                            <DropdownMenuSeparator />
-                            <DropdownMenuItem>View Details</DropdownMenuItem>
-                            <DropdownMenuItem>Edit Contact</DropdownMenuItem>
-                            <DropdownMenuItem>Add Task</DropdownMenuItem>
-                            <DropdownMenuItem>Add to Campaign</DropdownMenuItem>
-                            <DropdownMenuSeparator />
-                            <DropdownMenuItem className="text-red-600">Delete</DropdownMenuItem>
-                          </DropdownMenuContent>
-                        </DropdownMenu>
-                      </TableCell>
+              {isLoading ? (
+                <div className="flex items-center justify-center py-8">
+                  <Loader2 className="h-8 w-8 animate-spin text-primary/80" />
+                  <span className="ml-2">Loading contacts...</span>
+                </div>
+              ) : isError ? (
+                <div className="flex items-center justify-center p-8 text-center text-red-500">
+                  <p>There was an error loading contacts. Please try again.</p>
+                </div>
+              ) : filteredContacts.length === 0 ? (
+                <div className="flex flex-col items-center justify-center p-8 text-center">
+                  <p className="mb-2 text-gray-500">No contacts found</p>
+                  <Button variant="outline" size="sm" className="mt-2">
+                    <Plus className="h-4 w-4 mr-2" />
+                    Add New Contact
+                  </Button>
+                </div>
+              ) : (
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead>Name</TableHead>
+                      <TableHead className="hidden md:table-cell">Contact</TableHead>
+                      <TableHead className="hidden md:table-cell">Company</TableHead>
+                      <TableHead className="hidden lg:table-cell">Title</TableHead>
+                      <TableHead>Status</TableHead>
+                      <TableHead className="hidden lg:table-cell">Source</TableHead>
+                      <TableHead>Last Contact</TableHead>
+                      <TableHead className="w-[50px]"></TableHead>
                     </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
+                  </TableHeader>
+                  <TableBody>
+                    {filteredContacts.map((contact) => (
+                      <TableRow key={contact.id}>
+                        <TableCell>
+                          <div className="flex items-center space-x-2">
+                            <Avatar className="h-8 w-8">
+                              <AvatarFallback>{contact.firstName.charAt(0)}</AvatarFallback>
+                            </Avatar>
+                            <div>
+                              <p className="font-medium">{getFullName(contact.firstName, contact.lastName)}</p>
+                              <p className="text-xs text-muted-foreground md:hidden">
+                                {contact.companyName || 'No company'}
+                              </p>
+                            </div>
+                          </div>
+                        </TableCell>
+                        <TableCell className="hidden md:table-cell">
+                          <div className="flex flex-col">
+                            <div className="flex items-center text-sm">
+                              <Mail className="h-3.5 w-3.5 mr-1 text-muted-foreground" />
+                              <span>{contact.email}</span>
+                            </div>
+                            {contact.phone && (
+                              <div className="flex items-center text-sm mt-1">
+                                <Phone className="h-3.5 w-3.5 mr-1 text-muted-foreground" />
+                                <span>{contact.phone}</span>
+                              </div>
+                            )}
+                          </div>
+                        </TableCell>
+                        <TableCell className="hidden md:table-cell">{contact.companyName || 'No company'}</TableCell>
+                        <TableCell className="hidden lg:table-cell">{contact.jobTitle || 'No title'}</TableCell>
+                        <TableCell>
+                          <Badge variant="outline" className={`${getStatusColor(contact.status)}`}>
+                            {contact.status.charAt(0).toUpperCase() + contact.status.slice(1)}
+                          </Badge>
+                        </TableCell>
+                        <TableCell className="hidden lg:table-cell">
+                          {contact.source && (
+                            <Badge variant="outline" className="bg-gray-100 text-gray-800 border-gray-300">
+                              {contact.source}
+                            </Badge>
+                          )}
+                        </TableCell>
+                        <TableCell>{getLastContactedTime(contact.lastContactedDate)}</TableCell>
+                        <TableCell>
+                          <DropdownMenu>
+                            <DropdownMenuTrigger asChild>
+                              <Button variant="ghost" size="icon">
+                                <MoreHorizontal className="h-4 w-4" />
+                              </Button>
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent align="end">
+                              <DropdownMenuLabel>Actions</DropdownMenuLabel>
+                              <DropdownMenuSeparator />
+                              <DropdownMenuItem>View Details</DropdownMenuItem>
+                              <DropdownMenuItem>Edit Contact</DropdownMenuItem>
+                              <DropdownMenuItem>Add Task</DropdownMenuItem>
+                              <DropdownMenuItem>Add to Campaign</DropdownMenuItem>
+                              <DropdownMenuSeparator />
+                              <DropdownMenuItem 
+                                className="text-red-600"
+                                onClick={() => handleDeleteContact(contact.id)}
+                                disabled={deleteMutation.isPending}
+                              >
+                                Delete
+                              </DropdownMenuItem>
+                            </DropdownMenuContent>
+                          </DropdownMenu>
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              )}
             </CardContent>
           </Card>
         </TabsContent>
 
         <TabsContent value="customers" className="m-0">
           <Card>
-            <CardContent className="p-6 flex flex-col items-center justify-center min-h-[300px] text-center">
-              <p className="text-muted-foreground">Filter applied: Customers</p>
-              <p className="text-sm text-muted-foreground mt-1">
-                This is a placeholder. The actual filter would show only customer contacts.
-              </p>
+            <CardContent className="p-0">
+              {isLoading ? (
+                <div className="flex items-center justify-center py-8">
+                  <Loader2 className="h-8 w-8 animate-spin text-primary/80" />
+                  <span className="ml-2">Loading customer contacts...</span>
+                </div>
+              ) : isError ? (
+                <div className="flex items-center justify-center p-8 text-center text-red-500">
+                  <p>There was an error loading contacts. Please try again.</p>
+                </div>
+              ) : filteredContacts.length === 0 ? (
+                <div className="flex flex-col items-center justify-center p-8 text-center">
+                  <p className="text-gray-500">No customer contacts found</p>
+                </div>
+              ) : (
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead>Name</TableHead>
+                      <TableHead className="hidden md:table-cell">Contact</TableHead>
+                      <TableHead className="hidden md:table-cell">Company</TableHead>
+                      <TableHead className="hidden lg:table-cell">Title</TableHead>
+                      <TableHead>Status</TableHead>
+                      <TableHead className="hidden lg:table-cell">Source</TableHead>
+                      <TableHead>Last Contact</TableHead>
+                      <TableHead className="w-[50px]"></TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {filteredContacts.map((contact) => (
+                      <TableRow key={contact.id}>
+                        <TableCell>
+                          <div className="flex items-center space-x-2">
+                            <Avatar className="h-8 w-8">
+                              <AvatarFallback>{contact.firstName.charAt(0)}</AvatarFallback>
+                            </Avatar>
+                            <div>
+                              <p className="font-medium">{getFullName(contact.firstName, contact.lastName)}</p>
+                              <p className="text-xs text-muted-foreground md:hidden">
+                                {contact.companyName || 'No company'}
+                              </p>
+                            </div>
+                          </div>
+                        </TableCell>
+                        <TableCell className="hidden md:table-cell">
+                          <div className="flex flex-col">
+                            <div className="flex items-center text-sm">
+                              <Mail className="h-3.5 w-3.5 mr-1 text-muted-foreground" />
+                              <span>{contact.email}</span>
+                            </div>
+                            {contact.phone && (
+                              <div className="flex items-center text-sm mt-1">
+                                <Phone className="h-3.5 w-3.5 mr-1 text-muted-foreground" />
+                                <span>{contact.phone}</span>
+                              </div>
+                            )}
+                          </div>
+                        </TableCell>
+                        <TableCell className="hidden md:table-cell">{contact.companyName || 'No company'}</TableCell>
+                        <TableCell className="hidden lg:table-cell">{contact.jobTitle || 'No title'}</TableCell>
+                        <TableCell>
+                          <Badge variant="outline" className={`${getStatusColor(contact.status)}`}>
+                            {contact.status.charAt(0).toUpperCase() + contact.status.slice(1)}
+                          </Badge>
+                        </TableCell>
+                        <TableCell className="hidden lg:table-cell">
+                          {contact.source && (
+                            <Badge variant="outline" className="bg-gray-100 text-gray-800 border-gray-300">
+                              {contact.source}
+                            </Badge>
+                          )}
+                        </TableCell>
+                        <TableCell>{getLastContactedTime(contact.lastContactedDate)}</TableCell>
+                        <TableCell>
+                          <DropdownMenu>
+                            <DropdownMenuTrigger asChild>
+                              <Button variant="ghost" size="icon">
+                                <MoreHorizontal className="h-4 w-4" />
+                              </Button>
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent align="end">
+                              <DropdownMenuLabel>Actions</DropdownMenuLabel>
+                              <DropdownMenuSeparator />
+                              <DropdownMenuItem>View Details</DropdownMenuItem>
+                              <DropdownMenuItem>Edit Contact</DropdownMenuItem>
+                              <DropdownMenuItem>Add Task</DropdownMenuItem>
+                              <DropdownMenuItem>Add to Campaign</DropdownMenuItem>
+                              <DropdownMenuSeparator />
+                              <DropdownMenuItem 
+                                className="text-red-600"
+                                onClick={() => handleDeleteContact(contact.id)}
+                                disabled={deleteMutation.isPending}
+                              >
+                                Delete
+                              </DropdownMenuItem>
+                            </DropdownMenuContent>
+                          </DropdownMenu>
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              )}
             </CardContent>
           </Card>
         </TabsContent>
 
         <TabsContent value="leads" className="m-0">
           <Card>
-            <CardContent className="p-6 flex flex-col items-center justify-center min-h-[300px] text-center">
-              <p className="text-muted-foreground">Filter applied: Leads</p>
-              <p className="text-sm text-muted-foreground mt-1">
-                This is a placeholder. The actual filter would show only lead contacts.
-              </p>
+            <CardContent className="p-0">
+              {isLoading ? (
+                <div className="flex items-center justify-center py-8">
+                  <Loader2 className="h-8 w-8 animate-spin text-primary/80" />
+                  <span className="ml-2">Loading lead contacts...</span>
+                </div>
+              ) : isError ? (
+                <div className="flex items-center justify-center p-8 text-center text-red-500">
+                  <p>There was an error loading contacts. Please try again.</p>
+                </div>
+              ) : filteredContacts.length === 0 ? (
+                <div className="flex flex-col items-center justify-center p-8 text-center">
+                  <p className="text-gray-500">No lead contacts found</p>
+                </div>
+              ) : (
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead>Name</TableHead>
+                      <TableHead className="hidden md:table-cell">Contact</TableHead>
+                      <TableHead className="hidden md:table-cell">Company</TableHead>
+                      <TableHead className="hidden lg:table-cell">Title</TableHead>
+                      <TableHead>Status</TableHead>
+                      <TableHead className="hidden lg:table-cell">Source</TableHead>
+                      <TableHead>Last Contact</TableHead>
+                      <TableHead className="w-[50px]"></TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {filteredContacts.map((contact) => (
+                      <TableRow key={contact.id}>
+                        <TableCell>
+                          <div className="flex items-center space-x-2">
+                            <Avatar className="h-8 w-8">
+                              <AvatarFallback>{contact.firstName.charAt(0)}</AvatarFallback>
+                            </Avatar>
+                            <div>
+                              <p className="font-medium">{getFullName(contact.firstName, contact.lastName)}</p>
+                              <p className="text-xs text-muted-foreground md:hidden">
+                                {contact.companyName || 'No company'}
+                              </p>
+                            </div>
+                          </div>
+                        </TableCell>
+                        <TableCell className="hidden md:table-cell">
+                          <div className="flex flex-col">
+                            <div className="flex items-center text-sm">
+                              <Mail className="h-3.5 w-3.5 mr-1 text-muted-foreground" />
+                              <span>{contact.email}</span>
+                            </div>
+                            {contact.phone && (
+                              <div className="flex items-center text-sm mt-1">
+                                <Phone className="h-3.5 w-3.5 mr-1 text-muted-foreground" />
+                                <span>{contact.phone}</span>
+                              </div>
+                            )}
+                          </div>
+                        </TableCell>
+                        <TableCell className="hidden md:table-cell">{contact.companyName || 'No company'}</TableCell>
+                        <TableCell className="hidden lg:table-cell">{contact.jobTitle || 'No title'}</TableCell>
+                        <TableCell>
+                          <Badge variant="outline" className={`${getStatusColor(contact.status)}`}>
+                            {contact.status.charAt(0).toUpperCase() + contact.status.slice(1)}
+                          </Badge>
+                        </TableCell>
+                        <TableCell className="hidden lg:table-cell">
+                          {contact.source && (
+                            <Badge variant="outline" className="bg-gray-100 text-gray-800 border-gray-300">
+                              {contact.source}
+                            </Badge>
+                          )}
+                        </TableCell>
+                        <TableCell>{getLastContactedTime(contact.lastContactedDate)}</TableCell>
+                        <TableCell>
+                          <DropdownMenu>
+                            <DropdownMenuTrigger asChild>
+                              <Button variant="ghost" size="icon">
+                                <MoreHorizontal className="h-4 w-4" />
+                              </Button>
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent align="end">
+                              <DropdownMenuLabel>Actions</DropdownMenuLabel>
+                              <DropdownMenuSeparator />
+                              <DropdownMenuItem>View Details</DropdownMenuItem>
+                              <DropdownMenuItem>Edit Contact</DropdownMenuItem>
+                              <DropdownMenuItem>Add Task</DropdownMenuItem>
+                              <DropdownMenuItem>Add to Campaign</DropdownMenuItem>
+                              <DropdownMenuSeparator />
+                              <DropdownMenuItem 
+                                className="text-red-600"
+                                onClick={() => handleDeleteContact(contact.id)}
+                                disabled={deleteMutation.isPending}
+                              >
+                                Delete
+                              </DropdownMenuItem>
+                            </DropdownMenuContent>
+                          </DropdownMenu>
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              )}
             </CardContent>
           </Card>
         </TabsContent>
 
         <TabsContent value="prospects" className="m-0">
           <Card>
-            <CardContent className="p-6 flex flex-col items-center justify-center min-h-[300px] text-center">
-              <p className="text-muted-foreground">Filter applied: Prospects</p>
-              <p className="text-sm text-muted-foreground mt-1">
-                This is a placeholder. The actual filter would show only prospect contacts.
-              </p>
+            <CardContent className="p-0">
+              {isLoading ? (
+                <div className="flex items-center justify-center py-8">
+                  <Loader2 className="h-8 w-8 animate-spin text-primary/80" />
+                  <span className="ml-2">Loading prospect contacts...</span>
+                </div>
+              ) : isError ? (
+                <div className="flex items-center justify-center p-8 text-center text-red-500">
+                  <p>There was an error loading contacts. Please try again.</p>
+                </div>
+              ) : filteredContacts.length === 0 ? (
+                <div className="flex flex-col items-center justify-center p-8 text-center">
+                  <p className="text-gray-500">No prospect contacts found</p>
+                </div>
+              ) : (
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead>Name</TableHead>
+                      <TableHead className="hidden md:table-cell">Contact</TableHead>
+                      <TableHead className="hidden md:table-cell">Company</TableHead>
+                      <TableHead className="hidden lg:table-cell">Title</TableHead>
+                      <TableHead>Status</TableHead>
+                      <TableHead className="hidden lg:table-cell">Source</TableHead>
+                      <TableHead>Last Contact</TableHead>
+                      <TableHead className="w-[50px]"></TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {filteredContacts.map((contact) => (
+                      <TableRow key={contact.id}>
+                        <TableCell>
+                          <div className="flex items-center space-x-2">
+                            <Avatar className="h-8 w-8">
+                              <AvatarFallback>{contact.firstName.charAt(0)}</AvatarFallback>
+                            </Avatar>
+                            <div>
+                              <p className="font-medium">{getFullName(contact.firstName, contact.lastName)}</p>
+                              <p className="text-xs text-muted-foreground md:hidden">
+                                {contact.companyName || 'No company'}
+                              </p>
+                            </div>
+                          </div>
+                        </TableCell>
+                        <TableCell className="hidden md:table-cell">
+                          <div className="flex flex-col">
+                            <div className="flex items-center text-sm">
+                              <Mail className="h-3.5 w-3.5 mr-1 text-muted-foreground" />
+                              <span>{contact.email}</span>
+                            </div>
+                            {contact.phone && (
+                              <div className="flex items-center text-sm mt-1">
+                                <Phone className="h-3.5 w-3.5 mr-1 text-muted-foreground" />
+                                <span>{contact.phone}</span>
+                              </div>
+                            )}
+                          </div>
+                        </TableCell>
+                        <TableCell className="hidden md:table-cell">{contact.companyName || 'No company'}</TableCell>
+                        <TableCell className="hidden lg:table-cell">{contact.jobTitle || 'No title'}</TableCell>
+                        <TableCell>
+                          <Badge variant="outline" className={`${getStatusColor(contact.status)}`}>
+                            {contact.status.charAt(0).toUpperCase() + contact.status.slice(1)}
+                          </Badge>
+                        </TableCell>
+                        <TableCell className="hidden lg:table-cell">
+                          {contact.source && (
+                            <Badge variant="outline" className="bg-gray-100 text-gray-800 border-gray-300">
+                              {contact.source}
+                            </Badge>
+                          )}
+                        </TableCell>
+                        <TableCell>{getLastContactedTime(contact.lastContactedDate)}</TableCell>
+                        <TableCell>
+                          <DropdownMenu>
+                            <DropdownMenuTrigger asChild>
+                              <Button variant="ghost" size="icon">
+                                <MoreHorizontal className="h-4 w-4" />
+                              </Button>
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent align="end">
+                              <DropdownMenuLabel>Actions</DropdownMenuLabel>
+                              <DropdownMenuSeparator />
+                              <DropdownMenuItem>View Details</DropdownMenuItem>
+                              <DropdownMenuItem>Edit Contact</DropdownMenuItem>
+                              <DropdownMenuItem>Add Task</DropdownMenuItem>
+                              <DropdownMenuItem>Add to Campaign</DropdownMenuItem>
+                              <DropdownMenuSeparator />
+                              <DropdownMenuItem 
+                                className="text-red-600"
+                                onClick={() => handleDeleteContact(contact.id)}
+                                disabled={deleteMutation.isPending}
+                              >
+                                Delete
+                              </DropdownMenuItem>
+                            </DropdownMenuContent>
+                          </DropdownMenu>
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              )}
             </CardContent>
           </Card>
         </TabsContent>
