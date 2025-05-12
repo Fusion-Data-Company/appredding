@@ -117,7 +117,7 @@ const FirePrevention = () => {
             <div className="max-w-4xl mx-auto text-center mb-16 backdrop-blur-sm bg-primary-900/60 p-8 rounded-xl shadow-lg">
               <GradientHeading level={1} className="text-4xl md:text-5xl mb-6 glow-text" variant="fire">NASA-Derived Wildfire Defense</GradientHeading>
               <p className="text-xl text-white mb-8">
-                Protect your home with our Class A fire-rated ceramic coating system featuring perfect 0/100 scores in ASTM E84 testing for both Flame Spread and Smoke Development. Withstands extreme temperatures up to 2,732°F with a 2,177°F temperature differential.
+                Protect your home with our NASA-derived ceramic coating system featuring perfect Class A fire ratings (0/100 scores in ASTM E84 testing for both Flame Spread and Smoke Development). Our triple-component barrier containing millions of vacuum-filled ceramic microspheres (80-160 micron) withstands extreme temperatures up to 2,732°F (1,500°C) while maintaining a 2,177°F temperature differential.
               </p>
             </div>
 
@@ -132,7 +132,7 @@ const FirePrevention = () => {
                     </span>
                     <div>
                       <h3 className="text-xl font-semibold mb-2">Advanced Triple-Component Thermal Barrier System</h3>
-                      <p>Our ceramic microsphere technology creates multiple thermal breaks throughout the coating film. The fundamental principle exploits the physical impossibility of heat transfer through vacuum spaces inside each ceramic microsphere.</p>
+                      <p>Our 80-160 micron ceramic microsphere technology creates millions of thermal breaks with thermal conductivity of just 0.00543 W/cm²/K throughout the coating film. The fundamental principle exploits the physical impossibility of heat transfer through vacuum spaces inside each microsphere, creating a "space blanket" effect using the same principles as NASA shuttle thermal protection.</p>
                     </div>
                   </div>
 
@@ -142,7 +142,7 @@ const FirePrevention = () => {
                     </span>
                     <div>
                       <h3 className="text-xl font-semibold mb-2">5-6 Coats Passes 1550°F Flame Tests</h3>
-                      <p>When applied at approximately 30 mils thickness (5-6 coats) to 1/4 inch steel, our coating passes tests against 1550°F (843°C) flame for 25+ minutes while maintaining structural integrity of the substrate.</p>
+                      <p>When applied at approximately 30 mils thickness (5-6 coats) to 1/4 inch steel, our coating passes tests against 1550°F (843°C) flame for 25+ minutes while maintaining structural integrity. With a thermal conductivity of 0.00543 W/cm²/K, the coating creates a 1,400°F temperature differential, keeping substrate temperatures below 150°F - far cooler than the 600-900°F substrate temperatures seen with competing products.</p>
                     </div>
                   </div>
 
@@ -152,7 +152,7 @@ const FirePrevention = () => {
                     </span>
                     <div>
                       <h3 className="text-xl font-semibold mb-2">Verified by NASA, UL, Factory Mutual, and ASTM Test Standards</h3>
-                      <p>Our wildfire protection systems have been thoroughly tested and validated by the most respected fire protection authorities in the industry, offering unprecedented protection for structures in high-risk zones.</p>
+                      <p>Our wildfire protection systems have been rigorously tested according to ASTM E84 (surface burning characteristics), ASTM D2485 (high temperature service), and ASTM D2794 (impact resistance) protocols. The perfect Class A fire rating (0/100) significantly outperforms competing products that only achieve Class B-C ratings (25-75/100 range), offering unprecedented protection for structures in high-risk zones.</p>
                     </div>
                   </div>
 
@@ -162,7 +162,7 @@ const FirePrevention = () => {
                     </span>
                     <div>
                       <h3 className="text-xl font-semibold mb-2">Exceptional Durability Proven Over Decades</h3>
-                      <p>Original applications from 1989 showed no deterioration or performance loss when inspected 30 years later in 2019, ensuring long-term protection for your property investment against recurring wildfire threats.</p>
+                      <p>Original applications from 1989 showed only 1% reflectivity degradation when inspected 30 years later in 2019, compared to competing products that lose 10-20% reflectivity in just 3 years. Our elastomeric polymer maintains 156% flexibility even after decades of exposure, ensuring long-term structure protection against recurring wildfire threats.</p>
                     </div>
                   </div>
                 </div>
