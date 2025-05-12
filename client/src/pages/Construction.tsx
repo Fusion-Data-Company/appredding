@@ -1527,6 +1527,141 @@ const ConstructionPage = () => {
           </div>
         </section>
         
+        {/* Enterprise Case Study Section */}
+        <section className="py-16 relative z-10">
+          <div className="container mx-auto">
+            <div className="backdrop-blur-sm bg-primary-900/60 p-8 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] mb-12">
+              <GradientHeading level={2} className="text-3xl md:text-4xl mb-8 text-center" variant="mixed">
+                Case Study: Skyline Tower Commercial Complex
+              </GradientHeading>
+              
+              <div className="grid md:grid-cols-2 gap-12 mb-12">
+                <div className="space-y-6">
+                  <div className="bg-blue-900/40 backdrop-blur-sm p-6 rounded-lg border-2 border-blue-400">
+                    <h3 className="text-2xl font-bold mb-4 text-blue-100">Project Overview</h3>
+                    <p className="mb-4">
+                      A landmark 52-story mixed-use development in downtown Seattle required comprehensive fire protection and thermal management solutions to meet strict building codes while optimizing energy efficiency.
+                    </p>
+                    <div className="grid grid-cols-2 gap-4 mt-6">
+                      <div className="bg-blue-900/70 p-4 rounded-lg flex flex-col items-center text-center">
+                        <ShieldCheck className="h-8 w-8 mb-2 text-blue-300" />
+                        <span className="text-2xl font-bold">97%</span>
+                        <span className="text-sm">Increased Fire Protection</span>
+                      </div>
+                      <div className="bg-blue-900/70 p-4 rounded-lg flex flex-col items-center text-center">
+                        <Building className="h-8 w-8 mb-2 text-blue-300" />
+                        <span className="text-2xl font-bold">1.4M</span>
+                        <span className="text-sm">Square Feet Protected</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-blue-900/40 backdrop-blur-sm p-6 rounded-lg border-2 border-blue-400">
+                    <h3 className="text-xl font-bold mb-3 text-blue-100">Performance Metrics</h3>
+                    <ul className="space-y-4">
+                      <li className="flex items-start">
+                        <Droplets className="h-5 w-5 mr-2 text-blue-300 mt-1 flex-shrink-0" />
+                        <span><strong>100% water resistance</strong> across all tested exterior surfaces</span>
+                      </li>
+                      <li className="flex items-start">
+                        <HardHat className="h-5 w-5 mr-2 text-blue-300 mt-1 flex-shrink-0" />
+                        <span><strong>Class A fire rating</strong> with 0/0 flame spread and smoke development</span>
+                      </li>
+                      <li className="flex items-start">
+                        <PaintBucket className="h-5 w-5 mr-2 text-blue-300 mt-1 flex-shrink-0" />
+                        <span><strong>156% elastomeric flexibility</strong> allowing for thermal expansion</span>
+                      </li>
+                      <li className="flex items-start">
+                        <Leaf className="h-5 w-5 mr-2 text-blue-300 mt-1 flex-shrink-0" />
+                        <span><strong>32% reduction</strong> in overall building energy consumption</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                
+                <div className="space-y-6">
+                  <div className="bg-blue-900/40 backdrop-blur-sm p-6 rounded-lg border-2 border-blue-400">
+                    <h3 className="text-xl font-bold mb-3 text-blue-100">Implementation Details</h3>
+                    <div className="space-y-4">
+                      <div className="grid grid-cols-2 gap-4">
+                        <div>
+                          <p className="text-sm text-blue-300">Project Duration</p>
+                          <p className="font-semibold">8.5 months</p>
+                        </div>
+                        <div>
+                          <p className="text-sm text-blue-300">Coating System</p>
+                          <p className="font-semibold">PraetorianGuard™ Pro</p>
+                        </div>
+                        <div>
+                          <p className="text-sm text-blue-300">Application Method</p>
+                          <p className="font-semibold">Spray & Roller Hybrid</p>
+                        </div>
+                        <div>
+                          <p className="text-sm text-blue-300">Building Code</p>
+                          <p className="font-semibold">IBC 2018 Compliant</p>
+                        </div>
+                      </div>
+                      
+                      <div className="mt-4 pt-4 border-t border-blue-700">
+                        <h4 className="font-semibold mb-2">ROI Analysis (10-Year Projection)</h4>
+                        <table className="min-w-full">
+                          <thead>
+                            <tr className="border-b border-blue-700">
+                              <th className="text-left py-2 text-sm">Category</th>
+                              <th className="text-right py-2 text-sm">Savings</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr className="border-b border-blue-800">
+                              <td className="py-2">Energy Cost Reduction</td>
+                              <td className="text-right">$3.6M</td>
+                            </tr>
+                            <tr className="border-b border-blue-800">
+                              <td className="py-2">Insurance Premium Reduction</td>
+                              <td className="text-right">$1.2M</td>
+                            </tr>
+                            <tr className="border-b border-blue-800">
+                              <td className="py-2">Maintenance Cost Reduction</td>
+                              <td className="text-right">$950K</td>
+                            </tr>
+                            <tr>
+                              <td className="py-2 font-bold">Total ROI</td>
+                              <td className="text-right font-bold">583%</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-blue-900/40 backdrop-blur-sm p-6 rounded-lg border-2 border-blue-400">
+                    <h3 className="text-xl font-bold mb-3 text-blue-100">Client Testimonial</h3>
+                    <blockquote className="italic border-l-4 border-blue-400 pl-4 mb-4">
+                      "The implementation of Praetorian's ceramic coating system throughout our Skyline Tower project delivered exceptional results that far exceeded our expectations. Not only did we achieve compliance with stringent fire safety regulations, but the energy efficiency gains have significantly improved our operating costs and enhanced our LEED Platinum certification. The long-term protection and warranty coverage provide peace of mind for our investment committee and property management team."
+                    </blockquote>
+                    <div className="text-right">
+                      <p className="font-bold">Michael Chen, AIA, LEED AP</p>
+                      <p className="text-sm">Director of Sustainable Development, Emerald City Properties</p>
+                    </div>
+                    
+                    <div className="mt-6 text-center">
+                      <Button
+                        className="bg-blue-600 hover:bg-blue-500 text-white"
+                        onClick={() => {
+                          // In a production environment, this would link to a full case study PDF
+                          window.alert("Full case study document download functionality will be implemented in the final version");
+                        }}
+                      >
+                        Download Detailed Technical Report
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        
         <section className="py-16 relative z-10">
           <div className="container mx-auto">
             {showRegistrationForm ? (
