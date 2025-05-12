@@ -325,7 +325,7 @@ export default function SocialMediaContent() {
                 <div className="flex justify-center items-center h-64 text-center p-4">
                   <div>
                     <p className="text-red-500 mb-2">Failed to load social media posts</p>
-                    <Button variant="outline" size="sm" onClick={refetchPosts}>
+                    <Button variant="outline" size="sm" onClick={() => refetchPosts()}>
                       <RefreshCcw className="h-4 w-4 mr-2" />
                       Try Again
                     </Button>
@@ -489,7 +489,7 @@ export default function SocialMediaContent() {
                 <div className="flex justify-center items-center h-64 text-center p-4">
                   <div>
                     <p className="text-red-500 mb-2">Failed to load marketing campaigns</p>
-                    <Button variant="outline" size="sm" onClick={refetchCampaigns}>
+                    <Button variant="outline" size="sm" onClick={() => refetchCampaigns()}>
                       <RefreshCcw className="h-4 w-4 mr-2" />
                       Try Again
                     </Button>
@@ -508,7 +508,13 @@ export default function SocialMediaContent() {
                     </TableRow>
                   </TableHeader>
                 <TableBody>
-                  {campaignsData.map((campaign) => (
+                  {campaigns.filter((campaign: MarketingCampaign) => {
+                    return (
+                      campaign.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                      (campaign.description || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
+                      (campaign.platform || '').toLowerCase().includes(searchQuery.toLowerCase())
+                    );
+                  }).map((campaign: MarketingCampaign) => (
                     <TableRow key={campaign.id}>
                       <TableCell>
                         <div>
@@ -527,21 +533,33 @@ export default function SocialMediaContent() {
                         </Badge>
                       </TableCell>
                       <TableCell className="hidden lg:table-cell">
-                        <div className="flex items-center">
-                          <Calendar className="h-3.5 w-3.5 mr-1 text-muted-foreground" />
-                          <span>{campaign.startDate} - {campaign.endDate}</span>
-                        </div>
+                        {campaign.startDate && campaign.endDate ? (
+                          <div className="flex items-center">
+                            <Calendar className="h-3.5 w-3.5 mr-1 text-muted-foreground" />
+                            <span>
+                              {new Date(campaign.startDate).toLocaleDateString()} - {new Date(campaign.endDate).toLocaleDateString()}
+                            </span>
+                          </div>
+                        ) : (
+                          <span className="text-xs text-muted-foreground">No date set</span>
+                        )}
                       </TableCell>
                       <TableCell className="hidden sm:table-cell">
-                        {campaign.posts}
+                        {campaign.posts || 0}
                       </TableCell>
                       <TableCell className="hidden md:table-cell">
-                        <Badge 
-                          variant="outline" 
-                          className={`${getPlatformColor(campaign.platform)}`}
-                        >
-                          {campaign.platform === "multiple" ? "Multiple" : campaign.platform.charAt(0).toUpperCase() + campaign.platform.slice(1)}
-                        </Badge>
+                        {campaign.platform ? (
+                          <Badge 
+                            variant="outline" 
+                            className={`${getPlatformColor(campaign.platform || 'other')}`}
+                          >
+                            {campaign.platform === "multiple" 
+                              ? "Multiple" 
+                              : campaign.platform.charAt(0).toUpperCase() + campaign.platform.slice(1)}
+                          </Badge>
+                        ) : (
+                          <span className="text-xs text-muted-foreground">Not specified</span>
+                        )}
                       </TableCell>
                       <TableCell>
                         <DropdownMenu>
@@ -566,6 +584,17 @@ export default function SocialMediaContent() {
                   ))}
                 </TableBody>
               </Table>
+              ) : (
+                <div className="flex justify-center items-center h-64 text-center p-4">
+                  <div>
+                    <p className="text-muted-foreground mb-2">No marketing campaigns found</p>
+                    <Button className="h-9">
+                      <Plus className="h-4 w-4 mr-2" />
+                      Create Campaign
+                    </Button>
+                  </div>
+                </div>
+              )
             </CardContent>
           </Card>
         </TabsContent>
