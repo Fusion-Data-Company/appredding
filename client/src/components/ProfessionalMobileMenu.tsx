@@ -148,6 +148,20 @@ const ProfessionalMobileMenu = ({ isOpen, onClose, isHomePage = true }: Professi
               <AccordionContent>
                 <div className="pl-2 space-y-1">
                   <Link 
+                    href="/products"
+                    onClick={handleLinkClick}
+                    className="flex items-center space-x-3 px-4 py-2 text-sm rounded-md hover:bg-amber-100/50 dark:hover:bg-amber-900/30 text-amber-900 dark:text-amber-200"
+                  >
+                    <span>All Products</span>
+                  </Link>
+                  <Link 
+                    href="/technology"
+                    onClick={handleLinkClick}
+                    className="flex items-center space-x-3 px-4 py-2 text-sm rounded-md hover:bg-amber-100/50 dark:hover:bg-amber-900/30 text-amber-900 dark:text-amber-200"
+                  >
+                    <span>Technical Data</span>
+                  </Link>
+                  <Link 
                     href="/about"
                     onClick={handleLinkClick}
                     className="flex items-center space-x-3 px-4 py-2 text-sm rounded-md hover:bg-amber-100/50 dark:hover:bg-amber-900/30 text-amber-900 dark:text-amber-200"

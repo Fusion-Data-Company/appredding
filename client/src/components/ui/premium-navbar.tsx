@@ -71,6 +71,7 @@ export function PremiumNavbar() {
         <MenuItem setActive={setActive} active={active} item="Products">
           <div className="flex flex-col space-y-3 text-sm">
             <HoveredLink href="/products">All Products</HoveredLink>
+            <HoveredLink href="/technology">Technical Data</HoveredLink>
           </div>
         </MenuItem>
         <MenuItem setActive={setActive} active={active} item="About">
