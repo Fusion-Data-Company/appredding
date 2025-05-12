@@ -507,92 +507,92 @@ export default function SocialMediaContent() {
                       <TableHead className="w-[50px]"></TableHead>
                     </TableRow>
                   </TableHeader>
-                <TableBody>
-                  {campaigns.filter((campaign: MarketingCampaign) => {
-                    return (
-                      campaign.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                      (campaign.description || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
-                      (campaign.platform || '').toLowerCase().includes(searchQuery.toLowerCase())
-                    );
-                  }).map((campaign: MarketingCampaign) => (
-                    <TableRow key={campaign.id}>
-                      <TableCell>
-                        <div>
-                          <p className="font-medium">{campaign.name}</p>
-                          <p className="text-xs text-muted-foreground">
-                            {campaign.description}
-                          </p>
-                        </div>
-                      </TableCell>
-                      <TableCell className="hidden md:table-cell">
-                        {campaign.status ? (
-                          <Badge 
-                            variant="outline" 
-                            className={`${getStatusColor(campaign.status || 'active')}`}
-                          >
-                            {campaign.status.charAt(0).toUpperCase() + campaign.status.slice(1)}
-                          </Badge>
-                        ) : (
-                          <span className="text-xs text-muted-foreground">Not set</span>
-                        )}
-                      </TableCell>
-                      <TableCell className="hidden lg:table-cell">
-                        {campaign.startDate && campaign.endDate ? (
-                          <div className="flex items-center">
-                            <Calendar className="h-3.5 w-3.5 mr-1 text-muted-foreground" />
-                            <span>
-                              {new Date(campaign.startDate).toLocaleDateString()} - {new Date(campaign.endDate).toLocaleDateString()}
-                            </span>
+                  <TableBody>
+                    {campaigns.filter((campaign: MarketingCampaign) => {
+                      return (
+                        campaign.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                        (campaign.description || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
+                        (campaign.platform || '').toLowerCase().includes(searchQuery.toLowerCase())
+                      );
+                    }).map((campaign: MarketingCampaign) => (
+                      <TableRow key={campaign.id}>
+                        <TableCell>
+                          <div>
+                            <p className="font-medium">{campaign.name}</p>
+                            <p className="text-xs text-muted-foreground">
+                              {campaign.description}
+                            </p>
                           </div>
-                        ) : (
-                          <span className="text-xs text-muted-foreground">No date set</span>
-                        )}
-                      </TableCell>
-                      <TableCell className="hidden sm:table-cell">
-                        {campaign.posts || 0}
-                      </TableCell>
-                      <TableCell className="hidden md:table-cell">
-                        {campaign.platform ? (
-                          <Badge 
-                            variant="outline" 
-                            className={`${getPlatformColor(campaign.platform || 'other')}`}
-                          >
-                            {campaign.platform === "multiple" 
-                              ? "Multiple" 
-                              : campaign.platform.charAt(0).toUpperCase() + campaign.platform.slice(1)}
-                          </Badge>
-                        ) : (
-                          <span className="text-xs text-muted-foreground">Not specified</span>
-                        )}
-                      </TableCell>
-                      <TableCell>
-                        <DropdownMenu>
-                          <DropdownMenuTrigger asChild>
-                            <Button variant="ghost" size="icon">
-                              <MoreHorizontal className="h-4 w-4" />
-                            </Button>
-                          </DropdownMenuTrigger>
-                          <DropdownMenuContent align="end">
-                            <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                            <DropdownMenuSeparator />
-                            <DropdownMenuItem>View Campaign</DropdownMenuItem>
-                            <DropdownMenuItem>Edit Campaign</DropdownMenuItem>
-                            <DropdownMenuItem>Add Post</DropdownMenuItem>
-                            <DropdownMenuItem>View Analytics</DropdownMenuItem>
-                            <DropdownMenuSeparator />
-                            <DropdownMenuItem 
-                              className="text-red-600"
-                              onClick={() => handleDeleteCampaign(campaign.id)}
+                        </TableCell>
+                        <TableCell className="hidden md:table-cell">
+                          {campaign.status ? (
+                            <Badge 
+                              variant="outline" 
+                              className={getStatusColor(campaign.status || 'active')}
                             >
-                              Delete
-                            </DropdownMenuItem>
-                          </DropdownMenuContent>
-                        </DropdownMenu>
-                      </TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
+                              {campaign.status.charAt(0).toUpperCase() + campaign.status.slice(1)}
+                            </Badge>
+                          ) : (
+                            <span className="text-xs text-muted-foreground">Not set</span>
+                          )}
+                        </TableCell>
+                        <TableCell className="hidden lg:table-cell">
+                          {campaign.startDate && campaign.endDate ? (
+                            <div className="flex items-center">
+                              <Calendar className="h-3.5 w-3.5 mr-1 text-muted-foreground" />
+                              <span>
+                                {new Date(campaign.startDate).toLocaleDateString()} - {new Date(campaign.endDate).toLocaleDateString()}
+                              </span>
+                            </div>
+                          ) : (
+                            <span className="text-xs text-muted-foreground">No date set</span>
+                          )}
+                        </TableCell>
+                        <TableCell className="hidden sm:table-cell">
+                          {campaign.posts || 0}
+                        </TableCell>
+                        <TableCell className="hidden md:table-cell">
+                          {campaign.platform ? (
+                            <Badge 
+                              variant="outline" 
+                              className={getPlatformColor(campaign.platform || 'other')}
+                            >
+                              {campaign.platform === "multiple" 
+                                ? "Multiple" 
+                                : campaign.platform.charAt(0).toUpperCase() + campaign.platform.slice(1)}
+                            </Badge>
+                          ) : (
+                            <span className="text-xs text-muted-foreground">Not specified</span>
+                          )}
+                        </TableCell>
+                        <TableCell>
+                          <DropdownMenu>
+                            <DropdownMenuTrigger asChild>
+                              <Button variant="ghost" size="icon">
+                                <MoreHorizontal className="h-4 w-4" />
+                              </Button>
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent align="end">
+                              <DropdownMenuLabel>Actions</DropdownMenuLabel>
+                              <DropdownMenuSeparator />
+                              <DropdownMenuItem>View Campaign</DropdownMenuItem>
+                              <DropdownMenuItem>Edit Campaign</DropdownMenuItem>
+                              <DropdownMenuItem>Add Post</DropdownMenuItem>
+                              <DropdownMenuItem>View Analytics</DropdownMenuItem>
+                              <DropdownMenuSeparator />
+                              <DropdownMenuItem 
+                                className="text-red-600"
+                                onClick={() => handleDeleteCampaign(campaign.id)}
+                              >
+                                Delete
+                              </DropdownMenuItem>
+                            </DropdownMenuContent>
+                          </DropdownMenu>
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
               ) : (
                 <div className="flex justify-center items-center h-64 text-center p-4">
                   <div>
@@ -603,7 +603,7 @@ export default function SocialMediaContent() {
                     </Button>
                   </div>
                 </div>
-              )
+              )}
             </CardContent>
           </Card>
         </TabsContent>
