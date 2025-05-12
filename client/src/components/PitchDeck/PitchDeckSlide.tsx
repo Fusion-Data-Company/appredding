@@ -50,10 +50,16 @@ export const PitchDeckSlide: React.FC<PitchDeckSlideProps> = ({
   return (
     <motion.div
       className={cn(
-        "absolute inset-0 flex flex-col p-6 md:p-8 rounded-xl backdrop-blur-sm",
+        "absolute inset-0 flex flex-col p-6 md:p-8 rounded-xl backdrop-blur-sm shadow-[0_0_50px_rgba(29,78,216,0.15)]",
         bgColor,
         current ? "z-10" : "z-0"
       )}
+      style={{
+        boxShadow: "0 0 40px rgba(29, 78, 216, 0.2) inset, 0 0 30px rgba(29, 78, 216, 0.15)",
+        borderImage: "linear-gradient(to right, rgba(59, 130, 246, 0.3), rgba(37, 99, 235, 0.5), rgba(59, 130, 246, 0.3)) 1",
+        borderWidth: "1px",
+        borderStyle: "solid"
+      }}
       initial="hidden"
       animate={current ? "visible" : "hidden"}
       exit="exit"
@@ -78,19 +84,23 @@ export const PitchDeckSlide: React.FC<PitchDeckSlideProps> = ({
       <div className="text-center mb-6">
         <div className="flex items-center justify-center gap-3 mb-3">
           {icon && (
-            <div className="bg-blue-900/50 p-2 rounded-full border border-blue-500/30 flex-shrink-0">
-              {icon}
+            <div className="bg-gradient-to-br from-blue-900/70 to-blue-800/50 p-3 rounded-full border border-blue-400/40 flex-shrink-0 shadow-[0_0_15px_rgba(59,130,246,0.4)]" style={{
+              boxShadow: "0 0 15px rgba(59, 130, 246, 0.3), 0 0 5px rgba(59, 130, 246, 0.2) inset"
+            }}>
+              <div className="text-blue-300 animate-pulse-subtle">
+                {icon}
+              </div>
             </div>
           )}
           <h2 className={cn(
-            "text-2xl md:text-3xl font-bold bg-clip-text text-transparent",
+            "text-2xl md:text-3xl font-bold bg-clip-text text-transparent drop-shadow-[0_0_6px_rgba(255,255,255,0.3)]",
             titleColor
           )}>
             {title}
           </h2>
         </div>
         
-        <div className="w-16 h-1 bg-gradient-to-r from-blue-500 to-orange-500 rounded-full mx-auto"></div>
+        <div className="w-24 h-1.5 bg-gradient-to-r from-blue-500 via-white to-blue-400 rounded-full mx-auto shadow-[0_0_10px_rgba(59,130,246,0.5)]"></div>
       </div>
 
       <div className="flex-grow overflow-y-auto">

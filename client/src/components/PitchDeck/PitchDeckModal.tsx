@@ -124,7 +124,7 @@ export const PitchDeckModal: React.FC<PitchDeckModalProps> = ({ isOpen, onClose 
               )}
               
               {/* Content area */}
-              <div className="relative h-[600px] overflow-hidden">
+              <div className="relative h-[800px] overflow-hidden">
                 <AnimatePresence initial={false} custom={slideDirection}>
                   {/* Slide 1: Challenges & Solution Overview */}
                   <PitchDeckSlide 
@@ -132,13 +132,19 @@ export const PitchDeckModal: React.FC<PitchDeckModalProps> = ({ isOpen, onClose 
                     current={currentSlide === 0}
                     index={0}
                     totalSlides={totalSlides}
-                    icon={<Shield className="h-5 w-5 text-blue-300" />}
+                    icon={<Shield className="h-6 w-6 text-blue-300" />}
                     key="slide-0"
                   >
                     <div className="grid md:grid-cols-2 gap-8">
-                      <div className="bg-blue-900/30 backdrop-blur-sm rounded-xl border border-blue-500/30 p-5">
-                        <h3 className="text-xl font-bold text-red-300 mb-3 flex items-center gap-2">
-                          <Flame className="h-5 w-5 text-red-400" />
+                      <div className="bg-gradient-to-br from-blue-900/30 to-blue-950/40 backdrop-blur-sm rounded-xl border border-blue-500/30 p-5 shadow-[0_0_20px_rgba(29,78,216,0.15)]" 
+                        style={{
+                          boxShadow: "0 5px 15px rgba(3, 7, 18, 0.5), 0 0 5px rgba(59, 130, 246, 0.2) inset"
+                        }}
+                      >
+                        <h3 className="text-xl font-bold text-red-300 mb-3 flex items-center gap-2 drop-shadow-[0_0_4px_rgba(248,113,113,0.4)]">
+                          <div className="bg-red-900/30 p-1.5 rounded-lg shadow-inner">
+                            <Flame className="h-5 w-5 text-red-400" />
+                          </div>
                           Infrastructure at Risk
                         </h3>
                         <ul className="space-y-4">
@@ -164,9 +170,15 @@ export const PitchDeckModal: React.FC<PitchDeckModalProps> = ({ isOpen, onClose 
                         </div>
                       </div>
                       
-                      <div className="bg-blue-900/30 backdrop-blur-sm rounded-xl border border-blue-500/30 p-5">
-                        <h3 className="text-xl font-bold text-blue-300 mb-3 flex items-center gap-2">
-                          <Shield className="h-5 w-5 text-blue-400" />
+                      <div className="bg-gradient-to-br from-blue-900/30 to-blue-950/40 backdrop-blur-sm rounded-xl border border-blue-500/30 p-5 shadow-[0_0_20px_rgba(29,78,216,0.15)]" 
+                        style={{
+                          boxShadow: "0 5px 15px rgba(3, 7, 18, 0.5), 0 0 5px rgba(59, 130, 246, 0.2) inset"
+                        }}
+                      >
+                        <h3 className="text-xl font-bold text-blue-300 mb-3 flex items-center gap-2 drop-shadow-[0_0_4px_rgba(96,165,250,0.4)]">
+                          <div className="bg-blue-900/30 p-1.5 rounded-lg shadow-inner">
+                            <Shield className="h-5 w-5 text-blue-400" />
+                          </div>
                           Our Solution
                         </h3>
                         <div className="space-y-4">
@@ -193,8 +205,12 @@ export const PitchDeckModal: React.FC<PitchDeckModalProps> = ({ isOpen, onClose 
                       </div>
                     </div>
                     
-                    <div className="mt-6 p-5 bg-gradient-to-r from-blue-950/50 to-blue-900/20 rounded-xl border border-blue-500/30 text-center">
-                      <p className="text-xl font-semibold text-blue-300">
+                    <div className="mt-6 p-6 bg-gradient-to-r from-blue-950/70 via-blue-900/40 to-blue-950/70 rounded-xl border border-blue-400/40 text-center shadow-[0_0_25px_rgba(29,78,216,0.15)]"
+                      style={{
+                        boxShadow: "0 5px 20px rgba(3, 7, 18, 0.5), 0 0 10px rgba(37, 99, 235, 0.2) inset"
+                      }}
+                    >
+                      <p className="text-xl font-semibold text-blue-300 drop-shadow-[0_0_4px_rgba(147,197,253,0.5)]">
                         Next-generation protection for your most critical assets
                       </p>
                     </div>
@@ -206,7 +222,7 @@ export const PitchDeckModal: React.FC<PitchDeckModalProps> = ({ isOpen, onClose 
                     current={currentSlide === 1}
                     index={1}
                     totalSlides={totalSlides}
-                    icon={<Shield className="h-5 w-5 text-blue-300" />}
+                    icon={<Shield className="h-6 w-6 text-blue-300" />}
                     key="slide-1"
                   >
                     <div className="space-y-6">
@@ -286,7 +302,7 @@ export const PitchDeckModal: React.FC<PitchDeckModalProps> = ({ isOpen, onClose 
                     current={currentSlide === 2}
                     index={2}
                     totalSlides={totalSlides}
-                    icon={<Activity className="h-5 w-5 text-blue-300" />}
+                    icon={<Activity className="h-6 w-6 text-blue-300" />}
                     key="slide-2"
                   >
                     <div className="grid md:grid-cols-2 gap-4">
