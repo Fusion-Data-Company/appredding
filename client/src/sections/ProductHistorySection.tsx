@@ -20,24 +20,24 @@ const ProductHistorySection = () => {
           <div>
             <GradientHeading level={2} className="text-4xl md:text-5xl lg:text-6xl mb-8" variant="fire">Space Technology Heritage</GradientHeading>
             <p className="mb-8 text-white text-xl leading-relaxed">
-              Praetorian SmartCoat's foundation is built upon NASA space shuttle thermal protection technology, adapted and enhanced for terrestrial applications with remarkable results.
+              Praetorian SmartCoat's foundation is built upon NASA space shuttle thermal protection technology, utilizing vacuum-filled ceramic microspheres in a specialized elastomeric matrix with 156% flexibility. Our triple-component system creates a thermal barrier that addresses radiation, conduction, and convection simultaneously while providing Class A fire protection.
             </p>
             <ul className="space-y-5 mb-10">
               <li className="flex items-start">
                 <i className="fas fa-check-circle text-primary-400 mt-1 mr-4 text-2xl"></i>
-                <span className="dark:text-white text-white text-lg">Developed from NASA space shuttle ceramic technology for thermal protection during atmospheric re-entry</span>
+                <span className="dark:text-white text-white text-lg">Developed from NASA space shuttle ceramic technology utilizing millions of vacuum-filled ceramic microspheres with thermal conductivity of just 0.00543 W/cm²/K</span>
               </li>
               <li className="flex items-start">
                 <i className="fas fa-check-circle text-primary-400 mt-1 mr-4 text-2xl"></i>
-                <span className="dark:text-white text-white text-lg">Original applications from 1989 still performing perfectly with minimal degradation when inspected in 2019</span>
+                <span className="dark:text-white text-white text-lg">Original applications from 1989 still performing perfectly with only 1% reflectivity degradation when inspected in 2019, outperforming competing products that lose 10-20% reflectivity in just 3 years</span>
               </li>
               <li className="flex items-start">
                 <i className="fas fa-check-circle text-primary-400 mt-1 mr-4 text-2xl"></i>
-                <span className="dark:text-white text-white text-lg">Chosen by the US Air Force for critical facilities after outperforming all alternatives in Arizona tests</span>
+                <span className="dark:text-white text-white text-lg">US Air Force tests in Arizona demonstrated metal buildings maintaining 85°F interior temperature while ambient temperatures reached 111-113°F, preventing 95% of solar radiation from affecting structures</span>
               </li>
               <li className="flex items-start">
                 <i className="fas fa-check-circle text-primary-400 mt-1 mr-4 text-2xl"></i>
-                <span className="dark:text-white text-white text-lg">American Bureau of Shipping (ABS) certified for marine applications in harsh saltwater environments</span>
+                <span className="dark:text-white text-white text-lg">Multi-certified with Class A fire ratings (0/100 flame spread, 0/100 smoke development), Cool Roof Rating Council verification (89% reflection, 89% emittance), and American Bureau of Shipping (ABS) approval</span>
               </li>
             </ul>
             <GradientButton 
