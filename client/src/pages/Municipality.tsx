@@ -638,9 +638,10 @@ const MunicipalityPage = () => {
                 <span className="text-orange-400">Protection</span>
               </h2>
               <p className="text-white mb-8 text-center max-w-3xl mx-auto">
-                Our specialized municipal coatings are designed to provide long-lasting protection for public infrastructure, 
-                enhancing durability while reducing maintenance costs and extending service life. Engineered with advanced polymer technology, 
-                these coatings create a resilient barrier against environmental damage, corrosion, and wear.
+                Our NASA-derived ceramic microsphere technology provides documented ROI in 1-3 years with 20-87% energy cost reduction 
+                across municipal infrastructure. With 10-20 mils thickness, it achieves equivalent performance to inches of traditional 
+                insulation while delivering Class A fire protection (0/100 flame spread), perfect smoke development rating (0/100), 
+                and verified 30+ year performance with only 1% reflectivity degradation after 3 years.
               </p>
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div className="backdrop-blur-sm bg-primary-900/80 rounded-xl p-6 border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] hover:translate-y-[-5px] transition-transform duration-300">
@@ -648,7 +649,7 @@ const MunicipalityPage = () => {
                     <Clock className="h-6 w-6 text-white" />
                   </div>
                   <h3 className="text-lg font-bold mb-2 text-orange-300">Extended Lifecycle</h3>
-                  <p className="text-white">Significantly extends the service life of municipal infrastructure, reducing replacement frequency and costs.</p>
+                  <p className="text-white">NASA ceramic technology provides verified 30+ year performance with original 1989 applications showing no degradation in 2019 inspection. Reduces lifecycle costs with ROI in 1-3 years.</p>
                 </div>
                 
                 <div className="backdrop-blur-sm bg-primary-900/80 rounded-xl p-6 border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] hover:translate-y-[-5px] transition-transform duration-300">
@@ -656,7 +657,7 @@ const MunicipalityPage = () => {
                     <ParkingCircle className="h-6 w-6 text-white" />
                   </div>
                   <h3 className="text-lg font-bold mb-2 text-blue-300">Traffic-Rated Systems</h3>
-                  <p className="text-white">Durable coatings designed to withstand heavy vehicle traffic and constant use in public facilities.</p>
+                  <p className="text-white">NASA ceramic technology withstands extreme temperatures of 2,732°F (1,500°C) with 156% elastomeric flexibility for heavy vehicular traffic. System maintains structural integrity through freeze-thaw cycles and resists delamination.</p>
                 </div>
                 
                 <div className="backdrop-blur-sm bg-primary-900/80 rounded-xl p-6 border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] hover:translate-y-[-5px] transition-transform duration-300">
@@ -664,7 +665,7 @@ const MunicipalityPage = () => {
                     <BadgeAlert className="h-6 w-6 text-white" />
                   </div>
                   <h3 className="text-lg font-bold mb-2 text-orange-300">Emergency Ready</h3>
-                  <p className="text-white">Specialized coatings for critical infrastructure that must remain operational during emergencies.</p>
+                  <p className="text-white">NASA ceramic technology creates a 2,177°F temperature barrier in extreme fire conditions with Class A fire rating (0/100 flame spread). System maintains integrity after 20+ minutes at 1,550°F (843°C) for critical infrastructure survival during emergencies.</p>
                 </div>
                 
                 <div className="backdrop-blur-sm bg-primary-900/80 rounded-xl p-6 border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] hover:translate-y-[-5px] transition-transform duration-300">
@@ -672,7 +673,7 @@ const MunicipalityPage = () => {
                     <Landmark className="h-6 w-6 text-white" />
                   </div>
                   <h3 className="text-lg font-bold mb-2 text-blue-300">Historic Preservation</h3>
-                  <p className="text-white">Solutions for protecting and preserving historic municipal structures and monuments.</p>
+                  <p className="text-white">NASA ceramic technology combines 89% UV reflection with 156% elastomeric flexibility for non-invasive historic preservation. System allows moisture vapor transmission while preventing liquid water intrusion, meeting preservation certification requirements with reversible application.</p>
                 </div>
               </div>
             </div>
@@ -696,7 +697,7 @@ const MunicipalityPage = () => {
                   <PenTool className="h-8 w-8 text-white" />
                 </div>
                 <h3 className="text-xl font-bold mb-3 text-blue-300">NASA Ceramic Water Protection</h3>
-                <p className="text-white">NASA-derived ceramic microsphere technology with NSF/ANSI 61 certification provides Class A fire protection (0/100 flame spread) and potable water safety for municipal water infrastructure with 30+ year verified performance.</p>
+                <p className="text-white">NASA-derived ceramic microsphere technology with NSF/ANSI 61 certification provides Class A fire protection (0/100 flame spread) for water infrastructure. System withstands 10,000+ hours of salt spray testing with 0.00543 W/cm²/K thermal conductivity and 156% elastomeric flexibility while maintaining potable water safety standards and 30+ year verified performance.</p>
                 <div className="mt-6">
                   <GradientButton variant="default" className="w-full">Learn More</GradientButton>
                 </div>
@@ -707,7 +708,7 @@ const MunicipalityPage = () => {
                   <Blocks className="h-8 w-8 text-white" />
                 </div>
                 <h3 className="text-xl font-bold mb-3 text-orange-300">NASA Ceramic Transport Protection</h3>
-                <p className="text-white">NASA-derived ceramic microsphere technology provides Class A fire protection (0/100 flame spread) for tunnels and transit facilities while delivering 156% elastomeric flexibility for bridges and highways exposed to extreme temperature variations.</p>
+                <p className="text-white">NASA-derived ceramic microsphere technology provides Class A fire protection (0/100 flame spread) for tunnels and transit facilities while creating a 2,177°F temperature differential in extreme fire conditions. System delivers 156% elastomeric flexibility for bridges and highways with verified 30+ year performance in extreme temperature variations and freeze-thaw cycles.</p>
                 <div className="mt-6">
                   <GradientButton variant="variant" className="w-full">Learn More</GradientButton>
                 </div>
