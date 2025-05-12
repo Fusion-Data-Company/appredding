@@ -63,9 +63,7 @@ export function preloadCriticalImages(): void {
   
   const criticalImages = [
     '/praetorian-hero-main.jpg', // Hero image
-    '/images/fire-water-gen4-turbo-poster.jpg',
-    '/images/optimized/diamond-plate-fire-water.jpg',
-    '/images/optimized/diamond-plate-fire-water-2.jpg',
+    '/images/praetorian-og-image-v2-20250512.jpg', // Open Graph image
     '/images/optimized/diamond-plate-orange-blue.jpg',
     '/images/optimized/diamond-plate-fire-red.jpg'
   ];
