@@ -885,6 +885,137 @@ const MobileHome = () => {
           </div>
         </section>
 
+        {/* Enterprise Case Study Section */}
+        <section className="py-16 relative z-10">
+          <div className="container mx-auto">
+            <div className="backdrop-blur-sm bg-primary-900/60 p-8 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] mb-12">
+              <GradientHeading level={2} className="text-3xl md:text-4xl mb-8 text-center" variant="mixed">
+                Case Study: Desert Vista Mobile Home Community
+              </GradientHeading>
+              
+              <div className="grid md:grid-cols-2 gap-12 mb-8">
+                <div className="space-y-6">
+                  <div className="bg-primary-950/60 backdrop-blur-sm p-6 rounded-lg border-2 border-primary-400">
+                    <h3 className="text-2xl font-bold mb-4 text-primary-100">Project Overview</h3>
+                    <p className="mb-4">
+                      Located in the Sonoran Desert, Desert Vista Mobile Home Community faced extreme weather challenges with temperatures regularly exceeding 110°F in summer and occasional heavy monsoon rains, leading to rapid deterioration of their 165 units.
+                    </p>
+                    <div className="grid grid-cols-2 gap-4 mt-6">
+                      <div className="bg-primary-800/70 p-4 rounded-lg flex flex-col items-center text-center">
+                        <Home className="h-8 w-8 mb-2 text-primary-300" />
+                        <span className="text-2xl font-bold">165</span>
+                        <span className="text-sm">Mobile Home Units Protected</span>
+                      </div>
+                      <div className="bg-primary-800/70 p-4 rounded-lg flex flex-col items-center text-center">
+                        <Clock className="h-8 w-8 mb-2 text-primary-300" />
+                        <span className="text-2xl font-bold">35°F</span>
+                        <span className="text-sm">Interior Temperature Reduction</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-primary-950/60 backdrop-blur-sm p-6 rounded-lg border-2 border-primary-400">
+                    <h3 className="text-xl font-bold mb-3 text-primary-100">Performance Metrics</h3>
+                    <ul className="space-y-4">
+                      <li className="flex items-start">
+                        <Shield className="h-5 w-5 mr-2 text-primary-300 mt-1 flex-shrink-0" />
+                        <span><strong>96% reduction</strong> in roof leak incidents following seasonal monsoons</span>
+                      </li>
+                      <li className="flex items-start">
+                        <Wrench className="h-5 w-5 mr-2 text-primary-300 mt-1 flex-shrink-0" />
+                        <span><strong>84% decrease</strong> in annual maintenance requirements per unit</span>
+                      </li>
+                      <li className="flex items-start">
+                        <Building className="h-5 w-5 mr-2 text-primary-300 mt-1 flex-shrink-0" />
+                        <span><strong>12-15 year extension</strong> of average unit lifespan</span>
+                      </li>
+                      <li className="flex items-start">
+                        <BadgeCheck className="h-5 w-5 mr-2 text-primary-300 mt-1 flex-shrink-0" />
+                        <span><strong>FEMA and HUD compliant</strong> with Class A fire rating</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                
+                <div className="space-y-6">
+                  <div className="bg-primary-950/60 backdrop-blur-sm p-6 rounded-lg border-2 border-primary-400">
+                    <h3 className="text-xl font-bold mb-3 text-primary-100">Implementation & Results</h3>
+                    <div className="space-y-4">
+                      <div className="grid grid-cols-2 gap-4">
+                        <div>
+                          <p className="text-sm text-primary-300">Installation Period</p>
+                          <p className="font-semibold">8 months (phased)</p>
+                        </div>
+                        <div>
+                          <p className="text-sm text-primary-300">Coating System</p>
+                          <p className="font-semibold">PraetorianShield™ MH-Pro</p>
+                        </div>
+                        <div>
+                          <p className="text-sm text-primary-300">Completion Rate</p>
+                          <p className="font-semibold">3.4 units per day avg.</p>
+                        </div>
+                        <div>
+                          <p className="text-sm text-primary-300">Warranty Coverage</p>
+                          <p className="font-semibold">20-year transferable</p>
+                        </div>
+                      </div>
+                      
+                      <div className="mt-4 pt-4 border-t border-primary-700">
+                        <h4 className="font-semibold mb-2">Financial Impact Analysis</h4>
+                        <table className="min-w-full">
+                          <thead>
+                            <tr className="border-b border-primary-700">
+                              <th className="text-left py-2 text-sm">Category</th>
+                              <th className="text-right py-2 text-sm">Annual Savings</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr className="border-b border-primary-800">
+                              <td className="py-2">Energy Cost Reduction</td>
+                              <td className="text-right">$342/unit</td>
+                            </tr>
+                            <tr className="border-b border-primary-800">
+                              <td className="py-2">Maintenance Reduction</td>
+                              <td className="text-right">$487/unit</td>
+                            </tr>
+                            <tr className="border-b border-primary-800">
+                              <td className="py-2">Insurance Premium Reduction</td>
+                              <td className="text-right">$128/unit</td>
+                            </tr>
+                            <tr>
+                              <td className="py-2 font-bold">Total Community Savings</td>
+                              <td className="text-right font-bold">$157,995/year</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-primary-950/60 backdrop-blur-sm p-6 rounded-lg border-2 border-primary-400">
+                    <h3 className="text-xl font-bold mb-3 text-primary-100">Community Manager Statement</h3>
+                    <blockquote className="italic border-l-4 border-primary-400 pl-4 mb-4">
+                      "The transformation of our community since installing the PraetorianShield™ ceramic coating has been remarkable. Beyond the obvious energy savings and extended life of our homes, we've seen a significant improvement in resident satisfaction and property values. The comfort factor alone—cooler interiors in summer and warmer in winter—has had a positive impact on our senior residents' quality of life. This was easily the best capital improvement decision we've made in my 15 years of property management."
+                    </blockquote>
+                    <div className="text-right">
+                      <p className="font-bold">Eleanor Sanchez</p>
+                      <p className="text-sm">Community Manager, Desert Vista Mobile Home Community</p>
+                    </div>
+                    
+                    <div className="flex justify-between items-center mt-6 pt-4 border-t border-primary-700">
+                      <div>
+                        <span className="text-xs bg-primary-800/70 text-primary-200 px-2 py-1 rounded-full border border-primary-500/30">5-Star Rating</span>
+                        <span className="text-xs bg-primary-800/70 text-primary-200 px-2 py-1 rounded-full border border-primary-500/30 ml-2">Certified Installation</span>
+                      </div>
+                      <span className="text-sm text-primary-300">Project Completed: March 2024</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section className="py-16 relative z-10">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto backdrop-blur-sm bg-primary-900/60 border-4 border-white rounded-xl p-8 shadow-[0_0_60px_rgba(255,255,255,0.4)]">
