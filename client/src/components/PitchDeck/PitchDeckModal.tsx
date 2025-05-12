@@ -98,10 +98,15 @@ export const PitchDeckModal: React.FC<PitchDeckModalProps> = ({ isOpen, onClose 
             <div className="bg-gradient-to-br from-primary-950/95 to-blue-950/95 rounded-xl border border-blue-500/30 shadow-xl w-full max-w-4xl relative overflow-hidden">
               {/* Close button */}
               <button 
-                className="absolute top-4 right-4 text-gray-400 hover:text-white z-20"
+                className="absolute top-4 right-4 text-gray-400 hover:text-white z-20 bg-gradient-to-br from-blue-900/50 to-blue-950/40 rounded-full p-1.5 transition-all duration-300 border border-blue-500/20 hover:border-blue-500/40"
                 onClick={onClose}
+                style={{
+                  boxShadow: "0 0 15px rgba(59, 130, 246, 0.15), 0 0 5px rgba(59, 130, 246, 0.05) inset"
+                }}
               >
-                <XCircle className="h-6 w-6" />
+                <XCircle className="h-6 w-6" style={{
+                  filter: "drop-shadow(0 0 2px rgba(147, 197, 253, 0.3))"
+                }} />
               </button>
               
               {/* Navigation buttons */}
@@ -121,10 +126,15 @@ export const PitchDeckModal: React.FC<PitchDeckModalProps> = ({ isOpen, onClose 
               
               {currentSlide < totalSlides - 1 && (
                 <button 
-                  className="absolute right-4 top-1/2 -translate-y-1/2 bg-blue-900/70 hover:bg-blue-800/90 text-white rounded-full p-2 z-20"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 bg-gradient-to-r from-blue-900/80 to-blue-800/80 hover:from-blue-800 hover:to-blue-700 text-white rounded-full p-2.5 z-20 transition-all duration-300"
                   onClick={nextSlide}
+                  style={{
+                    boxShadow: "0 0 15px rgba(59, 130, 246, 0.3), 0 0 5px rgba(59, 130, 246, 0.1) inset"
+                  }}
                 >
-                  <ChevronRight className="h-6 w-6" />
+                  <ChevronRight className="h-6 w-6" style={{
+                    filter: "drop-shadow(0 0 2px rgba(255, 255, 255, 0.5))"
+                  }} />
                 </button>
               )}
               

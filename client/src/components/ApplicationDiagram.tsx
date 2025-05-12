@@ -144,10 +144,13 @@ const ApplicationDiagram = () => {
                             {layer.features.map((feature, fIdx) => (
                               <div key={fIdx} className="flex items-center text-xs gap-1">
                                 <div className={cn(
-                                  "text-xs",
-                                  layer.name === "Primer Layer" ? "text-blue-400" :
-                                  layer.name === "Base Coat" ? "text-primary-400" : "text-orange-400"
-                                )}>
+                                  "flex items-center justify-center p-1 rounded-full",
+                                  layer.name === "Primer Layer" ? "bg-blue-900/30 text-blue-400" :
+                                  layer.name === "Base Coat" ? "bg-primary-900/30 text-primary-400" : "bg-orange-900/30 text-orange-400"
+                                )} style={{
+                                  boxShadow: "0 0 5px rgba(59, 130, 246, 0.15) inset",
+                                  filter: "drop-shadow(0 0 1px rgba(255, 255, 255, 0.5))"
+                                }}>
                                   {feature.icon}
                                 </div>
                                 <span className="text-gray-300">{feature.text}</span>
