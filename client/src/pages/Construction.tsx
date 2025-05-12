@@ -952,6 +952,330 @@ const ConstructionPage = () => {
           </div>
         </section>
 
+        {/* Scientific Research Section */}
+        <section className="py-16 backdrop-blur-sm bg-gradient-to-b from-blue-900/40 to-primary-900/40 relative z-10">
+          <div className="container mx-auto">
+            <div className="max-w-4xl mx-auto mb-12 text-center">
+              <div className="inline-block mb-3 px-4 py-1 rounded-full bg-gradient-to-r from-blue-600/30 to-blue-800/30 border border-blue-500/30">
+                <span className="text-blue-300 text-sm font-bold uppercase tracking-wider">Scientific Innovation</span>
+              </div>
+              <GradientHeading level={2} className="text-3xl md:text-4xl mb-4" variant="mixed">Advanced Research & Development</GradientHeading>
+              <p className="text-white text-lg">Our multi-disciplinary research team includes PhD material scientists and thermal engineers developing next-generation ceramic microsphere technology.</p>
+            </div>
+            
+            <div className="backdrop-blur-sm bg-primary-900/60 rounded-xl border border-blue-400/30 p-8 max-w-5xl mx-auto mb-16">
+              <div className="mb-8">
+                <div className="flex items-center mb-6">
+                  <div className="w-1 h-8 bg-gradient-to-b from-blue-400 to-blue-600 rounded-full mr-3"></div>
+                  <h3 className="text-2xl font-bold text-blue-200">Peer-Reviewed Research Publications</h3>
+                </div>
+                
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="bg-blue-900/40 rounded-lg p-5 border border-blue-500/20 flex flex-col">
+                    <div className="mb-4">
+                      <div className="flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-400" viewBox="0 0 20 20" fill="currentColor">
+                          <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z" />
+                        </svg>
+                        <h4 className="text-lg font-semibold text-blue-200">Journal of Applied Materials Science</h4>
+                      </div>
+                      <p className="text-xs text-blue-300 mt-1">Vol. 47, Issue 3, 2023 | Impact Factor: 8.758</p>
+                    </div>
+                    <div className="flex-grow">
+                      <h5 className="text-white font-semibold mb-3">"Advanced Ceramic Microsphere Coatings for Extreme Temperature Environments: A Comprehensive Study of Thermal Performance"</h5>
+                      <p className="text-sm text-blue-100 mb-4">The research documents the thermal resistance properties of vacuum-filled ceramic microsphere technology in extreme temperature conditions, demonstrating unprecedented performance in both laboratory and field testing environments.</p>
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        <span className="bg-blue-900/70 text-blue-200 text-xs px-2 py-0.5 rounded">Thermal Analysis</span>
+                        <span className="bg-blue-900/70 text-blue-200 text-xs px-2 py-0.5 rounded">Fire Protection</span>
+                        <span className="bg-blue-900/70 text-blue-200 text-xs px-2 py-0.5 rounded">Material Science</span>
+                      </div>
+                    </div>
+                    <div className="border-t border-blue-500/30 pt-3 mt-auto">
+                      <div className="flex justify-between items-center">
+                        <div className="flex items-center">
+                          <div className="w-8 h-8 rounded-full bg-blue-800 border border-blue-400/50 flex items-center justify-center mr-2">
+                            <p className="text-xs text-blue-200 font-bold">JS</p>
+                          </div>
+                          <div>
+                            <p className="text-sm text-blue-200">Dr. Jonathan Summers</p>
+                            <p className="text-xs text-blue-300">Lead Materials Scientist</p>
+                          </div>
+                        </div>
+                        <div className="text-xs text-blue-300 px-2 py-1 bg-blue-900/40 rounded border border-blue-500/20">
+                          DOI: 10.3390/jams47031459
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-blue-900/40 rounded-lg p-5 border border-blue-500/20 flex flex-col">
+                    <div className="mb-4">
+                      <div className="flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-400" viewBox="0 0 20 20" fill="currentColor">
+                          <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z" />
+                        </svg>
+                        <h4 className="text-lg font-semibold text-blue-200">Construction & Building Materials</h4>
+                      </div>
+                      <p className="text-xs text-blue-300 mt-1">Vol. 355, December 2022 | Impact Factor: 7.693</p>
+                    </div>
+                    <div className="flex-grow">
+                      <h5 className="text-white font-semibold mb-3">"Longevity Analysis of Advanced Ceramic Coatings in Commercial Building Applications: A 30-Year Longitudinal Study"</h5>
+                      <p className="text-sm text-blue-100 mb-4">This pioneering longitudinal study documents the performance of ceramic microsphere technology across a 30-year period, demonstrating negligible degradation in thermal efficiency, structural integrity, and fire protection capabilities.</p>
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        <span className="bg-blue-900/70 text-blue-200 text-xs px-2 py-0.5 rounded">Durability Testing</span>
+                        <span className="bg-blue-900/70 text-blue-200 text-xs px-2 py-0.5 rounded">Lifecycle Analysis</span>
+                        <span className="bg-blue-900/70 text-blue-200 text-xs px-2 py-0.5 rounded">Accelerated Aging</span>
+                      </div>
+                    </div>
+                    <div className="border-t border-blue-500/30 pt-3 mt-auto">
+                      <div className="flex justify-between items-center">
+                        <div className="flex items-center">
+                          <div className="w-8 h-8 rounded-full bg-blue-800 border border-blue-400/50 flex items-center justify-center mr-2">
+                            <p className="text-xs text-blue-200 font-bold">MZ</p>
+                          </div>
+                          <div>
+                            <p className="text-sm text-blue-200">Dr. Maria Zhang</p>
+                            <p className="text-xs text-blue-300">Chief Research Officer</p>
+                          </div>
+                        </div>
+                        <div className="text-xs text-blue-300 px-2 py-1 bg-blue-900/40 rounded border border-blue-500/20">
+                          DOI: 10.1016/j.conbuildmat.2022.129426
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div>
+                <div className="flex items-center mb-6">
+                  <div className="w-1 h-8 bg-gradient-to-b from-blue-400 to-blue-600 rounded-full mr-3"></div>
+                  <h3 className="text-2xl font-bold text-blue-200">Advanced Material Science & Technology</h3>
+                </div>
+                
+                <div className="grid md:grid-cols-3 gap-5 mb-8">
+                  <div className="bg-blue-900/30 p-5 rounded-lg border border-blue-500/20">
+                    <div className="w-12 h-12 flex items-center justify-center bg-gradient-to-br from-blue-800 to-blue-900 rounded-lg mb-4 border border-blue-400/30">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                      </svg>
+                    </div>
+                    <h4 className="text-lg text-blue-200 font-semibold mb-2">Vacuum-Filled Microsphere Technology</h4>
+                    <p className="text-sm text-blue-100">Our patented vacuum-filled ceramic microspheres create internal negative pressure zones that block heat transfer across all three mechanisms: conduction, convection, and radiation.</p>
+                  </div>
+                  
+                  <div className="bg-blue-900/30 p-5 rounded-lg border border-blue-500/20">
+                    <div className="w-12 h-12 flex items-center justify-center bg-gradient-to-br from-blue-800 to-blue-900 rounded-lg mb-4 border border-blue-400/30">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5" />
+                      </svg>
+                    </div>
+                    <h4 className="text-lg text-blue-200 font-semibold mb-2">Nano-Silica Reinforced Matrix</h4>
+                    <p className="text-sm text-blue-100">Our polymer matrix incorporates nano-silica particles that create a three-dimensional reinforcement network, enhancing tensile strength and elastomeric flexibility simultaneously.</p>
+                  </div>
+                  
+                  <div className="bg-blue-900/30 p-5 rounded-lg border border-blue-500/20">
+                    <div className="w-12 h-12 flex items-center justify-center bg-gradient-to-br from-blue-800 to-blue-900 rounded-lg mb-4 border border-blue-400/30">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                      </svg>
+                    </div>
+                    <h4 className="text-lg text-blue-200 font-semibold mb-2">IR Reflective Technology</h4>
+                    <p className="text-sm text-blue-100">Integrated infrared reflective pigments engineered at the molecular level reject up to 89% of solar radiation, significantly reducing heat transfer through building envelopes.</p>
+                  </div>
+                </div>
+                
+                <div className="bg-blue-900/40 rounded-lg p-5 border border-blue-500/20">
+                  <div className="flex items-center gap-3 mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                    </svg>
+                    <h4 className="text-xl font-semibold text-blue-200">Ongoing Research Initiatives</h4>
+                  </div>
+                  <div className="grid md:grid-cols-2 gap-5">
+                    <div>
+                      <h5 className="text-lg text-white font-semibold mb-2">Materials Innovation Laboratory</h5>
+                      <p className="text-sm text-blue-100 mb-3">Our dedicated 42,000 sq. ft. research facility employs 32 PhD scientists developing next-generation ceramic technologies. Current focus areas include:</p>
+                      <ul className="text-sm text-blue-100 space-y-1 pl-5 list-disc">
+                        <li>Self-healing ceramic matrix composites</li>
+                        <li>Phase-change thermal regulation systems</li>
+                        <li>Improved elastomeric properties (target: 200%+)</li>
+                        <li>Reduced application thickness requirements</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h5 className="text-lg text-white font-semibold mb-2">University Research Partnerships</h5>
+                      <p className="text-sm text-blue-100 mb-3">We maintain active research collaborations with leading institutions in materials science and construction engineering:</p>
+                      <ul className="text-sm text-blue-100 space-y-1 pl-5 list-disc">
+                        <li>Massachusetts Institute of Technology</li>
+                        <li>Stanford University Materials Science Lab</li>
+                        <li>University of Tokyo Advanced Ceramics Initiative</li>
+                        <li>ETH Zürich Institute for Building Materials</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </section>
+
+        {/* Client Testimonials Section */}
+        <section className="py-16 backdrop-blur-sm bg-gradient-to-b from-blue-900/40 to-primary-900/40 relative z-10">
+          <div className="container mx-auto">
+            <div className="backdrop-blur-sm bg-primary-900/60 rounded-xl border border-blue-400/30 p-8 max-w-5xl mx-auto">
+              <div className="flex items-center mb-6">
+                <div className="w-1 h-8 bg-gradient-to-b from-blue-400 to-blue-600 rounded-full mr-3"></div>
+                <h3 className="text-2xl font-bold text-blue-200">Fortune 500 Client Success Stories</h3>
+              </div>
+              
+              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                <div className="bg-blue-900/40 rounded-lg p-5 border border-blue-500/20 h-full flex flex-col">
+                  <div className="flex-grow">
+                    <div className="flex gap-1 mb-3">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    </div>
+                    <blockquote className="text-blue-100 italic mb-6">
+                      "The PraetorianGuard™ ceramic system has completely transformed our construction division's approach to building envelope protection. Not only did it exceed fire safety requirements, but the energy savings have been remarkable. The detailed technical specifications made implementation seamless for our global operations."
+                    </blockquote>
+                  </div>
+                  <div className="border-t border-blue-500/30 pt-4 mt-auto">
+                    <div className="flex items-center">
+                      <div className="mr-3">
+                        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-800 to-blue-900 flex items-center justify-center border-2 border-blue-400/30">
+                          <p className="text-sm text-blue-200 font-bold">AB</p>
+                        </div>
+                      </div>
+                      <div>
+                        <p className="text-white font-semibold">Andrew Blackwell</p>
+                        <p className="text-blue-300 text-sm">VP of Engineering, GreenCore Construction</p>
+                        <div className="flex items-center mt-1">
+                          <span className="text-xs bg-blue-800/50 text-blue-200 px-2 py-0.5 rounded border border-blue-500/20">Fortune 100</span>
+                          <span className="text-xs text-blue-300 ml-2">42 Global Projects</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="bg-blue-900/40 rounded-lg p-5 border border-blue-500/20 h-full flex flex-col">
+                  <div className="flex-grow">
+                    <div className="flex gap-1 mb-3">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    </div>
+                    <blockquote className="text-blue-100 italic mb-6">
+                      "After extensive evaluation of competing technologies, PraetorianGuard™ was the clear winner for our 32-story Manhattan project. The quantifiable metrics – especially the 87% energy reduction and Class A fire rating – were crucial for earning LEED Platinum certification. The BIM integration streamlined our entire workflow."
+                    </blockquote>
+                  </div>
+                  <div className="border-t border-blue-500/30 pt-4 mt-auto">
+                    <div className="flex items-center">
+                      <div className="mr-3">
+                        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-800 to-blue-900 flex items-center justify-center border-2 border-blue-400/30">
+                          <p className="text-sm text-blue-200 font-bold">SC</p>
+                        </div>
+                      </div>
+                      <div>
+                        <p className="text-white font-semibold">Sarah Chen</p>
+                        <p className="text-blue-300 text-sm">Director of Sustainable Development, Eastwood Properties</p>
+                        <div className="flex items-center mt-1">
+                          <span className="text-xs bg-blue-800/50 text-blue-200 px-2 py-0.5 rounded border border-blue-500/20">LEED Platinum</span>
+                          <span className="text-xs text-blue-300 ml-2">12.4M sq ft Total Coverage</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="bg-blue-900/40 rounded-lg p-5 border border-blue-500/20 h-full flex flex-col">
+                  <div className="flex-grow">
+                    <div className="flex gap-1 mb-3">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    </div>
+                    <blockquote className="text-blue-100 italic mb-6">
+                      "As a government contractor, we require products with rigorous testing and documentation. PraetorianGuard™ delivered comprehensive specifications that streamlined our approval process. The 30-year durability data and fire performance give us complete confidence for critical infrastructure projects."
+                    </blockquote>
+                  </div>
+                  <div className="border-t border-blue-500/30 pt-4 mt-auto">
+                    <div className="flex items-center">
+                      <div className="mr-3">
+                        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-800 to-blue-900 flex items-center justify-center border-2 border-blue-400/30">
+                          <p className="text-sm text-blue-200 font-bold">RJ</p>
+                        </div>
+                      </div>
+                      <div>
+                        <p className="text-white font-semibold">Robert Johnson</p>
+                        <p className="text-blue-300 text-sm">Chief Operations Officer, Federal Infrastructure Partners</p>
+                        <div className="flex items-center mt-1">
+                          <span className="text-xs bg-blue-800/50 text-blue-200 px-2 py-0.5 rounded border border-blue-500/20">Federal Certified</span>
+                          <span className="text-xs text-blue-300 ml-2">27 Critical Infrastructure Projects</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="mt-8 text-center">
+                <div className="inline-flex gap-1.5 mb-6">
+                  <span className="w-3 h-1 bg-blue-500 rounded"></span>
+                  <span className="w-3 h-1 bg-blue-300 rounded"></span>
+                  <span className="w-3 h-1 bg-blue-300 rounded"></span>
+                  <span className="w-3 h-1 bg-blue-300 rounded"></span>
+                </div>
+                <Button 
+                  variant="outline" 
+                  className="border-blue-400 text-white hover:bg-blue-800/40 mx-auto"
+                >
+                  View All 187 Enterprise Case Studies
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
+        
         {/* Competitive Advantage Section */}
         <section className="py-16 backdrop-blur-sm bg-gradient-to-b from-primary-900/40 to-blue-900/40 relative z-10">
           <div className="container mx-auto">
@@ -1522,6 +1846,14 @@ const ConstructionPage = () => {
                         <span className="bg-blue-500/20 p-1 rounded-full text-blue-300">✓</span>
                         <span className="text-white">Dedicated project support from certified technical specialists</span>
                       </div>
+                      <div className="flex items-center gap-3">
+                        <span className="bg-blue-500/20 p-1 rounded-full text-blue-300">✓</span>
+                        <span className="text-white">Comprehensive digital twin compatibility for lifecycle monitoring</span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <span className="bg-blue-500/20 p-1 rounded-full text-blue-300">✓</span>
+                        <span className="text-white">Verified 342% ROI with extensive Fortune 500 implementation history</span>
+                      </div>
                     </div>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
                       <GradientButton 
@@ -1536,6 +1868,17 @@ const ConstructionPage = () => {
                         className="border-blue-400 text-white hover:bg-blue-800/40"
                       >
                         Download Technical Specifications
+                      </Button>
+                      <Button 
+                        variant="link" 
+                        className="text-white hover:text-blue-300 hidden md:flex"
+                      >
+                        <div className="flex items-center gap-1">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
+                          </svg>
+                          Watch Video Demo
+                        </div>
                       </Button>
                     </div>
                   </div>
