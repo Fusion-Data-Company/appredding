@@ -384,9 +384,15 @@ export const PitchDeckModal: React.FC<PitchDeckModalProps> = ({ isOpen, onClose 
                         </ul>
                       </div>
                       
-                      <div className="bg-gradient-to-br from-blue-900/30 to-blue-950/30 backdrop-blur-sm rounded-xl border border-blue-500/30 p-5">
-                        <h3 className="text-lg font-bold text-blue-300 mb-3 flex items-center gap-2">
-                          <Droplets className="h-5 w-5 text-blue-400" />
+                      <div className="bg-gradient-to-br from-blue-900/40 to-blue-950/50 backdrop-blur-sm rounded-xl border border-blue-500/30 p-5 shadow-[0_0_20px_rgba(29,78,216,0.15)]" 
+                        style={{
+                          boxShadow: "0 5px 15px rgba(3, 7, 18, 0.5), 0 0 5px rgba(59, 130, 246, 0.2) inset"
+                        }}
+                      >
+                        <h3 className="text-lg font-bold text-blue-300 mb-3 flex items-center gap-2 drop-shadow-[0_0_4px_rgba(147,197,253,0.4)]">
+                          <div className="bg-blue-900/30 p-1.5 rounded-lg shadow-inner">
+                            <Droplets className="h-5 w-5 text-blue-400" />
+                          </div>
                           Waterproof & Anti-Corrosion
                         </h3>
                         <ul className="space-y-2">
@@ -409,9 +415,15 @@ export const PitchDeckModal: React.FC<PitchDeckModalProps> = ({ isOpen, onClose 
                         </ul>
                       </div>
                       
-                      <div className="bg-gradient-to-br from-purple-900/30 to-purple-950/30 backdrop-blur-sm rounded-xl border border-purple-500/30 p-5">
-                        <h3 className="text-lg font-bold text-purple-300 mb-3 flex items-center gap-2">
-                          <Zap className="h-5 w-5 text-purple-400" />
+                      <div className="bg-gradient-to-br from-purple-900/40 to-purple-950/50 backdrop-blur-sm rounded-xl border border-purple-500/30 p-5 shadow-[0_0_20px_rgba(147,51,234,0.15)]" 
+                        style={{
+                          boxShadow: "0 5px 15px rgba(3, 7, 18, 0.5), 0 0 5px rgba(168, 85, 247, 0.2) inset"
+                        }}
+                      >
+                        <h3 className="text-lg font-bold text-purple-300 mb-3 flex items-center gap-2 drop-shadow-[0_0_4px_rgba(216,180,254,0.4)]">
+                          <div className="bg-purple-900/30 p-1.5 rounded-lg shadow-inner">
+                            <Zap className="h-5 w-5 text-purple-400" />
+                          </div>
                           Electrical Insulation
                         </h3>
                         <ul className="space-y-2">
@@ -435,9 +447,15 @@ export const PitchDeckModal: React.FC<PitchDeckModalProps> = ({ isOpen, onClose 
                       </div>
                     </div>
                     
-                    <div className="mt-5 bg-blue-900/30 backdrop-blur-sm rounded-xl border border-blue-500/30 p-5">
-                      <h3 className="text-lg font-bold text-green-300 mb-3 flex items-center gap-2">
-                        <Activity className="h-5 w-5 text-green-400" />
+                    <div className="mt-5 bg-gradient-to-br from-green-900/40 to-green-950/50 backdrop-blur-sm rounded-xl border border-green-500/30 p-5 shadow-[0_0_20px_rgba(34,197,94,0.15)]" 
+                      style={{
+                        boxShadow: "0 5px 15px rgba(3, 7, 18, 0.5), 0 0 5px rgba(74, 222, 128, 0.2) inset"
+                      }}
+                    >
+                      <h3 className="text-lg font-bold text-green-300 mb-3 flex items-center gap-2 drop-shadow-[0_0_4px_rgba(134,239,172,0.4)]">
+                        <div className="bg-green-900/30 p-1.5 rounded-lg shadow-inner">
+                          <Activity className="h-5 w-5 text-green-400" />
+                        </div>
                         Flexibility & Durability
                       </h3>
                       <ul className="grid grid-cols-2 gap-x-4 gap-y-2">
@@ -471,8 +489,15 @@ export const PitchDeckModal: React.FC<PitchDeckModalProps> = ({ isOpen, onClose 
                     key="slide-3"
                   >
                     <div className="space-y-5">
-                      <div className="bg-gradient-to-br from-red-900/30 to-red-950/30 backdrop-blur-sm rounded-xl border border-red-500/30 p-5">
-                        <h3 className="text-lg font-bold text-red-300 mb-3">
+                      <div className="bg-gradient-to-br from-red-900/40 to-red-950/50 backdrop-blur-sm rounded-xl border border-red-500/30 p-5 shadow-[0_0_20px_rgba(220,38,38,0.15)]" 
+                        style={{
+                          boxShadow: "0 5px 15px rgba(3, 7, 18, 0.5), 0 0 5px rgba(239, 68, 68, 0.15) inset"
+                        }}
+                      >
+                        <h3 className="text-lg font-bold text-red-300 mb-3 drop-shadow-[0_0_4px_rgba(248,113,113,0.4)] flex items-center gap-2">
+                          <div className="bg-red-900/30 p-1.5 rounded-lg shadow-inner">
+                            <Flame className="h-5 w-5 text-red-400" />
+                          </div>
                           Certified Fire Performance
                         </h3>
                         <ul className="space-y-2">
@@ -496,8 +521,15 @@ export const PitchDeckModal: React.FC<PitchDeckModalProps> = ({ isOpen, onClose 
                       </div>
                       
                       <div className="grid md:grid-cols-2 gap-5">
-                        <div className="bg-gradient-to-br from-blue-900/30 to-blue-950/30 backdrop-blur-sm rounded-xl border border-blue-500/30 p-5">
-                          <h3 className="text-lg font-bold text-blue-300 mb-3">
+                        <div className="bg-gradient-to-br from-blue-900/40 to-blue-950/50 backdrop-blur-sm rounded-xl border border-blue-500/30 p-5 shadow-[0_0_20px_rgba(29,78,216,0.15)]" 
+                          style={{
+                            boxShadow: "0 5px 15px rgba(3, 7, 18, 0.5), 0 0 5px rgba(59, 130, 246, 0.2) inset"
+                          }}
+                        >
+                          <h3 className="text-lg font-bold text-blue-300 mb-3 drop-shadow-[0_0_4px_rgba(147,197,253,0.4)] flex items-center gap-2">
+                            <div className="bg-blue-900/30 p-1.5 rounded-lg shadow-inner">
+                              <Zap className="h-5 w-5 text-blue-400" />
+                            </div>
                             Thermal & Electrical Tests
                           </h3>
                           <ul className="space-y-2">
@@ -516,8 +548,15 @@ export const PitchDeckModal: React.FC<PitchDeckModalProps> = ({ isOpen, onClose 
                           </ul>
                         </div>
                         
-                        <div className="bg-gradient-to-br from-green-900/30 to-green-950/30 backdrop-blur-sm rounded-xl border border-green-500/30 p-5">
-                          <h3 className="text-lg font-bold text-green-300 mb-3">
+                        <div className="bg-gradient-to-br from-green-900/40 to-green-950/50 backdrop-blur-sm rounded-xl border border-green-500/30 p-5 shadow-[0_0_20px_rgba(34,197,94,0.15)]" 
+                          style={{
+                            boxShadow: "0 5px 15px rgba(3, 7, 18, 0.5), 0 0 5px rgba(74, 222, 128, 0.2) inset"
+                          }}
+                        >
+                          <h3 className="text-lg font-bold text-green-300 mb-3 drop-shadow-[0_0_4px_rgba(134,239,172,0.4)] flex items-center gap-2">
+                            <div className="bg-green-900/30 p-1.5 rounded-lg shadow-inner">
+                              <Activity className="h-5 w-5 text-green-400" />
+                            </div>
                             Weathering & Endurance
                           </h3>
                           <ul className="space-y-2">
@@ -537,8 +576,15 @@ export const PitchDeckModal: React.FC<PitchDeckModalProps> = ({ isOpen, onClose 
                         </div>
                       </div>
                       
-                      <div className="bg-gradient-to-br from-blue-900/30 to-blue-950/30 backdrop-blur-sm rounded-xl border border-blue-500/30 p-5">
-                        <h3 className="text-lg font-bold text-blue-300 mb-3">
+                      <div className="bg-gradient-to-br from-blue-900/40 to-blue-950/50 backdrop-blur-sm rounded-xl border border-blue-500/30 p-5 shadow-[0_0_20px_rgba(29,78,216,0.15)]" 
+                        style={{
+                          boxShadow: "0 5px 15px rgba(3, 7, 18, 0.5), 0 0 5px rgba(59, 130, 246, 0.2) inset"
+                        }}
+                      >
+                        <h3 className="text-lg font-bold text-blue-300 mb-3 drop-shadow-[0_0_4px_rgba(147,197,253,0.4)] flex items-center gap-2">
+                          <div className="bg-blue-900/30 p-1.5 rounded-lg shadow-inner">
+                            <Shield className="h-5 w-5 text-blue-400" />
+                          </div>
                           Environmental Safety
                         </h3>
                         <div className="grid md:grid-cols-2 gap-4">
