@@ -63,17 +63,17 @@ interface CalculationResult {
 // Coating product information
 const coatingProducts: Record<string, CoatingProduct> = {
   pebble: {
-    name: "PraetorianPebble™",
+    name: "CoolDeck Standard™",
     coverage: 100, // 100 sq ft per gallon
     price: 75.99
   },
   quartz: {
-    name: "PraetorianQuartz™",
+    name: "CoolDeck Premium™",
     coverage: 125, // 125 sq ft per gallon
     price: 89.99
   },
   epoxy: {
-    name: "PraetorianEpoxy™",
+    name: "CoolDeck Ultra™",
     coverage: 150, // 150 sq ft per gallon
     price: 105.99
   }
@@ -811,10 +811,10 @@ const Pools = () => {
         <section className="py-16 relative z-10">
           <div className="container mx-auto">
             <div className="backdrop-blur-sm bg-primary-900/60 p-8 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] mb-12">
-              <GradientHeading level={2} className="text-3xl md:text-4xl mb-12 text-center" variant="blue">Pool Coverage Calculator</GradientHeading>
+              <GradientHeading level={2} className="text-3xl md:text-4xl mb-12 text-center" variant="blue">Pool Deck Coverage Calculator</GradientHeading>
               <div className="max-w-4xl mx-auto">
                 <h3 className="text-2xl font-bold mb-4 text-center">Calculate How Much Coating You Need</h3>
-                <p className="text-center mb-6">Enter your pool dimensions to determine the amount of coating needed for your project</p>
+                <p className="text-center mb-6">Enter your pool deck dimensions to determine the amount of coating needed to protect surrounding surfaces</p>
                 
                 {validationError && (
                   <Alert variant="destructive" className="mb-6">
@@ -824,15 +824,15 @@ const Pools = () => {
                 
                 <div className="grid md:grid-cols-2 gap-6 mb-6">
                   <div>
-                    <label className="block text-sm font-medium mb-2">Pool Shape</label>
+                    <label className="block text-sm font-medium mb-2">Deck Area Shape</label>
                     <select 
                       className="w-full bg-primary-900 border border-primary-700 rounded p-2"
                       value={poolShape}
                       onChange={(e) => setPoolShape(e.target.value)}
                     >
                       <option value="rectangular">Rectangular</option>
-                      <option value="oval">Oval</option>
-                      <option value="kidney">Kidney</option>
+                      <option value="oval">Oval/Curved</option>
+                      <option value="kidney">L-Shaped</option>
                       <option value="freeform">Free Form</option>
                       <option value="custom">Custom</option>
                     </select>
@@ -868,11 +868,11 @@ const Pools = () => {
                 
                 <div className="grid md:grid-cols-3 gap-6 mb-6">
                   <div>
-                    <label className="block text-sm font-medium mb-2">Length (ft)</label>
+                    <label className="block text-sm font-medium mb-2">Deck Length (ft)</label>
                     <input 
                       type="number" 
                       className="w-full bg-primary-900 border border-primary-700 rounded p-2" 
-                      placeholder="Enter length" 
+                      placeholder="Enter deck length" 
                       value={length || ''}
                       onChange={(e) => setLength(e.target.value ? parseFloat(e.target.value) : undefined)}
                       min="1"
@@ -880,11 +880,11 @@ const Pools = () => {
                   </div>
                   
                   <div>
-                    <label className="block text-sm font-medium mb-2">Width (ft)</label>
+                    <label className="block text-sm font-medium mb-2">Deck Width (ft)</label>
                     <input 
                       type="number" 
                       className="w-full bg-primary-900 border border-primary-700 rounded p-2" 
-                      placeholder="Enter width" 
+                      placeholder="Enter deck width" 
                       value={width || ''}
                       onChange={(e) => setWidth(e.target.value ? parseFloat(e.target.value) : undefined)}
                       min="1"
@@ -893,7 +893,7 @@ const Pools = () => {
                   
                   <div>
                     <label className="block text-sm font-medium mb-2">
-                      Average Depth (ft)
+                      Additional Areas (%)
                       <TooltipProvider>
                         <Tooltip>
                           <TooltipTrigger asChild>
@@ -902,7 +902,7 @@ const Pools = () => {
                             </span>
                           </TooltipTrigger>
                           <TooltipContent>
-                            <p className="w-60">For variable depth pools, use the average depth. For example, if your pool ranges from 3ft to 8ft, enter 5.5ft.</p>
+                            <p className="w-60">Enter the percentage of additional area for furniture, walkways, and surrounding features. For example, enter 20 if you need to cover additional areas that are approximately 20% of the main deck size.</p>
                           </TooltipContent>
                         </Tooltip>
                       </TooltipProvider>
@@ -910,11 +910,12 @@ const Pools = () => {
                     <input 
                       type="number" 
                       className="w-full bg-primary-900 border border-primary-700 rounded p-2" 
-                      placeholder="Enter depth" 
+                      placeholder="Enter additional area %" 
                       value={depth || ''}
                       onChange={(e) => setDepth(e.target.value ? parseFloat(e.target.value) : undefined)}
-                      min="1"
-                      step="0.1"
+                      min="0"
+                      max="100"
+                      step="5"
                     />
                   </div>
                 </div>
