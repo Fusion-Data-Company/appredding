@@ -50,7 +50,7 @@ export const PitchDeckSlide: React.FC<PitchDeckSlideProps> = ({
   return (
     <motion.div
       className={cn(
-        "absolute inset-0 flex flex-col p-6 md:p-8 rounded-xl backdrop-blur-sm shadow-[0_0_50px_rgba(29,78,216,0.15)]",
+        "absolute flex flex-col p-6 md:p-8 rounded-xl backdrop-blur-sm shadow-[0_0_50px_rgba(29,78,216,0.15)]",
         bgColor,
         current ? "z-10" : "z-0"
       )}
@@ -58,7 +58,11 @@ export const PitchDeckSlide: React.FC<PitchDeckSlideProps> = ({
         boxShadow: "0 0 40px rgba(29, 78, 216, 0.2) inset, 0 0 30px rgba(29, 78, 216, 0.15)",
         borderImage: "linear-gradient(to right, rgba(59, 130, 246, 0.3), rgba(37, 99, 235, 0.5), rgba(59, 130, 246, 0.3)) 1",
         borderWidth: "1px",
-        borderStyle: "solid"
+        borderStyle: "solid",
+        top: "96px", // Move down by 1 inch (96px)
+        left: "0",
+        right: "0",
+        bottom: "0"
       }}
       initial="hidden"
       animate={current ? "visible" : "hidden"}
