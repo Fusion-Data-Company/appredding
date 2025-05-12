@@ -328,8 +328,12 @@ export const PitchDeckModal: React.FC<PitchDeckModalProps> = ({ isOpen, onClose 
                         }}
                       >
                         <h3 className="text-lg font-bold text-red-300 mb-3 flex items-center gap-2 drop-shadow-[0_0_4px_rgba(248,113,113,0.4)]">
-                          <div className="bg-red-900/30 p-1.5 rounded-lg shadow-inner">
-                            <Flame className="h-5 w-5 text-red-400" />
+                          <div className="bg-gradient-to-br from-red-900/40 to-red-800/30 p-2.5 rounded-lg shadow-inner animate-pulse-glow" style={{
+                            boxShadow: "0 0 10px rgba(248, 113, 113, 0.2) inset, 0 0 5px rgba(248, 113, 113, 0.1)"
+                          }}>
+                            <Flame className="h-6 w-6 text-red-400" style={{
+                              filter: "drop-shadow(0 0 3px rgba(248, 113, 113, 0.6))"
+                            }} />
                           </div>
                           Fire Suppression
                         </h3>
@@ -359,8 +363,12 @@ export const PitchDeckModal: React.FC<PitchDeckModalProps> = ({ isOpen, onClose 
                         }}
                       >
                         <h3 className="text-lg font-bold text-blue-300 mb-3 flex items-center gap-2 drop-shadow-[0_0_4px_rgba(147,197,253,0.4)]">
-                          <div className="bg-blue-900/30 p-1.5 rounded-lg shadow-inner">
-                            <Zap className="h-5 w-5 text-blue-400" />
+                          <div className="bg-gradient-to-br from-blue-900/40 to-blue-800/30 p-2.5 rounded-lg shadow-inner animate-pulse-glow" style={{
+                            boxShadow: "0 0 10px rgba(59, 130, 246, 0.2) inset, 0 0 5px rgba(59, 130, 246, 0.1)"
+                          }}>
+                            <Zap className="h-6 w-6 text-blue-400" style={{
+                              filter: "drop-shadow(0 0 3px rgba(59, 130, 246, 0.6))"
+                            }} />
                           </div>
                           Thermal Insulation
                         </h3>
@@ -390,8 +398,12 @@ export const PitchDeckModal: React.FC<PitchDeckModalProps> = ({ isOpen, onClose 
                         }}
                       >
                         <h3 className="text-lg font-bold text-blue-300 mb-3 flex items-center gap-2 drop-shadow-[0_0_4px_rgba(147,197,253,0.4)]">
-                          <div className="bg-blue-900/30 p-1.5 rounded-lg shadow-inner">
-                            <Droplets className="h-5 w-5 text-blue-400" />
+                          <div className="bg-gradient-to-br from-blue-900/40 to-blue-800/30 p-2.5 rounded-lg shadow-inner animate-pulse-glow" style={{
+                            boxShadow: "0 0 10px rgba(59, 130, 246, 0.2) inset, 0 0 5px rgba(59, 130, 246, 0.1)"
+                          }}>
+                            <Droplets className="h-6 w-6 text-blue-400" style={{
+                              filter: "drop-shadow(0 0 3px rgba(59, 130, 246, 0.6))"
+                            }} />
                           </div>
                           Waterproof & Anti-Corrosion
                         </h3>

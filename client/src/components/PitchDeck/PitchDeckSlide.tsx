@@ -84,10 +84,13 @@ export const PitchDeckSlide: React.FC<PitchDeckSlideProps> = ({
       <div className="text-center mb-6">
         <div className="flex items-center justify-center gap-3 mb-3">
           {icon && (
-            <div className="bg-gradient-to-br from-blue-900/70 to-blue-800/50 p-3 rounded-full border border-blue-400/40 flex-shrink-0 shadow-[0_0_15px_rgba(59,130,246,0.4)]" style={{
-              boxShadow: "0 0 15px rgba(59, 130, 246, 0.3), 0 0 5px rgba(59, 130, 246, 0.2) inset"
+            <div className="bg-gradient-to-br from-blue-900/70 to-blue-800/50 p-4 rounded-full border border-blue-400/50 flex-shrink-0 shadow-[0_0_25px_rgba(59,130,246,0.5)]" style={{
+              boxShadow: "0 0 20px rgba(59, 130, 246, 0.4), 0 0 10px rgba(59, 130, 246, 0.3) inset",
+              transform: "scale(1.1)" 
             }}>
-              <div className="text-blue-300 animate-pulse-subtle">
+              <div className="text-blue-300 animate-pulse-subtle" style={{
+                filter: "drop-shadow(0 0 8px rgba(59, 130, 246, 0.5))"
+              }}>
                 {icon}
               </div>
             </div>

@@ -100,7 +100,7 @@ const ApplicationDiagram = () => {
           </div>
           
           <div className="bg-gradient-to-r from-primary-950 to-blue-950 p-6 md:p-10">
-            <div className="relative w-full max-w-3xl mx-auto">
+            <div className="relative w-full max-w-4xl mx-auto overflow-visible">
               <div className="flex flex-col">
                 {layers.map((layer, index) => (
                   <div key={index} className="group relative">
@@ -115,8 +115,8 @@ const ApplicationDiagram = () => {
                       }}
                     >
                       <div className={cn(
-                        "absolute top-1/2 -translate-y-1/2 bg-primary-950/80 backdrop-blur-sm px-4 py-2 rounded-lg border-2 ml-6 w-56 opacity-90 group-hover:opacity-100 transition-all duration-300",
-                        index % 2 === 0 ? "left-full" : "right-full",
+                        "absolute top-1/2 -translate-y-1/2 bg-primary-950/80 backdrop-blur-sm px-4 py-2 rounded-lg border-2 ml-6 w-56 opacity-90 group-hover:opacity-100 transition-all duration-300 z-10",
+                        index % 2 === 0 ? "left-[105%]" : "right-[105%]",
                         layer.name === "Substrate" ? "border-slate-500" : 
                         layer.name === "Primer Layer" ? "border-blue-500" :
                         layer.name === "Base Coat" ? "border-primary-500" : "border-orange-500"
@@ -175,8 +175,8 @@ const ApplicationDiagram = () => {
               </div>
               
               {/* Total thickness information */}
-              <div className="absolute -left-16 top-0 h-full flex items-center">
-                <div className="bg-primary-950/80 border border-blue-500/40 rounded-lg p-3 backdrop-blur-sm">
+              <div className="absolute -left-32 top-0 h-full flex items-center">
+                <div className="bg-primary-950/80 border border-blue-500/40 rounded-lg p-3 backdrop-blur-sm shadow-lg shadow-blue-900/20">
                   <h4 className="text-xs font-semibold text-blue-300 mb-1">TOTAL SYSTEM THICKNESS</h4>
                   <div className="text-xl font-bold text-white font-mono mb-1">8.0-12.0 mils</div>
                   <p className="text-[10px] text-gray-400">Varies by application requirements</p>
