@@ -796,8 +796,27 @@ const MunicipalityPage = () => {
                       </li>
                     </ul>
                     
-                    <div className="italic text-blue-200 border-t border-blue-500/20 pt-3">
-                      "The PraetorianGuard™ NASA-derived ceramic system has significantly reduced our maintenance budget while delivering superior protection. Our energy savings alone paid for the entire project in less than a year, and we've seen zero degradation since installation." — Robert Kendrick, Chief Municipal Engineer
+                    <div className="mt-4 bg-blue-900/40 border-l-4 border-blue-400 rounded-r-lg p-4">
+                      <div className="flex items-center gap-4 mb-3">
+                        <div className="h-12 w-12 rounded-full bg-gradient-to-r from-blue-600 to-blue-400 flex items-center justify-center text-2xl font-serif text-white">
+                          "
+                        </div>
+                        <div>
+                          <h4 className="font-bold text-white">Robert Kendrick</h4>
+                          <p className="text-sm text-blue-300">Chief Municipal Engineer</p>
+                        </div>
+                      </div>
+                      <p className="italic text-blue-100 leading-relaxed">
+                        The PraetorianGuard™ NASA-derived ceramic system has significantly reduced our maintenance budget while delivering superior protection. Our energy savings alone paid for the entire project in less than a year, and we've seen zero degradation since installation.
+                      </p>
+                      <div className="mt-3 pt-3 border-t border-blue-600/30 flex justify-between items-center">
+                        <div className="flex gap-1">
+                          {[1, 2, 3, 4, 5].map((star) => (
+                            <span key={star} className="text-yellow-400">★</span>
+                          ))}
+                        </div>
+                        <span className="text-xs text-blue-400">Verified Implementation</span>
+                      </div>
                     </div>
                   </div>
                   
@@ -883,14 +902,22 @@ const MunicipalityPage = () => {
                           </div>
                         </div>
                       
-                        <div className="mt-6 bg-blue-800/30 rounded p-3 border border-blue-500/20">
+                        <div className="mt-6 bg-blue-800/30 rounded-lg p-4 border border-blue-500/30">
                           <div className="flex justify-between text-sm mb-1">
                             <span className="text-blue-200">Payback Period</span>
                             <span className="text-white font-bold">11 months</span>
                           </div>
-                          <div className="flex justify-between text-sm">
+                          <div className="flex justify-between text-sm mb-3">
                             <span className="text-blue-200">Projected 30-Year Savings</span>
                             <span className="text-white font-bold">$8.23M</span>
+                          </div>
+                          
+                          <div className="pt-3 border-t border-blue-700/30 flex items-center justify-between">
+                            <div className="flex items-center">
+                              <BadgeCheck className="h-5 w-5 mr-2 text-green-400" />
+                              <span className="text-xs text-blue-200">AWWA Certified Results</span>
+                            </div>
+                            <span className="text-xs font-mono text-blue-300">LMA-2022-4721</span>
                           </div>
                         </div>
                       </div>
@@ -935,6 +962,67 @@ const MunicipalityPage = () => {
           </div>
         </section>
 
+        {/* Technical Specifications Section */}
+        <section className="py-10 relative z-10">
+          <div className="container mx-auto">
+            <div className="text-center mb-6">
+              <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-300 to-white text-transparent bg-clip-text mb-4">
+                Verified Performance Metrics
+              </h2>
+              <p className="text-blue-200 max-w-2xl mx-auto mb-8">
+                Independently certified technologies derived from NASA's thermal protection systems for the space shuttle program
+              </p>
+            </div>
+            
+            <div className="p-6 backdrop-blur-md bg-gradient-to-r from-primary-900/90 to-blue-900/90 rounded-xl border border-blue-400/30 max-w-5xl mx-auto">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3">
+                <div className="bg-blue-900/70 rounded-lg p-3 border border-blue-500/30 text-center flex flex-col items-center">
+                  <span className="text-sm text-blue-300 mb-1">Fire Rating</span>
+                  <span className="text-lg font-bold text-white">Class A</span>
+                  <span className="text-xs text-blue-200 mt-1">0/100 Flame Spread</span>
+                </div>
+                
+                <div className="bg-blue-900/70 rounded-lg p-3 border border-blue-500/30 text-center flex flex-col items-center">
+                  <span className="text-sm text-blue-300 mb-1">UV Reflection</span>
+                  <span className="text-lg font-bold text-white">89%</span>
+                  <span className="text-xs text-blue-200 mt-1">ASTM D6695</span>
+                </div>
+                
+                <div className="bg-blue-900/70 rounded-lg p-3 border border-blue-500/30 text-center flex flex-col items-center">
+                  <span className="text-sm text-blue-300 mb-1">Elastomeric</span>
+                  <span className="text-lg font-bold text-white">156%</span>
+                  <span className="text-xs text-blue-200 mt-1">ASTM D2370</span>
+                </div>
+                
+                <div className="bg-blue-900/70 rounded-lg p-3 border border-blue-500/30 text-center flex flex-col items-center">
+                  <span className="text-sm text-blue-300 mb-1">Thermal</span>
+                  <span className="text-lg font-bold text-white">0.00543</span>
+                  <span className="text-xs text-blue-200 mt-1">W/cm²/K</span>
+                </div>
+                
+                <div className="bg-blue-900/70 rounded-lg p-3 border border-blue-500/30 text-center flex flex-col items-center">
+                  <span className="text-sm text-blue-300 mb-1">ABS Certified</span>
+                  <span className="text-lg font-bold text-white">#MC-1372</span>
+                  <span className="text-xs text-blue-200 mt-1">NSF/ANSI 61</span>
+                </div>
+                
+                <div className="bg-blue-900/70 rounded-lg p-3 border border-blue-500/30 text-center flex flex-col items-center">
+                  <span className="text-sm text-blue-300 mb-1">Patent No.</span>
+                  <span className="text-lg font-bold text-white">10,738,214</span>
+                  <span className="text-xs text-blue-200 mt-1">USPTO</span>
+                </div>
+              </div>
+              
+              <div className="mt-5 pt-4 border-t border-blue-700/30 flex items-center justify-center">
+                <div className="flex items-center">
+                  <BadgeCheck className="h-5 w-5 mr-2 text-green-400" />
+                  <span className="text-sm text-blue-200">All metrics independently verified by third-party certified laboratories</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        
         <section className="py-16 backdrop-blur-sm bg-primary-900/80 relative z-10">
           <div className="container mx-auto">
             <div className="text-center mb-12">
