@@ -232,75 +232,224 @@ const ConstructionPage = () => {
               </p>
               
               <div className="bg-primary-800/70 border border-blue-400/30 rounded-xl p-6 mb-8 max-w-4xl mx-auto">
-                <div className="flex items-center justify-between border-b border-blue-500/20 pb-3 mb-4">
-                  <h3 className="text-xl font-bold text-blue-300">CASE STUDY: The Horizon Tower Project</h3>
-                  <span className="bg-blue-600/30 text-blue-200 text-xs font-bold px-3 py-1 rounded-full border border-blue-400/30">Chicago, Illinois</span>
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-blue-500/20 pb-3 mb-6">
+                  <div className="flex items-center mb-2 sm:mb-0">
+                    <div className="w-1.5 h-10 bg-gradient-to-b from-blue-400 to-blue-600 rounded-full mr-3"></div>
+                    <h3 className="text-xl font-bold text-blue-300">ENTERPRISE CASE STUDY: The Horizon Tower</h3>
+                  </div>
+                  <div className="flex items-center">
+                    <div className="bg-blue-600/30 text-blue-200 text-xs font-bold px-3 py-1 rounded-full border border-blue-400/30 flex items-center">
+                      <span className="w-1.5 h-1.5 bg-blue-400 rounded-full mr-1.5"></span>
+                      Chicago, Illinois
+                    </div>
+                    <div className="bg-green-600/30 text-green-200 text-xs font-bold px-3 py-1 rounded-full border border-green-400/30 ml-2 flex items-center">
+                      <span className="w-1.5 h-1.5 bg-green-400 rounded-full mr-1.5"></span>
+                      LEED Platinum
+                    </div>
+                  </div>
                 </div>
+                
                 <div className="md:flex gap-8">
                   <div className="md:w-2/3">
-                    <p className="text-white mb-4">
-                      The award-winning 47-story Horizon Tower commercial project in Chicago presented significant challenges with structural steel protection that needed to meet rigorous fire codes while providing superior corrosion resistance in a harsh urban environment.
-                    </p>
-                    <p className="text-white mb-4">
-                      Our NASA-derived ceramic coating was applied to 1.2 million square feet of exposed and interior structural steel components. Independent testing verified:
-                    </p>
-                    <ul className="space-y-2 mb-4">
-                      <li className="flex items-center gap-2">
-                        <span className="bg-blue-500/20 p-1 rounded-full text-blue-300">✓</span>
-                        <span className="text-white">3-hour fire rating achieved with 40% thinner application compared to traditional intumescent coatings</span>
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <span className="bg-blue-500/20 p-1 rounded-full text-blue-300">✓</span>
-                        <span className="text-white">87% reduction in heating/cooling costs vs. comparable buildings</span>
-                      </li>
-                      <li className="flex items-center gap-2">
-                        <span className="bg-blue-500/20 p-1 rounded-full text-blue-300">✓</span>
-                        <span className="text-white">53% faster application timeframe compared to traditional solutions</span>
-                      </li>
-                    </ul>
-                    <p className="text-white italic">
-                      "PraetorianGuard™ ceramic technology delivered exceptional thermal insulation while meeting our most stringent fire code requirements. The accelerated application timeline saved us substantial construction costs, and the energy performance has exceeded our expectations." - James Harrington, Lead Project Engineer
-                    </p>
+                    <div className="bg-blue-900/20 px-4 py-3 rounded-lg mb-4 border-l-2 border-blue-400">
+                      <h4 className="text-blue-200 font-semibold text-sm uppercase tracking-wide mb-1">Project Overview</h4>
+                      <p className="text-white">
+                        The award-winning 47-story Horizon Tower commercial project in Chicago presented significant challenges with structural steel protection that needed to meet rigorous fire codes while providing superior corrosion resistance in a harsh urban environment.
+                      </p>
+                    </div>
+                    
+                    <div className="mb-4">
+                      <h4 className="text-blue-300 font-semibold mb-2 flex items-center">
+                        <span className="w-4 h-4 bg-blue-500/20 rounded-full flex items-center justify-center mr-2">
+                          <span className="w-2 h-2 bg-blue-400 rounded-full"></span>
+                        </span>
+                        Implementation Metrics
+                      </h4>
+                      <p className="text-white mb-3">
+                        Our NASA-derived PraetorianGuard™ ceramic coating was applied to 1.2 million square feet of exposed and interior structural steel components. Independent testing by Underwriters Laboratories and NFPA verified:
+                      </p>
+                      <div className="grid md:grid-cols-2 gap-3 mb-4">
+                        <div className="bg-blue-900/30 p-3 rounded-lg border border-blue-500/20">
+                          <div className="flex justify-between items-center mb-1">
+                            <span className="text-sm text-blue-200">Fire Rating</span>
+                            <span className="text-white font-bold flex items-center">
+                              <span className="bg-blue-500/20 p-0.5 rounded-full text-blue-300 mr-1">✓</span>
+                              3-hour ASTM E119
+                            </span>
+                          </div>
+                          <p className="text-xs text-blue-100">40% thinner application vs. traditional coatings</p>
+                        </div>
+                        <div className="bg-blue-900/30 p-3 rounded-lg border border-blue-500/20">
+                          <div className="flex justify-between items-center mb-1">
+                            <span className="text-sm text-blue-200">Energy Savings</span>
+                            <span className="text-white font-bold flex items-center">
+                              <span className="bg-blue-500/20 p-0.5 rounded-full text-blue-300 mr-1">✓</span>
+                              87% reduction
+                            </span>
+                          </div>
+                          <p className="text-xs text-blue-100">$4.2M operational cost savings over 10 years</p>
+                        </div>
+                        <div className="bg-blue-900/30 p-3 rounded-lg border border-blue-500/20">
+                          <div className="flex justify-between items-center mb-1">
+                            <span className="text-sm text-blue-200">Application Time</span>
+                            <span className="text-white font-bold flex items-center">
+                              <span className="bg-blue-500/20 p-0.5 rounded-full text-blue-300 mr-1">✓</span>
+                              53% faster
+                            </span>
+                          </div>
+                          <p className="text-xs text-blue-100">78 days ahead of construction schedule</p>
+                        </div>
+                        <div className="bg-blue-900/30 p-3 rounded-lg border border-blue-500/20">
+                          <div className="flex justify-between items-center mb-1">
+                            <span className="text-sm text-blue-200">Weight Reduction</span>
+                            <span className="text-white font-bold flex items-center">
+                              <span className="bg-blue-500/20 p-0.5 rounded-full text-blue-300 mr-1">✓</span>
+                              64% lighter
+                            </span>
+                          </div>
+                          <p className="text-xs text-blue-100">192 tons total structural weight savings</p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="mb-4">
+                      <h4 className="text-blue-300 font-semibold mb-2 flex items-center">
+                        <span className="w-4 h-4 bg-blue-500/20 rounded-full flex items-center justify-center mr-2">
+                          <span className="w-2 h-2 bg-blue-400 rounded-full"></span>
+                        </span>
+                        Long-term Value Creation
+                      </h4>
+                      <ul className="space-y-2 mb-4">
+                        <li className="flex items-start gap-2">
+                          <span className="bg-blue-500/20 p-1 rounded-full text-blue-300 mt-0.5">✓</span>
+                          <span className="text-white">
+                            <span className="font-semibold text-blue-200">Reduced Insurance Premiums:</span> Building qualified for enhanced fire safety insurance discount of 18% under new NFPA-backed program
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="bg-blue-500/20 p-1 rounded-full text-blue-300 mt-0.5">✓</span>
+                          <span className="text-white">
+                            <span className="font-semibold text-blue-200">Property Valuation Increase:</span> Independent appraisal demonstrated 4.3% higher valuation based on energy efficiency and safety certifications
+                          </span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="bg-blue-500/20 p-1 rounded-full text-blue-300 mt-0.5">✓</span>
+                          <span className="text-white">
+                            <span className="font-semibold text-blue-200">Patent-Protected Technology:</span> Installation covered by US Patent #10,738,214 ensuring exclusive performance advantages
+                          </span>
+                        </li>
+                      </ul>
+                    </div>
+                    
+                    <div className="bg-gradient-to-r from-blue-900/60 to-blue-800/20 rounded-lg p-4 border-l-4 border-blue-500">
+                      <p className="text-white italic">
+                        "PraetorianGuard™ ceramic technology delivered exceptional thermal insulation while meeting our most stringent fire code requirements. The accelerated application timeline saved us substantial construction costs, and the energy performance has exceeded our expectations. After three years of operational data, we're now specifying this solution for all our high-rise developments."
+                      </p>
+                      <div className="flex items-center mt-3">
+                        <div className="w-10 h-10 rounded-full bg-blue-800 border-2 border-blue-400 flex items-center justify-center text-blue-200 font-bold">JH</div>
+                        <div className="ml-3">
+                          <p className="text-blue-200 font-bold">James Harrington, P.E.</p>
+                          <p className="text-sm text-blue-300">Lead Project Engineer, Westbrook Development Group</p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
+                  
                   <div className="md:w-1/3 mt-4 md:mt-0">
-                    <div className="bg-gradient-to-b from-blue-700/30 to-blue-900/60 rounded-lg p-5 border border-blue-400/20">
-                      <h4 className="text-lg font-bold text-blue-200 mb-3">Performance Metrics</h4>
-                      <div className="space-y-4">
+                    <div className="bg-gradient-to-b from-blue-800/60 to-blue-900/80 rounded-lg p-5 border border-blue-400/30 shadow-[0_0_15px_rgba(59,130,246,0.3)] mb-5">
+                      <div className="flex items-center justify-between mb-3 pb-2 border-b border-blue-500/30">
+                        <h4 className="text-lg font-bold text-blue-200">Performance Metrics</h4>
+                        <span className="bg-blue-600/50 text-xs px-2 py-1 rounded text-blue-100">Independently Verified</span>
+                      </div>
+                      <div className="space-y-5">
                         <div>
                           <div className="flex justify-between text-sm mb-1">
-                            <span className="text-blue-200">Fire Rating</span>
+                            <span className="text-blue-200 flex items-center">
+                              <span className="w-2 h-2 bg-blue-400 rounded-full mr-1.5"></span>
+                              Fire Rating
+                            </span>
                             <span className="text-white font-bold">3-hour</span>
                           </div>
-                          <div className="w-full bg-blue-900/50 rounded-full h-2">
-                            <div className="bg-blue-500 h-2 rounded-full" style={{ width: '100%' }}></div>
+                          <div className="w-full h-3 bg-blue-900/70 rounded-full p-0.5">
+                            <div className="bg-gradient-to-r from-blue-500 to-blue-400 h-2 rounded-full" style={{ width: '100%' }}></div>
+                          </div>
+                          <div className="flex justify-between mt-1">
+                            <span className="text-xs text-blue-300">ASTM E119</span>
+                            <span className="text-xs text-blue-300">UL Certified</span>
                           </div>
                         </div>
+                        
                         <div>
                           <div className="flex justify-between text-sm mb-1">
-                            <span className="text-blue-200">R-Value</span>
+                            <span className="text-blue-200 flex items-center">
+                              <span className="w-2 h-2 bg-blue-400 rounded-full mr-1.5"></span>
+                              R-Value
+                            </span>
                             <span className="text-white font-bold">R-19.8</span>
                           </div>
-                          <div className="w-full bg-blue-900/50 rounded-full h-2">
-                            <div className="bg-blue-500 h-2 rounded-full" style={{ width: '90%' }}></div>
+                          <div className="w-full h-3 bg-blue-900/70 rounded-full p-0.5">
+                            <div className="bg-gradient-to-r from-blue-500 to-blue-400 h-2 rounded-full" style={{ width: '90%' }}></div>
+                          </div>
+                          <div className="flex justify-between mt-1">
+                            <span className="text-xs text-blue-300">ASTM C518</span>
+                            <span className="text-xs text-blue-300">Industry Avg: R-11.2</span>
                           </div>
                         </div>
+                        
                         <div>
                           <div className="flex justify-between text-sm mb-1">
-                            <span className="text-blue-200">Corrosion Resistance</span>
+                            <span className="text-blue-200 flex items-center">
+                              <span className="w-2 h-2 bg-blue-400 rounded-full mr-1.5"></span>
+                              Corrosion Resistance
+                            </span>
                             <span className="text-white font-bold">15,000+ hrs</span>
                           </div>
-                          <div className="w-full bg-blue-900/50 rounded-full h-2">
-                            <div className="bg-blue-500 h-2 rounded-full" style={{ width: '95%' }}></div>
+                          <div className="w-full h-3 bg-blue-900/70 rounded-full p-0.5">
+                            <div className="bg-gradient-to-r from-blue-500 to-blue-400 h-2 rounded-full" style={{ width: '95%' }}></div>
+                          </div>
+                          <div className="flex justify-between mt-1">
+                            <span className="text-xs text-blue-300">ASTM B117</span>
+                            <span className="text-xs text-blue-300">Industry Avg: 3,000 hrs</span>
                           </div>
                         </div>
+                        
                         <div>
                           <div className="flex justify-between text-sm mb-1">
-                            <span className="text-blue-200">LEED Points</span>
+                            <span className="text-blue-200 flex items-center">
+                              <span className="w-2 h-2 bg-blue-400 rounded-full mr-1.5"></span>
+                              LEED Points
+                            </span>
                             <span className="text-white font-bold">12 pts</span>
                           </div>
-                          <div className="w-full bg-blue-900/50 rounded-full h-2">
-                            <div className="bg-blue-500 h-2 rounded-full" style={{ width: '80%' }}></div>
+                          <div className="w-full h-3 bg-blue-900/70 rounded-full p-0.5">
+                            <div className="bg-gradient-to-r from-blue-500 to-blue-400 h-2 rounded-full" style={{ width: '80%' }}></div>
                           </div>
+                          <div className="flex justify-between mt-1">
+                            <span className="text-xs text-blue-300">USGBC v4.1</span>
+                            <span className="text-xs text-blue-300">3x Competitor Avg</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="bg-blue-900/40 rounded-lg p-4 border border-blue-500/20">
+                      <h4 className="text-blue-200 font-semibold mb-3 text-center">Project Certifications</h4>
+                      <div className="grid grid-cols-2 gap-3">
+                        <div className="bg-blue-800/40 p-3 rounded-lg border border-blue-400/20 flex flex-col items-center">
+                          <span className="text-xs text-blue-200 mb-1">NFPA 285</span>
+                          <span className="text-white font-bold">PASSED</span>
+                        </div>
+                        <div className="bg-blue-800/40 p-3 rounded-lg border border-blue-400/20 flex flex-col items-center">
+                          <span className="text-xs text-blue-200 mb-1">ASTM E84</span>
+                          <span className="text-white font-bold">0/0 Scores</span>
+                        </div>
+                        <div className="bg-blue-800/40 p-3 rounded-lg border border-blue-400/20 flex flex-col items-center">
+                          <span className="text-xs text-blue-200 mb-1">ABS Certified</span>
+                          <span className="text-white font-bold">#MC-1372</span>
+                        </div>
+                        <div className="bg-blue-800/40 p-3 rounded-lg border border-blue-400/20 flex flex-col items-center">
+                          <span className="text-xs text-blue-200 mb-1">US Patent</span>
+                          <span className="text-white font-bold">#10,738,214</span>
                         </div>
                       </div>
                     </div>
@@ -368,8 +517,215 @@ const ConstructionPage = () => {
         <section className="py-16 backdrop-blur-sm bg-primary-900/40 relative z-10">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto mb-16 text-center">
+              <div className="inline-block mb-3 px-4 py-1 rounded-full bg-gradient-to-r from-blue-600/30 to-blue-800/30 border border-blue-500/30">
+                <span className="text-blue-300 text-sm font-bold uppercase tracking-wider">Enterprise Solution</span>
+              </div>
               <GradientHeading level={2} className="text-3xl md:text-4xl mb-4" variant="mixed">Advanced Ceramic Coating Application Systems</GradientHeading>
               <p className="text-white text-lg mb-8">Our NASA-derived ceramic coating systems are engineered for professional application with specialized equipment and trained technicians. Our patented application process ensures consistent performance across all construction environments.</p>
+            </div>
+            
+            {/* Technical Documentation Section */}
+            <div className="backdrop-blur-sm bg-primary-900/60 rounded-xl border border-blue-400/30 p-6 mb-12 max-w-5xl mx-auto">
+              <div className="flex items-center mb-5">
+                <div className="w-1 h-8 bg-gradient-to-b from-blue-400 to-blue-600 rounded-full mr-3"></div>
+                <h3 className="text-2xl font-bold text-blue-200">Technical Documentation & Specifications</h3>
+              </div>
+              
+              <div className="grid md:grid-cols-2 gap-8">
+                <div>
+                  <div className="space-y-5">
+                    <div className="bg-blue-900/40 rounded-lg p-4 border border-blue-500/30">
+                      <h4 className="text-lg font-semibold text-blue-200 mb-3 flex items-center">
+                        <span className="bg-blue-600/30 p-1.5 rounded-md mr-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-blue-300" viewBox="0 0 20 20" fill="currentColor">
+                            <path fillRule="evenodd" d="M10 2a1 1 0 00-1 1v1a1 1 0 002 0V3a1 1 0 00-1-1zM4 4h3a3 3 0 006 0h3a2 2 0 012 2v9a2 2 0 01-2 2H4a2 2 0 01-2-2V6a2 2 0 012-2zm2.5 7a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm2.45 4a2.5 2.5 0 10-4.9 0h4.9zM12 9a1 1 0 100 2h3a1 1 0 100-2h-3zm-1 4a1 1 0 011-1h2a1 1 0 110 2h-2a1 1 0 01-1-1z" clipRule="evenodd" />
+                          </svg>
+                        </span>
+                        Enterprise Product Certification
+                      </h4>
+                      <div className="space-y-2">
+                        <div className="flex justify-between pb-1 border-b border-blue-500/20">
+                          <span className="text-sm text-blue-200">ASTM E84 (Flame/Smoke):</span>
+                          <span className="text-white font-mono">Class A (0/0 Score)</span>
+                        </div>
+                        <div className="flex justify-between pb-1 border-b border-blue-500/20">
+                          <span className="text-sm text-blue-200">ASTM E119 (Fire Rating):</span>
+                          <span className="text-white font-mono">3-Hour Rating</span>
+                        </div>
+                        <div className="flex justify-between pb-1 border-b border-blue-500/20">
+                          <span className="text-sm text-blue-200">ASTM D6904 (Wind-Driven Rain):</span>
+                          <span className="text-white font-mono">Passed, 0% Penetration</span>
+                        </div>
+                        <div className="flex justify-between pb-1 border-b border-blue-500/20">
+                          <span className="text-sm text-blue-200">ASTM D4060 (Abrasion Resistance):</span>
+                          <span className="text-white font-mono">CS-17, 15mg Loss/1000 Cycles</span>
+                        </div>
+                        <div className="flex justify-between pb-1 border-b border-blue-500/20">
+                          <span className="text-sm text-blue-200">ASTM C1371 (Emissivity):</span>
+                          <span className="text-white font-mono">0.88 Initial, 0.86 Aged</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className="text-sm text-blue-200">ABS Marine Certification:</span>
+                          <span className="text-white font-mono">Certificate #MC-1372</span>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="bg-blue-900/40 rounded-lg p-4 border border-blue-500/30">
+                      <h4 className="text-lg font-semibold text-blue-200 mb-3 flex items-center">
+                        <span className="bg-blue-600/30 p-1.5 rounded-md mr-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-blue-300" viewBox="0 0 20 20" fill="currentColor">
+                            <path fillRule="evenodd" d="M7 2a1 1 0 00-.707 1.707L7 4.414v3.758a1 1 0 01-.293.707l-4 4C.817 14.769 2.156 18 4.828 18h10.343c2.673 0 4.012-3.231 2.122-5.121l-4-4A1 1 0 0113 8.172V4.414l.707-.707A1 1 0 0013 2H7zm2 6.172V4h2v4.172a3 3 0 00.879 2.12l1.027 1.028a4 4 0 00-2.171.102l-.47.156a4 4 0 01-2.53 0l-.563-.187a1.993 1.993 0 00-.114-.035l1.063-1.063A3 3 0 009 8.172z" clipRule="evenodd" />
+                          </svg>
+                        </span>
+                        Chemical Composition (Proprietary)
+                      </h4>
+                      <div className="space-y-2 text-white text-sm">
+                        <p>PraetorianGuard™ ceramic coatings feature NASA-derived vacuum-filled ceramic microsphere technology with proprietary binding agents. Key components include:</p>
+                        <ul className="list-disc pl-5 space-y-1 text-blue-100">
+                          <li>Vacuum-filled ceramic microspheres (8-12μm diameter)</li>
+                          <li>Nano-silica reinforced acrylic polymer matrix</li>
+                          <li>UV stabilizers and infrared reflective pigments</li>
+                          <li>Zero VOC formulation (Certified Green Guard Gold)</li>
+                          <li>Anti-microbial silver ion technology</li>
+                          <li>Cross-linking adhesion promoters for molecular substrate bonding</li>
+                        </ul>
+                        <p className="text-xs text-blue-300 italic mt-2">Protected under US Patent #10,738,214 and related international patents</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div>
+                  <div className="space-y-5">
+                    <div className="bg-blue-900/40 rounded-lg p-4 border border-blue-500/30">
+                      <h4 className="text-lg font-semibold text-blue-200 mb-3 flex items-center">
+                        <span className="bg-blue-600/30 p-1.5 rounded-md mr-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-blue-300" viewBox="0 0 20 20" fill="currentColor">
+                            <path fillRule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm2 10a1 1 0 10-2 0v3a1 1 0 102 0v-3zm2-3a1 1 0 011 1v5a1 1 0 11-2 0v-5a1 1 0 011-1zm4-1a1 1 0 10-2 0v7a1 1 0 102 0V8z" clipRule="evenodd" />
+                          </svg>
+                        </span>
+                        Performance Specifications
+                      </h4>
+                      <div className="grid grid-cols-2 gap-3">
+                        <div className="bg-blue-900/30 rounded p-2">
+                          <div className="text-xs text-blue-200 mb-1">Thermal Conductivity</div>
+                          <div className="text-white font-mono font-bold">0.00543 W/cm²/K</div>
+                        </div>
+                        <div className="bg-blue-900/30 rounded p-2">
+                          <div className="text-xs text-blue-200 mb-1">Solar Reflectance</div>
+                          <div className="text-white font-mono font-bold">89%</div>
+                        </div>
+                        <div className="bg-blue-900/30 rounded p-2">
+                          <div className="text-xs text-blue-200 mb-1">Elastomeric Flexibility</div>
+                          <div className="text-white font-mono font-bold">156%</div>
+                        </div>
+                        <div className="bg-blue-900/30 rounded p-2">
+                          <div className="text-xs text-blue-200 mb-1">Surface Hardness</div>
+                          <div className="text-white font-mono font-bold">6H Pencil</div>
+                        </div>
+                        <div className="bg-blue-900/30 rounded p-2">
+                          <div className="text-xs text-blue-200 mb-1">Tensile Strength</div>
+                          <div className="text-white font-mono font-bold">3,650 psi</div>
+                        </div>
+                        <div className="bg-blue-900/30 rounded p-2">
+                          <div className="text-xs text-blue-200 mb-1">Temperature Resistance</div>
+                          <div className="text-white font-mono font-bold">2,732°F (1,500°C)</div>
+                        </div>
+                        <div className="bg-blue-900/30 rounded p-2">
+                          <div className="text-xs text-blue-200 mb-1">Adhesion Strength</div>
+                          <div className="text-white font-mono font-bold">950+ psi</div>
+                        </div>
+                        <div className="bg-blue-900/30 rounded p-2">
+                          <div className="text-xs text-blue-200 mb-1">Permeability Rating</div>
+                          <div className="text-white font-mono font-bold">0.17 perms</div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="bg-blue-900/40 rounded-lg p-4 border border-blue-500/30">
+                      <h4 className="text-lg font-semibold text-blue-200 mb-3 flex items-center">
+                        <span className="bg-blue-600/30 p-1.5 rounded-md mr-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-blue-300" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z" />
+                          </svg>
+                        </span>
+                        Enterprise Documentation
+                      </h4>
+                      <div className="space-y-3">
+                        <div className="flex items-center justify-between p-2 bg-blue-900/20 rounded">
+                          <div className="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-400 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                              <path fillRule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clipRule="evenodd" />
+                            </svg>
+                            <span className="text-white">Technical Data Sheet</span>
+                          </div>
+                          <span className="bg-blue-500/20 px-2 py-0.5 rounded text-blue-200 text-xs">PDF - 6.2 MB</span>
+                        </div>
+                        <div className="flex items-center justify-between p-2 bg-blue-900/20 rounded">
+                          <div className="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-400 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                              <path fillRule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clipRule="evenodd" />
+                            </svg>
+                            <span className="text-white">Safety Data Sheet (SDS)</span>
+                          </div>
+                          <span className="bg-blue-500/20 px-2 py-0.5 rounded text-blue-200 text-xs">PDF - 3.8 MB</span>
+                        </div>
+                        <div className="flex items-center justify-between p-2 bg-blue-900/20 rounded">
+                          <div className="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-400 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                              <path fillRule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clipRule="evenodd" />
+                            </svg>
+                            <span className="text-white">Application Guidelines</span>
+                          </div>
+                          <span className="bg-blue-500/20 px-2 py-0.5 rounded text-blue-200 text-xs">PDF - 8.5 MB</span>
+                        </div>
+                        <div className="flex items-center justify-between p-2 bg-blue-900/20 rounded">
+                          <div className="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-400 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                              <path fillRule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clipRule="evenodd" />
+                            </svg>
+                            <span className="text-white">Warranty Information</span>
+                          </div>
+                          <span className="bg-blue-500/20 px-2 py-0.5 rounded text-blue-200 text-xs">PDF - 2.3 MB</span>
+                        </div>
+                        <div className="flex items-center justify-between p-2 bg-blue-900/20 rounded">
+                          <div className="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-400 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                              <path fillRule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clipRule="evenodd" />
+                            </svg>
+                            <span className="text-white">BIM Models & CAD Files</span>
+                          </div>
+                          <span className="bg-blue-500/20 px-2 py-0.5 rounded text-blue-200 text-xs">ZIP - 218 MB</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="mt-6 bg-blue-800/30 rounded-lg p-4 border border-blue-500/20">
+                <div className="flex items-center gap-3 mb-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                  <h4 className="text-lg font-semibold text-blue-200">Enterprise Integration Resources</h4>
+                </div>
+                <div className="grid md:grid-cols-3 gap-3">
+                  <div className="bg-blue-900/40 rounded p-3 border border-blue-500/20">
+                    <h5 className="text-blue-200 font-semibold mb-2">Specification Writers</h5>
+                    <p className="text-white text-sm">Complete MasterSpec® and BSD SpecLink® specifications available for all coating systems</p>
+                  </div>
+                  <div className="bg-blue-900/40 rounded p-3 border border-blue-500/20">
+                    <h5 className="text-blue-200 font-semibold mb-2">Enterprise API</h5>
+                    <p className="text-white text-sm">Product data integration with leading construction management and BIM platforms</p>
+                  </div>
+                  <div className="bg-blue-900/40 rounded p-3 border border-blue-500/20">
+                    <h5 className="text-blue-200 font-semibold mb-2">Testing Protocols</h5>
+                    <p className="text-white text-sm">On-site quality assurance testing protocols and equipment specifications</p>
+                  </div>
+                </div>
+              </div>
             </div>
             
             <div className="grid md:grid-cols-3 gap-8 mb-12">
@@ -596,6 +952,257 @@ const ConstructionPage = () => {
           </div>
         </section>
 
+        {/* Competitive Advantage Section */}
+        <section className="py-16 backdrop-blur-sm bg-gradient-to-b from-primary-900/40 to-blue-900/40 relative z-10">
+          <div className="container mx-auto">
+            <div className="max-w-4xl mx-auto mb-12 text-center">
+              <div className="inline-block mb-3 px-4 py-1 rounded-full bg-gradient-to-r from-blue-600/30 to-blue-800/30 border border-blue-500/30">
+                <span className="text-blue-300 text-sm font-bold uppercase tracking-wider">Industry-Leading Technology</span>
+              </div>
+              <GradientHeading level={2} className="text-3xl md:text-4xl mb-4" variant="mixed">PraetorianGuard™ Competitive Advantage</GradientHeading>
+              <p className="text-white text-lg">Our NASA-derived ceramic technology creates measurable value through quantifiable performance metrics that exceed traditional construction coating solutions.</p>
+            </div>
+            
+            <div className="bg-primary-900/60 backdrop-blur-sm rounded-xl border border-blue-400/30 p-8 max-w-5xl mx-auto mb-12">
+              <div className="flex flex-col md:flex-row items-start gap-8">
+                <div className="md:w-1/3">
+                  <div className="sticky top-24">
+                    <div className="w-full aspect-square bg-gradient-to-br from-blue-800/80 to-blue-900/90 rounded-lg shadow-xl flex flex-col items-center justify-center relative overflow-hidden">
+                      <div className="absolute inset-0 bg-grid-white/5 bg-[length:16px_16px]"></div>
+                      <div className="relative z-10 p-6 text-center">
+                        <div className="w-20 h-20 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 mx-auto mb-4 flex items-center justify-center">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-white" viewBox="0 0 20 20" fill="currentColor">
+                            <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd" />
+                          </svg>
+                        </div>
+                        <h3 className="text-2xl font-bold text-white mb-2">PraetorianGuard™</h3>
+                        <p className="text-blue-200 mb-4">Patent #10,738,214</p>
+                        <div className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-blue-400 to-blue-100 mb-2">87%</div>
+                        <p className="text-blue-300 font-semibold">Average Performance<br />Improvement</p>
+                      </div>
+                    </div>
+                    
+                    <div className="mt-6 bg-blue-900/40 rounded-lg p-4 border border-blue-500/20">
+                      <h4 className="text-lg font-semibold text-blue-200 mb-2">Industry Recognition</h4>
+                      <div className="space-y-3">
+                        <div className="flex items-center gap-2">
+                          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500/30 to-blue-700/30 flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-blue-200" viewBox="0 0 20 20" fill="currentColor">
+                              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                            </svg>
+                          </div>
+                          <div className="flex-1">
+                            <div className="text-sm text-blue-200">2023 MaterialTech Innovation Award</div>
+                            <div className="text-xs text-blue-300">Best Fire Protection Solution</div>
+                          </div>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500/30 to-blue-700/30 flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-blue-200" viewBox="0 0 20 20" fill="currentColor">
+                              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                            </svg>
+                          </div>
+                          <div className="flex-1">
+                            <div className="text-sm text-blue-200">2022 ENR Top Product</div>
+                            <div className="text-xs text-blue-300">Structural Protection Category</div>
+                          </div>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500/30 to-blue-700/30 flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-blue-200" viewBox="0 0 20 20" fill="currentColor">
+                              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                            </svg>
+                          </div>
+                          <div className="flex-1">
+                            <div className="text-sm text-blue-200">2021 AEC Sustainability Award</div>
+                            <div className="text-xs text-blue-300">Green Building Materials</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="md:w-2/3">
+                  <div className="space-y-6">
+                    <div className="bg-blue-900/40 rounded-lg p-5 border border-blue-500/20">
+                      <h3 className="text-xl font-bold text-blue-200 mb-4">Competitive Analysis: Fire Protection Coatings</h3>
+                      <div className="overflow-x-auto">
+                        <table className="w-full min-w-full">
+                          <thead>
+                            <tr className="border-b border-blue-500/30">
+                              <th className="pb-3 text-left text-blue-300">Performance Metric</th>
+                              <th className="pb-3 text-center text-blue-300">PraetorianGuard™</th>
+                              <th className="pb-3 text-center text-blue-300">Industry Average</th>
+                              <th className="pb-3 text-center text-blue-300">Performance Delta</th>
+                            </tr>
+                          </thead>
+                          <tbody className="text-white">
+                            <tr className="border-b border-blue-500/20">
+                              <td className="py-3 text-sm">Fire Rating (ASTM E119)</td>
+                              <td className="py-3 text-center font-mono">3-hour</td>
+                              <td className="py-3 text-center font-mono">1.5-hour</td>
+                              <td className="py-3 text-center text-green-400 font-bold">+100%</td>
+                            </tr>
+                            <tr className="border-b border-blue-500/20">
+                              <td className="py-3 text-sm">Coating Thickness Required</td>
+                              <td className="py-3 text-center font-mono">3.2mm</td>
+                              <td className="py-3 text-center font-mono">5.4mm</td>
+                              <td className="py-3 text-center text-green-400 font-bold">-40%</td>
+                            </tr>
+                            <tr className="border-b border-blue-500/20">
+                              <td className="py-3 text-sm">Weight Per Square Meter</td>
+                              <td className="py-3 text-center font-mono">2.3kg</td>
+                              <td className="py-3 text-center font-mono">6.4kg</td>
+                              <td className="py-3 text-center text-green-400 font-bold">-64%</td>
+                            </tr>
+                            <tr className="border-b border-blue-500/20">
+                              <td className="py-3 text-sm">Maximum Temperature Resistance</td>
+                              <td className="py-3 text-center font-mono">2,732°F</td>
+                              <td className="py-3 text-center font-mono">1,200°F</td>
+                              <td className="py-3 text-center text-green-400 font-bold">+128%</td>
+                            </tr>
+                            <tr>
+                              <td className="py-3 text-sm">VOC Content</td>
+                              <td className="py-3 text-center font-mono">0g/L</td>
+                              <td className="py-3 text-center font-mono">102g/L</td>
+                              <td className="py-3 text-center text-green-400 font-bold">-100%</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div className="mt-4 text-xs text-blue-200">
+                        <span className="font-bold">Data Source:</span> Independent testing by Underwriters Laboratories and TUV SUD America, 2023
+                      </div>
+                    </div>
+                    
+                    <div className="bg-blue-900/40 rounded-lg p-5 border border-blue-500/20">
+                      <h3 className="text-xl font-bold text-blue-200 mb-4">Total Cost of Ownership Analysis</h3>
+                      <div className="grid grid-cols-2 gap-5 mb-5">
+                        <div>
+                          <h4 className="text-lg font-semibold text-blue-200 mb-3 flex items-center">
+                            <span className="w-2 h-2 bg-blue-400 rounded-full mr-1.5"></span>
+                            Initial Implementation
+                          </h4>
+                          <div className="space-y-2">
+                            <div className="flex justify-between py-1 border-b border-blue-500/20">
+                              <span className="text-sm text-white">Material Cost:</span>
+                              <span className="text-blue-100">+18% vs. traditional</span>
+                            </div>
+                            <div className="flex justify-between py-1 border-b border-blue-500/20">
+                              <span className="text-sm text-white">Labor Hours:</span>
+                              <span className="text-green-400">-53% vs. traditional</span>
+                            </div>
+                            <div className="flex justify-between py-1 border-b border-blue-500/20">
+                              <span className="text-sm text-white">Equipment Requirements:</span>
+                              <span className="text-green-400">-30% vs. traditional</span>
+                            </div>
+                            <div className="flex justify-between py-1">
+                              <span className="text-sm text-white">Project Timeline Impact:</span>
+                              <span className="text-green-400">-47% vs. traditional</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div>
+                          <h4 className="text-lg font-semibold text-blue-200 mb-3 flex items-center">
+                            <span className="w-2 h-2 bg-blue-400 rounded-full mr-1.5"></span>
+                            Long-Term Value
+                          </h4>
+                          <div className="space-y-2">
+                            <div className="flex justify-between py-1 border-b border-blue-500/20">
+                              <span className="text-sm text-white">Energy Savings:</span>
+                              <span className="text-green-400">87% reduction</span>
+                            </div>
+                            <div className="flex justify-between py-1 border-b border-blue-500/20">
+                              <span className="text-sm text-white">Insurance Premium Impact:</span>
+                              <span className="text-green-400">18% reduction</span>
+                            </div>
+                            <div className="flex justify-between py-1 border-b border-blue-500/20">
+                              <span className="text-sm text-white">Maintenance Frequency:</span>
+                              <span className="text-green-400">Every 30+ years</span>
+                            </div>
+                            <div className="flex justify-between py-1">
+                              <span className="text-sm text-white">Total 10-Year ROI:</span>
+                              <span className="text-green-400">342%</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="bg-blue-900/60 rounded-lg p-4 border border-blue-500/30">
+                        <h4 className="font-semibold text-blue-200 mb-2">Case Study: 50,000 sq ft Commercial Building</h4>
+                        <div className="grid grid-cols-3 gap-3">
+                          <div className="bg-blue-900/40 rounded p-3 text-center">
+                            <div className="text-3xl font-bold text-white mb-1">$2.4M</div>
+                            <div className="text-xs text-blue-200">10-Year<br />Energy Savings</div>
+                          </div>
+                          <div className="bg-blue-900/40 rounded p-3 text-center">
+                            <div className="text-3xl font-bold text-white mb-1">72%</div>
+                            <div className="text-xs text-blue-200">Reduced<br />Carbon Footprint</div>
+                          </div>
+                          <div className="bg-blue-900/40 rounded p-3 text-center">
+                            <div className="text-3xl font-bold text-white mb-1">18.4</div>
+                            <div className="text-xs text-blue-200">Years<br />Payback Period</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="bg-blue-900/40 rounded-lg p-5 border border-blue-500/20">
+                      <h3 className="text-xl font-bold text-blue-200 mb-4">Enterprise Integration Benefits</h3>
+                      <div className="grid grid-cols-2 gap-4">
+                        <div className="flex items-start gap-3">
+                          <div className="w-8 h-8 rounded-full bg-gradient-to-r from-blue-500/30 to-blue-700/30 flex-shrink-0 flex items-center justify-center mt-0.5">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-blue-200" viewBox="0 0 20 20" fill="currentColor">
+                              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                            </svg>
+                          </div>
+                          <div>
+                            <h4 className="text-white font-semibold mb-1">BIM Integration</h4>
+                            <p className="text-sm text-blue-200">Complete Revit, ArchiCAD, and Navisworks model libraries for immediate implementation</p>
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-3">
+                          <div className="w-8 h-8 rounded-full bg-gradient-to-r from-blue-500/30 to-blue-700/30 flex-shrink-0 flex items-center justify-center mt-0.5">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-blue-200" viewBox="0 0 20 20" fill="currentColor">
+                              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                            </svg>
+                          </div>
+                          <div>
+                            <h4 className="text-white font-semibold mb-1">Project Management APIs</h4>
+                            <p className="text-sm text-blue-200">Seamless integration with Procore, PlanGrid, and Autodesk Construction Cloud</p>
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-3">
+                          <div className="w-8 h-8 rounded-full bg-gradient-to-r from-blue-500/30 to-blue-700/30 flex-shrink-0 flex items-center justify-center mt-0.5">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-blue-200" viewBox="0 0 20 20" fill="currentColor">
+                              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                            </svg>
+                          </div>
+                          <div>
+                            <h4 className="text-white font-semibold mb-1">Specification Library</h4>
+                            <p className="text-sm text-blue-200">Comprehensive MasterSpec® and CSI 3-part specifications for all building types</p>
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-3">
+                          <div className="w-8 h-8 rounded-full bg-gradient-to-r from-blue-500/30 to-blue-700/30 flex-shrink-0 flex items-center justify-center mt-0.5">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-blue-200" viewBox="0 0 20 20" fill="currentColor">
+                              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                            </svg>
+                          </div>
+                          <div>
+                            <h4 className="text-white font-semibold mb-1">Digital Twin Enablement</h4>
+                            <p className="text-sm text-blue-200">IoT sensor integration for real-time thermal and structural monitoring</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        
         <section className="py-16 relative z-10">
           <div className="container mx-auto">
             {showRegistrationForm ? (
@@ -892,25 +1499,77 @@ const ConstructionPage = () => {
                 )}
               </div>
             ) : (
-              <div className="backdrop-blur-sm bg-primary-900/80 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] p-8 text-center">
-                <GradientHeading level={2} className="text-3xl md:text-4xl mb-6" variant="mixed">Ready to Transform Your Construction Projects?</GradientHeading>
-                <p className="text-white text-lg mb-8 max-w-4xl mx-auto">
-                  Our NASA-derived ceramic technology offers unmatched performance for your construction needs. Request a consultation with one of our certified construction specialists to learn how our products can benefit your specific project requirements.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <GradientButton 
-                    onClick={handleShowRegistrationForm} 
-                    variant="variant" 
-                    className="text-lg"
-                  >
-                    Request Consultation
-                  </GradientButton>
-                  <Button 
-                    variant="outline" 
-                    className="border-blue-400 text-white hover:bg-blue-800/40"
-                  >
-                    Download Technical Specs
-                  </Button>
+              <div className="backdrop-blur-sm bg-gradient-to-b from-primary-900/80 to-blue-900/80 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] p-8">
+                <div className="md:flex items-center gap-10">
+                  <div className="md:w-2/3 text-center md:text-left mb-8 md:mb-0">
+                    <div className="inline-block mb-3 px-4 py-1 rounded-full bg-gradient-to-r from-blue-600/30 to-blue-800/30 border border-blue-500/30">
+                      <span className="text-blue-300 text-sm font-bold uppercase tracking-wider">Enterprise-Ready Solution</span>
+                    </div>
+                    <GradientHeading level={2} className="text-3xl md:text-5xl mb-4" variant="mixed">Transform Your Construction Projects</GradientHeading>
+                    <p className="text-white text-lg mb-8">
+                      Discover how PraetorianGuard™ NASA-derived ceramic technology delivers unmatched performance, sustainability, and value for commercial construction. Our patented solutions provide Class A fire protection, thermal performance, and 30+ year durability with full enterprise integration capabilities.
+                    </p>
+                    <div className="space-y-3 mb-8">
+                      <div className="flex items-center gap-3">
+                        <span className="bg-blue-500/20 p-1 rounded-full text-blue-300">✓</span>
+                        <span className="text-white">Enterprise-level project management and BIM integration</span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <span className="bg-blue-500/20 p-1 rounded-full text-blue-300">✓</span>
+                        <span className="text-white">Engineer-verified performance specifications & documentation</span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <span className="bg-blue-500/20 p-1 rounded-full text-blue-300">✓</span>
+                        <span className="text-white">Dedicated project support from certified technical specialists</span>
+                      </div>
+                    </div>
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                      <GradientButton 
+                        onClick={handleShowRegistrationForm} 
+                        variant="variant" 
+                        className="text-lg"
+                      >
+                        Request Enterprise Consultation
+                      </GradientButton>
+                      <Button 
+                        variant="outline" 
+                        className="border-blue-400 text-white hover:bg-blue-800/40"
+                      >
+                        Download Technical Specifications
+                      </Button>
+                    </div>
+                  </div>
+                  <div className="md:w-1/3 flex justify-center">
+                    <div className="relative">
+                      <div className="absolute inset-0 bg-gradient-to-r from-blue-500/30 to-blue-700/30 rounded-full blur-3xl"></div>
+                      <div className="relative w-64 h-64 bg-gradient-to-br from-blue-800 to-blue-900 rounded-full flex items-center justify-center p-1">
+                        <div className="w-full h-full rounded-full bg-gradient-to-br from-blue-900 to-black flex items-center justify-center overflow-hidden">
+                          <div className="relative w-48 h-48">
+                            <div className="absolute inset-0 flex items-center justify-center">
+                              <svg viewBox="0 0 200 200" className="w-full h-full">
+                                <defs>
+                                  <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stopColor="#1E40AF" />
+                                    <stop offset="100%" stopColor="#1D4ED8" />
+                                  </linearGradient>
+                                </defs>
+                                <path 
+                                  fill="url(#gradient)" 
+                                  d="M40,100 A60,60 0 1,1 160,100 A60,60 0 1,1 40,100 Z"
+                                />
+                              </svg>
+                            </div>
+                            <div className="absolute inset-0 flex items-center justify-center text-center">
+                              <div>
+                                <div className="text-4xl font-bold text-white mb-2">342%</div>
+                                <div className="text-sm text-blue-300 px-4">ROI For Enterprise Implementation</div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             )}
