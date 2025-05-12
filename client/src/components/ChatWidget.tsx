@@ -352,7 +352,9 @@ const ChatWidget = () => {
                     <p className="text-center text-white font-medium mb-3">Rather talk than type?</p>
                     <div className="flex justify-center">
                       <div 
-                        className="elevenlabs-convai agent-id='ybtdqCeRrbskLzgWulrg'"
+                        dangerouslySetInnerHTML={{
+                          __html: `<elevenlabs-convai agent-id="ybtdqCeRrbskLzgWulrg"></elevenlabs-convai>`
+                        }}
                         style={{ 
                           backgroundColor: 'rgba(30, 41, 59, 0.8)',
                           borderRadius: '8px',
@@ -363,7 +365,7 @@ const ChatWidget = () => {
                           display: 'inline-block',
                           margin: '0 auto'
                         }}
-                      ></div>
+                      />
                     </div>
                   </div>
                 </div>
