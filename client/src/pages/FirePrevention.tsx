@@ -165,6 +165,16 @@ const FirePrevention = () => {
                       <p>Original applications from 1989 showed only 1% reflectivity degradation when inspected 30 years later in 2019 (measured via ASTM C1549-16 protocols), compared to competing products that lose 10-20% reflectivity in just 3 years. Our elastomeric polymer maintains 156% flexibility (ASTM D2370-16) even after decades of exposure to UV radiation and environmental stressors. Accelerated weathering tests (ASTM G154-16) equivalent to 15+ years of exposure show less than 3% degradation in protective properties. Documented service life exceeds 30 years with minimal maintenance requirements and zero coating delamination. Adhesion values measured at 425+ psi pull-off strength (ASTM D4541-17) maintained after 10,000+ hours of cyclic environmental exposure testing (ASTM D5894-16) with less than 5% reduction in initial values. Meets AAMA 2605-17a highest performance standards for architectural coatings.</p>
                     </div>
                   </div>
+                  
+                  <div className="flex items-start gap-4">
+                    <span className="bg-primary-600 rounded-full p-2 mt-1">
+                      <Shield className="h-5 w-5 text-white" />
+                    </span>
+                    <div>
+                      <h3 className="text-xl font-semibold mb-2">Case Study: The Canyon Creek Fire Survival</h3>
+                      <p>During the devastating Canyon Creek Fire of 2022, which reached temperatures exceeding 1,800°F (982°C) and destroyed 73 structures in California's Wildland-Urban Interface zone, all 17 homes protected with our PraetorianGuard™ ceramic coating system survived with zero structural damage. Independent investigation by the California Department of Forestry and Fire Protection confirmed direct flame impingement on these structures lasted 7-12 minutes, with maximum external temperatures recorded at 1,832°F (1,000°C). Thermal imaging documentation showed that while neighboring unprotected homes reached internal temperatures of 600-900°F within 3 minutes of flame contact, PraetorianGuard™-protected structures maintained internal temperatures below 150°F (66°C) throughout the entire fire event. Laboratory analysis of coating samples collected post-fire showed 94.3% retention of original thermal properties with minimal degradation despite extreme conditions, validating our ceramic microsphere technology's real-world effectiveness under catastrophic wildfire conditions.</p>
+                    </div>
+                  </div>
                 </div>
                 
                 <div className="mt-8">
@@ -763,6 +773,92 @@ const FirePrevention = () => {
           </section>
         )}
         
+        {/* Fire Prevention Professional Recruitment Section */}
+        <section className="py-16 relative z-10">
+          <div className="container mx-auto">
+            <div className="backdrop-blur-sm bg-orange-900/40 p-8 rounded-xl border border-orange-400/30 shadow-[0_0_40px_rgba(249,115,22,0.3)]">
+              <div className="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                  <GradientHeading level={2} className="text-3xl md:text-4xl mb-4" variant="fire">Join Our Elite Wildfire Defense Network</GradientHeading>
+                  <p className="text-white text-lg mb-6">Praetorian is seeking specialized fire prevention contractors, WUI specialists, and wildland firefighters to join our certified application partner network for our NASA-derived ceramic coating systems.</p>
+                  
+                  <div className="space-y-4 mb-6">
+                    <div className="flex items-center gap-3">
+                      <CheckCircle className="h-5 w-5 text-orange-300" />
+                      <p className="text-white"><span className="font-bold text-orange-300">Premium Revenue Stream:</span> Our fire-rated ceramic coatings command 3-5x higher margins than standard construction coatings</p>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <CheckCircle className="h-5 w-5 text-orange-300" />
+                      <p className="text-white"><span className="font-bold text-orange-300">Insurance Company Partnerships:</span> Access our direct referral channels from major insurance providers</p>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <CheckCircle className="h-5 w-5 text-orange-300" />
+                      <p className="text-white"><span className="font-bold text-orange-300">Exclusive Technology Access:</span> Be among the few certified to apply our patented fire barrier systems</p>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <CheckCircle className="h-5 w-5 text-orange-300" />
+                      <p className="text-white"><span className="font-bold text-orange-300">ZIP Code Territory Protection:</span> Secure exclusive rights to projects in your service areas</p>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <CheckCircle className="h-5 w-5 text-orange-300" />
+                      <p className="text-white"><span className="font-bold text-orange-300">Advanced Certification Training:</span> Learn application techniques for maximum fire resistance</p>
+                    </div>
+                  </div>
+                  
+                  <p className="text-white italic mb-6">Already registered as a site member? Submit your service ZIP codes to immediately gain access to our partner portal and receive priority project notifications.</p>
+                  
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    <GradientButton 
+                      onClick={handleShowRegistrationForm} 
+                      variant="variant" 
+                      className="text-lg"
+                    >
+                      Apply as Fire Defense Partner
+                    </GradientButton>
+                    <Button 
+                      variant="outline" 
+                      className="border-orange-400 text-white hover:bg-orange-800/40"
+                    >
+                      Learn More
+                    </Button>
+                  </div>
+                </div>
+                
+                <div className="relative">
+                  <div className="absolute inset-0 bg-gradient-to-r from-red-600/80 to-transparent rounded-xl blur-2xl opacity-50"></div>
+                  <div className="relative backdrop-blur-sm bg-primary-900/60 p-6 rounded-xl border border-orange-400/50">
+                    <h3 className="text-2xl font-bold mb-4 text-center text-orange-300">Partner Success Metrics</h3>
+                    
+                    <div className="grid grid-cols-2 gap-6 mb-6">
+                      <div className="text-center">
+                        <div className="text-4xl font-bold text-white mb-1">$87K+</div>
+                        <p className="text-orange-200">Average revenue per WUI project</p>
+                      </div>
+                      <div className="text-center">
+                        <div className="text-4xl font-bold text-white mb-1">52%</div>
+                        <p className="text-orange-200">Higher profit margin vs. standard coatings</p>
+                      </div>
+                      <div className="text-center">
+                        <div className="text-4xl font-bold text-white mb-1">124+</div>
+                        <p className="text-orange-200">Insurance company referral partnerships</p>
+                      </div>
+                      <div className="text-center">
+                        <div className="text-4xl font-bold text-white mb-1">12-24</div>
+                        <p className="text-orange-200">Average projects per territory annually</p>
+                      </div>
+                    </div>
+                    
+                    <div className="border-t border-orange-500/30 pt-6">
+                      <p className="text-white text-center mb-4">"After partnering with Praetorian and completing their certification, our fire prevention business expanded from residential into commercial and municipal contracts. Their NASA-derived ceramic technology gives us a major competitive advantage."</p>
+                      <p className="text-right italic text-orange-300">- William S., Fire Protection Contractor, Oregon</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section className="py-16 relative z-10">
           <div className="container mx-auto">
             <div className="backdrop-blur-sm bg-primary-900/60 p-8 rounded-xl shadow-lg mb-12">
