@@ -1,13 +1,15 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import { ChevronRight, Microscope, Beaker, FlaskConical, Shield } from "lucide-react";
-import CompetitiveMatrix from "@/components/CompetitiveMatrix";
-import TechnicalDataSheet from "@/components/TechnicalDataSheet";
-import TechnicalFAQ from "@/components/TechnicalFAQ";
-import ApplicationDiagram from "@/components/ApplicationDiagram";
-import DefenseCaseStudy from "@/components/DefenseCaseStudy";
-import GradientHeading from "@/components/ui/GradientHeading";
-import ParticleBackground from "@/components/ui/ParticleBackground";
+import CompetitiveMatrix from "../components/CompetitiveMatrix";
+import TechnicalDataSheet from "../components/TechnicalDataSheet";
+import TechnicalFAQ from "../components/TechnicalFAQ";
+import ApplicationDiagram from "../components/ApplicationDiagram";
+import DefenseCaseStudy from "../components/DefenseCaseStudy";
+import ExecutiveSummary from "../components/ExecutiveSummary";
+import PhysicalMechanics from "../components/PhysicalMechanics";
+import GradientHeading from "../components/ui/GradientHeading";
+import ParticleBackground from "../components/ui/ParticleBackground";
 
 const Technology = () => {
   return (

@@ -18,7 +18,6 @@ interface MatrixItem {
   competitor_b: CellData;
   traditional: CellData;
   standard: CellData;
-  [key: string]: any; // Index signature to allow dynamic access
 }
 
 interface CategoryData {
@@ -35,7 +34,7 @@ interface ColumnDef {
 
 export const CompetitiveMatrix = () => {
   // Defining the column headers and data structure
-  const columns = [
+  const columns: ColumnDef[] = [
     { id: "feature", name: "Feature", className: "text-left" },
     { 
       id: "praetorian", 
@@ -70,7 +69,7 @@ export const CompetitiveMatrix = () => {
   ];
 
   // Define the actual data based on the comparison matrix
-  const data = [
+  const data: CategoryData[] = [
     {
       category: "Performance Metrics",
       items: [
@@ -253,7 +252,8 @@ export const CompetitiveMatrix = () => {
                     
                     {/* Each product column */}
                     {columns.slice(1).map((column) => {
-                      const cellData = item[column.id as keyof typeof item];
+                      const cellKey = column.id as keyof MatrixItem;
+                      const cellData = item[cellKey] as CellData;
                       const isHighlighted = column.id === "praetorian" && cellData.highlight;
                       
                       return (
