@@ -307,85 +307,162 @@ const ConstructionPage = () => {
                   </div>
                 </div>
               </div>
+              
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div className="backdrop-blur-sm bg-primary-900/80 rounded-xl p-6 border border-orange-500/30 shadow-lg">
-                  <div className="bg-gradient-to-r from-orange-600 to-blue-500 w-12 h-12 rounded-full flex items-center justify-center mb-4">
-                    <Building className="h-6 w-6 text-white" />
+                <div className="backdrop-blur-sm bg-primary-800/60 p-5 rounded-lg border border-blue-500/30">
+                  <div className="flex items-center mb-4">
+                    <span className="bg-gradient-to-r from-orange-600 to-blue-500 rounded-full p-2 mr-3">
+                      <Building className="h-5 w-5 text-white" />
+                    </span>
+                    <h3 className="text-xl font-bold text-white">Commercial</h3>
                   </div>
-                  <h3 className="text-lg font-bold mb-2 text-orange-300">Fire-Rated Structural Protection</h3>
-                  <p className="text-white">ASTM E119 compliant with 3-hour fire rating and perfect 0/100 scores in flame spread/smoke development tests (ASTM E84).</p>
+                  <p className="text-blue-100 mb-4">Patented NASA-derived ceramic technology for structural fire protection, energy savings, and sustainability in commercial building applications.</p>
+                  <div className="border-t border-blue-500/30 pt-3">
+                    <p className="text-sm text-blue-200">Perfect for office buildings, hotels, retail centers and healthcare facilities requiring 3-hour fire ratings.</p>
+                  </div>
                 </div>
                 
-                <div className="backdrop-blur-sm bg-primary-900/80 rounded-xl p-6 border border-blue-500/30 shadow-lg">
-                  <div className="bg-gradient-to-r from-orange-600 to-blue-500 w-12 h-12 rounded-full flex items-center justify-center mb-4">
-                    <PaintBucket className="h-6 w-6 text-white" />
+                <div className="backdrop-blur-sm bg-primary-800/60 p-5 rounded-lg border border-blue-500/30">
+                  <div className="flex items-center mb-4">
+                    <span className="bg-gradient-to-r from-orange-600 to-blue-500 rounded-full p-2 mr-3">
+                      <PaintBucket className="h-5 w-5 text-white" />
+                    </span>
+                    <h3 className="text-xl font-bold text-white">Industrial</h3>
                   </div>
-                  <h3 className="text-lg font-bold mb-2 text-blue-300">Thermal Reflective Technology</h3>
-                  <p className="text-white">89% solar reflection and thermal emittance documented by Cool Roof Rating Council with only 1% reflectivity loss after 3 years (vs 10-20% for competitors).</p>
+                  <p className="text-blue-100 mb-4">Chemical-resistant ceramic coatings for manufacturing facilities, warehouses, and processing plants with harsh environmental exposures.</p>
+                  <div className="border-t border-blue-500/30 pt-3">
+                    <p className="text-sm text-blue-200">Verified 30+ year performance in industrial zones with chemical exposure and extreme temperature variations.</p>
+                  </div>
                 </div>
                 
-                <div className="backdrop-blur-sm bg-primary-900/80 rounded-xl p-6 border border-orange-500/30 shadow-lg">
-                  <div className="bg-gradient-to-r from-orange-600 to-blue-500 w-12 h-12 rounded-full flex items-center justify-center mb-4">
-                    <Umbrella className="h-6 w-6 text-white" />
+                <div className="backdrop-blur-sm bg-primary-800/60 p-5 rounded-lg border border-blue-500/30">
+                  <div className="flex items-center mb-4">
+                    <span className="bg-gradient-to-r from-orange-600 to-blue-500 rounded-full p-2 mr-3">
+                      <Umbrella className="h-5 w-5 text-white" />
+                    </span>
+                    <h3 className="text-xl font-bold text-white">Residential</h3>
                   </div>
-                  <h3 className="text-lg font-bold mb-2 text-orange-300">Advanced Waterproofing</h3>
-                  <p className="text-white">156% elastomeric flexibility with permanent waterproofing using ceramic microsphere self-healing technology. 100% waterproof even after 10,000 salt spray hours.</p>
+                  <p className="text-blue-100 mb-4">Premium ceramic insulation and weather protection for luxury homes, custom builds, and multi-family residential properties.</p>
+                  <div className="border-t border-blue-500/30 pt-3">
+                    <p className="text-sm text-blue-200">Average 32% reduction in energy costs with enhanced fire safety measures for family protection.</p>
+                  </div>
                 </div>
                 
-                <div className="backdrop-blur-sm bg-primary-900/80 rounded-xl p-6 border border-blue-500/30 shadow-lg">
-                  <div className="bg-gradient-to-r from-orange-600 to-blue-500 w-12 h-12 rounded-full flex items-center justify-center mb-4">
-                    <HardDrive className="h-6 w-6 text-white" />
+                <div className="backdrop-blur-sm bg-primary-800/60 p-5 rounded-lg border border-blue-500/30">
+                  <div className="flex items-center mb-4">
+                    <span className="bg-gradient-to-r from-orange-600 to-blue-500 rounded-full p-2 mr-3">
+                      <HardDrive className="h-5 w-5 text-white" />
+                    </span>
+                    <h3 className="text-xl font-bold text-white">Infrastructure</h3>
                   </div>
-                  <h3 className="text-lg font-bold mb-2 text-blue-300">NASA Certification & Standards</h3>
-                  <p className="text-white">Exceeds ASTM E84, NFPA 286, ASTM C1396, UL 723, and all commercial building codes with documented NASA technology transfer certification.</p>
+                  <p className="text-blue-100 mb-4">Specialized ceramic protection for bridges, tunnels, and critical infrastructure with 10,000+ hour salt spray resistance.</p>
+                  <div className="border-t border-blue-500/30 pt-3">
+                    <p className="text-sm text-blue-200">Meets DOT specifications for infrastructure projects with documented corrosion resistance in marine environments.</p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </section>
-
+        
         <section className="py-16 backdrop-blur-sm bg-primary-900/40 relative z-10">
           <div className="container mx-auto">
-            <div className="text-center mb-12">
-              <div className="bg-primary-900/60 backdrop-blur-xl rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] py-8 px-6 md:px-10 mx-auto max-w-3xl mb-8 inline-block">
-                <GradientHeading level={2} className="text-3xl md:text-4xl mb-4" variant="mixed">Construction Coating Solutions</GradientHeading>
-                <p className="text-[#a0a0a0] max-w-2xl mx-auto">
-                  Specialized coatings for every construction application, from industrial facilities to residential buildings
-                </p>
-              </div>
+            <div className="max-w-4xl mx-auto mb-16 text-center">
+              <GradientHeading level={2} className="text-3xl md:text-4xl mb-4" variant="mixed">Advanced Ceramic Coating Application Systems</GradientHeading>
+              <p className="text-white text-lg mb-8">Our NASA-derived ceramic coating systems are engineered for professional application with specialized equipment and trained technicians. Our patented application process ensures consistent performance across all construction environments.</p>
             </div>
             
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="backdrop-blur-sm bg-primary-900/60 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] p-6 hover:translate-y-[-5px] transition-transform duration-300">
-                <div className="bg-gradient-to-r from-orange-600 to-blue-500 p-4 rounded-full inline-block mb-4">
-                  <Hammer className="h-8 w-8 text-white" />
+            <div className="grid md:grid-cols-3 gap-8 mb-12">
+              <div className="backdrop-blur-sm bg-primary-800/60 p-6 rounded-lg border border-blue-500/30">
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="bg-gradient-to-r from-orange-600 to-blue-500 rounded-full p-2">
+                    <Hammer className="h-5 w-5 text-white" />
+                  </span>
+                  <h3 className="text-xl font-bold text-white">Structural Steel Systems</h3>
                 </div>
-                <h3 className="text-xl font-bold mb-3 text-blue-300">Floor Coatings</h3>
-                <p className="text-white">High-performance epoxy and polyurethane systems for concrete floors that provide chemical resistance, durability, and aesthetic appeal.</p>
-                <div className="mt-6">
-                  <GradientButton variant="default" className="w-full">Learn More</GradientButton>
+                <p className="text-blue-100 mb-4">Our patented vacuum-filled ceramic microsphere technology creates a permanent bond with structural steel components, providing 3-hour fire ratings with 40% thinner application.</p>
+                <ul className="space-y-2 mb-4">
+                  <li className="flex items-center gap-2">
+                    <span className="text-blue-300 text-lg">•</span>
+                    <span className="text-white">ASTM E119 Certified Protection</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-blue-300 text-lg">•</span>
+                    <span className="text-white">3-Hour Fire Rating System</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-blue-300 text-lg">•</span>
+                    <span className="text-white">40% Weight Reduction</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-blue-300 text-lg">•</span>
+                    <span className="text-white">Single-Coat Application</span>
+                  </li>
+                </ul>
+                <div className="border-t border-blue-500/20 pt-4">
+                  <p className="text-white italic text-sm">"We've never seen this level of fire protection with such a thin application. Our entire engineering team was impressed." - Chicago Department of Buildings Inspector</p>
                 </div>
               </div>
               
-              <div className="backdrop-blur-sm bg-primary-900/60 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] p-6 hover:translate-y-[-5px] transition-transform duration-300">
-                <div className="bg-gradient-to-r from-orange-600 to-blue-500 p-4 rounded-full inline-block mb-4">
-                  <Ruler className="h-8 w-8 text-white" />
+              <div className="backdrop-blur-sm bg-primary-800/60 p-6 rounded-lg border border-blue-500/30">
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="bg-gradient-to-r from-orange-600 to-blue-500 rounded-full p-2">
+                    <Ruler className="h-5 w-5 text-white" />
+                  </span>
+                  <h3 className="text-xl font-bold text-white">Concrete Protection Systems</h3>
                 </div>
-                <h3 className="text-xl font-bold mb-3 text-orange-300">Wall Systems</h3>
-                <p className="text-white">Protective and decorative wall coatings that offer superior durability, cleanability, and resistance to mold and mildew for long-lasting protection.</p>
-                <div className="mt-6">
-                  <GradientButton variant="variant" className="w-full">Learn More</GradientButton>
+                <p className="text-blue-100 mb-4">Our concrete protection system creates a molecular bond with concrete surfaces, providing thermal insulation, chemical resistance, and waterproofing in a single application.</p>
+                <ul className="space-y-2 mb-4">
+                  <li className="flex items-center gap-2">
+                    <span className="text-blue-300 text-lg">•</span>
+                    <span className="text-white">89% Solar Reflection</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-blue-300 text-lg">•</span>
+                    <span className="text-white">156% Elastomeric Flexibility</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-blue-300 text-lg">•</span>
+                    <span className="text-white">Chemical/Salt Resistance</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-blue-300 text-lg">•</span>
+                    <span className="text-white">Self-Cleaning Properties</span>
+                  </li>
+                </ul>
+                <div className="border-t border-blue-500/20 pt-4">
+                  <p className="text-white italic text-sm">"The thermal performance of this system reduced our HVAC requirements by 27%, delivering significant long-term energy savings." - Northwestern University Facilities Director</p>
                 </div>
               </div>
               
-              <div className="backdrop-blur-sm bg-primary-900/60 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] p-6 hover:translate-y-[-5px] transition-transform duration-300">
-                <div className="bg-gradient-to-r from-orange-600 to-blue-500 p-4 rounded-full inline-block mb-4">
-                  <Wrench className="h-8 w-8 text-white" />
+              <div className="backdrop-blur-sm bg-primary-800/60 p-6 rounded-lg border border-blue-500/30">
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="bg-gradient-to-r from-orange-600 to-blue-500 rounded-full p-2">
+                    <Wrench className="h-5 w-5 text-white" />
+                  </span>
+                  <h3 className="text-xl font-bold text-white">Building Envelope Systems</h3>
                 </div>
-                <h3 className="text-xl font-bold mb-3 text-blue-300">Metal Protection</h3>
-                <p className="text-white">Advanced systems that provide exceptional protection for metal structures against corrosion, extending service life and reducing maintenance costs.</p>
-                <div className="mt-6">
-                  <GradientButton variant="default" className="w-full">Learn More</GradientButton>
+                <p className="text-blue-100 mb-4">Our complete building envelope system integrates with all structural components to create a seamless thermal and moisture barrier with Class A fire protection.</p>
+                <ul className="space-y-2 mb-4">
+                  <li className="flex items-center gap-2">
+                    <span className="text-blue-300 text-lg">•</span>
+                    <span className="text-white">Perfect 0/100 ASTM E84 Rating</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-blue-300 text-lg">•</span>
+                    <span className="text-white">30+ Year Verified Durability</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-blue-300 text-lg">•</span>
+                    <span className="text-white">Seamless Integration System</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-blue-300 text-lg">•</span>
+                    <span className="text-white">12+ LEED Points Eligible</span>
+                  </li>
+                </ul>
+                <div className="border-t border-blue-500/20 pt-4">
+                  <p className="text-white italic text-sm">"This system transformed our 40-year-old building into a high-performance, energy-efficient structure while maintaining its historic character." - Historic Preservation Society Director</p>
                 </div>
               </div>
             </div>
@@ -474,13 +551,42 @@ const ConstructionPage = () => {
                       <div className="bg-blue-900/30 rounded-lg p-4 border border-blue-500/20">
                         <div className="flex items-center gap-3 mb-2">
                           <Award className="h-5 w-5 text-blue-300" />
-                          <h4 className="text-lg font-bold text-blue-200">Engineer Success</h4>
+                          <h4 className="text-lg font-bold text-blue-200">Engineering Success</h4>
                         </div>
-                        <p className="text-white mb-3">"The technical data and verified performance metrics make specification easy. My clients appreciate the documented test results and NASA technology heritage."</p>
+                        <p className="text-white mb-3">"We specify Praetorian ceramic coatings exclusively for all our high-rise projects. The fire rating compliance and energy performance metrics make specification decisions simple."</p>
                         <div className="flex justify-between items-center border-t border-blue-500/20 pt-2">
-                          <span className="text-blue-300 text-sm">David K., Consulting Engineer</span>
-                          <span className="bg-blue-800/50 text-blue-200 text-xs px-2 py-1 rounded border border-blue-500/30">47 Projects Completed</span>
+                          <span className="text-blue-300 text-sm">James W., Structural Engineer</span>
+                          <span className="bg-blue-800/50 text-blue-200 text-xs px-2 py-1 rounded border border-blue-500/30">37 Projects Completed</span>
                         </div>
+                      </div>
+                    </div>
+                    
+                    <div className="bg-blue-900/40 rounded-lg p-4 border border-blue-500/30">
+                      <div className="text-center mb-3">
+                        <h4 className="text-lg font-bold text-blue-300">Partner Network Statistics</h4>
+                      </div>
+                      <div className="grid grid-cols-2 gap-4 mb-4">
+                        <div className="text-center">
+                          <div className="text-4xl font-bold text-white mb-1">$127M+</div>
+                          <p className="text-blue-200">Annual partner revenue</p>
+                        </div>
+                        <div className="text-center">
+                          <div className="text-4xl font-bold text-white mb-1">97%</div>
+                          <p className="text-blue-200">Partner retention rate</p>
+                        </div>
+                        <div className="text-center">
+                          <div className="text-4xl font-bold text-white mb-1">3,400+</div>
+                          <p className="text-blue-200">Projects completed annually</p>
+                        </div>
+                        <div className="text-center">
+                          <div className="text-4xl font-bold text-white mb-1">250+</div>
+                          <p className="text-blue-200">Active certified contractors</p>
+                        </div>
+                      </div>
+                      
+                      <div className="border-t border-blue-500/30 pt-6">
+                        <p className="text-white text-center mb-4">"Joining the Praetorian network transformed my construction business. Their leads and premium product line increased our revenue by 73% in the first year alone."</p>
+                        <p className="text-right italic text-blue-300">- Michael D., General Contractor, Texas</p>
                       </div>
                     </div>
                   </div>
@@ -492,392 +598,39 @@ const ConstructionPage = () => {
 
         <section className="py-16 relative z-10">
           <div className="container mx-auto">
-            <div className="backdrop-blur-sm bg-primary-900/60 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] p-8">
-              <GradientHeading level={2} className="text-2xl font-bold mb-6 text-center" variant="mixed">Request a Construction Coating Consultation</GradientHeading>
-              <p className="text-white text-center mb-8">Our experts will evaluate your project requirements and recommend the ideal coating system for your needs.</p>
-              
-              {!showRegistrationForm && !registrationSuccess && (
-                <div className="grid md:grid-cols-2 gap-8">
-                  <div>
-                    <h3 className="text-xl font-semibold mb-4 bg-gradient-to-r from-orange-500 to-blue-500 bg-clip-text text-transparent">Why Choose Our Construction Coatings?</h3>
-                    <ul className="space-y-3">
-                      <li className="flex items-start gap-2">
-                        <span className="text-orange-400 mt-1">✓</span>
-                        <span className="text-white">Superior adhesion to various construction materials</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-blue-400 mt-1">✓</span>
-                        <span className="text-white">Extended service life compared to conventional coatings</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-orange-400 mt-1">✓</span>
-                        <span className="text-white">Reduced maintenance requirements and lifecycle costs</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-blue-400 mt-1">✓</span>
-                        <span className="text-white">Expert application by certified contractors</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-orange-400 mt-1">✓</span>
-                        <span className="text-white">Comprehensive warranty programs</span>
-                      </li>
-                    </ul>
-                  </div>
-                  <div>
-                    <div className="p-4 mb-4 bg-primary-800/70 border border-orange-500/30 rounded-lg">
-                      <h3 className="text-xl font-semibold mb-2 text-white">Request a Consultation</h3>
-                      <p className="text-[#a0a0a0] mb-4">For the fastest service, please register as a construction distributor to access our full range of services and resources.</p>
-                      <GradientButton 
-                        variant="variant" 
-                        className="w-full"
-                        onClick={handleShowRegistrationForm}
-                      >
-                        Register as a Construction Distributor
-                      </GradientButton>
+            {showRegistrationForm ? (
+              <div className="backdrop-blur-sm bg-primary-900/80 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] p-8">
+                {registrationSuccess ? (
+                  <div className="text-center max-w-2xl mx-auto">
+                    <div className="mb-6 text-green-400">
+                      <CheckCircle className="h-16 w-16 mx-auto" />
                     </div>
+                    <GradientHeading level={2} className="text-3xl md:text-4xl mb-4" variant="mixed">Registration Successful!</GradientHeading>
+                    <p className="text-white text-lg mb-8">Thank you for registering as a Construction Partner. Our team will review your application and contact you within 24-48 business hours to discuss next steps and your exclusive territory options.</p>
+                    <Button 
+                      variant="outline" 
+                      className="border-blue-400 text-white hover:bg-blue-800/40"
+                      onClick={() => setShowRegistrationForm(false)}
+                    >
+                      Return to Main Page
+                    </Button>
                   </div>
-                </div>
-              )}
-              
-              {/* Registration Success Message */}
-              {registrationSuccess && (
-                <div className="max-w-2xl mx-auto text-center p-8 bg-primary-800/70 border-2 border-white/30 rounded-xl">
-                  <div className="bg-gradient-to-r from-orange-600 to-blue-500 p-4 rounded-full inline-block mb-4">
-                    <CheckCircle className="h-12 w-12 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-orange-500 to-blue-500 bg-clip-text text-transparent">Registration Successful!</h3>
-                  <p className="text-white mb-6">Thank you for registering as a construction distributor with Praetorian SmartCoat Solutions. Our team will review your information and contact you soon.</p>
-                  <p className="text-[#a0a0a0] mb-6">You'll receive access to our exclusive distributor resources and specialized products for the construction industry.</p>
-                  <GradientButton variant="default" onClick={() => setRegistrationSuccess(false)} className="px-8">
-                    Return to Construction Page
-                  </GradientButton>
-                </div>
-              )}
-              
-              {/* Registration Form */}
-              {showRegistrationForm && !registrationSuccess && (
-                <div className="max-w-3xl mx-auto">
-                  <div className="bg-primary-800/70 border border-orange-500/30 rounded-lg p-6 mb-8">
-                    <h3 className="text-xl font-bold mb-4 bg-gradient-to-r from-orange-500 to-blue-500 bg-clip-text text-transparent">Construction Distributor Registration</h3>
-                    <p className="text-[#a0a0a0] mb-6">Complete this form to register as an authorized distributor for our construction coating products.</p>
+                ) : (
+                  <>
+                    <GradientHeading level={2} className="text-3xl font-bold mb-8 text-center" variant="mixed">Construction Partner Registration</GradientHeading>
                     
                     <Form {...form}>
-                      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                          {/* Company Information */}
-                          <FormField
-                            control={form.control}
-                            name="companyName"
-                            render={({ field }) => (
-                              <FormItem>
-                                <FormLabel className="text-white">Company Name*</FormLabel>
-                                <FormControl>
-                                  <Input 
-                                    placeholder="Enter company name" 
-                                    className="bg-primary-900/70 border-orange-500/30 text-white"
-                                    {...field} 
-                                  />
-                                </FormControl>
-                                <FormMessage />
-                              </FormItem>
-                            )}
-                          />
-                          
-                          <FormField
-                            control={form.control}
-                            name="contactName"
-                            render={({ field }) => (
-                              <FormItem>
-                                <FormLabel className="text-white">Contact Person*</FormLabel>
-                                <FormControl>
-                                  <Input 
-                                    placeholder="Enter contact name" 
-                                    className="bg-primary-900/70 border-orange-500/30 text-white"
-                                    {...field} 
-                                  />
-                                </FormControl>
-                                <FormMessage />
-                              </FormItem>
-                            )}
-                          />
-                          
-                          <FormField
-                            control={form.control}
-                            name="email"
-                            render={({ field }) => (
-                              <FormItem>
-                                <FormLabel className="text-white">Email*</FormLabel>
-                                <FormControl>
-                                  <Input 
-                                    placeholder="Enter email address" 
-                                    type="email"
-                                    className="bg-primary-900/70 border-orange-500/30 text-white"
-                                    {...field} 
-                                  />
-                                </FormControl>
-                                <FormMessage />
-                              </FormItem>
-                            )}
-                          />
-                          
-                          <FormField
-                            control={form.control}
-                            name="phone"
-                            render={({ field }) => (
-                              <FormItem>
-                                <FormLabel className="text-white">Phone Number*</FormLabel>
-                                <FormControl>
-                                  <Input 
-                                    placeholder="Enter phone number" 
-                                    className="bg-primary-900/70 border-orange-500/30 text-white"
-                                    {...field} 
-                                  />
-                                </FormControl>
-                                <FormMessage />
-                              </FormItem>
-                            )}
-                          />
-                          
-                          <FormField
-                            control={form.control}
-                            name="website"
-                            render={({ field }) => (
-                              <FormItem>
-                                <FormLabel className="text-white">Website</FormLabel>
-                                <FormControl>
-                                  <Input 
-                                    placeholder="Enter company website" 
-                                    className="bg-primary-900/70 border-orange-500/30 text-white"
-                                    {...field} 
-                                  />
-                                </FormControl>
-                                <FormMessage />
-                              </FormItem>
-                            )}
-                          />
-                          
-                          <FormField
-                            control={form.control}
-                            name="businessType"
-                            render={({ field }) => (
-                              <FormItem>
-                                <FormLabel className="text-white">Business Type*</FormLabel>
-                                <Select 
-                                  onValueChange={field.onChange} 
-                                  defaultValue={field.value}
-                                >
-                                  <FormControl>
-                                    <SelectTrigger className="bg-primary-900/70 border-orange-500/30 text-white">
-                                      <SelectValue placeholder="Select business type" />
-                                    </SelectTrigger>
-                                  </FormControl>
-                                  <SelectContent className="bg-primary-800 text-white border-blue-500/30">
-                                    <SelectItem value="retailer">Retailer</SelectItem>
-                                    <SelectItem value="wholesaler">Wholesaler</SelectItem>
-                                    <SelectItem value="manufacturer">Manufacturer</SelectItem>
-                                    <SelectItem value="contractor">Contractor</SelectItem>
-                                    <SelectItem value="other">Other</SelectItem>
-                                  </SelectContent>
-                                </Select>
-                                <FormMessage />
-                              </FormItem>
-                            )}
-                          />
-                          
-                          <FormField
-                            control={form.control}
-                            name="foundedYear"
-                            render={({ field }) => (
-                              <FormItem>
-                                <FormLabel className="text-white">Year Founded</FormLabel>
-                                <FormControl>
-                                  <Input 
-                                    placeholder="YYYY" 
-                                    type="number"
-                                    className="bg-primary-900/70 border-orange-500/30 text-white"
-                                    {...field}
-                                    onChange={(e) => field.onChange(e.target.value === "" ? 0 : parseInt(e.target.value))}
-                                  />
-                                </FormControl>
-                                <FormMessage />
-                              </FormItem>
-                            )}
-                          />
-                          
-                          <FormField
-                            control={form.control}
-                            name="employeeCount"
-                            render={({ field }) => (
-                              <FormItem>
-                                <FormLabel className="text-white">Number of Employees</FormLabel>
-                                <FormControl>
-                                  <Input 
-                                    placeholder="Enter employee count" 
-                                    type="number" 
-                                    className="bg-primary-900/70 border-orange-500/30 text-white"
-                                    {...field} 
-                                    onChange={(e) => field.onChange(e.target.value === "" ? 0 : parseInt(e.target.value))}
-                                  />
-                                </FormControl>
-                                <FormMessage />
-                              </FormItem>
-                            )}
-                          />
-                          
-                          <FormField
-                            control={form.control}
-                            name="annualRevenue"
-                            render={({ field }) => (
-                              <FormItem>
-                                <FormLabel className="text-white">Annual Revenue</FormLabel>
-                                <FormControl>
-                                  <Input 
-                                    placeholder="Optional revenue range" 
-                                    className="bg-primary-900/70 border-orange-500/30 text-white"
-                                    {...field} 
-                                  />
-                                </FormControl>
-                                <FormMessage />
-                              </FormItem>
-                            )}
-                          />
-                        </div>
-                        
-                        <div className="border-t border-white/10 pt-6"></div>
-                        
-                        {/* Address Information */}
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                          <FormField
-                            control={form.control}
-                            name="address"
-                            render={({ field }) => (
-                              <FormItem>
-                                <FormLabel className="text-white">Address</FormLabel>
-                                <FormControl>
-                                  <Input 
-                                    placeholder="Enter street address" 
-                                    className="bg-primary-900/70 border-orange-500/30 text-white"
-                                    {...field} 
-                                  />
-                                </FormControl>
-                                <FormMessage />
-                              </FormItem>
-                            )}
-                          />
-                          
-                          <FormField
-                            control={form.control}
-                            name="city"
-                            render={({ field }) => (
-                              <FormItem>
-                                <FormLabel className="text-white">City</FormLabel>
-                                <FormControl>
-                                  <Input 
-                                    placeholder="Enter city" 
-                                    className="bg-primary-900/70 border-orange-500/30 text-white"
-                                    {...field} 
-                                  />
-                                </FormControl>
-                                <FormMessage />
-                              </FormItem>
-                            )}
-                          />
-                          
-                          <FormField
-                            control={form.control}
-                            name="state"
-                            render={({ field }) => (
-                              <FormItem>
-                                <FormLabel className="text-white">State/Province</FormLabel>
-                                <FormControl>
-                                  <Input 
-                                    placeholder="Enter state/province" 
-                                    className="bg-primary-900/70 border-orange-500/30 text-white"
-                                    {...field} 
-                                  />
-                                </FormControl>
-                                <FormMessage />
-                              </FormItem>
-                            )}
-                          />
-                          
-                          <FormField
-                            control={form.control}
-                            name="zipCode"
-                            render={({ field }) => (
-                              <FormItem>
-                                <FormLabel className="text-white">ZIP/Postal Code</FormLabel>
-                                <FormControl>
-                                  <Input 
-                                    placeholder="Enter ZIP/postal code" 
-                                    className="bg-primary-900/70 border-orange-500/30 text-white"
-                                    {...field} 
-                                  />
-                                </FormControl>
-                                <FormMessage />
-                              </FormItem>
-                            )}
-                          />
-                        </div>
-                        
-                        <div className="border-t border-white/10 pt-6"></div>
-                        
-                        {/* Business Details */}
-                        <div className="grid grid-cols-1 gap-6">
-                          <FormField
-                            control={form.control}
-                            name="coverageAreas"
-                            render={({ field }) => (
-                              <FormItem>
-                                <FormLabel className="text-white">Geographic Coverage Areas</FormLabel>
-                                <FormControl>
-                                  <Textarea 
-                                    placeholder="Enter areas served, separated by commas (e.g., Northeast, Mid-Atlantic, Southeast)" 
-                                    className="bg-primary-900/70 border-orange-500/30 text-white min-h-[80px]"
-                                    {...field} 
-                                  />
-                                </FormControl>
-                                <FormMessage />
-                              </FormItem>
-                            )}
-                          />
-                          
-                          <FormField
-                            control={form.control}
-                            name="productCategories"
-                            render={({ field }) => (
-                              <FormItem>
-                                <FormLabel className="text-white">Product Categories of Interest</FormLabel>
-                                <FormControl>
-                                  <Textarea 
-                                    placeholder="Enter product categories, separated by commas (e.g., Floor Coatings, Wall Systems, Waterproofing)" 
-                                    className="bg-primary-900/70 border-orange-500/30 text-white min-h-[80px]"
-                                    {...field} 
-                                  />
-                                </FormControl>
-                                <FormMessage />
-                              </FormItem>
-                            )}
-                          />
-                          
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+                        <div className="grid md:grid-cols-2 gap-6">
+                          <div className="space-y-4">
                             <FormField
                               control={form.control}
-                              name="certifications"
+                              name="companyName"
                               render={({ field }) => (
                                 <FormItem>
-                                  <FormLabel className="text-white">
-                                    <div className="flex items-center gap-2">
-                                      <Award className="h-4 w-4 text-blue-400" />
-                                      <span>Certifications/Accreditations</span>
-                                    </div>
-                                  </FormLabel>
+                                  <FormLabel className="text-white">Company Name*</FormLabel>
                                   <FormControl>
-                                    <Textarea 
-                                      placeholder="Enter certifications, separated by commas" 
-                                      className="bg-primary-900/70 border-orange-500/30 text-white min-h-[80px]"
-                                      {...field} 
-                                    />
+                                    <Input placeholder="Your company name" className="bg-blue-900/40 border-blue-500/30 text-white" {...field} />
                                   </FormControl>
                                   <FormMessage />
                                 </FormItem>
@@ -886,20 +639,159 @@ const ConstructionPage = () => {
                             
                             <FormField
                               control={form.control}
-                              name="warehouseLocations"
+                              name="contactName"
                               render={({ field }) => (
                                 <FormItem>
-                                  <FormLabel className="text-white">
-                                    <div className="flex items-center gap-2">
-                                      <Warehouse className="h-4 w-4 text-orange-400" />
-                                      <span>Warehouse Locations</span>
-                                    </div>
-                                  </FormLabel>
+                                  <FormLabel className="text-white">Contact Name*</FormLabel>
                                   <FormControl>
-                                    <Textarea 
-                                      placeholder="Enter warehouse locations, separated by commas" 
-                                      className="bg-primary-900/70 border-orange-500/30 text-white min-h-[80px]"
-                                      {...field} 
+                                    <Input placeholder="Your full name" className="bg-blue-900/40 border-blue-500/30 text-white" {...field} />
+                                  </FormControl>
+                                  <FormMessage />
+                                </FormItem>
+                              )}
+                            />
+                            
+                            <FormField
+                              control={form.control}
+                              name="email"
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormLabel className="text-white">Email Address*</FormLabel>
+                                  <FormControl>
+                                    <Input placeholder="your@email.com" className="bg-blue-900/40 border-blue-500/30 text-white" {...field} />
+                                  </FormControl>
+                                  <FormMessage />
+                                </FormItem>
+                              )}
+                            />
+                            
+                            <FormField
+                              control={form.control}
+                              name="phone"
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormLabel className="text-white">Phone Number*</FormLabel>
+                                  <FormControl>
+                                    <Input placeholder="(123) 456-7890" className="bg-blue-900/40 border-blue-500/30 text-white" {...field} />
+                                  </FormControl>
+                                  <FormMessage />
+                                </FormItem>
+                              )}
+                            />
+                            
+                            <FormField
+                              control={form.control}
+                              name="website"
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormLabel className="text-white">Website</FormLabel>
+                                  <FormControl>
+                                    <Input placeholder="https://yourcompany.com" className="bg-blue-900/40 border-blue-500/30 text-white" {...field} />
+                                  </FormControl>
+                                  <FormMessage />
+                                </FormItem>
+                              )}
+                            />
+                          </div>
+
+                          <div className="space-y-4">
+                            <FormField
+                              control={form.control}
+                              name="businessType"
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormLabel className="text-white">Business Type*</FormLabel>
+                                  <Select
+                                    onValueChange={field.onChange}
+                                    defaultValue={field.value}
+                                  >
+                                    <FormControl>
+                                      <SelectTrigger className="bg-blue-900/40 border-blue-500/30 text-white">
+                                        <SelectValue placeholder="Select business type" />
+                                      </SelectTrigger>
+                                    </FormControl>
+                                    <SelectContent>
+                                      <SelectItem value="retailer">Building Materials Retailer</SelectItem>
+                                      <SelectItem value="distributor">Building Materials Distributor</SelectItem>
+                                      <SelectItem value="contractor">General Contractor</SelectItem>
+                                      <SelectItem value="specialty">Specialty Contractor</SelectItem>
+                                      <SelectItem value="engineering">Engineering Firm</SelectItem>
+                                      <SelectItem value="architecture">Architecture Firm</SelectItem>
+                                      <SelectItem value="other">Other</SelectItem>
+                                    </SelectContent>
+                                  </Select>
+                                  <FormMessage />
+                                </FormItem>
+                              )}
+                            />
+                            
+                            <FormField
+                              control={form.control}
+                              name="foundedYear"
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormLabel className="text-white">Year Founded*</FormLabel>
+                                  <FormControl>
+                                    <Input type="number" min="1900" max="2023" className="bg-blue-900/40 border-blue-500/30 text-white" {...field} />
+                                  </FormControl>
+                                  <FormMessage />
+                                </FormItem>
+                              )}
+                            />
+                            
+                            <FormField
+                              control={form.control}
+                              name="employeeCount"
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormLabel className="text-white">Number of Employees*</FormLabel>
+                                  <FormControl>
+                                    <Input type="number" min="1" className="bg-blue-900/40 border-blue-500/30 text-white" {...field} />
+                                  </FormControl>
+                                  <FormMessage />
+                                </FormItem>
+                              )}
+                            />
+                            
+                            <FormField
+                              control={form.control}
+                              name="annualRevenue"
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormLabel className="text-white">Annual Revenue</FormLabel>
+                                  <Select
+                                    onValueChange={field.onChange}
+                                    defaultValue={field.value}
+                                  >
+                                    <FormControl>
+                                      <SelectTrigger className="bg-blue-900/40 border-blue-500/30 text-white">
+                                        <SelectValue placeholder="Select annual revenue" />
+                                      </SelectTrigger>
+                                    </FormControl>
+                                    <SelectContent>
+                                      <SelectItem value="under_1m">Under $1M</SelectItem>
+                                      <SelectItem value="1m_5m">$1M - $5M</SelectItem>
+                                      <SelectItem value="5m_10m">$5M - $10M</SelectItem>
+                                      <SelectItem value="10m_50m">$10M - $50M</SelectItem>
+                                      <SelectItem value="over_50m">Over $50M</SelectItem>
+                                    </SelectContent>
+                                  </Select>
+                                  <FormMessage />
+                                </FormItem>
+                              )}
+                            />
+                            
+                            <FormField
+                              control={form.control}
+                              name="certifications"
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormLabel className="text-white">Certifications/Licenses</FormLabel>
+                                  <FormControl>
+                                    <Textarea
+                                      placeholder="List relevant certifications (e.g., ICC, NFPA, AIA, LEED, etc.)"
+                                      className="bg-blue-900/40 border-blue-500/30 text-white min-h-[80px]"
+                                      {...field}
                                     />
                                   </FormControl>
                                   <FormMessage />
@@ -907,41 +799,20 @@ const ConstructionPage = () => {
                               )}
                             />
                           </div>
-                          
+                        </div>
+                        
+                        <div>
+                          <p className="text-white mb-4 font-bold">Geographic Coverage Areas</p>
                           <FormField
                             control={form.control}
-                            name="deliveryOptions"
+                            name="coverageAreas"
                             render={({ field }) => (
                               <FormItem>
-                                <FormLabel className="text-white">
-                                  <div className="flex items-center gap-2">
-                                    <Truck className="h-4 w-4 text-blue-400" />
-                                    <span>Delivery/Logistics Capabilities</span>
-                                  </div>
-                                </FormLabel>
                                 <FormControl>
-                                  <Textarea 
-                                    placeholder="Enter delivery options, separated by commas (e.g., In-house delivery, Third-party logistics)" 
-                                    className="bg-primary-900/70 border-orange-500/30 text-white min-h-[80px]"
-                                    {...field} 
-                                  />
-                                </FormControl>
-                                <FormMessage />
-                              </FormItem>
-                            )}
-                          />
-                          
-                          <FormField
-                            control={form.control}
-                            name="notes"
-                            render={({ field }) => (
-                              <FormItem>
-                                <FormLabel className="text-white">Additional Information</FormLabel>
-                                <FormControl>
-                                  <Textarea 
-                                    placeholder="Enter any additional information about your business" 
-                                    className="bg-primary-900/70 border-orange-500/30 text-white min-h-[100px]"
-                                    {...field} 
+                                  <Textarea
+                                    placeholder="List states, counties, or ZIP codes where you currently operate"
+                                    className="bg-blue-900/40 border-blue-500/30 text-white min-h-[80px]"
+                                    {...field}
                                   />
                                 </FormControl>
                                 <FormMessage />
@@ -950,19 +821,59 @@ const ConstructionPage = () => {
                           />
                         </div>
                         
-                        <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                          <Button
-                            type="button"
-                            variant="outline"
+                        <div>
+                          <p className="text-white mb-4 font-bold">Product Categories of Interest</p>
+                          <FormField
+                            control={form.control}
+                            name="productCategories"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormControl>
+                                  <Textarea
+                                    placeholder="List product categories you're interested in (e.g., structural steel coatings, concrete protection, waterproofing, etc.)"
+                                    className="bg-blue-900/40 border-blue-500/30 text-white min-h-[80px]"
+                                    {...field}
+                                  />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                        </div>
+                        
+                        <div>
+                          <p className="text-white mb-4 font-bold">Additional Notes</p>
+                          <FormField
+                            control={form.control}
+                            name="notes"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormControl>
+                                  <Textarea
+                                    placeholder="Include any additional information about your business or specific interests in our products"
+                                    className="bg-blue-900/40 border-blue-500/30 text-white min-h-[100px]"
+                                    {...field}
+                                  />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                        </div>
+                        
+                        <div className="flex justify-between items-center">
+                          <Button 
+                            variant="outline" 
+                            className="border-blue-400 text-white hover:bg-blue-800/40"
                             onClick={() => setShowRegistrationForm(false)}
-                            className="border-blue-500/30 text-white hover:bg-blue-950/30"
+                            type="button"
                           >
                             Cancel
                           </Button>
-                          <GradientButton 
+                          
+                          <Button 
                             type="submit" 
-                            variant="default"
-                            className="flex-1"
+                            className="bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900"
                             disabled={registerMutation.isPending}
                           >
                             {registerMutation.isPending ? (
@@ -971,16 +882,38 @@ const ConstructionPage = () => {
                                 <span>Submitting...</span>
                               </div>
                             ) : (
-                              "Register as Construction Distributor"
+                              "Submit Application"
                             )}
-                          </GradientButton>
+                          </Button>
                         </div>
                       </form>
                     </Form>
-                  </div>
+                  </>
+                )}
+              </div>
+            ) : (
+              <div className="backdrop-blur-sm bg-primary-900/80 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] p-8 text-center">
+                <GradientHeading level={2} className="text-3xl md:text-4xl mb-6" variant="mixed">Ready to Transform Your Construction Projects?</GradientHeading>
+                <p className="text-white text-lg mb-8 max-w-4xl mx-auto">
+                  Our NASA-derived ceramic technology offers unmatched performance for your construction needs. Request a consultation with one of our certified construction specialists to learn how our products can benefit your specific project requirements.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <GradientButton 
+                    onClick={handleShowRegistrationForm} 
+                    variant="variant" 
+                    className="text-lg"
+                  >
+                    Request Consultation
+                  </GradientButton>
+                  <Button 
+                    variant="outline" 
+                    className="border-blue-400 text-white hover:bg-blue-800/40"
+                  >
+                    Download Technical Specs
+                  </Button>
                 </div>
-              )}
-            </div>
+              </div>
+            )}
           </div>
         </section>
       </div>
