@@ -125,15 +125,15 @@ const ConstructionPage = () => {
         <section className="py-16 md:py-24 relative z-10">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto text-center mb-16 backdrop-blur-sm bg-primary-900/60 p-8 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)]">
-              <GradientHeading level={1} className="text-4xl md:text-5xl mb-6 glow-text" variant="mixed">Construction Protection Systems</GradientHeading>
+              <GradientHeading level={1} className="text-4xl md:text-5xl mb-6 glow-text" variant="mixed">NASA-Derived Construction Protection</GradientHeading>
               <p className="text-xl text-white mb-8">
-                Advanced protective coatings designed specifically for commercial and residential construction projects, providing superior durability and protection in the most challenging environments.
+                Our ceramic microsphere technology provides construction materials with Class A fire protection (0/100 scores), withstands 2,732°F (1,500°C), offers 156% elastomeric flexibility, and delivers 30+ year verified durability for commercial and residential structures.
               </p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-12 mb-16">
               <div className="backdrop-blur-sm bg-primary-900/60 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] p-8">
-                <GradientHeading level={2} className="text-3xl font-bold mb-6" variant="mixed">Superior Construction Coatings</GradientHeading>
+                <GradientHeading level={2} className="text-3xl font-bold mb-6" variant="mixed">NASA-Derived Ceramic Building Protection</GradientHeading>
                 
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
@@ -141,8 +141,8 @@ const ConstructionPage = () => {
                       <HardHat className="h-5 w-5 text-white" />
                     </span>
                     <div>
-                      <h3 className="text-xl font-semibold mb-1 text-orange-300">Industrial-Grade Durability</h3>
-                      <p className="text-white">Our construction coatings are engineered to withstand extreme conditions, heavy traffic, and constant wear and tear.</p>
+                      <h3 className="text-xl font-semibold mb-1 text-orange-300">Extreme Temperature Performance</h3>
+                      <p className="text-white">Our ceramic microsphere technology withstands 2,732°F (1,500°C) with a 2,177°F temperature differential, providing unparalleled fire protection for structural elements. Perfect 0/100 scores in ASTM E84 testing for Flame Spread and Smoke Development.</p>
                     </div>
                   </div>
 
@@ -151,8 +151,8 @@ const ConstructionPage = () => {
                       <Droplets className="h-5 w-5 text-white" />
                     </span>
                     <div>
-                      <h3 className="text-xl font-semibold mb-1 text-blue-300">Weather Resistance</h3>
-                      <p className="text-white">Protect construction materials from moisture, UV damage, and temperature fluctuations with our advanced weather-resistant formulations.</p>
+                      <h3 className="text-xl font-semibold mb-1 text-blue-300">156% Elastomeric Flexibility</h3>
+                      <p className="text-white">Our vacuum-filled ceramic coating exceeds the standard 100% flexibility requirement, enabling it to expand and contract with building materials during temperature changes without cracking or delaminating.</p>
                     </div>
                   </div>
 

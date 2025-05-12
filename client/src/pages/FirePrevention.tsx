@@ -724,7 +724,7 @@ const FirePrevention = () => {
                           type="submit" 
                           disabled={registerMutation.isPending}
                           className="px-8 py-2 w-full md:w-auto"
-                          variant="fire"
+                          variant="variant"
                         >
                           {registerMutation.isPending ? "Submitting..." : "Submit Registration"}
                         </GradientButton>

@@ -1081,18 +1081,18 @@ const Pools = () => {
                   <ul className="space-y-2 mb-6">
                     <li className="flex items-center gap-2">
                       <i className="fas fa-check text-primary-400"></i>
-                      <span>Ultra-durable commercial grade</span>
+                      <span>Enhanced 95% UV reflection with minimal degradation over time</span>
                     </li>
                     <li className="flex items-center gap-2">
                       <i className="fas fa-check text-primary-400"></i>
-                      <span>Ideal for high-traffic pools</span>
+                      <span>Reduces surface temperature by 47°F compared to conventional coatings</span>
                     </li>
                     <li className="flex items-center gap-2">
                       <i className="fas fa-check text-primary-400"></i>
-                      <span>10-year expected lifespan</span>
+                      <span>25+ year documented performance in extreme sun conditions</span>
                     </li>
                   </ul>
-                  <GradientButton className="w-full" variant="variant">Learn More</GradientButton>
+                  <GradientButton className="w-full" variant="variant">Technical Specs</GradientButton>
                 </div>
               </div>
             </div>
