@@ -587,8 +587,8 @@ const MunicipalityPage = () => {
               </div>
 
               <div className="backdrop-blur-sm bg-primary-900/80 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] p-8 flex flex-col">
-                <GradientHeading level={2} className="text-3xl font-bold mb-6" variant="mixed">City-Wide Applications</GradientHeading>
-                <p className="mb-4 text-white">Our municipal coatings can be customized for a wide range of public infrastructure:</p>
+                <GradientHeading level={2} className="text-3xl font-bold mb-6" variant="mixed">NASA Ceramic Applications</GradientHeading>
+                <p className="mb-4 text-white">Our NASA-derived ceramic microsphere technology provides Class A fire protection and 30+ year longevity for diverse municipal infrastructure:</p>
                 <div className="grid md:grid-cols-2 gap-4 mb-6 flex-grow">
                   <div className="flex items-center gap-2 text-white">
                     <span className="text-blue-400">✓</span>
@@ -683,9 +683,9 @@ const MunicipalityPage = () => {
           <div className="container mx-auto">
             <div className="text-center mb-12">
               <div className="bg-primary-900/80 backdrop-blur-xl rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] py-8 px-6 md:px-10 mx-auto max-w-3xl mb-8 inline-block">
-                <GradientHeading level={2} className="text-3xl md:text-4xl mb-4" variant="mixed">Municipal Coating Systems</GradientHeading>
+                <GradientHeading level={2} className="text-3xl md:text-4xl mb-4" variant="mixed">NASA Ceramic Coating Systems</GradientHeading>
                 <p className="text-[#a0a0a0] max-w-2xl mx-auto">
-                  Specialized protection for public infrastructure, from water treatment facilities to transportation systems
+                  Class A fire-rated ceramic technology with perfect 0/100 flame spread ratings provides 30+ year verified protection for critical municipal infrastructure
                 </p>
               </div>
             </div>
@@ -695,8 +695,8 @@ const MunicipalityPage = () => {
                 <div className="bg-gradient-to-r from-orange-600 to-blue-500 p-4 rounded-full inline-block mb-4">
                   <PenTool className="h-8 w-8 text-white" />
                 </div>
-                <h3 className="text-xl font-bold mb-3 text-blue-300">Water Infrastructure</h3>
-                <p className="text-white">NSF/ANSI 61 certified coating systems for water storage tanks, treatment facilities, and distribution systems that ensure water safety and infrastructure longevity.</p>
+                <h3 className="text-xl font-bold mb-3 text-blue-300">NASA Ceramic Water Protection</h3>
+                <p className="text-white">NASA-derived ceramic microsphere technology with NSF/ANSI 61 certification provides Class A fire protection (0/100 flame spread) and potable water safety for municipal water infrastructure with 30+ year verified performance.</p>
                 <div className="mt-6">
                   <GradientButton variant="default" className="w-full">Learn More</GradientButton>
                 </div>
@@ -730,8 +730,8 @@ const MunicipalityPage = () => {
         <section className="py-16 relative z-10 backdrop-blur-lg bg-primary-900/40">
           <div className="container mx-auto">
             <div className="backdrop-blur-sm bg-primary-900/80 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] p-8">
-              <GradientHeading level={2} className="text-3xl md:text-4xl mb-6" variant="mixed">Request a Municipal Infrastructure Assessment</GradientHeading>
-              <p className="text-white text-center mb-8">Our experts will evaluate your public infrastructure and recommend tailored protective coating systems that maximize longevity and minimize lifecycle costs.</p>
+              <GradientHeading level={2} className="text-3xl md:text-4xl mb-6" variant="mixed">NASA Ceramic Technology Assessment</GradientHeading>
+              <p className="text-white text-center mb-8">Our certified experts will evaluate your municipal infrastructure and recommend NASA-derived ceramic microsphere technology solutions for maximum fire protection, energy efficiency, and 30+ year lifecycle performance.</p>
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
                   <h3 className="text-xl font-semibold mb-4 bg-gradient-to-r from-orange-500 to-blue-500 bg-clip-text text-transparent">Why Municipalities Choose Our Coatings</h3>
@@ -802,13 +802,13 @@ const MunicipalityPage = () => {
           <div className="container mx-auto">
             <div className="backdrop-blur-sm bg-primary-900/80 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] p-8">
               <GradientHeading level={2} className="text-3xl md:text-4xl mb-8 text-center" variant="mixed">
-                Join Our Municipality Professional Network
+                NASA Ceramic Technology Certification
               </GradientHeading>
               
               <div className="grid md:grid-cols-2 gap-12">
                 <div className="space-y-6">
                   <p className="text-lg">
-                    Become part of our network of municipality professionals and gain access to our premium municipal coating solutions, specialized training, and exclusive project opportunities.
+                    Become certified in NASA-derived ceramic microsphere technology application with Class A fire rating capabilities (0/100 flame spread) and gain access to exclusive projects requiring perfect fire protection and 30+ year longevity.
                   </p>
                   
                   <div className="space-y-4">
