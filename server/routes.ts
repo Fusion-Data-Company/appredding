@@ -174,6 +174,20 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // CSV Import route
   app.post("/api/import-csv", importCSV);
   
+  // Social media routes
+  app.get("/api/social-media", getSocialMediaPosts);
+  app.get("/api/social-media/:id", getSocialMediaPostById);
+  app.post("/api/social-media", createSocialMediaPost);
+  app.put("/api/social-media/:id", updateSocialMediaPost);
+  app.delete("/api/social-media/:id", deleteSocialMediaPost);
+  
+  // Marketing campaigns routes
+  app.get("/api/marketing-campaigns", getMarketingCampaigns);
+  app.get("/api/marketing-campaigns/:id", getMarketingCampaignById);
+  app.post("/api/marketing-campaigns", createMarketingCampaign);
+  app.put("/api/marketing-campaigns/:id", updateMarketingCampaign);
+  app.delete("/api/marketing-campaigns/:id", deleteMarketingCampaign);
+  
   // Contact form submission endpoint
   app.post("/api/contact", async (req: Request, res: Response) => {
     try {

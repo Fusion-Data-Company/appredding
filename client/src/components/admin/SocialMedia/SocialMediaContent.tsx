@@ -4,6 +4,9 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import { apiRequest } from "@/lib/queryClient";
+import { toast } from "react-hot-toast";
 import {
   Table,
   TableBody,
@@ -37,144 +40,72 @@ import {
   Instagram,
   Twitter,
   Linkedin,
-  Youtube
+  Youtube,
+  Loader2
 } from "lucide-react";
 
-// Mock social media posts data
-const postsData = [
-  {
-    id: 1,
-    title: "New Protective Coating for Pools",
-    content: "Introducing our latest pool coating technology that extends durability by 50%...",
-    platform: "facebook",
-    status: "published",
-    scheduledDate: "Apr 20, 2025",
-    publishedDate: "Apr 20, 2025",
-    engagement: {
-      likes: 45,
-      comments: 12,
-      shares: 8
-    },
-    hasImage: true,
-    hasVideo: false,
-    campaign: "Spring Products Launch",
-    author: "Robert Yeager"
-  },
-  {
-    id: 2,
-    title: "Fire Prevention Coating Demonstration",
-    content: "Watch our quick demonstration of how our fire prevention coating works...",
-    platform: "youtube",
-    status: "published",
-    scheduledDate: "Apr 18, 2025",
-    publishedDate: "Apr 18, 2025",
-    engagement: {
-      likes: 87,
-      comments: 23,
-      views: 1250
-    },
-    hasImage: true,
-    hasVideo: true,
-    campaign: "Safety First",
-    author: "Robert Yeager"
-  },
-  {
-    id: 3,
-    title: "Marina Dock Protection Solutions",
-    content: "Protect your marina investments with our specialized marine coatings...",
-    platform: "instagram",
-    status: "scheduled",
-    scheduledDate: "Apr 25, 2025",
-    publishedDate: null,
-    engagement: null,
-    hasImage: true,
-    hasVideo: false,
-    campaign: "Marine Applications",
-    author: "Marketing Team"
-  },
-  {
-    id: 4,
-    title: "Building Waterproofing Case Study",
-    content: "See how our commercial waterproofing solutions saved this building from water damage...",
-    platform: "linkedin",
-    status: "draft",
-    scheduledDate: "Apr 27, 2025",
-    publishedDate: null,
-    engagement: null,
-    hasImage: true,
-    hasVideo: false,
-    campaign: "Commercial Solutions",
-    author: "Marketing Team"
-  },
-  {
-    id: 5,
-    title: "Summer Discount Announcement",
-    content: "Get 15% off all protective coatings this summer season! Limited time offer...",
-    platform: "twitter",
-    status: "scheduled",
-    scheduledDate: "Apr 30, 2025",
-    publishedDate: null,
-    engagement: null,
-    hasImage: true,
-    hasVideo: false,
-    campaign: "Summer Promo",
-    author: "Robert Yeager"
-  }
-];
+// Social media post type
+interface SocialMediaPost {
+  id: number;
+  title: string;
+  content: string;
+  imageUrl?: string;
+  videoUrl?: string;
+  platform: string;
+  scheduledDate: string;
+  publishedDate?: string;
+  status: string;
+  campaignId?: number;
+  analyticsData?: {
+    likes?: number;
+    comments?: number;
+    shares?: number;
+    views?: number;
+  };
+  createdBy: number;
+  assignedTo?: number;
+  createdAt: string;
+  updatedAt: string;
+  campaign?: {
+    id: number;
+    name: string;
+  };
+  createdByUser?: {
+    id: number;
+    firstName: string;
+    lastName: string;
+  };
+  assignedToUser?: {
+    id: number;
+    firstName: string;
+    lastName: string;
+  };
+}
 
-// Mock campaigns data
-const campaignsData = [
-  {
-    id: 1,
-    name: "Spring Products Launch",
-    description: "Announcing our spring lineup of new products",
-    status: "active",
-    startDate: "Apr 15, 2025",
-    endDate: "May 15, 2025",
-    posts: 3,
-    platform: "multiple"
-  },
-  {
-    id: 2,
-    name: "Safety First",
-    description: "Education campaign on fire prevention coatings",
-    status: "active",
-    startDate: "Apr 10, 2025",
-    endDate: "May 10, 2025",
-    posts: 5,
-    platform: "multiple"
-  },
-  {
-    id: 3,
-    name: "Marine Applications",
-    description: "Targeting marina owners and boat enthusiasts",
-    status: "active",
-    startDate: "Apr 20, 2025",
-    endDate: "Jun 20, 2025",
-    posts: 4,
-    platform: "instagram"
-  },
-  {
-    id: 4,
-    name: "Commercial Solutions",
-    description: "B2B campaign focusing on commercial applications",
-    status: "draft",
-    startDate: "May 1, 2025",
-    endDate: "Jun 30, 2025",
-    posts: 2,
-    platform: "linkedin"
-  },
-  {
-    id: 5,
-    name: "Summer Promo",
-    description: "Summer season promotional discounts campaign",
-    status: "scheduled",
-    startDate: "Apr 30, 2025",
-    endDate: "Jul 31, 2025",
-    posts: 1,
-    platform: "multiple"
-  }
-];
+// Marketing campaign type
+interface MarketingCampaign {
+  id: number;
+  name: string;
+  description?: string;
+  type: string;
+  status: string;
+  budget?: number;
+  startDate?: string;
+  endDate?: string;
+  targetAudience?: any;
+  goals?: any;
+  results?: any;
+  createdBy: number;
+  createdAt: string;
+  updatedAt: string;
+  createdByUser?: {
+    id: number;
+    firstName: string;
+    lastName: string;
+  };
+  posts?: number;
+  platform?: string;
+}
 
 const getStatusColor = (status: string) => {
   switch (status) {
@@ -229,6 +160,108 @@ export default function SocialMediaContent() {
   const { refreshData } = useAdminContext();
   const [searchQuery, setSearchQuery] = useState("");
   const [activeTab, setActiveTab] = useState("posts");
+  const [statusFilter, setStatusFilter] = useState<string | null>(null);
+  const [platformFilter, setPlatformFilter] = useState<string | null>(null);
+  const queryClient = useQueryClient();
+  
+  // Fetch social media posts
+  const { 
+    data: posts,
+    isLoading: postsLoading,
+    isError: postsError,
+    refetch: refetchPosts
+  } = useQuery({
+    queryKey: ['/api/social-media', statusFilter, platformFilter],
+    queryFn: async () => {
+      let url = '/api/social-media';
+      const params = new URLSearchParams();
+      
+      if (statusFilter) params.append('status', statusFilter);
+      if (platformFilter) params.append('platform', platformFilter);
+      
+      if (params.toString()) {
+        url += '?' + params.toString();
+      }
+      
+      return await fetch(url).then(res => res.json());
+    }
+  });
+  
+  // Fetch marketing campaigns
+  const { 
+    data: campaigns,
+    isLoading: campaignsLoading,
+    isError: campaignsError,
+    refetch: refetchCampaigns
+  } = useQuery({
+    queryKey: ['/api/marketing-campaigns'],
+    queryFn: async () => {
+      return await fetch('/api/marketing-campaigns').then(res => res.json());
+    }
+  });
+  
+  // Delete post mutation
+  const deletePostMutation = useMutation({
+    mutationFn: async (postId: number) => {
+      const response = await fetch(`/api/social-media/${postId}`, {
+        method: 'DELETE'
+      });
+      if (!response.ok) {
+        throw new Error('Failed to delete post');
+      }
+      return response;
+    },
+    onSuccess: () => {
+      toast.success('Post deleted successfully');
+      queryClient.invalidateQueries({ queryKey: ['/api/social-media'] });
+    },
+    onError: (error) => {
+      console.error('Error deleting post:', error);
+      toast.error('Failed to delete post');
+    }
+  });
+  
+  // Delete campaign mutation
+  const deleteCampaignMutation = useMutation({
+    mutationFn: async (campaignId: number) => {
+      const response = await fetch(`/api/marketing-campaigns/${campaignId}`, {
+        method: 'DELETE'
+      });
+      if (!response.ok) {
+        throw new Error('Failed to delete campaign');
+      }
+      return response;
+    },
+    onSuccess: () => {
+      toast.success('Campaign deleted successfully');
+      queryClient.invalidateQueries({ queryKey: ['/api/marketing-campaigns'] });
+    },
+    onError: (error) => {
+      console.error('Error deleting campaign:', error);
+      toast.error('Failed to delete campaign');
+    }
+  });
+  
+  // Handle refresh data
+  const handleRefresh = () => {
+    refetchPosts();
+    refetchCampaigns();
+    refreshData();
+  };
+  
+  // Handle delete post
+  const handleDeletePost = (postId: number) => {
+    if (confirm('Are you sure you want to delete this post?')) {
+      deletePostMutation.mutate(postId);
+    }
+  };
+  
+  // Handle delete campaign
+  const handleDeleteCampaign = (campaignId: number) => {
+    if (confirm('Are you sure you want to delete this campaign?')) {
+      deleteCampaignMutation.mutate(campaignId);
+    }
+  };
   
   return (
     <div className="space-y-4">
@@ -240,7 +273,7 @@ export default function SocialMediaContent() {
           </p>
         </div>
         <div className="flex items-center gap-2">
-          <Button onClick={refreshData} size="sm" variant="outline" className="h-9">
+          <Button onClick={handleRefresh} size="sm" variant="outline" className="h-9">
             <RefreshCcw className="h-4 w-4 mr-2" />
             Refresh
           </Button>
