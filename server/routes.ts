@@ -90,6 +90,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Register professionals API routes
   app.use("/api/professionals", professionalsRoutes);
   
+  // Register Google Reviews API routes
+  app.use("/api/google-reviews", googleReviewsRoutes);
+  
   // Register RAG document management routes
   app.use("/api/rag", ragRoutes);
   
