@@ -106,7 +106,7 @@ const ProfessionalHeader = () => {
       <div className="absolute inset-0 bg-[url('/src/assets_dir/images/noise.svg')] opacity-[0.04] bg-repeat bg-[length:200px_200px] mix-blend-overlay pointer-events-none animate-subtle-pulse"></div>
 
       {/* Praetorian logo positioned at far left edge */}
-      <Link href="/" className="absolute left-0 top-0 h-full flex items-center z-20 transition-transform duration-300 hover:scale-105">
+      <Link href="/" className="absolute left-0 top-0 h-full flex items-center z-50 transition-transform duration-300 hover:scale-105" style={{ zIndex: 2147483647 }}>
         <div className="relative">
           {/* Subtle glow effect behind the logo - enhanced for shield logo */}
           <div className="absolute inset-0 rounded-md bg-gradient-to-br from-blue-900/20 via-orange-700/15 to-red-600/20 blur-md -z-10 scale-100 translate-x-[45px] translate-y-[5px]"></div>
@@ -121,7 +121,9 @@ const ProfessionalHeader = () => {
                   transform: 'scale(1.02)',
                   transformStyle: 'preserve-3d',
                   marginLeft: '60px', /* increase from half inch to 0.75 inch */
-                  marginTop: '-16px' /* moved up 24px (0.25in) from 8px */
+                  marginTop: '-16px', /* moved up 24px (0.25in) from 8px */
+                  position: 'fixed',
+                  zIndex: 2147483647
                 }}
               />
               {/* Add shine/reflection effect for shield logo */}
