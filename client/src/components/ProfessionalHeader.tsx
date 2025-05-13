@@ -122,7 +122,7 @@ const ProfessionalHeader = () => {
                   transformStyle: 'preserve-3d',
                   marginLeft: '60px', /* increase from half inch to 0.75 inch */
                   marginTop: '-16px', /* moved up 24px (0.25in) from 8px */
-                  position: 'fixed',
+                  position: 'relative',
                   zIndex: 2147483647
                 }}
               />

@@ -35,11 +35,11 @@ export const StoneTextureBackground: React.FC<StoneTextureBackgroundProps> = ({
       <div 
         className="absolute z-50"
         style={{
-          top: "15px", // Move down a quarter inch and bring to front
+          top: "-10px", // Move up a quarter inch and bring to front (changed from 15px to -10px)
           left: 0,
           right: 0,
           bottom: 0,
-          background: 'linear-gradient(to bottom, rgba(180, 180, 190, 0.7), rgba(40, 40, 50, 0.7))',
+          background: 'linear-gradient(to bottom, rgba(180, 180, 190, 0.35), rgba(40, 40, 50, 0.35))', // 50% more see-through (0.7 -> 0.35)
           backdropFilter: 'blur(5px)', // Increased blur effect
           boxShadow: 'inset 0 0 100px rgba(0,0,0,0.4)',
         }}
