@@ -85,27 +85,7 @@ const HeroSection = () => {
             onLoad={() => setImageLoaded(true)}
           />
           
-          {/* Buttons positioned directly over the image */}
-          <div className="absolute w-full" style={{ 
-            bottom: "calc(2.5%)", /* Moved even further down, below previous position */
-            left: 0,
-            right: 0,
-            zIndex: 999999
-          }}>
-            <div className="w-full relative px-4 flex justify-center gap-8">
-              <a href="#applications" className="inline-block">
-                <GradientButton size="lg" className="font-semibold tracking-wider shadow-2xl shadow-black/80">
-                  Explore Applications
-                </GradientButton>
-              </a>
-              
-              <a href="#contact" className="inline-block">
-                <GradientButton size="lg" className="font-semibold tracking-wider shadow-2xl shadow-black/80">
-                  Contact Us
-                </GradientButton>
-              </a>
-            </div>
-          </div>
+          {/* Buttons removed from here */}
         </div>
       </div>
     </section>

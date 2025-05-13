@@ -6,6 +6,21 @@ import praetorianBrandImage from '../assets_dir/images/optimized/praetorian-bran
 const BrandShowcaseSection = () => {
   return (
     <section id="brand-showcase" className="py-16 bg-black relative overflow-hidden">
+      {/* Buttons positioned where the old hero image was */}
+      <div className="w-full flex justify-center gap-8 pb-10">
+        <a href="#applications" className="inline-block">
+          <GradientButton size="lg" className="font-semibold tracking-wider shadow-2xl shadow-black/80">
+            Explore Applications
+          </GradientButton>
+        </a>
+        
+        <a href="#contact" className="inline-block">
+          <GradientButton size="lg" className="font-semibold tracking-wider shadow-2xl shadow-black/80">
+            Contact Us
+          </GradientButton>
+        </a>
+      </div>
+      
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10">
@@ -63,16 +78,7 @@ const BrandShowcaseSection = () => {
                   </p>
                 </div>
                 
-                <div className="pt-4">
-                  <GradientButton 
-                    variant="mixed" 
-                    className="w-full md:w-auto" 
-                    size="lg"
-                    onClick={() => window.location.href="#contact"}
-                  >
-                    Request Information
-                  </GradientButton>
-                </div>
+                {/* Removed redundant button */}
               </div>
             </div>
           </div>
