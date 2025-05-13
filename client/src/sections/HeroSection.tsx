@@ -44,7 +44,7 @@ const HeroSection = () => {
         {/* Hero image with natural proportions */}
         <div className="w-full relative" style={{ 
           backgroundColor: "#000000",
-          paddingTop: "46.875%" /* Maintain aspect ratio */
+          paddingTop: "56.25%" /* Maintain aspect ratio: 16:9 */
         }}>
           {/* Placeholder image (loads quickly) */}
           <img 
