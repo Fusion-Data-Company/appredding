@@ -30,7 +30,7 @@ export const faqData = [
       },
       {
         question: "How do your coatings perform in extreme heat?",
-        answer: "When tested at 2,732°F (1,500°C) for 20 minutes, our coatings maintained a back surface temperature of only 150°F while the front surface was at 2,296°F—an extraordinary 2,177°F temperature differential. Additionally, 5-6 coats (approximately 30 mils thick) applied to 1/4 inch steel passed tests against 1550°F (843°C) flame for 25+ minutes."
+        answer: "Our coatings are designed to provide excellent thermal protection under extreme conditions. When tested according to ASTM E119 standards, 5-6 coats (approximately 30 mils thick) applied to 1/4 inch steel provide significant thermal protection for extended periods, helping to maintain structural integrity during fire events."
       },
       {
         question: "What thickness is required for effective fire protection?",
@@ -77,8 +77,8 @@ export const videoData = [
   },
   {
     id: "2g811Eo7K8U",
-    title: "Class A Fire Protection: Extreme Temperature Testing",
-    description: "Watch our coatings withstand 2,732°F (1,500°C) temperatures while maintaining a 2,177°F differential. This demonstration showcases why our products achieve perfect 0/100 flame spread and smoke development ratings.",
+    title: "Class A Fire Protection: Advanced Fire Testing",
+    description: "Watch our coatings subjected to ASTM E84 testing procedures that showcase their superior fire resistance properties. This demonstration illustrates why our products achieve perfect 0/100 flame spread and smoke development ratings.",
     category: "fire protection",
     thumbnail: "https://img.youtube.com/vi/2g811Eo7K8U/mqdefault.jpg",
     duration: "12:45"

@@ -320,7 +320,7 @@ const Marinas = () => {
                     <ul className="space-y-2 mb-4">
                       <li className="flex items-center gap-2 text-white">
                         <span className="text-blue-400">✓</span>
-                        <span>Tested to 2,732°F (1,500°C) per ASTM E119 protocols</span>
+                        <span>Tested under rigorous ASTM E119 fire protocols</span>
                       </li>
                       <li className="flex items-center gap-2 text-white">
                         <span className="text-blue-400">✓</span>

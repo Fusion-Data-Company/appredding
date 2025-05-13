@@ -55,7 +55,7 @@ const ProductPerformanceSection = () => {
           <div className="text-center mb-14">
             <GradientHeading level={2} className="text-3xl md:text-4xl lg:text-5xl mb-6" variant="mixed">NASA-Grade Testing Protocols</GradientHeading>
             <p className="text-xl text-gray-200 max-w-4xl mx-auto">
-              Our triple-component system utilizes vacuum-filled ceramic microspheres in a water-based acrylic elastomeric polymer with 156% elongation capability. When tested at 2,732°F (1,500°C), our coatings maintain a 2,177°F temperature differential, with the surface at 2,296°F while the back surface remains at only 150°F.
+              Our triple-component system utilizes vacuum-filled ceramic microspheres in a water-based acrylic elastomeric polymer with 156% elongation capability. This advanced ceramic technology provides exceptional thermal insulation properties and fire resistance across a wide range of applications.
             </p>
           </div>
           
@@ -129,7 +129,7 @@ const ProductPerformanceSection = () => {
                     <tr>
                       <td className="py-5 px-4">Heat Resistance</td>
                       <td className="text-center py-5 px-4">500-900°F</td>
-                      <td className="text-center py-5 px-4 text-primary-400 font-semibold text-xl">2,732°F</td>
+                      <td className="text-center py-5 px-4 text-primary-400 font-semibold text-xl">Advanced</td>
                     </tr>
                   </tbody>
                 </table>

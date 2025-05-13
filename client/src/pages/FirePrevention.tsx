@@ -117,7 +117,7 @@ const FirePrevention = () => {
             <div className="max-w-4xl mx-auto text-center mb-10 md:mb-16 backdrop-blur-sm bg-gradient-to-b from-primary-900/70 to-primary-800/60 p-6 md:p-8 rounded-xl shadow-lg border border-primary-600/30">
               <GradientHeading level={1} className="text-3xl sm:text-4xl md:text-5xl mb-4 md:mb-6 glow-text" variant="fire">NASA-Derived Wildfire Defense</GradientHeading>
               <p className="text-base sm:text-lg md:text-xl text-white mb-6 md:mb-8 leading-relaxed">
-                Protect your home with our NASA-derived ceramic coating system (US Patent #10,738,214) featuring perfect Class A fire ratings (0/0 scores in ASTM E84-23 testing for both Flame Spread Index and Smoke Development Index). Our triple-component barrier containing millions of vacuum-filled ceramic microspheres (80-160 micron) withstands extreme temperatures up to 2,732°F (1,500°C) while maintaining a 2,177°F temperature differential per ASTM E119-22 testing protocols and UL 263 certification standards. Documented fire barrier performance exceeds WUI (Wildland-Urban Interface) codes per California Building Code Chapter 7A and NFPA 1144 requirements.
+                Protect your home with our NASA-derived ceramic coating system (US Patent #10,738,214) featuring perfect Class A fire ratings (0/0 scores in ASTM E84-23 testing for both Flame Spread Index and Smoke Development Index). Our triple-component barrier containing millions of vacuum-filled ceramic microspheres (80-160 micron) provides exceptional fire resistance in accordance with ASTM E119-22 testing protocols and UL 263 certification standards. Documented fire barrier performance exceeds WUI (Wildland-Urban Interface) codes per California Building Code Chapter 7A and NFPA 1144 requirements.
               </p>
             </div>
 
@@ -147,7 +147,7 @@ const FirePrevention = () => {
                     </span>
                     <div>
                       <h3 className="text-lg md:text-xl font-semibold mb-2 text-white">5-6 Coats Passes 1550°F Flame Tests</h3>
-                      <p className="text-sm md:text-base text-gray-100">When applied at approximately 30 mils (762 μm) thickness (5-6 coats) to 1/4 inch steel, our coating passes tests against 1550°F (843°C) direct flame per ASTM E119-22 time-temperature curve for 25+ minutes while maintaining structural integrity. With a thermal conductivity of 0.00543 W/cm²/K (ASTM C177-19), the coating creates a 1,400°F temperature differential, keeping substrate temperatures below 150°F (66°C) - far cooler than the 600-900°F substrate temperatures seen with competing products. Certified fireproof performance under NFPA 285 standard test method and UL 1709 rapid temperature rise fire testing protocol. Testing confirms ignition resistance exceeds ASTM D1929 standards with flash ignition temperature of 950°F+ (510°C+) versus typical 500-650°F for conventional coatings.</p>
+                      <p className="text-sm md:text-base text-gray-100">When applied at approximately 30 mils (762 μm) thickness (5-6 coats) to 1/4 inch steel, our coating provides significant fire protection per ASTM E119-22 time-temperature curve testing protocols while maintaining structural integrity. With a low thermal conductivity of 0.00543 W/cm²/K (ASTM C177-19), the coating creates an effective thermal barrier, keeping substrate temperatures significantly lower than competing products. Certified fireproof performance under NFPA 285 standard test method and UL 1709 rapid temperature rise fire testing protocol. Testing confirms ignition resistance exceeds ASTM D1929 standards with excellent flash ignition temperature compared to conventional coatings.</p>
                     </div>
                   </div>
 
@@ -286,8 +286,8 @@ const FirePrevention = () => {
               
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
-                  <div className="text-5xl font-bold text-orange-500 mb-2">2,177°F</div>
-                  <p className="text-xl text-white">temperature differential maintained when our coating was tested at 2,732°F (1,500°C) for 20 minutes, with back surface at only 150°F</p>
+                  <div className="text-5xl font-bold text-orange-500 mb-2">Class A</div>
+                  <p className="text-xl text-white">perfect fire rating with 0/0 scores in ASTM E84 testing for Flame Spread Index and Smoke Development Index, significantly outperforming industry standards</p>
                 </div>
                 
                 <div>
@@ -924,7 +924,7 @@ const FirePrevention = () => {
                     </li>
                     <li className="flex items-center gap-2">
                       <span className="bg-orange-500/20 p-1 rounded-full text-orange-300 flex-shrink-0">✓</span>
-                      <span className="text-gray-100">1,682°F temperature differential maintained across coating</span>
+                      <span className="text-gray-100">Significant thermal protection provided by advanced ceramic barrier</span>
                     </li>
                     <li className="flex items-center gap-2">
                       <span className="bg-orange-500/20 p-1 rounded-full text-orange-300 flex-shrink-0">✓</span>
