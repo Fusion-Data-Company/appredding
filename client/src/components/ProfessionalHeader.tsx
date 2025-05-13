@@ -109,7 +109,7 @@ const ProfessionalHeader = () => {
       <Link href="/" className="absolute left-0 top-0 h-full flex items-center z-20">
         <div className="relative">
           {/* Subtle glow effect behind the logo */}
-          <div className="absolute inset-0 rounded-full bg-blue-900/10 blur-md -z-10 scale-105 translate-x-[25px] translate-y-[10px]"></div>
+          <div className="absolute inset-0 rounded-full bg-blue-900/10 blur-md -z-10 scale-105 translate-x-[45px] translate-y-[10px]"></div>
           <div className="relative">
             <div className="relative">
               <img 
@@ -120,7 +120,7 @@ const ProfessionalHeader = () => {
                   filter: 'drop-shadow(0 3px 5px rgba(0, 0, 0, 0.5))',
                   transform: 'scale(1.02)',
                   transformStyle: 'preserve-3d',
-                  marginLeft: '20px', /* quarter inch = approx 20px */
+                  marginLeft: '40px', /* half inch = approx 40px */
                   marginTop: '0px'
                 }}
               />
