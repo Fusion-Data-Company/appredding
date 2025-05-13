@@ -1,31 +1,11 @@
-import React, { useState, useEffect } from "react";
-import { useQuery } from "@tanstack/react-query";
-import { apiRequest } from "@/lib/queryClient";
-import { Loader2, LogOut } from "lucide-react";
+import React, { useEffect } from "react";
+import MainLayout from "@/components/layout/MainLayout";
+import { Loader2 } from "lucide-react";
 
-import { LoginForm } from "@/components/crm/LoginForm";
-import { InventoryTable } from "@/components/crm/InventoryTable";
-import { OrderForm } from "@/components/crm/OrderForm";
-import { OrdersTable } from "@/components/crm/OrdersTable";
-import { NotificationCenter } from "@/components/crm/NotificationCenter";
-
-import { Button } from "@/components/ui/button";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-
-interface User {
-  id: number;
-  email: string;
-  role: string;
-  notificationMode: string;
-}
-
+/**
+ * This component redirects to the appropriate page based on the URL parameters
+ * It maintains backward compatibility with any existing links to /crm-dashboard
+ */
 export default function CRMDashboard() {
   const [activeTab, setActiveTab] = useState("inventory");
   const [notificationMode, setNotificationMode] = useState<string>("in-app");

@@ -387,7 +387,7 @@ export default function CRMSection() {
                 variant="fire"
                 size="sm"
                 leftIcon={<PlusCircle size={16} />}
-                href="/crm-dashboard?tab=inventory"
+                href="/inventory"
               >
                 Full Inventory
               </PraetorianButton>

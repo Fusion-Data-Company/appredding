@@ -72,7 +72,7 @@ const ProfessionalHeader = () => {
     { label: "Client Dashboard", href: "/client-dashboard", description: "Access your client portal" },
     { label: "Admin Dashboard", href: "/admin-dashboard", description: "Administrative controls" },
     { label: "Team CRM", href: "/crm", description: "Customer relationship management" },
-    { label: "Inventory Management", href: "/crm-dashboard", description: "Manage product inventory and orders" },
+    { label: "Inventory Management", href: "/inventory", description: "Manage product inventory and orders" },
   ];
 
   return (
