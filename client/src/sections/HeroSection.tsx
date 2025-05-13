@@ -1,5 +1,5 @@
-// Import directly from assets - using the corrected image
-import heroImage from '../assets_dir/images/praetorian-hero-corrected.png';
+// Import directly from assets
+import heroImage from '../assets_dir/images/praetorian-hero-final.png';
 import { GradientButton } from "@/components/ui/gradient-button";
 
 const HeroSection = () => {
