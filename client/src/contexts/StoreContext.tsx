@@ -39,7 +39,7 @@ const productData: Product[] = [
   {
     id: 1,
     name: "Smart-Coat 1-gallon",
-    price: 189.99,
+    price: 89.95,
     description: "Praetorian's flagship ceramic-based thermal protective coating in our convenient 1-gallon size. Perfect for smaller projects, repairs, and touch-ups. Features our proprietary NASA-derived ceramic technology offering superior heat reflection, UV protection, and extreme durability.",
     image: "/src/assets_dir/images/praetorianBucket.png",
     category: "Coating",
@@ -51,7 +51,7 @@ const productData: Product[] = [
   {
     id: 2,
     name: "Smart-Coat 5-gallon",
-    price: 849.99,
+    price: 449.95,
     description: "Our professional-grade Smart-Coat in commercial 5-gallon sizing. The industry-leading ceramic thermal barrier coating with documented thermal conductivity of 0.00543 W/cm²/K. Ideal for complete exterior applications, industrial facilities, and large commercial projects.",
     image: "/src/assets_dir/images/praetorianBucket.png",
     category: "Coating",
@@ -63,7 +63,7 @@ const productData: Product[] = [
   {
     id: 3,
     name: "Stucco 1-gallon",
-    price: 159.99,
+    price: 89.95,
     description: "Specialized ceramic-infused stucco formula in 1-gallon size. Engineered for textured surface applications with enhanced adhesion and flexibility (156% elasticity). Provides the perfect balance of protection and traditional stucco aesthetics for exterior walls.",
     image: "/src/assets_dir/icons/praetorian-bucket-new.png",
     category: "Stucco",
@@ -74,7 +74,7 @@ const productData: Product[] = [
   {
     id: 4,
     name: "Stucco 5-gallon",
-    price: 699.99,
+    price: 449.95,
     description: "Professional-grade ceramic stucco coating in 5-gallon container. Our advanced formula combines traditional stucco appearance with cutting-edge thermal protection. Ideal for complete building exteriors with Class A fire rating (0/0 scores) and ABS certification (#MC-1372).",
     image: "/src/assets_dir/icons/praetorian-bucket-new.png",
     category: "Stucco",

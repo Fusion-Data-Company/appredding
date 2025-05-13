@@ -128,10 +128,15 @@ export const ProductCard = ({ product }: ProductCardProps) => {
           </div>
           
           {/* Price with icon */}
-          <div className="mb-4 flex items-center">
+          <div className="mb-1 flex items-center">
             <CircleDollarSign className="h-5 w-5 text-amber-600 dark:text-amber-500 mr-1.5" />
             <span className="text-xl font-bold bg-gradient-to-r from-amber-700 to-amber-500 dark:from-amber-400 dark:to-amber-300 bg-clip-text text-transparent">
               ${product.price.toFixed(2)}
+            </span>
+          </div>
+          <div className="mb-3">
+            <span className="text-xs text-gray-500 dark:text-gray-400 italic">
+              + tax & shipping
             </span>
           </div>
           

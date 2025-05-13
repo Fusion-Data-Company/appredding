@@ -104,7 +104,10 @@ export const Cart = () => {
                           </div>
                           <div className="flex-1">
                             <h3 className="font-medium text-amber-900 dark:text-amber-300">{item.product.name}</h3>
-                            <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">${item.product.price.toFixed(2)}</p>
+                            <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
+                              ${item.product.price.toFixed(2)} 
+                              <span className="text-xs italic ml-1">+ tax & shipping</span>
+                            </p>
                             
                             <div className="flex justify-between items-center">
                               <div className="flex items-center border border-gray-200 dark:border-gray-700 rounded">
@@ -144,9 +147,14 @@ export const Cart = () => {
                   
                   <div className="border-t pt-4 space-y-4">
                     <div className="flex justify-between text-lg font-semibold">
-                      <span>Total</span>
+                      <span>Subtotal</span>
                       <span className="text-amber-900 dark:text-amber-400">${cartTotal.toFixed(2)}</span>
                     </div>
+                    
+                    <p className="text-xs text-gray-500 dark:text-gray-400 text-center italic">
+                      * Prices shown do not include applicable taxes and shipping. 
+                      Final costs will be calculated at checkout.
+                    </p>
                     
                     <Button 
                       className="w-full bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-white"
