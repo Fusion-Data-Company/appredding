@@ -127,7 +127,7 @@ const ConstructionPage = () => {
             <div className="max-w-4xl mx-auto text-center mb-16 backdrop-blur-sm bg-primary-900/60 p-8 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)]">
               <GradientHeading level={1} className="text-4xl md:text-5xl mb-6 glow-text" variant="mixed">NASA-Derived Construction Protection</GradientHeading>
               <p className="text-xl text-white mb-8">
-                Our ceramic microsphere technology provides construction materials with Class A fire protection (0/100 scores), withstands 2,732°F (1,500°C), offers 156% elastomeric flexibility, and delivers 30+ year verified durability for commercial and residential structures.
+                Our ceramic microsphere technology provides construction materials with Class A fire protection (0/100 scores), offers 156% elastomeric flexibility, and delivers 30+ year verified durability for commercial and residential structures.
               </p>
             </div>
 
@@ -142,7 +142,7 @@ const ConstructionPage = () => {
                     </span>
                     <div>
                       <h3 className="text-xl font-semibold mb-1 text-orange-300">Extreme Temperature Performance</h3>
-                      <p className="text-white">Our ceramic microsphere technology withstands 2,732°F (1,500°C) with a 2,177°F temperature differential, providing unparalleled fire protection for structural elements. Perfect 0/100 scores in ASTM E84 testing for Flame Spread and Smoke Development.</p>
+                      <p className="text-white">Our ceramic microsphere technology provides exceptional thermal resistance and fire protection for structural elements. Perfect 0/100 scores in ASTM E84 testing for Flame Spread and Smoke Development ensure maximum fire safety rating.</p>
                     </div>
                   </div>
 
@@ -227,7 +227,7 @@ const ConstructionPage = () => {
               <GradientHeading level={2} className="text-2xl font-bold mb-6 text-center" variant="mixed">NASA Ceramic Microsphere Technology</GradientHeading>
               <p className="text-white mb-8 text-center max-w-3xl mx-auto">
                 Our construction coatings feature NASA-derived ceramic microsphere technology that provides unparalleled protection for concrete, steel, wood, and composites. 
-                With perfect 0/100 scores in ASTM E84 testing, temperature resistance to 2,732°F (1,500°C), and 156% elastomeric flexibility, 
+                With perfect 0/100 scores in ASTM E84 testing, advanced thermal protection, and 156% elastomeric flexibility, 
                 these coatings create an advanced protective barrier with 30+ year verified durability.
               </p>
               
@@ -630,7 +630,7 @@ const ConstructionPage = () => {
                         </div>
                         <div className="bg-blue-900/30 rounded p-2">
                           <div className="text-xs text-blue-200 mb-1">Temperature Resistance</div>
-                          <div className="text-white font-mono font-bold">2,732°F (1,500°C)</div>
+                          <div className="text-white font-mono font-bold">Class A rated</div>
                         </div>
                         <div className="bg-blue-900/30 rounded p-2">
                           <div className="text-xs text-blue-200 mb-1">Adhesion Strength</div>
@@ -1381,10 +1381,10 @@ const ConstructionPage = () => {
                               <td className="py-3 text-center text-green-400 font-bold">-64%</td>
                             </tr>
                             <tr className="border-b border-blue-500/20">
-                              <td className="py-3 text-sm">Maximum Temperature Resistance</td>
-                              <td className="py-3 text-center font-mono">2,732°F</td>
-                              <td className="py-3 text-center font-mono">1,200°F</td>
-                              <td className="py-3 text-center text-green-400 font-bold">+128%</td>
+                              <td className="py-3 text-sm">Fire Protection Rating</td>
+                              <td className="py-3 text-center font-mono">Class A (0/0)</td>
+                              <td className="py-3 text-center font-mono">Class B-C</td>
+                              <td className="py-3 text-center text-green-400 font-bold">Superior</td>
                             </tr>
                             <tr>
                               <td className="py-3 text-sm">VOC Content</td>

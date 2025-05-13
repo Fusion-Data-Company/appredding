@@ -939,7 +939,7 @@ const MunicipalityPage = () => {
                     <ParkingCircle className="h-6 w-6 text-white" />
                   </div>
                   <h3 className="text-lg font-bold mb-2 text-blue-300">Traffic-Rated Systems</h3>
-                  <p className="text-white">NASA ceramic technology withstands extreme temperatures of 2,732°F (1,500°C) with 156% elastomeric flexibility for heavy vehicular traffic. System maintains structural integrity through freeze-thaw cycles and resists delamination.</p>
+                  <p className="text-white">NASA ceramic technology provides exceptional thermal protection with 156% elastomeric flexibility for heavy vehicular traffic. System maintains structural integrity through freeze-thaw cycles and resists delamination.</p>
                 </div>
                 
                 <div className="backdrop-blur-sm bg-primary-900/80 rounded-xl p-6 border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] hover:translate-y-[-5px] transition-transform duration-300">
