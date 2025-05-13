@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Building, Warehouse, Ship, AlarmClockCheck, Home, Building2, Droplets, ThermometerSun, Wrench, Zap, DollarSign, Shield, CheckCircle, Sun } from "lucide-react";
+import { GradientText } from "@/components/ui/gradient-text";
 
 interface ApplicationData {
   id: string;
@@ -265,8 +266,10 @@ const IndustryApplications = () => {
           <div className="inline-block bg-gradient-to-r from-amber-600/80 to-amber-500/80 dark:from-amber-700/80 dark:to-amber-600/80 px-4 py-1.5 border border-amber-400 dark:border-amber-500 rounded-md shadow-[0_2px_10px_rgba(251,191,36,0.2)] backdrop-blur-sm">
             <span className="font-semibold text-white tracking-wide text-sm uppercase">Industry Solutions</span>
           </div>
-          <h2 className="text-4xl font-bold text-white dark:text-amber-300 mb-4 mt-4 tracking-tight drop-shadow-[0_2px_4px_rgba(251,191,36,0.3)] [text-shadow:0_4px_8px_rgba(0,0,0,0.5)]">
-            Protection Across Every Industry
+          <h2 className="text-4xl font-bold mb-4 mt-4 tracking-tight">
+            <GradientText variant="fire" className="drop-shadow-[0_2px_4px_rgba(251,191,36,0.3)] [text-shadow:0_4px_8px_rgba(0,0,0,0.5)]">
+              Protection Across Every Industry
+            </GradientText>
           </h2>
           <p className="text-gray-200 dark:text-gray-300 max-w-2xl mx-auto font-medium text-lg tracking-wide leading-relaxed">
             Explore how Praetorian's advanced ceramic coating technology delivers specialized protection and exceptional performance for diverse industries and applications.
