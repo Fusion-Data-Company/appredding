@@ -6,7 +6,7 @@ import Cart from '@/components/store/Cart';
 import ScrollingReviews from '@/components/store/ScrollingReviews';
 import TechnicalSpecsTable from '@/components/store/TechnicalSpecsTable';
 import ProductComparison from '@/components/store/ProductComparison';
-import IndustryApplications from '@/components/store/IndustryApplications';
+import RotatingTextSection from '@/sections/RotatingTextSection';
 import { Button } from '@/components/ui/button';
 import { PremiumButton } from '@/components/ui/premium-button';
 import { Filter, ArrowUp, ChevronDown, ShieldCheck, Thermometer, Droplets, Wind, Sun, Scale, Shapes } from 'lucide-react';
@@ -460,7 +460,7 @@ export default function Products() {
         {/* Premium Enterprise Content Sections */}
         <TechnicalSpecsTable />
         <ProductComparison />
-        <IndustryApplications />
+        <RotatingTextSection />
 
         {/* Reviews Section */}
         <ScrollingReviews />

@@ -247,12 +247,29 @@ const IndustryApplications = () => {
   ];
 
   return (
-    <section className="py-16 bg-gradient-to-b from-white to-amber-50/50 dark:from-gray-900 dark:to-gray-950/80">
-      <div className="container mx-auto px-4">
+    <section 
+      id="industry-applications"
+      className="py-12 relative flex items-center justify-center"
+      style={{ 
+        backgroundImage: "url('/images/optimized/diamond-plate-orange-blue.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        zIndex: 999, 
+        minHeight: "70vh", 
+        marginTop: "-5px", 
+        position: "relative", 
+        paddingTop: "20px"
+      }}
+    >
+      {/* Semi-transparent overlay */}
+      <div className="absolute inset-0 bg-black/40"></div>
+      
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-10">
-          <Badge variant="outline" className="mb-2 px-3 py-1 border-amber-300 dark:border-amber-700 bg-amber-100/50 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300">
+          <div className="inline-block bg-amber-50/50 dark:bg-amber-900/30 px-3 py-1 border border-amber-300 dark:border-amber-700 rounded-md text-amber-800 dark:text-amber-300 font-medium text-sm">
             Industry Solutions
-          </Badge>
+          </div>
           <h2 className="text-3xl font-bold text-amber-900 dark:text-amber-300 mb-4">
             Protection Across Every Industry
           </h2>

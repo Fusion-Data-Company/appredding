@@ -1,10 +1,10 @@
 import MainLayout from "@/components/layout/MainLayout";
 import HeroSection from "@/sections/HeroSection";
-import RotatingTextSection from "@/sections/RotatingTextSection";
 import IntroSection from "@/sections/IntroSection";
 import FeaturesSection from "@/sections/FeaturesSection";
 import ApplicationsSection from "@/sections/ApplicationsSection";
 import BrandShowcaseSection from "@/sections/BrandShowcaseSection";
+import IndustryApplications from "@/components/store/IndustryApplications";
 
 import TestimonialsSection from "@/sections/TestimonialsSection";
 import ContactSection from "@/sections/ContactSection";
@@ -20,7 +20,7 @@ const Home = () => {
     <MainLayout fullWidth>
       <div className="flex-1 flex flex-col">
         <HeroSection />
-        <RotatingTextSection />
+        <IndustryApplications />
         <ApplicationsSection />
         <BrandShowcaseSection />
         <IntroSection />
