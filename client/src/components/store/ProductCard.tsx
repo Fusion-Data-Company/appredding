@@ -107,19 +107,11 @@ export const ProductCard = ({ product }: ProductCardProps) => {
             <div>
               <img 
                 src={product.category === 'Coating' 
-                  ? '/images/praetorian-products.jpg'
-                  : '/images/praetorian-stucco.jpg'} 
+                  ? 'https://via.placeholder.com/350x250?text=Praetorian+SmartCoat'
+                  : 'https://via.placeholder.com/350x250?text=Praetorian+Stucco'} 
                 alt={product.name} 
                 className={`object-contain h-72 max-w-[90%] drop-shadow-xl transform ${product.category === 'Stucco' ? 'scale-110' : 'scale-90'}`}
               />
-              {/* Direct image reference as backup */}
-              {product.category === 'Coating' && (
-                <img 
-                  src="/images/praetorian-products.jpg" 
-                  alt="Backup Product Image" 
-                  className="hidden"
-                />
-              )}
             </div>
           </motion.div>
         </div>
