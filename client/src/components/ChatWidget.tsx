@@ -316,8 +316,8 @@ const ChatWidget = () => {
             </div>
           )}
           
-          {/* Messages Container */}
-          <CardContent className="flex-1 overflow-y-auto p-4 flex flex-col gap-4">
+          {/* Messages Container - Increased height by 1.5 inches (approximately 144px at standard 96dpi) */}
+          <CardContent className="flex-1 overflow-y-auto p-4 flex flex-col gap-4 h-[500px]">
             {isLoadingMessages ? (
               <div className="flex flex-col justify-center items-center h-full gap-3">
                 <div className="w-16 h-16 rounded-full bg-gradient-to-r from-blue-700 to-orange-700 flex items-center justify-center shadow-[0_0_20px_rgba(255,255,255,0.15)]">
