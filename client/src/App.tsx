@@ -17,6 +17,7 @@ import MobileHome from "@/pages/MobileHome";
 import Municipality from "@/pages/Municipality";
 import Applications from "@/pages/Applications";
 import ProductComparison from "@/pages/ProductComparison";
+import Products from "@/pages/Products";
 import Technology from "@/pages/Technology";
 import AuthPage from "@/pages/auth-page";
 import ClientDashboard from "@/pages/client-dashboard";
@@ -62,6 +63,7 @@ function Router() {
       <Route path="/mobile-home" component={MobileHome} />
       <Route path="/municipality" component={Municipality} />
       <Route path="/applications" component={Applications} />
+      <Route path="/products" component={Products} />
       <Route path="/product-comparison" component={ProductComparison} />
       <Route path="/about" component={About} />
       <Route path="/team" component={Team} />
