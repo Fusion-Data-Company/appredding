@@ -251,26 +251,30 @@ const IndustryApplications = () => {
       id="industry-applications"
       className="py-12 relative flex items-center justify-center"
       style={{ 
-        backgroundImage: "url('/images/optimized/diamond-plate-orange-blue.jpg')",
+        background: "linear-gradient(135deg, #2d3748 0%, #1a202c 100%)",
         backgroundSize: "cover",
         backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
         zIndex: 999, 
         minHeight: "70vh", 
         marginTop: "-5px", 
         position: "relative", 
-        paddingTop: "20px"
+        paddingTop: "20px",
+        borderTop: "1px solid #4a5568",
+        borderBottom: "1px solid #4a5568"
       }}
     >
-      {/* Strong background tint for better readability */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/80 to-black/70"></div>
+      {/* Gunmetal pattern overlay */}
+      <div className="absolute inset-0 bg-[radial-gradient(#4a5568_1px,transparent_1px)] [background-size:20px_20px] opacity-20"></div>
+      
+      {/* Subtle metallic shimmer effect */}
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-500/10 via-gray-600/5 to-gray-700/10"></div>
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-10">
-          <div className="inline-block bg-amber-50/70 dark:bg-amber-900/50 px-3 py-1 border border-amber-300 dark:border-amber-700 rounded-md text-amber-800 dark:text-amber-300 font-medium text-sm">
+          <div className="inline-block bg-gray-200/80 dark:bg-gray-700/80 px-3 py-1 border border-gray-300 dark:border-gray-500 rounded-md text-gray-700 dark:text-gray-200 font-medium text-sm">
             Industry Solutions
           </div>
-          <h2 className="text-4xl font-bold text-white dark:text-amber-300 mb-4 mt-4 text-shadow-lg">
+          <h2 className="text-4xl font-bold text-white dark:text-gray-100 mb-4 mt-4 text-shadow-lg">
             Protection Across Every Industry
           </h2>
           <p className="text-gray-200 dark:text-gray-300 max-w-2xl mx-auto font-medium text-lg">
@@ -279,12 +283,12 @@ const IndustryApplications = () => {
         </div>
 
         <Tabs defaultValue="fire-prevention" value={selectedTab} onValueChange={setSelectedTab} className="w-full">
-          <TabsList className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 h-auto p-1 bg-amber-50/90 dark:bg-amber-900/30 border-2 border-amber-200 dark:border-amber-700 rounded-lg mb-8 shadow-lg">
+          <TabsList className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 h-auto p-1 bg-gray-200/90 dark:bg-gray-700/80 border border-gray-400 dark:border-gray-500 rounded-lg mb-8 shadow-lg">
             {applications.map(app => (
               <TabsTrigger 
                 key={app.id} 
                 value={app.id}
-                className="py-3 data-[state=active]:bg-white dark:data-[state=active]:bg-amber-800/90 data-[state=active]:text-amber-700 dark:data-[state=active]:text-white data-[state=active]:shadow-md text-gray-700 dark:text-amber-200 font-medium"
+                className="py-3 data-[state=active]:bg-gray-100 dark:data-[state=active]:bg-gray-600 data-[state=active]:text-gray-800 dark:data-[state=active]:text-white data-[state=active]:shadow-md text-gray-700 dark:text-gray-200 font-medium"
               >
                 <div className="flex flex-col items-center gap-1">
                   {app.icon}
@@ -303,7 +307,7 @@ const IndustryApplications = () => {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.3 }}
-                  className="bg-white/95 dark:bg-gray-800/95 rounded-xl shadow-2xl overflow-hidden border-2 border-amber-200 dark:border-amber-700"
+                  className="bg-white/95 dark:bg-gray-800/95 rounded-xl shadow-2xl overflow-hidden border border-gray-300 dark:border-gray-600"
                 >
                   <div className="p-6">
                     <h3 className="text-2xl font-bold text-amber-800 dark:text-amber-300 mb-2 flex items-center gap-2">
@@ -316,7 +320,7 @@ const IndustryApplications = () => {
                     
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
                       {app.benefits.map((benefit, index) => (
-                        <div key={index} className="bg-amber-50/90 dark:bg-amber-900/20 p-4 rounded-lg border border-amber-200 dark:border-amber-700 shadow-md">
+                        <div key={index} className="bg-gray-100/90 dark:bg-gray-800/90 p-4 rounded-lg border border-gray-300 dark:border-gray-600 shadow-md">
                           <div className="text-amber-600 dark:text-amber-400 mb-2">
                             {benefit.icon}
                           </div>
@@ -330,7 +334,7 @@ const IndustryApplications = () => {
                       ))}
                     </div>
                     
-                    <div className="bg-amber-50/90 dark:bg-amber-800/30 rounded-xl p-6 shadow-lg border border-amber-200 dark:border-amber-700">
+                    <div className="bg-gray-100/90 dark:bg-gray-700/90 rounded-xl p-6 shadow-lg border border-gray-300 dark:border-gray-600">
                       <h4 className="text-xl font-bold text-amber-800 dark:text-amber-300 mb-4">
                         Case Study: {app.caseStudy.title}
                       </h4>
