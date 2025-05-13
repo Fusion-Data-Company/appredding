@@ -25,7 +25,7 @@ export const GradientText = ({
     <Component 
       className={cn(
         gradientClass, 
-        "font-cinzel font-bold inline-block",
+        "font-sans font-bold inline-block",
         className
       )}
     >
