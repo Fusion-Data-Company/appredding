@@ -5,15 +5,18 @@ import { GradientButton } from "@/components/ui/gradient-button";
 const RotatingTextSection = () => {
   return (
     <section 
+      id="rotating-text-section"
       className="py-12 relative flex items-center justify-center"
       style={{ 
         backgroundImage: "url('/images/optimized/diamond-plate-orange-blue.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        zIndex: 10, // Higher than hero's content but lower than buttons
+        zIndex: 999, // Moved to extreme front to cover everything
         minHeight: "70vh", // Ensure consistent height
-        marginTop: "-15px", // More aggressive negative margin to remove the blue gap
+        marginTop: "-5px", // Pull up to cover gap
+        position: "relative", // Ensure proper z-index application
+        paddingTop: "20px", // Add padding to move content down a quarter inch
       }}
     >
       {/* Semi-transparent overlay for better readability */}

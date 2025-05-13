@@ -10,6 +10,19 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Fix section gaps globally - emergency fix */
+section + section {
+  margin-top: -5px !important;
+}
+
+/* Move rotating text section down and cover blue line */
+#rotating-text-section {
+  margin-top: -5px !important;
+  padding-top: 25px !important;
+  position: relative !important;
+  z-index: 9999 !important;
+}
+
 @layer utilities {
   .animate-fade-in {
     animation: fadeIn 0.5s ease-in-out;

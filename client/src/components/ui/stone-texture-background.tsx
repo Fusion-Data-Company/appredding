@@ -33,15 +33,15 @@ export const StoneTextureBackground: React.FC<StoneTextureBackgroundProps> = ({
       
       {/* Light grey to dark grey gradient overlay */}
       <div 
-        className="absolute z-0"
+        className="absolute z-50"
         style={{
-          top: "-5px", // Extend upward to cover the blue gap
+          top: "15px", // Move down a quarter inch and bring to front
           left: 0,
           right: 0,
           bottom: 0,
-          background: 'linear-gradient(to bottom, rgba(180, 180, 190, 0.2), rgba(40, 40, 50, 0.4))',
-          backdropFilter: 'blur(4px)', // Reduced blur effect
-          boxShadow: 'inset 0 0 100px rgba(0,0,0,0.2)',
+          background: 'linear-gradient(to bottom, rgba(180, 180, 190, 0.7), rgba(40, 40, 50, 0.7))',
+          backdropFilter: 'blur(5px)', // Increased blur effect
+          boxShadow: 'inset 0 0 100px rgba(0,0,0,0.4)',
         }}
       />
       
