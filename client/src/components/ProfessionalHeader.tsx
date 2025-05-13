@@ -79,7 +79,7 @@ const ProfessionalHeader = () => {
   return (
     <header 
       className={cn(
-        "fixed w-full border-b transition-all duration-300 h-[calc(120px+0.25in)] flex items-center overflow-hidden",
+        "fixed w-full border-b transition-all duration-300 h-[144px] flex items-center overflow-hidden",
         scrolled 
           ? "border-slate-400 dark:border-zinc-800 shadow-metal" 
           : "border-slate-400/80 dark:border-zinc-800/80",

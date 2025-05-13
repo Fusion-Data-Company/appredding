@@ -11,8 +11,7 @@ const RotatingTextSection = () => {
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        zIndex: 10, // Higher than hero's content but lower than buttons
-        marginTop: "0" // Remove margin to eliminate gap
+        zIndex: 10 // Higher than hero's content but lower than buttons
       }}
     >
       {/* Semi-transparent overlay for better readability - top moved down half inch (48px) */}
