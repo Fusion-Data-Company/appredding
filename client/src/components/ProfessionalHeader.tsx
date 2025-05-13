@@ -120,7 +120,7 @@ const ProfessionalHeader = () => {
                   filter: 'drop-shadow(0 3px 5px rgba(0, 0, 0, 0.5))',
                   transform: 'scale(1.02)',
                   transformStyle: 'preserve-3d',
-                  marginLeft: '40px', /* half inch = approx 40px */
+                  marginLeft: '60px', /* increase from half inch to 0.75 inch */
                   marginTop: '2px'
                 }}
               />
@@ -140,7 +140,7 @@ const ProfessionalHeader = () => {
         </div>
       </Link>
 
-      <div className="container mx-auto px-4 md:px-6 flex items-center justify-between" style={{ zIndex: 2147483646, position: 'relative' }}>
+      <div className="w-[95%] mx-auto px-4 md:px-6 flex items-center justify-between" style={{ zIndex: 2147483646, position: 'relative' }}>
         {/* Empty space where the logo used to be */}
         <div className="flex-grow"></div>
 
