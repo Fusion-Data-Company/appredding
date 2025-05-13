@@ -53,12 +53,12 @@ const HeroSection = () => {
             className="w-full h-auto absolute top-0 left-0 transition-opacity duration-500"
             style={{ 
               display: "block",
-              objectFit: "contain",
-              objectPosition: "top",
+              objectFit: "cover",
+              objectPosition: "center",
               width: "100%",
               filter: "contrast(1.05) saturate(1.1) blur(10px)",
               transformOrigin: "center",
-              transform: "scaleX(1.025)", /* Stretch by 2.5% horizontally */
+              transform: "scale(1.0)", /* No stretching */
               opacity: imageLoaded ? 0 : 1
             }}
           />
@@ -71,12 +71,12 @@ const HeroSection = () => {
             className="w-full h-auto absolute top-0 left-0 transition-opacity duration-700"
             style={{ 
               display: "block",
-              objectFit: "contain",
-              objectPosition: "top",
-              width: "100%",
+              objectFit: "cover",
+              objectPosition: "center",
+              width: "100%", 
               filter: "contrast(1.05) saturate(1.1)",
               transformOrigin: "center",
-              transform: "scaleX(1.025)", /* Stretch by 2.5% horizontally */
+              transform: "scale(1.0)", /* No stretching */
               opacity: imageLoaded ? 1 : 0
             }}
             loading="eager"
