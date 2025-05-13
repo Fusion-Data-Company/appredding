@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { cn } from "@/lib/utils";
 import praetorianBucketNew from "@/assets_dir/icons/praetorian-bucket-new.png";
-import praetorianLogo from "@/assets_dir/logos/praetorian-logo.png";
+import praetorianLogo from "@/assets_dir/logos/praetorian-logo-gold.png";
 import praetorianHeaderImg from "@/assets_dir/images/praetorian-header-no-bg.png";
 import { Button } from "@/components/ui/button";
 import { 
@@ -108,21 +108,32 @@ const ProfessionalHeader = () => {
       {/* Praetorian logo positioned at far left edge */}
       <Link href="/" className="absolute left-0 top-0 h-full flex items-center z-20">
         <div className="relative">
-          {/* Dark drop shadow behind the logo */}
-          <div className="absolute inset-0 rounded-full bg-black/30 blur-md -z-10 scale-91 translate-x-1 translate-y-[0px]"></div>
+          {/* Glow effect behind the logo */}
+          <div className="absolute inset-0 rounded-full bg-blue-900/20 blur-xl -z-10 scale-110 translate-x-1 translate-y-[0px] animate-pulse-subtle"></div>
+          <div className="absolute inset-0 rounded-full bg-orange-600/10 blur-lg -z-10 scale-105 translate-x-2 translate-y-[5px]"></div>
           <div className="relative">
-            <img 
-              src={praetorianLogo} 
-              alt="Praetorian SmartCoat" 
-              className="h-[120px] w-auto relative"
-              style={{ 
-                filter: 'drop-shadow(0 4px 6px rgba(0, 0, 0, 0.5))',
-                transform: 'scale(1.1)',
-                transformStyle: 'preserve-3d',
-                marginLeft: '-5px',
-                marginTop: '-15px'
-              }}
-            />
+            <div className="relative">
+              <img 
+                src={praetorianLogo} 
+                alt="Praetorian SmartCoat" 
+                className="h-[140px] w-auto relative"
+                style={{ 
+                  filter: 'drop-shadow(0 4px 8px rgba(0, 0, 0, 0.75))',
+                  transform: 'scale(1.05)',
+                  transformStyle: 'preserve-3d',
+                  marginLeft: '-5px',
+                  marginTop: '-5px'
+                }}
+              />
+              {/* Add shine/reflection effect */}
+              <div 
+                className="absolute inset-0 opacity-40 pointer-events-none" 
+                style={{ 
+                  background: 'linear-gradient(105deg, transparent 20%, rgba(255, 255, 255, 0.25) 40%, rgba(255, 255, 255, 0.08) 50%, transparent 70%)',
+                  animation: 'shine 3s infinite ease-in-out',
+                }}
+              />
+            </div>
             
 
           </div>
