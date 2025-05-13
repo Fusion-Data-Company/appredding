@@ -473,17 +473,40 @@ export default function Products() {
         {/* Reviews Section */}
         <ScrollingReviews />
         
-        {/* Scroll to top button */}
-        {showScrollTop && (
-          <motion.button
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="fixed bottom-24 right-8 z-40 bg-amber-600 text-white p-3 rounded-full shadow-lg"
-            onClick={scrollToTop}
-          >
-            <ArrowUp size={20} />
-          </motion.button>
-        )}
+        {/* Premium Scroll to top button */}
+        <AnimatePresence>
+          {showScrollTop && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 20 }}
+              className="fixed bottom-24 right-8 z-40"
+            >
+              <div className="relative">
+                {/* Animated glow effect */}
+                <motion.div 
+                  className="absolute inset-0 rounded-full bg-amber-400/30 dark:bg-amber-600/30 blur-md"
+                  animate={{ 
+                    scale: [1, 1.2, 1],
+                    opacity: [0.3, 0.6, 0.3]
+                  }}
+                  transition={{ 
+                    duration: 2,
+                    repeat: Infinity,
+                    repeatType: "reverse"
+                  }}
+                />
+                
+                <button 
+                  onClick={scrollToTop}
+                  className="relative z-10 bg-gradient-to-br from-amber-500 to-amber-700 hover:from-amber-400 hover:to-amber-600 text-white p-3 rounded-full shadow-lg hover:shadow-amber-500/30 border border-amber-400/30 transition-all duration-300 transform hover:-translate-y-1"
+                >
+                  <ArrowUp size={20} className="drop-shadow-sm" />
+                </button>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </MainLayout>
   );
