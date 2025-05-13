@@ -80,10 +80,10 @@ export const ProductCard = ({ product }: ProductCardProps) => {
         </div>
         
         {/* Product Image with animation */}
-        <div className="relative h-64 pt-8 px-4 bg-gradient-to-b from-amber-50/50 to-white dark:from-amber-950/20 dark:to-gray-900 flex items-center justify-center overflow-hidden">
+        <div className="relative h-80 pt-8 px-4 bg-gradient-to-b from-amber-50/50 to-white dark:from-amber-950/20 dark:to-gray-900 flex items-center justify-center overflow-hidden">
           {/* Animated circle glow behind product */}
           <motion.div 
-            className="absolute w-40 h-40 rounded-full bg-gradient-to-br from-amber-200/30 via-amber-100/20 to-amber-300/30 dark:from-amber-700/20 dark:via-amber-800/10 dark:to-amber-600/20 blur-xl"
+            className="absolute w-52 h-52 rounded-full bg-gradient-to-br from-amber-200/30 via-amber-100/20 to-amber-300/30 dark:from-amber-700/20 dark:via-amber-800/10 dark:to-amber-600/20 blur-xl"
             animate={{
               scale: [1, 1.1, 1],
               opacity: [0.7, 0.9, 0.7]
@@ -107,7 +107,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
             <img 
               src={product.image} 
               alt={product.name} 
-              className="object-contain h-52 max-w-[80%] drop-shadow-xl"
+              className="object-contain h-72 max-w-[90%] drop-shadow-xl"
             />
           </motion.div>
         </div>

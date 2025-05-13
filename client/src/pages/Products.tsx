@@ -212,7 +212,7 @@ export default function Products() {
                     <img 
                       src="/src/assets_dir/images/praetorian-buckets-new.png" 
                       alt="Praetorian SmartCoat Premium Protective Coating" 
-                      className="relative w-[480px] h-[480px] object-contain drop-shadow-2xl"
+                      className="relative w-[600px] h-[600px] object-contain drop-shadow-2xl"
                     />
                   </motion.div>
                   
