@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { cn } from "@/lib/utils";
 import praetorianBucketNew from "@/assets_dir/icons/praetorian-bucket-new.png";
+import praetorianLogo from "@/assets_dir/logos/praetorian-logo.png";
 import praetorianHeaderImg from "@/assets_dir/images/praetorian-header-no-bg.png";
 import { Button } from "@/components/ui/button";
 import { 
@@ -104,19 +105,19 @@ const ProfessionalHeader = () => {
       {/* Noise texture overlay */}
       <div className="absolute inset-0 bg-[url('/src/assets_dir/images/noise.svg')] opacity-[0.04] bg-repeat bg-[length:200px_200px] mix-blend-overlay pointer-events-none animate-subtle-pulse"></div>
 
-      {/* Bucket logo positioned at far left edge */}
+      {/* Praetorian logo positioned at far left edge */}
       <Link href="/" className="absolute left-0 top-0 h-full flex items-center z-20">
         <div className="relative">
-          {/* Dark drop shadow behind the bucket */}
+          {/* Dark drop shadow behind the logo */}
           <div className="absolute inset-0 rounded-full bg-black/30 blur-md -z-10 scale-91 translate-x-1 translate-y-[0px]"></div>
           <div className="relative">
             <img 
-              src={praetorianBucketNew} 
-              alt="Praetorian Bucket" 
-              className="h-[110px] w-auto relative"
+              src={praetorianLogo} 
+              alt="Praetorian SmartCoat" 
+              className="h-[120px] w-auto relative"
               style={{ 
-                filter: 'contrast(1.3) brightness(1.15)',
-                transform: 'perspective(800px) rotateY(-5deg) scale(1.4) translateY(0px)',
+                filter: 'drop-shadow(0 4px 6px rgba(0, 0, 0, 0.5))',
+                transform: 'scale(1.1)',
                 transformStyle: 'preserve-3d',
                 marginLeft: '-5px',
                 marginTop: '-15px'
