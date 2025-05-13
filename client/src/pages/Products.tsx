@@ -4,9 +4,13 @@ import { useStore, Product } from '@/contexts/StoreContext';
 import ProductCard from '@/components/store/ProductCard';
 import Cart from '@/components/store/Cart';
 import ScrollingReviews from '@/components/store/ScrollingReviews';
+import TechnicalSpecsTable from '@/components/store/TechnicalSpecsTable';
+import ProductComparison from '@/components/store/ProductComparison';
+import IndustryApplications from '@/components/store/IndustryApplications';
 import { Button } from '@/components/ui/button';
-import { Filter, ArrowUp } from 'lucide-react';
+import { Filter, ArrowUp, ChevronDown, ShieldCheck, Thermometer, Droplets, Wind, Sun, Scale } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function Products() {
   const { products } = useStore();
@@ -55,24 +59,89 @@ export default function Products() {
   return (
     <MainLayout>
       <div className="relative">
-        {/* Hero Section */}
-        <div className="relative py-16 mb-8 bg-gradient-to-b from-amber-50 to-white dark:from-gray-950 dark:to-gray-900 overflow-hidden">
-          {/* Background pattern */}
+        {/* Hero Section - Premium Enterprise Styling */}
+        <div className="relative py-20 mb-12 bg-gradient-to-br from-amber-50 via-white to-amber-50/40 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950/90 overflow-hidden">
+          {/* Background pattern with animated glow effect */}
           <div className="absolute inset-0 opacity-5 bg-[url('/src/assets_dir/images/grid-pattern.svg')]"></div>
+          <div className="absolute inset-0 bg-gradient-to-tr from-amber-500/5 to-amber-700/5 dark:from-amber-500/10 dark:to-amber-700/10"></div>
+          
+          {/* Animated light beam effect */}
+          <motion.div 
+            className="absolute top-0 -right-40 w-80 h-full bg-gradient-to-b from-amber-100/30 via-amber-200/10 to-amber-100/20 dark:from-amber-500/10 dark:via-amber-400/5 dark:to-amber-500/10 blur-3xl"
+            animate={{ 
+              x: [0, -60, 0],
+              opacity: [0.5, 0.8, 0.5]
+            }}
+            transition={{ 
+              duration: 8, 
+              repeat: Infinity,
+              repeatType: "reverse" 
+            }}
+          />
 
           <div className="container mx-auto px-4 relative z-10">
-            <div className="flex flex-col md:flex-row md:items-center gap-8">
+            <div className="flex flex-col md:flex-row md:items-center gap-12">
               <div className="flex-1">
-                <h1 className="text-4xl md:text-5xl font-bold mb-4 text-amber-900 dark:text-amber-300">
-                  Premium Protective Coatings
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100/70 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300 text-sm font-medium mb-4 border border-amber-200 dark:border-amber-800/50 shadow-sm">
+                  <ShieldCheck size={14} className="text-amber-600 dark:text-amber-500" />
+                  <span>NASA-derived ceramic technology</span>
+                </div>
+                
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-amber-900 dark:text-amber-300 leading-tight">
+                  <span className="block">Premium</span>
+                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-700 to-amber-500 dark:from-amber-400 dark:to-amber-300">
+                    Protective Coatings
+                  </span>
                 </h1>
-                <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
+                
+                <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-8 max-w-xl leading-relaxed">
                   Praetorian's revolutionary ceramic-based protective coatings offer unmatched 
-                  thermal resistance, UV protection, and durability for any surface.
+                  thermal resistance, UV protection, and industry-leading durability for any surface.
                 </p>
-                <div className="flex items-center gap-4">
+                
+                {/* Key features indicators with icons */}
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
+                  <div className="flex items-center gap-2">
+                    <div className="w-10 h-10 rounded-full bg-amber-100 dark:bg-amber-900/40 flex items-center justify-center shadow-sm">
+                      <Thermometer className="h-5 w-5 text-amber-600 dark:text-amber-500" />
+                    </div>
+                    <span className="text-gray-700 dark:text-gray-300 text-sm">Heat Resistant</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-10 h-10 rounded-full bg-amber-100 dark:bg-amber-900/40 flex items-center justify-center shadow-sm">
+                      <Sun className="h-5 w-5 text-amber-600 dark:text-amber-500" />
+                    </div>
+                    <span className="text-gray-700 dark:text-gray-300 text-sm">UV Protective</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-10 h-10 rounded-full bg-amber-100 dark:bg-amber-900/40 flex items-center justify-center shadow-sm">
+                      <Droplets className="h-5 w-5 text-amber-600 dark:text-amber-500" />
+                    </div>
+                    <span className="text-gray-700 dark:text-gray-300 text-sm">Water Resistant</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-10 h-10 rounded-full bg-amber-100 dark:bg-amber-900/40 flex items-center justify-center shadow-sm">
+                      <Wind className="h-5 w-5 text-amber-600 dark:text-amber-500" />
+                    </div>
+                    <span className="text-gray-700 dark:text-gray-300 text-sm">Weather Resistant</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-10 h-10 rounded-full bg-amber-100 dark:bg-amber-900/40 flex items-center justify-center shadow-sm">
+                      <Scale className="h-5 w-5 text-amber-600 dark:text-amber-500" />
+                    </div>
+                    <span className="text-gray-700 dark:text-gray-300 text-sm">156% Elasticity</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-10 h-10 rounded-full bg-amber-100 dark:bg-amber-900/40 flex items-center justify-center shadow-sm">
+                      <ShieldCheck className="h-5 w-5 text-amber-600 dark:text-amber-500" />
+                    </div>
+                    <span className="text-gray-700 dark:text-gray-300 text-sm">ABS Certified</span>
+                  </div>
+                </div>
+                
+                <div className="flex flex-wrap items-center gap-4">
                   <Button 
-                    className="bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600"
+                    className="bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-white shadow-md hover:shadow-lg transition-all duration-300 px-6 py-6 h-auto text-lg"
                     onClick={() => {
                       const productsSection = document.getElementById('products-section');
                       if (productsSection) {
@@ -80,22 +149,64 @@ export default function Products() {
                       }
                     }}
                   >
-                    View Products
+                    <span>Shop Premium Products</span>
+                    <ChevronDown className="ml-2 h-5 w-5" />
                   </Button>
+                  <a 
+                    href="#technical-specs" 
+                    className="text-amber-700 dark:text-amber-400 hover:text-amber-800 dark:hover:text-amber-300 underline underline-offset-4 text-sm font-medium flex items-center"
+                  >
+                    View Technical Specifications
+                  </a>
                   <div className="fixed bottom-8 right-8 z-40">
                     <Cart />
                   </div>
                 </div>
               </div>
+              
               <div className="flex-1 flex justify-center">
                 <div className="relative">
-                  {/* Decorative elements */}
-                  <div className="absolute inset-0 rounded-full bg-amber-200/30 dark:bg-amber-700/10 blur-3xl transform -translate-x-1/4"></div>
-                  <img 
-                    src="/src/assets_dir/icons/praetorian-bucket-new.png" 
-                    alt="Praetorian SmartCoat Bucket" 
-                    className="relative w-64 h-64 object-contain"
+                  {/* Premium decorative elements with animation */}
+                  <motion.div 
+                    className="absolute -top-10 -left-10 -right-10 -bottom-10 rounded-full bg-gradient-to-br from-amber-300/20 via-amber-200/10 to-amber-500/10 dark:from-amber-600/10 dark:via-amber-500/5 dark:to-amber-700/10 blur-3xl"
+                    animate={{ 
+                      scale: [1, 1.05, 1],
+                      opacity: [0.8, 1, 0.8]
+                    }}
+                    transition={{ 
+                      duration: 6, 
+                      repeat: Infinity,
+                      repeatType: "reverse" 
+                    }}
                   />
+                  
+                  {/* Product Image with Glow Effect */}
+                  <motion.div
+                    animate={{ 
+                      y: [0, -10, 0],
+                    }}
+                    transition={{ 
+                      duration: 4, 
+                      repeat: Infinity,
+                      repeatType: "reverse" 
+                    }}
+                    className="relative z-10"
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-br from-amber-300/40 to-white/0 dark:from-amber-500/20 dark:to-transparent blur-xl rounded-full scale-90 -translate-y-4"></div>
+                    <img 
+                      src="/src/assets_dir/icons/praetorian-bucket-new.png" 
+                      alt="Praetorian SmartCoat Premium Protective Coating" 
+                      className="relative w-72 h-72 object-contain drop-shadow-2xl"
+                    />
+                  </motion.div>
+                  
+                  {/* Highlight Badge */}
+                  <div className="absolute -right-4 top-10 bg-gradient-to-br from-amber-500 to-amber-700 dark:from-amber-500 dark:to-amber-600 text-white p-3 rounded-full shadow-lg z-20 flex items-center justify-center w-24 h-24 border-4 border-white dark:border-gray-800">
+                    <div className="text-center">
+                      <div className="text-xs font-semibold">Patent</div>
+                      <div className="text-sm font-bold">#10,738,214</div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -233,6 +344,11 @@ export default function Products() {
             </div>
           )}
         </div>
+
+        {/* Premium Enterprise Content Sections */}
+        <TechnicalSpecsTable />
+        <ProductComparison />
+        <IndustryApplications />
 
         {/* Reviews Section */}
         <ScrollingReviews />
