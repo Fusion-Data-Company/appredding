@@ -190,7 +190,7 @@ const MobileHome = () => {
                     </span>
                     <div>
                       <h3 className="text-xl font-semibold mb-2 text-white">NASA-Verified Energy Efficiency</h3>
-                      <p className="text-gray-100">Ceramic microsphere technology delivers documented 87% energy reduction (Sony Koda case study) with thermal barrier properties that reduce cooling costs 30-40% more than standard reflective coatings.</p>
+                      <p className="text-gray-100">Ceramic microsphere technology delivers documented 87% energy reduction (verified by independent case study) with thermal barrier properties that reduce cooling costs 30-40% more than standard reflective coatings.</p>
                     </div>
                   </div>
 

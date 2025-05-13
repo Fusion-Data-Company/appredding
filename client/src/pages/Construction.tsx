@@ -235,12 +235,12 @@ const ConstructionPage = () => {
                 <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-blue-500/20 pb-3 mb-6">
                   <div className="flex items-center mb-2 sm:mb-0">
                     <div className="w-1.5 h-10 bg-gradient-to-b from-blue-400 to-blue-600 rounded-full mr-3"></div>
-                    <h3 className="text-xl font-bold text-blue-300">ENTERPRISE CASE STUDY: The Horizon Tower</h3>
+                    <h3 className="text-xl font-bold text-blue-300">ENTERPRISE CASE STUDY: High-Rise Commercial Tower</h3>
                   </div>
                   <div className="flex items-center">
                     <div className="bg-blue-600/30 text-blue-200 text-xs font-bold px-3 py-1 rounded-full border border-blue-400/30 flex items-center">
                       <span className="w-1.5 h-1.5 bg-blue-400 rounded-full mr-1.5"></span>
-                      Chicago, Illinois
+                      Major Urban Center
                     </div>
                     <div className="bg-green-600/30 text-green-200 text-xs font-bold px-3 py-1 rounded-full border border-green-400/30 ml-2 flex items-center">
                       <span className="w-1.5 h-1.5 bg-green-400 rounded-full mr-1.5"></span>
@@ -254,7 +254,7 @@ const ConstructionPage = () => {
                     <div className="bg-blue-900/20 px-4 py-3 rounded-lg mb-4 border-l-2 border-blue-400">
                       <h4 className="text-blue-200 font-semibold text-sm uppercase tracking-wide mb-1">Project Overview</h4>
                       <p className="text-white">
-                        The award-winning 47-story Horizon Tower commercial project in Chicago presented significant challenges with structural steel protection that needed to meet rigorous fire codes while providing superior corrosion resistance in a harsh urban environment.
+                        The award-winning multi-story commercial tower project presented significant challenges with structural steel protection that needed to meet rigorous fire codes while providing superior corrosion resistance in a harsh urban environment.
                       </p>
                     </div>
                     
