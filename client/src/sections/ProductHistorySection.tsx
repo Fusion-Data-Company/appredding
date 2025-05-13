@@ -73,7 +73,7 @@ const ProductHistorySection = () => {
                 <div className="absolute -left-3 top-0 w-6 h-6 rounded-full dark:bg-gradient-to-r dark:from-gray-700 dark:to-gray-600 bg-gradient-to-r from-red-400 to-red-500 dark:shadow-[0_0_8px_rgba(255,255,255,0.25)] shadow-[0_0_8px_rgba(0,0,0,0.25)]"></div>
                 <div className="font-bold text-xl">2000s</div>
                 <div className="text-2xl font-semibold mb-1">Energy Efficiency Breakthrough</div>
-                <p className="dark:text-gray-300 text-gray-700 text-lg">Sony Koda facility documented 87% energy consumption reduction after Praetorian SmartCoat application, validating extreme efficiency claims</p>
+                <p className="dark:text-gray-300 text-gray-700 text-lg">Independent facility documented 87% energy consumption reduction after Praetorian SmartCoat application, validating extreme efficiency claims</p>
               </div>
               
               <div className="relative pl-10 dark:border-l-3 dark:border-gray-600/40 border-l-3 border-gray-400/60">
