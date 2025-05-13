@@ -181,7 +181,7 @@ export default function Products() {
               </div>
               
               <div className="flex-1 flex justify-center">
-                <div className="relative">
+                <div className="relative overflow-visible">
                   {/* Premium decorative elements with animation */}
                   <motion.div 
                     className="absolute -top-10 -left-10 -right-10 -bottom-10 rounded-full bg-gradient-to-br from-amber-300/20 via-amber-200/10 to-amber-500/10 dark:from-amber-600/10 dark:via-amber-500/5 dark:to-amber-700/10 blur-3xl"
@@ -212,7 +212,7 @@ export default function Products() {
                     <img 
                       src="/src/assets_dir/images/praetorian-buckets-new.png" 
                       alt="Praetorian SmartCoat Premium Protective Coating" 
-                      className="relative w-[750px] h-[750px] object-contain drop-shadow-2xl"
+                      className="relative w-[600px] h-[600px] object-contain drop-shadow-2xl scale-125 -translate-y-6 z-20"
                     />
                   </motion.div>
                   
