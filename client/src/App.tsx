@@ -31,6 +31,7 @@ import RAGDocumentsPage from "@/pages/rag-documents";
 import ChatPage from "@/pages/chat";
 import { AuthProvider } from "@/hooks/use-auth";
 import { ProtectedRoute } from "@/components/ProtectedRoute";
+import { StoreProvider } from "@/contexts/StoreContext";
 
 function Router() {
   const [location] = useLocation();
@@ -113,7 +114,9 @@ function App() {
       <TooltipProvider>
         <Toaster />
         <AuthProvider>
-          <Router />
+          <StoreProvider>
+            <Router />
+          </StoreProvider>
         </AuthProvider>
       </TooltipProvider>
     </QueryClientProvider>
