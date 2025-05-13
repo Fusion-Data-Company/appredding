@@ -39,7 +39,7 @@ export const StoneTextureBackground: React.FC<StoneTextureBackgroundProps> = ({
           left: 0,
           right: 0,
           bottom: 0,
-          background: 'linear-gradient(to bottom, rgba(180, 180, 190, 0.35), rgba(40, 40, 50, 0.35))', // 50% more see-through (0.7 -> 0.35)
+          background: 'linear-gradient(to bottom, rgba(180, 180, 190, 0.2), rgba(40, 40, 50, 0.2))', // Made even more transparent (0.35 -> 0.2)
           backdropFilter: 'blur(5px)', // Increased blur effect
           boxShadow: 'inset 0 0 100px rgba(0,0,0,0.4)',
         }}
