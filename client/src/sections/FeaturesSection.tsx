@@ -21,7 +21,7 @@ const FeaturesSection = () => {
     {
       icon: "fas fa-fire-extinguisher",
       title: "Class A Fire Protection",
-      description: "Perfect 0/100 scores in flame spread and smoke development tests, withstanding temperatures up to 2,732°F with a 2,177°F temperature differential."
+      description: "Perfect 0/100 scores in flame spread and smoke development tests, providing advanced thermal protection under ASTM E84 testing protocols."
     },
     {
       icon: "fas fa-sun",
