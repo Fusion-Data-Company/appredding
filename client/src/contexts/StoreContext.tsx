@@ -1,8 +1,8 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 // Import product images from central export file
-// Import optimized image paths
-import praetorianProductsPath from '@/assets_dir/images/optimized/praetorian-products-updated.webp';
-import praetorianStuccoPath from '@/assets_dir/images/optimized/praetorian-stucco.webp';
+// Import optimized image paths using Vite's ?url suffix to ensure proper bundling
+import praetorianProductsPath from '@/assets_dir/images/optimized/praetorian-products-updated.webp?url';
+import praetorianStuccoPath from '@/assets_dir/images/optimized/praetorian-stucco.webp?url';
 
 // Define types
 export interface Product {
