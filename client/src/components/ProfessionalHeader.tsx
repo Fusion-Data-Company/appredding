@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { cn } from "@/lib/utils";
 import praetorianBucketNew from "@/assets_dir/icons/praetorian-bucket-new.png";
-import praetorianLogo from "@/assets_dir/logos/praetorian-logo-final.png";
+import praetorianLogo from "@/assets_dir/logos/praetorian-logo-shield.png";
 import praetorianHeaderImg from "@/assets_dir/images/praetorian-header-no-bg.png";
 import { Button } from "@/components/ui/button";
 import { 
@@ -108,28 +108,29 @@ const ProfessionalHeader = () => {
       {/* Praetorian logo positioned at far left edge */}
       <Link href="/" className="absolute left-0 top-0 h-full flex items-center z-20 transition-transform duration-300 hover:scale-105">
         <div className="relative">
-          {/* Subtle glow effect behind the logo */}
-          <div className="absolute inset-0 rounded-full bg-blue-900/10 blur-md -z-10 scale-105 translate-x-[45px] translate-y-[10px]"></div>
+          {/* Subtle glow effect behind the logo - enhanced for shield logo */}
+          <div className="absolute inset-0 rounded-md bg-gradient-to-br from-blue-900/20 via-orange-700/15 to-red-600/20 blur-lg -z-10 scale-125 translate-x-[45px] translate-y-[5px]"></div>
           <div className="relative">
             <div className="relative">
               <img 
                 src={praetorianLogo} 
                 alt="Praetorian SmartCoat" 
-                className="h-[130px] w-auto relative cursor-pointer"
+                className="h-[150px] w-auto relative cursor-pointer"
                 style={{ 
                   filter: 'drop-shadow(0 3px 5px rgba(0, 0, 0, 0.5))',
                   transform: 'scale(1.02)',
                   transformStyle: 'preserve-3d',
                   marginLeft: '40px', /* half inch = approx 40px */
-                  marginTop: '0px'
+                  marginTop: '10px'
                 }}
               />
-              {/* Add shine/reflection effect */}
+              {/* Add shine/reflection effect for shield logo */}
               <div 
-                className="absolute inset-0 opacity-40 pointer-events-none" 
+                className="absolute inset-0 opacity-50 pointer-events-none" 
                 style={{ 
-                  background: 'linear-gradient(105deg, transparent 20%, rgba(255, 255, 255, 0.25) 40%, rgba(255, 255, 255, 0.08) 50%, transparent 70%)',
-                  animation: 'shine 3s infinite ease-in-out',
+                  background: 'linear-gradient(105deg, transparent 20%, rgba(255, 255, 255, 0.3) 35%, rgba(255, 255, 255, 0.1) 45%, transparent 65%)',
+                  animation: 'shine 4s infinite ease-in-out',
+                  mixBlendMode: 'overlay'
                 }}
               />
             </div>
