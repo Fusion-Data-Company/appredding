@@ -262,24 +262,24 @@ const IndustryApplications = () => {
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-10">
-          <div className="inline-block bg-amber-50/70 dark:bg-amber-900/50 px-3 py-1 border border-amber-300 dark:border-amber-700 rounded-md text-amber-800 dark:text-amber-300 font-medium text-sm">
-            Industry Solutions
+          <div className="inline-block bg-gradient-to-r from-amber-600/80 to-amber-500/80 dark:from-amber-700/80 dark:to-amber-600/80 px-4 py-1.5 border border-amber-400 dark:border-amber-500 rounded-md shadow-[0_2px_10px_rgba(251,191,36,0.2)] backdrop-blur-sm">
+            <span className="font-semibold text-white tracking-wide text-sm uppercase">Industry Solutions</span>
           </div>
-          <h2 className="text-4xl font-bold text-white dark:text-amber-300 mb-4 mt-4 text-shadow-lg">
+          <h2 className="text-4xl font-bold text-white dark:text-amber-300 mb-4 mt-4 tracking-tight drop-shadow-[0_2px_4px_rgba(251,191,36,0.3)] [text-shadow:0_4px_8px_rgba(0,0,0,0.5)]">
             Protection Across Every Industry
           </h2>
-          <p className="text-gray-200 dark:text-gray-300 max-w-2xl mx-auto font-medium text-lg">
-            Explore how Praetorian's ceramic coating technology delivers specialized protection for diverse industries and applications.
+          <p className="text-gray-200 dark:text-gray-300 max-w-2xl mx-auto font-medium text-lg tracking-wide leading-relaxed">
+            Explore how Praetorian's advanced ceramic coating technology delivers specialized protection and exceptional performance for diverse industries and applications.
           </p>
         </div>
 
         <Tabs defaultValue="fire-prevention" value={selectedTab} onValueChange={setSelectedTab} className="w-full">
-          <TabsList className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 h-auto p-1 bg-amber-50/90 dark:bg-amber-900/30 border-2 border-amber-200 dark:border-amber-700 rounded-lg mb-8 shadow-lg">
+          <TabsList className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 h-auto p-1.5 bg-gradient-to-b from-amber-100/80 to-amber-50/90 dark:from-amber-900/40 dark:to-amber-800/30 border-2 border-amber-300 dark:border-amber-700 rounded-xl mb-8 shadow-[0_4px_20px_rgba(251,191,36,0.15)] backdrop-blur-sm">
             {applications.map(app => (
               <TabsTrigger 
                 key={app.id} 
                 value={app.id}
-                className="py-3 data-[state=active]:bg-white dark:data-[state=active]:bg-amber-800/90 data-[state=active]:text-amber-700 dark:data-[state=active]:text-white data-[state=active]:shadow-md text-gray-700 dark:text-amber-200 font-medium"
+                className="py-3 font-medium transition-all duration-200 data-[state=active]:bg-gradient-to-b data-[state=active]:from-white data-[state=active]:to-amber-50 dark:data-[state=active]:from-amber-800 dark:data-[state=active]:to-amber-900 data-[state=active]:text-amber-700 dark:data-[state=active]:text-amber-100 data-[state=active]:shadow-md data-[state=active]:border-b-2 data-[state=active]:border-amber-500 dark:data-[state=active]:border-amber-500 rounded-lg text-gray-700 dark:text-amber-300 hover:bg-amber-50/50 dark:hover:bg-amber-700/30"
               >
                 <div className="flex flex-col items-center gap-1">
                   {app.icon}
@@ -298,61 +298,64 @@ const IndustryApplications = () => {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.3 }}
-                  className="bg-white/95 dark:bg-gray-800/95 rounded-xl shadow-2xl overflow-hidden border-2 border-amber-200 dark:border-amber-700"
+                  className="bg-gradient-to-b from-white/95 to-amber-50/95 dark:from-gray-800/95 dark:to-gray-900/95 rounded-xl shadow-[0_10px_50px_rgba(251,191,36,0.2)] dark:shadow-[0_10px_50px_rgba(0,0,0,0.4)] overflow-hidden border-2 border-amber-200 dark:border-amber-700"
                 >
-                  <div className="p-6">
-                    <h3 className="text-2xl font-bold text-amber-800 dark:text-amber-300 mb-2 flex items-center gap-2">
-                      {app.icon}
-                      <span>{app.title} Applications</span>
+                  <div className="p-8">
+                    <h3 className="text-2xl font-bold text-amber-800 dark:text-amber-300 mb-3 flex items-center gap-3 drop-shadow-[0_1px_2px_rgba(251,191,36,0.3)]">
+                      <span className="text-amber-600 dark:text-amber-400 transform transition-all duration-500 hover:scale-110 hover:rotate-3">{app.icon}</span>
+                      <span className="border-b-2 border-amber-400/30 dark:border-amber-600/30 pb-1">{app.title} Applications</span>
                     </h3>
-                    <p className="text-gray-600 dark:text-gray-400 mb-6">
+                    <p className="text-gray-700 dark:text-gray-300 mb-8 leading-relaxed font-medium text-lg max-w-3xl">
                       {app.description}
                     </p>
                     
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
                       {app.benefits.map((benefit, index) => (
-                        <div key={index} className="bg-amber-50/90 dark:bg-amber-900/20 p-4 rounded-lg border border-amber-200 dark:border-amber-700 shadow-md">
-                          <div className="text-amber-600 dark:text-amber-400 mb-2">
+                        <div key={index} className="group bg-gradient-to-b from-amber-50/95 to-white/90 dark:from-amber-900/30 dark:to-gray-900/30 p-5 rounded-lg border border-amber-200 dark:border-amber-700/50 shadow-[0_4px_15px_rgba(251,191,36,0.1)] dark:shadow-[0_4px_15px_rgba(0,0,0,0.2)] transition-all duration-300 hover:shadow-[0_8px_25px_rgba(251,191,36,0.2)] dark:hover:shadow-[0_8px_25px_rgba(0,0,0,0.3)] hover:-translate-y-1">
+                          <div className="text-amber-600 dark:text-amber-400 mb-3 transform transition-transform duration-300 group-hover:scale-110 group-hover:text-amber-500 dark:group-hover:text-amber-300">
                             {benefit.icon}
                           </div>
-                          <h4 className="font-bold text-amber-900 dark:text-amber-300 mb-1">
+                          <h4 className="font-bold text-amber-900 dark:text-amber-300 mb-2 text-lg group-hover:text-amber-700 dark:group-hover:text-amber-200 transition-colors duration-300">
                             {benefit.title}
                           </h4>
-                          <p className="text-gray-600 dark:text-gray-400 text-sm">
+                          <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
                             {benefit.description}
                           </p>
                         </div>
                       ))}
                     </div>
                     
-                    <div className="bg-amber-50/90 dark:bg-amber-800/30 rounded-xl p-6 shadow-lg border border-amber-200 dark:border-amber-700">
-                      <h4 className="text-xl font-bold text-amber-800 dark:text-amber-300 mb-4">
-                        Case Study: {app.caseStudy.title}
-                      </h4>
+                    <div className="bg-gradient-to-br from-amber-50/95 to-white/90 dark:from-amber-900/40 dark:to-gray-900/40 rounded-xl p-8 shadow-[0_10px_40px_rgba(251,191,36,0.15)] dark:shadow-[0_10px_40px_rgba(0,0,0,0.3)] border border-amber-300/50 dark:border-amber-700/50 backdrop-blur-sm">
+                      <div className="flex items-center mb-6">
+                        <div className="h-10 w-2 bg-amber-500 dark:bg-amber-600 rounded-full mr-3"></div>
+                        <h4 className="text-2xl font-bold text-amber-800 dark:text-amber-300 drop-shadow-sm">
+                          Case Study: <span className="text-amber-600 dark:text-amber-200">{app.caseStudy.title}</span>
+                        </h4>
+                      </div>
                       
                       <div className="flex flex-col md:flex-row gap-8">
                         <div className="md:w-2/3">
-                          <div className="mb-4">
-                            <div className="text-sm text-gray-500 dark:text-gray-400 mb-1">Location:</div>
+                          <div className="mb-5 bg-white/50 dark:bg-gray-800/30 p-4 rounded-lg border border-amber-100 dark:border-amber-800/30">
+                            <div className="text-sm font-semibold text-amber-600 dark:text-amber-400 mb-1 uppercase tracking-wider">Location</div>
                             <div className="font-medium text-gray-800 dark:text-gray-200">{app.caseStudy.location}</div>
                           </div>
                           
-                          <div className="mb-4">
-                            <div className="text-sm text-gray-500 dark:text-gray-400 mb-1">Challenge:</div>
-                            <div className="text-gray-700 dark:text-gray-300">{app.caseStudy.challenge}</div>
+                          <div className="mb-5 bg-white/50 dark:bg-gray-800/30 p-4 rounded-lg border border-amber-100 dark:border-amber-800/30">
+                            <div className="text-sm font-semibold text-amber-600 dark:text-amber-400 mb-1 uppercase tracking-wider">Challenge</div>
+                            <div className="text-gray-700 dark:text-gray-300 leading-relaxed">{app.caseStudy.challenge}</div>
                           </div>
                           
-                          <div className="mb-4">
-                            <div className="text-sm text-gray-500 dark:text-gray-400 mb-1">Solution:</div>
-                            <div className="text-gray-700 dark:text-gray-300">{app.caseStudy.solution}</div>
+                          <div className="mb-5 bg-white/50 dark:bg-gray-800/30 p-4 rounded-lg border border-amber-100 dark:border-amber-800/30">
+                            <div className="text-sm font-semibold text-amber-600 dark:text-amber-400 mb-1 uppercase tracking-wider">Solution</div>
+                            <div className="text-gray-700 dark:text-gray-300 leading-relaxed">{app.caseStudy.solution}</div>
                           </div>
                           
-                          <div>
-                            <div className="text-sm text-gray-500 dark:text-gray-400 mb-2">Results:</div>
-                            <ul className="space-y-2">
+                          <div className="bg-white/50 dark:bg-gray-800/30 p-4 rounded-lg border border-amber-100 dark:border-amber-800/30">
+                            <div className="text-sm font-semibold text-amber-600 dark:text-amber-400 mb-2 uppercase tracking-wider">Results</div>
+                            <ul className="space-y-3">
                               {app.caseStudy.results.map((result, index) => (
-                                <li key={index} className="flex items-start gap-2">
-                                  <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
+                                <li key={index} className="flex items-start gap-2 group">
+                                  <CheckCircle className="h-5 w-5 text-amber-500 dark:text-amber-400 flex-shrink-0 mt-0.5 group-hover:text-green-500 dark:group-hover:text-green-400 transition-colors duration-300" />
                                   <span className="text-gray-700 dark:text-gray-300">{result}</span>
                                 </li>
                               ))}
@@ -362,12 +365,13 @@ const IndustryApplications = () => {
                         
                         <div className="md:w-1/3 flex justify-center items-center">
                           {app.caseStudy.image && (
-                            <div className="rounded-lg overflow-hidden shadow-md bg-white dark:bg-gray-700 p-2">
+                            <div className="rounded-xl overflow-hidden shadow-xl bg-white dark:bg-gray-800 p-3 border border-amber-100 dark:border-amber-900/50 transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl dark:hover:shadow-[0_20px_60px_rgba(251,191,36,0.3)]">
                               <img 
                                 src={app.caseStudy.image} 
                                 alt={`${app.title} case study`}
-                                className="w-full h-48 object-cover rounded"
+                                className="w-full h-64 object-cover rounded-lg"
                               />
+                              <div className="text-sm text-center font-medium text-amber-700 dark:text-amber-300 mt-2">{app.title} Application</div>
                             </div>
                           )}
                         </div>
