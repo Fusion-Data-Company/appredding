@@ -23,14 +23,6 @@ const RotatingTextSection = () => {
     >
       {/* Semi-transparent overlay for better readability */}
       <div className="absolute inset-0 bg-black/40"></div>
-      
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-5">
-          <div className="inline-block bg-amber-50/10 dark:bg-amber-900/10 px-3 py-1 border border-amber-300/30 dark:border-amber-700/30 rounded-md font-medium text-sm">
-            <GradientText variant="fire" className="text-xs">Premium Protection</GradientText>
-          </div>
-        </div>
-      </div>
       <div className="container mx-auto relative z-10 flex justify-center items-center" style={{ height: "100%" }}>
         {/* Element positioned at absolute center of its container */}
         <div className="w-full flex justify-center items-center text-center">
