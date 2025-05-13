@@ -523,6 +523,10 @@
     width: 100% !important;
     height: 100% !important;
     max-height: 250px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 auto !important;
   }
   
   .elevenlabs-container {

@@ -52,15 +52,18 @@ const VoiceChatPopout = () => {
               </CardHeader>
               <CardContent className="p-4 pt-3 min-h-[300px]">
                 <p className="text-gray-300 text-sm mb-3">
-                  Talk to our assistant about Praetorian SmartCoat products and services
+                  Talk to Praetorian AI about Praetorian SmartCoat products and services, get help with an issue, or just ask for a tour of the product and it's use cases.
                 </p>
-                <div className="elevenlabs-container w-full flex justify-center" style={{ height: '250px', position: 'relative' }}>
+                <div className="elevenlabs-container w-full flex items-center justify-center" style={{ height: '250px', position: 'relative' }}>
                   <div 
-                    className="elevenlabs-container w-full h-full"
+                    className="elevenlabs-container w-full h-full flex items-center justify-center"
                     style={{
                       position: 'relative',
                       zIndex: 10,
-                      overflow: 'visible'
+                      overflow: 'visible',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center'
                     }}
                     dangerouslySetInnerHTML={{
                       __html: `<elevenlabs-convai agent-id="ybtdqCeRrbskLzgWulrg"></elevenlabs-convai>`
