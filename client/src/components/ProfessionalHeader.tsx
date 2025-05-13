@@ -109,19 +109,19 @@ const ProfessionalHeader = () => {
       <Link href="/" className="absolute left-0 top-0 h-full flex items-center z-20 transition-transform duration-300 hover:scale-105">
         <div className="relative">
           {/* Subtle glow effect behind the logo - enhanced for shield logo */}
-          <div className="absolute inset-0 rounded-md bg-gradient-to-br from-blue-900/20 via-orange-700/15 to-red-600/20 blur-lg -z-10 scale-110 translate-x-[45px] translate-y-[5px]"></div>
+          <div className="absolute inset-0 rounded-md bg-gradient-to-br from-blue-900/20 via-orange-700/15 to-red-600/20 blur-md -z-10 scale-100 translate-x-[45px] translate-y-[5px]"></div>
           <div className="relative">
             <div className="relative">
               <img 
                 src={praetorianLogo} 
                 alt="Praetorian SmartCoat" 
-                className="h-[120px] w-auto relative cursor-pointer"
+                className="h-[100px] w-auto relative cursor-pointer"
                 style={{ 
                   filter: 'drop-shadow(0 3px 5px rgba(0, 0, 0, 0.5))',
                   transform: 'scale(1.02)',
                   transformStyle: 'preserve-3d',
                   marginLeft: '40px', /* half inch = approx 40px */
-                  marginTop: '10px'
+                  marginTop: '5px'
                 }}
               />
               {/* Add shine/reflection effect for shield logo */}
