@@ -12,7 +12,7 @@ const VoiceChatPopout = () => {
   };
 
   return (
-    <div className="fixed top-36 right-[calc(10px-0.25in)] z-[1000] print:hidden">
+    <div className="fixed top-36 right-4 z-[1000] print:hidden">
       <AnimatePresence initial={false}>
         {isExpanded ? (
           <motion.div
