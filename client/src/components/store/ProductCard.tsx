@@ -107,8 +107,8 @@ export const ProductCard = ({ product }: ProductCardProps) => {
             <div>
               <img 
                 src={product.category === 'Coating' 
-                  ? 'https://via.placeholder.com/350x250?text=Praetorian+SmartCoat'
-                  : 'https://via.placeholder.com/350x250?text=Praetorian+Stucco'} 
+                  ? '/src/assets_dir/images/optimized/praetorian-products-updated.webp'
+                  : '/src/assets_dir/images/optimized/praetorian-stucco.webp'} 
                 alt={product.name} 
                 className={`object-contain h-72 max-w-[90%] drop-shadow-xl transform ${product.category === 'Stucco' ? 'scale-110' : 'scale-90'}`}
               />

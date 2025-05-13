@@ -14,6 +14,7 @@ import { PremiumButton } from '@/components/ui/premium-button';
 import { Filter, ArrowUp, ChevronDown, ShieldCheck, Thermometer, Droplets, Wind, Sun, Scale, Shapes } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 // Import components
+import { PRAETORIAN_PRODUCTS_HERO_IMAGE } from '@/assets_dir/imageExports';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function Products() {
@@ -211,7 +212,7 @@ export default function Products() {
                   >
                     <div className="absolute inset-0 bg-gradient-to-br from-amber-300/40 to-white/0 dark:from-amber-500/20 dark:to-transparent blur-xl rounded-full scale-90 -translate-y-4"></div>
                     <img 
-                      src="https://via.placeholder.com/700x400?text=Praetorian+SmartCoat+Premium"
+                      src="/src/assets_dir/images/optimized/praetorian-buckets-hero-corrected.webp"
                       alt="Praetorian SmartCoat Premium Protective Coating" 
                       className="relative w-[700px] h-[400px] object-contain drop-shadow-2xl scale-110 -translate-y-6 z-20"
                     />
