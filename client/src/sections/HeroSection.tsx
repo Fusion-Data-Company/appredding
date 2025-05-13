@@ -44,19 +44,19 @@ const HeroSection = () => {
         {/* Hero image with natural proportions */}
         <div className="w-full relative" style={{ 
           backgroundColor: "#000000",
-          paddingTop: "71%" /* Increased for more height, showing more of the image */
+          paddingTop: "56.25%" /* 16:9 aspect ratio for new image */
         }}>
           {/* Placeholder image (loads quickly) */}
           <img 
             src={heroImagePlaceholder} 
             alt="Praetorian SmartCoat Products"
-            className="w-full h-auto absolute top-0 left-0 transition-opacity duration-500"
+            className="w-full h-full absolute top-0 left-0 transition-opacity duration-500"
             style={{ 
               display: "block",
-              objectFit: "cover",
-              objectPosition: "center top",
+              objectFit: "contain",
+              objectPosition: "center center",
               width: "100%",
-              filter: "contrast(1.05) saturate(1.1) blur(10px)",
+              filter: "contrast(1.05) saturate(1.1)",
               transformOrigin: "center",
               transform: "scale(1.0)", /* No stretching */
               opacity: imageLoaded ? 0 : 1
@@ -68,11 +68,11 @@ const HeroSection = () => {
             ref={fullImageRef}
             src={heroImageFull} 
             alt="Praetorian SmartCoat Products" 
-            className="w-full h-auto absolute left-0 transition-opacity duration-700"
+            className="w-full h-full absolute left-0 transition-opacity duration-700"
             style={{ 
               display: "block",
-              objectFit: "cover",
-              objectPosition: "center top",
+              objectFit: "contain",
+              objectPosition: "center center",
               width: "100%", 
               filter: "contrast(1.05) saturate(1.1)",
               transformOrigin: "center",
@@ -85,37 +85,21 @@ const HeroSection = () => {
             onLoad={() => setImageLoaded(true)}
           />
           
-          {/* Buttons positioned directly over the image, below the guards */}
+          {/* Buttons positioned directly over the image */}
           <div className="absolute w-full" style={{ 
-            bottom: "calc(15%)", /* Adjusted for new image proportions */
+            bottom: "calc(10%)", /* Adjusted for new image proportions */
             left: 0,
             right: 0,
             zIndex: 999999
           }}>
-            <div className="w-full relative px-4">
-              {/* Left button positioned under left guard's feet */}
-              <a 
-                href="#applications" 
-                className="inline-block absolute"
-                style={{ 
-                  left: "10%", /* Positioned exactly under left guard's feet */
-                  transform: "translateX(-50%)",
-                }}
-              >
+            <div className="w-full relative px-4 flex justify-center gap-8">
+              <a href="#applications" className="inline-block">
                 <GradientButton size="lg" className="font-semibold tracking-wider shadow-2xl shadow-black/80">
                   Explore Applications
                 </GradientButton>
               </a>
               
-              {/* Right button positioned under right guard's feet */}
-              <a 
-                href="#contact" 
-                className="inline-block absolute"
-                style={{ 
-                  right: "10%", /* Positioned exactly under right guard's feet */
-                  transform: "translateX(50%)",
-                }}
-              >
+              <a href="#contact" className="inline-block">
                 <GradientButton size="lg" className="font-semibold tracking-wider shadow-2xl shadow-black/80">
                   Contact Us
                 </GradientButton>

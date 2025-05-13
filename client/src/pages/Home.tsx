@@ -4,6 +4,7 @@ import RotatingTextSection from "@/sections/RotatingTextSection";
 import IntroSection from "@/sections/IntroSection";
 import FeaturesSection from "@/sections/FeaturesSection";
 import ApplicationsSection from "@/sections/ApplicationsSection";
+import BrandShowcaseSection from "@/sections/BrandShowcaseSection";
 
 import TestimonialsSection from "@/sections/TestimonialsSection";
 import ContactSection from "@/sections/ContactSection";
@@ -21,6 +22,7 @@ const Home = () => {
         <HeroSection />
         <RotatingTextSection />
         <ApplicationsSection />
+        <BrandShowcaseSection />
         <IntroSection />
         <FeaturesSection />
         <ProductHistorySection />
