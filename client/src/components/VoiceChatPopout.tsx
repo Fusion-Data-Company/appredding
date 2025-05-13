@@ -12,7 +12,7 @@ const VoiceChatPopout = () => {
   };
 
   return (
-    <div className="fixed top-36 right-10 z-50 print:hidden">
+    <div className="fixed top-36 right-10 z-[1000] print:hidden">
       <AnimatePresence initial={false}>
         {isExpanded ? (
           <motion.div
@@ -23,7 +23,7 @@ const VoiceChatPopout = () => {
             transition={{ type: 'spring', stiffness: 350, damping: 25 }}
             className="origin-top-right"
           >
-            <Card className="w-[380px] shadow-2xl bg-gradient-to-br from-gray-900 to-gray-800 border border-blue-500/20 overflow-hidden">
+            <Card className="w-[380px] shadow-2xl bg-gradient-to-br from-gray-900 to-gray-800 border border-blue-500/20 overflow-visible">
               <CardHeader className="p-4 pb-2 bg-gradient-to-r from-blue-600/20 to-orange-600/20 border-b border-white/10">
                 <div className="flex items-center justify-between">
                   <CardTitle className="text-lg font-bold text-white flex items-center gap-2">
@@ -54,9 +54,14 @@ const VoiceChatPopout = () => {
                 <p className="text-gray-300 text-sm mb-3">
                   Talk to our assistant about Praetorian SmartCoat products and services
                 </p>
-                <div className="elevenlabs-container w-full flex justify-center" style={{ minHeight: '250px' }}>
+                <div className="elevenlabs-container w-full flex justify-center" style={{ height: '250px', position: 'relative' }}>
                   <div 
-                    className="elevenlabs-container"
+                    className="elevenlabs-container w-full h-full"
+                    style={{
+                      position: 'relative',
+                      zIndex: 10,
+                      overflow: 'visible'
+                    }}
                     dangerouslySetInnerHTML={{
                       __html: `<elevenlabs-convai agent-id="ybtdqCeRrbskLzgWulrg"></elevenlabs-convai>`
                     }}
