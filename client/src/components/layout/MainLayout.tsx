@@ -2,6 +2,7 @@ import React, { ReactNode } from 'react';
 import ProfessionalHeader from '@/components/ProfessionalHeader';
 import Footer from '@/components/Footer';
 import ChatWidget from '@/components/ChatWidget';
+import VoiceChatPopout from '@/components/VoiceChatPopout';
 import { cn } from '@/lib/utils';
 
 interface MainLayoutProps {
@@ -33,6 +34,7 @@ export default function MainLayout({ children, className, fullWidth = false }: M
       
       <Footer />
       <ChatWidget />
+      <VoiceChatPopout />
     </div>
   );
 }

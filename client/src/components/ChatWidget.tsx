@@ -348,15 +348,6 @@ const ChatWidget = () => {
                   <p className="text-gray-300 max-w-xs leading-relaxed mb-4">
                     Ask me anything about Praetorian SmartCoat products, applications, or services. I'm here to assist with technical specifications, application guides, and product recommendations.
                   </p>
-                  <p className="text-center text-white font-medium mt-5 mb-4">Rather talk than type?</p>
-                  <div className="flex justify-center">
-                    <div 
-                      className="elevenlabs-container"
-                      dangerouslySetInnerHTML={{
-                        __html: `<elevenlabs-convai agent-id="ybtdqCeRrbskLzgWulrg"></elevenlabs-convai>`
-                      }}
-                    />
-                  </div>
                 </div>
               </div>
             ) : (
