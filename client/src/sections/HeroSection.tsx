@@ -1,6 +1,6 @@
 // Import directly from assets
-import heroImagePlaceholder from '../assets_dir/images/optimized/praetorian-hero-final.webp';
-import heroImageFull from '../assets_dir/images/optimized/praetorian-hero-final.webp';
+import heroImagePlaceholder from '../assets_dir/images/optimized/new-praetorian-hero.png';
+import heroImageFull from '../assets_dir/images/optimized/new-praetorian-hero.png';
 import { GradientButton } from "@/components/ui/gradient-button";
 import { useEffect, useState, useRef } from "react";
 
