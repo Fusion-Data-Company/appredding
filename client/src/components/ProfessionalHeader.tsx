@@ -108,21 +108,19 @@ const ProfessionalHeader = () => {
       {/* Praetorian logo positioned at far left edge */}
       <Link href="/" className="absolute left-0 top-0 h-full flex items-center z-20">
         <div className="relative">
-          {/* Glow effect behind the logo */}
-          <div className="absolute inset-0 rounded-full bg-blue-900/20 blur-xl -z-10 scale-110 translate-x-1 translate-y-[0px] animate-pulse-subtle"></div>
-          <div className="absolute inset-0 rounded-full bg-orange-600/10 blur-lg -z-10 scale-105 translate-x-2 translate-y-[5px]"></div>
+          {/* No glow effect anymore */}
           <div className="relative">
             <div className="relative">
               <img 
                 src={praetorianLogo} 
                 alt="Praetorian SmartCoat" 
-                className="h-[140px] w-auto relative"
+                className="h-[120px] w-auto relative"
                 style={{ 
-                  filter: 'drop-shadow(0 4px 8px rgba(0, 0, 0, 0.75))',
-                  transform: 'scale(1.05)',
+                  filter: 'drop-shadow(0 2px 3px rgba(0, 0, 0, 0.3))',
+                  transform: 'scale(1)',
                   transformStyle: 'preserve-3d',
                   marginLeft: '-5px',
-                  marginTop: '-5px'
+                  marginTop: '-2px'
                 }}
               />
               {/* Add shine/reflection effect */}
