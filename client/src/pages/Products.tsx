@@ -218,13 +218,7 @@ export default function Products() {
                     />
                   </motion.div>
                   
-                  {/* Highlight Badge */}
-                  <div className="absolute -right-4 top-10 bg-gradient-to-br from-amber-500 to-amber-700 dark:from-amber-500 dark:to-amber-600 text-white p-3 rounded-full shadow-lg z-20 flex items-center justify-center w-24 h-24 border-4 border-white dark:border-gray-800">
-                    <div className="text-center">
-                      <div className="text-xs font-semibold">Patent</div>
-                      <div className="text-sm font-bold">#10,738,214</div>
-                    </div>
-                  </div>
+
                 </div>
               </div>
             </div>

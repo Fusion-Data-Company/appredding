@@ -1,8 +1,7 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-// Import product images from central export file
-// Import optimized image paths using Vite's ?url suffix to ensure proper bundling
-import praetorianProductsPath from '@/assets_dir/images/optimized/praetorian-products-updated.webp?url';
-import praetorianStuccoPath from '@/assets_dir/images/optimized/praetorian-stucco.webp?url';
+// Import images directly with proper paths for production
+import praetorianProductsImg from '../assets_dir/images/optimized/praetorian-products-updated.webp';
+import praetorianStuccoImg from '../assets_dir/images/optimized/praetorian-stucco.webp';
 
 // Define types
 export interface Product {
@@ -45,7 +44,7 @@ const productData: Product[] = [
     name: "Smart-Coat 1-gallon",
     price: 89.95,
     description: "Praetorian's flagship ceramic-based thermal protective coating in our convenient 1-gallon size. Perfect for smaller projects, repairs, and touch-ups. Features our proprietary NASA-derived ceramic technology offering superior heat reflection, UV protection, and extreme durability.",
-    image: praetorianProductsPath,
+    image: praetorianProductsImg,
     category: "Coating",
     size: "1-gallon",
     inStock: true,
@@ -57,7 +56,7 @@ const productData: Product[] = [
     name: "Smart-Coat 5-gallon",
     price: 449.95,
     description: "Our professional-grade Smart-Coat in commercial 5-gallon sizing. The industry-leading ceramic thermal barrier coating with documented thermal conductivity of 0.00543 W/cm²/K. Ideal for complete exterior applications, industrial facilities, and large commercial projects.",
-    image: praetorianProductsPath,
+    image: praetorianProductsImg,
     category: "Coating",
     size: "5-gallon",
     inStock: true,
@@ -69,7 +68,7 @@ const productData: Product[] = [
     name: "Stucco 1-gallon",
     price: 89.95,
     description: "Specialized ceramic-infused stucco formula in 1-gallon size. Engineered for textured surface applications with enhanced adhesion and flexibility (156% elasticity). Provides the perfect balance of protection and traditional stucco aesthetics for exterior walls.",
-    image: praetorianStuccoPath,
+    image: praetorianStuccoImg,
     category: "Stucco",
     size: "1-gallon",
     inStock: true,
@@ -80,7 +79,7 @@ const productData: Product[] = [
     name: "Stucco 5-gallon",
     price: 449.95,
     description: "Professional-grade ceramic stucco coating in 5-gallon container. Our advanced formula combines traditional stucco appearance with cutting-edge thermal protection. Ideal for complete building exteriors with Class A fire rating (0/0 scores) and ABS certification (#MC-1372).",
-    image: praetorianStuccoPath,
+    image: praetorianStuccoImg,
     category: "Stucco",
     size: "5-gallon",
     inStock: true,
