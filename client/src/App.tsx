@@ -3,7 +3,7 @@ import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { useEffect } from "react";
+import { useEffect, lazy, Suspense } from "react";
 import { preloadCriticalImages } from "@/utils/image-preloader";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
@@ -12,17 +12,17 @@ import PainterNetwork from "@/pages/PainterNetwork";
 import Marinas from "@/pages/Marinas";
 import FirePrevention from "@/pages/FirePrevention";
 import Pools from "@/pages/Pools";
-import Construction from "@/pages/Construction";
+const Construction = lazy(() => import('./pages/Construction'));
 import MobileHome from "@/pages/MobileHome";
 import Municipality from "@/pages/Municipality";
-import Applications from "@/pages/Applications";
+const Applications = lazy(() => import('./pages/Applications')); 
 import ProductComparison from "@/pages/ProductComparison";
-import Products from "@/pages/Products";
+const Products = lazy(() => import('./pages/Products'));
 import Technology from "@/pages/Technology";
 import AuthPage from "@/pages/auth-page";
 import ClientDashboard from "@/pages/client-dashboard";
 import AdminDashboard from "@/pages/admin-dashboard";
-import About from "@/pages/About";
+const About = lazy(() => import('./pages/About'));
 import Team from "@/pages/Team";
 import CrmLogin from "@/pages/crm-login";
 import CrmDashboard from "@/pages/crm-dashboard";
@@ -35,7 +35,7 @@ import { StoreProvider } from "@/contexts/StoreContext";
 
 function Router() {
   const [location] = useLocation();
-  
+
   // Preload images when routes change
   useEffect(() => {
     // Add a slight delay to ensure animation performance is prioritized
@@ -48,10 +48,10 @@ function Router() {
         // Preload fire prevention specific images
       }
     }, 200);
-    
+
     return () => clearTimeout(timer);
   }, [location]);
-  
+
   return (
     <Switch>
       <Route path="/" component={Home} />
@@ -60,15 +60,35 @@ function Router() {
       <Route path="/marinas" component={Marinas} />
       <Route path="/fire-prevention" component={FirePrevention} />
       <Route path="/pools" component={Pools} />
-      <Route path="/construction" component={Construction} />
+      <Route path="/construction" >
+        <Suspense fallback={<div>Loading...</div>}>
+          <Construction />
+        </Suspense>
+      </Route>
       <Route path="/mobile-home" component={MobileHome} />
       <Route path="/municipality" component={Municipality} />
-      <Route path="/applications" component={Applications} />
-      <Route path="/products" component={Products} />
+      <Route path="/applications">
+        <Suspense fallback={<div>Loading...</div>}>
+          <Applications />
+        </Suspense>
+      </Route>
+      <Route path="/products">
+        <Suspense fallback={<div>Loading...</div>}>
+          <Products />
+        </Suspense>
+      </Route>
       <Route path="/product-comparison" component={ProductComparison} />
-      <Route path="/about" component={About} />
+      <Route path="/about">
+        <Suspense fallback={<div>Loading...</div>}>
+          <About />
+        </Suspense>
+      </Route>
       <Route path="/team" component={Team} />
-      <Route path="/technology" component={Technology} />
+      <Route path="/technology">
+        <Suspense fallback={<div>Loading...</div>}>
+          <Technology />
+        </Suspense>
+      </Route>
       <Route path="/auth" component={AuthPage} />
       <Route path="/crm-login" component={CrmLogin} />
       <Route path="/crm-dashboard" component={CrmDashboard} />
@@ -88,12 +108,12 @@ function App() {
   useEffect(() => {
     // This triggers preloading of all critical site images
     preloadCriticalImages();
-    
+
     // Force dark mode for both development and production
     document.documentElement.classList.add('dark');
     document.body.style.backgroundColor = '#000';
     document.body.classList.add('dark');
-    
+
     // Add performance monitoring
     if (typeof window !== 'undefined') {
       // Report largest contentful paint for performance monitoring
@@ -104,7 +124,7 @@ function App() {
           console.log(`Largest Contentful Paint: ${lastEntry.startTime}ms`);
         }
       });
-      
+
       observer.observe({ type: 'largest-contentful-paint', buffered: true });
     }
   }, []);
