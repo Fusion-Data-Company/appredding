@@ -38,9 +38,9 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section id="hero-section" className="w-full bg-black overflow-hidden pt-0 mt-0 mb-0 relative" style={{ zIndex: 20 }}>
+    <section id="hero-section" className="w-full bg-black overflow-hidden pt-0 mt-0 mb-0 pb-0 relative" style={{ zIndex: 20, marginTop: "-1px" /* Ensure no gap between header and hero */ }}>
       {/* Hero image container with responsive height */}
-      <div className="relative w-screen" style={{ marginLeft: "calc(50% - 50vw)", marginTop: "120px" /* Increased from 24px to 120px (24px + 96px) */ }}>
+      <div className="relative w-screen" style={{ marginLeft: "calc(50% - 50vw)", marginTop: "0" /* Removed margin to eliminate blue gap */ }}>
         {/* Hero image with natural proportions */}
         <div className="w-full relative" style={{ 
           backgroundColor: "#000000",
