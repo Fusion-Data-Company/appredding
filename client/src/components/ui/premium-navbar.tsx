@@ -82,8 +82,8 @@ export function PremiumNavbar() {
         </MenuItem>
         <MenuItem setActive={setActive} active={active} item="CRM">
           <div className="flex flex-col space-y-3 text-sm">
-            <HoveredLink href="/crm">CRM Overview</HoveredLink>
-            <HoveredLink href="/crm-dashboard">CRM Dashboard</HoveredLink>
+            <HoveredLink href="/crm">CRM Dashboard</HoveredLink>
+            <HoveredLink href="/inventory">Inventory Management</HoveredLink>
             <HoveredLink href="/crm-login">Admin Login</HoveredLink>
           </div>
         </MenuItem>

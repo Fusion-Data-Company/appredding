@@ -119,6 +119,10 @@ export default function InventoryPage() {
               </div>
               
               <div className="flex items-center gap-4">
+                <Button variant="outline" size="sm" onClick={() => window.location.href = "/crm"}>
+                  Back to CRM Dashboard
+                </Button>
+
                 <div className="flex items-center gap-2">
                   <Select 
                     value={notificationMode} 

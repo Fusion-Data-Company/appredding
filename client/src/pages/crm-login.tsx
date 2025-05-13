@@ -50,7 +50,7 @@ export default function CrmLoginPage() {
   // Redirect if user is logged in
   React.useEffect(() => {
     if (currentUser) {
-      window.location.href = "/crm-dashboard";
+      window.location.href = "/crm";
     }
   }, [currentUser]);
   
@@ -65,7 +65,7 @@ export default function CrmLoginPage() {
         title: "Login successful",
         description: "Welcome to the Praetorian CRM",
       });
-      window.location.href = "/crm-dashboard";
+      window.location.href = "/crm";
     },
     onError: (error: Error) => {
       toast({

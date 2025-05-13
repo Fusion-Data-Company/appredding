@@ -208,13 +208,13 @@ const MobileMenu = ({ isOpen, onClose, isHomePage = true }: MobileMenuProps) => 
               hover:shadow-amber-300/20 dark:hover:shadow-amber-700/30 hover:border-amber-600/30 mb-2"
             >
               <div className="absolute inset-0 opacity-0 hover:opacity-100 bg-gradient-to-t from-amber-300/10 to-amber-200/5 dark:from-amber-600/20 dark:to-amber-700/10 transition-opacity duration-300" />
-              <span className="relative z-10 font-serif bg-gradient-to-r from-amber-900 to-amber-800 dark:from-amber-400 dark:to-amber-300 bg-clip-text text-transparent">CRM Overview</span>
+              <span className="relative z-10 font-serif bg-gradient-to-r from-amber-900 to-amber-800 dark:from-amber-400 dark:to-amber-300 bg-clip-text text-transparent">CRM Dashboard</span>
             </Link>
           </li>
           
           <li className="py-1">
             <Link
-              href="/crm-dashboard"
+              href="/inventory"
               className="mobile-menu-link relative overflow-hidden font-medium block py-3 px-4 
               rounded-sm text-center transition-all duration-300 
               bg-gradient-to-br from-amber-100/70 to-amber-200/50 dark:from-amber-900/40 dark:to-amber-800/20 
@@ -222,7 +222,7 @@ const MobileMenu = ({ isOpen, onClose, isHomePage = true }: MobileMenuProps) => 
               hover:shadow-amber-300/20 dark:hover:shadow-amber-700/30 hover:border-amber-600/30 mb-2"
             >
               <div className="absolute inset-0 opacity-0 hover:opacity-100 bg-gradient-to-t from-amber-300/10 to-amber-200/5 dark:from-amber-600/20 dark:to-amber-700/10 transition-opacity duration-300" />
-              <span className="relative z-10 font-serif bg-gradient-to-r from-amber-900 to-amber-800 dark:from-amber-400 dark:to-amber-300 bg-clip-text text-transparent">CRM Dashboard</span>
+              <span className="relative z-10 font-serif bg-gradient-to-r from-amber-900 to-amber-800 dark:from-amber-400 dark:to-amber-300 bg-clip-text text-transparent">Inventory Management</span>
             </Link>
           </li>
           

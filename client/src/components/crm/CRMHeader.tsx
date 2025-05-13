@@ -34,7 +34,7 @@ export const CRMHeader = () => {
           variant="fire" 
           leftIcon={<Package size={18} />}
           fullWidth
-          href="/crm-dashboard?tab=inventory"
+          href="/inventory"
         >
           Inventory Management
         </PraetorianButton>
