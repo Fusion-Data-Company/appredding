@@ -12,7 +12,7 @@ const RotatingTextSection = () => {
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         zIndex: 10, // Higher than hero's content but lower than buttons
-        marginTop: "0" // No margin to show full image
+        marginTop: "96px" // Added 1 inch (96px) margin to push section down
       }}
     >
       {/* Semi-transparent overlay for better readability - top moved down half inch (48px) */}
