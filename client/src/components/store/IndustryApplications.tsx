@@ -274,16 +274,46 @@ const IndustryApplications = () => {
         </div>
 
         <Tabs defaultValue="fire-prevention" value={selectedTab} onValueChange={setSelectedTab} className="w-full">
-          <TabsList className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 h-auto p-1.5 bg-gradient-to-b from-amber-100/80 to-amber-50/90 dark:from-amber-900/40 dark:to-amber-800/30 border-2 border-amber-300 dark:border-amber-700 rounded-xl mb-8 shadow-[0_4px_20px_rgba(251,191,36,0.15)] backdrop-blur-sm">
+          <TabsList 
+            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 h-auto p-1.5 
+              bg-gradient-to-br from-amber-100/90 via-amber-50/95 to-white/90 
+              dark:from-gray-900/95 dark:via-amber-900/40 dark:to-amber-800/30 
+              border-2 border-amber-300 dark:border-amber-700 rounded-xl mb-8 
+              shadow-[0_4px_20px_rgba(251,191,36,0.2)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.4)] 
+              backdrop-blur-sm relative overflow-hidden"
+            style={{
+              backgroundImage: `url('/assets/images/praetorian-shield-logo.png')`,
+              backgroundPosition: 'center',
+              backgroundSize: '40%',
+              backgroundRepeat: 'no-repeat',
+              backgroundBlendMode: 'overlay'
+            }}
+          >
+            <div className="absolute inset-0 bg-amber-50/60 dark:bg-gray-900/70 backdrop-blur-sm"></div>
             {applications.map(app => (
               <TabsTrigger 
                 key={app.id} 
                 value={app.id}
-                className="py-3 font-medium transition-all duration-200 data-[state=active]:bg-gradient-to-b data-[state=active]:from-white data-[state=active]:to-amber-50 dark:data-[state=active]:from-amber-800 dark:data-[state=active]:to-amber-900 data-[state=active]:text-amber-700 dark:data-[state=active]:text-amber-100 data-[state=active]:shadow-md data-[state=active]:border-b-2 data-[state=active]:border-amber-500 dark:data-[state=active]:border-amber-500 rounded-lg text-gray-700 dark:text-amber-300 hover:bg-amber-50/50 dark:hover:bg-amber-700/30"
+                className="py-3 relative z-10 font-medium transition-all duration-300 
+                  data-[state=active]:bg-gradient-to-b data-[state=active]:from-white data-[state=active]:to-amber-50 
+                  dark:data-[state=active]:from-amber-800 dark:data-[state=active]:to-amber-900 
+                  data-[state=active]:text-amber-700 dark:data-[state=active]:text-amber-100 
+                  data-[state=active]:shadow-lg data-[state=active]:border-b-2 
+                  data-[state=active]:border-amber-500 dark:data-[state=active]:border-amber-500 
+                  rounded-lg text-gray-700 dark:text-amber-300 
+                  hover:bg-amber-50/70 dark:hover:bg-amber-800/50 
+                  hover:shadow-md hover:-translate-y-0.5 
+                  transform transition-transform"
               >
-                <div className="flex flex-col items-center gap-1">
-                  {app.icon}
-                  <span className="text-xs font-medium">{app.title}</span>
+                <div className="flex flex-col items-center gap-2 p-1">
+                  <div className="text-amber-600 dark:text-amber-400 transition-all duration-300 transform hover:scale-125">
+                    {React.cloneElement(app.icon as React.ReactElement, { 
+                      size: 26, 
+                      strokeWidth: 1.5,
+                      className: "drop-shadow-[0_1px_1px_rgba(251,191,36,0.4)]"
+                    })}
+                  </div>
+                  <span className="text-xs font-semibold tracking-wide">{app.title}</span>
                 </div>
               </TabsTrigger>
             ))}
