@@ -72,18 +72,23 @@ export function PremiumNavbar() {
           <div className="flex flex-col space-y-3 text-sm">
             <HoveredLink href="/products">All Products</HoveredLink>
             <HoveredLink href="/technology">Technical Data</HoveredLink>
+            <HoveredLink href="/application-guide">Application Guide</HoveredLink>
+            <HoveredLink href="/case-studies">Case Studies</HoveredLink>
           </div>
         </MenuItem>
         <MenuItem setActive={setActive} active={active} item="About">
           <div className="flex flex-col space-y-3 text-sm">
             <HoveredLink href="/about">About Us</HoveredLink>
             <HoveredLink href="/contact">Contact</HoveredLink>
+            <HoveredLink href="/team">Our Team</HoveredLink>
+            <HoveredLink href="/partners">Partners</HoveredLink>
           </div>
         </MenuItem>
         <MenuItem setActive={setActive} active={active} item="CRM">
           <div className="flex flex-col space-y-3 text-sm">
             <HoveredLink href="/crm">CRM Dashboard</HoveredLink>
             <HoveredLink href="/inventory">Inventory Management</HoveredLink>
+            <HoveredLink href="/analytics">Analytics & Reports</HoveredLink>
             <HoveredLink href="/crm-login">Admin Login</HoveredLink>
           </div>
         </MenuItem>
