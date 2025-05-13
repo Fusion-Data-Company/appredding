@@ -104,13 +104,23 @@ export const ProductCard = ({ product }: ProductCardProps) => {
             transition={{ duration: 0.4 }}
             className="relative z-10 flex items-center justify-center"
           >
-            <img 
-              src={product.category === 'Coating' 
-                ? '/images/praetorian-products.jpg'
-                : '/images/praetorian-stucco.jpg'} 
-              alt={product.name} 
-              className={`object-contain h-72 max-w-[90%] drop-shadow-xl transform ${product.category === 'Stucco' ? 'scale-110' : 'scale-90'}`}
-            />
+            <div>
+              <img 
+                src={product.category === 'Coating' 
+                  ? '/images/praetorian-products.jpg'
+                  : '/images/praetorian-stucco.jpg'} 
+                alt={product.name} 
+                className={`object-contain h-72 max-w-[90%] drop-shadow-xl transform ${product.category === 'Stucco' ? 'scale-110' : 'scale-90'}`}
+              />
+              {/* Direct image reference as backup */}
+              {product.category === 'Coating' && (
+                <img 
+                  src="/images/praetorian-products.jpg" 
+                  alt="Backup Product Image" 
+                  className="hidden"
+                />
+              )}
+            </div>
           </motion.div>
         </div>
         
