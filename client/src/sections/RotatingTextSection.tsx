@@ -25,20 +25,10 @@ const RotatingTextSection = () => {
       <div className="absolute inset-0 bg-black/40"></div>
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-10">
-          <div className="inline-block bg-amber-50/50 dark:bg-amber-900/30 px-3 py-1 border border-amber-300 dark:border-amber-700 rounded-md font-medium text-sm">
+        <div className="text-center mb-5">
+          <div className="inline-block bg-amber-50/10 dark:bg-amber-900/10 px-3 py-1 border border-amber-300/30 dark:border-amber-700/30 rounded-md font-medium text-sm">
             <GradientText variant="fire" className="text-xs">Premium Protection</GradientText>
           </div>
-          <h2 className="text-3xl font-bold mb-4">
-            <GradientText variant="fire" className="drop-shadow-[0_2px_4px_rgba(251,191,36,0.3)]">
-              Advanced Ceramic Technology
-            </GradientText>
-          </h2>
-          <p className="text-gray-200 dark:text-gray-300 max-w-2xl mx-auto font-medium drop-shadow-sm">
-            <GradientText variant="blue" className="text-sm">
-              NASA-derived formulation provides unmatched protection for all surfaces and materials.
-            </GradientText>
-          </p>
         </div>
       </div>
       <div className="container mx-auto relative z-10 flex justify-center items-center" style={{ height: "100%" }}>
