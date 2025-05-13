@@ -106,7 +106,7 @@ const ProfessionalHeader = () => {
       <div className="absolute inset-0 bg-[url('/src/assets_dir/images/noise.svg')] opacity-[0.04] bg-repeat bg-[length:200px_200px] mix-blend-overlay pointer-events-none animate-subtle-pulse"></div>
 
       {/* Praetorian logo positioned at far left edge */}
-      <Link href="/" className="absolute left-0 top-0 h-full flex items-center z-20">
+      <Link href="/" className="absolute left-0 top-0 h-full flex items-center z-20 transition-transform duration-300 hover:scale-105">
         <div className="relative">
           {/* Subtle glow effect behind the logo */}
           <div className="absolute inset-0 rounded-full bg-blue-900/10 blur-md -z-10 scale-105 translate-x-[45px] translate-y-[10px]"></div>
@@ -115,7 +115,7 @@ const ProfessionalHeader = () => {
               <img 
                 src={praetorianLogo} 
                 alt="Praetorian SmartCoat" 
-                className="h-[130px] w-auto relative"
+                className="h-[130px] w-auto relative cursor-pointer"
                 style={{ 
                   filter: 'drop-shadow(0 3px 5px rgba(0, 0, 0, 0.5))',
                   transform: 'scale(1.02)',
