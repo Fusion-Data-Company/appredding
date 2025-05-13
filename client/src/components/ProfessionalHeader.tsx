@@ -79,7 +79,7 @@ const ProfessionalHeader = () => {
   return (
     <header 
       className={cn(
-        "fixed w-full border-b transition-all duration-300 h-[120px] flex items-center overflow-hidden",
+        "fixed w-full border-b transition-all duration-300 h-[calc(120px+0.25in)] flex items-center overflow-hidden",
         scrolled 
           ? "border-slate-400 dark:border-zinc-800 shadow-metal" 
           : "border-slate-400/80 dark:border-zinc-800/80",
@@ -121,7 +121,7 @@ const ProfessionalHeader = () => {
                   transform: 'scale(1.02)',
                   transformStyle: 'preserve-3d',
                   marginLeft: '60px', /* increase from half inch to 0.75 inch */
-                  marginTop: '2px'
+                  marginTop: '8px'
                 }}
               />
               {/* Add shine/reflection effect for shield logo */}
