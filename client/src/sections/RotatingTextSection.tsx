@@ -21,15 +21,17 @@ const RotatingTextSection = () => {
       }}
     >
       {/* Semi-transparent overlay for better readability */}
-      <div className="container mx-auto px-4">
+      <div className="absolute inset-0 bg-black/40"></div>
+      
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-10">
           <div className="inline-block bg-amber-50/50 dark:bg-amber-900/30 px-3 py-1 border border-amber-300 dark:border-amber-700 rounded-md text-amber-800 dark:text-amber-300 font-medium text-sm">
             Premium Protection
           </div>
-          <h2 className="text-3xl font-bold text-amber-900 dark:text-amber-300 mb-4">
+          <h2 className="text-3xl font-bold text-white dark:text-amber-300 mb-4">
             Advanced Ceramic Technology
           </h2>
-          <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          <p className="text-gray-200 dark:text-gray-300 max-w-2xl mx-auto">
             NASA-derived formulation provides unmatched protection for all surfaces and materials.
           </p>
         </div>
