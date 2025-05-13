@@ -42,13 +42,17 @@
     <!-- Critical styles to prevent FOUC (Flash of Unstyled Content) -->
     <link rel="preload" as="style" href="/src/index.css">
     
+    <!-- Preload hero image - highest priority for above-the-fold content -->
+    <link rel="preload" href="/src/assets_dir/images/optimized/praetorian-hero-final.webp" as="image" 
+          fetchpriority="high" imagesizes="100vw">
+    
     <!-- Video poster image preload - much faster than loading the video -->
-    <link rel="preload" href="/images/fire-water-gen4-turbo-poster.jpg" as="image" fetchpriority="high" 
+    <link rel="preload" href="/images/fire-water-gen4-turbo-poster.jpg" as="image" 
           imagesizes="100vw" imagesrcset="/images/fire-water-gen4-turbo-poster.jpg">
     
     <!-- Preload only the smallest video file to improve initial load time -->
     <link rel="preload" as="fetch" href="/videos/fire-water-gen4-turbo-small.mp4" 
-          type="video/mp4" fetchpriority="high" crossorigin="anonymous">
+          type="video/mp4" crossorigin="anonymous">
     
     <!-- Resource hints to improve loading performance -->
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">

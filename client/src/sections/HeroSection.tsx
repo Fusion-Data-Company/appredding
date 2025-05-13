@@ -1,44 +1,38 @@
-// Import directly from assets
-import heroImagePlaceholder from '../assets_dir/images/optimized/new-praetorian-hero.png';
-import heroImageFull from '../assets_dir/images/optimized/new-praetorian-hero.png';
+// Import from imageExports for consistent image handling
+import { PRAETORIAN_HERO_IMAGE } from '../assets_dir/imageExports';
 import { GradientButton } from "@/components/ui/gradient-button";
 import { useEffect, useState, useRef } from "react";
+import { useInView } from 'react-intersection-observer';
 
 const HeroSection = () => {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const fullImageRef = useRef<HTMLImageElement>(null);
 
+  // Use IntersectionObserver hook for better performance
+  const { ref: sectionRef, inView } = useInView({
+    threshold: 0.1,
+    triggerOnce: true
+  });
+
   useEffect(() => {
-    // Preload the hero image
-    const img = new Image();
-    img.src = heroImageFull;
-    img.onload = () => {
+    // Mark when hero image is loaded in console for monitoring
+    console.log("Hero image path:", PRAETORIAN_HERO_IMAGE);
+    
+    // Set image loaded state when visible in viewport
+    if (inView) {
       setImageLoaded(true);
-    };
-
-    // Use Intersection Observer to detect when section is visible
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
-        }
-      });
-    }, { threshold: 0.1 });
-
-    const section = document.getElementById('hero-section');
-    if (section) {
-      observer.observe(section);
+      setIsVisible(true);
     }
-
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
+  }, [inView]);
 
   return (
-    <section id="hero-section" className="w-full bg-black overflow-hidden pt-0 mt-0 mb-0 pb-0 relative" style={{ zIndex: 20 }}>
+    <section 
+      id="hero-section" 
+      ref={sectionRef}
+      className="w-full bg-black overflow-hidden pt-0 mt-0 mb-0 pb-0 relative" 
+      style={{ zIndex: 20 }}
+    >
       {/* Hero image container with responsive height */}
       <div className="relative w-screen" style={{ marginLeft: "calc(50% - 50vw)", marginTop: "0" /* Removed margin to eliminate blue gap */ }}>
         {/* Hero image with natural proportions */}
@@ -46,29 +40,12 @@ const HeroSection = () => {
           backgroundColor: "#000000",
           paddingTop: "36%" /* Adjusted aspect ratio for proper display */
         }}>
-          {/* Placeholder image (loads quickly) */}
-          <img 
-            src={heroImagePlaceholder} 
-            alt="Praetorian SmartCoat Products"
-            className="w-full h-full absolute top-0 left-0 transition-opacity duration-500"
-            style={{ 
-              display: "block",
-              objectFit: "contain",
-              objectPosition: "center center",
-              width: "100%",
-              filter: "contrast(1.05) saturate(1.1)",
-              transformOrigin: "center",
-              transform: "scale(1.0)", /* No stretching */
-              opacity: imageLoaded ? 0 : 1
-            }}
-          />
-          
-          {/* Full quality image (loads progressively) */}
+          {/* Single optimized hero image with native lazy loading */}
           <img 
             ref={fullImageRef}
-            src={heroImageFull} 
+            src={PRAETORIAN_HERO_IMAGE} 
             alt="Praetorian SmartCoat Products" 
-            className="w-full h-full absolute left-0 transition-opacity duration-700"
+            className={`w-full h-full absolute left-0 top-0 transition-opacity duration-700 ${inView ? 'opacity-100' : 'opacity-0'}`}
             style={{ 
               display: "block",
               objectFit: "contain",
@@ -76,16 +53,12 @@ const HeroSection = () => {
               width: "100%", 
               filter: "contrast(1.05) saturate(1.1)",
               transformOrigin: "center",
-              transform: "scale(1.0)", /* No stretching */
-              opacity: imageLoaded ? 1 : 0,
-              top: 0
+              transform: "scale(1.0)" /* No stretching */
             }}
-            loading="eager"
+            fetchPriority="high"
             decoding="async"
             onLoad={() => setImageLoaded(true)}
           />
-          
-          {/* Buttons removed from here */}
         </div>
       </div>
     </section>
