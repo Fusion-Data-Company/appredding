@@ -210,9 +210,9 @@ export default function Products() {
                   >
                     <div className="absolute inset-0 bg-gradient-to-br from-amber-300/40 to-white/0 dark:from-amber-500/20 dark:to-transparent blur-xl rounded-full scale-90 -translate-y-4"></div>
                     <img 
-                      src="/src/assets_dir/icons/praetorian-bucket-new.png" 
+                      src="/attached_assets/Untitled design.png" 
                       alt="Praetorian SmartCoat Premium Protective Coating" 
-                      className="relative w-72 h-72 object-contain drop-shadow-2xl"
+                      className="relative w-[480px] h-[480px] object-contain drop-shadow-2xl"
                     />
                   </motion.div>
                   
