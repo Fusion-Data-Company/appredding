@@ -334,9 +334,11 @@ const IndustryApplications = () => {
                   className="bg-gradient-to-b from-white/95 to-amber-50/95 dark:from-gray-800/95 dark:to-gray-900/95 rounded-xl shadow-[0_10px_50px_rgba(251,191,36,0.2)] dark:shadow-[0_10px_50px_rgba(0,0,0,0.4)] overflow-hidden border-2 border-amber-200 dark:border-amber-700"
                 >
                   <div className="p-8">
-                    <h3 className="text-2xl font-bold text-amber-800 dark:text-amber-300 mb-3 flex items-center gap-3 drop-shadow-[0_1px_2px_rgba(251,191,36,0.3)]">
+                    <h3 className="text-2xl font-bold mb-3 flex items-center gap-3">
                       <span className="text-amber-600 dark:text-amber-400 transform transition-all duration-500 hover:scale-110 hover:rotate-3">{app.icon}</span>
-                      <span className="border-b-2 border-amber-400/30 dark:border-amber-600/30 pb-1">{app.title} Applications</span>
+                      <GradientText variant="fire" className="border-b-2 border-amber-400/30 dark:border-amber-600/30 pb-1 drop-shadow-[0_1px_2px_rgba(251,191,36,0.3)]">
+                        {app.title} Applications
+                      </GradientText>
                     </h3>
                     <p className="text-gray-700 dark:text-gray-300 mb-8 leading-relaxed font-medium text-lg max-w-3xl">
                       {app.description}
@@ -348,8 +350,10 @@ const IndustryApplications = () => {
                           <div className="text-amber-600 dark:text-amber-400 mb-3 transform transition-transform duration-300 group-hover:scale-110 group-hover:text-amber-500 dark:group-hover:text-amber-300">
                             {benefit.icon}
                           </div>
-                          <h4 className="font-bold text-amber-900 dark:text-amber-300 mb-2 text-lg group-hover:text-amber-700 dark:group-hover:text-amber-200 transition-colors duration-300">
-                            {benefit.title}
+                          <h4 className="font-bold mb-2 text-lg">
+                            <GradientText variant="fire" className="group-hover:opacity-90 transition-all duration-300">
+                              {benefit.title}
+                            </GradientText>
                           </h4>
                           <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
                             {benefit.description}
@@ -361,30 +365,40 @@ const IndustryApplications = () => {
                     <div className="bg-gradient-to-br from-amber-50/95 to-white/90 dark:from-amber-900/40 dark:to-gray-900/40 rounded-xl p-8 shadow-[0_10px_40px_rgba(251,191,36,0.15)] dark:shadow-[0_10px_40px_rgba(0,0,0,0.3)] border border-amber-300/50 dark:border-amber-700/50 backdrop-blur-sm">
                       <div className="flex items-center mb-6">
                         <div className="h-10 w-2 bg-amber-500 dark:bg-amber-600 rounded-full mr-3"></div>
-                        <h4 className="text-2xl font-bold text-amber-800 dark:text-amber-300 drop-shadow-sm">
-                          Case Study: <span className="text-amber-600 dark:text-amber-200">{app.caseStudy.title}</span>
+                        <h4 className="text-2xl font-bold drop-shadow-sm">
+                          <GradientText variant="fire">
+                            Case Study: <span className="opacity-90">{app.caseStudy.title}</span>
+                          </GradientText>
                         </h4>
                       </div>
                       
                       <div className="flex flex-col md:flex-row gap-8">
                         <div className="md:w-2/3">
                           <div className="mb-5 bg-white/50 dark:bg-gray-800/30 p-4 rounded-lg border border-amber-100 dark:border-amber-800/30">
-                            <div className="text-sm font-semibold text-amber-600 dark:text-amber-400 mb-1 uppercase tracking-wider">Location</div>
+                            <div className="text-sm font-semibold mb-1 uppercase tracking-wider">
+                              <GradientText variant="fire" className="text-xs">Location</GradientText>
+                            </div>
                             <div className="font-medium text-gray-800 dark:text-gray-200">{app.caseStudy.location}</div>
                           </div>
                           
                           <div className="mb-5 bg-white/50 dark:bg-gray-800/30 p-4 rounded-lg border border-amber-100 dark:border-amber-800/30">
-                            <div className="text-sm font-semibold text-amber-600 dark:text-amber-400 mb-1 uppercase tracking-wider">Challenge</div>
+                            <div className="text-sm font-semibold mb-1 uppercase tracking-wider">
+                              <GradientText variant="fire" className="text-xs">Challenge</GradientText>
+                            </div>
                             <div className="text-gray-700 dark:text-gray-300 leading-relaxed">{app.caseStudy.challenge}</div>
                           </div>
                           
                           <div className="mb-5 bg-white/50 dark:bg-gray-800/30 p-4 rounded-lg border border-amber-100 dark:border-amber-800/30">
-                            <div className="text-sm font-semibold text-amber-600 dark:text-amber-400 mb-1 uppercase tracking-wider">Solution</div>
+                            <div className="text-sm font-semibold mb-1 uppercase tracking-wider">
+                              <GradientText variant="fire" className="text-xs">Solution</GradientText>
+                            </div>
                             <div className="text-gray-700 dark:text-gray-300 leading-relaxed">{app.caseStudy.solution}</div>
                           </div>
                           
                           <div className="bg-white/50 dark:bg-gray-800/30 p-4 rounded-lg border border-amber-100 dark:border-amber-800/30">
-                            <div className="text-sm font-semibold text-amber-600 dark:text-amber-400 mb-2 uppercase tracking-wider">Results</div>
+                            <div className="text-sm font-semibold mb-2 uppercase tracking-wider">
+                              <GradientText variant="fire" className="text-xs">Results</GradientText>
+                            </div>
                             <ul className="space-y-3">
                               {app.caseStudy.results.map((result, index) => (
                                 <li key={index} className="flex items-start gap-2 group">
@@ -403,7 +417,9 @@ const IndustryApplications = () => {
                               alt={`${app.title} application`}
                               className="w-full h-64 object-cover rounded-lg"
                             />
-                            <div className="text-sm text-center font-medium text-amber-700 dark:text-amber-300 mt-2">{app.title} Application</div>
+                            <div className="text-sm text-center font-medium mt-2">
+                              <GradientText variant="fire" className="text-xs">{app.title} Application</GradientText>
+                            </div>
                           </div>
                         </div>
                       </div>
