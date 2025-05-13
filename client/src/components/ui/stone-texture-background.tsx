@@ -14,11 +14,15 @@ export const StoneTextureBackground: React.FC<StoneTextureBackgroundProps> = ({
   frostGlassOpacity = 0.5, // Default frost glass opacity (0-1)
 }) => {
   return (
-    <div className={cn("relative overflow-hidden", className)}>
+    <div className={cn("relative overflow-hidden", className)} style={{ marginTop: "-5px" }}>
       {/* Tiled stone texture background */}
       <div 
-        className="absolute inset-0 z-0"
+        className="absolute z-0"
         style={{
+          top: "-5px", // Extend upward to cover the blue gap
+          left: 0,
+          right: 0,
+          bottom: 0,
           backgroundImage: `url(${stoneTexturePath})`,
           backgroundRepeat: 'repeat',
           backgroundSize: '400px auto', // Stretch texture slightly
@@ -29,8 +33,12 @@ export const StoneTextureBackground: React.FC<StoneTextureBackgroundProps> = ({
       
       {/* Light grey to dark grey gradient overlay */}
       <div 
-        className="absolute inset-0 z-0"
+        className="absolute z-0"
         style={{
+          top: "-5px", // Extend upward to cover the blue gap
+          left: 0,
+          right: 0,
+          bottom: 0,
           background: 'linear-gradient(to bottom, rgba(180, 180, 190, 0.2), rgba(40, 40, 50, 0.4))',
           backdropFilter: 'blur(4px)', // Reduced blur effect
           boxShadow: 'inset 0 0 100px rgba(0,0,0,0.2)',
