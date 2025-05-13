@@ -78,7 +78,7 @@ const ProfessionalHeader = () => {
   return (
     <header 
       className={cn(
-        "fixed w-full border-b transition-all duration-300 h-[144px] flex items-center overflow-hidden",
+        "fixed w-full border-b transition-all duration-300 h-[110px] flex items-center overflow-hidden",
         scrolled 
           ? "border-slate-400 dark:border-zinc-800 shadow-metal" 
           : "border-slate-400/80 dark:border-zinc-800/80",
@@ -113,10 +113,10 @@ const ProfessionalHeader = () => {
             <img 
               src={praetorianBucketNew} 
               alt="Praetorian Bucket" 
-              className="h-[140px] w-auto relative"
+              className="h-[110px] w-auto relative"
               style={{ 
                 filter: 'contrast(1.3) brightness(1.15)',
-                transform: 'perspective(800px) rotateY(-5deg) scale(1.6) translateY(0px)',
+                transform: 'perspective(800px) rotateY(-5deg) scale(1.4) translateY(0px)',
                 transformStyle: 'preserve-3d',
                 marginLeft: '-5px',
                 marginTop: '-15px'

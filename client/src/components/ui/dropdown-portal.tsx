@@ -61,7 +61,12 @@ export const DropdownPortal = ({
         exit={{ opacity: 0, y: -10 }}
         transition={{ type: 'spring', stiffness: 300, damping: 30 }}
         className="bg-black/95 backdrop-blur-sm rounded-md overflow-hidden border border-white/[0.2] shadow-xl"
+        style={{ minWidth: '200px', maxWidth: '400px' }} // Ensure dropdown has reasonable width
       >
+        <div className="p-2 absolute w-full h-4 top-[-16px]">
+          {/* Invisible connection area to make it easier to move from menu to dropdown */}
+          <div className="w-full h-full" />
+        </div>
         {children}
       </motion.div>
     </div>,

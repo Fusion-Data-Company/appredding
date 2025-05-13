@@ -25,6 +25,7 @@ export const MenuItem = ({
 }) => {
   const itemRef = useRef<HTMLDivElement>(null);
   const [rect, setRect] = useState<DOMRect | null>(null);
+  const [hovering, setHovering] = useState(false);
   
   // Update rect when active changes
   useEffect(() => {
@@ -33,11 +34,21 @@ export const MenuItem = ({
     }
   }, [active, item]);
 
+  const handleMouseEnter = () => {
+    setHovering(true);
+    setActive(item);
+  };
+
+  const handleMouseLeave = () => {
+    setHovering(false);
+  };
+
   return (
     <div 
       ref={itemRef}
-      onMouseEnter={() => setActive(item)} 
-      className="relative"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      className="relative py-2" // Added vertical padding for better touch target
     >
       <motion.p
         transition={{ duration: 0.3 }}
@@ -51,7 +62,11 @@ export const MenuItem = ({
         isOpen={active === item}
         anchorRect={rect}
       >
-        <div className="w-max h-full p-4">
+        <div 
+          className="w-max h-full p-4"
+          onMouseEnter={() => setHovering(true)}
+          onMouseLeave={() => setHovering(false)}
+        >
           {children}
         </div>
       </DropdownPortal>
@@ -66,10 +81,40 @@ export const Menu = ({
   setActive: (item: string | null) => void;
   children: React.ReactNode;
 }) => {
+  const [leaveTimer, setLeaveTimer] = useState<NodeJS.Timeout | null>(null);
+  
+  const handleMouseLeave = () => {
+    // Clear any existing timer
+    if (leaveTimer) clearTimeout(leaveTimer);
+    
+    // Set a new timer to close the menu after a delay
+    const timer = setTimeout(() => {
+      setActive(null);
+    }, 500); // 500ms delay before closing
+    
+    setLeaveTimer(timer);
+  };
+  
+  const handleMouseEnter = () => {
+    // Clear the timer if the mouse re-enters the menu
+    if (leaveTimer) {
+      clearTimeout(leaveTimer);
+      setLeaveTimer(null);
+    }
+  };
+  
+  // Clean up the timer when the component unmounts
+  useEffect(() => {
+    return () => {
+      if (leaveTimer) clearTimeout(leaveTimer);
+    };
+  }, [leaveTimer]);
+  
   return (
     <nav
-      onMouseLeave={() => setActive(null)}
-      className="relative flex justify-center space-x-8 px-4 py-2"
+      onMouseLeave={handleMouseLeave}
+      onMouseEnter={handleMouseEnter}
+      className="relative flex justify-center space-x-8 px-4 py-0.5" // Reduced vertical padding
     >
       {children}
     </nav>
