@@ -87,7 +87,7 @@ const HeroSection = () => {
           
           {/* Buttons positioned directly over the image */}
           <div className="absolute w-full" style={{ 
-            bottom: "calc(10%)", /* Adjusted for new image proportions */
+            bottom: "calc(5%)", /* Moved further down to avoid overlapping with text */
             left: 0,
             right: 0,
             zIndex: 999999
