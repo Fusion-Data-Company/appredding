@@ -68,7 +68,7 @@ const HeroSection = () => {
             ref={fullImageRef}
             src={heroImageFull} 
             alt="Praetorian SmartCoat Products" 
-            className="w-full h-auto absolute top-0 left-0 transition-opacity duration-700"
+            className="w-full h-auto absolute left-0 transition-opacity duration-700"
             style={{ 
               display: "block",
               objectFit: "cover",
@@ -77,7 +77,8 @@ const HeroSection = () => {
               filter: "contrast(1.05) saturate(1.1)",
               transformOrigin: "center",
               transform: "scale(1.0)", /* No stretching */
-              opacity: imageLoaded ? 1 : 0
+              opacity: imageLoaded ? 1 : 0,
+              top: "96px" /* Added 1 inch (96px) offset */
             }}
             loading="eager"
             decoding="async"
