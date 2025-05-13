@@ -107,7 +107,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
             <img 
               src={product.image} 
               alt={product.name} 
-              className="object-contain h-72 max-w-[90%] drop-shadow-xl"
+              className="object-contain h-72 max-w-[90%] drop-shadow-xl transform scale-90"
             />
           </motion.div>
         </div>
