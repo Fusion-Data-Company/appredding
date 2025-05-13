@@ -596,7 +596,7 @@ const MunicipalityPage = () => {
                     </span>
                     <div>
                       <h3 className="text-xl font-semibold mb-1 text-blue-300">89% Energy Efficiency</h3>
-                      <p className="text-white">NASA ceramic microsphere technology provides 89% UV reflection and reduces building energy consumption by up to 87% as verified in the Sony Koda case study, while exceeding all EPA environmental regulations.</p>
+                      <p className="text-white">NASA ceramic microsphere technology provides 89% UV reflection and reduces building energy consumption by up to 87% as verified in independent case studies, while exceeding all EPA environmental regulations.</p>
                     </div>
                   </div>
                 </div>
@@ -734,11 +734,11 @@ const MunicipalityPage = () => {
                     </div>
                   </div>
                   <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-300 to-blue-100 bg-clip-text text-transparent mb-2">
-                    CASE STUDY: Lakewood Water Treatment Facility
+                    CASE STUDY: Municipal Water Treatment Facility
                   </h3>
                   <div className="flex items-center gap-3 mt-2">
                     <span className="bg-blue-800/50 text-blue-200 text-xs font-semibold px-3 py-1 rounded-full border border-blue-500/30">
-                      Colorado
+                      Western United States
                     </span>
                     <span className="bg-blue-800/50 text-blue-200 text-xs font-semibold px-3 py-1 rounded-full border border-blue-500/30">
                       38,000,000 Gallon Capacity
