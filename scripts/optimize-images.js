@@ -1,63 +1,76 @@
 import sharp from 'sharp';
-import fs from 'fs';
 import path from 'path';
+import fs from 'fs';
 import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const imagesDir = path.join(__dirname, '../client/public/images');
-const optimizedDir = path.join(imagesDir, 'optimized');
+// Source and destination directories
+const sourceDir = path.join(__dirname, '../client/src/assets_dir/images');
+const destDir = path.join(__dirname, '../client/src/assets_dir/images/optimized');
 
-// Create optimized directory if it doesn't exist
-if (!fs.existsSync(optimizedDir)) {
-  fs.mkdirSync(optimizedDir, { recursive: true });
+// Ensure destination directory exists
+if (!fs.existsSync(destDir)) {
+  fs.mkdirSync(destDir, { recursive: true });
 }
 
-// Get list of images
-const imageFiles = fs.readdirSync(imagesDir).filter(file => {
-  const ext = path.extname(file).toLowerCase();
-  return ['.jpg', '.jpeg', '.png'].includes(ext) && !file.includes('optimized-');
-});
-
-// Process each image
-async function optimizeImages() {
-  console.log(`Found ${imageFiles.length} images to optimize`);
+// Function to optimize an image
+async function optimizeImage(filename) {
+  const sourcePath = path.join(sourceDir, filename);
+  const fileExt = path.extname(filename);
+  const baseName = path.basename(filename, fileExt);
+  const webpPath = path.join(destDir, `${baseName}.webp`);
   
-  for (const file of imageFiles) {
-    const inputPath = path.join(imagesDir, file);
-    const fileStats = fs.statSync(inputPath);
-    const fileSizeMB = fileStats.size / (1024 * 1024);
-    
-    // Skip small files under 1MB
-    if (fileSizeMB < 1) {
-      console.log(`Skipping ${file} (${fileSizeMB.toFixed(2)}MB) - already small`);
-      continue;
+  console.log(`Optimizing ${filename}...`);
+  
+  try {
+    // Process large images to WebP format with good compression
+    if (filename === 'praetorian-hero-final.png') {
+      await sharp(sourcePath)
+        .webp({ quality: 80 }) // Use lower quality for larger compression
+        .toFile(webpPath);
+      
+      console.log(`Converted ${filename} to WebP format at ${webpPath}`);
+      
+      // Create a smaller placeholder version for faster initial loading
+      const placeholderPath = path.join(destDir, `${baseName}-placeholder.webp`);
+      await sharp(sourcePath)
+        .resize({ width: 800 }) // Smaller resolution for placeholder
+        .webp({ quality: 30 }) // Low quality for smaller file size
+        .toFile(placeholderPath);
+      
+      console.log(`Created placeholder for ${filename} at ${placeholderPath}`);
+    } else {
+      // For other images, just convert to WebP with good quality
+      await sharp(sourcePath)
+        .webp({ quality: 85 })
+        .toFile(webpPath);
+      
+      console.log(`Converted ${filename} to WebP format at ${webpPath}`);
     }
-    
-    const outputPath = path.join(optimizedDir, file);
-    
-    try {
-      // More aggressive compression for larger files
-      const quality = fileSizeMB > 10 ? 60 : fileSizeMB > 5 ? 70 : 80;
-      
-      console.log(`Optimizing ${file} (${fileSizeMB.toFixed(2)}MB) with quality ${quality}...`);
-      
-      await sharp(inputPath)
-        .jpeg({ quality, mozjpeg: true })
-        .toFile(outputPath);
-      
-      const newStats = fs.statSync(outputPath);
-      const newSizeMB = newStats.size / (1024 * 1024);
-      const savings = ((1 - newSizeMB / fileSizeMB) * 100).toFixed(2);
-      
-      console.log(`Optimized ${file}: ${fileSizeMB.toFixed(2)}MB → ${newSizeMB.toFixed(2)}MB (${savings}% reduction)`);
-    } catch (err) {
-      console.error(`Error processing ${file}:`, err);
-    }
+  } catch (error) {
+    console.error(`Error processing ${filename}:`, error);
   }
 }
 
-optimizeImages().then(() => {
-  console.log('Image optimization complete');
-});
+// Main function to process images
+async function processImages() {
+  try {
+    // Only optimize the hero image for now
+    const heroImage = 'praetorian-hero-final.png';
+    
+    if (fs.existsSync(path.join(sourceDir, heroImage))) {
+      console.log('Found hero image to optimize');
+      await optimizeImage(heroImage);
+      console.log('Hero image has been optimized!');
+    } else {
+      console.error('Hero image not found:', heroImage);
+    }
+  } catch (error) {
+    console.error('Error processing images:', error);
+  }
+}
+
+// Run the optimization
+processImages();

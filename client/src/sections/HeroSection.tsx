@@ -1,16 +1,18 @@
 // Import directly from assets
-import heroImage from '../assets_dir/images/praetorian-hero-final.png';
+import heroImagePlaceholder from '../assets_dir/images/optimized/praetorian-hero-final-placeholder.webp';
+import heroImageFull from '../assets_dir/images/optimized/praetorian-hero-final.webp';
 import { GradientButton } from "@/components/ui/gradient-button";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 const HeroSection = () => {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const fullImageRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
     // Preload the hero image
     const img = new Image();
-    img.src = heroImage;
+    img.src = heroImageFull;
     img.onload = () => {
       setImageLoaded(true);
     };
@@ -44,11 +46,29 @@ const HeroSection = () => {
           backgroundColor: "#000000",
           paddingTop: "46.875%" /* Maintain aspect ratio */
         }}>
-          {/* The actual image */}
+          {/* Placeholder image (loads quickly) */}
           <img 
-            src={heroImage} 
+            src={heroImagePlaceholder} 
+            alt="Praetorian SmartCoat Products"
+            className="w-full h-auto absolute top-0 left-0 transition-opacity duration-500"
+            style={{ 
+              display: "block",
+              objectFit: "contain",
+              objectPosition: "top",
+              width: "100%",
+              filter: "contrast(1.05) saturate(1.1) blur(10px)",
+              transformOrigin: "center",
+              transform: "scaleX(1.025)", /* Stretch by 2.5% horizontally */
+              opacity: imageLoaded ? 0 : 1
+            }}
+          />
+          
+          {/* Full quality image (loads progressively) */}
+          <img 
+            ref={fullImageRef}
+            src={heroImageFull} 
             alt="Praetorian SmartCoat Products" 
-            className={`w-full h-auto absolute top-0 left-0 transition-opacity duration-500 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+            className="w-full h-auto absolute top-0 left-0 transition-opacity duration-700"
             style={{ 
               display: "block",
               objectFit: "contain",
@@ -56,7 +76,8 @@ const HeroSection = () => {
               width: "100%",
               filter: "contrast(1.05) saturate(1.1)",
               transformOrigin: "center",
-              transform: "scaleX(1.025)" /* Stretch by 2.5% horizontally */
+              transform: "scaleX(1.025)", /* Stretch by 2.5% horizontally */
+              opacity: imageLoaded ? 1 : 0
             }}
             loading="eager"
             decoding="async"
