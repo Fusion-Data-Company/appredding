@@ -78,6 +78,11 @@ function Router() {
           <Products />
         </Suspense>
       </Route>
+      <Route path="/roi-calculator">
+        <Suspense fallback={<div>Loading...</div>}>
+          <ROICalculator />
+        </Suspense>
+      </Route>
       <Route path="/product-comparison" component={ProductComparison} />
       <Route path="/about">
         <Suspense fallback={<div>Loading...</div>}>

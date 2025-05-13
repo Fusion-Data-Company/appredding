@@ -7,8 +7,6 @@ import ScrollingReviews from '@/components/store/ScrollingReviews';
 import TechnicalSpecsTable from '@/components/store/TechnicalSpecsTable';
 import ProductComparison from '@/components/store/ProductComparison';
 import IndustryApplications from '@/components/store/IndustryApplications';
-import PricingCalculator from '@/components/store/PricingCalculator';
-import EnterpriseROI from '@/components/store/EnterpriseROI';
 import { Button } from '@/components/ui/button';
 import { PremiumButton } from '@/components/ui/premium-button';
 import { Filter, ArrowUp, ChevronDown, ShieldCheck, Thermometer, Droplets, Wind, Sun, Scale, Shapes } from 'lucide-react';
@@ -462,9 +460,7 @@ export default function Products() {
         {/* Premium Enterprise Content Sections */}
         <TechnicalSpecsTable />
         <ProductComparison />
-        <PricingCalculator />
         <IndustryApplications />
-        <EnterpriseROI />
 
         {/* Reviews Section */}
         <ScrollingReviews />
