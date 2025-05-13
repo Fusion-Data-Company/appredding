@@ -10,8 +10,9 @@ import IndustryApplications from '@/components/store/IndustryApplications';
 import PricingCalculator from '@/components/store/PricingCalculator';
 import EnterpriseROI from '@/components/store/EnterpriseROI';
 import { Button } from '@/components/ui/button';
-import { Filter, ArrowUp, ChevronDown, ShieldCheck, Thermometer, Droplets, Wind, Sun, Scale } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { PremiumButton } from '@/components/ui/premium-button';
+import { Filter, ArrowUp, ChevronDown, ShieldCheck, Thermometer, Droplets, Wind, Sun, Scale, Shapes } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function Products() {
@@ -142,24 +143,37 @@ export default function Products() {
                 </div>
                 
                 <div className="flex flex-wrap items-center gap-4">
-                  <Button 
-                    className="bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-white shadow-md hover:shadow-lg transition-all duration-300 px-6 py-6 h-auto text-lg"
+                  <PremiumButton 
+                    variant="default"
+                    size="xl"
+                    className="transition-all duration-300"
                     onClick={() => {
                       const productsSection = document.getElementById('products-section');
                       if (productsSection) {
                         productsSection.scrollIntoView({ behavior: 'smooth' });
                       }
                     }}
+                    icon={<ChevronDown className="h-5 w-5" />}
+                    iconPosition="right"
+                    glowEffect={true}
                   >
-                    <span>Shop Premium Products</span>
-                    <ChevronDown className="ml-2 h-5 w-5" />
-                  </Button>
-                  <a 
-                    href="#technical-specs" 
-                    className="text-amber-700 dark:text-amber-400 hover:text-amber-800 dark:hover:text-amber-300 underline underline-offset-4 text-sm font-medium flex items-center"
+                    Shop Premium Products
+                  </PremiumButton>
+                  <PremiumButton 
+                    variant="ghost" 
+                    size="sm"
+                    className="text-amber-700 dark:text-amber-400 hover:text-amber-800 dark:hover:text-amber-300"
+                    onClick={() => {
+                      const techSpecsSection = document.getElementById('technical-specs');
+                      if (techSpecsSection) {
+                        techSpecsSection.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    }}
+                    icon={<Thermometer className="h-4 w-4" />}
+                    iconPosition="left"
                   >
                     View Technical Specifications
-                  </a>
+                  </PremiumButton>
                   <div className="fixed bottom-8 right-8 z-40">
                     <Cart />
                   </div>
@@ -215,130 +229,232 @@ export default function Products() {
           </div>
         </div>
 
-        {/* Filter Bar */}
-        <div className="sticky top-[110px] z-30 bg-white dark:bg-gray-900 border-b border-amber-100 dark:border-gray-800 shadow-sm">
-          <div className="container mx-auto px-4 py-3">
+        {/* Premium Filter Bar */}
+        <div className="sticky top-[110px] z-30 bg-gradient-to-r from-white via-amber-50/30 to-white dark:from-gray-900 dark:via-amber-950/10 dark:to-gray-900 border-b border-amber-200/50 dark:border-amber-900/20 shadow-lg">
+          <div className="container mx-auto px-4 py-4">
             <div className="flex items-center justify-between">
-              <Button 
+              <PremiumButton 
                 variant="outline" 
-                size="sm"
+                size="md"
                 className="flex items-center gap-2"
                 onClick={() => setShowFilters(!showFilters)}
+                icon={<Filter size={16} className="text-amber-600 dark:text-amber-500" />}
+                iconPosition="left"
               >
-                <Filter size={16} />
-                Filters
-              </Button>
+                <span>Filter Products</span>
+                <motion.div
+                  animate={{ rotate: showFilters ? 180 : 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <ChevronDown size={14} />
+                </motion.div>
+              </PremiumButton>
               
-              <div className="text-sm text-gray-600 dark:text-gray-400">
-                {products.length} Products
+              <div className="flex items-center gap-2">
+                <div className="h-8 w-8 rounded-full bg-amber-100 dark:bg-amber-900/40 flex items-center justify-center shadow-sm">
+                  <ShieldCheck className="h-4 w-4 text-amber-600 dark:text-amber-500" />
+                </div>
+                <div>
+                  <div className="text-sm font-medium text-amber-800 dark:text-amber-300">
+                    {products.length} Premium Products
+                  </div>
+                  <div className="text-xs text-gray-500 dark:text-gray-400">
+                    Enterprise-grade protection
+                  </div>
+                </div>
               </div>
             </div>
             
-            {showFilters && (
-              <motion.div 
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: 'auto', opacity: 1 }}
-                exit={{ height: 0, opacity: 0 }}
-                className="pt-3"
-              >
-                <div className="flex flex-wrap gap-4">
-                  <div>
-                    <p className="text-sm font-medium mb-2">Category</p>
-                    <div className="flex gap-2">
-                      <Button 
-                        variant={!filterCategory ? "default" : "outline"} 
-                        size="sm"
-                        onClick={() => setFilterCategory(null)}
-                      >
-                        All
-                      </Button>
-                      <Button 
-                        variant={filterCategory === 'Coating' ? "default" : "outline"} 
-                        size="sm"
-                        onClick={() => setFilterCategory('Coating')}
-                      >
-                        Smart-Coat
-                      </Button>
-                      <Button 
-                        variant={filterCategory === 'Stucco' ? "default" : "outline"} 
-                        size="sm"
-                        onClick={() => setFilterCategory('Stucco')}
-                      >
-                        Stucco
-                      </Button>
+            <AnimatePresence>
+              {showFilters && (
+                <motion.div 
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: 'auto', opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                  className="pt-4 overflow-hidden"
+                >
+                  <div className="bg-white/80 dark:bg-gray-800/50 backdrop-blur-sm rounded-lg p-4 border border-amber-100 dark:border-amber-900/20 shadow-inner">
+                    <div className="flex flex-wrap gap-8">
+                      <div className="flex-1 min-w-[200px]">
+                        <p className="text-sm font-medium mb-3 text-amber-800 dark:text-amber-300 flex items-center gap-2">
+                          <div className="h-5 w-5 rounded-full bg-amber-100 dark:bg-amber-900/40 flex items-center justify-center">
+                            <Shapes className="h-3 w-3 text-amber-600 dark:text-amber-500" />
+                          </div>
+                          Product Category
+                        </p>
+                        <div className="bg-gradient-to-r from-amber-100/80 to-amber-50/80 dark:from-amber-900/20 dark:to-gray-800/80 h-10 rounded-full p-1">
+                          <div className="grid grid-cols-3 h-full">
+                            <button
+                              className={`rounded-full h-full text-xs font-medium transition-all duration-300 ${
+                                !filterCategory
+                                  ? "bg-white dark:bg-gray-700 shadow-md text-amber-900 dark:text-amber-300"
+                                  : "text-amber-700 dark:text-amber-400 hover:bg-white/50 dark:hover:bg-gray-700/50"
+                              }`}
+                              onClick={() => setFilterCategory(null)}
+                            >
+                              All Products
+                            </button>
+                            <button
+                              className={`rounded-full h-full text-xs font-medium transition-all duration-300 ${
+                                filterCategory === 'Coating'
+                                  ? "bg-white dark:bg-gray-700 shadow-md text-amber-900 dark:text-amber-300"
+                                  : "text-amber-700 dark:text-amber-400 hover:bg-white/50 dark:hover:bg-gray-700/50"
+                              }`}
+                              onClick={() => setFilterCategory('Coating')}
+                            >
+                              Smart-Coat
+                            </button>
+                            <button
+                              className={`rounded-full h-full text-xs font-medium transition-all duration-300 ${
+                                filterCategory === 'Stucco'
+                                  ? "bg-white dark:bg-gray-700 shadow-md text-amber-900 dark:text-amber-300"
+                                  : "text-amber-700 dark:text-amber-400 hover:bg-white/50 dark:hover:bg-gray-700/50"
+                              }`}
+                              onClick={() => setFilterCategory('Stucco')}
+                            >
+                              Stucco
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div className="flex-1 min-w-[200px]">
+                        <p className="text-sm font-medium mb-3 text-amber-800 dark:text-amber-300 flex items-center gap-2">
+                          <div className="h-5 w-5 rounded-full bg-amber-100 dark:bg-amber-900/40 flex items-center justify-center">
+                            <Droplets className="h-3 w-3 text-amber-600 dark:text-amber-500" />
+                          </div>
+                          Container Size
+                        </p>
+                        <div className="bg-gradient-to-r from-amber-100/80 to-amber-50/80 dark:from-amber-900/20 dark:to-gray-800/80 h-10 rounded-full p-1">
+                          <div className="grid grid-cols-3 h-full">
+                            <button
+                              className={`rounded-full h-full text-xs font-medium transition-all duration-300 ${
+                                !filterSize
+                                  ? "bg-white dark:bg-gray-700 shadow-md text-amber-900 dark:text-amber-300"
+                                  : "text-amber-700 dark:text-amber-400 hover:bg-white/50 dark:hover:bg-gray-700/50"
+                              }`}
+                              onClick={() => setFilterSize(null)}
+                            >
+                              All Sizes
+                            </button>
+                            <button
+                              className={`rounded-full h-full text-xs font-medium transition-all duration-300 ${
+                                filterSize === '1-gallon'
+                                  ? "bg-white dark:bg-gray-700 shadow-md text-amber-900 dark:text-amber-300"
+                                  : "text-amber-700 dark:text-amber-400 hover:bg-white/50 dark:hover:bg-gray-700/50"
+                              }`}
+                              onClick={() => setFilterSize('1-gallon')}
+                            >
+                              1-Gallon
+                            </button>
+                            <button
+                              className={`rounded-full h-full text-xs font-medium transition-all duration-300 ${
+                                filterSize === '5-gallon'
+                                  ? "bg-white dark:bg-gray-700 shadow-md text-amber-900 dark:text-amber-300"
+                                  : "text-amber-700 dark:text-amber-400 hover:bg-white/50 dark:hover:bg-gray-700/50"
+                              }`}
+                              onClick={() => setFilterSize('5-gallon')}
+                            >
+                              5-Gallon
+                            </button>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  
-                  <div>
-                    <p className="text-sm font-medium mb-2">Size</p>
-                    <div className="flex gap-2">
-                      <Button 
-                        variant={!filterSize ? "default" : "outline"} 
-                        size="sm"
-                        onClick={() => setFilterSize(null)}
-                      >
-                        All
-                      </Button>
-                      <Button 
-                        variant={filterSize === '1-gallon' ? "default" : "outline"} 
-                        size="sm"
-                        onClick={() => setFilterSize('1-gallon')}
-                      >
-                        1-Gallon
-                      </Button>
-                      <Button 
-                        variant={filterSize === '5-gallon' ? "default" : "outline"} 
-                        size="sm"
-                        onClick={() => setFilterSize('5-gallon')}
-                      >
-                        5-Gallon
-                      </Button>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            )}
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
         </div>
 
-        {/* Products Section */}
-        <div id="products-section" className="container mx-auto px-4 py-12">
+        {/* Premium Products Section */}
+        <div id="products-section" className="container mx-auto px-4 py-16">
           {filteredGroups.length === 0 ? (
-            <div className="text-center p-12 bg-gray-50 dark:bg-gray-900 rounded-lg">
-              <h3 className="text-xl font-medium mb-2">No products match your filters</h3>
-              <p className="text-gray-600 dark:text-gray-400 mb-6">Try changing your filter selection</p>
-              <Button 
+            <div className="text-center p-12 bg-gradient-to-b from-amber-50/50 to-white dark:from-gray-800/50 dark:to-gray-900 rounded-xl shadow-lg border border-amber-100 dark:border-amber-900/20">
+              <div className="w-16 h-16 mx-auto bg-amber-100 dark:bg-amber-900/30 rounded-full flex items-center justify-center mb-4">
+                <Filter size={24} className="text-amber-600 dark:text-amber-500" />
+              </div>
+              <h3 className="text-xl font-bold mb-2 text-amber-900 dark:text-amber-300">No products match your filters</h3>
+              <p className="text-gray-600 dark:text-gray-400 mb-6 max-w-md mx-auto">Please try adjusting your filter selection or view our complete product catalog.</p>
+              <PremiumButton 
                 variant="default" 
+                size="lg"
+                className="transition-all duration-300"
                 onClick={() => {
                   setFilterCategory(null);
                   setFilterSize(null);
                 }}
+                icon={<Shapes className="h-4 w-4" />}
+                iconPosition="right"
+                glowEffect={true}
               >
-                Clear Filters
-              </Button>
+                View All Products
+              </PremiumButton>
             </div>
           ) : (
-            <div className="space-y-16">
+            <div className="space-y-24">
               {filteredGroups.map((group, groupIndex) => {
                 const baseProduct = group[0];
                 return (
-                  <div key={baseProduct.id} className="space-y-8">
-                    <div className="border-b border-amber-200/50 dark:border-amber-800/20 pb-2">
-                      <h2 className="text-2xl font-bold text-amber-900 dark:text-amber-300">
-                        {baseProduct.category}
-                      </h2>
-                      <p className="text-gray-600 dark:text-gray-400">
-                        {baseProduct.category === 'Coating' 
-                          ? 'Our flagship ceramic thermal barrier coating with NASA-derived technology'
-                          : 'Specialized ceramic-infused stucco formula for textured surfaces'
-                        }
-                      </p>
-                    </div>
-                    
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                      {group.map(product => (
-                        <ProductCard key={product.id} product={product} />
-                      ))}
+                  <div key={baseProduct.id} className="space-y-10">
+                    <div className="relative">
+                      {/* Category header with decorative elements */}
+                      <div className="absolute -left-4 top-1/2 -translate-y-1/2 w-2 h-12 bg-gradient-to-b from-amber-400 to-amber-600 rounded-r-full hidden md:block"></div>
+                      
+                      <div className="border-b border-amber-200/50 dark:border-amber-800/20 pb-4 pl-2">
+                        <div className="flex items-center gap-2 mb-1">
+                          <div className="h-8 w-8 rounded-full bg-amber-100 dark:bg-amber-900/40 flex items-center justify-center shadow-sm">
+                            {baseProduct.category === 'Coating' 
+                              ? <Droplets className="h-4 w-4 text-amber-600 dark:text-amber-500" />
+                              : <Shapes className="h-4 w-4 text-amber-600 dark:text-amber-500" />
+                            }
+                          </div>
+                          <h2 className="text-2xl md:text-3xl font-bold text-amber-900 dark:text-amber-300">
+                            {baseProduct.category === 'Coating' ? 'Smart-Coat' : 'Stucco Formula'}
+                          </h2>
+                        </div>
+                        
+                        <div className="ml-10">
+                          <p className="text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">
+                            {baseProduct.category === 'Coating' 
+                              ? 'Our flagship ceramic thermal barrier coating with NASA-derived technology providing superior heat reflection and energy efficiency. Class A fire-rated with 156% elastomeric flexibility.'
+                              : 'Specialized ceramic-infused stucco formula for textured surfaces with enhanced adhesion and durability. Perfect for exterior walls requiring both protection and traditional stucco aesthetics.'
+                            }
+                          </p>
+                          
+                          <div className="flex flex-wrap gap-4 mt-3">
+                            <div className="flex items-center gap-1 text-xs text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-900/20 px-2 py-1 rounded-full">
+                              <Thermometer className="h-3 w-3" />
+                              <span>Thermal Barrier</span>
+                            </div>
+                            <div className="flex items-center gap-1 text-xs text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-900/20 px-2 py-1 rounded-full">
+                              <Sun className="h-3 w-3" />
+                              <span>UV Protection</span>
+                            </div>
+                            <div className="flex items-center gap-1 text-xs text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-900/20 px-2 py-1 rounded-full">
+                              <ShieldCheck className="h-3 w-3" />
+                              <span>Class A Fire Rating</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      {/* Product Cards with staggered animation */}
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-8">
+                        {group.map((product, index) => (
+                          <motion.div
+                            key={product.id}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, delay: index * 0.2 }}
+                            viewport={{ once: true }}
+                          >
+                            <ProductCard product={product} />
+                          </motion.div>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 );
