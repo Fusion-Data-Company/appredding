@@ -20,7 +20,7 @@ export default function MainLayout({ children, className, fullWidth = false }: M
       <ProfessionalHeader />
       
       <main className={cn(
-        "flex-1 pt-[144px]", // 120px + 24px (quarter inch) using fixed pixel value for stability
+        "flex-1 pt-24", // Reverted to the original value
         className
       )}>
         {fullWidth ? (
