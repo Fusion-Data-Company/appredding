@@ -40,7 +40,7 @@ const HeroSection = () => {
   return (
     <section id="hero-section" className="w-full bg-black overflow-hidden pt-0 mt-0 mb-0 relative" style={{ zIndex: 20 }}>
       {/* Hero image container with responsive height */}
-      <div className="relative w-screen" style={{ marginLeft: "calc(50% - 50vw)", marginTop: "-96px" }}>
+      <div className="relative w-screen" style={{ marginLeft: "calc(50% - 50vw)", marginTop: "-48px" }}>
         {/* Hero image with natural proportions */}
         <div className="w-full relative" style={{ 
           backgroundColor: "#000000",
