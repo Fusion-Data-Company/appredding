@@ -19,7 +19,7 @@ export default function MainLayout({ children, className, fullWidth = false }: M
       <ProfessionalHeader />
       
       <main className={cn(
-        "flex-1 pt-28", // Reduced padding since hero section has negative margin
+        "flex-1 pt-24", // Further reduced padding to match smaller header
         className
       )}>
         {fullWidth ? (
