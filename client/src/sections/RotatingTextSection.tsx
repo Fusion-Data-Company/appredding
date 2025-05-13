@@ -2,6 +2,7 @@ import { GradientHeading } from "@/components/ui/gradient-heading";
 import AnimatedTextCycle from "@/components/ui/animated-text-cycle";
 import { GradientButton } from "@/components/ui/gradient-button";
 import { Badge } from "@/components/ui/badge";
+import { GradientText } from "@/components/ui/gradient-text";
 
 const RotatingTextSection = () => {
   return (
@@ -25,14 +26,18 @@ const RotatingTextSection = () => {
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-10">
-          <div className="inline-block bg-amber-50/50 dark:bg-amber-900/30 px-3 py-1 border border-amber-300 dark:border-amber-700 rounded-md text-amber-800 dark:text-amber-300 font-medium text-sm">
-            Premium Protection
+          <div className="inline-block bg-amber-50/50 dark:bg-amber-900/30 px-3 py-1 border border-amber-300 dark:border-amber-700 rounded-md font-medium text-sm">
+            <GradientText variant="fire" className="text-xs">Premium Protection</GradientText>
           </div>
-          <h2 className="text-3xl font-bold text-white dark:text-amber-300 mb-4">
-            Advanced Ceramic Technology
+          <h2 className="text-3xl font-bold mb-4">
+            <GradientText variant="fire" className="drop-shadow-[0_2px_4px_rgba(251,191,36,0.3)]">
+              Advanced Ceramic Technology
+            </GradientText>
           </h2>
-          <p className="text-gray-200 dark:text-gray-300 max-w-2xl mx-auto">
-            NASA-derived formulation provides unmatched protection for all surfaces and materials.
+          <p className="text-gray-200 dark:text-gray-300 max-w-2xl mx-auto font-medium drop-shadow-sm">
+            <GradientText variant="blue" className="text-sm">
+              NASA-derived formulation provides unmatched protection for all surfaces and materials.
+            </GradientText>
           </p>
         </div>
       </div>

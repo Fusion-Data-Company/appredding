@@ -79,7 +79,11 @@ const ProductHistorySection = () => {
               
               <div className="relative pl-10 dark:border-l-3 dark:border-gray-600/40 border-l-3 border-gray-400/60 pb-10">
                 <div className="absolute -left-3 top-0 w-6 h-6 rounded-full dark:bg-gradient-to-r dark:from-gray-700 dark:to-gray-600 bg-gradient-to-r from-blue-400 to-blue-500 dark:shadow-[0_0_8px_rgba(255,255,255,0.25)] shadow-[0_0_8px_rgba(0,0,0,0.25)]"></div>
-                <div className="font-bold text-xl">1995</div>
+                <div className="font-bold text-xl">
+                  <GradientText variant="blue" className="drop-shadow-[0_1px_2px_rgba(59,130,246,0.3)]">
+                    1995
+                  </GradientText>
+                </div>
                 <div className="text-2xl font-semibold mb-1">
                   <GradientText variant="mixed" className="text-xl">Class A Fire Rating</GradientText>
                 </div>
@@ -88,7 +92,11 @@ const ProductHistorySection = () => {
               
               <div className="relative pl-10 dark:border-l-3 dark:border-gray-600/40 border-l-3 border-gray-400/60 pb-10">
                 <div className="absolute -left-3 top-0 w-6 h-6 rounded-full dark:bg-gradient-to-r dark:from-gray-700 dark:to-gray-600 bg-gradient-to-r from-red-400 to-red-500 dark:shadow-[0_0_8px_rgba(255,255,255,0.25)] shadow-[0_0_8px_rgba(0,0,0,0.25)]"></div>
-                <div className="font-bold text-xl">2000s</div>
+                <div className="font-bold text-xl">
+                  <GradientText variant="blue" className="drop-shadow-[0_1px_2px_rgba(59,130,246,0.3)]">
+                    2000s
+                  </GradientText>
+                </div>
                 <div className="text-2xl font-semibold mb-1">
                   <GradientText variant="mixed" className="text-xl">Energy Efficiency Breakthrough</GradientText>
                 </div>
@@ -97,7 +105,11 @@ const ProductHistorySection = () => {
               
               <div className="relative pl-10 dark:border-l-3 dark:border-gray-600/40 border-l-3 border-gray-400/60">
                 <div className="absolute -left-3 top-0 w-6 h-6 rounded-full dark:bg-gradient-to-r dark:from-gray-700 dark:to-gray-600 bg-gradient-to-r from-purple-400 to-purple-500 dark:shadow-[0_0_8px_rgba(255,255,255,0.25)] shadow-[0_0_8px_rgba(0,0,0,0.25)]"></div>
-                <div className="font-bold text-xl">2019</div>
+                <div className="font-bold text-xl">
+                  <GradientText variant="blue" className="drop-shadow-[0_1px_2px_rgba(59,130,246,0.3)]">
+                    2019
+                  </GradientText>
+                </div>
                 <div className="text-2xl font-semibold mb-1">
                   <GradientText variant="mixed" className="text-xl">Long-Term Performance Validation</GradientText>
                 </div>
