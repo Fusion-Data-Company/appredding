@@ -57,16 +57,23 @@ async function optimizeImage(filename) {
 // Main function to process images
 async function processImages() {
   try {
-    // Only optimize the hero image for now
-    const heroImage = 'praetorian-hero-final.png';
+    // Images to optimize
+    const imagesToOptimize = [
+      'praetorian-hero-final.png',
+      'praetorian-buckets-hero-corrected.png'
+    ];
     
-    if (fs.existsSync(path.join(sourceDir, heroImage))) {
-      console.log('Found hero image to optimize');
-      await optimizeImage(heroImage);
-      console.log('Hero image has been optimized!');
-    } else {
-      console.error('Hero image not found:', heroImage);
+    for (const img of imagesToOptimize) {
+      if (fs.existsSync(path.join(sourceDir, img))) {
+        console.log(`Found image to optimize: ${img}`);
+        await optimizeImage(img);
+        console.log(`${img} has been optimized!`);
+      } else {
+        console.error('Image not found:', img);
+      }
     }
+    
+    console.log('All specified images have been optimized!');
   } catch (error) {
     console.error('Error processing images:', error);
   }
