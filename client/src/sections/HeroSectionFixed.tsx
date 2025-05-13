@@ -1,5 +1,5 @@
 import React from 'react';
-import heroImage from '@/assets_dir/images/praetorian-main.jpg';
+import heroImage from '@/assets_dir/images/optimized/praetorian-hero-final.webp';
 import { StarsBackground } from '@/components/ui/stars-background';
 
 const HeroSectionFixed = () => {
