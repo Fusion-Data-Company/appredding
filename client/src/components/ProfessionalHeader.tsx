@@ -121,7 +121,7 @@ const ProfessionalHeader = () => {
                   transform: 'scale(1.02)',
                   transformStyle: 'preserve-3d',
                   marginLeft: '60px', /* increase from half inch to 0.75 inch */
-                  marginTop: '8px'
+                  marginTop: '-16px' /* moved up 24px (0.25in) from 8px */
                 }}
               />
               {/* Add shine/reflection effect for shield logo */}
