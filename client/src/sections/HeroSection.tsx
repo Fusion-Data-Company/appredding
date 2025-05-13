@@ -1,6 +1,6 @@
 // Import directly from assets
-import heroImagePlaceholder from '../assets_dir/images/optimized/new-praetorian-hero.png';
-import heroImageFull from '../assets_dir/images/optimized/new-praetorian-hero.png';
+import heroImagePlaceholder from '../assets_dir/images/optimized/praetorian-hero-final.webp';
+import heroImageFull from '../assets_dir/images/optimized/praetorian-hero-final.webp';
 import { GradientButton } from "@/components/ui/gradient-button";
 import { useEffect, useState, useRef } from "react";
 
@@ -40,11 +40,11 @@ const HeroSection = () => {
   return (
     <section id="hero-section" className="w-full bg-black overflow-hidden pt-0 mt-0 mb-0 relative" style={{ zIndex: 20 }}>
       {/* Hero image container with responsive height */}
-      <div className="relative w-screen" style={{ marginLeft: "calc(50% - 50vw)", marginTop: "-42px" }}>
+      <div className="relative w-screen" style={{ marginLeft: "calc(50% - 50vw)", marginTop: "calc(120px + 0.25in)" }}>
         {/* Hero image with natural proportions */}
         <div className="w-full relative" style={{ 
           backgroundColor: "#000000",
-          paddingTop: "56.25%" /* 16:9 aspect ratio for new image */
+          paddingTop: "42%" /* Reduced from 56.25% to prevent stretching due to added top margin */
         }}>
           {/* Placeholder image (loads quickly) */}
           <img 
