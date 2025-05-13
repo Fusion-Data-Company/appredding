@@ -91,32 +91,32 @@ const Footer = () => {
             <GradientHeading level={3} className="text-base mb-4" variant="fire">Applications</GradientHeading>
             <ul className="space-y-3">
               <li>
-                <a href="#" className="dark:text-[#a0a0a0] text-gray-600 hover:text-[#0070f3] transition-colors text-sm">
+                <a href="/fire-prevention" className="dark:text-[#a0a0a0] text-gray-600 hover:text-[#0070f3] transition-colors text-sm">
                   Wildfire Protection
                 </a>
               </li>
               <li>
-                <a href="#" className="text-[#a0a0a0] hover:text-[#0070f3] transition-colors text-sm">
+                <a href="/marinas" className="text-[#a0a0a0] hover:text-[#0070f3] transition-colors text-sm">
                   Marine
                 </a>
               </li>
               <li>
-                <a href="#" className="text-[#a0a0a0] hover:text-[#0070f3] transition-colors text-sm">
+                <a href="/pools" className="text-[#a0a0a0] hover:text-[#0070f3] transition-colors text-sm">
                   Pool
                 </a>
               </li>
               <li>
-                <a href="#" className="text-[#a0a0a0] hover:text-[#0070f3] transition-colors text-sm">
+                <a href="/construction" className="text-[#a0a0a0] hover:text-[#0070f3] transition-colors text-sm">
                   Construction
                 </a>
               </li>
               <li>
-                <a href="#" className="text-[#a0a0a0] hover:text-[#0070f3] transition-colors text-sm">
+                <a href="/mobile-home" className="text-[#a0a0a0] hover:text-[#0070f3] transition-colors text-sm">
                   Mobile Home
                 </a>
               </li>
               <li>
-                <a href="#" className="text-[#a0a0a0] hover:text-[#0070f3] transition-colors text-sm">
+                <a href="/municipality" className="text-[#a0a0a0] hover:text-[#0070f3] transition-colors text-sm">
                   Municipality
                 </a>
               </li>
@@ -127,27 +127,27 @@ const Footer = () => {
             <GradientHeading level={3} className="text-base mb-4 text-left !mx-0" variant="mixed">Our Product</GradientHeading>
             <ul className="space-y-3 pl-12" style={{ marginLeft: "40px" }}>
               <li>
-                <a href="#" className="text-[#a0a0a0] hover:text-[#0070f3] transition-colors text-sm">
+                <a href="/products" className="text-[#a0a0a0] hover:text-[#0070f3] transition-colors text-sm">
                   Protective Coating
                 </a>
               </li>
               <li>
-                <a href="#" className="text-[#a0a0a0] hover:text-[#0070f3] transition-colors text-sm">
+                <a href="/products#benefits" className="text-[#a0a0a0] hover:text-[#0070f3] transition-colors text-sm">
                   Product Benefits
                 </a>
               </li>
               <li>
-                <a href="#" className="text-[#a0a0a0] hover:text-[#0070f3] transition-colors text-sm">
+                <a href="/technology" className="text-[#a0a0a0] hover:text-[#0070f3] transition-colors text-sm">
                   Performance Data
                 </a>
               </li>
               <li>
-                <a href="#" className="text-[#a0a0a0] hover:text-[#0070f3] transition-colors text-sm">
+                <a href="/technology#specs" className="text-[#a0a0a0] hover:text-[#0070f3] transition-colors text-sm">
                   Technical Specifications
                 </a>
               </li>
               <li>
-                <a href="#" className="text-[#a0a0a0] hover:text-[#0070f3] transition-colors text-sm">
+                <a href="/documents/sds" className="text-[#a0a0a0] hover:text-[#0070f3] transition-colors text-sm">
                   Safety Data Sheet
                 </a>
               </li>
