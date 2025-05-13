@@ -53,6 +53,9 @@ export const DropdownPortal = ({
         left: `${left}px`,
         transform: 'translateX(-50%)',
         pointerEvents: 'auto',
+        maxHeight: 'calc(100vh - ' + (top + 20) + 'px)', // Ensure it doesn't go off-screen
+        overflow: 'visible',
+        zIndex: 2147483647 // Maximum z-index
       }}
     >
       <motion.div
@@ -60,8 +63,12 @@ export const DropdownPortal = ({
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -10 }}
         transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-        className="bg-black/95 backdrop-blur-sm rounded-md overflow-hidden border border-white/[0.2] shadow-xl"
-        style={{ minWidth: '200px', maxWidth: '400px' }} // Ensure dropdown has reasonable width
+        className="bg-black/95 backdrop-blur-sm rounded-md overflow-auto border border-white/[0.2] shadow-xl"
+        style={{ 
+          minWidth: '200px', 
+          maxWidth: '400px',
+          maxHeight: 'calc(100vh - ' + (top + 40) + 'px)' // Make sure dropdown doesn't exceed viewport
+        }}
       >
         <div className="p-2 absolute w-full h-4 top-[-16px]">
           {/* Invisible connection area to make it easier to move from menu to dropdown */}
