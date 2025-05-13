@@ -1,6 +1,7 @@
 import { GradientHeading } from "@/components/ui/gradient-heading";
 import AnimatedTextCycle from "@/components/ui/animated-text-cycle";
 import { GradientButton } from "@/components/ui/gradient-button";
+import { Badge } from "@/components/ui/badge";
 
 const RotatingTextSection = () => {
   return (
@@ -20,7 +21,19 @@ const RotatingTextSection = () => {
       }}
     >
       {/* Semi-transparent overlay for better readability */}
-      <div className="absolute inset-0 bg-black/30"></div>
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-10">
+          <div className="inline-block bg-amber-50/50 dark:bg-amber-900/30 px-3 py-1 border border-amber-300 dark:border-amber-700 rounded-md text-amber-800 dark:text-amber-300 font-medium text-sm">
+            Premium Protection
+          </div>
+          <h2 className="text-3xl font-bold text-amber-900 dark:text-amber-300 mb-4">
+            Advanced Ceramic Technology
+          </h2>
+          <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            NASA-derived formulation provides unmatched protection for all surfaces and materials.
+          </p>
+        </div>
+      </div>
       <div className="container mx-auto relative z-10 flex justify-center items-center" style={{ height: "100%" }}>
         {/* Element positioned at absolute center of its container */}
         <div className="w-full flex justify-center items-center text-center">
