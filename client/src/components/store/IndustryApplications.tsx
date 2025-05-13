@@ -367,7 +367,7 @@ const IndustryApplications = () => {
                         <div className="h-10 w-2 bg-amber-500 dark:bg-amber-600 rounded-full mr-3"></div>
                         <h4 className="text-2xl font-bold drop-shadow-sm">
                           <GradientText variant="fire">
-                            Case Study: <span className="opacity-90">{app.caseStudy.title}</span>
+                            Case Study: <span className="opacity-100" style={{ textShadow: "0px 1px 2px rgba(0,0,0,0.3)" }}>{app.caseStudy.title}</span>
                           </GradientText>
                         </h4>
                       </div>
