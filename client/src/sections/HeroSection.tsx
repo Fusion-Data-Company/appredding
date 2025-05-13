@@ -40,11 +40,11 @@ const HeroSection = () => {
   return (
     <section id="hero-section" className="w-full bg-black overflow-hidden pt-0 mt-0 mb-0 relative" style={{ zIndex: 20 }}>
       {/* Hero image container with responsive height */}
-      <div className="relative w-screen" style={{ marginLeft: "calc(50% - 50vw)", marginTop: "calc(120px + 0.25in)" }}>
+      <div className="relative w-screen" style={{ marginLeft: "calc(50% - 50vw)", marginTop: "24px" }}>
         {/* Hero image with natural proportions */}
         <div className="w-full relative" style={{ 
           backgroundColor: "#000000",
-          paddingTop: "42%" /* Reduced from 56.25% to prevent stretching due to added top margin */
+          paddingTop: "36%" /* Adjusted aspect ratio for proper display */
         }}>
           {/* Placeholder image (loads quickly) */}
           <img 
