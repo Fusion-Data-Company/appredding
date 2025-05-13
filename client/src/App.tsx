@@ -25,6 +25,7 @@ import About from "@/pages/About";
 import Team from "@/pages/Team";
 import CrmLogin from "@/pages/crm-login";
 import CrmDashboard from "@/pages/crm-dashboard";
+import InventoryPage from "@/pages/inventory";
 import RAGDocumentsPage from "@/pages/rag-documents";
 import ChatPage from "@/pages/chat";
 import { AuthProvider } from "@/hooks/use-auth";
@@ -68,6 +69,7 @@ function Router() {
       <Route path="/auth" component={AuthPage} />
       <Route path="/crm-login" component={CrmLogin} />
       <Route path="/crm-dashboard" component={CrmDashboard} />
+      <Route path="/inventory" component={InventoryPage} />
       <Route path="/rag-documents" component={RAGDocumentsPage} />
       <Route path="/chat" component={ChatPage} />
       <ProtectedRoute path="/client-dashboard" component={ClientDashboard} />
