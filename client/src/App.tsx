@@ -18,6 +18,7 @@ import Municipality from "@/pages/Municipality";
 const Applications = lazy(() => import('./pages/Applications')); 
 import ProductComparison from "@/pages/ProductComparison";
 const Products = lazy(() => import('./pages/Products'));
+const ROICalculator = lazy(() => import('./pages/ROICalculator'));
 import Technology from "@/pages/Technology";
 import AuthPage from "@/pages/auth-page";
 import ClientDashboard from "@/pages/client-dashboard";
