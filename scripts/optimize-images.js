@@ -60,7 +60,9 @@ async function processImages() {
     // Images to optimize
     const imagesToOptimize = [
       'praetorian-hero-final.png',
-      'praetorian-buckets-hero-corrected.png'
+      'praetorian-buckets-hero-corrected.png',
+      'praetorian-products-updated.png',
+      'praetorian-stucco.png'
     ];
     
     for (const img of imagesToOptimize) {
