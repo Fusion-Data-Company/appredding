@@ -364,16 +364,14 @@ const IndustryApplications = () => {
                         </div>
                         
                         <div className="md:w-1/3 flex justify-center items-center">
-                          {app.caseStudy.image && (
-                            <div className="rounded-xl overflow-hidden shadow-xl bg-white dark:bg-gray-800 p-3 border border-amber-100 dark:border-amber-900/50 transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl dark:hover:shadow-[0_20px_60px_rgba(251,191,36,0.3)]">
-                              <img 
-                                src={app.caseStudy.image} 
-                                alt={`${app.title} case study`}
-                                className="w-full h-64 object-cover rounded-lg"
-                              />
-                              <div className="text-sm text-center font-medium text-amber-700 dark:text-amber-300 mt-2">{app.title} Application</div>
-                            </div>
-                          )}
+                          <div className="rounded-xl overflow-hidden shadow-xl bg-white dark:bg-gray-800 p-3 border border-amber-100 dark:border-amber-900/50 transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl dark:hover:shadow-[0_20px_60px_rgba(251,191,36,0.3)]">
+                            <img 
+                              src={app.caseStudy.image || "/assets/images/praetorian-shield-logo.png"} 
+                              alt={`${app.title} application`}
+                              className="w-full h-64 object-cover rounded-lg"
+                            />
+                            <div className="text-sm text-center font-medium text-amber-700 dark:text-amber-300 mt-2">{app.title} Application</div>
+                          </div>
                         </div>
                       </div>
                     </div>
