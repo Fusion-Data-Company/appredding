@@ -1,20 +1,24 @@
 import { GradientHeading } from "@/components/ui/gradient-heading";
+import backgroundImg from "../assets_dir/images/praetorian-hero-final.png";
 
 const TestimonialsSection = () => {
   return (
     <section 
       className="py-32 relative"
       style={{ 
-        backgroundImage: "url('/images/optimized/diamond-plate-fire-red.jpg')",
+        backgroundImage: `url(${backgroundImg})`,
         backgroundSize: "cover",
-        backgroundPosition: "center",
+        backgroundPosition: "center top", 
         backgroundRepeat: "no-repeat",
-        minHeight: "100vh"
+        backgroundAttachment: "fixed",
+        backgroundColor: "#111111",
+        position: "relative",
+        zIndex: 0
       }}
     >
       {/* Semi-transparent overlay for better readability */}
-      <div className="absolute inset-0 bg-black/30"></div>
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/70" style={{ zIndex: 1 }}></div>
+      <div className="container mx-auto px-4 relative" style={{ zIndex: 2 }}>
         <div className="text-center mb-20">
           <div className="bg-gray-800/60 backdrop-blur-xl rounded-xl border-4 border-gray-600/40 shadow-[0_0_40px_rgba(255,255,255,0.25)] py-12 px-12 mx-auto max-w-4xl mb-10 inline-block">
             <GradientHeading level={2} className="text-4xl md:text-5xl mb-6" variant="fire">What Our Clients Say</GradientHeading>
