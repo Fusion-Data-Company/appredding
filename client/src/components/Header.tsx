@@ -37,8 +37,8 @@ const Header = () => {
   return (
     <header 
       className={`dark:bg-[#121212]/90 backdrop-blur-md border-b dark:border-[#ff6a00]/20 border-gray-300 sticky top-0 z-50 transition-all duration-300 ${
-        scrolled ? "dark:shadow-[0_4px_20px_rgba(255,106,0,0.1)] shadow-[0_4px_20px_rgba(0,0,0,0.1)] py-4" : "py-6"
-      } h-28 flex items-center`}
+        scrolled ? "dark:shadow-[0_4px_20px_rgba(255,106,0,0.1)] shadow-[0_4px_20px_rgba(0,0,0,0.1)] py-3" : "py-5"
+      } h-24 flex items-center`}
     >
       <div className="w-[95%] mx-auto px-4 flex justify-between items-center">
         <Link href="/" className="text-4xl font-heading font-bold flex items-center gap-3 group z-10">
@@ -47,11 +47,11 @@ const Header = () => {
             <img 
               src={praetorianShield} 
               alt="Praetorian Shield" 
-              className="h-14 w-auto relative z-10 transition-all duration-300 hover:scale-105 filter drop-shadow-lg"
+              className="h-11 w-auto relative z-10 transition-all duration-300 hover:scale-105 filter drop-shadow-lg"
             />
           </div>
           <div className="tracking-tight flex items-center">
-            <div className="text-[1.4rem] sm:text-[1.55rem] md:text-[1.7rem] leading-none whitespace-nowrap">
+            <div className="text-[1.2rem] sm:text-[1.35rem] md:text-[1.5rem] leading-none whitespace-nowrap">
               <span className="gradient-text-combined">Praetorian SmartCoat Solutions</span>
             </div>
           </div>
