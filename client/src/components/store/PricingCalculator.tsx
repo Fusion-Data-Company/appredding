@@ -9,6 +9,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Calculator, Ruler, Building, DollarSign, Sparkles, Shapes, Wrench } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useStore } from '@/contexts/StoreContext';
+import { PremiumCartButton } from '@/utils/premium-buttons';
 
 interface Calculator {
   surfaceArea: number;
@@ -320,14 +321,13 @@ const PricingCalculator = () => {
                           <div className="text-amber-800 dark:text-amber-400 font-semibold">
                             ${recommendedProduct.price.toFixed(2)}
                           </div>
-                          <Button 
-                            variant="outline" 
+                          <PremiumCartButton 
                             size="sm"
-                            className="h-7 text-xs"
+                            className="text-xs h-8 px-3"
                             onClick={handleAddToCart}
                           >
                             Add to Cart
-                          </Button>
+                          </PremiumCartButton>
                         </div>
                       </>
                     )}

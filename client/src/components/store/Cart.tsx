@@ -5,6 +5,7 @@ import { Card } from '@/components/ui/card';
 import { ShoppingBag, X, Plus, Minus, ShoppingCart } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { toast } from '@/hooks/use-toast';
+import { PremiumCartButton, PremiumArrowButton } from '@/utils/premium-buttons';
 
 export const Cart = () => {
   const [isOpen, setIsOpen] = useState(false);
