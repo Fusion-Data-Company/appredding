@@ -1506,16 +1506,15 @@ section + section {
     overflow: hidden;
   }
   
-  /* Voice chat, Chat and Introduction button custom shimmer effects */
+  /* Voice chat, Chat and Premium Introduction button custom shimmer effects */
   .voice-chat-shimmer,
-  .introduction-shimmer,
+  .premium-intro-shimmer,
   .chat-shimmer {
     position: relative;
     overflow: hidden;
   }
   
   .voice-chat-shimmer::before,
-  .introduction-shimmer::before,
   .chat-shimmer::before {
     content: '';
     position: absolute;
@@ -1529,6 +1528,27 @@ section + section {
       transparent 30%
     );
     animation: shimmerRotate 4s linear infinite;
+  }
+  
+  /* Premium introduction button has a more sophisticated shimmer */
+  .premium-intro-shimmer::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(
+      transparent, 
+      rgba(255, 255, 255, 0.15), 
+      rgba(56, 178, 172, 0.1),
+      transparent 40%
+    );
+    animation: shimmerRotate 6s linear infinite;
+  }
+  
+  .premium-intro-shimmer {
+    background: linear-gradient(135deg, #2d3748 0%, #4a5568 50%, #718096 100%);
   }
   
   .voice-chat-glow {
@@ -1545,11 +1565,12 @@ section + section {
     animation: chatGlowPulse 3.5s ease-in-out infinite;
   }
   
-  .introduction-glow {
-    box-shadow: 0 0 20px rgba(255, 69, 0, 0.6),
-                0 0 40px rgba(255, 69, 0, 0.3);
-    opacity: 0.6;
-    animation: introGlowPulse 4s ease-in-out infinite;
+  .premium-intro-glow {
+    background: linear-gradient(135deg, rgba(45, 55, 72, 0.9) 0%, rgba(74, 85, 104, 0.8) 50%, rgba(113, 128, 150, 0.9) 100%);
+    box-shadow: 0 0 20px rgba(56, 178, 172, 0.5),
+                0 0 40px rgba(56, 178, 172, 0.3);
+    opacity: 0.8;
+    animation: premiumIntroGlowPulse 5s ease-in-out infinite;
   }
   
   @keyframes shimmerRotate {
@@ -1580,6 +1601,118 @@ section + section {
   }
   
   @keyframes chatGlowPulse {
+    0%, 100% {
+      opacity: 0.3;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+  
+  @keyframes premiumIntroGlowPulse {
+    0% {
+      opacity: 0.6;
+      box-shadow: 0 0 20px rgba(56, 178, 172, 0.3),
+                  0 0 40px rgba(56, 178, 172, 0.1);
+    }
+    50% {
+      opacity: 0.9;
+      box-shadow: 0 0 25px rgba(56, 178, 172, 0.6),
+                  0 0 50px rgba(56, 178, 172, 0.3);
+    }
+    100% {
+      opacity: 0.6;
+      box-shadow: 0 0 20px rgba(56, 178, 172, 0.3),
+                  0 0 40px rgba(56, 178, 172, 0.1);
+    }
+  }
+  
+  /* Logo animations */
+  @keyframes logo-shine {
+    0%, 100% {
+      transform: translateX(-100%);
+    }
+    20%, 80% {
+      transform: translateX(100%);
+    }
+  }
+  
+  .logo-3d-effect {
+    transition: transform 0.5s ease;
+  }
+  
+  .logo-3d-effect:hover {
+    transform: scale(1.08) perspective(800px) rotateY(15deg) !important;
+  }
+  
+  /* Theme toggle button styling */
+  .theme-toggle-button {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .theme-toggle-button:hover {
+    transform: translateY(-2px) scale(1.05);
+  }
+  
+  .shadow-theme-glow {
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.4),
+                0 0 30px rgba(59, 130, 246, 0.2);
+  }
+  
+  .shadow-theme-glow-dark {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.5),
+                0 0 40px rgba(59, 130, 246, 0.2);
+  }
+  
+  .theme-button-pulse {
+    animation: theme-button-pulse 3s infinite ease-in-out;
+  }
+  
+  @keyframes theme-button-pulse {
+    0%, 100% {
+      box-shadow: 0 0 10px rgba(59, 130, 246, 0.2),
+                  0 0 20px rgba(59, 130, 246, 0.1);
+    }
+    50% {
+      box-shadow: 0 0 15px rgba(59, 130, 246, 0.5),
+                  0 0 30px rgba(59, 130, 246, 0.3);
+    }
+  }
+  
+  .theme-icon-container {
+    transition: transform 0.3s ease;
+  }
+  
+  .theme-toggle-button:hover .theme-icon-container {
+    transform: rotate(15deg);
+  }
+  
+  .theme-icon {
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+  
+  .theme-toggle-button:hover .theme-icon {
+    transform: scale(1.2);
+  }
+  
+  .animate-shimmer-slow {
+    animation: shimmerSlow 3s linear infinite;
+  }
+  
+  @keyframes shimmerSlow {
+    from {
+      background-position: 200% 0;
+    }
+    to {
+      background-position: -200% 0;
+    }
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  @keyframes pulse-slow {
     0%, 100% {
       opacity: 0.3;
     }

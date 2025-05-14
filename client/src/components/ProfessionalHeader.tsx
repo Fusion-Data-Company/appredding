@@ -106,38 +106,48 @@ const ProfessionalHeader = () => {
       <div className="absolute inset-0 bg-[url('/src/assets_dir/images/noise.svg')] opacity-[0.04] bg-repeat bg-[length:200px_200px] mix-blend-overlay pointer-events-none animate-subtle-pulse"></div>
 
       {/* Praetorian logo positioned at far left edge */}
-      <Link href="/" className="absolute left-0 top-0 h-full flex items-center z-50 transition-transform duration-300 hover:scale-105" style={{ zIndex: 2147483647 }}>
+      <Link href="/" className="absolute left-0 top-0 h-full flex items-center z-50 transition-transform duration-300 hover:scale-[1.03]" style={{ zIndex: 2147483647 }}>
         <div className="relative">
-          {/* Subtle glow effect behind the logo - enhanced for shield logo */}
-          <div className="absolute inset-0 rounded-md bg-gradient-to-br from-blue-900/20 via-orange-700/15 to-red-600/20 blur-md -z-10 scale-100 translate-x-[45px] translate-y-[5px]"></div>
+          {/* Enhanced glow effect behind the logo with multiple colors */}
+          <div className="absolute -inset-1 rounded-md bg-gradient-to-br from-blue-900/30 via-amber-600/20 to-red-600/30 blur-xl -z-10 scale-110 translate-x-[45px] translate-y-[5px] animate-pulse-slow"></div>
+          <div className="absolute -inset-2 rounded-md bg-gradient-to-tr from-blue-700/10 via-amber-500/15 to-red-700/20 blur-lg -z-10 scale-105 translate-x-[40px] translate-y-[8px]"></div>
+          
           <div className="relative">
-            <div className="relative">
+            <div className="relative logo-container">
               <img 
                 src={praetorianLogo} 
                 alt="Praetorian SmartCoat" 
-                className="h-[100px] w-auto relative cursor-pointer"
+                className="h-[110px] w-auto relative cursor-pointer logo-3d-effect"
                 style={{ 
-                  filter: 'drop-shadow(0 3px 5px rgba(0, 0, 0, 0.5))',
-                  transform: 'scale(1.02)',
+                  filter: 'drop-shadow(0 4px 6px rgba(0, 0, 0, 0.6))',
+                  transform: 'scale(1.05) perspective(800px) rotateY(5deg)',
                   transformStyle: 'preserve-3d',
-                  marginLeft: '60px', /* increase from half inch to 0.75 inch */
-                  marginTop: '-16px', /* moved up 24px (0.25in) from 8px */
+                  marginLeft: '60px',
+                  marginTop: '-16px',
                   position: 'relative',
                   zIndex: 2147483647
                 }}
               />
-              {/* Add shine/reflection effect for shield logo */}
+              
+              {/* Enhanced metallic shine effect */}
               <div 
-                className="absolute inset-0 opacity-50 pointer-events-none" 
+                className="absolute inset-0 opacity-60 pointer-events-none" 
                 style={{ 
-                  background: 'linear-gradient(105deg, transparent 20%, rgba(255, 255, 255, 0.3) 35%, rgba(255, 255, 255, 0.1) 45%, transparent 65%)',
-                  animation: 'shine 4s infinite ease-in-out',
+                  background: 'linear-gradient(105deg, transparent 20%, rgba(255, 255, 255, 0.4) 35%, rgba(255, 255, 255, 0.2) 45%, transparent 65%)',
+                  animation: 'logo-shine 6s infinite ease-in-out',
                   mixBlendMode: 'overlay'
                 }}
               />
+              
+              {/* Additional subtle golden rim highlight */}
+              <div 
+                className="absolute inset-0 opacity-40 pointer-events-none" 
+                style={{ 
+                  background: 'radial-gradient(circle at 60% 35%, rgba(255, 215, 0, 0.3), transparent 60%)',
+                  mixBlendMode: 'color-dodge'
+                }}
+              />
             </div>
-            
-
           </div>
         </div>
       </Link>
@@ -155,27 +165,36 @@ const ProfessionalHeader = () => {
           <Button 
             variant="ghost" 
             size="icon" 
-            className="rounded-sm bg-gradient-to-br from-blue-100 to-indigo-200 dark:from-blue-900/60 dark:to-indigo-950/60
-            text-blue-800 dark:text-blue-200 border border-blue-400/30 dark:border-blue-700/30 shadow-metal
-            hover:shadow-glow-cyan hover:border-blue-500/30 dark:hover:border-blue-600/40 transition-all duration-300 relative overflow-hidden"
+            className="theme-toggle-button rounded-md bg-gradient-to-br from-slate-300 via-slate-100 to-slate-200 dark:from-slate-800 dark:via-slate-900 dark:to-slate-800
+            text-slate-700 dark:text-slate-200 border border-slate-400/30 dark:border-blue-700/40 shadow-lg
+            hover:shadow-theme-glow dark:hover:shadow-theme-glow-dark hover:border-blue-500/40 dark:hover:border-blue-500/50 
+            transition-all duration-300 relative overflow-hidden h-10 w-10"
             onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
           >
-            {/* Shimmer overlay */}
-            <div className="absolute inset-0 rounded-sm opacity-0 hover:opacity-100 bg-gradient-to-r from-transparent via-blue-100/30 to-transparent dark:via-blue-500/20 animate-shimmer transition-opacity duration-300" />
+            {/* Premium metallic inner ring */}
+            <div className="absolute inset-[2px] rounded-[5px] border border-slate-400/20 dark:border-slate-600/30 bg-gradient-to-br from-slate-200 to-slate-300 dark:from-slate-700 dark:to-slate-800 pointer-events-none" />
             
-            {/* Button gradient hover effect - moved 3 inches to the right */}
+            {/* Interactive shimmer overlay */}
+            <div className="absolute inset-0 rounded-md opacity-0 hover:opacity-100 bg-gradient-to-r from-transparent via-blue-200/40 to-transparent dark:via-blue-400/30 animate-shimmer-slow transition-opacity duration-300" />
+            
+            {/* Enhanced glow pulse */}
+            <div className="absolute inset-0 rounded-md opacity-0 hover:opacity-100 theme-button-pulse pointer-events-none" />
+            
+            {/* Button hover effect with 3D transform */}
             <div 
-              className="absolute inset-0 rounded-sm opacity-0 hover:opacity-100 bg-gradient-to-t from-blue-300/20 to-white/10 dark:from-blue-700/30 dark:to-blue-800/20 transition-opacity duration-300" 
-              style={{ transform: 'translateX(3in)' }}
+              className="absolute inset-0 rounded-md opacity-0 hover:opacity-100 bg-gradient-to-t from-blue-300/30 to-white/20 dark:from-blue-500/40 dark:to-blue-800/20 transition-opacity duration-300 hover:scale-105" 
             />
             
-            {mounted && (
-              theme === 'dark' ? (
-                <Sun className="h-5 w-5 text-gray-100 relative z-10" />
-              ) : (
-                <Moon className="h-5 w-5 text-gray-800 relative z-10" />
-              )
-            )}
+            {/* Icon container with 3D effect */}
+            <div className="relative z-10 flex items-center justify-center h-full w-full theme-icon-container">
+              {mounted && (
+                theme === 'dark' ? (
+                  <Sun className="h-5 w-5 text-amber-100 relative z-10 theme-icon" />
+                ) : (
+                  <Moon className="h-5 w-5 text-slate-700 relative z-10 theme-icon" />
+                )
+              )}
+            </div>
           </Button>
         </div>
 
