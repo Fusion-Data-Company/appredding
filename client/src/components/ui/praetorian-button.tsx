@@ -8,13 +8,13 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        fire: "bg-gradient-to-r from-fire-500 via-fire-600 to-fire-700 text-white hover:shadow-[0_0_15px_rgba(255,106,0,0.5)] border border-fire-700/50 disabled:from-fire-400 disabled:to-fire-500 disabled:hover:shadow-none",
-        water: "bg-gradient-to-r from-water-500 via-water-600 to-water-700 text-white hover:shadow-[0_0_15px_rgba(0,238,255,0.5)] border border-water-700/50 disabled:from-water-400 disabled:to-water-500 disabled:hover:shadow-none",
-        metal: "bg-gradient-to-r from-gray-700 via-gray-600 to-gray-800 text-white hover:shadow-[0_0_15px_rgba(100,100,100,0.5)] border border-gray-600/50 disabled:from-gray-500 disabled:to-gray-600 disabled:hover:shadow-none",
-        ghost: "bg-transparent border border-gray-600 hover:border-white/80 text-white hover:bg-white/10",
-        subtle: "bg-gray-800/40 hover:bg-gray-800/60 text-gray-200 hover:text-white border border-gray-700/50",
-        destructive: "bg-gradient-to-r from-red-600 to-red-700 text-white hover:shadow-[0_0_15px_rgba(220,38,38,0.5)] border border-red-700/50",
-        premium: "bg-gradient-to-r from-amber-500 to-yellow-500 text-gray-900 font-bold hover:shadow-[0_0_15px_rgba(251,191,36,0.6)] border border-amber-400",
+        fire: "bg-black text-white hover:shadow-[0_0_15px_rgba(255,106,0,0.5)] border-2 border-orange-500 disabled:opacity-50 disabled:hover:shadow-none",
+        water: "bg-black text-white hover:shadow-[0_0_15px_rgba(0,238,255,0.5)] border-2 border-blue-500 disabled:opacity-50 disabled:hover:shadow-none",
+        metal: "bg-black text-white hover:shadow-[0_0_15px_rgba(100,100,100,0.5)] border-2 border-gray-500 disabled:opacity-50 disabled:hover:shadow-none",
+        ghost: "bg-transparent border-2 border-gray-600 hover:border-white/80 text-white hover:bg-white/10",
+        subtle: "bg-gray-900 hover:bg-black text-gray-200 hover:text-white border-2 border-gray-700/50",
+        destructive: "bg-black text-white hover:shadow-[0_0_15px_rgba(220,38,38,0.5)] border-2 border-red-500 disabled:opacity-50 disabled:hover:shadow-none",
+        premium: "bg-black text-white font-bold hover:shadow-[0_0_15px_rgba(251,191,36,0.6)] border-2 border-orange-500",
       },
       size: {
         sm: "h-8 px-3 text-xs rounded-md",
@@ -105,9 +105,39 @@ export const PraetorianButton = ({
             <div className="absolute -inset-[400%] animate-[shine_4s_ease-in-out_infinite] bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
           </div>
         )}
+        
+        {/* Sophisticated reflection effects with multiple non-synchronized animations */}
+        <div className="absolute inset-0 overflow-hidden rounded-md opacity-0 group-hover:opacity-100">
+          {/* Primary diagonal shine */}
+          <div 
+            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent" 
+            style={{ 
+              clipPath: 'polygon(0 0, 40% 0, 30% 100%, 0 100%)',
+              animation: 'reflectLeft 2.5s ease-in-out infinite',
+            }}
+          ></div>
+          
+          {/* Secondary vertical shine */}
+          <div 
+            className="absolute inset-0 bg-gradient-to-t from-transparent via-white/15 to-transparent" 
+            style={{ 
+              clipPath: 'polygon(70% 0, 85% 0, 85% 100%, 60% 100%)',
+              animation: 'reflectTop 3.2s ease-in-out 0.7s infinite',
+            }}
+          ></div>
+        </div>
+        
+        {/* Border glow animation for fire variant */}
+        {variant === "fire" && (
+          <div className="absolute inset-0 rounded-md border border-orange-500/60 opacity-0 group-hover:opacity-100" 
+            style={{ 
+              animation: 'borderPulse 2s ease-in-out infinite',
+            }}
+          ></div>
+        )}
 
         {variant === "premium" && (
-          <div className="absolute -inset-px rounded-md bg-gradient-to-r from-amber-300 via-yellow-300 to-amber-300 opacity-30 blur-sm"></div>
+          <div className="absolute -inset-px rounded-md bg-gradient-to-r from-orange-500 via-amber-500 to-orange-500 opacity-30 blur-sm"></div>
         )}
       </a>
     );
@@ -137,10 +167,40 @@ export const PraetorianButton = ({
           <div className="absolute -inset-[400%] animate-[shine_4s_ease-in-out_infinite] bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
         </div>
       )}
+      
+      {/* Sophisticated reflection effects with multiple non-synchronized animations */}
+      <div className="absolute inset-0 overflow-hidden rounded-md opacity-0 group-hover:opacity-100">
+        {/* Primary diagonal shine */}
+        <div 
+          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent" 
+          style={{ 
+            clipPath: 'polygon(0 0, 40% 0, 30% 100%, 0 100%)',
+            animation: 'reflectLeft 2.5s ease-in-out infinite',
+          }}
+        ></div>
+        
+        {/* Secondary vertical shine */}
+        <div 
+          className="absolute inset-0 bg-gradient-to-t from-transparent via-white/15 to-transparent" 
+          style={{ 
+            clipPath: 'polygon(70% 0, 85% 0, 85% 100%, 60% 100%)',
+            animation: 'reflectTop 3.2s ease-in-out 0.7s infinite',
+          }}
+        ></div>
+      </div>
+      
+      {/* Border glow animation for fire variant */}
+      {variant === "fire" && (
+        <div className="absolute inset-0 rounded-md border border-orange-500/60 opacity-0 group-hover:opacity-100" 
+          style={{ 
+            animation: 'borderPulse 2s ease-in-out infinite',
+          }}
+        ></div>
+      )}
 
       {/* Highlight edge effect for premium buttons */}
       {variant === "premium" && (
-        <div className="absolute -inset-px rounded-md bg-gradient-to-r from-amber-300 via-yellow-300 to-amber-300 opacity-30 blur-sm"></div>
+        <div className="absolute -inset-px rounded-md bg-gradient-to-r from-orange-500 via-amber-500 to-orange-500 opacity-30 blur-sm"></div>
       )}
     </button>
   );

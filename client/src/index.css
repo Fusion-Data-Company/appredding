@@ -133,6 +133,55 @@ section + section {
     }
   }
   
+  /* Advanced enterprise-level button reflection effects */
+  @keyframes reflectLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+    25% {
+      opacity: 0.3;
+    }
+    50% {
+      opacity: 0.15;
+      transform: translateX(100%);
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+  }
+
+  @keyframes reflectTop {
+    0% {
+      opacity: 0;
+      transform: translateY(-100%);
+    }
+    30% {
+      opacity: 0.2;
+    }
+    60% {
+      opacity: 0.1;
+      transform: translateY(100%);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(100%);
+    }
+  }
+  
+  @keyframes borderPulse {
+    0% {
+      box-shadow: 0 0 0px rgba(249, 115, 22, 0);
+    }
+    50% {
+      box-shadow: 0 0 8px rgba(249, 115, 22, 0.6);
+    }
+    100% {
+      box-shadow: 0 0 0px rgba(249, 115, 22, 0);
+    }
+  }
+  
   .shimmer-text {
     background: linear-gradient(
       to right,
