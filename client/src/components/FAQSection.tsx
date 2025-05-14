@@ -47,66 +47,104 @@ const FAQSection = ({ faqs }: FAQProps) => {
       <div className="absolute bottom-1/3 right-1/4 w-96 h-96 rounded-full bg-blue-500/5 filter blur-[120px] animate-pulse-slow-delayed" style={{ zIndex: 1 }}></div>
       
       <div className="container mx-auto px-4 relative z-10">
-        {/* Premium Enterprise Section Header */}
-        <div className="text-center mb-20">
-          {/* Advanced premium enterprise heading container with enhanced effects */}
-          <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/98 to-gray-900/95 backdrop-blur-xl rounded-xl py-10 px-8 md:py-12 md:px-16 mx-auto max-w-4xl mb-8 inline-block shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7)]">
-            {/* Enhanced premium dual-layer gradient border effect */}
-            <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/60 via-amber-500/30 to-blue-500/60 opacity-80"></div>
-            <div className="absolute inset-[1px] p-0.5 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-30 pointer-events-none"></div>
+        {/* Premium card header styling matching Specialized Applications */}
+        <div className="relative mb-20">
+          {/* Atmospheric background glow */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-4xl">
+            <div className="absolute -top-20 left-[10%] w-48 h-48 bg-orange-500/10 rounded-full filter blur-[80px]"></div>
+            <div className="absolute -bottom-20 right-[10%] w-72 h-72 bg-orange-600/10 rounded-full filter blur-[100px]"></div>
+          </div>
+          
+          {/* Card container */}
+          <div className="relative mx-auto max-w-4xl bg-gradient-to-b from-gray-900/80 to-black/90 rounded-2xl overflow-hidden">
+            {/* Premium gradient border */}
+            <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-orange-500/20 via-amber-500/20 to-orange-500/20 blur-[2px]"></div>
             
-            {/* Corner accent decorations for premium enterprise feel */}
-            <div className="absolute top-0 right-0 w-32 h-32 opacity-20">
-              <div className="absolute inset-0 bg-gradient-to-bl from-orange-500/40 to-blue-500/40 rounded-tr-xl blur-[2px]"></div>
-            </div>
-            <div className="absolute bottom-0 left-0 w-32 h-32 opacity-20">
-              <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/40 to-orange-500/40 rounded-bl-xl blur-[2px]"></div>
-            </div>
+            {/* Inner border glow */}
+            <div className="absolute inset-[1px] rounded-xl border border-orange-500/30 bg-black/50 z-0"></div>
             
-            {/* Premium badge with consistent styling */}
-            <div className="absolute -top-5 left-1/2 -translate-x-1/2 flex">
-              <div className="px-3 py-1.5 rounded-full border border-amber-300 dark:border-amber-700 bg-amber-100/50 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300 inline-flex items-center shadow-[0_0_10px_rgba(251,113,36,0.3)]">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-2 text-amber-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <line x1="12" y1="16" x2="12" y2="12"></line>
-                  <line x1="12" y1="8" x2="12.01" y2="8"></line>
-                </svg>
-                <span className="text-sm font-medium">Frequently Asked</span>
-              </div>
+            {/* Top glossy reflection */}
+            <div className="absolute top-0 left-0 right-0 h-[30%] bg-gradient-to-b from-white/5 to-transparent rounded-t-xl"></div>
+            
+            {/* Corner accent squares - TOP RIGHT */}
+            <div className="absolute top-4 right-4 w-12 h-12 z-10">
+              <div className="absolute right-0 top-0 w-6 h-6 border-r-2 border-t-2 border-orange-500/40 rounded-tr-md"></div>
+              <div className="absolute right-1 top-1 w-8 h-8 border-r border-t border-amber-500/30 rounded-tr-md"></div>
+              <div className="absolute right-2 top-2 w-4 h-4 bg-gradient-to-br from-orange-500/30 to-amber-500/5 rounded-tr-sm filter blur-[1px]"></div>
             </div>
             
-            {/* Advanced content with enhanced styling */}
-            <div className="relative z-10 mt-2">
-              {/* Advanced premium heading with multiple decorative elements */}
-              <div className="relative inline-block mb-5">
-                {/* Decorative dots */}
-                <div className="absolute -left-12 top-1/2 -translate-y-1/2 flex items-center space-x-1.5">
-                  <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-orange-500 to-red-500"></div>
-                  <div className="w-1 h-1 rounded-full bg-gradient-to-r from-amber-500 to-orange-500"></div>
-                </div>
-                <div className="absolute -right-12 top-1/2 -translate-y-1/2 flex items-center space-x-1.5">
-                  <div className="w-1 h-1 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500"></div>
-                  <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-orange-500 to-blue-500"></div>
-                </div>
-                
-                {/* Advanced premium gradient heading */}
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-300 to-blue-400 relative">
-                  Frequently Asked Questions
-                </h2>
-                
-                {/* Animated decorative line below heading */}
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-32 h-0.5 bg-gradient-to-r from-orange-500 via-amber-400 to-blue-500 rounded-full mt-2"></div>
+            {/* Corner accent squares - TOP LEFT */}
+            <div className="absolute top-4 left-4 w-12 h-12 z-10">
+              <div className="absolute left-0 top-0 w-6 h-6 border-l-2 border-t-2 border-orange-500/40 rounded-tl-md"></div>
+              <div className="absolute left-1 top-1 w-8 h-8 border-l border-t border-amber-500/30 rounded-tl-md"></div>
+              <div className="absolute left-2 top-2 w-4 h-4 bg-gradient-to-bl from-orange-500/30 to-amber-500/5 rounded-tl-sm filter blur-[1px]"></div>
+            </div>
+            
+            {/* Corner accent squares - BOTTOM RIGHT */}
+            <div className="absolute bottom-4 right-4 w-12 h-12 z-10">
+              <div className="absolute right-0 bottom-0 w-6 h-6 border-r-2 border-b-2 border-orange-500/40 rounded-br-md"></div>
+              <div className="absolute right-1 bottom-1 w-8 h-8 border-r border-b border-amber-500/30 rounded-br-md"></div>
+              <div className="absolute right-2 bottom-2 w-4 h-4 bg-gradient-to-tr from-orange-500/30 to-amber-500/5 rounded-br-sm filter blur-[1px]"></div>
+            </div>
+            
+            {/* Corner accent squares - BOTTOM LEFT */}
+            <div className="absolute bottom-4 left-4 w-12 h-12 z-10">
+              <div className="absolute left-0 bottom-0 w-6 h-6 border-l-2 border-b-2 border-orange-500/40 rounded-bl-md"></div>
+              <div className="absolute left-1 bottom-1 w-8 h-8 border-l border-b border-amber-500/30 rounded-bl-md"></div>
+              <div className="absolute left-2 bottom-2 w-4 h-4 bg-gradient-to-bl from-orange-500/30 to-amber-500/5 rounded-bl-sm filter blur-[1px]"></div>
+            </div>
+            
+            {/* Content container with proper spacing */}
+            <div className="relative z-20 px-8 py-12 md:px-12 md:py-16 text-center">            
+              {/* Background blur text */}
+              <div className="absolute inset-0 flex justify-center items-center text-5xl font-bold tracking-tight text-orange-900/10 blur-[5px] scale-110 pointer-events-none">
+                Frequently Asked Questions
               </div>
               
-              {/* Enhanced description with premium styling */}
-              <p className="text-gray-300 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+              {/* Main text with premium gradient */}
+              <h2 className="text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-amber-500 to-red-500
+                drop-shadow-[0_0px_1px_rgba(251,113,36,0.2)] 
+                [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(251,146,60,0.3)]
+                text-4xl md:text-5xl font-bold relative z-30 mb-6">
+                Frequently Asked Questions
+              </h2>
+              
+              {/* Multiple text shadows for depth - reduced blur effects */}
+              <div className="absolute inset-0 flex items-center justify-center text-5xl font-bold tracking-tight opacity-10 blur-[3px] text-orange-700/30 z-10 transform scale-105 pointer-events-none">
+                Frequently Asked Questions
+              </div>
+              <div className="absolute inset-0 flex items-center justify-center text-5xl font-bold tracking-tight opacity-20 blur-[1px] text-red-900/20 z-10 pointer-events-none">
+                Frequently Asked Questions
+              </div>
+              
+              {/* Subtitle with enhanced styling */}
+              <p className="text-gray-300 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed relative z-30 mt-6">
                 Find answers to common questions about our protective coating products and services.
               </p>
               
-              {/* Premium decorative accent line */}
-              <div className="w-24 h-1 mx-auto mt-6 relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-orange-500/50 via-amber-500/50 to-blue-500/50 rounded-full"></div>
-                <div className="absolute inset-0 bg-gradient-to-r from-orange-500/50 via-amber-500/50 to-blue-500/50 rounded-full blur-[2px]"></div>
+              {/* Decorative accent line */}
+              <div className="absolute left-[8%] bottom-6 transform group w-14 h-2.5 rounded-full overflow-hidden z-50 transition-all duration-700 hover:w-72">
+                {/* Base gradient */}
+                <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-amber-500 to-red-600"></div>
+                
+                {/* Glow effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-amber-500 to-red-600 blur-md opacity-70"></div>
+                
+                {/* Pulsing dots */}
+                <div className="absolute h-full w-4 bg-white/80 right-4 rounded-full blur-[1px] animate-pulse-slow"></div>
+                <div className="absolute h-full w-3 bg-white/80 right-24 rounded-full blur-[1px] animate-pulse-slow-delayed opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
+              </div>
+              
+              {/* Premium badge with consistent styling */}
+              <div className="absolute -top-5 left-1/2 -translate-x-1/2 flex z-30">
+                <div className="px-3 py-1.5 rounded-full border border-amber-300 dark:border-amber-700 bg-amber-100/50 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300 inline-flex items-center shadow-[0_0_10px_rgba(251,113,36,0.3)]">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-2 text-amber-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="16" x2="12" y2="12"></line>
+                    <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                  </svg>
+                  <span className="text-sm font-medium">Frequently Asked</span>
+                </div>
               </div>
             </div>
           </div>
