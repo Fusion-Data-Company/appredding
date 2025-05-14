@@ -231,10 +231,11 @@ const ApplicationsSection = () => {
                     Specialized Applications
                   </div>
                   
-                  {/* Main text with premium gradient */}
+                  {/* Main text with premium gradient - moved up 0.25 inch */}
                   <span className="relative text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-amber-500 to-red-500
                     drop-shadow-[0_0px_3px_rgba(251,113,36,0.4)] 
-                    [text-shadow:0_1px_2px_rgba(0,0,0,0.25),0_2px_15px_rgba(251,146,60,0.5)]">
+                    [text-shadow:0_1px_2px_rgba(0,0,0,0.25),0_2px_15px_rgba(251,146,60,0.5)]
+                    transform -translate-y-[0.25in]">
                     Specialized Applications
                   </span>
                   
