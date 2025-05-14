@@ -219,7 +219,7 @@ const ChatWidget = () => {
   const messages = currentSession?.messages || [];
   
   return (
-    <div className="fixed bottom-4 right-4 z-50 flex flex-col items-end">
+    <div className="fixed bottom-4 right-4 z-[9999] flex flex-col items-end">
       {/* Main Chat Widget */}
       {isOpen && (
         <Card className="w-[500px] h-[650px] mb-4 shadow-[0_0_40px_rgba(255,255,255,0.25)] dark:bg-gray-900/90 backdrop-blur-lg flex flex-col overflow-hidden animate-in slide-in-from-bottom-10 duration-300 border-2 dark:border-gray-700/70">
@@ -439,7 +439,7 @@ const ChatWidget = () => {
       <Button
         onClick={toggleWidget}
         size="icon"
-        className="h-16 w-16 rounded-full dark:bg-gradient-to-br dark:from-gray-800 dark:via-gray-700 dark:to-gray-900 bg-gradient-to-br from-gray-100 via-white to-gray-200 dark:shadow-[0_0_10px_rgba(59,130,246,0.2)] shadow-[0_0_5px_rgba(0,0,0,0.1)] border border-gray-200/30 dark:border-blue-600/30 flex items-center justify-center transition-all hover:scale-110 group"
+        className="h-16 w-16 rounded-full dark:bg-gradient-to-br dark:from-gray-800 dark:via-gray-700 dark:to-gray-900 bg-gradient-to-br from-gray-100 via-white to-gray-200 dark:shadow-[0_0_10px_rgba(59,130,246,0.2)] shadow-[0_0_5px_rgba(0,0,0,0.1)] border border-gray-200/30 dark:border-blue-600/30 flex items-center justify-center transition-all hover:scale-110 group z-[9999] fixed"
       >
         <MessageSquare className="h-8 w-8 dark:text-blue-400 text-blue-600 group-hover:text-blue-500 dark:group-hover:text-blue-300 transition-colors" />
       </Button>
