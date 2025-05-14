@@ -396,11 +396,11 @@ const ContactSection = () => {
                   </div>
                 </div>
                 
-                {/* Connect With Us heading moved up */}
-                <h4 className="font-bold text-lg mt-[-5rem] mb-0 bg-clip-text text-transparent bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 inline-block">Connect With Us:</h4>
+                {/* Connect With Us heading with adjusted position */}
+                <h4 className="font-bold text-lg mt-[-3rem] mb-0 bg-clip-text text-transparent bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 inline-block">Connect With Us:</h4>
                 
                 {/* Social icons separated from the heading */}
-                <div className="mt-10 pt-6 border-t border-gray-800/30">
+                <div className="mt-14 pt-6 border-t border-gray-800/30"> {/* Increased margin from mt-10 to mt-14 for 1/2 inch */}
                   <div className="flex space-x-6 inline-flex">
                     <a 
                       href="https://facebook.com/praetoriansmartcoat" 
