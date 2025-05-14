@@ -282,36 +282,10 @@ const IndustryApplications = () => {
           {/* Elite Enterprise CTA Button - Moved to top position */}
           <div className="mb-6 mt-4">
             <Link href="/products">
-              <div className="relative group inline-block transform transition-all duration-700 hover:scale-105">
-                {/* Layered gradient glow effects */}
-                <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/40 via-red-600/40 to-amber-600/40 rounded-xl blur-xl opacity-70 group-hover:opacity-100 group-hover:blur-xl transition-all duration-1000 animate-pulse-slow"></div>
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/80 via-amber-500/80 to-red-500/80 rounded-xl blur-md opacity-90 group-hover:opacity-100 transition-all duration-500"></div>
-                
-                {/* Main button with premium border and styling */}
-                <button className="relative px-8 py-4 bg-gradient-to-br from-gray-900 via-gray-950 to-black text-white font-bold text-xl rounded-xl flex items-center gap-3 transform transition-all duration-500 overflow-hidden">
-                  {/* Inner border glow */}
-                  <div className="absolute inset-px rounded-[10px] border border-orange-400/30 pointer-events-none"></div>
-                  
-                  {/* Icon with specialized glow */}
-                  <div className="relative">
-                    <div className="absolute inset-0 bg-orange-500/30 blur-md rounded-full opacity-80 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    <ShoppingCart size={24} className="text-white relative z-10 animate-subtle-bounce" />
-                  </div>
-                  
-                  {/* Button text with subtle text shadow */}
-                  <span className="drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
-                    Get Praetorian Smart-Coat NOW!
-                  </span>
-                  
-                  {/* Enhanced Shimmer effect animation - always active */}
-                  <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-30 -translate-x-full animate-shimmer-slow transform"></div>
-                  
-                  {/* Additional hover shimmer effect */}
-                  <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 -translate-x-full group-hover:translate-x-full transform transition-transform duration-1000"></div>
-                </button>
-                
-                {/* Bottom reflection */}
-                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-4/5 h-[1px] bg-gradient-to-r from-transparent via-orange-500/40 to-transparent rounded-full"></div>
+              <div className="transform transition-all duration-700 hover:scale-105">
+                <PremiumCartButton size="xl" className="text-xl font-bold">
+                  Get Praetorian Smart-Coat NOW!
+                </PremiumCartButton>
               </div>
             </Link>
           </div>
