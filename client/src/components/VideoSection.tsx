@@ -7,6 +7,8 @@ import { GradientButton } from "@/components/ui/gradient-button";
 import productDemoVideo from "../assets_dir/videos/product-demo.mp4";
 // Import the hero image to use as background
 import { PRAETORIAN_HERO_IMAGE } from "../assets_dir/imageExports";
+// Import the Praetorian logo with fire background
+import praetorianLogoFire from "../assets_dir/images/praetorian-logo-fire.png";
 
 interface Video {
   id: string;
@@ -277,10 +279,14 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
                 <div className="absolute inset-[1px] p-0.5 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-30 pointer-events-none"></div>
                 
                 <div className="text-center">
-                  <div className="inline-flex items-center justify-center w-20 h-20 mb-6 relative">
-                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-orange-600 to-red-600 opacity-20 animate-pulse"></div>
-                    <div className="absolute inset-2 rounded-full bg-gradient-to-r from-orange-500 to-red-500"></div>
-                    <Play className="h-10 w-10 text-white relative z-10" />
+                  {/* Praetorian Logo with Fire/Blue Background */}
+                  <div className="w-full max-w-md mx-auto mb-6 relative">
+                    <img 
+                      src={praetorianLogoFire} 
+                      alt="Praetorian SmartCoat" 
+                      className="w-full h-auto object-contain"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-gray-950/30 pointer-events-none"></div>
                   </div>
                   <GradientHeading level={3} className="text-2xl mb-3" variant="fire">No Videos Available</GradientHeading>
                   <p className="text-gray-300 max-w-md text-lg">
