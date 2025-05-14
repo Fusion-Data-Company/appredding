@@ -7,8 +7,8 @@ const FeatureCard = ({ icon, title, description, index }: { icon: string; title:
   const variant = variants[index % variants.length] as "fire" | "blue" | "mixed";
   
   return (
-    <div className="bg-gradient-to-r from-gray-800/90 to-gray-700/90 backdrop-blur-md rounded-lg p-8 md:p-10 text-center transform transition-all hover:-translate-y-2 hover:scale-105 border-4 border-gray-600/40 shadow-[0_0_40px_rgba(255,255,255,0.25)] h-full flex flex-col justify-between">
-      <div className="inline-flex items-center justify-center w-16 h-16 md:w-20 md:h-20 mb-6 bg-gradient-to-r from-gray-700 to-gray-600 rounded-full shadow-[0_0_15px_rgba(255,255,255,0.25)]">
+    <div className="bg-gradient-to-r from-gray-800/90 to-gray-700/90 backdrop-blur-md rounded-lg p-8 md:p-10 text-center transform transition-all hover:-translate-y-2 hover:scale-105 border-0 premium-gradient-border shadow-[0_0_40px_rgba(255,255,255,0.25)] h-full flex flex-col justify-between">
+      <div className="inline-flex items-center justify-center w-16 h-16 md:w-20 md:h-20 mb-6 bg-gradient-to-r from-amber-700 to-orange-600 rounded-full shadow-[0_0_15px_rgba(251,113,36,0.6)]">
         <i className={`${icon} text-white text-4xl`}></i>
       </div>
       <GradientHeading level={3} className="text-xl md:text-2xl mb-4" variant={variant}>{title}</GradientHeading>
@@ -71,7 +71,7 @@ const FeaturesSection = () => {
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/70 to-black/70" style={{ zIndex: 1 }}></div>
       <div className="container mx-auto px-4 relative" style={{ zIndex: 2 }}>
         <div className="text-center mb-16 md:mb-20">
-          <div className="bg-gray-800/60 backdrop-blur-xl rounded-xl border-4 border-gray-600/40 shadow-[0_0_40px_rgba(255,255,255,0.25)] py-8 px-6 md:py-10 md:px-12 mx-auto max-w-4xl mb-8 inline-block">
+          <div className="bg-gray-800/60 backdrop-blur-xl rounded-xl border-0 premium-gradient-border shadow-[0_0_40px_rgba(255,255,255,0.25)] py-8 px-6 md:py-10 md:px-12 mx-auto max-w-4xl mb-8 inline-block">
             <GradientHeading level={2} className="text-3xl md:text-4xl mb-4" variant="mixed">NASA-Derived Ceramic Technology</GradientHeading>
             <p className="text-gray-300 max-w-2xl mx-auto">
               Praetorian SmartCoat represents a fundamental shift in temperature control and fire protection, utilizing space-age ceramic microsphere technology that creates a comprehensive thermal barrier addressing all three heat transfer mechanisms simultaneously.

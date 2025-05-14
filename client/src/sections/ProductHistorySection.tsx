@@ -58,7 +58,7 @@ const ProductHistorySection = () => {
             </GradientButton>
           </div>
           
-          <div className="bg-gradient-to-r from-gray-800/90 to-gray-700/90 rounded-lg overflow-hidden border-4 border-gray-600/40 shadow-[0_0_40px_rgba(255,255,255,0.3)] transform hover:scale-[1.02] transition-transform duration-300">
+          <div className="bg-gradient-to-r from-gray-800/90 to-gray-700/90 rounded-lg overflow-hidden border-0 premium-gradient-border shadow-[0_0_40px_rgba(255,255,255,0.3)] transform hover:scale-[1.02] transition-transform duration-300">
             <div className="p-8 border-b-2 border-gray-600/40">
               <h3 className="text-2xl md:text-3xl font-bold">
                 <GradientText variant="blue" className="drop-shadow-[0_2px_4px_rgba(59,130,246,0.3)]">
@@ -69,9 +69,9 @@ const ProductHistorySection = () => {
             </div>
             <div className="p-8 space-y-8">
               <div className="relative pl-10 border-l-3 border-gray-600/40 pb-10">
-                <div className="absolute -left-3 top-0 w-6 h-6 rounded-full bg-gradient-to-r from-gray-700 to-gray-600 shadow-[0_0_8px_rgba(255,255,255,0.25)]"></div>
+                <div className="absolute -left-3 top-0 w-6 h-6 rounded-full bg-gradient-to-r from-amber-600 to-orange-700 shadow-[0_0_12px_rgba(251,113,36,0.6)]"></div>
                 <div className="font-bold text-xl">
-                  <GradientText variant="blue" className="drop-shadow-[0_1px_2px_rgba(59,130,246,0.3)]">
+                  <GradientText variant="fire" className="drop-shadow-[0_1px_2px_rgba(251,113,36,0.5)]">
                     1989
                   </GradientText>
                 </div>
@@ -82,9 +82,9 @@ const ProductHistorySection = () => {
               </div>
               
               <div className="relative pl-10 border-l-3 border-gray-600/40 pb-10">
-                <div className="absolute -left-3 top-0 w-6 h-6 rounded-full bg-gradient-to-r from-gray-700 to-gray-600 shadow-[0_0_8px_rgba(255,255,255,0.25)]"></div>
+                <div className="absolute -left-3 top-0 w-6 h-6 rounded-full bg-gradient-to-r from-amber-600 to-orange-700 shadow-[0_0_12px_rgba(251,113,36,0.6)]"></div>
                 <div className="font-bold text-xl">
-                  <GradientText variant="blue" className="drop-shadow-[0_1px_2px_rgba(59,130,246,0.3)]">
+                  <GradientText variant="fire" className="drop-shadow-[0_1px_2px_rgba(251,113,36,0.5)]">
                     1995
                   </GradientText>
                 </div>
@@ -95,9 +95,9 @@ const ProductHistorySection = () => {
               </div>
               
               <div className="relative pl-10 border-l-3 border-gray-600/40 pb-10">
-                <div className="absolute -left-3 top-0 w-6 h-6 rounded-full bg-gradient-to-r from-gray-700 to-gray-600 shadow-[0_0_8px_rgba(255,255,255,0.25)]"></div>
+                <div className="absolute -left-3 top-0 w-6 h-6 rounded-full bg-gradient-to-r from-amber-600 to-orange-700 shadow-[0_0_12px_rgba(251,113,36,0.6)]"></div>
                 <div className="font-bold text-xl">
-                  <GradientText variant="blue" className="drop-shadow-[0_1px_2px_rgba(59,130,246,0.3)]">
+                  <GradientText variant="fire" className="drop-shadow-[0_1px_2px_rgba(251,113,36,0.5)]">
                     2000s
                   </GradientText>
                 </div>
@@ -108,9 +108,9 @@ const ProductHistorySection = () => {
               </div>
               
               <div className="relative pl-10 border-l-3 border-gray-600/40">
-                <div className="absolute -left-3 top-0 w-6 h-6 rounded-full bg-gradient-to-r from-gray-700 to-gray-600 shadow-[0_0_8px_rgba(255,255,255,0.25)]"></div>
+                <div className="absolute -left-3 top-0 w-6 h-6 rounded-full bg-gradient-to-r from-amber-600 to-orange-700 shadow-[0_0_12px_rgba(251,113,36,0.6)]"></div>
                 <div className="font-bold text-xl">
-                  <GradientText variant="blue" className="drop-shadow-[0_1px_2px_rgba(59,130,246,0.3)]">
+                  <GradientText variant="fire" className="drop-shadow-[0_1px_2px_rgba(251,113,36,0.5)]">
                     2019
                   </GradientText>
                 </div>
