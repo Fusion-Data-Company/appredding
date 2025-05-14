@@ -759,7 +759,7 @@ const IndustryApplications = () => {
                                   : app.id === "fire-prevention"
                                     ? "bg-gradient-to-t from-red-900/80 to-red-900/0"
                                     : "bg-gradient-to-t from-amber-900/80 to-amber-900/0"
-                              } backdrop-blur-sm`}>
+                              }`}>
                                 <p className="text-white text-sm font-medium opacity-0 group-hover/image:opacity-100 transform translate-y-4 group-hover/image:translate-y-0 transition-all duration-500">
                                   {app.title} application at {app.caseStudy.title}
                                 </p>
@@ -770,7 +770,7 @@ const IndustryApplications = () => {
                       </div>
                       
                       {/* Subtle bottom reflection */}
-                      <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2/3 h-[2px] bg-gradient-to-r from-transparent via-amber-500/10 to-transparent rounded-full blur-sm"></div>
+                      <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2/3 h-[2px] bg-gradient-to-r from-transparent via-amber-500/10 to-transparent rounded-full"></div>
                     </div>
                   </div>
                 </motion.div>
