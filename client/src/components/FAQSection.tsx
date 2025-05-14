@@ -38,7 +38,7 @@ const FAQSection = ({ faqs }: FAQProps) => {
       <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/80" style={{ zIndex: 1 }}></div>
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
-          <div className="bg-gray-800/60 backdrop-blur-xl rounded-xl border border-gray-600/40 shadow-[0_0_20px_rgba(255,255,255,0.2)] py-8 px-6 md:px-10 mx-auto max-w-3xl mb-8 inline-block">
+          <div className="bg-gray-800/60 backdrop-blur-xl rounded-xl border-0 premium-gradient-border shadow-[0_0_40px_rgba(255,255,255,0.25)] py-8 px-6 md:px-10 mx-auto max-w-3xl mb-8 inline-block">
             <GradientHeading level={2} className="text-3xl md:text-4xl mb-4" variant="mixed">Frequently Asked Questions</GradientHeading>
             <p className="text-[#a0a0a0] max-w-2xl mx-auto">
               Find answers to common questions about our protective coating products and services.
