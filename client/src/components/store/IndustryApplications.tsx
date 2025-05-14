@@ -291,7 +291,7 @@ const IndustryApplications = () => {
               backgroundBlendMode: 'overlay'
             }}
           >
-            <div className="absolute inset-0 bg-amber-50/60 dark:bg-gray-900/70 backdrop-blur-sm"></div>
+            <div className="absolute inset-0 bg-amber-50/60 dark:bg-gray-900/70 backdrop-blur-sm premium-gradient-border-bright tabs-glow-pulse rounded-xl"></div>
             {applications.map(app => (
               <TabsTrigger 
                 key={app.id} 
