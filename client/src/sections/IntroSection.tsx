@@ -22,7 +22,7 @@ const IntroSection = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/70" style={{ zIndex: 1 }}></div>
       <div className="container mx-auto px-4 relative" style={{ zIndex: 2 }}>
         <div className="max-w-5xl mx-auto text-center">
-          <div className="bg-gray-800/60 backdrop-blur-xl rounded-xl border-4 border-gray-600/40 shadow-[0_0_40px_rgba(255,255,255,0.25)] py-14 px-10 md:px-16 mx-auto max-w-5xl mb-16">
+          <div className="bg-gradient-to-b from-gray-800/70 to-gray-900/80 backdrop-blur-xl rounded-xl border-2 border-amber-200/30 dark:border-amber-700/40 shadow-[0_10px_50px_rgba(251,191,36,0.2)] dark:shadow-[0_10px_50px_rgba(0,0,0,0.4)] py-14 px-10 md:px-16 mx-auto max-w-5xl mb-16">
             <GradientHeading level={1} className="text-4xl md:text-6xl mb-8" variant="mixed">
               NASA-Derived Ceramic Coating Technology
             </GradientHeading>
@@ -30,7 +30,7 @@ const IntroSection = () => {
               Revolutionary triple-component system with perfect Class A fire protection and superior thermal insulation using vacuum-filled ceramic microsphere technology.
             </p>
           </div>
-          <p className="text-[#e0e0e0] text-xl md:text-2xl mt-10 mb-16 max-w-4xl mx-auto font-medium drop-shadow-lg bg-black/50 backdrop-blur-sm p-6 rounded-xl">
+          <p className="text-[#e0e0e0] text-xl md:text-2xl mt-10 mb-16 max-w-4xl mx-auto font-medium drop-shadow-lg bg-gradient-to-b from-black/60 to-gray-900/60 backdrop-blur-sm p-6 rounded-xl border-2 border-amber-200/30 dark:border-amber-700/40 shadow-[0_10px_50px_rgba(251,191,36,0.15)] dark:shadow-[0_10px_50px_rgba(0,0,0,0.3)]">
             Perfect 0/100 scores in ASTM E84 fire testing with documented 87% energy savings. Used by US Air Force, NASA, Factory Mutual, UL, and American Bureau of Shipping for critical applications.
           </p>
           
