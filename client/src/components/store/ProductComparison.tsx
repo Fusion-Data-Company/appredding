@@ -112,7 +112,7 @@ const ProductComparison = () => {
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-black/60" style={{ zIndex: 1 }}></div>
       <div className="container mx-auto px-4 relative" style={{ zIndex: 2 }}>
         <div className="text-center mb-10">
-          <div className="bg-gray-800/60 backdrop-blur-xl rounded-xl border-4 border-gray-600/40 shadow-[0_0_40px_rgba(255,255,255,0.25)] py-8 px-10 mx-auto max-w-4xl mb-8 inline-block">
+          <div className="bg-gray-800/60 backdrop-blur-xl rounded-xl border-0 premium-gradient-border shadow-[0_0_40px_rgba(255,255,255,0.25)] py-8 px-10 mx-auto max-w-4xl mb-8 inline-block">
             <Badge variant="outline" className="mb-2 px-3 py-1 border-amber-300 dark:border-amber-700 bg-amber-100/50 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300">
               Competitive Comparison
             </Badge>
@@ -133,7 +133,7 @@ const ProductComparison = () => {
           className="relative overflow-hidden"
         >
           {/* Headers */}
-          <div className="grid grid-cols-12 gap-4 mb-4 px-4 bg-black/80 backdrop-blur-sm rounded-lg p-3">
+          <div className="grid grid-cols-12 gap-4 mb-4 px-4 bg-black/80 backdrop-blur-sm rounded-lg p-3 premium-gradient-border">
             <div className="col-span-4 font-bold text-amber-300">Feature</div>
             <div className="col-span-4 font-bold text-center text-amber-300">
               <div className="flex items-center justify-center gap-2">
@@ -151,7 +151,7 @@ const ProductComparison = () => {
             {comparisons.map((item, index) => (
               <Card 
                 key={index} 
-                className={`border border-amber-700/30 bg-black/70 backdrop-blur-sm shadow-xl`}
+                className={`bg-black/70 backdrop-blur-sm shadow-xl border-0 premium-gradient-border`}
               >
                 <CardContent className="p-4">
                   <div className="grid grid-cols-12 gap-4 items-center">
@@ -180,7 +180,7 @@ const ProductComparison = () => {
         </motion.div>
 
         <div className="mt-10 text-center">
-          <p className="text-sm text-gray-300 backdrop-blur-sm bg-black/30 p-3 rounded-lg inline-block">
+          <p className="text-sm text-gray-300 backdrop-blur-sm bg-black/30 p-3 rounded-lg inline-block premium-gradient-border">
             Data based on independent laboratory testing comparing Praetorian SmartCoat to leading industry competitors.
             Product performance may vary based on application methods and environmental conditions.
           </p>
