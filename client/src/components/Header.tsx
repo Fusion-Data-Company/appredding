@@ -36,18 +36,18 @@ const Header = () => {
 
   return (
     <header 
-      className={`dark:bg-[#121212] bg-[#f0ece0] border-b dark:border-[#ff6a00]/20 border-gray-300 sticky top-0 z-50 transition-all duration-300 ${
-        scrolled ? "dark:shadow-[0_4px_20px_rgba(255,106,0,0.1)] shadow-[0_4px_20px_rgba(0,0,0,0.1)] py-3" : "py-4"
-      }`}
+      className={`dark:bg-[#121212]/90 backdrop-blur-md border-b dark:border-[#ff6a00]/20 border-gray-300 sticky top-0 z-50 transition-all duration-300 ${
+        scrolled ? "dark:shadow-[0_4px_20px_rgba(255,106,0,0.1)] shadow-[0_4px_20px_rgba(0,0,0,0.1)] py-4" : "py-6"
+      } h-28 flex items-center`}
     >
-      <div className="w-full px-4 flex justify-between items-center">
+      <div className="w-[95%] mx-auto px-4 flex justify-between items-center">
         <Link href="/" className="text-4xl font-heading font-bold flex items-center gap-4 group z-10">
           <div className="relative group">
             <div className="absolute inset-0 bg-gradient-to-r from-orange-500/20 to-blue-500/20 filter blur-md rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             <img 
               src={praetorianShield} 
               alt="Praetorian Shield" 
-              className="h-12 w-auto relative z-10 transition-all duration-300 hover:scale-105 filter drop-shadow-lg"
+              className="h-16 w-auto relative z-10 transition-all duration-300 hover:scale-105 filter drop-shadow-lg"
             />
           </div>
           <div className="tracking-tight flex items-center">
