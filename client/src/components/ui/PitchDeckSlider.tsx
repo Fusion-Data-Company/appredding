@@ -136,7 +136,7 @@ const PitchDeckSlider = () => {
 
             {/* Main pitch deck container */}
             <motion.div
-              className="fixed bottom-0 left-0 w-full lg:w-3/4 xl:w-2/3 max-h-[80vh] bg-gradient-to-br from-gray-900 to-black z-[999] rounded-t-xl border-0 premium-gradient-border overflow-hidden"
+              className="fixed bottom-0 left-0 w-full lg:w-3/4 xl:w-2/3 max-h-[90vh] bg-gradient-to-br from-gray-900 to-black z-[999] rounded-t-xl border-0 premium-gradient-border overflow-hidden"
               initial={{ opacity: 0, y: '100%' }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: '100%' }}
@@ -162,7 +162,7 @@ const PitchDeckSlider = () => {
               </div>
 
               {/* Slide content */}
-              <div className="relative overflow-hidden" style={{ minHeight: '400px' }}>
+              <div className="relative overflow-hidden" style={{ minHeight: '600px' }}>
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={currentSlide}
@@ -170,7 +170,7 @@ const PitchDeckSlider = () => {
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -100 }}
                     transition={{ duration: 0.5 }}
-                    className="py-8 px-6 lg:px-12"
+                    className="py-12 px-6 lg:px-12"
                   >
                     {/* Slide indicator */}
                     <div className="flex items-center justify-between mb-6">
