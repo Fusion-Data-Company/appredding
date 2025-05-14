@@ -41,17 +41,17 @@ const Header = () => {
       } h-28 flex items-center`}
     >
       <div className="w-[95%] mx-auto px-4 flex justify-between items-center">
-        <Link href="/" className="text-4xl font-heading font-bold flex items-center gap-4 group z-10">
+        <Link href="/" className="text-4xl font-heading font-bold flex items-center gap-3 group z-10">
           <div className="relative group">
             <div className="absolute inset-0 bg-gradient-to-r from-orange-500/20 to-blue-500/20 filter blur-md rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             <img 
               src={praetorianShield} 
               alt="Praetorian Shield" 
-              className="h-16 w-auto relative z-10 transition-all duration-300 hover:scale-105 filter drop-shadow-lg"
+              className="h-14 w-auto relative z-10 transition-all duration-300 hover:scale-105 filter drop-shadow-lg"
             />
           </div>
           <div className="tracking-tight flex items-center">
-            <div className="text-[1.5rem] sm:text-[1.65rem] md:text-[1.8rem] leading-none whitespace-nowrap">
+            <div className="text-[1.4rem] sm:text-[1.55rem] md:text-[1.7rem] leading-none whitespace-nowrap">
               <span className="gradient-text-combined">Praetorian SmartCoat Solutions</span>
             </div>
           </div>
