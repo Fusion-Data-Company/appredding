@@ -56,7 +56,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
       transition={{ duration: 0.4, ease: "easeOut" }}
       className="h-full"
     >
-      <Card className="h-full flex flex-col overflow-hidden relative bg-gradient-to-b from-white/95 to-amber-50/95 dark:from-gray-800/95 dark:to-gray-900/95 rounded-xl shadow-[0_10px_50px_rgba(251,191,36,0.2)] dark:shadow-[0_10px_50px_rgba(0,0,0,0.4)] border-2 border-amber-200 dark:border-amber-700">
+      <Card className="h-full flex flex-col overflow-hidden relative bg-gradient-to-b from-white/95 to-amber-50/95 dark:from-gray-800/95 dark:to-gray-900/95 rounded-xl shadow-[0_10px_50px_rgba(251,191,36,0.2)] dark:shadow-[0_10px_50px_rgba(0,0,0,0.4)] border-0 before:absolute before:inset-0 before:p-[2px] before:rounded-xl before:bg-gradient-to-br before:from-amber-300 before:via-amber-200 before:to-amber-400 dark:before:from-amber-700 dark:before:via-amber-600 dark:before:to-amber-800 before:-z-10">
         {/* Metallic effect header */}
         <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-amber-400 via-amber-600 to-amber-400"></div>
         
@@ -76,7 +76,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
         <div className="absolute top-4 right-4 z-10">
           <Badge 
             variant="secondary" 
-            className="bg-gradient-to-r from-amber-100 to-amber-200 dark:from-amber-900/60 dark:to-amber-800/60 text-amber-900 dark:text-amber-200 border border-amber-200 dark:border-amber-700/30 shadow-sm"
+            className="bg-gradient-to-r from-amber-100 to-amber-200 dark:from-amber-900/60 dark:to-amber-800/60 text-amber-900 dark:text-amber-200 border border-amber-200/60 dark:border-amber-700/30 shadow-[0_2px_6px_rgba(251,191,36,0.15)] dark:shadow-[0_2px_6px_rgba(0,0,0,0.2)]"
           >
             {product.size}
           </Badge>
@@ -126,7 +126,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
               {product.name}
             </h3>
             
-            <div className="flex items-center gap-1 px-2 py-1 bg-gradient-to-r from-amber-100/80 to-amber-50/80 dark:from-amber-950/40 dark:to-amber-900/40 rounded-full shadow-sm border border-amber-200/50 dark:border-amber-700/20">
+            <div className="flex items-center gap-1 px-2 py-1 bg-gradient-to-r from-amber-100/90 to-amber-50/90 dark:from-amber-900/50 dark:to-amber-800/40 rounded-full shadow-[0_2px_6px_rgba(251,191,36,0.15)] dark:shadow-[0_2px_6px_rgba(0,0,0,0.2)] border border-amber-200/60 dark:border-amber-700/30">
               <Star className="w-3.5 h-3.5 fill-amber-500 text-amber-500" />
               <span className="text-xs font-medium text-amber-700 dark:text-amber-400">
                 {product.rating}
@@ -154,11 +154,11 @@ export const ProductCard = ({ product }: ProductCardProps) => {
           
           {/* Key features */}
           <div className="flex flex-wrap gap-2 mb-4">
-            <div className="flex items-center gap-1 text-xs text-amber-700 dark:text-amber-400 bg-amber-50/80 dark:bg-amber-900/20 px-2 py-1 rounded-full border border-amber-100 dark:border-amber-800/30">
+            <div className="flex items-center gap-1 text-xs text-amber-700 dark:text-amber-400 bg-gradient-to-r from-amber-50/90 to-amber-100/80 dark:from-amber-900/30 dark:to-amber-800/30 px-2 py-1 rounded-full border border-amber-200/60 dark:border-amber-700/30 shadow-[0_2px_6px_rgba(251,191,36,0.15)] dark:shadow-[0_2px_6px_rgba(0,0,0,0.2)]">
               <ShieldCheck className="h-3 w-3" />
               <span>Class A Rated</span>
             </div>
-            <div className="flex items-center gap-1 text-xs text-amber-700 dark:text-amber-400 bg-amber-50/80 dark:bg-amber-900/20 px-2 py-1 rounded-full border border-amber-100 dark:border-amber-800/30">
+            <div className="flex items-center gap-1 text-xs text-amber-700 dark:text-amber-400 bg-gradient-to-r from-amber-50/90 to-amber-100/80 dark:from-amber-900/30 dark:to-amber-800/30 px-2 py-1 rounded-full border border-amber-200/60 dark:border-amber-700/30 shadow-[0_2px_6px_rgba(251,191,36,0.15)] dark:shadow-[0_2px_6px_rgba(0,0,0,0.2)]">
               <Droplets className="h-3 w-3" />
               <span>Waterproof</span>
             </div>
@@ -172,7 +172,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
               <Box className="h-3.5 w-3.5 text-amber-600 dark:text-amber-500" />
               Quantity
             </span>
-            <div className="flex items-center rounded-full overflow-hidden bg-gradient-to-r from-amber-100 to-amber-50 dark:from-gray-800 dark:to-gray-700 border border-amber-200 dark:border-amber-700/30 shadow-sm">
+            <div className="flex items-center rounded-full overflow-hidden bg-gradient-to-r from-amber-100 to-amber-50/90 dark:from-gray-800 dark:to-gray-700 border border-amber-200/60 dark:border-amber-700/30 shadow-[0_2px_6px_rgba(251,191,36,0.15)] dark:shadow-[0_2px_6px_rgba(0,0,0,0.2)]">
               <button 
                 className="h-8 w-8 flex items-center justify-center text-amber-700 dark:text-amber-300 hover:bg-amber-200/50 dark:hover:bg-amber-800/50 transition-colors"
                 onClick={decrementQuantity}
