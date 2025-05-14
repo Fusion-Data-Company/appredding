@@ -264,23 +264,32 @@ const FeaturesSection = () => {
               <div className="absolute inset-0 border-b-2 border-r-2 border-blue-500/40 rounded-br-lg"></div>
             </div>
             
-            {/* Enhanced premium badge with 3D effect */}
+            {/* Enhanced premium badge with 3D effect - updated with specialized applications style */}
             <div className="absolute -top-5 left-1/2 -translate-x-1/2 flex z-50">
-              <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-gradient-to-r from-gray-900/95 to-gray-950/95 border border-gray-800 shadow-[0_5px_15px_rgba(0,0,0,0.3)] relative group z-50">
-                {/* Premium gradient border effect - Mixed variant */}
-                <div className="absolute inset-0 p-0.5 rounded-full bg-gradient-to-r from-orange-500/50 via-transparent to-blue-400/50 opacity-70"></div>
+              <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-gray-900/95 via-gray-950/95 to-gray-900/95 shadow-[0_10px_30px_rgba(0,0,0,0.5)] relative group z-50 transform transition-all duration-500 hover:scale-105">
+                {/* Premium gradient border effect - Fire variant */}
+                <div className="absolute inset-0 p-0.5 rounded-full bg-gradient-to-r from-orange-500/50 via-transparent to-red-500/50 opacity-70"></div>
                 
-                {/* Badge icon with glow effect */}
+                {/* Inner highlight for 3D effect */}
+                <div className="absolute inset-0 rounded-full bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
+                
+                {/* Subtle ambient glow that activates on hover */}
+                <div 
+                  className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-30 transition-opacity duration-700 ease-in-out" 
+                  style={{ background: "radial-gradient(circle at center, rgba(251,113,36,0.3) 0%, transparent 70%)" }}
+                ></div>
+                
+                {/* Badge icon with enhanced glow effect */}
                 <div className="mr-2 relative">
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-r from-amber-500/60 to-orange-600/60 blur-[6px] opacity-60 group-hover:opacity-80 transition-opacity duration-300"></div>
-                  <svg className="h-4 w-4 text-amber-300 relative z-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-r from-orange-500/60 to-amber-600/60 blur-[6px] opacity-70 group-hover:opacity-90 transition-all duration-300"></div>
+                  <svg className="h-5 w-5 text-amber-300 relative z-10 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M12 22a9.5 9.5 0 0 0 3.09-18.49A4.5 4.5 0 1 0 12 8.5a4.5 4.5 0 1 0-3.09-9.01A9.5 9.5 0 0 0 12 22z"></path>
                   </svg>
                 </div>
                 
-                {/* Badge text with shimmer effect */}
-                <span className="text-amber-300 text-sm font-medium relative">
-                  <span className="relative z-10">NASA Technology</span>
+                {/* Badge text with enhanced shimmer effect */}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-orange-400 to-amber-300 text-sm font-bold relative group-hover:from-amber-200 group-hover:via-orange-400 group-hover:to-amber-200 transition-all duration-300">
+                  <span className="relative z-10 tracking-wide">NASA TECHNOLOGY</span>
                   <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"
                      style={{
                        backgroundSize: '200% 100%',
@@ -288,6 +297,9 @@ const FeaturesSection = () => {
                      }}>
                   </span>
                 </span>
+                
+                {/* Bottom reflection */}
+                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-4/5 h-[1px] bg-gradient-to-r from-transparent via-orange-500/40 to-transparent rounded-full"></div>
               </div>
             </div>
             
