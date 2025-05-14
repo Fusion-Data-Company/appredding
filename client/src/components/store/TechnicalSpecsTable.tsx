@@ -12,6 +12,7 @@ import { Badge } from "@/components/ui/badge";
 import { Info, CheckCircle, Shield, Award } from "lucide-react";
 import { motion } from "framer-motion";
 import { GradientHeading } from "@/components/ui/gradient-heading";
+import backgroundImg from "../../assets_dir/images/praetorian-hero-final.png";
 
 const TechnicalSpecsTable = () => {
   // Define technical specifications
@@ -79,8 +80,23 @@ const TechnicalSpecsTable = () => {
   ];
 
   return (
-    <section id="technical-specs" className="py-16 relative z-10">
-      <div className="container mx-auto px-4 relative z-20">
+    <section 
+      id="technical-specs" 
+      className="py-16 relative z-10"
+      style={{ 
+        backgroundImage: `url(${backgroundImg})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        backgroundAttachment: "fixed",
+        backgroundColor: "#111111",
+        position: "relative",
+        zIndex: 0
+      }}
+    >
+      {/* Semi-transparent overlay for better readability */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/60" style={{ zIndex: 1 }}></div>
+      <div className="container mx-auto px-4 relative" style={{ zIndex: 2 }}>
         <div className="flex justify-center mb-5">
           <Badge variant="outline" className="px-3 py-1 border-amber-300 dark:border-amber-700 bg-amber-100/50 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300">
             Technical Data
@@ -88,12 +104,14 @@ const TechnicalSpecsTable = () => {
         </div>
         
         <div className="text-center mb-10">
-          <GradientHeading level={2} className="text-3xl md:text-4xl mb-4" variant="fire">
-            Performance Specifications
-          </GradientHeading>
-          <p className="text-gray-300 max-w-2xl mx-auto">
-            Praetorian's ceramic-based coatings deliver industry-leading performance metrics that exceed traditional protective coatings across all key indicators.
-          </p>
+          <div className="bg-gray-800/60 backdrop-blur-xl rounded-xl border-4 border-gray-600/40 shadow-[0_0_40px_rgba(255,255,255,0.25)] py-8 px-10 mx-auto max-w-4xl mb-8 inline-block">
+            <GradientHeading level={2} className="text-3xl md:text-4xl mb-4" variant="fire">
+              Performance Specifications
+            </GradientHeading>
+            <p className="text-gray-300 max-w-2xl mx-auto">
+              Praetorian's ceramic-based coatings deliver industry-leading performance metrics that exceed traditional protective coatings across all key indicators.
+            </p>
+          </div>
         </div>
 
         <motion.div
@@ -152,8 +170,6 @@ const TechnicalSpecsTable = () => {
           </p>
         </div>
       </div>
-      {/* Dark overlay to ensure text is readable */}
-      <div className="absolute inset-0 bg-black/40 z-10"></div>
     </section>
   );
 };
