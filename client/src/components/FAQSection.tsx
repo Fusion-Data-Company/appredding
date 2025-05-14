@@ -163,6 +163,16 @@ const FAQSection = ({ faqs }: FAQProps) => {
             animation-delay: 1s;
           }
           
+          @keyframes slideRightDiagonal {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(500%); }
+          }
+          
+          @keyframes slideUp {
+            0% { transform: translateY(100%); }
+            100% { transform: translateY(-100%); }
+          }
+          
           @keyframes shimmer {
             0% { background-position: 200% 0; }
             100% { background-position: -200% 0; }
@@ -377,21 +387,38 @@ const FAQSection = ({ faqs }: FAQProps) => {
               Still have questions? Our protective coating experts are here to help.
             </p>
             
-            {/* Enhanced premium button */}
+            {/* Enhanced premium button - Black with orange border and glow */}
             <a
               href="#contact"
-              className="group relative inline-flex items-center px-8 py-4 rounded-lg bg-gradient-to-r from-orange-600 to-red-600 text-white text-lg font-medium transition-all duration-500 hover:scale-105 overflow-hidden"
+              className="group relative inline-flex items-center px-8 py-4 rounded-lg bg-black text-white text-lg font-medium transition-all duration-500 hover:scale-105 overflow-hidden"
             >
-              {/* Button glow effect */}
-              <div className="absolute inset-0 rounded-lg opacity-20 group-hover:opacity-40 transition-opacity duration-500"
-                   style={{ boxShadow: '0 0 40px rgba(251, 113, 36, 0.8)' }}>
+              {/* Premium 2px border with gradient */}
+              <div className="absolute inset-0 rounded-lg opacity-80 border-2 border-orange-500"></div>
+              
+              {/* Orange glow effect */}
+              <div className="absolute inset-0 rounded-lg opacity-10 group-hover:opacity-30 transition-opacity duration-500"
+                   style={{ boxShadow: '0 0 15px 2px rgba(251, 113, 36, 0.8)' }}>
               </div>
               
-              {/* Button shimmer effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+              {/* Random reflection effect 1 - Top left to bottom right */}
+              <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700"
                    style={{
-                     backgroundSize: '200% 100%',
-                     animation: 'shimmer 2s infinite',
+                     clipPath: 'polygon(0 0, 30% 0, 20% 100%, 0% 100%)',
+                     transform: 'translateX(-100%)',
+                     animation: 'slideRightDiagonal 3s ease-in-out infinite',
+                     animationPlayState: 'paused'
+                   }}
+                   onMouseEnter={(e) => e.currentTarget.style.animationPlayState = 'running'}
+                   onMouseLeave={(e) => e.currentTarget.style.animationPlayState = 'paused'}>
+              </div>
+              
+              {/* Random reflection effect 2 - Bottom to top */}
+              <div className="absolute inset-0 bg-gradient-to-t from-white/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700"
+                   style={{
+                     clipPath: 'polygon(70% 100%, 90% 100%, 85% 0%, 75% 0%)',
+                     transform: 'translateY(100%)',
+                     animation: 'slideUp 2.7s ease-in-out infinite',
+                     animationDelay: '0.5s',
                      animationPlayState: 'paused'
                    }}
                    onMouseEnter={(e) => e.currentTarget.style.animationPlayState = 'running'}
