@@ -340,9 +340,15 @@ const IndustryApplications = () => {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.3 }}
-                  className="bg-gradient-to-b from-white/95 to-amber-50/95 dark:from-gray-800/95 dark:to-gray-900/95 rounded-xl shadow-[0_10px_50px_rgba(251,191,36,0.2)] dark:shadow-[0_10px_50px_rgba(0,0,0,0.4)] overflow-hidden border-0 before:absolute before:inset-0 before:p-[2px] before:rounded-xl before:bg-gradient-to-br before:from-amber-300 before:via-amber-200 before:to-amber-400 dark:before:from-amber-700 dark:before:via-amber-600 dark:before:to-amber-800 before:-z-10 relative"
+                  className="rounded-xl shadow-[0_10px_50px_rgba(251,191,36,0.2)] dark:shadow-[0_10px_50px_rgba(0,0,0,0.4)] overflow-hidden border-0 premium-gradient-border relative"
+                  style={{
+                    backgroundImage: "url(/assets/images/stone-texture-bg.png)",
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    backgroundBlendMode: "overlay"
+                  }}
                 >
-                  <div className="p-8">
+                  <div className="p-8 backdrop-blur-sm">
                     <h3 className="text-2xl font-bold mb-3 flex items-center gap-3">
                       <span className="text-amber-600 dark:text-amber-400 transform transition-all duration-500 hover:scale-110 hover:rotate-3">{app.icon}</span>
                       <GradientText variant="fire" className="border-b-2 border-amber-400/30 dark:border-amber-600/30 pb-1 drop-shadow-[0_1px_2px_rgba(251,191,36,0.3)]">
