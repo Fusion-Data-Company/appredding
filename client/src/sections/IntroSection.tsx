@@ -1,13 +1,13 @@
 import React from "react";
 import { GradientHeading } from "@/components/ui/gradient-heading";
-import backgroundImg from "../assets_dir/images/optimized/praetorian-background-new.png";
+import { PRAETORIAN_HERO_IMAGE } from "../assets_dir/imageExports";
 
 const IntroSection = () => {
   return (
     <section 
       className="py-32 relative"
       style={{ 
-        backgroundImage: `url(${backgroundImg})`,
+        backgroundImage: `url(${PRAETORIAN_HERO_IMAGE})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
