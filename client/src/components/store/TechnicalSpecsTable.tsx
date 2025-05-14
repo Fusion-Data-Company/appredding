@@ -79,7 +79,7 @@ const TechnicalSpecsTable = () => {
   ];
 
   return (
-    <section id="technical-specs" className="py-16 bg-amber-50/50 dark:bg-gray-900/50">
+    <section id="technical-specs" className="py-16 bg-amber-50/50 dark:bg-black">
       <div className="container mx-auto px-4">
         <div className="text-center mb-10">
           <Badge variant="outline" className="mb-2 px-3 py-1 border-amber-300 dark:border-amber-700 bg-amber-100/50 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300">
@@ -98,7 +98,7 @@ const TechnicalSpecsTable = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="bg-white dark:bg-gray-800 rounded-xl shadow-xl overflow-hidden border border-amber-100 dark:border-amber-900/20"
+          className="bg-white dark:bg-black/90 rounded-xl shadow-xl overflow-hidden border border-amber-100 dark:border-amber-700/20"
         >
           <div className="overflow-x-auto">
             <Table>
