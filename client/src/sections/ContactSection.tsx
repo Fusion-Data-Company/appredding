@@ -806,7 +806,7 @@ const ContactSection = () => {
                           <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 shadow-[0_0_20px_rgba(59,130,246,0.6)]"></div>
                           
                           {/* Icon */}
-                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" className="w-8 h-8 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] relative z-60 transition-all duration-300">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" className="w-8 h-8 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] relative z-40 transition-all duration-300">
                             <path fill="currentColor" d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
                           </svg>
                           
@@ -826,7 +826,7 @@ const ContactSection = () => {
                         className="group relative"
                       >
                         {/* Premium Icon Container */}
-                        <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-gray-900/95 backdrop-blur-xl rounded-full w-16 h-16 flex items-center justify-center shadow-[0_10px_30px_rgba(0,0,0,0.3)] z-55 group-hover:scale-110 transition-transform duration-500">
+                        <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-gray-900/95 backdrop-blur-xl rounded-full w-16 h-16 flex items-center justify-center shadow-[0_10px_30px_rgba(0,0,0,0.3)] z-30 group-hover:scale-110 transition-transform duration-500">
                           {/* Premium gradient border effect - Red variant */}
                           <div className="absolute inset-0 p-0.5 rounded-full bg-gradient-to-r from-red-500/50 via-transparent to-red-600/50 opacity-70"></div>
                           
@@ -837,7 +837,7 @@ const ContactSection = () => {
                           <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 shadow-[0_0_20px_rgba(220,38,38,0.6)]"></div>
                           
                           {/* Icon */}
-                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" className="w-8 h-8 text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-red-600 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] relative z-60 transition-all duration-300">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" className="w-8 h-8 text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-red-600 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] relative z-40 transition-all duration-300">
                             <path fill="currentColor" d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" />
                           </svg>
                           
@@ -857,7 +857,7 @@ const ContactSection = () => {
                         className="group relative"
                       >
                         {/* Premium Icon Container */}
-                        <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-gray-900/95 backdrop-blur-xl rounded-full w-16 h-16 flex items-center justify-center shadow-[0_10px_30px_rgba(0,0,0,0.3)] z-55 group-hover:scale-110 transition-transform duration-500">
+                        <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-gray-900/95 backdrop-blur-xl rounded-full w-16 h-16 flex items-center justify-center shadow-[0_10px_30px_rgba(0,0,0,0.3)] z-30 group-hover:scale-110 transition-transform duration-500">
                           {/* Premium gradient border effect - LinkedIn variant */}
                           <div className="absolute inset-0 p-0.5 rounded-full bg-gradient-to-r from-blue-600/50 via-transparent to-blue-800/50 opacity-70"></div>
                           
@@ -868,7 +868,7 @@ const ContactSection = () => {
                           <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 shadow-[0_0_20px_rgba(37,99,235,0.6)]"></div>
                           
                           {/* Icon */}
-                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" className="w-8 h-8 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-700 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] relative z-60 transition-all duration-300">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" className="w-8 h-8 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-700 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] relative z-40 transition-all duration-300">
                             <path fill="currentColor" d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z" />
                           </svg>
                           
