@@ -360,84 +360,414 @@ const IndustryApplications = () => {
                     </p>
                     
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                      {app.benefits.map((benefit, index) => (
-                        <div key={index} className="group bg-gray-800/60 backdrop-blur-xl p-5 rounded-lg border-0 premium-gradient-border shadow-[0_4px_15px_rgba(251,191,36,0.1)] dark:shadow-[0_4px_15px_rgba(0,0,0,0.2)] transition-all duration-300 hover:shadow-[0_8px_25px_rgba(251,191,36,0.2)] dark:hover:shadow-[0_8px_25px_rgba(0,0,0,0.3)] hover:-translate-y-1">
-                          <div className="text-amber-600 dark:text-amber-400 mb-3 transform transition-transform duration-300 group-hover:scale-110 group-hover:text-amber-500 dark:group-hover:text-amber-300">
-                            {benefit.icon}
+                      {app.benefits.map((benefit, index) => {
+                        // Determine theme variant based on application type
+                        const isWaterRelated = app.id === "marinas" || app.id === "pools";
+                        const isFireRelated = app.id === "fire-prevention";
+                        
+                        // Set gradient theme based on application
+                        const themeGradient = isWaterRelated 
+                          ? "from-blue-500/50 via-transparent to-cyan-500/50" 
+                          : isFireRelated
+                            ? "from-orange-500/50 via-transparent to-red-500/50"
+                            : "from-amber-500/50 via-transparent to-orange-500/50";
+                            
+                        // Set glow theme based on application
+                        const glowTheme = isWaterRelated
+                          ? "radial-gradient(circle at center, rgba(59,130,246,0.3) 0%, transparent 70%)"
+                          : isFireRelated
+                            ? "radial-gradient(circle at center, rgba(251,113,36,0.3) 0%, transparent 70%)"
+                            : "radial-gradient(circle at center, rgba(251,191,36,0.3) 0%, transparent 70%)";
+                        
+                        return (
+                          <div key={index} className="group relative transform transition-all duration-500 hover:scale-105 hover:z-10">
+                            {/* Premium Card Container */}
+                            <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-gray-900/95 backdrop-blur-xl rounded-xl p-5 shadow-[0_10px_50px_rgba(0,0,0,0.5)] z-10 h-full">
+                              {/* Premium gradient border effect - Theme variant with index-based opacity variation */}
+                              <div className={`absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r ${themeGradient} opacity-70`} style={{ opacity: 0.7 + (index % 3) * 0.05 }}></div>
+                              
+                              {/* Inner highlight */}
+                              <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
+                              
+                              {/* Subtle ambient glow that activates on hover */}
+                              <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-30 transition-opacity duration-700 ease-in-out" 
+                                  style={{ background: glowTheme }}>
+                              </div>
+                              
+                              {/* Content with z-index to appear above effects */}
+                              <div className="relative z-10 flex flex-col h-full">
+                                {/* Icon with enhanced glow effect */}
+                                <div className="mb-3 relative">
+                                  {/* Icon background glow */}
+                                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full opacity-0 group-hover:opacity-70 transition-all duration-500 ease-in-out" 
+                                      style={{ 
+                                        background: isWaterRelated 
+                                          ? "radial-gradient(circle at center, rgba(59,130,246,0.4) 0%, transparent 70%)" 
+                                          : isFireRelated
+                                            ? "radial-gradient(circle at center, rgba(251,113,36,0.4) 0%, transparent 70%)"
+                                            : "radial-gradient(circle at center, rgba(251,191,36,0.4) 0%, transparent 70%)",
+                                        filter: "blur(8px)"
+                                      }}>
+                                  </div>
+                                  
+                                  {/* Icon with enhanced animation */}
+                                  <div className={`transform transition-all duration-500 group-hover:scale-125 ${
+                                    isWaterRelated ? "text-blue-400" : isFireRelated ? "text-orange-500" : "text-amber-400"
+                                  }`}>
+                                    {React.cloneElement(benefit.icon as React.ReactElement, { 
+                                      size: 28, 
+                                      strokeWidth: 1.5,
+                                      className: isWaterRelated 
+                                        ? "drop-shadow-[0_2px_8px_rgba(59,130,246,0.6)]" 
+                                        : isFireRelated
+                                          ? "drop-shadow-[0_2px_8px_rgba(251,113,36,0.6)]"
+                                          : "drop-shadow-[0_2px_8px_rgba(251,191,36,0.6)]"
+                                    })}
+                                  </div>
+                                </div>
+                                
+                                {/* Title with animated underline on hover */}
+                                <h4 className="font-bold mb-2 text-lg relative">
+                                  <span className={`inline-block ${
+                                    isWaterRelated 
+                                      ? "text-blue-300 group-hover:text-blue-200" 
+                                      : isFireRelated
+                                        ? "text-amber-400 group-hover:text-amber-300"
+                                        : "text-amber-400 group-hover:text-amber-300"
+                                  } transition-colors duration-300`}>
+                                    {benefit.title}
+                                  </span>
+                                  {/* Animated underline */}
+                                  <div className={`absolute -bottom-1 left-0 h-px w-0 group-hover:w-3/4 transition-all duration-700 bg-gradient-to-r ${
+                                    isWaterRelated 
+                                      ? "from-blue-400 to-cyan-400" 
+                                      : isFireRelated
+                                        ? "from-orange-500 to-red-500"
+                                        : "from-amber-400 to-orange-400"
+                                  }`}></div>
+                                </h4>
+                                
+                                {/* Description text */}
+                                <p className="text-gray-300 text-sm leading-relaxed">
+                                  {benefit.description}
+                                </p>
+                              </div>
+                            </div>
+                            
+                            {/* Subtle bottom reflection */}
+                            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2/3 h-[2px] bg-gradient-to-r from-transparent via-amber-500/10 to-transparent rounded-full blur-sm"></div>
                           </div>
-                          <h4 className="font-bold mb-2 text-lg">
-                            <GradientText variant="fire" className="group-hover:opacity-90 transition-all duration-300">
-                              {benefit.title}
-                            </GradientText>
-                          </h4>
-                          <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
-                            {benefit.description}
-                          </p>
-                        </div>
-                      ))}
+                        );
+                      })}
                     </div>
                     
-                    <div className="bg-gradient-to-br from-amber-50/95 to-white/90 dark:from-amber-900/40 dark:to-gray-900/40 rounded-xl p-8 shadow-[0_10px_40px_rgba(251,191,36,0.15)] dark:shadow-[0_10px_40px_rgba(0,0,0,0.3)] border border-amber-300/50 dark:border-amber-700/50 backdrop-blur-sm">
-                      <div className="flex items-center mb-6">
-                        <div className="h-10 w-2 bg-amber-500 dark:bg-amber-600 rounded-full mr-3"></div>
-                        <h4 className="text-2xl font-bold drop-shadow-sm">
-                          <GradientText variant="fire">
-                            Case Study: <span className="opacity-100" style={{ textShadow: "0px 1px 2px rgba(0,0,0,0.3)" }}>{app.caseStudy.title}</span>
-                          </GradientText>
-                        </h4>
-                      </div>
-                      
-                      <div className="flex flex-col md:flex-row gap-8">
-                        <div className="md:w-2/3">
-                          <div className="mb-5 bg-gray-800/60 backdrop-blur-xl p-4 rounded-lg border-0 premium-gradient-border">
-                            <div className="text-sm font-semibold mb-1 uppercase tracking-wider">
-                              <GradientText variant="fire" className="text-xs">Location</GradientText>
-                            </div>
-                            <div className="font-medium text-gray-300">{app.caseStudy.location}</div>
-                          </div>
+                    {/* Premium Enterprise Case Study Container */}
+                    <div className="relative">
+                      {/* Premium Card Container */}
+                      <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-gray-900/95 backdrop-blur-xl rounded-xl p-8 shadow-[0_20px_80px_rgba(0,0,0,0.6)] z-10">
+                        {/* Premium gradient border effect - Theme-based styling */}
+                        <div className={`absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r ${
+                          app.id === "marinas" || app.id === "pools"
+                            ? "from-blue-500/40 via-transparent to-cyan-500/40" 
+                            : app.id === "fire-prevention"
+                              ? "from-orange-500/40 via-transparent to-red-500/40"
+                              : "from-amber-500/40 via-transparent to-orange-500/40"
+                        } opacity-80`}></div>
+                        
+                        {/* Inner highlight */}
+                        <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-40 pointer-events-none"></div>
+                        
+                        {/* Subtle ambient glow */}
+                        <div className={`absolute top-0 left-1/4 w-1/2 h-1/2 blur-[100px] rounded-full opacity-20 ${
+                          app.id === "marinas" || app.id === "pools"
+                            ? "bg-gradient-to-r from-blue-500/10 via-cyan-500/10 to-blue-500/10" 
+                            : app.id === "fire-prevention"
+                              ? "bg-gradient-to-r from-orange-500/10 via-red-500/10 to-orange-500/10"
+                              : "bg-gradient-to-r from-amber-500/10 via-orange-500/10 to-amber-500/10"
+                        }`}></div>
+                        
+                        {/* Premium Header */}
+                        <div className="flex items-center mb-8 relative">
+                          {/* Animated accent bar */}
+                          <div className={`h-10 w-2 rounded-full mr-3 ${
+                            app.id === "marinas" || app.id === "pools"
+                              ? "bg-gradient-to-b from-blue-400 to-cyan-600" 
+                              : app.id === "fire-prevention"
+                                ? "bg-gradient-to-b from-orange-400 to-red-600"
+                                : "bg-gradient-to-b from-amber-400 to-orange-600"
+                          } animate-pulse-subtle`}></div>
                           
-                          <div className="mb-5 bg-gray-800/60 backdrop-blur-xl p-4 rounded-lg border-0 premium-gradient-border">
-                            <div className="text-sm font-semibold mb-1 uppercase tracking-wider">
-                              <GradientText variant="fire" className="text-xs">Challenge</GradientText>
+                          {/* Header with theme-based styling */}
+                          <div>
+                            <h4 className="text-2xl font-bold drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">
+                              <span className={`inline-block ${
+                                app.id === "marinas" || app.id === "pools"
+                                  ? "text-blue-300" 
+                                  : app.id === "fire-prevention"
+                                    ? "text-amber-400"
+                                    : "text-amber-400"
+                              }`}>
+                                Case Study:
+                              </span>{" "}
+                              <span className="text-white ml-1">{app.caseStudy.title}</span>
+                            </h4>
+                            
+                            {/* Premium location badge */}
+                            <div className={`inline-flex items-center mt-2 px-3 py-1 rounded-full ${
+                              app.id === "marinas" || app.id === "pools"
+                                ? "bg-blue-900/40 border border-blue-700/30" 
+                                : app.id === "fire-prevention"
+                                  ? "bg-red-900/40 border border-red-700/30"
+                                  : "bg-amber-900/40 border border-amber-700/30"
+                            }`}>
+                              <span className="text-gray-300 text-sm font-medium">
+                                {app.caseStudy.location}
+                              </span>
                             </div>
-                            <div className="text-gray-300 leading-relaxed">{app.caseStudy.challenge}</div>
-                          </div>
-                          
-                          <div className="mb-5 bg-gray-800/60 backdrop-blur-xl p-4 rounded-lg border-0 premium-gradient-border">
-                            <div className="text-sm font-semibold mb-1 uppercase tracking-wider">
-                              <GradientText variant="fire" className="text-xs">Solution</GradientText>
-                            </div>
-                            <div className="text-gray-300 leading-relaxed">{app.caseStudy.solution}</div>
-                          </div>
-                          
-                          <div className="bg-gray-800/60 backdrop-blur-xl p-4 rounded-lg border-0 premium-gradient-border">
-                            <div className="text-sm font-semibold mb-2 uppercase tracking-wider">
-                              <GradientText variant="fire" className="text-xs">Results</GradientText>
-                            </div>
-                            <ul className="space-y-3">
-                              {app.caseStudy.results.map((result, index) => (
-                                <li key={index} className="flex items-start gap-2 group">
-                                  <CheckCircle className="h-5 w-5 text-amber-500 dark:text-amber-400 flex-shrink-0 mt-0.5 group-hover:text-green-500 dark:group-hover:text-green-400 transition-colors duration-300" />
-                                  <span className="text-gray-300">{result}</span>
-                                </li>
-                              ))}
-                            </ul>
                           </div>
                         </div>
                         
-                        <div className="md:w-1/3 flex justify-center items-center">
-                          <div className="rounded-xl overflow-hidden shadow-xl bg-gray-800/60 backdrop-blur-xl p-3 border-0 premium-gradient-border transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl dark:hover:shadow-[0_20px_60px_rgba(251,191,36,0.3)]">
-                            <img 
-                              src="/assets/images/praetorian-shield-logo.png" 
-                              alt={`${app.title} application`}
-                              className="w-full h-64 object-cover rounded-lg"
-                            />
-                            <div className="text-sm text-center font-medium mt-2">
-                              <GradientText variant="fire" className="text-xs">{app.title} Application</GradientText>
+                        {/* Premium content layout */}
+                        <div className="flex flex-col md:flex-row gap-8">
+                          {/* Information column */}
+                          <div className="md:w-2/3 space-y-5">
+                            {/* Challenge card */}
+                            <div className="group relative">
+                              {/* Premium Card Container */}
+                              <div className="relative bg-gradient-to-br from-gray-900/90 via-gray-950/90 to-gray-900/90 backdrop-blur-xl rounded-lg p-4 shadow-[0_8px_30px_rgba(0,0,0,0.3)] z-10">
+                                {/* Premium gradient border effect */}
+                                <div className={`absolute inset-0 p-0.5 rounded-lg bg-gradient-to-r ${
+                                  app.id === "marinas" || app.id === "pools"
+                                    ? "from-blue-500/30 via-transparent to-cyan-500/30" 
+                                    : app.id === "fire-prevention"
+                                      ? "from-orange-500/30 via-transparent to-red-500/30"
+                                      : "from-amber-500/30 via-transparent to-orange-500/30"
+                                } opacity-70 transition-opacity duration-300 group-hover:opacity-90`}></div>
+                                
+                                {/* Inner highlight */}
+                                <div className="absolute inset-0 rounded-lg bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-40 pointer-events-none"></div>
+                                
+                                {/* Content */}
+                                <div className="relative z-10">
+                                  {/* Section label with icon */}
+                                  <div className="flex items-center mb-2">
+                                    <div className={`flex items-center justify-center w-6 h-6 rounded-full mr-2 ${
+                                      app.id === "marinas" || app.id === "pools"
+                                        ? "bg-blue-900/70 text-blue-300" 
+                                        : app.id === "fire-prevention"
+                                          ? "bg-red-900/70 text-amber-300"
+                                          : "bg-amber-900/70 text-amber-300"
+                                    }`}>1</div>
+                                    <p className={`font-medium text-sm uppercase tracking-wide ${
+                                      app.id === "marinas" || app.id === "pools"
+                                        ? "text-blue-300" 
+                                        : app.id === "fire-prevention"
+                                          ? "text-amber-400"
+                                          : "text-amber-400"
+                                    }`}>Challenge</p>
+                                  </div>
+                                  
+                                  {/* Challenge content */}
+                                  <p className="text-gray-300 leading-relaxed pl-8 relative">
+                                    {/* Animated side indicator */}
+                                    <span className={`absolute left-0 top-0 bottom-0 w-1 ${
+                                      app.id === "marinas" || app.id === "pools"
+                                        ? "bg-blue-800/50" 
+                                        : app.id === "fire-prevention"
+                                          ? "bg-red-800/50"
+                                          : "bg-amber-800/50"
+                                    } rounded-full`}></span>
+                                    {app.caseStudy.challenge}
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                            
+                            {/* Solution card */}
+                            <div className="group relative">
+                              {/* Premium Card Container */}
+                              <div className="relative bg-gradient-to-br from-gray-900/90 via-gray-950/90 to-gray-900/90 backdrop-blur-xl rounded-lg p-4 shadow-[0_8px_30px_rgba(0,0,0,0.3)] z-10">
+                                {/* Premium gradient border effect */}
+                                <div className={`absolute inset-0 p-0.5 rounded-lg bg-gradient-to-r ${
+                                  app.id === "marinas" || app.id === "pools"
+                                    ? "from-blue-500/30 via-transparent to-cyan-500/30" 
+                                    : app.id === "fire-prevention"
+                                      ? "from-orange-500/30 via-transparent to-red-500/30"
+                                      : "from-amber-500/30 via-transparent to-orange-500/30"
+                                } opacity-70 transition-opacity duration-300 group-hover:opacity-90`}></div>
+                                
+                                {/* Inner highlight */}
+                                <div className="absolute inset-0 rounded-lg bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-40 pointer-events-none"></div>
+                                
+                                {/* Content */}
+                                <div className="relative z-10">
+                                  {/* Section label with icon */}
+                                  <div className="flex items-center mb-2">
+                                    <div className={`flex items-center justify-center w-6 h-6 rounded-full mr-2 ${
+                                      app.id === "marinas" || app.id === "pools"
+                                        ? "bg-blue-900/70 text-blue-300" 
+                                        : app.id === "fire-prevention"
+                                          ? "bg-red-900/70 text-amber-300"
+                                          : "bg-amber-900/70 text-amber-300"
+                                    }`}>2</div>
+                                    <p className={`font-medium text-sm uppercase tracking-wide ${
+                                      app.id === "marinas" || app.id === "pools"
+                                        ? "text-blue-300" 
+                                        : app.id === "fire-prevention"
+                                          ? "text-amber-400"
+                                          : "text-amber-400"
+                                    }`}>Solution</p>
+                                  </div>
+                                  
+                                  {/* Solution content */}
+                                  <p className="text-gray-300 leading-relaxed pl-8 relative">
+                                    {/* Animated side indicator */}
+                                    <span className={`absolute left-0 top-0 bottom-0 w-1 ${
+                                      app.id === "marinas" || app.id === "pools"
+                                        ? "bg-blue-800/50" 
+                                        : app.id === "fire-prevention"
+                                          ? "bg-red-800/50"
+                                          : "bg-amber-800/50"
+                                    } rounded-full`}></span>
+                                    {app.caseStudy.solution}
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                            
+                            {/* Results card */}
+                            <div className="group relative">
+                              {/* Premium Card Container */}
+                              <div className="relative bg-gradient-to-br from-gray-900/90 via-gray-950/90 to-gray-900/90 backdrop-blur-xl rounded-lg p-4 shadow-[0_8px_30px_rgba(0,0,0,0.3)] z-10">
+                                {/* Premium gradient border effect */}
+                                <div className={`absolute inset-0 p-0.5 rounded-lg bg-gradient-to-r ${
+                                  app.id === "marinas" || app.id === "pools"
+                                    ? "from-blue-500/30 via-transparent to-cyan-500/30" 
+                                    : app.id === "fire-prevention"
+                                      ? "from-orange-500/30 via-transparent to-red-500/30"
+                                      : "from-amber-500/30 via-transparent to-orange-500/30"
+                                } opacity-70 transition-opacity duration-300 group-hover:opacity-90`}></div>
+                                
+                                {/* Inner highlight */}
+                                <div className="absolute inset-0 rounded-lg bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-40 pointer-events-none"></div>
+                                
+                                {/* Content */}
+                                <div className="relative z-10">
+                                  {/* Section label with icon */}
+                                  <div className="flex items-center mb-3">
+                                    <div className={`flex items-center justify-center w-6 h-6 rounded-full mr-2 ${
+                                      app.id === "marinas" || app.id === "pools"
+                                        ? "bg-blue-900/70 text-blue-300" 
+                                        : app.id === "fire-prevention"
+                                          ? "bg-red-900/70 text-amber-300"
+                                          : "bg-amber-900/70 text-amber-300"
+                                    }`}>3</div>
+                                    <p className={`font-medium text-sm uppercase tracking-wide ${
+                                      app.id === "marinas" || app.id === "pools"
+                                        ? "text-blue-300" 
+                                        : app.id === "fire-prevention"
+                                          ? "text-amber-400"
+                                          : "text-amber-400"
+                                    }`}>Results</p>
+                                  </div>
+                                  
+                                  {/* Results list with enhanced checkmarks */}
+                                  <ul className="space-y-3 pl-8 relative">
+                                    {/* Animated side indicator */}
+                                    <span className={`absolute left-0 top-0 bottom-0 w-1 ${
+                                      app.id === "marinas" || app.id === "pools"
+                                        ? "bg-blue-800/50" 
+                                        : app.id === "fire-prevention"
+                                          ? "bg-red-800/50"
+                                          : "bg-amber-800/50"
+                                    } rounded-full`}></span>
+                                    
+                                    {app.caseStudy.results.map((result, index) => (
+                                      <li key={index} className="flex items-start group/item">
+                                        {/* Icon with enhanced styling */}
+                                        <div className="relative mr-3 flex-shrink-0">
+                                          {/* Glow effect on hover */}
+                                          <div className={`absolute inset-0 rounded-full opacity-0 group-hover/item:opacity-100 transition-opacity duration-500 ${
+                                            app.id === "marinas" || app.id === "pools"
+                                              ? "bg-blue-500/30 blur-[6px]" 
+                                              : app.id === "fire-prevention"
+                                                ? "bg-orange-500/30 blur-[6px]"
+                                                : "bg-amber-500/30 blur-[6px]"
+                                          }`}></div>
+                                          
+                                          {/* Icon */}
+                                          <CheckCircle 
+                                            size={18} 
+                                            className={`relative z-10 ${
+                                              app.id === "marinas" || app.id === "pools"
+                                                ? "text-blue-400" 
+                                                : app.id === "fire-prevention"
+                                                  ? "text-orange-400"
+                                                  : "text-amber-400"
+                                            } transform transition-transform duration-300 group-hover/item:scale-125`} 
+                                          />
+                                        </div>
+                                        
+                                        {/* Result text */}
+                                        <span className="text-gray-300 group-hover/item:text-white transition-colors duration-300">
+                                          {result}
+                                        </span>
+                                      </li>
+                                    ))}
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          
+                          {/* Image column */}
+                          <div className="md:w-1/3 flex justify-center items-center">
+                            {/* Premium image container */}
+                            <div className="relative group/image overflow-hidden">
+                              {/* Image container with theme-based styling */}
+                              <div className={`relative rounded-xl overflow-hidden border-2 ${
+                                app.id === "marinas" || app.id === "pools"
+                                  ? "border-blue-700/30" 
+                                  : app.id === "fire-prevention"
+                                    ? "border-red-700/30"
+                                    : "border-amber-700/30"
+                                } shadow-[0_10px_40px_rgba(0,0,0,0.4)] transform transition-all duration-700 group-hover/image:scale-[1.03]`}>
+                                {/* Image */}
+                                <img
+                                  src={app.caseStudy.image || "/assets/images/praetorian-shield-logo.png"}
+                                  alt={`${app.title} Application`}
+                                  className="w-full h-64 object-cover transition-all duration-700 group-hover/image:saturate-[1.1]"
+                                />
+                                
+                                {/* Gradient overlay */}
+                                <div className={`absolute inset-0 ${
+                                  app.id === "marinas" || app.id === "pools"
+                                    ? "bg-gradient-to-t from-blue-900/50 to-transparent" 
+                                    : app.id === "fire-prevention"
+                                      ? "bg-gradient-to-t from-red-900/50 to-transparent"
+                                      : "bg-gradient-to-t from-amber-900/50 to-transparent"
+                                } opacity-60 transition-opacity duration-700 group-hover/image:opacity-70`}></div>
+                              </div>
+                              
+                              {/* Caption */}
+                              <div className={`absolute bottom-0 left-0 right-0 p-4 ${
+                                app.id === "marinas" || app.id === "pools"
+                                  ? "bg-gradient-to-t from-blue-900/80 to-blue-900/0" 
+                                  : app.id === "fire-prevention"
+                                    ? "bg-gradient-to-t from-red-900/80 to-red-900/0"
+                                    : "bg-gradient-to-t from-amber-900/80 to-amber-900/0"
+                              } backdrop-blur-sm`}>
+                                <p className="text-white text-sm font-medium opacity-0 group-hover/image:opacity-100 transform translate-y-4 group-hover/image:translate-y-0 transition-all duration-500">
+                                  {app.title} application at {app.caseStudy.title}
+                                </p>
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
+                      
+                      {/* Subtle bottom reflection */}
+                      <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2/3 h-[2px] bg-gradient-to-r from-transparent via-amber-500/10 to-transparent rounded-full blur-sm"></div>
                     </div>
                   </div>
                 </motion.div>
