@@ -112,7 +112,7 @@ const ConstructionPage = () => {
           style={{ 
             backgroundImage: "url('/images/construction-bg.jpg')",
             backgroundAttachment: 'fixed',
-            backgroundPosition: 'center',
+            backgroundPosition: 'center center', // Standardized position
             backgroundSize: 'cover',
             opacity: 0.95
           }}

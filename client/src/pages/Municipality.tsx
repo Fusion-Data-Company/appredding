@@ -537,7 +537,7 @@ const MunicipalityPage = () => {
           style={{ 
             backgroundImage: "url('/images/oceanside-treatment-plant.jpg')",
             backgroundAttachment: 'fixed',
-            backgroundPosition: 'center',
+            backgroundPosition: 'center center', // Standardized position
             backgroundSize: 'cover',
             opacity: 1
           }}

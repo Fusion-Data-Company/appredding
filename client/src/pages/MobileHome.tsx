@@ -144,7 +144,7 @@ const MobileHome = () => {
           style={{ 
             backgroundImage: `url(${mobileHomeBgImage})`,
             backgroundAttachment: 'fixed',
-            backgroundPosition: 'center',
+            backgroundPosition: 'center center', // Standardized position
             backgroundSize: 'cover',
             opacity: 0.95
           }}
