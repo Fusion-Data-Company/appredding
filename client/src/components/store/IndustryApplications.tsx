@@ -405,15 +405,7 @@ const IndustryApplications = () => {
                   </div>
                   <span className="text-xs font-semibold tracking-wide">{app.title}</span>
                 </div>
-                {/* Shimmer effect for all tabs on hover */}
-                <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                  <div className="absolute top-0 left-[-100%] h-full w-[300%] 
-                    bg-gradient-to-r from-transparent via-white/40 to-transparent
-                    animate-shimmer-once"
-                  ></div>
-                </div>
-                
-                {/* Continuous shimmer effect for active tabs */}
+                {/* Shimmer effect only for active tabs, matching the "Get Praetorian SmartCoat Now" button */}
                 <div className="absolute inset-0 pointer-events-none overflow-hidden data-[state=active]:block hidden">
                   <div className="absolute top-0 left-[-100%] h-full w-[300%] 
                     bg-gradient-to-r from-transparent via-white/40 to-transparent
