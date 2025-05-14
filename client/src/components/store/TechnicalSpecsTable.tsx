@@ -103,14 +103,43 @@ const TechnicalSpecsTable = () => {
           </Badge>
         </div>
         
-        <div className="text-center mb-10">
-          <div className="bg-gray-800/60 backdrop-blur-xl rounded-xl border-0 premium-gradient-border py-8 px-10 mx-auto max-w-4xl mb-8 inline-block">
-            <GradientHeading level={2} className="text-3xl md:text-4xl mb-4" variant="fire">
-              Performance Specifications
-            </GradientHeading>
-            <p className="text-gray-300 max-w-2xl mx-auto">
-              Praetorian's ceramic-based coatings deliver industry-leading performance metrics that exceed traditional protective coatings across all key indicators.
-            </p>
+        <div className="text-center mb-12">
+          {/* Premium Enterprise-level heading container */}
+          <div className="relative mx-auto max-w-4xl mb-8 inline-block">
+            {/* Premium Card Container */}
+            <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-gray-900/95 backdrop-blur-xl rounded-xl py-8 px-10 shadow-[0_10px_50px_rgba(0,0,0,0.5)] z-10">
+              {/* Premium gradient border effect - Fire variant */}
+              <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/50 via-transparent to-red-500/50 opacity-70"></div>
+              
+              {/* Inner highlight */}
+              <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
+              
+              {/* Subtle ambient glow */}
+              <div className="absolute top-0 left-1/4 w-1/2 h-1/2 bg-gradient-to-r from-orange-500/5 via-amber-500/5 to-red-500/5 blur-[100px] rounded-full"></div>
+              
+              {/* Content */}
+              <div className="relative z-10">
+                {/* Enhanced premium badge */}
+                <div className="inline-flex items-center mb-3 px-3 py-1.5 rounded-full bg-gradient-to-r from-amber-900/80 to-red-900/80 border border-amber-700/30 shadow-[0_0_10px_rgba(251,113,36,0.3)]">
+                  <div className="mr-2 relative">
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-amber-500 to-orange-600 blur-[6px] opacity-60"></div>
+                    <Shield className="h-4 w-4 text-amber-300 relative z-10" />
+                  </div>
+                  <span className="text-amber-300 text-sm font-medium">Technical Data</span>
+                </div>
+                
+                <GradientHeading level={2} className="text-3xl md:text-4xl mb-4" variant="fire">
+                  Performance Specifications
+                </GradientHeading>
+                
+                <p className="text-gray-300 max-w-2xl mx-auto">
+                  Praetorian's ceramic-based coatings deliver industry-leading performance metrics that exceed traditional protective coatings across all key indicators.
+                </p>
+              </div>
+            </div>
+            
+            {/* Subtle bottom reflection */}
+            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2/3 h-[2px] bg-gradient-to-r from-transparent via-orange-500/10 to-transparent rounded-full blur-sm"></div>
           </div>
         </div>
 
@@ -119,55 +148,148 @@ const TechnicalSpecsTable = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="bg-black/80 backdrop-blur-sm rounded-xl shadow-xl overflow-hidden border-0 premium-gradient-border"
+          className="relative"
         >
-          <div className="overflow-x-auto">
-            <Table>
-              <TableCaption>
-                <span className="text-xs text-gray-300 flex items-center justify-center gap-1">
-                  <Info className="h-3 w-3" />
-                  All specifications certified by independent laboratory testing
-                </span>
-              </TableCaption>
-              <TableHeader>
-                <TableRow className="bg-gradient-to-r from-amber-900/70 to-gray-900/90">
-                  <TableHead className="font-bold text-amber-300 w-1/4">Property</TableHead>
-                  <TableHead className="font-bold text-amber-300 w-1/4">Value</TableHead>
-                  <TableHead className="font-bold text-amber-300 w-1/2">Significance</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {specs.map((spec, index) => (
-                  <TableRow 
-                    key={index} 
-                    className={index % 2 === 0 
-                      ? "bg-gray-900/80" 
-                      : "bg-gray-800/90"
-                    }
-                  >
-                    <TableCell className="font-medium text-amber-300 flex items-center gap-2">
-                      <span className="text-amber-400">
-                        {spec.icon}
-                      </span>
-                      {spec.property}
-                    </TableCell>
-                    <TableCell className="font-bold text-gray-200">
-                      {spec.value}
-                    </TableCell>
-                    <TableCell className="text-gray-300 text-sm">
-                      {spec.explanation}
-                    </TableCell>
+          {/* Premium Enterprise Table Container */}
+          <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-gray-900/95 backdrop-blur-xl rounded-xl overflow-hidden shadow-[0_10px_50px_rgba(0,0,0,0.5)] z-10">
+            {/* Premium gradient border effect */}
+            <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/40 via-transparent to-red-500/40 opacity-70"></div>
+            
+            {/* Inner highlight */}
+            <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-40 pointer-events-none"></div>
+            
+            {/* Table Content */}
+            <div className="relative z-10 overflow-x-auto">
+              <Table>
+                <TableCaption>
+                  {/* Enhanced caption with glowing icon */}
+                  <div className="flex items-center justify-center gap-2 py-3">
+                    <div className="relative">
+                      <div className="absolute inset-0 rounded-full bg-orange-500/20 blur-[6px] opacity-50"></div>
+                      <Info className="h-4 w-4 text-orange-400 relative z-10" />
+                    </div>
+                    <span className="text-sm text-gray-300">
+                      All specifications certified by independent laboratory testing
+                    </span>
+                  </div>
+                </TableCaption>
+                
+                {/* Premium Header */}
+                <TableHeader>
+                  <TableRow className="border-0">
+                    {/* Premium Header Gradient */}
+                    <th colSpan={3} className="p-0">
+                      <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-amber-900/80 via-red-900/60 to-gray-900/80"></div>
+                    </th>
                   </TableRow>
-                ))}
-              </TableBody>
-            </Table>
+                  <TableRow className="relative">
+                    <TableHead className="font-bold text-amber-300 w-1/4 py-4 px-6 relative z-10">
+                      <div className="flex items-center gap-2">
+                        <div className="w-1 h-5 bg-gradient-to-b from-amber-400 to-orange-600 rounded-full"></div>
+                        Property
+                      </div>
+                    </TableHead>
+                    <TableHead className="font-bold text-amber-300 w-1/4 py-4 px-6 relative z-10">
+                      <div className="flex items-center gap-2">
+                        <div className="w-1 h-5 bg-gradient-to-b from-amber-400 to-orange-600 rounded-full"></div>
+                        Value
+                      </div>
+                    </TableHead>
+                    <TableHead className="font-bold text-amber-300 w-1/2 py-4 px-6 relative z-10">
+                      <div className="flex items-center gap-2">
+                        <div className="w-1 h-5 bg-gradient-to-b from-amber-400 to-orange-600 rounded-full"></div>
+                        Significance
+                      </div>
+                    </TableHead>
+                  </TableRow>
+                </TableHeader>
+                
+                {/* Table Body with Enhanced Row Styling */}
+                <TableBody>
+                  {specs.map((spec, index) => (
+                    <TableRow 
+                      key={index} 
+                      className={`group relative transition-all duration-300 hover:bg-gradient-to-r hover:from-amber-900/20 hover:via-transparent hover:to-amber-900/20 ${
+                        index % 2 === 0 
+                          ? "bg-gray-900/80" 
+                          : "bg-gray-950/90"
+                      }`}
+                    >
+                      {/* Premium Property Cell */}
+                      <TableCell className="font-medium py-4 px-6 relative">
+                        <div className="flex items-center gap-3">
+                          {/* Icon with glow effect */}
+                          <div className="relative">
+                            <div className="absolute inset-0 rounded-full bg-orange-500/20 blur-[6px] opacity-0 group-hover:opacity-70 transition-opacity duration-500"></div>
+                            <span className="text-amber-500 group-hover:text-amber-400 transition-colors duration-300 relative z-10 transform group-hover:scale-125 transition-transform duration-300">
+                              {React.cloneElement(spec.icon, { 
+                                strokeWidth: 1.5,
+                                className: "h-5 w-5 drop-shadow-[0_1px_3px_rgba(251,113,36,0.5)]"
+                              })}
+                            </span>
+                          </div>
+                          
+                          {/* Property name with gradient on hover */}
+                          <span className="text-amber-300 group-hover:bg-gradient-to-r group-hover:from-amber-300 group-hover:to-orange-400 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
+                            {spec.property}
+                          </span>
+                        </div>
+                      </TableCell>
+                      
+                      {/* Premium Value Cell */}
+                      <TableCell className="font-bold py-4 px-6 relative">
+                        <div className="relative">
+                          {/* Value with hover effect */}
+                          <span className="text-gray-200 group-hover:text-white transition-colors duration-300">
+                            {spec.value}
+                          </span>
+                          
+                          {/* Animated underline on hover */}
+                          <div className="absolute -bottom-1 left-0 h-px w-0 group-hover:w-1/2 transition-all duration-700 bg-gradient-to-r from-orange-500 to-red-500 opacity-60"></div>
+                        </div>
+                      </TableCell>
+                      
+                      {/* Premium Explanation Cell */}
+                      <TableCell className="text-gray-300 text-sm py-4 px-6 group-hover:text-gray-200 transition-colors duration-300">
+                        {spec.explanation}
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </div>
           </div>
+          
+          {/* Subtle bottom reflection */}
+          <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2/3 h-[2px] bg-gradient-to-r from-transparent via-orange-500/10 to-transparent rounded-full blur-sm"></div>
         </motion.div>
 
-        <div className="mt-8 text-center">
-          <p className="text-sm text-gray-300 backdrop-blur-sm bg-black/30 p-3 rounded-lg inline-block">
-            For detailed technical data sheets or certification documentation, please contact our technical support team.
-          </p>
+        <div className="mt-10 text-center">
+          {/* Premium Enterprise Bottom Note */}
+          <div className="relative inline-block">
+            {/* Premium Note Container */}
+            <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-gray-900/95 backdrop-blur-xl rounded-xl py-4 px-6 shadow-[0_10px_50px_rgba(0,0,0,0.5)] z-10">
+              {/* Premium gradient border effect - Subtle variant */}
+              <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/30 via-transparent to-red-500/30 opacity-60"></div>
+              
+              {/* Inner highlight */}
+              <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
+              
+              {/* Content */}
+              <div className="relative z-10 flex items-center">
+                <div className="hidden md:block mr-3 relative">
+                  <div className="absolute inset-0 rounded-full bg-orange-500/20 blur-[10px] opacity-50"></div>
+                  <Shield className="h-5 w-5 text-orange-400 relative z-10" />
+                </div>
+                <p className="text-sm text-gray-300">
+                  For detailed technical data sheets or certification documentation, please contact our technical support team.
+                </p>
+              </div>
+            </div>
+            
+            {/* Subtle bottom reflection */}
+            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2/3 h-[2px] bg-gradient-to-r from-transparent via-orange-500/10 to-transparent rounded-full blur-sm"></div>
+          </div>
         </div>
       </div>
     </section>
