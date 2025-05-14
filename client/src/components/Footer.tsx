@@ -91,32 +91,32 @@ const Footer = () => {
             <GradientHeading level={3} className="text-sm mb-1" variant="fire">Applications</GradientHeading>
             <ul className="space-y-1">
               <li>
-                <a href="/fire-prevention" className="dark:text-white text-gray-600 hover:text-[#0070f3] transition-colors text-sm">
+                <a href="/fire-prevention" className="dark:text-white text-gray-600 hover:text-[#0070f3] transition-colors text-xs">
                   Wildfire Protection
                 </a>
               </li>
               <li>
-                <a href="/marinas" className="text-white hover:text-[#0070f3] transition-colors text-sm font-medium">
+                <a href="/marinas" className="text-white hover:text-[#0070f3] transition-colors text-xs font-medium">
                   Marine
                 </a>
               </li>
               <li>
-                <a href="/pools" className="text-white hover:text-[#0070f3] transition-colors text-sm font-medium">
+                <a href="/pools" className="text-white hover:text-[#0070f3] transition-colors text-xs font-medium">
                   Pool
                 </a>
               </li>
               <li>
-                <a href="/construction" className="text-white hover:text-[#0070f3] transition-colors text-sm font-medium">
+                <a href="/construction" className="text-white hover:text-[#0070f3] transition-colors text-xs font-medium">
                   Construction
                 </a>
               </li>
               <li>
-                <a href="/mobile-home" className="text-white hover:text-[#0070f3] transition-colors text-sm font-medium">
+                <a href="/mobile-home" className="text-white hover:text-[#0070f3] transition-colors text-xs font-medium">
                   Mobile Home
                 </a>
               </li>
               <li>
-                <a href="/municipality" className="text-white hover:text-[#0070f3] transition-colors text-sm font-medium">
+                <a href="/municipality" className="text-white hover:text-[#0070f3] transition-colors text-xs font-medium">
                   Municipality
                 </a>
               </li>
@@ -127,7 +127,7 @@ const Footer = () => {
             <GradientHeading level={3} className="text-sm mb-1" variant="mixed">Our Product</GradientHeading>
             <ul className="space-y-1">
               <li>
-                <a href="/products" className="text-white hover:text-[#0070f3] transition-colors text-sm font-medium">
+                <a href="/products" className="text-white hover:text-[#0070f3] transition-colors text-xs font-medium">
                   Protective Coating
                 </a>
               </li>
@@ -166,7 +166,7 @@ const Footer = () => {
                 </span>
                 <div>
                   <p className="text-gray-400 font-semibold mb-0 text-xs">General Information:</p>
-                  <a href="mailto:info@praetoriansmartcoat.com" className="text-white hover:text-amber-500 transition-colors break-all text-sm font-medium">
+                  <a href="mailto:info@praetoriansmartcoat.com" className="text-white hover:text-amber-500 transition-colors break-all text-xs font-medium">
                     info@praetoriansmartcoat.com
                   </a>
                 </div>
@@ -180,7 +180,7 @@ const Footer = () => {
                 </span>
                 <div>
                   <p className="text-gray-400 font-semibold mb-0 text-xs">Management:</p>
-                  <a href="mailto:rob@praetoriansmartcoat.com" className="text-white hover:text-amber-500 transition-colors break-all text-sm font-medium">
+                  <a href="mailto:rob@praetoriansmartcoat.com" className="text-white hover:text-amber-500 transition-colors break-all text-xs font-medium">
                     rob@praetoriansmartcoat.com
                   </a>
                 </div>
@@ -205,7 +205,7 @@ const Footer = () => {
                   </svg>
                 </span>
                 <div>
-                  <a href="/contact" className="text-white hover:text-[#0070f3] transition-colors text-sm font-medium">
+                  <a href="/contact" className="text-white hover:text-[#0070f3] transition-colors text-xs font-medium">
                     Contact Form
                   </a>
                 </div>
