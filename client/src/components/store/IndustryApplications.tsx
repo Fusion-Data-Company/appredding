@@ -302,7 +302,10 @@ const IndustryApplications = () => {
                     Get Praetorian Smart-Coat NOW!
                   </span>
                   
-                  {/* Shimmer effect animation */}
+                  {/* Enhanced Shimmer effect animation - always active */}
+                  <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-30 -translate-x-full animate-shimmer-slow transform"></div>
+                  
+                  {/* Additional hover shimmer effect */}
                   <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 -translate-x-full group-hover:translate-x-full transform transition-transform duration-1000"></div>
                 </button>
                 
@@ -323,15 +326,26 @@ const IndustryApplications = () => {
             {/* Right corner accent */}
             <span className="absolute -top-4 -right-4 w-8 h-8 border-t-2 border-r-2 border-red-500/50 rounded-tr-lg"></span>
             
-            {/* Heading text with shimmer effect */}
-            <span className="relative">
-              <GradientText variant="fire" className="shimmer-fire-text drop-shadow-[0_2px_4px_rgba(251,191,36,0.3)] [text-shadow:0_4px_8px_rgba(0,0,0,0.5)]">
-                Protection Across Every Industry
-              </GradientText>
+            {/* Heading text with enhanced shimmer effect */}
+            <div className="relative z-10 px-6 py-2 overflow-hidden">
+              {/* Additional animated glow behind text */}
+              <div className="absolute inset-0 bg-gradient-to-r from-orange-600/10 via-orange-500/20 to-red-600/10 opacity-50 blur-xl animate-pulse-slow"></div>
               
-              {/* Additional subtle glow effect */}
-              <span className="absolute inset-0 bg-gradient-to-r from-orange-500/0 via-orange-500/10 to-orange-500/0 blur-xl opacity-70 rounded-full"></span>
-            </span>
+              {/* Shimmer overlay */}
+              <div className="shimmer-fire-text font-bold text-4xl tracking-tight">
+                <span className="text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-amber-500 to-red-500">
+                  Protection Across Every Industry
+                </span>
+              </div>
+              
+              {/* Text shadow for depth */}
+              <div className="absolute inset-0 flex items-center justify-center text-4xl font-bold tracking-tight opacity-70 blur-[2px] text-red-900/30 -z-10">
+                Protection Across Every Industry
+              </div>
+              
+              {/* Subtle moving highlight */}
+              <div className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-white/15 to-transparent"></div>
+            </div>
             
             {/* Bottom horizontal accent line with enhanced glow */}
             <span className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 w-3/4 h-1.5 bg-gradient-to-r from-transparent via-red-400/60 to-transparent rounded-full blur-sm animate-pulse-slow"></span>
