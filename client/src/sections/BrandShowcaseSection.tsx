@@ -41,7 +41,7 @@ const BrandShowcaseSection = () => {
         
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10">
-            <div className="bg-gray-800/60 backdrop-blur-xl rounded-xl border-4 border-gray-600/40 shadow-[0_0_40px_rgba(255,255,255,0.25)] py-8 px-10 mx-auto max-w-4xl mb-8 inline-block">
+            <div className="bg-gray-800/60 backdrop-blur-xl rounded-xl border-0 premium-gradient-border-bright shadow-[0_0_40px_rgba(255,255,255,0.25)] py-8 px-10 mx-auto max-w-4xl mb-8 inline-block">
               <GradientHeading level={2} className="text-3xl md:text-4xl lg:text-5xl" variant="mixed">
                 Elite Protection Technology
               </GradientHeading>
@@ -54,7 +54,7 @@ const BrandShowcaseSection = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Image side */}
             <div className="order-2 md:order-1">
-              <div className="relative rounded-xl overflow-hidden border-4 border-gray-600/40 shadow-[0_0_60px_rgba(255,255,255,0.4)]">
+              <div className="relative rounded-xl overflow-hidden border-0 premium-gradient-border-bright shadow-[0_0_60px_rgba(255,255,255,0.4)]">
                 <img 
                   src={praetorianBrandImage} 
                   alt="Praetorian SmartCoat Products" 
@@ -69,7 +69,7 @@ const BrandShowcaseSection = () => {
             
             {/* Text side */}
             <div className="order-1 md:order-2">
-              <div className="space-y-6 bg-gray-800/70 backdrop-blur-sm p-6 rounded-xl border border-gray-600/40">
+              <div className="space-y-6 bg-gray-800/70 backdrop-blur-sm p-6 rounded-xl border-0 premium-gradient-border-bright">
                 <div>
                   <h3 className="text-2xl font-semibold mb-2 bg-gradient-to-r from-orange-300 to-blue-300 bg-clip-text text-transparent">
                     Enterprise-Grade Protection
