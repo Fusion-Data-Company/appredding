@@ -106,37 +106,37 @@ export default function Products() {
                 {/* Key features indicators with icons */}
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
                   <div className="flex items-center gap-2">
-                    <div className="w-10 h-10 rounded-full bg-amber-100 dark:bg-amber-900/40 flex items-center justify-center shadow-sm">
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-amber-100 to-amber-50/90 dark:from-amber-900/50 dark:to-amber-800/30 flex items-center justify-center border border-amber-200/60 dark:border-amber-700/40 shadow-[0_3px_10px_rgba(251,191,36,0.2)] dark:shadow-[0_3px_10px_rgba(0,0,0,0.3)]">
                       <Thermometer className="h-5 w-5 text-amber-600 dark:text-amber-500" />
                     </div>
                     <span className="text-gray-700 dark:text-gray-300 text-sm">Heat Resistant</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <div className="w-10 h-10 rounded-full bg-amber-100 dark:bg-amber-900/40 flex items-center justify-center shadow-sm">
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-amber-100 to-amber-50/90 dark:from-amber-900/50 dark:to-amber-800/30 flex items-center justify-center border border-amber-200/60 dark:border-amber-700/40 shadow-[0_3px_10px_rgba(251,191,36,0.2)] dark:shadow-[0_3px_10px_rgba(0,0,0,0.3)]">
                       <Sun className="h-5 w-5 text-amber-600 dark:text-amber-500" />
                     </div>
                     <span className="text-gray-700 dark:text-gray-300 text-sm">UV Protective</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <div className="w-10 h-10 rounded-full bg-amber-100 dark:bg-amber-900/40 flex items-center justify-center shadow-sm">
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-amber-100 to-amber-50/90 dark:from-amber-900/50 dark:to-amber-800/30 flex items-center justify-center border border-amber-200/60 dark:border-amber-700/40 shadow-[0_3px_10px_rgba(251,191,36,0.2)] dark:shadow-[0_3px_10px_rgba(0,0,0,0.3)]">
                       <Droplets className="h-5 w-5 text-amber-600 dark:text-amber-500" />
                     </div>
                     <span className="text-gray-700 dark:text-gray-300 text-sm">Water Resistant</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <div className="w-10 h-10 rounded-full bg-amber-100 dark:bg-amber-900/40 flex items-center justify-center shadow-sm">
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-amber-100 to-amber-50/90 dark:from-amber-900/50 dark:to-amber-800/30 flex items-center justify-center border border-amber-200/60 dark:border-amber-700/40 shadow-[0_3px_10px_rgba(251,191,36,0.2)] dark:shadow-[0_3px_10px_rgba(0,0,0,0.3)]">
                       <Wind className="h-5 w-5 text-amber-600 dark:text-amber-500" />
                     </div>
                     <span className="text-gray-700 dark:text-gray-300 text-sm">Weather Resistant</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <div className="w-10 h-10 rounded-full bg-amber-100 dark:bg-amber-900/40 flex items-center justify-center shadow-sm">
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-amber-100 to-amber-50/90 dark:from-amber-900/50 dark:to-amber-800/30 flex items-center justify-center border border-amber-200/60 dark:border-amber-700/40 shadow-[0_3px_10px_rgba(251,191,36,0.2)] dark:shadow-[0_3px_10px_rgba(0,0,0,0.3)]">
                       <Scale className="h-5 w-5 text-amber-600 dark:text-amber-500" />
                     </div>
                     <span className="text-gray-700 dark:text-gray-300 text-sm">156% Elasticity</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <div className="w-10 h-10 rounded-full bg-amber-100 dark:bg-amber-900/40 flex items-center justify-center shadow-sm">
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-amber-100 to-amber-50/90 dark:from-amber-900/50 dark:to-amber-800/30 flex items-center justify-center border border-amber-200/60 dark:border-amber-700/40 shadow-[0_3px_10px_rgba(251,191,36,0.2)] dark:shadow-[0_3px_10px_rgba(0,0,0,0.3)]">
                       <ShieldCheck className="h-5 w-5 text-amber-600 dark:text-amber-500" />
                     </div>
                     <span className="text-gray-700 dark:text-gray-300 text-sm">ABS Certified</span>
