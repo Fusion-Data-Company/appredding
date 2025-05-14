@@ -499,15 +499,34 @@ export default function Products() {
                 
                 <button 
                   onClick={scrollToTop}
-                  className="relative z-10 bg-gradient-to-br from-amber-500 to-amber-700 hover:from-amber-400 hover:to-amber-600 text-white p-3 rounded-full shadow-lg hover:shadow-amber-500/30 border border-amber-400/30 transition-all duration-300 transform hover:-translate-y-1"
+                  className="relative z-10 bg-black text-white p-3 rounded-full shadow-lg hover:shadow-orange-500/30 border-2 border-orange-500 transition-all duration-300 transform hover:-translate-y-1 overflow-hidden group"
                 >
-                  <ArrowUp size={20} className="drop-shadow-sm" />
+                  {/* Random reflection effect 1 - Diagonal */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700"
+                       style={{
+                         clipPath: 'polygon(0 0, 30% 0, 20% 100%, 0% 100%)',
+                         transform: 'translateX(-100%)',
+                         animation: 'slideRightDiagonal 2.5s ease-in-out infinite',
+                         animationPlayState: 'paused'
+                       }}
+                       onMouseEnter={(e) => e.currentTarget.style.animationPlayState = 'running'}
+                       onMouseLeave={(e) => e.currentTarget.style.animationPlayState = 'paused'}>
+                  </div>
+                  <ArrowUp size={20} className="drop-shadow-sm relative z-10" />
                 </button>
               </div>
             </motion.div>
           )}
         </AnimatePresence>
       </div>
+      
+      {/* Add keyframes for button animations */}
+      <style dangerouslySetInnerHTML={{ __html: `
+        @keyframes slideRightDiagonal {
+          0% { transform: translateX(-100%); }
+          100% { transform: translateX(500%); }
+        }
+      `}} />
     </MainLayout>
   );
 }
