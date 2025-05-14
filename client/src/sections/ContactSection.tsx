@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
-import { GradientButton } from "@/components/ui/gradient-button";
 import { GradientHeading } from "@/components/ui/gradient-heading";
+import { PremiumActionButton } from "@/utils/premium-buttons";
 import backgroundImage from "@/assets_dir/images/optimized/praetorian-background-new.png";
 import stoneTexturePath from "@/assets_dir/images/textures/stone-texture.png";
 
