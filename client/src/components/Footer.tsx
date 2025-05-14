@@ -3,7 +3,7 @@ import StoneTextureBackground from "@/components/ui/stone-texture-background";
 
 const Footer = () => {
   return (
-    <footer className="relative border-t dark:border-[#333333] border-gray-300 pt-6 pb-3 mt-16">
+    <footer className="relative border-t dark:border-[#333333] border-gray-300 pt-4 pb-2 mt-8">
       {/* Stone texture background with frosted glass overlay */}
       <StoneTextureBackground 
         className="absolute inset-0" 
@@ -14,10 +14,10 @@ const Footer = () => {
       <div className="absolute inset-0 bg-[url('/src/assets_dir/images/noise.svg')] opacity-[0.04] bg-repeat bg-[length:200px_200px] mix-blend-overlay pointer-events-none animate-subtle-pulse"></div>
       
       <div className="container mx-auto px-4 relative z-[100]">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-0">
           <div>
-            <GradientHeading level={3} className="text-base mb-4" variant="fire">Department Contacts</GradientHeading>
-            <ul className="space-y-2">
+            <GradientHeading level={3} className="text-base mb-2" variant="fire">Department Contacts</GradientHeading>
+            <ul className="space-y-1">
               <li className="flex items-start">
                 <span className="text-amber-500 mr-1 mt-0.5">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
@@ -88,8 +88,8 @@ const Footer = () => {
           </div>
 
           <div>
-            <GradientHeading level={3} className="text-base mb-4" variant="fire">Applications</GradientHeading>
-            <ul className="space-y-3">
+            <GradientHeading level={3} className="text-base mb-2" variant="fire">Applications</GradientHeading>
+            <ul className="space-y-1">
               <li>
                 <a href="/fire-prevention" className="dark:text-white text-gray-600 hover:text-[#0070f3] transition-colors text-sm">
                   Wildfire Protection
@@ -124,8 +124,8 @@ const Footer = () => {
           </div>
 
           <div>
-            <GradientHeading level={3} className="text-base mb-4" variant="mixed">Our Product</GradientHeading>
-            <ul className="space-y-3">
+            <GradientHeading level={3} className="text-base mb-2" variant="mixed">Our Product</GradientHeading>
+            <ul className="space-y-1">
               <li>
                 <a href="/products" className="text-white hover:text-[#0070f3] transition-colors text-sm font-medium">
                   Protective Coating
@@ -155,8 +155,8 @@ const Footer = () => {
           </div>
 
           <div>
-            <GradientHeading level={3} className="text-base mb-4" variant="blue">Main Contact</GradientHeading>
-            <ul className="space-y-2">
+            <GradientHeading level={3} className="text-base mb-2" variant="blue">Main Contact</GradientHeading>
+            <ul className="space-y-1">
               <li className="flex items-start">
                 <span className="text-amber-500 mr-1 mt-0.5">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
@@ -216,7 +216,7 @@ const Footer = () => {
 
         </div>
 
-        <div className="pt-2 border-t dark:border-[#333333] border-gray-300 text-center dark:text-white text-gray-700 text-xs relative">
+        <div className="pt-2 border-t dark:border-[#333333] border-gray-300 text-center dark:text-white text-gray-700 text-xs relative" style={{marginTop: '0'}}>
           <p className="dark:text-white text-gray-700 text-[11px] font-medium">
             &copy; {new Date().getFullYear()} Praetorian SmartCoat Solutions. All rights reserved.
           </p>
