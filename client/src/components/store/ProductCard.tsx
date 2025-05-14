@@ -5,7 +5,7 @@ import { Star, ShoppingBag, Minus, Plus, CircleDollarSign, Box, ShieldCheck, Dro
 import { Product, useStore } from '@/contexts/StoreContext';
 import { toast } from '@/hooks/use-toast';
 import { motion } from 'framer-motion';
-import { PremiumButton } from '@/components/ui/premium-button';
+import { PremiumCartButton } from '@/utils/premium-buttons';
 
 interface ProductCardProps {
   product: Product;
@@ -190,16 +190,14 @@ export const ProductCard = ({ product }: ProductCardProps) => {
           </div>
           
           {/* Premium Add to Cart Button */}
-          <PremiumButton 
-            variant="default" 
+          <PremiumCartButton 
             size="lg"
             className="w-full"
             onClick={handleAddToCart}
             disabled={!product.inStock}
-            icon={<ShoppingBag className="h-4 w-4" />}
           >
             Add to Cart
-          </PremiumButton>
+          </PremiumCartButton>
         </CardFooter>
       </Card>
     </motion.div>
