@@ -192,7 +192,7 @@ section + section {
   --destructive-foreground: 210 20% 98%;
   --border: 0 0% 20%;
   --input: 0 0% 10%;
-  --ring: 263.4 70% 50.4%;
+  --ring: 217.2 91.2% 59.8%;
 }
 
 @layer components {
