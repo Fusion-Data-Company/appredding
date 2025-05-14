@@ -153,13 +153,22 @@ const ContactSection = () => {
       <div className="container mx-auto px-4 relative" style={{ zIndex: 2 }}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <div className="relative group">
-            {/* Subtle ambient glow behind the heading */}
-            <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 w-3/4 h-20 bg-gradient-to-r from-orange-500/0 via-amber-500/20 to-orange-500/0 blur-[100px] rounded-full"></div>
+            {/* Premium card container for heading - extends behind title */}
+            <div className="absolute -top-24 inset-x-0 h-60 bg-gradient-to-br from-gray-800/95 via-gray-900/95 to-gray-800/95 backdrop-blur-md rounded-t-xl z-0">
+              {/* Premium gradient border effect - top edges only */}
+              <div className="absolute inset-0 rounded-t-xl bg-gradient-to-r from-orange-500/50 via-transparent to-red-500/50 opacity-70" style={{ maskImage: 'linear-gradient(to bottom, black 20%, transparent 100%)' }}></div>
+              
+              {/* Inner highlight */}
+              <div className="absolute inset-0 rounded-t-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
+              
+              {/* Subtle ambient glow behind the heading */}
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3/4 h-32 bg-gradient-to-r from-orange-500/0 via-amber-500/20 to-orange-500/0 blur-[100px] rounded-full"></div>
+            </div>
             
             <div className="relative mb-10 flex justify-center w-full">
-              <div className="absolute -inset-4 bg-gradient-to-r from-orange-500 via-amber-400 to-orange-500 rounded-lg blur-lg opacity-30 dark:opacity-40"></div>
+              <div className="absolute -inset-4 bg-gradient-to-r from-orange-500 via-amber-400 to-orange-500 rounded-lg blur-lg opacity-30 dark:opacity-40 z-10"></div>
               <h2 
-                className="relative z-10 text-center bg-clip-text text-transparent bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 font-extrabold tracking-tight py-2" 
+                className="relative z-20 text-center bg-clip-text text-transparent bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 font-extrabold tracking-tight py-2" 
                 style={{ 
                   fontSize: '3rem',
                   textShadow: '0 1px 8px rgba(255,150,0,0.3)',
@@ -170,7 +179,7 @@ const ContactSection = () => {
                 Get In Touch
               </h2>
             </div>
-            <p className="text-gray-400 mb-8 text-lg text-center max-w-xl mx-auto">
+            <p className="text-gray-300 mb-8 text-lg text-center max-w-xl mx-auto relative z-10">
               Have questions about our products or services? Contact our team of coating experts for personalized assistance.
             </p>
             
@@ -476,6 +485,18 @@ const ContactSection = () => {
               
               {/* Premium glassmorphism effect - enhanced */}
               <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/10 dark:from-white/5 dark:via-transparent dark:to-white/5"></div>
+              
+              {/* Premium card container for heading - stretching from top */}
+              <div className="absolute -top-24 inset-x-0 h-60 bg-gradient-to-br from-gray-800/95 via-gray-900/95 to-gray-800/95 backdrop-blur-md rounded-t-xl z-0">
+                {/* Premium gradient border effect - top edges only */}
+                <div className="absolute inset-0 rounded-t-xl bg-gradient-to-r from-blue-500/50 via-transparent to-cyan-400/50 opacity-70" style={{ WebkitMaskImage: 'linear-gradient(to bottom, black 20%, transparent 100%)', maskImage: 'linear-gradient(to bottom, black 20%, transparent 100%)' }}></div>
+                
+                {/* Inner highlight */}
+                <div className="absolute inset-0 rounded-t-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
+                
+                {/* Subtle ambient glow behind the heading */}
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3/4 h-32 bg-gradient-to-r from-blue-500/0 via-blue-500/20 to-blue-500/0 blur-[100px] rounded-full"></div>
+              </div>
               
               <div className="p-8 relative z-20">
                 <div className="relative mb-10 flex justify-center w-full">
