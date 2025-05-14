@@ -3,7 +3,7 @@ import StoneTextureBackground from "@/components/ui/stone-texture-background";
 
 const Footer = () => {
   return (
-    <footer className="relative border-t dark:border-[#333333] border-gray-300 pt-6 pb-3 mt-16 overflow-hidden">
+    <footer className="relative border-t dark:border-[#333333] border-gray-300 pt-6 pb-3 mt-16">
       {/* Stone texture background with frosted glass overlay */}
       <StoneTextureBackground 
         className="absolute inset-0" 
@@ -193,7 +193,7 @@ const Footer = () => {
                 </span>
                 <div>
                   <p className="text-gray-400 font-semibold mb-0 text-xs">Phone:</p>
-                  <a href="tel:+19168096619" className="text-[#a0a0a0] hover:text-amber-500 transition-colors text-sm">
+                  <a href="tel:+19168096619" className="text-white hover:text-amber-500 transition-colors text-sm font-medium">
                     (916) 809-6619
                   </a>
                 </div>
