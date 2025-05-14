@@ -1,5 +1,5 @@
 import { GradientHeading } from "@/components/ui/gradient-heading";
-import backgroundImg from "../assets_dir/images/praetorian-hero-final.png";
+import backgroundImg from "../assets_dir/images/optimized/praetorian-background-new.png";
 
 const TestimonialsSection = () => {
   return (

@@ -1,7 +1,7 @@
 import { GradientHeading } from "@/components/ui/gradient-heading";
 import { GradientButton } from "@/components/ui/gradient-button";
 import { GradientText } from "@/components/ui/gradient-text";
-import backgroundImg from "../assets_dir/images/praetorian-hero-final.png";
+import backgroundImg from "../assets_dir/images/optimized/praetorian-background-new.png";
 
 const ProductHistorySection = () => {
   return (
