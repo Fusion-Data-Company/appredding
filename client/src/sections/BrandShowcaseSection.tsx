@@ -54,7 +54,7 @@ const BrandShowcaseSection = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Image side */}
             <div className="order-2 md:order-1">
-              <div className="relative rounded-xl overflow-hidden border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)]">
+              <div className="relative rounded-xl overflow-hidden border-4 border-gray-600/40 shadow-[0_0_60px_rgba(255,255,255,0.4)]">
                 <img 
                   src={praetorianBrandImage} 
                   alt="Praetorian SmartCoat Products" 

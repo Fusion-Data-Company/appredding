@@ -58,18 +58,18 @@ const ProductHistorySection = () => {
             </GradientButton>
           </div>
           
-          <div className="dark:bg-gradient-to-r dark:from-gray-800/90 dark:to-gray-700/90 bg-gradient-to-r from-[#e6e1d2]/90 to-[#f0ece0]/90 rounded-lg overflow-hidden dark:border-4 dark:border-white/40 border-4 border-gray-300 dark:shadow-[0_0_40px_rgba(255,255,255,0.3)] shadow-[0_0_30px_rgba(0,0,0,0.2)] transform hover:scale-[1.02] transition-transform duration-300">
-            <div className="p-8 dark:border-b-2 dark:border-gray-600/40 border-b-2 border-gray-300">
+          <div className="bg-gradient-to-r from-gray-800/90 to-gray-700/90 rounded-lg overflow-hidden border-4 border-gray-600/40 shadow-[0_0_40px_rgba(255,255,255,0.3)] transform hover:scale-[1.02] transition-transform duration-300">
+            <div className="p-8 border-b-2 border-gray-600/40">
               <h3 className="text-2xl md:text-3xl font-bold">
                 <GradientText variant="blue" className="drop-shadow-[0_2px_4px_rgba(59,130,246,0.3)]">
                   Product Innovation Timeline
                 </GradientText>
               </h3>
-              <p className="dark:text-gray-300 text-gray-700 text-lg">Explore our history of protective coating innovations</p>
+              <p className="text-gray-300 text-lg">Explore our history of protective coating innovations</p>
             </div>
             <div className="p-8 space-y-8">
-              <div className="relative pl-10 dark:border-l-3 dark:border-gray-600/40 border-l-3 border-gray-400/60 pb-10">
-                <div className="absolute -left-3 top-0 w-6 h-6 rounded-full dark:bg-gradient-to-r dark:from-gray-700 dark:to-gray-600 bg-gradient-to-r from-orange-400 to-orange-500 dark:shadow-[0_0_8px_rgba(255,255,255,0.25)] shadow-[0_0_8px_rgba(0,0,0,0.25)]"></div>
+              <div className="relative pl-10 border-l-3 border-gray-600/40 pb-10">
+                <div className="absolute -left-3 top-0 w-6 h-6 rounded-full bg-gradient-to-r from-gray-700 to-gray-600 shadow-[0_0_8px_rgba(255,255,255,0.25)]"></div>
                 <div className="font-bold text-xl">
                   <GradientText variant="blue" className="drop-shadow-[0_1px_2px_rgba(59,130,246,0.3)]">
                     1989
@@ -78,11 +78,11 @@ const ProductHistorySection = () => {
                 <div className="text-2xl font-semibold mb-1">
                   <GradientText variant="mixed" className="text-xl">NASA Technology Adaptation</GradientText>
                 </div>
-                <p className="dark:text-gray-300 text-gray-700 text-lg">First successful adaptation of NASA's 80-160 micron vacuum-filled ceramic microspheres (0.00543 W/cm²/K conductivity) for commercial fire protection applications</p>
+                <p className="text-gray-300 text-lg">First successful adaptation of NASA's 80-160 micron vacuum-filled ceramic microspheres (0.00543 W/cm²/K conductivity) for commercial fire protection applications</p>
               </div>
               
-              <div className="relative pl-10 dark:border-l-3 dark:border-gray-600/40 border-l-3 border-gray-400/60 pb-10">
-                <div className="absolute -left-3 top-0 w-6 h-6 rounded-full dark:bg-gradient-to-r dark:from-gray-700 dark:to-gray-600 bg-gradient-to-r from-blue-400 to-blue-500 dark:shadow-[0_0_8px_rgba(255,255,255,0.25)] shadow-[0_0_8px_rgba(0,0,0,0.25)]"></div>
+              <div className="relative pl-10 border-l-3 border-gray-600/40 pb-10">
+                <div className="absolute -left-3 top-0 w-6 h-6 rounded-full bg-gradient-to-r from-gray-700 to-gray-600 shadow-[0_0_8px_rgba(255,255,255,0.25)]"></div>
                 <div className="font-bold text-xl">
                   <GradientText variant="blue" className="drop-shadow-[0_1px_2px_rgba(59,130,246,0.3)]">
                     1995
@@ -91,11 +91,11 @@ const ProductHistorySection = () => {
                 <div className="text-2xl font-semibold mb-1">
                   <GradientText variant="mixed" className="text-xl">Class A Fire Rating</GradientText>
                 </div>
-                <p className="dark:text-gray-300 text-gray-700 text-lg">Achieved perfect 0/100 scores in ASTM E84 testing for both Flame Spread and Smoke Development with certified triple-component system</p>
+                <p className="text-gray-300 text-lg">Achieved perfect 0/100 scores in ASTM E84 testing for both Flame Spread and Smoke Development with certified triple-component system</p>
               </div>
               
-              <div className="relative pl-10 dark:border-l-3 dark:border-gray-600/40 border-l-3 border-gray-400/60 pb-10">
-                <div className="absolute -left-3 top-0 w-6 h-6 rounded-full dark:bg-gradient-to-r dark:from-gray-700 dark:to-gray-600 bg-gradient-to-r from-red-400 to-red-500 dark:shadow-[0_0_8px_rgba(255,255,255,0.25)] shadow-[0_0_8px_rgba(0,0,0,0.25)]"></div>
+              <div className="relative pl-10 border-l-3 border-gray-600/40 pb-10">
+                <div className="absolute -left-3 top-0 w-6 h-6 rounded-full bg-gradient-to-r from-gray-700 to-gray-600 shadow-[0_0_8px_rgba(255,255,255,0.25)]"></div>
                 <div className="font-bold text-xl">
                   <GradientText variant="blue" className="drop-shadow-[0_1px_2px_rgba(59,130,246,0.3)]">
                     2000s
@@ -104,11 +104,11 @@ const ProductHistorySection = () => {
                 <div className="text-2xl font-semibold mb-1">
                   <GradientText variant="mixed" className="text-xl">Energy Efficiency Breakthrough</GradientText>
                 </div>
-                <p className="dark:text-gray-300 text-gray-700 text-lg">Independent facility documented 87% energy consumption reduction after Praetorian SmartCoat application, validating extreme efficiency claims</p>
+                <p className="text-gray-300 text-lg">Independent facility documented 87% energy consumption reduction after Praetorian SmartCoat application, validating extreme efficiency claims</p>
               </div>
               
-              <div className="relative pl-10 dark:border-l-3 dark:border-gray-600/40 border-l-3 border-gray-400/60">
-                <div className="absolute -left-3 top-0 w-6 h-6 rounded-full dark:bg-gradient-to-r dark:from-gray-700 dark:to-gray-600 bg-gradient-to-r from-purple-400 to-purple-500 dark:shadow-[0_0_8px_rgba(255,255,255,0.25)] shadow-[0_0_8px_rgba(0,0,0,0.25)]"></div>
+              <div className="relative pl-10 border-l-3 border-gray-600/40">
+                <div className="absolute -left-3 top-0 w-6 h-6 rounded-full bg-gradient-to-r from-gray-700 to-gray-600 shadow-[0_0_8px_rgba(255,255,255,0.25)]"></div>
                 <div className="font-bold text-xl">
                   <GradientText variant="blue" className="drop-shadow-[0_1px_2px_rgba(59,130,246,0.3)]">
                     2019
@@ -117,7 +117,7 @@ const ProductHistorySection = () => {
                 <div className="text-2xl font-semibold mb-1">
                   <GradientText variant="mixed" className="text-xl">Long-Term Performance Validation</GradientText>
                 </div>
-                <p className="dark:text-gray-300 text-gray-700 text-lg">30-year inspection of original 1989 installations showed no deterioration and continued performance, confirming exceptional durability claims</p>
+                <p className="text-gray-300 text-lg">30-year inspection of original 1989 installations showed no deterioration and continued performance, confirming exceptional durability claims</p>
               </div>
             </div>
           </div>
