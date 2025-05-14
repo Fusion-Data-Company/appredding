@@ -102,7 +102,7 @@ export const PraetorianButton = ({
 
         {withShine && (
           <div className="absolute inset-0 overflow-hidden rounded-md">
-            <div className="absolute -inset-[400%] animate-[shine_8s_ease-in-out_infinite] bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+            <div className="absolute -inset-[400%] animate-[shine_4s_ease-in-out_infinite] bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
           </div>
         )}
 
@@ -134,7 +134,7 @@ export const PraetorianButton = ({
 
       {withShine && (
         <div className="absolute inset-0 overflow-hidden rounded-md">
-          <div className="absolute -inset-[400%] animate-[shine_8s_ease-in-out_infinite] bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+          <div className="absolute -inset-[400%] animate-[shine_4s_ease-in-out_infinite] bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
         </div>
       )}
 
