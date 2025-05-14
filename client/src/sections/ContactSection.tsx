@@ -154,7 +154,7 @@ const ContactSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <div className="relative group">
             {/* Premium card container for heading - extends behind title */}
-            <div className="absolute -top-24 inset-x-0 h-60 bg-gradient-to-br from-gray-800/95 via-gray-900/95 to-gray-800/95 backdrop-blur-md rounded-t-xl z-0">
+            <div className="absolute -top-12 inset-x-0 h-60 bg-gradient-to-br from-gray-800/95 via-gray-900/95 to-gray-800/95 backdrop-blur-md rounded-t-xl z-0">
               {/* Premium gradient border effect - top edges only */}
               <div className="absolute inset-0 rounded-t-xl bg-gradient-to-r from-orange-500/50 via-transparent to-red-500/50 opacity-70" style={{ maskImage: 'linear-gradient(to bottom, black 20%, transparent 100%)' }}></div>
               
@@ -520,7 +520,7 @@ const ContactSection = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/10 dark:from-white/5 dark:via-transparent dark:to-white/5"></div>
               
               {/* Premium card container for heading - stretching from top */}
-              <div className="absolute -top-24 inset-x-0 h-60 bg-gradient-to-br from-gray-800/95 via-gray-900/95 to-gray-800/95 backdrop-blur-md rounded-t-xl z-0">
+              <div className="absolute -top-12 inset-x-0 h-60 bg-gradient-to-br from-gray-800/95 via-gray-900/95 to-gray-800/95 backdrop-blur-md rounded-t-xl z-0">
                 {/* Premium gradient border effect - top edges only */}
                 <div className="absolute inset-0 rounded-t-xl bg-gradient-to-r from-blue-500/50 via-transparent to-cyan-400/50 opacity-70" style={{ WebkitMaskImage: 'linear-gradient(to bottom, black 20%, transparent 100%)', maskImage: 'linear-gradient(to bottom, black 20%, transparent 100%)' }}></div>
                 
