@@ -42,7 +42,7 @@ export const MenuItem = ({
     >
       <motion.p
         transition={{ duration: 0.3 }}
-        className="shimmer-text cursor-pointer text-white/90 hover:text-white dark:text-white font-cinzel uppercase tracking-wide text-sm lg:text-base"
+        className="cursor-pointer text-white/90 hover:text-white dark:text-white font-cinzel uppercase tracking-wide text-sm lg:text-base"
       >
         {item}
       </motion.p>
@@ -114,7 +114,7 @@ export const HoveredLink = ({ children, ...rest }: any) => {
   return (
     <Link
       {...rest}
-      className="shimmer-element shimmer-element-subtle text-gray-300 hover:text-white transition-colors duration-300 py-1 block"
+      className="text-gray-300 hover:text-white transition-colors duration-300 py-1 block"
     >
       {children}
     </Link>

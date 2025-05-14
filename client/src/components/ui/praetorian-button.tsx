@@ -55,8 +55,6 @@ export interface PraetorianButtonProps
   isLoading?: boolean;
   children: ReactNode;
   withShine?: boolean;
-  withShimmer?: boolean;
-  shimmerStrength?: 'subtle' | 'default' | 'strong';
   customClasses?: string;
   href?: string;
 }
@@ -72,8 +70,6 @@ export const PraetorianButton = ({
   isLoading,
   children,
   withShine = false,
-  withShimmer = true,
-  shimmerStrength = 'default',
   customClasses,
   href,
   ...props
@@ -81,9 +77,6 @@ export const PraetorianButton = ({
   const buttonClassNames = cn(
     buttonVariants({ variant, size, roundness, fullWidth, glowEffect }),
     withShine && "overflow-hidden",
-    withShimmer && "shimmer-element",
-    withShimmer && shimmerStrength === 'subtle' && "shimmer-element-subtle",
-    withShimmer && shimmerStrength === 'strong' && "shimmer-element-strong",
     customClasses
   );
   

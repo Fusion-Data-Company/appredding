@@ -297,13 +297,12 @@ const IndustryApplications = () => {
               <TabsTrigger 
                 key={app.id} 
                 value={app.id}
-                className="py-3 relative z-10 font-medium transition-all duration-300 shimmer-element shimmer-element-subtle
+                className="py-3 relative z-10 font-medium transition-all duration-300 
                   data-[state=active]:bg-gradient-to-b data-[state=active]:from-white data-[state=active]:to-amber-50 
                   dark:data-[state=active]:from-amber-800 dark:data-[state=active]:to-amber-900 
                   data-[state=active]:text-amber-700 dark:data-[state=active]:text-amber-100 
                   data-[state=active]:shadow-lg data-[state=active]:border-b-2 
                   data-[state=active]:border-amber-500 dark:data-[state=active]:border-amber-500 
-                  data-[state=active]:shimmer-element-fast
                   rounded-lg text-gray-700 dark:text-amber-300 
                   hover:bg-amber-50/70 dark:hover:bg-amber-800/50 
                   hover:shadow-md hover:-translate-y-0.5 
@@ -347,7 +346,7 @@ const IndustryApplications = () => {
                     
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
                       {app.benefits.map((benefit, index) => (
-                        <div key={index} className="group shimmer-element shimmer-element-subtle bg-gradient-to-b from-amber-50/95 to-white/90 dark:from-amber-900/30 dark:to-gray-900/30 p-5 rounded-lg border border-amber-200 dark:border-amber-700/50 shadow-[0_4px_15px_rgba(251,191,36,0.1)] dark:shadow-[0_4px_15px_rgba(0,0,0,0.2)] transition-all duration-300 hover:shadow-[0_8px_25px_rgba(251,191,36,0.2)] dark:hover:shadow-[0_8px_25px_rgba(0,0,0,0.3)] hover:-translate-y-1">
+                        <div key={index} className="group bg-gradient-to-b from-amber-50/95 to-white/90 dark:from-amber-900/30 dark:to-gray-900/30 p-5 rounded-lg border border-amber-200 dark:border-amber-700/50 shadow-[0_4px_15px_rgba(251,191,36,0.1)] dark:shadow-[0_4px_15px_rgba(0,0,0,0.2)] transition-all duration-300 hover:shadow-[0_8px_25px_rgba(251,191,36,0.2)] dark:hover:shadow-[0_8px_25px_rgba(0,0,0,0.3)] hover:-translate-y-1">
                           <div className="text-amber-600 dark:text-amber-400 mb-3 transform transition-transform duration-300 group-hover:scale-110 group-hover:text-amber-500 dark:group-hover:text-amber-300">
                             {benefit.icon}
                           </div>
@@ -363,9 +362,9 @@ const IndustryApplications = () => {
                       ))}
                     </div>
                     
-                    <div className="shimmer-element bg-gradient-to-br from-amber-50/95 to-white/90 dark:from-amber-900/40 dark:to-gray-900/40 rounded-xl p-8 shadow-[0_10px_40px_rgba(251,191,36,0.15)] dark:shadow-[0_10px_40px_rgba(0,0,0,0.3)] border border-amber-300/50 dark:border-amber-700/50 backdrop-blur-sm">
+                    <div className="bg-gradient-to-br from-amber-50/95 to-white/90 dark:from-amber-900/40 dark:to-gray-900/40 rounded-xl p-8 shadow-[0_10px_40px_rgba(251,191,36,0.15)] dark:shadow-[0_10px_40px_rgba(0,0,0,0.3)] border border-amber-300/50 dark:border-amber-700/50 backdrop-blur-sm">
                       <div className="flex items-center mb-6">
-                        <div className="shimmer-element-strong h-10 w-2 bg-amber-500 dark:bg-amber-600 rounded-full mr-3"></div>
+                        <div className="h-10 w-2 bg-amber-500 dark:bg-amber-600 rounded-full mr-3"></div>
                         <h4 className="text-2xl font-bold drop-shadow-sm">
                           <GradientText variant="fire">
                             Case Study: <span className="opacity-100" style={{ textShadow: "0px 1px 2px rgba(0,0,0,0.3)" }}>{app.caseStudy.title}</span>
