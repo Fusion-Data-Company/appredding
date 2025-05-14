@@ -244,7 +244,7 @@ const FirePrevention = () => {
               
               <div className="grid md:grid-cols-4 gap-8 mt-12">
                 <div className="backdrop-blur-sm bg-primary-900/60 border border-orange-600/40 rounded-lg p-6 hover-lift shadow-lg">
-                  <div className="bg-gradient-to-r from-red-600 to-orange-500 w-12 h-12 rounded-full flex items-center justify-center mb-6 mx-auto shadow-glow-fire">
+                  <div className="bg-gradient-to-r from-red-600 to-orange-500 w-12 h-12 rounded-full flex items-center justify-center mb-6 mx-auto shadow-glow-fire relative z-50">
                     <span className="text-2xl font-bold text-white">1</span>
                   </div>
                   <h3 className="text-xl font-bold mb-3 text-center text-orange-100">Property Assessment</h3>
@@ -252,7 +252,7 @@ const FirePrevention = () => {
                 </div>
                 
                 <div className="backdrop-blur-sm bg-primary-900/60 border border-orange-600/40 rounded-lg p-6 hover-lift shadow-lg">
-                  <div className="bg-gradient-to-r from-red-600 to-orange-500 w-12 h-12 rounded-full flex items-center justify-center mb-6 mx-auto shadow-glow-fire">
+                  <div className="bg-gradient-to-r from-red-600 to-orange-500 w-12 h-12 rounded-full flex items-center justify-center mb-6 mx-auto shadow-glow-fire relative z-50">
                     <span className="text-2xl font-bold text-white">2</span>
                   </div>
                   <h3 className="text-xl font-bold mb-3 text-center text-orange-100">Customized Plan</h3>
@@ -260,7 +260,7 @@ const FirePrevention = () => {
                 </div>
                 
                 <div className="backdrop-blur-sm bg-primary-900/60 border border-orange-600/40 rounded-lg p-6 hover-lift shadow-lg">
-                  <div className="bg-gradient-to-r from-red-600 to-orange-500 w-12 h-12 rounded-full flex items-center justify-center mb-6 mx-auto shadow-glow-fire">
+                  <div className="bg-gradient-to-r from-red-600 to-orange-500 w-12 h-12 rounded-full flex items-center justify-center mb-6 mx-auto shadow-glow-fire relative z-50">
                     <span className="text-2xl font-bold text-white">3</span>
                   </div>
                   <h3 className="text-xl font-bold mb-3 text-center text-orange-100">Professional Application</h3>
@@ -268,7 +268,7 @@ const FirePrevention = () => {
                 </div>
                 
                 <div className="backdrop-blur-sm bg-primary-900/60 border border-orange-600/40 rounded-lg p-6 hover-lift shadow-lg">
-                  <div className="bg-gradient-to-r from-red-600 to-orange-500 w-12 h-12 rounded-full flex items-center justify-center mb-6 mx-auto shadow-glow-fire">
+                  <div className="bg-gradient-to-r from-red-600 to-orange-500 w-12 h-12 rounded-full flex items-center justify-center mb-6 mx-auto shadow-glow-fire relative z-50">
                     <span className="text-2xl font-bold text-white">4</span>
                   </div>
                   <h3 className="text-xl font-bold mb-3 text-center text-orange-100">Ongoing Protection</h3>
