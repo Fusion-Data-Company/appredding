@@ -11,6 +11,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 // Import components
 import { PRAETORIAN_PRODUCTS_HERO_IMAGE } from '@/assets_dir/imageExports';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { GradientHeading } from "@/components/ui/gradient-heading";
+import { GradientText } from "@/components/ui/gradient-text";
 
 export default function Products() {
   const { products } = useStore();
@@ -87,12 +89,14 @@ export default function Products() {
                   <span>NASA-derived ceramic technology</span>
                 </div>
                 
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-amber-900 dark:text-amber-300 leading-tight">
+                <GradientHeading 
+                  variant="fire" 
+                  level={1} 
+                  className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight"
+                >
                   <span className="block">Premium</span>
-                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-700 to-amber-500 dark:from-amber-400 dark:to-amber-300">
-                    Protective Coatings
-                  </span>
-                </h1>
+                  <span>Protective Coatings</span>
+                </GradientHeading>
                 
                 <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-8 max-w-xl leading-relaxed">
                   Praetorian's revolutionary ceramic-based protective coatings offer unmatched 
@@ -367,7 +371,13 @@ export default function Products() {
               <div className="w-16 h-16 mx-auto bg-amber-100 dark:bg-amber-900/30 rounded-full flex items-center justify-center mb-4">
                 <Filter size={24} className="text-amber-600 dark:text-amber-500" />
               </div>
-              <h3 className="text-xl font-bold mb-2 text-amber-900 dark:text-amber-300">No products match your filters</h3>
+              <GradientHeading 
+                variant="fire" 
+                level={3} 
+                className="text-xl font-bold mb-2"
+              >
+                No products match your filters
+              </GradientHeading>
               <p className="text-gray-600 dark:text-gray-400 mb-6 max-w-md mx-auto">Please try adjusting your filter selection or view our complete product catalog.</p>
               <PremiumButton 
                 variant="default" 
