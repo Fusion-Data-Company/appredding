@@ -3,7 +3,7 @@ import StoneTextureBackground from "@/components/ui/stone-texture-background";
 
 const Footer = () => {
   return (
-    <footer className="relative border-t dark:border-[#333333] border-gray-300 pt-4 pb-2 mt-8">
+    <footer className="relative border-t dark:border-[#333333] border-gray-300 pt-2 pb-1 mt-2">
       {/* Stone texture background with frosted glass overlay */}
       <StoneTextureBackground 
         className="absolute inset-0" 
@@ -13,10 +13,10 @@ const Footer = () => {
       {/* Noise texture overlay */}
       <div className="absolute inset-0 bg-[url('/src/assets_dir/images/noise.svg')] opacity-[0.04] bg-repeat bg-[length:200px_200px] mix-blend-overlay pointer-events-none animate-subtle-pulse"></div>
       
-      <div className="container mx-auto px-4 relative z-[100]">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-0">
+      <div className="container mx-auto px-4 relative z-[100]" style={{marginTop: "-10px"}}>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 mb-0">
           <div>
-            <GradientHeading level={3} className="text-base mb-2" variant="fire">Department Contacts</GradientHeading>
+            <GradientHeading level={3} className="text-sm mb-1" variant="fire">Department Contacts</GradientHeading>
             <ul className="space-y-1">
               <li className="flex items-start">
                 <span className="text-amber-500 mr-1 mt-0.5">
@@ -88,7 +88,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <GradientHeading level={3} className="text-base mb-2" variant="fire">Applications</GradientHeading>
+            <GradientHeading level={3} className="text-sm mb-1" variant="fire">Applications</GradientHeading>
             <ul className="space-y-1">
               <li>
                 <a href="/fire-prevention" className="dark:text-white text-gray-600 hover:text-[#0070f3] transition-colors text-sm">
@@ -124,7 +124,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <GradientHeading level={3} className="text-base mb-2" variant="mixed">Our Product</GradientHeading>
+            <GradientHeading level={3} className="text-sm mb-1" variant="mixed">Our Product</GradientHeading>
             <ul className="space-y-1">
               <li>
                 <a href="/products" className="text-white hover:text-[#0070f3] transition-colors text-sm font-medium">
@@ -155,7 +155,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <GradientHeading level={3} className="text-base mb-2" variant="blue">Main Contact</GradientHeading>
+            <GradientHeading level={3} className="text-sm mb-1" variant="blue">Main Contact</GradientHeading>
             <ul className="space-y-1">
               <li className="flex items-start">
                 <span className="text-amber-500 mr-1 mt-0.5">
@@ -193,7 +193,7 @@ const Footer = () => {
                 </span>
                 <div>
                   <p className="text-gray-400 font-semibold mb-0 text-xs">Phone:</p>
-                  <a href="tel:+19168096619" className="text-white hover:text-amber-500 transition-colors text-sm font-medium">
+                  <a href="tel:+19168096619" className="text-white hover:text-amber-500 transition-colors text-xs font-medium">
                     (916) 809-6619
                   </a>
                 </div>
@@ -216,11 +216,11 @@ const Footer = () => {
 
         </div>
 
-        <div className="pt-2 border-t dark:border-[#333333] border-gray-300 text-center dark:text-white text-gray-700 text-xs relative" style={{marginTop: '0'}}>
+        <div className="pt-1 border-t dark:border-[#333333] border-gray-300 text-center dark:text-white text-gray-700 text-xs relative" style={{marginTop: '-6px'}}>
           <p className="dark:text-white text-gray-700 text-[11px] font-medium">
             &copy; {new Date().getFullYear()} Praetorian SmartCoat Solutions. All rights reserved.
           </p>
-          <div className="mt-0.5 space-x-3">
+          <div className="mt-0 space-x-3">
             <a href="/privacy-policy" className="dark:text-white text-gray-700 hover:text-amber-500 transition-colors text-[11px] font-medium">
               Privacy Policy
             </a>
@@ -231,7 +231,7 @@ const Footer = () => {
               Contact Us
             </a>
           </div>
-          <div className="mt-1 text-[10px] text-white dark:text-white font-medium">
+          <div className="mt-0 text-[10px] text-white dark:text-white font-medium">
             Praetorian SmartCoat Solutions™ | Innovative Protective Coating Technologies
           </div>
         </div>
