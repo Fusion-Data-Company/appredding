@@ -1,6 +1,7 @@
 import { Link } from "wouter";
 import { GradientButton } from "@/components/ui/gradient-button";
 import { GradientHeading } from "@/components/ui/gradient-heading";
+import backgroundImg from "../assets_dir/images/praetorian-hero-final.png";
 
 interface ApplicationCardProps {
   imageSrc: string;
@@ -87,22 +88,26 @@ const ApplicationsSection = () => {
       className="py-32 md:py-40 relative" 
       id="applications"
       style={{
-        backgroundImage: 'url("/images/optimized/diamond-plate-fire-water-2.jpg")',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
+        backgroundImage: `url(${backgroundImg})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center top",
+        backgroundRepeat: "no-repeat",
+        backgroundAttachment: "fixed",
+        backgroundColor: "#111111",
         minHeight: "100vh",
         paddingTop: "10rem",
-        paddingBottom: "10rem"
+        paddingBottom: "10rem",
+        position: "relative",
+        zIndex: 0
       }}
     >
-      {/* Overlay to ensure text readability */}
-      <div className="absolute inset-0 bg-black/20"></div>
-      <div className="container mx-auto px-4 md:px-8 max-w-[1600px] relative z-10">
+      {/* Semi-transparent overlay for better readability */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/60" style={{ zIndex: 1 }}></div>
+      <div className="container mx-auto px-4 md:px-8 max-w-[1600px] relative" style={{ zIndex: 2 }}>
         <div className="text-center mb-20">
-          <div className="dark:bg-gray-800/60 bg-gray-100/90 backdrop-blur-xl rounded-xl dark:border-4 dark:border-gray-600/40 border-4 border-gray-300 dark:shadow-[0_0_40px_rgba(255,255,255,0.25)] shadow-[0_0_30px_rgba(0,0,0,0.3)] py-12 px-12 mx-auto max-w-4xl mb-10 inline-block">
+          <div className="bg-gray-800/60 backdrop-blur-xl rounded-xl border-4 border-gray-600/40 shadow-[0_0_40px_rgba(255,255,255,0.25)] py-12 px-12 mx-auto max-w-4xl mb-10 inline-block">
             <GradientHeading className="text-4xl md:text-5xl mb-6" variant="mixed">Specialized Applications</GradientHeading>
-            <p className="dark:text-[#a0a0a0] text-gray-700 text-xl max-w-2xl mx-auto">
+            <p className="text-gray-300 text-xl max-w-2xl mx-auto">
               Our protective coatings are engineered for specific environments and challenges across various industries.
             </p>
           </div>
