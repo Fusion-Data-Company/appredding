@@ -32,7 +32,7 @@ const ProductHistorySection = () => {
           {/* Left column - NASA Technology Content */}
           <div className="relative group">
             {/* NASA Badge with premium styling */}
-            <div className="absolute -top-12 -left-6 z-10">
+            <div className="absolute -top-12 -left-6 z-50">
               <div className="relative inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-gray-900/95 via-gray-950/95 to-gray-900/95 border border-gray-800 shadow-[0_10px_25px_rgba(0,0,0,0.5)]">
                 {/* Premium gradient border effect - Mixed variant */}
                 <div className="absolute inset-0 p-0.5 rounded-full bg-gradient-to-r from-orange-500/50 via-transparent to-blue-400/50 opacity-70"></div>
