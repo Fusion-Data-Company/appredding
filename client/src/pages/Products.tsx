@@ -278,12 +278,12 @@ export default function Products() {
                           </div>
                           Product Category
                         </p>
-                        <div className="bg-gradient-to-r from-amber-100/80 to-amber-50/80 dark:from-amber-900/20 dark:to-gray-800/80 h-10 rounded-full p-1">
+                        <div className="bg-gradient-to-r from-amber-100/90 to-amber-50/90 dark:from-amber-900/30 dark:to-amber-800/20 h-10 rounded-full p-1 border border-amber-200/40 dark:border-amber-700/40 shadow-inner">
                           <div className="grid grid-cols-3 h-full">
                             <button
                               className={`rounded-full h-full text-xs font-medium transition-all duration-300 ${
                                 !filterCategory
-                                  ? "bg-white dark:bg-gray-700 shadow-md text-amber-900 dark:text-amber-300"
+                                  ? "bg-gradient-to-r from-white to-amber-50/90 dark:from-gray-700 dark:to-amber-900/20 shadow-md text-amber-900 dark:text-amber-300 border border-amber-200/40 dark:border-amber-800/20"
                                   : "text-amber-700 dark:text-amber-400 hover:bg-white/50 dark:hover:bg-gray-700/50"
                               }`}
                               onClick={() => setFilterCategory(null)}
@@ -293,7 +293,7 @@ export default function Products() {
                             <button
                               className={`rounded-full h-full text-xs font-medium transition-all duration-300 ${
                                 filterCategory === 'Coating'
-                                  ? "bg-white dark:bg-gray-700 shadow-md text-amber-900 dark:text-amber-300"
+                                  ? "bg-gradient-to-r from-white to-amber-50/90 dark:from-gray-700 dark:to-amber-900/20 shadow-md text-amber-900 dark:text-amber-300 border border-amber-200/40 dark:border-amber-800/20"
                                   : "text-amber-700 dark:text-amber-400 hover:bg-white/50 dark:hover:bg-gray-700/50"
                               }`}
                               onClick={() => setFilterCategory('Coating')}
@@ -303,7 +303,7 @@ export default function Products() {
                             <button
                               className={`rounded-full h-full text-xs font-medium transition-all duration-300 ${
                                 filterCategory === 'Stucco'
-                                  ? "bg-white dark:bg-gray-700 shadow-md text-amber-900 dark:text-amber-300"
+                                  ? "bg-gradient-to-r from-white to-amber-50/90 dark:from-gray-700 dark:to-amber-900/20 shadow-md text-amber-900 dark:text-amber-300 border border-amber-200/40 dark:border-amber-800/20"
                                   : "text-amber-700 dark:text-amber-400 hover:bg-white/50 dark:hover:bg-gray-700/50"
                               }`}
                               onClick={() => setFilterCategory('Stucco')}
@@ -321,7 +321,7 @@ export default function Products() {
                           </div>
                           Container Size
                         </p>
-                        <div className="bg-gradient-to-r from-amber-100/80 to-amber-50/80 dark:from-amber-900/20 dark:to-gray-800/80 h-10 rounded-full p-1">
+                        <div className="bg-gradient-to-r from-amber-100/90 to-amber-50/90 dark:from-amber-900/30 dark:to-amber-800/20 h-10 rounded-full p-1 border border-amber-200/40 dark:border-amber-700/40 shadow-inner">
                           <div className="grid grid-cols-3 h-full">
                             <button
                               className={`rounded-full h-full text-xs font-medium transition-all duration-300 ${
