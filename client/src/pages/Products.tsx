@@ -269,12 +269,12 @@ export default function Products() {
                   transition={{ duration: 0.3, ease: "easeInOut" }}
                   className="pt-4 overflow-hidden"
                 >
-                  <div className="bg-white/80 dark:bg-gray-800/50 backdrop-blur-sm rounded-lg p-4 border border-amber-100 dark:border-amber-900/20 shadow-inner">
+                  <div className="bg-gradient-to-b from-white/95 to-amber-50/95 dark:from-gray-800/95 dark:to-gray-900/95 backdrop-blur-sm rounded-xl p-4 border-2 border-amber-200 dark:border-amber-700 shadow-[0_4px_20px_rgba(251,191,36,0.15)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.3)]">
                     <div className="flex flex-wrap gap-8">
                       <div className="flex-1 min-w-[200px]">
                         <p className="text-sm font-medium mb-3 text-amber-800 dark:text-amber-300 flex items-center gap-2">
-                          <div className="h-5 w-5 rounded-full bg-amber-100 dark:bg-amber-900/40 flex items-center justify-center">
-                            <Shapes className="h-3 w-3 text-amber-600 dark:text-amber-500" />
+                          <div className="h-5 w-5 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center shadow-[0_2px_4px_rgba(251,191,36,0.3)] dark:shadow-[0_2px_4px_rgba(0,0,0,0.3)]">
+                            <Shapes className="h-3 w-3 text-white" />
                           </div>
                           Product Category
                         </p>
@@ -316,8 +316,8 @@ export default function Products() {
                       
                       <div className="flex-1 min-w-[200px]">
                         <p className="text-sm font-medium mb-3 text-amber-800 dark:text-amber-300 flex items-center gap-2">
-                          <div className="h-5 w-5 rounded-full bg-amber-100 dark:bg-amber-900/40 flex items-center justify-center">
-                            <Droplets className="h-3 w-3 text-amber-600 dark:text-amber-500" />
+                          <div className="h-5 w-5 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center shadow-[0_2px_4px_rgba(251,191,36,0.3)] dark:shadow-[0_2px_4px_rgba(0,0,0,0.3)]">
+                            <Droplets className="h-3 w-3 text-white" />
                           </div>
                           Container Size
                         </p>
