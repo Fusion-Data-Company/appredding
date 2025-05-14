@@ -741,23 +741,14 @@ const IndustryApplications = () => {
                                   style={{display: app.caseStudy.image ? 'block' : 'none'}}
                                 />
                                 
-                                {/* Gradient overlay with Praetorian logo */}
-                                <div className={`absolute inset-0 ${
-                                  !app.caseStudy.image 
-                                    ? "bg-black"
-                                    : app.id === "marinas" || app.id === "pools"
-                                      ? "bg-gradient-to-t from-blue-900/50 to-transparent" 
-                                      : app.id === "fire-prevention"
-                                        ? "bg-gradient-to-t from-red-900/50 to-transparent"
-                                        : "bg-gradient-to-t from-amber-900/50 to-transparent"
-                                } ${!app.caseStudy.image ? 'opacity-90' : 'opacity-60'} transition-opacity duration-700 group-hover/image:opacity-80 flex items-center justify-center`}>
-                                  {!app.caseStudy.image && (
-                                    <img 
-                                      src={praetorianLogoFire} 
-                                      alt="Praetorian SmartCoat" 
-                                      className="w-full h-auto max-h-56 object-contain z-10 opacity-90"
-                                    />
-                                  )}
+                                {/* Gradient overlay with forced Praetorian logo */}
+                                <div className="absolute inset-0 bg-black flex items-center justify-center" style={{zIndex: 50}}>
+                                  <img 
+                                    src={praetorianLogoFire} 
+                                    alt="Praetorian SmartCoat" 
+                                    className="w-full h-auto max-h-56 object-contain"
+                                    style={{zIndex: 50}}
+                                  />
                                 </div>
                               </div>
                               
