@@ -137,12 +137,10 @@ const ContactSection = () => {
         backgroundAttachment: "fixed",
         backgroundColor: "#111111",
         position: "relative",
-        zIndex: 0,
-        marginBottom: "-1px" // Eliminate gap with footer
+        zIndex: 0
       }}
     >
-      {/* Semi-transparent overlay for better readability */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/60" style={{ zIndex: 1 }}></div>
+      {/* No overlay to allow background to show through */}
       
       <div className="container mx-auto px-4 relative" style={{ zIndex: 2 }}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
