@@ -42,7 +42,7 @@ const Header = () => {
     >
       <div className="w-[95%] mx-auto px-4 flex justify-between items-center">
         <Link href="/" className="text-4xl font-heading font-bold flex items-center gap-4 group z-10">
-          <div className="relative group">
+          <div className="relative group shimmer-element shimmer-element-subtle">
             <div className="absolute inset-0 bg-gradient-to-r from-orange-500/20 to-blue-500/20 filter blur-md rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             <img 
               src={praetorianShield} 
