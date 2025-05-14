@@ -69,7 +69,7 @@ const Footer = () => {
 
           {/* Our Product */}
           <div className="relative z-30">
-            <h3 className="text-base font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-amber-400 via-orange-500 to-red-500">Our Product</h3>
+            <h3 className="text-base font-bold mb-4 gradient-text-blue">Our Product</h3>
             <ul className="space-y-3">
               <li>
                 <a href="/products" className="text-white hover:text-blue-400 text-sm">
