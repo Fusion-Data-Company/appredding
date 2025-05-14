@@ -1,5 +1,5 @@
 import { GradientHeading } from "@/components/ui/gradient-heading";
-import backgroundImg from "../assets_dir/images/praetorian-hero-final.png";
+import { PRAETORIAN_HERO_IMAGE } from "../assets_dir/imageExports";
 
 const FeatureCard = ({ icon, title, description, index }: { icon: string; title: string; description: string; index: number }) => {
   // Different gradient variants based on index/feature type
@@ -56,7 +56,7 @@ const FeaturesSection = () => {
       className="py-32 relative" 
       id="features"
       style={{ 
-        backgroundImage: `url(${backgroundImg})`,
+        backgroundImage: `url(${PRAETORIAN_HERO_IMAGE})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",

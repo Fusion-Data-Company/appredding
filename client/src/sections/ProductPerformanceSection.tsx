@@ -1,6 +1,6 @@
 import React from 'react';
 import { GradientHeading } from "@/components/ui/gradient-heading";
-import backgroundImg from "../assets_dir/images/optimized/praetorian-background-new.png";
+import { PRAETORIAN_HERO_IMAGE } from "../assets_dir/imageExports";
 
 const ProductPerformanceSection = () => {
   return (
