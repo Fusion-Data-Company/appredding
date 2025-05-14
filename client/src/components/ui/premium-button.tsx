@@ -66,8 +66,7 @@ const PremiumButton = forwardRef<HTMLButtonElement, PremiumButtonProps>(
         {/* Fire variant's outer gradient effects */}
         {isFire && (
           <>
-            <div className="absolute inset-0 bg-gradient-to-r from-orange-600/40 via-red-600/40 to-amber-600/40 rounded-xl blur-sm opacity-70 group-hover:opacity-100 group-hover:blur-md transition-all duration-1000 animate-pulse-slow"></div>
-            {/* Removed outer gradient effect */}
+            {/* Removed outer gradient effects */}
           </>
         )}
 
