@@ -21,7 +21,7 @@ const ProductPerformanceSection = () => {
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-black/60" style={{ zIndex: 1 }}></div>
       <div className="container mx-auto px-4 relative" style={{ zIndex: 2 }}>
         <div className="text-center mb-24">
-          <div className="bg-gray-800/60 backdrop-blur-xl rounded-xl border-4 border-gray-600/40 shadow-[0_0_60px_rgba(255,255,255,0.3)] py-16 px-16 mx-auto max-w-5xl mb-10 inline-block transform hover:scale-[1.01] transition-transform duration-500">
+          <div className="bg-gray-800/60 backdrop-blur-xl rounded-xl border-0 premium-gradient-border shadow-[0_0_60px_rgba(255,255,255,0.3)] py-16 px-16 mx-auto max-w-5xl mb-10 inline-block transform hover:scale-[1.01] transition-transform duration-500">
             <GradientHeading level={2} className="text-4xl md:text-5xl lg:text-6xl mb-8" variant="mixed">Product Performance Data</GradientHeading>
             <p className="text-gray-300 text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed">
               Our protective coatings are rigorously tested and proven to deliver exceptional performance across a range of metrics.

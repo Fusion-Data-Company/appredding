@@ -119,7 +119,7 @@ const TechnicalSpecsTable = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="bg-black/80 backdrop-blur-sm rounded-xl shadow-xl overflow-hidden border border-amber-700/30"
+          className="bg-black/80 backdrop-blur-sm rounded-xl shadow-xl overflow-hidden border-0 premium-gradient-border"
         >
           <div className="overflow-x-auto">
             <Table>

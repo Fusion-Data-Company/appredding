@@ -55,9 +55,12 @@ const FAQSection = ({ faqs }: FAQProps) => {
               <Accordion type="single" collapsible className="space-y-4">
                 {category.questions.map((faq, idx) => (
                   <AccordionItem key={idx} value={`item-${idx}`} className="border-none">
-                    <AccordionTrigger className="bg-gray-800/60 rounded-lg px-5 py-3 text-left hover:no-underline hover:bg-gray-700/70 transition-colors font-medium text-base">
-                      {faq.question}
-                    </AccordionTrigger>
+                    <div className="relative">
+                      <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500 via-amber-400 to-orange-500 rounded-lg blur-md opacity-25 dark:opacity-40 z-0"></div>
+                      <AccordionTrigger className="bg-gray-800/70 backdrop-blur-sm rounded-lg px-5 py-3 text-left hover:no-underline hover:bg-gray-700/80 transition-colors font-medium text-base relative z-10 border border-amber-500/30">
+                        {faq.question}
+                      </AccordionTrigger>
+                    </div>
                     <AccordionContent className="px-5 pt-4 pb-2 text-gray-300">
                       {faq.answer}
                     </AccordionContent>

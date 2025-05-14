@@ -22,7 +22,7 @@ const IntroSection = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/70" style={{ zIndex: 1 }}></div>
       <div className="container mx-auto px-4 relative" style={{ zIndex: 2 }}>
         <div className="max-w-5xl mx-auto text-center">
-          <div className="bg-gradient-to-b from-gray-800/70 to-gray-900/80 backdrop-blur-xl rounded-xl border-0 py-14 px-10 md:px-16 mx-auto max-w-5xl mb-16 shadow-[0_10px_50px_rgba(251,191,36,0.2)] dark:shadow-[0_10px_50px_rgba(0,0,0,0.4)] relative before:absolute before:inset-0 before:p-[2px] before:rounded-xl before:bg-gradient-to-br before:from-amber-300 before:via-amber-200 before:to-amber-400 dark:before:from-amber-700 dark:before:via-amber-600 dark:before:to-amber-800 before:-z-10">
+          <div className="bg-gradient-to-b from-gray-800/70 to-gray-900/80 backdrop-blur-xl rounded-xl border-0 py-14 px-10 md:px-16 mx-auto max-w-5xl mb-16 shadow-[0_10px_50px_rgba(255,100,50,0.25)] dark:shadow-[0_10px_50px_rgba(0,0,0,0.4)] relative premium-gradient-border">
             <GradientHeading level={1} className="text-4xl md:text-6xl mb-8" variant="mixed">
               NASA-Derived Ceramic Coating Technology
             </GradientHeading>

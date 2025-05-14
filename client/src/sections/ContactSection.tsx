@@ -126,44 +126,24 @@ const ContactSection = () => {
   };
 
   return (
-    <section className="py-20 dark:bg-[#121212] bg-[#f5f2e8] relative" id="contact">
-      {/* Fixed background image with parallax effect */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 w-full h-full bg-fixed" style={{
-          backgroundImage: `url(${backgroundImage})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center center',
-          backgroundRepeat: 'no-repeat',
-          opacity: 0.15,
-          mixBlendMode: 'multiply'
-        }}></div>
-      </div>
+    <section 
+      className="py-20 relative" 
+      id="contact"
+      style={{ 
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        backgroundAttachment: "fixed",
+        backgroundColor: "#111111",
+        position: "relative",
+        zIndex: 0
+      }}
+    >
+      {/* Semi-transparent overlay for better readability */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/70" style={{ zIndex: 1 }}></div>
       
-      {/* Stone texture background */}
-      <div className="absolute inset-0 z-10">
-        <div 
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `url(${stoneTexturePath})`,
-            backgroundRepeat: 'repeat',
-            backgroundSize: '400px auto', 
-            opacity: 0.35, 
-            transform: 'scale(1.05)',
-          }}
-        />
-        
-        {/* Light grey to dark grey gradient overlay */}
-        <div 
-          className="absolute inset-0"
-          style={{
-            background: 'linear-gradient(to bottom, rgba(180, 180, 190, 0.2), rgba(40, 40, 50, 0.2))',
-            backdropFilter: 'blur(5px)',
-            boxShadow: 'inset 0 0 100px rgba(0,0,0,0.4)',
-          }}
-        />
-      </div>
-      
-      <div className="container mx-auto px-4 relative z-20">
+      <div className="container mx-auto px-4 relative" style={{ zIndex: 2 }}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <div>
             <div className="relative mb-8">
@@ -174,7 +154,7 @@ const ContactSection = () => {
               Have questions about our products or services? Contact our team of coating experts for personalized assistance.
             </p>
             
-            <form className="space-y-6" onSubmit={handleSubmit}>
+            <form className="space-y-6 bg-gradient-to-r from-gray-800/90 to-gray-700/90 backdrop-blur-md rounded-xl p-6 border-0 premium-gradient-border shadow-[0_0_40px_rgba(255,255,255,0.25)]" onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="firstName" className="block text-sm font-medium mb-2">First Name</label>
