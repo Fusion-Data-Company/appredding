@@ -282,8 +282,8 @@ const ApplicationsSection = () => {
                 <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/40 to-orange-500/40 rounded-tl-xl blur-[2px]"></div>
               </div>
               
-              {/* Animated horizontal lines - top - made z-20 to appear in front */}
-              <div className="absolute top-[30%] left-0 w-full h-[1px] overflow-hidden z-20">
+              {/* Animated horizontal lines - top - made z-20 to appear in front - MOVED DOWN HALF INCH */}
+              <div className="absolute top-[calc(30%+0.5in)] left-0 w-full h-[1px] overflow-hidden z-20">
                 <div className="w-full h-full bg-gradient-to-r from-transparent via-orange-500/70 to-transparent -translate-x-full animate-shimmer-slow"></div>
               </div>
               
