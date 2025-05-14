@@ -95,8 +95,6 @@ const ApplicationCard = ({ imageSrc, title, description, link }: ApplicationCard
         <h3 className="text-3xl font-semibold mb-3 text-white">{title}</h3>
         <p className="text-gray-200 text-lg mb-6">{description}</p>
         <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity relative">
-          {/* Orange line positioned half an inch below the button text, centered and only as wide as the button */}
-          <div className="absolute top-[calc(100%+0.5in)] left-1/2 transform -translate-x-1/2 w-[80%] h-[2px] bg-gradient-to-r from-transparent via-orange-500/70 to-transparent z-20"></div>
           
           <Link href={link}>
             <PremiumArrowButton 
