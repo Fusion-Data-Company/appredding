@@ -11,7 +11,7 @@ const gradientTextVariants = cva(
         water: "bg-gradient-to-r from-blue-400 via-cyan-500 to-water-500",
         dual: "bg-gradient-to-r from-fire-500 via-white to-water-500",
         metal: "bg-gradient-to-r from-gray-300 via-gray-100 to-gray-400",
-        purple: "bg-gradient-to-r from-purple-400 via-fuchsia-500 to-purple-600",
+        amber: "bg-gradient-to-r from-amber-400 via-orange-500 to-amber-600",
         rainbow: "bg-gradient-to-r from-red-500 via-yellow-500 via-green-500 via-blue-500 to-purple-500",
       },
       size: {
@@ -84,7 +84,7 @@ export const PraetorianGradientText = ({
     water: "var(--water-glow-color, rgba(0, 238, 255, 0.7))",
     dual: "var(--dual-glow-color, rgba(255, 255, 255, 0.7))",
     metal: "var(--metal-glow-color, rgba(200, 200, 200, 0.5))",
-    purple: "var(--purple-glow-color, rgba(172, 92, 255, 0.7))",
+    amber: "var(--amber-glow-color, rgba(245, 158, 11, 0.7))",
     rainbow: "var(--rainbow-glow-color, rgba(255, 255, 255, 0.7))",
   };
   
@@ -94,7 +94,7 @@ export const PraetorianGradientText = ({
     '--water-glow-color': 'rgba(0, 238, 255, 0.7)', 
     '--dual-glow-color': 'rgba(255, 255, 255, 0.7)',
     '--metal-glow-color': 'rgba(200, 200, 200, 0.5)',
-    '--purple-glow-color': 'rgba(172, 92, 255, 0.7)',
+    '--amber-glow-color': 'rgba(245, 158, 11, 0.7)',
     '--rainbow-glow-color': 'rgba(255, 255, 255, 0.7)',
     textShadow: glow === 'sm' 
       ? `0 0 5px ${shadowColorMap[variant!]}`

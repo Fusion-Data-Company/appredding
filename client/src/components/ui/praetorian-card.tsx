@@ -59,7 +59,7 @@ const cardVariants = cva(
 export interface PraetorianCardProps 
   extends HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof cardVariants> {
-    glowColor?: 'orange' | 'cyan' | 'white' | 'purple';
+    glowColor?: 'orange' | 'cyan' | 'white' | 'amber';
     customClasses?: string;
     children: React.ReactNode;
 }
@@ -80,7 +80,7 @@ export const PraetorianCard = ({
   const glowColorMap = {
     orange: "from-orange-500/30",
     cyan: "from-cyan-500/30",
-    purple: "from-purple-500/30",
+    amber: "from-amber-500/30",
     white: "from-white/20"
   };
   

@@ -360,17 +360,17 @@ export function PremiumNavbar() {
       <div className="flex flex-col space-y-2 mb-3">
         <Link href="/crm" className="flex items-center justify-between p-2 bg-gray-800/50 rounded-lg border border-gray-700 hover:border-gray-500 transition-colors">
           <span className="font-bold text-xs text-white">CRM Dashboard</span>
-          <span className="text-xs text-purple-400">Access →</span>
+          <span className="text-xs text-amber-400">Access →</span>
         </Link>
         
         <Link href="/inventory" className="flex items-center justify-between p-2 bg-gray-800/50 rounded-lg border border-gray-700 hover:border-gray-500 transition-colors">
           <span className="font-bold text-xs text-white">Inventory Management</span>
-          <span className="text-xs text-purple-400">Access →</span>
+          <span className="text-xs text-amber-400">Access →</span>
         </Link>
         
         <Link href="/analytics" className="flex items-center justify-between p-2 bg-gray-800/50 rounded-lg border border-gray-700 hover:border-gray-500 transition-colors">
           <span className="font-bold text-xs text-white">Analytics & Reports</span>
-          <span className="text-xs text-purple-400">Access →</span>
+          <span className="text-xs text-amber-400">Access →</span>
         </Link>
       </div>
       
