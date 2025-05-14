@@ -170,7 +170,7 @@ const ContactSection = () => {
                 Get In Touch
               </h2>
             </div>
-            <p className="text-[#a0a0a0] mb-8 text-lg text-center max-w-xl mx-auto">
+            <p className="text-gray-400 mb-8 text-lg text-center max-w-xl mx-auto">
               Have questions about our products or services? Contact our team of coating experts for personalized assistance.
             </p>
             
@@ -182,7 +182,7 @@ const ContactSection = () => {
               <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="firstName" className="block text-sm font-medium mb-2">First Name</label>
+                  <label htmlFor="firstName" className="block text-sm font-medium mb-2 bg-clip-text text-transparent bg-gradient-to-r from-amber-400 via-orange-500 to-red-500">First Name</label>
                   <input 
                     type="text" 
                     id="firstName" 
@@ -194,7 +194,7 @@ const ContactSection = () => {
                   {formErrors.firstName && <p className="text-red-500 text-xs mt-1">{formErrors.firstName}</p>}
                 </div>
                 <div>
-                  <label htmlFor="lastName" className="block text-sm font-medium mb-2">Last Name</label>
+                  <label htmlFor="lastName" className="block text-sm font-medium mb-2 bg-clip-text text-transparent bg-gradient-to-r from-amber-400 via-orange-500 to-red-500">Last Name</label>
                   <input 
                     type="text" 
                     id="lastName" 
@@ -208,7 +208,7 @@ const ContactSection = () => {
               </div>
               
               <div>
-                <label htmlFor="email" className="block text-sm font-medium mb-2">Email Address</label>
+                <label htmlFor="email" className="block text-sm font-medium mb-2 bg-clip-text text-transparent bg-gradient-to-r from-amber-400 via-orange-500 to-red-500">Email Address</label>
                 <input 
                   type="email" 
                   id="email" 
@@ -221,7 +221,7 @@ const ContactSection = () => {
               </div>
               
               <div>
-                <label htmlFor="phone" className="block text-sm font-medium mb-2">Phone Number</label>
+                <label htmlFor="phone" className="block text-sm font-medium mb-2 bg-clip-text text-transparent bg-gradient-to-r from-amber-400 via-orange-500 to-red-500">Phone Number</label>
                 <input 
                   type="tel" 
                   id="phone" 
@@ -232,7 +232,7 @@ const ContactSection = () => {
               </div>
               
               <div>
-                <label htmlFor="interest" className="block text-sm font-medium mb-2">I'm interested in</label>
+                <label htmlFor="interest" className="block text-sm font-medium mb-2 bg-clip-text text-transparent bg-gradient-to-r from-amber-400 via-orange-500 to-red-500">I'm interested in</label>
                 <select 
                   id="interest" 
                   className="w-full dark:bg-gradient-to-r dark:from-gray-800/90 dark:to-gray-700/90 bg-gray-100/90 border dark:border-gray-600/40 border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#0070f3] dark:shadow-[0_0_15px_rgba(255,255,255,0.25)] shadow-[0_0_15px_rgba(0,0,0,0.25)] dark:text-white text-gray-800"
@@ -331,7 +331,7 @@ const ContactSection = () => {
                     
                     <div>
                       <h4 className="font-bold text-lg mb-2 bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-red-500">Serving</h4>
-                      <p className="dark:text-white text-gray-700 text-[15px]">Northern California<br/>& Nationwide Distribution</p>
+                      <p className="dark:text-gray-300 text-gray-700 text-[15px]">Northern California<br/>& Nationwide Distribution</p>
                     </div>
                   </div>
                   
@@ -350,7 +350,7 @@ const ContactSection = () => {
                     
                     <div>
                       <h4 className="font-bold text-lg mb-2 bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-red-500">Phone</h4>
-                      <p className="dark:text-white text-gray-700 text-[15px]">(916) 809-6619<br/><span className="text-sm">(Call or text welcome)</span></p>
+                      <p className="dark:text-gray-300 text-gray-700 text-[15px]">(916) 809-6619<br/><span className="text-sm dark:text-gray-400">(Call or text welcome)</span></p>
                     </div>
                   </div>
                   
@@ -369,9 +369,9 @@ const ContactSection = () => {
                     
                     <div>
                       <h4 className="font-bold text-lg mb-2 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-400">Email</h4>
-                      <p className="dark:text-white text-gray-700 text-[15px]">
-                        <a href="mailto:info@praetoriansmartcoat.com" className="hover:text-blue-400 transition-colors">info@praetoriansmartcoat.com</a><br/>
-                        <a href="mailto:rob@praetoriansmartcoat.com" className="hover:text-blue-400 transition-colors">rob@praetoriansmartcoat.com</a> <span className="text-sm">(Management)</span>
+                      <p className="dark:text-gray-300 text-gray-700 text-[15px]">
+                        <a href="mailto:info@praetoriansmartcoat.com" className="dark:text-gray-300 hover:text-blue-400 dark:hover:text-blue-400 transition-colors">info@praetoriansmartcoat.com</a><br/>
+                        <a href="mailto:rob@praetoriansmartcoat.com" className="dark:text-gray-300 hover:text-blue-400 dark:hover:text-blue-400 transition-colors">rob@praetoriansmartcoat.com</a> <span className="text-sm dark:text-gray-400">(Management)</span>
                       </p>
                     </div>
                   </div>
@@ -391,7 +391,7 @@ const ContactSection = () => {
                     
                     <div>
                       <h4 className="font-bold text-lg mb-2 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-400">Response Time</h4>
-                      <p className="dark:text-white text-gray-700 text-[15px]">Monday-Friday: Same day<br/>Weekends: Within 24 hours</p>
+                      <p className="dark:text-gray-300 text-gray-700 text-[15px]">Monday-Friday: Same day<br/>Weekends: Within 24 hours</p>
                     </div>
                   </div>
                 </div>
