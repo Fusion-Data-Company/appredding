@@ -405,11 +405,19 @@ const IndustryApplications = () => {
                   </div>
                   <span className="text-xs font-semibold tracking-wide">{app.title}</span>
                 </div>
-                {/* Shimmer effect for all tabs (not just active) */}
+                {/* Shimmer effect for all tabs on hover */}
                 <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                   <div className="absolute top-0 left-[-100%] h-full w-[300%] 
                     bg-gradient-to-r from-transparent via-white/40 to-transparent
                     animate-shimmer-once"
+                  ></div>
+                </div>
+                
+                {/* Continuous shimmer effect for active tabs */}
+                <div className="absolute inset-0 pointer-events-none overflow-hidden data-[state=active]:block hidden">
+                  <div className="absolute top-0 left-[-100%] h-full w-[300%] 
+                    bg-gradient-to-r from-transparent via-white/40 to-transparent
+                    animate-shimmer"
                   ></div>
                 </div>
               </TabsTrigger>
@@ -562,14 +570,7 @@ const IndustryApplications = () => {
                         {/* Inner highlight */}
                         <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-40 pointer-events-none"></div>
                         
-                        {/* Subtle ambient glow */}
-                        <div className={`absolute top-0 left-1/4 w-1/2 h-1/2 blur-[100px] rounded-full opacity-20 ${
-                          app.id === "marinas" || app.id === "pools"
-                            ? "bg-gradient-to-r from-blue-500/10 via-cyan-500/10 to-blue-500/10" 
-                            : app.id === "fire-prevention"
-                              ? "bg-gradient-to-r from-orange-500/10 via-red-500/10 to-orange-500/10"
-                              : "bg-gradient-to-r from-amber-500/10 via-orange-500/10 to-amber-500/10"
-                        }`}></div>
+                        {/* Subtle ambient glow - removed to avoid interference with image */}
                         
                         {/* Premium Header */}
                         <div className="flex items-center mb-8 relative">
@@ -844,8 +845,16 @@ const IndustryApplications = () => {
                                     ? "bg-gradient-to-t from-red-900/80 to-red-900/0"
                                     : "bg-gradient-to-t from-amber-900/80 to-amber-900/0"
                               }`} style={{zIndex: 51}}>
-                                <p className="text-white font-bold text-lg md:text-xl lg:text-2xl opacity-0 group-hover/image:opacity-100 transform translate-y-4 group-hover/image:translate-y-0 transition-all duration-500" style={{marginTop: "50px", position: "relative", top: "30px"}}>
+                                <p className="text-white font-bold text-lg md:text-xl lg:text-2xl opacity-0 group-hover/image:opacity-100 transform translate-y-4 group-hover/image:translate-y-0 transition-all duration-500 relative overflow-hidden" style={{marginTop: "50px", position: "relative", top: "30px"}}>
                                   {app.title} application at {app.caseStudy.title}
+                                  
+                                  {/* Premium shimmer effect like intro button */}
+                                  <span className="absolute inset-0 pointer-events-none overflow-hidden">
+                                    <span className="absolute top-0 left-[-100%] h-full w-[300%] 
+                                      bg-gradient-to-r from-transparent via-white/40 to-transparent
+                                      animate-shimmer"
+                                    ></span>
+                                  </span>
                                 </p>
                               </div>
                             </div>
