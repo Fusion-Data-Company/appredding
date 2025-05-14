@@ -285,7 +285,7 @@ const IndustryApplications = () => {
               relative overflow-hidden"
             style={{
               backgroundImage: `url('/assets/images/praetorian-shield-logo.png')`,
-              backgroundPosition: 'center',
+              backgroundPosition: 'center center', // Standardized position
               backgroundSize: '40%',
               backgroundRepeat: 'no-repeat',
               backgroundBlendMode: 'overlay'

@@ -16,7 +16,7 @@ const ROICalculator = () => {
           style={{
             backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 20, 0.9), rgba(0, 0, 20, 0.7)), url(${PRAETORIAN_PRODUCTS_HERO_IMAGE})`,
             backgroundSize: 'cover',
-            backgroundPosition: 'center',
+            backgroundPosition: 'center center', // Standardized position
             backgroundAttachment: 'fixed'
           }}
         />

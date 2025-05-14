@@ -26,7 +26,7 @@ const FAQSection = ({ faqs }: FAQProps) => {
       style={{ 
         backgroundImage: `url(${backgroundImg})`,
         backgroundSize: "cover",
-        backgroundPosition: "center", 
+        backgroundPosition: "center center", // Standardized position
         backgroundRepeat: "no-repeat",
         backgroundAttachment: "fixed",
         backgroundColor: "#111111",

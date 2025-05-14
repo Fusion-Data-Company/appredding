@@ -107,7 +107,7 @@ const PainterNetwork = () => {
           style={{ 
             backgroundImage: `url(${painterImage})`,
             backgroundAttachment: 'fixed',
-            backgroundPosition: 'center',
+            backgroundPosition: 'center center', // Standardized position
             backgroundSize: 'cover',
             opacity: 0.95
           }}
