@@ -7,7 +7,7 @@ const ProductPerformanceSection = () => {
     <section 
       className="py-32 relative"
       style={{ 
-        backgroundImage: `url(${backgroundImg})`,
+        backgroundImage: `url(${PRAETORIAN_HERO_IMAGE})`,
         backgroundSize: "cover",
         backgroundPosition: "center bottom",
         backgroundRepeat: "no-repeat",
