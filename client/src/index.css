@@ -248,6 +248,21 @@ section + section {
     50% { background-position: 100% 100%; }
     100% { background-position: 0% 0%; }
   }
+
+  .premium-gradient-border {
+    @apply relative border-0 overflow-hidden;
+  }
+
+  .premium-gradient-border::before {
+    content: '';
+    @apply absolute inset-0 rounded-xl -z-10;
+    padding: 2px;
+    background: linear-gradient(to bottom right, #fbbf24, rgba(251, 113, 36, 0.8), #c84a17);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+  }
   
   .card-premium:hover {
     @apply border-gray-600/80 shadow-xl;
