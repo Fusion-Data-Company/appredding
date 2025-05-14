@@ -177,7 +177,7 @@ const ApplicationsSection = () => {
             <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/80 via-amber-500/80 to-red-500/80 rounded-xl blur-md opacity-90 group-hover:opacity-100 transition-all duration-500"></div>
             
             {/* Main card container */}
-            <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black backdrop-blur-xl rounded-xl py-12 px-12 z-10 border border-orange-500/30 overflow-hidden">
+            <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black backdrop-blur-xl rounded-xl py-12 px-12 z-10 border border-orange-500/30 overflow-hidden group hover:shadow-[0_0_25px_rgba(249,115,22,0.3)] transition-shadow duration-500">
               {/* Subtle dots and squares pattern background in burnt orange - increased opacity for visibility */}
               <div className="absolute inset-0 opacity-25 z-0">
                 <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoMjQ5LDExNSwyMiwwLjQpIiBkPSJNMCAwaDJ2Mkgwem0yIDJoMnYySDJ6Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCBmaWxsPSJ1cmwoI2EpIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIi8+PC9zdmc+')]"></div>
@@ -249,8 +249,8 @@ const ApplicationsSection = () => {
                   Specialized Applications
                 </div>
                 
-                {/* Left-side cool glowing decorative accent line with hover extension */}
-                <div className="absolute -left-2 top-1/2 transform -translate-y-1/2 group w-12 h-2 rounded-r-full overflow-hidden z-20 transition-all duration-700 hover:w-64">
+                {/* Positioned cool glowing decorative accent line under the S extending to PP on hover */}
+                <div className="absolute left-[8%] bottom-0 transform group w-14 h-2.5 rounded-full overflow-hidden z-20 transition-all duration-700 hover:w-72">
                   {/* Base gradient */}
                   <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-amber-500 to-red-600"></div>
                   
@@ -262,15 +262,8 @@ const ApplicationsSection = () => {
                   
                   {/* Pulsing dots */}
                   <div className="absolute h-full w-4 bg-white/80 right-4 rounded-full blur-[1px] animate-pulse-slow"></div>
-                  <div className="absolute h-full w-3 bg-white/80 right-12 rounded-full blur-[1px] animate-pulse-slow-delayed opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
+                  <div className="absolute h-full w-3 bg-white/80 right-24 rounded-full blur-[1px] animate-pulse-slow-delayed opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
                 </div>
-              </div>
-              
-              {/* Enhanced decorative accent line - below text */}
-              <div className="w-40 h-1 mx-auto mb-8 relative z-20">
-                <div className="absolute inset-0 bg-gradient-to-r from-orange-500/80 via-amber-500/80 to-red-500/80 rounded-full"></div>
-                <div className="absolute inset-0 bg-gradient-to-r from-orange-500/60 via-amber-500/60 to-red-500/60 rounded-full blur-[3px]"></div>
-                <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full animate-shimmer-slow"></div>
               </div>
               
               {/* Enhanced description */}
