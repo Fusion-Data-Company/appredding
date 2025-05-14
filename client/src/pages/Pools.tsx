@@ -710,7 +710,7 @@ const Pools = () => {
           style={{ 
             backgroundImage: `url(${waterBgImage})`,
             backgroundAttachment: 'fixed',
-            backgroundPosition: 'center',
+            backgroundPosition: 'center center', // Standardized position
             backgroundSize: 'cover',
             opacity: 0.95
           }}

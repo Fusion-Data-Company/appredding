@@ -132,7 +132,7 @@ const ContactSection = () => {
       style={{ 
         backgroundImage: `url(${backgroundImage})`,
         backgroundSize: "cover",
-        backgroundPosition: "center",
+        backgroundPosition: "center center", // Standardized position
         backgroundRepeat: "no-repeat",
         backgroundAttachment: "fixed",
         backgroundColor: "#111111",
