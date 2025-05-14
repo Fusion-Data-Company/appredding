@@ -196,31 +196,64 @@ export const CompetitiveMatrix = () => {
   ];
 
   return (
-    <div className="bg-gradient-to-br from-blue-950/80 to-primary-950/90 rounded-xl border border-blue-500/30 shadow-xl overflow-hidden">
-      <div className="overflow-x-auto">
-        <table className="w-full min-w-[900px] border-collapse">
-          {/* Table Header */}
-          <thead>
-            <tr>
-              {columns.map((column) => (
-                <th 
-                  key={column.id} 
-                  className={cn(
-                    "px-4 py-3 font-semibold text-sm",
-                    column.id === "praetorian" ? "bg-primary-800/30 text-primary-300" : "text-gray-300",
-                    column.className
-                  )}
-                >
-                  <div className="flex flex-col items-center">
-                    <span>{column.name}</span>
-                    {column.description && (
-                      <span className="text-xs opacity-70 mt-1 font-normal">{column.description}</span>
-                    )}
-                  </div>
-                </th>
-              ))}
-            </tr>
-          </thead>
+    <div className="relative group transform transition-all duration-500 hover:scale-[1.01]">
+      {/* Premium Card Container */}
+      <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-gray-900/95 backdrop-blur-xl rounded-xl shadow-[0_10px_50px_rgba(0,0,0,0.5)] z-10 overflow-hidden">
+        {/* Premium gradient border effect - Fire variant */}
+        <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/50 via-transparent to-red-500/50 opacity-70"></div>
+        
+        {/* Inner highlight */}
+        <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
+        
+        {/* Subtle ambient glow that activates on hover */}
+        <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-30 transition-opacity duration-700 ease-in-out" 
+            style={{ background: "radial-gradient(circle at center, rgba(251,113,36,0.3) 0%, transparent 70%)" }}>
+        </div>
+        
+        {/* Premium card header styling matching Specialized Applications */}
+        <div className="relative h-20 flex items-center justify-center mb-2">
+          {/* Background blur text */}
+          <div className="absolute inset-0 flex justify-center items-center text-5xl font-bold tracking-tight text-orange-900/10 blur-[5px] scale-110">
+            Competitive Matrix
+          </div>
+          
+          {/* Main text with premium gradient */}
+          <span className="relative text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-amber-500 to-red-500
+            drop-shadow-[0_0px_1px_rgba(251,113,36,0.2)] 
+            [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(251,146,60,0.3)]">
+            Competitive Comparison Matrix
+          </span>
+          
+          {/* Top glossy reflection */}
+          <div className="absolute top-0 left-0 right-0 h-[40%] bg-gradient-to-b from-white/10 to-transparent rounded-t-lg"></div>
+        </div>
+        
+        {/* Content with z-index to appear above effects */}
+        <div className="relative z-10">
+          <div className="overflow-x-auto">
+            <table className="w-full min-w-[900px] border-collapse">
+              {/* Table Header */}
+              <thead>
+                <tr>
+                  {columns.map((column) => (
+                    <th 
+                      key={column.id} 
+                      className={cn(
+                        "px-4 py-3 font-semibold text-sm",
+                        column.id === "praetorian" ? "bg-primary-800/30 text-amber-300" : "text-gray-300",
+                        column.className
+                      )}
+                    >
+                      <div className="flex flex-col items-center">
+                        <span>{column.name}</span>
+                        {column.description && (
+                          <span className="text-xs opacity-70 mt-1 font-normal">{column.description}</span>
+                        )}
+                      </div>
+                    </th>
+                  ))}
+                </tr>
+              </thead>
           
           {/* Table Body */}
           <tbody>
