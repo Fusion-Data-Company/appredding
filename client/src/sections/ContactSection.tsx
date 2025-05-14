@@ -396,9 +396,12 @@ const ContactSection = () => {
                   </div>
                 </div>
                 
+                {/* Connect With Us heading moved up */}
+                <h4 className="font-bold text-lg mt-[-5rem] mb-0 bg-clip-text text-transparent bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 inline-block">Connect With Us:</h4>
+                
+                {/* Social icons separated from the heading */}
                 <div className="mt-10 pt-6 border-t border-gray-800/30">
-                  <h4 className="font-bold text-lg mb-12 bg-clip-text text-transparent bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 inline-block">Connect With Us:</h4>
-                  <div className="flex space-x-6 inline-flex mt-16">
+                  <div className="flex space-x-6 inline-flex">
                     <a 
                       href="https://facebook.com/praetoriansmartcoat" 
                       target="_blank" 
