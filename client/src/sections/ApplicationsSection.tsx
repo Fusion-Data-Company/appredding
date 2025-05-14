@@ -2,6 +2,7 @@ import { Link } from "wouter";
 import { GradientButton } from "@/components/ui/gradient-button";
 import { GradientHeading } from "@/components/ui/gradient-heading";
 import backgroundImg from "../assets_dir/images/optimized/praetorian-background-new.png";
+import { useRef, useEffect } from "react";
 
 interface ApplicationCardProps {
   imageSrc: string;
@@ -13,9 +14,43 @@ interface ApplicationCardProps {
 const ApplicationCard = ({ imageSrc, title, description, link }: ApplicationCardProps) => {
   // Determine if this is a water-related application
   const isWaterRelated = title === "Marine" || title === "Pool";
+  const cardRef = useRef<HTMLDivElement>(null);
+  
+  // Add mouse movement tracking for dynamic gradient effect
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!cardRef.current) return;
+      
+      const rect = cardRef.current.getBoundingClientRect();
+      
+      // Calculate mouse position relative to card
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      // Convert to percentage
+      const xPercent = Math.floor((x / rect.width) * 100);
+      const yPercent = Math.floor((y / rect.height) * 100);
+      
+      // Apply CSS variables for gradient positioning
+      cardRef.current.style.setProperty('--mouse-x', `${xPercent}%`);
+      cardRef.current.style.setProperty('--mouse-y', `${yPercent}%`);
+    };
+    
+    const card = cardRef.current;
+    if (card) {
+      card.addEventListener('mousemove', handleMouseMove);
+      
+      return () => {
+        card.removeEventListener('mousemove', handleMouseMove);
+      };
+    }
+  }, []);
   
   return (
-    <div className={`group relative rounded-lg overflow-hidden h-[400px] w-full block cursor-pointer shadow-[0_0_30px_rgba(255,255,255,0.25)] border-0 ${isWaterRelated ? 'water-gradient-border' : 'premium-gradient-border'} transform transition-transform hover:scale-[1.03]`}>
+    <div 
+      ref={cardRef}
+      className="group relative rounded-lg overflow-hidden h-[400px] w-full block cursor-pointer shadow-[0_0_30px_rgba(255,255,255,0.25)] border-0 dual-gradient-border transform transition-transform"
+    >
       <img 
         src={imageSrc} 
         alt={title} 

@@ -277,7 +277,7 @@ section + section {
   .premium-gradient-border-bright::before {
     content: '';
     @apply absolute inset-0 rounded-xl -z-10;
-    padding: 2px;
+    padding: 4px; /* Increased thickness */
     background: linear-gradient(to bottom right, #fbbf24, rgba(251, 113, 36, 0.9), #c84a17);
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -285,7 +285,64 @@ section + section {
     mask-composite: exclude;
   }
   
-  /* Water-themed gradient border for water-related applications */
+  /* Dual fire-water gradient border for application cards - premium special styling */
+  .dual-gradient-border {
+    @apply relative border-0 overflow-hidden;
+    box-shadow: 0 0 25px rgba(255, 165, 0, 0.5), 0 0 25px rgba(0, 191, 255, 0.5);
+    transition: all 0.4s ease-in-out;
+  }
+
+  .dual-gradient-border::before {
+    content: '';
+    @apply absolute inset-0 rounded-xl -z-10;
+    padding: 5px; /* Extra thick border */
+    background: 
+      linear-gradient(135deg, 
+        #ff5f6d 0%, 
+        #ffc371 25%, 
+        rgba(255, 255, 255, 0.9) 50%, /* White divider */
+        #4facfe 75%, 
+        #00f2fe 100%
+      );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: rotateBorder 8s linear infinite;
+  }
+  
+  .dual-gradient-border::after {
+    content: '';
+    @apply absolute inset-0 -z-10;
+    border-radius: inherit;
+    background: radial-gradient(
+      400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+      rgba(255, 100, 50, 0.6) 0%,
+      rgba(0, 150, 255, 0.6) 100%
+    );
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .dual-gradient-border:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 0 35px rgba(255, 165, 0, 0.7), 0 0 35px rgba(0, 191, 255, 0.7);
+  }
+  
+  .dual-gradient-border:hover::after {
+    opacity: 0.8;
+  }
+  
+  @keyframes rotateBorder {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 200% 50%;
+    }
+  }
+  
+  /* Keep original water classes for other elements */
   .water-gradient-border {
     @apply relative border-0 overflow-hidden;
   }
@@ -300,6 +357,22 @@ section + section {
     -webkit-mask-composite: xor;
     mask-composite: exclude;
     opacity: 0.8;
+  }
+  
+  /* Brighter water gradient border for better visibility */
+  .water-gradient-border-bright {
+    @apply relative border-0 overflow-hidden;
+  }
+
+  .water-gradient-border-bright::before {
+    content: '';
+    @apply absolute inset-0 rounded-xl -z-10;
+    padding: 4px; /* Increased thickness */
+    background: linear-gradient(to bottom right, #00c8ff, rgba(59, 130, 246, 0.9), #1e40af);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
   }
   
   .card-premium:hover {
