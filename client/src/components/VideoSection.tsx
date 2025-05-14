@@ -127,7 +127,7 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
                 </GradientHeading>
                 
                 {/* Animated decorative line below heading */}
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-32 h-0.5 bg-gradient-to-r from-orange-500 via-red-500 to-orange-500 rounded-full mt-2"></div>
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-32 h-0.5 bg-gradient-to-r from-orange-500 via-red-500 to-orange-500 rounded-full mt-4"></div>
               </div>
               
               {/* Enhanced description with premium styling */}
@@ -272,17 +272,17 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
               </div>
             ) : (
               <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/98 to-gray-900/95 backdrop-blur-xl rounded-xl p-8 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7)] flex items-center justify-center h-full">
-                {/* Premium dual-layer gradient border effect */}
-                <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-blue-500/60 via-cyan-500/30 to-blue-500/60 opacity-80"></div>
+                {/* Premium dual-layer gradient border effect - Fire themed */}
+                <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/60 via-red-500/30 to-orange-500/60 opacity-80"></div>
                 <div className="absolute inset-[1px] p-0.5 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-30 pointer-events-none"></div>
                 
                 <div className="text-center">
                   <div className="inline-flex items-center justify-center w-20 h-20 mb-6 relative">
-                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600 to-cyan-600 opacity-20 animate-pulse"></div>
-                    <div className="absolute inset-2 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500"></div>
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-orange-600 to-red-600 opacity-20 animate-pulse"></div>
+                    <div className="absolute inset-2 rounded-full bg-gradient-to-r from-orange-500 to-red-500"></div>
                     <Play className="h-10 w-10 text-white relative z-10" />
                   </div>
-                  <GradientHeading level={3} className="text-2xl mb-3" variant="blue">No Videos Available</GradientHeading>
+                  <GradientHeading level={3} className="text-2xl mb-3" variant="fire">No Videos Available</GradientHeading>
                   <p className="text-gray-300 max-w-md text-lg">
                     Please check back later for video demonstrations.
                   </p>
