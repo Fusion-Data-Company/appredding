@@ -338,7 +338,7 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
                           {activeCategory === category && (
                             <span className="absolute inset-0 bg-gradient-to-r from-orange-500/20 via-amber-500/20 to-blue-500/20 rounded-full blur-[1px]"></span>
                           )}
-                          <span className={activeCategory === category ? 'text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-purple-400 to-blue-400' : ''}>
+                          <span className={activeCategory === category ? 'text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-400 to-blue-400' : ''}>
                             {category}
                           </span>
                         </button>
@@ -364,7 +364,7 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
                         <div className={`absolute inset-0 p-0.5 rounded-lg bg-gradient-to-r 
                           ${idx % 3 === 0 ? 'from-orange-500/40 to-red-500/40' : 
                                    idx % 3 === 1 ? 'from-blue-500/40 to-cyan-500/40' :
-                                                  'from-purple-500/40 to-pink-500/40'} 
+                                                  'from-orange-500/40 to-blue-500/40'} 
                           opacity-${activeVideo?.id === video.id ? '70' : '40'}`}>
                         </div>
                         

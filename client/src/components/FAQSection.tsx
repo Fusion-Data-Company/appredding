@@ -103,7 +103,7 @@ const FAQSection = ({ faqs }: FAQProps) => {
                 </div>
                 <div className="absolute -right-12 top-1/2 -translate-y-1/2 flex items-center space-x-1.5">
                   <div className="w-1 h-1 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500"></div>
-                  <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-blue-500 to-indigo-500"></div>
+                  <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-orange-500 to-blue-500"></div>
                 </div>
                 
                 {/* Advanced premium gradient heading */}

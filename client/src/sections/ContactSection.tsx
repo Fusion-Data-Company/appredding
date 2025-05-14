@@ -729,11 +729,11 @@ const ContactSection = () => {
                           <i className="fas fa-clock text-2xl text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-blue-500 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] relative z-10"></i>
                           
                           {/* Animated concentric ring for enterprise effect */}
-                          <div className="absolute inset-0 rounded-full border border-indigo-500/20 scale-[1.15] opacity-0 group-hover:opacity-100 group-hover:scale-[1.4] transition-all duration-700"></div>
+                          <div className="absolute inset-0 rounded-full border border-orange-500/20 scale-[1.15] opacity-0 group-hover:opacity-100 group-hover:scale-[1.4] transition-all duration-700"></div>
                         </div>
                         
                         {/* Bottom reflection */}
-                        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-3/4 h-[2px] bg-gradient-to-r from-transparent via-indigo-500/20 to-transparent rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-3/4 h-[2px] bg-gradient-to-r from-transparent via-amber-500/20 to-transparent rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                       </div>
                       
                       {/* Premium Content */}
@@ -750,12 +750,12 @@ const ContactSection = () => {
                         <p className="text-gray-300 text-[15px] group-hover:text-gray-200 transition-colors duration-500">
                           <span className="inline-flex items-center">
                             <span className="opacity-90 group-hover:opacity-100 transition-opacity duration-300">Monday-Friday:</span>
-                            <span className="ml-1 text-indigo-300 group-hover:text-indigo-200 transition-colors duration-300">Same day</span>
+                            <span className="ml-1 text-amber-300 group-hover:text-amber-200 transition-colors duration-300">Same day</span>
                           </span>
                           <br/>
                           <span className="inline-flex items-center">
                             <span className="opacity-90 group-hover:opacity-100 transition-opacity duration-300">Weekends:</span>
-                            <span className="ml-1 text-indigo-300 group-hover:text-indigo-200 transition-colors duration-300">Within 24 hours</span>
+                            <span className="ml-1 text-amber-300 group-hover:text-amber-200 transition-colors duration-300">Within 24 hours</span>
                           </span>
                         </p>
                       </div>
