@@ -140,11 +140,69 @@ const ApplicationsSection = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/60" style={{ zIndex: 1 }}></div>
       <div className="container mx-auto px-4 md:px-8 max-w-[1600px] relative" style={{ zIndex: 2 }}>
         <div className="text-center mb-20">
-          <div className="bg-gray-800/60 backdrop-blur-xl rounded-xl border-0 premium-gradient-border shadow-[0_0_40px_rgba(255,255,255,0.25)] py-12 px-12 mx-auto max-w-4xl mb-10 inline-block">
-            <GradientHeading className="text-4xl md:text-5xl mb-6" variant="mixed">Specialized Applications</GradientHeading>
-            <p className="text-gray-300 text-xl max-w-2xl mx-auto">
-              Our protective coatings are engineered for specific environments and challenges across various industries.
-            </p>
+          <div className="relative group mx-auto max-w-4xl mb-10 inline-block transform transition-all duration-500">
+            {/* Multiple layered background effects */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/40 via-red-600/40 to-amber-600/40 rounded-xl blur-xl opacity-70 group-hover:opacity-100 group-hover:blur-xl transition-all duration-1000 animate-pulse-slow"></div>
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/80 via-amber-500/80 to-red-500/80 rounded-xl blur-md opacity-90 group-hover:opacity-100 transition-all duration-500"></div>
+            
+            {/* Main card container */}
+            <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black backdrop-blur-xl rounded-xl py-12 px-12 z-10 border border-orange-500/30">
+              {/* Corner accents */}
+              <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none">
+                <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-orange-500/70 rounded-tl-lg"></div>
+                <div className="absolute top-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+              </div>
+              <div className="absolute top-0 right-0 w-16 h-16 pointer-events-none">
+                <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-red-500/70 rounded-tr-lg"></div>
+                <div className="absolute top-0 right-0 w-3 h-3 bg-red-500/50 rounded-full blur-[2px]"></div>
+              </div>
+              <div className="absolute bottom-0 left-0 w-16 h-16 pointer-events-none">
+                <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-orange-500/70 rounded-bl-lg"></div>
+                <div className="absolute bottom-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+              </div>
+              <div className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none">
+                <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-red-500/70 rounded-br-lg"></div>
+                <div className="absolute bottom-0 right-0 w-3 h-3 bg-red-500/50 rounded-full blur-[2px]"></div>
+              </div>
+              
+              {/* Shimmer heading */}
+              <div className="relative z-10 mb-8 px-6 py-2 overflow-hidden">
+                {/* Animated glow behind text */}
+                <div className="absolute inset-0 bg-gradient-to-r from-orange-600/10 via-orange-500/20 to-red-600/10 opacity-50 blur-xl animate-pulse-slow"></div>
+                
+                {/* Heading with shimmer effect */}
+                <div className="shimmer-fire-text font-bold text-5xl tracking-tight">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-amber-500 to-red-500">
+                    Specialized Applications
+                  </span>
+                </div>
+                
+                {/* Text shadow for depth */}
+                <div className="absolute inset-0 flex items-center justify-center text-5xl font-bold tracking-tight opacity-70 blur-[2px] text-red-900/30 -z-10">
+                  Specialized Applications
+                </div>
+              </div>
+              
+              {/* Enhanced description */}
+              <p className="text-gray-200 text-xl max-w-2xl mx-auto relative">
+                {/* Left accent */}
+                <span className="absolute -left-4 top-1/2 transform -translate-y-1/2 w-1 h-12 bg-gradient-to-b from-orange-500/0 via-orange-500/70 to-orange-500/0 rounded-full"></span>
+                
+                Our protective coatings are engineered for specific environments and challenges across various industries.
+                
+                {/* Right accent */}
+                <span className="absolute -right-4 top-1/2 transform -translate-y-1/2 w-1 h-12 bg-gradient-to-b from-orange-500/0 via-orange-500/70 to-orange-500/0 rounded-full"></span>
+              </p>
+              
+              {/* Subtle animated overlay */}
+              <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent opacity-30 rounded-xl"></div>
+              
+              {/* Shimmer effect */}
+              <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-30 -translate-x-full animate-shimmer-slow transform rounded-xl overflow-hidden"></div>
+            </div>
+            
+            {/* Bottom reflection */}
+            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-4/5 h-[1px] bg-gradient-to-r from-transparent via-orange-500/40 to-transparent rounded-full"></div>
           </div>
         </div>
         
