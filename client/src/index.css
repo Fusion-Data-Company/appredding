@@ -40,6 +40,14 @@ section + section {
     animation: shimmerSlow 3s infinite linear;
   }
   
+  .animate-shimmer-slow-delayed {
+    animation: shimmerSlow 4s infinite 1.5s linear;
+  }
+  
+  .animate-pulse-slow-delayed {
+    animation: pulseSlow 3s infinite 1.5s ease-in-out;
+  }
+  
   @keyframes shimmerSlow {
     0% {
       transform: translateX(-100%);

@@ -72,6 +72,16 @@ const ApplicationCard = ({ imageSrc, title, description, link }: ApplicationCard
         <div className="absolute bottom-0 -left-40 w-80 h-80 bg-orange-500/20 rounded-full filter blur-[100px]"></div>
       </div>
       
+      {/* Animated horizontal lines - top */}
+      <div className="absolute top-[35%] left-0 w-full h-[1px] overflow-hidden z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+        <div className="w-full h-full bg-gradient-to-r from-transparent via-orange-500/60 to-transparent -translate-x-full animate-shimmer-slow"></div>
+      </div>
+      
+      {/* Animated horizontal lines - bottom */}
+      <div className="absolute bottom-[20%] left-0 w-full h-[1px] overflow-hidden z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+        <div className="w-full h-full bg-gradient-to-r from-transparent via-orange-500/60 to-transparent -translate-x-full animate-shimmer-slow-delayed"></div>
+      </div>
+      
       <div className="absolute bottom-0 left-0 p-6 w-full">
         <h3 className="text-3xl font-semibold mb-3 text-white">{title}</h3>
         <p className="text-gray-200 text-lg mb-6">{description}</p>
@@ -215,14 +225,24 @@ const ApplicationsSection = () => {
               
               {/* Enhanced description */}
               <p className="text-gray-200 text-xl max-w-2xl mx-auto relative">
-                {/* Left accent */}
-                <span className="absolute -left-4 top-1/2 transform -translate-y-1/2 w-1 h-12 bg-gradient-to-b from-orange-500/0 via-orange-500/70 to-orange-500/0 rounded-full"></span>
+                {/* Left accent - animated pulse */}
+                <span className="absolute -left-4 top-1/2 transform -translate-y-1/2 w-1 h-12 bg-gradient-to-b from-orange-500/0 via-orange-500/70 to-orange-500/0 rounded-full animate-pulse-slow"></span>
                 
                 Our protective coatings are engineered for specific environments and challenges across various industries.
                 
-                {/* Right accent */}
-                <span className="absolute -right-4 top-1/2 transform -translate-y-1/2 w-1 h-12 bg-gradient-to-b from-orange-500/0 via-orange-500/70 to-orange-500/0 rounded-full"></span>
+                {/* Right accent - animated pulse with delay */}
+                <span className="absolute -right-4 top-1/2 transform -translate-y-1/2 w-1 h-12 bg-gradient-to-b from-orange-500/0 via-orange-500/70 to-orange-500/0 rounded-full animate-pulse-slow-delayed"></span>
               </p>
+              
+              {/* Animated horizontal lines - top */}
+              <div className="absolute top-[30%] left-0 w-full h-[1px] overflow-hidden z-10">
+                <div className="w-full h-full bg-gradient-to-r from-transparent via-orange-500/60 to-transparent -translate-x-full animate-shimmer-slow"></div>
+              </div>
+              
+              {/* Animated horizontal lines - bottom */}
+              <div className="absolute bottom-[30%] left-0 w-full h-[1px] overflow-hidden z-10">
+                <div className="w-full h-full bg-gradient-to-r from-transparent via-orange-500/60 to-transparent -translate-x-full animate-shimmer-slow-delayed"></div>
+              </div>
               
               {/* Subtle animated overlay */}
               <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent opacity-30 rounded-xl"></div>
