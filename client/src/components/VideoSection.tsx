@@ -208,6 +208,16 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
             0% { background-position: 200% 0; }
             100% { background-position: -200% 0; }
           }
+          
+          @keyframes slideRightDiagonal {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(500%); }
+          }
+          
+          @keyframes slideUp {
+            0% { transform: translateY(100%); }
+            100% { transform: translateY(-100%); }
+          }
         `}} />
 
         {/* Premium grid with enhanced shadows and animations */}
@@ -379,16 +389,33 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
                         </div>
                         <button
                           onClick={() => setActiveCategory(category)}
-                          className={`px-4 py-1.5 rounded-full capitalize text-sm font-medium relative ${
+                          className={`px-4 py-1.5 rounded-full capitalize text-sm font-medium relative overflow-hidden group-hover/btn:scale-105 transition-all duration-300 ${
                             activeCategory === category 
-                              ? 'bg-gradient-to-r from-gray-800/90 to-gray-700/90 text-transparent bg-clip-text border border-gray-600/60'
-                              : 'bg-gradient-to-r from-gray-900/80 to-gray-800/80 text-gray-400 border border-gray-700/40 hover:text-gray-300'
+                              ? 'bg-black text-white border-2 border-orange-500'
+                              : 'bg-black text-gray-400 border border-gray-700/40 hover:text-gray-300 hover:border-orange-500/50'
                           }`}
                         >
                           {activeCategory === category && (
-                            <span className="absolute inset-0 bg-gradient-to-r from-orange-500/20 via-amber-500/20 to-blue-500/20 rounded-full blur-[1px]"></span>
+                            <span className="absolute inset-0 opacity-30" 
+                                 style={{ boxShadow: '0 0 15px 2px rgba(251, 113, 36, 0.6)' }}>
+                            </span>
                           )}
-                          <span className={activeCategory === category ? 'text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-400 to-blue-400' : ''}>
+                          
+                          {/* Reflection effect - only visible when active */}
+                          {activeCategory === category && (
+                            <div className="absolute inset-0 bg-gradient-to-r from-white/20 via-transparent to-transparent opacity-0 group-hover/btn:opacity-100 transition-all duration-700"
+                                 style={{
+                                   clipPath: 'polygon(0 0, 30% 0, 20% 100%, 0% 100%)',
+                                   transform: 'translateX(-100%)',
+                                   animation: 'slideRightDiagonal 2.5s ease-in-out infinite',
+                                   animationPlayState: 'paused'
+                                 }}
+                                 onMouseEnter={(e) => e.currentTarget.style.animationPlayState = 'running'}
+                                 onMouseLeave={(e) => e.currentTarget.style.animationPlayState = 'paused'}>
+                            </div>
+                          )}
+                          
+                          <span className="relative z-10">
                             {category}
                           </span>
                         </button>
