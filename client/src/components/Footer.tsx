@@ -13,8 +13,8 @@ const Footer = () => {
       {/* Noise texture overlay */}
       <div className="absolute inset-0 bg-[url('/src/assets_dir/images/noise.svg')] opacity-[0.04] bg-repeat bg-[length:200px_200px] mix-blend-overlay pointer-events-none animate-subtle-pulse"></div>
       
-      <div className="container mx-auto px-4 relative z-[100]" style={{marginTop: "-10px"}}>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 mb-0">
+      <div className="container mx-auto px-4 relative z-[100]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
           <div>
             <GradientHeading level={3} className="text-sm mb-1" variant="fire">Department Contacts</GradientHeading>
             <ul className="space-y-1">
@@ -125,29 +125,29 @@ const Footer = () => {
 
           <div>
             <GradientHeading level={3} className="text-sm mb-1" variant="mixed">Our Product</GradientHeading>
-            <ul className="space-y-1">
+            <ul className="space-y-1 relative z-[60]">
               <li>
-                <a href="/products" className="text-white hover:text-[#0070f3] transition-colors text-xs font-medium">
+                <a href="/products" className="text-white hover:text-[#0070f3] transition-colors text-xs font-medium relative z-[60]">
                   Protective Coating
                 </a>
               </li>
               <li>
-                <a href="/products#benefits" className="text-white hover:text-[#0070f3] transition-colors text-sm font-medium">
+                <a href="/products#benefits" className="text-white hover:text-[#0070f3] transition-colors text-xs font-medium relative z-[60]">
                   Product Benefits
                 </a>
               </li>
               <li>
-                <a href="/technology" className="text-white hover:text-[#0070f3] transition-colors text-sm font-medium">
+                <a href="/technology" className="text-white hover:text-[#0070f3] transition-colors text-xs font-medium relative z-[60]">
                   Performance Data
                 </a>
               </li>
               <li>
-                <a href="/technology#specs" className="text-white hover:text-[#0070f3] transition-colors text-sm font-medium">
+                <a href="/technology#specs" className="text-white hover:text-[#0070f3] transition-colors text-xs font-medium relative z-[60]">
                   Technical Specifications
                 </a>
               </li>
               <li>
-                <a href="/documents/sds" className="text-white hover:text-[#0070f3] transition-colors text-sm font-medium">
+                <a href="/documents/sds" className="text-white hover:text-[#0070f3] transition-colors text-xs font-medium relative z-[60]">
                   Safety Data Sheet
                 </a>
               </li>
