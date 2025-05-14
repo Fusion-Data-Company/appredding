@@ -396,52 +396,154 @@ const ContactSection = () => {
                   </div>
                 </div>
                 
-                {/* Connect With Us heading with adjusted position - FORCE MOVED DOWN */}
-                <h4 className="font-bold text-lg mt-[2rem] mb-0 bg-clip-text text-transparent bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 inline-block" style={{ position: 'relative', top: '60px' }}>Connect With Us:</h4>
-                
-                {/* Social icons separated from the heading */}
-                <div className="mt-14 pt-6 border-t border-gray-800/30"> {/* Increased margin from mt-10 to mt-14 for 1/2 inch */}
-                  <div className="flex space-x-6 inline-flex">
-                    <a 
-                      href="https://facebook.com/praetoriansmartcoat" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="dark:bg-gradient-to-br dark:from-gray-800 dark:via-gray-700 dark:to-gray-900 bg-gradient-to-br from-gray-100 via-white to-gray-200 w-16 h-16 rounded-full flex items-center justify-center transition-all hover:scale-110 dark:shadow-[0_0_10px_rgba(59,130,246,0.2)] shadow-[0_0_5px_rgba(0,0,0,0.1)] border border-gray-200/30 dark:border-blue-600/30 group"
-                    >
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8 dark:text-blue-400 text-blue-600 group-hover:text-blue-500 dark:group-hover:text-blue-300 transition-colors">
-                        <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
-                      </svg>
-                    </a>
-                    <a 
-                      href="https://youtube.com/@praetoriansmartcoat"
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="dark:bg-gradient-to-br dark:from-gray-800 dark:via-gray-700 dark:to-gray-900 bg-gradient-to-br from-gray-100 via-white to-gray-200 w-16 h-16 rounded-full flex items-center justify-center transition-all hover:scale-110 dark:shadow-[0_0_10px_rgba(255,0,0,0.2)] shadow-[0_0_5px_rgba(0,0,0,0.1)] border border-gray-200/30 dark:border-red-500/30 group"
-                    >
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8 dark:text-red-500 text-red-600 group-hover:text-red-700 dark:group-hover:text-red-400 transition-colors">
-                        <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" />
-                      </svg>
-                    </a>
-                    <a 
-                      href="https://linkedin.com/company/praetorian-smartcoat" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="dark:bg-gradient-to-br dark:from-gray-800 dark:via-gray-700 dark:to-gray-900 bg-gradient-to-br from-gray-100 via-white to-gray-200 w-16 h-16 rounded-full flex items-center justify-center transition-all hover:scale-110 dark:shadow-[0_0_10px_rgba(14,118,168,0.2)] shadow-[0_0_5px_rgba(0,0,0,0.1)] border border-gray-200/30 dark:border-blue-800/30 group"
-                    >
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8 dark:text-blue-500 text-blue-700 group-hover:text-blue-800 dark:group-hover:text-blue-400 transition-colors">
-                        <path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z" />
-                      </svg>
-                    </a>
-                    <a 
-                      href="https://instagram.com/praetoriansmartcoat"
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="dark:bg-gradient-to-br dark:from-gray-800 dark:via-gray-700 dark:to-gray-900 bg-gradient-to-br from-gray-100 via-white to-gray-200 w-16 h-16 rounded-full flex items-center justify-center transition-all hover:scale-110 dark:shadow-[0_0_10px_rgba(225,48,108,0.2)] shadow-[0_0_5px_rgba(0,0,0,0.1)] border border-gray-200/30 dark:border-pink-500/30 group"
-                    >
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8 dark:text-pink-400 text-pink-600 group-hover:text-pink-700 dark:group-hover:text-pink-300 transition-colors">
-                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                      </svg>
-                    </a>
+                {/* Premium Enterprise Connect With Us Section */}
+                <div className="relative mt-[2rem] mb-14">
+                  {/* Premium Enterprise Heading Container */}
+                  <div className="relative mb-10 flex justify-center w-full">
+                    {/* Ambient glow behind heading */}
+                    <div className="absolute -inset-4 bg-gradient-to-r from-amber-500/20 via-blue-500/20 to-amber-500/20 rounded-lg blur-lg opacity-30"></div>
+                    
+                    {/* Premium heading with enhanced styling */}
+                    <div className="relative z-10 inline-block" style={{ position: 'relative', top: '60px' }}>
+                      <h4 className="font-bold text-xl relative bg-clip-text text-transparent bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 inline-block">
+                        Connect With Us
+                        
+                        {/* Animated underline */}
+                        <div className="absolute bottom-0 left-0 w-1/3 h-0.5 bg-gradient-to-r from-orange-500 to-red-500 group-hover:w-full transition-all duration-700 rounded-full opacity-70"></div>
+                      </h4>
+                    </div>
+                  </div>
+                  
+                  {/* Premium Enterprise Social Icons Container */}
+                  <div className="mt-14 pt-6 border-t border-gray-800/30 relative">
+                    {/* Ambient glow behind icons */}
+                    <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-amber-500/5 via-blue-500/5 to-red-500/5 blur-[50px] opacity-50"></div>
+                    
+                    <div className="flex space-x-6 inline-flex justify-center">
+                      {/* Facebook Icon - Premium Enterprise Styling */}
+                      <a 
+                        href="https://facebook.com/praetoriansmartcoat" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="group relative"
+                      >
+                        {/* Premium Icon Container */}
+                        <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-gray-900/95 backdrop-blur-xl rounded-full w-16 h-16 flex items-center justify-center shadow-[0_10px_30px_rgba(0,0,0,0.3)] z-10 group-hover:scale-110 transition-transform duration-500">
+                          {/* Premium gradient border effect - Blue variant */}
+                          <div className="absolute inset-0 p-0.5 rounded-full bg-gradient-to-r from-blue-500/50 via-transparent to-blue-600/50 opacity-70"></div>
+                          
+                          {/* Inner highlight */}
+                          <div className="absolute inset-0 rounded-full bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
+                          
+                          {/* Subtle glow effect */}
+                          <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 shadow-[0_0_20px_rgba(59,130,246,0.6)]"></div>
+                          
+                          {/* Icon */}
+                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" className="w-8 h-8 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] relative z-10 transition-all duration-300">
+                            <path fill="currentColor" d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
+                          </svg>
+                          
+                          {/* Animated concentric ring for enterprise effect */}
+                          <div className="absolute inset-0 rounded-full border border-blue-500/20 scale-[1.15] opacity-0 group-hover:opacity-100 group-hover:scale-[1.4] transition-all duration-700"></div>
+                        </div>
+                        
+                        {/* Subtle bottom reflection */}
+                        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2/3 h-[2px] bg-gradient-to-r from-transparent via-blue-500/20 to-transparent rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                      </a>
+                      
+                      {/* YouTube Icon - Premium Enterprise Styling */}
+                      <a 
+                        href="https://youtube.com/@praetoriansmartcoat"
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="group relative"
+                      >
+                        {/* Premium Icon Container */}
+                        <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-gray-900/95 backdrop-blur-xl rounded-full w-16 h-16 flex items-center justify-center shadow-[0_10px_30px_rgba(0,0,0,0.3)] z-10 group-hover:scale-110 transition-transform duration-500">
+                          {/* Premium gradient border effect - Red variant */}
+                          <div className="absolute inset-0 p-0.5 rounded-full bg-gradient-to-r from-red-500/50 via-transparent to-red-600/50 opacity-70"></div>
+                          
+                          {/* Inner highlight */}
+                          <div className="absolute inset-0 rounded-full bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
+                          
+                          {/* Subtle glow effect */}
+                          <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 shadow-[0_0_20px_rgba(220,38,38,0.6)]"></div>
+                          
+                          {/* Icon */}
+                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" className="w-8 h-8 text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-red-600 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] relative z-10 transition-all duration-300">
+                            <path fill="currentColor" d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" />
+                          </svg>
+                          
+                          {/* Animated concentric ring for enterprise effect */}
+                          <div className="absolute inset-0 rounded-full border border-red-500/20 scale-[1.15] opacity-0 group-hover:opacity-100 group-hover:scale-[1.4] transition-all duration-700"></div>
+                        </div>
+                        
+                        {/* Subtle bottom reflection */}
+                        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2/3 h-[2px] bg-gradient-to-r from-transparent via-red-500/20 to-transparent rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                      </a>
+                      
+                      {/* LinkedIn Icon - Premium Enterprise Styling */}
+                      <a 
+                        href="https://linkedin.com/company/praetorian-smartcoat" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="group relative"
+                      >
+                        {/* Premium Icon Container */}
+                        <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-gray-900/95 backdrop-blur-xl rounded-full w-16 h-16 flex items-center justify-center shadow-[0_10px_30px_rgba(0,0,0,0.3)] z-10 group-hover:scale-110 transition-transform duration-500">
+                          {/* Premium gradient border effect - LinkedIn variant */}
+                          <div className="absolute inset-0 p-0.5 rounded-full bg-gradient-to-r from-blue-600/50 via-transparent to-blue-800/50 opacity-70"></div>
+                          
+                          {/* Inner highlight */}
+                          <div className="absolute inset-0 rounded-full bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
+                          
+                          {/* Subtle glow effect */}
+                          <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 shadow-[0_0_20px_rgba(37,99,235,0.6)]"></div>
+                          
+                          {/* Icon */}
+                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" className="w-8 h-8 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-700 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] relative z-10 transition-all duration-300">
+                            <path fill="currentColor" d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z" />
+                          </svg>
+                          
+                          {/* Animated concentric ring for enterprise effect */}
+                          <div className="absolute inset-0 rounded-full border border-blue-700/20 scale-[1.15] opacity-0 group-hover:opacity-100 group-hover:scale-[1.4] transition-all duration-700"></div>
+                        </div>
+                        
+                        {/* Subtle bottom reflection */}
+                        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2/3 h-[2px] bg-gradient-to-r from-transparent via-blue-700/20 to-transparent rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                      </a>
+                      
+                      {/* Instagram Icon - Premium Enterprise Styling */}
+                      <a 
+                        href="https://instagram.com/praetoriansmartcoat"
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="group relative"
+                      >
+                        {/* Premium Icon Container */}
+                        <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-gray-900/95 backdrop-blur-xl rounded-full w-16 h-16 flex items-center justify-center shadow-[0_10px_30px_rgba(0,0,0,0.3)] z-10 group-hover:scale-110 transition-transform duration-500">
+                          {/* Premium gradient border effect - Instagram gradient variant */}
+                          <div className="absolute inset-0 p-0.5 rounded-full bg-gradient-to-r from-pink-500/50 via-purple-500/50 to-orange-500/50 opacity-70"></div>
+                          
+                          {/* Inner highlight */}
+                          <div className="absolute inset-0 rounded-full bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
+                          
+                          {/* Subtle glow effect */}
+                          <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 shadow-[0_0_20px_rgba(236,72,153,0.6)]"></div>
+                          
+                          {/* Icon */}
+                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" className="w-8 h-8 text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-orange-500 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] relative z-10 transition-all duration-300">
+                            <path fill="currentColor" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                          </svg>
+                          
+                          {/* Animated concentric ring for enterprise effect */}
+                          <div className="absolute inset-0 rounded-full border border-pink-500/20 scale-[1.15] opacity-0 group-hover:opacity-100 group-hover:scale-[1.4] transition-all duration-700"></div>
+                        </div>
+                        
+                        {/* Subtle bottom reflection */}
+                        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2/3 h-[2px] bg-gradient-to-r from-transparent via-pink-500/20 to-transparent rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -450,14 +552,54 @@ const ContactSection = () => {
         </div>
       </div>
       
-      {/* Enterprise-level copyright footer */}
-      <div className="mt-16 pt-8 border-t border-gray-800/30 text-center">
-        <p className="text-gray-500 text-sm">
-          © {new Date().getFullYear()} Praetorian SmartCoat Solutions. All rights reserved.
-        </p>
-        <p className="text-gray-600 text-xs mt-1">
-          Enterprise-grade coating solutions for professional applications.
-        </p>
+      {/* Premium Enterprise-level Copyright Footer */}
+      <div className="relative mt-16 pt-10">
+        {/* Premium gradient divider */}
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-700/50 to-transparent"></div>
+        
+        {/* Ambient light effect */}
+        <div className="absolute -top-12 left-1/2 -translate-x-1/2 w-2/3 h-12 bg-gradient-to-r from-orange-500/0 via-orange-500/5 to-orange-500/0 blur-[50px] rounded-full"></div>
+        
+        {/* Premium branded footer content */}
+        <div className="text-center relative z-10 pb-8">
+          {/* Premium logo treatment */}
+          <div className="mb-4 inline-block">
+            <div className="relative inline-flex items-center gap-2 mx-auto">
+              {/* Logo ambient glow */}
+              <div className="absolute inset-0 scale-[1.5] bg-gradient-to-r from-amber-500/10 via-orange-500/10 to-amber-500/10 blur-xl rounded-full opacity-50"></div>
+              
+              {/* Logo icon */}
+              <div className="relative">
+                <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-gray-900/95 backdrop-blur-xl rounded-full p-2 shadow-[0_5px_15px_rgba(0,0,0,0.3)] z-10 border border-amber-500/20">
+                  <i className="fas fa-shield-alt text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-red-500 text-sm"></i>
+                </div>
+                
+                {/* Subtle light effect */}
+                <div className="absolute inset-0 rounded-full shadow-[0_0_10px_rgba(251,113,36,0.4)]"></div>
+              </div>
+              
+              {/* Logo text */}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 font-semibold text-base">
+                Praetorian
+              </span>
+            </div>
+          </div>
+          
+          {/* Premium copyright statement */}
+          <p className="text-gray-400 text-sm relative group overflow-hidden">
+            <span className="relative inline-block transition-transform duration-500 transform translate-y-0 group-hover:-translate-y-full">
+              © {new Date().getFullYear()} Praetorian SmartCoat Solutions. All rights reserved.
+            </span>
+            <span className="absolute top-0 left-0 right-0 inline-block transition-transform duration-500 transform translate-y-full group-hover:translate-y-0 text-gray-300">
+              NASA-derived ceramic technology for maximum protection
+            </span>
+          </p>
+          
+          {/* Premium tagline with subtle animation */}
+          <p className="text-transparent bg-clip-text bg-gradient-to-r from-gray-500 to-gray-400 text-xs mt-2 tracking-wide relative opacity-90 hover:opacity-100 transition-opacity duration-300">
+            Enterprise-grade coating solutions for professional applications
+          </p>
+        </div>
       </div>
     </section>
   );
