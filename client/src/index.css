@@ -237,10 +237,15 @@ section + section {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(45deg, transparent, rgba(100, 100, 100, 0.05), transparent);
-    background-size: 200% 200%;
-    animation: shimmer 3s infinite ease-in-out;
+    padding: 2px;
+    border-radius: 0.5rem;
+    background: linear-gradient(to bottom right, #fbbf24, rgba(251, 113, 36, 0.8), #c84a17);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
     pointer-events: none;
+    z-index: -1;
   }
   
   @keyframes shimmer {
@@ -486,6 +491,35 @@ section + section {
     @apply rounded-lg transition-all duration-300 hover:scale-[1.02] relative;
   }
   
+  /* Global premium gradient border for all cards */
+  .card-premium, 
+  .bg-card, 
+  .industry-card,
+  .feature-card,
+  .product-card {
+    @apply bg-black/80 border-0 rounded-lg shadow-card-3d transition-all duration-300 backdrop-blur-sm relative;
+    position: relative;
+  }
+  
+  .card-premium::before, 
+  .bg-card::before, 
+  .industry-card::before,
+  .feature-card::before,
+  .product-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 2px;
+    border-radius: inherit;
+    background: linear-gradient(to bottom right, #fbbf24, rgba(251, 113, 36, 0.8), #c84a17);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    z-index: -1;
+  }
+  
   .card-premium {
     @apply bg-black/80 border border-gray-700/70 rounded-lg shadow-card-3d transition-all duration-300 backdrop-blur-sm;
     background: radial-gradient(circle at 50% 0%, rgba(50, 50, 50, 0.8) 0%, rgba(30, 30, 30, 0.8) 75%, rgba(10, 10, 10, 0.8) 100%);
@@ -496,13 +530,16 @@ section + section {
   .card-premium::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.06) 100%);
+    inset: 0;
+    padding: 2px;
     border-radius: inherit;
+    background: linear-gradient(to bottom right, #fbbf24, rgba(251, 113, 36, 0.8), #c84a17);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
     pointer-events: none;
+    z-index: -1;
   }
   
   .card-premium:hover {
