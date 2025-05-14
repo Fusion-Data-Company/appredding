@@ -35,10 +35,13 @@ export const ProductCard = ({ product }: ProductCardProps) => {
 
   // Animation variants
   const hoverAnimation = {
-    rest: { y: 0, boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1)" },
+    rest: { 
+      y: 0, 
+      boxShadow: "0 10px 50px rgba(251, 191, 36, 0.2)" 
+    },
     hover: { 
       y: -10, 
-      boxShadow: "0 20px 25px -5px rgba(245, 158, 11, 0.1), 0 10px 10px -5px rgba(245, 158, 11, 0.04)" 
+      boxShadow: "0 20px 60px -5px rgba(251, 191, 36, 0.3), 0 10px 32px -8px rgba(251, 191, 36, 0.2)" 
     }
   };
 
@@ -53,7 +56,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
       transition={{ duration: 0.4, ease: "easeOut" }}
       className="h-full"
     >
-      <Card className="h-full flex flex-col overflow-hidden relative bg-gradient-to-br from-white via-amber-50/10 to-white dark:from-gray-900 dark:via-amber-950/5 dark:to-gray-900 border-amber-200/50 dark:border-amber-800/20 shadow-md">
+      <Card className="h-full flex flex-col overflow-hidden relative bg-gradient-to-b from-white/95 to-amber-50/95 dark:from-gray-800/95 dark:to-gray-900/95 rounded-xl shadow-[0_10px_50px_rgba(251,191,36,0.2)] dark:shadow-[0_10px_50px_rgba(0,0,0,0.4)] border-2 border-amber-200 dark:border-amber-700">
         {/* Metallic effect header */}
         <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-amber-400 via-amber-600 to-amber-400"></div>
         

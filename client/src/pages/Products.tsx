@@ -367,7 +367,7 @@ export default function Products() {
         {/* Premium Products Section */}
         <div id="products-section" className="container mx-auto px-4 py-16">
           {filteredGroups.length === 0 ? (
-            <div className="text-center p-12 bg-gradient-to-b from-amber-50/50 to-white dark:from-gray-800/50 dark:to-gray-900 rounded-xl shadow-lg border border-amber-100 dark:border-amber-900/20">
+            <div className="text-center p-12 bg-gradient-to-b from-white/95 to-amber-50/95 dark:from-gray-800/95 dark:to-gray-900/95 rounded-xl shadow-[0_10px_50px_rgba(251,191,36,0.2)] dark:shadow-[0_10px_50px_rgba(0,0,0,0.4)] border-2 border-amber-200 dark:border-amber-700">
               <div className="w-16 h-16 mx-auto bg-amber-100 dark:bg-amber-900/30 rounded-full flex items-center justify-center mb-4">
                 <Filter size={24} className="text-amber-600 dark:text-amber-500" />
               </div>
@@ -412,9 +412,13 @@ export default function Products() {
                               : <Shapes className="h-4 w-4 text-amber-600 dark:text-amber-500" />
                             }
                           </div>
-                          <h2 className="text-2xl md:text-3xl font-bold text-amber-900 dark:text-amber-300">
+                          <GradientHeading
+                            variant="fire"
+                            level={2}
+                            className="text-2xl md:text-3xl font-bold"
+                          >
                             {baseProduct.category === 'Coating' ? 'Smart-Coat' : 'Stucco Formula'}
-                          </h2>
+                          </GradientHeading>
                         </div>
                         
                         <div className="ml-10">
