@@ -94,8 +94,8 @@ const ProductComparison = () => {
   };
 
   return (
-    <section className="py-16 bg-white dark:bg-black">
-      <div className="container mx-auto px-4">
+    <section className="py-16 relative z-10">
+      <div className="container mx-auto px-4 relative z-20">
         <div className="text-center mb-10">
           <Badge variant="outline" className="mb-2 px-3 py-1 border-amber-300 dark:border-amber-700 bg-amber-100/50 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300">
             Competitive Comparison
@@ -103,7 +103,7 @@ const ProductComparison = () => {
           <GradientHeading level={2} className="text-3xl md:text-4xl mb-4" variant="mixed">
             How Praetorian Outperforms the Competition
           </GradientHeading>
-          <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             See why Praetorian's revolutionary ceramic technology delivers superior performance across all key metrics compared to traditional protective coatings.
           </p>
         </div>
@@ -113,18 +113,18 @@ const ProductComparison = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="relative overflow-hidden"
+          className="relative overflow-hidden z-20"
         >
           {/* Headers */}
-          <div className="grid grid-cols-12 gap-4 mb-4 px-4">
-            <div className="col-span-4 font-bold text-amber-900 dark:text-amber-300">Feature</div>
-            <div className="col-span-4 font-bold text-center text-amber-900 dark:text-amber-300">
+          <div className="grid grid-cols-12 gap-4 mb-4 px-4 bg-black/50 backdrop-blur-sm rounded-lg p-3">
+            <div className="col-span-4 font-bold text-amber-300">Feature</div>
+            <div className="col-span-4 font-bold text-center text-amber-300">
               <div className="flex items-center justify-center gap-2">
                 <Sparkles className="h-4 w-4 text-amber-500" />
                 Praetorian
               </div>
             </div>
-            <div className="col-span-4 font-bold text-center text-gray-500 dark:text-gray-400">
+            <div className="col-span-4 font-bold text-center text-gray-300">
               Competitors
             </div>
           </div>
@@ -134,29 +134,25 @@ const ProductComparison = () => {
             {comparisons.map((item, index) => (
               <Card 
                 key={index} 
-                className={`border border-amber-100 dark:border-amber-700/20 ${
-                  index % 2 === 0 
-                    ? "bg-amber-50/50 dark:bg-black/90" 
-                    : "bg-white dark:bg-black/70"
-                }`}
+                className={`border border-amber-700/30 bg-black/70 backdrop-blur-sm shadow-xl`}
               >
                 <CardContent className="p-4">
                   <div className="grid grid-cols-12 gap-4 items-center">
-                    <div className="col-span-12 md:col-span-4 font-medium text-gray-800 dark:text-gray-200">
+                    <div className="col-span-12 md:col-span-4 font-medium text-gray-200">
                       {item.feature}
                     </div>
                     
                     <div className="col-span-6 md:col-span-4">
                       <div className="flex flex-col items-center">
                         <div className="mb-1">{renderStatus(item.praetorian)}</div>
-                        <p className="text-xs text-center text-amber-800 dark:text-amber-300">{item.praetorianDetails}</p>
+                        <p className="text-xs text-center text-amber-300">{item.praetorianDetails}</p>
                       </div>
                     </div>
                     
                     <div className="col-span-6 md:col-span-4">
                       <div className="flex flex-col items-center">
                         <div className="mb-1">{renderStatus(item.competitors)}</div>
-                        <p className="text-xs text-center text-gray-500 dark:text-gray-400">{item.competitorDetails}</p>
+                        <p className="text-xs text-center text-gray-400">{item.competitorDetails}</p>
                       </div>
                     </div>
                   </div>
@@ -167,12 +163,14 @@ const ProductComparison = () => {
         </motion.div>
 
         <div className="mt-10 text-center">
-          <p className="text-sm text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">
+          <p className="text-sm text-gray-300 max-w-2xl mx-auto backdrop-blur-sm bg-black/30 p-3 rounded-lg inline-block">
             Data based on independent laboratory testing comparing Praetorian SmartCoat to leading industry competitors.
             Product performance may vary based on application methods and environmental conditions.
           </p>
         </div>
       </div>
+      {/* Dark overlay to ensure text is readable */}
+      <div className="absolute inset-0 bg-black/40 z-10"></div>
     </section>
   );
 };

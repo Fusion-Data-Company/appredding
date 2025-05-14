@@ -79,21 +79,21 @@ const TechnicalSpecsTable = () => {
   ];
 
   return (
-    <section id="technical-specs" className="py-16 bg-amber-50/50 dark:bg-black">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-10">
-          <GradientHeading level={2} className="text-3xl md:text-4xl mb-4" variant="fire">
-            Performance Specifications
-          </GradientHeading>
-          <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Praetorian's ceramic-based coatings deliver industry-leading performance metrics that exceed traditional protective coatings across all key indicators.
-          </p>
-        </div>
-        
+    <section id="technical-specs" className="py-16 relative z-10">
+      <div className="container mx-auto px-4 relative z-20">
         <div className="flex justify-center mb-5">
           <Badge variant="outline" className="px-3 py-1 border-amber-300 dark:border-amber-700 bg-amber-100/50 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300">
             Technical Data
           </Badge>
+        </div>
+        
+        <div className="text-center mb-10">
+          <GradientHeading level={2} className="text-3xl md:text-4xl mb-4" variant="fire">
+            Performance Specifications
+          </GradientHeading>
+          <p className="text-gray-300 max-w-2xl mx-auto">
+            Praetorian's ceramic-based coatings deliver industry-leading performance metrics that exceed traditional protective coatings across all key indicators.
+          </p>
         </div>
 
         <motion.div
@@ -101,21 +101,21 @@ const TechnicalSpecsTable = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="bg-white dark:bg-black/90 rounded-xl shadow-xl overflow-hidden border border-amber-100 dark:border-amber-700/20"
+          className="bg-black/80 backdrop-blur-sm rounded-xl shadow-xl overflow-hidden border border-amber-700/30"
         >
           <div className="overflow-x-auto">
             <Table>
               <TableCaption>
-                <span className="text-xs text-gray-500 dark:text-gray-400 flex items-center justify-center gap-1">
+                <span className="text-xs text-gray-300 flex items-center justify-center gap-1">
                   <Info className="h-3 w-3" />
                   All specifications certified by independent laboratory testing
                 </span>
               </TableCaption>
               <TableHeader>
-                <TableRow className="bg-gradient-to-r from-amber-100/80 to-amber-50/80 dark:from-amber-900/30 dark:to-gray-800/80">
-                  <TableHead className="font-bold text-amber-900 dark:text-amber-300 w-1/4">Property</TableHead>
-                  <TableHead className="font-bold text-amber-900 dark:text-amber-300 w-1/4">Value</TableHead>
-                  <TableHead className="font-bold text-amber-900 dark:text-amber-300 w-1/2">Significance</TableHead>
+                <TableRow className="bg-gradient-to-r from-amber-900/70 to-gray-900/90">
+                  <TableHead className="font-bold text-amber-300 w-1/4">Property</TableHead>
+                  <TableHead className="font-bold text-amber-300 w-1/4">Value</TableHead>
+                  <TableHead className="font-bold text-amber-300 w-1/2">Significance</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -123,20 +123,20 @@ const TechnicalSpecsTable = () => {
                   <TableRow 
                     key={index} 
                     className={index % 2 === 0 
-                      ? "bg-amber-50/30 dark:bg-gray-800/50" 
-                      : "bg-white dark:bg-gray-800"
+                      ? "bg-gray-900/80" 
+                      : "bg-gray-800/90"
                     }
                   >
-                    <TableCell className="font-medium text-amber-800 dark:text-amber-300 flex items-center gap-2">
-                      <span className="text-amber-500 dark:text-amber-400">
+                    <TableCell className="font-medium text-amber-300 flex items-center gap-2">
+                      <span className="text-amber-400">
                         {spec.icon}
                       </span>
                       {spec.property}
                     </TableCell>
-                    <TableCell className="font-bold text-gray-800 dark:text-gray-300">
+                    <TableCell className="font-bold text-gray-200">
                       {spec.value}
                     </TableCell>
-                    <TableCell className="text-gray-600 dark:text-gray-400 text-sm">
+                    <TableCell className="text-gray-300 text-sm">
                       {spec.explanation}
                     </TableCell>
                   </TableRow>
@@ -147,11 +147,13 @@ const TechnicalSpecsTable = () => {
         </motion.div>
 
         <div className="mt-8 text-center">
-          <p className="text-sm text-gray-500 dark:text-gray-400">
+          <p className="text-sm text-gray-300 backdrop-blur-sm bg-black/30 p-3 rounded-lg inline-block">
             For detailed technical data sheets or certification documentation, please contact our technical support team.
           </p>
         </div>
       </div>
+      {/* Dark overlay to ensure text is readable */}
+      <div className="absolute inset-0 bg-black/40 z-10"></div>
     </section>
   );
 };
