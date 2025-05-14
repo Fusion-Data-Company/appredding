@@ -362,7 +362,7 @@ const IndustryApplications = () => {
                     
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
                       {app.benefits.map((benefit, index) => (
-                        <div key={index} className="group bg-gradient-to-b from-amber-50/95 to-white/90 dark:from-amber-900/30 dark:to-gray-900/30 p-5 rounded-lg border border-amber-200 dark:border-amber-700/50 shadow-[0_4px_15px_rgba(251,191,36,0.1)] dark:shadow-[0_4px_15px_rgba(0,0,0,0.2)] transition-all duration-300 hover:shadow-[0_8px_25px_rgba(251,191,36,0.2)] dark:hover:shadow-[0_8px_25px_rgba(0,0,0,0.3)] hover:-translate-y-1">
+                        <div key={index} className="group bg-gray-800/60 backdrop-blur-xl p-5 rounded-lg border-0 premium-gradient-border shadow-[0_4px_15px_rgba(251,191,36,0.1)] dark:shadow-[0_4px_15px_rgba(0,0,0,0.2)] transition-all duration-300 hover:shadow-[0_8px_25px_rgba(251,191,36,0.2)] dark:hover:shadow-[0_8px_25px_rgba(0,0,0,0.3)] hover:-translate-y-1">
                           <div className="text-amber-600 dark:text-amber-400 mb-3 transform transition-transform duration-300 group-hover:scale-110 group-hover:text-amber-500 dark:group-hover:text-amber-300">
                             {benefit.icon}
                           </div>
@@ -390,28 +390,28 @@ const IndustryApplications = () => {
                       
                       <div className="flex flex-col md:flex-row gap-8">
                         <div className="md:w-2/3">
-                          <div className="mb-5 bg-white/50 dark:bg-gray-800/30 p-4 rounded-lg border border-amber-100 dark:border-amber-800/30">
+                          <div className="mb-5 bg-gray-800/60 backdrop-blur-xl p-4 rounded-lg border-0 premium-gradient-border">
                             <div className="text-sm font-semibold mb-1 uppercase tracking-wider">
                               <GradientText variant="fire" className="text-xs">Location</GradientText>
                             </div>
-                            <div className="font-medium text-gray-800 dark:text-gray-200">{app.caseStudy.location}</div>
+                            <div className="font-medium text-gray-300">{app.caseStudy.location}</div>
                           </div>
                           
-                          <div className="mb-5 bg-white/50 dark:bg-gray-800/30 p-4 rounded-lg border border-amber-100 dark:border-amber-800/30">
+                          <div className="mb-5 bg-gray-800/60 backdrop-blur-xl p-4 rounded-lg border-0 premium-gradient-border">
                             <div className="text-sm font-semibold mb-1 uppercase tracking-wider">
                               <GradientText variant="fire" className="text-xs">Challenge</GradientText>
                             </div>
-                            <div className="text-gray-700 dark:text-gray-300 leading-relaxed">{app.caseStudy.challenge}</div>
+                            <div className="text-gray-300 leading-relaxed">{app.caseStudy.challenge}</div>
                           </div>
                           
-                          <div className="mb-5 bg-white/50 dark:bg-gray-800/30 p-4 rounded-lg border border-amber-100 dark:border-amber-800/30">
+                          <div className="mb-5 bg-gray-800/60 backdrop-blur-xl p-4 rounded-lg border-0 premium-gradient-border">
                             <div className="text-sm font-semibold mb-1 uppercase tracking-wider">
                               <GradientText variant="fire" className="text-xs">Solution</GradientText>
                             </div>
-                            <div className="text-gray-700 dark:text-gray-300 leading-relaxed">{app.caseStudy.solution}</div>
+                            <div className="text-gray-300 leading-relaxed">{app.caseStudy.solution}</div>
                           </div>
                           
-                          <div className="bg-white/50 dark:bg-gray-800/30 p-4 rounded-lg border border-amber-100 dark:border-amber-800/30">
+                          <div className="bg-gray-800/60 backdrop-blur-xl p-4 rounded-lg border-0 premium-gradient-border">
                             <div className="text-sm font-semibold mb-2 uppercase tracking-wider">
                               <GradientText variant="fire" className="text-xs">Results</GradientText>
                             </div>
@@ -419,7 +419,7 @@ const IndustryApplications = () => {
                               {app.caseStudy.results.map((result, index) => (
                                 <li key={index} className="flex items-start gap-2 group">
                                   <CheckCircle className="h-5 w-5 text-amber-500 dark:text-amber-400 flex-shrink-0 mt-0.5 group-hover:text-green-500 dark:group-hover:text-green-400 transition-colors duration-300" />
-                                  <span className="text-gray-700 dark:text-gray-300">{result}</span>
+                                  <span className="text-gray-300">{result}</span>
                                 </li>
                               ))}
                             </ul>
@@ -427,7 +427,7 @@ const IndustryApplications = () => {
                         </div>
                         
                         <div className="md:w-1/3 flex justify-center items-center">
-                          <div className="rounded-xl overflow-hidden shadow-xl bg-white dark:bg-gray-800 p-3 border border-amber-100 dark:border-amber-900/50 transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl dark:hover:shadow-[0_20px_60px_rgba(251,191,36,0.3)]">
+                          <div className="rounded-xl overflow-hidden shadow-xl bg-gray-800/60 backdrop-blur-xl p-3 border-0 premium-gradient-border transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl dark:hover:shadow-[0_20px_60px_rgba(251,191,36,0.3)]">
                             <img 
                               src="/assets/images/praetorian-shield-logo.png" 
                               alt={`${app.title} application`}
