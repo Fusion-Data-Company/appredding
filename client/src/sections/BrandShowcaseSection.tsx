@@ -41,23 +41,14 @@ const BrandShowcaseSection = () => {
         
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-14">
-            <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/98 to-gray-900/95 backdrop-blur-xl rounded-xl py-10 px-10 mx-auto max-w-4xl mb-8 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7)] group">
-              {/* Premium dual-layer gradient border effect */}
-              <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/60 via-red-500/30 to-amber-500/60 opacity-80"></div>
-              <div className="absolute inset-[1px] p-0.5 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-30 pointer-events-none"></div>
+            <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-gray-900/95 backdrop-blur-xl rounded-xl py-10 px-10 mx-auto max-w-4xl mb-8 shadow-[0_10px_50px_rgba(0,0,0,0.5)] group transform transition-all duration-500 hover:scale-[1.02] hover:-translate-y-1">
+              {/* Premium gradient border effect - Mixed variant (matching the third card) */}
+              <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/50 via-transparent to-blue-400/50 opacity-70"></div>
+              <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
               
-              {/* Animated corner accents - premium effect */}
-              <div className="absolute top-0 left-0 w-20 h-20 opacity-40">
-                <div className="absolute inset-0 bg-gradient-to-br from-amber-500/40 to-red-600/30 rounded-tl-xl blur-[2px]"></div>
-              </div>
-              <div className="absolute top-0 right-0 w-20 h-20 opacity-40">
-                <div className="absolute inset-0 bg-gradient-to-bl from-amber-500/40 to-red-600/30 rounded-tr-xl blur-[2px]"></div>
-              </div>
-              <div className="absolute bottom-0 left-0 w-20 h-20 opacity-40">
-                <div className="absolute inset-0 bg-gradient-to-tr from-red-600/30 to-amber-500/40 rounded-bl-xl blur-[2px]"></div>
-              </div>
-              <div className="absolute bottom-0 right-0 w-20 h-20 opacity-40">
-                <div className="absolute inset-0 bg-gradient-to-tl from-red-600/30 to-amber-500/40 rounded-br-xl blur-[2px]"></div>
+              {/* Subtle ambient glow that activates on hover */}
+              <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-30 transition-opacity duration-700 ease-in-out" 
+                  style={{ background: "radial-gradient(circle at center, rgba(251,113,36,0.3), rgba(59,130,246,0.3), transparent 70%)" }}>
               </div>
               
               {/* Subtle top glow effect */}
@@ -84,18 +75,15 @@ const BrandShowcaseSection = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Image side with premium enhancements */}
             <div className="order-2 md:order-1">
-              <div className="relative group transform hover:scale-[1.01] transition-all duration-700">
-                <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/98 to-gray-900/95 backdrop-blur-xl rounded-xl p-2 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7)] z-10">
-                  {/* Premium dual-layer gradient border effect - mixed fire/blue theme */}
-                  <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/70 via-transparent to-blue-500/70 opacity-80"></div>
-                  <div className="absolute inset-[1px] p-0.5 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-30 pointer-events-none"></div>
+              <div className="relative group transform transition-all duration-500 hover:scale-105 hover:-translate-y-2 hover:z-10">
+                <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-gray-900/95 backdrop-blur-xl rounded-xl p-2 shadow-[0_10px_50px_rgba(0,0,0,0.5)] z-10">
+                  {/* Premium gradient border effect - Mixed variant (matching the third card) */}
+                  <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/50 via-transparent to-blue-400/50 opacity-70"></div>
+                  <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
                   
-                  {/* Corner accent decorations */}
-                  <div className="absolute top-0 right-0 w-20 h-20 opacity-30">
-                    <div className="absolute inset-0 bg-gradient-to-bl from-orange-500/40 to-red-600/30 rounded-tr-xl blur-[2px]"></div>
-                  </div>
-                  <div className="absolute bottom-0 left-0 w-20 h-20 opacity-30">
-                    <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/30 to-cyan-500/40 rounded-bl-xl blur-[2px]"></div>
+                  {/* Subtle ambient glow that activates on hover */}
+                  <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-30 transition-opacity duration-700 ease-in-out" 
+                      style={{ background: "radial-gradient(circle at center, rgba(251,113,36,0.3), rgba(59,130,246,0.3), transparent 70%)" }}>
                   </div>
                   
                   {/* Image container with enhanced styling */}
@@ -125,57 +113,60 @@ const BrandShowcaseSection = () => {
             
             {/* Text side with premium enhancements */}
             <div className="order-1 md:order-2">
-              <div className="relative group transform hover:scale-[1.01] transition-all duration-700">
-                <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/98 to-gray-900/95 backdrop-blur-xl rounded-xl p-8 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7)] z-10 space-y-8">
-                  {/* Premium dual-layer gradient border effect */}
-                  <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-blue-500/60 via-transparent to-purple-500/60 opacity-80"></div>
-                  <div className="absolute inset-[1px] p-0.5 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-30 pointer-events-none"></div>
+              <div className="relative group transform hover:scale-[1.02] transition-all duration-500 hover:-translate-y-1 hover:z-10">
+                <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/98 to-gray-900/95 backdrop-blur-xl rounded-xl p-8 shadow-[0_10px_50px_rgba(0,0,0,0.5)] z-10 space-y-8">
+                  {/* Premium dual-layer gradient border effect - Mixed variant (matching the third card) */}
+                  <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/50 via-transparent to-blue-400/50 opacity-70"></div>
+                  <div className="absolute inset-[1px] p-0.5 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
                   
-                  {/* Corner accent decorations */}
-                  <div className="absolute top-0 left-0 w-20 h-20 opacity-30">
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/40 to-purple-600/30 rounded-tl-xl blur-[2px]"></div>
-                  </div>
-                  <div className="absolute bottom-0 right-0 w-20 h-20 opacity-30">
-                    <div className="absolute inset-0 bg-gradient-to-tl from-purple-600/30 to-blue-500/40 rounded-br-xl blur-[2px]"></div>
+                  {/* Subtle ambient glow that activates on hover */}
+                  <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-30 transition-opacity duration-700 ease-in-out" 
+                      style={{ background: "radial-gradient(circle at center, rgba(251,113,36,0.3), rgba(59,130,246,0.3), transparent 70%)" }}>
                   </div>
                   
-                  {/* Feature item 1 */}
-                  <div className="group/item relative transform transition-all duration-500 hover:translate-x-1 hover:z-10 rounded-xl p-4 hover:bg-gradient-to-r hover:from-blue-900/10 hover:via-transparent hover:to-purple-900/10">
-                    <h3 className="text-2xl font-semibold mb-3 pb-2 relative">
-                      <span className="bg-gradient-to-r from-orange-300 to-blue-300 bg-clip-text text-transparent">
+                  {/* Feature item 1 - Fire theme */}
+                  <div className="group/item relative transform transition-all duration-500 hover:translate-x-1 hover:z-10 rounded-xl p-4">
+                    {/* Enhanced heading with subtle effects */}
+                    <div className="relative mb-3 pb-2">
+                      <h3 className="text-2xl font-semibold bg-gradient-to-r from-amber-300 via-orange-500 to-red-500 bg-clip-text text-transparent drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">
                         Enterprise-Grade Protection
-                      </span>
-                      {/* Animated underline */}
-                      <div className="absolute bottom-0 left-0 w-16 h-0.5 bg-gradient-to-r from-orange-400 to-blue-400 rounded-full group-hover/item:w-32 transition-all duration-500"></div>
-                    </h3>
+                      </h3>
+                      
+                      {/* Animated underline that extends on hover */}
+                      <div className="absolute bottom-0 left-0 w-1/3 h-0.5 bg-gradient-to-r from-orange-500 to-red-500 group-hover/item:w-1/2 transition-all duration-700 rounded-full opacity-70 shadow-[0_0_5px_rgba(251,113,36,0.6)]"></div>
+                    </div>
                     <p className="text-gray-300">
                       Praetorian SmartCoat's premium protective coating systems offer unmatched performance for industrial, commercial, and residential applications.
                     </p>
                   </div>
                   
-                  {/* Feature item 2 */}
-                  <div className="group/item relative transform transition-all duration-500 hover:translate-x-1 hover:z-10 rounded-xl p-4 hover:bg-gradient-to-r hover:from-blue-900/10 hover:via-transparent hover:to-purple-900/10">
-                    <h3 className="text-2xl font-semibold mb-3 pb-2 relative">
-                      <span className="bg-gradient-to-r from-orange-300 to-blue-300 bg-clip-text text-transparent">
+                  {/* Feature item 2 - Blue theme */}
+                  <div className="group/item relative transform transition-all duration-500 hover:translate-x-1 hover:z-10 rounded-xl p-4">
+                    {/* Enhanced heading with subtle effects */}
+                    <div className="relative mb-3 pb-2">
+                      <h3 className="text-2xl font-semibold bg-gradient-to-r from-blue-300 via-cyan-400 to-blue-500 bg-clip-text text-transparent drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">
                         Advanced Ceramic Technology
-                      </span>
-                      {/* Animated underline */}
-                      <div className="absolute bottom-0 left-0 w-16 h-0.5 bg-gradient-to-r from-orange-400 to-blue-400 rounded-full group-hover/item:w-32 transition-all duration-500"></div>
-                    </h3>
+                      </h3>
+                      
+                      {/* Animated underline that extends on hover */}
+                      <div className="absolute bottom-0 left-0 w-1/3 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-400 group-hover/item:w-1/2 transition-all duration-700 rounded-full opacity-70 shadow-[0_0_5px_rgba(59,130,246,0.6)]"></div>
+                    </div>
                     <p className="text-gray-300">
                       Utilizing ceramic microsphere technology developed from aerospace research, our coatings create an impenetrable protective barrier with exceptional durability.
                     </p>
                   </div>
                   
-                  {/* Feature item 3 */}
-                  <div className="group/item relative transform transition-all duration-500 hover:translate-x-1 hover:z-10 rounded-xl p-4 hover:bg-gradient-to-r hover:from-blue-900/10 hover:via-transparent hover:to-purple-900/10">
-                    <h3 className="text-2xl font-semibold mb-3 pb-2 relative">
-                      <span className="bg-gradient-to-r from-orange-300 to-blue-300 bg-clip-text text-transparent">
+                  {/* Feature item 3 - Mixed theme */}
+                  <div className="group/item relative transform transition-all duration-500 hover:translate-x-1 hover:z-10 rounded-xl p-4">
+                    {/* Enhanced heading with subtle effects */}
+                    <div className="relative mb-3 pb-2">
+                      <h3 className="text-2xl font-semibold bg-gradient-to-r from-amber-300 via-orange-400 to-blue-400 bg-clip-text text-transparent drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">
                         Scientifically Verified Results
-                      </span>
-                      {/* Animated underline */}
-                      <div className="absolute bottom-0 left-0 w-16 h-0.5 bg-gradient-to-r from-orange-400 to-blue-400 rounded-full group-hover/item:w-32 transition-all duration-500"></div>
-                    </h3>
+                      </h3>
+                      
+                      {/* Animated underline with dual-colored gradient */}
+                      <div className="absolute bottom-0 left-0 w-1/3 h-0.5 bg-gradient-to-r from-orange-500 to-blue-500 group-hover/item:w-1/2 transition-all duration-700 rounded-full opacity-70 shadow-[0_0_5px_rgba(251,113,36,0.4),_0_0_5px_rgba(59,130,246,0.4)]"></div>
+                    </div>
                     <p className="text-gray-300">
                       Our products have been rigorously tested and certified to meet the highest standards of performance in fire resistance, thermal protection, and longevity.
                     </p>
