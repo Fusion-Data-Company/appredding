@@ -808,7 +808,7 @@ const IndustryApplications = () => {
                           {/* Image column */}
                           <div className="md:w-1/3 flex justify-center items-center">
                             {/* Premium image container */}
-                            <div className="relative group/image overflow-hidden">
+                            <div className="relative group/image overflow-hidden" style={{zIndex: 100}}>
                               {/* Image container with theme-based styling */}
                               <div className={`relative rounded-xl overflow-hidden border-2 ${
                                 app.id === "marinas" || app.id === "pools"
