@@ -6,7 +6,7 @@ import { GradientButton } from "@/components/ui/gradient-button";
 // Import the video from assets_dir
 import productDemoVideo from "../assets_dir/videos/product-demo.mp4";
 // Import the hero image to use as background
-import backgroundImg from "../assets_dir/images/praetorian-hero-final.png";
+import { PRAETORIAN_HERO_IMAGE } from "../assets_dir/imageExports";
 
 interface Video {
   id: string;
@@ -49,7 +49,7 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
       className="py-20 relative" 
       id="videos"
       style={{ 
-        backgroundImage: `url(${backgroundImg})`,
+        backgroundImage: `url(${PRAETORIAN_HERO_IMAGE})`,
         backgroundSize: "cover",
         backgroundPosition: "center bottom", // Position at bottom to continue from FAQ section
         backgroundRepeat: "no-repeat",
