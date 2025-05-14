@@ -19,7 +19,7 @@ const ProductPerformanceSection = () => {
     >
       {/* Semi-transparent overlay for better readability */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-black/60" style={{ zIndex: 1 }}></div>
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 relative" style={{ zIndex: 2 }}>
         <div className="text-center mb-24">
           <div className="bg-gray-800/60 backdrop-blur-xl rounded-xl border-4 border-white/40 shadow-[0_0_60px_rgba(255,255,255,0.3)] py-16 px-16 mx-auto max-w-5xl mb-10 inline-block transform hover:scale-[1.01] transition-transform duration-500">
             <GradientHeading level={2} className="text-4xl md:text-5xl lg:text-6xl mb-8" variant="mixed">Product Performance Data</GradientHeading>
