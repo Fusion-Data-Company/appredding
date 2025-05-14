@@ -145,9 +145,18 @@ const ContactSection = () => {
       <div className="container mx-auto px-4 relative" style={{ zIndex: 2 }}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <div>
-            <div className="relative mb-8">
-              <div className="absolute -inset-1 bg-gradient-to-r from-orange-500 via-amber-400 to-orange-500 rounded-lg blur-md opacity-25 dark:opacity-50"></div>
-              <GradientHeading level={2} className="text-3xl md:text-5xl font-bold mb-4 relative z-10">Get In Touch</GradientHeading>
+            <div className="relative mb-8 flex justify-center w-full">
+              <div className="absolute -inset-4 bg-gradient-to-r from-orange-500 via-amber-400 to-orange-500 rounded-lg blur-lg opacity-30 dark:opacity-50"></div>
+              <h2 
+                className="relative z-10 text-center bg-clip-text text-transparent bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 font-extrabold tracking-tight py-2" 
+                style={{ 
+                  fontSize: '3rem',
+                  textShadow: '0 1px 10px rgba(255,150,0,0.3)',
+                  marginBottom: '1.5rem'
+                }}
+              >
+                Get In Touch
+              </h2>
             </div>
             <p className="text-[#a0a0a0] mb-8">
               Have questions about our products or services? Contact our team of coating experts for personalized assistance.
