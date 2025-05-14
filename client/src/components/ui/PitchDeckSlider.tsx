@@ -109,13 +109,14 @@ const PitchDeckSlider = () => {
           >
             <GradientButton 
               onClick={togglePitchDeck}
-              className="rounded-full shadow-[0_0_30px_rgba(255,69,0,0.5)] flex items-center gap-2"
+              className="introduction-shimmer rounded-full shadow-[0_0_35px_rgba(255,69,0,0.6)] flex items-center gap-2 relative overflow-hidden"
               variant="default"
               size="lg"
             >
-              <Shield className="w-5 h-5 mr-1" />
-              Introduction
-              <ArrowRight className="w-4 h-4 ml-1" />
+              <span className="absolute inset-0 introduction-glow"></span>
+              <Shield className="w-5 h-5 mr-1 relative z-10" />
+              <span className="relative z-10">Introduction</span>
+              <ArrowRight className="w-4 h-4 ml-1 relative z-10" />
             </GradientButton>
           </motion.div>
         )}

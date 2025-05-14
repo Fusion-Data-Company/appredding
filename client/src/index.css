@@ -1505,4 +1505,68 @@ section + section {
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
+  
+  /* Voice chat and Introduction button custom shimmer effects */
+  .voice-chat-shimmer,
+  .introduction-shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .voice-chat-shimmer::before,
+  .introduction-shimmer::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(
+      transparent, 
+      rgba(255, 255, 255, 0.1), 
+      transparent 30%
+    );
+    animation: shimmerRotate 4s linear infinite;
+  }
+  
+  .voice-chat-glow {
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.5),
+                0 0 30px rgba(59, 130, 246, 0.2);
+    opacity: 0.7;
+    animation: voiceChatGlowPulse 3s ease-in-out infinite;
+  }
+  
+  .introduction-glow {
+    box-shadow: 0 0 20px rgba(255, 69, 0, 0.6),
+                0 0 40px rgba(255, 69, 0, 0.3);
+    opacity: 0.6;
+    animation: introGlowPulse 4s ease-in-out infinite;
+  }
+  
+  @keyframes shimmerRotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes voiceChatGlowPulse {
+    0%, 100% {
+      opacity: 0.3;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+  
+  @keyframes introGlowPulse {
+    0%, 100% {
+      opacity: 0.3;
+    }
+    50% {
+      opacity: 0.8;
+    }
+  }
 }

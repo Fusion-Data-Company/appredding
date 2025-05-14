@@ -84,9 +84,10 @@ const VoiceChatPopout = () => {
             <Button
               onClick={toggleExpanded}
               size="icon"
-              className="h-16 w-16 rounded-full dark:bg-gradient-to-br dark:from-gray-800 dark:via-gray-700 dark:to-gray-900 bg-gradient-to-br from-gray-100 via-white to-gray-200 dark:shadow-[0_0_10px_rgba(59,130,246,0.2)] shadow-[0_0_5px_rgba(0,0,0,0.1)] border border-gray-200/30 dark:border-blue-600/30 flex items-center justify-center transition-all hover:scale-110 group"
+              className="voice-chat-shimmer h-16 w-16 rounded-full dark:bg-gradient-to-br dark:from-gray-800 dark:via-gray-700 dark:to-gray-900 bg-gradient-to-br from-gray-100 via-white to-gray-200 dark:shadow-[0_0_20px_rgba(59,130,246,0.5)] shadow-[0_0_15px_rgba(0,0,0,0.2)] border border-gray-200/30 dark:border-blue-600/50 flex items-center justify-center transition-all hover:scale-110 group relative overflow-hidden"
             >
-              <Mic className="h-8 w-8 dark:text-blue-400 text-blue-600 group-hover:text-blue-500 dark:group-hover:text-blue-300 transition-colors" />
+              <span className="absolute inset-0 voice-chat-glow"></span>
+              <Mic className="h-8 w-8 dark:text-blue-400 text-blue-600 group-hover:text-blue-500 dark:group-hover:text-blue-300 transition-colors relative z-10" />
             </Button>
           </motion.div>
         )}
