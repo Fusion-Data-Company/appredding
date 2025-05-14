@@ -107,12 +107,12 @@ const FAQSection = ({ faqs }: FAQProps) => {
                 </div>
                 
                 {/* Advanced premium gradient heading */}
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-purple-400 to-blue-400 relative">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-300 to-blue-400 relative">
                   Frequently Asked Questions
                 </h2>
                 
                 {/* Animated decorative line below heading */}
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-32 h-0.5 bg-gradient-to-r from-orange-500 via-purple-500 to-blue-500 rounded-full mt-2"></div>
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-32 h-0.5 bg-gradient-to-r from-orange-500 via-amber-400 to-blue-500 rounded-full mt-2"></div>
               </div>
               
               {/* Enhanced description with premium styling */}
@@ -152,8 +152,22 @@ const FAQSection = ({ faqs }: FAQProps) => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           {faqs.map((category, categoryIdx) => {
             // Theme configuration based on category index
-            const themeConfig = {
-              0: { // Fire theme
+            type ThemeConfig = {
+              borderGradient: string;
+              textGradient: string;
+              iconGradient: string;
+              iconShadow: string;
+              ambientGlow: string;
+              cornerAccent: string;
+              questionBorder: string;
+              answerGradient: string;
+              answerBorder: string;
+              hoverAccent: string;
+            };
+            
+            // Define themes as an array instead of an object with numeric keys
+            const themes: ThemeConfig[] = [
+              { // Fire theme
                 borderGradient: "from-orange-500/60 via-red-600/30 to-red-500/60",
                 textGradient: "from-orange-400 via-amber-300 to-orange-400",
                 iconGradient: "from-amber-400 via-orange-500 to-red-600",
@@ -165,7 +179,7 @@ const FAQSection = ({ faqs }: FAQProps) => {
                 answerBorder: "from-orange-600/40 to-red-600/40",
                 hoverAccent: "from-orange-500/30 to-red-500/30"
               },
-              1: { // Blue theme
+              { // Blue theme
                 borderGradient: "from-blue-500/60 via-cyan-500/30 to-blue-600/60",
                 textGradient: "from-blue-400 via-cyan-300 to-blue-400",
                 iconGradient: "from-cyan-400 via-blue-500 to-blue-700",
@@ -177,7 +191,7 @@ const FAQSection = ({ faqs }: FAQProps) => {
                 answerBorder: "from-blue-600/40 to-cyan-600/40",
                 hoverAccent: "from-blue-500/30 to-cyan-500/30"
               },
-              2: { // Mixed theme
+              { // Mixed theme
                 borderGradient: "from-orange-500/50 via-transparent to-blue-400/50",
                 textGradient: "from-amber-300 via-orange-400 to-blue-400",
                 iconGradient: "from-amber-400 via-orange-500 to-blue-600",
@@ -189,10 +203,10 @@ const FAQSection = ({ faqs }: FAQProps) => {
                 answerBorder: "from-orange-600/30 via-transparent to-blue-600/30",
                 hoverAccent: "from-orange-500/20 via-transparent to-blue-500/20"
               }
-            };
+            ];
             
-            // Get theme based on index
-            const theme = themeConfig[categoryIdx % 3];
+            // Get theme based on index (safely access array)
+            const theme = themes[categoryIdx % 3];
             
             return (
               <div key={categoryIdx} className="group relative transform hover:scale-[1.01] transition-all duration-700">
