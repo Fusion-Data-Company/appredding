@@ -112,6 +112,38 @@ section + section {
     }
   }
   
+  .shimmer-text {
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.2) 25%,
+      rgba(255, 255, 255, 0.5) 50%,
+      rgba(255, 255, 255, 0.2) 75%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    background-size: 200% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    animation: shine 5s infinite linear;
+    position: relative;
+  }
+  
+  .shimmer-fire-text {
+    background: linear-gradient(
+      to right,
+      rgba(255, 87, 34, 0) 0%,
+      rgba(255, 152, 0, 0.3) 25%, 
+      rgba(255, 255, 255, 0.6) 50%,
+      rgba(255, 152, 0, 0.3) 75%,
+      rgba(255, 87, 34, 0) 100%
+    );
+    background-size: 200% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    animation: shine 5s infinite linear;
+    position: relative;
+  }
+  
   .gradient-text-fire {
     background: linear-gradient(
       to bottom, 

@@ -312,20 +312,56 @@ const IndustryApplications = () => {
             </Link>
           </div>
           
-          {/* Elite enterprise styled heading - Moved after the button */}
-          <h2 className="text-4xl font-bold mb-4 tracking-tight relative inline-block">
-            <span className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-3/4 h-1 bg-gradient-to-r from-transparent via-orange-400/40 to-transparent rounded-full blur-sm"></span>
-            <GradientText variant="fire" className="drop-shadow-[0_2px_4px_rgba(251,191,36,0.3)] [text-shadow:0_4px_8px_rgba(0,0,0,0.5)]">
-              Protection Across Every Industry
-            </GradientText>
-            <span className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-3/4 h-1 bg-gradient-to-r from-transparent via-red-400/40 to-transparent rounded-full blur-sm"></span>
+          {/* Elite enterprise styled heading with shimmer effect */}
+          <h2 className="text-4xl font-bold mt-12 mb-5 tracking-tight relative inline-block">
+            {/* Top horizontal accent line with enhanced glow */}
+            <span className="absolute -top-6 left-1/2 transform -translate-x-1/2 w-3/4 h-1.5 bg-gradient-to-r from-transparent via-orange-400/60 to-transparent rounded-full blur-sm animate-pulse-slow"></span>
+            
+            {/* Left corner accent */}
+            <span className="absolute -top-4 -left-4 w-8 h-8 border-t-2 border-l-2 border-orange-500/50 rounded-tl-lg"></span>
+            
+            {/* Right corner accent */}
+            <span className="absolute -top-4 -right-4 w-8 h-8 border-t-2 border-r-2 border-red-500/50 rounded-tr-lg"></span>
+            
+            {/* Heading text with shimmer effect */}
+            <span className="relative">
+              <GradientText variant="fire" className="shimmer-fire-text drop-shadow-[0_2px_4px_rgba(251,191,36,0.3)] [text-shadow:0_4px_8px_rgba(0,0,0,0.5)]">
+                Protection Across Every Industry
+              </GradientText>
+              
+              {/* Additional subtle glow effect */}
+              <span className="absolute inset-0 bg-gradient-to-r from-orange-500/0 via-orange-500/10 to-orange-500/0 blur-xl opacity-70 rounded-full"></span>
+            </span>
+            
+            {/* Bottom horizontal accent line with enhanced glow */}
+            <span className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 w-3/4 h-1.5 bg-gradient-to-r from-transparent via-red-400/60 to-transparent rounded-full blur-sm animate-pulse-slow"></span>
+            
+            {/* Left bottom corner accent */}
+            <span className="absolute -bottom-4 -left-4 w-8 h-8 border-b-2 border-l-2 border-orange-500/50 rounded-bl-lg"></span>
+            
+            {/* Right bottom corner accent */}
+            <span className="absolute -bottom-4 -right-4 w-8 h-8 border-b-2 border-r-2 border-red-500/50 rounded-br-lg"></span>
           </h2>
           
-          {/* Enhanced description */}
-          <p className="text-gray-200 dark:text-gray-300 max-w-2xl mx-auto font-medium text-lg tracking-wide leading-relaxed mb-6 relative">
-            <span className="absolute -left-6 top-1/2 transform -translate-y-1/2 w-4 h-4 rounded-full bg-gradient-to-br from-orange-500/20 to-red-500/20 blur-md"></span>
-            Explore how Praetorian's advanced ceramic coating technology delivers specialized protection and exceptional performance for diverse industries and applications.
-            <span className="absolute -right-6 top-1/2 transform -translate-y-1/2 w-4 h-4 rounded-full bg-gradient-to-br from-orange-500/20 to-red-500/20 blur-md"></span>
+          {/* Enhanced description with premium styling */}
+          <p className="text-gray-200 dark:text-gray-300 max-w-2xl mx-auto font-medium text-lg tracking-wide leading-relaxed mb-10 mt-10 relative px-6">
+            {/* Left side ornamental accent */}
+            <span className="absolute -left-2 top-1/2 transform -translate-y-1/2 w-6 h-6">
+              <span className="absolute inset-0 rounded-full bg-gradient-to-br from-orange-500/30 to-red-500/30 blur-md"></span>
+              <span className="absolute left-1/2 top-0 h-full w-0.5 bg-gradient-to-b from-orange-500/20 via-orange-500/40 to-orange-500/20"></span>
+            </span>
+            
+            {/* Enhanced text with subtle highlight */}
+            <span className="relative">
+              Explore how Praetorian's advanced ceramic coating technology delivers specialized protection and exceptional performance for diverse industries and applications.
+              <span className="absolute inset-0 bg-gradient-to-r from-orange-500/0 via-orange-500/5 to-orange-500/0 rounded-lg"></span>
+            </span>
+            
+            {/* Right side ornamental accent */}
+            <span className="absolute -right-2 top-1/2 transform -translate-y-1/2 w-6 h-6">
+              <span className="absolute inset-0 rounded-full bg-gradient-to-br from-orange-500/30 to-red-500/30 blur-md"></span>
+              <span className="absolute left-1/2 top-0 h-full w-0.5 bg-gradient-to-b from-orange-500/20 via-orange-500/40 to-orange-500/20"></span>
+            </span>
           </p>
           
           {/* Bottom decorative element */}
