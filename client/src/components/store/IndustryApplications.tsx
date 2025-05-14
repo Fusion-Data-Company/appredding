@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Building, Warehouse, Ship, AlarmClockCheck, Home, Building2, Droplets, ThermometerSun, Wrench, Zap, DollarSign, Shield, CheckCircle, Sun } from "lucide-react";
+import { Building, Warehouse, Ship, AlarmClockCheck, Home, Building2, Droplets, ThermometerSun, Wrench, Zap, DollarSign, Shield, CheckCircle, Sun, ShoppingCart } from "lucide-react";
 import { GradientText } from "@/components/ui/gradient-text";
+import { Link } from "wouter";
 import praetorianLogoFire from "../../assets_dir/images/praetorian-logo-fire.png";
 
 interface ApplicationData {
@@ -272,9 +273,20 @@ const IndustryApplications = () => {
               Protection Across Every Industry
             </GradientText>
           </h2>
-          <p className="text-gray-200 dark:text-gray-300 max-w-2xl mx-auto font-medium text-lg tracking-wide leading-relaxed">
+          <p className="text-gray-200 dark:text-gray-300 max-w-2xl mx-auto font-medium text-lg tracking-wide leading-relaxed mb-8">
             Explore how Praetorian's advanced ceramic coating technology delivers specialized protection and exceptional performance for diverse industries and applications.
           </p>
+          
+          <Link href="/products">
+            <div className="relative group inline-block">
+              <div className="absolute inset-0 p-1 rounded-xl bg-gradient-to-r from-orange-500/70 via-amber-500/70 to-red-500/70 opacity-90 blur-sm group-hover:blur-md transition-all duration-500"></div>
+              <button className="relative z-10 px-8 py-4 bg-gradient-to-r from-orange-600 to-red-600 text-white font-bold text-xl rounded-xl shadow-lg shadow-red-500/30 flex items-center gap-3 transform transition-all duration-500 hover:scale-105 hover:-translate-y-1">
+                <ShoppingCart size={24} className="text-white" />
+                Get Praetorian Smart-Coat NOW!
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-xl"></div>
+              </button>
+            </div>
+          </Link>
         </div>
 
         <Tabs defaultValue="fire-prevention" value={selectedTab} onValueChange={setSelectedTab} className="w-full">
