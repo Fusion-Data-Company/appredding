@@ -1,6 +1,7 @@
 import { GradientHeading } from "@/components/ui/gradient-heading";
 import { GradientButton } from "@/components/ui/gradient-button";
 import { GradientText } from "@/components/ui/gradient-text";
+import { PremiumButton } from "@/components/ui/premium-button";
 import backgroundImg from "../assets_dir/images/optimized/praetorian-background-new.png";
 
 const ProductHistorySection = () => {
@@ -60,19 +61,44 @@ const ProductHistorySection = () => {
               </div>
             </div>
             
-            {/* Premium Title with enhanced effects */}
-            <div className="relative mb-10">
-              <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold relative z-10">
-                <span className="relative inline-block">
-                  {/* Text with premium gradient and enhanced shadow */}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-300 to-orange-500 drop-shadow-[0_5px_15px_rgba(251,191,36,0.3)]">
-                    Space Technology Heritage
-                  </span>
-                  
-                  {/* Decorative highlight underline */}
-                  <span className="absolute -bottom-2 left-0 h-1 w-full bg-gradient-to-r from-orange-500 to-red-500 opacity-70 rounded-full"></span>
-                </span>
-              </h2>
+            {/* Premium card header styling matching Specialized Applications */}
+            <div className="relative h-28 flex items-center justify-center mb-10">
+              {/* Background blur text */}
+              <div className="absolute inset-0 flex justify-center items-center text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-orange-900/10 blur-[5px] scale-110">
+                Space Technology Heritage
+              </div>
+              
+              {/* Main text with premium gradient */}
+              <span className="relative text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-amber-500 to-red-500
+                drop-shadow-[0_0px_1px_rgba(251,113,36,0.2)] 
+                [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(251,146,60,0.3)]
+                transform -translate-y-[0.25in] text-5xl md:text-6xl lg:text-7xl font-bold">
+                Space Technology Heritage
+              </span>
+              
+              {/* Top glossy reflection */}
+              <div className="absolute top-0 left-0 right-0 h-[40%] bg-gradient-to-b from-white/10 to-transparent rounded-t-lg"></div>
+              
+              {/* Multiple text shadows for depth - reduced blur effects */}
+              <div className="absolute inset-0 flex items-center justify-center text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight opacity-10 blur-[3px] text-orange-700/30 -z-10 transform scale-105">
+                Space Technology Heritage
+              </div>
+              <div className="absolute inset-0 flex items-center justify-center text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight opacity-20 blur-[1px] text-red-900/20 -z-10">
+                Space Technology Heritage
+              </div>
+              
+              {/* Decorative accent line */}
+              <div className="absolute left-[8%] bottom-[-0.5in] transform group w-14 h-2.5 rounded-full overflow-hidden z-50 transition-all duration-700 hover:w-72">
+                {/* Base gradient */}
+                <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-amber-500 to-red-600"></div>
+                
+                {/* Glow effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-amber-500 to-red-600 blur-md opacity-70"></div>
+                
+                {/* Pulsing dots */}
+                <div className="absolute h-full w-4 bg-white/80 right-4 rounded-full blur-[1px] animate-pulse-slow"></div>
+                <div className="absolute h-full w-3 bg-white/80 right-24 rounded-full blur-[1px] animate-pulse-slow-delayed opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
+              </div>
               
               {/* Subtle decoration elements */}
               <div className="absolute -top-6 -left-10 w-20 h-20 rounded-full bg-orange-500/5 filter blur-[20px]"></div>
@@ -142,29 +168,14 @@ const ProductHistorySection = () => {
             
             {/* Enhanced premium button */}
             <div className="relative">
-              {/* Enhanced premium button with advanced effects */}
-              <button 
+              {/* Enhanced premium button using PremiumButton component */}
+              <PremiumButton 
+                variant="fire" 
+                size="xl" 
                 onClick={() => window.location.href="#contact"}
-                className="group relative inline-flex items-center px-10 py-5 rounded-lg bg-gradient-to-r from-orange-600 to-red-600 text-white text-xl font-medium transition-all duration-500 hover:scale-105 overflow-hidden"
+                className="px-10 py-5 text-xl font-medium"
               >
-                {/* Button glow effect */}
-                <div className="absolute inset-0 rounded-lg opacity-20 group-hover:opacity-40 transition-opacity duration-500"
-                     style={{ boxShadow: '0 0 40px rgba(251, 113, 36, 0.8)' }}>
-                </div>
-                
-                {/* Button shimmer effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"
-                     style={{
-                       backgroundSize: '200% 100%',
-                       animation: 'shimmer 2s infinite',
-                       animationPlayState: 'paused'
-                     }}
-                     onMouseEnter={(e) => e.currentTarget.style.animationPlayState = 'running'}
-                     onMouseLeave={(e) => e.currentTarget.style.animationPlayState = 'paused'}>
-                </div>
-                
-                {/* Button text with icon */}
-                <span className="relative z-10 flex items-center">
+                <span className="flex items-center">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                   </svg>
@@ -173,7 +184,7 @@ const ProductHistorySection = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
                 </span>
-              </button>
+              </PremiumButton>
               
               {/* Subtle reflection */}
               <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-2/3 h-[2px] bg-gradient-to-r from-transparent via-white/10 to-transparent rounded-full blur-sm"></div>

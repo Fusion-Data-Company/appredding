@@ -1,6 +1,6 @@
 import React from "react";
 import { GradientHeading } from "@/components/ui/gradient-heading";
-import { GradientButton } from "@/components/ui/gradient-button";
+import { PremiumButton } from "@/components/ui/premium-button";
 import praetorianBrandImage from '../assets_dir/images/optimized/praetorian-brand-showcase.webp';
 import backgroundImg from "../assets_dir/images/optimized/praetorian-background-new.png";
 
@@ -27,15 +27,15 @@ const BrandShowcaseSection = () => {
         {/* Buttons positioned where the old hero image was */}
         <div className="w-full flex justify-center gap-8 pb-10">
           <a href="#applications" className="inline-block">
-            <GradientButton size="lg" className="font-semibold tracking-wider shadow-2xl shadow-black/80">
+            <PremiumButton variant="fire" size="lg" className="font-semibold tracking-wider shadow-2xl shadow-black/80">
               Explore Applications
-            </GradientButton>
+            </PremiumButton>
           </a>
           
           <a href="#contact" className="inline-block">
-            <GradientButton size="lg" className="font-semibold tracking-wider shadow-2xl shadow-black/80">
+            <PremiumButton variant="fire" size="lg" className="font-semibold tracking-wider shadow-2xl shadow-black/80">
               Contact Us
-            </GradientButton>
+            </PremiumButton>
           </a>
         </div>
         
@@ -55,15 +55,47 @@ const BrandShowcaseSection = () => {
               <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 w-3/4 h-20 bg-gradient-to-r from-orange-500/0 via-amber-500/20 to-orange-500/0 blur-[100px] rounded-full"></div>
               
               {/* Premium heading with enhanced styling */}
-              <div className="relative mb-6 pb-4">
-                <GradientHeading level={2} className="text-3xl md:text-4xl lg:text-5xl" variant="mixed">
+              {/* Premium card header styling matching Specialized Applications */}
+              <div className="relative h-20 flex items-center justify-center">
+                {/* Background blur text */}
+                <div className="absolute inset-0 flex justify-center items-center text-5xl font-bold tracking-tight text-orange-900/10 blur-[5px] scale-110">
                   Elite Protection Technology
-                </GradientHeading>
-                {/* Animated underline */}
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1/3 h-0.5 bg-gradient-to-r from-orange-500 via-red-500 to-orange-500 rounded-full opacity-70"></div>
+                </div>
+                
+                {/* Main text with premium gradient */}
+                <span className="relative text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-amber-500 to-red-500
+                  drop-shadow-[0_0px_1px_rgba(251,113,36,0.2)] 
+                  [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(251,146,60,0.3)]
+                  transform -translate-y-[0.25in] text-3xl md:text-4xl lg:text-5xl font-bold">
+                  Elite Protection Technology
+                </span>
+                
+                {/* Top glossy reflection */}
+                <div className="absolute top-0 left-0 right-0 h-[40%] bg-gradient-to-b from-white/10 to-transparent rounded-t-lg"></div>
+                
+                {/* Multiple text shadows for depth - reduced blur effects */}
+                <div className="absolute inset-0 flex items-center justify-center text-5xl font-bold tracking-tight opacity-10 blur-[3px] text-orange-700/30 -z-10 transform scale-105">
+                  Elite Protection Technology
+                </div>
+                <div className="absolute inset-0 flex items-center justify-center text-5xl font-bold tracking-tight opacity-20 blur-[1px] text-red-900/20 -z-10">
+                  Elite Protection Technology
+                </div>
+                
+                {/* Decorative accent line */}
+                <div className="absolute left-[8%] bottom-[-0.5in] transform group w-14 h-2.5 rounded-full overflow-hidden z-50 transition-all duration-700 hover:w-72">
+                  {/* Base gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-amber-500 to-red-600"></div>
+                  
+                  {/* Glow effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-amber-500 to-red-600 blur-md opacity-70"></div>
+                  
+                  {/* Pulsing dots */}
+                  <div className="absolute h-full w-4 bg-white/80 right-4 rounded-full blur-[1px] animate-pulse-slow"></div>
+                  <div className="absolute h-full w-3 bg-white/80 right-24 rounded-full blur-[1px] animate-pulse-slow-delayed opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
+                </div>
               </div>
               
-              <p className="mt-4 text-lg text-gray-300 max-w-3xl mx-auto relative z-10">
+              <p className="mt-6 text-lg text-gray-300 max-w-3xl mx-auto relative z-10">
                 Praetorian SmartCoat delivers premium ceramic-based protection systems developed from advanced aerospace technology
               </p>
               
