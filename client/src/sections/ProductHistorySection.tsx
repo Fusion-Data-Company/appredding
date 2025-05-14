@@ -182,28 +182,28 @@ const ProductHistorySection = () => {
           
           {/* Right column - Premium Timeline Card */}
           <div className="group relative transform hover:scale-[1.01] transition-all duration-700">
-            {/* Premium Card Container with enhanced styling */}
+            {/* Premium Card Container with enhanced styling - adjusted to fire theme */}
             <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/98 to-gray-900/95 backdrop-blur-xl rounded-xl overflow-hidden shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7)] z-10">
-              {/* Premium dual-layer gradient border effect */}
-              <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-blue-500/60 via-purple-500/30 to-blue-500/60 opacity-80"></div>
+              {/* Premium dual-layer gradient border effect - changed to match fire theme */}
+              <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/60 via-amber-500/30 to-red-500/60 opacity-80"></div>
               <div className="absolute inset-[1px] p-0.5 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-30 pointer-events-none"></div>
               
-              {/* Corner accent decorations */}
+              {/* Corner accent decorations - adjusted to fire theme */}
               <div className="absolute top-0 right-0 w-32 h-32 opacity-20">
-                <div className="absolute inset-0 bg-gradient-to-bl from-blue-500/40 to-purple-500/40 rounded-tr-xl blur-[2px]"></div>
+                <div className="absolute inset-0 bg-gradient-to-bl from-orange-500/40 to-amber-500/40 rounded-tr-xl blur-[2px]"></div>
               </div>
               <div className="absolute bottom-0 left-0 w-32 h-32 opacity-20">
-                <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/40 to-purple-500/40 rounded-bl-xl blur-[2px]"></div>
+                <div className="absolute inset-0 bg-gradient-to-tr from-red-500/40 to-orange-500/40 rounded-bl-xl blur-[2px]"></div>
               </div>
               
-              {/* Enhanced header section */}
+              {/* Enhanced header section - adjusted to fire theme */}
               <div className="p-8 border-b border-gray-600/40 relative">
-                {/* Premium heading with enhanced styling */}
+                {/* Premium heading with enhanced styling - adjusted to fire theme */}
                 <div className="flex items-center">
                   <div className="relative mr-4">
                     <div className="w-12 h-12 rounded-full flex items-center justify-center relative">
-                      <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600 to-cyan-600 opacity-20 animate-pulse-slow"></div>
-                      <div className="absolute inset-2 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 opacity-50"></div>
+                      <div className="absolute inset-0 rounded-full bg-gradient-to-r from-orange-600 to-red-600 opacity-20 animate-pulse-slow"></div>
+                      <div className="absolute inset-2 rounded-full bg-gradient-to-r from-orange-500 to-red-500 opacity-50"></div>
                       <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white relative z-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
@@ -211,7 +211,7 @@ const ProductHistorySection = () => {
                   </div>
                   
                   <div>
-                    <h3 className="text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400">
+                    <h3 className="text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-orange-500 to-red-500">
                       Product Innovation Timeline
                     </h3>
                     <p className="text-gray-300 text-lg mt-1">Explore our history of protective coating innovations</p>
@@ -219,7 +219,7 @@ const ProductHistorySection = () => {
                 </div>
                 
                 {/* Subtle decoration */}
-                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2/3 h-[1px] bg-gradient-to-r from-transparent via-gray-600/60 to-transparent"></div>
+                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2/3 h-[1px] bg-gradient-to-r from-transparent via-orange-600/40 to-transparent"></div>
               </div>
               
               {/* Enhanced timeline with premium styling */}
@@ -297,8 +297,8 @@ const ProductHistorySection = () => {
               </div>
             </div>
             
-            {/* Bottom reflection effect */}
-            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2/3 h-[2px] bg-gradient-to-r from-transparent via-blue-500/20 to-transparent rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
+            {/* Bottom reflection effect - adjusted to fire theme */}
+            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2/3 h-[2px] bg-gradient-to-r from-transparent via-orange-500/20 to-transparent rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
           </div>
         </div>
       </div>
