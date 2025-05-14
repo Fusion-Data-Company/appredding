@@ -4,9 +4,6 @@ import { useStore, Product } from '@/contexts/StoreContext';
 import ProductCard from '@/components/store/ProductCard';
 import Cart from '@/components/store/Cart';
 import ScrollingReviews from '@/components/store/ScrollingReviews';
-import TechnicalSpecsTable from '@/components/store/TechnicalSpecsTable';
-import ProductComparison from '@/components/store/ProductComparison';
-import RotatingTextSection from '@/sections/RotatingTextSection';
 import { Button } from '@/components/ui/button';
 import { PremiumButton } from '@/components/ui/premium-button';
 import { Filter, ArrowUp, ChevronDown, ShieldCheck, Thermometer, Droplets, Wind, Sun, Scale, Shapes } from 'lucide-react';
@@ -458,9 +455,6 @@ export default function Products() {
         </div>
 
         {/* Premium Enterprise Content Sections */}
-        <TechnicalSpecsTable />
-        <ProductComparison />
-        <RotatingTextSection />
 
         {/* Reviews Section */}
         <ScrollingReviews />

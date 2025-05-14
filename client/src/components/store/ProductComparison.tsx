@@ -100,9 +100,9 @@ const ProductComparison = () => {
           <Badge variant="outline" className="mb-2 px-3 py-1 border-amber-300 dark:border-amber-700 bg-amber-100/50 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300">
             Competitive Comparison
           </Badge>
-          <h2 className="text-3xl font-bold text-amber-900 dark:text-amber-300 mb-4">
+          <GradientHeading level={2} className="text-3xl md:text-4xl mb-4" variant="mixed">
             How Praetorian Outperforms the Competition
-          </h2>
+          </GradientHeading>
           <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
             See why Praetorian's revolutionary ceramic technology delivers superior performance across all key metrics compared to traditional protective coatings.
           </p>
