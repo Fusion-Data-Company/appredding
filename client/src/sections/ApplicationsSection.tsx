@@ -1,6 +1,7 @@
 import { Link } from "wouter";
 import { GradientButton } from "@/components/ui/gradient-button";
 import { GradientHeading } from "@/components/ui/gradient-heading";
+import { PremiumArrowButton } from "@/utils/premium-buttons";
 import backgroundImg from "../assets_dir/images/optimized/praetorian-background-new.png";
 import { useRef, useEffect } from "react";
 import { Shield } from "lucide-react";
@@ -95,13 +96,12 @@ const ApplicationCard = ({ imageSrc, title, description, link }: ApplicationCard
         <p className="text-gray-200 text-lg mb-6">{description}</p>
         <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
           <Link href={link}>
-            <GradientButton 
-              size="default"
-              variant={isWaterRelated ? "variant" : "default"}
+            <PremiumArrowButton 
+              size="lg"
               className="w-full md:w-auto font-semibold tracking-wider"
             >
               Learn more
-            </GradientButton>
+            </PremiumArrowButton>
           </Link>
         </div>
       </div>

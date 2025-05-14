@@ -157,20 +157,21 @@ export const Cart = () => {
                       Final costs will be calculated at checkout.
                     </p>
                     
-                    <Button 
-                      className="w-full bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-white"
+                    <PremiumCartButton 
+                      className="w-full"
+                      size="lg"
                       onClick={handleCheckout}
                     >
                       Checkout
-                    </Button>
+                    </PremiumCartButton>
                     
-                    <Button 
-                      variant="outline" 
-                      className="w-full"
+                    <PremiumArrowButton 
+                      className="w-full mt-2"
+                      size="md"
                       onClick={() => clearCart()}
                     >
                       Clear Cart
-                    </Button>
+                    </PremiumArrowButton>
                   </div>
                 </>
               )}
