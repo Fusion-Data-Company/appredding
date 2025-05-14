@@ -956,7 +956,7 @@ const ConstructionPage = () => {
         <section className="py-16 backdrop-blur-sm bg-gradient-to-b from-blue-900/40 to-primary-900/40 relative z-10">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto mb-12 text-center">
-              <div className="inline-block mb-3 px-4 py-1 rounded-full bg-gradient-to-r from-blue-600/30 to-blue-800/30 border border-blue-500/30">
+              <div className="inline-block mb-3 px-4 py-1 rounded-full bg-gradient-to-r from-blue-600/30 to-blue-800/30 border border-blue-500/30 relative z-50">
                 <span className="text-blue-300 text-sm font-bold uppercase tracking-wider">Scientific Innovation</span>
               </div>
               <GradientHeading level={2} className="text-3xl md:text-4xl mb-4" variant="mixed">Advanced Research & Development</GradientHeading>
@@ -1280,7 +1280,7 @@ const ConstructionPage = () => {
         <section className="py-16 backdrop-blur-sm bg-gradient-to-b from-primary-900/40 to-blue-900/40 relative z-10">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto mb-12 text-center">
-              <div className="inline-block mb-3 px-4 py-1 rounded-full bg-gradient-to-r from-blue-600/30 to-blue-800/30 border border-blue-500/30">
+              <div className="inline-block mb-3 px-4 py-1 rounded-full bg-gradient-to-r from-blue-600/30 to-blue-800/30 border border-blue-500/30 relative z-50">
                 <span className="text-blue-300 text-sm font-bold uppercase tracking-wider">Industry-Leading Technology</span>
               </div>
               <GradientHeading level={2} className="text-3xl md:text-4xl mb-4" variant="mixed">PraetorianGuard™ Competitive Advantage</GradientHeading>
@@ -1961,7 +1961,7 @@ const ConstructionPage = () => {
               <div className="backdrop-blur-sm bg-gradient-to-b from-primary-900/80 to-blue-900/80 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] p-8">
                 <div className="md:flex items-center gap-10">
                   <div className="md:w-2/3 text-center md:text-left mb-8 md:mb-0">
-                    <div className="inline-block mb-3 px-4 py-1 rounded-full bg-gradient-to-r from-blue-600/30 to-blue-800/30 border border-blue-500/30">
+                    <div className="inline-block mb-3 px-4 py-1 rounded-full bg-gradient-to-r from-blue-600/30 to-blue-800/30 border border-blue-500/30 relative z-50">
                       <span className="text-blue-300 text-sm font-bold uppercase tracking-wider">Enterprise-Ready Solution</span>
                     </div>
                     <GradientHeading level={2} className="text-3xl md:text-5xl mb-4" variant="mixed">Transform Your Construction Projects</GradientHeading>
