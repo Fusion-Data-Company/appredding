@@ -165,12 +165,12 @@ const ContactSection = () => {
               <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3/4 h-32 bg-gradient-to-r from-orange-500/0 via-amber-500/20 to-orange-500/0 blur-[100px] rounded-full"></div>
             </div>
             
-            <div className="relative mb-10 flex justify-center w-full">
+            <div className="relative mb-8 flex justify-center w-full">
               <div className="absolute -inset-4 bg-gradient-to-r from-orange-500 via-amber-400 to-orange-500 rounded-lg blur-lg opacity-30 dark:opacity-40 z-10"></div>
               <h2 
                 className="relative z-20 text-center bg-clip-text text-transparent bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 font-extrabold tracking-tight py-2" 
                 style={{ 
-                  fontSize: '3rem',
+                  fontSize: '3.25rem',
                   textShadow: '0 1px 8px rgba(255,150,0,0.3)',
                   marginBottom: '1.5rem',
                   letterSpacing: '-0.02em'
@@ -179,13 +179,32 @@ const ContactSection = () => {
                 Get In Touch
               </h2>
             </div>
-            <p className="text-gray-300 mb-8 text-lg text-center max-w-xl mx-auto relative z-10">
-              Have questions about our products or services? Contact our team of coating experts for personalized assistance.
-            </p>
+            <div className="relative z-10 mb-8">
+              <p className="text-gray-300 text-lg text-center max-w-xl mx-auto mb-2">
+                Have questions about our products or services? Contact our team of coating experts for personalized assistance.
+              </p>
+              <div className="flex justify-center">
+                <div className="h-0.5 w-24 bg-gradient-to-r from-transparent via-orange-500/40 to-transparent rounded-full"></div>
+              </div>
+            </div>
             
             <form className="space-y-6 bg-gradient-to-br from-gray-800/95 via-gray-900/95 to-gray-800/95 backdrop-blur-md rounded-xl p-8 border-0 relative shadow-[0_10px_50px_rgba(0,0,0,0.5)]" onSubmit={handleSubmit}>
               {/* Premium gradient border effect */}
-              <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/50 via-transparent to-blue-400/50 opacity-70"></div>
+              <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/50 via-red-500/30 to-orange-500/50 opacity-70"></div>
+              
+              {/* Animated corner accents - premium effect */}
+              <div className="absolute top-0 left-0 w-16 h-16 opacity-40">
+                <div className="absolute inset-0 bg-gradient-to-br from-amber-500/40 to-red-600/30 rounded-tl-xl blur-[2px]"></div>
+              </div>
+              <div className="absolute top-0 right-0 w-16 h-16 opacity-40">
+                <div className="absolute inset-0 bg-gradient-to-bl from-amber-500/40 to-red-600/30 rounded-tr-xl blur-[2px]"></div>
+              </div>
+              <div className="absolute bottom-0 left-0 w-16 h-16 opacity-40">
+                <div className="absolute inset-0 bg-gradient-to-tr from-red-600/30 to-amber-500/40 rounded-bl-xl blur-[2px]"></div>
+              </div>
+              <div className="absolute bottom-0 right-0 w-16 h-16 opacity-40">
+                <div className="absolute inset-0 bg-gradient-to-tl from-red-600/30 to-amber-500/40 rounded-br-xl blur-[2px]"></div>
+              </div>
               
               {/* Inner highlight */}
               <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
@@ -472,7 +491,21 @@ const ContactSection = () => {
             
             <div className="relative dark:bg-gradient-to-br dark:from-gray-900/95 dark:via-gray-950/95 dark:to-gray-900/95 bg-white/90 backdrop-blur-xl rounded-lg overflow-hidden h-full border-0 shadow-[0_10px_50px_rgba(0,0,0,0.5)]">
               {/* Enterprise level gradient border */}
-              <div className="absolute inset-0 p-0.5 rounded-lg bg-gradient-to-r from-blue-500/50 via-transparent to-cyan-400/50 opacity-70"></div>
+              <div className="absolute inset-0 p-0.5 rounded-lg bg-gradient-to-r from-blue-500/50 via-cyan-400/30 to-blue-500/50 opacity-70"></div>
+              
+              {/* Animated corner accents - premium effect (blue variant) */}
+              <div className="absolute top-0 left-0 w-16 h-16 opacity-40">
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/40 to-cyan-600/30 rounded-tl-xl blur-[2px]"></div>
+              </div>
+              <div className="absolute top-0 right-0 w-16 h-16 opacity-40">
+                <div className="absolute inset-0 bg-gradient-to-bl from-blue-500/40 to-cyan-600/30 rounded-tr-xl blur-[2px]"></div>
+              </div>
+              <div className="absolute bottom-0 left-0 w-16 h-16 opacity-40">
+                <div className="absolute inset-0 bg-gradient-to-tr from-cyan-600/30 to-blue-500/40 rounded-bl-xl blur-[2px]"></div>
+              </div>
+              <div className="absolute bottom-0 right-0 w-16 h-16 opacity-40">
+                <div className="absolute inset-0 bg-gradient-to-tl from-cyan-600/30 to-blue-500/40 rounded-br-xl blur-[2px]"></div>
+              </div>
               
               {/* Subtle top highlight */}
               <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
@@ -499,12 +532,12 @@ const ContactSection = () => {
               </div>
               
               <div className="p-8 relative z-20">
-                <div className="relative mb-10 flex justify-center w-full">
+                <div className="relative mb-8 flex justify-center w-full">
                   <div className="absolute -inset-4 bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-500 rounded-lg blur-lg opacity-30 dark:opacity-40"></div>
                   <h2 
                     className="relative z-10 text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-400 font-extrabold tracking-tight py-2" 
                     style={{ 
-                      fontSize: '3rem',
+                      fontSize: '3.25rem',
                       textShadow: '0 1px 8px rgba(0,150,255,0.3)',
                       marginBottom: '1.5rem',
                       letterSpacing: '-0.02em'
@@ -512,6 +545,14 @@ const ContactSection = () => {
                   >
                     Contact Information
                   </h2>
+                </div>
+                <div className="relative z-10 mb-8">
+                  <p className="text-gray-300 text-lg text-center max-w-xl mx-auto mb-2">
+                    Reach out to our team through any of these channels for inquiries, support, or partnership opportunities.
+                  </p>
+                  <div className="flex justify-center">
+                    <div className="h-0.5 w-24 bg-gradient-to-r from-transparent via-blue-500/40 to-transparent rounded-full"></div>
+                  </div>
                 </div>
                 
                 <div className="space-y-8">
