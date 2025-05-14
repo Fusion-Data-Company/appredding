@@ -248,7 +248,7 @@ const PitchDeckSlider = () => {
                             onClick={() => selectedIndustry && handleIndustrySelect(selectedIndustry)}
                             disabled={!selectedIndustry}
                             className="min-w-[150px]"
-                            variant="fire"
+                            variant="default"
                           >
                             Continue
                             <ArrowRight className="w-4 h-4 ml-2" />
