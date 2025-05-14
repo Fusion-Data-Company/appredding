@@ -28,7 +28,7 @@ const FAQSection = ({ faqs }: FAQProps) => {
 
   return (
     <section 
-      className="py-24 relative" 
+      className="py-32 relative" 
       id="faq"
       style={{ 
         backgroundImage: `url(${backgroundImg})`,
@@ -39,84 +39,342 @@ const FAQSection = ({ faqs }: FAQProps) => {
         backgroundColor: "#111111",
       }}
     >
-      {/* Overlay for better text readability */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/80"></div>
+      {/* Enhanced overlay with better gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/75 to-black/85"></div>
+      
+      {/* Ambient glow effects */}
+      <div className="absolute top-1/3 left-1/4 w-96 h-96 rounded-full bg-orange-500/5 filter blur-[120px] animate-pulse-slow" style={{ zIndex: 1 }}></div>
+      <div className="absolute bottom-1/3 right-1/4 w-96 h-96 rounded-full bg-blue-500/5 filter blur-[120px] animate-pulse-slow-delayed" style={{ zIndex: 1 }}></div>
       
       <div className="container mx-auto px-4 relative z-10">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <div className="bg-gray-800/60 backdrop-blur-xl rounded-xl border-0 premium-gradient-border shadow-[0_0_40px_rgba(255,69,0,0.25)] py-8 px-6 md:px-10 mx-auto max-w-3xl mb-8 inline-block">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 gradient-text-mixed">
-              Frequently Asked Questions
-            </h2>
-            <p className="text-[#a0a0a0] max-w-2xl mx-auto">
-              Find answers to common questions about our protective coating products and services.
-            </p>
-          </div>
-        </div>
-
-        {/* FAQ Categories Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          {faqs.map((category, categoryIdx) => (
-            <div key={categoryIdx} className="bg-gradient-to-r from-gray-800/90 to-gray-700/90 backdrop-blur-md rounded-xl p-6 border-0 premium-gradient-border shadow-[0_0_40px_rgba(255,69,0,0.25)]">
-              {/* Category Title */}
-              <h3 className={`text-xl font-bold mb-6 pb-4 border-b border-gray-600/40 ${
-                categoryIdx % 3 === 0 ? 'gradient-text-fire' : 
-                categoryIdx % 3 === 1 ? 'gradient-text-blue' : 
-                'gradient-text-mixed'
-              }`}>
-                {category.category}
-              </h3>
-              
-              {/* Questions List */}
-              <div className="space-y-4">
-                {category.questions.map((faq, questionIdx) => {
-                  const isOpen = openQuestions[`${categoryIdx}-${questionIdx}`];
-                  
-                  return (
-                    <div key={questionIdx} className="mb-4">
-                      {/* Question Box with Gradient Border */}
-                      <div className="relative">
-                        <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-700 via-amber-600 to-orange-800 rounded-lg blur-sm opacity-40"></div>
-                        <button
-                          onClick={() => toggleQuestion(categoryIdx, questionIdx)}
-                          className="relative w-full bg-gray-800/80 backdrop-blur-sm rounded-lg px-5 py-3 text-left hover:bg-gray-700/90 transition-colors font-medium text-base border border-orange-800/30 flex justify-between items-center"
-                        >
-                          <span>{faq.question}</span>
-                          <svg 
-                            className={`w-5 h-5 transition-transform ${isOpen ? 'transform rotate-180' : ''}`} 
-                            fill="none" 
-                            viewBox="0 0 24 24" 
-                            stroke="currentColor"
-                          >
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                          </svg>
-                        </button>
-                      </div>
-                      
-                      {/* Answer Content */}
-                      {isOpen && (
-                        <div className="px-5 pt-4 pb-2 text-gray-300 mt-2 bg-gray-800/50 backdrop-blur-sm rounded-lg">
-                          {faq.answer}
-                        </div>
-                      )}
-                    </div>
-                  );
-                })}
+        {/* Premium Enterprise Section Header */}
+        <div className="text-center mb-20">
+          {/* Advanced premium enterprise heading container with enhanced effects */}
+          <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/98 to-gray-900/95 backdrop-blur-xl rounded-xl py-10 px-8 md:py-12 md:px-16 mx-auto max-w-4xl mb-8 inline-block shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7)]">
+            {/* Enhanced premium dual-layer gradient border effect */}
+            <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/60 via-purple-500/30 to-blue-500/60 opacity-80"></div>
+            <div className="absolute inset-[1px] p-0.5 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-30 pointer-events-none"></div>
+            
+            {/* Corner accent decorations for premium enterprise feel */}
+            <div className="absolute top-0 right-0 w-32 h-32 opacity-20">
+              <div className="absolute inset-0 bg-gradient-to-bl from-orange-500/40 to-blue-500/40 rounded-tr-xl blur-[2px]"></div>
+            </div>
+            <div className="absolute bottom-0 left-0 w-32 h-32 opacity-20">
+              <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/40 to-orange-500/40 rounded-bl-xl blur-[2px]"></div>
+            </div>
+            
+            {/* Enhanced premium badge with 3D effect */}
+            <div className="absolute -top-5 left-1/2 -translate-x-1/2 flex">
+              <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-gradient-to-r from-gray-900/95 to-gray-950/95 border border-gray-800 shadow-[0_5px_15px_rgba(0,0,0,0.3)] relative group">
+                {/* Premium gradient border effect */}
+                <div className="absolute inset-0 p-0.5 rounded-full bg-gradient-to-r from-orange-500/50 via-purple-500/30 to-blue-500/50 opacity-70"></div>
+                
+                {/* Badge icon with glow effect */}
+                <div className="mr-2 relative">
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-r from-orange-500/60 to-blue-600/60 blur-[6px] opacity-60 group-hover:opacity-80 transition-opacity duration-300"></div>
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-orange-300 relative z-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="16" x2="12" y2="12"></line>
+                    <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                  </svg>
+                </div>
+                
+                {/* Badge text with shimmer effect */}
+                <span className="text-orange-300 text-sm font-medium relative">
+                  <span className="relative z-10">Frequently Asked</span>
+                  <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+                     style={{
+                       backgroundSize: '200% 100%',
+                       animation: 'shimmer 2s infinite'
+                     }}>
+                  </span>
+                </span>
               </div>
             </div>
-          ))}
+            
+            {/* Advanced content with enhanced styling */}
+            <div className="relative z-10 mt-2">
+              {/* Advanced premium heading with multiple decorative elements */}
+              <div className="relative inline-block mb-5">
+                {/* Decorative dots */}
+                <div className="absolute -left-12 top-1/2 -translate-y-1/2 flex items-center space-x-1.5">
+                  <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-orange-500 to-red-500"></div>
+                  <div className="w-1 h-1 rounded-full bg-gradient-to-r from-purple-500 to-pink-500"></div>
+                </div>
+                <div className="absolute -right-12 top-1/2 -translate-y-1/2 flex items-center space-x-1.5">
+                  <div className="w-1 h-1 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500"></div>
+                  <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-blue-500 to-indigo-500"></div>
+                </div>
+                
+                {/* Advanced premium gradient heading */}
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-purple-400 to-blue-400 relative">
+                  Frequently Asked Questions
+                </h2>
+                
+                {/* Animated decorative line below heading */}
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-32 h-0.5 bg-gradient-to-r from-orange-500 via-purple-500 to-blue-500 rounded-full mt-2"></div>
+              </div>
+              
+              {/* Enhanced description with premium styling */}
+              <p className="text-gray-300 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+                Find answers to common questions about our protective coating products and services.
+              </p>
+              
+              {/* Premium decorative accent line */}
+              <div className="w-24 h-1 mx-auto mt-6 relative">
+                <div className="absolute inset-0 bg-gradient-to-r from-orange-500/50 via-purple-500/50 to-blue-500/50 rounded-full"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-orange-500/50 via-purple-500/50 to-blue-500/50 rounded-full blur-[2px]"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        {/* Add keyframes for animations */}
+        <style dangerouslySetInnerHTML={{ __html: `
+          @keyframes pulse-slow {
+            0%, 100% { opacity: 0.3; transform: scale(0.9); }
+            50% { opacity: 0.6; transform: scale(1.1); }
+          }
+          
+          @keyframes pulse-slow-delayed {
+            0%, 100% { opacity: 0.3; transform: scale(0.9); }
+            50% { opacity: 0.6; transform: scale(1.1); }
+            animation-delay: 1s;
+          }
+          
+          @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+          }
+        `}} />
+
+        {/* Enhanced FAQ Categories Grid with premium styling */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+          {faqs.map((category, categoryIdx) => {
+            // Theme configuration based on category index
+            const themeConfig = {
+              0: { // Fire theme
+                borderGradient: "from-orange-500/60 via-red-600/30 to-red-500/60",
+                textGradient: "from-orange-400 via-amber-300 to-orange-400",
+                iconGradient: "from-amber-400 via-orange-500 to-red-600",
+                iconShadow: "0 0 30px rgba(251,113,36,0.7), 0 0 15px rgba(220,38,38,0.5)",
+                ambientGlow: "radial-gradient(circle at center, rgba(251,113,36,0.2) 0%, rgba(220,38,38,0.1) 40%, transparent 70%)",
+                cornerAccent: "from-orange-500/40 to-red-600/40",
+                questionBorder: "from-orange-500/60 via-amber-600/30 to-red-500/60",
+                answerGradient: "from-gray-900/90 to-gray-800/90",
+                answerBorder: "from-orange-600/40 to-red-600/40",
+                hoverAccent: "from-orange-500/30 to-red-500/30"
+              },
+              1: { // Blue theme
+                borderGradient: "from-blue-500/60 via-cyan-500/30 to-blue-600/60",
+                textGradient: "from-blue-400 via-cyan-300 to-blue-400",
+                iconGradient: "from-cyan-400 via-blue-500 to-blue-700",
+                iconShadow: "0 0 30px rgba(59,130,246,0.7), 0 0 15px rgba(14,165,233,0.5)",
+                ambientGlow: "radial-gradient(circle at center, rgba(59,130,246,0.2) 0%, rgba(14,165,233,0.1) 40%, transparent 70%)",
+                cornerAccent: "from-blue-500/40 to-cyan-600/40",
+                questionBorder: "from-blue-500/60 via-cyan-600/30 to-blue-500/60",
+                answerGradient: "from-gray-900/90 to-gray-800/90",
+                answerBorder: "from-blue-600/40 to-cyan-600/40",
+                hoverAccent: "from-blue-500/30 to-cyan-500/30"
+              },
+              2: { // Mixed theme
+                borderGradient: "from-orange-500/60 via-purple-500/30 to-blue-500/60",
+                textGradient: "from-orange-400 via-purple-300 to-blue-400",
+                iconGradient: "from-amber-500 via-purple-500 to-blue-600",
+                iconShadow: "0 0 30px rgba(251,113,36,0.5), 0 0 30px rgba(59,130,246,0.5)",
+                ambientGlow: "radial-gradient(circle at center, rgba(251,113,36,0.15) 0%, rgba(139,92,246,0.1) 30%, rgba(59,130,246,0.15) 60%, transparent 75%)",
+                cornerAccent: "from-orange-500/40 to-blue-500/40",
+                questionBorder: "from-orange-500/50 via-purple-500/30 to-blue-500/50",
+                answerGradient: "from-gray-900/90 to-gray-800/90",
+                answerBorder: "from-orange-600/30 via-purple-600/30 to-blue-600/30",
+                hoverAccent: "from-orange-500/20 via-purple-500/20 to-blue-500/20"
+              }
+            };
+            
+            // Get theme based on index
+            const theme = themeConfig[categoryIdx % 3];
+            
+            return (
+              <div key={categoryIdx} className="group relative transform hover:scale-[1.01] transition-all duration-700">
+                {/* Premium Card Container with enhanced styling */}
+                <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/98 to-gray-900/95 backdrop-blur-xl rounded-xl p-8 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7)] z-10">
+                  {/* Premium dual-layer gradient border effect */}
+                  <div className={`absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r ${theme.borderGradient} opacity-80`}></div>
+                  <div className={`absolute inset-[1px] p-0.5 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-30 pointer-events-none`}></div>
+                  
+                  {/* Corner accent decorations */}
+                  <div className="absolute top-0 right-0 w-24 h-24 opacity-20">
+                    <div className={`absolute inset-0 bg-gradient-to-bl ${theme.cornerAccent} rounded-tr-xl blur-[2px]`}></div>
+                  </div>
+                  <div className="absolute bottom-0 left-0 w-24 h-24 opacity-20">
+                    <div className={`absolute inset-0 bg-gradient-to-tr ${theme.cornerAccent} rounded-bl-xl blur-[2px]`}></div>
+                  </div>
+                  
+                  {/* Ambient glow effect */}
+                  <div className="absolute inset-0 rounded-xl opacity-30 group-hover:opacity-40 transition-opacity duration-1000" 
+                       style={{ background: theme.ambientGlow }}>
+                  </div>
+                  
+                  {/* Category Title with enhanced styling */}
+                  <div className="mb-8 pb-4 relative">
+                    <div className="relative inline-flex items-center mb-2">
+                      {/* Premium category icon */}
+                      <div className="relative flex-shrink-0 mr-3">
+                        <div className="w-10 h-10 rounded-full flex items-center justify-center">
+                          <div className="absolute inset-0 rounded-full bg-gradient-to-r from-gray-800 to-gray-700"></div>
+                          <div className={`absolute inset-0 rounded-full bg-gradient-to-r ${theme.iconGradient} opacity-50`}></div>
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white relative z-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            {categoryIdx % 3 === 0 ? (
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            ) : categoryIdx % 3 === 1 ? (
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            ) : (
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                            )}
+                          </svg>
+                        </div>
+                      </div>
+                      
+                      {/* Enhanced category heading */}
+                      <h3 className={`text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r ${theme.textGradient}`}>
+                        {category.category}
+                      </h3>
+                    </div>
+                    
+                    {/* Decorative line with gradient */}
+                    <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-gray-600/40 to-transparent"></div>
+                  </div>
+                  
+                  {/* Enhanced Questions List with premium styling */}
+                  <div className="space-y-4">
+                    {category.questions.map((faq, questionIdx) => {
+                      const isOpen = openQuestions[`${categoryIdx}-${questionIdx}`];
+                      
+                      return (
+                        <div key={questionIdx} className="mb-5 relative transform transition-all duration-500">
+                          {/* Enhanced Question Box with Premium Styling */}
+                          <div className={`relative group/question transform ${isOpen ? 'scale-[1.01]' : ''} transition-all duration-500`}>
+                            {/* Premium gradient border effect */}
+                            <div className={`absolute -inset-0.5 rounded-lg bg-gradient-to-r ${theme.questionBorder} ${isOpen ? 'opacity-70 blur-[1px]' : 'opacity-50 blur-[0.5px]'} transition-all duration-500`}></div>
+                            
+                            <button
+                              onClick={() => toggleQuestion(categoryIdx, questionIdx)}
+                              className={`relative w-full bg-gradient-to-r from-gray-900/95 to-gray-800/95 backdrop-blur-sm rounded-lg px-6 py-4 text-left hover:from-gray-800/95 hover:to-gray-700/95 transition-colors text-base border border-gray-700/30 flex justify-between items-center overflow-hidden`}
+                            >
+                              {/* Hover accent effect */}
+                              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-transparent group-hover/question:bg-gradient-to-r group-hover/question:opacity-20 transition-opacity duration-500"></div>
+                              
+                              {/* Enhanced question text */}
+                              <span className={`pr-8 font-medium ${isOpen ? 'text-transparent bg-clip-text bg-gradient-to-r ' + theme.textGradient : 'text-gray-200'} transition-colors duration-500`}>
+                                {faq.question}
+                              </span>
+                              
+                              {/* Enhanced toggle icon with animation */}
+                              <div className={`absolute right-6 transition-all duration-500 ${isOpen ? 'text-white' : 'text-gray-400'}`}>
+                                <div className="relative w-6 h-6">
+                                  {/* Animated background on active state */}
+                                  {isOpen && (
+                                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-gray-700 to-gray-600 animate-pulse"></div>
+                                  )}
+                                  <svg 
+                                    className={`w-6 h-6 transition-transform duration-500 relative z-10 ${isOpen ? 'transform rotate-180' : ''}`} 
+                                    fill="none" 
+                                    viewBox="0 0 24 24" 
+                                    stroke="currentColor"
+                                  >
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                  </svg>
+                                </div>
+                              </div>
+                            </button>
+                          </div>
+                          
+                          {/* Enhanced Answer with premium styling and animation */}
+                          {isOpen && (
+                            <div className="mt-3 overflow-hidden transform transition-all duration-700 opacity-100 max-h-[1000px]">
+                              <div className="relative">
+                                {/* Premium gradient border effect */}
+                                <div className={`absolute -inset-0.5 rounded-lg bg-gradient-to-r ${theme.answerBorder} opacity-30 blur-[0.5px]`}></div>
+                                
+                                <div className={`relative bg-gradient-to-r ${theme.answerGradient} backdrop-blur-sm rounded-lg p-6 text-gray-300 text-base leading-relaxed border border-gray-700/20`}>
+                                  <div className="absolute top-0 left-0 w-8 h-8 opacity-10">
+                                    <div className="absolute inset-0 border-t border-l border-gray-500/30 rounded-tl-lg"></div>
+                                  </div>
+                                  <div className="absolute bottom-0 right-0 w-8 h-8 opacity-10">
+                                    <div className="absolute inset-0 border-b border-r border-gray-500/30 rounded-br-lg"></div>
+                                  </div>
+                                  
+                                  {faq.answer}
+                                </div>
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+                
+                {/* Bottom reflection effect */}
+                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2/3 h-[2px] bg-gradient-to-r from-transparent via-white/10 to-transparent rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
+              </div>
+            );
+          })}
         </div>
 
-        {/* Contact CTA */}
-        <div className="text-center mt-12">
-          <p className="mb-5 text-gray-300">Still have questions? We're here to help.</p>
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500 to-orange-600 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 shadow-lg shadow-orange-900/30 hover:shadow-xl hover:shadow-orange-900/40 hover:translate-y-[-2px]"
-          >
-            Contact Support
-          </a>
+        {/* Enhanced Contact CTA with premium styling */}
+        <div className="text-center mt-20">
+          <div className="relative inline-block p-8 bg-gradient-to-br from-gray-900/95 via-gray-950/98 to-gray-900/95 backdrop-blur-xl rounded-xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7)]">
+            {/* Premium gradient border effect */}
+            <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/60 via-purple-500/30 to-blue-500/60 opacity-80"></div>
+            <div className="absolute inset-[1px] p-0.5 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-30 pointer-events-none"></div>
+            
+            {/* Enhanced message */}
+            <p className="text-xl text-gray-200 mb-6 max-w-xl mx-auto">
+              <span className="inline-block relative mr-2">
+                <span className="relative z-10">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 inline-block mr-2 text-orange-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                  </svg>
+                </span>
+                <span className="absolute inset-0 rounded-full bg-orange-500/20 filter blur-[10px] opacity-50"></span>
+              </span>
+              Still have questions? Our protective coating experts are here to help.
+            </p>
+            
+            {/* Enhanced premium button */}
+            <a
+              href="#contact"
+              className="group relative inline-flex items-center px-8 py-4 rounded-lg bg-gradient-to-r from-orange-600 to-red-600 text-white text-lg font-medium transition-all duration-500 hover:scale-105 overflow-hidden"
+            >
+              {/* Button glow effect */}
+              <div className="absolute inset-0 rounded-lg opacity-20 group-hover:opacity-40 transition-opacity duration-500"
+                   style={{ boxShadow: '0 0 40px rgba(251, 113, 36, 0.8)' }}>
+              </div>
+              
+              {/* Button shimmer effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+                   style={{
+                     backgroundSize: '200% 100%',
+                     animation: 'shimmer 2s infinite',
+                     animationPlayState: 'paused'
+                   }}
+                   onMouseEnter={(e) => e.currentTarget.style.animationPlayState = 'running'}
+                   onMouseLeave={(e) => e.currentTarget.style.animationPlayState = 'paused'}>
+              </div>
+              
+              {/* Button text with icon */}
+              <span className="relative z-10 flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-4l-4 4z" />
+                </svg>
+                Contact Our Experts
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </span>
+            </a>
+          </div>
         </div>
       </div>
     </section>
