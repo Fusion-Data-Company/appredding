@@ -11,7 +11,7 @@ const cardVariants = cva(
         water: "bg-gradient-to-br from-black via-gray-900 to-water-950 border border-water-900/40 shadow-md text-white",
         metal: "bg-gradient-to-br from-gray-900 via-gray-800 to-gray-950 border border-gray-700/40 shadow-md text-white bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-gray-700/40 via-gray-900 to-black",
         glass: "bg-black/40 backdrop-blur-md border border-white/10 shadow-xl text-white",
-        premium: "bg-gradient-to-br from-gray-900 via-gray-800 to-gray-950 border border-orange-500/30 shadow-lg text-white",
+        premium: "bg-gray-800/60 backdrop-blur-xl border-0 shadow-lg text-white premium-gradient-border",
         outline: "bg-black/60 border border-gray-700/50 text-white",
       },
       roundness: {
@@ -111,10 +111,7 @@ export const PraetorianCard = ({
         {children}
       </div>
       
-      {/* Premium border effect for 'premium' variant */}
-      {variant === 'premium' && (
-        <div className="absolute -inset-[1px] rounded-md bg-gradient-to-r from-orange-500/50 via-transparent to-cyan-500/50 opacity-20 blur-sm -z-10"></div>
-      )}
+      {/* We're now using the premium-gradient-border class which handles the border effect */}
     </div>
   );
 };

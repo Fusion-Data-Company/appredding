@@ -30,7 +30,7 @@ const IntroSection = () => {
               Revolutionary triple-component system with perfect Class A fire protection and superior thermal insulation using vacuum-filled ceramic microsphere technology.
             </p>
           </div>
-          <p className="text-[#e0e0e0] text-xl md:text-2xl mt-10 mb-16 max-w-4xl mx-auto font-medium drop-shadow-lg bg-gradient-to-b from-black/60 to-gray-900/60 backdrop-blur-sm p-6 rounded-xl border-0 shadow-[0_10px_50px_rgba(251,191,36,0.15)] dark:shadow-[0_10px_50px_rgba(0,0,0,0.3)] relative before:absolute before:inset-0 before:p-[2px] before:rounded-xl before:bg-gradient-to-br before:from-amber-300 before:via-amber-200 before:to-amber-400 dark:before:from-amber-700 dark:before:via-amber-600 dark:before:to-amber-800 before:-z-10">
+          <p className="text-[#e0e0e0] text-xl md:text-2xl mt-10 mb-16 max-w-4xl mx-auto font-medium drop-shadow-lg bg-gray-800/60 backdrop-blur-sm p-6 rounded-xl border-0 premium-gradient-border shadow-[0_10px_50px_rgba(251,191,36,0.15)] dark:shadow-[0_10px_50px_rgba(0,0,0,0.3)]">
             Perfect 0/100 scores in ASTM E84 fire testing with documented 87% energy savings. Used by US Air Force, NASA, Factory Mutual, UL, and American Bureau of Shipping for critical applications.
           </p>
           

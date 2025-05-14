@@ -56,7 +56,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
       transition={{ duration: 0.4, ease: "easeOut" }}
       className="h-full"
     >
-      <Card className="h-full flex flex-col overflow-hidden relative bg-gradient-to-b from-white/95 to-amber-50/95 dark:from-gray-800/95 dark:to-gray-900/95 rounded-xl shadow-[0_10px_50px_rgba(251,191,36,0.2)] dark:shadow-[0_10px_50px_rgba(0,0,0,0.4)] border-0 before:absolute before:inset-0 before:p-[2px] before:rounded-xl before:bg-gradient-to-br before:from-amber-300 before:via-amber-200 before:to-amber-400 dark:before:from-amber-700 dark:before:via-amber-600 dark:before:to-amber-800 before:-z-10">
+      <Card className="h-full flex flex-col overflow-hidden relative bg-gray-800/60 backdrop-blur-xl rounded-xl shadow-[0_10px_50px_rgba(251,191,36,0.2)] dark:shadow-[0_10px_50px_rgba(0,0,0,0.4)] border-0 premium-gradient-border">
         {/* Metallic effect header */}
         <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-amber-400 via-amber-600 to-amber-400"></div>
         
