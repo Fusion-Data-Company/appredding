@@ -66,9 +66,8 @@ const PremiumButton = forwardRef<HTMLButtonElement, PremiumButtonProps>(
         {/* Fire variant's outer gradient effects */}
         {isFire && (
           <>
-            <div className="absolute inset-0 bg-gradient-to-r from-orange-600/40 via-red-600/40 to-amber-600/40 rounded-xl blur-sm opacity-70 group-hover:opacity-100 group-hover:blur-md transition-all duration-1000 animate-pulse-slow"></div>
-            <div className="absolute inset-px bg-gradient-to-r from-orange-500/70 via-amber-500/70 to-red-500/70 rounded-xl blur-sm opacity-90 group-hover:opacity-100 transition-all duration-500"></div>
-            <div className="absolute -bottom-2 -left-0 -right-0 top-auto h-4 mx-auto bg-gradient-to-r from-orange-600/20 via-red-600/20 to-amber-600/20 rounded-b-xl blur-md opacity-0 group-hover:opacity-70 transition-all duration-1000"></div>
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/40 to-red-500/40 rounded-xl blur-[1px] opacity-70 group-hover:opacity-80 transition-all duration-300"></div>
+            <div className="absolute inset-[0.5px] bg-gradient-to-r from-orange-500/5 via-amber-500/5 to-red-500/5 rounded-[9px] opacity-80 group-hover:opacity-100 transition-all duration-300 backdrop-blur-[0.5px]"></div>
           </>
         )}
 
@@ -87,7 +86,7 @@ const PremiumButton = forwardRef<HTMLButtonElement, PremiumButtonProps>(
           
           {/* Inner border for fire variant */}
           {isFire && (
-            <div className="absolute inset-px rounded-[10px] border border-orange-400/30 pointer-events-none"></div>
+            <div className="absolute inset-0 rounded-[10px] border border-orange-500/50 pointer-events-none"></div>
           )}
 
           {/* Button Content */}
