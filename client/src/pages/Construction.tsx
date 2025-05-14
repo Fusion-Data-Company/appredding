@@ -273,7 +273,7 @@ const ConstructionPage = () => {
                           <div className="flex justify-between items-center mb-1">
                             <span className="text-sm text-blue-200">Fire Rating</span>
                             <span className="text-white font-bold flex items-center">
-                              <span className="bg-blue-500/20 p-0.5 rounded-full text-blue-300 mr-1">✓</span>
+                              <span className="bg-blue-500/20 p-0.5 rounded-full text-blue-300 mr-1 relative z-20">✓</span>
                               3-hour ASTM E119
                             </span>
                           </div>
