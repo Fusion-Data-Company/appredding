@@ -49,7 +49,7 @@ const ApplicationCard = ({ imageSrc, title, description, link }: ApplicationCard
   return (
     <div 
       ref={cardRef}
-      className="group relative rounded-lg overflow-hidden h-[400px] w-full block cursor-pointer shadow-[0_0_30px_rgba(255,255,255,0.25)] border-0 dual-gradient-border transform transition-transform"
+      className="group relative rounded-lg overflow-hidden h-[400px] w-full block cursor-pointer shadow-[0_0_30px_rgba(255,255,255,0.25)] border-0 dual-gradient-border transform transition-all duration-300 hover:scale-105 hover:z-10 hover:shadow-2xl"
     >
       <img 
         src={imageSrc} 

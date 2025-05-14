@@ -64,7 +64,7 @@ const TechnicalSpecCard: React.FC<TechnicalSpecCardProps> = ({
   
   return (
     <div className={cn(
-      "rounded-xl overflow-hidden backdrop-blur-sm border bg-primary-950/50 shadow-lg flex flex-col",
+      "rounded-xl overflow-hidden backdrop-blur-sm border bg-primary-950/50 shadow-lg flex flex-col transform transition-all duration-300 hover:scale-105 hover:z-10 hover:shadow-2xl",
       colors.border,
       className
     )}>

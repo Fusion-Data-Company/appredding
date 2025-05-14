@@ -151,7 +151,7 @@ const ProductComparison = () => {
             {comparisons.map((item, index) => (
               <Card 
                 key={index} 
-                className={`bg-black/70 backdrop-blur-sm shadow-xl border-0 premium-gradient-border`}
+                className={`bg-black/70 backdrop-blur-sm shadow-xl border-0 premium-gradient-border transform transition-all duration-300 hover:scale-105 hover:z-10 hover:shadow-2xl`}
               >
                 <CardContent className="p-4">
                   <div className="grid grid-cols-12 gap-4 items-center">
