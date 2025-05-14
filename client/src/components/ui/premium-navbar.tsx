@@ -19,7 +19,7 @@ export function PremiumNavbar() {
     <div className="flex-grow flex justify-end" style={{ zIndex: 2147483646, position: 'relative' }}>
       <Menu setActive={setActive}>
         <MenuItem setActive={setActive} active={active} item="Solutions">
-          <div className="grid grid-cols-2 gap-6 p-4">
+          <div className="grid grid-cols-4 gap-6 p-6 w-full">
             <ProductItem
               title="Marinas"
               href="/marinas"
@@ -47,7 +47,7 @@ export function PremiumNavbar() {
           </div>
         </MenuItem>
         <MenuItem setActive={setActive} active={active} item="Professionals">
-          <div className="grid grid-cols-2 gap-6 p-4">
+          <div className="grid grid-cols-4 gap-6 p-6 w-full">
             <ProductItem
               title="Painter Network"
               href="/painter-network"

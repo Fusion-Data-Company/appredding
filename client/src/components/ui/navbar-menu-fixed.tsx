@@ -133,19 +133,19 @@ export const ProductItem = ({
   src: string;
 }) => {
   return (
-    <Link href={href} className="flex space-x-3 group">
+    <Link href={href} className="flex flex-col group">
       <img
         src={src}
-        width={160}
-        height={90}
+        width={130}
+        height={70}
         alt={title}
-        className="flex-shrink-0 rounded-md shadow-lg object-cover border border-gray-700 group-hover:border-gray-400 transition-colors duration-300"
+        className="flex-shrink-0 rounded-md shadow-lg object-cover border border-gray-700 group-hover:border-gray-400 transition-colors duration-300 mb-2"
       />
       <div>
-        <h4 className="text-lg font-bold mb-1 text-white group-hover:text-blue-300 transition-colors duration-300">
+        <h4 className="text-base font-bold mb-1 text-white group-hover:text-blue-300 transition-colors duration-300">
           {title}
         </h4>
-        <p className="text-gray-300 text-sm max-w-[12rem] group-hover:text-gray-200 transition-colors duration-300">
+        <p className="text-gray-300 text-xs group-hover:text-gray-200 transition-colors duration-300">
           {description}
         </p>
       </div>
