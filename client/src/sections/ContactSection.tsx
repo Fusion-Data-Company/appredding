@@ -265,9 +265,18 @@ const ContactSection = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/10 dark:from-white/5 dark:via-transparent dark:to-white/5"></div>
               
               <div className="p-8 relative z-20">
-                <div className="relative mb-8">
-                  <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-500 rounded-lg blur-md opacity-25 dark:opacity-40"></div>
-                  <GradientHeading level={3} className="text-3xl md:text-4xl font-bold mb-6 relative z-10" variant="blue">Contact Information</GradientHeading>
+                <div className="relative mb-8 flex justify-center w-full">
+                  <div className="absolute -inset-4 bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-500 rounded-lg blur-lg opacity-30 dark:opacity-50"></div>
+                  <h2 
+                    className="relative z-10 text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-400 font-extrabold tracking-tight py-2" 
+                    style={{ 
+                      fontSize: '3rem',
+                      textShadow: '0 1px 10px rgba(0,150,255,0.3)',
+                      marginBottom: '1.5rem'
+                    }}
+                  >
+                    Contact Information
+                  </h2>
                 </div>
                 
                 <div className="space-y-6">
