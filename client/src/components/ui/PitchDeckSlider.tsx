@@ -240,7 +240,7 @@ const PitchDeckSlider = () => {
                               </SelectItem>
                               <SelectItem value="municipality" className="focus:bg-gray-800 focus:text-amber-400">
                                 <div className="flex items-center">
-                                  <Landmark className="w-4 h-4 mr-2 text-purple-500" />
+                                  <Landmark className="w-4 h-4 mr-2 text-amber-500" />
                                   Municipality
                                 </div>
                               </SelectItem>
@@ -528,7 +528,7 @@ const slides: Slide[] = [
           
           <div className="bg-gradient-to-br from-gray-900 to-black p-5 rounded-lg border border-gray-800 shadow-lg">
             <div className="flex items-center mb-3">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-r from-purple-600 to-blue-500 flex items-center justify-center mr-3">
+              <div className="w-10 h-10 rounded-full bg-gradient-to-r from-amber-600 to-blue-500 flex items-center justify-center mr-3">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 text-white">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75z" />
                 </svg>
@@ -732,9 +732,9 @@ const slides: Slide[] = [
             <p className="text-gray-300 text-sm text-center">Energy efficiency and weather protection for manufactured housing</p>
           </div>
           
-          <div className="bg-gradient-to-br from-purple-950/40 to-violet-950/40 p-4 rounded-lg border border-purple-700/30 flex flex-col items-center">
-            <Landmark className="w-8 h-8 text-purple-500 mb-2" />
-            <h4 className="text-purple-400 font-bold mb-1">Municipality</h4>
+          <div className="bg-gradient-to-br from-amber-950/40 to-orange-900/40 p-4 rounded-lg border border-amber-700/30 flex flex-col items-center">
+            <Landmark className="w-8 h-8 text-amber-500 mb-2" />
+            <h4 className="text-amber-400 font-bold mb-1">Municipality</h4>
             <p className="text-gray-300 text-sm text-center">Infrastructure protection and energy savings for public facilities</p>
           </div>
         </div>

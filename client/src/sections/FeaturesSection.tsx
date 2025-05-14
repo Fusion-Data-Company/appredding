@@ -42,19 +42,19 @@ const FeatureCard = ({ icon, title, description, index }: { icon: string; title:
     },
     mixed: {
       // Premium border gradient with multiple color stops for mixed theme
-      borderGradient: "from-orange-500/60 via-purple-500/30 to-blue-500/60",
+      borderGradient: "from-orange-500/60 via-amber-500/40 to-blue-500/60",
       // Enhanced icon gradient with more color transitions
-      iconGradient: "from-amber-500 via-purple-500 to-blue-600",
+      iconGradient: "from-amber-500 via-orange-400 to-blue-600",
       // Glow and shadow effects
       iconShadow: "0 0 30px rgba(251,113,36,0.5), 0 0 30px rgba(59,130,246,0.5)",
       // Ambient glow background
-      ambientGlow: "radial-gradient(circle at center, rgba(251,113,36,0.3) 0%, rgba(139,92,246,0.2) 30%, rgba(59,130,246,0.3) 60%, transparent 75%)",
+      ambientGlow: "radial-gradient(circle at center, rgba(251,113,36,0.3) 0%, rgba(245,158,11,0.2) 30%, rgba(59,130,246,0.3) 60%, transparent 75%)",
       // Corner accent color
       cornerAccent: "from-orange-500/40 to-blue-500/40",
       // Icon pulse color
-      pulseColor: "rgba(139,92,246,0.8)",
+      pulseColor: "rgba(245,158,11,0.8)",
       // Text shimmer gradient
-      textShimmer: "from-amber-300 via-purple-400 to-blue-300"
+      textShimmer: "from-amber-300 via-orange-400 to-blue-300"
     }
   };
   
