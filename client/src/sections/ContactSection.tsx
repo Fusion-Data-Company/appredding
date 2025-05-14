@@ -267,7 +267,7 @@ const ContactSection = () => {
               <div className="p-8 relative z-20">
                 <div className="relative mb-8">
                   <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-500 rounded-lg blur-md opacity-25 dark:opacity-40"></div>
-                  <GradientHeading level={3} className="text-2xl font-bold mb-6 relative z-10" variant="blue">Contact Information</GradientHeading>
+                  <GradientHeading level={3} className="text-3xl md:text-4xl font-bold mb-6 relative z-10" variant="blue">Contact Information</GradientHeading>
                 </div>
                 
                 <div className="space-y-6">
