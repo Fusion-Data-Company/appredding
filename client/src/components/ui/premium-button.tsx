@@ -5,20 +5,20 @@ import { VariantProps, cva } from 'class-variance-authority';
 import { motion } from 'framer-motion';
 
 const premiumButtonVariants = cva(
-  "relative inline-flex items-center justify-center font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 disabled:opacity-50 disabled:pointer-events-none overflow-hidden group",
+  "relative inline-flex items-center justify-center font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 disabled:opacity-50 disabled:pointer-events-none overflow-hidden group",
   {
     variants: {
       variant: {
         default: 
-          "bg-black text-white border-2 border-orange-500 shadow-lg hover:shadow-xl hover:shadow-orange-500/40",
+          "bg-black text-white border-2 border-orange-500 shadow-lg hover:shadow-[0_0_15px_rgba(255,106,0,0.5)]",
         gold: 
-          "bg-black text-white border-2 border-orange-400 shadow-lg hover:shadow-xl hover:shadow-orange-500/40",
+          "bg-black text-white border-2 border-orange-500 shadow-lg hover:shadow-[0_0_15px_rgba(255,106,0,0.5)]",
         fire: 
-          "bg-black text-white border-2 border-orange-500 shadow-lg hover:shadow-xl hover:shadow-orange-600/50 transform transition-all duration-500 hover:scale-[1.02]",
+          "bg-black text-white border-2 border-orange-500 shadow-lg hover:shadow-[0_0_20px_rgba(255,106,0,0.6)] transform transition-all duration-500 hover:scale-[1.02]",
         outline: 
-          "bg-black text-white border-2 border-orange-400 shadow-lg hover:shadow-xl hover:shadow-orange-500/40",
+          "bg-black text-white border-2 border-orange-500/80 shadow-lg hover:shadow-[0_0_15px_rgba(255,106,0,0.5)]",
         ghost: 
-          "bg-black text-white border-2 border-orange-500/80 shadow-lg hover:shadow-xl hover:shadow-orange-500/40"
+          "bg-black text-white border-2 border-orange-500/80 shadow-lg hover:shadow-[0_0_15px_rgba(255,106,0,0.4)]"
       },
       size: {
         sm: "h-9 px-3 py-2 text-xs rounded-lg",
@@ -45,11 +45,12 @@ const ShineEffect = () => (
       transition={{ 
         repeat: Infinity, 
         repeatType: 'loop', 
-        duration: 1.5,
-        repeatDelay: 1.7
+        duration: 2.7,
+        ease: [0.4, 0, 0.2, 1],
+        repeatDelay: 1.9
       }}
       style={{
-        clipPath: 'polygon(0 0, 50% 0, 40% 100%, 0 100%)',
+        clipPath: 'polygon(0 0, 40% 0, 30% 100%, 0 100%)',
       }}
     />
     
@@ -61,15 +62,33 @@ const ShineEffect = () => (
       transition={{ 
         repeat: Infinity, 
         repeatType: 'loop', 
-        duration: 2.3,
-        repeatDelay: 1.3
+        duration: 3.5,
+        ease: [0.4, 0, 0.2, 1],
+        repeatDelay: 0.7
       }}
       style={{
-        clipPath: 'polygon(70% 0, 90% 0, 90% 100%, 60% 100%)',
+        clipPath: 'polygon(70% 0, 85% 0, 85% 100%, 60% 100%)',
       }}
     />
     
-    {/* Tertiary subtle edge glow */}
+    {/* Tertiary horizontal sweep */}
+    <motion.div
+      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-10"
+      initial={{ x: '-100%', opacity: 0 }}
+      animate={{ x: '100%', opacity: [0, 0.3, 0] }}
+      transition={{ 
+        repeat: Infinity, 
+        repeatType: 'loop', 
+        duration: 3.9,
+        ease: [0.4, 0, 0.2, 1],
+        repeatDelay: 1.2
+      }}
+      style={{
+        clipPath: 'polygon(0 40%, 100% 35%, 100% 65%, 0 60%)',
+      }}
+    />
+    
+    {/* Border glow pulse effect */}
     <motion.div
       className="absolute inset-0 border-[1px] border-orange-500/60 rounded-lg opacity-0 group-hover:opacity-100"
       animate={{ 
@@ -79,9 +98,14 @@ const ShineEffect = () => (
         repeat: Infinity, 
         repeatType: 'loop', 
         duration: 2,
+        ease: "easeInOut",
         repeatDelay: 0.5
       }}
     />
+    
+    {/* Corner accent points */}
+    <div className="absolute top-0 left-0 w-2 h-2 bg-orange-500/70 rounded-full blur-[1px] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+    <div className="absolute bottom-0 right-0 w-2 h-2 bg-orange-500/70 rounded-full blur-[1px] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
   </>
 );
 
@@ -153,18 +177,29 @@ const PremiumButton = forwardRef<HTMLButtonElement, PremiumButtonProps>(
               {/* Ambient inner glow */}
               <div className="absolute inset-0 bg-gradient-to-br from-orange-600/30 to-red-600/20 opacity-40 group-hover:opacity-70 transition-opacity duration-700"></div>
               
-              {/* Base shimmer effect - always active */}
-              <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-30 -translate-x-full animate-shimmer-slow transform"></div>
+              {/* Base shimmer effect - always active but subtle */}
+              <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-20 -translate-x-full animate-shimmer-slow transform"></div>
               
               {/* Additional hover shimmer effect */}
               <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 -translate-x-full group-hover:translate-x-full transform transition-transform duration-1000"></div>
               
               {/* Enhanced orange-red glow effect */}
-              <div className="absolute inset-0 rounded-[10px] opacity-0 group-hover:opacity-100 transition-opacity duration-500" 
+              <div className="absolute -inset-[1px] rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500" 
                   style={{ 
                     background: 'linear-gradient(to right, rgba(255,111,0,0.1), rgba(255,111,0,0) 10%, rgba(255,111,0,0) 90%, rgba(255,111,0,0.1))',
                     boxShadow: 'inset 0 1px 0 0 rgba(255,147,47,0.5), inset 0 -1px 0 0 rgba(255,147,47,0.5), 0 0 15px 2px rgba(255,79,0,0.5)'
                   }}>
+              </div>
+              
+              {/* Corner accent points - premium touch */}
+              <div className="absolute top-0 left-0 w-2 h-2 bg-orange-500/70 rounded-full blur-[1px] opacity-60 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute bottom-0 right-0 w-2 h-2 bg-orange-500/70 rounded-full blur-[1px] opacity-60 group-hover:opacity-100 transition-opacity duration-300"></div>
+              
+              {/* Ambient glow that fades in on hover */}
+              <div className="absolute -inset-[3px] rounded-lg bg-orange-500/10 blur-md opacity-0 group-hover:opacity-70 transition-opacity duration-700" 
+                   style={{ 
+                     boxShadow: '0 0 15px 2px rgba(251, 113, 36, 0.5), 0 0 8px 0 rgba(251, 113, 36, 0.8)' 
+                   }}>
               </div>
             </>
           )}

@@ -304,10 +304,14 @@ const FAQSection = ({ faqs }: FAQProps) => {
                             
                             <button
                               onClick={() => toggleQuestion(categoryIdx, questionIdx)}
-                              className={`relative w-full bg-gradient-to-r from-gray-900/95 to-gray-800/95 backdrop-blur-sm rounded-lg px-6 py-4 text-left hover:from-gray-800/95 hover:to-gray-700/95 transition-colors text-base border border-gray-700/30 flex justify-between items-center overflow-hidden`}
+                              className={`relative w-full group bg-black backdrop-blur-sm rounded-lg px-6 py-4 text-left transition-all text-base border-2 border-orange-500/70 hover:shadow-[0_0_15px_rgba(255,106,0,0.4)] flex justify-between items-center overflow-hidden`}
                             >
-                              {/* Hover accent effect */}
-                              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-transparent group-hover/question:bg-gradient-to-r group-hover/question:opacity-20 transition-opacity duration-500"></div>
+                              {/* Hover accent effect with orange glow */}
+                              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-orange-500/10 to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-500"></div>
+                              
+                              {/* Corner accent points */}
+                              <div className="absolute top-0 left-0 w-2 h-2 bg-orange-500/70 rounded-full blur-[1px] opacity-40 group-hover:opacity-100 transition-opacity duration-300"></div>
+                              <div className="absolute bottom-0 right-0 w-2 h-2 bg-orange-500/70 rounded-full blur-[1px] opacity-40 group-hover:opacity-100 transition-opacity duration-300"></div>
                               
                               {/* Enhanced question text */}
                               <span className={`pr-8 font-medium ${isOpen ? 'text-transparent bg-clip-text bg-gradient-to-r ' + theme.textGradient : 'text-gray-200'} transition-colors duration-500`}>
@@ -341,12 +345,19 @@ const FAQSection = ({ faqs }: FAQProps) => {
                                 {/* Premium gradient border effect */}
                                 <div className={`absolute -inset-0.5 rounded-lg bg-gradient-to-r ${theme.answerBorder} opacity-30 blur-[0.5px]`}></div>
                                 
-                                <div className={`relative bg-gradient-to-r ${theme.answerGradient} backdrop-blur-sm rounded-lg p-6 text-gray-300 text-base leading-relaxed border border-gray-700/20`}>
-                                  <div className="absolute top-0 left-0 w-8 h-8 opacity-10">
-                                    <div className="absolute inset-0 border-t border-l border-gray-500/30 rounded-tl-lg"></div>
-                                  </div>
-                                  <div className="absolute bottom-0 right-0 w-8 h-8 opacity-10">
-                                    <div className="absolute inset-0 border-b border-r border-gray-500/30 rounded-br-lg"></div>
+                                <div className="relative bg-black backdrop-blur-sm rounded-lg p-6 text-gray-300 text-base leading-relaxed border-2 border-orange-500/50 overflow-hidden">
+                                  {/* Corner accent points */}
+                                  <div className="absolute top-0 left-0 w-2 h-2 bg-orange-500/70 rounded-full blur-[1px] opacity-60"></div>
+                                  <div className="absolute bottom-0 right-0 w-2 h-2 bg-orange-500/70 rounded-full blur-[1px] opacity-60"></div>
+                                  
+                                  {/* Subtle shimmer effect */}
+                                  <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 -translate-x-full animate-shimmer-slow transform"></div>
+                                  
+                                  {/* Ambient glow that adds depth */}
+                                  <div className="absolute -inset-[3px] rounded-lg bg-orange-500/5 blur-md opacity-40" 
+                                       style={{ 
+                                         boxShadow: 'inset 0 0 15px 0 rgba(251, 113, 36, 0.2)' 
+                                       }}>
                                   </div>
                                   
                                   {faq.answer}
