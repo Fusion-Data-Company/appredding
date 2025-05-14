@@ -110,8 +110,8 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
               </div>
               
               {/* Premium badge with consistent styling at the top center */}
-              <div className="relative z-30 -mt-2 mb-6 flex justify-center">
-                <div className="px-3 py-1.5 rounded-full border border-amber-300 dark:border-amber-700 bg-amber-100/50 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300 inline-flex items-center shadow-[0_0_10px_rgba(251,113,36,0.3)]">
+              <div className="relative z-50 -mt-2 mb-6 flex justify-center">
+                <div className="px-3 py-1.5 rounded-full border border-amber-300 dark:border-amber-700 bg-amber-100/50 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300 inline-flex items-center shadow-[0_0_10px_rgba(251,113,36,0.3)] relative z-50">
                   <Play className="h-4 w-4 mr-2 text-amber-500" />
                   <span className="text-sm font-medium">Premium Demonstrations</span>
                 </div>
