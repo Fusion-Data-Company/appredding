@@ -10,15 +10,15 @@ const premiumButtonVariants = cva(
     variants: {
       variant: {
         default: 
-          "bg-black text-white border-2 border-orange-500 shadow-lg hover:shadow-xl hover:shadow-orange-500/30",
+          "bg-black text-white border-2 border-orange-500 shadow-lg hover:shadow-xl hover:shadow-orange-500/40",
         gold: 
-          "bg-black text-white border-2 border-orange-400 shadow-lg hover:shadow-xl hover:shadow-orange-500/30",
+          "bg-black text-white border-2 border-orange-400 shadow-lg hover:shadow-xl hover:shadow-orange-500/40",
         fire: 
-          "bg-black text-white border-2 border-orange-500 shadow-lg hover:shadow-xl hover:shadow-orange-500/40 transform transition-all duration-500 hover:scale-[1.02]",
+          "bg-black text-white border-2 border-orange-500 shadow-lg hover:shadow-xl hover:shadow-orange-600/50 transform transition-all duration-500 hover:scale-[1.02]",
         outline: 
-          "bg-gradient-to-br from-white via-amber-50 to-white dark:from-gray-800 dark:via-gray-700 dark:to-gray-800 text-amber-800 dark:text-amber-300 hover:text-amber-900 dark:hover:text-amber-200 border border-amber-300 dark:border-amber-700 shadow-md hover:shadow-lg",
+          "bg-black text-white border-2 border-orange-400 shadow-lg hover:shadow-xl hover:shadow-orange-500/40",
         ghost: 
-          "bg-transparent hover:bg-amber-50 dark:hover:bg-amber-900/20 text-amber-700 dark:text-amber-300 border-none"
+          "bg-black text-white border-2 border-orange-500/80 shadow-lg hover:shadow-xl hover:shadow-orange-500/40"
       },
       size: {
         sm: "h-9 px-3 py-2 text-xs rounded-lg",
@@ -159,11 +159,11 @@ const PremiumButton = forwardRef<HTMLButtonElement, PremiumButtonProps>(
               {/* Additional hover shimmer effect */}
               <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 -translate-x-full group-hover:translate-x-full transform transition-transform duration-1000"></div>
               
-              {/* Edge highlight on hover */}
+              {/* Enhanced orange-red glow effect */}
               <div className="absolute inset-0 rounded-[10px] opacity-0 group-hover:opacity-100 transition-opacity duration-500" 
                   style={{ 
                     background: 'linear-gradient(to right, rgba(255,111,0,0.1), rgba(255,111,0,0) 10%, rgba(255,111,0,0) 90%, rgba(255,111,0,0.1))',
-                    boxShadow: 'inset 0 1px 0 0 rgba(255,147,47,0.4), inset 0 -1px 0 0 rgba(255,147,47,0.4)'
+                    boxShadow: 'inset 0 1px 0 0 rgba(255,147,47,0.5), inset 0 -1px 0 0 rgba(255,147,47,0.5), 0 0 15px 2px rgba(255,79,0,0.5)'
                   }}>
               </div>
             </>

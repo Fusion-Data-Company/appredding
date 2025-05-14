@@ -387,38 +387,58 @@ const FAQSection = ({ faqs }: FAQProps) => {
               Still have questions? Our protective coating experts are here to help.
             </p>
             
-            {/* Enhanced premium button - Black with orange border and glow */}
+            {/* Elite enterprise-level button - Black with orange border and glow */}
             <a
               href="#contact"
               className="group relative inline-flex items-center px-8 py-4 rounded-lg bg-black text-white text-lg font-medium transition-all duration-500 hover:scale-105 overflow-hidden"
             >
               {/* Premium 2px border with gradient */}
-              <div className="absolute inset-0 rounded-lg opacity-80 border-2 border-orange-500"></div>
+              <div className="absolute inset-0 rounded-lg border-2 border-orange-500 opacity-80"></div>
               
-              {/* Orange glow effect */}
-              <div className="absolute inset-0 rounded-lg opacity-10 group-hover:opacity-30 transition-opacity duration-500"
-                   style={{ boxShadow: '0 0 15px 2px rgba(251, 113, 36, 0.8)' }}>
+              {/* Enhanced orange glow effect */}
+              <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-40 transition-opacity duration-700"
+                   style={{ boxShadow: '0 0 20px 3px rgba(251, 113, 36, 0.7), 0 0 10px 1px rgba(251, 113, 36, 0.9)' }}>
               </div>
               
-              {/* Random reflection effect 1 - Top left to bottom right */}
-              <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700"
+              {/* Inner gradient highlight */}
+              <div className="absolute inset-[2px] rounded-[6px] bg-gradient-to-b from-white/5 via-transparent to-transparent opacity-80"></div>
+              
+              {/* Corner accent lights */}
+              <div className="absolute top-0 left-0 w-3 h-3 bg-gradient-to-br from-orange-400 to-transparent rounded-tl-lg opacity-60"></div>
+              <div className="absolute bottom-0 right-0 w-3 h-3 bg-gradient-to-tl from-orange-400 to-transparent rounded-br-lg opacity-60"></div>
+              
+              {/* Random reflection effect 1 - Diagonal slash */}
+              <div className="absolute inset-0 bg-gradient-to-br from-white/50 via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700"
                    style={{
                      clipPath: 'polygon(0 0, 30% 0, 20% 100%, 0% 100%)',
                      transform: 'translateX(-100%)',
-                     animation: 'slideRightDiagonal 3s ease-in-out infinite',
+                     animation: 'slideRightDiagonal 3.7s cubic-bezier(0.4, 0, 0.2, 1) infinite',
                      animationPlayState: 'paused'
                    }}
                    onMouseEnter={(e) => e.currentTarget.style.animationPlayState = 'running'}
                    onMouseLeave={(e) => e.currentTarget.style.animationPlayState = 'paused'}>
               </div>
               
-              {/* Random reflection effect 2 - Bottom to top */}
-              <div className="absolute inset-0 bg-gradient-to-t from-white/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700"
+              {/* Random reflection effect 2 - Vertical band */}
+              <div className="absolute inset-0 bg-gradient-to-t from-transparent via-white/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700"
                    style={{
-                     clipPath: 'polygon(70% 100%, 90% 100%, 85% 0%, 75% 0%)',
+                     clipPath: 'polygon(65% 100%, 85% 100%, 80% 0%, 70% 0%)',
                      transform: 'translateY(100%)',
-                     animation: 'slideUp 2.7s ease-in-out infinite',
-                     animationDelay: '0.5s',
+                     animation: 'slideUp 2.9s cubic-bezier(0.4, 0, 0.2, 1) infinite',
+                     animationDelay: '0.3s',
+                     animationPlayState: 'paused'
+                   }}
+                   onMouseEnter={(e) => e.currentTarget.style.animationPlayState = 'running'}
+                   onMouseLeave={(e) => e.currentTarget.style.animationPlayState = 'paused'}>
+              </div>
+              
+              {/* Random reflection effect 3 - Horizontal sweep */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700"
+                   style={{
+                     clipPath: 'polygon(0 40%, 100% 35%, 100% 65%, 0 60%)',
+                     transform: 'translateX(-100%)',
+                     animation: 'slideRight 4.2s cubic-bezier(0.4, 0, 0.2, 1) infinite',
+                     animationDelay: '0.7s',
                      animationPlayState: 'paused'
                    }}
                    onMouseEnter={(e) => e.currentTarget.style.animationPlayState = 'running'}

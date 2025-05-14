@@ -42,8 +42,8 @@ const BrandShowcaseSection = () => {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-14">
             <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-gray-900/95 backdrop-blur-xl rounded-xl py-10 px-10 mx-auto max-w-4xl mb-8 shadow-[0_10px_50px_rgba(0,0,0,0.5)] group transform transition-all duration-500 hover:scale-[1.02] hover:-translate-y-1">
-              {/* Premium gradient border effect - Mixed variant (matching the third card) */}
-              <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/50 via-transparent to-blue-400/50 opacity-70"></div>
+              {/* Premium gradient border effect - Fire variant */}
+              <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/50 via-transparent to-red-500/50 opacity-70"></div>
               <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
               
               {/* Subtle ambient glow that activates on hover */}

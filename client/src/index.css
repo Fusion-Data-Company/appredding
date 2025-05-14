@@ -28,6 +28,27 @@ section + section {
     animation: fadeIn 0.5s ease-in-out;
   }
   
+  /* Premium button reflection animation keyframes */
+  @keyframes slideRightDiagonal {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(500%); }
+  }
+  
+  @keyframes slideUp {
+    0% { transform: translateY(100%); }
+    100% { transform: translateY(-100%); }
+  }
+  
+  @keyframes slideRight {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+  
+  @keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+  
   .animate-pulse-slow {
     animation: pulseSlow 3s infinite ease-in-out;
   }
