@@ -196,6 +196,16 @@ const ProductHistorySection = () => {
                 <div className="absolute inset-0 bg-gradient-to-tr from-red-500/40 to-orange-500/40 rounded-bl-xl blur-[2px]"></div>
               </div>
               
+              {/* Timeline Innovation badge with consistent styling */}
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-20">
+                <div className="px-3 py-1.5 rounded-full border border-amber-300 dark:border-amber-700 bg-amber-100/50 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300 inline-flex items-center shadow-[0_0_10px_rgba(251,113,36,0.3)]">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-2 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span className="text-sm font-medium">Innovation Timeline</span>
+                </div>
+              </div>
+              
               {/* Enhanced header section - adjusted to fire theme */}
               <div className="p-8 border-b border-gray-600/40 relative">
                 {/* Premium heading with enhanced styling - adjusted to fire theme */}
