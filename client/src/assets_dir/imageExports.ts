@@ -1,5 +1,5 @@
 // Import the images to get their processed URLs
-import praetorianHeroPath from './images/optimized/praetorian-hero-final.webp';
+import praetorianHeroPath from './images/optimized/praetorian-background-new.png';
 import praetorianProductsHeroPath from './images/optimized/praetorian-buckets-hero-corrected.webp';
 import praetorianProductsPath from './images/optimized/praetorian-products-updated.webp';
 import praetorianStuccoPath from './images/optimized/praetorian-stucco.webp';
