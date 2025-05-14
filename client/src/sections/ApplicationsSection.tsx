@@ -234,6 +234,29 @@ const ApplicationsSection = () => {
                 <div className="absolute inset-0 flex items-center justify-center text-5xl font-bold tracking-tight opacity-70 blur-[2px] text-red-900/30 -z-10">
                   Specialized Applications
                 </div>
+                
+                {/* Super cool glowing decorative accent line with enhanced styling */}
+                <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 w-64 h-1.5 rounded-full overflow-hidden z-20">
+                  {/* Base gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-amber-500 to-red-600 animate-pulse-slow"></div>
+                  
+                  {/* Animated shine effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/80 to-transparent -translate-x-full animate-shimmer-slow"></div>
+                  
+                  {/* Glow effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-amber-500 to-red-600 blur-md opacity-70"></div>
+                  
+                  {/* Laser dots */}
+                  <div className="absolute h-full w-4 bg-white/80 left-0 rounded-full blur-[1px] animate-pulse-slow"></div>
+                  <div className="absolute h-full w-3 bg-white/80 left-[60%] rounded-full blur-[1px] animate-pulse-slow-delayed"></div>
+                </div>
+              </div>
+              
+              {/* Enhanced decorative accent line - below text */}
+              <div className="w-40 h-1 mx-auto mb-8 relative z-20">
+                <div className="absolute inset-0 bg-gradient-to-r from-orange-500/80 via-amber-500/80 to-red-500/80 rounded-full"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-orange-500/60 via-amber-500/60 to-red-500/60 rounded-full blur-[3px]"></div>
+                <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full animate-shimmer-slow"></div>
               </div>
               
               {/* Enhanced description */}
