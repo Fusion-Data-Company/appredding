@@ -118,21 +118,21 @@ const TechnicalSpecsTable = () => {
               <div className="absolute top-0 left-1/4 w-1/2 h-1/2 bg-gradient-to-r from-orange-500/5 via-amber-500/5 to-red-500/5 blur-[100px] rounded-full"></div>
               
               {/* Content */}
-              <div className="relative z-10">
-                {/* Enhanced premium badge */}
-                <div className="inline-flex items-center mb-3 px-3 py-1.5 rounded-full bg-gradient-to-r from-amber-900/80 to-red-900/80 border border-amber-700/30 shadow-[0_0_10px_rgba(251,113,36,0.3)]">
-                  <div className="mr-2 relative">
-                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-amber-500 to-orange-600 blur-[6px] opacity-60"></div>
-                    <Shield className="h-4 w-4 text-amber-300 relative z-10" />
-                  </div>
-                  <span className="text-amber-300 text-sm font-medium">Technical Data</span>
+              <div className="relative z-10 text-center">
+                {/* Elite enterprise styled heading */}
+                <div className="relative mb-4">
+                  {/* Top horizontal accent line with enhanced glow */}
+                  <span className="absolute -top-6 left-1/2 transform -translate-x-1/2 w-1/2 h-1 bg-gradient-to-r from-transparent via-orange-400/50 to-transparent rounded-full blur-sm"></span>
+                  
+                  <GradientHeading level={2} className="text-3xl md:text-4xl shimmer-fire-text" variant="fire">
+                    Performance Specifications
+                  </GradientHeading>
+                  
+                  {/* Bottom horizontal accent line with enhanced glow */}
+                  <span className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 w-1/2 h-1 bg-gradient-to-r from-transparent via-red-400/50 to-transparent rounded-full blur-sm"></span>
                 </div>
                 
-                <GradientHeading level={2} className="text-3xl md:text-4xl mb-4" variant="fire">
-                  Performance Specifications
-                </GradientHeading>
-                
-                <p className="text-gray-300 max-w-2xl mx-auto">
+                <p className="text-gray-300 max-w-2xl mx-auto mt-8">
                   Praetorian's ceramic-based coatings deliver industry-leading performance metrics that exceed traditional protective coatings across all key indicators.
                 </p>
               </div>

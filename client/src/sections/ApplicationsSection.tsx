@@ -3,6 +3,7 @@ import { GradientButton } from "@/components/ui/gradient-button";
 import { GradientHeading } from "@/components/ui/gradient-heading";
 import backgroundImg from "../assets_dir/images/optimized/praetorian-background-new.png";
 import { useRef, useEffect } from "react";
+import { Shield } from "lucide-react";
 
 interface ApplicationCardProps {
   imageSrc: string;
@@ -163,6 +164,17 @@ const ApplicationsSection = () => {
               <div className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none">
                 <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-red-500/70 rounded-br-lg"></div>
                 <div className="absolute bottom-0 right-0 w-3 h-3 bg-red-500/50 rounded-full blur-[2px]"></div>
+              </div>
+              
+              {/* Moved Technical Data badge to top */}
+              <div className="relative z-10 mb-5 flex justify-center">
+                <div className="inline-flex items-center px-3 py-1.5 rounded-full bg-gradient-to-r from-amber-900/80 to-red-900/80 border border-amber-700/30 shadow-[0_0_10px_rgba(251,113,36,0.3)]">
+                  <div className="mr-2 relative">
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-amber-500 to-orange-600 blur-[6px] opacity-60"></div>
+                    <Shield className="h-4 w-4 text-amber-300 relative z-10" />
+                  </div>
+                  <span className="text-amber-300 text-sm font-medium">Technical Data</span>
+                </div>
               </div>
               
               {/* Shimmer heading */}
