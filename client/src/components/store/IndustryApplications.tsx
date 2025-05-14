@@ -392,6 +392,7 @@ const IndustryApplications = () => {
                   hover:bg-gray-800/50
                   hover:shadow-[0_4px_12px_rgba(251,191,36,0.15)] dark:hover:shadow-[0_4px_12px_rgba(0,0,0,0.2)]
                   hover:-translate-y-0.5 
+                  group
                   transform transition-transform"
               >
                 <div className="flex flex-col items-center gap-2 p-1 relative z-10">
@@ -404,7 +405,8 @@ const IndustryApplications = () => {
                   </div>
                   <span className="text-xs font-semibold tracking-wide">{app.title}</span>
                 </div>
-                <div className="absolute inset-0 pointer-events-none overflow-hidden data-[state=active]:block hidden">
+                {/* Shimmer effect for all tabs (not just active) */}
+                <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                   <div className="absolute top-0 left-[-100%] h-full w-[300%] 
                     bg-gradient-to-r from-transparent via-white/40 to-transparent
                     animate-shimmer-once"
