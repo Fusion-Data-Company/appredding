@@ -223,32 +223,46 @@ const ApplicationsSection = () => {
                 {/* Animated glow behind text */}
                 <div className="absolute inset-0 bg-gradient-to-r from-orange-600/10 via-orange-500/20 to-red-600/10 opacity-50 blur-xl animate-pulse-slow"></div>
                 
-                {/* Heading with shimmer effect */}
-                <div className="shimmer-fire-text font-bold text-5xl tracking-tight">
-                  <span className="text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-amber-500 to-red-500">
+                {/* Heading with enhanced enterprise styling and shadows */}
+                <div className="shimmer-fire-text font-bold text-5xl tracking-tight relative z-10">
+                  {/* Background glow for letter definition */}
+                  <div className="absolute inset-0 flex justify-center items-center text-5xl font-bold tracking-tight text-orange-900/20 blur-[10px] scale-110">
+                    Specialized Applications
+                  </div>
+                  
+                  {/* Main text with premium gradient */}
+                  <span className="relative text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-amber-500 to-red-500
+                    drop-shadow-[0_0px_3px_rgba(251,113,36,0.4)] 
+                    [text-shadow:0_1px_2px_rgba(0,0,0,0.25),0_2px_15px_rgba(251,146,60,0.5)]">
                     Specialized Applications
                   </span>
+                  
+                  {/* Top glossy reflection */}
+                  <div className="absolute top-0 left-0 right-0 h-[40%] bg-gradient-to-b from-white/10 to-transparent rounded-t-lg"></div>
                 </div>
                 
-                {/* Text shadow for depth */}
-                <div className="absolute inset-0 flex items-center justify-center text-5xl font-bold tracking-tight opacity-70 blur-[2px] text-red-900/30 -z-10">
+                {/* Multiple text shadows for depth */}
+                <div className="absolute inset-0 flex items-center justify-center text-5xl font-bold tracking-tight opacity-20 blur-[6px] text-orange-700/40 -z-10 transform scale-105">
+                  Specialized Applications
+                </div>
+                <div className="absolute inset-0 flex items-center justify-center text-5xl font-bold tracking-tight opacity-30 blur-[2px] text-red-900/30 -z-10">
                   Specialized Applications
                 </div>
                 
-                {/* Super cool glowing decorative accent line with enhanced styling */}
-                <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 w-64 h-1.5 rounded-full overflow-hidden z-20">
+                {/* Left-side cool glowing decorative accent line with hover extension */}
+                <div className="absolute -left-2 top-1/2 transform -translate-y-1/2 group w-12 h-2 rounded-r-full overflow-hidden z-20 transition-all duration-700 hover:w-64">
                   {/* Base gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-amber-500 to-red-600 animate-pulse-slow"></div>
-                  
-                  {/* Animated shine effect */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/80 to-transparent -translate-x-full animate-shimmer-slow"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-amber-500 to-red-600"></div>
                   
                   {/* Glow effect */}
                   <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-amber-500 to-red-600 blur-md opacity-70"></div>
                   
-                  {/* Laser dots */}
-                  <div className="absolute h-full w-4 bg-white/80 left-0 rounded-full blur-[1px] animate-pulse-slow"></div>
-                  <div className="absolute h-full w-3 bg-white/80 left-[60%] rounded-full blur-[1px] animate-pulse-slow-delayed"></div>
+                  {/* Animated pulse overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 animate-pulse-slow"></div>
+                  
+                  {/* Pulsing dots */}
+                  <div className="absolute h-full w-4 bg-white/80 right-4 rounded-full blur-[1px] animate-pulse-slow"></div>
+                  <div className="absolute h-full w-3 bg-white/80 right-12 rounded-full blur-[1px] animate-pulse-slow-delayed opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
                 </div>
               </div>
               
