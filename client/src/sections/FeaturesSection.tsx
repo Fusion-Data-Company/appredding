@@ -243,21 +243,18 @@ const FeaturesSection = () => {
         <div className="text-center mb-16 md:mb-20">
           {/* Advanced premium enterprise heading container with enhanced effects */}
           <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/98 to-gray-900/95 backdrop-blur-xl rounded-xl py-10 px-8 md:py-12 md:px-16 mx-auto max-w-4xl mb-8 inline-block shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7)]">
-            {/* Enhanced premium dual-layer gradient border effect */}
-            <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/60 via-purple-500/30 to-blue-500/60 opacity-80"></div>
-            <div className="absolute inset-[1px] p-0.5 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-30 pointer-events-none"></div>
+            {/* Premium gradient border effect - Mixed variant (matching the third card) */}
+            <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/50 via-transparent to-blue-400/50 opacity-70"></div>
+            <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
             
-            {/* Corner accent decorations for premium enterprise feel */}
-            <div className="absolute top-0 right-0 w-32 h-32 opacity-20">
-              <div className="absolute inset-0 bg-gradient-to-bl from-orange-500/40 to-blue-500/40 rounded-tr-xl blur-[2px]"></div>
-            </div>
-            <div className="absolute bottom-0 left-0 w-32 h-32 opacity-20">
-              <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/40 to-orange-500/40 rounded-bl-xl blur-[2px]"></div>
+            {/* Subtle ambient glow that activates on hover */}
+            <div className="absolute inset-0 rounded-xl opacity-40 transition-opacity duration-700 ease-in-out" 
+                style={{ background: "radial-gradient(circle at center, rgba(251,113,36,0.3), rgba(59,130,246,0.3), transparent 70%)" }}>
             </div>
             
             {/* Advanced ambient glow with interactive animation */}
             <div className="absolute inset-0 bg-gradient-to-r from-orange-500/5 via-amber-500/5 to-blue-500/5 blur-[100px] rounded-xl"></div>
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2/3 h-2/3 bg-gradient-to-r from-orange-500/10 via-purple-500/10 to-blue-500/10 blur-[120px] rounded-full animate-pulse-slow"></div>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2/3 h-2/3 bg-gradient-to-r from-orange-500/10 via-blue-500/10 to-blue-500/10 blur-[120px] rounded-full animate-pulse-slow"></div>
             
             {/* Premium decorative elements */}
             <div className="absolute top-6 left-6 w-8 h-8 opacity-30">
@@ -270,8 +267,8 @@ const FeaturesSection = () => {
             {/* Enhanced premium badge with 3D effect */}
             <div className="absolute -top-5 left-1/2 -translate-x-1/2 flex">
               <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-gradient-to-r from-gray-900/95 to-gray-950/95 border border-gray-800 shadow-[0_5px_15px_rgba(0,0,0,0.3)] relative group">
-                {/* Premium gradient border effect */}
-                <div className="absolute inset-0 p-0.5 rounded-full bg-gradient-to-r from-amber-500/50 via-purple-500/30 to-blue-500/50 opacity-70"></div>
+                {/* Premium gradient border effect - Mixed variant */}
+                <div className="absolute inset-0 p-0.5 rounded-full bg-gradient-to-r from-orange-500/50 via-transparent to-blue-400/50 opacity-70"></div>
                 
                 {/* Badge icon with glow effect */}
                 <div className="mr-2 relative">
@@ -301,11 +298,11 @@ const FeaturesSection = () => {
                 {/* Decorative dots */}
                 <div className="absolute -left-10 top-1/2 -translate-y-1/2 flex items-center space-x-1.5">
                   <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-orange-500 to-red-500"></div>
-                  <div className="w-1 h-1 rounded-full bg-gradient-to-r from-purple-500 to-pink-500"></div>
+                  <div className="w-1 h-1 rounded-full bg-gradient-to-r from-orange-400 to-amber-500"></div>
                 </div>
                 <div className="absolute -right-10 top-1/2 -translate-y-1/2 flex items-center space-x-1.5">
                   <div className="w-1 h-1 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500"></div>
-                  <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-blue-500 to-indigo-500"></div>
+                  <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-blue-500 to-cyan-400"></div>
                 </div>
                 
                 {/* Advanced premium gradient heading */}
@@ -314,7 +311,7 @@ const FeaturesSection = () => {
                 </GradientHeading>
                 
                 {/* Animated decorative line below heading */}
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-32 h-0.5 bg-gradient-to-r from-orange-500 via-purple-500 to-blue-500 rounded-full mt-2"></div>
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-32 h-0.5 bg-gradient-to-r from-orange-500 to-blue-500 rounded-full mt-2 shadow-[0_0_5px_rgba(251,113,36,0.4),_0_0_5px_rgba(59,130,246,0.4)]"></div>
               </div>
               
               {/* Enhanced description with premium styling */}
@@ -324,8 +321,8 @@ const FeaturesSection = () => {
               
               {/* Premium decorative accent line */}
               <div className="w-24 h-1 mx-auto mt-8 relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-orange-500/50 via-purple-500/50 to-blue-500/50 rounded-full"></div>
-                <div className="absolute inset-0 bg-gradient-to-r from-orange-500/50 via-purple-500/50 to-blue-500/50 rounded-full blur-[2px]"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-orange-500/50 to-blue-500/50 rounded-full"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-orange-500/50 to-blue-500/50 rounded-full blur-[2px]"></div>
               </div>
             </div>
           </div>
