@@ -132,18 +132,38 @@ const ProductComparison = () => {
           transition={{ duration: 0.5 }}
           className="relative overflow-hidden"
         >
-          {/* Headers */}
-          <div className="grid grid-cols-12 gap-4 mb-4 px-4 bg-black/90 backdrop-blur-lg rounded-lg p-5 premium-gradient-border shadow-[0_0_20px_rgba(255,69,0,0.4)]">
-            <div className="col-span-4 font-bold text-amber-300 text-lg">Feature</div>
-            <div className="col-span-4 font-bold text-center text-amber-300 text-lg">
-              <div className="flex items-center justify-center gap-2">
-                <Sparkles className="h-5 w-5 text-amber-500" />
-                Praetorian
+          {/* Headers - Premium Enterprise Styling */}
+          <div className="grid grid-cols-12 gap-4 mb-6 relative">
+            {/* Premium Card Container */}
+            <div className="col-span-12 relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-gray-900/95 backdrop-blur-xl rounded-xl py-6 px-6 shadow-[0_10px_50px_rgba(0,0,0,0.5)] z-10">
+              {/* Premium gradient border effect - Fire variant */}
+              <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/50 via-transparent to-red-500/50 opacity-70"></div>
+              
+              {/* Inner highlight */}
+              <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
+              
+              {/* Content */}
+              <div className="grid grid-cols-12 gap-4 items-center relative z-10">
+                <div className="col-span-4 font-bold text-lg">
+                  <span className="bg-gradient-to-r from-amber-300 to-orange-400 bg-clip-text text-transparent">Feature</span>
+                </div>
+                <div className="col-span-4 font-bold text-center text-lg">
+                  <div className="flex items-center justify-center gap-2">
+                    <div className="relative">
+                      <div className="absolute inset-0 rounded-full bg-gradient-to-r from-amber-500 to-orange-600 blur-[6px] opacity-60"></div>
+                      <Sparkles className="h-5 w-5 text-amber-300 relative z-10" />
+                    </div>
+                    <span className="bg-gradient-to-r from-amber-300 to-orange-400 bg-clip-text text-transparent">Praetorian</span>
+                  </div>
+                </div>
+                <div className="col-span-4 font-bold text-center text-lg">
+                  <span className="text-gray-400">Competitors</span>
+                </div>
               </div>
             </div>
-            <div className="col-span-4 font-bold text-center text-gray-300 text-lg">
-              Competitors
-            </div>
+            
+            {/* Subtle bottom reflection */}
+            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2/3 h-[2px] bg-gradient-to-r from-transparent via-orange-500/10 to-transparent rounded-full blur-sm"></div>
           </div>
 
           {/* Comparison rows */}
