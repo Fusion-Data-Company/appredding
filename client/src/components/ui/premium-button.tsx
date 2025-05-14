@@ -63,7 +63,13 @@ const PremiumButton = forwardRef<HTMLButtonElement, PremiumButtonProps>(
     
     return (
       <div className={isFire ? "relative group" : ""}>
-        {/* Fire variant effects removed as requested */}
+        {/* Fire variant's outer gradient effects */}
+        {isFire && (
+          <>
+            <div className="absolute inset-0 bg-gradient-to-r from-orange-600/40 via-red-600/40 to-amber-600/40 rounded-xl blur-sm opacity-70 group-hover:opacity-100 group-hover:blur-md transition-all duration-1000 animate-pulse-slow"></div>
+            <div className="absolute inset-px bg-gradient-to-r from-orange-500/70 via-amber-500/70 to-red-500/70 rounded-xl blur-sm opacity-90 group-hover:opacity-100 transition-all duration-500"></div>
+          </>
+        )}
 
         <button
           className={cn(premiumButtonVariants({ variant, size, className }))}
@@ -78,7 +84,10 @@ const PremiumButton = forwardRef<HTMLButtonElement, PremiumButtonProps>(
             <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-amber-300/0 via-amber-300/0 to-amber-300/0 group-hover:from-amber-300/0 group-hover:via-amber-300/20 group-hover:to-amber-300/0 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           )}
           
-          {/* Inner border removed as requested */}
+          {/* Inner border for fire variant */}
+          {isFire && (
+            <div className="absolute inset-0 rounded-[10px] border border-orange-500/50 pointer-events-none"></div>
+          )}
 
           {/* Button Content */}
           <span className="relative z-10 flex items-center gap-2">
@@ -107,7 +116,7 @@ const PremiumButton = forwardRef<HTMLButtonElement, PremiumButtonProps>(
           {isFire && (
             <>
               {/* Ambient inner glow */}
-              <div className="absolute inset-0 bg-gradient-to-br from-orange-600/10 to-red-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-orange-600/30 to-red-600/20 opacity-40 group-hover:opacity-70 transition-opacity duration-700"></div>
               
               {/* Base shimmer effect - always active */}
               <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-30 -translate-x-full animate-shimmer-slow transform"></div>
@@ -115,12 +124,30 @@ const PremiumButton = forwardRef<HTMLButtonElement, PremiumButtonProps>(
               {/* Additional hover shimmer effect */}
               <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 -translate-x-full group-hover:translate-x-full transform transition-transform duration-1000"></div>
               
-              {/* Edge highlight removed as requested */}
+              {/* Edge highlight on hover */}
+              <div className="absolute inset-0 rounded-[10px] opacity-0 group-hover:opacity-100 transition-opacity duration-500" 
+                  style={{ 
+                    background: 'linear-gradient(to right, rgba(255,111,0,0.1), rgba(255,111,0,0) 10%, rgba(255,111,0,0) 90%, rgba(255,111,0,0.1))',
+                    boxShadow: 'inset 0 1px 0 0 rgba(255,147,47,0.4), inset 0 -1px 0 0 rgba(255,147,47,0.4)'
+                  }}>
+              </div>
             </>
           )}
         </button>
         
-        {/* Bottom reflection effects removed as requested */}
+        {/* Bottom reflection and additional effects for fire variant */}
+        {isFire && (
+          <>
+            {/* Primary bottom reflection */}
+            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-4/5 h-[1px] bg-gradient-to-r from-transparent via-orange-500/40 to-transparent rounded-full"></div>
+            
+            {/* Secondary wider reflection - visible on hover */}
+            <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-5/6 h-[1px] bg-gradient-to-r from-transparent via-orange-500/20 to-transparent rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            
+            {/* Subtle colored drop shadow - visible on hover */}
+            <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-4/5 h-[2px] bg-orange-600/10 blur-sm rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          </>
+        )}
       </div>
     );
   }
