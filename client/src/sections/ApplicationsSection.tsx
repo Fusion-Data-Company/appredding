@@ -187,12 +187,9 @@ const ApplicationsSection = () => {
               <div className="absolute -top-60 -right-40 w-80 h-80 bg-orange-600/15 rounded-full filter blur-[100px] animate-pulse-slow-delayed"></div>
               <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-orange-500/20 rounded-full filter blur-[120px] animate-pulse-slow"></div>
               
-              {/* Corner accents with gradients - similar to FAQSection */}
+              {/* Corner accent with gradient - top-right corner only */}
               <div className="absolute top-0 right-0 w-32 h-32 opacity-20 z-10">
                 <div className="absolute inset-0 bg-gradient-to-bl from-orange-500/40 to-blue-500/40 rounded-tr-xl blur-[2px]"></div>
-              </div>
-              <div className="absolute bottom-0 left-0 w-32 h-32 opacity-20 z-10">
-                <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/40 to-orange-500/40 rounded-bl-xl blur-[2px]"></div>
               </div>
               
               {/* Additional corner accent lines */}
@@ -241,23 +238,28 @@ const ApplicationsSection = () => {
               
               {/* Enhanced description */}
               <p className="text-gray-200 text-xl max-w-2xl mx-auto relative">
-                {/* Left accent - animated pulse */}
-                <span className="absolute -left-4 top-1/2 transform -translate-y-1/2 w-1 h-12 bg-gradient-to-b from-orange-500/0 via-orange-500/70 to-orange-500/0 rounded-full animate-pulse-slow"></span>
+                {/* Left accent - animated pulse - longer and moved to top */}
+                <span className="absolute -left-6 top-1/2 transform -translate-y-1/2 w-1.5 h-20 bg-gradient-to-b from-orange-500/0 via-orange-500/70 to-orange-500/0 rounded-full animate-pulse-slow z-20"></span>
                 
                 Our protective coatings are engineered for specific environments and challenges across various industries.
                 
-                {/* Right accent - animated pulse with delay */}
-                <span className="absolute -right-4 top-1/2 transform -translate-y-1/2 w-1 h-12 bg-gradient-to-b from-orange-500/0 via-orange-500/70 to-orange-500/0 rounded-full animate-pulse-slow-delayed"></span>
+                {/* Right accent - animated pulse with delay - longer and moved to top */}
+                <span className="absolute -right-6 top-1/2 transform -translate-y-1/2 w-1.5 h-20 bg-gradient-to-b from-orange-500/0 via-orange-500/70 to-orange-500/0 rounded-full animate-pulse-slow-delayed z-20"></span>
               </p>
               
-              {/* Animated horizontal lines - top */}
-              <div className="absolute top-[30%] left-0 w-full h-[1px] overflow-hidden z-10">
-                <div className="w-full h-full bg-gradient-to-r from-transparent via-orange-500/60 to-transparent -translate-x-full animate-shimmer-slow"></div>
+              {/* Move blue/orange gradient square to top left corner instead of bottom left */}
+              <div className="absolute top-0 left-0 w-32 h-32 opacity-20 z-10">
+                <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/40 to-orange-500/40 rounded-tl-xl blur-[2px]"></div>
               </div>
               
-              {/* Animated horizontal lines - bottom */}
-              <div className="absolute bottom-[30%] left-0 w-full h-[1px] overflow-hidden z-10">
-                <div className="w-full h-full bg-gradient-to-r from-transparent via-orange-500/60 to-transparent -translate-x-full animate-shimmer-slow-delayed"></div>
+              {/* Animated horizontal lines - top - made z-20 to appear in front */}
+              <div className="absolute top-[30%] left-0 w-full h-[1px] overflow-hidden z-20">
+                <div className="w-full h-full bg-gradient-to-r from-transparent via-orange-500/70 to-transparent -translate-x-full animate-shimmer-slow"></div>
+              </div>
+              
+              {/* Animated horizontal lines - bottom - made z-20 to appear in front */}
+              <div className="absolute bottom-[30%] left-0 w-full h-[1px] overflow-hidden z-20">
+                <div className="w-full h-full bg-gradient-to-r from-transparent via-orange-500/70 to-transparent -translate-x-full animate-shimmer-slow-delayed"></div>
               </div>
               
               {/* Subtle animated overlay */}
