@@ -104,7 +104,7 @@ const TechnicalSpecsTable = () => {
         </div>
         
         <div className="text-center mb-10">
-          <div className="bg-gray-800/60 backdrop-blur-xl rounded-xl border-4 border-gray-600/40 shadow-[0_0_40px_rgba(255,255,255,0.25)] py-8 px-10 mx-auto max-w-4xl mb-8 inline-block">
+          <div className="bg-gray-800/60 backdrop-blur-xl rounded-xl border-0 premium-gradient-border py-8 px-10 mx-auto max-w-4xl mb-8 inline-block">
             <GradientHeading level={2} className="text-3xl md:text-4xl mb-4" variant="fire">
               Performance Specifications
             </GradientHeading>
