@@ -66,9 +66,9 @@ const PremiumButton = forwardRef<HTMLButtonElement, PremiumButtonProps>(
         {/* Fire variant's outer gradient effects */}
         {isFire && (
           <>
-            <div className="absolute -inset-1.5 bg-gradient-to-r from-orange-600/40 via-red-600/40 to-amber-600/40 rounded-xl blur-xl opacity-70 group-hover:opacity-100 group-hover:blur-xl transition-all duration-1000 animate-pulse-slow"></div>
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/80 via-amber-500/80 to-red-500/80 rounded-xl blur-md opacity-90 group-hover:opacity-100 transition-all duration-500"></div>
-            <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/10 via-red-600/10 to-amber-600/10 rounded-xl blur-lg opacity-0 group-hover:opacity-50 transition-all duration-1000"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-orange-600/40 via-red-600/40 to-amber-600/40 rounded-xl blur-sm opacity-70 group-hover:opacity-100 group-hover:blur-md transition-all duration-1000 animate-pulse-slow"></div>
+            <div className="absolute inset-px bg-gradient-to-r from-orange-500/70 via-amber-500/70 to-red-500/70 rounded-xl blur-sm opacity-90 group-hover:opacity-100 transition-all duration-500"></div>
+            <div className="absolute -bottom-2 -left-0 -right-0 top-auto h-4 mx-auto bg-gradient-to-r from-orange-600/20 via-red-600/20 to-amber-600/20 rounded-b-xl blur-md opacity-0 group-hover:opacity-70 transition-all duration-1000"></div>
           </>
         )}
 
