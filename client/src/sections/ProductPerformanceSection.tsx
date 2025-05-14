@@ -39,13 +39,12 @@ const ProductPerformanceSection = () => {
               
               {/* Enhanced content with floating effect */}
               <div className="relative z-10">
-                {/* Premium badge */}
-                <div className="inline-flex items-center mb-6 px-3 py-1.5 rounded-full bg-gradient-to-r from-amber-900/80 to-blue-900/80 border border-amber-700/30 shadow-[0_0_10px_rgba(251,113,36,0.3)]">
-                  <div className="mr-2 relative">
-                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-amber-500 to-blue-600 blur-[6px] opacity-60"></div>
-                    <i className="fas fa-certificate h-4 w-4 text-amber-300 relative z-10"></i>
-                  </div>
-                  <span className="text-amber-300 text-sm font-medium">Verified Performance</span>
+                {/* Premium badge - Consistent styling */}
+                <div className="px-3 py-1.5 rounded-full border border-amber-300 dark:border-amber-700 bg-amber-100/50 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300 inline-flex items-center shadow-[0_0_10px_rgba(251,113,36,0.3)]">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-2 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+                  <span className="text-sm font-medium">Verified Performance</span>
                 </div>
                 
                 {/* Animated liquid gradient line above heading */}

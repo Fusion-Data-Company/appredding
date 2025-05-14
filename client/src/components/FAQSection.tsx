@@ -63,32 +63,15 @@ const FAQSection = ({ faqs }: FAQProps) => {
               <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/40 to-orange-500/40 rounded-bl-xl blur-[2px]"></div>
             </div>
             
-            {/* Enhanced premium badge with 3D effect */}
+            {/* Premium badge with consistent styling */}
             <div className="absolute -top-5 left-1/2 -translate-x-1/2 flex">
-              <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-gradient-to-r from-gray-900/95 to-gray-950/95 border border-gray-800 shadow-[0_5px_15px_rgba(0,0,0,0.3)] relative group">
-                {/* Premium gradient border effect */}
-                <div className="absolute inset-0 p-0.5 rounded-full bg-gradient-to-r from-orange-500/50 via-amber-500/30 to-blue-500/50 opacity-70"></div>
-                
-                {/* Badge icon with glow effect */}
-                <div className="mr-2 relative">
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-r from-orange-500/60 to-blue-600/60 blur-[6px] opacity-60 group-hover:opacity-80 transition-opacity duration-300"></div>
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-orange-300 relative z-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <line x1="12" y1="16" x2="12" y2="12"></line>
-                    <line x1="12" y1="8" x2="12.01" y2="8"></line>
-                  </svg>
-                </div>
-                
-                {/* Badge text with shimmer effect */}
-                <span className="text-orange-300 text-sm font-medium relative">
-                  <span className="relative z-10">Frequently Asked</span>
-                  <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"
-                     style={{
-                       backgroundSize: '200% 100%',
-                       animation: 'shimmer 2s infinite'
-                     }}>
-                  </span>
-                </span>
+              <div className="px-3 py-1.5 rounded-full border border-amber-300 dark:border-amber-700 bg-amber-100/50 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300 inline-flex items-center shadow-[0_0_10px_rgba(251,113,36,0.3)]">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-2 text-amber-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="16" x2="12" y2="12"></line>
+                  <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+                <span className="text-sm font-medium">Frequently Asked</span>
               </div>
             </div>
             
