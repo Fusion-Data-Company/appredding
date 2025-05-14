@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { CheckCircle, XCircle, HelpCircle, Sparkles, Shield } from "lucide-react";
+import { CheckCircle, XCircle, HelpCircle, Sparkles, Shield, Info } from "lucide-react";
 import { GradientHeading } from "@/components/ui/gradient-heading";
 import { PRAETORIAN_HERO_IMAGE } from "../../assets_dir/imageExports";
 
@@ -111,17 +111,43 @@ const ProductComparison = () => {
       {/* Semi-transparent overlay for better readability */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-black/70" style={{ zIndex: 1 }}></div>
       <div className="container mx-auto px-4 relative" style={{ zIndex: 2 }}>
-        <div className="text-center mb-10">
-          <div className="bg-gray-800/80 backdrop-blur-xl rounded-xl border-0 premium-gradient-border shadow-[0_0_30px_rgba(255,69,0,0.25)] py-8 px-10 mx-auto max-w-4xl mb-8 inline-block">
-            <Badge variant="outline" className="mb-2 px-3 py-1 border-amber-800 dark:border-amber-900 bg-amber-900/50 dark:bg-amber-950/70 text-amber-300">
-              <Shield className="h-4 w-4 mr-1" /> Competitive Comparison
-            </Badge>
-            <GradientHeading level={2} className="text-3xl md:text-4xl mb-4" variant="fire">
-              How Praetorian Outperforms the Competition
-            </GradientHeading>
-            <p className="text-gray-300 max-w-2xl mx-auto">
-              See why Praetorian's revolutionary ceramic technology delivers superior performance across all key metrics compared to traditional protective coatings.
-            </p>
+        <div className="text-center mb-12">
+          {/* Premium Enterprise-level heading container */}
+          <div className="relative mx-auto max-w-4xl mb-8 inline-block">
+            {/* Premium Card Container */}
+            <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-gray-900/95 backdrop-blur-xl rounded-xl py-8 px-10 shadow-[0_10px_50px_rgba(0,0,0,0.5)] z-10">
+              {/* Premium gradient border effect - Fire variant */}
+              <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/50 via-transparent to-red-500/50 opacity-70"></div>
+              
+              {/* Inner highlight */}
+              <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
+              
+              {/* Subtle ambient glow */}
+              <div className="absolute top-0 left-1/4 w-1/2 h-1/2 bg-gradient-to-r from-orange-500/5 via-amber-500/5 to-red-500/5 blur-[100px] rounded-full"></div>
+              
+              {/* Content */}
+              <div className="relative z-10">
+                {/* Enhanced premium badge */}
+                <div className="inline-flex items-center mb-3 px-3 py-1.5 rounded-full bg-gradient-to-r from-amber-900/80 to-red-900/80 border border-amber-700/30 shadow-[0_0_10px_rgba(251,113,36,0.3)]">
+                  <div className="mr-2 relative">
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-amber-500 to-orange-600 blur-[6px] opacity-60"></div>
+                    <Shield className="h-4 w-4 text-amber-300 relative z-10" />
+                  </div>
+                  <span className="text-amber-300 text-sm font-medium">Competitive Comparison</span>
+                </div>
+                
+                <GradientHeading level={2} className="text-3xl md:text-4xl mb-4" variant="fire">
+                  How Praetorian Outperforms the Competition
+                </GradientHeading>
+                
+                <p className="text-gray-300 max-w-2xl mx-auto">
+                  See why Praetorian's revolutionary ceramic technology delivers superior performance across all key metrics compared to traditional protective coatings.
+                </p>
+              </div>
+            </div>
+            
+            {/* Subtle bottom reflection */}
+            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2/3 h-[2px] bg-gradient-to-r from-transparent via-orange-500/10 to-transparent rounded-full blur-sm"></div>
           </div>
         </div>
 
@@ -166,63 +192,116 @@ const ProductComparison = () => {
             <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2/3 h-[2px] bg-gradient-to-r from-transparent via-orange-500/10 to-transparent rounded-full blur-sm"></div>
           </div>
 
-          {/* Comparison rows */}
-          <div className="space-y-4">
+          {/* Comparison rows - Premium Enterprise Styling */}
+          <div className="space-y-6">
             {comparisons.map((item, index) => (
-              <Card 
-                key={index} 
-                className={`bg-black/90 backdrop-blur-sm shadow-xl border-0 transform transition-all duration-300 hover:scale-105 hover:z-10 hover:shadow-[0_0_20px_rgba(255,69,0,0.3)]`}
-                style={{
-                  backgroundImage: 'linear-gradient(to right, rgba(0,0,0,0.9), rgba(20,20,20,0.9), rgba(0,0,0,0.9))',
-                  boxShadow: '0 4px 15px rgba(0,0,0,0.2), inset 0 0 1px rgba(255,69,0,0.3)',
-                  borderRadius: '8px',
-                  overflow: 'hidden',
-                  position: 'relative'
-                }}
-              >
-                <div className="absolute inset-0" style={{
-                  content: '""',
-                  position: 'absolute',
-                  borderRadius: '8px',
-                  padding: '1px',
-                  background: 'linear-gradient(90deg, rgba(255,69,0,0.5) 0%, rgba(255,140,0,0.3) 50%, rgba(255,69,0,0.5) 100%)',
-                  WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-                  mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-                  WebkitMaskComposite: 'xor',
-                  maskComposite: 'exclude',
-                  pointerEvents: 'none'
-                }}></div>
-                <CardContent className="p-5 z-10 relative">
-                  <div className="grid grid-cols-12 gap-4 items-center">
-                    <div className="col-span-12 md:col-span-4 font-medium text-gray-200 text-base">
-                      {item.feature}
+              <div key={index} className="group relative transform transition-all duration-500 hover:scale-105 hover:z-10">
+                {/* Premium Card Container */}
+                <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-gray-900/95 backdrop-blur-xl rounded-xl py-5 px-6 shadow-[0_10px_50px_rgba(0,0,0,0.5)] z-10">
+                  {/* Premium gradient border effect - Fire variant with index-based opacity variation */}
+                  <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/50 via-transparent to-red-500/50 opacity-70"></div>
+                  
+                  {/* Inner highlight */}
+                  <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
+                  
+                  {/* Subtle ambient glow that activates on hover */}
+                  <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-30 transition-opacity duration-700 ease-in-out" 
+                      style={{ background: "radial-gradient(circle at center, rgba(251,113,36,0.3) 0%, transparent 70%)" }}>
+                  </div>
+                  
+                  {/* Content with z-index to appear above effects */}
+                  <div className="grid grid-cols-12 gap-4 items-center relative z-10">
+                    {/* Feature name */}
+                    <div className="col-span-12 md:col-span-4 font-medium text-base relative">
+                      <span className="text-white group-hover:text-amber-200 transition-colors duration-300">
+                        {item.feature}
+                      </span>
+                      {/* Subtle underline that appears on hover */}
+                      <div className="absolute -bottom-1 left-0 w-0 h-px bg-gradient-to-r from-orange-500 to-red-500 group-hover:w-1/2 transition-all duration-700 opacity-60"></div>
                     </div>
                     
+                    {/* Praetorian data */}
                     <div className="col-span-6 md:col-span-4">
                       <div className="flex flex-col items-center">
-                        <div className="mb-2">{renderStatus(item.praetorian)}</div>
-                        <p className="text-sm text-center text-amber-400/90 font-medium">{item.praetorianDetails}</p>
+                        {/* Enhanced icon display */}
+                        <div className="relative mb-3 transform group-hover:scale-110 transition-transform duration-500">
+                          {/* Icon glow effect */}
+                          <div className="absolute inset-0 rounded-full bg-gradient-to-r from-green-500/30 to-green-600/30 blur-[8px] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                          
+                          {/* Status icon */}
+                          <div className="relative z-10">
+                            {renderStatus(item.praetorian)}
+                          </div>
+                        </div>
+                        
+                        {/* Data with gradient text on hover */}
+                        <p className="text-sm text-center text-amber-400/90 font-medium group-hover:bg-gradient-to-r group-hover:from-amber-300 group-hover:to-orange-400 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
+                          {item.praetorianDetails}
+                        </p>
                       </div>
                     </div>
                     
+                    {/* Competitors data */}
                     <div className="col-span-6 md:col-span-4">
                       <div className="flex flex-col items-center">
-                        <div className="mb-2">{renderStatus(item.competitors)}</div>
-                        <p className="text-sm text-center text-gray-400">{item.competitorDetails}</p>
+                        {/* Enhanced icon display */}
+                        <div className="relative mb-3 transform group-hover:scale-110 transition-transform duration-500">
+                          {/* Icon glow effect - different colors based on status */}
+                          <div className={`absolute inset-0 rounded-full blur-[8px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${
+                            item.competitors === false ? "bg-red-500/30" : 
+                            item.competitors === true ? "bg-green-500/30" : 
+                            "bg-amber-500/30"
+                          }`}></div>
+                          
+                          {/* Status icon */}
+                          <div className="relative z-10">
+                            {renderStatus(item.competitors)}
+                          </div>
+                        </div>
+                        
+                        {/* Competitor data text */}
+                        <p className="text-sm text-center text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
+                          {item.competitorDetails}
+                        </p>
                       </div>
                     </div>
                   </div>
-                </CardContent>
-              </Card>
+                </div>
+                
+                {/* Subtle bottom reflection */}
+                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2/3 h-[2px] bg-gradient-to-r from-transparent via-orange-500/10 to-transparent rounded-full blur-sm"></div>
+              </div>
             ))}
           </div>
         </motion.div>
 
         <div className="mt-10 text-center">
-          <p className="text-sm text-gray-300 backdrop-blur-sm bg-black/50 p-4 rounded-lg inline-block premium-gradient-border shadow-[0_0_15px_rgba(255,69,0,0.3)]">
-            Data based on independent laboratory testing comparing Praetorian SmartCoat to leading industry competitors.
-            Product performance may vary based on application methods and environmental conditions.
-          </p>
+          {/* Premium Enterprise Bottom Note */}
+          <div className="relative inline-block">
+            {/* Premium Note Container */}
+            <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-gray-900/95 backdrop-blur-xl rounded-xl py-4 px-6 shadow-[0_10px_50px_rgba(0,0,0,0.5)] z-10">
+              {/* Premium gradient border effect - Subtle variant */}
+              <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/30 via-transparent to-red-500/30 opacity-60"></div>
+              
+              {/* Inner highlight */}
+              <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
+              
+              {/* Content */}
+              <div className="relative z-10 flex items-center">
+                <div className="hidden md:block mr-3 relative">
+                  <div className="absolute inset-0 rounded-full bg-orange-500/20 blur-[10px] opacity-50"></div>
+                  <Shield className="h-5 w-5 text-orange-400 relative z-10" />
+                </div>
+                <p className="text-sm text-gray-300">
+                  Data based on independent laboratory testing comparing Praetorian SmartCoat to leading industry competitors.
+                  Product performance may vary based on application methods and environmental conditions.
+                </p>
+              </div>
+            </div>
+            
+            {/* Subtle bottom reflection */}
+            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2/3 h-[2px] bg-gradient-to-r from-transparent via-orange-500/10 to-transparent rounded-full blur-sm"></div>
+          </div>
         </div>
       </div>
     </section>
