@@ -725,6 +725,64 @@ section + section {
     filter: drop-shadow(0px 3px 4px rgba(0,0,0,0.95));
   }
   
+  /* Industry Solutions Badge */
+  .industry-solutions-badge {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, 
+      rgba(251, 191, 36, 0.9) 0%,
+      rgba(245, 158, 11, 0.9) 40%, 
+      rgba(217, 119, 6, 0.9) 60%, 
+      rgba(180, 83, 9, 0.9) 100%
+    );
+    border: 1px solid rgba(255, 215, 0, 0.5);
+    box-shadow: 
+      0 4px 12px -2px rgba(245, 158, 11, 0.3),
+      0 2px 6px -1px rgba(0, 0, 0, 0.2),
+      inset 0 1px 1px rgba(255, 255, 255, 0.4),
+      inset 0 -1px 1px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(4px);
+  }
+  
+  .industry-solutions-badge::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.3) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(30deg);
+    animation: shine-effect 3s infinite;
+    z-index: 1;
+    pointer-events: none;
+  }
+  
+  @keyframes shine-effect {
+    0% {
+      transform: translateX(-100%) rotate(30deg);
+    }
+    100% {
+      transform: translateX(100%) rotate(30deg);
+    }
+  }
+  
+  .industry-solutions-badge:hover {
+    box-shadow: 
+      0 6px 16px -2px rgba(245, 158, 11, 0.4),
+      0 3px 8px -1px rgba(0, 0, 0, 0.25),
+      inset 0 1px 2px rgba(255, 255, 255, 0.5),
+      inset 0 -1px 1px rgba(0, 0, 0, 0.2);
+    transform: translateY(-1px);
+    filter: brightness(1.1);
+  }
+  
   /* Premium Metallic Fire-Water Button */
   .gradient-button {
     position: relative;

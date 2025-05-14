@@ -263,8 +263,8 @@ const IndustryApplications = () => {
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-10">
-          <div className="inline-block bg-gradient-to-r from-amber-600/80 to-amber-500/80 dark:from-amber-700/80 dark:to-amber-600/80 px-4 py-1.5 border border-amber-400 dark:border-amber-500 rounded-md shadow-[0_2px_10px_rgba(251,191,36,0.2)] backdrop-blur-sm">
-            <span className="font-semibold text-white tracking-wide text-sm uppercase">Industry Solutions</span>
+          <div className="inline-block industry-solutions-badge px-5 py-2 rounded-md relative z-10">
+            <span className="font-semibold text-white tracking-wide text-sm uppercase relative z-10 drop-shadow-[0_1px_1px_rgba(0,0,0,0.5)]">Industry Solutions</span>
           </div>
           <h2 className="text-4xl font-bold mb-4 mt-4 tracking-tight">
             <GradientText variant="fire" className="drop-shadow-[0_2px_4px_rgba(251,191,36,0.3)] [text-shadow:0_4px_8px_rgba(0,0,0,0.5)]">
