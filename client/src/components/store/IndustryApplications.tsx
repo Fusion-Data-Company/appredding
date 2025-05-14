@@ -735,19 +735,30 @@ const IndustryApplications = () => {
                                 } shadow-[0_10px_40px_rgba(0,0,0,0.4)] transform transition-all duration-700 group-hover/image:scale-[1.03]`}>
                                 {/* Image */}
                                 <img
-                                  src={app.caseStudy.image || praetorianLogoFire}
+                                  src={app.caseStudy.image || ''}
                                   alt={`${app.title} Application`}
-                                  className={`w-full h-64 ${!app.caseStudy.image ? 'object-contain bg-black' : 'object-cover'} transition-all duration-700 group-hover/image:saturate-[1.1]`}
+                                  className={`w-full h-64 ${!app.caseStudy.image ? 'opacity-0' : 'object-cover'} transition-all duration-700 group-hover/image:saturate-[1.1]`}
+                                  style={{display: app.caseStudy.image ? 'block' : 'none'}}
                                 />
                                 
-                                {/* Gradient overlay */}
+                                {/* Gradient overlay with Praetorian logo */}
                                 <div className={`absolute inset-0 ${
-                                  app.id === "marinas" || app.id === "pools"
-                                    ? "bg-gradient-to-t from-blue-900/50 to-transparent" 
-                                    : app.id === "fire-prevention"
-                                      ? "bg-gradient-to-t from-red-900/50 to-transparent"
-                                      : "bg-gradient-to-t from-amber-900/50 to-transparent"
-                                } opacity-60 transition-opacity duration-700 group-hover/image:opacity-70`}></div>
+                                  !app.caseStudy.image 
+                                    ? "bg-black"
+                                    : app.id === "marinas" || app.id === "pools"
+                                      ? "bg-gradient-to-t from-blue-900/50 to-transparent" 
+                                      : app.id === "fire-prevention"
+                                        ? "bg-gradient-to-t from-red-900/50 to-transparent"
+                                        : "bg-gradient-to-t from-amber-900/50 to-transparent"
+                                } ${!app.caseStudy.image ? 'opacity-90' : 'opacity-60'} transition-opacity duration-700 group-hover/image:opacity-80 flex items-center justify-center`}>
+                                  {!app.caseStudy.image && (
+                                    <img 
+                                      src={praetorianLogoFire} 
+                                      alt="Praetorian SmartCoat" 
+                                      className="w-full h-auto max-h-56 object-contain z-10 opacity-90"
+                                    />
+                                  )}
+                                </div>
                               </div>
                               
                               {/* Caption */}
