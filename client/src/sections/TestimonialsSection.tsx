@@ -30,7 +30,7 @@ const TestimonialsSection = () => {
         
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 gap-10">
-            <div className="bg-gradient-to-r from-gray-800/90 to-gray-700/90 backdrop-blur-xl rounded-lg p-10 md:p-12 lg:p-14 border-4 border-gray-600/40 shadow-[0_0_40px_rgba(255,255,255,0.25)]">
+            <div className="bg-gray-800/60 backdrop-blur-xl rounded-lg p-10 md:p-12 lg:p-14 border-0 premium-gradient-border-bright shadow-[0_0_40px_rgba(255,255,255,0.25)]">
               <div className="flex items-center mb-6">
                 <div className="text-amber-400 text-2xl flex space-x-2">
                   <i className="fas fa-star"></i>
