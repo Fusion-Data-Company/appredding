@@ -84,7 +84,7 @@ export default function Products() {
           <div className="container mx-auto px-4 relative z-10">
             <div className="flex flex-col md:flex-row md:items-center gap-12">
               <div className="flex-1">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100/70 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300 text-sm font-medium mb-4 border border-amber-200 dark:border-amber-800/50 shadow-sm">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-amber-100/80 to-amber-50/80 dark:from-amber-900/40 dark:to-amber-800/30 text-amber-800 dark:text-amber-300 text-sm font-medium mb-4 border-2 border-amber-200/80 dark:border-amber-700/50 shadow-[0_2px_10px_rgba(251,191,36,0.2)] dark:shadow-[0_2px_10px_rgba(0,0,0,0.3)]">
                   <ShieldCheck size={14} className="text-amber-600 dark:text-amber-500" />
                   <span>NASA-derived ceramic technology</span>
                 </div>
