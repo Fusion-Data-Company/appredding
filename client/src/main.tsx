@@ -38,13 +38,19 @@ if (typeof window !== 'undefined') {
   });
 }
 
+// Force dark theme for consistent styling
+if (typeof window !== 'undefined') {
+  // Add dark class to html element
+  document.documentElement.classList.add('dark');
+}
+
 createRoot(document.getElementById("root")!).render(
   <ThemeProvider 
     attribute="class" 
     defaultTheme="dark" 
     enableSystem={false}
     disableTransitionOnChange 
-    storageKey="theme"
+    forcedTheme="dark" // Force dark theme, no switching allowed
   >
     <App />
   </ThemeProvider>
