@@ -75,7 +75,7 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
           <div className="lg:col-span-2">
             {activeVideo ? (
-              <div className="dark:bg-gradient-to-r dark:from-gray-800/90 dark:to-gray-700/90 bg-gray-100/90 rounded-xl overflow-hidden dark:border dark:border-gray-600/40 border border-gray-300 dark:shadow-[0_0_20px_rgba(255,255,255,0.25)] shadow-[0_0_20px_rgba(0,0,0,0.25)]">
+              <div className="dark:bg-gradient-to-r dark:from-gray-800/90 dark:to-gray-700/90 bg-gray-100/90 rounded-xl overflow-hidden border-0 premium-gradient-border dark:shadow-[0_0_20px_rgba(255,255,255,0.25)] shadow-[0_0_20px_rgba(0,0,0,0.25)]">
                 <div className="relative pb-[56.25%] h-0 overflow-hidden">
                   {activeVideo.id === "localVideo" ? (
                     <div className="absolute top-0 left-0 w-full h-full bg-black flex items-center justify-center">
@@ -116,7 +116,7 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
                 </div>
               </div>
             ) : (
-              <div className="dark:bg-gradient-to-r dark:from-gray-800/90 dark:to-gray-700/90 bg-gray-100/90 rounded-xl dark:border dark:border-gray-600/40 border border-gray-300 dark:shadow-[0_0_20px_rgba(255,255,255,0.25)] shadow-[0_0_20px_rgba(0,0,0,0.25)] p-8 flex items-center justify-center h-full">
+              <div className="dark:bg-gradient-to-r dark:from-gray-800/90 dark:to-gray-700/90 bg-gray-100/90 rounded-xl border-0 premium-gradient-border dark:shadow-[0_0_20px_rgba(255,255,255,0.25)] shadow-[0_0_20px_rgba(0,0,0,0.25)] p-8 flex items-center justify-center h-full">
                 <div className="text-center">
                   <div className="inline-flex items-center justify-center w-16 h-16 rounded-full dark:bg-primary-800 bg-gray-200 mb-4">
                     <Play className="h-8 w-8 dark:text-primary-500 text-primary-600" />
@@ -131,7 +131,7 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
           </div>
 
           <div>
-            <div className="dark:bg-gradient-to-r dark:from-gray-800/90 dark:to-gray-700/90 bg-gray-100/90 rounded-xl dark:border dark:border-gray-600/40 border border-gray-300 dark:shadow-[0_0_20px_rgba(255,255,255,0.25)] shadow-[0_0_20px_rgba(0,0,0,0.25)] p-6">
+            <div className="dark:bg-gradient-to-r dark:from-gray-800/90 dark:to-gray-700/90 bg-gray-100/90 rounded-xl border-0 premium-gradient-border dark:shadow-[0_0_20px_rgba(255,255,255,0.25)] shadow-[0_0_20px_rgba(0,0,0,0.25)] p-6">
               <GradientHeading level={3} className="text-xl mb-4 pb-3 dark:border-b dark:border-gray-600/40 border-b border-gray-300" variant="mixed">
                 Video Library
               </GradientHeading>
@@ -193,7 +193,7 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
                     </div>
                   ))
                 ) : (
-                  <div className="text-center py-6 dark:bg-gray-800/60 bg-gray-100/90 rounded-lg border dark:border-gray-600/40 border-gray-300 shadow-[0_0_15px_rgba(0,0,0,0.15)]">
+                  <div className="text-center py-6 dark:bg-gray-800/60 bg-gray-100/90 rounded-lg border-0 premium-gradient-border shadow-[0_0_15px_rgba(0,0,0,0.15)]">
                     <Info className="h-8 w-8 dark:text-gray-500 text-gray-500 mx-auto mb-2" />
                     <p className="dark:text-gray-400 text-gray-600">No videos in this category</p>
                   </div>
@@ -207,7 +207,7 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
               </div>
             </div>
 
-            <div className="dark:bg-gradient-to-r dark:from-gray-800/90 dark:to-gray-700/90 bg-gray-100/90 rounded-xl dark:border dark:border-gray-600/40 border border-gray-300 dark:shadow-[0_0_20px_rgba(255,255,255,0.25)] shadow-[0_0_20px_rgba(0,0,0,0.25)] p-6 mt-6">
+            <div className="dark:bg-gradient-to-r dark:from-gray-800/90 dark:to-gray-700/90 bg-gray-100/90 rounded-xl border-0 premium-gradient-border dark:shadow-[0_0_20px_rgba(255,255,255,0.25)] shadow-[0_0_20px_rgba(0,0,0,0.25)] p-6 mt-6">
               <div className="flex items-start">
                 <div className="mr-4">
                   <Star className="h-8 w-8 text-yellow-500" />
