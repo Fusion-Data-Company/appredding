@@ -47,17 +47,17 @@ const FAQSection = ({ faqs }: FAQProps) => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          {faqs.map((category, idx) => (
-            <div key={idx} className="bg-gradient-to-r from-gray-800/90 to-gray-700/90 backdrop-blur-md rounded-xl p-6 border-0 premium-gradient-border shadow-[0_0_40px_rgba(255,255,255,0.25)]">
-              <GradientHeading level={3} className="text-xl mb-6 pb-4 border-b border-gray-600/40" variant={idx % 3 === 0 ? "fire" : idx % 3 === 1 ? "blue" : "mixed"}>
+          {faqs && faqs.length > 0 ? faqs.map((category, categoryIdx) => (
+            <div key={categoryIdx} className="bg-gradient-to-r from-gray-800/90 to-gray-700/90 backdrop-blur-md rounded-xl p-6 border-0 premium-gradient-border shadow-[0_0_40px_rgba(255,255,255,0.25)]">
+              <GradientHeading level={3} className="text-xl mb-6 pb-4 border-b border-gray-600/40" variant={categoryIdx % 3 === 0 ? "fire" : categoryIdx % 3 === 1 ? "blue" : "mixed"}>
                 {category.category}
               </GradientHeading>
               <Accordion type="single" collapsible className="space-y-4">
-                {category.questions.map((faq, idx) => (
-                  <AccordionItem key={idx} value={`item-${idx}`} className="border-none">
+                {category.questions && category.questions.map((faq, faqIdx) => (
+                  <AccordionItem key={`faq-${categoryIdx}-${faqIdx}`} value={`item-${categoryIdx}-${faqIdx}`} className="border-none">
                     <div className="relative">
-                      <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500 via-amber-400 to-orange-500 rounded-lg blur-md opacity-25 dark:opacity-40 z-0"></div>
-                      <AccordionTrigger className="bg-gray-800/70 backdrop-blur-sm rounded-lg px-5 py-3 text-left hover:no-underline hover:bg-gray-700/80 transition-colors font-medium text-base relative z-10 border border-amber-500/30">
+                      <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500 via-amber-400 to-orange-500 rounded-lg blur-sm opacity-60 z-0"></div>
+                      <AccordionTrigger className="bg-gray-800/90 backdrop-blur-md rounded-lg px-5 py-3 text-left hover:no-underline hover:bg-gray-700/90 transition-colors font-medium text-base relative z-10 border border-amber-500/50">
                         {faq.question}
                       </AccordionTrigger>
                     </div>
@@ -68,14 +68,18 @@ const FAQSection = ({ faqs }: FAQProps) => {
                 ))}
               </Accordion>
             </div>
-          ))}
+          )) : (
+            <div className="col-span-3 text-center">
+              <p className="text-lg text-gray-400">Loading FAQ content...</p>
+            </div>
+          )}
         </div>
 
         <div className="text-center mt-12">
           <p className="mb-5 text-gray-300">Still have questions? We're here to help.</p>
-          <GradientButton href="#contact" className="inline-flex items-center gap-2" size="lg">
-            <i className="fas fa-envelope"></i> Contact Support
-          </GradientButton>
+          <a href="#contact" className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500 to-orange-600 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 shadow-lg shadow-orange-900/30 hover:shadow-xl hover:shadow-orange-900/40 hover:translate-y-[-2px]">
+            Contact Support
+          </a>
         </div>
       </div>
     </section>
