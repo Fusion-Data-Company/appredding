@@ -94,7 +94,10 @@ const ApplicationCard = ({ imageSrc, title, description, link }: ApplicationCard
       <div className="absolute bottom-0 left-0 p-6 w-full">
         <h3 className="text-3xl font-semibold mb-3 text-white">{title}</h3>
         <p className="text-gray-200 text-lg mb-6">{description}</p>
-        <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
+        <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity relative">
+          {/* Orange line positioned half an inch below the button text, centered and only as wide as the button */}
+          <div className="absolute top-[calc(100%+0.5in)] left-1/2 transform -translate-x-1/2 w-[80%] h-[2px] bg-gradient-to-r from-transparent via-orange-500/70 to-transparent z-20"></div>
+          
           <Link href={link}>
             <PremiumArrowButton 
               size="lg"
@@ -282,15 +285,7 @@ const ApplicationsSection = () => {
                 <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/40 to-orange-500/40 rounded-tl-xl blur-[2px]"></div>
               </div>
               
-              {/* Animated horizontal lines - top - made z-20 to appear in front - MOVED DOWN HALF INCH */}
-              <div className="absolute top-[calc(30%+0.5in)] left-0 w-full h-[1px] overflow-hidden z-20">
-                <div className="w-full h-full bg-gradient-to-r from-transparent via-orange-500/70 to-transparent -translate-x-full animate-shimmer-slow"></div>
-              </div>
-              
-              {/* Animated horizontal lines - bottom - made z-20 to appear in front */}
-              <div className="absolute bottom-[30%] left-0 w-full h-[1px] overflow-hidden z-20">
-                <div className="w-full h-full bg-gradient-to-r from-transparent via-orange-500/70 to-transparent -translate-x-full animate-shimmer-slow-delayed"></div>
-              </div>
+              {/* Removed full-width orange lines */}
               
               {/* Subtle animated overlay */}
               <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent opacity-30 rounded-xl"></div>
