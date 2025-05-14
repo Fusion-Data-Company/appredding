@@ -17,11 +17,20 @@ interface MainLayoutProps {
  */
 export default function MainLayout({ children, className, fullWidth = false }: MainLayoutProps) {
   return (
-    <div className="min-h-screen flex flex-col bg-white dark:bg-gray-900">
+    <div className="min-h-screen flex flex-col bg-white dark:bg-gray-900 relative">
+      {/* Main background with consistent dark overlay */}
+      <div 
+        className="fixed inset-0 z-0 bg-black/60" 
+        style={{ 
+          pointerEvents: 'none',
+          background: 'linear-gradient(to bottom, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.65) 50%, rgba(0,0,0,0.75) 100%)'
+        }}
+      />
+
       <ProfessionalHeader />
       
       <main className={cn(
-        "flex-1 pt-24", // Reverted to the original value
+        "flex-1 pt-24 relative z-10", // Added z-index to ensure content is above overlay
         className
       )}>
         {fullWidth ? (
