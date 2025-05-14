@@ -120,17 +120,44 @@ const TechnicalSpecsTable = () => {
               
               {/* Content */}
               <div className="relative z-10 text-center">
-                {/* Elite enterprise styled heading */}
-                <div className="relative mb-4">
-                  {/* Top horizontal accent line with enhanced glow */}
-                  <span className="absolute -top-6 left-1/2 transform -translate-x-1/2 w-1/2 h-1 bg-gradient-to-r from-transparent via-orange-400/50 to-transparent rounded-full blur-sm"></span>
-                  
-                  <GradientHeading level={2} className="text-3xl md:text-4xl shimmer-fire-text" variant="fire">
+                {/* Premium card header styling matching Specialized Applications */}
+                <div className="relative h-20 flex items-center justify-center">
+                  {/* Background blur text */}
+                  <div className="absolute inset-0 flex justify-center items-center text-5xl font-bold tracking-tight text-orange-900/10 blur-[5px] scale-110">
                     Performance Specifications
-                  </GradientHeading>
+                  </div>
                   
-                  {/* Bottom horizontal accent line with enhanced glow */}
-                  <span className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 w-1/2 h-1 bg-gradient-to-r from-transparent via-red-400/50 to-transparent rounded-full blur-sm"></span>
+                  {/* Main text with premium gradient */}
+                  <span className="relative text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-amber-500 to-red-500
+                    drop-shadow-[0_0px_1px_rgba(251,113,36,0.2)] 
+                    [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(251,146,60,0.3)]
+                    transform -translate-y-[0.25in] text-3xl md:text-4xl font-bold">
+                    Performance Specifications
+                  </span>
+                  
+                  {/* Top glossy reflection */}
+                  <div className="absolute top-0 left-0 right-0 h-[40%] bg-gradient-to-b from-white/10 to-transparent rounded-t-lg"></div>
+                  
+                  {/* Multiple text shadows for depth - reduced blur effects */}
+                  <div className="absolute inset-0 flex items-center justify-center text-5xl font-bold tracking-tight opacity-10 blur-[3px] text-orange-700/30 -z-10 transform scale-105">
+                    Performance Specifications
+                  </div>
+                  <div className="absolute inset-0 flex items-center justify-center text-5xl font-bold tracking-tight opacity-20 blur-[1px] text-red-900/20 -z-10">
+                    Performance Specifications
+                  </div>
+                  
+                  {/* Decorative accent line */}
+                  <div className="absolute left-[8%] bottom-[-0.5in] transform group w-14 h-2.5 rounded-full overflow-hidden z-50 transition-all duration-700 hover:w-72">
+                    {/* Base gradient */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-amber-500 to-red-600"></div>
+                    
+                    {/* Glow effect */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-amber-500 to-red-600 blur-md opacity-70"></div>
+                    
+                    {/* Pulsing dots */}
+                    <div className="absolute h-full w-4 bg-white/80 right-4 rounded-full blur-[1px] animate-pulse-slow"></div>
+                    <div className="absolute h-full w-3 bg-white/80 right-24 rounded-full blur-[1px] animate-pulse-slow-delayed opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
+                  </div>
                 </div>
                 
                 <p className="text-gray-300 max-w-2xl mx-auto mt-8">

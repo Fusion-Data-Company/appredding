@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import MainLayout from "@/components/layout/MainLayout";
 import { GradientButton } from "@/components/ui/gradient-button";
+import { PremiumButton } from "@/components/ui/premium-button";
 import { GradientHeading } from "@/components/ui/gradient-heading";
 import { 
   Building, 
@@ -549,7 +550,46 @@ const MunicipalityPage = () => {
         <section className="py-16 md:py-24 relative z-10">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto text-center mb-16 backdrop-blur-sm bg-primary-900/80 p-8 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)]">
-              <GradientHeading level={1} className="text-4xl md:text-5xl mb-6 glow-text" variant="mixed">NASA Ceramic Technology for Municipalities</GradientHeading>
+              {/* Premium card header styling matching Specialized Applications */}
+              <div className="relative h-28 flex items-center justify-center mb-6">
+                {/* Background blur text */}
+                <div className="absolute inset-0 flex justify-center items-center text-5xl font-bold tracking-tight text-orange-900/10 blur-[5px] scale-110">
+                  NASA Ceramic Technology for Municipalities
+                </div>
+                
+                {/* Main text with premium gradient */}
+                <span className="relative text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-amber-500 to-red-500
+                  drop-shadow-[0_0px_1px_rgba(251,113,36,0.2)] 
+                  [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(251,146,60,0.3)]
+                  transform -translate-y-[0.25in] text-4xl md:text-5xl font-bold">
+                  NASA Ceramic Technology for Municipalities
+                </span>
+                
+                {/* Top glossy reflection */}
+                <div className="absolute top-0 left-0 right-0 h-[40%] bg-gradient-to-b from-white/10 to-transparent rounded-t-lg"></div>
+                
+                {/* Multiple text shadows for depth - reduced blur effects */}
+                <div className="absolute inset-0 flex items-center justify-center text-5xl font-bold tracking-tight opacity-10 blur-[3px] text-orange-700/30 -z-10 transform scale-105">
+                  NASA Ceramic Technology for Municipalities
+                </div>
+                <div className="absolute inset-0 flex items-center justify-center text-5xl font-bold tracking-tight opacity-20 blur-[1px] text-red-900/20 -z-10">
+                  NASA Ceramic Technology for Municipalities
+                </div>
+                
+                {/* Decorative accent line */}
+                <div className="absolute left-[8%] bottom-[-0.5in] transform group w-14 h-2.5 rounded-full overflow-hidden z-50 transition-all duration-700 hover:w-72">
+                  {/* Base gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-amber-500 to-red-600"></div>
+                  
+                  {/* Glow effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-amber-500 to-red-600 blur-md opacity-70"></div>
+                  
+                  {/* Pulsing dots */}
+                  <div className="absolute h-full w-4 bg-white/80 right-4 rounded-full blur-[1px] animate-pulse-slow"></div>
+                  <div className="absolute h-full w-3 bg-white/80 right-24 rounded-full blur-[1px] animate-pulse-slow-delayed opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
+                </div>
+              </div>
+              
               <p className="text-xl text-white mb-8">
                 Class A fire-rated coatings with NASA-derived ceramic microsphere technology provide superior protection for municipal infrastructure with perfect 0/100 flame spread ratings and independently verified 30+ year lifespan.
               </p>
@@ -1144,7 +1184,7 @@ const MunicipalityPage = () => {
                       <textarea placeholder="Project Details" rows={4} className="w-full p-3 rounded-md bg-gray-800/90 border-2 border-white/70 text-white focus:outline-none focus:ring-2 focus:ring-orange-500/50 shadow-[0_0_15px_rgba(255,255,255,0.3)]"></textarea>
                     </div>
                     <div>
-                      <GradientButton variant="default" className="w-full py-3">Submit Request</GradientButton>
+                      <PremiumButton variant="fire" className="w-full py-3">Submit Request</PremiumButton>
                     </div>
                   </form>
                 </div>
