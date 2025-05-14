@@ -708,7 +708,7 @@ const slides: Slide[] = [
             <p className="text-gray-300 text-sm text-center">Protect your property from wildfires with advanced thermal barriers</p>
           </div>
           
-          <div className="bg-gradient-to-br from-blue-950/40 to-indigo-950/40 p-4 rounded-lg border border-blue-700/30 flex flex-col items-center">
+          <div className="bg-gradient-to-br from-blue-950/40 to-amber-950/40 p-4 rounded-lg border border-orange-700/30 flex flex-col items-center">
             <Ship className="w-8 h-8 text-blue-500 mb-2" />
             <h4 className="text-blue-400 font-bold mb-1">Marinas</h4>
             <p className="text-gray-300 text-sm text-center">Superior protection against salt water, UV damage, and marine conditions</p>

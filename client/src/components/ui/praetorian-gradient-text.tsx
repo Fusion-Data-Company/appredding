@@ -12,7 +12,7 @@ const gradientTextVariants = cva(
         dual: "bg-gradient-to-r from-fire-500 via-white to-water-500",
         metal: "bg-gradient-to-r from-gray-300 via-gray-100 to-gray-400",
         amber: "bg-gradient-to-r from-amber-400 via-orange-500 to-amber-600",
-        rainbow: "bg-gradient-to-r from-red-500 via-yellow-500 via-green-500 via-blue-500 to-purple-500",
+        rainbow: "bg-gradient-to-r from-red-500 via-yellow-500 via-green-500 via-blue-500 to-orange-500",
       },
       size: {
         xs: "text-xs",

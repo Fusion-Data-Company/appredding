@@ -105,7 +105,7 @@ const About = () => {
                 </div>
                 
                 <div className="mb-10 relative">
-                  <div className="absolute -left-11 w-6 h-6 rounded-full bg-gradient-to-r from-blue-400 to-purple-500 border-4 border-gray-100 dark:border-gray-900"></div>
+                  <div className="absolute -left-11 w-6 h-6 rounded-full bg-gradient-to-r from-blue-400 to-amber-500 border-4 border-gray-100 dark:border-gray-900"></div>
                   <h3 className="gradient-text-blue text-xl font-bold mb-2 font-heading">2015: Expansion</h3>
                   <p className="dark:text-gray-300 text-gray-700">
                     With growing demand for our innovative solutions, we expanded our operations across North America.
