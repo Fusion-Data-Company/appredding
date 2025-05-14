@@ -73,7 +73,8 @@ const NavItem = ({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="absolute left-1/2 z-50 mt-1 w-screen max-w-max -translate-x-1/2 transform px-4"
+            className="fixed left-1/2 top-24 z-[9999] w-[600px] -translate-x-1/2 transform px-4"
+            style={{ maxWidth: "95vw" }}
           >
             <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black/5">
               <div className="relative bg-gray-900 backdrop-blur-xl border border-gray-800">
@@ -93,7 +94,7 @@ const ImageCard = ({ title, description, imageSrc, href }) => (
     href={href}
     className="flex flex-col group rounded-md overflow-hidden transition-all duration-300 transform hover:scale-105"
   >
-    <div className="relative h-28 w-full overflow-hidden">
+    <div className="relative h-20 w-full overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-orange-500/30 to-blue-600/30 group-hover:opacity-70 transition-opacity duration-300 z-10" />
       <img 
         src={imageSrc} 
@@ -101,9 +102,9 @@ const ImageCard = ({ title, description, imageSrc, href }) => (
         className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
       />
     </div>
-    <div className="p-3 bg-gray-800/90">
-      <h4 className="font-bold text-white text-sm mb-1 group-hover:text-amber-400 transition-colors">{title}</h4>
-      <p className="text-gray-300 text-xs leading-tight">{description}</p>
+    <div className="p-2 bg-gray-800/90">
+      <h4 className="font-bold text-white text-xs mb-0.5 group-hover:text-amber-400 transition-colors">{title}</h4>
+      <p className="text-gray-300 text-[10px] leading-tight">{description}</p>
     </div>
   </Link>
 );
@@ -132,185 +133,167 @@ export function PremiumNavbar() {
   
   // Solutions mega menu content
   const solutionsContent = (
-    <div className="grid grid-cols-3 gap-6 p-6">
-      <div className="col-span-3 border-b border-gray-700 pb-4 mb-2">
-        <h3 className="text-lg font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-orange-600">
+    <div className="p-4">
+      <div className="border-b border-gray-700 pb-2 mb-3">
+        <h3 className="text-base font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-orange-600">
           Protection Across Every Industry
         </h3>
       </div>
       
-      <ImageCard
-        title="Fire Prevention"
-        description="Industry-leading fire retardant coatings"
-        imageSrc={solutionImages.firePrevention}
-        href="/fire-prevention"
-      />
+      <div className="grid grid-cols-3 gap-3">
+        <ImageCard
+          title="Fire Prevention"
+          description="Industry-leading fire retardant coatings"
+          imageSrc={solutionImages.firePrevention}
+          href="/fire-prevention"
+        />
+        
+        <ImageCard
+          title="Marinas"
+          description="Advanced coating solutions for marine environments"
+          imageSrc={solutionImages.marinas}
+          href="/marinas"
+        />
+        
+        <ImageCard
+          title="Pools"
+          description="Premium pool coating and protection systems"
+          imageSrc={solutionImages.pools}
+          href="/pools"
+        />
+      </div>
       
-      <ImageCard
-        title="Marinas"
-        description="Advanced coating solutions for marine environments"
-        imageSrc={solutionImages.marinas}
-        href="/marinas"
-      />
-      
-      <ImageCard
-        title="Pools"
-        description="Premium pool coating and protection systems"
-        imageSrc={solutionImages.pools}
-        href="/pools"
-      />
-      
-      <ImageCard
-        title="Construction"
-        description="Durable solutions for construction applications"
-        imageSrc={solutionImages.construction}
-        href="/construction"
-      />
-      
-      <ImageCard
-        title="Mobile Home & R.V."
-        description="Specialized coatings for mobile structures"
-        imageSrc={solutionImages.mobileHome}
-        href="/mobile-home"
-      />
-      
-      <ImageCard
-        title="Municipality"
-        description="Infrastructure protection for public services"
-        imageSrc={solutionImages.municipality}
-        href="/municipality"
-      />
+      <div className="grid grid-cols-3 gap-3 mt-3">
+        <ImageCard
+          title="Construction"
+          description="Durable solutions for construction applications"
+          imageSrc={solutionImages.construction}
+          href="/construction"
+        />
+        
+        <ImageCard
+          title="Mobile Home & R.V."
+          description="Specialized coatings for mobile structures"
+          imageSrc={solutionImages.mobileHome}
+          href="/mobile-home"
+        />
+        
+        <ImageCard
+          title="Municipality"
+          description="Infrastructure protection for public services"
+          imageSrc={solutionImages.municipality}
+          href="/municipality"
+        />
+      </div>
     </div>
   );
   
   // Professionals mega menu content
   const professionalsContent = (
-    <div className="grid grid-cols-2 p-6">
-      <div className="col-span-2 border-b border-gray-700 pb-4 mb-4">
-        <h3 className="text-lg font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
+    <div className="p-4">
+      <div className="border-b border-gray-700 pb-2 mb-3">
+        <h3 className="text-base font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
           Professional Network
         </h3>
       </div>
       
-      <div className="grid grid-cols-2 gap-6">
-        <ImageCard
-          title="Painters"
-          description="Join our elite network of certified painters"
-          imageSrc={professionalImages.painters}
-          href="/painter-network"
-        />
+      <div className="grid grid-cols-2 gap-3">
+        <div>
+          <div className="grid grid-cols-1 gap-3">
+            <ImageCard
+              title="Painters"
+              description="Join our elite network of certified painters"
+              imageSrc={professionalImages.painters}
+              href="/painter-network"
+            />
+            
+            <ImageCard
+              title="Pool Professionals"
+              description="Certified pool coating specialists"
+              imageSrc={professionalImages.poolPros}
+              href="/pool-professionals"
+            />
+          </div>
+        </div>
         
-        <ImageCard
-          title="Pool Professionals"
-          description="Certified pool coating specialists"
-          imageSrc={professionalImages.poolPros}
-          href="/pool-professionals"
-        />
-      </div>
-      
-      <div className="pl-6 border-l border-gray-700">
-        <h4 className="font-bold text-white mb-3 text-sm">Program Benefits</h4>
-        <ul className="space-y-2 text-sm">
-          <li className="flex items-center text-gray-300">
-            <div className="w-1.5 h-1.5 rounded-full bg-amber-500 mr-2"></div>
-            <span>Exclusive training and certification</span>
-          </li>
-          <li className="flex items-center text-gray-300">
-            <div className="w-1.5 h-1.5 rounded-full bg-amber-500 mr-2"></div>
-            <span>Marketing and lead generation support</span>
-          </li>
-          <li className="flex items-center text-gray-300">
-            <div className="w-1.5 h-1.5 rounded-full bg-amber-500 mr-2"></div>
-            <span>Technical support and resources</span>
-          </li>
-          <li className="flex items-center text-gray-300">
-            <div className="w-1.5 h-1.5 rounded-full bg-amber-500 mr-2"></div>
-            <span>Preferred pricing on products</span>
-          </li>
-          <li className="mt-4">
-            <Link href="/professional-registration" className="text-amber-400 hover:text-amber-300 font-medium">
-              Register as a Professional →
-            </Link>
-          </li>
-        </ul>
+        <div className="pl-3 border-l border-gray-700">
+          <h4 className="font-bold text-white mb-2 text-sm">Program Benefits</h4>
+          <ul className="space-y-1 text-xs">
+            <li className="flex items-center text-gray-300">
+              <div className="w-1 h-1 rounded-full bg-amber-500 mr-1"></div>
+              <span>Exclusive training and certification</span>
+            </li>
+            <li className="flex items-center text-gray-300">
+              <div className="w-1 h-1 rounded-full bg-amber-500 mr-1"></div>
+              <span>Marketing and lead generation support</span>
+            </li>
+            <li className="flex items-center text-gray-300">
+              <div className="w-1 h-1 rounded-full bg-amber-500 mr-1"></div>
+              <span>Technical support and resources</span>
+            </li>
+            <li className="flex items-center text-gray-300">
+              <div className="w-1 h-1 rounded-full bg-amber-500 mr-1"></div>
+              <span>Preferred pricing on products</span>
+            </li>
+            <li className="mt-3">
+              <Link href="/professional-registration" className="text-xs text-amber-400 hover:text-amber-300 font-medium">
+                Register as a Professional →
+              </Link>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   );
   
   // Products mega menu content
   const productsContent = (
-    <div className="grid grid-cols-3 gap-6 p-6">
-      <div className="col-span-2">
-        <h3 className="font-bold text-lg mb-4 bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-red-500">
-          Our Product Line
+    <div className="p-4">
+      <div className="border-b border-gray-700 pb-2 mb-3">
+        <h3 className="text-base font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-red-500">
+          Product Resources
         </h3>
-        
-        <div className="grid grid-cols-2 gap-x-8 gap-y-4">
-          <div>
-            <h4 className="font-bold text-white mb-2 text-sm">Protective Coatings</h4>
-            <ul className="space-y-2">
-              <li>
-                <Link href="/products/fire-shield" className="text-sm text-gray-300 hover:text-white transition-colors">
-                  Fire Shield™ Coating
-                </Link>
-              </li>
-              <li>
-                <Link href="/products/marine-shield" className="text-sm text-gray-300 hover:text-white transition-colors">
-                  Marine Shield™ System
-                </Link>
-              </li>
-              <li>
-                <Link href="/products/pool-shield" className="text-sm text-gray-300 hover:text-white transition-colors">
-                  Pool Shield™ Coating
-                </Link>
-              </li>
-              <li>
-                <Link href="/products/roof-shield" className="text-sm text-gray-300 hover:text-white transition-colors">
-                  Roof Shield™ Barrier
-                </Link>
-              </li>
-            </ul>
-          </div>
-          
-          <div>
-            <h4 className="font-bold text-white mb-2 text-sm">Resources</h4>
-            <ul className="space-y-2">
-              <li>
-                <Link href="/products" className="text-sm text-gray-300 hover:text-white transition-colors">
-                  All Products
-                </Link>
-              </li>
-              <li>
-                <Link href="/roi-calculator" className="text-sm text-gray-300 hover:text-white transition-colors">
-                  ROI Calculator
-                </Link>
-              </li>
-              <li>
-                <Link href="/technology" className="text-sm text-gray-300 hover:text-white transition-colors">
-                  Technical Data
-                </Link>
-              </li>
-              <li>
-                <Link href="/application-guide" className="text-sm text-gray-300 hover:text-white transition-colors">
-                  Application Guide
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </div>
       </div>
       
-      <div className="border-l border-gray-700 pl-6">
-        <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-4 rounded-lg border border-gray-700">
-          <h4 className="font-bold text-amber-400 mb-2">Featured Product</h4>
-          <h5 className="text-white font-bold mb-1">Praetorian Shield™</h5>
-          <p className="text-sm text-gray-300 mb-4">Our flagship protective coating with revolutionary ceramic technology derived from NASA research.</p>
-          <Link 
-            href="/products/praetorian-shield" 
-            className="text-sm text-amber-400 hover:text-amber-300 font-medium"
-          >
-            Learn More →
-          </Link>
+      <div className="grid grid-cols-2 gap-4">
+        <div>
+          <h4 className="font-bold text-white mb-2 text-sm">Resources</h4>
+          <ul className="space-y-2">
+            <li>
+              <Link href="/products" className="text-sm text-gray-300 hover:text-white transition-colors">
+                All Products
+              </Link>
+            </li>
+            <li>
+              <Link href="/roi-calculator" className="text-sm text-gray-300 hover:text-white transition-colors">
+                ROI Calculator
+              </Link>
+            </li>
+            <li>
+              <Link href="/technology" className="text-sm text-gray-300 hover:text-white transition-colors">
+                Technical Data
+              </Link>
+            </li>
+            <li>
+              <Link href="/application-guide" className="text-sm text-gray-300 hover:text-white transition-colors">
+                Application Guide
+              </Link>
+            </li>
+          </ul>
+        </div>
+        
+        <div className="border-l border-gray-700 pl-4">
+          <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-3 rounded-lg border border-gray-700">
+            <h4 className="font-bold text-amber-400 mb-1 text-sm">Featured Product</h4>
+            <h5 className="text-white font-bold mb-1 text-xs">Praetorian Shield™</h5>
+            <p className="text-xs text-gray-300 mb-2">Our flagship protective coating with revolutionary ceramic technology.</p>
+            <Link 
+              href="/products/praetorian-shield" 
+              className="text-xs text-amber-400 hover:text-amber-300 font-medium"
+            >
+              Learn More →
+            </Link>
+          </div>
         </div>
       </div>
     </div>
@@ -318,45 +301,45 @@ export function PremiumNavbar() {
   
   // About mega menu content
   const aboutContent = (
-    <div className="grid grid-cols-2 gap-6 p-6">
-      <div>
-        <h3 className="font-bold text-lg mb-4 text-blue-400">About Praetorian</h3>
-        <p className="text-gray-300 text-sm mb-4 max-w-md">
-          Praetorian SmartCoat Solutions delivers revolutionary protective coatings with ceramic technology 
-          derived from NASA research, providing superior protection for various industries.
-        </p>
-        
-        <div className="grid grid-cols-2 gap-x-8 gap-y-3 mt-4">
-          <Link href="/about" className="text-sm text-gray-300 hover:text-white transition-colors">
-            About Us
-          </Link>
-          <Link href="/team" className="text-sm text-gray-300 hover:text-white transition-colors">
-            Our Team
-          </Link>
-          <Link href="/partners" className="text-sm text-gray-300 hover:text-white transition-colors">
-            Partners
-          </Link>
-          <Link href="/careers" className="text-sm text-gray-300 hover:text-white transition-colors">
-            Careers
-          </Link>
-        </div>
+    <div className="p-4">
+      <div className="border-b border-gray-700 pb-2 mb-3">
+        <h3 className="text-base font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600">
+          About Praetorian
+        </h3>
       </div>
       
-      <div className="border-l border-gray-700 pl-6">
-        <h3 className="font-bold text-lg mb-4 text-blue-400">Connect With Us</h3>
-        
-        <div className="mb-4">
-          <h4 className="font-bold text-white text-sm mb-1">Contact Information</h4>
-          <p className="text-gray-300 text-sm">(916) 809-6619</p>
-          <a href="mailto:info@praetoriansmartcoat.com" className="text-gray-300 text-sm hover:text-white">
-            info@praetoriansmartcoat.com
-          </a>
+      <div className="grid grid-cols-2 gap-4">
+        <div>
+          <p className="text-gray-300 text-xs mb-3">
+            Revolutionary protective coatings with ceramic technology derived from NASA research.
+          </p>
+          
+          <div className="grid grid-cols-2 gap-x-4 gap-y-2">
+            <Link href="/about" className="text-xs text-gray-300 hover:text-white transition-colors">
+              About Us
+            </Link>
+            <Link href="/team" className="text-xs text-gray-300 hover:text-white transition-colors">
+              Our Team
+            </Link>
+            <Link href="/partners" className="text-xs text-gray-300 hover:text-white transition-colors">
+              Partners
+            </Link>
+            <Link href="/careers" className="text-xs text-gray-300 hover:text-white transition-colors">
+              Careers
+            </Link>
+          </div>
         </div>
         
-        <div>
+        <div className="border-l border-gray-700 pl-4">
+          <h4 className="font-bold text-white text-xs mb-1">Contact Information</h4>
+          <p className="text-gray-300 text-xs mb-1">(916) 809-6619</p>
+          <a href="mailto:info@praetoriansmartcoat.com" className="text-gray-300 text-xs hover:text-white block mb-3">
+            info@praetoriansmartcoat.com
+          </a>
+          
           <Link 
             href="/contact" 
-            className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-500 to-blue-700 rounded-md text-white text-sm font-medium"
+            className="inline-flex items-center px-3 py-1 bg-gradient-to-r from-blue-500 to-blue-700 rounded-md text-white text-xs font-medium"
           >
             Contact Us
           </Link>
@@ -367,37 +350,32 @@ export function PremiumNavbar() {
   
   // CRM mega menu content
   const crmContent = (
-    <div className="p-6">
-      <h3 className="font-bold text-lg mb-4 text-purple-400">Praetorian CRM</h3>
-      
-      <div className="grid grid-cols-3 gap-6">
-        <div className="bg-gray-800/50 p-4 rounded-lg border border-gray-700 hover:border-gray-600 transition-colors">
-          <h4 className="font-bold text-white mb-2">CRM Dashboard</h4>
-          <p className="text-sm text-gray-300 mb-3">Access your customer relationship management dashboard and tools.</p>
-          <Link href="/crm" className="text-sm text-purple-400 hover:text-purple-300">
-            Open Dashboard →
-          </Link>
-        </div>
-        
-        <div className="bg-gray-800/50 p-4 rounded-lg border border-gray-700 hover:border-gray-600 transition-colors">
-          <h4 className="font-bold text-white mb-2">Inventory Management</h4>
-          <p className="text-sm text-gray-300 mb-3">Manage your product inventory, orders, and stock levels.</p>
-          <Link href="/inventory" className="text-sm text-purple-400 hover:text-purple-300">
-            Manage Inventory →
-          </Link>
-        </div>
-        
-        <div className="bg-gray-800/50 p-4 rounded-lg border border-gray-700 hover:border-gray-600 transition-colors">
-          <h4 className="font-bold text-white mb-2">Analytics & Reports</h4>
-          <p className="text-sm text-gray-300 mb-3">View detailed analytics and generate custom reports.</p>
-          <Link href="/analytics" className="text-sm text-purple-400 hover:text-purple-300">
-            View Analytics →
-          </Link>
-        </div>
+    <div className="p-4">
+      <div className="border-b border-gray-700 pb-2 mb-3">
+        <h3 className="text-base font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-purple-600">
+          Praetorian CRM
+        </h3>
       </div>
       
-      <div className="mt-4 pt-4 border-t border-gray-700 text-right">
-        <Link href="/crm-login" className="text-sm text-gray-300 hover:text-white">
+      <div className="flex flex-col space-y-2 mb-3">
+        <Link href="/crm" className="flex items-center justify-between p-2 bg-gray-800/50 rounded-lg border border-gray-700 hover:border-gray-500 transition-colors">
+          <span className="font-bold text-xs text-white">CRM Dashboard</span>
+          <span className="text-xs text-purple-400">Access →</span>
+        </Link>
+        
+        <Link href="/inventory" className="flex items-center justify-between p-2 bg-gray-800/50 rounded-lg border border-gray-700 hover:border-gray-500 transition-colors">
+          <span className="font-bold text-xs text-white">Inventory Management</span>
+          <span className="text-xs text-purple-400">Access →</span>
+        </Link>
+        
+        <Link href="/analytics" className="flex items-center justify-between p-2 bg-gray-800/50 rounded-lg border border-gray-700 hover:border-gray-500 transition-colors">
+          <span className="font-bold text-xs text-white">Analytics & Reports</span>
+          <span className="text-xs text-purple-400">Access →</span>
+        </Link>
+      </div>
+      
+      <div className="border-t border-gray-700 pt-2 text-right">
+        <Link href="/crm-login" className="text-xs text-gray-300 hover:text-white">
           Admin Login →
         </Link>
       </div>
