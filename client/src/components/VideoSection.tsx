@@ -336,7 +336,7 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
                           }`}
                         >
                           {activeCategory === category && (
-                            <span className="absolute inset-0 bg-gradient-to-r from-orange-500/20 via-purple-500/20 to-blue-500/20 rounded-full blur-[1px]"></span>
+                            <span className="absolute inset-0 bg-gradient-to-r from-orange-500/20 via-amber-500/20 to-blue-500/20 rounded-full blur-[1px]"></span>
                           )}
                           <span className={activeCategory === category ? 'text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-purple-400 to-blue-400' : ''}>
                             {category}
