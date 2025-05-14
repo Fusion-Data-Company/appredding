@@ -285,6 +285,23 @@ section + section {
     mask-composite: exclude;
   }
   
+  /* Water-themed gradient border for water-related applications */
+  .water-gradient-border {
+    @apply relative border-0 overflow-hidden;
+  }
+
+  .water-gradient-border::before {
+    content: '';
+    @apply absolute inset-0 rounded-xl -z-10;
+    padding: 2px;
+    background: linear-gradient(to bottom right, rgba(0, 200, 255, 0.6), rgba(59, 130, 246, 0.7), rgba(30, 64, 175, 0.8));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0.8;
+  }
+  
   .card-premium:hover {
     @apply border-gray-600/80 shadow-xl;
     transform: translateY(-2px);

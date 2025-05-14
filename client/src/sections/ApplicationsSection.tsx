@@ -15,7 +15,7 @@ const ApplicationCard = ({ imageSrc, title, description, link }: ApplicationCard
   const isWaterRelated = title === "Marine" || title === "Pool";
   
   return (
-    <div className="group relative rounded-lg overflow-hidden h-[400px] w-full block cursor-pointer dark:shadow-[0_0_60px_rgba(255,255,255,0.4)] shadow-[0_0_30px_rgba(0,0,0,0.25)] border-4 dark:border-white border-gray-300 transform transition-transform hover:scale-[1.03]">
+    <div className={`group relative rounded-lg overflow-hidden h-[400px] w-full block cursor-pointer shadow-[0_0_30px_rgba(255,255,255,0.25)] border-0 ${isWaterRelated ? 'water-gradient-border' : 'premium-gradient-border'} transform transition-transform hover:scale-[1.03]`}>
       <img 
         src={imageSrc} 
         alt={title} 
@@ -105,7 +105,7 @@ const ApplicationsSection = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/60" style={{ zIndex: 1 }}></div>
       <div className="container mx-auto px-4 md:px-8 max-w-[1600px] relative" style={{ zIndex: 2 }}>
         <div className="text-center mb-20">
-          <div className="bg-gray-800/60 backdrop-blur-xl rounded-xl border-4 border-gray-600/40 shadow-[0_0_40px_rgba(255,255,255,0.25)] py-12 px-12 mx-auto max-w-4xl mb-10 inline-block">
+          <div className="bg-gray-800/60 backdrop-blur-xl rounded-xl border-0 premium-gradient-border shadow-[0_0_40px_rgba(255,255,255,0.25)] py-12 px-12 mx-auto max-w-4xl mb-10 inline-block">
             <GradientHeading className="text-4xl md:text-5xl mb-6" variant="mixed">Specialized Applications</GradientHeading>
             <p className="text-gray-300 text-xl max-w-2xl mx-auto">
               Our protective coatings are engineered for specific environments and challenges across various industries.
