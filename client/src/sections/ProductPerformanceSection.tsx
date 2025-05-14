@@ -9,7 +9,7 @@ const ProductPerformanceSection = () => {
       style={{ 
         backgroundImage: `url(${PRAETORIAN_HERO_IMAGE})`,
         backgroundSize: "cover",
-        backgroundPosition: "center bottom",
+        backgroundPosition: "center center", // Standardized position
         backgroundRepeat: "no-repeat",
         backgroundAttachment: "fixed",
         backgroundColor: "#111111",

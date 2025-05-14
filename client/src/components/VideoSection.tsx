@@ -51,7 +51,7 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
       style={{ 
         backgroundImage: `url(${PRAETORIAN_HERO_IMAGE})`,
         backgroundSize: "cover",
-        backgroundPosition: "center bottom", // Position at bottom to continue from FAQ section
+        backgroundPosition: "center center", // Standardized position
         backgroundRepeat: "no-repeat",
         backgroundAttachment: "fixed", // This creates the parallax effect
         backgroundColor: "#111111",
