@@ -250,7 +250,7 @@ const ContactSection = () => {
               </div>
               
               <div>
-                <label htmlFor="message" className="block text-sm font-medium mb-2">Message</label>
+                <label htmlFor="message" className="block text-sm font-medium mb-2 bg-clip-text text-transparent bg-gradient-to-r from-amber-400 via-orange-500 to-red-500">Message</label>
                 <textarea 
                   id="message" 
                   rows={4} 
@@ -445,6 +445,16 @@ const ContactSection = () => {
             </div>
           </div>
         </div>
+      </div>
+      
+      {/* Enterprise-level copyright footer */}
+      <div className="mt-16 pt-8 border-t border-gray-800/30 text-center">
+        <p className="text-gray-500 text-sm">
+          © {new Date().getFullYear()} Praetorian SmartCoat Solutions. All rights reserved.
+        </p>
+        <p className="text-gray-600 text-xs mt-1">
+          Enterprise-grade coating solutions for professional applications.
+        </p>
       </div>
     </section>
   );
