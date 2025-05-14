@@ -166,14 +166,11 @@ const ApplicationsSection = () => {
                 <div className="absolute bottom-0 right-0 w-3 h-3 bg-red-500/50 rounded-full blur-[2px]"></div>
               </div>
               
-              {/* Moved Technical Data badge to top */}
+              {/* Moved Technical Data badge to top - Styled similar to original */}
               <div className="relative z-10 mb-5 flex justify-center">
-                <div className="inline-flex items-center px-3 py-1.5 rounded-full bg-gradient-to-r from-amber-900/80 to-red-900/80 border border-amber-700/30 shadow-[0_0_10px_rgba(251,113,36,0.3)]">
-                  <div className="mr-2 relative">
-                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-amber-500 to-orange-600 blur-[6px] opacity-60"></div>
-                    <Shield className="h-4 w-4 text-amber-300 relative z-10" />
-                  </div>
-                  <span className="text-amber-300 text-sm font-medium">Technical Data</span>
+                <div className="px-3 py-1.5 rounded-full border border-amber-300 dark:border-amber-700 bg-amber-100/50 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300 inline-flex items-center shadow-[0_0_10px_rgba(251,113,36,0.3)]">
+                  <Shield className="h-4 w-4 mr-2 text-amber-500" />
+                  <span className="text-sm font-medium">Technical Data</span>
                 </div>
               </div>
               

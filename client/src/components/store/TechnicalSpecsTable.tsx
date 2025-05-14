@@ -96,13 +96,7 @@ const TechnicalSpecsTable = () => {
     >
       {/* Semi-transparent overlay for better readability */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/60" style={{ zIndex: 1 }}></div>
-      <div className="container mx-auto px-4 relative" style={{ zIndex: 2 }}>
-        <div className="flex justify-center mb-5">
-          <Badge variant="outline" className="px-3 py-1 border-amber-300 dark:border-amber-700 bg-amber-100/50 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300">
-            Technical Data
-          </Badge>
-        </div>
-        
+      <div className="container mx-auto px-4 relative" style={{ zIndex: 2 }}>        
         <div className="text-center mb-12">
           {/* Premium Enterprise-level heading container */}
           <div className="relative mx-auto max-w-4xl mb-8 inline-block">

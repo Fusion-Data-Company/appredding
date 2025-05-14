@@ -111,6 +111,13 @@ const ProductComparison = () => {
       {/* Semi-transparent overlay for better readability */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-black/70" style={{ zIndex: 1 }}></div>
       <div className="container mx-auto px-4 relative" style={{ zIndex: 2 }}>
+        <div className="flex justify-center mb-5">
+          <div className="px-3 py-1.5 rounded-full border border-amber-300 dark:border-amber-700 bg-amber-100/50 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300 inline-flex items-center shadow-[0_0_10px_rgba(251,113,36,0.3)]">
+            <Shield className="h-4 w-4 mr-2 text-amber-500" />
+            <span className="text-sm font-medium">Competitive Comparison</span>
+          </div>
+        </div>
+        
         <div className="text-center mb-12">
           {/* Premium Enterprise-level heading container */}
           <div className="relative mx-auto max-w-4xl mb-8 inline-block">
@@ -126,21 +133,21 @@ const ProductComparison = () => {
               <div className="absolute top-0 left-1/4 w-1/2 h-1/2 bg-gradient-to-r from-orange-500/5 via-amber-500/5 to-red-500/5 blur-[100px] rounded-full"></div>
               
               {/* Content */}
-              <div className="relative z-10">
-                {/* Enhanced premium badge */}
-                <div className="inline-flex items-center mb-3 px-3 py-1.5 rounded-full bg-gradient-to-r from-amber-900/80 to-red-900/80 border border-amber-700/30 shadow-[0_0_10px_rgba(251,113,36,0.3)]">
-                  <div className="mr-2 relative">
-                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-amber-500 to-orange-600 blur-[6px] opacity-60"></div>
-                    <Shield className="h-4 w-4 text-amber-300 relative z-10" />
-                  </div>
-                  <span className="text-amber-300 text-sm font-medium">Competitive Comparison</span>
+              <div className="relative z-10 text-center">
+                {/* Elite enterprise styled heading */}
+                <div className="relative mb-4">
+                  {/* Top horizontal accent line with enhanced glow */}
+                  <span className="absolute -top-6 left-1/2 transform -translate-x-1/2 w-1/2 h-1 bg-gradient-to-r from-transparent via-orange-400/50 to-transparent rounded-full blur-sm"></span>
+                  
+                  <GradientHeading level={2} className="text-3xl md:text-4xl shimmer-fire-text" variant="fire">
+                    How Praetorian Outperforms the Competition
+                  </GradientHeading>
+                  
+                  {/* Bottom horizontal accent line with enhanced glow */}
+                  <span className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 w-1/2 h-1 bg-gradient-to-r from-transparent via-red-400/50 to-transparent rounded-full blur-sm"></span>
                 </div>
                 
-                <GradientHeading level={2} className="text-3xl md:text-4xl mb-4" variant="fire">
-                  How Praetorian Outperforms the Competition
-                </GradientHeading>
-                
-                <p className="text-gray-300 max-w-2xl mx-auto">
+                <p className="text-gray-300 max-w-2xl mx-auto mt-8">
                   See why Praetorian's revolutionary ceramic technology delivers superior performance across all key metrics compared to traditional protective coatings.
                 </p>
               </div>
