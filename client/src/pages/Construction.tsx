@@ -517,7 +517,7 @@ const ConstructionPage = () => {
         <section className="py-16 backdrop-blur-sm bg-primary-900/40 relative z-10">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto mb-16 text-center">
-              <div className="inline-block mb-3 px-4 py-1 rounded-full bg-gradient-to-r from-blue-600/30 to-blue-800/30 border border-blue-500/30">
+              <div className="inline-block mb-3 px-4 py-1 rounded-full bg-gradient-to-r from-blue-600/30 to-blue-800/30 border border-blue-500/30 relative z-50">
                 <span className="text-blue-300 text-sm font-bold uppercase tracking-wider">Enterprise Solution</span>
               </div>
               <GradientHeading level={2} className="text-3xl md:text-4xl mb-4" variant="mixed">Advanced Ceramic Coating Application Systems</GradientHeading>
