@@ -3,8 +3,8 @@ import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 import { GradientButton } from "@/components/ui/gradient-button";
 import { GradientHeading } from "@/components/ui/gradient-heading";
-import { StoneTextureBackground } from "@/components/ui/stone-texture-background";
 import backgroundImage from "@/assets_dir/images/optimized/praetorian-background-new.png";
+import stoneTexturePath from "@/assets_dir/images/textures/stone-texture.png";
 
 interface FormData {
   firstName: string;
@@ -140,9 +140,30 @@ const ContactSection = () => {
       </div>
       
       {/* Stone texture background */}
-      <StoneTextureBackground className="absolute inset-0 z-0" />
+      <div className="absolute inset-0 z-10">
+        <div 
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `url(${stoneTexturePath})`,
+            backgroundRepeat: 'repeat',
+            backgroundSize: '400px auto', 
+            opacity: 0.35, 
+            transform: 'scale(1.05)',
+          }}
+        />
+        
+        {/* Light grey to dark grey gradient overlay */}
+        <div 
+          className="absolute inset-0"
+          style={{
+            background: 'linear-gradient(to bottom, rgba(180, 180, 190, 0.2), rgba(40, 40, 50, 0.2))',
+            backdropFilter: 'blur(5px)',
+            boxShadow: 'inset 0 0 100px rgba(0,0,0,0.4)',
+          }}
+        />
+      </div>
       
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 relative z-20">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <div>
             <div className="relative mb-8">

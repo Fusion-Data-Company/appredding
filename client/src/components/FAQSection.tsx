@@ -48,7 +48,7 @@ const FAQSection = ({ faqs }: FAQProps) => {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           {faqs.map((category, idx) => (
-            <div key={idx} className="bg-gradient-to-r from-gray-800/90 to-gray-700/90 rounded-xl p-6 border border-gray-600/40 shadow-[0_0_20px_rgba(255,255,255,0.2)]">
+            <div key={idx} className="bg-gradient-to-r from-gray-800/90 to-gray-700/90 backdrop-blur-md rounded-xl p-6 border-0 premium-gradient-border shadow-[0_0_40px_rgba(255,255,255,0.25)]">
               <GradientHeading level={3} className="text-xl mb-6 pb-4 border-b border-gray-600/40" variant={idx % 3 === 0 ? "fire" : idx % 3 === 1 ? "blue" : "mixed"}>
                 {category.category}
               </GradientHeading>
