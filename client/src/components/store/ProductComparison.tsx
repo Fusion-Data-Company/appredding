@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle, XCircle, HelpCircle, Sparkles } from "lucide-react";
+import { GradientHeading } from "@/components/ui/gradient-heading";
 
 const ProductComparison = () => {
   const comparisons = [
