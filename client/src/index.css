@@ -1506,15 +1506,17 @@ section + section {
     overflow: hidden;
   }
   
-  /* Voice chat and Introduction button custom shimmer effects */
+  /* Voice chat, Chat and Introduction button custom shimmer effects */
   .voice-chat-shimmer,
-  .introduction-shimmer {
+  .introduction-shimmer,
+  .chat-shimmer {
     position: relative;
     overflow: hidden;
   }
   
   .voice-chat-shimmer::before,
-  .introduction-shimmer::before {
+  .introduction-shimmer::before,
+  .chat-shimmer::before {
     content: '';
     position: absolute;
     top: -50%;
@@ -1534,6 +1536,13 @@ section + section {
                 0 0 30px rgba(59, 130, 246, 0.2);
     opacity: 0.7;
     animation: voiceChatGlowPulse 3s ease-in-out infinite;
+  }
+  
+  .chat-glow {
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.5),
+                0 0 30px rgba(59, 130, 246, 0.2);
+    opacity: 0.7;
+    animation: chatGlowPulse 3.5s ease-in-out infinite;
   }
   
   .introduction-glow {
@@ -1567,6 +1576,15 @@ section + section {
     }
     50% {
       opacity: 0.8;
+    }
+  }
+  
+  @keyframes chatGlowPulse {
+    0%, 100% {
+      opacity: 0.3;
+    }
+    50% {
+      opacity: 0.7;
     }
   }
 }
