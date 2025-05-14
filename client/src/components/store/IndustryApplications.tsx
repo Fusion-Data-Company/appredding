@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Building, Warehouse, Ship, AlarmClockCheck, Home, Building2, Droplets, ThermometerSun, Wrench, Zap, DollarSign, Shield, CheckCircle, Sun } from "lucide-react";
 import { GradientText } from "@/components/ui/gradient-text";
+import praetorianLogoFire from "../../assets_dir/images/praetorian-logo-fire.png";
 
 interface ApplicationData {
   id: string;
@@ -734,9 +735,9 @@ const IndustryApplications = () => {
                                 } shadow-[0_10px_40px_rgba(0,0,0,0.4)] transform transition-all duration-700 group-hover/image:scale-[1.03]`}>
                                 {/* Image */}
                                 <img
-                                  src={app.caseStudy.image || "/assets/images/praetorian-shield-logo.png"}
+                                  src={app.caseStudy.image || praetorianLogoFire}
                                   alt={`${app.title} Application`}
-                                  className="w-full h-64 object-cover transition-all duration-700 group-hover/image:saturate-[1.1]"
+                                  className={`w-full h-64 ${!app.caseStudy.image ? 'object-contain bg-black' : 'object-cover'} transition-all duration-700 group-hover/image:saturate-[1.1]`}
                                 />
                                 
                                 {/* Gradient overlay */}
