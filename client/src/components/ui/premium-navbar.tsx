@@ -1,105 +1,447 @@
-import React, { useState } from "react";
-import { HoveredLink, Menu, MenuItem, ProductItem } from "./navbar-menu-fixed";
+import React, { useState, useRef, useEffect } from "react";
+import { Link } from "wouter";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronDown } from "lucide-react";
 
-// Images for various products/solutions
-const productImages = {
+// Images for various solutions/applications
+const solutionImages = {
   marinas: "/src/assets_dir/images/marinas-thumb.jpg",
   pools: "/src/assets_dir/images/pools-thumb.jpg",
   firePrevention: "/src/assets_dir/images/fire-prevention-thumb.jpg", 
   construction: "/src/assets_dir/images/construction-thumb.jpg",
-  painterNetwork: "/src/assets_dir/images/painter-thumb.jpg",
   mobileHome: "/src/assets_dir/images/mobile-home-thumb.jpg",
   municipality: "/src/assets_dir/images/municipality-thumb.jpg"
 };
 
-export function PremiumNavbar() {
-  const [active, setActive] = useState<string | null>(null);
+// Images for professional services
+const professionalImages = {
+  painters: "/src/assets_dir/images/painter-thumb.jpg",
+  poolPros: "/src/assets_dir/images/pools-thumb.jpg",
+  firePros: "/src/assets_dir/images/fire-prevention-thumb.jpg",
+  constructionPros: "/src/assets_dir/images/construction-thumb.jpg"
+};
+
+const DropdownSection = ({ title, items, gridCols = 2 }) => (
+  <div className="px-4 py-3">
+    <h3 className="text-sm font-bold text-amber-400 mb-3">{title}</h3>
+    <div className={`grid grid-cols-${gridCols} gap-x-6 gap-y-4`}>
+      {items.map((item, index) => (
+        <Link 
+          key={index} 
+          href={item.href}
+          className="text-sm text-gray-300 hover:text-white transition-colors"
+        >
+          {item.label}
+        </Link>
+      ))}
+    </div>
+  </div>
+);
+
+// Enterprise-grade mega menu item with image tiles
+const NavItem = ({ 
+  label, 
+  content, 
+  isOpen, 
+  onClick 
+}) => {
+  const navItemRef = useRef(null);
   
   return (
-    <div className="flex-grow flex justify-end" style={{ zIndex: 2147483646, position: 'relative' }}>
-      <Menu setActive={setActive}>
-        <MenuItem setActive={setActive} active={active} item="Solutions">
-          <div className="grid grid-cols-4 gap-6 p-6 w-full">
-            <ProductItem
-              title="Marinas"
-              href="/marinas"
-              src={productImages.marinas}
-              description="Advanced coating solutions for marine environments"
-            />
-            <ProductItem
-              title="Pools"
-              href="/pools"
-              src={productImages.pools}
-              description="Premium pool coating and protection systems"
-            />
-            <ProductItem
-              title="Fire Prevention"
-              href="/fire-prevention"
-              src={productImages.firePrevention}
-              description="Industry-leading fire retardant coatings"
-            />
-            <ProductItem
-              title="Construction"
-              href="/construction"
-              src={productImages.construction}
-              description="Durable solutions for construction applications"
-            />
+    <div className="relative" ref={navItemRef}>
+      <button
+        onClick={onClick}
+        className={`flex items-center space-x-1 px-4 py-2 font-cinzel tracking-wide text-sm uppercase
+          ${isOpen 
+            ? "text-white" 
+            : "text-white/90 hover:text-white"
+          }
+        `}
+      >
+        <span>{label}</span>
+        <ChevronDown
+          className={`w-4 h-4 transition-transform duration-200 ${
+            isOpen ? "rotate-180" : ""
+          }`}
+        />
+      </button>
+      
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2 }}
+            className="absolute left-1/2 z-50 mt-1 w-screen max-w-max -translate-x-1/2 transform px-4"
+          >
+            <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black/5">
+              <div className="relative bg-gray-900 backdrop-blur-xl border border-gray-800">
+                {content}
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+};
+
+// Solution or professional card with image
+const ImageCard = ({ title, description, imageSrc, href }) => (
+  <Link 
+    href={href}
+    className="flex flex-col group rounded-md overflow-hidden transition-all duration-300 transform hover:scale-105"
+  >
+    <div className="relative h-28 w-full overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-orange-500/30 to-blue-600/30 group-hover:opacity-70 transition-opacity duration-300 z-10" />
+      <img 
+        src={imageSrc} 
+        alt={title} 
+        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+      />
+    </div>
+    <div className="p-3 bg-gray-800/90">
+      <h4 className="font-bold text-white text-sm mb-1 group-hover:text-amber-400 transition-colors">{title}</h4>
+      <p className="text-gray-300 text-xs leading-tight">{description}</p>
+    </div>
+  </Link>
+);
+
+export function PremiumNavbar() {
+  const [activeMenu, setActiveMenu] = useState(null);
+  const navRef = useRef(null);
+  
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (navRef.current && !navRef.current.contains(event.target)) {
+        setActiveMenu(null);
+      }
+    };
+    
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+  
+  const toggleMenu = (menu) => {
+    setActiveMenu(activeMenu === menu ? null : menu);
+  };
+  
+  // Solutions mega menu content
+  const solutionsContent = (
+    <div className="grid grid-cols-3 gap-6 p-6">
+      <div className="col-span-3 border-b border-gray-700 pb-4 mb-2">
+        <h3 className="text-lg font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-orange-600">
+          Protection Across Every Industry
+        </h3>
+      </div>
+      
+      <ImageCard
+        title="Fire Prevention"
+        description="Industry-leading fire retardant coatings"
+        imageSrc={solutionImages.firePrevention}
+        href="/fire-prevention"
+      />
+      
+      <ImageCard
+        title="Marinas"
+        description="Advanced coating solutions for marine environments"
+        imageSrc={solutionImages.marinas}
+        href="/marinas"
+      />
+      
+      <ImageCard
+        title="Pools"
+        description="Premium pool coating and protection systems"
+        imageSrc={solutionImages.pools}
+        href="/pools"
+      />
+      
+      <ImageCard
+        title="Construction"
+        description="Durable solutions for construction applications"
+        imageSrc={solutionImages.construction}
+        href="/construction"
+      />
+      
+      <ImageCard
+        title="Mobile Home & R.V."
+        description="Specialized coatings for mobile structures"
+        imageSrc={solutionImages.mobileHome}
+        href="/mobile-home"
+      />
+      
+      <ImageCard
+        title="Municipality"
+        description="Infrastructure protection for public services"
+        imageSrc={solutionImages.municipality}
+        href="/municipality"
+      />
+    </div>
+  );
+  
+  // Professionals mega menu content
+  const professionalsContent = (
+    <div className="grid grid-cols-2 p-6">
+      <div className="col-span-2 border-b border-gray-700 pb-4 mb-4">
+        <h3 className="text-lg font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
+          Professional Network
+        </h3>
+      </div>
+      
+      <div className="grid grid-cols-2 gap-6">
+        <ImageCard
+          title="Painters"
+          description="Join our elite network of certified painters"
+          imageSrc={professionalImages.painters}
+          href="/painter-network"
+        />
+        
+        <ImageCard
+          title="Pool Professionals"
+          description="Certified pool coating specialists"
+          imageSrc={professionalImages.poolPros}
+          href="/pool-professionals"
+        />
+      </div>
+      
+      <div className="pl-6 border-l border-gray-700">
+        <h4 className="font-bold text-white mb-3 text-sm">Program Benefits</h4>
+        <ul className="space-y-2 text-sm">
+          <li className="flex items-center text-gray-300">
+            <div className="w-1.5 h-1.5 rounded-full bg-amber-500 mr-2"></div>
+            <span>Exclusive training and certification</span>
+          </li>
+          <li className="flex items-center text-gray-300">
+            <div className="w-1.5 h-1.5 rounded-full bg-amber-500 mr-2"></div>
+            <span>Marketing and lead generation support</span>
+          </li>
+          <li className="flex items-center text-gray-300">
+            <div className="w-1.5 h-1.5 rounded-full bg-amber-500 mr-2"></div>
+            <span>Technical support and resources</span>
+          </li>
+          <li className="flex items-center text-gray-300">
+            <div className="w-1.5 h-1.5 rounded-full bg-amber-500 mr-2"></div>
+            <span>Preferred pricing on products</span>
+          </li>
+          <li className="mt-4">
+            <Link href="/professional-registration" className="text-amber-400 hover:text-amber-300 font-medium">
+              Register as a Professional →
+            </Link>
+          </li>
+        </ul>
+      </div>
+    </div>
+  );
+  
+  // Products mega menu content
+  const productsContent = (
+    <div className="grid grid-cols-3 gap-6 p-6">
+      <div className="col-span-2">
+        <h3 className="font-bold text-lg mb-4 bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-red-500">
+          Our Product Line
+        </h3>
+        
+        <div className="grid grid-cols-2 gap-x-8 gap-y-4">
+          <div>
+            <h4 className="font-bold text-white mb-2 text-sm">Protective Coatings</h4>
+            <ul className="space-y-2">
+              <li>
+                <Link href="/products/fire-shield" className="text-sm text-gray-300 hover:text-white transition-colors">
+                  Fire Shield™ Coating
+                </Link>
+              </li>
+              <li>
+                <Link href="/products/marine-shield" className="text-sm text-gray-300 hover:text-white transition-colors">
+                  Marine Shield™ System
+                </Link>
+              </li>
+              <li>
+                <Link href="/products/pool-shield" className="text-sm text-gray-300 hover:text-white transition-colors">
+                  Pool Shield™ Coating
+                </Link>
+              </li>
+              <li>
+                <Link href="/products/roof-shield" className="text-sm text-gray-300 hover:text-white transition-colors">
+                  Roof Shield™ Barrier
+                </Link>
+              </li>
+            </ul>
           </div>
-        </MenuItem>
-        <MenuItem setActive={setActive} active={active} item="Professionals">
-          <div className="grid grid-cols-4 gap-6 p-6 w-full">
-            <ProductItem
-              title="Painter Network"
-              href="/painter-network"
-              src={productImages.painterNetwork}
-              description="Join our elite network of certified painters"
-            />
-            <ProductItem
-              title="Mobile Home & R.V."
-              href="/mobile-home"
-              src={productImages.mobileHome}
-              description="Specialized coatings for mobile structures"
-            />
-            <ProductItem
-              title="Municipality"
-              href="/municipality"
-              src={productImages.municipality}
-              description="Infrastructure protection for public services"
-            />
-            <ProductItem
-              title="Fire Prevention Pros"
-              href="/fire-prevention-professionals"
-              src={productImages.firePrevention}
-              description="Certified fire protection specialists"
-            />
+          
+          <div>
+            <h4 className="font-bold text-white mb-2 text-sm">Resources</h4>
+            <ul className="space-y-2">
+              <li>
+                <Link href="/products" className="text-sm text-gray-300 hover:text-white transition-colors">
+                  All Products
+                </Link>
+              </li>
+              <li>
+                <Link href="/roi-calculator" className="text-sm text-gray-300 hover:text-white transition-colors">
+                  ROI Calculator
+                </Link>
+              </li>
+              <li>
+                <Link href="/technology" className="text-sm text-gray-300 hover:text-white transition-colors">
+                  Technical Data
+                </Link>
+              </li>
+              <li>
+                <Link href="/application-guide" className="text-sm text-gray-300 hover:text-white transition-colors">
+                  Application Guide
+                </Link>
+              </li>
+            </ul>
           </div>
-        </MenuItem>
-        <MenuItem setActive={setActive} active={active} item="Products">
-          <div className="flex flex-col space-y-3 text-sm">
-            <HoveredLink href="/products">All Products</HoveredLink>
-            <HoveredLink href="/roi-calculator">ROI Calculator</HoveredLink>
-            <HoveredLink href="/technology">Technical Data</HoveredLink>
-            <HoveredLink href="/application-guide">Application Guide</HoveredLink>
-            <HoveredLink href="/case-studies">Case Studies</HoveredLink>
-          </div>
-        </MenuItem>
-        <MenuItem setActive={setActive} active={active} item="About">
-          <div className="flex flex-col space-y-3 text-sm">
-            <HoveredLink href="/about">About Us</HoveredLink>
-            <HoveredLink href="/contact">Contact</HoveredLink>
-            <HoveredLink href="/team">Our Team</HoveredLink>
-            <HoveredLink href="/partners">Partners</HoveredLink>
-          </div>
-        </MenuItem>
-        <MenuItem setActive={setActive} active={active} item="CRM">
-          <div className="flex flex-col space-y-3 text-sm">
-            <HoveredLink href="/crm">CRM Dashboard</HoveredLink>
-            <HoveredLink href="/inventory">Inventory Management</HoveredLink>
-            <HoveredLink href="/analytics">Analytics & Reports</HoveredLink>
-            <HoveredLink href="/crm-login">Admin Login</HoveredLink>
-          </div>
-        </MenuItem>
-      </Menu>
+        </div>
+      </div>
+      
+      <div className="border-l border-gray-700 pl-6">
+        <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-4 rounded-lg border border-gray-700">
+          <h4 className="font-bold text-amber-400 mb-2">Featured Product</h4>
+          <h5 className="text-white font-bold mb-1">Praetorian Shield™</h5>
+          <p className="text-sm text-gray-300 mb-4">Our flagship protective coating with revolutionary ceramic technology derived from NASA research.</p>
+          <Link 
+            href="/products/praetorian-shield" 
+            className="text-sm text-amber-400 hover:text-amber-300 font-medium"
+          >
+            Learn More →
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+  
+  // About mega menu content
+  const aboutContent = (
+    <div className="grid grid-cols-2 gap-6 p-6">
+      <div>
+        <h3 className="font-bold text-lg mb-4 text-blue-400">About Praetorian</h3>
+        <p className="text-gray-300 text-sm mb-4 max-w-md">
+          Praetorian SmartCoat Solutions delivers revolutionary protective coatings with ceramic technology 
+          derived from NASA research, providing superior protection for various industries.
+        </p>
+        
+        <div className="grid grid-cols-2 gap-x-8 gap-y-3 mt-4">
+          <Link href="/about" className="text-sm text-gray-300 hover:text-white transition-colors">
+            About Us
+          </Link>
+          <Link href="/team" className="text-sm text-gray-300 hover:text-white transition-colors">
+            Our Team
+          </Link>
+          <Link href="/partners" className="text-sm text-gray-300 hover:text-white transition-colors">
+            Partners
+          </Link>
+          <Link href="/careers" className="text-sm text-gray-300 hover:text-white transition-colors">
+            Careers
+          </Link>
+        </div>
+      </div>
+      
+      <div className="border-l border-gray-700 pl-6">
+        <h3 className="font-bold text-lg mb-4 text-blue-400">Connect With Us</h3>
+        
+        <div className="mb-4">
+          <h4 className="font-bold text-white text-sm mb-1">Contact Information</h4>
+          <p className="text-gray-300 text-sm">(916) 809-6619</p>
+          <a href="mailto:info@praetoriansmartcoat.com" className="text-gray-300 text-sm hover:text-white">
+            info@praetoriansmartcoat.com
+          </a>
+        </div>
+        
+        <div>
+          <Link 
+            href="/contact" 
+            className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-500 to-blue-700 rounded-md text-white text-sm font-medium"
+          >
+            Contact Us
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+  
+  // CRM mega menu content
+  const crmContent = (
+    <div className="p-6">
+      <h3 className="font-bold text-lg mb-4 text-purple-400">Praetorian CRM</h3>
+      
+      <div className="grid grid-cols-3 gap-6">
+        <div className="bg-gray-800/50 p-4 rounded-lg border border-gray-700 hover:border-gray-600 transition-colors">
+          <h4 className="font-bold text-white mb-2">CRM Dashboard</h4>
+          <p className="text-sm text-gray-300 mb-3">Access your customer relationship management dashboard and tools.</p>
+          <Link href="/crm" className="text-sm text-purple-400 hover:text-purple-300">
+            Open Dashboard →
+          </Link>
+        </div>
+        
+        <div className="bg-gray-800/50 p-4 rounded-lg border border-gray-700 hover:border-gray-600 transition-colors">
+          <h4 className="font-bold text-white mb-2">Inventory Management</h4>
+          <p className="text-sm text-gray-300 mb-3">Manage your product inventory, orders, and stock levels.</p>
+          <Link href="/inventory" className="text-sm text-purple-400 hover:text-purple-300">
+            Manage Inventory →
+          </Link>
+        </div>
+        
+        <div className="bg-gray-800/50 p-4 rounded-lg border border-gray-700 hover:border-gray-600 transition-colors">
+          <h4 className="font-bold text-white mb-2">Analytics & Reports</h4>
+          <p className="text-sm text-gray-300 mb-3">View detailed analytics and generate custom reports.</p>
+          <Link href="/analytics" className="text-sm text-purple-400 hover:text-purple-300">
+            View Analytics →
+          </Link>
+        </div>
+      </div>
+      
+      <div className="mt-4 pt-4 border-t border-gray-700 text-right">
+        <Link href="/crm-login" className="text-sm text-gray-300 hover:text-white">
+          Admin Login →
+        </Link>
+      </div>
+    </div>
+  );
+  
+  return (
+    <div className="flex-grow flex justify-end" ref={navRef}>
+      <nav className="flex space-x-1">
+        <NavItem
+          label="Solutions"
+          isOpen={activeMenu === 'solutions'}
+          onClick={() => toggleMenu('solutions')}
+          content={solutionsContent}
+        />
+        
+        <NavItem
+          label="Professionals"
+          isOpen={activeMenu === 'professionals'}
+          onClick={() => toggleMenu('professionals')}
+          content={professionalsContent}
+        />
+        
+        <NavItem
+          label="Products"
+          isOpen={activeMenu === 'products'}
+          onClick={() => toggleMenu('products')}
+          content={productsContent}
+        />
+        
+        <NavItem
+          label="About"
+          isOpen={activeMenu === 'about'}
+          onClick={() => toggleMenu('about')}
+          content={aboutContent}
+        />
+        
+        <NavItem
+          label="CRM"
+          isOpen={activeMenu === 'crm'}
+          onClick={() => toggleMenu('crm')}
+          content={crmContent}
+        />
+      </nav>
     </div>
   );
 }
