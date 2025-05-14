@@ -10,11 +10,11 @@ const premiumButtonVariants = cva(
     variants: {
       variant: {
         default: 
-          "bg-gradient-to-br from-amber-700 via-amber-600 to-amber-700 hover:from-amber-800 hover:via-amber-700 hover:to-amber-800 text-white border border-amber-500/20 shadow-lg hover:shadow-xl hover:shadow-amber-500/20",
+          "bg-gradient-to-br from-gray-900 via-gray-950 to-black text-white border border-orange-400/20 shadow-lg hover:shadow-xl hover:shadow-orange-500/20",
         gold: 
-          "bg-gradient-to-br from-amber-400 via-amber-300 to-amber-500 hover:from-amber-500 hover:via-amber-400 hover:to-amber-600 text-amber-950 border border-amber-300 shadow-lg hover:shadow-xl hover:shadow-amber-400/20",
+          "bg-gradient-to-br from-gray-900 via-gray-950 to-black text-white border border-orange-300/20 shadow-lg hover:shadow-xl hover:shadow-orange-400/20",
         fire: 
-          "bg-gradient-to-br from-gray-900 via-gray-950 to-black text-white border border-orange-400/30 shadow-lg hover:shadow-xl hover:shadow-orange-500/50 transform transition-all duration-500 hover:scale-[1.02]",
+          "bg-gradient-to-br from-gray-900 via-gray-950 to-black text-white border border-orange-400/30 shadow-lg hover:shadow-xl hover:shadow-orange-500/30 transform transition-all duration-500 hover:scale-[1.02]",
         outline: 
           "bg-gradient-to-br from-white via-amber-50 to-white dark:from-gray-800 dark:via-gray-700 dark:to-gray-800 text-amber-800 dark:text-amber-300 hover:text-amber-900 dark:hover:text-amber-200 border border-amber-300 dark:border-amber-700 shadow-md hover:shadow-lg",
         ghost: 
@@ -43,8 +43,8 @@ const ShineEffect = () => (
     transition={{ 
       repeat: Infinity, 
       repeatType: 'loop', 
-      duration: 2,
-      repeatDelay: 1
+      duration: 1.5,
+      repeatDelay: 0.5
     }}
   />
 );
@@ -78,14 +78,14 @@ const PremiumButton = forwardRef<HTMLButtonElement, PremiumButtonProps>(
           {/* Metallic shine effect */}
           <ShineEffect />
           
-          {/* Glow effect on hover */}
-          {glowEffect && !isFire && (
-            <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-amber-300/0 via-amber-300/0 to-amber-300/0 group-hover:from-amber-300/0 group-hover:via-amber-300/20 group-hover:to-amber-300/0 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          {/* Glow effect on hover - same for all variants */}
+          {glowEffect && (
+            <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-orange-500/0 via-orange-500/0 to-orange-500/0 group-hover:from-orange-500/0 group-hover:via-orange-500/10 group-hover:to-orange-500/0 blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           )}
           
           {/* Inner border for fire variant */}
           {isFire && (
-            <div className="absolute inset-0 rounded-[10px] border border-orange-500/50 pointer-events-none"></div>
+            <div className="absolute inset-0 rounded-[10px] border border-orange-500/30 pointer-events-none"></div>
           )}
 
           {/* Button Content */}
