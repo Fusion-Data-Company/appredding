@@ -251,8 +251,8 @@ const ApplicationsSection = () => {
                   Specialized Applications
                 </div>
                 
-                {/* Positioned cool glowing decorative accent line under the S extending to PP on hover */}
-                <div className="absolute left-[8%] bottom-0 transform group w-14 h-2.5 rounded-full overflow-hidden z-20 transition-all duration-700 hover:w-72">
+                {/* Positioned cool glowing decorative accent line under the S extending to PP on hover - moved down 0.5 inch */}
+                <div className="absolute left-[8%] bottom-[-0.5in] transform group w-14 h-2.5 rounded-full overflow-hidden z-20 transition-all duration-700 hover:w-72">
                   {/* Base gradient */}
                   <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-amber-500 to-red-600"></div>
                   
