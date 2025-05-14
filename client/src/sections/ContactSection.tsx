@@ -287,44 +287,155 @@ const ContactSection = () => {
                 )}
               </div>
               
-              <div>
-                <label htmlFor="phone" className="block text-sm font-medium mb-2 bg-clip-text text-transparent bg-gradient-to-r from-amber-400 via-orange-500 to-red-500">Phone Number</label>
-                <input 
-                  type="tel" 
-                  id="phone" 
-                  className="w-full dark:bg-gradient-to-r dark:from-gray-800/90 dark:to-gray-700/90 bg-gray-100/90 border dark:border-gray-600/40 border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#0070f3] dark:shadow-[0_0_15px_rgba(255,255,255,0.25)] shadow-[0_0_15px_rgba(0,0,0,0.25)] dark:text-white text-gray-800"
-                  value={formData.phone}
-                  onChange={handleInputChange}
-                />
+              {/* Premium Enterprise Phone Field */}
+              <div className="group">
+                {/* Premium Enterprise Label */}
+                <label htmlFor="phone" className="relative flex items-center mb-2 group">
+                  {/* Label text with premium styling */}
+                  <span className="relative z-10 text-sm font-medium bg-clip-text text-transparent bg-gradient-to-r from-amber-300 via-orange-500 to-red-500 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] tracking-wide">
+                    Phone Number
+                  </span>
+                  
+                  {/* Small "optional" indicator */}
+                  <span className="ml-2 text-xs text-gray-400 italic">(optional)</span>
+                </label>
+                
+                {/* Premium Enterprise Input Container */}
+                <div className="relative">
+                  {/* Phone icon */}
+                  <div className="absolute left-4 top-1/2 transform -translate-y-1/2 z-20 text-gray-400">
+                    <i className="fas fa-phone-alt text-sm opacity-70"></i>
+                  </div>
+                  
+                  {/* Premium input field */}
+                  <input 
+                    type="tel" 
+                    id="phone" 
+                    className="w-full dark:bg-gradient-to-br dark:from-gray-800/95 dark:via-gray-900/95 dark:to-gray-800/95 bg-gray-100/90 border dark:border-gray-600/30 border-gray-300 rounded-lg pl-10 pr-4 py-3 focus:outline-none dark:focus:border-amber-500/70 focus:border-amber-500 dark:text-white text-gray-800 relative z-10 transition-all duration-300 backdrop-blur-sm placeholder-gray-400/80"
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    placeholder="(000) 000-0000"
+                  />
+                  
+                  {/* Premium glow effect on focus */}
+                  <div className="absolute inset-0 rounded-lg opacity-0 group-focus-within:opacity-100 transition-opacity duration-500 pointer-events-none">
+                    <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-amber-500/0 to-red-500/0 dark:group-focus-within:from-amber-500/20 dark:group-focus-within:to-red-500/20 opacity-0 group-focus-within:opacity-100 transition-opacity duration-300"></div>
+                    <div className="absolute right-2 top-1/2 transform -translate-y-1/2 w-8 h-8 bg-gradient-to-r from-amber-500/0 to-red-500/0 group-focus-within:from-amber-500/10 group-focus-within:to-red-500/10 rounded-full blur-md opacity-0 group-focus-within:opacity-100 transition-opacity duration-300"></div>
+                  </div>
+                </div>
+                
+                {/* Helper text */}
+                <p className="text-gray-500/70 text-xs mt-1 ml-1">
+                  <i className="fas fa-shield-alt mr-1 text-amber-500/70"></i>
+                  Your privacy is protected, we never share your information
+                </p>
               </div>
               
-              <div>
-                <label htmlFor="interest" className="block text-sm font-medium mb-2 bg-clip-text text-transparent bg-gradient-to-r from-amber-400 via-orange-500 to-red-500">I'm interested in</label>
-                <select 
-                  id="interest" 
-                  className="w-full dark:bg-gradient-to-r dark:from-gray-800/90 dark:to-gray-700/90 bg-gray-100/90 border dark:border-gray-600/40 border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#0070f3] dark:shadow-[0_0_15px_rgba(255,255,255,0.25)] shadow-[0_0_15px_rgba(0,0,0,0.25)] dark:text-white text-gray-800"
-                  value={formData.interest}
-                  onChange={handleSelectChange}
-                >
-                  <option value="">Select your interest</option>
-                  <option value="wildfire">Wildfire Protection</option>
-                  <option value="marine">Marine Applications</option>
-                  <option value="pool">Pool Coatings</option>
-                  <option value="construction">Construction</option>
-                  <option value="painter">Becoming a Certified Painter</option>
-                  <option value="other">Other</option>
-                </select>
+              {/* Premium Enterprise Interest Selector */}
+              <div className="group">
+                {/* Premium Enterprise Label */}
+                <label htmlFor="interest" className="relative flex items-center mb-2 group">
+                  {/* Label text with premium styling */}
+                  <span className="relative z-10 text-sm font-medium bg-clip-text text-transparent bg-gradient-to-r from-amber-300 via-orange-500 to-red-500 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] tracking-wide">
+                    I'm interested in
+                  </span>
+                  
+                  {/* Animated dot indicator */}
+                  <span className="ml-1 w-1 h-1 rounded-full bg-red-500 opacity-70 group-hover:w-1.5 group-hover:h-1.5 transition-all duration-300"></span>
+                </label>
+                
+                {/* Premium Enterprise Select Container */}
+                <div className="relative">
+                  {/* Premium select field with icon */}
+                  <div className="absolute left-4 top-1/2 transform -translate-y-1/2 z-20 text-gray-400">
+                    <i className="fas fa-tag text-sm opacity-70"></i>
+                  </div>
+                  
+                  {/* Custom select container for premium styling */}
+                  <div className="relative">
+                    <select 
+                      id="interest" 
+                      className="w-full dark:bg-gradient-to-br dark:from-gray-800/95 dark:via-gray-900/95 dark:to-gray-800/95 bg-gray-100/90 border dark:border-gray-600/30 border-gray-300 rounded-lg pl-10 pr-10 py-3 focus:outline-none dark:focus:border-amber-500/70 focus:border-amber-500 dark:text-white text-gray-800 relative z-10 transition-all duration-300 backdrop-blur-sm appearance-none"
+                      value={formData.interest}
+                      onChange={handleSelectChange}
+                      required
+                    >
+                      <option value="" disabled className="dark:bg-gray-900 bg-gray-100">Select your interest</option>
+                      <option value="wildfire" className="dark:bg-gray-900 bg-gray-100">Wildfire Protection</option>
+                      <option value="marine" className="dark:bg-gray-900 bg-gray-100">Marine Applications</option>
+                      <option value="pool" className="dark:bg-gray-900 bg-gray-100">Pool Coatings</option>
+                      <option value="construction" className="dark:bg-gray-900 bg-gray-100">Construction</option>
+                      <option value="painter" className="dark:bg-gray-900 bg-gray-100">Becoming a Certified Painter</option>
+                      <option value="other" className="dark:bg-gray-900 bg-gray-100">Other</option>
+                    </select>
+                    
+                    {/* Custom dropdown arrow for enhanced styling */}
+                    <div className="absolute right-4 top-1/2 transform -translate-y-1/2 text-lg text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-red-500 pointer-events-none">
+                      <i className="fas fa-chevron-down"></i>
+                    </div>
+                    
+                    {/* Animated glow effect on focus */}
+                    <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-amber-500/0 to-red-500/0 dark:group-focus-within:from-amber-500/10 dark:group-focus-within:to-red-500/10 opacity-0 group-focus-within:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+                  </div>
+                  
+                  {/* Enhanced hover effect */}
+                  <div className="absolute inset-0 rounded-lg dark:bg-gradient-to-r dark:from-amber-500/5 dark:to-red-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+                </div>
               </div>
               
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium mb-2 bg-clip-text text-transparent bg-gradient-to-r from-amber-400 via-orange-500 to-red-500">Message</label>
-                <textarea 
-                  id="message" 
-                  rows={4} 
-                  className="w-full dark:bg-gradient-to-r dark:from-gray-800/90 dark:to-gray-700/90 bg-gray-100/90 border dark:border-gray-600/40 border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#0070f3] dark:shadow-[0_0_15px_rgba(255,255,255,0.25)] shadow-[0_0_15px_rgba(0,0,0,0.25)] dark:text-white text-gray-800 resize-none"
-                  value={formData.message}
-                  onChange={handleInputChange}
-                ></textarea>
+              {/* Premium Enterprise Message Field */}
+              <div className="group">
+                {/* Premium Enterprise Label */}
+                <label htmlFor="message" className="relative flex items-center mb-2 group">
+                  {/* Label text with premium styling */}
+                  <span className="relative z-10 text-sm font-medium bg-clip-text text-transparent bg-gradient-to-r from-amber-300 via-orange-500 to-red-500 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] tracking-wide">
+                    Message
+                  </span>
+                  
+                  {/* Animated dot indicator */}
+                  <span className="ml-1 w-1 h-1 rounded-full bg-red-500 opacity-70 group-hover:w-1.5 group-hover:h-1.5 transition-all duration-300"></span>
+                </label>
+                
+                {/* Premium Enterprise Textarea Container */}
+                <div className="relative">
+                  {/* Premium message icon */}
+                  <div className="absolute left-4 top-4 z-20 text-gray-400">
+                    <i className="fas fa-comment-alt text-sm opacity-70"></i>
+                  </div>
+                  
+                  {/* Premium textarea field with advanced styling */}
+                  <div className="relative">
+                    <textarea 
+                      id="message" 
+                      rows={5} 
+                      className="w-full dark:bg-gradient-to-br dark:from-gray-800/95 dark:via-gray-900/95 dark:to-gray-800/95 bg-gray-100/90 border dark:border-gray-600/30 border-gray-300 rounded-lg pl-10 pr-4 py-3 focus:outline-none dark:focus:border-amber-500/70 focus:border-amber-500 dark:text-white text-gray-800 relative z-10 transition-all duration-300 backdrop-blur-sm resize-none"
+                      value={formData.message}
+                      onChange={handleInputChange}
+                      required
+                      placeholder="Tell us about your project needs..."
+                    ></textarea>
+                    
+                    {/* Character counter */}
+                    <div className="absolute bottom-2 right-3 text-xs text-gray-500 opacity-70">
+                      {formData.message?.length || 0}/500
+                    </div>
+                    
+                    {/* Premium glow effect on focus */}
+                    <div className="absolute inset-0 rounded-lg opacity-0 group-focus-within:opacity-100 transition-opacity duration-500 pointer-events-none">
+                      <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-amber-500/0 to-red-500/0 dark:group-focus-within:from-amber-500/20 dark:group-focus-within:to-red-500/20 opacity-0 group-focus-within:opacity-100 transition-opacity duration-300"></div>
+                      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1/2 h-1 bg-gradient-to-r from-amber-500/0 to-red-500/0 group-focus-within:from-amber-500/30 group-focus-within:to-red-500/30 rounded-full blur-md opacity-0 group-focus-within:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                  </div>
+                  
+                  {/* Enhanced hover effect */}
+                  <div className="absolute inset-0 rounded-lg dark:bg-gradient-to-r dark:from-amber-500/5 dark:to-red-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+                </div>
+                
+                {/* Helper text */}
+                <p className="text-gray-500/70 text-xs mt-1 ml-1 flex items-center">
+                  <i className="fas fa-lightbulb mr-1 text-amber-500/70"></i>
+                  Be specific about your needs for a more detailed response
+                </p>
               </div>
               
               <div className="relative group">
