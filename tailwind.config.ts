@@ -178,6 +178,7 @@ export default {
         "glow-pulse": "glow-pulse 3s ease-in-out infinite",
         "glow-pulse-orange": "glow-pulse-orange 3s ease-in-out infinite",
         "shimmer": "shimmer 3s ease-in-out infinite",
+        "shimmer-once": "shimmer 2.5s ease-in-out forwards",
         "shimmer-slow": "shimmer-slow 6s ease-in-out infinite",
         "border-flow": "border-flow 3s ease-in-out infinite",
         "rotate-slow": "rotate-slow 10s linear infinite",

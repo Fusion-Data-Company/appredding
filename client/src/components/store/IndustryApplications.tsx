@@ -297,26 +297,32 @@ const IndustryApplications = () => {
               <TabsTrigger 
                 key={app.id} 
                 value={app.id}
-                className="py-3 relative z-10 font-medium transition-all duration-300 
+                className="py-3 relative z-10 font-medium transition-all duration-300 overflow-hidden
                   data-[state=active]:bg-gradient-to-b data-[state=active]:from-white data-[state=active]:to-amber-50 
-                  dark:data-[state=active]:from-amber-800 dark:data-[state=active]:to-amber-900 
-                  data-[state=active]:text-amber-700 dark:data-[state=active]:text-amber-100 
+                  dark:data-[state=active]:from-gray-800 dark:data-[state=active]:to-gray-900 
+                  data-[state=active]:text-amber-700 dark:data-[state=active]:text-gray-100 
                   data-[state=active]:shadow-lg data-[state=active]:border-b-2 
-                  data-[state=active]:border-amber-500 dark:data-[state=active]:border-amber-500 
-                  rounded-lg text-gray-700 dark:text-amber-300 
-                  hover:bg-amber-50/70 dark:hover:bg-amber-800/50 
+                  data-[state=active]:border-[rgba(200,45,20,0.8)] dark:data-[state=active]:border-[rgba(200,45,20,0.8)] 
+                  rounded-lg text-gray-700 dark:text-gray-300 
+                  hover:bg-amber-50/70 dark:hover:bg-gray-800/50 
                   hover:shadow-md hover:-translate-y-0.5 
                   transform transition-transform"
               >
-                <div className="flex flex-col items-center gap-2 p-1">
-                  <div className="text-amber-600 dark:text-amber-400 transition-all duration-300 transform hover:scale-125">
+                <div className="flex flex-col items-center gap-2 p-1 relative z-10">
+                  <div className="text-[rgba(200,45,20,0.9)] dark:text-[rgba(220,65,30,0.95)] transition-all duration-300 transform hover:scale-125">
                     {React.cloneElement(app.icon as React.ReactElement, { 
                       size: 26, 
                       strokeWidth: 1.5,
-                      className: "drop-shadow-[0_1px_1px_rgba(251,191,36,0.4)]"
+                      className: "drop-shadow-[0_2px_3px_rgba(200,45,20,0.4)]"
                     })}
                   </div>
                   <span className="text-xs font-semibold tracking-wide">{app.title}</span>
+                </div>
+                <div className="absolute inset-0 pointer-events-none overflow-hidden data-[state=active]:block hidden">
+                  <div className="absolute top-0 left-[-100%] h-full w-[300%] 
+                    bg-gradient-to-r from-transparent via-white/40 to-transparent
+                    animate-shimmer-once"
+                  ></div>
                 </div>
               </TabsTrigger>
             ))}
