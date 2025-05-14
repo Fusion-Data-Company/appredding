@@ -114,7 +114,7 @@ const PitchDeckSlider = () => {
               size="lg"
             >
               <Shield className="w-5 h-5 mr-1" />
-              Enterprise Pitch Deck
+              Introduction
               <ArrowRight className="w-4 h-4 ml-1" />
             </GradientButton>
           </motion.div>
