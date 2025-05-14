@@ -308,6 +308,17 @@ const ProductPerformanceSection = () => {
               {/* Enhanced Premium Heading Container */}
               <div className="text-center mb-14 relative">
                 <div className="absolute -top-12 left-1/2 -translate-x-1/2 w-56 h-2 bg-gradient-to-r from-transparent via-amber-500/20 to-transparent blur-xl"></div>
+                
+                {/* NASA Testing badge with consistent styling */}
+                <div className="mb-4 inline-flex">
+                  <div className="px-3 py-1.5 rounded-full border border-amber-300 dark:border-amber-700 bg-amber-100/50 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300 inline-flex items-center shadow-[0_0_10px_rgba(251,113,36,0.3)]">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-2 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                    </svg>
+                    <span className="text-sm font-medium">NASA-Grade Testing</span>
+                  </div>
+                </div>
+                
                 <GradientHeading level={2} className="text-3xl md:text-4xl lg:text-5xl mb-6" variant="mixed">NASA-Grade Testing Protocols</GradientHeading>
                 <p className="text-xl text-gray-200 max-w-4xl mx-auto leading-relaxed">
                   Our triple-component system utilizes vacuum-filled ceramic microspheres in a water-based acrylic elastomeric polymer with 156% elongation capability. This advanced ceramic technology provides exceptional thermal insulation properties and fire resistance across a wide range of applications.
