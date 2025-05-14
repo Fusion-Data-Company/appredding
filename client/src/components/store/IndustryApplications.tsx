@@ -5,6 +5,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Building, Warehouse, Ship, AlarmClockCheck, Home, Building2, Droplets, ThermometerSun, Wrench, Zap, DollarSign, Shield, CheckCircle, Sun, ShoppingCart } from "lucide-react";
 import { GradientText } from "@/components/ui/gradient-text";
 import { Link } from "wouter";
+import { PremiumCartButton } from "@/utils/premium-buttons";
 import praetorianLogoFire from "../../assets_dir/images/praetorian-logo-fire.png";
 
 interface ApplicationData {
