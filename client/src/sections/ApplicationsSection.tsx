@@ -212,7 +212,7 @@ const ApplicationsSection = () => {
               </div>
               
               {/* Moved Technical Data badge to top - moved up a bit */}
-              <div className="relative z-10 -mt-2 mb-6 flex justify-center">
+              <div className="relative z-30 -mt-2 mb-6 flex justify-center">
                 <div className="px-3 py-1.5 rounded-full border border-amber-300 dark:border-amber-700 bg-amber-100/50 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300 inline-flex items-center shadow-[0_0_10px_rgba(251,113,36,0.3)]">
                   <Shield className="h-4 w-4 mr-2 text-amber-500" />
                   <span className="text-sm font-medium">Technical Data</span>
@@ -259,8 +259,7 @@ const ApplicationsSection = () => {
                   {/* Glow effect */}
                   <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-amber-500 to-red-600 blur-md opacity-70"></div>
                   
-                  {/* Animated pulse overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 animate-pulse-slow"></div>
+                  {/* Removed animated pulse overlay */}
                   
                   {/* Pulsing dots */}
                   <div className="absolute h-full w-4 bg-white/80 right-4 rounded-full blur-[1px] animate-pulse-slow"></div>
