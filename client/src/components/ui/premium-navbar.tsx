@@ -192,7 +192,7 @@ export function PremiumNavbar() {
   const professionalsContent = (
     <div className="p-4">
       <div className="border-b border-gray-700 pb-2 mb-3">
-        <h3 className="text-base font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
+        <h3 className="text-base font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-orange-500">
           Professional Network
         </h3>
       </div>
@@ -352,7 +352,7 @@ export function PremiumNavbar() {
   const crmContent = (
     <div className="p-4">
       <div className="border-b border-gray-700 pb-2 mb-3">
-        <h3 className="text-base font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-purple-600">
+        <h3 className="text-base font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-orange-400 to-amber-600">
           Praetorian CRM
         </h3>
       </div>
