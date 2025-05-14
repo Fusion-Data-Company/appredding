@@ -1,28 +1,28 @@
-import { GradientHeading } from "@/components/ui/gradient-heading";
+import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="bg-black text-white py-8 mt-10 border-t border-gray-800">
-      <div className="container mx-auto px-4">
+    <footer className="bg-black py-10 mt-10 border-t border-gray-800 relative z-20">
+      <div className="container mx-auto px-4 relative z-30">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           {/* Department Contacts */}
-          <div>
-            <GradientHeading level={3} className="text-base mb-4" variant="fire">Department Contacts</GradientHeading>
+          <div className="relative z-30">
+            <h3 className="text-base font-bold mb-4 gradient-text-fire">Department Contacts</h3>
             <ul className="space-y-3">
               <li>
-                <p className="text-gray-400 text-xs">Orders:</p>
+                <p className="text-gray-400 text-xs font-semibold">Orders:</p>
                 <a href="mailto:orders@praetoriansmartcoat.com" className="text-white hover:text-amber-500 text-sm">
                   orders@praetoriansmartcoat.com
                 </a>
               </li>
               <li>
-                <p className="text-gray-400 text-xs">Office:</p>
+                <p className="text-gray-400 text-xs font-semibold">Office:</p>
                 <a href="mailto:office@praetoriansmartcoat.com" className="text-white hover:text-amber-500 text-sm">
                   office@praetoriansmartcoat.com
                 </a>
               </li>
               <li>
-                <p className="text-gray-400 text-xs">Distributors:</p>
+                <p className="text-gray-400 text-xs font-semibold">Distributors:</p>
                 <a href="mailto:distributors@praetoriansmartcoat.com" className="text-white hover:text-amber-500 text-sm">
                   distributors@praetoriansmartcoat.com
                 </a>
@@ -31,8 +31,8 @@ const Footer = () => {
           </div>
 
           {/* Applications */}
-          <div>
-            <GradientHeading level={3} className="text-base mb-4" variant="fire">Applications</GradientHeading>
+          <div className="relative z-30">
+            <h3 className="text-base font-bold mb-4 gradient-text-fire">Applications</h3>
             <ul className="space-y-3">
               <li>
                 <a href="/fire-prevention" className="text-white hover:text-blue-400 text-sm">
@@ -68,8 +68,8 @@ const Footer = () => {
           </div>
 
           {/* Our Product */}
-          <div>
-            <GradientHeading level={3} className="text-base mb-4" variant="mixed">Our Product</GradientHeading>
+          <div className="relative z-30">
+            <h3 className="text-base font-bold mb-4 gradient-text-mixed">Our Product</h3>
             <ul className="space-y-3">
               <li>
                 <a href="/products" className="text-white hover:text-blue-400 text-sm">
@@ -100,23 +100,23 @@ const Footer = () => {
           </div>
 
           {/* Main Contact */}
-          <div>
-            <GradientHeading level={3} className="text-base mb-4" variant="blue">Main Contact</GradientHeading>
+          <div className="relative z-30">
+            <h3 className="text-base font-bold mb-4 gradient-text-blue">Main Contact</h3>
             <ul className="space-y-3">
               <li>
-                <p className="text-gray-400 text-xs">General Information:</p>
+                <p className="text-gray-400 text-xs font-semibold">General Information:</p>
                 <a href="mailto:info@praetoriansmartcoat.com" className="text-white hover:text-amber-500 text-sm">
                   info@praetoriansmartcoat.com
                 </a>
               </li>
               <li>
-                <p className="text-gray-400 text-xs">Management:</p>
+                <p className="text-gray-400 text-xs font-semibold">Management:</p>
                 <a href="mailto:rob@praetoriansmartcoat.com" className="text-white hover:text-amber-500 text-sm">
                   rob@praetoriansmartcoat.com
                 </a>
               </li>
               <li>
-                <p className="text-gray-400 text-xs">Phone:</p>
+                <p className="text-gray-400 text-xs font-semibold">Phone:</p>
                 <a href="tel:+19168096619" className="text-white hover:text-amber-500 text-sm">
                   (916) 809-6619
                 </a>
@@ -131,8 +131,8 @@ const Footer = () => {
         </div>
         
         {/* Copyright */}
-        <div className="text-center pt-4 border-t border-gray-800">
-          <p className="text-gray-400 text-xs">
+        <div className="text-center pt-4 border-t border-gray-800 relative z-30">
+          <p className="text-gray-300 text-xs font-medium">
             &copy; {new Date().getFullYear()} Praetorian SmartCoat Solutions. All rights reserved.
           </p>
         </div>
