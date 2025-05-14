@@ -473,14 +473,14 @@ const ContactSection = () => {
                 {/* Water effect shadow */}
                 <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-cyan-400 to-blue-600 rounded-lg blur-xl opacity-70 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse" style={{ animationDelay: '500ms' }}></div>
                 
-                <GradientButton 
+                <PremiumActionButton 
                   type="submit" 
-                  className="w-full font-semibold tracking-wider relative z-10 dark:shadow-[0_0_20px_rgba(0,0,0,0.7)] shadow-[0_0_20px_rgba(0,0,0,0.3)]"
+                  className="w-full font-semibold tracking-wider relative z-10"
                   size="lg"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? "Sending..." : "Send Message"}
-                </GradientButton>
+                </PremiumActionButton>
               </div>
             </form>
           </div>
