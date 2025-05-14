@@ -182,42 +182,109 @@ const ContactSection = () => {
               <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="firstName" className="block text-sm font-medium mb-2 bg-clip-text text-transparent bg-gradient-to-r from-amber-400 via-orange-500 to-red-500">First Name</label>
-                  <input 
-                    type="text" 
-                    id="firstName" 
-                    className={`w-full dark:bg-gradient-to-r dark:from-gray-800/90 dark:to-gray-700/90 bg-gray-100/90 border ${formErrors.firstName ? 'border-red-500' : 'dark:border-gray-600/40 border-gray-300'} rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#0070f3] dark:shadow-[0_0_15px_rgba(255,255,255,0.25)] shadow-[0_0_15px_rgba(0,0,0,0.25)] dark:text-white text-gray-800`}
-                    value={formData.firstName}
-                    onChange={handleInputChange}
-                    required
-                  />
+                  {/* Premium Enterprise Label */}
+                  <label htmlFor="firstName" className="relative flex items-center mb-2 group">
+                    {/* Label text with premium styling */}
+                    <span className="relative z-10 text-sm font-medium bg-clip-text text-transparent bg-gradient-to-r from-amber-300 via-orange-500 to-red-500 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] tracking-wide">
+                      First Name
+                    </span>
+                    
+                    {/* Animated dot indicator */}
+                    <span className="ml-1 w-1 h-1 rounded-full bg-red-500 opacity-70 group-hover:w-1.5 group-hover:h-1.5 transition-all duration-300"></span>
+                  </label>
+                  
+                  {/* Premium Enterprise Input Container */}
+                  <div className="relative">
+                    {/* Premium input field */}
+                    <input 
+                      type="text" 
+                      id="firstName" 
+                      className={`w-full dark:bg-gradient-to-br dark:from-gray-800/95 dark:via-gray-900/95 dark:to-gray-800/95 bg-gray-100/90 border ${formErrors.firstName ? 'border-red-500' : 'dark:border-gray-600/30 border-gray-300'} rounded-lg px-4 py-3 focus:outline-none dark:focus:border-amber-500/70 focus:border-amber-500 dark:text-white text-gray-800 relative z-10 transition-all duration-300 backdrop-blur-sm placeholder-gray-400/80`}
+                      value={formData.firstName}
+                      onChange={handleInputChange}
+                      required
+                    />
+                    
+                    {/* Subtle focus effect */}
+                    <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-amber-500/0 to-red-500/0 dark:group-focus-within:from-amber-500/20 dark:group-focus-within:to-red-500/20 opacity-0 transition-opacity duration-300 pointer-events-none"></div>
+                  </div>
                   {formErrors.firstName && <p className="text-red-500 text-xs mt-1">{formErrors.firstName}</p>}
                 </div>
                 <div>
-                  <label htmlFor="lastName" className="block text-sm font-medium mb-2 bg-clip-text text-transparent bg-gradient-to-r from-amber-400 via-orange-500 to-red-500">Last Name</label>
-                  <input 
-                    type="text" 
-                    id="lastName" 
-                    className={`w-full dark:bg-gradient-to-r dark:from-gray-800/90 dark:to-gray-700/90 bg-gray-100/90 border ${formErrors.lastName ? 'border-red-500' : 'dark:border-gray-600/40 border-gray-300'} rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#0070f3] dark:shadow-[0_0_15px_rgba(255,255,255,0.25)] shadow-[0_0_15px_rgba(0,0,0,0.25)] dark:text-white text-gray-800`}
-                    value={formData.lastName}
-                    onChange={handleInputChange}
-                    required
-                  />
+                  {/* Premium Enterprise Label */}
+                  <label htmlFor="lastName" className="relative flex items-center mb-2 group">
+                    {/* Label text with premium styling */}
+                    <span className="relative z-10 text-sm font-medium bg-clip-text text-transparent bg-gradient-to-r from-amber-300 via-orange-500 to-red-500 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] tracking-wide">
+                      Last Name
+                    </span>
+                    
+                    {/* Animated dot indicator */}
+                    <span className="ml-1 w-1 h-1 rounded-full bg-red-500 opacity-70 group-hover:w-1.5 group-hover:h-1.5 transition-all duration-300"></span>
+                  </label>
+                  
+                  {/* Premium Enterprise Input Container */}
+                  <div className="relative">
+                    {/* Premium input field */}
+                    <input 
+                      type="text" 
+                      id="lastName" 
+                      className={`w-full dark:bg-gradient-to-br dark:from-gray-800/95 dark:via-gray-900/95 dark:to-gray-800/95 bg-gray-100/90 border ${formErrors.lastName ? 'border-red-500' : 'dark:border-gray-600/30 border-gray-300'} rounded-lg px-4 py-3 focus:outline-none dark:focus:border-amber-500/70 focus:border-amber-500 dark:text-white text-gray-800 relative z-10 transition-all duration-300 backdrop-blur-sm placeholder-gray-400/80`}
+                      value={formData.lastName}
+                      onChange={handleInputChange}
+                      required
+                    />
+                    
+                    {/* Subtle focus effect */}
+                    <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-amber-500/0 to-red-500/0 dark:group-focus-within:from-amber-500/20 dark:group-focus-within:to-red-500/20 opacity-0 transition-opacity duration-300 pointer-events-none"></div>
+                  </div>
                   {formErrors.lastName && <p className="text-red-500 text-xs mt-1">{formErrors.lastName}</p>}
                 </div>
               </div>
               
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium mb-2 bg-clip-text text-transparent bg-gradient-to-r from-amber-400 via-orange-500 to-red-500">Email Address</label>
-                <input 
-                  type="email" 
-                  id="email" 
-                  className={`w-full dark:bg-gradient-to-r dark:from-gray-800/90 dark:to-gray-700/90 bg-gray-100/90 border ${formErrors.email ? 'border-red-500' : 'dark:border-gray-600/40 border-gray-300'} rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#0070f3] dark:shadow-[0_0_15px_rgba(255,255,255,0.25)] shadow-[0_0_15px_rgba(0,0,0,0.25)] dark:text-white text-gray-800`}
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  required
-                />
-                {formErrors.email && <p className="text-red-500 text-xs mt-1">{formErrors.email}</p>}
+              {/* Premium Enterprise Email Field */}
+              <div className="group">
+                {/* Premium Enterprise Label */}
+                <label htmlFor="email" className="relative flex items-center mb-2 group">
+                  {/* Label text with premium styling */}
+                  <span className="relative z-10 text-sm font-medium bg-clip-text text-transparent bg-gradient-to-r from-amber-300 via-orange-500 to-red-500 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] tracking-wide">
+                    Email Address
+                  </span>
+                  
+                  {/* Animated dot indicator */}
+                  <span className="ml-1 w-1 h-1 rounded-full bg-red-500 opacity-70 group-hover:w-1.5 group-hover:h-1.5 transition-all duration-300"></span>
+                </label>
+                
+                {/* Premium Enterprise Input Container */}
+                <div className="relative">
+                  {/* Email icon */}
+                  <div className="absolute left-4 top-1/2 transform -translate-y-1/2 z-20 text-gray-400">
+                    <i className="fas fa-envelope text-sm opacity-70"></i>
+                  </div>
+                  
+                  {/* Premium input field */}
+                  <input 
+                    type="email" 
+                    id="email" 
+                    className={`w-full dark:bg-gradient-to-br dark:from-gray-800/95 dark:via-gray-900/95 dark:to-gray-800/95 bg-gray-100/90 border ${formErrors.email ? 'border-red-500' : 'dark:border-gray-600/30 border-gray-300'} rounded-lg pl-10 pr-4 py-3 focus:outline-none dark:focus:border-amber-500/70 focus:border-amber-500 dark:text-white text-gray-800 relative z-10 transition-all duration-300 backdrop-blur-sm placeholder-gray-400/80`}
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required
+                  />
+                  
+                  {/* Premium glow effect on focus */}
+                  <div className="absolute inset-0 rounded-lg opacity-0 group-focus-within:opacity-100 transition-opacity duration-500 pointer-events-none">
+                    <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-amber-500/0 to-red-500/0 dark:group-focus-within:from-amber-500/20 dark:group-focus-within:to-red-500/20 opacity-0 group-focus-within:opacity-100 transition-opacity duration-300"></div>
+                    <div className="absolute right-2 top-1/2 transform -translate-y-1/2 w-8 h-8 bg-gradient-to-r from-amber-500/0 to-red-500/0 group-focus-within:from-amber-500/10 group-focus-within:to-red-500/10 rounded-full blur-md opacity-0 group-focus-within:opacity-100 transition-opacity duration-300"></div>
+                  </div>
+                </div>
+                
+                {/* Error message with enhanced styling */}
+                {formErrors.email && (
+                  <p className="text-red-500 text-xs mt-1 flex items-center">
+                    <i className="fas fa-exclamation-circle mr-1"></i>
+                    {formErrors.email}
+                  </p>
+                )}
               </div>
               
               <div>
@@ -316,82 +383,209 @@ const ContactSection = () => {
                 </div>
                 
                 <div className="space-y-8">
-                  <div className="flex items-start group">
-                    <div className="relative">
-                      {/* Pulsing ambient glow */}
-                      <div className="absolute inset-0 rounded-full bg-gradient-to-r from-amber-500 to-red-500 blur-md opacity-0 group-hover:opacity-40 transition-opacity duration-500"></div>
-                      
-                      <div className="relative dark:bg-gradient-to-br dark:from-black dark:via-gray-900 dark:to-black bg-gradient-to-br from-gray-100 via-white to-gray-200 rounded-full p-4 mr-5 mt-1 shadow-lg border border-gray-200/30 dark:border-orange-500/30 flex items-center justify-center group-hover:border-orange-400/50 transition-all duration-300">
-                        <i className="fas fa-map-marker-alt text-2xl bg-clip-text text-transparent bg-gradient-to-br from-amber-400 to-red-500"></i>
+                  {/* Premium Enterprise Contact Item - Location */}
+                  <div className="group relative transform transition-all duration-500 hover:scale-[1.02] hover:z-10 rounded-xl p-4 hover:bg-gradient-to-r hover:from-orange-900/10 hover:via-transparent hover:to-orange-700/10">
+                    <div className="flex items-start">
+                      {/* Premium Enterprise Icon Container */}
+                      <div className="relative flex-shrink-0">
+                        {/* Premium Icon Container */}
+                        <div className="relative bg-gradient-to-br from-gray-900/95 to-gray-950/95 backdrop-blur-xl rounded-full p-4 mr-5 shadow-[0_10px_30px_rgba(0,0,0,0.3)] z-10 group-hover:scale-110 transition-transform duration-500">
+                          {/* Premium gradient border effect - Fire variant */}
+                          <div className="absolute inset-0 p-0.5 rounded-full bg-gradient-to-r from-orange-500/60 via-red-500/60 to-red-600/60 opacity-70"></div>
+                          
+                          {/* Inner highlight */}
+                          <div className="absolute inset-0 rounded-full bg-gradient-to-b from-white/20 via-transparent to-transparent opacity-50 pointer-events-none"></div>
+                          
+                          {/* Subtle glow effect */}
+                          <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 shadow-[0_0_20px_rgba(251,113,36,0.6)]"></div>
+                          
+                          {/* Icon */}
+                          <i className="fas fa-map-marker-alt text-2xl text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-red-500 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] relative z-10"></i>
+                          
+                          {/* Animated concentric ring for enterprise effect */}
+                          <div className="absolute inset-0 rounded-full border border-orange-500/20 scale-[1.15] opacity-0 group-hover:opacity-100 group-hover:scale-[1.4] transition-all duration-700"></div>
+                        </div>
                         
-                        {/* Inner concentric ring */}
-                        <div className="absolute inset-0 rounded-full border border-orange-500/20 scale-[1.15] group-hover:scale-125 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+                        {/* Bottom reflection */}
+                        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-3/4 h-[2px] bg-gradient-to-r from-transparent via-orange-500/20 to-transparent rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                       </div>
-                    </div>
-                    
-                    <div>
-                      <h4 className="font-bold text-lg mb-2 bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-red-500">Serving</h4>
-                      <p className="dark:text-gray-300 text-gray-700 text-[15px]">Northern California<br/>& Nationwide Distribution</p>
+                      
+                      {/* Premium Content */}
+                      <div>
+                        {/* Enhanced title with animated underline */}
+                        <div className="relative mb-3 pb-2">
+                          <h4 className="font-bold text-lg text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-red-500 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">Serving</h4>
+                          
+                          {/* Animated underline */}
+                          <div className="absolute bottom-0 left-0 w-1/3 h-0.5 bg-gradient-to-r from-orange-500 to-red-500 group-hover:w-1/2 transition-all duration-700 rounded-full opacity-70"></div>
+                        </div>
+                        
+                        {/* Enhanced content text */}
+                        <p className="text-gray-300 text-[15px] group-hover:text-gray-200 transition-colors duration-500">
+                          Northern California<br/>& Nationwide Distribution
+                        </p>
+                      </div>
                     </div>
                   </div>
                   
-                  <div className="flex items-start group">
-                    <div className="relative">
-                      {/* Pulsing ambient glow */}
-                      <div className="absolute inset-0 rounded-full bg-gradient-to-r from-amber-500 to-red-500 blur-md opacity-0 group-hover:opacity-40 transition-opacity duration-500"></div>
-                      
-                      <div className="relative dark:bg-gradient-to-br dark:from-black dark:via-gray-900 dark:to-black bg-gradient-to-br from-gray-100 via-white to-gray-200 rounded-full p-4 mr-5 mt-1 shadow-lg border border-gray-200/30 dark:border-orange-500/30 flex items-center justify-center group-hover:border-orange-400/50 transition-all duration-300">
-                        <i className="fas fa-phone-alt text-2xl bg-clip-text text-transparent bg-gradient-to-br from-amber-400 to-red-500"></i>
+                  {/* Premium Enterprise Contact Item - Phone */}
+                  <div className="group relative transform transition-all duration-500 hover:scale-[1.02] hover:z-10 rounded-xl p-4 hover:bg-gradient-to-r hover:from-orange-900/10 hover:via-transparent hover:to-amber-700/10">
+                    <div className="flex items-start">
+                      {/* Premium Enterprise Icon Container */}
+                      <div className="relative flex-shrink-0">
+                        {/* Premium Icon Container */}
+                        <div className="relative bg-gradient-to-br from-gray-900/95 to-gray-950/95 backdrop-blur-xl rounded-full p-4 mr-5 shadow-[0_10px_30px_rgba(0,0,0,0.3)] z-10 group-hover:scale-110 transition-transform duration-500">
+                          {/* Premium gradient border effect - Amber variant */}
+                          <div className="absolute inset-0 p-0.5 rounded-full bg-gradient-to-r from-amber-500/60 via-orange-500/60 to-amber-600/60 opacity-70"></div>
+                          
+                          {/* Inner highlight */}
+                          <div className="absolute inset-0 rounded-full bg-gradient-to-b from-white/20 via-transparent to-transparent opacity-50 pointer-events-none"></div>
+                          
+                          {/* Subtle glow effect */}
+                          <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 shadow-[0_0_20px_rgba(245,158,11,0.6)]"></div>
+                          
+                          {/* Icon */}
+                          <i className="fas fa-phone-alt text-2xl text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-orange-500 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] relative z-10"></i>
+                          
+                          {/* Animated concentric ring for enterprise effect */}
+                          <div className="absolute inset-0 rounded-full border border-amber-500/20 scale-[1.15] opacity-0 group-hover:opacity-100 group-hover:scale-[1.4] transition-all duration-700"></div>
+                        </div>
                         
-                        {/* Inner concentric ring */}
-                        <div className="absolute inset-0 rounded-full border border-orange-500/20 scale-[1.15] group-hover:scale-125 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+                        {/* Bottom reflection */}
+                        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-3/4 h-[2px] bg-gradient-to-r from-transparent via-amber-500/20 to-transparent rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                       </div>
-                    </div>
-                    
-                    <div>
-                      <h4 className="font-bold text-lg mb-2 bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-red-500">Phone</h4>
-                      <p className="dark:text-gray-300 text-gray-700 text-[15px]">(916) 809-6619<br/><span className="text-sm dark:text-gray-400">(Call or text welcome)</span></p>
+                      
+                      {/* Premium Content */}
+                      <div>
+                        {/* Enhanced title with animated underline */}
+                        <div className="relative mb-3 pb-2">
+                          <h4 className="font-bold text-lg text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-orange-500 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">Phone</h4>
+                          
+                          {/* Animated underline */}
+                          <div className="absolute bottom-0 left-0 w-1/3 h-0.5 bg-gradient-to-r from-amber-500 to-orange-500 group-hover:w-1/2 transition-all duration-700 rounded-full opacity-70"></div>
+                        </div>
+                        
+                        {/* Enhanced content text */}
+                        <p className="text-gray-300 text-[15px] group-hover:text-gray-200 transition-colors duration-500">
+                          (916) 809-6619<br/>
+                          <span className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors duration-500">(Call or text welcome)</span>
+                        </p>
+                      </div>
                     </div>
                   </div>
                   
-                  <div className="flex items-start group">
-                    <div className="relative">
-                      {/* Pulsing ambient glow */}
-                      <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 to-cyan-400 blur-md opacity-0 group-hover:opacity-40 transition-opacity duration-500"></div>
-                      
-                      <div className="relative dark:bg-gradient-to-br dark:from-black dark:via-gray-900 dark:to-black bg-gradient-to-br from-gray-100 via-white to-gray-200 rounded-full p-4 mr-5 mt-1 shadow-lg border border-gray-200/30 dark:border-blue-500/30 flex items-center justify-center group-hover:border-blue-400/50 transition-all duration-300">
-                        <i className="fas fa-envelope text-2xl bg-clip-text text-transparent bg-gradient-to-br from-blue-400 to-cyan-500"></i>
+                  {/* Premium Enterprise Contact Item - Email */}
+                  <div className="group relative transform transition-all duration-500 hover:scale-[1.02] hover:z-10 rounded-xl p-4 hover:bg-gradient-to-r hover:from-blue-900/10 hover:via-transparent hover:to-cyan-700/10">
+                    <div className="flex items-start">
+                      {/* Premium Enterprise Icon Container */}
+                      <div className="relative flex-shrink-0">
+                        {/* Premium Icon Container */}
+                        <div className="relative bg-gradient-to-br from-gray-900/95 to-gray-950/95 backdrop-blur-xl rounded-full p-4 mr-5 shadow-[0_10px_30px_rgba(0,0,0,0.3)] z-10 group-hover:scale-110 transition-transform duration-500">
+                          {/* Premium gradient border effect - Blue variant */}
+                          <div className="absolute inset-0 p-0.5 rounded-full bg-gradient-to-r from-blue-500/60 via-cyan-400/60 to-blue-600/60 opacity-70"></div>
+                          
+                          {/* Inner highlight */}
+                          <div className="absolute inset-0 rounded-full bg-gradient-to-b from-white/20 via-transparent to-transparent opacity-50 pointer-events-none"></div>
+                          
+                          {/* Subtle glow effect */}
+                          <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 shadow-[0_0_20px_rgba(59,130,246,0.6)]"></div>
+                          
+                          {/* Icon */}
+                          <i className="fas fa-envelope text-2xl text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-500 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] relative z-10"></i>
+                          
+                          {/* Animated concentric ring for enterprise effect */}
+                          <div className="absolute inset-0 rounded-full border border-blue-500/20 scale-[1.15] opacity-0 group-hover:opacity-100 group-hover:scale-[1.4] transition-all duration-700"></div>
+                        </div>
                         
-                        {/* Inner concentric ring */}
-                        <div className="absolute inset-0 rounded-full border border-blue-500/20 scale-[1.15] group-hover:scale-125 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+                        {/* Bottom reflection */}
+                        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-3/4 h-[2px] bg-gradient-to-r from-transparent via-blue-500/20 to-transparent rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                       </div>
-                    </div>
-                    
-                    <div>
-                      <h4 className="font-bold text-lg mb-2 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-400">Email</h4>
-                      <p className="dark:text-gray-300 text-gray-700 text-[15px]">
-                        <a href="mailto:info@praetoriansmartcoat.com" className="dark:text-gray-300 hover:text-blue-400 dark:hover:text-blue-400 transition-colors">info@praetoriansmartcoat.com</a><br/>
-                        <a href="mailto:rob@praetoriansmartcoat.com" className="dark:text-gray-300 hover:text-blue-400 dark:hover:text-blue-400 transition-colors">rob@praetoriansmartcoat.com</a> <span className="text-sm dark:text-gray-400">(Management)</span>
-                      </p>
+                      
+                      {/* Premium Content */}
+                      <div>
+                        {/* Enhanced title with animated underline */}
+                        <div className="relative mb-3 pb-2">
+                          <h4 className="font-bold text-lg text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-500 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">Email</h4>
+                          
+                          {/* Animated underline */}
+                          <div className="absolute bottom-0 left-0 w-1/3 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-400 group-hover:w-1/2 transition-all duration-700 rounded-full opacity-70"></div>
+                        </div>
+                        
+                        {/* Enhanced content text with premium email links */}
+                        <p className="text-gray-300 text-[15px]">
+                          <a 
+                            href="mailto:info@praetoriansmartcoat.com" 
+                            className="relative inline-block group-hover:text-gray-200 transition-colors duration-500"
+                          >
+                            <span className="relative z-10">info@praetoriansmartcoat.com</span>
+                            {/* Animated underline for link */}
+                            <span className="absolute bottom-0 left-0 w-0 h-px bg-gradient-to-r from-blue-500 to-cyan-400 group-hover:w-full transition-all duration-700"></span>
+                          </a>
+                          <br/>
+                          <a 
+                            href="mailto:rob@praetoriansmartcoat.com" 
+                            className="relative inline-block group-hover:text-gray-200 transition-colors duration-500"
+                          >
+                            <span className="relative z-10">rob@praetoriansmartcoat.com</span>
+                            {/* Animated underline for link */}
+                            <span className="absolute bottom-0 left-0 w-0 h-px bg-gradient-to-r from-blue-500 to-cyan-400 group-hover:w-full transition-all duration-700"></span>
+                          </a>
+                          <span className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors duration-500 ml-1">(Management)</span>
+                        </p>
+                      </div>
                     </div>
                   </div>
                   
-                  <div className="flex items-start group">
-                    <div className="relative">
-                      {/* Pulsing ambient glow */}
-                      <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 to-cyan-400 blur-md opacity-0 group-hover:opacity-40 transition-opacity duration-500"></div>
-                      
-                      <div className="relative dark:bg-gradient-to-br dark:from-black dark:via-gray-900 dark:to-black bg-gradient-to-br from-gray-100 via-white to-gray-200 rounded-full p-4 mr-5 mt-1 shadow-lg border border-gray-200/30 dark:border-blue-500/30 flex items-center justify-center group-hover:border-blue-400/50 transition-all duration-300">
-                        <i className="fas fa-clock text-2xl bg-clip-text text-transparent bg-gradient-to-br from-blue-400 to-cyan-500"></i>
+                  {/* Premium Enterprise Contact Item - Response Time */}
+                  <div className="group relative transform transition-all duration-500 hover:scale-[1.02] hover:z-10 rounded-xl p-4 hover:bg-gradient-to-r hover:from-indigo-900/10 hover:via-transparent hover:to-purple-700/10">
+                    <div className="flex items-start">
+                      {/* Premium Enterprise Icon Container */}
+                      <div className="relative flex-shrink-0">
+                        {/* Premium Icon Container */}
+                        <div className="relative bg-gradient-to-br from-gray-900/95 to-gray-950/95 backdrop-blur-xl rounded-full p-4 mr-5 shadow-[0_10px_30px_rgba(0,0,0,0.3)] z-10 group-hover:scale-110 transition-transform duration-500">
+                          {/* Premium gradient border effect - Purple variant */}
+                          <div className="absolute inset-0 p-0.5 rounded-full bg-gradient-to-r from-indigo-500/60 via-purple-400/60 to-indigo-600/60 opacity-70"></div>
+                          
+                          {/* Inner highlight */}
+                          <div className="absolute inset-0 rounded-full bg-gradient-to-b from-white/20 via-transparent to-transparent opacity-50 pointer-events-none"></div>
+                          
+                          {/* Subtle glow effect */}
+                          <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 shadow-[0_0_20px_rgba(99,102,241,0.6)]"></div>
+                          
+                          {/* Icon */}
+                          <i className="fas fa-clock text-2xl text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 to-purple-500 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] relative z-10"></i>
+                          
+                          {/* Animated concentric ring for enterprise effect */}
+                          <div className="absolute inset-0 rounded-full border border-indigo-500/20 scale-[1.15] opacity-0 group-hover:opacity-100 group-hover:scale-[1.4] transition-all duration-700"></div>
+                        </div>
                         
-                        {/* Inner concentric ring */}
-                        <div className="absolute inset-0 rounded-full border border-blue-500/20 scale-[1.15] group-hover:scale-125 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+                        {/* Bottom reflection */}
+                        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-3/4 h-[2px] bg-gradient-to-r from-transparent via-indigo-500/20 to-transparent rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                       </div>
-                    </div>
-                    
-                    <div>
-                      <h4 className="font-bold text-lg mb-2 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-400">Response Time</h4>
-                      <p className="dark:text-gray-300 text-gray-700 text-[15px]">Monday-Friday: Same day<br/>Weekends: Within 24 hours</p>
+                      
+                      {/* Premium Content */}
+                      <div>
+                        {/* Enhanced title with animated underline */}
+                        <div className="relative mb-3 pb-2">
+                          <h4 className="font-bold text-lg text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 to-purple-500 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">Response Time</h4>
+                          
+                          {/* Animated underline */}
+                          <div className="absolute bottom-0 left-0 w-1/3 h-0.5 bg-gradient-to-r from-indigo-500 to-purple-500 group-hover:w-1/2 transition-all duration-700 rounded-full opacity-70"></div>
+                        </div>
+                        
+                        {/* Enhanced content text with premium styling */}
+                        <p className="text-gray-300 text-[15px] group-hover:text-gray-200 transition-colors duration-500">
+                          <span className="inline-flex items-center">
+                            <span className="opacity-90 group-hover:opacity-100 transition-opacity duration-300">Monday-Friday:</span>
+                            <span className="ml-1 text-indigo-300 group-hover:text-indigo-200 transition-colors duration-300">Same day</span>
+                          </span>
+                          <br/>
+                          <span className="inline-flex items-center">
+                            <span className="opacity-90 group-hover:opacity-100 transition-opacity duration-300">Weekends:</span>
+                            <span className="ml-1 text-indigo-300 group-hover:text-indigo-200 transition-colors duration-300">Within 24 hours</span>
+                          </span>
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
