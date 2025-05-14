@@ -68,7 +68,7 @@ const PremiumButton = forwardRef<HTMLButtonElement, PremiumButtonProps>(
           <>
             <div className="absolute -inset-1.5 bg-gradient-to-r from-orange-600/40 via-red-600/40 to-amber-600/40 rounded-xl blur-xl opacity-70 group-hover:opacity-100 group-hover:blur-xl transition-all duration-1000 animate-pulse-slow"></div>
             <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/80 via-amber-500/80 to-red-500/80 rounded-xl blur-md opacity-90 group-hover:opacity-100 transition-all duration-500"></div>
-            <div className="absolute -inset-3 bg-gradient-to-r from-orange-600/10 via-red-600/10 to-amber-600/10 rounded-2xl blur-2xl opacity-0 group-hover:opacity-70 transition-all duration-1000"></div>
+            <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/10 via-red-600/10 to-amber-600/10 rounded-xl blur-lg opacity-0 group-hover:opacity-50 transition-all duration-1000"></div>
           </>
         )}
 
