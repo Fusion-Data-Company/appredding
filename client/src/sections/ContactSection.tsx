@@ -546,7 +546,7 @@ const ContactSection = () => {
                     Contact Information
                   </h2>
                 </div>
-                <div className="relative z-10 mb-8">
+                <div className="relative z-10 mb-8" style={{ marginTop: "-1rem" }}>
                   <p className="text-gray-300 text-lg text-center max-w-xl mx-auto mb-2">
                     Reach out to our team through any of these channels for inquiries, support, or partnership opportunities.
                   </p>
