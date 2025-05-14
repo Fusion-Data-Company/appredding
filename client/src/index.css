@@ -262,7 +262,23 @@ section + section {
     content: '';
     @apply absolute inset-0 rounded-xl -z-10;
     padding: 2px;
-    background: linear-gradient(to bottom right, #fbbf24, rgba(251, 113, 36, 0.8), #c84a17);
+    background: linear-gradient(to bottom right, rgba(251, 191, 36, 0.6), rgba(251, 113, 36, 0.5), rgba(200, 74, 23, 0.7));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0.8;
+  }
+  
+  .premium-gradient-border-bright {
+    @apply relative border-0 overflow-hidden;
+  }
+
+  .premium-gradient-border-bright::before {
+    content: '';
+    @apply absolute inset-0 rounded-xl -z-10;
+    padding: 2px;
+    background: linear-gradient(to bottom right, #fbbf24, rgba(251, 113, 36, 0.9), #c84a17);
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;

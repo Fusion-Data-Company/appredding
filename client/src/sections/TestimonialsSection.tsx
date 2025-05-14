@@ -20,7 +20,7 @@ const TestimonialsSection = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/70" style={{ zIndex: 1 }}></div>
       <div className="container mx-auto px-4 relative" style={{ zIndex: 2 }}>
         <div className="text-center mb-20">
-          <div className="bg-gray-800/60 backdrop-blur-xl rounded-xl border-4 border-gray-600/40 shadow-[0_0_40px_rgba(255,255,255,0.25)] py-12 px-12 mx-auto max-w-4xl mb-10 inline-block">
+          <div className="bg-gray-800/60 backdrop-blur-xl rounded-xl border-0 premium-gradient-border-bright shadow-[0_0_40px_rgba(255,255,255,0.25)] py-12 px-12 mx-auto max-w-4xl mb-10 inline-block">
             <GradientHeading level={2} className="text-4xl md:text-5xl mb-6" variant="fire">What Our Clients Say</GradientHeading>
             <p className="text-gray-300 text-xl max-w-2xl mx-auto">
               Hear from satisfied customers who trust Praetorian SmartCoat Solutions to protect their valuable assets.
