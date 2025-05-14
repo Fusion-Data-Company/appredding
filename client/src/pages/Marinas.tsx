@@ -919,7 +919,7 @@ const Marinas = () => {
             {/* Registration Success Message */}
             {registrationSuccess && (
               <div className="backdrop-blur-md bg-primary-900/70 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] p-8 mt-12 animate-fade-in text-center">
-                <div className="inline-flex items-center justify-center bg-blue-600 rounded-full p-3 mb-4">
+                <div className="inline-flex items-center justify-center bg-blue-600 rounded-full p-3 mb-4 relative z-50">
                   <CheckCircle className="h-10 w-10 text-white" />
                 </div>
                 <GradientHeading level={2} className="text-3xl font-bold mb-4" variant="blue">
