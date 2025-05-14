@@ -61,15 +61,15 @@ const ApplicationCard = ({ imageSrc, title, description, link }: ApplicationCard
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
       
-      {/* Subtle dots and squares pattern in burnt orange - Very light opacity */}
-      <div className="absolute inset-0 opacity-15 mix-blend-soft-light pointer-events-none">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoMjQ5LDExNSwyMiwwLjIpIiBkPSJNMCAwaDJ2Mkgwem0yIDJoMnYySDJ6Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCBmaWxsPSJ1cmwoI2EpIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIi8+PC9zdmc+')]"></div>
+      {/* Subtle dots and squares pattern in burnt orange - Increased opacity for visibility */}
+      <div className="absolute inset-0 opacity-25 mix-blend-soft-light pointer-events-none">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoMjQ5LDExNSwyMiwwLjQpIiBkPSJNMCAwaDJ2Mkgwem0yIDJoMnYySDJ6Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCBmaWxsPSJ1cmwoI2EpIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIi8+PC9zdmc+')]"></div>
       </div>
       
-      {/* Ambient glow overlay */}
+      {/* Ambient glow overlay - Positioned to avoid shadowing text */}
       <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-        <div className="absolute -top-10 -right-10 w-40 h-40 bg-orange-600/20 rounded-full filter blur-[60px]"></div>
-        <div className="absolute -bottom-20 -left-10 w-60 h-60 bg-orange-500/15 rounded-full filter blur-[80px]"></div>
+        <div className="absolute -top-40 right-0 w-60 h-60 bg-orange-600/25 rounded-full filter blur-[80px]"></div>
+        <div className="absolute bottom-0 -left-40 w-80 h-80 bg-orange-500/20 rounded-full filter blur-[100px]"></div>
       </div>
       
       <div className="absolute bottom-0 left-0 p-6 w-full">
@@ -160,14 +160,14 @@ const ApplicationsSection = () => {
             
             {/* Main card container */}
             <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black backdrop-blur-xl rounded-xl py-12 px-12 z-10 border border-orange-500/30 overflow-hidden">
-              {/* Subtle dots and squares pattern background in burnt orange */}
-              <div className="absolute inset-0 opacity-15 z-0">
-                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoMjQ5LDExNSwyMiwwLjIpIiBkPSJNMCAwaDJ2Mkgwem0yIDJoMnYySDJ6Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCBmaWxsPSJ1cmwoI2EpIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIi8+PC9zdmc+')]"></div>
+              {/* Subtle dots and squares pattern background in burnt orange - increased opacity for visibility */}
+              <div className="absolute inset-0 opacity-25 z-0">
+                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoMjQ5LDExNSwyMiwwLjQpIiBkPSJNMCAwaDJ2Mkgwem0yIDJoMnYySDJ6Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCBmaWxsPSJ1cmwoI2EpIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIi8+PC9zdmc+')]"></div>
               </div>
               
-              {/* Ambient glow effect */}
-              <div className="absolute -top-20 -right-20 w-60 h-60 bg-orange-600/20 rounded-full filter blur-[80px] animate-pulse-slow-delayed"></div>
-              <div className="absolute -bottom-40 -left-20 w-80 h-80 bg-orange-500/15 rounded-full filter blur-[100px] animate-pulse-slow"></div>
+              {/* Ambient glow effect - positioned away from text */}
+              <div className="absolute -top-60 -right-40 w-80 h-80 bg-orange-600/15 rounded-full filter blur-[100px] animate-pulse-slow-delayed"></div>
+              <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-orange-500/20 rounded-full filter blur-[120px] animate-pulse-slow"></div>
               
               {/* Corner accents */}
               <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none z-10">
