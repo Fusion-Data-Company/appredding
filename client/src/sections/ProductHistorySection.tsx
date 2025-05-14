@@ -209,7 +209,7 @@ const ProductHistorySection = () => {
               
               {/* Timeline Innovation badge with consistent styling */}
               <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-50">
-                <div className="px-3 py-1.5 rounded-full border-2 border-amber-400 dark:border-amber-500 bg-gradient-to-r from-amber-100/80 to-amber-200/80 dark:from-amber-900/80 dark:to-red-900/80 text-amber-800 dark:text-amber-300 inline-flex items-center shadow-[0_0_15px_rgba(251,113,36,0.5)] backdrop-blur-sm">
+                <div className="px-3 py-1.5 rounded-full border-2 border-amber-400 dark:border-amber-500 bg-gradient-to-r from-amber-100/80 to-amber-200/80 dark:from-amber-900/80 dark:to-red-900/80 text-amber-800 dark:text-amber-300 inline-flex items-center shadow-[0_0_15px_rgba(251,113,36,0.5)] backdrop-blur-sm relative z-50">
                   <div className="relative">
                     <div className="absolute inset-0 bg-orange-500/40 blur-sm rounded-full"></div>
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-orange-600 dark:text-amber-400 drop-shadow-md relative z-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">

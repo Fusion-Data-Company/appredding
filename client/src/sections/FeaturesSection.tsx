@@ -265,8 +265,8 @@ const FeaturesSection = () => {
             </div>
             
             {/* Enhanced premium badge with 3D effect */}
-            <div className="absolute -top-5 left-1/2 -translate-x-1/2 flex">
-              <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-gradient-to-r from-gray-900/95 to-gray-950/95 border border-gray-800 shadow-[0_5px_15px_rgba(0,0,0,0.3)] relative group">
+            <div className="absolute -top-5 left-1/2 -translate-x-1/2 flex z-50">
+              <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-gradient-to-r from-gray-900/95 to-gray-950/95 border border-gray-800 shadow-[0_5px_15px_rgba(0,0,0,0.3)] relative group z-50">
                 {/* Premium gradient border effect - Mixed variant */}
                 <div className="absolute inset-0 p-0.5 rounded-full bg-gradient-to-r from-orange-500/50 via-transparent to-blue-400/50 opacity-70"></div>
                 
