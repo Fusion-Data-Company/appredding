@@ -3,9 +3,9 @@ import StoneTextureBackground from "@/components/ui/stone-texture-background";
 
 const Footer = () => {
   return (
-    <footer className="relative border-t dark:border-[#333333] border-gray-300 pt-2 pb-1 mt-2 bg-black">
-      {/* Stone texture background - simplified */}
-      <div className="absolute inset-0 bg-[url('/src/assets_dir/images/stone-texture-dark.jpg')] opacity-20 bg-cover"></div>
+    <footer className="relative border-t border-[#333333] pt-4 pb-2 mt-2 bg-black">
+      {/* Dark background with slight texture */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black to-[#111] opacity-90"></div>
       
       <div className="container mx-auto px-4 relative z-[100]">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
@@ -21,7 +21,7 @@ const Footer = () => {
                 </span>
                 <div>
                   <p className="text-gray-400 font-semibold mb-0 text-xs">Orders:</p>
-                  <a href="mailto:orders@praetoriansmartcoat.com" className="text-white hover:text-amber-500 transition-colors break-all text-xs font-medium">
+                  <a href="mailto:orders@praetoriansmartcoat.com" className="text-white hover:text-amber-500 transition-colors break-all text-xs font-medium tracking-tight">
                     orders@praetoriansmartcoat.com
                   </a>
                 </div>
@@ -36,7 +36,7 @@ const Footer = () => {
                 </span>
                 <div>
                   <p className="text-gray-400 font-semibold mb-0 text-xs">Office:</p>
-                  <a href="mailto:office@praetoriansmartcoat.com" className="text-white hover:text-amber-500 transition-colors break-all text-xs font-medium">
+                  <a href="mailto:office@praetoriansmartcoat.com" className="text-white hover:text-amber-500 transition-colors break-all text-xs font-medium tracking-tight">
                     office@praetoriansmartcoat.com
                   </a>
                 </div>
@@ -51,7 +51,7 @@ const Footer = () => {
                 </span>
                 <div>
                   <p className="text-gray-400 font-semibold mb-0 text-xs">Distributors:</p>
-                  <a href="mailto:distributors@praetoriansmartcoat.com" className="text-white hover:text-amber-500 transition-colors break-all text-xs font-medium">
+                  <a href="mailto:distributors@praetoriansmartcoat.com" className="text-white hover:text-amber-500 transition-colors break-all text-xs font-medium tracking-tight">
                     distributors@praetoriansmartcoat.com
                   </a>
                 </div>
@@ -160,7 +160,7 @@ const Footer = () => {
                 </span>
                 <div>
                   <p className="text-gray-400 font-semibold mb-0 text-xs">General Information:</p>
-                  <a href="mailto:info@praetoriansmartcoat.com" className="text-white hover:text-amber-500 transition-colors break-all text-xs font-medium">
+                  <a href="mailto:info@praetoriansmartcoat.com" className="text-white hover:text-amber-500 transition-colors break-all text-xs font-medium tracking-tight">
                     info@praetoriansmartcoat.com
                   </a>
                 </div>
@@ -174,7 +174,7 @@ const Footer = () => {
                 </span>
                 <div>
                   <p className="text-gray-400 font-semibold mb-0 text-xs">Management:</p>
-                  <a href="mailto:rob@praetoriansmartcoat.com" className="text-white hover:text-amber-500 transition-colors break-all text-xs font-medium">
+                  <a href="mailto:rob@praetoriansmartcoat.com" className="text-white hover:text-amber-500 transition-colors break-all text-xs font-medium tracking-tight">
                     rob@praetoriansmartcoat.com
                   </a>
                 </div>
