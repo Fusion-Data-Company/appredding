@@ -222,78 +222,80 @@ const ProductHistorySection = () => {
                 <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2/3 h-[1px] bg-gradient-to-r from-transparent via-orange-600/40 to-transparent"></div>
               </div>
               
-              {/* Enhanced timeline with premium styling */}
-              <div className="p-8 space-y-0">
-                {[
-                  {
-                    year: "1989",
-                    title: "NASA Technology Adaptation",
-                    description: "First successful adaptation of NASA's 80-160 micron vacuum-filled ceramic microspheres (0.00543 W/cm²/K conductivity) for commercial fire protection applications"
-                  },
-                  {
-                    year: "1995",
-                    title: "Class A Fire Rating",
-                    description: "Achieved perfect 0/100 scores in ASTM E84 testing for both Flame Spread and Smoke Development with certified triple-component system"
-                  },
-                  {
-                    year: "2000s",
-                    title: "Energy Efficiency Breakthrough",
-                    description: "Independent facility documented 87% energy consumption reduction after Praetorian SmartCoat application, validating extreme efficiency claims"
-                  },
-                  {
-                    year: "2019",
-                    title: "Long-Term Performance Validation",
-                    description: "30-year inspection of original 1989 installations showed no deterioration and continued performance, confirming exceptional durability claims"
-                  }
-                ].map((item, index) => (
-                  <div key={index} className="relative mb-4">
-                    {/* Premium Timeline Entry with advanced styling */}
-                    <div className="relative pl-16 pb-12 group/item">
-                      {/* Timeline line with gradient */}
-                      {index < 3 && (
-                        <div className="absolute left-6 top-6 bottom-0 w-[2px] bg-gradient-to-b from-blue-500/50 via-purple-500/30 to-blue-500/50"></div>
-                      )}
-                      
-                      {/* Timeline dot with enhanced styling */}
-                      <div className="absolute left-0 top-2">
-                        <div className="relative">
-                          {/* Animated outer ring */}
-                          <div className="absolute inset-[-4px] rounded-full border border-orange-500/30 opacity-0 group-hover/item:opacity-100 group-hover/item:scale-[1.5] transition-all duration-1000 delay-100"></div>
-                          
-                          {/* Premium dot with dual-layer styling */}
-                          <div className="w-12 h-12 rounded-full bg-gradient-to-r from-orange-600 to-red-600 flex items-center justify-center relative">
-                            <div className="absolute inset-[2px] rounded-full bg-gradient-to-r from-orange-500 to-red-500 opacity-80"></div>
-                            <div className="absolute inset-0 rounded-full shadow-[0_0_15px_rgba(251,113,36,0.6)]"></div>
-                            
-                            {/* Year indicator with animated shimmer */}
-                            <span className="text-white font-bold relative">
-                              <span className="relative z-10">{item.year}</span>
-                              <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 group-hover/item:opacity-100 transition-opacity duration-700"
-                                 style={{
-                                   backgroundSize: '200% 100%',
-                                   animation: 'shimmer 2s infinite'
-                                 }}>
+              {/* Product Innovation Timeline - Styled to match Product Comparison Chart */}
+              <div className="p-8">
+                {/* Enhanced Premium Heading with animated underline */}
+                <div className="relative mb-8 pb-3">
+                  <GradientHeading level={3} className="text-3xl" variant="fire">
+                    Product Innovation Timeline
+                  </GradientHeading>
+                  
+                  {/* Animated underline */}
+                  <div className="absolute bottom-0 left-0 w-1/3 h-0.5 bg-gradient-to-r from-orange-500 to-red-500 group-hover:w-1/2 transition-all duration-1000 rounded-full opacity-70"></div>
+                </div>
+                
+                {/* Enhanced Premium Table Container */}
+                <div className="relative bg-gradient-to-br from-gray-900/90 via-gray-950/90 to-gray-900/90 backdrop-blur-xl rounded-xl overflow-hidden shadow-[0_5px_30px_rgba(0,0,0,0.3)] z-10">
+                  {/* Premium subtle border effect */}
+                  <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/40 via-transparent to-red-500/40 opacity-60"></div>
+                  
+                  {/* Inner highlight */}
+                  <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-40 pointer-events-none"></div>
+                  
+                  {/* Enhanced Table */}
+                  <div className="overflow-x-auto relative z-10">
+                    <table className="w-full text-lg">
+                      <thead>
+                        <tr className="border-b border-gray-600/30">
+                          <th className="text-left py-6 px-6 text-xl text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-amber-500">Year</th>
+                          <th className="text-left py-6 px-6 text-xl text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-red-500">Innovation</th>
+                          <th className="text-left py-6 px-6 text-xl text-gray-400">Impact</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {[
+                          {
+                            year: "1989",
+                            title: "NASA Technology Adaptation",
+                            description: "First successful adaptation of NASA's 80-160 micron vacuum-filled ceramic microspheres (0.00543 W/cm²/K conductivity) for commercial fire protection applications"
+                          },
+                          {
+                            year: "1995",
+                            title: "Class A Fire Rating",
+                            description: "Achieved perfect 0/100 scores in ASTM E84 testing for both Flame Spread and Smoke Development with certified triple-component system"
+                          },
+                          {
+                            year: "2000s",
+                            title: "Energy Efficiency Breakthrough",
+                            description: "Independent facility documented 87% energy consumption reduction after Praetorian SmartCoat application, validating extreme efficiency claims"
+                          },
+                          {
+                            year: "2019",
+                            title: "Long-Term Performance Validation",
+                            description: "30-year inspection of original 1989 installations showed no deterioration and continued performance, confirming exceptional durability claims"
+                          }
+                        ].map((item, index) => (
+                          <tr key={index} className="border-b border-gray-600/30 group/row hover:bg-gradient-to-r hover:from-gray-800/20 hover:to-transparent transition-colors duration-300">
+                            <td className="py-5 px-6 w-[120px] font-semibold text-xl group-hover/row:scale-105 transform transition-transform duration-300">
+                              <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-red-500 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">
+                                {item.year}
                               </span>
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                      
-                      {/* Enhanced content with premium styling */}
-                      <div className="relative transform transition-all duration-500 group-hover/item:-translate-y-1">
-                        {/* Premium title with gradient */}
-                        <h4 className="text-2xl font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-purple-400 to-blue-400">
-                          {item.title}
-                        </h4>
-                        
-                        {/* Enhanced description with premium styling */}
-                        <p className="text-gray-300 text-lg leading-relaxed group-hover/item:text-gray-200 transition-colors duration-500">
-                          {item.description}
-                        </p>
-                      </div>
-                    </div>
+                            </td>
+                            <td className="py-5 px-6 font-medium group-hover/row:text-gray-200 transition-colors duration-300">
+                              {item.title}
+                            </td>
+                            <td className="py-5 px-6 text-gray-400 group-hover/row:text-gray-300 transition-colors duration-300">
+                              {item.description}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
                   </div>
-                ))}
+                </div>
+                
+                {/* Subtle bottom reflection */}
+                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2/3 h-[2px] bg-gradient-to-r from-transparent via-orange-500/10 to-transparent rounded-full blur-sm"></div>
               </div>
             </div>
             
