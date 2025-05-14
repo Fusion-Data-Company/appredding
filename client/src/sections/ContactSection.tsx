@@ -132,7 +132,7 @@ const ContactSection = () => {
       style={{ 
         backgroundImage: `url(${backgroundImage})`,
         backgroundSize: "cover",
-        backgroundPosition: "center center", // Standardized position
+        backgroundPosition: "center center",
         backgroundRepeat: "no-repeat",
         backgroundAttachment: "fixed",
         backgroundColor: "#111111",
@@ -140,29 +140,46 @@ const ContactSection = () => {
         zIndex: 0
       }}
     >
-      {/* No overlay to allow background to show through */}
+      {/* Enterprise level backdrop overlay */}
+      <div className="absolute inset-0 bg-black/40 backdrop-blur-sm z-0"></div>
+      
+      {/* Subtle animated ambient light effects */}
+      <div className="absolute top-0 left-1/4 w-1/2 h-1/3 bg-orange-500/10 blur-[150px] animate-pulse" style={{ animationDuration: '8s' }}></div>
+      <div className="absolute bottom-0 right-1/4 w-1/2 h-1/3 bg-blue-500/10 blur-[150px] animate-pulse" style={{ animationDuration: '10s', animationDelay: '2s' }}></div>
+      
+      {/* Particle overlay for enterprise feel */}
+      <div className="absolute inset-0 bg-[url('/src/assets_dir/images/noise.svg')] opacity-[0.03] bg-repeat bg-[length:200px_200px] mix-blend-overlay pointer-events-none"></div>
       
       <div className="container mx-auto px-4 relative" style={{ zIndex: 2 }}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          <div>
-            <div className="relative mb-8 flex justify-center w-full">
-              <div className="absolute -inset-4 bg-gradient-to-r from-orange-500 via-amber-400 to-orange-500 rounded-lg blur-lg opacity-30 dark:opacity-50"></div>
+          <div className="relative group">
+            {/* Subtle ambient glow behind the heading */}
+            <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 w-3/4 h-20 bg-gradient-to-r from-orange-500/0 via-amber-500/20 to-orange-500/0 blur-[100px] rounded-full"></div>
+            
+            <div className="relative mb-10 flex justify-center w-full">
+              <div className="absolute -inset-4 bg-gradient-to-r from-orange-500 via-amber-400 to-orange-500 rounded-lg blur-lg opacity-30 dark:opacity-40"></div>
               <h2 
                 className="relative z-10 text-center bg-clip-text text-transparent bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 font-extrabold tracking-tight py-2" 
                 style={{ 
                   fontSize: '3rem',
-                  textShadow: '0 1px 10px rgba(255,150,0,0.3)',
-                  marginBottom: '1.5rem'
+                  textShadow: '0 1px 8px rgba(255,150,0,0.3)',
+                  marginBottom: '1.5rem',
+                  letterSpacing: '-0.02em'
                 }}
               >
                 Get In Touch
               </h2>
             </div>
-            <p className="text-[#a0a0a0] mb-8">
+            <p className="text-[#a0a0a0] mb-8 text-lg text-center max-w-xl mx-auto">
               Have questions about our products or services? Contact our team of coating experts for personalized assistance.
             </p>
             
-            <form className="space-y-6 bg-gradient-to-r from-gray-800/90 to-gray-700/90 backdrop-blur-md rounded-xl p-6 border-0 premium-gradient-border shadow-[0_0_40px_rgba(255,255,255,0.25)]" onSubmit={handleSubmit}>
+            <form className="space-y-6 bg-gradient-to-br from-gray-800/95 via-gray-900/95 to-gray-800/95 backdrop-blur-md rounded-xl p-8 border-0 relative shadow-[0_10px_50px_rgba(0,0,0,0.5)]" onSubmit={handleSubmit}>
+              {/* Premium gradient border effect */}
+              <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/50 via-transparent to-blue-400/50 opacity-70"></div>
+              
+              {/* Inner highlight */}
+              <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="firstName" className="block text-sm font-medium mb-2">First Name</label>
@@ -262,79 +279,125 @@ const ContactSection = () => {
             </form>
           </div>
           
-          <div>
-            <div className="relative dark:bg-gradient-to-r dark:from-black/80 dark:to-gray-900/80 bg-white/90 backdrop-blur-xl rounded-lg overflow-hidden h-full border-[3px] dark:border-[#222]/70 border-gray-200/50 shadow-[0_5px_30px_rgba(0,0,0,0.3)] dark:shadow-[0_5px_30px_rgba(255,130,30,0.15),_0_-5px_30px_rgba(30,144,255,0.15)]">
-              {/* Fire effect border top */}
-              <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-amber-600 via-red-600 to-amber-600 animate-pulse z-10"></div>
+          <div className="relative group">
+            {/* Ambient blue glow for the card */}
+            <div className="absolute -bottom-10 right-1/2 transform translate-x-1/2 w-3/4 h-20 bg-gradient-to-r from-blue-500/0 via-blue-500/20 to-blue-500/0 blur-[100px] rounded-full"></div>
+            
+            <div className="relative dark:bg-gradient-to-br dark:from-gray-900/95 dark:via-gray-950/95 dark:to-gray-900/95 bg-white/90 backdrop-blur-xl rounded-lg overflow-hidden h-full border-0 shadow-[0_10px_50px_rgba(0,0,0,0.5)]">
+              {/* Enterprise level gradient border */}
+              <div className="absolute inset-0 p-0.5 rounded-lg bg-gradient-to-r from-blue-500/50 via-transparent to-cyan-400/50 opacity-70"></div>
               
-              {/* Water effect border bottom */}
-              <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-gradient-to-r from-blue-600 via-cyan-400 to-blue-600 animate-pulse z-10"></div>
+              {/* Subtle top highlight */}
+              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
               
-              {/* Premium glassmorphism effect */}
+              {/* Fire effect border top - enhanced */}
+              <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-amber-600 via-red-600 to-amber-600 animate-pulse z-10" style={{ animationDuration: '3s' }}></div>
+              
+              {/* Water effect border bottom - enhanced */}
+              <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-gradient-to-r from-blue-600 via-cyan-400 to-blue-600 animate-pulse z-10" style={{ animationDuration: '4s' }}></div>
+              
+              {/* Premium glassmorphism effect - enhanced */}
               <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/10 dark:from-white/5 dark:via-transparent dark:to-white/5"></div>
               
               <div className="p-8 relative z-20">
-                <div className="relative mb-8 flex justify-center w-full">
-                  <div className="absolute -inset-4 bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-500 rounded-lg blur-lg opacity-30 dark:opacity-50"></div>
+                <div className="relative mb-10 flex justify-center w-full">
+                  <div className="absolute -inset-4 bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-500 rounded-lg blur-lg opacity-30 dark:opacity-40"></div>
                   <h2 
                     className="relative z-10 text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-400 font-extrabold tracking-tight py-2" 
                     style={{ 
                       fontSize: '3rem',
-                      textShadow: '0 1px 10px rgba(0,150,255,0.3)',
-                      marginBottom: '1.5rem'
+                      textShadow: '0 1px 8px rgba(0,150,255,0.3)',
+                      marginBottom: '1.5rem',
+                      letterSpacing: '-0.02em'
                     }}
                   >
                     Contact Information
                   </h2>
                 </div>
                 
-                <div className="space-y-6">
-                  <div className="flex items-start">
-                    <div className="dark:bg-gradient-to-br dark:from-gray-800 dark:via-gray-700 dark:to-gray-900 bg-gradient-to-br from-gray-100 via-white to-gray-200 rounded-full p-3 mr-4 mt-1 dark:shadow-[0_0_15px_rgba(255,130,30,0.25)] shadow-[0_0_15px_rgba(0,0,0,0.15)] border border-gray-200/30 dark:border-orange-500/20 flex items-center justify-center">
-                      <i className="fas fa-map-marker-alt dark:text-orange-400 text-gray-700"></i>
+                <div className="space-y-8">
+                  <div className="flex items-start group">
+                    <div className="relative">
+                      {/* Pulsing ambient glow */}
+                      <div className="absolute inset-0 rounded-full bg-gradient-to-r from-amber-500 to-red-500 blur-md opacity-0 group-hover:opacity-40 transition-opacity duration-500"></div>
+                      
+                      <div className="relative dark:bg-gradient-to-br dark:from-black dark:via-gray-900 dark:to-black bg-gradient-to-br from-gray-100 via-white to-gray-200 rounded-full p-4 mr-5 mt-1 shadow-lg border border-gray-200/30 dark:border-orange-500/30 flex items-center justify-center group-hover:border-orange-400/50 transition-all duration-300">
+                        <i className="fas fa-map-marker-alt text-2xl bg-clip-text text-transparent bg-gradient-to-br from-amber-400 to-red-500"></i>
+                        
+                        {/* Inner concentric ring */}
+                        <div className="absolute inset-0 rounded-full border border-orange-500/20 scale-[1.15] group-hover:scale-125 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+                      </div>
                     </div>
+                    
                     <div>
-                      <h4 className="font-semibold mb-1">Serving</h4>
-                      <p className="dark:text-[#a0a0a0] text-gray-700">Northern California<br/>& Nationwide Distribution</p>
+                      <h4 className="font-bold text-lg mb-2 bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-red-500">Serving</h4>
+                      <p className="dark:text-white text-gray-700 text-[15px]">Northern California<br/>& Nationwide Distribution</p>
                     </div>
                   </div>
                   
-                  <div className="flex items-start">
-                    <div className="dark:bg-gradient-to-br dark:from-gray-800 dark:via-gray-700 dark:to-gray-900 bg-gradient-to-br from-gray-100 via-white to-gray-200 rounded-full p-3 mr-4 mt-1 dark:shadow-[0_0_15px_rgba(255,130,30,0.25)] shadow-[0_0_15px_rgba(0,0,0,0.15)] border border-gray-200/30 dark:border-orange-500/20 flex items-center justify-center">
-                      <i className="fas fa-phone-alt dark:text-orange-400 text-gray-700"></i>
+                  <div className="flex items-start group">
+                    <div className="relative">
+                      {/* Pulsing ambient glow */}
+                      <div className="absolute inset-0 rounded-full bg-gradient-to-r from-amber-500 to-red-500 blur-md opacity-0 group-hover:opacity-40 transition-opacity duration-500"></div>
+                      
+                      <div className="relative dark:bg-gradient-to-br dark:from-black dark:via-gray-900 dark:to-black bg-gradient-to-br from-gray-100 via-white to-gray-200 rounded-full p-4 mr-5 mt-1 shadow-lg border border-gray-200/30 dark:border-orange-500/30 flex items-center justify-center group-hover:border-orange-400/50 transition-all duration-300">
+                        <i className="fas fa-phone-alt text-2xl bg-clip-text text-transparent bg-gradient-to-br from-amber-400 to-red-500"></i>
+                        
+                        {/* Inner concentric ring */}
+                        <div className="absolute inset-0 rounded-full border border-orange-500/20 scale-[1.15] group-hover:scale-125 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+                      </div>
                     </div>
+                    
                     <div>
-                      <h4 className="font-semibold mb-1">Phone</h4>
-                      <p className="dark:text-[#a0a0a0] text-gray-700">(916) 809-6619<br/><span className="text-sm">(Call or text welcome)</span></p>
+                      <h4 className="font-bold text-lg mb-2 bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-red-500">Phone</h4>
+                      <p className="dark:text-white text-gray-700 text-[15px]">(916) 809-6619<br/><span className="text-sm">(Call or text welcome)</span></p>
                     </div>
                   </div>
                   
-                  <div className="flex items-start">
-                    <div className="dark:bg-gradient-to-br dark:from-gray-800 dark:via-gray-700 dark:to-gray-900 bg-gradient-to-br from-gray-100 via-white to-gray-200 rounded-full p-3 mr-4 mt-1 dark:shadow-[0_0_15px_rgba(30,144,255,0.25)] shadow-[0_0_15px_rgba(0,0,0,0.15)] border border-gray-200/30 dark:border-blue-500/20 flex items-center justify-center">
-                      <i className="fas fa-envelope dark:text-blue-400 text-gray-700"></i>
+                  <div className="flex items-start group">
+                    <div className="relative">
+                      {/* Pulsing ambient glow */}
+                      <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 to-cyan-400 blur-md opacity-0 group-hover:opacity-40 transition-opacity duration-500"></div>
+                      
+                      <div className="relative dark:bg-gradient-to-br dark:from-black dark:via-gray-900 dark:to-black bg-gradient-to-br from-gray-100 via-white to-gray-200 rounded-full p-4 mr-5 mt-1 shadow-lg border border-gray-200/30 dark:border-blue-500/30 flex items-center justify-center group-hover:border-blue-400/50 transition-all duration-300">
+                        <i className="fas fa-envelope text-2xl bg-clip-text text-transparent bg-gradient-to-br from-blue-400 to-cyan-500"></i>
+                        
+                        {/* Inner concentric ring */}
+                        <div className="absolute inset-0 rounded-full border border-blue-500/20 scale-[1.15] group-hover:scale-125 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+                      </div>
                     </div>
+                    
                     <div>
-                      <h4 className="font-semibold mb-1">Email</h4>
-                      <p className="dark:text-[#a0a0a0] text-gray-700">
-                        <a href="mailto:info@praetoriansmartcoat.com" className="hover:text-amber-500 transition-colors">info@praetoriansmartcoat.com</a><br/>
-                        <a href="mailto:rob@praetoriansmartcoat.com" className="hover:text-amber-500 transition-colors">rob@praetoriansmartcoat.com</a> <span className="text-sm">(Management)</span>
+                      <h4 className="font-bold text-lg mb-2 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-400">Email</h4>
+                      <p className="dark:text-white text-gray-700 text-[15px]">
+                        <a href="mailto:info@praetoriansmartcoat.com" className="hover:text-blue-400 transition-colors">info@praetoriansmartcoat.com</a><br/>
+                        <a href="mailto:rob@praetoriansmartcoat.com" className="hover:text-blue-400 transition-colors">rob@praetoriansmartcoat.com</a> <span className="text-sm">(Management)</span>
                       </p>
                     </div>
                   </div>
                   
-                  <div className="flex items-start">
-                    <div className="dark:bg-gradient-to-br dark:from-gray-800 dark:via-gray-700 dark:to-gray-900 bg-gradient-to-br from-gray-100 via-white to-gray-200 rounded-full p-3 mr-4 mt-1 dark:shadow-[0_0_15px_rgba(147,51,234,0.25)] shadow-[0_0_15px_rgba(0,0,0,0.15)] border border-gray-200/30 dark:border-purple-500/20 flex items-center justify-center">
-                      <i className="fas fa-clock dark:text-purple-400 text-gray-700"></i>
+                  <div className="flex items-start group">
+                    <div className="relative">
+                      {/* Pulsing ambient glow */}
+                      <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 to-cyan-400 blur-md opacity-0 group-hover:opacity-40 transition-opacity duration-500"></div>
+                      
+                      <div className="relative dark:bg-gradient-to-br dark:from-black dark:via-gray-900 dark:to-black bg-gradient-to-br from-gray-100 via-white to-gray-200 rounded-full p-4 mr-5 mt-1 shadow-lg border border-gray-200/30 dark:border-blue-500/30 flex items-center justify-center group-hover:border-blue-400/50 transition-all duration-300">
+                        <i className="fas fa-clock text-2xl bg-clip-text text-transparent bg-gradient-to-br from-blue-400 to-cyan-500"></i>
+                        
+                        {/* Inner concentric ring */}
+                        <div className="absolute inset-0 rounded-full border border-blue-500/20 scale-[1.15] group-hover:scale-125 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+                      </div>
                     </div>
+                    
                     <div>
-                      <h4 className="font-semibold mb-1">Response Time</h4>
-                      <p className="dark:text-[#a0a0a0] text-gray-700">Monday-Friday: Same day<br/>Weekends: Within 24 hours</p>
+                      <h4 className="font-bold text-lg mb-2 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-400">Response Time</h4>
+                      <p className="dark:text-white text-gray-700 text-[15px]">Monday-Friday: Same day<br/>Weekends: Within 24 hours</p>
                     </div>
                   </div>
                 </div>
                 
-                <div className="mt-4">
-                  <h4 className="font-semibold mb-2 text-sm inline-block mr-3">Connect With Us:</h4>
+                <div className="mt-10 pt-6 border-t border-gray-800/30">
+                  <h4 className="font-bold text-lg mb-4 bg-clip-text text-transparent bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 inline-block">Connect With Us:</h4>
                   <div className="flex space-x-6 inline-flex">
                     <a 
                       href="https://facebook.com/praetoriansmartcoat" 
