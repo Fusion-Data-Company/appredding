@@ -30,32 +30,32 @@ const ProductPerformanceSection = () => {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-14 mb-32">
-          <div className="bg-gradient-to-r from-gray-800/90 to-gray-700/90 border-4 border-gray-600/40 rounded-lg p-12 text-center hover-lift shadow-[0_0_60px_rgba(255,255,255,0.3)] transform transition-transform hover:scale-105 min-h-[350px] flex flex-col justify-center">
+          <div className="bg-gray-800/60 backdrop-blur-xl rounded-lg p-12 text-center hover-lift border-0 premium-gradient-border shadow-[0_0_60px_rgba(255,255,255,0.3)] transform transition-transform hover:scale-105 min-h-[350px] flex flex-col justify-center">
             <div className="text-6xl font-bold text-primary-400 mb-6 drop-shadow-[0_0_15px_rgba(245,158,11,0.5)]">99%</div>
             <GradientHeading level={3} className="text-2xl md:text-3xl mb-4" variant="mixed">Reflectivity Retention</GradientHeading>
             <p className="text-gray-300 text-lg">Only 1% reflectivity loss after 3 years compared to 10-20% for competing products, providing long-lasting thermal performance</p>
           </div>
           
-          <div className="bg-gradient-to-r from-gray-800/90 to-gray-700/90 border-4 border-gray-600/40 rounded-lg p-12 text-center hover-lift shadow-[0_0_60px_rgba(255,255,255,0.3)] transform transition-transform hover:scale-105 min-h-[350px] flex flex-col justify-center">
+          <div className="bg-gray-800/60 backdrop-blur-xl rounded-lg p-12 text-center hover-lift border-0 premium-gradient-border shadow-[0_0_60px_rgba(255,255,255,0.3)] transform transition-transform hover:scale-105 min-h-[350px] flex flex-col justify-center">
             <div className="text-6xl font-bold text-primary-400 mb-6 drop-shadow-[0_0_15px_rgba(245,158,11,0.5)]">30+</div>
             <GradientHeading level={3} className="text-2xl md:text-3xl mb-4" variant="fire">Years Durability</GradientHeading>
             <p className="text-gray-300 text-lg">Original 1989 applications showed no deterioration or performance loss when inspected 30 years later in 2019</p>
           </div>
           
-          <div className="bg-gradient-to-r from-gray-800/90 to-gray-700/90 border-4 border-gray-600/40 rounded-lg p-12 text-center hover-lift shadow-[0_0_60px_rgba(255,255,255,0.3)] transform transition-transform hover:scale-105 min-h-[350px] flex flex-col justify-center">
+          <div className="bg-gray-800/60 backdrop-blur-xl rounded-lg p-12 text-center hover-lift border-0 premium-gradient-border shadow-[0_0_60px_rgba(255,255,255,0.3)] transform transition-transform hover:scale-105 min-h-[350px] flex flex-col justify-center">
             <div className="text-6xl font-bold text-primary-400 mb-6 drop-shadow-[0_0_15px_rgba(245,158,11,0.5)]">87%</div>
             <GradientHeading level={3} className="text-2xl md:text-3xl mb-4" variant="blue">Maximum Energy Savings</GradientHeading>
             <p className="text-gray-300 text-lg">Sony Koda facility energy consumption reduced from 3,767 KW to just 519 KW with 1.06 year payback period</p>
           </div>
           
-          <div className="bg-gradient-to-r from-gray-800/90 to-gray-700/90 border-4 border-gray-600/40 rounded-lg p-12 text-center hover-lift shadow-[0_0_60px_rgba(255,255,255,0.3)] transform transition-transform hover:scale-105 min-h-[350px] flex flex-col justify-center">
+          <div className="bg-gray-800/60 backdrop-blur-xl rounded-lg p-12 text-center hover-lift border-0 premium-gradient-border shadow-[0_0_60px_rgba(255,255,255,0.3)] transform transition-transform hover:scale-105 min-h-[350px] flex flex-col justify-center">
             <div className="text-6xl font-bold text-primary-400 mb-6 drop-shadow-[0_0_15px_rgba(245,158,11,0.5)]">0/100</div>
             <GradientHeading level={3} className="text-2xl md:text-3xl mb-4" variant="fire">Perfect Fire Rating</GradientHeading>
             <p className="text-gray-300 text-lg">Perfect scores in ASTM E84 testing for both Flame Spread Index and Smoke Development Index - the highest possible Class A classification</p>
           </div>
         </div>
         
-        <div className="bg-gradient-to-r from-gray-800/90 to-gray-700/90 rounded-xl p-14 md:p-20 border-4 border-gray-600/40 shadow-[0_0_60px_rgba(255,255,255,0.3)] transform hover:scale-[1.01] transition-transform duration-500">
+        <div className="bg-gray-800/60 backdrop-blur-xl rounded-xl p-14 md:p-20 border-0 premium-gradient-border shadow-[0_0_60px_rgba(255,255,255,0.3)] transform hover:scale-[1.01] transition-transform duration-500">
           <div className="text-center mb-14">
             <GradientHeading level={2} className="text-3xl md:text-4xl lg:text-5xl mb-6" variant="mixed">NASA-Grade Testing Protocols</GradientHeading>
             <p className="text-xl text-gray-200 max-w-4xl mx-auto">
@@ -67,7 +67,7 @@ const ProductPerformanceSection = () => {
             <div>
               <div className="space-y-10">
                 <div className="flex items-start gap-6">
-                  <div className="bg-gradient-to-r from-gray-700 to-gray-600 rounded-full p-4 mt-1 shadow-[0_0_10px_rgba(255,255,255,0.25)]">
+                  <div className="bg-gray-800/80 backdrop-blur-sm rounded-full p-4 mt-1 premium-gradient-border shadow-[0_0_10px_rgba(255,255,255,0.25)]">
                     <i className="fas fa-fire text-white text-2xl"></i>
                   </div>
                   <div>
@@ -77,7 +77,7 @@ const ProductPerformanceSection = () => {
                 </div>
                 
                 <div className="flex items-start gap-6">
-                  <div className="bg-gradient-to-r from-gray-700 to-gray-600 rounded-full p-4 mt-1 shadow-[0_0_10px_rgba(255,255,255,0.25)]">
+                  <div className="bg-gray-800/80 backdrop-blur-sm rounded-full p-4 mt-1 premium-gradient-border shadow-[0_0_10px_rgba(255,255,255,0.25)]">
                     <i className="fas fa-temperature-high text-white text-2xl"></i>
                   </div>
                   <div>
@@ -87,7 +87,7 @@ const ProductPerformanceSection = () => {
                 </div>
                 
                 <div className="flex items-start gap-6">
-                  <div className="bg-gradient-to-r from-gray-700 to-gray-600 rounded-full p-4 mt-1 shadow-[0_0_10px_rgba(255,255,255,0.25)]">
+                  <div className="bg-gray-800/80 backdrop-blur-sm rounded-full p-4 mt-1 premium-gradient-border shadow-[0_0_10px_rgba(255,255,255,0.25)]">
                     <i className="fas fa-sun text-white text-2xl"></i>
                   </div>
                   <div>
