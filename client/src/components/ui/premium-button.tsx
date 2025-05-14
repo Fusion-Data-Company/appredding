@@ -10,11 +10,11 @@ const premiumButtonVariants = cva(
     variants: {
       variant: {
         default: 
-          "bg-gradient-to-br from-gray-900 via-gray-950 to-black text-white border border-orange-400/20 shadow-lg hover:shadow-xl hover:shadow-orange-500/20",
+          "bg-black text-white border-2 border-orange-500 shadow-lg hover:shadow-xl hover:shadow-orange-500/30",
         gold: 
-          "bg-gradient-to-br from-gray-900 via-gray-950 to-black text-white border border-orange-300/20 shadow-lg hover:shadow-xl hover:shadow-orange-400/20",
+          "bg-black text-white border-2 border-orange-400 shadow-lg hover:shadow-xl hover:shadow-orange-500/30",
         fire: 
-          "bg-gradient-to-br from-gray-900 via-gray-950 to-black text-white border border-orange-400/30 shadow-lg hover:shadow-xl hover:shadow-orange-500/30 transform transition-all duration-500 hover:scale-[1.02]",
+          "bg-black text-white border-2 border-orange-500 shadow-lg hover:shadow-xl hover:shadow-orange-500/40 transform transition-all duration-500 hover:scale-[1.02]",
         outline: 
           "bg-gradient-to-br from-white via-amber-50 to-white dark:from-gray-800 dark:via-gray-700 dark:to-gray-800 text-amber-800 dark:text-amber-300 hover:text-amber-900 dark:hover:text-amber-200 border border-amber-300 dark:border-amber-700 shadow-md hover:shadow-lg",
         ghost: 
@@ -34,19 +34,55 @@ const premiumButtonVariants = cva(
   }
 );
 
-// Create a shine effect animation for the button
+// Create sophisticated premium shine effects with multiple non-synchronized animations
 const ShineEffect = () => (
-  <motion.div
-    className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-hover:opacity-20 dark:group-hover:opacity-10"
-    initial={{ x: '-100%', opacity: 0 }}
-    animate={{ x: '100%', opacity: [0, 0.5, 0] }}
-    transition={{ 
-      repeat: Infinity, 
-      repeatType: 'loop', 
-      duration: 1.5,
-      repeatDelay: 0.5
-    }}
-  />
+  <>
+    {/* Primary diagonal shine effect */}
+    <motion.div
+      className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-hover:opacity-20"
+      initial={{ x: '-100%', opacity: 0 }}
+      animate={{ x: '100%', opacity: [0, 0.5, 0] }}
+      transition={{ 
+        repeat: Infinity, 
+        repeatType: 'loop', 
+        duration: 1.5,
+        repeatDelay: 1.7
+      }}
+      style={{
+        clipPath: 'polygon(0 0, 50% 0, 40% 100%, 0 100%)',
+      }}
+    />
+    
+    {/* Secondary vertical shine effect */}
+    <motion.div
+      className="absolute inset-0 bg-gradient-to-t from-transparent via-white to-transparent opacity-0 group-hover:opacity-15"
+      initial={{ y: '100%', opacity: 0 }}
+      animate={{ y: '-100%', opacity: [0, 0.4, 0] }}
+      transition={{ 
+        repeat: Infinity, 
+        repeatType: 'loop', 
+        duration: 2.3,
+        repeatDelay: 1.3
+      }}
+      style={{
+        clipPath: 'polygon(70% 0, 90% 0, 90% 100%, 60% 100%)',
+      }}
+    />
+    
+    {/* Tertiary subtle edge glow */}
+    <motion.div
+      className="absolute inset-0 border-[1px] border-orange-500/60 rounded-lg opacity-0 group-hover:opacity-100"
+      animate={{ 
+        boxShadow: ['0 0 0px rgba(249, 115, 22, 0)', '0 0 8px rgba(249, 115, 22, 0.6)', '0 0 0px rgba(249, 115, 22, 0)']
+      }}
+      transition={{ 
+        repeat: Infinity, 
+        repeatType: 'loop', 
+        duration: 2,
+        repeatDelay: 0.5
+      }}
+    />
+  </>
 );
 
 export interface PremiumButtonProps 
