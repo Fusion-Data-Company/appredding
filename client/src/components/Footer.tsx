@@ -13,7 +13,7 @@ const Footer = () => {
       {/* Noise texture overlay */}
       <div className="absolute inset-0 bg-[url('/src/assets_dir/images/noise.svg')] opacity-[0.04] bg-repeat bg-[length:200px_200px] mix-blend-overlay pointer-events-none animate-subtle-pulse"></div>
       
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 relative z-40">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           <div>
             <GradientHeading level={3} className="text-base mb-4" variant="fire">Department Contacts</GradientHeading>
