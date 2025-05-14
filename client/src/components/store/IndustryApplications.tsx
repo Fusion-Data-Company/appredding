@@ -281,9 +281,12 @@ const IndustryApplications = () => {
             className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 h-auto p-1.5 
               bg-gradient-to-br from-amber-100/90 via-amber-50/95 to-white/90 
               dark:from-gray-900/95 dark:via-amber-900/40 dark:to-amber-800/30 
-              border-2 border-amber-300 dark:border-amber-700 rounded-xl mb-8 
+              border-0 rounded-xl mb-8 
               shadow-[0_4px_20px_rgba(251,191,36,0.2)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.4)] 
-              backdrop-blur-sm relative overflow-hidden"
+              backdrop-blur-sm relative overflow-hidden
+              before:absolute before:inset-0 before:p-[2px] before:rounded-xl 
+              before:bg-gradient-to-br before:from-amber-300 before:via-amber-200 before:to-amber-400 
+              dark:before:from-amber-700 dark:before:via-amber-600 dark:before:to-amber-800 before:-z-10"
             style={{
               backgroundImage: `url('/assets/images/praetorian-shield-logo.png')`,
               backgroundPosition: 'center',
@@ -301,11 +304,18 @@ const IndustryApplications = () => {
                   data-[state=active]:bg-gradient-to-b data-[state=active]:from-white data-[state=active]:to-amber-50 
                   dark:data-[state=active]:from-gray-800 dark:data-[state=active]:to-gray-900 
                   data-[state=active]:text-amber-700 dark:data-[state=active]:text-gray-100 
-                  data-[state=active]:shadow-lg data-[state=active]:border-b-2 
-                  data-[state=active]:border-[rgba(200,45,20,0.8)] dark:data-[state=active]:border-[rgba(200,45,20,0.8)] 
+                  data-[state=active]:shadow-[0_4px_12px_rgba(251,191,36,0.25)] dark:data-[state=active]:shadow-[0_4px_12px_rgba(0,0,0,0.3)]
+                  data-[state=active]:border-0
+                  data-[state=active]:before:absolute data-[state=active]:before:bottom-0 data-[state=active]:before:left-[10%]
+                  data-[state=active]:before:w-[80%] data-[state=active]:before:h-[2px]
+                  data-[state=active]:before:bg-gradient-to-r data-[state=active]:before:from-amber-400
+                  data-[state=active]:before:via-[rgba(200,45,20,0.8)] data-[state=active]:before:to-amber-400
+                  dark:data-[state=active]:before:from-amber-700 dark:data-[state=active]:before:via-[rgba(220,65,30,0.95)]
+                  dark:data-[state=active]:before:to-amber-700
                   rounded-lg text-gray-700 dark:text-gray-300 
                   hover:bg-amber-50/70 dark:hover:bg-gray-800/50 
-                  hover:shadow-md hover:-translate-y-0.5 
+                  hover:shadow-[0_4px_12px_rgba(251,191,36,0.15)] dark:hover:shadow-[0_4px_12px_rgba(0,0,0,0.2)]
+                  hover:-translate-y-0.5 
                   transform transition-transform"
               >
                 <div className="flex flex-col items-center gap-2 p-1 relative z-10">
