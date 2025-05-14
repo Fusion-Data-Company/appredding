@@ -264,29 +264,72 @@ const IndustryApplications = () => {
     >
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-10">
-          <div className="inline-block industry-solutions-badge px-5 py-2 rounded-md relative z-10">
-            <span className="font-semibold text-white tracking-wide text-sm uppercase relative z-10 drop-shadow-[0_1px_1px_rgba(0,0,0,0.5)]">Industry Solutions</span>
+        <div className="text-center mb-10 relative z-20">
+          {/* Premium top accent */}
+          <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-1/2 h-1 bg-gradient-to-r from-transparent via-orange-500/50 to-transparent rounded-full blur-[3px]"></div>
+          
+          {/* Premium corner accents */}
+          <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none">
+            <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-orange-500/70 rounded-tl-md"></div>
+            <div className="absolute top-0 left-0 w-2 h-2 bg-orange-500/50 rounded-full blur-[2px]"></div>
           </div>
-          <h2 className="text-4xl font-bold mb-4 mt-4 tracking-tight">
+          <div className="absolute top-0 right-0 w-16 h-16 pointer-events-none">
+            <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-red-500/70 rounded-tr-md"></div>
+            <div className="absolute top-0 right-0 w-2 h-2 bg-red-500/50 rounded-full blur-[2px]"></div>
+          </div>
+          
+          {/* Elite enterprise styled heading */}
+          <h2 className="text-4xl font-bold my-6 tracking-tight relative inline-block">
+            <span className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-3/4 h-1 bg-gradient-to-r from-transparent via-orange-400/40 to-transparent rounded-full blur-sm"></span>
             <GradientText variant="fire" className="drop-shadow-[0_2px_4px_rgba(251,191,36,0.3)] [text-shadow:0_4px_8px_rgba(0,0,0,0.5)]">
               Protection Across Every Industry
             </GradientText>
+            <span className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-3/4 h-1 bg-gradient-to-r from-transparent via-red-400/40 to-transparent rounded-full blur-sm"></span>
           </h2>
-          <p className="text-gray-200 dark:text-gray-300 max-w-2xl mx-auto font-medium text-lg tracking-wide leading-relaxed mb-8">
+          
+          {/* Enhanced description */}
+          <p className="text-gray-200 dark:text-gray-300 max-w-2xl mx-auto font-medium text-lg tracking-wide leading-relaxed mb-10 relative">
+            <span className="absolute -left-6 top-1/2 transform -translate-y-1/2 w-4 h-4 rounded-full bg-gradient-to-br from-orange-500/20 to-red-500/20 blur-md"></span>
             Explore how Praetorian's advanced ceramic coating technology delivers specialized protection and exceptional performance for diverse industries and applications.
+            <span className="absolute -right-6 top-1/2 transform -translate-y-1/2 w-4 h-4 rounded-full bg-gradient-to-br from-orange-500/20 to-red-500/20 blur-md"></span>
           </p>
           
+          {/* Elite Enterprise CTA Button */}
           <Link href="/products">
-            <div className="relative group inline-block">
-              <div className="absolute inset-0 p-1 rounded-xl bg-gradient-to-r from-orange-500/70 via-amber-500/70 to-red-500/70 opacity-90 blur-sm group-hover:blur-md transition-all duration-500"></div>
-              <button className="relative z-10 px-8 py-4 bg-gradient-to-r from-orange-600 to-red-600 text-white font-bold text-xl rounded-xl shadow-lg shadow-red-500/30 flex items-center gap-3 transform transition-all duration-500 hover:scale-105 hover:-translate-y-1">
-                <ShoppingCart size={24} className="text-white" />
-                Get Praetorian Smart-Coat NOW!
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-xl"></div>
+            <div className="relative group inline-block transform transition-all duration-700 hover:scale-105">
+              {/* Layered gradient glow effects */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/40 via-red-600/40 to-amber-600/40 rounded-xl blur-xl opacity-70 group-hover:opacity-100 group-hover:blur-xl transition-all duration-1000 animate-pulse-slow"></div>
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/80 via-amber-500/80 to-red-500/80 rounded-xl blur-md opacity-90 group-hover:opacity-100 transition-all duration-500"></div>
+              
+              {/* Main button with premium border and styling */}
+              <button className="relative px-8 py-4 bg-gradient-to-br from-gray-900 via-gray-950 to-black text-white font-bold text-xl rounded-xl flex items-center gap-3 transform transition-all duration-500 overflow-hidden">
+                {/* Inner border glow */}
+                <div className="absolute inset-px rounded-[10px] border border-orange-400/30 pointer-events-none"></div>
+                
+                {/* Icon with specialized glow */}
+                <div className="relative">
+                  <div className="absolute inset-0 bg-orange-500/30 blur-md rounded-full opacity-80 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <ShoppingCart size={24} className="text-white relative z-10 animate-subtle-bounce" />
+                </div>
+                
+                {/* Button text with subtle text shadow */}
+                <span className="drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
+                  Get Praetorian Smart-Coat NOW!
+                </span>
+                
+                {/* Shimmer effect animation */}
+                <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 -translate-x-full group-hover:translate-x-full transform transition-transform duration-1000"></div>
               </button>
+              
+              {/* Bottom reflection */}
+              <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-4/5 h-[1px] bg-gradient-to-r from-transparent via-orange-500/40 to-transparent rounded-full"></div>
             </div>
           </Link>
+          
+          {/* Bottom decorative element */}
+          <div className="mt-8 w-full flex justify-center">
+            <div className="w-1/4 h-[1px] bg-gradient-to-r from-transparent via-amber-500/30 to-transparent"></div>
+          </div>
         </div>
 
         <Tabs defaultValue="fire-prevention" value={selectedTab} onValueChange={setSelectedTab} className="w-full">
