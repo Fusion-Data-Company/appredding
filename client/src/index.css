@@ -191,6 +191,24 @@ section + section {
     }
   }
   
+  @keyframes slideRight {
+    0% {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+    40% {
+      opacity: 0.15;
+    }
+    70% {
+      opacity: 0.08;
+      transform: translateX(100%);
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+  }
+  
   @keyframes borderPulse {
     0% {
       box-shadow: 0 0 0px rgba(249, 115, 22, 0);
