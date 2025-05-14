@@ -296,13 +296,13 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
             {/* Video library container with premium styling */}
             <div className="group relative transform hover:scale-[1.01] transition-all duration-700">
               <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/98 to-gray-900/95 backdrop-blur-xl rounded-xl p-8 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7)] z-10">
-                {/* Premium dual-layer gradient border effect */}
-                <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-blue-500/60 via-purple-500/30 to-blue-500/60 opacity-80"></div>
+                {/* Premium dual-layer gradient border effect - Fire themed */}
+                <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/60 via-transparent to-red-500/60 opacity-80"></div>
                 <div className="absolute inset-[1px] p-0.5 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-30 pointer-events-none"></div>
                 
-                {/* Corner accent decorations */}
+                {/* Corner accent decorations - Fire themed */}
                 <div className="absolute top-0 right-0 w-20 h-20 opacity-20">
-                  <div className="absolute inset-0 bg-gradient-to-bl from-blue-500/40 to-purple-500/40 rounded-tr-xl blur-[2px]"></div>
+                  <div className="absolute inset-0 bg-gradient-to-bl from-orange-500/40 to-red-500/40 rounded-tr-xl blur-[2px]"></div>
                 </div>
                 
                 {/* Premium heading with enhanced styling */}
@@ -310,8 +310,8 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
                   <GradientHeading level={3} className="text-2xl mb-1" variant="mixed">
                     Video Library
                   </GradientHeading>
-                  {/* Animated underline */}
-                  <div className="absolute bottom-0 left-0 w-1/4 h-0.5 bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500 rounded-full"></div>
+                  {/* Animated underline - Fire themed */}
+                  <div className="absolute bottom-0 left-0 w-1/4 h-0.5 bg-gradient-to-r from-orange-500 via-red-500 to-orange-500 rounded-full"></div>
                 </div>
 
                 {/* Premium filter buttons with enhanced styling */}
@@ -442,8 +442,8 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
                 </div>
               </div>
               
-              {/* Bottom reflection effect */}
-              <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2/3 h-[2px] bg-gradient-to-r from-transparent via-blue-500/20 to-transparent rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
+              {/* Bottom reflection effect - Fire themed */}
+              <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2/3 h-[2px] bg-gradient-to-r from-transparent via-orange-500/20 to-transparent rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
             </div>
 
             {/* Request demo card with premium styling */}
