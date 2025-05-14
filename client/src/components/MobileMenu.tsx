@@ -1,7 +1,25 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "wouter";
-import { LightPullThemeSwitcher } from "@/components/ui/light-pull-theme-switcher";
-import { Sun, Moon, ChevronDown } from "lucide-react";
+import { useTheme } from "next-themes";
+import { 
+  Home, 
+  Users, 
+  Phone, 
+  ChevronDown, 
+  ChevronRight,
+  Sun, 
+  Moon,
+  Lock, 
+  PanelRight,
+  GraduationCap,
+  Droplets,
+  Anchor,
+  Flame,
+  Building,
+  Home as HomeIcon,
+  Building2,
+  Menu as MenuIcon
+} from "lucide-react";
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -10,6 +28,10 @@ interface MobileMenuProps {
 }
 
 const MobileMenu = ({ isOpen, onClose, isHomePage = true }: MobileMenuProps) => {
+  const { theme, setTheme } = useTheme();
+  const [applicationMenuOpen, setApplicationMenuOpen] = useState(false);
+  const [portalsMenuOpen, setPortalsMenuOpen] = useState(false);
+  
   useEffect(() => {
     // Add event listeners to close menu when clicking on links
     const handleLinkClick = () => {
@@ -26,6 +48,9 @@ const MobileMenu = ({ isOpen, onClose, isHomePage = true }: MobileMenuProps) => 
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
+      // Reset all expanding menus when mobile menu closes
+      setApplicationMenuOpen(false);
+      setPortalsMenuOpen(false);
     }
 
     return () => {
@@ -39,207 +64,235 @@ const MobileMenu = ({ isOpen, onClose, isHomePage = true }: MobileMenuProps) => 
   return (
     <div
       id="mobile-menu"
-      className={`lg:hidden bg-white/95 dark:bg-gray-900/95 w-full border-t border-amber-800/20 absolute left-0 z-40 transform transition-all duration-300 ease-in-out 
-      backdrop-blur-lg shadow-[0_8px_30px_rgba(0,0,0,0.2)] dark:shadow-[0_8px_30px_rgba(0,0,0,0.4)] ${
+      className={`lg:hidden fixed top-[112px] bg-white/95 dark:bg-gray-900/95 w-full max-h-[85vh] overflow-y-auto z-50 transform transition-all duration-300 ease-in-out
+      backdrop-blur-lg shadow-lg ${
         isOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 pointer-events-none"
-      } after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[1px] after:bg-gradient-to-r after:from-transparent after:via-amber-500/50 after:to-transparent`}
+      } border-t border-amber-800/20 dark:border-amber-700/20`}
+      style={{ maxHeight: "85vh", overflowY: "auto" }}
     >
-      <div className="container mx-auto py-8 px-4">
-        <div className="flex justify-center mb-8">
-          <div className="flex items-center">
-            <div className="relative pl-3 mr-3">
-              <Sun size={24} className="absolute -left-8 bottom-2 text-amber-400 drop-shadow" />
-              <div className="relative">
-                <div className="bg-gradient-to-br from-amber-100/70 to-amber-200/50 dark:from-amber-900/40 dark:to-amber-800/20
-                border border-amber-700/20 shadow-inner shadow-amber-100/30 dark:shadow-amber-900/20
-                rounded-md py-2 px-3">
-                  <LightPullThemeSwitcher />
-                </div>
-                <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center">
-                  <ChevronDown size={18} className="text-amber-800 dark:text-amber-400 animate-bounce" />
-                </div>
-              </div>
-              <Moon size={24} className="absolute -right-8 bottom-2 text-amber-800 dark:text-amber-300 drop-shadow" />
-            </div>
-          </div>
+      <div className="container mx-auto py-4 px-4">
+        {/* Theme toggle at the top right */}
+        <div className="absolute top-3 right-3">
+          <button
+            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+            className="p-2 rounded-full bg-amber-100 dark:bg-amber-900 text-amber-800 dark:text-amber-200"
+            aria-label="Toggle theme"
+          >
+            {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+          </button>
         </div>
-        <ul className="space-y-3 divide-y divide-amber-600/10 dark:divide-amber-700/20">
-          <li className="pb-2">
-            <Link
-              href="/"
-              className="mobile-menu-link font-serif text-amber-900 dark:text-amber-300 
-              transition-all duration-300 font-medium block py-3 px-4 rounded-sm 
-              bg-gradient-to-br from-amber-50/10 to-transparent dark:from-amber-900/10 dark:to-transparent 
-              border border-transparent hover:border-amber-600/20 
-              hover:bg-gradient-to-r hover:from-amber-50/30 hover:to-amber-100/10
-              dark:hover:from-amber-900/20 dark:hover:to-amber-800/10"
-            >
-              <span className="bg-gradient-to-r from-amber-900 to-amber-800 dark:from-amber-400 dark:to-amber-300 bg-clip-text text-transparent">Home</span>
-            </Link>
-          </li>
-          
-          <li className="py-2">
-            <div className="font-serif font-medium text-amber-800 dark:text-amber-400 mb-2 px-4 text-sm uppercase tracking-wider border-l-2 border-amber-600/30">
-              Applications
-            </div>
-            <ul className="space-y-1 pl-2">
-              <li>
-                <Link
-                  href="/pools"
-                  className="mobile-menu-link block py-2 px-4 text-amber-800 dark:text-amber-300 rounded-sm hover:bg-amber-50/50 dark:hover:bg-amber-900/30 transition-colors text-sm"
-                >
-                  Pools
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/marinas"
-                  className="mobile-menu-link block py-2 px-4 text-amber-800 dark:text-amber-300 rounded-sm hover:bg-amber-50/50 dark:hover:bg-amber-900/30 transition-colors text-sm"
-                >
-                  Marinas
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/fire-prevention"
-                  className="mobile-menu-link block py-2 px-4 text-amber-800 dark:text-amber-300 rounded-sm hover:bg-amber-50/50 dark:hover:bg-amber-900/30 transition-colors text-sm"
-                >
-                  Fire Prevention
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/construction"
-                  className="mobile-menu-link block py-2 px-4 text-amber-800 dark:text-amber-300 rounded-sm hover:bg-amber-50/50 dark:hover:bg-amber-900/30 transition-colors text-sm"
-                >
-                  Construction
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/mobile-home"
-                  className="mobile-menu-link block py-2 px-4 text-amber-800 dark:text-amber-300 rounded-sm hover:bg-amber-50/50 dark:hover:bg-amber-900/30 transition-colors text-sm"
-                >
-                  Mobile Home
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/municipality"
-                  className="mobile-menu-link block py-2 px-4 text-amber-800 dark:text-amber-300 rounded-sm hover:bg-amber-50/50 dark:hover:bg-amber-900/30 transition-colors text-sm"
-                >
-                  Municipality
-                </Link>
-              </li>
-            </ul>
-          </li>
-          
-          <li className="py-2">
-            <Link
-              href="/painter-network"
-              className="mobile-menu-link font-serif text-amber-900 dark:text-amber-300 
-              transition-all duration-300 font-medium block py-3 px-4 rounded-sm 
-              bg-gradient-to-br from-amber-50/10 to-transparent dark:from-amber-900/10 dark:to-transparent 
-              border border-transparent hover:border-amber-600/20 
-              hover:bg-gradient-to-r hover:from-amber-50/30 hover:to-amber-100/10
-              dark:hover:from-amber-900/20 dark:hover:to-amber-800/10"
-            >
-              <span className="bg-gradient-to-r from-amber-900 to-amber-800 dark:from-amber-400 dark:to-amber-300 bg-clip-text text-transparent">Painter Network</span>
-            </Link>
-          </li>
-          
-          {isHomePage && (
-            <li className="py-2">
-              <a
-                href="#contact"
-                className="mobile-menu-link font-serif text-amber-900 dark:text-amber-300 
-                transition-all duration-300 font-medium block py-3 px-4 rounded-sm 
-                bg-gradient-to-br from-amber-50/10 to-transparent dark:from-amber-900/10 dark:to-transparent 
-                border border-transparent hover:border-amber-600/20 
-                hover:bg-gradient-to-r hover:from-amber-50/30 hover:to-amber-100/10
-                dark:hover:from-amber-900/20 dark:hover:to-amber-800/10"
+        
+        {/* Main navigation items */}
+        <nav className="mt-2">
+          <ul className="space-y-1">
+            {/* Home */}
+            <li>
+              <Link
+                href="/"
+                className="mobile-menu-link flex items-center space-x-3 py-3 px-4 w-full rounded-md 
+                text-amber-900 dark:text-amber-300 hover:bg-amber-100/50 dark:hover:bg-amber-900/40
+                transition-colors duration-150"
               >
-                <span className="bg-gradient-to-r from-amber-900 to-amber-800 dark:from-amber-400 dark:to-amber-300 bg-clip-text text-transparent">Contact</span>
-              </a>
+                <Home className="h-5 w-5" />
+                <span className="font-medium">Home</span>
+              </Link>
             </li>
-          )}
-          
-          <li className="pt-4 pb-1">
-            <div className="font-serif font-medium text-amber-800 dark:text-amber-400 mb-2 px-4 text-sm uppercase tracking-wider border-l-2 border-amber-600/30">
-              Access Portals
-            </div>
-            <Link
-              href="/client-dashboard"
-              className="mobile-menu-link relative overflow-hidden font-medium block py-3 px-4 
-              rounded-sm text-center transition-all duration-300 
-              bg-gradient-to-br from-amber-100/70 to-amber-200/50 dark:from-amber-900/40 dark:to-amber-800/20 
-              border border-amber-700/20 shadow-inner shadow-amber-100/30 dark:shadow-amber-900/20
-              hover:shadow-amber-300/20 dark:hover:shadow-amber-700/30 hover:border-amber-600/30 mb-2"
-            >
-              <div className="absolute inset-0 opacity-0 hover:opacity-100 bg-gradient-to-t from-amber-300/10 to-amber-200/5 dark:from-amber-600/20 dark:to-amber-700/10 transition-opacity duration-300" />
-              <span className="relative z-10 font-serif bg-gradient-to-r from-amber-900 to-amber-800 dark:from-amber-400 dark:to-amber-300 bg-clip-text text-transparent">Client Dashboard</span>
-            </Link>
-          </li>
-          
-          <li className="py-1">
-            <Link
-              href="/admin-dashboard"
-              className="mobile-menu-link relative overflow-hidden font-medium block py-3 px-4 
-              rounded-sm text-center transition-all duration-300 
-              bg-gradient-to-br from-amber-100/70 to-amber-200/50 dark:from-amber-900/40 dark:to-amber-800/20 
-              border border-amber-700/20 shadow-inner shadow-amber-100/30 dark:shadow-amber-900/20
-              hover:shadow-amber-300/20 dark:hover:shadow-amber-700/30 hover:border-amber-600/30 mb-2"
-            >
-              <div className="absolute inset-0 opacity-0 hover:opacity-100 bg-gradient-to-t from-amber-300/10 to-amber-200/5 dark:from-amber-600/20 dark:to-amber-700/10 transition-opacity duration-300" />
-              <span className="relative z-10 font-serif bg-gradient-to-r from-amber-900 to-amber-800 dark:from-amber-400 dark:to-amber-300 bg-clip-text text-transparent">Admin Dashboard</span>
-            </Link>
-          </li>
-          
-          <li className="pt-4 pb-1">
-            <div className="font-serif font-medium text-amber-800 dark:text-amber-400 mb-2 px-4 text-sm uppercase tracking-wider border-l-2 border-amber-600/30">
-              CRM System
-            </div>
-            <Link
-              href="/crm"
-              className="mobile-menu-link relative overflow-hidden font-medium block py-3 px-4 
-              rounded-sm text-center transition-all duration-300 
-              bg-gradient-to-br from-amber-100/70 to-amber-200/50 dark:from-amber-900/40 dark:to-amber-800/20 
-              border border-amber-700/20 shadow-inner shadow-amber-100/30 dark:shadow-amber-900/20
-              hover:shadow-amber-300/20 dark:hover:shadow-amber-700/30 hover:border-amber-600/30 mb-2"
-            >
-              <div className="absolute inset-0 opacity-0 hover:opacity-100 bg-gradient-to-t from-amber-300/10 to-amber-200/5 dark:from-amber-600/20 dark:to-amber-700/10 transition-opacity duration-300" />
-              <span className="relative z-10 font-serif bg-gradient-to-r from-amber-900 to-amber-800 dark:from-amber-400 dark:to-amber-300 bg-clip-text text-transparent">CRM Dashboard</span>
-            </Link>
-          </li>
-          
-          <li className="py-1">
-            <Link
-              href="/inventory"
-              className="mobile-menu-link relative overflow-hidden font-medium block py-3 px-4 
-              rounded-sm text-center transition-all duration-300 
-              bg-gradient-to-br from-amber-100/70 to-amber-200/50 dark:from-amber-900/40 dark:to-amber-800/20 
-              border border-amber-700/20 shadow-inner shadow-amber-100/30 dark:shadow-amber-900/20
-              hover:shadow-amber-300/20 dark:hover:shadow-amber-700/30 hover:border-amber-600/30 mb-2"
-            >
-              <div className="absolute inset-0 opacity-0 hover:opacity-100 bg-gradient-to-t from-amber-300/10 to-amber-200/5 dark:from-amber-600/20 dark:to-amber-700/10 transition-opacity duration-300" />
-              <span className="relative z-10 font-serif bg-gradient-to-r from-amber-900 to-amber-800 dark:from-amber-400 dark:to-amber-300 bg-clip-text text-transparent">Inventory Management</span>
-            </Link>
-          </li>
-          
-          <li className="py-1">
-            <Link
-              href="/crm-login"
-              className="mobile-menu-link relative overflow-hidden font-medium block py-3 px-4 
-              rounded-sm text-center transition-all duration-300 
-              bg-gradient-to-br from-amber-100/70 to-amber-200/50 dark:from-amber-900/40 dark:to-amber-800/20 
-              border border-amber-700/20 shadow-inner shadow-amber-100/30 dark:shadow-amber-900/20
-              hover:shadow-amber-300/20 dark:hover:shadow-amber-700/30 hover:border-amber-600/30"
-            >
-              <div className="absolute inset-0 opacity-0 hover:opacity-100 bg-gradient-to-t from-amber-300/10 to-amber-200/5 dark:from-amber-600/20 dark:to-amber-700/10 transition-opacity duration-300" />
-              <span className="relative z-10 font-serif bg-gradient-to-r from-amber-900 to-amber-800 dark:from-amber-400 dark:to-amber-300 bg-clip-text text-transparent">CRM Admin Login</span>
-            </Link>
-          </li>
-        </ul>
+
+            {/* Applications with dropdown */}
+            <li>
+              <button
+                onClick={() => setApplicationMenuOpen(!applicationMenuOpen)}
+                className="flex items-center justify-between space-x-3 py-3 px-4 w-full rounded-md 
+                text-amber-900 dark:text-amber-300 hover:bg-amber-100/50 dark:hover:bg-amber-900/40
+                transition-colors duration-150"
+              >
+                <div className="flex items-center space-x-3">
+                  <GraduationCap className="h-5 w-5" />
+                  <span className="font-medium">Applications</span>
+                </div>
+                {applicationMenuOpen ? 
+                  <ChevronDown className="h-4 w-4" /> : 
+                  <ChevronRight className="h-4 w-4" />
+                }
+              </button>
+
+              {/* Application submenu */}
+              {applicationMenuOpen && (
+                <ul className="pl-6 mt-1 space-y-1 border-l-2 border-amber-300/30 dark:border-amber-700/30 ml-5">
+                  <li>
+                    <Link
+                      href="/pools"
+                      className="mobile-menu-link flex items-center space-x-3 py-2 px-4 rounded-md 
+                      text-amber-800 dark:text-amber-400 hover:bg-amber-100/40 dark:hover:bg-amber-900/30
+                      transition-colors duration-150"
+                    >
+                      <Droplets className="h-4 w-4" />
+                      <span>Pools</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/marinas"
+                      className="mobile-menu-link flex items-center space-x-3 py-2 px-4 rounded-md 
+                      text-amber-800 dark:text-amber-400 hover:bg-amber-100/40 dark:hover:bg-amber-900/30
+                      transition-colors duration-150"
+                    >
+                      <Anchor className="h-4 w-4" />
+                      <span>Marinas</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/fire-prevention"
+                      className="mobile-menu-link flex items-center space-x-3 py-2 px-4 rounded-md 
+                      text-amber-800 dark:text-amber-400 hover:bg-amber-100/40 dark:hover:bg-amber-900/30
+                      transition-colors duration-150"
+                    >
+                      <Flame className="h-4 w-4" />
+                      <span>Fire Prevention</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/construction"
+                      className="mobile-menu-link flex items-center space-x-3 py-2 px-4 rounded-md 
+                      text-amber-800 dark:text-amber-400 hover:bg-amber-100/40 dark:hover:bg-amber-900/30
+                      transition-colors duration-150"
+                    >
+                      <Building className="h-4 w-4" />
+                      <span>Construction</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/mobile-home"
+                      className="mobile-menu-link flex items-center space-x-3 py-2 px-4 rounded-md 
+                      text-amber-800 dark:text-amber-400 hover:bg-amber-100/40 dark:hover:bg-amber-900/30
+                      transition-colors duration-150"
+                    >
+                      <HomeIcon className="h-4 w-4" />
+                      <span>Mobile Home</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/municipality"
+                      className="mobile-menu-link flex items-center space-x-3 py-2 px-4 rounded-md 
+                      text-amber-800 dark:text-amber-400 hover:bg-amber-100/40 dark:hover:bg-amber-900/30
+                      transition-colors duration-150"
+                    >
+                      <Building2 className="h-4 w-4" />
+                      <span>Municipality</span>
+                    </Link>
+                  </li>
+                </ul>
+              )}
+            </li>
+
+            {/* Painter Network */}
+            <li>
+              <Link
+                href="/painter-network"
+                className="mobile-menu-link flex items-center space-x-3 py-3 px-4 w-full rounded-md 
+                text-amber-900 dark:text-amber-300 hover:bg-amber-100/50 dark:hover:bg-amber-900/40
+                transition-colors duration-150"
+              >
+                <Users className="h-5 w-5" />
+                <span className="font-medium">Painter Network</span>
+              </Link>
+            </li>
+
+            {/* Contact */}
+            {isHomePage && (
+              <li>
+                <a
+                  href="#contact"
+                  className="mobile-menu-link flex items-center space-x-3 py-3 px-4 w-full rounded-md 
+                  text-amber-900 dark:text-amber-300 hover:bg-amber-100/50 dark:hover:bg-amber-900/40
+                  transition-colors duration-150"
+                >
+                  <Phone className="h-5 w-5" />
+                  <span className="font-medium">Contact</span>
+                </a>
+              </li>
+            )}
+
+            {/* Portals with dropdown */}
+            <li className="mt-2 border-t border-amber-200/30 dark:border-amber-800/30 pt-2">
+              <button
+                onClick={() => setPortalsMenuOpen(!portalsMenuOpen)}
+                className="flex items-center justify-between space-x-3 py-3 px-4 w-full rounded-md 
+                text-amber-900 dark:text-amber-300 hover:bg-amber-100/50 dark:hover:bg-amber-900/40
+                transition-colors duration-150"
+              >
+                <div className="flex items-center space-x-3">
+                  <Lock className="h-5 w-5" />
+                  <span className="font-medium">Access Portals</span>
+                </div>
+                {portalsMenuOpen ? 
+                  <ChevronDown className="h-4 w-4" /> : 
+                  <ChevronRight className="h-4 w-4" />
+                }
+              </button>
+
+              {/* Portals submenu */}
+              {portalsMenuOpen && (
+                <ul className="pl-6 mt-1 space-y-2 border-l-2 border-amber-300/30 dark:border-amber-700/30 ml-5">
+                  <li>
+                    <Link
+                      href="/client-dashboard"
+                      className="mobile-menu-link flex items-center space-x-3 py-2 px-4 rounded-md 
+                      text-amber-800 dark:text-amber-400 bg-amber-100/30 dark:bg-amber-900/40 hover:bg-amber-100/50 dark:hover:bg-amber-800/50
+                      transition-colors duration-150"
+                    >
+                      <span>Client Dashboard</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/admin-dashboard"
+                      className="mobile-menu-link flex items-center space-x-3 py-2 px-4 rounded-md 
+                      text-amber-800 dark:text-amber-400 bg-amber-100/30 dark:bg-amber-900/40 hover:bg-amber-100/50 dark:hover:bg-amber-800/50
+                      transition-colors duration-150"
+                    >
+                      <span>Admin Dashboard</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/crm"
+                      className="mobile-menu-link flex items-center space-x-3 py-2 px-4 rounded-md 
+                      text-amber-800 dark:text-amber-400 bg-amber-100/30 dark:bg-amber-900/40 hover:bg-amber-100/50 dark:hover:bg-amber-800/50
+                      transition-colors duration-150"
+                    >
+                      <span>CRM Dashboard</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/inventory"
+                      className="mobile-menu-link flex items-center space-x-3 py-2 px-4 rounded-md 
+                      text-amber-800 dark:text-amber-400 bg-amber-100/30 dark:bg-amber-900/40 hover:bg-amber-100/50 dark:hover:bg-amber-800/50
+                      transition-colors duration-150"
+                    >
+                      <span>Inventory Management</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/crm-login"
+                      className="mobile-menu-link flex items-center space-x-3 py-2 px-4 rounded-md 
+                      text-amber-800 dark:text-amber-400 bg-amber-100/30 dark:bg-amber-900/40 hover:bg-amber-100/50 dark:hover:bg-amber-800/50
+                      transition-colors duration-150"
+                    >
+                      <span>CRM Admin Login</span>
+                    </Link>
+                  </li>
+                </ul>
+              )}
+            </li>
+          </ul>
+        </nav>
       </div>
     </div>
   );
