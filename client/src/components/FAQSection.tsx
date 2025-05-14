@@ -77,10 +77,10 @@ const FAQSection = ({ faqs }: FAQProps) => {
                     <div key={questionIdx} className="mb-4">
                       {/* Question Box with Gradient Border */}
                       <div className="relative">
-                        <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500 via-amber-400 to-orange-500 rounded-lg blur-sm opacity-60"></div>
+                        <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-700 via-amber-600 to-orange-800 rounded-lg blur-sm opacity-40"></div>
                         <button
                           onClick={() => toggleQuestion(categoryIdx, questionIdx)}
-                          className="relative w-full bg-gray-800/70 backdrop-blur-sm rounded-lg px-5 py-3 text-left hover:bg-gray-700/80 transition-colors font-medium text-base border border-amber-500/30 flex justify-between items-center"
+                          className="relative w-full bg-gray-800/80 backdrop-blur-sm rounded-lg px-5 py-3 text-left hover:bg-gray-700/90 transition-colors font-medium text-base border border-orange-800/30 flex justify-between items-center"
                         >
                           <span>{faq.question}</span>
                           <svg 

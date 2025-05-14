@@ -112,8 +112,8 @@ const ProductComparison = () => {
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-black/70" style={{ zIndex: 1 }}></div>
       <div className="container mx-auto px-4 relative" style={{ zIndex: 2 }}>
         <div className="text-center mb-10">
-          <div className="bg-gray-800/70 backdrop-blur-xl rounded-xl border-0 premium-gradient-border shadow-[0_0_40px_rgba(255,69,0,0.4)] py-8 px-10 mx-auto max-w-4xl mb-8 inline-block">
-            <Badge variant="outline" className="mb-2 px-3 py-1 border-amber-300 dark:border-amber-700 bg-amber-100/50 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300">
+          <div className="bg-gray-800/80 backdrop-blur-xl rounded-xl border-0 premium-gradient-border shadow-[0_0_30px_rgba(255,69,0,0.25)] py-8 px-10 mx-auto max-w-4xl mb-8 inline-block">
+            <Badge variant="outline" className="mb-2 px-3 py-1 border-amber-800 dark:border-amber-900 bg-amber-900/50 dark:bg-amber-950/70 text-amber-300">
               <Shield className="h-4 w-4 mr-1" /> Competitive Comparison
             </Badge>
             <GradientHeading level={2} className="text-3xl md:text-4xl mb-4" variant="fire">
@@ -151,9 +151,28 @@ const ProductComparison = () => {
             {comparisons.map((item, index) => (
               <Card 
                 key={index} 
-                className={`bg-black/80 backdrop-blur-sm shadow-xl border-0 premium-gradient-border transform transition-all duration-300 hover:scale-105 hover:z-10 hover:shadow-[0_0_30px_rgba(255,69,0,0.5)]`}
+                className={`bg-black/90 backdrop-blur-sm shadow-xl border-0 transform transition-all duration-300 hover:scale-105 hover:z-10 hover:shadow-[0_0_20px_rgba(255,69,0,0.3)]`}
+                style={{
+                  backgroundImage: 'linear-gradient(to right, rgba(0,0,0,0.9), rgba(20,20,20,0.9), rgba(0,0,0,0.9))',
+                  boxShadow: '0 4px 15px rgba(0,0,0,0.2), inset 0 0 1px rgba(255,69,0,0.3)',
+                  borderRadius: '8px',
+                  overflow: 'hidden',
+                  position: 'relative'
+                }}
               >
-                <CardContent className="p-5">
+                <div className="absolute inset-0" style={{
+                  content: '""',
+                  position: 'absolute',
+                  borderRadius: '8px',
+                  padding: '1px',
+                  background: 'linear-gradient(90deg, rgba(255,69,0,0.5) 0%, rgba(255,140,0,0.3) 50%, rgba(255,69,0,0.5) 100%)',
+                  WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                  mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                  WebkitMaskComposite: 'xor',
+                  maskComposite: 'exclude',
+                  pointerEvents: 'none'
+                }}></div>
+                <CardContent className="p-5 z-10 relative">
                   <div className="grid grid-cols-12 gap-4 items-center">
                     <div className="col-span-12 md:col-span-4 font-medium text-gray-200 text-base">
                       {item.feature}
@@ -162,7 +181,7 @@ const ProductComparison = () => {
                     <div className="col-span-6 md:col-span-4">
                       <div className="flex flex-col items-center">
                         <div className="mb-2">{renderStatus(item.praetorian)}</div>
-                        <p className="text-sm text-center text-amber-300 font-medium">{item.praetorianDetails}</p>
+                        <p className="text-sm text-center text-amber-400/90 font-medium">{item.praetorianDetails}</p>
                       </div>
                     </div>
                     
