@@ -72,6 +72,14 @@ const ApplicationCard = ({ imageSrc, title, description, link }: ApplicationCard
         <div className="absolute bottom-0 -left-40 w-80 h-80 bg-orange-500/20 rounded-full filter blur-[100px]"></div>
       </div>
       
+      {/* Corner accents with gradients - similar to FAQSection */}
+      <div className="absolute top-0 right-0 w-32 h-32 opacity-0 group-hover:opacity-20 transition-opacity duration-700 z-10">
+        <div className="absolute inset-0 bg-gradient-to-bl from-orange-500/40 to-blue-500/40 rounded-tr-xl blur-[2px]"></div>
+      </div>
+      <div className="absolute bottom-0 left-0 w-32 h-32 opacity-0 group-hover:opacity-20 transition-opacity duration-700 z-10">
+        <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/40 to-orange-500/40 rounded-bl-xl blur-[2px]"></div>
+      </div>
+      
       {/* Animated horizontal lines - top */}
       <div className="absolute top-[35%] left-0 w-full h-[1px] overflow-hidden z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
         <div className="w-full h-full bg-gradient-to-r from-transparent via-orange-500/60 to-transparent -translate-x-full animate-shimmer-slow"></div>
@@ -179,7 +187,15 @@ const ApplicationsSection = () => {
               <div className="absolute -top-60 -right-40 w-80 h-80 bg-orange-600/15 rounded-full filter blur-[100px] animate-pulse-slow-delayed"></div>
               <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-orange-500/20 rounded-full filter blur-[120px] animate-pulse-slow"></div>
               
-              {/* Corner accents */}
+              {/* Corner accents with gradients - similar to FAQSection */}
+              <div className="absolute top-0 right-0 w-32 h-32 opacity-20 z-10">
+                <div className="absolute inset-0 bg-gradient-to-bl from-orange-500/40 to-blue-500/40 rounded-tr-xl blur-[2px]"></div>
+              </div>
+              <div className="absolute bottom-0 left-0 w-32 h-32 opacity-20 z-10">
+                <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/40 to-orange-500/40 rounded-bl-xl blur-[2px]"></div>
+              </div>
+              
+              {/* Additional corner accent lines */}
               <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none z-10">
                 <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-orange-500/70 rounded-tl-lg"></div>
                 <div className="absolute top-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
