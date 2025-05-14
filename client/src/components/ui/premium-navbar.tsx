@@ -66,6 +66,12 @@ export function PremiumNavbar() {
               src={productImages.municipality}
               description="Infrastructure protection for public services"
             />
+            <ProductItem
+              title="Fire Prevention Pros"
+              href="/fire-prevention-professionals"
+              src={productImages.firePrevention}
+              description="Certified fire protection specialists"
+            />
           </div>
         </MenuItem>
         <MenuItem setActive={setActive} active={active} item="Products">
