@@ -178,16 +178,16 @@ const FAQSection = ({ faqs }: FAQProps) => {
                 hoverAccent: "from-blue-500/30 to-cyan-500/30"
               },
               2: { // Mixed theme
-                borderGradient: "from-orange-500/60 via-purple-500/30 to-blue-500/60",
-                textGradient: "from-orange-400 via-purple-300 to-blue-400",
-                iconGradient: "from-amber-500 via-purple-500 to-blue-600",
+                borderGradient: "from-orange-500/50 via-transparent to-blue-400/50",
+                textGradient: "from-amber-300 via-orange-400 to-blue-400",
+                iconGradient: "from-amber-400 via-orange-500 to-blue-600",
                 iconShadow: "0 0 30px rgba(251,113,36,0.5), 0 0 30px rgba(59,130,246,0.5)",
-                ambientGlow: "radial-gradient(circle at center, rgba(251,113,36,0.15) 0%, rgba(139,92,246,0.1) 30%, rgba(59,130,246,0.15) 60%, transparent 75%)",
+                ambientGlow: "radial-gradient(circle at center, rgba(251,113,36,0.3), rgba(59,130,246,0.3), transparent 70%)",
                 cornerAccent: "from-orange-500/40 to-blue-500/40",
-                questionBorder: "from-orange-500/50 via-purple-500/30 to-blue-500/50",
+                questionBorder: "from-orange-500/50 via-transparent to-blue-400/50",
                 answerGradient: "from-gray-900/90 to-gray-800/90",
-                answerBorder: "from-orange-600/30 via-purple-600/30 to-blue-600/30",
-                hoverAccent: "from-orange-500/20 via-purple-500/20 to-blue-500/20"
+                answerBorder: "from-orange-600/30 via-transparent to-blue-600/30",
+                hoverAccent: "from-orange-500/20 via-transparent to-blue-500/20"
               }
             };
             

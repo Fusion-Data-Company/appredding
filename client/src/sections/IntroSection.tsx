@@ -22,7 +22,17 @@ const IntroSection = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/70" style={{ zIndex: 1 }}></div>
       <div className="container mx-auto px-4 relative" style={{ zIndex: 2 }}>
         <div className="max-w-5xl mx-auto text-center">
-          <div className="bg-gradient-to-b from-gray-800/70 to-gray-900/80 backdrop-blur-xl rounded-xl border-0 py-14 px-10 md:px-16 mx-auto max-w-5xl mb-16 shadow-[0_10px_50px_rgba(255,100,50,0.25)] dark:shadow-[0_10px_50px_rgba(0,0,0,0.4)] relative premium-gradient-border">
+          <div className="group relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-gray-900/95 backdrop-blur-xl rounded-xl border-0 py-14 px-10 md:px-16 mx-auto max-w-5xl mb-16 shadow-[0_10px_50px_rgba(0,0,0,0.5)] z-10 transform transition-all duration-500 hover:scale-[1.01]">
+            {/* Premium gradient border effect - Mixed variant */}
+            <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/50 via-transparent to-blue-400/50 opacity-70"></div>
+            
+            {/* Inner highlight */}
+            <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
+            
+            {/* Subtle ambient glow that activates on hover */}
+            <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-30 transition-opacity duration-700 ease-in-out" 
+                style={{ background: "radial-gradient(circle at center, rgba(251,113,36,0.3), rgba(59,130,246,0.3), transparent 70%)" }}>
+            </div>
             <GradientHeading level={1} className="text-4xl md:text-6xl mb-8" variant="mixed">
               NASA-Derived Ceramic Coating Technology
             </GradientHeading>
@@ -30,6 +40,9 @@ const IntroSection = () => {
               Revolutionary triple-component system with perfect Class A fire protection and superior thermal insulation using vacuum-filled ceramic microsphere technology.
             </p>
           </div>
+          
+          {/* Bottom reflection effect */}
+          <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2/3 h-[2px] bg-gradient-to-r from-transparent via-[rgba(255,255,255,0.1)] to-transparent rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
           <div className="relative mt-10 mb-16 max-w-4xl mx-auto">
             {/* Premium Enterprise-level paragraph styling */}
             <div className="group relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-gray-900/95 backdrop-blur-xl rounded-xl p-8 shadow-[0_10px_50px_rgba(0,0,0,0.5)] z-10 transform transition-all duration-500 hover:scale-[1.02] hover:-translate-y-1">
