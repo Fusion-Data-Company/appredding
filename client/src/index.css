@@ -260,9 +260,9 @@ section + section {
       to bottom, 
       #ffcc80 0%,
       #ff9800 25%,
-      #ff5722 50%,
-      #e64a19 75%,
-      #bf360c 100%
+      #3b82f6 50%,
+      #2563eb 75%,
+      #1e40af 100%
     );
     -webkit-background-clip: text;
     background-clip: text;
