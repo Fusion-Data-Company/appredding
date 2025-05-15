@@ -551,10 +551,14 @@ const IndustryApplications = () => {
                     </div>
                     
                     {/* Premium Enterprise Case Study Container */}
-                    <div className="relative">
+                    <div className="relative group">
+                      {/* Multiple layered background effects - Theme variant */}
+                      <div className="absolute -inset-0 bg-gradient-to-r from-orange-600/90 via-red-600/80 to-orange-600/90 rounded-xl blur-[2px] opacity-90 group-hover:opacity-100 group-hover:blur-[1px] transition-all duration-500 animate-pulse-slow"></div>
+                      <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/90 via-amber-500/90 to-red-500/90 rounded-xl blur-[1px] opacity-100 group-hover:opacity-100 transition-all duration-300"></div>
+                      
                       {/* Premium Card Container */}
-                      <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-gray-900/95 backdrop-blur-xl rounded-xl p-8 shadow-[0_20px_80px_rgba(0,0,0,0.6)] z-10">
-                        {/* Premium gradient border effect - Theme-based styling */}
+                      <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-gray-900/95 backdrop-blur-xl rounded-xl p-8 shadow-[0_20px_80px_rgba(0,0,0,0.6)] z-10 border border-orange-500/30">
+                        {/* Premium gradient border effect - Theme-based styling - reduced opacity */}
                         <div className={`absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r ${
                           app.id === "marinas" || app.id === "pools"
                             ? "from-blue-500/40 via-transparent to-cyan-500/40" 
@@ -615,9 +619,13 @@ const IndustryApplications = () => {
                           <div className="md:w-2/3 space-y-5">
                             {/* Challenge card */}
                             <div className="group relative">
+                              {/* Multiple layered background effects - Theme variant */}
+                              <div className="absolute -inset-0 bg-gradient-to-r from-orange-600/90 via-red-600/80 to-orange-600/90 rounded-lg blur-[2px] opacity-90 group-hover:opacity-100 group-hover:blur-[1px] transition-all duration-500 animate-pulse-slow"></div>
+                              <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/90 via-amber-500/90 to-red-500/90 rounded-lg blur-[1px] opacity-100 group-hover:opacity-100 transition-all duration-300"></div>
+                              
                               {/* Premium Card Container */}
-                              <div className="relative bg-gradient-to-br from-gray-900/90 via-gray-950/90 to-gray-900/90 backdrop-blur-xl rounded-lg p-4 shadow-[0_8px_30px_rgba(0,0,0,0.3)] z-10">
-                                {/* Premium gradient border effect */}
+                              <div className="relative bg-gradient-to-br from-gray-900/90 via-gray-950/90 to-gray-900/90 backdrop-blur-xl rounded-lg p-4 shadow-[0_8px_30px_rgba(0,0,0,0.3)] z-10 border border-orange-500/30">
+                                {/* Premium gradient border effect - reduced opacity */}
                                 <div className={`absolute inset-0 p-0.5 rounded-lg bg-gradient-to-r ${
                                   app.id === "marinas" || app.id === "pools"
                                     ? "from-blue-500/30 via-transparent to-cyan-500/30" 
