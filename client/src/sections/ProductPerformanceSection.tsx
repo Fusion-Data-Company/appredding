@@ -62,12 +62,14 @@ const ProductPerformanceSection = () => {
                 <div className="absolute bottom-0 right-0 w-3 h-3 bg-red-500/50 rounded-full blur-[2px]"></div>
               </div>
               
-              {/* Premium badge with consistent styling at the top center */}
-              <div className="relative z-50 -mt-2 mb-6 flex justify-center">
+              {/* Premium badge with ultra-high z-index and absolute positioning to prevent clipping */}
+              <div className="absolute -top-6 left-0 right-0 flex justify-center z-[500]">
                 <PremiumBadge>
                   VERIFIED PERFORMANCE
                 </PremiumBadge>
               </div>
+              {/* Spacer to replace the badge's original position */}
+              <div className="h-6 mb-6"></div>
               
               {/* Shimmer heading */}
               <div className="relative z-10 mb-8 px-6 py-2 overflow-hidden">
@@ -370,8 +372,8 @@ const ProductPerformanceSection = () => {
               <div className="text-center mb-14 relative">
                 <div className="absolute -top-12 left-1/2 -translate-x-1/2 w-56 h-2 bg-gradient-to-r from-transparent via-amber-500/20 to-transparent blur-xl"></div>
                 
-                {/* NASA Testing badge with consistent styling */}
-                <div className="mb-4 inline-flex">
+                {/* NASA Testing badge with consistent styling - high z-index */}
+                <div className="mb-4 inline-flex relative z-[500]">
                   <PremiumBadge>
                     NASA-GRADE TESTING
                   </PremiumBadge>

@@ -56,8 +56,15 @@ const FAQSection = ({ faqs }: FAQProps) => {
             <div className="absolute -bottom-20 right-[10%] w-72 h-72 bg-orange-600/10 rounded-full filter blur-[100px]"></div>
           </div>
           
-          {/* Card container */}
-          <div className="relative mx-auto max-w-4xl bg-gradient-to-b from-gray-900/80 to-black/90 rounded-2xl overflow-hidden">
+          {/* Premium badge positioned above the card - outside parent with overflow hidden */}
+          <div className="absolute top-0 left-0 right-0 flex justify-center -mt-6 z-[500]">
+            <PremiumBadge>
+              FREQUENTLY ASKED
+            </PremiumBadge>
+          </div>
+          
+          {/* Card container - removed overflow-hidden that was causing badge clipping */}
+          <div className="relative mx-auto max-w-4xl bg-gradient-to-b from-gray-900/80 to-black/90 rounded-2xl">
             {/* Premium gradient border */}
             <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-orange-500/20 via-blue-500/20 to-orange-500/20 blur-[2px]"></div>
             
@@ -136,12 +143,7 @@ const FAQSection = ({ faqs }: FAQProps) => {
                 <div className="absolute h-full w-3 bg-white/80 right-24 rounded-full blur-[1px] animate-pulse-slow-delayed opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
               </div>
               
-              {/* Premium badge with orange/blue gradient styling and increased z-index */}
-              <div className="absolute -top-5 left-1/2 -translate-x-1/2 flex z-[100]">
-                <PremiumBadge>
-                  FREQUENTLY ASKED
-                </PremiumBadge>
-              </div>
+              {/* Premium badge moved outside the overflow:hidden container */}
             </div>
           </div>
         </div>
