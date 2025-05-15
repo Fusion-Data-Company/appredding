@@ -25,8 +25,9 @@ const FeatureCard = ({ icon, title, description, index }: { icon: string; title:
 
   return (
     <div className="relative group h-full transform transition-all duration-700 hover:-translate-y-2 hover:scale-[1.03] hover:z-10 flex flex-col justify-between">
-      {/* Glow effects ONLY BEHIND the card - elite enterprise styling */}
-      <div className="absolute -inset-4 bg-gradient-to-r from-orange-600/15 via-blue-600/15 to-orange-600/15 rounded-2xl blur-xl opacity-30 group-hover:opacity-50 transition-all duration-1000 animate-pulse-slow z-0"></div>
+      {/* Glow effects ONLY BEHIND the card - matching other components */}
+      <div className="absolute -inset-6 bg-gradient-to-r from-orange-600/20 via-blue-600/20 to-orange-600/20 rounded-3xl blur-xl opacity-30 group-hover:opacity-60 transition-all duration-1000 animate-pulse-slow z-0"></div>
+      <div className="absolute -inset-4 bg-gradient-to-r from-orange-500/15 to-blue-500/15 rounded-2xl blur-lg opacity-20 group-hover:opacity-40 transition-all duration-700 z-0"></div>
       
       {/* Premium Card Container - matching TechnicalSpecsTable.tsx */}
       <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black backdrop-blur-xl rounded-xl p-8 md:p-10 text-center border border-orange-500/30 overflow-hidden hover:shadow-[0_0_25px_rgba(249,115,22,0.3)] transition-shadow duration-500 h-full z-40">
@@ -187,42 +188,59 @@ const FeaturesSection = () => {
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/70 to-black/70" style={{ zIndex: 1 }}></div>
       <div className="container mx-auto px-4 relative" style={{ zIndex: 2 }}>
         <div className="text-center mb-16 md:mb-20">
-          {/* Elite enterprise heading container with glow behind */}
-          <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black backdrop-blur-xl rounded-xl py-10 px-8 md:py-12 md:px-16 mx-auto max-w-4xl mb-8 inline-block shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7)] border border-gray-800 group/nasa transform transition-all duration-500 hover:scale-[1.01] z-40">
-            {/* Glow effects ONLY BEHIND the card */}
-            <div className="absolute -inset-8 bg-gradient-to-r from-orange-600/15 via-blue-600/15 to-orange-600/15 rounded-2xl blur-xl opacity-30 group-hover/nasa:opacity-50 transition-all duration-1000 animate-pulse-slow z-0"></div>
+          {/* Premium heading container with glow behind - matching feature cards */}
+          <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black backdrop-blur-xl rounded-xl py-10 px-8 md:py-12 md:px-16 mx-auto max-w-4xl mb-8 inline-block shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7)] border border-orange-500/30 hover:shadow-[0_0_25px_rgba(249,115,22,0.3)] transition-shadow duration-500 group/nasa transform transition-all duration-500 hover:scale-[1.01] z-40">
+            {/* Glow effects ONLY BEHIND the card - matching feature cards */}
+            <div className="absolute -inset-10 bg-gradient-to-r from-orange-600/20 via-blue-600/20 to-orange-600/20 rounded-3xl blur-xl opacity-30 group-hover/nasa:opacity-60 transition-all duration-1000 animate-pulse-slow z-0"></div>
+            <div className="absolute -inset-6 bg-gradient-to-r from-orange-500/15 to-blue-500/15 rounded-2xl blur-lg opacity-20 group-hover/nasa:opacity-40 transition-all duration-700 z-0"></div>
             
             {/* Subtle dots and squares pattern background in mixed colors */}
             <div className="absolute inset-0 opacity-25 z-0">
               <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoMjMyLDEyMSw1OCwwLjMpIiBkPSJNMCAwaDJ2Mkgwem0yIDJoMnYySDJ6Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCBmaWxsPSJ1cmwoI2EpIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIi8+PC9zdmc+')]"></div>
             </div>
             
-            {/* Elite enterprise corner accents - subtle */}
+            {/* Premium corner accents - matching feature cards */}
             <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none z-10">
-              <div className="absolute top-0 left-0 w-10 h-10 border-t border-l border-gray-700 rounded-tl-lg"></div>
+              <div className="absolute top-0 left-0 w-10 h-10 border-t-2 border-l-2 border-orange-500/70 rounded-tl-lg"></div>
+              <div className="absolute top-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
             </div>
             <div className="absolute top-0 right-0 w-16 h-16 pointer-events-none z-10">
-              <div className="absolute top-0 right-0 w-10 h-10 border-t border-r border-gray-700 rounded-tr-lg"></div>
+              <div className="absolute top-0 right-0 w-10 h-10 border-t-2 border-r-2 border-blue-500/70 rounded-tr-lg"></div>
+              <div className="absolute top-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
             </div>
             <div className="absolute bottom-0 left-0 w-16 h-16 pointer-events-none z-10">
-              <div className="absolute bottom-0 left-0 w-10 h-10 border-b border-l border-gray-700 rounded-bl-lg"></div>
+              <div className="absolute bottom-0 left-0 w-10 h-10 border-b-2 border-l-2 border-orange-500/70 rounded-bl-lg"></div>
+              <div className="absolute bottom-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
             </div>
             <div className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none z-10">
-              <div className="absolute bottom-0 right-0 w-10 h-10 border-b border-r border-gray-700 rounded-br-lg"></div>
+              <div className="absolute bottom-0 right-0 w-10 h-10 border-b-2 border-r-2 border-blue-500/70 rounded-br-lg"></div>
+              <div className="absolute bottom-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
             </div>
             
-            {/* Elite enterprise badge - minimal styling */}
+            {/* Premium badge with mixed orange/blue styling */}
             <div className="absolute -top-5 left-1/2 -translate-x-1/2 flex z-50">
-              <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-gray-900/95 via-gray-950/95 to-black border border-gray-700 shadow-lg relative transition-all duration-500 hover:scale-105">
-                {/* Simple badge icon */}
+              <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-gray-900/95 via-gray-950/95 to-black border border-orange-500/30 shadow-lg relative hover:shadow-[0_0_15px_rgba(249,115,22,0.3)] transition-all duration-500 hover:scale-105">
+                {/* Badge icon with glow effect */}
                 <div className="mr-2 relative">
-                  <svg className="h-5 w-5 text-blue-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-r from-orange-500/30 to-blue-500/30 blur-[6px] opacity-70"></div>
+                  <svg className="h-5 w-5 text-transparent relative z-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="url(#mixed-gradient-nasa-badge)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M12 22a9.5 9.5 0 0 0 3.09-18.49A4.5 4.5 0 1 0 12 8.5a4.5 4.5 0 1 0-3.09-9.01A9.5 9.5 0 0 0 12 22z"></path>
+                  </svg>
+                  
+                  {/* Gradient definition for icon */}
+                  <svg width="0" height="0">
+                    <defs>
+                      <linearGradient id="mixed-gradient-nasa-badge" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#f97316" />
+                        <stop offset="50%" stopColor="#f59e0b" />
+                        <stop offset="100%" stopColor="#3b82f6" />
+                      </linearGradient>
+                    </defs>
                   </svg>
                 </div>
                 
-                {/* Clean badge text */}
-                <span className="text-white text-sm font-medium tracking-wide">
+                {/* Badge text with gradient */}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-300 to-blue-400 text-sm font-medium tracking-wide">
                   NASA TECHNOLOGY
                 </span>
               </div>
