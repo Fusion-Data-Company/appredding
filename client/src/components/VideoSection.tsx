@@ -70,114 +70,71 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
       
       <div className="container mx-auto px-4 relative" style={{ zIndex: 2 }}>
         <div className="text-center mb-20">
-          <div className="relative group mx-auto max-w-4xl mb-12 inline-block transform transition-all duration-500">
-            {/* Multiple layered background effects */}
+          {/* Card with premium enterprise styling matching Testimonials Section */}
+          <div className="relative group mx-auto max-w-4xl mb-12 inline-block transform hover:scale-[1.02] transition-all duration-700 hover:-translate-y-1 hover:z-10">
+            {/* Multiple layered background effects - matching Testimonials Section */}
             <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/40 via-blue-600/40 to-orange-600/40 rounded-xl blur-xl opacity-70 group-hover:opacity-100 group-hover:blur-xl transition-all duration-1000 animate-pulse-slow"></div>
             <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/80 via-blue-500/80 to-orange-500/80 rounded-xl blur-md opacity-90 group-hover:opacity-100 transition-all duration-500"></div>
             
-            {/* Main card container */}
+            {/* Main card container - enhanced to match Testimonials Section */}
             <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black backdrop-blur-xl rounded-xl py-12 px-12 z-10 border border-orange-500/30 overflow-hidden group hover:shadow-[0_0_25px_rgba(249,115,22,0.3)] transition-shadow duration-500">
-              {/* Subtle dots and squares pattern background in burnt orange - increased opacity for visibility */}
-              <div className="absolute inset-0 opacity-25 z-0">
-                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoMjQ5LDExNSwyMiwwLjQpIiBkPSJNMCAwaDJ2Mkgwem0yIDJoMnYySDJ6Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCBmaWxsPSJ1cmwoI2EpIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIi8+PC9zdmc+')]"></div>
-              </div>
               
-              {/* Ambient glow effect - positioned away from text */}
-              <div className="absolute -top-60 -right-40 w-80 h-80 bg-orange-600/15 rounded-full filter blur-[100px] animate-pulse-slow-delayed"></div>
-              <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-orange-500/20 rounded-full filter blur-[120px] animate-pulse-slow"></div>
+              {/* Enhanced ambient glow - matching Testimonials Section */}
+              <div className="absolute -top-20 -right-20 w-72 h-72 bg-orange-500/20 rounded-full filter blur-[100px] opacity-70 animate-pulse-slow"></div>
+              <div className="absolute -bottom-20 -left-20 w-72 h-72 bg-blue-500/25 rounded-full filter blur-[100px] opacity-70 animate-pulse-slow-delayed"></div>
               
-              {/* Corner accent with gradient - top-right corner only */}
-              <div className="absolute top-0 right-0 w-32 h-32 opacity-20 z-10">
+              {/* Additional background gradient areas - matching Testimonials Section */}
+              <div className="absolute top-0 right-0 w-32 h-32 opacity-20 z-5">
                 <div className="absolute inset-0 bg-gradient-to-bl from-orange-500/40 to-blue-500/40 rounded-tr-xl blur-[2px]"></div>
               </div>
-              
-              {/* Additional corner accent lines */}
-              <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none z-10">
-                <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-orange-500/70 rounded-tl-lg"></div>
-                <div className="absolute top-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
-              </div>
-              <div className="absolute top-0 right-0 w-16 h-16 pointer-events-none z-10">
-                <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-red-500/70 rounded-tr-lg"></div>
-                <div className="absolute top-0 right-0 w-3 h-3 bg-red-500/50 rounded-full blur-[2px]"></div>
-              </div>
-              <div className="absolute bottom-0 left-0 w-16 h-16 pointer-events-none z-10">
-                <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-orange-500/70 rounded-bl-lg"></div>
-                <div className="absolute bottom-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
-              </div>
-              <div className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none z-10">
-                <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-red-500/70 rounded-br-lg"></div>
-                <div className="absolute bottom-0 right-0 w-3 h-3 bg-red-500/50 rounded-full blur-[2px]"></div>
+              <div className="absolute bottom-0 left-0 w-32 h-32 opacity-20 z-5">
+                <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/40 to-orange-500/40 rounded-bl-xl blur-[2px]"></div>
               </div>
               
-              {/* Badge removed per user request */}
+              {/* Corner accents - exactly matching Testimonials Section */}
+              <div className="absolute top-4 left-4 w-12 h-12 z-10">
+                <div className="absolute left-0 top-0 w-6 h-6 border-l-2 border-t-2 border-orange-500/40 rounded-tl-md"></div>
+                <div className="absolute left-1 top-1 w-8 h-8 border-l border-t border-blue-500/30 rounded-tl-md"></div>
+              </div>
+              <div className="absolute top-4 right-4 w-12 h-12 z-10">
+                <div className="absolute right-0 top-0 w-6 h-6 border-r-2 border-t-2 border-orange-500/40 rounded-tr-md"></div>
+                <div className="absolute right-1 top-1 w-8 h-8 border-r border-t border-blue-500/30 rounded-tr-md"></div>
+              </div>
+              <div className="absolute bottom-4 right-4 w-12 h-12 z-10">
+                <div className="absolute right-0 bottom-0 w-6 h-6 border-r-2 border-b-2 border-orange-500/40 rounded-br-md"></div>
+                <div className="absolute right-1 bottom-1 w-8 h-8 border-r border-b border-amber-500/30 rounded-br-md"></div>
+              </div>
+              <div className="absolute bottom-4 left-4 w-12 h-12 z-10">
+                <div className="absolute left-0 bottom-0 w-6 h-6 border-l-2 border-b-2 border-orange-500/40 rounded-bl-md"></div>
+                <div className="absolute left-1 bottom-1 w-8 h-8 border-l border-b border-amber-500/30 rounded-bl-md"></div>
+              </div>
               
-              {/* Shimmer heading */}
-              <div className="relative z-10 mb-8 px-6 py-2 overflow-hidden">
-                {/* Animated glow behind text */}
-                <div className="absolute inset-0 bg-gradient-to-r from-orange-600/10 via-blue-500/20 to-orange-600/10 opacity-50 blur-xl animate-pulse-slow"></div>
-                
-                {/* Heading with enhanced enterprise styling and shadows */}
-                <div className="shimmer-fire-text font-bold text-5xl tracking-tight relative z-10">
-                  {/* Background glow for letter definition */}
-                  <div className="absolute inset-0 flex justify-center items-center text-5xl font-bold tracking-tight text-orange-900/10 blur-[5px] scale-110">
-                    Video Demonstrations
-                  </div>
-                  
-                  {/* Main text with white color - moved up 0.25 inch - reduced glow/shadow effects */}
-                  <span className="relative text-white
-                    drop-shadow-[0_0px_1px_rgba(251,113,36,0.2)] 
-                    [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(251,146,60,0.3)]
-                    transform -translate-y-[0.25in]">
-                    Video Demonstrations
-                  </span>
-                  
-                  {/* Top glossy reflection */}
-                  <div className="absolute top-0 left-0 right-0 h-[40%] bg-gradient-to-b from-white/10 to-transparent rounded-t-lg"></div>
-                </div>
+              {/* Background blur text - matching Testimonials Section */}
+              <div className="absolute inset-0 flex justify-center items-center text-5xl font-bold tracking-tight text-orange-900/10 blur-[5px] scale-110 pointer-events-none">
+                Video Demonstrations
+              </div>
+              
+              <div className="relative z-10">
+                {/* Main title with premium text styling - matching Testimonials Section */}
+                <h2 className="text-white
+                drop-shadow-[0_0px_1px_rgba(251,113,36,0.2)] 
+                [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(251,146,60,0.3)]
+                text-4xl md:text-5xl font-bold relative z-30 mb-6">
+                  Video Demonstrations
+                </h2>
                 
                 {/* Multiple text shadows for depth - reduced blur effects */}
-                <div className="absolute inset-0 flex items-center justify-center text-5xl font-bold tracking-tight opacity-10 blur-[3px] text-orange-700/30 -z-10 transform scale-105">
-                  Video Demonstrations
-                </div>
-                <div className="absolute inset-0 flex items-center justify-center text-5xl font-bold tracking-tight opacity-20 blur-[1px] text-red-900/20 -z-10">
+                <div className="absolute inset-0 flex items-center justify-center text-5xl font-bold tracking-tight opacity-10 blur-[3px] text-orange-700/30 z-10 transform scale-105 pointer-events-none">
                   Video Demonstrations
                 </div>
                 
-                {/* Positioned cool glowing decorative accent line under the S extending to PP on hover - moved down 0.5 inch */}
-                <div className="absolute left-[8%] bottom-[-0.5in] transform group w-14 h-2.5 rounded-full overflow-hidden z-50 transition-all duration-700 hover:w-72">
-                  {/* Base gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-amber-500 to-blue-600"></div>
-                  
-                  {/* Glow effect */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-amber-500 to-blue-600 blur-md opacity-70"></div>
-                  
-                  {/* Pulsing dots */}
-                  <div className="absolute h-full w-4 bg-white/80 right-4 rounded-full blur-[1px] animate-pulse-slow"></div>
-                  <div className="absolute h-full w-3 bg-white/80 right-24 rounded-full blur-[1px] animate-pulse-slow-delayed opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
-                </div>
-              </div>
-              
-              {/* Enhanced description */}
-              <p className="text-gray-200 text-xl max-w-2xl mx-auto relative">
-                {/* Left accent - animated pulse - longer and moved to top */}
-                <span className="absolute -left-6 top-1/2 transform -translate-y-1/2 w-1.5 h-20 bg-gradient-to-b from-orange-500/0 via-orange-500/70 to-orange-500/0 rounded-full animate-pulse-slow z-20"></span>
+                <p className="text-gray-300 text-xl max-w-2xl mx-auto relative z-30">
+                  Watch our expert demonstrations of Praetorian's cutting-edge coating solutions in action.
+                </p>
                 
-                Watch our experts demonstrate application techniques and showcase the superior performance of our protective coatings.
-                
-                {/* Right accent - animated pulse with delay - longer and moved to top */}
-                <span className="absolute -right-6 top-1/2 transform -translate-y-1/2 w-1.5 h-20 bg-gradient-to-b from-orange-500/0 via-orange-500/70 to-orange-500/0 rounded-full animate-pulse-slow-delayed z-20"></span>
-              </p>
-              
-              {/* Move blue/orange gradient square to top left corner instead of bottom left */}
-              <div className="absolute top-0 left-0 w-32 h-32 opacity-20 z-10">
-                <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/40 to-orange-500/40 rounded-tl-xl blur-[2px]"></div>
+                {/* Decorative accent line */}
+                <div className="absolute left-1/2 bottom-4 transform -translate-x-1/2 w-32 h-0.5 bg-gradient-to-r from-transparent via-orange-500/70 to-transparent rounded-full"></div>
               </div>
-              
-              {/* Subtle animated overlay */}
-              <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent opacity-30 rounded-xl"></div>
-              
-              {/* Shimmer effect */}
-              <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-30 -translate-x-full animate-shimmer-slow transform rounded-xl overflow-hidden"></div>
             </div>
             
             {/* Bottom reflection */}
@@ -691,15 +648,33 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
                   
                   {/* Enterprise-styled YouTube button */}
                   <div className="group/yt relative rounded-lg overflow-hidden">
-                    {/* Ambient glow effect behind button */}
+                    {/* Ambient glow effect behind button - positioned BEHIND the card */}
                     <div className="absolute -inset-1 opacity-0 group-hover/yt:opacity-100 transition-opacity duration-700 pointer-events-none"
                          style={{ 
-                           background: 'radial-gradient(circle at center, rgba(239,68,68,0.25) 0%, rgba(0,0,0,0) 70%)'
+                           background: 'radial-gradient(circle at center, rgba(239,68,68,0.25) 0%, rgba(0,0,0,0) 70%)',
+                           zIndex: -1
                          }}>
                     </div>
+                    {/* Additional ambient glow effects - more intense on hover */}
+                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[250px] h-[80px] bg-red-500/10 rounded-full filter blur-[40px] opacity-0 group-hover/yt:opacity-100 transition-opacity duration-700 pointer-events-none" style={{ zIndex: -1 }}></div>
                     
                     <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" 
                        className="relative block w-full py-3.5 px-4 rounded-lg bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 border border-gray-700/50 group-hover/yt:border-red-500/40 text-white text-center transition-all duration-300 hover:shadow-[0_8px_25px_rgba(0,0,0,0.3)] transform group-hover/yt:translate-y-[-1px] overflow-hidden z-20">
+                      
+                      {/* Fading squares animation */}
+                      <div className="absolute top-3 right-3 w-8 h-8 border border-red-500/30 rounded opacity-0 group-hover/yt:opacity-70 transition-all duration-700 animate-pulse-slow"></div>
+                      <div className="absolute bottom-3 left-3 w-5 h-5 border border-red-500/30 rounded opacity-0 group-hover/yt:opacity-70 transition-all duration-700 delay-100 animate-pulse-slow-delayed"></div>
+                      
+                      {/* Shining edge effect */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover/yt:opacity-100 transition-opacity duration-1000"
+                          style={{
+                            backgroundSize: '200% 100%',
+                            animation: 'shimmer 8s linear infinite',
+                            animationPlayState: 'paused'
+                          }}
+                          onMouseEnter={(e) => e.currentTarget.style.animationPlayState = 'running'}
+                          onMouseLeave={(e) => e.currentTarget.style.animationPlayState = 'paused'}>
+                      </div>
                       
                       {/* Corner accent styling matching rest of site */}
                       <div className="absolute top-0 left-0 w-10 h-10 pointer-events-none">
