@@ -97,12 +97,8 @@ const TechnicalSpecsTable = () => {
       {/* Semi-transparent overlay for better readability */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/60" style={{ zIndex: 1 }}></div>
       <div className="container mx-auto px-4 relative" style={{ zIndex: 2 }}>
-        <div className="flex justify-center mb-5">
-          <div className="px-3 py-1.5 rounded-full border border-orange-500 bg-black text-white inline-flex items-center shadow-[0_0_10px_rgba(251,113,36,0.3)] relative z-50">
-            <Shield className="h-4 w-4 mr-2 text-orange-500" />
-            <span className="text-sm font-medium">Performance Specifications</span>
-          </div>
-        </div>
+        {/* Badge removed as requested */}
+        <div className="mb-5"></div>
         
         <div className="text-center mb-12">
           {/* Premium Enterprise-level heading container with mixed orange/blue styling */}
