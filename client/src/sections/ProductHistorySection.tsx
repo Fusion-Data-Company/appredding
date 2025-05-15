@@ -195,9 +195,8 @@ const ProductHistorySection = () => {
           <div className="group relative transform hover:scale-[1.01] transition-all duration-700">
             {/* Premium Card Container with enhanced styling - adjusted to fire theme */}
             <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/98 to-gray-900/95 backdrop-blur-xl rounded-xl overflow-hidden shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7)] z-10">
-              {/* Multiple layered background effects - Mixed theme */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/40 via-blue-600/40 to-orange-600/40 rounded-xl blur-xl opacity-70 group-hover:opacity-100 group-hover:blur-xl transition-all duration-1000 animate-pulse-slow"></div>
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/80 via-blue-500/80 to-orange-500/80 rounded-xl blur-md opacity-90 group-hover:opacity-100 transition-all duration-500"></div>
+              {/* Gray gradient background without glow */}
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-gray-700/50 via-gray-600/50 to-gray-700/50 rounded-xl opacity-90"></div>
               
               {/* Premium dual-layer gradient border effect - changed to match mixed orange/blue theme */}
               <div className="absolute inset-0 p-0.5 rounded-xl border border-gray-500/30 overflow-hidden"></div>
@@ -210,41 +209,40 @@ const ProductHistorySection = () => {
               
               {/* Removed ambient glow effects as requested to match FeaturesSection.tsx */}
               
-              {/* Corner accent lines with orange/red theme to match feature cards */}
+              {/* Corner accent lines with gray theme */}
               <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none z-10">
-                <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-orange-500/80 rounded-tl-lg"></div>
-                <div className="absolute top-0 left-0 w-3 h-3 bg-orange-500/70 rounded-full blur-[2px]"></div>
+                <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-gray-500/40 rounded-tl-lg"></div>
+                <div className="absolute top-0 left-0 w-3 h-3 bg-gray-500/30 rounded-full blur-[2px]"></div>
               </div>
               <div className="absolute top-0 right-0 w-16 h-16 pointer-events-none z-10">
-                <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-orange-600/80 rounded-tr-lg"></div>
-                <div className="absolute top-0 right-0 w-3 h-3 bg-orange-600/70 rounded-full blur-[2px]"></div>
+                <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-gray-500/40 rounded-tr-lg"></div>
+                <div className="absolute top-0 right-0 w-3 h-3 bg-gray-500/30 rounded-full blur-[2px]"></div>
               </div>
               <div className="absolute bottom-0 left-0 w-16 h-16 pointer-events-none z-10">
-                <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-orange-500/80 rounded-bl-lg"></div>
-                <div className="absolute bottom-0 left-0 w-3 h-3 bg-orange-500/70 rounded-full blur-[2px]"></div>
+                <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-gray-500/40 rounded-bl-lg"></div>
+                <div className="absolute bottom-0 left-0 w-3 h-3 bg-gray-500/30 rounded-full blur-[2px]"></div>
               </div>
               <div className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none z-10">
-                <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-orange-600/80 rounded-br-lg"></div>
-                <div className="absolute bottom-0 right-0 w-3 h-3 bg-orange-600/70 rounded-full blur-[2px]"></div>
+                <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-gray-500/40 rounded-br-lg"></div>
+                <div className="absolute bottom-0 right-0 w-3 h-3 bg-gray-500/30 rounded-full blur-[2px]"></div>
               </div>
               
-              {/* Timeline Innovation badge with orange/red styling to match feature cards */}
+              {/* Timeline Innovation badge with gray styling */}
               <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-50">
-                <div className="group/badge px-3 py-1.5 rounded-full border-2 border-orange-500/80 bg-gradient-to-r from-gray-900/90 to-gray-950/90 text-white inline-flex items-center shadow-[0_0_15px_rgba(251,113,36,0.5)] backdrop-blur-sm relative z-50 hover:scale-105 transition-transform duration-300">
+                <div className="group/badge px-3 py-1.5 rounded-full border-2 border-gray-500/40 bg-gradient-to-r from-gray-900/90 to-gray-950/90 text-white inline-flex items-center backdrop-blur-sm relative z-50 hover:scale-105 transition-transform duration-300">
                   {/* Badge background */}
-                  <div className="absolute inset-0 rounded-full border border-orange-500/60"></div>
+                  <div className="absolute inset-0 rounded-full border border-gray-500/30"></div>
                   
-                  {/* Icon with orange theme */}
+                  {/* Icon with gray theme */}
                   <div className="relative mr-2">
-                    <div className="absolute inset-0 bg-gradient-to-r from-orange-500/40 to-red-500/40 blur-sm rounded-full"></div>
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-orange-400 relative z-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-300 relative z-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
                   
-                  {/* Text with simplified styling */}
+                  {/* Text with gray styling */}
                   <span className="text-sm font-bold relative overflow-hidden group-hover/badge:scale-105 transition-transform duration-300">
-                    <span className="relative z-10 text-orange-400 drop-shadow-[0_1px_1px_rgba(0,0,0,0.5)]">Innovation Timeline</span>
+                    <span className="relative z-10 text-gray-300 drop-shadow-[0_1px_1px_rgba(0,0,0,0.5)]">Innovation Timeline</span>
                   </span>
                 </div>
               </div>
@@ -255,34 +253,33 @@ const ProductHistorySection = () => {
                 <div className="flex items-center">
                   <div className="relative mr-4 group/icon">
                     <div className="w-14 h-14 rounded-full flex items-center justify-center relative overflow-hidden">
-                      {/* Icon background with orange/red styling to match feature cards */}
-                      <div className="absolute inset-0 rounded-full bg-gradient-to-r from-orange-600/50 via-red-600/50 to-orange-600/50 opacity-80"></div>
-                      <div className="absolute inset-1 rounded-full bg-gradient-to-r from-orange-500/70 via-red-500/70 to-orange-500/70"></div>
+                      {/* Icon background with gray styling */}
+                      <div className="absolute inset-0 rounded-full bg-gradient-to-r from-gray-600/30 via-gray-600/30 to-gray-600/30 opacity-80"></div>
                       <div className="absolute inset-2 rounded-full bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black"></div>
                       
-                      {/* Icon with orange color */}
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 relative z-10 text-orange-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      {/* Icon with gray color */}
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 relative z-10 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
                       
-                      {/* Corner accents for icon - all orange */}
+                      {/* Corner accents for icon - all gray */}
                       <div className="absolute top-0 left-0 w-4 h-4 pointer-events-none">
-                        <div className="absolute top-1 left-1 w-2 h-2 border-t-[1px] border-l-[1px] border-orange-500/80 rounded-tl"></div>
+                        <div className="absolute top-1 left-1 w-2 h-2 border-t-[1px] border-l-[1px] border-gray-500/40 rounded-tl"></div>
                       </div>
                       <div className="absolute top-0 right-0 w-4 h-4 pointer-events-none">
-                        <div className="absolute top-1 right-1 w-2 h-2 border-t-[1px] border-r-[1px] border-orange-600/80 rounded-tr"></div>
+                        <div className="absolute top-1 right-1 w-2 h-2 border-t-[1px] border-r-[1px] border-gray-500/40 rounded-tr"></div>
                       </div>
                       <div className="absolute bottom-0 left-0 w-4 h-4 pointer-events-none">
-                        <div className="absolute bottom-1 left-1 w-2 h-2 border-b-[1px] border-l-[1px] border-orange-500/80 rounded-bl"></div>
+                        <div className="absolute bottom-1 left-1 w-2 h-2 border-b-[1px] border-l-[1px] border-gray-500/40 rounded-bl"></div>
                       </div>
                       <div className="absolute bottom-0 right-0 w-4 h-4 pointer-events-none">
-                        <div className="absolute bottom-1 right-1 w-2 h-2 border-b-[1px] border-r-[1px] border-orange-600/80 rounded-br"></div>
+                        <div className="absolute bottom-1 right-1 w-2 h-2 border-b-[1px] border-r-[1px] border-gray-500/40 rounded-br"></div>
                       </div>
                     </div>
                     
-                    {/* Animated ripple effect - orange/red only */}
-                    <div className="absolute inset-0 rounded-full border-2 border-orange-500/30 scale-100 animate-ping-slow opacity-0 group-hover/icon:opacity-100"></div>
-                    <div className="absolute inset-0 rounded-full border-2 border-red-500/30 scale-100 animate-ping-slow-delayed opacity-0 group-hover/icon:opacity-100"></div>
+                    {/* Animated ripple effect - gray only */}
+                    <div className="absolute inset-0 rounded-full border-2 border-gray-500/30 scale-100 animate-ping-slow opacity-0 group-hover/icon:opacity-100"></div>
+                    <div className="absolute inset-0 rounded-full border-2 border-gray-600/30 scale-100 animate-ping-slow-delayed opacity-0 group-hover/icon:opacity-100"></div>
                   </div>
                   
                   <div>
@@ -292,7 +289,7 @@ const ProductHistorySection = () => {
                     </h3>
                     
                     {/* Multiple text shadows for depth */}
-                    <div className="absolute top-8 left-20 text-3xl font-bold tracking-tight opacity-10 blur-[3px] text-orange-700/30 -z-10 transform scale-105">
+                    <div className="absolute top-8 left-20 text-3xl font-bold tracking-tight opacity-10 blur-[3px] text-gray-700/30 -z-10 transform scale-105">
                       Product Innovation Timeline
                     </div>
                     
@@ -311,20 +308,20 @@ const ProductHistorySection = () => {
                   </div>
                 </div>
                 
-                {/* Animated underline with orange/red theme */}
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1/3 h-0.5 bg-gradient-to-r from-orange-500 to-red-500 group-hover:w-2/3 transition-all duration-700 rounded-full opacity-70 shadow-[0_0_5px_rgba(251,113,36,0.6)]"></div>
+                {/* Animated underline with gray theme */}
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1/3 h-0.5 bg-gradient-to-r from-gray-500/40 to-gray-600/40 group-hover:w-2/3 transition-all duration-700 rounded-full opacity-60"></div>
               </div>
               
               {/* Product Innovation Timeline - Styled to match mixed orange/blue theme */}
               <div className="p-8">
-                {/* Premium Heading with orange/red theme to match feature cards */}
+                {/* Premium Heading with gray theme */}
                 <div className="relative mb-8 pb-3 z-20">
                   {/* Background blur text */}
-                  <div className="absolute inset-0 flex justify-start items-center text-4xl font-bold tracking-tight text-orange-900/10 blur-[5px] scale-110 opacity-50">
+                  <div className="absolute inset-0 flex justify-start items-center text-4xl font-bold tracking-tight text-gray-700/10 blur-[5px] scale-110 opacity-50">
                     Innovation Timeline
                   </div>
                   
-                  {/* Main text with white color to match feature cards */}
+                  {/* Main text with white color */}
                   <div className="font-bold tracking-tight relative z-20">
                     <h3 className="text-3xl font-bold relative z-20 text-white drop-shadow-[0_2px_2px_rgba(0,0,0,0.3)]">
                       Product Innovation Timeline
@@ -332,46 +329,46 @@ const ProductHistorySection = () => {
                   </div>
                   
                   {/* Reduced text shadow */}
-                  <div className="absolute inset-0 flex justify-start items-center text-4xl font-bold tracking-tight opacity-10 blur-[3px] text-orange-700/30 -z-10 transform scale-105">
+                  <div className="absolute inset-0 flex justify-start items-center text-4xl font-bold tracking-tight opacity-10 blur-[3px] text-gray-700/30 -z-10 transform scale-105">
                     Innovation Timeline
                   </div>
                   
-                  {/* Animated underline with orange/red theme */}
-                  <div className="absolute bottom-0 left-0 w-1/3 h-0.5 bg-gradient-to-r from-orange-500 to-red-500 group-hover:w-2/3 transition-all duration-700 rounded-full opacity-80 shadow-[0_0_5px_rgba(251,113,36,0.6)]"></div>
+                  {/* Animated underline with gray theme */}
+                  <div className="absolute bottom-0 left-0 w-1/3 h-0.5 bg-gradient-to-r from-gray-500/40 to-gray-600/40 group-hover:w-2/3 transition-all duration-700 rounded-full opacity-60"></div>
                 </div>
                 
-                {/* Enhanced Premium Table Container with mixed orange/blue styling */}
+                {/* Enhanced Premium Table Container with gray styling */}
                 <div className="relative group/table bg-gradient-to-br from-gray-900/90 via-gray-950/90 to-black backdrop-blur-xl rounded-xl overflow-hidden shadow-[0_5px_30px_rgba(0,0,0,0.3)] z-10 transform transition-all duration-500 hover:scale-[1.01]">
-                  {/* Layered background effects with orange/red theme to match feature cards */}
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-600/60 via-red-600/60 to-orange-600/60 rounded-xl blur-md opacity-90 group-hover/table:opacity-100 transition-all duration-500"></div>
+                  {/* Gray gradient border */}
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-gray-700/50 via-gray-600/50 to-gray-700/50 rounded-xl opacity-90"></div>
                   
                   {/* Premium border effect */}
-                  <div className="absolute inset-0 p-0.5 rounded-xl border border-orange-500/50 overflow-hidden"></div>
+                  <div className="absolute inset-0 p-0.5 rounded-xl border border-gray-500/30 overflow-hidden"></div>
                   
                   {/* Inner highlight */}
                   <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-40 pointer-events-none"></div>
                   
-                  {/* Subtle dots pattern with orange/red theme */}
+                  {/* Subtle dots pattern with gray theme */}
                   <div className="absolute inset-0 opacity-20 z-0">
-                    <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoMjM5LDY4LDY4LDAuNCkiIGQ9Ik0wIDBoMnYySDN6bTIgMmgydjJIMnoiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IGZpbGw9InVybCgjYSkiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiLz48L3N2Zz4=')]"></div>
+                    <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoMjI5LDIyOSwyMjksMC4yKSIgZD0iTTAgMGgydjJIM3ptMiAyaDJ2MkgyeiIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgZmlsbD0idXJsKCNhKSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPjwvc3ZnPg==')]"></div>
                   </div>
                   
-                  {/* Corner accent lines with orange/red theme to match feature cards */}
+                  {/* Corner accent lines with gray theme */}
                   <div className="absolute top-0 left-0 w-8 h-8 pointer-events-none z-10">
-                    <div className="absolute top-0 left-0 w-5 h-5 border-t-[1px] border-l-[1px] border-orange-500/80 rounded-tl-lg"></div>
-                    <div className="absolute top-0 left-0 w-2 h-2 bg-orange-500/70 rounded-full blur-[1px]"></div>
+                    <div className="absolute top-0 left-0 w-5 h-5 border-t-[1px] border-l-[1px] border-gray-500/40 rounded-tl-lg"></div>
+                    <div className="absolute top-0 left-0 w-2 h-2 bg-gray-500/30 rounded-full blur-[1px]"></div>
                   </div>
                   <div className="absolute top-0 right-0 w-8 h-8 pointer-events-none z-10">
-                    <div className="absolute top-0 right-0 w-5 h-5 border-t-[1px] border-r-[1px] border-orange-600/80 rounded-tr-lg"></div>
-                    <div className="absolute top-0 right-0 w-2 h-2 bg-orange-600/70 rounded-full blur-[1px]"></div>
+                    <div className="absolute top-0 right-0 w-5 h-5 border-t-[1px] border-r-[1px] border-gray-500/40 rounded-tr-lg"></div>
+                    <div className="absolute top-0 right-0 w-2 h-2 bg-gray-500/30 rounded-full blur-[1px]"></div>
                   </div>
                   <div className="absolute bottom-0 left-0 w-8 h-8 pointer-events-none z-10">
-                    <div className="absolute bottom-0 left-0 w-5 h-5 border-b-[1px] border-l-[1px] border-orange-500/80 rounded-bl-lg"></div>
-                    <div className="absolute bottom-0 left-0 w-2 h-2 bg-orange-500/70 rounded-full blur-[1px]"></div>
+                    <div className="absolute bottom-0 left-0 w-5 h-5 border-b-[1px] border-l-[1px] border-gray-500/40 rounded-bl-lg"></div>
+                    <div className="absolute bottom-0 left-0 w-2 h-2 bg-gray-500/30 rounded-full blur-[1px]"></div>
                   </div>
                   <div className="absolute bottom-0 right-0 w-8 h-8 pointer-events-none z-10">
-                    <div className="absolute bottom-0 right-0 w-5 h-5 border-b-[1px] border-r-[1px] border-orange-600/80 rounded-br-lg"></div>
-                    <div className="absolute bottom-0 right-0 w-2 h-2 bg-orange-600/70 rounded-full blur-[1px]"></div>
+                    <div className="absolute bottom-0 right-0 w-5 h-5 border-b-[1px] border-r-[1px] border-gray-500/40 rounded-br-lg"></div>
+                    <div className="absolute bottom-0 right-0 w-2 h-2 bg-gray-500/30 rounded-full blur-[1px]"></div>
                   </div>
                   
                   {/* Enhanced Table */}
