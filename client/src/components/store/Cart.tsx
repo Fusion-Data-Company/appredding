@@ -31,7 +31,7 @@ export const Cart = () => {
       >
         <ShoppingBag className="h-5 w-5 text-amber-900 dark:text-amber-400" />
         {cartCount > 0 && (
-          <span className="absolute -top-1 -right-1 bg-amber-600 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold">
+          <span className="absolute -top-1 -right-1 bg-gradient-to-r from-orange-600 to-blue-600 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold z-[100]">
             {cartCount}
           </span>
         )}

@@ -73,10 +73,10 @@ export const ProductCard = ({ product }: ProductCardProps) => {
         </motion.div>
         
         {/* Product Size Badge */}
-        <div className="absolute top-4 right-4 z-10">
+        <div className="absolute top-4 right-4 z-[100]">
           <Badge 
             variant="secondary" 
-            className="bg-gradient-to-r from-amber-100 to-amber-200 dark:from-amber-900/60 dark:to-amber-800/60 text-amber-900 dark:text-amber-200 border border-amber-200/60 dark:border-amber-700/30 shadow-[0_2px_6px_rgba(251,191,36,0.15)] dark:shadow-[0_2px_6px_rgba(0,0,0,0.2)]"
+            className="bg-gradient-to-r from-orange-950/95 via-primary-950/95 to-blue-950/95 text-orange-300 border border-orange-500/40 shadow-[0_2px_6px_rgba(249,115,22,0.3)]"
           >
             {product.size}
           </Badge>

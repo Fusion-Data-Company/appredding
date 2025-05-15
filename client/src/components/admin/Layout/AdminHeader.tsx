@@ -124,7 +124,7 @@ export default function AdminHeader() {
             <DropdownMenuTrigger asChild>
               <Button variant="outline" size="icon" className="relative">
                 <Bell className="h-5 w-5" />
-                <Badge className="absolute -top-1 -right-1 h-5 w-5 p-0 flex items-center justify-center">
+                <Badge className="absolute -top-1 -right-1 h-5 w-5 p-0 flex items-center justify-center z-[100] bg-gradient-to-r from-orange-600 to-blue-600 hover:from-blue-600 hover:to-orange-600 border-0">
                   3
                 </Badge>
               </Button>
