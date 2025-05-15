@@ -72,8 +72,8 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
         <div className="text-center mb-16">
           <div className="relative group mx-auto max-w-4xl mb-10 inline-block transform transition-all duration-500">
             {/* Multiple layered background effects */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/40 via-red-600/40 to-amber-600/40 rounded-xl blur-xl opacity-70 group-hover:opacity-100 group-hover:blur-xl transition-all duration-1000 animate-pulse-slow"></div>
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/80 via-amber-500/80 to-red-500/80 rounded-xl blur-md opacity-90 group-hover:opacity-100 transition-all duration-500"></div>
+            <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/40 via-blue-600/40 to-orange-600/40 rounded-xl blur-xl opacity-70 group-hover:opacity-100 group-hover:blur-xl transition-all duration-1000 animate-pulse-slow"></div>
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/80 via-blue-500/80 to-orange-500/80 rounded-xl blur-md opacity-90 group-hover:opacity-100 transition-all duration-500"></div>
             
             {/* Main card container */}
             <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black backdrop-blur-xl rounded-xl py-12 px-12 z-10 border border-orange-500/30 overflow-hidden group hover:shadow-[0_0_25px_rgba(249,115,22,0.3)] transition-shadow duration-500">
@@ -120,7 +120,7 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
               {/* Shimmer heading */}
               <div className="relative z-10 mb-8 px-6 py-2 overflow-hidden">
                 {/* Animated glow behind text */}
-                <div className="absolute inset-0 bg-gradient-to-r from-orange-600/10 via-orange-500/20 to-red-600/10 opacity-50 blur-xl animate-pulse-slow"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-orange-600/10 via-blue-500/20 to-orange-600/10 opacity-50 blur-xl animate-pulse-slow"></div>
                 
                 {/* Heading with enhanced enterprise styling and shadows */}
                 <div className="shimmer-fire-text font-bold text-5xl tracking-tight relative z-10">
@@ -152,10 +152,10 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
                 {/* Positioned cool glowing decorative accent line under the S extending to PP on hover - moved down 0.5 inch */}
                 <div className="absolute left-[8%] bottom-[-0.5in] transform group w-14 h-2.5 rounded-full overflow-hidden z-50 transition-all duration-700 hover:w-72">
                   {/* Base gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-amber-500 to-red-600"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-amber-500 to-blue-600"></div>
                   
                   {/* Glow effect */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-amber-500 to-red-600 blur-md opacity-70"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-amber-500 to-blue-600 blur-md opacity-70"></div>
                   
                   {/* Pulsing dots */}
                   <div className="absolute h-full w-4 bg-white/80 right-4 rounded-full blur-[1px] animate-pulse-slow"></div>
@@ -228,7 +228,7 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
                 {/* Premium video player container with enhanced styling */}
                 <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/98 to-gray-900/95 backdrop-blur-xl rounded-xl overflow-hidden shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7)] z-10">
                   {/* Premium dual-layer gradient border effect */}
-                  <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/60 via-red-500/30 to-orange-500/60 opacity-80"></div>
+                  <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/60 via-blue-500/30 to-orange-500/60 opacity-80"></div>
                   <div className="absolute inset-[1px] p-0.5 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-30 pointer-events-none"></div>
                   
                   {/* Corner accent decorations */}
@@ -278,7 +278,7 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
                     {/* Premium label with enhanced styling */}
                     <div className="absolute top-4 right-4">
                       <div className="inline-flex items-center px-3 py-1 rounded-full bg-gradient-to-r from-gray-900/95 to-gray-950/95 border border-gray-800 shadow-[0_5px_15px_rgba(0,0,0,0.3)] relative">
-                        <div className="absolute inset-0 p-0.5 rounded-full bg-gradient-to-r from-orange-500/50 to-red-500/50 opacity-70"></div>
+                        <div className="absolute inset-0 p-0.5 rounded-full bg-gradient-to-r from-orange-500/50 to-blue-500/50 opacity-70"></div>
                         <span className="text-orange-300 text-xs font-medium relative z-10 flex items-center">
                           <i className="fas fa-fire-alt mr-1.5"></i>
                           Premium Demo
@@ -292,7 +292,7 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
                         {activeVideo.title}
                       </GradientHeading>
                       {/* Animated underline */}
-                      <div className="absolute bottom-0 left-0 w-1/4 h-0.5 bg-gradient-to-r from-orange-500 to-red-500 group-hover:w-1/2 transition-all duration-700 rounded-full"></div>
+                      <div className="absolute bottom-0 left-0 w-1/4 h-0.5 bg-gradient-to-r from-orange-500 to-blue-500 group-hover:w-1/2 transition-all duration-700 rounded-full"></div>
                     </div>
                     
                     {/* Enhanced description with premium styling */}
@@ -307,14 +307,14 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
                              style={{ boxShadow: '0 0 15px rgba(251, 113, 36, 0.4)' }}>
                         </div>
                         <span className="px-4 py-1.5 rounded-full bg-gradient-to-r from-gray-900/80 to-gray-800/80 text-md font-medium border border-orange-500/30 relative">
-                          <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500">
+                          <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-blue-500">
                             {activeVideo.category}
                           </span>
                         </span>
                       </div>
                       
                       <span className="text-gray-400 text-sm flex items-center">
-                        <div className="w-6 h-6 rounded-full bg-gradient-to-r from-orange-500/20 to-red-500/20 flex items-center justify-center mr-2 border border-orange-500/30">
+                        <div className="w-6 h-6 rounded-full bg-gradient-to-r from-orange-500/20 to-blue-500/20 flex items-center justify-center mr-2 border border-orange-500/30">
                           <i className="fas fa-clock text-orange-400 text-xs"></i>
                         </div>
                         <span className="text-orange-200">{activeVideo.duration}</span>
