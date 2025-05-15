@@ -587,7 +587,7 @@ const ContactSection = () => {
                       <div>
                         {/* Enhanced title with animated underline */}
                         <div className="relative mb-3 pb-2">
-                          <h4 className="font-bold text-lg text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-blue-500 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">Serving</h4>
+                          <h4 className="font-bold text-lg text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">Serving</h4>
                           
                           {/* Animated underline */}
                           <div className="absolute bottom-0 left-0 w-1/3 h-0.5 bg-gradient-to-r from-orange-500 to-blue-500 group-hover:w-1/2 transition-all duration-700 rounded-full opacity-70"></div>
@@ -618,7 +618,7 @@ const ContactSection = () => {
                           <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 shadow-[0_0_20px_rgba(245,158,11,0.6)]"></div>
                           
                           {/* Icon */}
-                          <i className="fas fa-phone-alt text-2xl text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-orange-500 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] relative z-10"></i>
+                          <i className="fas fa-phone-alt text-2xl text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] relative z-10"></i>
                           
                           {/* Animated concentric ring for enterprise effect */}
                           <div className="absolute inset-0 rounded-full border border-amber-500/20 scale-[1.15] opacity-0 group-hover:opacity-100 group-hover:scale-[1.4] transition-all duration-700"></div>
@@ -632,7 +632,7 @@ const ContactSection = () => {
                       <div>
                         {/* Enhanced title with animated underline */}
                         <div className="relative mb-3 pb-2">
-                          <h4 className="font-bold text-lg text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-orange-500 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">Phone</h4>
+                          <h4 className="font-bold text-lg text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">Phone</h4>
                           
                           {/* Animated underline */}
                           <div className="absolute bottom-0 left-0 w-1/3 h-0.5 bg-gradient-to-r from-amber-500 to-orange-500 group-hover:w-1/2 transition-all duration-700 rounded-full opacity-70"></div>
@@ -664,7 +664,7 @@ const ContactSection = () => {
                           <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 shadow-[0_0_20px_rgba(59,130,246,0.6)]"></div>
                           
                           {/* Icon */}
-                          <i className="fas fa-envelope text-2xl text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-500 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] relative z-10"></i>
+                          <i className="fas fa-envelope text-2xl text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] relative z-10"></i>
                           
                           {/* Animated concentric ring for enterprise effect */}
                           <div className="absolute inset-0 rounded-full border border-blue-500/20 scale-[1.15] opacity-0 group-hover:opacity-100 group-hover:scale-[1.4] transition-all duration-700"></div>
@@ -678,7 +678,7 @@ const ContactSection = () => {
                       <div>
                         {/* Enhanced title with animated underline */}
                         <div className="relative mb-3 pb-2">
-                          <h4 className="font-bold text-lg text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-500 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">Email</h4>
+                          <h4 className="font-bold text-lg text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">Email</h4>
                           
                           {/* Animated underline */}
                           <div className="absolute bottom-0 left-0 w-1/3 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-400 group-hover:w-1/2 transition-all duration-700 rounded-full opacity-70"></div>
@@ -726,7 +726,7 @@ const ContactSection = () => {
                           <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 shadow-[0_0_20px_rgba(99,102,241,0.6)]"></div>
                           
                           {/* Icon */}
-                          <i className="fas fa-clock text-2xl text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-blue-500 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] relative z-10"></i>
+                          <i className="fas fa-clock text-2xl text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] relative z-10"></i>
                           
                           {/* Animated concentric ring for enterprise effect */}
                           <div className="absolute inset-0 rounded-full border border-orange-500/20 scale-[1.15] opacity-0 group-hover:opacity-100 group-hover:scale-[1.4] transition-all duration-700"></div>
@@ -740,7 +740,7 @@ const ContactSection = () => {
                       <div>
                         {/* Enhanced title with animated underline */}
                         <div className="relative mb-3 pb-2">
-                          <h4 className="font-bold text-lg text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-blue-500 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">Response Time</h4>
+                          <h4 className="font-bold text-lg text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">Response Time</h4>
                           
                           {/* Animated underline */}
                           <div className="absolute bottom-0 left-0 w-1/3 h-0.5 bg-gradient-to-r from-orange-500 to-blue-500 group-hover:w-1/2 transition-all duration-700 rounded-full opacity-70"></div>
