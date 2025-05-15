@@ -197,33 +197,33 @@ const BrandShowcaseSection = () => {
                   <div className="absolute -top-20 -right-20 w-72 h-72 bg-orange-500/10 rounded-full filter blur-[100px] opacity-70"></div>
                   <div className="absolute -bottom-20 -left-20 w-72 h-72 bg-blue-500/15 rounded-full filter blur-[100px] opacity-70"></div>
                   
-                  {/* Corner accent lines - matching other premium sections */}
-                  <div className="absolute top-0 left-0 w-20 h-20 pointer-events-none z-10">
+                  {/* Repositioned corner accent lines to match the extended border */}
+                  <div className="absolute top-[-24px] left-0 w-20 h-20 pointer-events-none z-10">
                     <div className="absolute top-0 left-0 w-10 h-10 border-t-2 border-l-2 border-orange-500/70 rounded-tl-lg"></div>
                     <div className="absolute top-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
                   </div>
-                  <div className="absolute top-0 right-0 w-20 h-20 pointer-events-none z-10">
+                  <div className="absolute top-[-24px] right-0 w-20 h-20 pointer-events-none z-10">
                     <div className="absolute top-0 right-0 w-10 h-10 border-t-2 border-r-2 border-blue-500/70 rounded-tr-lg"></div>
                     <div className="absolute top-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
                   </div>
-                  <div className="absolute bottom-0 left-0 w-20 h-20 pointer-events-none z-10">
+                  <div className="absolute bottom-[-24px] left-0 w-20 h-20 pointer-events-none z-10">
                     <div className="absolute bottom-0 left-0 w-10 h-10 border-b-2 border-l-2 border-orange-500/70 rounded-bl-lg"></div>
                     <div className="absolute bottom-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
                   </div>
-                  <div className="absolute bottom-0 right-0 w-20 h-20 pointer-events-none z-10">
+                  <div className="absolute bottom-[-24px] right-0 w-20 h-20 pointer-events-none z-10">
                     <div className="absolute bottom-0 right-0 w-10 h-10 border-b-2 border-r-2 border-blue-500/70 rounded-br-lg"></div>
                     <div className="absolute bottom-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
                   </div>
                   
-                  {/* Premium badge positioned completely outside the card */}
-                  <div className="relative w-full">
+                  {/* Premium badge positioned completely outside the card - adjusted for extended height */}
+                  <div className="relative w-full" style={{ marginTop: '-20px' }}>
                     <PremiumBadge>
                       ENTERPRISE GRADE
                     </PremiumBadge>
                   </div>
                   
-                  {/* Feature item 1 - Updated with consistent orange-blue gradient */}
-                  <div className="group/item relative transform transition-all duration-500 hover:translate-x-1 hover:z-10 rounded-xl p-4">
+                  {/* Feature item 1 - Updated with consistent orange-blue gradient - improved styling */}
+                  <div className="group/item relative transform transition-all duration-500 hover:translate-x-1 hover:z-10 rounded-xl p-4 mt-8">
                     {/* Enhanced heading with consistent gradient */}
                     <div className="relative mb-3 pb-2">
                       <h3 className="text-2xl font-semibold bg-gradient-to-r from-orange-400 via-amber-300 to-blue-400 bg-clip-text text-transparent drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">
@@ -239,7 +239,7 @@ const BrandShowcaseSection = () => {
                   </div>
                   
                   {/* Feature item 2 - Updated with consistent orange-blue gradient */}
-                  <div className="group/item relative transform transition-all duration-500 hover:translate-x-1 hover:z-10 rounded-xl p-4">
+                  <div className="group/item relative transform transition-all duration-500 hover:translate-x-1 hover:z-10 rounded-xl p-4 mt-4">
                     {/* Enhanced heading with consistent gradient */}
                     <div className="relative mb-3 pb-2">
                       <h3 className="text-2xl font-semibold bg-gradient-to-r from-orange-400 via-amber-300 to-blue-400 bg-clip-text text-transparent drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">
@@ -255,7 +255,7 @@ const BrandShowcaseSection = () => {
                   </div>
                   
                   {/* Feature item 3 - Updated with consistent orange-blue gradient */}
-                  <div className="group/item relative transform transition-all duration-500 hover:translate-x-1 hover:z-10 rounded-xl p-4">
+                  <div className="group/item relative transform transition-all duration-500 hover:translate-x-1 hover:z-10 rounded-xl p-4 mt-4">
                     {/* Enhanced heading with consistent gradient */}
                     <div className="relative mb-3 pb-2">
                       <h3 className="text-2xl font-semibold bg-gradient-to-r from-orange-400 via-amber-300 to-blue-400 bg-clip-text text-transparent drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">
