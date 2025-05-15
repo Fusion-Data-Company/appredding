@@ -41,66 +41,104 @@ const BrandShowcaseSection = () => {
         
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-14">
-            <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-gray-900/95 backdrop-blur-xl rounded-xl py-10 px-10 mx-auto max-w-4xl mb-8 shadow-[0_10px_50px_rgba(0,0,0,0.5)] group transform transition-all duration-500 hover:scale-[1.02] hover:-translate-y-1">
-              {/* Premium gradient border effect - Fire variant */}
-              <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/50 via-transparent to-red-500/50 opacity-70"></div>
-              <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
+            {/* Multiple layered background effects */}
+            <div className="relative group mx-auto max-w-4xl mb-8 inline-block transform transition-all duration-500 hover:scale-[1.02] hover:-translate-y-1">
+              <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/40 via-red-600/40 to-amber-600/40 rounded-xl blur-xl opacity-70 group-hover:opacity-100 group-hover:blur-xl transition-all duration-1000 animate-pulse-slow"></div>
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/80 via-amber-500/80 to-red-500/80 rounded-xl blur-md opacity-90 group-hover:opacity-100 transition-all duration-500"></div>
               
-              {/* Subtle ambient glow that activates on hover */}
-              <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-30 transition-opacity duration-700 ease-in-out" 
-                  style={{ background: "radial-gradient(circle at center, rgba(251,113,36,0.3), rgba(59,130,246,0.3), transparent 70%)" }}>
+              {/* Main card container */}
+              <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black backdrop-blur-xl rounded-xl py-12 px-12 z-10 border border-orange-500/30 overflow-hidden group hover:shadow-[0_0_25px_rgba(249,115,22,0.3)] transition-shadow duration-500">
+                {/* Subtle dots and squares pattern background in burnt orange */}
+                <div className="absolute inset-0 opacity-25 z-0">
+                  <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoMjQ5LDExNSwyMiwwLjQpIiBkPSJNMCAwaDJ2Mkgwem0yIDJoMnYySDJ6Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCBmaWxsPSJ1cmwoI2EpIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIi8+PC9zdmc+')]"></div>
+                </div>
+                
+                {/* Ambient glow effect - positioned away from text */}
+                <div className="absolute -top-60 -right-40 w-80 h-80 bg-orange-600/15 rounded-full filter blur-[100px] animate-pulse-slow-delayed"></div>
+                <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-orange-500/20 rounded-full filter blur-[120px] animate-pulse-slow"></div>
+                
+                {/* Corner accent with gradient - top-right corner only */}
+                <div className="absolute top-0 right-0 w-32 h-32 opacity-20 z-10">
+                  <div className="absolute inset-0 bg-gradient-to-bl from-orange-500/40 to-blue-500/40 rounded-tr-xl blur-[2px]"></div>
+                </div>
+                
+                {/* Additional corner accent lines */}
+                <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none z-10">
+                  <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-orange-500/70 rounded-tl-lg"></div>
+                  <div className="absolute top-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+                </div>
+                <div className="absolute top-0 right-0 w-16 h-16 pointer-events-none z-10">
+                  <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-red-500/70 rounded-tr-lg"></div>
+                  <div className="absolute top-0 right-0 w-3 h-3 bg-red-500/50 rounded-full blur-[2px]"></div>
+                </div>
+                <div className="absolute bottom-0 left-0 w-16 h-16 pointer-events-none z-10">
+                  <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-orange-500/70 rounded-bl-lg"></div>
+                  <div className="absolute bottom-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+                </div>
+                <div className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none z-10">
+                  <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-red-500/70 rounded-br-lg"></div>
+                  <div className="absolute bottom-0 right-0 w-3 h-3 bg-red-500/50 rounded-full blur-[2px]"></div>
+                </div>
+                
+                {/* Shimmer heading */}
+                <div className="relative z-10 mb-8 px-6 py-2 overflow-hidden">
+                  {/* Animated glow behind text */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-orange-600/10 via-orange-500/20 to-red-600/10 opacity-50 blur-xl animate-pulse-slow"></div>
+                  
+                  {/* Heading with enhanced enterprise styling and shadows */}
+                  <div className="shimmer-fire-text font-bold text-3xl md:text-4xl lg:text-5xl tracking-tight relative z-10">
+                    {/* Background glow for letter definition */}
+                    <div className="absolute inset-0 flex justify-center items-center text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-orange-900/10 blur-[5px] scale-110">
+                      Elite Protection Technology
+                    </div>
+                    
+                    {/* Main text with premium gradient - improved z-index to bring yellow text in front */}
+                    <span className="relative z-20 text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-amber-500 to-red-500
+                      drop-shadow-[0_0px_1px_rgba(251,113,36,0.2)] 
+                      [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(251,146,60,0.3)]">
+                      Elite Protection Technology
+                    </span>
+                    
+                    {/* Top glossy reflection */}
+                    <div className="absolute top-0 left-0 right-0 h-[40%] bg-gradient-to-b from-white/10 to-transparent rounded-t-lg"></div>
+                  </div>
+                  
+                  {/* Multiple text shadows for depth - reduced blur effects */}
+                  <div className="absolute inset-0 flex items-center justify-center text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight opacity-10 blur-[3px] text-orange-700/30 -z-10 transform scale-105">
+                    Elite Protection Technology
+                  </div>
+                  <div className="absolute inset-0 flex items-center justify-center text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight opacity-20 blur-[1px] text-red-900/20 -z-10">
+                    Elite Protection Technology
+                  </div>
+                  
+                  {/* Positioned cool glowing decorative accent line under the title */}
+                  <div className="absolute left-[8%] bottom-[-0.5in] transform group w-14 h-2.5 rounded-full overflow-hidden z-50 transition-all duration-700 hover:w-72">
+                    {/* Base gradient */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-amber-500 to-red-600"></div>
+                    
+                    {/* Glow effect */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-amber-500 to-red-600 blur-md opacity-70"></div>
+                    
+                    {/* Pulsing dots */}
+                    <div className="absolute h-full w-4 bg-white/80 right-4 rounded-full blur-[1px] animate-pulse-slow"></div>
+                    <div className="absolute h-full w-3 bg-white/80 right-24 rounded-full blur-[1px] animate-pulse-slow-delayed opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
+                  </div>
+                </div>
+                
+                {/* Enhanced description */}
+                <p className="text-gray-200 text-xl max-w-3xl mx-auto relative z-20">
+                  {/* Left accent - animated pulse */}
+                  <span className="absolute -left-6 top-1/2 transform -translate-y-1/2 w-1.5 h-20 bg-gradient-to-b from-orange-500/0 via-orange-500/70 to-orange-500/0 rounded-full animate-pulse-slow z-20"></span>
+                  
+                  Praetorian SmartCoat delivers premium ceramic-based protection systems developed from advanced aerospace technology
+                  
+                  {/* Right accent - animated pulse with delay */}
+                  <span className="absolute -right-6 top-1/2 transform -translate-y-1/2 w-1.5 h-20 bg-gradient-to-b from-orange-500/0 via-orange-500/70 to-orange-500/0 rounded-full animate-pulse-slow-delayed z-20"></span>
+                </p>
               </div>
               
-              {/* Subtle top glow effect */}
-              <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 w-3/4 h-20 bg-gradient-to-r from-orange-500/0 via-amber-500/20 to-orange-500/0 blur-[100px] rounded-full"></div>
-              
-              {/* Premium heading with enhanced styling */}
-              {/* Premium card header styling matching Specialized Applications */}
-              <div className="relative h-20 flex items-center justify-center">
-                {/* Background blur text */}
-                <div className="absolute inset-0 flex justify-center items-center text-5xl font-bold tracking-tight text-orange-900/10 blur-[5px] scale-110">
-                  Elite Protection Technology
-                </div>
-                
-                {/* Main text with premium gradient */}
-                <span className="relative text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-amber-500 to-red-500
-                  drop-shadow-[0_0px_1px_rgba(251,113,36,0.2)] 
-                  [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(251,146,60,0.3)]
-                  transform -translate-y-[0.25in] text-3xl md:text-4xl lg:text-5xl font-bold">
-                  Elite Protection Technology
-                </span>
-                
-                {/* Top glossy reflection */}
-                <div className="absolute top-0 left-0 right-0 h-[40%] bg-gradient-to-b from-white/10 to-transparent rounded-t-lg"></div>
-                
-                {/* Multiple text shadows for depth - reduced blur effects */}
-                <div className="absolute inset-0 flex items-center justify-center text-5xl font-bold tracking-tight opacity-10 blur-[3px] text-orange-700/30 -z-10 transform scale-105">
-                  Elite Protection Technology
-                </div>
-                <div className="absolute inset-0 flex items-center justify-center text-5xl font-bold tracking-tight opacity-20 blur-[1px] text-red-900/20 -z-10">
-                  Elite Protection Technology
-                </div>
-                
-                {/* Decorative accent line */}
-                <div className="absolute left-[8%] bottom-[-0.5in] transform group w-14 h-2.5 rounded-full overflow-hidden z-50 transition-all duration-700 hover:w-72">
-                  {/* Base gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-amber-500 to-red-600"></div>
-                  
-                  {/* Glow effect */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-amber-500 to-red-600 blur-md opacity-70"></div>
-                  
-                  {/* Pulsing dots */}
-                  <div className="absolute h-full w-4 bg-white/80 right-4 rounded-full blur-[1px] animate-pulse-slow"></div>
-                  <div className="absolute h-full w-3 bg-white/80 right-24 rounded-full blur-[1px] animate-pulse-slow-delayed opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
-                </div>
-              </div>
-              
-              <p className="mt-6 text-lg text-gray-300 max-w-3xl mx-auto relative z-10">
-                Praetorian SmartCoat delivers premium ceramic-based protection systems developed from advanced aerospace technology
-              </p>
-              
-              {/* Bottom reflection effect */}
-              <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2/3 h-[2px] bg-gradient-to-r from-transparent via-orange-500/20 to-transparent rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
+              {/* Subtle bottom reflection */}
+              <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2/3 h-[2px] bg-gradient-to-r from-transparent via-orange-500/10 to-transparent rounded-full blur-sm"></div>
             </div>
           </div>
           
