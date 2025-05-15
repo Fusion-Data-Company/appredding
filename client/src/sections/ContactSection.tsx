@@ -602,9 +602,9 @@ const ContactSection = () => {
                     <div className="flex-grow">
                       <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-300 to-amber-400 pb-1 group-hover:scale-[1.02] transition-transform duration-500 origin-left">Global Headquarters</h3>
                       <p className="text-gray-300 group-hover:text-gray-200 transition-colors duration-500">
-                        1250 Bellflower Drive<br />
-                        Suite 115<br />
-                        Carlsbad, California 92011
+                        Praetorian SmartCoat Solutions<br />
+                        Sacramento Area<br />
+                        California, USA
                       </p>
                       <div className="h-0.5 w-0 group-hover:w-full bg-gradient-to-r from-orange-500/60 via-transparent to-transparent rounded-full transition-all duration-700 mt-2 opacity-60 group-hover:opacity-100"></div>
                     </div>
@@ -656,9 +656,9 @@ const ContactSection = () => {
                     <div className="flex-grow">
                       <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-blue-400 pb-1 group-hover:scale-[1.02] transition-transform duration-500 origin-left">Phone Support</h3>
                       <p className="text-gray-300 group-hover:text-gray-200 transition-colors duration-500">
-                        Main: (760) 555-9277<br />
-                        Technical Support: (760) 555-9278<br />
-                        Hours: 8am-5pm PST Monday-Friday
+                        Main: (916) 809-6619<br />
+                        Hours: 8am-5pm PST Monday-Friday<br />
+                        24/7 Emergency Support Available
                       </p>
                       <div className="h-0.5 w-0 group-hover:w-full bg-gradient-to-r from-blue-500/60 via-transparent to-transparent rounded-full transition-all duration-700 mt-2 opacity-60 group-hover:opacity-100"></div>
                     </div>
@@ -710,9 +710,9 @@ const ContactSection = () => {
                     <div className="flex-grow">
                       <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-300 via-amber-300 to-blue-300 pb-1 group-hover:scale-[1.02] transition-transform duration-500 origin-left">Email</h3>
                       <p className="text-gray-300 group-hover:text-gray-200 transition-colors duration-500">
-                        Sales: robert@praetoriancoat.com<br />
-                        Support: support@praetoriancoat.com<br />
-                        Press: media@praetoriancoat.com
+                        Management: rob@praetoriansmartcoat.com<br />
+                        General Info: info@praetoriansmartcoat.com<br />
+                        Orders: orders@praetoriansmartcoat.com
                       </p>
                       <div className="h-0.5 w-0 group-hover:w-full bg-gradient-to-r from-orange-500/60 via-blue-500/40 to-transparent rounded-full transition-all duration-700 mt-2 opacity-60 group-hover:opacity-100"></div>
                     </div>
