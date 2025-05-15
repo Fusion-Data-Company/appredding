@@ -234,7 +234,7 @@ const ProductPerformanceSection = () => {
                   </GradientHeading>
                   
                   {/* Animated underline */}
-                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-orange-500 to-red-500 group-hover:w-3/4 transition-all duration-700 rounded-full opacity-70"></div>
+                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-orange-500 to-blue-500 group-hover:w-3/4 transition-all duration-700 rounded-full opacity-70"></div>
                 </div>
                 
                 {/* Description with transition effect */}
@@ -336,7 +336,7 @@ const ProductPerformanceSection = () => {
                   </GradientHeading>
                   
                   {/* Animated underline */}
-                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-orange-500 to-red-500 group-hover:w-3/4 transition-all duration-700 rounded-full opacity-70"></div>
+                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-orange-500 to-blue-500 group-hover:w-3/4 transition-all duration-700 rounded-full opacity-70"></div>
                 </div>
                 
                 {/* Description with transition effect */}
@@ -423,7 +423,7 @@ const ProductPerformanceSection = () => {
                             <h4 className="font-semibold text-2xl mb-2 text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-red-500 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">ASTM E84 Fire Testing</h4>
                             
                             {/* Animated underline */}
-                            <div className="absolute bottom-0 left-0 w-1/3 h-0.5 bg-gradient-to-r from-orange-500 to-red-500 group-hover/item:w-1/2 transition-all duration-700 rounded-full opacity-70"></div>
+                            <div className="absolute bottom-0 left-0 w-1/3 h-0.5 bg-gradient-to-r from-orange-500 to-blue-500 group-hover/item:w-1/2 transition-all duration-700 rounded-full opacity-70"></div>
                           </div>
                           <p className="text-lg text-gray-300 group-hover/item:text-gray-200 transition-colors duration-500">Perfect Class A ratings with 0/100 scores for both Flame Spread Index and Smoke Development Index, verified by NASA, UL, and Factory Mutual. Competing ceramic coatings only achieve Class B-C ratings (25-75/100).</p>
                         </div>
@@ -515,13 +515,13 @@ const ProductPerformanceSection = () => {
                     </GradientHeading>
                     
                     {/* Animated underline */}
-                    <div className="absolute bottom-0 left-0 w-1/3 h-0.5 bg-gradient-to-r from-orange-500 to-red-500 group-hover:w-1/2 transition-all duration-1000 rounded-full opacity-70"></div>
+                    <div className="absolute bottom-0 left-0 w-1/3 h-0.5 bg-gradient-to-r from-orange-500 to-blue-500 group-hover:w-1/2 transition-all duration-1000 rounded-full opacity-70"></div>
                   </div>
                   
                   {/* Enhanced Premium Table Container */}
                   <div className="relative bg-gradient-to-br from-gray-900/90 via-gray-950/90 to-gray-900/90 backdrop-blur-xl rounded-xl overflow-hidden shadow-[0_5px_30px_rgba(0,0,0,0.3)] z-10">
                     {/* Premium subtle border effect */}
-                    <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/40 via-transparent to-red-500/40 opacity-60"></div>
+                    <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/40 via-transparent to-blue-500/40 opacity-60"></div>
                     
                     {/* Inner highlight */}
                     <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-40 pointer-events-none"></div>
