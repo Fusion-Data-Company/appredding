@@ -364,13 +364,32 @@ const ProductPerformanceSection = () => {
             {/* Content */}
             <div className="relative z-10">
               {/* Enhanced Premium Heading Container */}
+              {/* Premium Enterprise NASA-Grade Testing Protocols Header Card */}
               <div className="text-center mb-14 relative">
-                <div className="absolute -top-12 left-1/2 -translate-x-1/2 w-56 h-2 bg-gradient-to-r from-transparent via-amber-500/20 to-transparent blur-xl"></div>
+                {/* Enhanced ambient glow effects - positioned BEHIND the card */}
+                <div className="absolute -top-20 -right-20 w-72 h-72 bg-orange-600/20 rounded-full filter blur-[100px] opacity-80 animate-pulse-slow pointer-events-none"></div>
+                <div className="absolute -bottom-20 -left-20 w-72 h-72 bg-blue-600/25 rounded-full filter blur-[100px] opacity-80 animate-pulse-slow-delayed pointer-events-none"></div>
+                
+                {/* Central glow - positioned BEHIND the card */}
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3/4 h-40 bg-gradient-to-r from-orange-500/0 via-orange-500/30 to-orange-500/0 blur-[80px] rounded-full animate-pulse-slow pointer-events-none"></div>
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3/4 h-40 bg-gradient-to-r from-blue-500/0 via-blue-500/30 to-blue-500/0 blur-[80px] rounded-full animate-pulse-slow-delayed pointer-events-none"></div>
+                
+                {/* Blue and orange outer glow effect - positioned BEHIND the heading */}
+                <div className="absolute -inset-4 rounded-xl opacity-60 z-0 animate-glow-pulse pointer-events-none" 
+                  style={{ boxShadow: '0 0 80px 20px rgba(59,130,246,0.3), 0 0 50px 20px rgba(249,115,22,0.3)' }}>
+                </div>
                 
                 {/* Badge removed per user request */}
                 
-                <GradientHeading level={2} className="text-3xl md:text-4xl lg:text-5xl mb-6" variant="mixed">NASA-Grade Testing Protocols</GradientHeading>
-                <p className="text-xl text-gray-200 max-w-4xl mx-auto leading-relaxed">
+                {/* Heading text with white color and drop shadow instead of gradient */}
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white tracking-tight drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)] relative z-20">
+                  NASA-Grade Testing Protocols
+                </h2>
+                
+                {/* Animated underline */}
+                <div className="w-40 h-1 bg-gradient-to-r from-orange-500 to-blue-500 mx-auto mb-6 rounded-full"></div>
+                
+                <p className="text-xl text-gray-200 max-w-4xl mx-auto leading-relaxed relative z-20">
                   Our triple-component system utilizes vacuum-filled ceramic microspheres in a water-based acrylic elastomeric polymer with 156% elongation capability. This advanced ceramic technology provides exceptional thermal insulation properties and fire resistance across a wide range of applications.
                 </p>
               </div>
@@ -380,9 +399,16 @@ const ProductPerformanceSection = () => {
                 {/* Testing Protocols Side */}
                 <div>
                   <div className="space-y-10">
-                    {/* Protocol Item 1 - Fire Testing */}
-                    <div className="group/item relative hover:z-10 transform transition-all duration-500 hover:scale-[1.02] rounded-xl p-6 hover:bg-gradient-to-r hover:from-red-900/10 hover:via-transparent hover:to-red-700/10">
-                      <div className="flex items-start gap-6">
+                    {/* Protocol Item 1 - Fire Testing - Premium Enterprise Style */}
+                    <div className="group/item relative hover:z-10 transform transition-all duration-500 hover:scale-[1.02] rounded-xl p-6">
+                      {/* Enhanced ambient glow - positioned BEHIND the item */}
+                      <div className="absolute -top-5 -right-5 w-48 h-48 bg-orange-600/15 rounded-full filter blur-[70px] opacity-0 group-hover/item:opacity-70 transition-opacity duration-500 pointer-events-none"></div>
+                      <div className="absolute -bottom-5 -left-5 w-48 h-48 bg-blue-600/20 rounded-full filter blur-[70px] opacity-0 group-hover/item:opacity-70 transition-opacity duration-500 pointer-events-none"></div>
+                      
+                      {/* Card Background - positioned in front of glows */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 via-gray-950/90 to-black/90 backdrop-blur-md rounded-xl z-10 opacity-0 group-hover/item:opacity-100 transition-opacity duration-500"></div>
+                      
+                      <div className="flex items-start gap-6 relative z-20">
                         {/* Enhanced Icon Container */}
                         <div className="relative flex-shrink-0">
                           {/* Premium Icon Container */}
@@ -404,22 +430,38 @@ const ProductPerformanceSection = () => {
                           <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-3/4 h-[2px] bg-gradient-to-r from-transparent via-orange-500/20 to-transparent rounded-full blur-sm opacity-0 group-hover/item:opacity-100 transition-opacity duration-700"></div>
                         </div>
                         
-                        {/* Enhanced Content */}
+                        {/* Enhanced Content with Premium Enterprise Styling */}
                         <div>
                           <div className="relative mb-3 pb-2">
-                            <h4 className="font-semibold text-2xl mb-2 text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-red-500 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">ASTM E84 Fire Testing</h4>
+                            {/* White heading with drop shadow instead of gradient text */}
+                            <h4 className="font-semibold text-2xl mb-2 text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">ASTM E84 Fire Testing</h4>
                             
                             {/* Animated underline */}
                             <div className="absolute bottom-0 left-0 w-1/3 h-0.5 bg-gradient-to-r from-orange-500 to-blue-500 group-hover/item:w-1/2 transition-all duration-700 rounded-full opacity-70"></div>
                           </div>
-                          <p className="text-lg text-gray-300 group-hover/item:text-gray-200 transition-colors duration-500">Perfect Class A ratings with 0/100 scores for both Flame Spread Index and Smoke Development Index, verified by NASA, UL, and Factory Mutual. Competing ceramic coatings only achieve Class B-C ratings (25-75/100).</p>
+                          <p className="text-lg text-gray-300 group-hover/item:text-gray-200 transition-colors duration-500">
+                            Perfect Class A ratings with 0/100 scores for both Flame Spread Index and Smoke Development Index, verified by NASA, UL, and Factory Mutual. Competing ceramic coatings only achieve Class B-C ratings (25-75/100).
+                          </p>
+                          
+                          {/* Animated corner accent - appears on hover */}
+                          <div className="absolute bottom-2 right-2 w-8 h-8 opacity-0 group-hover/item:opacity-70 transition-all duration-700 pointer-events-none">
+                            <div className="absolute right-0 bottom-0 w-4 h-4 border-r border-b border-orange-500/60 rounded-br-sm"></div>
+                            <div className="absolute right-1 bottom-1 w-6 h-6 border-r border-b border-blue-500/50 rounded-br-sm"></div>
+                          </div>
                         </div>
                       </div>
                     </div>
                     
-                    {/* Protocol Item 2 - Heat Tests */}
-                    <div className="group/item relative hover:z-10 transform transition-all duration-500 hover:scale-[1.02] rounded-xl p-6 hover:bg-gradient-to-r hover:from-orange-900/10 hover:via-transparent hover:to-amber-700/10">
-                      <div className="flex items-start gap-6">
+                    {/* Protocol Item 2 - Heat Tests - Premium Enterprise Style */}
+                    <div className="group/item relative hover:z-10 transform transition-all duration-500 hover:scale-[1.02] rounded-xl p-6">
+                      {/* Enhanced ambient glow - positioned BEHIND the item */}
+                      <div className="absolute -top-5 -right-5 w-48 h-48 bg-orange-600/20 rounded-full filter blur-[70px] opacity-0 group-hover/item:opacity-70 transition-opacity duration-500 pointer-events-none"></div>
+                      <div className="absolute -bottom-5 -left-5 w-48 h-48 bg-amber-600/20 rounded-full filter blur-[70px] opacity-0 group-hover/item:opacity-70 transition-opacity duration-500 pointer-events-none"></div>
+                      
+                      {/* Card Background - positioned in front of glows */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 via-gray-950/90 to-black/90 backdrop-blur-md rounded-xl z-10 opacity-0 group-hover/item:opacity-100 transition-opacity duration-500"></div>
+                      
+                      <div className="flex items-start gap-6 relative z-20">
                         {/* Enhanced Icon Container */}
                         <div className="relative flex-shrink-0">
                           {/* Premium Icon Container */}
