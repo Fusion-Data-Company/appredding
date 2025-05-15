@@ -72,7 +72,7 @@ const ProductHistorySection = () => {
               <span className="relative text-white
                 drop-shadow-[0_0px_1px_rgba(251,113,36,0.2)] 
                 [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(251,146,60,0.3)]
-                transform -translate-y-[0.25in] text-5xl md:text-6xl lg:text-7xl font-bold">
+                transform -translate-y-[1.75in] text-5xl md:text-6xl lg:text-7xl font-bold">
                 Space Technology Heritage
               </span>
               
