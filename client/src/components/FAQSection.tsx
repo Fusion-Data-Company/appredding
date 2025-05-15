@@ -126,15 +126,15 @@ const FAQSection = ({ faqs }: FAQProps) => {
             return (
               <div key={categoryIdx} className="group relative h-full">
                 {/* Premium styled FAQ category card */}
-                <div className="p-4 bg-gradient-to-br from-gray-900/90 via-gray-950/90 to-black/90 backdrop-blur-md rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.5)] relative overflow-hidden h-full min-h-[500px] flex flex-col">
+                <div className="p-4 bg-gradient-to-br from-gray-900/90 via-gray-950/90 to-black/90 backdrop-blur-md rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.5)] relative overflow-hidden h-full flex flex-col justify-between">
                   {/* Enhanced outer glow effect */}
                   <div className="absolute -inset-1 rounded-xl opacity-70 z-0" 
-                     style={{ boxShadow: '0 0 20px 2px rgba(59,130,246,0.3), 0 0 15px 2px rgba(249,115,22,0.3)' }}>
+                    style={{ boxShadow: '0 0 20px 2px rgba(59,130,246,0.3), 0 0 15px 2px rgba(249,115,22,0.3)' }}>
                   </div>
                   
                   {/* Inset glow effect */}
                   <div className="absolute inset-0 rounded-xl opacity-70 z-0" 
-                     style={{ boxShadow: 'inset 0 0 30px 0 rgba(59,130,246,0.2), inset 0 0 20px 0 rgba(249,115,22,0.2)' }}>
+                    style={{ boxShadow: 'inset 0 0 30px 0 rgba(59,130,246,0.2), inset 0 0 20px 0 rgba(249,115,22,0.2)' }}>
                   </div>
                   
                   {/* Enhanced dual-edge border effect */}
@@ -168,118 +168,121 @@ const FAQSection = ({ faqs }: FAQProps) => {
                   <div className="absolute bottom-6 left-4 w-7 h-7 rounded-md border border-blue-500/20 opacity-0 group-hover:opacity-50 -rotate-12 transition-all duration-1000 animate-pulse-slow-delayed"></div>
                   <div className="absolute top-1/3 right-6 w-6 h-6 rounded-md border border-purple-500/15 opacity-0 group-hover:opacity-40 rotate-45 transition-all duration-1000 animate-pulse"></div>
                   <div className="absolute bottom-1/3 left-6 w-6 h-6 rounded-md border border-orange-500/15 opacity-0 group-hover:opacity-40 -rotate-45 transition-all duration-1000 animate-pulse-slow"></div>
-
-                  {/* Category title with premium styling */}
-                  <h3 
-                    className="text-xl font-bold mb-4 text-white relative z-10"
-                    style={{ 
-                      textShadow: '0 1px 2px rgba(0,0,0,0.8)'
-                    }}
-                  >
-                    {category.category}
-                  </h3>
                   
-                  {/* FAQ Questions for this category */}
-                  <div className="space-y-3 relative z-10 flex-grow">
-                    {category.questions.map((faq, questionIdx) => {
-                      // Create a unique key for this question
-                      const questionKey = `${categoryIdx}-${questionIdx}`;
-                      const isOpen = openQuestions[questionKey] || false;
-                      
-                      return (
-                        <div 
-                          key={questionIdx} 
-                          className="group/faq"
-                        >
-                          {/* Premium styled question button with enhanced hover effects */}
-                          <button
-                            className="w-full text-left p-3 rounded-lg relative bg-gradient-to-br from-gray-800/60 via-gray-850/60 to-gray-900/60 backdrop-blur-sm group-hover/faq:from-gray-800/80 group-hover/faq:to-gray-900/80 transition-all duration-300"
-                            onClick={() => toggleQuestion(categoryIdx, questionIdx)}
-                          >
-                            {/* Enhanced border glow */}
-                            <div className="absolute -inset-px rounded-lg opacity-40 group-hover/faq:opacity-100 transition-opacity duration-500 z-0" 
-                              style={{ boxShadow: '0 0 15px 2px rgba(59,130,246,0.3), 0 0 10px 2px rgba(249,115,22,0.3)' }}>
-                            </div>
-                            
-                            {/* Enhanced dual-edge border effect */}
-                            <div className="absolute inset-0 rounded-lg border border-orange-500/30 group-hover/faq:border-orange-500/50 transition-colors duration-500"></div>
-                            <div className="absolute inset-[1px] rounded-lg border border-blue-500/20 group-hover/faq:border-blue-500/40 transition-colors duration-500"></div>
-                            
-                            {/* Corner accent decorations for questions */}
-                            <div className="absolute top-0 right-0 w-8 h-8 opacity-60">
-                              <div className="absolute right-0 top-0 w-3 h-3 border-r border-t border-orange-500/50 rounded-tr-sm"></div>
-                              <div className="absolute right-0.5 top-0.5 w-5 h-5 border-r border-t border-blue-500/40 rounded-tr-sm"></div>
-                            </div>
-                            <div className="absolute top-0 left-0 w-8 h-8 opacity-60">
-                              <div className="absolute left-0 top-0 w-3 h-3 border-l border-t border-orange-500/50 rounded-tl-sm"></div>
-                              <div className="absolute left-0.5 top-0.5 w-5 h-5 border-l border-t border-blue-500/40 rounded-tl-sm"></div>
-                            </div>
-                            
-                            {/* Subtle ambient glow */}
-                            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-12 bg-gradient-to-r from-orange-500/0 via-orange-500/10 to-orange-500/0 blur-[30px] rounded-full opacity-0 group-hover/faq:opacity-100 transition-opacity duration-700"></div>
-                            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-12 bg-gradient-to-r from-blue-500/0 via-blue-500/10 to-blue-500/0 blur-[30px] rounded-full opacity-0 group-hover/faq:opacity-100 transition-opacity duration-700"></div>
-                            
-                            <div className="flex items-center justify-between relative z-10">
-                              <h4 
-                                className="font-medium text-white text-base md:text-lg"
-                                style={{ 
-                                  textShadow: '0 1px 1px rgba(0,0,0,0.7)'
-                                }}
-                              >
-                                {faq.question}
-                              </h4>
-                              <svg
-                                className={`w-5 h-5 text-gray-300 transform transition-transform duration-300 ${isOpen ? 'rotate-180 text-blue-400' : ''}`}
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                                style={{
-                                  filter: isOpen ? 'drop-shadow(0 0 3px rgba(59,130,246,0.4))' : 'none'
-                                }}
-                              >
-                                <path
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeWidth={2}
-                                  d="M19 9l-7 7-7-7"
-                                />
-                              </svg>
-                            </div>
-                          </button>
-                          
-                          {/* Enhanced sliding answer panel with premium styling */}
+                  {/* Content container with proper spacing */}
+                  <div className="flex flex-col h-full">
+                    {/* Category title with premium styling */}
+                    <h3 
+                      className="text-xl font-bold mb-4 text-white relative z-10"
+                      style={{ 
+                        textShadow: '0 1px 2px rgba(0,0,0,0.8)'
+                      }}
+                    >
+                      {category.category}
+                    </h3>
+                    
+                    {/* FAQ Questions for this category */}
+                    <div className="space-y-3 relative z-10 flex-grow">
+                      {category.questions.map((faq, questionIdx) => {
+                        // Create a unique key for this question
+                        const questionKey = `${categoryIdx}-${questionIdx}`;
+                        const isOpen = openQuestions[questionKey] || false;
+                        
+                        return (
                           <div 
-                            className={`overflow-hidden transition-all duration-500 ${
-                              isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-                            }`}
+                            key={questionIdx} 
+                            className="group/faq"
                           >
-                            <div className="relative p-5 text-gray-300 bg-gradient-to-br from-gray-900/80 via-gray-950/80 to-black/80 backdrop-blur-sm rounded-b-lg border-t border-t-gray-800/60 mt-1">
-                              {/* Subtle answer glow effect */}
-                              <div className="absolute inset-0 rounded-b-lg opacity-30" 
-                                style={{ boxShadow: 'inset 0 0 20px 0 rgba(59,130,246,0.1), inset 0 0 10px 0 rgba(249,115,22,0.1)' }}>
+                            {/* Premium styled question button with enhanced hover effects */}
+                            <button
+                              className="w-full text-left p-3 rounded-lg relative bg-gradient-to-br from-gray-800/60 via-gray-850/60 to-gray-900/60 backdrop-blur-sm group-hover/faq:from-gray-800/80 group-hover/faq:to-gray-900/80 transition-all duration-300"
+                              onClick={() => toggleQuestion(categoryIdx, questionIdx)}
+                            >
+                              {/* Enhanced border glow */}
+                              <div className="absolute -inset-px rounded-lg opacity-40 group-hover/faq:opacity-100 transition-opacity duration-500 z-0" 
+                                style={{ boxShadow: '0 0 15px 2px rgba(59,130,246,0.3), 0 0 10px 2px rgba(249,115,22,0.3)' }}>
                               </div>
                               
-                              {/* Corner accent decorations for answers */}
-                              <div className="absolute bottom-0 right-0 w-8 h-8 opacity-40">
-                                <div className="absolute right-0 bottom-0 w-3 h-3 border-r border-b border-blue-500/40 rounded-br-sm"></div>
-                                <div className="absolute right-0.5 bottom-0.5 w-5 h-5 border-r border-b border-blue-500/30 rounded-br-sm"></div>
+                              {/* Enhanced dual-edge border effect */}
+                              <div className="absolute inset-0 rounded-lg border border-orange-500/30 group-hover/faq:border-orange-500/50 transition-colors duration-500"></div>
+                              <div className="absolute inset-[1px] rounded-lg border border-blue-500/20 group-hover/faq:border-blue-500/40 transition-colors duration-500"></div>
+                              
+                              {/* Corner accent decorations for questions */}
+                              <div className="absolute top-0 right-0 w-8 h-8 opacity-60">
+                                <div className="absolute right-0 top-0 w-3 h-3 border-r border-t border-orange-500/50 rounded-tr-sm"></div>
+                                <div className="absolute right-0.5 top-0.5 w-5 h-5 border-r border-t border-blue-500/40 rounded-tr-sm"></div>
                               </div>
-                              <div className="absolute bottom-0 left-0 w-8 h-8 opacity-40">
-                                <div className="absolute left-0 bottom-0 w-3 h-3 border-l border-b border-blue-500/40 rounded-bl-sm"></div>
-                                <div className="absolute left-0.5 bottom-0.5 w-5 h-5 border-l border-b border-blue-500/30 rounded-bl-sm"></div>
+                              <div className="absolute top-0 left-0 w-8 h-8 opacity-60">
+                                <div className="absolute left-0 top-0 w-3 h-3 border-l border-t border-orange-500/50 rounded-tl-sm"></div>
+                                <div className="absolute left-0.5 top-0.5 w-5 h-5 border-l border-t border-blue-500/40 rounded-tl-sm"></div>
                               </div>
                               
-                              <p className="relative z-10" dangerouslySetInnerHTML={{ __html: faq.answer.replace(/\n/g, '<br />') }} />
+                              {/* Subtle ambient glow */}
+                              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-12 bg-gradient-to-r from-orange-500/0 via-orange-500/10 to-orange-500/0 blur-[30px] rounded-full opacity-0 group-hover/faq:opacity-100 transition-opacity duration-700"></div>
+                              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-12 bg-gradient-to-r from-blue-500/0 via-blue-500/10 to-blue-500/0 blur-[30px] rounded-full opacity-0 group-hover/faq:opacity-100 transition-opacity duration-700"></div>
+                              
+                              <div className="flex items-center justify-between relative z-10">
+                                <h4 
+                                  className="font-medium text-white text-base md:text-lg"
+                                  style={{ 
+                                    textShadow: '0 1px 1px rgba(0,0,0,0.7)'
+                                  }}
+                                >
+                                  {faq.question}
+                                </h4>
+                                <svg
+                                  className={`w-5 h-5 text-gray-300 transform transition-transform duration-300 ${isOpen ? 'rotate-180 text-blue-400' : ''}`}
+                                  fill="none"
+                                  viewBox="0 0 24 24"
+                                  stroke="currentColor"
+                                  style={{
+                                    filter: isOpen ? 'drop-shadow(0 0 3px rgba(59,130,246,0.4))' : 'none'
+                                  }}
+                                >
+                                  <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth={2}
+                                    d="M19 9l-7 7-7-7"
+                                  />
+                                </svg>
+                              </div>
+                            </button>
+                            
+                            {/* Enhanced sliding answer panel with premium styling */}
+                            <div 
+                              className={`overflow-hidden transition-all duration-500 ${
+                                isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                              }`}
+                            >
+                              <div className="relative p-5 text-gray-300 bg-gradient-to-br from-gray-900/80 via-gray-950/80 to-black/80 backdrop-blur-sm rounded-b-lg border-t border-t-gray-800/60 mt-1">
+                                {/* Subtle answer glow effect */}
+                                <div className="absolute inset-0 rounded-b-lg opacity-30" 
+                                  style={{ boxShadow: 'inset 0 0 20px 0 rgba(59,130,246,0.1), inset 0 0 10px 0 rgba(249,115,22,0.1)' }}>
+                                </div>
+                                
+                                {/* Corner accent decorations for answers */}
+                                <div className="absolute bottom-0 right-0 w-8 h-8 opacity-40">
+                                  <div className="absolute right-0 bottom-0 w-3 h-3 border-r border-b border-blue-500/40 rounded-br-sm"></div>
+                                  <div className="absolute right-0.5 bottom-0.5 w-5 h-5 border-r border-b border-blue-500/30 rounded-br-sm"></div>
+                                </div>
+                                <div className="absolute bottom-0 left-0 w-8 h-8 opacity-40">
+                                  <div className="absolute left-0 bottom-0 w-3 h-3 border-l border-b border-blue-500/40 rounded-bl-sm"></div>
+                                  <div className="absolute left-0.5 bottom-0.5 w-5 h-5 border-l border-b border-blue-500/30 rounded-bl-sm"></div>
+                                </div>
+                                
+                                <p className="relative z-10" dangerouslySetInnerHTML={{ __html: faq.answer.replace(/\n/g, '<br />') }} />
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      );
-                    })}
+                        );
+                      })}
+                    </div>
                   </div>
+                  
+                  {/* Bottom reflection effect */}
+                  <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2/3 h-[2px] bg-gradient-to-r from-transparent via-white/10 to-transparent rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
                 </div>
-                
-                {/* Bottom reflection effect */}
-                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2/3 h-[2px] bg-gradient-to-r from-transparent via-white/10 to-transparent rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
               </div>
             );
           })}
