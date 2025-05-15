@@ -329,7 +329,7 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
             ) : (
               <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/98 to-gray-900/95 backdrop-blur-xl rounded-xl p-8 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7)] flex items-center justify-center h-full">
                 {/* Premium dual-layer gradient border effect - Fire themed */}
-                <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/60 via-red-500/30 to-orange-500/60 opacity-80"></div>
+                <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/60 via-blue-500/30 to-orange-500/60 opacity-80"></div>
                 <div className="absolute inset-[1px] p-0.5 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-30 pointer-events-none"></div>
                 
                 <div className="text-center">
@@ -357,7 +357,7 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
             <div className="group relative transform hover:scale-[1.01] transition-all duration-700">
               <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/98 to-gray-900/95 backdrop-blur-xl rounded-xl p-8 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7)] z-10">
                 {/* Premium dual-layer gradient border effect - Fire themed */}
-                <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/60 via-transparent to-red-500/60 opacity-80"></div>
+                <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/60 via-transparent to-blue-500/60 opacity-80"></div>
                 <div className="absolute inset-[1px] p-0.5 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-30 pointer-events-none"></div>
                 
                 {/* Corner accent decorations - Fire themed */}
@@ -371,7 +371,7 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
                     Video Library
                   </GradientHeading>
                   {/* Animated underline - Fire themed */}
-                  <div className="absolute bottom-0 left-0 w-1/4 h-0.5 bg-gradient-to-r from-orange-500 via-red-500 to-orange-500 rounded-full"></div>
+                  <div className="absolute bottom-0 left-0 w-1/4 h-0.5 bg-gradient-to-r from-orange-500 via-blue-500 to-orange-500 rounded-full"></div>
                 </div>
 
                 {/* Premium filter buttons with enhanced styling */}
