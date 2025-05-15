@@ -205,12 +205,7 @@ const BrandShowcaseSection = () => {
                   <div className="absolute -top-20 -right-20 w-72 h-72 bg-orange-500/20 rounded-full filter blur-[100px] opacity-70 animate-pulse-slow"></div>
                   <div className="absolute -bottom-20 -left-20 w-72 h-72 bg-blue-500/25 rounded-full filter blur-[100px] opacity-70 animate-pulse-slow-delayed"></div>
                   
-                  {/* Premium badge */}
-                  <div className="relative w-full -mt-4">
-                    <PremiumBadge>
-                      ENTERPRISE GRADE
-                    </PremiumBadge>
-                  </div>
+                  {/* Badge removed per user request */}
                   
                   {/* Feature item 1 - Enhanced with subtle hover effects */}
                   <div className="relative p-4 mt-8 group/item hover:bg-gradient-to-r hover:from-orange-950/10 hover:to-blue-950/10 rounded-lg transition-all duration-300">

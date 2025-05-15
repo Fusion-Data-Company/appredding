@@ -62,12 +62,7 @@ const ProductPerformanceSection = () => {
                 <div className="absolute bottom-0 right-0 w-3 h-3 bg-red-500/50 rounded-full blur-[2px]"></div>
               </div>
               
-              {/* Premium badge with positioning handled by the component */}
-              <div className="relative w-full">
-                <PremiumBadge>
-                  VERIFIED PERFORMANCE
-                </PremiumBadge>
-              </div>
+              {/* Badge removed per user request */}
               {/* Spacer to maintain layout */}
               <div className="h-6 mb-6"></div>
               
@@ -372,12 +367,7 @@ const ProductPerformanceSection = () => {
               <div className="text-center mb-14 relative">
                 <div className="absolute -top-12 left-1/2 -translate-x-1/2 w-56 h-2 bg-gradient-to-r from-transparent via-amber-500/20 to-transparent blur-xl"></div>
                 
-                {/* NASA Testing badge with positioning handled by component */}
-                <div className="mb-4 relative w-full">
-                  <PremiumBadge>
-                    NASA-GRADE TESTING
-                  </PremiumBadge>
-                </div>
+                {/* Badge removed per user request */}
                 
                 <GradientHeading level={2} className="text-3xl md:text-4xl lg:text-5xl mb-6" variant="mixed">NASA-Grade Testing Protocols</GradientHeading>
                 <p className="text-xl text-gray-200 max-w-4xl mx-auto leading-relaxed">
