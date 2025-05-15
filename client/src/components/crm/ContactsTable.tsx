@@ -6,6 +6,7 @@ import { Loader2, Search, Filter, ChevronDown, ChevronUp, MoreHorizontal, AlertT
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { CustomBadge } from "@/components/ui/custom-badge";
 import {
   DropdownMenu,
   DropdownMenuContent,
