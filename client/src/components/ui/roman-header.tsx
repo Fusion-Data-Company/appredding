@@ -21,9 +21,9 @@ export const RomanHeader = ({
   ornate = false,
 }: RomanHeaderProps) => {
   const variantClasses = {
-    gold: 'bg-gradient-to-r from-amber-700 via-yellow-400 to-amber-700 text-transparent bg-clip-text',
-    platinum: 'bg-gradient-to-r from-gray-500 via-gray-200 to-gray-500 text-transparent bg-clip-text',
-    imperial: 'bg-gradient-to-r from-amber-900 via-amber-300 to-amber-900 text-transparent bg-clip-text',
+    gold: 'text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]',
+    platinum: 'text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]',
+    imperial: 'text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]',
   }
   
   const Tag = `h${level}` as keyof JSX.IntrinsicElements;

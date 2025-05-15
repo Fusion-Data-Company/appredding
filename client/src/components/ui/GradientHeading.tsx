@@ -24,8 +24,7 @@ const GradientHeading: React.FC<GradientHeadingProps> = ({
 }) => {
   const gradientClass = gradientVariants[variant];
   const baseClasses = cn(
-    "font-bold bg-gradient-to-r bg-clip-text text-transparent",
-    gradientClass,
+    "font-bold text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]",
     className
   );
   
