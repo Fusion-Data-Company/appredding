@@ -166,32 +166,18 @@ const ContactSection = () => {
             </div>
             
             <div className="relative mb-8 flex justify-center w-full">
-              {/* Premium Enterprise Card Header - Get In Touch */}
-              <div className="relative py-4 px-14 w-full md:w-4/5 lg:w-3/4 bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black rounded-lg z-10">
-                {/* Premium gradient border effect */}
-                <div className="absolute inset-0 p-0.5 rounded-lg bg-gradient-to-r from-orange-500/40 via-amber-400/20 to-blue-500/30 opacity-70"></div>
-                
-                {/* Corner accents */}
-                <div className="absolute -top-1 -left-1 w-6 h-6 border-t-2 border-l-2 border-orange-500/40 rounded-tl-md z-10"></div>
-                <div className="absolute -top-1 -right-1 w-6 h-6 border-t-2 border-r-2 border-blue-500/30 rounded-tr-md z-10"></div>
-                <div className="absolute -bottom-1 -left-1 w-6 h-6 border-b-2 border-l-2 border-blue-500/30 rounded-bl-md z-10"></div>
-                <div className="absolute -bottom-1 -right-1 w-6 h-6 border-b-2 border-r-2 border-orange-500/40 rounded-br-md z-10"></div>
-                
-                {/* Remove ambient glow background as requested */}
-                
-                <h2 
-                  className="relative z-20 text-center text-white font-extrabold tracking-tight py-2 w-full" 
-                  style={{ 
-                    fontSize: 'clamp(2.5rem, 5vw, 3.25rem)',
-                    textShadow: '0 1px 8px rgba(255,150,0,0.3), 0 1px 3px rgba(0,0,0,0.3)',
-                    marginBottom: '1rem',
-                    letterSpacing: '-0.02em',
-                    whiteSpace: 'nowrap'
-                  }}
-                >
-                  Get In Touch
-                </h2>
-              </div>
+              {/* Simplified Get In Touch Header */}
+              <h2 
+                className="relative z-20 text-center text-white font-extrabold tracking-tight py-2 mb-4 w-full" 
+                style={{ 
+                  fontSize: 'clamp(2.5rem, 5vw, 3.25rem)',
+                  textShadow: '0 1px 8px rgba(255,150,0,0.3), 0 1px 3px rgba(0,0,0,0.3)',
+                  letterSpacing: '-0.02em',
+                  whiteSpace: 'nowrap'
+                }}
+              >
+                Get In Touch
+              </h2>
             </div>
             <div className="relative z-10 mb-8" style={{ marginTop: "-2.5rem" }}>
               <p className="text-gray-300 text-lg text-center max-w-xl mx-auto mb-2">
