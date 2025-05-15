@@ -233,14 +233,9 @@ const ContactsTable = () => {
       width: 120,
       sortable: true,
       render: (value) => {
-        const color = statusColors[value as keyof typeof statusColors] || "bg-gray-500";
-        const glowClass = color === "bg-blue-500" ? "shadow-blue-500/30" : 
-                         color === "bg-orange-500" ? "shadow-orange-500/30" : 
-                         color === "bg-green-500" ? "shadow-green-500/30" : 
-                         "shadow-gray-500/30";
-                         
+        // Using consistent orange-blue gradient styling for all status badges
         return (
-          <Badge className={`${color} text-white capitalize rounded-full px-3 py-0.5 shadow-sm ${glowClass} border border-white/10`}>
+          <Badge className="bg-gradient-to-r from-orange-700 to-blue-700 text-white capitalize rounded-full px-3 py-0.5 shadow-sm shadow-orange-500/30 border border-orange-500/20 z-[100]">
             {value?.replace("_", " ")}
           </Badge>
         );
@@ -252,16 +247,9 @@ const ContactsTable = () => {
       width: 140,
       sortable: true,
       render: (value) => {
-        const color = leadSourceColors[value as keyof typeof leadSourceColors] || "bg-gray-500";
-        const glowClass = color === "bg-blue-500" ? "shadow-blue-500/30" : 
-                         color === "bg-green-500" ? "shadow-green-500/30" : 
-                         color === "bg-purple-500" ? "shadow-purple-500/30" : 
-                         color === "bg-red-500" ? "shadow-red-500/30" : 
-                         color === "bg-yellow-500" ? "shadow-yellow-500/30" : 
-                         "shadow-gray-500/30";
-                         
+        // Using consistent orange-blue gradient styling for all source badges
         return (
-          <Badge className={`${color} text-white capitalize rounded-full px-3 py-0.5 shadow-sm ${glowClass} border border-white/10`}>
+          <Badge className="bg-gradient-to-r from-orange-700 to-blue-700 text-white capitalize rounded-full px-3 py-0.5 shadow-sm shadow-orange-500/30 border border-orange-500/20 z-[100]">
             {value?.replace("_", " ")}
           </Badge>
         );
@@ -278,15 +266,11 @@ const ContactsTable = () => {
               const appType = applicationTypes.find(t => t.value === app);
               const color = appType?.color || "bg-gray-500";
               
-              // Extract the color to determine the glow
-              const colorMatch = color.match(/bg-([\w-]+)-\d+/);
-              const colorBase = colorMatch ? colorMatch[1] : "gray";
-              const glowClass = `shadow-${colorBase}-500/30`;
-              
+              // Using consistent orange-blue gradient styling for all interest badges
               return (
                 <Badge 
                   key={app} 
-                  className={`${color} text-white text-xs rounded-full px-2.5 py-0.5 shadow-sm ${glowClass} border border-white/10`}
+                  className="bg-gradient-to-r from-orange-700 to-blue-700 text-white text-xs rounded-full px-2.5 py-0.5 shadow-sm shadow-orange-500/30 border border-orange-500/20 z-[100]"
                 >
                   {appType?.label || app}
                 </Badge>
