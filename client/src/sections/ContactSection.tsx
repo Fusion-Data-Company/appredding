@@ -549,8 +549,7 @@ const ContactSection = () => {
                 <div className="relative mb-8 flex justify-center w-full">
                   {/* Premium Enterprise Card Header - Contact Information */}
                   <div className="relative py-4 px-14 w-full md:w-4/5 lg:w-3/4 bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black rounded-lg z-10">
-                    {/* Premium gradient border effect */}
-                    <div className="absolute inset-0 p-0.5 rounded-lg bg-gradient-to-r from-blue-500/40 via-cyan-400/20 to-blue-500/30 opacity-70"></div>
+                    {/* Premium gradient border effect removed */}
                     
                     {/* Corner accents */}
                     <div className="absolute -top-1 -left-1 w-6 h-6 border-t-2 border-l-2 border-blue-500/40 rounded-tl-md z-10"></div>
