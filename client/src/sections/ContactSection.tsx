@@ -468,7 +468,7 @@ const ContactSection = () => {
               
               <div className="relative group">
                 {/* Fire effect shadow */}
-                <div className="absolute -inset-1 bg-gradient-to-r from-amber-600 via-red-600 to-amber-600 rounded-lg blur-xl opacity-70 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
+                <div className="absolute -inset-1 bg-gradient-to-r from-orange-600 via-red-600 to-orange-600 rounded-lg blur-xl opacity-70 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
                 
                 {/* Water effect shadow */}
                 <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-cyan-400 to-blue-600 rounded-lg blur-xl opacity-70 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse" style={{ animationDelay: '500ms' }}></div>
@@ -491,38 +491,38 @@ const ContactSection = () => {
             
             <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/98 to-black/95 backdrop-blur-xl rounded-lg overflow-hidden h-full border-0 shadow-[0_10px_50px_rgba(0,0,0,0.5)]">
               {/* Enterprise level gradient border */}
-              <div className="absolute inset-0 p-0.5 rounded-lg bg-gradient-to-r from-blue-500/50 via-cyan-400/30 to-blue-500/50 opacity-70"></div>
+              <div className="absolute inset-0 p-0.5 rounded-lg bg-gradient-to-r from-orange-500/50 via-blue-500/30 to-orange-500/50 opacity-70"></div>
               
               {/* Animated corner accents - premium effect (blue variant) */}
               <div className="absolute top-0 left-0 w-16 h-16 opacity-40">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/40 to-cyan-600/30 rounded-tl-xl blur-[2px]"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-orange-500/40 to-blue-600/30 rounded-tl-xl blur-[2px]"></div>
               </div>
               <div className="absolute top-0 right-0 w-16 h-16 opacity-40">
-                <div className="absolute inset-0 bg-gradient-to-bl from-blue-500/40 to-cyan-600/30 rounded-tr-xl blur-[2px]"></div>
+                <div className="absolute inset-0 bg-gradient-to-bl from-orange-500/40 to-blue-600/30 rounded-tr-xl blur-[2px]"></div>
               </div>
               <div className="absolute bottom-0 left-0 w-16 h-16 opacity-40">
-                <div className="absolute inset-0 bg-gradient-to-tr from-cyan-600/30 to-blue-500/40 rounded-bl-xl blur-[2px]"></div>
+                <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/30 to-orange-500/40 rounded-bl-xl blur-[2px]"></div>
               </div>
               <div className="absolute bottom-0 right-0 w-16 h-16 opacity-40">
-                <div className="absolute inset-0 bg-gradient-to-tl from-cyan-600/30 to-blue-500/40 rounded-br-xl blur-[2px]"></div>
+                <div className="absolute inset-0 bg-gradient-to-tl from-blue-600/30 to-orange-500/40 rounded-br-xl blur-[2px]"></div>
               </div>
               
               {/* Subtle top highlight */}
               <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
               
               {/* Fire effect border top - enhanced */}
-              <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-amber-600 via-red-600 to-amber-600 animate-pulse z-10" style={{ animationDuration: '3s' }}></div>
+              <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-orange-600 via-red-600 to-orange-600 animate-pulse z-10" style={{ animationDuration: '3s' }}></div>
               
               {/* Water effect border bottom - enhanced */}
               <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-gradient-to-r from-blue-600 via-cyan-400 to-blue-600 animate-pulse z-10" style={{ animationDuration: '4s' }}></div>
               
               {/* Premium glassmorphism effect - enhanced */}
-              <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/10 dark:from-white/5 dark:via-transparent dark:to-white/5"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/10"></div>
               
               {/* Premium card container for heading - stretching from top */}
-              <div className="absolute -top-12 inset-x-0 h-60 bg-gradient-to-br from-gray-800/95 via-gray-900/95 to-gray-800/95 backdrop-blur-md rounded-t-xl z-0">
+              <div className="absolute -top-12 inset-x-0 h-60 bg-gradient-to-br from-gray-900/95 via-gray-950/98 to-black/95 backdrop-blur-xl rounded-t-xl z-0">
                 {/* Premium gradient border effect - top edges only */}
-                <div className="absolute inset-0 rounded-t-xl bg-gradient-to-r from-blue-500/50 via-transparent to-cyan-400/50 opacity-70" style={{ WebkitMaskImage: 'linear-gradient(to bottom, black 20%, transparent 100%)', maskImage: 'linear-gradient(to bottom, black 20%, transparent 100%)' }}></div>
+                <div className="absolute inset-0 rounded-t-xl bg-gradient-to-r from-orange-500/50 via-transparent to-blue-500/50 opacity-70" style={{ WebkitMaskImage: 'linear-gradient(to bottom, black 20%, transparent 100%)', maskImage: 'linear-gradient(to bottom, black 20%, transparent 100%)' }}></div>
                 
                 {/* Inner highlight */}
                 <div className="absolute inset-0 rounded-t-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
