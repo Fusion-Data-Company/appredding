@@ -167,7 +167,7 @@ const ContactSection = () => {
             
             <div className="relative mb-8 flex justify-center w-full">
               {/* Premium Enterprise Card Header - Get In Touch */}
-              <div className="relative py-4 px-10 bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black rounded-lg z-10">
+              <div className="relative py-4 px-14 w-full md:w-4/5 lg:w-3/4 bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black rounded-lg z-10">
                 {/* Premium gradient border effect */}
                 <div className="absolute inset-0 p-0.5 rounded-lg bg-gradient-to-r from-orange-500/40 via-amber-400/20 to-blue-500/30 opacity-70"></div>
                 
@@ -183,7 +183,7 @@ const ContactSection = () => {
                 <h2 
                   className="relative z-20 text-center text-white font-extrabold tracking-tight py-2" 
                   style={{ 
-                    fontSize: '3.25rem',
+                    fontSize: 'clamp(2.5rem, 5vw, 3.25rem)',
                     textShadow: '0 1px 8px rgba(255,150,0,0.3), 0 1px 3px rgba(0,0,0,0.3)',
                     marginBottom: '1rem',
                     letterSpacing: '-0.02em'
@@ -548,7 +548,7 @@ const ContactSection = () => {
               <div className="p-8 relative z-20">
                 <div className="relative mb-8 flex justify-center w-full">
                   {/* Premium Enterprise Card Header - Contact Information */}
-                  <div className="relative py-4 px-10 bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black rounded-lg z-10">
+                  <div className="relative py-4 px-14 w-full md:w-4/5 lg:w-3/4 bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black rounded-lg z-10">
                     {/* Premium gradient border effect */}
                     <div className="absolute inset-0 p-0.5 rounded-lg bg-gradient-to-r from-blue-500/40 via-cyan-400/20 to-blue-500/30 opacity-70"></div>
                     
@@ -564,7 +564,7 @@ const ContactSection = () => {
                     <h2 
                       className="relative z-10 text-center text-white font-extrabold tracking-tight py-2 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]" 
                       style={{ 
-                        fontSize: '3.25rem',
+                        fontSize: 'clamp(2.5rem, 5vw, 3.25rem)',
                         textShadow: '0 1px 8px rgba(0,150,255,0.3)',
                         marginBottom: '1rem',
                         letterSpacing: '-0.02em'
