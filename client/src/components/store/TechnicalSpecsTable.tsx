@@ -107,8 +107,8 @@ const TechnicalSpecsTable = () => {
         <div className="text-center mb-12">
           {/* Premium Enterprise-level heading container with mixed orange/blue styling */}
           <div className="relative mx-auto max-w-4xl mb-8 inline-block group transform transition-all duration-500 hover:scale-[1.01] hover:-translate-y-1 hover:z-10">
-            {/* Multiple layered background effects - Mixed theme with more vibrant border glow */}
-            <div className="absolute -inset-0 bg-gradient-to-r from-orange-600/40 via-blue-600/40 to-orange-600/40 rounded-xl blur-xl opacity-70 group-hover:opacity-100 group-hover:blur-xl transition-all duration-500 animate-pulse-slow"></div>
+            {/* Multiple layered background effects  */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/40 via-blue-600/40 to-orange-600/40 rounded-xl blur-xl opacity-70 group-hover:opacity-100 group-hover:blur-xl transition-all duration-1000 animate-pulse-slow"></div>
             <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/80 via-blue-500/80 to-orange-500/80 rounded-xl blur-md opacity-90 group-hover:opacity-100 transition-all duration-300"></div>
             
             {/* Premium Card Container */}
@@ -307,8 +307,8 @@ const TechnicalSpecsTable = () => {
         <div className="mt-10 text-center">
           {/* Premium Enterprise Bottom Note with Mixed Orange/Blue Theme */}
           <div className="relative group inline-block transform transition-all duration-500 hover:scale-[1.01] hover:-translate-y-1 hover:z-10">
-            {/* Multiple layered background effects - Mixed theme with more vibrant border glow */}
-            <div className="absolute -inset-0 bg-gradient-to-r from-orange-600/40 via-blue-600/40 to-orange-600/40 rounded-xl blur-xl opacity-70 group-hover:opacity-100 group-hover:blur-xl transition-all duration-500 animate-pulse-slow"></div>
+            {/* Multiple layered background effects  */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/40 via-blue-600/40 to-orange-600/40 rounded-xl blur-xl opacity-70 group-hover:opacity-100 group-hover:blur-xl transition-all duration-1000 animate-pulse-slow"></div>
             <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/80 via-blue-500/80 to-orange-500/80 rounded-xl blur-md opacity-90 group-hover:opacity-100 transition-all duration-300"></div>
             
             {/* Main card container */}

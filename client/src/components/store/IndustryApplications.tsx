@@ -299,16 +299,16 @@ const IndustryApplications = () => {
             <span className="absolute -top-4 -left-4 w-8 h-8 border-t-2 border-l-2 border-orange-500/50 rounded-tl-lg"></span>
             
             {/* Right corner accent */}
-            <span className="absolute -top-4 -right-4 w-8 h-8 border-t-2 border-r-2 border-red-500/50 rounded-tr-lg"></span>
+            <span className="absolute -top-4 -right-4 w-8 h-8 border-t-2 border-r-2 border-blue-500/70 rounded-tr-lg"></span>
             
             {/* Heading text with enhanced shimmer effect */}
             <div className="relative z-10 px-6 py-2 overflow-hidden">
               {/* Additional animated glow behind text */}
-              <div className="absolute inset-0 bg-gradient-to-r from-orange-600/10 via-orange-500/20 to-red-600/10 opacity-50 blur-xl animate-pulse-slow"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-orange-600/10 via-blue-500/20 to-orange-600/10 opacity-50 blur-xl animate-pulse-slow"></div>
               
               {/* Shimmer overlay */}
               <div className="shimmer-fire-text font-bold text-4xl tracking-tight">
-                <span className="text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-amber-500 to-red-500">
+                <span className="text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-amber-500 to-blue-500">
                   Protection Across Every Industry
                 </span>
               </div>
