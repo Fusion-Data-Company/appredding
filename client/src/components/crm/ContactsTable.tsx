@@ -501,7 +501,7 @@ const ContactsTable = () => {
             className="bg-gradient-to-br from-orange-600 to-orange-700 hover:from-orange-700 hover:to-orange-800 border-orange-500/10 shadow-md shadow-orange-500/20 hover:shadow-orange-500/30"
           >
             <div className="relative">
-              <div className="absolute -right-1 -top-1 w-2 h-2 rounded-full bg-cyan-400 border border-cyan-400/40 shadow-sm shadow-cyan-500/50"></div>
+              <div className="absolute -right-1 -top-1 w-2 h-2 rounded-full bg-gradient-to-r from-orange-400 to-blue-400 border border-orange-400/40 shadow-sm shadow-orange-500/50 z-[100]"></div>
               <Filter className="h-4 w-4" />
             </div>
           </Button>

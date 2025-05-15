@@ -63,7 +63,7 @@ const ProductPerformanceSection = () => {
               
               {/* Premium badge with consistent styling at the top center */}
               <div className="relative z-50 -mt-2 mb-6 flex justify-center">
-                <div className="px-3 py-1.5 rounded-full border border-amber-300 dark:border-amber-700 bg-amber-100/50 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300 inline-flex items-center shadow-[0_0_10px_rgba(251,113,36,0.3)] relative z-50">
+                <div className="px-3 py-1.5 rounded-full border border-orange-500/40 bg-gradient-to-r from-orange-950/95 via-primary-950/95 to-blue-950/95 text-orange-300 inline-flex items-center shadow-[0_0_15px_rgba(249,115,22,0.4)] relative z-[100]">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-2 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                   </svg>
