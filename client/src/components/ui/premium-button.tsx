@@ -186,11 +186,11 @@ const PremiumButton = forwardRef<HTMLButtonElement, PremiumButtonProps>(
               {/* Extra shimmer effect with different timing */}
               <div className="absolute inset-0 w-2/3 h-full bg-gradient-to-r from-transparent via-white/8 to-transparent opacity-10 -translate-x-full animate-shimmer-medium transform rounded-lg"></div>
               
-              {/* Detached prominent blue/orange glow behind button */}
-              <div className="absolute -inset-[12px] rounded-2xl opacity-60 group-hover:opacity-90 transition-opacity duration-500"
+              {/* Extremely prominent blue/orange glow behind button */}
+              <div className="absolute -inset-[18px] rounded-3xl opacity-80 group-hover:opacity-100 transition-opacity duration-500"
                   style={{ 
-                    background: 'linear-gradient(to right, rgba(255,111,0,0.5), rgba(59,130,246,0.5), rgba(255,111,0,0.5))',
-                    boxShadow: '0 0 20px 8px rgba(255,79,0,0.5), 0 0 15px 5px rgba(59,130,246,0.5)',
+                    background: 'linear-gradient(to right, rgba(255,111,0,0.7), rgba(59,130,246,0.7), rgba(255,111,0,0.7))',
+                    boxShadow: '0 0 30px 15px rgba(255,79,0,0.7), 0 0 25px 10px rgba(59,130,246,0.7)',
                     animation: 'pulse 3s ease-in-out infinite',
                     zIndex: -1
                   }}>
@@ -202,10 +202,11 @@ const PremiumButton = forwardRef<HTMLButtonElement, PremiumButtonProps>(
               <div className="absolute bottom-0 left-0 w-2 h-2 bg-blue-500/70 rounded-full blur-[1px] opacity-60 group-hover:opacity-100 transition-opacity duration-300"></div>
               <div className="absolute bottom-0 right-0 w-2 h-2 bg-orange-500/70 rounded-full blur-[1px] opacity-60 group-hover:opacity-100 transition-opacity duration-300"></div>
               
-              {/* Additional ambient blur glow behind button */}
-              <div className="absolute -inset-[8px] rounded-xl bg-gradient-to-r from-orange-600/30 via-blue-500/30 to-orange-600/30 blur-lg opacity-50 group-hover:opacity-70 transition-opacity duration-1000" 
+              {/* Additional super-bright ambient blur glow behind button */}
+              <div className="absolute -inset-[25px] rounded-3xl bg-gradient-to-r from-orange-500/60 via-blue-500/60 to-orange-500/60 blur-xl opacity-70 group-hover:opacity-90 transition-opacity duration-1000 animate-pulse-slow" 
                    style={{ 
-                     filter: 'blur(15px)'
+                     filter: 'blur(25px)',
+                     boxShadow: 'inset 0 0 40px 10px rgba(255,111,0,0.5), inset 0 0 30px 10px rgba(59,130,246,0.5)'
                    }}>
               </div>
             </>
