@@ -197,20 +197,20 @@ const BrandShowcaseSection = () => {
                   <div className="absolute -top-20 -right-20 w-72 h-72 bg-orange-500/10 rounded-full filter blur-[100px] opacity-70"></div>
                   <div className="absolute -bottom-20 -left-20 w-72 h-72 bg-blue-500/15 rounded-full filter blur-[100px] opacity-70"></div>
                   
-                  {/* Repositioned corner accent lines to match the extended border */}
-                  <div className="absolute top-[-24px] left-0 w-20 h-20 pointer-events-none z-10">
+                  {/* Corner accent lines properly aligned to the actual corners */}
+                  <div className="absolute top-0 left-0 w-20 h-20 pointer-events-none z-10">
                     <div className="absolute top-0 left-0 w-10 h-10 border-t-2 border-l-2 border-orange-500/70 rounded-tl-lg"></div>
                     <div className="absolute top-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
                   </div>
-                  <div className="absolute top-[-24px] right-0 w-20 h-20 pointer-events-none z-10">
+                  <div className="absolute top-0 right-0 w-20 h-20 pointer-events-none z-10">
                     <div className="absolute top-0 right-0 w-10 h-10 border-t-2 border-r-2 border-blue-500/70 rounded-tr-lg"></div>
                     <div className="absolute top-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
                   </div>
-                  <div className="absolute bottom-[-24px] left-0 w-20 h-20 pointer-events-none z-10">
+                  <div className="absolute bottom-0 left-0 w-20 h-20 pointer-events-none z-10">
                     <div className="absolute bottom-0 left-0 w-10 h-10 border-b-2 border-l-2 border-orange-500/70 rounded-bl-lg"></div>
                     <div className="absolute bottom-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
                   </div>
-                  <div className="absolute bottom-[-24px] right-0 w-20 h-20 pointer-events-none z-10">
+                  <div className="absolute bottom-0 right-0 w-20 h-20 pointer-events-none z-10">
                     <div className="absolute bottom-0 right-0 w-10 h-10 border-b-2 border-r-2 border-blue-500/70 rounded-br-lg"></div>
                     <div className="absolute bottom-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
                   </div>
