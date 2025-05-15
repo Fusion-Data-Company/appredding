@@ -10,15 +10,15 @@ const premiumButtonVariants = cva(
     variants: {
       variant: {
         default: 
-          "bg-black text-white border-2 border-orange-500 shadow-lg hover:shadow-[0_0_15px_rgba(255,106,0,0.5)]",
+          "bg-black text-white border-2 border-orange-500 shadow-lg hover:shadow-[0_0_15px_rgba(59,130,246,0.5)]",
         gold: 
-          "bg-black text-white border-2 border-orange-500 shadow-lg hover:shadow-[0_0_15px_rgba(255,106,0,0.5)]",
+          "bg-black text-white border-2 border-orange-500 shadow-lg hover:shadow-[0_0_15px_rgba(59,130,246,0.5)]",
         fire: 
-          "bg-black text-white border-2 border-orange-500 shadow-lg hover:shadow-[0_0_20px_rgba(255,106,0,0.6)] transform transition-all duration-500 hover:scale-[1.02]",
+          "bg-black text-white border-2 border-orange-500 shadow-lg hover:shadow-[0_0_20px_rgba(59,130,246,0.6)] transform transition-all duration-500 hover:scale-[1.02]",
         outline: 
-          "bg-black text-white border-2 border-orange-500/80 shadow-lg hover:shadow-[0_0_15px_rgba(255,106,0,0.5)]",
+          "bg-black text-white border-2 border-orange-500/80 shadow-lg hover:shadow-[0_0_15px_rgba(59,130,246,0.5)]",
         ghost: 
-          "bg-black text-white border-2 border-orange-500/80 shadow-lg hover:shadow-[0_0_15px_rgba(255,106,0,0.4)]"
+          "bg-black text-white border-2 border-orange-500/80 shadow-lg hover:shadow-[0_0_15px_rgba(59,130,246,0.4)]"
       },
       size: {
         sm: "h-9 px-3 py-2 text-xs rounded-lg",
@@ -140,12 +140,12 @@ const PremiumButton = forwardRef<HTMLButtonElement, PremiumButtonProps>(
           
           {/* Glow effect on hover - same for all variants */}
           {glowEffect && (
-            <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-orange-500/0 via-orange-500/0 to-orange-500/0 group-hover:from-orange-500/0 group-hover:via-orange-500/10 group-hover:to-orange-500/0 blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-orange-500/0 via-blue-500/0 to-orange-500/0 group-hover:from-orange-500/0 group-hover:via-blue-500/10 group-hover:to-orange-500/0 blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           )}
           
           {/* Inner border for fire variant */}
           {isFire && (
-            <div className="absolute inset-0 rounded-[10px] border border-orange-500/30 pointer-events-none"></div>
+            <div className="absolute inset-0 rounded-[10px] border border-blue-500/30 pointer-events-none"></div>
           )}
 
           {/* Button Content */}
