@@ -34,7 +34,7 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer, icon, value }) => {
 
 const TechnicalFAQ: React.FC = () => {
   return (
-    <div className="bg-gradient-to-br from-primary-900/40 to-blue-900/40 backdrop-blur-md rounded-xl p-6 md:p-8 border-0 premium-gradient-border shadow-[0_0_40px_rgba(255,255,255,0.25)]">
+    <div className="bg-gradient-to-br from-orange-900/40 via-primary-900/40 to-blue-900/40 backdrop-blur-md rounded-xl p-6 md:p-8 border-0 premium-gradient-border shadow-[0_0_40px_rgba(255,255,255,0.25)]">
       <h2 className="text-2xl md:text-3xl font-bold text-center mb-2 bg-gradient-to-r from-orange-300 via-white to-blue-300 bg-clip-text text-transparent">
         Technical FAQ
       </h2>

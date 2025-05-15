@@ -113,7 +113,7 @@ export const DefenseCaseStudy = () => {
           </ul>
           
           <p className="text-white mb-4">
-            After implementing PraetorianGuard™ NASA-derived ceramic coating systems in 2019, the classified assessment verified:
+            After implementing PraetorianGuard™ <span className="bg-gradient-to-r from-orange-300 to-blue-300 bg-clip-text text-transparent font-semibold">NASA-derived ceramic coating systems</span> in 2019, the classified assessment verified:
           </p>
           
           <ul className="space-y-3 mb-4">

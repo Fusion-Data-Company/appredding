@@ -40,7 +40,7 @@ export const CompetitiveMatrix: React.FC = () => {
       id: "praetorian", 
       name: "Praetorian Smart-Coat", 
       description: "NASA-derived ceramic coating",
-      className: "bg-primary-900/30 border-b-2 border-primary-400" 
+      className: "bg-gradient-to-r from-orange-900/30 to-blue-900/30 border-b-2 border-orange-400" 
     },
     { 
       id: "competitor_a", 

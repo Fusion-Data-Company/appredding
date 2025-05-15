@@ -174,7 +174,7 @@ export const ExecutiveSummary = () => {
         </div>
         
         <p className="text-xl text-white max-w-4xl mx-auto leading-relaxed mb-12">
-          Praetorian Smart-Coat, evolved from the renowned Son-Shield system, is a multi-functional, ceramic-based protective coating engineered for fire defense, thermal regulation, corrosion resistance, and structural longevity. It is the only coating system with documented performance matching NASA-verified insulation systems while delivering ROI within 12-24 months.
+          Praetorian Smart-Coat, evolved from the renowned Son-Shield system, is a multi-functional, ceramic-based protective coating engineered for fire defense, thermal regulation, corrosion resistance, and structural longevity. It is the only coating system with documented performance matching <span className="bg-gradient-to-r from-orange-300 to-blue-300 bg-clip-text text-transparent font-semibold">NASA-verified insulation systems</span> while delivering ROI within 12-24 months.
         </p>
       </div>
       
