@@ -925,7 +925,7 @@ const MobileHome = () => {
               
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-10">
                 {/* Key Performance Cards */}
-                <div className="bg-primary-950/80 backdrop-blur-md p-6 rounded-xl border border-primary-500/30 shadow-lg transform hover:scale-[1.02] transition-transform duration-300 flex flex-col items-center text-center">
+                <div className="bg-gradient-to-br from-orange-950/50 via-primary-950/80 to-blue-950/50 backdrop-blur-md p-6 rounded-xl border border-orange-500/30 shadow-lg transform hover:scale-[1.02] transition-transform duration-300 flex flex-col items-center text-center">
                   <div className="bg-gradient-to-br from-primary-500/20 to-primary-700/20 p-3 rounded-full mb-4 border border-primary-500/40">
                     <Shield className="h-8 w-8 text-primary-300" />
                   </div>
@@ -939,7 +939,7 @@ const MobileHome = () => {
                   </div>
                 </div>
                 
-                <div className="bg-primary-950/80 backdrop-blur-md p-6 rounded-xl border border-primary-500/30 shadow-lg transform hover:scale-[1.02] transition-transform duration-300 flex flex-col items-center text-center">
+                <div className="bg-gradient-to-br from-orange-950/50 via-primary-950/80 to-blue-950/50 backdrop-blur-md p-6 rounded-xl border border-orange-500/30 shadow-lg transform hover:scale-[1.02] transition-transform duration-300 flex flex-col items-center text-center">
                   <div className="bg-gradient-to-br from-primary-500/20 to-primary-700/20 p-3 rounded-full mb-4 border border-primary-500/40">
                     <SunIcon className="h-8 w-8 text-yellow-300" />
                   </div>
@@ -953,7 +953,7 @@ const MobileHome = () => {
                   </div>
                 </div>
                 
-                <div className="bg-primary-950/80 backdrop-blur-md p-6 rounded-xl border border-primary-500/30 shadow-lg transform hover:scale-[1.02] transition-transform duration-300 flex flex-col items-center text-center">
+                <div className="bg-gradient-to-br from-orange-950/50 via-primary-950/80 to-blue-950/50 backdrop-blur-md p-6 rounded-xl border border-orange-500/30 shadow-lg transform hover:scale-[1.02] transition-transform duration-300 flex flex-col items-center text-center">
                   <div className="bg-gradient-to-br from-orange-500/20 via-blue-500/20 to-orange-500/20 p-3 rounded-full mb-4 border border-orange-500/40">
                     <WavesIcon className="h-8 w-8 text-orange-300" />
                   </div>
@@ -970,7 +970,7 @@ const MobileHome = () => {
               
               <div className="grid md:grid-cols-2 gap-12">
                 <div className="space-y-8">
-                  <div className="bg-primary-950/80 backdrop-blur-md p-6 rounded-xl border border-primary-500/30 shadow-lg">
+                  <div className="bg-gradient-to-br from-orange-950/50 via-primary-950/80 to-blue-950/50 backdrop-blur-md p-6 rounded-xl border border-orange-500/30 shadow-lg">
                     <div className="flex justify-between items-center mb-4">
                       <h3 className="text-xl font-bold text-primary-100">Performance Metrics</h3>
                       <Award className="h-6 w-6 text-yellow-400" />
@@ -1030,7 +1030,7 @@ const MobileHome = () => {
                     </div>
                   </div>
                   
-                  <div className="bg-primary-950/80 backdrop-blur-md p-6 rounded-xl border border-primary-500/30 shadow-lg">
+                  <div className="bg-gradient-to-br from-orange-950/50 via-primary-950/80 to-blue-950/50 backdrop-blur-md p-6 rounded-xl border border-orange-500/30 shadow-lg">
                     <div className="flex justify-between items-center mb-4">
                       <h3 className="text-xl font-bold text-primary-100">Application Guidelines</h3>
                       <Wrench className="h-6 w-6 text-primary-300" />
@@ -1071,7 +1071,7 @@ const MobileHome = () => {
                 </div>
                 
                 <div className="space-y-8">
-                  <div className="bg-primary-950/80 backdrop-blur-md p-6 rounded-xl border border-primary-500/30 shadow-lg">
+                  <div className="bg-gradient-to-br from-orange-950/50 via-primary-950/80 to-blue-950/50 backdrop-blur-md p-6 rounded-xl border border-orange-500/30 shadow-lg">
                     <div className="flex justify-between items-center mb-6">
                       <h3 className="text-xl font-bold text-primary-100">Product Documentation</h3>
                       <FileText className="h-6 w-6 text-primary-300" />
