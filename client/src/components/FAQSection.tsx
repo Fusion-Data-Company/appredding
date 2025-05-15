@@ -102,7 +102,7 @@ const FAQSection = ({ faqs }: FAQProps) => {
               </div>
               
               {/* Main text with premium gradient */}
-              <h2 className="text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-amber-500 to-red-500
+              <h2 className="text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-amber-500 to-blue-500
                 drop-shadow-[0_0px_1px_rgba(251,113,36,0.2)] 
                 [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(251,146,60,0.3)]
                 text-4xl md:text-5xl font-bold relative z-30 mb-6">
@@ -113,7 +113,7 @@ const FAQSection = ({ faqs }: FAQProps) => {
               <div className="absolute inset-0 flex items-center justify-center text-5xl font-bold tracking-tight opacity-10 blur-[3px] text-orange-700/30 z-10 transform scale-105 pointer-events-none">
                 Frequently Asked Questions
               </div>
-              <div className="absolute inset-0 flex items-center justify-center text-5xl font-bold tracking-tight opacity-20 blur-[1px] text-red-900/20 z-10 pointer-events-none">
+              <div className="absolute inset-0 flex items-center justify-center text-5xl font-bold tracking-tight opacity-20 blur-[1px] text-blue-900/20 z-10 pointer-events-none">
                 Frequently Asked Questions
               </div>
               
@@ -125,10 +125,10 @@ const FAQSection = ({ faqs }: FAQProps) => {
               {/* Decorative accent line */}
               <div className="absolute left-[8%] bottom-6 transform group w-14 h-2.5 rounded-full overflow-hidden z-50 transition-all duration-700 hover:w-72">
                 {/* Base gradient */}
-                <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-amber-500 to-red-600"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-amber-500 to-blue-600"></div>
                 
                 {/* Glow effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-amber-500 to-red-600 blur-md opacity-70"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-amber-500 to-blue-600 blur-md opacity-70"></div>
                 
                 {/* Pulsing dots */}
                 <div className="absolute h-full w-4 bg-white/80 right-4 rounded-full blur-[1px] animate-pulse-slow"></div>
