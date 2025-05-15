@@ -347,25 +347,44 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
 
           {/* Premium sidebar with enhanced styling */}
           <div className="space-y-8">
-            {/* Video library container with premium styling */}
-            <div className="group relative transform hover:scale-[1.01] transition-all duration-700">
-              <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/98 to-gray-900/95 backdrop-blur-xl rounded-xl p-8 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7)] z-10">
-                {/* Premium dual-layer gradient border effect - Fire themed */}
-                <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/60 via-transparent to-blue-500/60 opacity-80"></div>
-                <div className="absolute inset-[1px] p-0.5 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-30 pointer-events-none"></div>
-                
-                {/* Corner accent decorations - Fire themed */}
-                <div className="absolute top-0 right-0 w-20 h-20 opacity-20">
-                  <div className="absolute inset-0 bg-gradient-to-bl from-orange-500/40 to-red-500/40 rounded-tr-xl blur-[2px]"></div>
+            {/* Video library container with premium enterprise styling - matching the design from screenshot */}
+            <div className="group/library relative">
+              {/* Premium ambient glow effects - positioned BEHIND the card */}
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-blue-600/15 rounded-full filter blur-[150px] animate-pulse-slow pointer-events-none"></div>
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-orange-500/20 rounded-full filter blur-[130px] animate-pulse-slow-delayed pointer-events-none"></div>
+              
+              {/* Main container with premium enterprise styling */}
+              <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 backdrop-blur-xl rounded-xl p-8 shadow-[0_10px_40px_rgba(0,0,0,0.4)] overflow-hidden border border-orange-500/30 z-10 transform transition-all duration-500 hover:shadow-[0_15px_60px_rgba(249,115,22,0.2)] hover:-translate-y-1">
+                {/* Subtle dots and squares pattern background */}
+                <div className="absolute inset-0 opacity-25 z-0">
+                  <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoMjMyLDEyMSw1OCwwLjIpIiBkPSJNMCAwaDJ2Mkgwem0yIDJoMnYySDJ6Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCBmaWxsPSJ1cmwoI2EpIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIi8+PC9zdmc+')]"></div>
                 </div>
                 
-                {/* Premium heading with enhanced styling */}
+                {/* Corner accent with uniform styling across all corners */}
+                <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none z-10">
+                  <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-orange-500/70 rounded-tl-lg"></div>
+                  <div className="absolute top-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+                </div>
+                <div className="absolute top-0 right-0 w-16 h-16 pointer-events-none z-10">
+                  <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-blue-500/70 rounded-tr-lg"></div>
+                  <div className="absolute top-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
+                </div>
+                <div className="absolute bottom-0 left-0 w-16 h-16 pointer-events-none z-10">
+                  <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-blue-500/70 rounded-bl-lg"></div>
+                  <div className="absolute bottom-0 left-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
+                </div>
+                <div className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none z-10">
+                  <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-orange-500/70 rounded-br-lg"></div>
+                  <div className="absolute bottom-0 right-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+                </div>
+                
+                {/* Premium heading with white text and drop shadow */}
                 <div className="mb-6 pb-4 relative">
-                  <GradientHeading level={3} className="text-2xl mb-1" variant="mixed">
+                  <h3 className="text-2xl font-bold text-white tracking-tight drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] [text-shadow:0_1px_1px_rgba(0,0,0,0.15)] mb-1">
                     Video Library
-                  </GradientHeading>
-                  {/* Animated underline - Fire themed */}
-                  <div className="absolute bottom-0 left-0 w-1/4 h-0.5 bg-gradient-to-r from-orange-500 via-blue-500 to-orange-500 rounded-full"></div>
+                  </h3>
+                  {/* Animated underline with mixed-themed gradient */}
+                  <div className="absolute bottom-0 left-0 w-20 h-0.5 bg-gradient-to-r from-orange-500 to-blue-500 group-hover/library:w-1/3 transition-all duration-700 rounded-full opacity-70 shadow-[0_0_5px_rgba(251,113,36,0.4),_0_0_5px_rgba(59,130,246,0.4)]"></div>
                 </div>
 
                 {/* Premium filter buttons with enhanced styling */}
