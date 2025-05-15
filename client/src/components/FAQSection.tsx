@@ -363,39 +363,19 @@ const FAQSection = ({ faqs }: FAQProps) => {
                 style={{ transitionDuration: '1s' }}
               ></div>
               
-              {/* Random reflection effect 2 - Vertical band */}
-              <div className="absolute inset-0 bg-gradient-to-t from-transparent via-white/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700"
-                   style={{
-                     clipPath: 'polygon(65% 100%, 85% 100%, 80% 0%, 70% 0%)',
-                     transform: 'translateY(100%)',
-                     animation: 'slideUp 2.9s cubic-bezier(0.4, 0, 0.2, 1) infinite',
-                     animationDelay: '0.3s',
-                     animationPlayState: 'paused'
-                   }}
-                   onMouseEnter={(e) => e.currentTarget.style.animationPlayState = 'running'}
-                   onMouseLeave={(e) => e.currentTarget.style.animationPlayState = 'paused'}>
-              </div>
-              
-              {/* Random reflection effect 3 - Horizontal sweep */}
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700"
-                   style={{
-                     clipPath: 'polygon(0 40%, 100% 35%, 100% 65%, 0 60%)',
-                     transform: 'translateX(-100%)',
-                     animation: 'slideRight 4.2s cubic-bezier(0.4, 0, 0.2, 1) infinite',
-                     animationDelay: '0.7s',
-                     animationPlayState: 'paused'
-                   }}
-                   onMouseEnter={(e) => e.currentTarget.style.animationPlayState = 'running'}
-                   onMouseLeave={(e) => e.currentTarget.style.animationPlayState = 'paused'}>
-              </div>
-              
-              {/* Button text with icon */}
-              <span className="relative z-10 flex items-center">
+              {/* Button text with premium styling */}
+              <span 
+                className="relative z-10 font-medium tracking-wider group-hover:scale-105 transition-transform duration-500 flex items-center"
+                style={{ 
+                  textShadow: '0 0 8px rgba(59,130,246,0.25), 0 0 2px rgba(255,255,255,0.6), 0 2px 4px rgba(0,0,0,0.7)',
+                  filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.8))'
+                }}
+              >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-4l-4 4z" />
                 </svg>
                 Contact Our Experts
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
               </span>
