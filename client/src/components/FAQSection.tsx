@@ -289,57 +289,79 @@ const FAQSection = ({ faqs }: FAQProps) => {
           })}
         </div>
 
-        {/* Enhanced Contact CTA with premium styling */}
-        <div className="text-center mt-20">
-          <div className="relative inline-block p-8 bg-gradient-to-br from-gray-900/95 via-gray-950/98 to-gray-900/95 backdrop-blur-xl rounded-xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7)]">
-            {/* Premium gradient border effect */}
-            <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/60 via-amber-500/30 to-blue-500/60 opacity-80"></div>
-            <div className="absolute inset-[1px] p-0.5 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-30 pointer-events-none"></div>
+        {/* Enterprise grade CTA with premium styling */}
+        <div className="text-center mt-20 group/cta">
+          <div className="relative inline-block p-8 bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 backdrop-blur-xl rounded-lg shadow-[0_10px_50px_rgba(0,0,0,0.5)]">
+            {/* Subtle top highlight */}
+            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
             
-            {/* Enhanced message */}
-            <p className="text-xl text-gray-200 mb-6 max-w-xl mx-auto">
+            {/* Fire/water effect borders */}
+            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-orange-500/20 via-amber-500/30 to-orange-500/20 animate-pulse z-10" style={{ animationDuration: '3s' }}></div>
+            <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-blue-600/20 via-cyan-400/20 to-blue-600/20 animate-pulse z-10" style={{ animationDuration: '4s' }}></div>
+            
+            {/* Premium glassmorphism effect */}
+            <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/10 rounded-lg"></div>
+            
+            {/* Corner accent decorations */}
+            <div className="absolute top-0 right-0 w-16 h-16 opacity-40">
+              <div className="absolute right-0 top-0 w-6 h-6 border-r-2 border-t-2 border-orange-500/40 rounded-tr-md"></div>
+              <div className="absolute right-1 top-1 w-8 h-8 border-r border-t border-blue-500/30 rounded-tr-md"></div>
+            </div>
+            <div className="absolute top-0 left-0 w-16 h-16 opacity-40">
+              <div className="absolute left-0 top-0 w-6 h-6 border-l-2 border-t-2 border-orange-500/40 rounded-tl-md"></div>
+              <div className="absolute left-1 top-1 w-8 h-8 border-l border-t border-blue-500/30 rounded-tl-md"></div>
+            </div>
+            <div className="absolute bottom-0 right-0 w-16 h-16 opacity-40">
+              <div className="absolute right-0 bottom-0 w-6 h-6 border-r-2 border-b-2 border-blue-500/40 rounded-br-md"></div>
+              <div className="absolute right-1 bottom-1 w-8 h-8 border-r border-b border-blue-500/30 rounded-br-md"></div>
+            </div>
+            <div className="absolute bottom-0 left-0 w-16 h-16 opacity-40">
+              <div className="absolute left-0 bottom-0 w-6 h-6 border-l-2 border-b-2 border-blue-500/40 rounded-bl-md"></div>
+              <div className="absolute left-1 bottom-1 w-8 h-8 border-l border-b border-blue-500/30 rounded-bl-md"></div>
+            </div>
+            
+            {/* Ambient glow effect */}
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3/4 h-24 bg-gradient-to-r from-orange-500/0 via-orange-500/15 to-orange-500/0 blur-[100px] rounded-full"></div>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3/4 h-24 bg-gradient-to-r from-blue-500/0 via-blue-500/15 to-blue-500/0 blur-[100px] rounded-full"></div>
+            
+            {/* Enterprise message with white drop shadow */}
+            <p 
+              className="text-xl text-white mb-8 max-w-xl mx-auto" 
+              style={{ 
+                textShadow: '0 0 2px rgba(255,255,255,0.6), 0 2px 4px rgba(0,0,0,0.7)',
+                filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.8))'
+              }}
+            >
               <span className="inline-block relative mr-2">
-                <span className="relative z-10">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 inline-block mr-2 text-orange-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                  </svg>
-                </span>
-                <span className="absolute inset-0 rounded-full bg-orange-500/20 filter blur-[10px] opacity-50"></span>
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 inline-block mr-2 text-orange-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                </svg>
               </span>
               Still have questions? Our protective coating experts are here to help.
             </p>
             
-            {/* Elite enterprise-level button - Black with orange border and glow */}
+            {/* Enterprise-grade button with animation effects */}
             <a
               href="#contact"
-              className="group relative inline-flex items-center px-8 py-4 rounded-lg bg-black text-white text-lg font-medium transition-all duration-500 hover:scale-105 overflow-hidden"
+              className="group relative inline-flex items-center px-8 py-4 rounded-lg text-white text-lg font-medium transition-all duration-500 overflow-hidden"
             >
-              {/* Premium 2px border with gradient */}
-              <div className="absolute inset-0 rounded-lg border-2 border-orange-500 opacity-80"></div>
+              {/* Background with gradient */}
+              <div className="absolute inset-0 bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 rounded-lg"></div>
               
-              {/* Enhanced orange glow effect */}
-              <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-40 transition-opacity duration-700"
-                   style={{ boxShadow: '0 0 20px 3px rgba(251, 113, 36, 0.7), 0 0 10px 1px rgba(251, 113, 36, 0.9)' }}>
+              {/* Border with dual-layer effect */}
+              <div className="absolute inset-0 rounded-lg border border-orange-500/40 group-hover:border-orange-500/60 transition-colors duration-500"></div>
+              <div className="absolute inset-[1px] rounded-lg border border-blue-500/30 group-hover:border-blue-500/50 transition-colors duration-500"></div>
+              
+              {/* Glow effect on hover */}
+              <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-0"
+                 style={{ boxShadow: '0 0 15px 2px rgba(59,130,246,0.3), 0 0 15px 2px rgba(249,115,22,0.3)' }}>
               </div>
               
-              {/* Inner gradient highlight */}
-              <div className="absolute inset-[2px] rounded-[6px] bg-gradient-to-b from-white/5 via-transparent to-transparent opacity-80"></div>
-              
-              {/* Corner accent lights */}
-              <div className="absolute top-0 left-0 w-3 h-3 bg-gradient-to-br from-orange-400 to-transparent rounded-tl-lg opacity-60"></div>
-              <div className="absolute bottom-0 right-0 w-3 h-3 bg-gradient-to-tl from-orange-400 to-transparent rounded-br-lg opacity-60"></div>
-              
-              {/* Random reflection effect 1 - Diagonal slash */}
-              <div className="absolute inset-0 bg-gradient-to-br from-white/50 via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700"
-                   style={{
-                     clipPath: 'polygon(0 0, 30% 0, 20% 100%, 0% 100%)',
-                     transform: 'translateX(-100%)',
-                     animation: 'slideRightDiagonal 3.7s cubic-bezier(0.4, 0, 0.2, 1) infinite',
-                     animationPlayState: 'paused'
-                   }}
-                   onMouseEnter={(e) => e.currentTarget.style.animationPlayState = 'running'}
-                   onMouseLeave={(e) => e.currentTarget.style.animationPlayState = 'paused'}>
-              </div>
+              {/* Shimmer effect */}
+              <div 
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform ease-in-out pointer-events-none"
+                style={{ transitionDuration: '1s' }}
+              ></div>
               
               {/* Random reflection effect 2 - Vertical band */}
               <div className="absolute inset-0 bg-gradient-to-t from-transparent via-white/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700"
