@@ -203,7 +203,7 @@ const ContactSection = () => {
                 <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/30 to-amber-500/40 rounded-bl-xl blur-[2px]"></div>
               </div>
               <div className="absolute bottom-0 right-0 w-16 h-16 opacity-40">
-                <div className="absolute inset-0 bg-gradient-to-tl from-red-600/30 to-amber-500/40 rounded-br-xl blur-[2px]"></div>
+                <div className="absolute inset-0 bg-gradient-to-tl from-blue-600/30 to-amber-500/40 rounded-br-xl blur-[2px]"></div>
               </div>
               
               {/* Inner highlight */}
@@ -213,12 +213,12 @@ const ContactSection = () => {
                   {/* Premium Enterprise Label */}
                   <label htmlFor="firstName" className="relative flex items-center mb-2 group">
                     {/* Label text with premium styling */}
-                    <span className="relative z-10 text-sm font-medium bg-clip-text text-transparent bg-gradient-to-r from-amber-300 via-orange-500 to-red-500 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] tracking-wide">
+                    <span className="relative z-10 text-sm font-medium bg-clip-text text-transparent bg-gradient-to-r from-amber-300 via-orange-500 to-blue-500 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] tracking-wide">
                       First Name
                     </span>
                     
                     {/* Animated dot indicator */}
-                    <span className="ml-1 w-1 h-1 rounded-full bg-red-500 opacity-70 group-hover:w-1.5 group-hover:h-1.5 transition-all duration-300"></span>
+                    <span className="ml-1 w-1 h-1 rounded-full bg-blue-500 opacity-70 group-hover:w-1.5 group-hover:h-1.5 transition-all duration-300"></span>
                   </label>
                   
                   {/* Premium Enterprise Input Container */}
@@ -234,7 +234,7 @@ const ContactSection = () => {
                     />
                     
                     {/* Subtle focus effect */}
-                    <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-amber-500/0 to-red-500/0 dark:group-focus-within:from-amber-500/20 dark:group-focus-within:to-red-500/20 opacity-0 transition-opacity duration-300 pointer-events-none"></div>
+                    <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-amber-500/0 to-blue-500/0 dark:group-focus-within:from-amber-500/20 dark:group-focus-within:to-blue-500/20 opacity-0 transition-opacity duration-300 pointer-events-none"></div>
                   </div>
                   {formErrors.firstName && <p className="text-red-500 text-xs mt-1">{formErrors.firstName}</p>}
                 </div>
@@ -242,12 +242,12 @@ const ContactSection = () => {
                   {/* Premium Enterprise Label */}
                   <label htmlFor="lastName" className="relative flex items-center mb-2 group">
                     {/* Label text with premium styling */}
-                    <span className="relative z-10 text-sm font-medium bg-clip-text text-transparent bg-gradient-to-r from-amber-300 via-orange-500 to-red-500 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] tracking-wide">
+                    <span className="relative z-10 text-sm font-medium bg-clip-text text-transparent bg-gradient-to-r from-amber-300 via-orange-500 to-blue-500 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] tracking-wide">
                       Last Name
                     </span>
                     
                     {/* Animated dot indicator */}
-                    <span className="ml-1 w-1 h-1 rounded-full bg-red-500 opacity-70 group-hover:w-1.5 group-hover:h-1.5 transition-all duration-300"></span>
+                    <span className="ml-1 w-1 h-1 rounded-full bg-blue-500 opacity-70 group-hover:w-1.5 group-hover:h-1.5 transition-all duration-300"></span>
                   </label>
                   
                   {/* Premium Enterprise Input Container */}
@@ -263,7 +263,7 @@ const ContactSection = () => {
                     />
                     
                     {/* Subtle focus effect */}
-                    <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-amber-500/0 to-red-500/0 dark:group-focus-within:from-amber-500/20 dark:group-focus-within:to-red-500/20 opacity-0 transition-opacity duration-300 pointer-events-none"></div>
+                    <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-amber-500/0 to-blue-500/0 dark:group-focus-within:from-amber-500/20 dark:group-focus-within:to-blue-500/20 opacity-0 transition-opacity duration-300 pointer-events-none"></div>
                   </div>
                   {formErrors.lastName && <p className="text-red-500 text-xs mt-1">{formErrors.lastName}</p>}
                 </div>
@@ -274,12 +274,12 @@ const ContactSection = () => {
                 {/* Premium Enterprise Label */}
                 <label htmlFor="email" className="relative flex items-center mb-2 group">
                   {/* Label text with premium styling */}
-                  <span className="relative z-10 text-sm font-medium bg-clip-text text-transparent bg-gradient-to-r from-amber-300 via-orange-500 to-red-500 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] tracking-wide">
+                  <span className="relative z-10 text-sm font-medium bg-clip-text text-transparent bg-gradient-to-r from-amber-300 via-orange-500 to-blue-500 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] tracking-wide">
                     Email Address
                   </span>
                   
                   {/* Animated dot indicator */}
-                  <span className="ml-1 w-1 h-1 rounded-full bg-red-500 opacity-70 group-hover:w-1.5 group-hover:h-1.5 transition-all duration-300"></span>
+                  <span className="ml-1 w-1 h-1 rounded-full bg-blue-500 opacity-70 group-hover:w-1.5 group-hover:h-1.5 transition-all duration-300"></span>
                 </label>
                 
                 {/* Premium Enterprise Input Container */}
@@ -301,8 +301,8 @@ const ContactSection = () => {
                   
                   {/* Premium glow effect on focus */}
                   <div className="absolute inset-0 rounded-lg opacity-0 group-focus-within:opacity-100 transition-opacity duration-500 pointer-events-none">
-                    <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-amber-500/0 to-red-500/0 dark:group-focus-within:from-amber-500/20 dark:group-focus-within:to-red-500/20 opacity-0 group-focus-within:opacity-100 transition-opacity duration-300"></div>
-                    <div className="absolute right-2 top-1/2 transform -translate-y-1/2 w-8 h-8 bg-gradient-to-r from-amber-500/0 to-red-500/0 group-focus-within:from-amber-500/10 group-focus-within:to-red-500/10 rounded-full blur-md opacity-0 group-focus-within:opacity-100 transition-opacity duration-300"></div>
+                    <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-amber-500/0 to-blue-500/0 dark:group-focus-within:from-amber-500/20 dark:group-focus-within:to-blue-500/20 opacity-0 group-focus-within:opacity-100 transition-opacity duration-300"></div>
+                    <div className="absolute right-2 top-1/2 transform -translate-y-1/2 w-8 h-8 bg-gradient-to-r from-amber-500/0 to-blue-500/0 group-focus-within:from-amber-500/10 group-focus-within:to-blue-500/10 rounded-full blur-md opacity-0 group-focus-within:opacity-100 transition-opacity duration-300"></div>
                   </div>
                 </div>
                 
@@ -320,7 +320,7 @@ const ContactSection = () => {
                 {/* Premium Enterprise Label */}
                 <label htmlFor="phone" className="relative flex items-center mb-2 group">
                   {/* Label text with premium styling */}
-                  <span className="relative z-10 text-sm font-medium bg-clip-text text-transparent bg-gradient-to-r from-amber-300 via-orange-500 to-red-500 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] tracking-wide">
+                  <span className="relative z-10 text-sm font-medium bg-clip-text text-transparent bg-gradient-to-r from-amber-300 via-orange-500 to-blue-500 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] tracking-wide">
                     Phone Number
                   </span>
                   
@@ -347,8 +347,8 @@ const ContactSection = () => {
                   
                   {/* Premium glow effect on focus */}
                   <div className="absolute inset-0 rounded-lg opacity-0 group-focus-within:opacity-100 transition-opacity duration-500 pointer-events-none">
-                    <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-amber-500/0 to-red-500/0 dark:group-focus-within:from-amber-500/20 dark:group-focus-within:to-red-500/20 opacity-0 group-focus-within:opacity-100 transition-opacity duration-300"></div>
-                    <div className="absolute right-2 top-1/2 transform -translate-y-1/2 w-8 h-8 bg-gradient-to-r from-amber-500/0 to-red-500/0 group-focus-within:from-amber-500/10 group-focus-within:to-red-500/10 rounded-full blur-md opacity-0 group-focus-within:opacity-100 transition-opacity duration-300"></div>
+                    <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-amber-500/0 to-blue-500/0 dark:group-focus-within:from-amber-500/20 dark:group-focus-within:to-blue-500/20 opacity-0 group-focus-within:opacity-100 transition-opacity duration-300"></div>
+                    <div className="absolute right-2 top-1/2 transform -translate-y-1/2 w-8 h-8 bg-gradient-to-r from-amber-500/0 to-blue-500/0 group-focus-within:from-amber-500/10 group-focus-within:to-blue-500/10 rounded-full blur-md opacity-0 group-focus-within:opacity-100 transition-opacity duration-300"></div>
                   </div>
                 </div>
                 
@@ -364,12 +364,12 @@ const ContactSection = () => {
                 {/* Premium Enterprise Label */}
                 <label htmlFor="interest" className="relative flex items-center mb-2 group">
                   {/* Label text with premium styling */}
-                  <span className="relative z-10 text-sm font-medium bg-clip-text text-transparent bg-gradient-to-r from-amber-300 via-orange-500 to-red-500 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] tracking-wide">
+                  <span className="relative z-10 text-sm font-medium bg-clip-text text-transparent bg-gradient-to-r from-amber-300 via-orange-500 to-blue-500 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] tracking-wide">
                     I'm interested in
                   </span>
                   
                   {/* Animated dot indicator */}
-                  <span className="ml-1 w-1 h-1 rounded-full bg-red-500 opacity-70 group-hover:w-1.5 group-hover:h-1.5 transition-all duration-300"></span>
+                  <span className="ml-1 w-1 h-1 rounded-full bg-blue-500 opacity-70 group-hover:w-1.5 group-hover:h-1.5 transition-all duration-300"></span>
                 </label>
                 
                 {/* Premium Enterprise Select Container */}
@@ -398,16 +398,16 @@ const ContactSection = () => {
                     </select>
                     
                     {/* Custom dropdown arrow for enhanced styling */}
-                    <div className="absolute right-4 top-1/2 transform -translate-y-1/2 text-lg text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-red-500 pointer-events-none">
+                    <div className="absolute right-4 top-1/2 transform -translate-y-1/2 text-lg text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-blue-500 pointer-events-none">
                       <i className="fas fa-chevron-down"></i>
                     </div>
                     
                     {/* Animated glow effect on focus */}
-                    <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-amber-500/0 to-red-500/0 dark:group-focus-within:from-amber-500/10 dark:group-focus-within:to-red-500/10 opacity-0 group-focus-within:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+                    <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-amber-500/0 to-blue-500/0 dark:group-focus-within:from-amber-500/10 dark:group-focus-within:to-blue-500/10 opacity-0 group-focus-within:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
                   </div>
                   
                   {/* Enhanced hover effect */}
-                  <div className="absolute inset-0 rounded-lg dark:bg-gradient-to-r dark:from-amber-500/5 dark:to-red-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+                  <div className="absolute inset-0 rounded-lg dark:bg-gradient-to-r dark:from-amber-500/5 dark:to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
                 </div>
               </div>
               
@@ -416,12 +416,12 @@ const ContactSection = () => {
                 {/* Premium Enterprise Label */}
                 <label htmlFor="message" className="relative flex items-center mb-2 group">
                   {/* Label text with premium styling */}
-                  <span className="relative z-10 text-sm font-medium bg-clip-text text-transparent bg-gradient-to-r from-amber-300 via-orange-500 to-red-500 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] tracking-wide">
+                  <span className="relative z-10 text-sm font-medium bg-clip-text text-transparent bg-gradient-to-r from-amber-300 via-orange-500 to-blue-500 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] tracking-wide">
                     Message
                   </span>
                   
                   {/* Animated dot indicator */}
-                  <span className="ml-1 w-1 h-1 rounded-full bg-red-500 opacity-70 group-hover:w-1.5 group-hover:h-1.5 transition-all duration-300"></span>
+                  <span className="ml-1 w-1 h-1 rounded-full bg-blue-500 opacity-70 group-hover:w-1.5 group-hover:h-1.5 transition-all duration-300"></span>
                 </label>
                 
                 {/* Premium Enterprise Textarea Container */}
@@ -450,13 +450,13 @@ const ContactSection = () => {
                     
                     {/* Premium glow effect on focus */}
                     <div className="absolute inset-0 rounded-lg opacity-0 group-focus-within:opacity-100 transition-opacity duration-500 pointer-events-none">
-                      <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-amber-500/0 to-red-500/0 dark:group-focus-within:from-amber-500/20 dark:group-focus-within:to-red-500/20 opacity-0 group-focus-within:opacity-100 transition-opacity duration-300"></div>
-                      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1/2 h-1 bg-gradient-to-r from-amber-500/0 to-red-500/0 group-focus-within:from-amber-500/30 group-focus-within:to-red-500/30 rounded-full blur-md opacity-0 group-focus-within:opacity-100 transition-opacity duration-300"></div>
+                      <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-amber-500/0 to-blue-500/0 dark:group-focus-within:from-amber-500/20 dark:group-focus-within:to-blue-500/20 opacity-0 group-focus-within:opacity-100 transition-opacity duration-300"></div>
+                      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1/2 h-1 bg-gradient-to-r from-amber-500/0 to-blue-500/0 group-focus-within:from-amber-500/30 group-focus-within:to-blue-500/30 rounded-full blur-md opacity-0 group-focus-within:opacity-100 transition-opacity duration-300"></div>
                     </div>
                   </div>
                   
                   {/* Enhanced hover effect */}
-                  <div className="absolute inset-0 rounded-lg dark:bg-gradient-to-r dark:from-amber-500/5 dark:to-red-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+                  <div className="absolute inset-0 rounded-lg dark:bg-gradient-to-r dark:from-amber-500/5 dark:to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
                 </div>
                 
                 {/* Helper text */}
@@ -573,7 +573,7 @@ const ContactSection = () => {
                           <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 shadow-[0_0_20px_rgba(251,113,36,0.6)]"></div>
                           
                           {/* Icon */}
-                          <i className="fas fa-map-marker-alt text-2xl text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-red-500 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] relative z-10"></i>
+                          <i className="fas fa-map-marker-alt text-2xl text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-blue-500 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] relative z-10"></i>
                           
                           {/* Animated concentric ring for enterprise effect */}
                           <div className="absolute inset-0 rounded-full border border-orange-500/20 scale-[1.15] opacity-0 group-hover:opacity-100 group-hover:scale-[1.4] transition-all duration-700"></div>
@@ -587,10 +587,10 @@ const ContactSection = () => {
                       <div>
                         {/* Enhanced title with animated underline */}
                         <div className="relative mb-3 pb-2">
-                          <h4 className="font-bold text-lg text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-red-500 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">Serving</h4>
+                          <h4 className="font-bold text-lg text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-blue-500 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">Serving</h4>
                           
                           {/* Animated underline */}
-                          <div className="absolute bottom-0 left-0 w-1/3 h-0.5 bg-gradient-to-r from-orange-500 to-red-500 group-hover:w-1/2 transition-all duration-700 rounded-full opacity-70"></div>
+                          <div className="absolute bottom-0 left-0 w-1/3 h-0.5 bg-gradient-to-r from-orange-500 to-blue-500 group-hover:w-1/2 transition-all duration-700 rounded-full opacity-70"></div>
                         </div>
                         
                         {/* Enhanced content text */}
@@ -772,11 +772,11 @@ const ContactSection = () => {
                     
                     {/* Premium heading with enhanced styling */}
                     <div className="relative z-10 inline-block" style={{ position: 'relative', top: '60px' }}>
-                      <h4 className="font-bold text-xl relative bg-clip-text text-transparent bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 inline-block">
+                      <h4 className="font-bold text-xl relative bg-clip-text text-transparent bg-gradient-to-r from-amber-400 via-orange-500 to-blue-500 inline-block">
                         Connect With Us
                         
                         {/* Animated underline */}
-                        <div className="absolute bottom-0 left-0 w-1/3 h-0.5 bg-gradient-to-r from-orange-500 to-red-500 group-hover:w-full transition-all duration-700 rounded-full opacity-70"></div>
+                        <div className="absolute bottom-0 left-0 w-1/3 h-0.5 bg-gradient-to-r from-orange-500 to-blue-500 group-hover:w-full transition-all duration-700 rounded-full opacity-70"></div>
                       </h4>
                     </div>
                   </div>
@@ -784,7 +784,7 @@ const ContactSection = () => {
                   {/* Premium Enterprise Social Icons Container */}
                   <div className="mt-14 pt-6 border-t border-gray-800/30 relative">
                     {/* Ambient glow behind icons */}
-                    <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-amber-500/5 via-blue-500/5 to-red-500/5 blur-[50px] opacity-50"></div>
+                    <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-amber-500/5 via-blue-500/5 to-blue-500/5 blur-[50px] opacity-50"></div>
                     
                     <div className="flex space-x-6 inline-flex justify-center ml-10" style={{position: "relative", zIndex: 55}}>
                       {/* Facebook Icon - Premium Enterprise Styling */}
@@ -938,7 +938,7 @@ const ContactSection = () => {
               {/* Logo icon */}
               <div className="relative">
                 <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-gray-900/95 backdrop-blur-xl rounded-full p-2 shadow-[0_5px_15px_rgba(0,0,0,0.3)] z-10 border border-amber-500/20">
-                  <i className="fas fa-shield-alt text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-red-500 text-sm"></i>
+                  <i className="fas fa-shield-alt text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-blue-500 text-sm"></i>
                 </div>
                 
                 {/* Subtle light effect */}
@@ -946,7 +946,7 @@ const ContactSection = () => {
               </div>
               
               {/* Logo text */}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 font-semibold text-base">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-500 to-blue-500 font-semibold text-base">
                 Praetorian
               </span>
             </div>

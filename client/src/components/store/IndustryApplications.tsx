@@ -323,7 +323,7 @@ const IndustryApplications = () => {
             </div>
             
             {/* Bottom horizontal accent line with enhanced glow */}
-            <span className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 w-3/4 h-1.5 bg-gradient-to-r from-transparent via-red-400/60 to-transparent rounded-full blur-sm animate-pulse-slow"></span>
+            <span className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 w-3/4 h-1.5 bg-gradient-to-r from-transparent via-blue-400/60 to-transparent rounded-full blur-sm animate-pulse-slow"></span>
             
             {/* Left bottom corner accent */}
             <span className="absolute -bottom-4 -left-4 w-8 h-8 border-b-2 border-l-2 border-orange-500/50 rounded-bl-lg"></span>
