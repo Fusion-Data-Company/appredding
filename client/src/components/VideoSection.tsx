@@ -437,98 +437,183 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
                   </div>
                 </div>
 
-                {/* Premium video list with enhanced styling */}
+                {/* Premium enterprise-styled video list */}
                 <div className="space-y-4 max-h-[400px] overflow-y-auto pr-2 custom-scrollbar">
                   {filteredVideos.length > 0 ? (
                     filteredVideos.map((video, idx) => (
                       <div
                         key={video.id}
-                        className={`relative group/item p-4 rounded-lg cursor-pointer transition-all ${
-                          activeVideo?.id === video.id
-                            ? "bg-gradient-to-r from-gray-800/90 to-gray-700/90 transform scale-[1.02]"
-                            : "bg-gradient-to-r from-gray-900/80 to-gray-800/80 hover:scale-[1.02]"
-                        }`}
+                        className="relative group/item rounded-lg cursor-pointer"
                         onClick={() => setActiveVideo(video)}
                       >
-                        {/* Premium gradient border effect */}
-                        <div className={`absolute inset-0 p-0.5 rounded-lg bg-gradient-to-r 
-                          ${idx % 3 === 0 ? 'from-orange-500/40 to-red-500/40' : 
-                                   idx % 3 === 1 ? 'from-blue-500/40 to-cyan-500/40' :
-                                                  'from-orange-500/40 to-blue-500/40'} 
-                          opacity-${activeVideo?.id === video.id ? '70' : '40'}`}>
+                        {/* Orange/Blue ambient glow effect behind card */}
+                        <div className={`absolute w-full h-full rounded-lg opacity-0 ${
+                          activeVideo?.id === video.id ? 'opacity-30' : 'group-hover/item:opacity-20'
+                        } transition-opacity duration-300 pointer-events-none`}
+                        style={{ 
+                          boxShadow: idx % 2 === 0 
+                            ? '0 0 20px 2px rgba(251, 113, 36, 0.45)' 
+                            : '0 0 20px 2px rgba(59, 130, 246, 0.45)' 
+                        }}>
                         </div>
                         
-                        <div className="flex gap-4 relative z-10">
-                          {/* Enhanced thumbnail with premium styling */}
-                          <div className="relative flex-shrink-0 w-[100px] h-[60px] bg-gray-800 rounded-md overflow-hidden">
-                            {video.id === "localVideo" ? (
-                              <div className="w-full h-full bg-gradient-to-br from-orange-900 to-red-700 flex items-center justify-center relative overflow-hidden">
-                                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIgZD0iTTAgMGgydjJIMHptMiAyaDJ2MkgyeiIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgZmlsbD0idXJsKCNhKSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPjwvc3ZnPg==')]"></div>
-                                <div className="absolute -top-4 -left-6 w-20 h-20 bg-orange-600/30 rounded-full filter blur-xl animate-pulse-slow-delayed"></div>
-                                <i className="fas fa-fire text-lg text-white"></i>
-                              </div>
-                            ) : (
-                              <img
-                                src={video.thumbnail || `https://i.ytimg.com/vi/${video.id}/mqdefault.jpg`}
-                                alt={video.title}
-                                className="w-full h-full object-cover"
-                              />
-                            )}
-                            
-                            {/* Premium play button overlay */}
-                            <div className="absolute inset-0 flex items-center justify-center bg-black/40 group-hover/item:bg-black/20 transition-all">
-                              <div className="w-8 h-8 rounded-full bg-orange-500/90 flex items-center justify-center transform group-hover/item:scale-110 transition-transform">
-                                <Play className="h-4 w-4 text-white" />
-                              </div>
-                            </div>
+                        {/* Main content card with premium styling */}
+                        <div className={`relative p-3.5 rounded-lg border transition-all duration-300 ${
+                          activeVideo?.id === video.id
+                            ? "bg-gradient-to-r from-gray-900/95 via-gray-950/95 to-black/95 border-orange-500/40 transform scale-[1.02] shadow-[0_8px_25px_rgba(0,0,0,0.3)]"
+                            : "bg-gradient-to-r from-gray-900/95 via-gray-950/95 to-black/95 border-gray-700/40 group-hover/item:border-orange-500/30 group-hover/item:scale-[1.02] group-hover/item:shadow-[0_5px_15px_rgba(0,0,0,0.2)]"
+                        }`}>
+                          {/* Corner accent elements - smaller size for list items */}
+                          <div className="absolute top-0 left-0 w-10 h-10 pointer-events-none">
+                            <div className={`absolute top-0 left-0 w-4 h-4 border-t border-l rounded-tl-md ${
+                              activeVideo?.id === video.id ? 'border-orange-500/70' : 'border-blue-500/40 group-hover/item:border-orange-500/50'
+                            } transition-colors duration-300`}></div>
+                          </div>
+                          <div className="absolute top-0 right-0 w-10 h-10 pointer-events-none">
+                            <div className={`absolute top-0 right-0 w-4 h-4 border-t border-r rounded-tr-md ${
+                              activeVideo?.id === video.id ? 'border-blue-500/70' : 'border-orange-500/40 group-hover/item:border-blue-500/50'
+                            } transition-colors duration-300`}></div>
+                          </div>
+                          <div className="absolute bottom-0 left-0 w-10 h-10 pointer-events-none">
+                            <div className={`absolute bottom-0 left-0 w-4 h-4 border-b border-l rounded-bl-md ${
+                              activeVideo?.id === video.id ? 'border-blue-500/70' : 'border-blue-500/40 group-hover/item:border-blue-500/50'
+                            } transition-colors duration-300`}></div>
+                          </div>
+                          <div className="absolute bottom-0 right-0 w-10 h-10 pointer-events-none">
+                            <div className={`absolute bottom-0 right-0 w-4 h-4 border-b border-r rounded-br-md ${
+                              activeVideo?.id === video.id ? 'border-orange-500/70' : 'border-orange-500/40 group-hover/item:border-orange-500/50'
+                            } transition-colors duration-300`}></div>
                           </div>
                           
-                          {/* Enhanced content with premium styling */}
-                          <div className="flex-grow min-w-0">
-                            <h4 className="font-medium text-md mb-1.5 line-clamp-2 text-transparent bg-clip-text bg-gradient-to-r from-gray-200 to-gray-100 group-hover/item:from-orange-100 group-hover/item:to-white transition-colors">
-                              {video.title}
-                            </h4>
-                            <div className="flex items-center text-xs text-gray-400">
-                              <span className="text-orange-300 group-hover/item:text-orange-200 transition-colors">{video.duration}</span>
-                              <span className="mx-1.5 text-gray-500">•</span>
-                              <span className="capitalize text-blue-300 group-hover/item:text-blue-200 transition-colors">{video.category}</span>
+                          {/* Main content with enhanced gap */}
+                          <div className="flex gap-5 relative z-10">
+                            {/* Enhanced thumbnail with premium enterprise styling */}
+                            <div className="relative flex-shrink-0 w-[100px] h-[60px] rounded-md overflow-hidden">
+                              {/* Premium border effect for thumbnail */}
+                              <div className={`absolute inset-0 p-0.5 rounded-md ${
+                                activeVideo?.id === video.id 
+                                  ? 'bg-gradient-to-r from-orange-500/60 to-blue-500/60 opacity-80' 
+                                  : 'bg-gradient-to-r from-orange-500/20 to-blue-500/20 opacity-60 group-hover/item:opacity-80'
+                              } transition-all duration-300`}></div>
+                            
+                              {video.id === "localVideo" ? (
+                                <div className="w-full h-full bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center relative overflow-hidden">
+                                  <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIgZD0iTTAgMGgydjJIMHptMiAyaDJ2MkgyeiIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgZmlsbD0idXJsKCNhKSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPjwvc3ZnPg==')]"></div>
+                                  {/* Dual ambient glow effect in thumbnail */}
+                                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-full filter blur-[12px]" 
+                                       style={{ background: 'radial-gradient(circle, rgba(251,113,36,0.3) 0%, rgba(59,130,246,0.3) 100%)' }}></div>
+                                  <i className="fas fa-fire text-lg text-white"></i>
+                                </div>
+                              ) : (
+                                <img
+                                  src={video.thumbnail || `https://i.ytimg.com/vi/${video.id}/mqdefault.jpg`}
+                                  alt={video.title}
+                                  className="w-full h-full object-cover relative z-[5]"
+                                />
+                              )}
+                              
+                              {/* Premium play button overlay */}
+                              <div className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover/item:opacity-100 transition-opacity duration-300 z-10">
+                                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-orange-500 to-blue-500 flex items-center justify-center shadow-lg transform group-hover/item:scale-110 transition-transform duration-300">
+                                  <Play className="h-4 w-4 text-white" />
+                                </div>
+                              </div>
+                            </div>
+                            
+                            {/* Enhanced content with white text and improved spacing */}
+                            <div className="flex-1 min-w-0 flex flex-col justify-center">
+                              <h4 className={`text-sm font-medium truncate leading-tight ${
+                                activeVideo?.id === video.id 
+                                  ? 'text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.5)]' 
+                                  : 'text-gray-200 group-hover/item:text-white'
+                              } transition-colors duration-300`}>
+                                {video.title}
+                              </h4>
+                              <p className="text-xs text-gray-400 mt-1 line-clamp-1 group-hover/item:line-clamp-2 transition-all duration-300">
+                                {video.description}
+                              </p>
+                              
+                              {/* Elegant video metadata row */}
+                              <div className="flex items-center justify-between mt-1.5">
+                                <span className={`text-xs ${
+                                  idx % 2 === 0 ? 'text-orange-400' : 'text-blue-400'
+                                } font-medium`}>
+                                  {video.category}
+                                </span>
+                                <div className="flex items-center">
+                                  <div className="w-3 h-3 rounded-full bg-gray-800 flex items-center justify-center mr-1">
+                                    <i className="fas fa-clock text-orange-500 text-[8px]"></i>
+                                  </div>
+                                  <span className="text-[10px] text-gray-500">{video.duration}</span>
+                                </div>
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
                     ))
                   ) : (
-                    <div className="relative bg-gradient-to-r from-gray-900/90 to-gray-800/90 rounded-lg py-8 px-6 text-center">
-                      {/* Premium gradient border effect */}
-                      <div className="absolute inset-0 p-0.5 rounded-lg bg-gradient-to-r from-gray-700/40 to-gray-600/40 opacity-70"></div>
-                      
-                      <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-gray-800/80 flex items-center justify-center relative">
-                        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-gray-700/50 to-gray-600/50"></div>
-                        <Info className="h-6 w-6 text-gray-400 relative z-10" />
+                    <div className="text-center py-8 border border-gray-800 rounded-lg bg-gradient-to-r from-gray-900/95 via-gray-950/95 to-black/95">
+                      <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-gray-800/80 border border-gray-700/50 flex items-center justify-center">
+                        <Info className="h-5 w-5 text-orange-500/70" />
                       </div>
-                      <p className="text-gray-400 text-lg">No videos in this category</p>
+                      <p className="text-gray-400 text-sm">No videos found for the selected category.</p>
                     </div>
                   )}
                 </div>
 
-                {/* Premium YouTube button with enhanced styling */}
-                <div className="mt-8 pt-6 border-t border-gray-700/30 relative">
-                  {/* Decorative line */}
-                  <div className="absolute top-0 left-1/4 w-1/2 h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+                {/* Premium YouTube button with enterprise styling */}
+                <div className="mt-8 pt-6 border-t border-gray-800/50 relative">
+                  {/* Decorative divider with premium styling */}
+                  <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-orange-500/20 to-transparent"></div>
                   
-                  <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" 
-                     className="group/yt relative block w-full py-3 px-4 rounded-lg bg-gradient-to-r from-gray-900/90 to-gray-800/90 text-gray-200 hover:text-white transition-colors">
-                    {/* Premium gradient border effect */}
-                    <div className="absolute inset-0 p-0.5 rounded-lg bg-gradient-to-r from-red-600/50 to-red-500/50 opacity-60 group-hover/yt:opacity-80 transition-opacity"></div>
-                    
-                    <div className="flex items-center justify-center">
-                      <i className="fab fa-youtube text-xl mr-2 text-red-500"></i>
-                      <span className="text-md font-medium">Visit Our YouTube Channel</span>
-                      <div className="ml-2 opacity-0 group-hover/yt:opacity-100 transform group-hover/yt:translate-x-1 transition-all">
-                        <i className="fas fa-arrow-right text-sm"></i>
-                      </div>
+                  {/* Enterprise-styled YouTube button */}
+                  <div className="group/yt relative rounded-lg overflow-hidden">
+                    {/* Ambient glow effect behind button */}
+                    <div className="absolute -inset-1 opacity-0 group-hover/yt:opacity-100 transition-opacity duration-700 pointer-events-none"
+                         style={{ 
+                           background: 'radial-gradient(circle at center, rgba(239,68,68,0.25) 0%, rgba(0,0,0,0) 70%)'
+                         }}>
                     </div>
-                  </a>
+                    
+                    <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" 
+                       className="relative block w-full py-3.5 px-4 rounded-lg bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 border border-gray-700/50 group-hover/yt:border-red-500/40 text-white text-center transition-all duration-300 hover:shadow-[0_8px_25px_rgba(0,0,0,0.3)] transform group-hover/yt:translate-y-[-1px] overflow-hidden z-20">
+                      
+                      {/* Corner accent styling matching rest of site */}
+                      <div className="absolute top-0 left-0 w-10 h-10 pointer-events-none">
+                        <div className="absolute top-0 left-0 w-4 h-4 border-t border-l border-red-500/50 rounded-tl-md"></div>
+                      </div>
+                      <div className="absolute top-0 right-0 w-10 h-10 pointer-events-none">
+                        <div className="absolute top-0 right-0 w-4 h-4 border-t border-r border-red-500/50 rounded-tr-md"></div>
+                      </div>
+                      <div className="absolute bottom-0 left-0 w-10 h-10 pointer-events-none">
+                        <div className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-red-500/50 rounded-bl-md"></div>
+                      </div>
+                      <div className="absolute bottom-0 right-0 w-10 h-10 pointer-events-none">
+                        <div className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-red-500/50 rounded-br-md"></div>
+                      </div>
+                      
+                      {/* Content with premium styling */}
+                      <div className="flex items-center justify-center">
+                        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center shadow-md mr-3">
+                          <i className="fab fa-youtube text-lg text-white"></i>
+                        </div>
+                        <span className="text-base font-medium drop-shadow-[0_1px_1px_rgba(0,0,0,0.5)]">Visit Our YouTube Channel</span>
+                        <div className="flex items-center justify-center ml-3 w-8 h-8 rounded-full bg-gray-800/50 border border-gray-700/50 opacity-70 group-hover/yt:opacity-100 group-hover/yt:border-red-500/30 transform group-hover/yt:translate-x-1 transition-all duration-300">
+                          <i className="fas fa-arrow-right text-xs text-white"></i>
+                        </div>
+                      </div>
+                      
+                      {/* Subtle shine effect */}
+                      <div className="absolute inset-0 opacity-0 group-hover/yt:opacity-100 transition-opacity duration-1000"
+                           style={{
+                             background: 'linear-gradient(45deg, transparent 45%, rgba(255,255,255,0.1) 50%, transparent 55%)',
+                             backgroundSize: '200% 200%',
+                             animation: 'shine 3s infinite'
+                           }}>
+                      </div>
+                    </a>
+                  </div>
                 </div>
               </div>
               
