@@ -10,15 +10,15 @@ const premiumButtonVariants = cva(
     variants: {
       variant: {
         default: 
-          "bg-black text-white border-2 border-orange-500 shadow-lg hover:shadow-[0_0_15px_rgba(59,130,246,0.5)]",
+          "bg-black text-white border-2 border-black shadow-lg hover:shadow-[0_0_15px_rgba(59,130,246,0.5)]",
         gold: 
-          "bg-black text-white border-2 border-orange-500 shadow-lg hover:shadow-[0_0_15px_rgba(59,130,246,0.5)]",
+          "bg-black text-white border-2 border-black shadow-lg hover:shadow-[0_0_15px_rgba(59,130,246,0.5)]",
         fire: 
-          "bg-black text-white border-2 border-orange-500 shadow-lg hover:shadow-[0_0_20px_rgba(59,130,246,0.6)] transform transition-all duration-500 hover:scale-[1.02]",
+          "bg-black text-white border-2 border-black shadow-lg hover:shadow-[0_0_20px_rgba(59,130,246,0.6)] transform transition-all duration-500 hover:scale-[1.02]",
         outline: 
-          "bg-black text-white border-2 border-orange-500/80 shadow-lg hover:shadow-[0_0_15px_rgba(59,130,246,0.5)]",
+          "bg-black text-white border-2 border-black shadow-lg hover:shadow-[0_0_15px_rgba(59,130,246,0.5)]",
         ghost: 
-          "bg-black text-white border-2 border-orange-500/80 shadow-lg hover:shadow-[0_0_15px_rgba(59,130,246,0.4)]"
+          "bg-black text-white border-2 border-black shadow-lg hover:shadow-[0_0_15px_rgba(59,130,246,0.4)]"
       },
       size: {
         sm: "h-9 px-3 py-2 text-xs rounded-lg",
@@ -183,11 +183,14 @@ const PremiumButton = forwardRef<HTMLButtonElement, PremiumButtonProps>(
               {/* Additional hover shimmer effect on black surface */}
               <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 -translate-x-full group-hover:translate-x-full transform transition-transform duration-1000 rounded-lg"></div>
               
-              {/* Orange ambient glow behind the button */}
-              <div className="absolute -inset-[1px] rounded-lg opacity-40 transition-opacity duration-500"
+              {/* Extra shimmer effect with different timing */}
+              <div className="absolute inset-0 w-2/3 h-full bg-gradient-to-r from-transparent via-white/8 to-transparent opacity-10 -translate-x-full animate-shimmer-medium transform rounded-lg"></div>
+              
+              {/* Enhanced orange ambient glow behind the button */}
+              <div className="absolute -inset-[3px] rounded-lg opacity-40 group-hover:opacity-70 transition-opacity duration-500"
                   style={{ 
                     background: 'linear-gradient(to right, rgba(255,111,0,0.3), rgba(255,89,0,0.2) 35%, rgba(255,79,0,0.3) 65%, rgba(255,111,0,0.3))',
-                    boxShadow: 'inset 0 1px 0 0 rgba(255,147,47,0.4), inset 0 -1px 0 0 rgba(255,147,47,0.4), 0 0 8px 2px rgba(255,79,0,0.5), 0 0 0 1px rgba(255, 255, 255, 0.1)',
+                    boxShadow: '0 0 12px 3px rgba(255,79,0,0.4), 0 0 6px 1px rgba(255,147,47,0.3)',
                     animation: 'borderPulse 2s ease-in-out infinite',
                     zIndex: -1
                   }}>
