@@ -156,19 +156,19 @@ const ProductComparison = () => {
               </div>
               
               {/* Shimmer heading */}
-              <div className="relative z-10 mb-8 px-6 py-2 overflow-hidden">
+              <div className="relative z-10 mb-8 px-6 py-2 overflow-hidden w-full">
                 {/* Animated glow behind text */}
                 <div className="absolute inset-0 bg-gradient-to-r from-orange-600/10 via-blue-500/20 to-orange-600/10 opacity-50 blur-xl animate-pulse-slow"></div>
                 
                 {/* Heading with enhanced enterprise styling and shadows */}
-                <div className="shimmer-fire-text font-bold text-4xl tracking-tight relative z-10">
+                <div className="shimmer-fire-text font-bold text-3xl md:text-4xl lg:text-5xl w-full tracking-tight relative z-10">
                   {/* Background glow for letter definition */}
-                  <div className="absolute inset-0 flex justify-center items-center text-4xl font-bold tracking-tight text-orange-900/10 blur-[5px] scale-110">
+                  <div className="absolute inset-0 flex justify-center items-center text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-orange-900/10 blur-[5px] scale-110">
                     How Praetorian Outperforms the Competition
                   </div>
                   
                   {/* Main text with white styling */}
-                  <span className="relative z-20 text-white
+                  <span className="relative z-20 text-white whitespace-nowrap
                     drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] 
                     [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(251,146,60,0.3)]">
                     How Praetorian Outperforms the Competition
@@ -179,11 +179,11 @@ const ProductComparison = () => {
                 </div>
                 
                 {/* Multiple text shadows for depth - reduced blur effects */}
-                <div className="absolute inset-0 flex items-center justify-center text-4xl font-bold tracking-tight opacity-10 blur-[3px] text-orange-700/30 -z-10 transform scale-105">
-                  How Praetorian Outperforms the Competition
+                <div className="absolute inset-0 flex items-center justify-center text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight opacity-10 blur-[3px] text-orange-700/30 -z-10 transform scale-105">
+                  <span className="whitespace-nowrap">How Praetorian Outperforms the Competition</span>
                 </div>
-                <div className="absolute inset-0 flex items-center justify-center text-4xl font-bold tracking-tight opacity-20 blur-[1px] text-red-900/20 -z-10">
-                  How Praetorian Outperforms the Competition
+                <div className="absolute inset-0 flex items-center justify-center text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight opacity-20 blur-[1px] text-red-900/20 -z-10">
+                  <span className="whitespace-nowrap">How Praetorian Outperforms the Competition</span>
                 </div>
               </div>
               
