@@ -218,26 +218,41 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
           <div className="lg:col-span-2">
             {activeVideo ? (
-              <div className="group relative transform hover:scale-[1.01] transition-all duration-700">
-                {/* Premium video player container with enhanced styling */}
-                <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/98 to-gray-900/95 backdrop-blur-xl rounded-xl overflow-hidden shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7)] z-10">
-                  {/* Premium dual-layer gradient border effect */}
-                  <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/60 via-blue-500/30 to-orange-500/60 opacity-80"></div>
-                  <div className="absolute inset-[1px] p-0.5 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-30 pointer-events-none"></div>
-                  
-                  {/* Corner accent decorations */}
-                  <div className="absolute top-0 right-0 w-24 h-24 opacity-20">
-                    <div className="absolute inset-0 bg-gradient-to-bl from-orange-500/40 to-red-500/40 rounded-tr-xl blur-[2px]"></div>
+              <div className="group/video relative">
+                {/* Premium ambient glow effects - positioned BEHIND the card */}
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-orange-500/15 rounded-full filter blur-[180px] animate-pulse-slow-delayed pointer-events-none"></div>
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-600/15 rounded-full filter blur-[200px] animate-pulse-slow pointer-events-none"></div>
+                
+                {/* Main container with premium enterprise styling */}
+                <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 backdrop-blur-xl rounded-xl overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.4)] border border-orange-500/30 z-10 transform transition-all duration-500 hover:shadow-[0_15px_60px_rgba(249,115,22,0.2)] hover:-translate-y-1">
+                  {/* Subtle dots and squares pattern background */}
+                  <div className="absolute inset-0 opacity-20 z-0">
+                    <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoMjU1LDEzOCwwLDAuMikiIGQ9Ik0wIDBoMnYySDB6bTIgMmgydjJIMnoiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IGZpbGw9InVybCgjYSkiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiLz48L3N2Zz4=')]"></div>
                   </div>
-                  <div className="absolute bottom-0 left-0 w-24 h-24 opacity-20">
-                    <div className="absolute inset-0 bg-gradient-to-tr from-orange-500/40 to-red-500/40 rounded-bl-xl blur-[2px]"></div>
+                  
+                  {/* Corner accent with uniform styling across all corners */}
+                  <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none z-10">
+                    <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-orange-500/70 rounded-tl-lg"></div>
+                    <div className="absolute top-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+                  </div>
+                  <div className="absolute top-0 right-0 w-16 h-16 pointer-events-none z-10">
+                    <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-blue-500/70 rounded-tr-lg"></div>
+                    <div className="absolute top-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
+                  </div>
+                  <div className="absolute bottom-0 left-0 w-16 h-16 pointer-events-none z-10">
+                    <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-blue-500/70 rounded-bl-lg"></div>
+                    <div className="absolute bottom-0 left-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
+                  </div>
+                  <div className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none z-10">
+                    <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-orange-500/70 rounded-br-lg"></div>
+                    <div className="absolute bottom-0 right-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
                   </div>
 
-                  {/* Video player with enhanced styling */}
+                  {/* Video player with premium enterprise styling */}
                   <div className="relative pb-[56.25%] h-0 overflow-hidden z-10">
-                    {/* Premium video frame with glow effect */}
-                    <div className="absolute inset-4 rounded-lg opacity-0 group-hover:opacity-30 transition-opacity duration-700 pointer-events-none"
-                         style={{ boxShadow: '0 0 50px rgba(239, 68, 68, 0.4), 0 0 100px rgba(251, 113, 36, 0.2)' }}>
+                    {/* Premium glow effect on hover - positioned BEHIND video */}
+                    <div className="absolute inset-4 rounded-lg opacity-0 group-hover/video:opacity-30 transition-opacity duration-700 pointer-events-none"
+                         style={{ boxShadow: '0 0 50px rgba(251, 113, 36, 0.3), 0 0 80px rgba(59, 130, 246, 0.2)' }}>
                     </div>
                     
                     {activeVideo.id === "localVideo" ? (
@@ -267,52 +282,92 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
                     )}
                   </div>
                   
-                  {/* Enhanced content section with premium styling */}
+                  {/* Enhanced content section with premium enterprise styling */}
                   <div className="p-8 relative z-10">
-                    {/* Premium label with enhanced styling */}
+                    {/* Premium enterprise badge with corner accents */}
                     <div className="absolute top-4 right-4">
-                      <div className="inline-flex items-center px-3 py-1 rounded-full bg-gradient-to-r from-gray-900/95 to-gray-950/95 border border-gray-800 shadow-[0_5px_15px_rgba(0,0,0,0.3)] relative">
-                        <div className="absolute inset-0 p-0.5 rounded-full bg-gradient-to-r from-orange-500/50 to-blue-500/50 opacity-70"></div>
-                        <span className="text-orange-300 text-xs font-medium relative z-10 flex items-center">
-                          <i className="fas fa-fire-alt mr-1.5"></i>
+                      <div className="inline-flex items-center px-3.5 py-1.5 rounded-full bg-gradient-to-r from-gray-900/95 via-gray-950/95 to-black/95 border border-orange-500/40 shadow-[0_4px_12px_rgba(0,0,0,0.3)] relative overflow-hidden">
+                        {/* Small corner accents - subtle version */}
+                        <div className="absolute top-0 left-0 w-3 h-3 pointer-events-none">
+                          <div className="absolute top-0 left-0 w-1.5 h-1.5 border-t border-l border-orange-500/50 rounded-tl-sm"></div>
+                        </div>
+                        <div className="absolute top-0 right-0 w-3 h-3 pointer-events-none">
+                          <div className="absolute top-0 right-0 w-1.5 h-1.5 border-t border-r border-blue-500/50 rounded-tr-sm"></div>
+                        </div>
+                        <div className="absolute bottom-0 left-0 w-3 h-3 pointer-events-none">
+                          <div className="absolute bottom-0 left-0 w-1.5 h-1.5 border-b border-l border-blue-500/50 rounded-bl-sm"></div>
+                        </div>
+                        <div className="absolute bottom-0 right-0 w-3 h-3 pointer-events-none">
+                          <div className="absolute bottom-0 right-0 w-1.5 h-1.5 border-b border-r border-orange-500/50 rounded-br-sm"></div>
+                        </div>
+                        
+                        {/* Subtle glow behind label text */}
+                        <div className="absolute inset-0 opacity-30 rounded-full"
+                             style={{ boxShadow: 'inset 0 0 10px rgba(251, 113, 36, 0.5)' }}>
+                        </div>
+                        
+                        <span className="text-white text-xs font-semibold relative z-10 flex items-center drop-shadow-[0_1px_1px_rgba(0,0,0,0.5)]">
+                          <div className="w-4 h-4 rounded-full bg-gradient-to-br from-orange-500 to-orange-600 flex items-center justify-center mr-1.5 shadow-sm">
+                            <i className="fas fa-fire-alt text-[8px] text-white"></i>
+                          </div>
                           Premium Demo
                         </span>
                       </div>
                     </div>
                     
-                    {/* Enhanced title with premium gradient */}
-                    <div className="mb-4 pb-2 relative">
-                      <GradientHeading level={3} className="text-2xl md:text-3xl mb-1" variant="fire">
+                    {/* Premium white text title with drop shadow */}
+                    <div className="mb-5 pb-3 relative">
+                      <h3 className="text-2xl md:text-3xl font-bold text-white tracking-tight drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] [text-shadow:0_1px_1px_rgba(0,0,0,0.15)] mb-1">
                         {activeVideo.title}
-                      </GradientHeading>
-                      {/* Animated underline */}
-                      <div className="absolute bottom-0 left-0 w-1/4 h-0.5 bg-gradient-to-r from-orange-500 to-blue-500 group-hover:w-1/2 transition-all duration-700 rounded-full"></div>
+                      </h3>
+                      {/* Animated underline with enhanced styling */}
+                      <div className="absolute bottom-0 left-0 w-1/4 h-0.5 bg-gradient-to-r from-orange-500 to-blue-500 group-hover:w-1/2 transition-all duration-700 rounded-full opacity-80 shadow-[0_0_5px_rgba(251,113,36,0.4),_0_0_5px_rgba(59,130,246,0.4)]"></div>
                     </div>
                     
-                    {/* Enhanced description with premium styling */}
-                    <p className="text-gray-300 text-lg mb-6">
+                    {/* Enhanced description with premium styling and better readability */}
+                    <p className="text-gray-300 text-lg mb-7 leading-relaxed max-w-3xl">
                       {activeVideo.description}
                     </p>
                     
-                    {/* Enhanced footer with premium styling */}
+                    {/* Enhanced footer with premium enterprise styling */}
                     <div className="flex flex-wrap items-center justify-between">
+                      {/* Category badge with premium styling */}
                       <div className="relative group/badge">
-                        <div className="absolute inset-0 rounded-full opacity-0 group-hover/badge:opacity-100 transition-opacity duration-500"
-                             style={{ boxShadow: '0 0 15px rgba(251, 113, 36, 0.4)' }}>
+                        {/* Glow effect behind badge - only visible on hover */}
+                        <div className="absolute inset-0 rounded-full opacity-0 group-hover/badge:opacity-100 transition-opacity duration-500 pointer-events-none"
+                             style={{ boxShadow: '0 0 20px rgba(251, 113, 36, 0.3), 0 0 10px rgba(59, 130, 246, 0.2)' }}>
                         </div>
-                        <span className="px-4 py-1.5 rounded-full bg-gradient-to-r from-gray-900/80 to-gray-800/80 text-md font-medium border border-orange-500/30 relative">
-                          <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-blue-500">
+                        
+                        {/* Premium enterprise badge */}
+                        <div className="px-5 py-2 rounded-full bg-gradient-to-r from-gray-900/95 via-gray-950/95 to-black/95 text-md font-medium border border-orange-500/30 relative group-hover/badge:border-orange-500/50 transition-colors duration-300">
+                          {/* Mini corner accents */}
+                          <div className="absolute top-0 left-0 w-3 h-3 pointer-events-none">
+                            <div className="absolute top-0 left-0 w-1.5 h-1.5 border-t border-l border-orange-500/50 rounded-tl-sm"></div>
+                          </div>
+                          <div className="absolute top-0 right-0 w-3 h-3 pointer-events-none">
+                            <div className="absolute top-0 right-0 w-1.5 h-1.5 border-t border-r border-blue-500/50 rounded-tr-sm"></div>
+                          </div>
+                          <div className="absolute bottom-0 left-0 w-3 h-3 pointer-events-none">
+                            <div className="absolute bottom-0 left-0 w-1.5 h-1.5 border-b border-l border-blue-500/50 rounded-bl-sm"></div>
+                          </div>
+                          <div className="absolute bottom-0 right-0 w-3 h-3 pointer-events-none">
+                            <div className="absolute bottom-0 right-0 w-1.5 h-1.5 border-b border-r border-orange-500/50 rounded-br-sm"></div>
+                          </div>
+                          
+                          {/* White text with drop shadow instead of gradient */}
+                          <span className="text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.5)] relative z-10">
                             {activeVideo.category}
                           </span>
-                        </span>
+                        </div>
                       </div>
                       
-                      <span className="text-gray-400 text-sm flex items-center">
-                        <div className="w-6 h-6 rounded-full bg-gradient-to-r from-orange-500/20 to-blue-500/20 flex items-center justify-center mr-2 border border-orange-500/30">
-                          <i className="fas fa-clock text-orange-400 text-xs"></i>
+                      {/* Premium duration indicator */}
+                      <div className="text-gray-300 text-sm flex items-center">
+                        <div className="w-7 h-7 rounded-full bg-gradient-to-br from-gray-900 to-black border border-orange-500/30 flex items-center justify-center mr-2.5 shadow-md">
+                          <i className="fas fa-clock text-orange-500 text-xs"></i>
                         </div>
-                        <span className="text-orange-200">{activeVideo.duration}</span>
-                      </span>
+                        <span className="text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.5)]">{activeVideo.duration}</span>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -321,26 +376,63 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
                 <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2/3 h-[2px] bg-gradient-to-r from-transparent via-orange-500/20 to-transparent rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
               </div>
             ) : (
-              <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/98 to-gray-900/95 backdrop-blur-xl rounded-xl p-8 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7)] flex items-center justify-center h-full">
-                {/* Premium dual-layer gradient border effect - Fire themed */}
-                <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/60 via-blue-500/30 to-orange-500/60 opacity-80"></div>
-                <div className="absolute inset-[1px] p-0.5 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-30 pointer-events-none"></div>
+              <div className="group/no-video relative">
+                {/* Premium ambient glow effects - positioned BEHIND the card */}
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-orange-500/15 rounded-full filter blur-[200px] animate-pulse-slow-delayed pointer-events-none"></div>
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-blue-600/15 rounded-full filter blur-[180px] animate-pulse-slow pointer-events-none"></div>
                 
-                <div className="text-center">
-                  {/* Praetorian Logo with Fire/Blue Background */}
-                  <div className="w-full max-w-md mx-auto mb-6 relative">
-                    <img 
-                      src={praetorianLogoFire} 
-                      alt="Praetorian SmartCoat" 
-                      className="w-full h-auto object-contain"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-gray-950/30 pointer-events-none"></div>
+                {/* Main container with premium enterprise styling */}
+                <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 backdrop-blur-xl rounded-xl p-10 shadow-[0_10px_40px_rgba(0,0,0,0.4)] overflow-hidden border border-orange-500/30 z-10 flex items-center justify-center h-full">
+                  {/* Subtle dots and squares pattern background */}
+                  <div className="absolute inset-0 opacity-20 z-0">
+                    <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoMjU1LDEzOCwwLDAuMikiIGQ9Ik0wIDBoMnYySDB6bTIgMmgydjJIMnoiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IGZpbGw9InVybCgjYSkiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiLz48L3N2Zz4=')]"></div>
                   </div>
-                  <GradientHeading level={3} className="text-2xl mb-3" variant="fire">No Videos Available</GradientHeading>
-                  <p className="text-gray-300 max-w-md text-lg">
-                    Please check back later for video demonstrations.
-                  </p>
+                  
+                  {/* Corner accent with uniform styling across all corners */}
+                  <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none z-10">
+                    <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-orange-500/70 rounded-tl-lg"></div>
+                    <div className="absolute top-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+                  </div>
+                  <div className="absolute top-0 right-0 w-16 h-16 pointer-events-none z-10">
+                    <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-blue-500/70 rounded-tr-lg"></div>
+                    <div className="absolute top-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
+                  </div>
+                  <div className="absolute bottom-0 left-0 w-16 h-16 pointer-events-none z-10">
+                    <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-blue-500/70 rounded-bl-lg"></div>
+                    <div className="absolute bottom-0 left-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
+                  </div>
+                  <div className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none z-10">
+                    <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-orange-500/70 rounded-br-lg"></div>
+                    <div className="absolute bottom-0 right-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+                  </div>
+                  
+                  <div className="text-center relative z-10">
+                    {/* Praetorian Logo with enhanced premium styling */}
+                    <div className="w-full max-w-md mx-auto mb-8 relative">
+                      <div className="absolute -inset-4 opacity-30 rounded-3xl filter blur-xl" 
+                           style={{ background: 'radial-gradient(circle, rgba(249,115,22,0.3) 0%, rgba(59,130,246,0.15) 70%)' }}>
+                      </div>
+                      <img 
+                        src={praetorianLogoFire} 
+                        alt="Praetorian SmartCoat" 
+                        className="w-full h-auto object-contain relative z-10 drop-shadow-[0_5px_15px_rgba(249,115,22,0.3)]"
+                      />
+                    </div>
+                    
+                    {/* White text heading with drop shadow */}
+                    <h3 className="text-2xl font-bold text-white tracking-tight drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] [text-shadow:0_1px_1px_rgba(0,0,0,0.15)] mb-4">
+                      No Videos Available
+                    </h3>
+                    
+                    {/* Enhanced description with improved styling */}
+                    <p className="text-gray-300 max-w-md text-lg mx-auto leading-relaxed">
+                      Please check back later for video demonstrations.
+                    </p>
+                  </div>
                 </div>
+                
+                {/* Bottom reflection effect */}
+                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2/3 h-[2px] bg-gradient-to-r from-transparent via-orange-500/20 to-transparent rounded-full blur-[1px] opacity-0 group-hover/no-video:opacity-100 transition-all duration-700"></div>
               </div>
             )}
           </div>
