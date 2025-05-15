@@ -153,68 +153,17 @@ const ContactSection = () => {
       <div className="container mx-auto px-4 relative" style={{ zIndex: 2 }}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <div className="relative group">
-            {/* Premium card container for heading - extends behind title */}
-            <div className="absolute -top-12 inset-x-0 h-60 bg-gradient-to-br from-gray-800/95 via-gray-900/95 to-gray-800/95 backdrop-blur-md rounded-t-xl z-0">
-              {/* Premium gradient border effect - top edges only */}
-              <div className="absolute inset-0 rounded-t-xl bg-gradient-to-r from-orange-500/50 via-transparent to-blue-500/50 opacity-70" style={{ maskImage: 'linear-gradient(to bottom, black 20%, transparent 100%)' }}></div>
-              
-              {/* Inner highlight */}
-              <div className="absolute inset-0 rounded-t-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
-              
-              {/* Subtle ambient glow behind the heading */}
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3/4 h-32 bg-gradient-to-r from-orange-500/0 via-amber-500/20 to-orange-500/0 blur-[100px] rounded-full"></div>
-            </div>
-            
-            <div className="relative mb-8 flex justify-center w-full group">
-              {/* Ultra Premium Get In Touch Header */}
-              <div className="relative">
-                {/* Dual layered ambient glow effects with animation */}
-                <div className="absolute -inset-3 bg-gradient-to-r from-amber-600/20 via-orange-500/25 to-red-500/20 rounded-lg blur-xl opacity-70 group-hover:opacity-100 transition-all duration-1000 z-0 animate-pulse-slow"></div>
-                <div className="absolute -inset-2 bg-gradient-to-r from-blue-500/10 via-purple-400/15 to-blue-500/10 rounded-lg blur-lg opacity-80 group-hover:opacity-100 transition-all duration-1000 z-0 animate-pulse-slow-delayed"></div>
-                
-                {/* Enhanced text with unique shimmer effect different from buttons */}
-                <div className="relative overflow-hidden">
-                  <h2 
-                    className="relative z-20 text-center font-extrabold tracking-tight py-3 w-full group-hover:scale-[1.02] transition-transform duration-700"
-                    style={{ 
-                      fontSize: 'clamp(2.7rem, 5vw, 3.5rem)',
-                      textShadow: '0 0 8px rgba(249,115,22,0.25), 0 0 15px rgba(249,115,22,0.15), 0 0 2px rgba(255,255,255,0.8), 0 2px 4px rgba(0,0,0,0.7)',
-                      letterSpacing: '-0.025em',
-                      whiteSpace: 'nowrap',
-                      marginBottom: '0.5rem',
-                      background: 'linear-gradient(to bottom, #ffffff, #fef3c7)',
-                      WebkitBackgroundClip: 'text',
-                      WebkitTextFillColor: 'transparent',
-                      filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.8)) drop-shadow(0 0 2px rgba(255,255,255,0.6))'
-                    }}
-                  >
-                    Get In Touch
-                  </h2>
-                  
-                  {/* Custom shimmer effect overlay */}
-                  <div 
-                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform ease-in-out pointer-events-none"
-                    style={{ transitionDuration: '1.5s', transitionDelay: '0.3s' }}
-                  />
+            <div className="relative mb-12 flex justify-center w-full">
+              <div className="text-center">
+                <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+                  Get In Touch
+                </h2>
+                <p className="text-gray-300 text-lg max-w-xl mx-auto mb-6">
+                  Have questions about our products or services? Contact our team of coating experts for personalized assistance.
+                </p>
+                <div className="flex justify-center">
+                  <div className="h-0.5 w-24 bg-gradient-to-r from-transparent via-orange-500/40 to-transparent rounded-full"></div>
                 </div>
-                
-                {/* Animated gradient underline */}
-                <div className="h-1 w-0 group-hover:w-full bg-gradient-to-r from-amber-500 via-orange-500 to-red-500 rounded-full mx-auto transition-all duration-1000 opacity-80"></div>
-                
-                {/* Subtle floating particles effect */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000 pointer-events-none">
-                  <div className="absolute top-0 left-1/4 w-2 h-2 bg-amber-500/40 rounded-full animate-float"></div>
-                  <div className="absolute top-1/2 left-3/4 w-1.5 h-1.5 bg-orange-500/40 rounded-full animate-float" style={{ animationDelay: '1s' }}></div>
-                  <div className="absolute bottom-0 left-1/2 w-2 h-2 bg-red-500/40 rounded-full animate-float" style={{ animationDelay: '1.5s' }}></div>
-                </div>
-              </div>
-            </div>
-            <div className="relative z-10 mb-8" style={{ marginTop: "-2.5rem" }}>
-              <p className="text-gray-300 text-lg text-center max-w-xl mx-auto mb-2">
-                Have questions about our products or services? Contact our team of coating experts for personalized assistance.
-              </p>
-              <div className="flex justify-center">
-                <div className="h-0.5 w-24 bg-gradient-to-r from-transparent via-orange-500/40 to-transparent rounded-full"></div>
               </div>
             </div>
             
@@ -515,90 +464,20 @@ const ContactSection = () => {
             </form>
           </div>
           
-          <div className="relative group">
-            {/* Ambient blue glow for the card */}
-            <div className="absolute -bottom-10 right-1/2 transform translate-x-1/2 w-3/4 h-20 bg-gradient-to-r from-blue-500/0 via-blue-500/20 to-blue-500/0 blur-[100px] rounded-full"></div>
-            
-            <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/98 to-black/95 backdrop-blur-xl rounded-lg overflow-hidden h-full border-0 shadow-[0_10px_50px_rgba(0,0,0,0.5)]">
-              {/* Enterprise level gradient border */}
-              <div className="absolute inset-0 p-0.5 rounded-lg bg-gradient-to-r from-orange-500/50 via-blue-500/30 to-orange-500/50 opacity-70"></div>
-              
-              {/* Animated corner accents - premium effect (blue variant) */}
-              <div className="absolute top-0 left-0 w-16 h-16 opacity-40">
-                <div className="absolute inset-0 bg-gradient-to-br from-orange-500/40 to-blue-600/30 rounded-tl-xl blur-[2px]"></div>
-              </div>
-              <div className="absolute top-0 right-0 w-16 h-16 opacity-40">
-                <div className="absolute inset-0 bg-gradient-to-bl from-orange-500/40 to-blue-600/30 rounded-tr-xl blur-[2px]"></div>
-              </div>
-              <div className="absolute bottom-0 left-0 w-16 h-16 opacity-40">
-                <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/30 to-orange-500/40 rounded-bl-xl blur-[2px]"></div>
-              </div>
-              <div className="absolute bottom-0 right-0 w-16 h-16 opacity-40">
-                <div className="absolute inset-0 bg-gradient-to-tl from-blue-600/30 to-orange-500/40 rounded-br-xl blur-[2px]"></div>
-              </div>
-              
-              {/* Subtle top highlight */}
-              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
-              
-              {/* Fire effect border top - enhanced */}
-              <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-orange-600 via-red-600 to-orange-600 animate-pulse z-10" style={{ animationDuration: '3s' }}></div>
-              
-              {/* Water effect border bottom - enhanced */}
-              <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-gradient-to-r from-blue-600 via-cyan-400 to-blue-600 animate-pulse z-10" style={{ animationDuration: '4s' }}></div>
-              
-              {/* Premium glassmorphism effect - enhanced */}
-              <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/10"></div>
-              
-              {/* Premium card container for heading - stretching from top */}
-              <div className="absolute -top-12 inset-x-0 h-60 bg-gradient-to-br from-gray-900/95 via-gray-950/98 to-black/95 backdrop-blur-xl rounded-t-xl z-0">
-                {/* Premium gradient border effect - top edges only */}
-                <div className="absolute inset-0 rounded-t-xl bg-gradient-to-r from-orange-500/50 via-transparent to-blue-500/50 opacity-70" style={{ WebkitMaskImage: 'linear-gradient(to bottom, black 20%, transparent 100%)', maskImage: 'linear-gradient(to bottom, black 20%, transparent 100%)' }}></div>
-                
-                {/* Inner highlight */}
-                <div className="absolute inset-0 rounded-t-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
-                
-                {/* Subtle ambient glow behind the heading */}
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3/4 h-32 bg-gradient-to-r from-blue-500/0 via-blue-500/20 to-blue-500/0 blur-[100px] rounded-full"></div>
-              </div>
-              
-              <div className="p-8 relative z-20">
-                <div className="relative mb-8 flex justify-center w-full group">
-                  {/* Ultra Premium Contact Information Header */}
-                  <div className="relative">
-                    {/* Ambient glow effects with animation */}
-                    <div className="absolute -inset-2 bg-gradient-to-r from-blue-600/20 via-cyan-400/25 to-blue-500/20 rounded-lg blur-xl opacity-70 dark:opacity-80 group-hover:opacity-100 transition-all duration-1000 z-0 animate-pulse-slow"></div>
-                    <div className="absolute -inset-1 bg-gradient-to-r from-orange-500/10 via-amber-400/10 to-orange-500/10 rounded-lg blur-lg opacity-80 dark:opacity-90 group-hover:opacity-100 transition-all duration-1000 z-0 animate-pulse-slow-delayed"></div>
-                    
-                    {/* Text with enhanced glow - toned down by 50% */}
-                    <h2 
-                      className="relative z-10 text-white font-extrabold tracking-tight py-3 drop-shadow-[0_2px_2px_rgba(0,0,0,0.9)] group-hover:scale-[1.02] transition-transform duration-700"
-                      style={{ 
-                        fontSize: 'clamp(2.7rem, 5vw, 3.5rem)',
-                        textShadow: '0 0 8px rgba(59,130,246,0.25), 0 0 15px rgba(59,130,246,0.15), 0 0 2px rgba(255,255,255,0.8), 0 2px 4px rgba(0,0,0,0.7)',
-                        letterSpacing: '-0.02em',
-                        whiteSpace: 'nowrap',
-                        marginBottom: '0.5rem',
-                        background: 'linear-gradient(to bottom, #ffffff, #e2e8f0)',
-                        WebkitBackgroundClip: 'text',
-                        WebkitTextFillColor: 'transparent',
-                        filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.8)) drop-shadow(0 0 2px rgba(255,255,255,0.6))'
-                      }}
-                    >
-                      Contact Information
-                    </h2>
-                    
-                    {/* Animated underline with gradient */}
-                    <div className="h-1 w-0 group-hover:w-full bg-gradient-to-r from-blue-600 via-cyan-400 to-blue-500 rounded-full mx-auto transition-all duration-1000 opacity-80"></div>
-                  </div>
+          <div className="relative">
+            <div className="relative mb-12 flex justify-center w-full">
+              <div className="text-center">
+                <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+                  Contact Information
+                </h2>
+                <p className="text-gray-300 text-lg max-w-xl mx-auto mb-6">
+                  Reach out to our team through any of these channels for inquiries, support, or partnership opportunities.
+                </p>
+                <div className="flex justify-center">
+                  <div className="h-0.5 w-24 bg-gradient-to-r from-transparent via-blue-500/40 to-transparent rounded-full"></div>
                 </div>
-                <div className="relative z-10 mb-8" style={{ marginTop: "-2.5rem" }}>
-                  <p className="text-gray-300 text-lg text-center max-w-xl mx-auto mb-2">
-                    Reach out to our team through any of these channels for inquiries, support, or partnership opportunities.
-                  </p>
-                  <div className="flex justify-center">
-                    <div className="h-0.5 w-24 bg-gradient-to-r from-transparent via-blue-500/40 to-transparent rounded-full"></div>
-                  </div>
-                </div>
+              </div>
+            </div>
                 
                 <div className="space-y-8">
                   {/* Premium Enterprise Contact Item - Location */}
