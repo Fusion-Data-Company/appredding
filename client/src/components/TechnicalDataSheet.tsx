@@ -164,17 +164,17 @@ export const TechnicalDataSheet = () => {
         {/* Premium enterprise-level heading styling */}
         <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-gray-900/95 backdrop-blur-xl rounded-xl py-8 px-6 md:py-10 md:px-12 mx-auto max-w-4xl mb-8 shadow-[0_10px_50px_rgba(0,0,0,0.5)]">
           {/* Premium gradient border effect */}
-          <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-blue-500/50 via-transparent to-cyan-400/50 opacity-70"></div>
+          <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/50 via-blue-500/30 to-orange-500/50 opacity-70"></div>
           
           {/* Inner highlight */}
           <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
           
           {/* Subtle ambient glow */}
-          <div className="absolute top-0 left-1/4 w-1/2 h-1/2 bg-gradient-to-r from-blue-500/10 via-cyan-500/10 to-blue-400/10 blur-[100px] rounded-full"></div>
+          <div className="absolute top-0 left-1/4 w-1/2 h-1/2 bg-gradient-to-r from-orange-500/10 via-blue-500/10 to-orange-500/10 blur-[100px] rounded-full"></div>
           
           {/* Content */}
           <div className="relative z-10">
-            <h2 className="text-2xl md:text-3xl font-bold text-center mb-2 bg-gradient-to-r from-blue-300 via-white to-blue-300 bg-clip-text text-transparent">
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-2 bg-gradient-to-r from-orange-300 via-white to-blue-300 bg-clip-text text-transparent">
               NASA Ceramic Technology Specifications
             </h2>
             <p className="text-gray-400 text-center mb-2 max-w-3xl mx-auto">
