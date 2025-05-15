@@ -40,511 +40,199 @@ const FAQSection = ({ faqs }: FAQProps) => {
         backgroundColor: "#111111",
       }}
     >
-      {/* Enhanced overlay with better gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/75 to-black/85"></div>
-      
-      {/* Ambient glow effects */}
-      <div className="absolute top-1/3 left-1/4 w-96 h-96 rounded-full bg-orange-500/5 filter blur-[120px] animate-pulse-slow" style={{ zIndex: 1 }}></div>
-      <div className="absolute bottom-1/3 right-1/4 w-96 h-96 rounded-full bg-blue-500/5 filter blur-[120px] animate-pulse-slow-delayed" style={{ zIndex: 1 }}></div>
-      
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+
       <div className="container mx-auto px-4 relative z-10">
-        {/* Premium enterprise header styling */}
-        <div className="relative mb-20 group">
-          {/* Ambient glow effects with animation */}
-          <div className="absolute inset-0 max-w-4xl mx-auto">
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3/4 h-32 bg-gradient-to-r from-blue-500/0 via-blue-500/20 to-blue-500/0 blur-[100px] rounded-full"></div>
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3/4 h-32 bg-gradient-to-r from-orange-500/0 via-orange-500/10 to-orange-500/0 blur-[100px] rounded-full"></div>
-          </div>
-          
-          <div className="relative w-full flex flex-col items-center justify-center">
-            {/* Full premium enterprise header card with advanced styling */}
-            <div className="relative mb-12 group/card mx-auto max-w-4xl">
-              {/* Premium enterprise card with gradient background */}
-              <div className="relative p-10 bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.8)] group-hover/card:scale-[1.01] transition-transform duration-700 overflow-hidden">
-                {/* Enhanced outer glow effect that intensifies on hover and pulses */}
-                <div className="absolute -inset-2 rounded-xl opacity-60 group-hover/card:opacity-100 transition-opacity duration-1000 z-0 animate-glow-pulse" 
-                  style={{ boxShadow: '0 0 100px 15px rgba(59,130,246,0.5), 0 0 60px 15px rgba(249,115,22,0.5)' }}>
-                </div>
-                
-                {/* Secondary outer glow for layered effect */}
-                <div className="absolute -inset-6 rounded-xl opacity-30 group-hover/card:opacity-80 transition-opacity duration-1000 z-0" 
-                  style={{ boxShadow: '0 0 150px 30px rgba(59,130,246,0.25), 0 0 100px 30px rgba(249,115,22,0.25)' }}>
-                </div>
-                
-                {/* Tertiary outer glow for maximum effect */}
-                <div className="absolute -inset-10 rounded-xl opacity-20 group-hover/card:opacity-60 transition-opacity duration-1000 z-0" 
-                  style={{ boxShadow: '0 0 200px 50px rgba(59,130,246,0.15), 0 0 150px 50px rgba(249,115,22,0.15)' }}>
-                </div>
-                
-                {/* Dual-layer border effect */}
-                <div className="absolute inset-0 rounded-xl border-2 border-orange-500/40 group-hover/card:border-orange-500/60 transition-colors duration-700 animate-glowing-border"></div>
-                <div className="absolute inset-[2px] rounded-xl border border-blue-500/30 group-hover/card:border-blue-500/50 transition-colors duration-700"></div>
-                
-                {/* Animated gradient background */}
-                <div className="absolute inset-0 rounded-xl overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-r from-orange-500/10 via-blue-500/10 to-purple-500/10 animate-gradient-x"></div>
-                </div>
-                
-                {/* Enhanced corner accent decorations with animations */}
-                <div className="absolute top-0 right-0 w-24 h-24 opacity-70 group-hover/card:opacity-90 transition-opacity duration-700 z-10">
-                  <div className="absolute right-0 top-0 w-12 h-12 border-r-2 border-t-2 border-orange-500/70 rounded-tr-md group-hover/card:border-orange-500/90 transition-colors duration-700"></div>
-                  <div className="absolute right-2 top-2 w-16 h-16 border-r border-t border-blue-500/60 rounded-tr-md group-hover/card:border-blue-500/80 transition-colors duration-700"></div>
-                </div>
-                <div className="absolute top-0 left-0 w-24 h-24 opacity-70 group-hover/card:opacity-90 transition-opacity duration-700 z-10">
-                  <div className="absolute left-0 top-0 w-12 h-12 border-l-2 border-t-2 border-orange-500/70 rounded-tl-md group-hover/card:border-orange-500/90 transition-colors duration-700"></div>
-                  <div className="absolute left-2 top-2 w-16 h-16 border-l border-t border-blue-500/60 rounded-tl-md group-hover/card:border-blue-500/80 transition-colors duration-700"></div>
-                </div>
-                <div className="absolute bottom-0 right-0 w-24 h-24 opacity-70 group-hover/card:opacity-90 transition-opacity duration-700 z-10">
-                  <div className="absolute right-0 bottom-0 w-12 h-12 border-r-2 border-b-2 border-blue-500/70 rounded-br-md group-hover/card:border-blue-500/90 transition-colors duration-700"></div>
-                  <div className="absolute right-2 bottom-2 w-16 h-16 border-r border-b border-blue-500/60 rounded-br-md group-hover/card:border-blue-500/80 transition-colors duration-700"></div>
-                </div>
-                <div className="absolute bottom-0 left-0 w-24 h-24 opacity-70 group-hover/card:opacity-90 transition-opacity duration-700 z-10">
-                  <div className="absolute left-0 bottom-0 w-12 h-12 border-l-2 border-b-2 border-blue-500/70 rounded-bl-md group-hover/card:border-blue-500/90 transition-colors duration-700"></div>
-                  <div className="absolute left-2 bottom-2 w-16 h-16 border-l border-b border-blue-500/60 rounded-bl-md group-hover/card:border-blue-500/80 transition-colors duration-700"></div>
-                </div>
-                
-                {/* Multiple glowing orbs for ambient effect */}
-                <div className="absolute top-1/4 -left-10 w-32 h-32 rounded-full bg-blue-500/10 opacity-60 blur-xl animate-pulse-slow"></div>
-                <div className="absolute bottom-1/4 -right-10 w-32 h-32 rounded-full bg-orange-500/10 opacity-60 blur-xl animate-pulse-slow-delayed"></div>
-                
-                {/* Enhanced ambient glow effects */}
-                <div className="absolute inset-0 rounded-xl opacity-60 group-hover/card:opacity-80 transition-opacity duration-1000" 
-                     style={{ 
-                       background: `radial-gradient(circle at 25% 30%, rgba(249,115,22,0.15) 0%, transparent 50%), 
-                                    radial-gradient(circle at 75% 70%, rgba(59,130,246,0.15) 0%, transparent 50%)` 
-                     }}>
-                </div>
-                
-                {/* Fading square background patterns */}
-                <div className="absolute top-10 left-10 w-32 h-32 rounded-lg border border-orange-500/5 opacity-40 rotate-12 animate-pulse-slow"></div>
-                <div className="absolute bottom-16 right-16 w-24 h-24 rounded-lg border border-blue-500/5 opacity-40 -rotate-12 animate-pulse-slow-delayed"></div>
-                
-                {/* Animated shimmer effect */}
-                <div 
-                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover/card:translate-x-full transition-transform ease-in-out pointer-events-none"
-                  style={{ transitionDuration: '1.8s' }}
-                ></div>
-                
-                {/* Premium header text with enhanced effects */}
-                <div className="relative overflow-hidden z-20">
-                  <h2 
-                    className="text-white font-extrabold tracking-tight py-3 text-center text-4xl md:text-5xl group-hover/card:scale-105 transition-transform duration-700"
-                    style={{ 
-                      textShadow: '0 0 1px rgba(255,255,255,0.7), 0 2px 4px rgba(0,0,0,0.7)',
-                      filter: 'drop-shadow(0 2px 3px rgba(0,0,0,0.9))'
-                    }}
-                  >
-                    Frequently Asked Questions
-                  </h2>
-                  
-                  {/* Enhanced shimmer effect overlay */}
-                  <div 
-                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover/card:translate-x-full transition-transform ease-in-out pointer-events-none"
-                    style={{ transitionDuration: '1.5s', transitionDelay: '0.3s' }}
-                  />
-                </div>
-                
-                {/* Enhanced animated gradient underline */}
-                <div className="relative h-1 mt-2 z-20">
-                  <div className="absolute inset-x-0 h-full w-32 group-hover/card:w-full bg-gradient-to-r from-orange-500/70 via-blue-600/50 to-orange-500/70 rounded-full transition-all duration-1000 animate-gradient-x mx-auto"></div>
-                  
-                  {/* Underline glow effect */}
-                  <div className="absolute inset-x-0 h-4 w-32 group-hover/card:w-full -bottom-2 opacity-60 blur-md transition-all duration-1000 mx-auto"
-                       style={{ 
-                         background: 'linear-gradient(to right, rgba(249,115,22,0.3), rgba(59,130,246,0.3), rgba(249,115,22,0.3))' 
-                       }}>
-                  </div>
-                </div>
-                
-                {/* Subtitle with premium styling */}
-                <p className="text-gray-300 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed z-20 mt-8 text-center relative"
+        {/* Enterprise grade header card with premium styling */}
+        <div className="text-center mb-16">
+          <div className="relative inline-block">
+            {/* Premium Enterprise Header Card */}
+            <div className="relative p-12 bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 backdrop-blur-xl rounded-xl shadow-[0_10px_50px_rgba(0,0,0,0.7)] mb-8 group">
+              {/* Blue and orange outer glow effect */}
+              <div className="absolute -inset-4 rounded-xl opacity-60 z-0 animate-glow-pulse" 
+                style={{ boxShadow: '0 0 80px 20px rgba(59,130,246,0.4), 0 0 50px 20px rgba(249,115,22,0.4)' }}>
+              </div>
+              
+              {/* Dual-layer border effect */}
+              <div className="absolute inset-0 rounded-xl border-2 border-orange-500/40 animate-glowing-border"></div>
+              <div className="absolute inset-[2px] rounded-xl border border-blue-500/30"></div>
+              
+              {/* Corner accent decorations */}
+              <div className="absolute top-0 right-0 w-20 h-20 opacity-70">
+                <div className="absolute right-0 top-0 w-8 h-8 border-r-2 border-t-2 border-orange-500/60 rounded-tr-md"></div>
+                <div className="absolute right-1 top-1 w-12 h-12 border-r border-t border-blue-500/50 rounded-tr-md"></div>
+              </div>
+              <div className="absolute top-0 left-0 w-20 h-20 opacity-70">
+                <div className="absolute left-0 top-0 w-8 h-8 border-l-2 border-t-2 border-orange-500/60 rounded-tl-md"></div>
+                <div className="absolute left-1 top-1 w-12 h-12 border-l border-t border-blue-500/50 rounded-tl-md"></div>
+              </div>
+              <div className="absolute bottom-0 right-0 w-20 h-20 opacity-70">
+                <div className="absolute right-0 bottom-0 w-8 h-8 border-r-2 border-b-2 border-blue-500/60 rounded-br-md"></div>
+                <div className="absolute right-1 bottom-1 w-12 h-12 border-r border-b border-blue-500/50 rounded-br-md"></div>
+              </div>
+              <div className="absolute bottom-0 left-0 w-20 h-20 opacity-70">
+                <div className="absolute left-0 bottom-0 w-8 h-8 border-l-2 border-b-2 border-blue-500/60 rounded-bl-md"></div>
+                <div className="absolute left-1 bottom-1 w-12 h-12 border-l border-b border-blue-500/50 rounded-bl-md"></div>
+              </div>
+              
+              {/* Ambient glow effect */}
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3/4 h-40 bg-gradient-to-r from-orange-500/0 via-orange-500/20 to-orange-500/0 blur-[100px] rounded-full"></div>
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3/4 h-40 bg-gradient-to-r from-blue-500/0 via-blue-500/20 to-blue-500/0 blur-[100px] rounded-full"></div>
+              
+              {/* Animated fading squares - appearing and disappearing */}
+              <div className="absolute top-8 right-8 w-20 h-20 rounded-lg border border-orange-500/20 opacity-0 group-hover:opacity-70 rotate-12 transition-all duration-1000 animate-pulse-slow"></div>
+              <div className="absolute bottom-8 left-8 w-16 h-16 rounded-lg border border-blue-500/20 opacity-0 group-hover:opacity-70 -rotate-12 transition-all duration-1000 animate-pulse-slow-delayed"></div>
+              <div className="absolute top-1/2 right-12 w-12 h-12 rounded-lg border border-purple-500/20 opacity-0 group-hover:opacity-60 rotate-45 transition-all duration-1000 animate-pulse"></div>
+              <div className="absolute bottom-1/2 left-12 w-12 h-12 rounded-lg border border-orange-500/20 opacity-0 group-hover:opacity-60 -rotate-45 transition-all duration-1000 animate-pulse-slow"></div>
+
+              {/* Heading with premium styling */}
+              <div 
+                className="relative z-20 inline-flex items-center justify-center"
+              >
+                <PremiumBadge className="mr-4" />
+                <h2 
+                  className="text-4xl font-bold md:text-5xl lg:text-6xl tracking-tight text-white"
                   style={{ 
-                    textShadow: '0 1px 1px rgba(0,0,0,0.7)',
-                    filter: 'drop-shadow(0 1px 1px rgba(0,0,0,0.5))'
+                    textShadow: '0 0 8px rgba(255,255,255,0.3), 0 0 30px rgba(59,130,246,0.3), 0 0 30px rgba(249,115,22,0.2)'
                   }}
                 >
-                  Find answers to common questions about our protective coating products and services.
-                </p>
+                  Frequently Asked Questions
+                </h2>
               </div>
+                
+              {/* Subtle top highlight */}
+              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+                
+              {/* Bottom reflection effect */}
+              <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-3/4 h-[2px] bg-gradient-to-r from-transparent via-white/10 to-transparent rounded-full blur-sm"></div>
             </div>
+              
+            {/* Subtitle with premium styling */}
+            <p className="text-gray-300 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed z-20 mt-8 text-center relative"
+              style={{ 
+                textShadow: '0 1px 1px rgba(0,0,0,0.7)',
+                filter: 'drop-shadow(0 1px 1px rgba(0,0,0,0.5))'
+              }}
+            >
+              Find answers to common questions about our protective coating products and services.
+            </p>
           </div>
         </div>
         
-        {/* Add keyframes for animations */}
-        <style dangerouslySetInnerHTML={{ __html: `
-          @keyframes pulse-slow {
-            0%, 100% { opacity: 0.3; transform: scale(0.9); }
-            50% { opacity: 0.6; transform: scale(1.1); }
-          }
-          
-          @keyframes pulse-slow-delayed {
-            0%, 100% { opacity: 0.3; transform: scale(0.9); }
-            50% { opacity: 0.6; transform: scale(1.1); }
-          }
-          
-          @keyframes slideRightDiagonal {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(500%); }
-          }
-          
-          @keyframes slideUp {
-            0% { transform: translateY(100%); }
-            100% { transform: translateY(-100%); }
-          }
-          
-          @keyframes shimmer {
-            0% { background-position: 200% 0; }
-            100% { background-position: -200% 0; }
-          }
-
-          @keyframes gradient-x {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-          }
-          
-          @keyframes glow-pulse {
-            0%, 100% { box-shadow: 0 0 15px 2px rgba(59,130,246,0.3), 0 0 15px 2px rgba(249,115,22,0.3); }
-            50% { box-shadow: 0 0 25px 5px rgba(59,130,246,0.4), 0 0 25px 5px rgba(249,115,22,0.4); }
-          }
-          
-          @keyframes glowing-border {
-            0%, 100% { border-color: rgba(59,130,246,0.3); }
-            50% { border-color: rgba(249,115,22,0.5); }
-          }
-          
-          .animate-gradient-x {
-            background-size: 200% 100%;
-            animation: gradient-x 10s ease infinite;
-          }
-          
-          .animate-glow-pulse {
-            animation: glow-pulse 3s ease-in-out infinite;
-          }
-          
-          .animate-glowing-border {
-            animation: glowing-border 3s ease-in-out infinite;
-          }
-        `}} />
-
-        {/* Premium enterprise-grade FAQ Categories Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        {/* FAQ Categories */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
           {faqs.map((category, categoryIdx) => {
-            // Card color variations based on index
-            const isFirstCard = categoryIdx === 0;
-            const isSecondCard = categoryIdx === 1;
-            const isThirdCard = categoryIdx === 2;
-            
-            // Define accent colors based on position
-            const orangeGlow = isFirstCard ? 'rgba(249,115,22,0.3)' : isSecondCard ? 'rgba(249,115,22,0.25)' : 'rgba(249,115,22,0.2)';
-            const blueGlow = isFirstCard ? 'rgba(59,130,246,0.2)' : isSecondCard ? 'rgba(59,130,246,0.3)' : 'rgba(59,130,246,0.25)';
-            const purpleGlow = isFirstCard ? 'rgba(139,92,246,0.15)' : isSecondCard ? 'rgba(139,92,246,0.15)' : 'rgba(139,92,246,0.25)';
-            
-            // Define gradient colors based on position
-            const gradientFrom = isFirstCard ? "from-orange-500/20" 
-                                : isSecondCard ? "from-blue-500/20" 
-                                : "from-purple-500/20";
-                                
-            const gradientVia = isFirstCard ? "via-amber-500/25" 
-                               : isSecondCard ? "via-cyan-500/25" 
-                               : "via-indigo-500/25";
-                               
-            const gradientTo = isFirstCard ? "to-blue-500/20" 
-                              : isSecondCard ? "to-indigo-500/20" 
-                              : "to-blue-500/20";
-            
             return (
-              <div key={categoryIdx} className="group/table relative">
-                {/* Enhanced premium card container */}
-                <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 backdrop-blur-xl rounded-lg h-full border-0 shadow-[0_10px_50px_rgba(0,0,0,0.6)] group-hover/table:scale-[1.01] transition-transform duration-700">
-                  {/* Enhanced outer glow effect that intensifies on hover and pulses */}
-                  <div className="absolute -inset-1 rounded-lg opacity-30 group-hover/table:opacity-100 transition-opacity duration-700 animate-glow-pulse" 
-                    style={{ boxShadow: `0 0 35px 5px ${isFirstCard ? orangeGlow : isSecondCard ? blueGlow : purpleGlow}` }}>
+              <div key={categoryIdx} className="group relative">
+                {/* Premium styled FAQ category card */}
+                <div className="p-8 bg-gradient-to-br from-gray-900/90 via-gray-950/90 to-black/90 backdrop-blur-md rounded-xl shadow-lg relative overflow-hidden">
+                  {/* Border glow effect */}
+                  <div className="absolute inset-0 rounded-xl opacity-50 z-0" 
+                     style={{ boxShadow: 'inset 0 0 20px 0 rgba(59,130,246,0.2), inset 0 0 10px 0 rgba(249,115,22,0.2)' }}>
                   </div>
                   
-                  {/* Secondary outer glow for layered effect */}
-                  <div className="absolute -inset-3 rounded-lg opacity-0 group-hover/table:opacity-60 transition-opacity duration-1000" 
-                    style={{ boxShadow: `0 0 50px 15px ${isFirstCard ? 'rgba(249,115,22,0.2)' : isSecondCard ? 'rgba(59,130,246,0.2)' : 'rgba(139,92,246,0.2)'}` }}>
+                  {/* Subtle dual-edge border effect */}
+                  <div className="absolute inset-0 rounded-xl border border-orange-500/20 group-hover:border-orange-500/30 transition-all duration-700"></div>
+                  <div className="absolute inset-[1px] rounded-xl border border-blue-500/10 group-hover:border-blue-500/20 transition-all duration-700"></div>
+
+                  {/* Corner accent decorations */}
+                  <div className="absolute top-0 right-0 w-12 h-12 opacity-40">
+                    <div className="absolute right-0 top-0 w-4 h-4 border-r border-t border-orange-500/40 rounded-tr-md"></div>
+                    <div className="absolute right-1 top-1 w-6 h-6 border-r border-t border-blue-500/30 rounded-tr-md"></div>
+                  </div>
+                  <div className="absolute top-0 left-0 w-12 h-12 opacity-40">
+                    <div className="absolute left-0 top-0 w-4 h-4 border-l border-t border-orange-500/40 rounded-tl-md"></div>
+                    <div className="absolute left-1 top-1 w-6 h-6 border-l border-t border-blue-500/30 rounded-tl-md"></div>
+                  </div>
+                  <div className="absolute bottom-0 right-0 w-12 h-12 opacity-40">
+                    <div className="absolute right-0 bottom-0 w-4 h-4 border-r border-b border-blue-500/40 rounded-br-md"></div>
+                    <div className="absolute right-1 bottom-1 w-6 h-6 border-r border-b border-blue-500/30 rounded-br-md"></div>
+                  </div>
+                  <div className="absolute bottom-0 left-0 w-12 h-12 opacity-40">
+                    <div className="absolute left-0 bottom-0 w-4 h-4 border-l border-b border-blue-500/40 rounded-bl-md"></div>
+                    <div className="absolute left-1 bottom-1 w-6 h-6 border-l border-b border-blue-500/30 rounded-bl-md"></div>
                   </div>
                   
-                  {/* Animated border gradients */}
-                  <div className="absolute inset-0 rounded-lg p-[1px] overflow-hidden">
-                    <div className="absolute inset-0 rounded-lg overflow-hidden">
-                      <div className="absolute inset-0 bg-gradient-to-r from-orange-500/30 via-blue-500/30 to-purple-500/30 animate-gradient-x"></div>
-                    </div>
-                  </div>
+                  {/* Ambient glow */}
+                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3/4 h-20 bg-gradient-to-r from-orange-500/0 via-orange-500/5 to-orange-500/0 blur-[40px] rounded-full"></div>
+                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3/4 h-20 bg-gradient-to-r from-blue-500/0 via-blue-500/5 to-blue-500/0 blur-[40px] rounded-full"></div>
                   
-                  {/* Animated fading squares - appearing and disappearing */}
-                  <div className="absolute -top-4 -right-4 w-16 h-16 rounded-lg border border-orange-500/30 opacity-0 group-hover/table:opacity-60 rotate-12 transition-all duration-1000 animate-pulse-slow"></div>
-                  <div className="absolute -bottom-4 -left-4 w-12 h-12 rounded-lg border border-blue-500/30 opacity-0 group-hover/table:opacity-60 -rotate-12 transition-all duration-1000 animate-pulse-slow-delayed"></div>
-                  <div className="absolute top-1/2 -right-6 w-8 h-8 rounded-lg border border-purple-500/30 opacity-0 group-hover/table:opacity-50 rotate-45 transition-all duration-1000 animate-pulse"></div>
-                  <div className="absolute bottom-1/2 -left-6 w-8 h-8 rounded-lg border border-orange-500/30 opacity-0 group-hover/table:opacity-50 -rotate-45 transition-all duration-1000 animate-pulse-slow"></div>
+                  {/* Animated fading square */}
+                  <div className="absolute top-4 right-4 w-8 h-8 rounded-md border border-orange-500/10 opacity-0 group-hover:opacity-30 rotate-12 transition-all duration-1000 animate-pulse-slow"></div>
+                  <div className="absolute bottom-4 left-4 w-6 h-6 rounded-md border border-blue-500/10 opacity-0 group-hover:opacity-30 -rotate-12 transition-all duration-1000 animate-pulse-slow-delayed"></div>
+
+                  {/* Category title with premium styling */}
+                  <h3 
+                    className="text-2xl font-bold mb-6 text-white relative z-10"
+                    style={{ 
+                      textShadow: '0 1px 2px rgba(0,0,0,0.8)'
+                    }}
+                  >
+                    {category.category}
+                  </h3>
                   
-                  {/* Inner container with premium effects */}
-                  <div className="absolute inset-[1px] bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 rounded-lg overflow-hidden">
-                    {/* Animated shimmer effect */}
-                    <div 
-                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover/table:translate-x-full transition-transform ease-in-out pointer-events-none"
-                      style={{ transitionDuration: '1.5s' }}
-                    ></div>
-                    
-                    {/* Subtle top highlight */}
-                    <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent"></div>
-                    
-                    {/* Enhanced fire/water effect borders with animation */}
-                    <div className={`absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r ${gradientFrom} ${gradientVia} ${gradientTo} animate-pulse-slow z-10`}></div>
-                    <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-blue-600/30 via-cyan-400/30 to-blue-600/30 animate-pulse-slow z-10" style={{ animationDelay: '0.7s' }}></div>
-                    
-                    {/* Premium glassmorphism effect with enhanced gradients */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/20 rounded-lg"></div>
-                  </div>
-                  
-                  {/* Enhanced corner accent decorations with animations */}
-                  <div className="absolute top-0 right-0 w-16 h-16 opacity-60 group-hover/table:opacity-90 transition-opacity duration-700">
-                    <div className="absolute right-0 top-0 w-8 h-8 border-r-2 border-t-2 border-orange-500/60 rounded-tr-md group-hover/table:border-orange-500/80 transition-colors duration-700"></div>
-                    <div className="absolute right-1 top-1 w-10 h-10 border-r border-t border-blue-500/50 rounded-tr-md group-hover/table:border-blue-500/70 transition-colors duration-700"></div>
-                  </div>
-                  <div className="absolute top-0 left-0 w-16 h-16 opacity-60 group-hover/table:opacity-90 transition-opacity duration-700">
-                    <div className="absolute left-0 top-0 w-8 h-8 border-l-2 border-t-2 border-orange-500/60 rounded-tl-md group-hover/table:border-orange-500/80 transition-colors duration-700"></div>
-                    <div className="absolute left-1 top-1 w-10 h-10 border-l border-t border-blue-500/50 rounded-tl-md group-hover/table:border-blue-500/70 transition-colors duration-700"></div>
-                  </div>
-                  <div className="absolute bottom-0 right-0 w-16 h-16 opacity-60 group-hover/table:opacity-90 transition-opacity duration-700">
-                    <div className="absolute right-0 bottom-0 w-8 h-8 border-r-2 border-b-2 border-blue-500/60 rounded-br-md group-hover/table:border-blue-500/80 transition-colors duration-700"></div>
-                    <div className="absolute right-1 bottom-1 w-10 h-10 border-r border-b border-blue-500/50 rounded-br-md group-hover/table:border-blue-500/70 transition-colors duration-700"></div>
-                  </div>
-                  <div className="absolute bottom-0 left-0 w-16 h-16 opacity-60 group-hover/table:opacity-90 transition-opacity duration-700">
-                    <div className="absolute left-0 bottom-0 w-8 h-8 border-l-2 border-b-2 border-blue-500/60 rounded-bl-md group-hover/table:border-blue-500/80 transition-colors duration-700"></div>
-                    <div className="absolute left-1 bottom-1 w-10 h-10 border-l border-b border-blue-500/50 rounded-bl-md group-hover/table:border-blue-500/70 transition-colors duration-700"></div>
-                  </div>
-                  
-                  {/* Enhanced ambient glow effects with animation */}
-                  <div className="absolute inset-0 rounded-lg opacity-40 group-hover/table:opacity-70 transition-opacity duration-1000" 
-                       style={{ 
-                         background: `radial-gradient(circle at 25% 30%, ${orangeGlow} 0%, transparent 50%), 
-                                      radial-gradient(circle at 75% 70%, ${blueGlow} 0%, transparent 50%)` 
-                       }}>
-                  </div>
-                  
-                  {/* Fading square background patterns */}
-                  <div className="absolute top-10 left-10 w-20 h-20 rounded-lg border border-orange-500/5 opacity-30 rotate-12 animate-pulse-slow"></div>
-                  <div className="absolute bottom-16 right-16 w-16 h-16 rounded-lg border border-blue-500/5 opacity-30 -rotate-12 animate-pulse-slow-delayed"></div>
-                  
-                  {/* Premium enterprise-grade category title */}
-                  <div className="relative pt-8 px-6 group/heading">
-                    {/* Title background glow */}
-                    <div className="absolute -inset-x-2 top-6 h-16 rounded-lg opacity-0 group-hover/heading:opacity-100 transition-opacity duration-1000" 
-                      style={{ 
-                        boxShadow: `inset 0 0 20px 0 ${isFirstCard ? orangeGlow : isSecondCard ? blueGlow : purpleGlow}`,
-                        background: `radial-gradient(circle at center, ${isFirstCard ? 'rgba(249,115,22,0.08)' : isSecondCard ? 'rgba(59,130,246,0.08)' : 'rgba(139,92,246,0.08)'} 0%, transparent 70%)`
-                      }}>
-                    </div>
-                    
-                    <div className="flex items-center mb-4">
-                      {/* Enhanced icon with premium styling and animations */}
-                      <div className="relative mr-4 h-12 w-12 flex items-center justify-center group/icon">
-                        {/* Icon background with gradient */}
-                        <div className="absolute inset-0 rounded-full bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95"></div>
-                        
-                        {/* Dual-layer animated border */}
-                        <div className="absolute inset-0 rounded-full border-2 border-orange-500/40 group-hover/icon:border-orange-500/70 transition-all duration-700 animate-glowing-border"></div>
-                        <div className="absolute inset-[2px] rounded-full border border-blue-500/30 group-hover/icon:border-blue-500/60 transition-all duration-700"></div>
-                        
-                        {/* Animated glow effect */}
-                        <div className="absolute inset-0 rounded-full opacity-30 group-hover/icon:opacity-100 transition-opacity duration-700 animate-glow-pulse"
-                             style={{ boxShadow: `0 0 15px 2px ${isFirstCard ? orangeGlow : isSecondCard ? blueGlow : purpleGlow}` }}>
-                        </div>
-                        
-                        {/* Icon SVG with enhanced styling */}
-                        <svg xmlns="http://www.w3.org/2000/svg" 
-                          className="h-6 w-6 text-white relative z-10 group-hover/icon:scale-110 transition-transform duration-500" 
-                          fill="none" 
-                          viewBox="0 0 24 24" 
-                          stroke="currentColor"
-                          style={{ 
-                            filter: 'drop-shadow(0 0 5px rgba(255,255,255,0.5))'
-                          }}
-                        >
-                          {categoryIdx % 3 === 0 ? (
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                          ) : categoryIdx % 3 === 1 ? (
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                          ) : (
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-                          )}
-                        </svg>
-                        
-                        {/* Enhanced orb glow behind icon */}
-                        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-orange-500/20 via-amber-500/30 to-blue-500/20 blur-xl opacity-60 group-hover/icon:opacity-100 transition-opacity duration-700"></div>
-                        
-                        {/* Ambient particles */}
-                        <div className="absolute -top-1 -right-1 h-2 w-2 rounded-full bg-orange-500/60 opacity-0 group-hover/icon:opacity-100 transition-opacity duration-700"></div>
-                        <div className="absolute -bottom-1 -left-1 h-2 w-2 rounded-full bg-blue-500/60 opacity-0 group-hover/icon:opacity-100 transition-opacity duration-700"></div>
-                      </div>
-                      
-                      {/* Category title with enhanced styling */}
-                      <div className="relative overflow-hidden">
-                        <h3 
-                          className="text-xl lg:text-2xl font-bold text-white relative z-10 group-hover/heading:scale-105 transition-transform duration-500"
-                          style={{ 
-                            textShadow: '0 0 10px rgba(59,130,246,0.3), 0 0 20px rgba(59,130,246,0.2), 0 0 2px rgba(255,255,255,0.8), 0 2px 4px rgba(0,0,0,0.9)',
-                            filter: 'drop-shadow(0 2px 2px rgba(0,0,0,0.9))'
-                          }}
-                        >
-                          {category.category}
-                        </h3>
-                        
-                        {/* Premium shimmer effect on hover */}
-                        <div 
-                          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/heading:translate-x-full transition-transform ease-in-out pointer-events-none"
-                          style={{ transitionDuration: '1s' }}
-                        ></div>
-                      </div>
-                    </div>
-                    
-                    {/* Enhanced animated gradient underline */}
-                    <div className="relative h-1">
-                      <div className="absolute inset-x-0 h-full w-16 group-hover/heading:w-full bg-gradient-to-r from-orange-500/60 via-blue-600/40 to-orange-500/60 rounded-full transition-all duration-1000 animate-gradient-x"></div>
-                      
-                      {/* Underline glow effect */}
-                      <div className="absolute inset-x-0 h-4 w-16 group-hover/heading:w-full -bottom-2 opacity-50 blur-md transition-all duration-1000"
-                           style={{ 
-                             background: `linear-gradient(to right, ${isFirstCard ? orangeGlow : isSecondCard ? blueGlow : purpleGlow}, 
-                                          rgba(59,130,246,0.2), 
-                                          ${isFirstCard ? orangeGlow : isSecondCard ? blueGlow : purpleGlow})` 
-                           }}>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  {/* Enterprise grade questions and answers list */}
-                  <div className="space-y-2 mt-6 px-6 pb-8">
+                  {/* FAQ Questions for this category */}
+                  <div className="space-y-4 relative z-10">
                     {category.questions.map((faq, questionIdx) => {
-                      const isOpen = openQuestions[`${categoryIdx}-${questionIdx}`];
+                      // Create a unique key for this question
+                      const questionKey = `${categoryIdx}-${questionIdx}`;
+                      const isOpen = openQuestions[questionKey] || false;
                       
                       return (
-                        <div key={questionIdx} className="group/question">
-                          {/* Question container with enterprise styling */}
-                          <div className="relative rounded-lg overflow-hidden">
-                            {/* Premium enterprise-grade question button */}
-                            <button
-                              onClick={() => toggleQuestion(categoryIdx, questionIdx)}
-                              className="relative w-full text-left rounded-lg py-4 px-5 flex justify-between items-center bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 group-hover/question:scale-[1.01] transition-all duration-300 z-10 overflow-hidden"
-                              style={{ backdropFilter: 'blur(5px)' }}
-                            >
-                              {/* Dual-layer border effect */}
-                              <div className="absolute inset-0 rounded-lg border border-orange-500/30 group-hover/question:border-orange-500/60 transition-all duration-500"></div>
-                              <div className="absolute inset-[1px] rounded-lg border border-blue-500/20 group-hover/question:border-blue-500/50 transition-all duration-500"></div>
-                              
-                              {/* Corner accent squares with animation */}
-                              <div className="absolute top-0 right-0 w-12 h-12 opacity-40">
-                                <div className="absolute right-0 top-0 w-4 h-4 border-r-2 border-t-2 border-orange-500/40 rounded-tr-md"></div>
-                                <div className="absolute right-1 top-1 w-6 h-6 border-r border-t border-blue-500/30 rounded-tr-md"></div>
-                              </div>
-                              <div className="absolute bottom-0 left-0 w-12 h-12 opacity-40">
-                                <div className="absolute left-0 bottom-0 w-4 h-4 border-l-2 border-b-2 border-blue-500/40 rounded-bl-md"></div>
-                                <div className="absolute left-1 bottom-1 w-6 h-6 border-l border-b border-blue-500/30 rounded-bl-md"></div>
-                              </div>
-                              
-                              {/* Ambient glow effect on hover */}
-                              <div className="absolute inset-0 opacity-0 group-hover/question:opacity-100 transition-opacity duration-700" 
-                                  style={{ boxShadow: `inset 0 0 20px 5px ${isFirstCard ? 'rgba(249,115,22,0.15)' : isSecondCard ? 'rgba(59,130,246,0.15)' : 'rgba(139,92,246,0.15)'}` }}>
-                              </div>
-                              
-                              {/* Animated shimmer effect */}
-                              <div 
-                                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover/question:translate-x-full transition-transform ease-in-out pointer-events-none"
-                                style={{ transitionDuration: '1s', transitionDelay: '0.1s' }}
-                              ></div>
-                              
-                              {/* Fading square background patterns */}
-                              <div className="absolute -top-6 -left-6 w-12 h-12 rounded-lg border border-orange-500/10 opacity-0 group-hover/question:opacity-40 rotate-12 transition-all duration-700 delay-100"></div>
-                              <div className="absolute -bottom-6 -right-6 w-12 h-12 rounded-lg border border-blue-500/10 opacity-0 group-hover/question:opacity-40 -rotate-12 transition-all duration-700 delay-200"></div>
-                              
-                              <span 
-                                className="font-medium text-white text-base relative z-10 group-hover/question:scale-[1.02] transition-transform duration-500"
+                        <div 
+                          key={questionIdx} 
+                          className="group/faq"
+                        >
+                          {/* Premium styled question button with hover effects */}
+                          <button
+                            className="w-full text-left p-4 rounded-lg relative bg-gradient-to-br from-gray-800/60 via-gray-850/60 to-gray-900/60 backdrop-blur-sm group-hover/faq:from-gray-800/80 group-hover/faq:to-gray-900/80 transition-all duration-300"
+                            onClick={() => toggleQuestion(categoryIdx, questionIdx)}
+                          >
+                            {/* Border glow */}
+                            <div className="absolute inset-0 rounded-lg opacity-0 group-hover/faq:opacity-100 transition-opacity duration-500 z-0" 
+                              style={{ boxShadow: '0 0 10px 1px rgba(59,130,246,0.2), 0 0 5px 1px rgba(249,115,22,0.2)' }}>
+                            </div>
+                            
+                            {/* Subtle border */}
+                            <div className="absolute inset-0 rounded-lg border border-orange-500/10 group-hover/faq:border-orange-500/20 transition-colors duration-500"></div>
+                            <div className="absolute inset-[1px] rounded-lg border border-blue-500/5 group-hover/faq:border-blue-500/15 transition-colors duration-500"></div>
+                            
+                            <div className="flex items-center justify-between">
+                              <h4 
+                                className="font-medium text-white text-base md:text-lg relative z-10"
                                 style={{ 
-                                  textShadow: '0 0 8px rgba(59,130,246,0.25), 0 0 2px rgba(255,255,255,0.6), 0 2px 4px rgba(0,0,0,0.7)',
-                                  filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.8))'
+                                  textShadow: '0 1px 1px rgba(0,0,0,0.7)'
                                 }}
                               >
                                 {faq.question}
-                              </span>
-                              
-                              {/* Premium toggle icon with glow and animation */}
-                              <div className="relative h-7 w-7 flex items-center justify-center group/icon">
-                                <div className={`absolute inset-0 rounded-full bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 border border-orange-500/30 group-hover/icon:border-orange-500/60 transition-all duration-500`}></div>
-                                <div className={`absolute inset-[1px] rounded-full border border-blue-500/20 group-hover/icon:border-blue-500/40 transition-all duration-500`}></div>
-                                <div className={`absolute inset-0 rounded-full transition-all duration-300 ${isOpen ? 'opacity-100' : 'opacity-0'}`} 
-                                  style={{ boxShadow: 'inset 0 0 8px 1px rgba(59,130,246,0.3), inset 0 0 6px 1px rgba(249,115,22,0.3)' }}>
-                                </div>
-                                <svg 
-                                  className={`h-4 w-4 text-white transition-transform duration-500 relative z-10 ${isOpen ? 'transform rotate-180' : ''}`} 
-                                  fill="none" 
-                                  viewBox="0 0 24 24" 
-                                  stroke="currentColor"
-                                  style={{ filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.8))' }}
-                                >
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
-                                </svg>
-                              </div>
-                            </button>
-                          </div>
-                          
-                          {/* Premium enterprise-grade answer with advanced styling */}
-                          {isOpen && (
-                            <div className="overflow-hidden transition-all duration-500 rounded-lg mt-2 group/answer">
-                              <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 rounded-lg p-6 pl-12 shadow-[0_10px_25px_-12px_rgba(0,0,0,0.8)] overflow-hidden">
-                                {/* Dual-layer border effect */}
-                                <div className="absolute inset-0 rounded-lg border border-orange-500/20 group-hover/answer:border-orange-500/40 transition-colors duration-500"></div>
-                                <div className="absolute inset-[1px] rounded-lg border border-blue-500/10 group-hover/answer:border-blue-500/30 transition-colors duration-500"></div>
-                                
-                                {/* Enhanced side accent with glow */}
-                                <div className="absolute left-6 top-0 bottom-0 w-[2px] bg-gradient-to-b from-orange-500/50 via-blue-500/30 to-orange-500/50 rounded-full"></div>
-                                <div className="absolute left-6 top-0 bottom-0 w-[2px] opacity-0 group-hover/answer:opacity-100 transition-opacity duration-700 rounded-full"
-                                     style={{ boxShadow: '0 0 8px 1px rgba(59,130,246,0.4), 0 0 12px 2px rgba(249,115,22,0.3)' }}>
-                                </div>
-                                
-                                {/* Corner accent decorations */}
-                                <div className="absolute top-0 right-0 w-12 h-12 opacity-40">
-                                  <div className="absolute right-0 top-0 w-4 h-4 border-r-2 border-t-2 border-blue-500/30 rounded-tr-md"></div>
-                                  <div className="absolute right-1 top-1 w-6 h-6 border-r border-t border-orange-500/20 rounded-tr-md"></div>
-                                </div>
-                                <div className="absolute bottom-0 left-0 w-12 h-12 opacity-40">
-                                  <div className="absolute left-0 bottom-0 w-4 h-4 border-l-2 border-b-2 border-blue-500/30 rounded-bl-md"></div>
-                                  <div className="absolute left-1 bottom-1 w-6 h-6 border-l border-b border-orange-500/20 rounded-bl-md"></div>
-                                </div>
-                                
-                                {/* Ambient glow effect */}
-                                <div className="absolute inset-0 opacity-60" 
-                                     style={{ boxShadow: `inset 0 0 20px 5px ${isFirstCard ? 'rgba(249,115,22,0.08)' : isSecondCard ? 'rgba(59,130,246,0.08)' : 'rgba(139,92,246,0.08)'}` }}>
-                                </div>
-                                
-                                {/* Fading square background patterns */}
-                                <div className="absolute top-10 right-10 w-20 h-20 rounded-lg border border-orange-500/5 opacity-20 rotate-12 animate-pulse-slow"></div>
-                                <div className="absolute bottom-14 right-14 w-16 h-16 rounded-lg border border-blue-500/5 opacity-20 -rotate-12 animate-pulse-slow-delayed"></div>
-                                
-                                {/* Animated shimmer effect */}
-                                <div 
-                                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover/answer:translate-x-full transition-transform ease-in-out pointer-events-none"
-                                  style={{ transitionDuration: '1.2s', transitionDelay: '0.2s' }}
-                                ></div>
-                                
-                                {/* Premium text styling */}
-                                <p className="text-gray-300 text-base leading-relaxed relative z-10"
-                                  style={{ 
-                                    textShadow: '0 1px 2px rgba(0,0,0,0.8)',
-                                    filter: 'drop-shadow(0 1px 1px rgba(0,0,0,0.5))'
-                                  }}
-                                >
-                                  {faq.answer}
-                                </p>
-                                
-                                {/* Subtle highlight lines */}
-                                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
-                                <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
-                              </div>
+                              </h4>
+                              <svg
+                                className={`w-5 h-5 text-gray-400 transform transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth={2}
+                                  d="M19 9l-7 7-7-7"
+                                />
+                              </svg>
                             </div>
-                          )}
+                          </button>
+                          
+                          {/* Sliding answer panel with premium styling */}
+                          <div 
+                            className={`overflow-hidden transition-all duration-300 ${
+                              isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                            }`}
+                          >
+                            <div className="p-4 text-gray-300 bg-gray-900/40 backdrop-blur-sm rounded-b-lg border-t border-t-gray-800/60">
+                              <p dangerouslySetInnerHTML={{ __html: faq.answer.replace(/\n/g, '<br />') }} />
+                            </div>
+                          </div>
                         </div>
                       );
                     })}
@@ -558,97 +246,94 @@ const FAQSection = ({ faqs }: FAQProps) => {
           })}
         </div>
 
-        {/* Enterprise grade CTA with premium styling */}
-        <div className="text-center mt-20 group/cta">
-          <div className="relative inline-block p-8 bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 backdrop-blur-xl rounded-lg shadow-[0_10px_50px_rgba(0,0,0,0.5)]">
-            {/* Subtle top highlight */}
-            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
-            
-            {/* Fire/water effect borders */}
-            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-orange-500/20 via-amber-500/30 to-orange-500/20 animate-pulse z-10" style={{ animationDuration: '3s' }}></div>
-            <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-blue-600/20 via-cyan-400/20 to-blue-600/20 animate-pulse z-10" style={{ animationDuration: '4s' }}></div>
-            
-            {/* Premium glassmorphism effect */}
-            <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/10 rounded-lg"></div>
-            
-            {/* Corner accent decorations */}
-            <div className="absolute top-0 right-0 w-16 h-16 opacity-40">
-              <div className="absolute right-0 top-0 w-6 h-6 border-r-2 border-t-2 border-orange-500/40 rounded-tr-md"></div>
-              <div className="absolute right-1 top-1 w-8 h-8 border-r border-t border-blue-500/30 rounded-tr-md"></div>
-            </div>
-            <div className="absolute top-0 left-0 w-16 h-16 opacity-40">
-              <div className="absolute left-0 top-0 w-6 h-6 border-l-2 border-t-2 border-orange-500/40 rounded-tl-md"></div>
-              <div className="absolute left-1 top-1 w-8 h-8 border-l border-t border-blue-500/30 rounded-tl-md"></div>
-            </div>
-            <div className="absolute bottom-0 right-0 w-16 h-16 opacity-40">
-              <div className="absolute right-0 bottom-0 w-6 h-6 border-r-2 border-b-2 border-blue-500/40 rounded-br-md"></div>
-              <div className="absolute right-1 bottom-1 w-8 h-8 border-r border-b border-blue-500/30 rounded-br-md"></div>
-            </div>
-            <div className="absolute bottom-0 left-0 w-16 h-16 opacity-40">
-              <div className="absolute left-0 bottom-0 w-6 h-6 border-l-2 border-b-2 border-blue-500/40 rounded-bl-md"></div>
-              <div className="absolute left-1 bottom-1 w-8 h-8 border-l border-b border-blue-500/30 rounded-bl-md"></div>
-            </div>
-            
-            {/* Ambient glow effect */}
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3/4 h-24 bg-gradient-to-r from-orange-500/0 via-orange-500/15 to-orange-500/0 blur-[100px] rounded-full"></div>
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3/4 h-24 bg-gradient-to-r from-blue-500/0 via-blue-500/15 to-blue-500/0 blur-[100px] rounded-full"></div>
-            
-            {/* Enterprise message with white drop shadow */}
-            <p 
-              className="text-xl text-white mb-8 max-w-xl mx-auto" 
-              style={{ 
-                textShadow: '0 0 2px rgba(255,255,255,0.6), 0 2px 4px rgba(0,0,0,0.7)',
-                filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.8))'
-              }}
-            >
-              <span className="inline-block relative mr-2">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 inline-block mr-2 text-orange-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                </svg>
-              </span>
-              Still have questions? Our protective coating experts are here to help.
-            </p>
-            
-            {/* Enterprise-grade button with animation effects */}
-            <a
-              href="#contact"
-              className="group relative inline-flex items-center px-8 py-4 rounded-lg text-white text-lg font-medium transition-all duration-500 overflow-hidden"
-            >
-              {/* Background with gradient */}
-              <div className="absolute inset-0 bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 rounded-lg"></div>
-              
-              {/* Border with dual-layer effect */}
-              <div className="absolute inset-0 rounded-lg border border-orange-500/40 group-hover:border-orange-500/60 transition-colors duration-500"></div>
-              <div className="absolute inset-[1px] rounded-lg border border-blue-500/30 group-hover:border-blue-500/50 transition-colors duration-500"></div>
-              
-              {/* Glow effect on hover */}
-              <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-0"
-                 style={{ boxShadow: '0 0 15px 2px rgba(59,130,246,0.3), 0 0 15px 2px rgba(249,115,22,0.3)' }}>
+        {/* Premium CTA Section */}
+        <div className="text-center mt-24">
+          <div className="relative mx-auto max-w-3xl">
+            <div className="relative p-10 bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 rounded-xl shadow-[0_10px_40px_rgba(0,0,0,0.7)] overflow-hidden group hover:scale-[1.02] transition-transform duration-700">
+              {/* Outer glow effects */}
+              <div className="absolute -inset-2 rounded-xl opacity-50 group-hover:opacity-90 transition-opacity duration-700" 
+                style={{ boxShadow: '0 0 30px 5px rgba(59,130,246,0.3), 0 0 20px 5px rgba(249,115,22,0.3)' }}>
               </div>
               
-              {/* Shimmer effect */}
-              <div 
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform ease-in-out pointer-events-none"
-                style={{ transitionDuration: '1s' }}
-              ></div>
+              {/* Dual-layer border */}
+              <div className="absolute inset-0 rounded-xl border-2 border-orange-500/30 group-hover:border-orange-500/50 transition-colors duration-700"></div>
+              <div className="absolute inset-[2px] rounded-xl border border-blue-500/20 group-hover:border-blue-500/40 transition-colors duration-700"></div>
               
-              {/* Button text with premium styling */}
-              <span 
-                className="relative z-10 font-medium tracking-wider group-hover:scale-105 transition-transform duration-500 flex items-center"
-                style={{ 
-                  textShadow: '0 0 8px rgba(59,130,246,0.25), 0 0 2px rgba(255,255,255,0.6), 0 2px 4px rgba(0,0,0,0.7)',
-                  filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.8))'
-                }}
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-4l-4 4z" />
-                </svg>
-                Contact Our Experts
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </span>
-            </a>
+              {/* Corner accents */}
+              <div className="absolute top-0 right-0 w-16 h-16 opacity-60">
+                <div className="absolute right-0 top-0 w-6 h-6 border-r-2 border-t-2 border-orange-500/40 rounded-tr-md"></div>
+                <div className="absolute right-1 top-1 w-8 h-8 border-r border-t border-blue-500/30 rounded-tr-md"></div>
+              </div>
+              <div className="absolute top-0 left-0 w-16 h-16 opacity-60">
+                <div className="absolute left-0 top-0 w-6 h-6 border-l-2 border-t-2 border-orange-500/40 rounded-tl-md"></div>
+                <div className="absolute left-1 top-1 w-8 h-8 border-l border-t border-blue-500/30 rounded-tl-md"></div>
+              </div>
+              <div className="absolute bottom-0 right-0 w-16 h-16 opacity-60">
+                <div className="absolute right-0 bottom-0 w-6 h-6 border-r-2 border-b-2 border-blue-500/40 rounded-br-md"></div>
+                <div className="absolute right-1 bottom-1 w-8 h-8 border-r border-b border-blue-500/30 rounded-br-md"></div>
+              </div>
+              <div className="absolute bottom-0 left-0 w-16 h-16 opacity-60">
+                <div className="absolute left-0 bottom-0 w-6 h-6 border-l-2 border-b-2 border-blue-500/40 rounded-bl-md"></div>
+                <div className="absolute left-1 bottom-1 w-8 h-8 border-l border-b border-blue-500/30 rounded-bl-md"></div>
+              </div>
+              
+              {/* Ambient glow */}
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3/4 h-24 bg-gradient-to-r from-orange-500/0 via-orange-500/10 to-orange-500/0 blur-[80px] rounded-full"></div>
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3/4 h-24 bg-gradient-to-r from-blue-500/0 via-blue-500/10 to-blue-500/0 blur-[80px] rounded-full"></div>
+              
+              {/* Text content */}
+              <div className="relative flex items-center justify-center mb-8 z-10">
+                <div className="relative h-12 w-12 mr-4">
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-br from-gray-900 via-gray-950 to-black"></div>
+                  <div className="absolute inset-0 rounded-full border-2 border-orange-500/50"></div>
+                  <div className="absolute inset-[2px] rounded-full border border-blue-500/40"></div>
+                  <svg xmlns="http://www.w3.org/2000/svg" 
+                    className="h-6 w-6 text-white absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" 
+                    fill="none" 
+                    viewBox="0 0 24 24" 
+                    stroke="currentColor"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                  </svg>
+                </div>
+                
+                <p 
+                  className="text-xl font-bold text-white"
+                  style={{ 
+                    textShadow: '0 1px 1px rgba(0,0,0,0.7)',
+                    filter: 'drop-shadow(0 1px 1px rgba(0,0,0,0.5))'
+                  }}
+                >
+                  Still have questions? Our protective coating experts are here to help.
+                </p>
+              </div>
+              
+              {/* Button */}
+              <div className="relative z-10">
+                <a
+                  href="#contact"
+                  className="group relative inline-flex items-center px-8 py-4 rounded-lg text-white text-lg font-medium transition-all duration-500 overflow-hidden"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-950 to-black rounded-lg"></div>
+                  <div className="absolute inset-0 rounded-lg border border-orange-500/40 group-hover:border-orange-500/60 transition-colors duration-500"></div>
+                  <div className="absolute inset-[1px] rounded-lg border border-blue-500/30 group-hover:border-blue-500/50 transition-colors duration-500"></div>
+                  
+                  <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+                    style={{ boxShadow: '0 0 15px 2px rgba(59,130,246,0.3), 0 0 15px 2px rgba(249,115,22,0.3)' }}>
+                  </div>
+                  
+                  <span className="relative z-10 font-medium flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-4l-4 4z" />
+                    </svg>
+                    Contact Our Experts
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform duration-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                  </span>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
