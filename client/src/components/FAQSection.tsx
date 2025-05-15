@@ -48,103 +48,44 @@ const FAQSection = ({ faqs }: FAQProps) => {
       <div className="absolute bottom-1/3 right-1/4 w-96 h-96 rounded-full bg-blue-500/5 filter blur-[120px] animate-pulse-slow-delayed" style={{ zIndex: 1 }}></div>
       
       <div className="container mx-auto px-4 relative z-10">
-        {/* Premium card header styling matching Specialized Applications */}
-        <div className="relative mb-20">
-          {/* Atmospheric background glow */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-4xl">
-            <div className="absolute -top-20 left-[10%] w-48 h-48 bg-orange-500/10 rounded-full filter blur-[80px]"></div>
-            <div className="absolute -bottom-20 right-[10%] w-72 h-72 bg-orange-600/10 rounded-full filter blur-[100px]"></div>
+        {/* Premium enterprise header styling */}
+        <div className="relative mb-20 group">
+          {/* Ambient glow effects with animation */}
+          <div className="absolute inset-0 max-w-4xl mx-auto">
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3/4 h-32 bg-gradient-to-r from-blue-500/0 via-blue-500/20 to-blue-500/0 blur-[100px] rounded-full"></div>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3/4 h-32 bg-gradient-to-r from-orange-500/0 via-orange-500/10 to-orange-500/0 blur-[100px] rounded-full"></div>
           </div>
           
-          {/* Premium badge positioned completely outside the card */}
-          <div className="relative w-full">
-            <PremiumBadge>
-              FREQUENTLY ASKED
-            </PremiumBadge>
-          </div>
-          
-          {/* Card container - removed overflow-hidden that was causing badge clipping */}
-          <div className="relative mx-auto max-w-4xl bg-gradient-to-b from-gray-900/80 to-black/90 rounded-2xl">
-            {/* Premium gradient border */}
-            <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-orange-500/20 via-blue-500/20 to-orange-500/20 blur-[2px]"></div>
-            
-            {/* Inner border glow */}
-            <div className="absolute inset-[1px] rounded-xl border border-orange-500/30 bg-black/50 z-0"></div>
-            
-            {/* Top glossy reflection */}
-            <div className="absolute top-0 left-0 right-0 h-[30%] bg-gradient-to-b from-white/5 to-transparent rounded-t-xl"></div>
-            
-            {/* Corner accent squares - TOP RIGHT */}
-            <div className="absolute top-4 right-4 w-12 h-12 z-10">
-              <div className="absolute right-0 top-0 w-6 h-6 border-r-2 border-t-2 border-orange-500/40 rounded-tr-md"></div>
-              <div className="absolute right-1 top-1 w-8 h-8 border-r border-t border-blue-500/30 rounded-tr-md"></div>
-              <div className="absolute right-2 top-2 w-4 h-4 bg-gradient-to-br from-orange-500/30 to-blue-500/5 rounded-tr-sm filter blur-[1px]"></div>
-            </div>
-            
-            {/* Corner accent squares - TOP LEFT */}
-            <div className="absolute top-4 left-4 w-12 h-12 z-10">
-              <div className="absolute left-0 top-0 w-6 h-6 border-l-2 border-t-2 border-orange-500/40 rounded-tl-md"></div>
-              <div className="absolute left-1 top-1 w-8 h-8 border-l border-t border-blue-500/30 rounded-tl-md"></div>
-              <div className="absolute left-2 top-2 w-4 h-4 bg-gradient-to-bl from-orange-500/30 to-blue-500/5 rounded-tl-sm filter blur-[1px]"></div>
-            </div>
-            
-            {/* Corner accent squares - BOTTOM RIGHT */}
-            <div className="absolute bottom-4 right-4 w-12 h-12 z-10">
-              <div className="absolute right-0 bottom-0 w-6 h-6 border-r-2 border-b-2 border-orange-500/40 rounded-br-md"></div>
-              <div className="absolute right-1 bottom-1 w-8 h-8 border-r border-b border-amber-500/30 rounded-br-md"></div>
-              <div className="absolute right-2 bottom-2 w-4 h-4 bg-gradient-to-tr from-orange-500/30 to-amber-500/5 rounded-br-sm filter blur-[1px]"></div>
-            </div>
-            
-            {/* Corner accent squares - BOTTOM LEFT */}
-            <div className="absolute bottom-4 left-4 w-12 h-12 z-10">
-              <div className="absolute left-0 bottom-0 w-6 h-6 border-l-2 border-b-2 border-orange-500/40 rounded-bl-md"></div>
-              <div className="absolute left-1 bottom-1 w-8 h-8 border-l border-b border-amber-500/30 rounded-bl-md"></div>
-              <div className="absolute left-2 bottom-2 w-4 h-4 bg-gradient-to-bl from-orange-500/30 to-amber-500/5 rounded-bl-sm filter blur-[1px]"></div>
-            </div>
-            
-            {/* Content container with proper spacing */}
-            <div className="relative z-20 px-8 py-12 md:px-12 md:py-16 text-center">            
-              {/* Background blur text */}
-              <div className="absolute inset-0 flex justify-center items-center text-5xl font-bold tracking-tight text-orange-900/10 blur-[5px] scale-110 pointer-events-none">
-                Frequently Asked Questions
-              </div>
-              
-              {/* Main text with white color */}
-              <h2 className="text-white
-                drop-shadow-[0_0px_1px_rgba(251,113,36,0.2)] 
-                [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(251,146,60,0.3)]
-                text-4xl md:text-5xl font-bold relative z-30 mb-6">
-                Frequently Asked Questions
-              </h2>
-              
-              {/* Multiple text shadows for depth - reduced blur effects */}
-              <div className="absolute inset-0 flex items-center justify-center text-5xl font-bold tracking-tight opacity-10 blur-[3px] text-orange-700/30 z-10 transform scale-105 pointer-events-none">
-                Frequently Asked Questions
-              </div>
-              <div className="absolute inset-0 flex items-center justify-center text-5xl font-bold tracking-tight opacity-20 blur-[1px] text-blue-900/20 z-10 pointer-events-none">
-                Frequently Asked Questions
-              </div>
-              
-              {/* Subtitle with enhanced styling */}
-              <p className="text-gray-300 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed relative z-30 mt-6">
-                Find answers to common questions about our protective coating products and services.
-              </p>
-              
-              {/* Decorative accent line */}
-              <div className="absolute left-[8%] bottom-6 transform group w-14 h-2.5 rounded-full overflow-hidden z-50 transition-all duration-700 hover:w-72">
-                {/* Base gradient */}
-                <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-amber-500 to-blue-600"></div>
+          <div className="relative w-full flex flex-col items-center justify-center">
+            {/* Premium header text with effects */}
+            <div className="relative mb-2">
+              {/* Shimmer effect container */}
+              <div className="relative overflow-hidden">
+                <h2 
+                  className="text-white font-extrabold tracking-tight py-3 text-center z-10 text-4xl md:text-5xl"
+                  style={{ 
+                    textShadow: '0 0 8px rgba(59,130,246,0.25), 0 0 15px rgba(59,130,246,0.15), 0 0 2px rgba(255,255,255,0.8), 0 2px 4px rgba(0,0,0,0.7)',
+                    filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.8)) drop-shadow(0 0 2px rgba(255,255,255,0.6))'
+                  }}
+                >
+                  Frequently Asked Questions
+                </h2>
                 
-                {/* Glow effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-amber-500 to-blue-600 blur-md opacity-70"></div>
-                
-                {/* Pulsing dots */}
-                <div className="absolute h-full w-4 bg-white/80 right-4 rounded-full blur-[1px] animate-pulse-slow"></div>
-                <div className="absolute h-full w-3 bg-white/80 right-24 rounded-full blur-[1px] animate-pulse-slow-delayed opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
+                {/* Shimmer effect overlay */}
+                <div 
+                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform ease-in-out pointer-events-none"
+                  style={{ transitionDuration: '1.5s', transitionDelay: '0.3s' }}
+                />
               </div>
               
-              {/* Premium badge moved outside the overflow:hidden container */}
+              {/* Animated gradient underline */}
+              <div className="h-1 w-0 group-hover:w-full bg-gradient-to-r from-blue-600 via-cyan-400 to-blue-500 rounded-full mx-auto transition-all duration-1000 opacity-80"></div>
             </div>
+            
+            {/* Subtitle with premium styling */}
+            <p className="text-gray-300 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed z-10 mt-4 mb-8 text-center">
+              Find answers to common questions about our protective coating products and services.
+            </p>
           </div>
         </div>
         
@@ -177,193 +118,161 @@ const FAQSection = ({ faqs }: FAQProps) => {
           }
         `}} />
 
-        {/* Enhanced FAQ Categories Grid with premium styling */}
+        {/* Enterprise grade FAQ Categories Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           {faqs.map((category, categoryIdx) => {
-            // Theme configuration based on category index
-            type ThemeConfig = {
-              borderGradient: string;
-              textGradient: string;
-              iconGradient: string;
-              iconShadow: string;
-              ambientGlow: string;
-              cornerAccent: string;
-              questionBorder: string;
-              answerGradient: string;
-              answerBorder: string;
-              hoverAccent: string;
-            };
+            // Card color variations based on index
+            const isFirstCard = categoryIdx === 0;
+            const isSecondCard = categoryIdx === 1;
+            const isThirdCard = categoryIdx === 2;
             
-            // Define themes as an array instead of an object with numeric keys
-            const themes: ThemeConfig[] = [
-              { // Fire theme
-                borderGradient: "from-orange-500/60 via-blue-600/30 to-orange-500/60",
-                textGradient: "from-orange-400 via-amber-300 to-orange-400",
-                iconGradient: "from-amber-400 via-orange-500 to-blue-600",
-                iconShadow: "0 0 30px rgba(251,113,36,0.7), 0 0 15px rgba(59,130,246,0.5)",
-                ambientGlow: "radial-gradient(circle at center, rgba(251,113,36,0.2) 0%, rgba(59,130,246,0.1) 40%, transparent 70%)",
-                cornerAccent: "from-orange-500/40 to-blue-600/40",
-                questionBorder: "from-orange-500/60 via-amber-600/30 to-blue-500/60",
-                answerGradient: "from-gray-900/90 to-gray-800/90",
-                answerBorder: "from-orange-600/40 to-blue-600/40",
-                hoverAccent: "from-orange-500/30 to-blue-500/30"
-              },
-              { // Blue theme
-                borderGradient: "from-blue-500/60 via-cyan-500/30 to-blue-600/60",
-                textGradient: "from-blue-400 via-cyan-300 to-blue-400",
-                iconGradient: "from-cyan-400 via-blue-500 to-blue-700",
-                iconShadow: "0 0 30px rgba(59,130,246,0.7), 0 0 15px rgba(14,165,233,0.5)",
-                ambientGlow: "radial-gradient(circle at center, rgba(59,130,246,0.2) 0%, rgba(14,165,233,0.1) 40%, transparent 70%)",
-                cornerAccent: "from-blue-500/40 to-cyan-600/40",
-                questionBorder: "from-blue-500/60 via-cyan-600/30 to-blue-500/60",
-                answerGradient: "from-gray-900/90 to-gray-800/90",
-                answerBorder: "from-blue-600/40 to-cyan-600/40",
-                hoverAccent: "from-blue-500/30 to-cyan-500/30"
-              },
-              { // Mixed theme
-                borderGradient: "from-orange-500/50 via-transparent to-blue-400/50",
-                textGradient: "from-amber-300 via-orange-400 to-blue-400",
-                iconGradient: "from-amber-400 via-orange-500 to-blue-600",
-                iconShadow: "0 0 30px rgba(251,113,36,0.5), 0 0 30px rgba(59,130,246,0.5)",
-                ambientGlow: "radial-gradient(circle at center, rgba(251,113,36,0.3), rgba(59,130,246,0.3), transparent 70%)",
-                cornerAccent: "from-orange-500/40 to-blue-500/40",
-                questionBorder: "from-orange-500/50 via-transparent to-blue-400/50",
-                answerGradient: "from-gray-900/90 to-gray-800/90",
-                answerBorder: "from-orange-600/30 via-transparent to-blue-600/30",
-                hoverAccent: "from-orange-500/20 via-transparent to-blue-500/20"
-              }
-            ];
+            // Define accent colors based on position
+            const borderAccentColor = isFirstCard ? "border-orange-500/40" 
+                                    : isSecondCard ? "border-blue-500/40" 
+                                    : "border-blue-500/30";
             
-            // Get theme based on index (safely access array)
-            const theme = themes[categoryIdx % 3];
+            const glowColor = isFirstCard ? "bg-orange-500/15" 
+                             : isSecondCard ? "bg-blue-500/15" 
+                             : "bg-purple-500/15";
+            
+            const gradientFrom = isFirstCard ? "from-orange-500/10" 
+                                : isSecondCard ? "from-blue-500/10" 
+                                : "from-purple-500/10";
+                                
+            const gradientVia = isFirstCard ? "via-amber-500/15" 
+                               : isSecondCard ? "via-cyan-500/15" 
+                               : "via-indigo-500/15";
+                               
+            const gradientTo = isFirstCard ? "to-blue-500/10" 
+                              : isSecondCard ? "to-indigo-500/10" 
+                              : "to-blue-500/10";
             
             return (
-              <div key={categoryIdx} className="group relative transform hover:scale-[1.01] transition-all duration-700">
-                {/* Premium Card Container with enhanced styling */}
-                <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/98 to-gray-900/95 backdrop-blur-xl rounded-xl p-8 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7)] z-10">
-                  {/* Premium dual-layer gradient border effect */}
-                  <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/60 via-blue-600/30 to-orange-500/60 opacity-80"></div>
-                  <div className={`absolute inset-[1px] p-0.5 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-30 pointer-events-none`}></div>
+              <div key={categoryIdx} className="group relative">
+                {/* Enterprise-grade card container */}
+                <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 backdrop-blur-xl rounded-lg h-full border-0 shadow-[0_10px_50px_rgba(0,0,0,0.5)]">
+                  {/* Subtle top highlight */}
+                  <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+                  
+                  {/* Fire/water effect borders */}
+                  <div className={`absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r ${gradientFrom} ${gradientVia} ${gradientTo} animate-pulse z-10`} style={{ animationDuration: '3s' }}></div>
+                  <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-blue-600/20 via-cyan-400/20 to-blue-600/20 animate-pulse z-10" style={{ animationDuration: '4s' }}></div>
+                  
+                  {/* Premium glassmorphism effect */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/10 rounded-lg"></div>
                   
                   {/* Corner accent decorations */}
-                  <div className="absolute top-0 right-0 w-24 h-24 opacity-20">
-                    <div className="absolute inset-0 bg-gradient-to-bl from-orange-500/40 to-blue-600/40 rounded-tr-xl blur-[2px]"></div>
+                  <div className="absolute top-0 right-0 w-16 h-16 opacity-40">
+                    <div className="absolute right-0 top-0 w-6 h-6 border-r-2 border-t-2 border-orange-500/40 rounded-tr-md"></div>
+                    <div className="absolute right-1 top-1 w-8 h-8 border-r border-t border-blue-500/30 rounded-tr-md"></div>
                   </div>
-                  <div className="absolute bottom-0 left-0 w-24 h-24 opacity-20">
-                    <div className="absolute inset-0 bg-gradient-to-tr from-orange-500/40 to-blue-600/40 rounded-bl-xl blur-[2px]"></div>
+                  <div className="absolute top-0 left-0 w-16 h-16 opacity-40">
+                    <div className="absolute left-0 top-0 w-6 h-6 border-l-2 border-t-2 border-orange-500/40 rounded-tl-md"></div>
+                    <div className="absolute left-1 top-1 w-8 h-8 border-l border-t border-blue-500/30 rounded-tl-md"></div>
+                  </div>
+                  <div className="absolute bottom-0 right-0 w-16 h-16 opacity-40">
+                    <div className="absolute right-0 bottom-0 w-6 h-6 border-r-2 border-b-2 border-blue-500/40 rounded-br-md"></div>
+                    <div className="absolute right-1 bottom-1 w-8 h-8 border-r border-b border-blue-500/30 rounded-br-md"></div>
+                  </div>
+                  <div className="absolute bottom-0 left-0 w-16 h-16 opacity-40">
+                    <div className="absolute left-0 bottom-0 w-6 h-6 border-l-2 border-b-2 border-blue-500/40 rounded-bl-md"></div>
+                    <div className="absolute left-1 bottom-1 w-8 h-8 border-l border-b border-blue-500/30 rounded-bl-md"></div>
                   </div>
                   
                   {/* Ambient glow effect */}
-                  <div className="absolute inset-0 rounded-xl opacity-30 group-hover:opacity-40 transition-opacity duration-1000" 
-                       style={{ background: "radial-gradient(circle at center, rgba(251,113,36,0.2) 0%, rgba(59,130,246,0.1) 40%, transparent 70%)" }}>
+                  <div className="absolute inset-0 rounded-lg opacity-30 group-hover:opacity-50 transition-opacity duration-1000" 
+                       style={{ background: `radial-gradient(circle at center, ${isFirstCard ? 'rgba(249,115,22,0.15)' : isSecondCard ? 'rgba(59,130,246,0.15)' : 'rgba(139,92,246,0.15)'} 0%, transparent 70%)` }}>
                   </div>
                   
-                  {/* Category Title with enhanced styling */}
-                  <div className="mb-8 pb-4 relative">
-                    <div className="relative inline-flex items-center mb-2">
-                      {/* Premium category icon */}
-                      <div className="relative flex-shrink-0 mr-3">
-                        <div className="w-10 h-10 rounded-full flex items-center justify-center">
-                          <div className="absolute inset-0 rounded-full bg-gradient-to-r from-gray-800 to-gray-700"></div>
-                          <div className="absolute inset-0 rounded-full bg-gradient-to-r from-amber-400 via-orange-500 to-red-600 opacity-50"></div>
-                          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white relative z-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            {categoryIdx % 3 === 0 ? (
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                            ) : categoryIdx % 3 === 1 ? (
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            ) : (
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-                            )}
-                          </svg>
-                        </div>
+                  {/* Enterprise grade category title */}
+                  <div className="relative pt-8 px-6 group/heading">
+                    <div className="flex items-center mb-4">
+                      {/* Icon with premium enterprise styling */}
+                      <div className="relative mr-3 h-10 w-10 flex items-center justify-center">
+                        <div className="absolute inset-0 rounded-full bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95"></div>
+                        <div className="absolute inset-0 rounded-full border border-orange-500/30 group-hover/heading:border-orange-500/50 transition-colors duration-500 opacity-80"></div>
+                        <div className="absolute inset-[1px] rounded-full border border-blue-500/20 group-hover/heading:border-blue-500/40 transition-colors duration-500"></div>
+                        
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white relative z-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          {categoryIdx % 3 === 0 ? (
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                          ) : categoryIdx % 3 === 1 ? (
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          ) : (
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                          )}
+                        </svg>
+                        
+                        {/* Subtle glow behind icon */}
+                        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-orange-500/10 via-amber-500/20 to-blue-500/10 blur-lg opacity-80 group-hover/heading:opacity-100 transition-opacity duration-500"></div>
                       </div>
                       
-                      {/* Enhanced category heading */}
-                      <h3 className="text-2xl font-bold text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">
+                      {/* Category title with white text and subtle shadow */}
+                      <h3 
+                        className="text-xl lg:text-2xl font-bold text-white relative z-10 group-hover/heading:scale-105 transition-transform duration-500"
+                        style={{ 
+                          textShadow: '0 0 8px rgba(59,130,246,0.25), 0 0 15px rgba(59,130,246,0.15), 0 0 2px rgba(255,255,255,0.6), 0 2px 4px rgba(0,0,0,0.7)',
+                          filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.8))'
+                        }}
+                      >
                         {category.category}
                       </h3>
                     </div>
                     
-                    {/* Decorative line with gradient */}
-                    <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-gray-600/40 to-transparent"></div>
+                    {/* Animated gradient underline */}
+                    <div className="h-0.5 w-16 group-hover/heading:w-32 bg-gradient-to-r from-orange-500/60 via-blue-600/30 to-orange-500/60 rounded-full transition-all duration-1000"></div>
                   </div>
                   
-                  {/* Enhanced Questions List with premium styling */}
-                  <div className="space-y-4">
+                  {/* Enterprise grade questions and answers list */}
+                  <div className="space-y-2 mt-6 px-6 pb-8">
                     {category.questions.map((faq, questionIdx) => {
                       const isOpen = openQuestions[`${categoryIdx}-${questionIdx}`];
                       
                       return (
-                        <div key={questionIdx} className="mb-5 relative transform transition-all duration-500">
-                          {/* Enhanced Question Box with Premium Styling */}
-                          <div className={`relative group/question transform ${isOpen ? 'scale-[1.01]' : ''} transition-all duration-500`}>
-                            {/* Premium gradient border effect with glow animation */}
-                            <div className={`absolute -inset-[1px] rounded-lg bg-gradient-to-r from-orange-500/60 via-amber-600/30 to-blue-500/60 transition-all duration-500 ${isOpen ? 'opacity-70 blur-[0.5px]' : 'opacity-50 blur-[0.3px]'}`}
-                                style={{ 
-                                  animation: 'borderPulse 2s ease-in-out infinite',
-                                  boxShadow: '0 0 5px 1px rgba(255, 106, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1)' 
-                                }}></div>
-                            
+                        <div key={questionIdx} className="group/question">
+                          {/* Question container with enterprise styling */}
+                          <div className="relative rounded-lg overflow-hidden">
+                            {/* Question button */}
                             <button
                               onClick={() => toggleQuestion(categoryIdx, questionIdx)}
-                              className={`relative w-full group bg-black backdrop-blur-sm rounded-lg px-6 py-4 text-left transition-all text-base border-2 border-orange-500/70 hover:shadow-[0_0_12px_rgba(255,106,0,0.5)] flex justify-between items-center overflow-hidden`}
+                              className="relative w-full text-left rounded-lg py-4 px-5 flex justify-between items-center bg-gradient-to-br from-gray-900/70 via-gray-950/70 to-black/70 border border-transparent group-hover/question:border-blue-500/20 transition-all duration-300 z-10"
+                              style={{ backdropFilter: 'blur(5px)' }}
                             >
-                              {/* Subtle hover accent effect - controlled glow */}
-                              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-orange-500/5 to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-500"></div>
+                              {/* Ambient glow effect on hover */}
+                              <div className="absolute inset-0 opacity-0 group-hover/question:opacity-100 transition-opacity duration-700" 
+                                  style={{ background: `radial-gradient(circle at center, ${isFirstCard ? 'rgba(249,115,22,0.1)' : isSecondCard ? 'rgba(59,130,246,0.1)' : 'rgba(139,92,246,0.1)'} 0%, transparent 70%)` }}>
+                              </div>
                               
-                              {/* Corner accent points */}
-                              <div className="absolute top-0 left-0 w-2 h-2 bg-orange-500/70 rounded-full blur-[1px] opacity-40 group-hover:opacity-100 transition-opacity duration-300"></div>
-                              <div className="absolute bottom-0 right-0 w-2 h-2 bg-orange-500/70 rounded-full blur-[1px] opacity-40 group-hover:opacity-100 transition-opacity duration-300"></div>
-                              
-                              {/* Enhanced question text with glow effect when open */}
-                              <span className={`pr-8 font-medium ${isOpen ? 'text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]' : 'text-gray-200'} transition-colors duration-500`}>
+                              <span className="font-medium text-white text-base">
                                 {faq.question}
                               </span>
                               
-                              {/* Enhanced toggle icon with animation */}
-                              <div className={`absolute right-6 transition-all duration-500 ${isOpen ? 'text-white' : 'text-gray-400'}`}>
-                                <div className="relative w-6 h-6">
-                                  {/* Animated background on active state */}
-                                  {isOpen && (
-                                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-gray-700 to-gray-600 animate-pulse"></div>
-                                  )}
-                                  <svg 
-                                    className={`w-6 h-6 transition-transform duration-500 relative z-10 ${isOpen ? 'transform rotate-180' : ''}`} 
-                                    fill="none" 
-                                    viewBox="0 0 24 24" 
-                                    stroke="currentColor"
-                                  >
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                                  </svg>
-                                </div>
+                              {/* Modern toggle icon with animation */}
+                              <div className="relative h-6 w-6 flex items-center justify-center">
+                                <div className={`absolute inset-0 rounded-full transition-opacity duration-300 ${isOpen ? 'opacity-100 bg-blue-500/10' : 'opacity-0'}`}></div>
+                                <svg 
+                                  className={`h-5 w-5 text-gray-300 transition-transform duration-500 ${isOpen ? 'transform rotate-180' : ''}`} 
+                                  fill="none" 
+                                  viewBox="0 0 24 24" 
+                                  stroke="currentColor"
+                                >
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
+                                </svg>
                               </div>
                             </button>
                           </div>
                           
-                          {/* Enhanced Answer with premium styling and animation */}
+                          {/* Answer with enterprise styling */}
                           {isOpen && (
-                            <div className="mt-3 overflow-hidden transform transition-all duration-700 opacity-100 max-h-[1000px]">
-                              <div className="relative">
-                                {/* Premium gradient border effect */}
-                                <div className="absolute -inset-0.5 rounded-lg bg-gradient-to-r from-orange-600/40 to-blue-600/40 opacity-30 blur-[0.5px]"></div>
+                            <div className="overflow-hidden transition-all duration-500 rounded-lg mt-1">
+                              <div className="relative bg-gradient-to-br from-gray-900/60 via-gray-950/60 to-black/60 rounded-lg p-5 pl-10 border border-blue-500/20">
+                                {/* Side accent line */}
+                                <div className="absolute left-5 top-0 bottom-0 w-px bg-gradient-to-b from-orange-500/40 via-blue-500/20 to-orange-500/40"></div>
                                 
-                                <div className="relative bg-black backdrop-blur-sm rounded-lg p-6 text-gray-300 text-base leading-relaxed border-2 border-orange-500/50 overflow-hidden">
-                                  {/* Corner accent points */}
-                                  <div className="absolute top-0 left-0 w-2 h-2 bg-orange-500/70 rounded-full blur-[1px] opacity-60"></div>
-                                  <div className="absolute bottom-0 right-0 w-2 h-2 bg-blue-500/70 rounded-full blur-[1px] opacity-60"></div>
-                                  
-                                  {/* Subtle shimmer effect */}
-                                  <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 -translate-x-full animate-shimmer-slow transform"></div>
-                                  
-                                  {/* Ambient glow that adds depth */}
-                                  <div className="absolute -inset-[3px] rounded-lg bg-orange-500/5 blur-md opacity-40" 
-                                       style={{ 
-                                         boxShadow: 'inset 0 0 15px 0 rgba(251, 113, 36, 0.2), inset 0 0 15px 0 rgba(59, 130, 246, 0.2)' 
-                                       }}>
-                                  </div>
-                                  
+                                {/* Answer text */}
+                                <p className="text-gray-300">
                                   {faq.answer}
-                                </div>
+                                </p>
                               </div>
                             </div>
                           )}
