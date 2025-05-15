@@ -257,7 +257,7 @@ const FAQSection = ({ faqs }: FAQProps) => {
                   
                   {/* Ambient glow effect */}
                   <div className="absolute inset-0 rounded-xl opacity-30 group-hover:opacity-40 transition-opacity duration-1000" 
-                       style={{ background: "radial-gradient(circle at center, rgba(251,113,36,0.2) 0%, rgba(220,38,38,0.1) 40%, transparent 70%)" }}>
+                       style={{ background: "radial-gradient(circle at center, rgba(251,113,36,0.2) 0%, rgba(59,130,246,0.1) 40%, transparent 70%)" }}>
                   </div>
                   
                   {/* Category Title with enhanced styling */}
@@ -300,7 +300,7 @@ const FAQSection = ({ faqs }: FAQProps) => {
                           {/* Enhanced Question Box with Premium Styling */}
                           <div className={`relative group/question transform ${isOpen ? 'scale-[1.01]' : ''} transition-all duration-500`}>
                             {/* Premium gradient border effect with glow animation */}
-                            <div className={`absolute -inset-[1px] rounded-lg bg-gradient-to-r from-orange-500/60 via-amber-600/30 to-red-500/60 transition-all duration-500 ${isOpen ? 'opacity-70 blur-[0.5px]' : 'opacity-50 blur-[0.3px]'}`}
+                            <div className={`absolute -inset-[1px] rounded-lg bg-gradient-to-r from-orange-500/60 via-amber-600/30 to-blue-500/60 transition-all duration-500 ${isOpen ? 'opacity-70 blur-[0.5px]' : 'opacity-50 blur-[0.3px]'}`}
                                 style={{ 
                                   animation: 'borderPulse 2s ease-in-out infinite',
                                   boxShadow: '0 0 5px 1px rgba(255, 106, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1)' 
@@ -347,12 +347,12 @@ const FAQSection = ({ faqs }: FAQProps) => {
                             <div className="mt-3 overflow-hidden transform transition-all duration-700 opacity-100 max-h-[1000px]">
                               <div className="relative">
                                 {/* Premium gradient border effect */}
-                                <div className="absolute -inset-0.5 rounded-lg bg-gradient-to-r from-orange-600/40 to-red-600/40 opacity-30 blur-[0.5px]"></div>
+                                <div className="absolute -inset-0.5 rounded-lg bg-gradient-to-r from-orange-600/40 to-blue-600/40 opacity-30 blur-[0.5px]"></div>
                                 
                                 <div className="relative bg-black backdrop-blur-sm rounded-lg p-6 text-gray-300 text-base leading-relaxed border-2 border-orange-500/50 overflow-hidden">
                                   {/* Corner accent points */}
                                   <div className="absolute top-0 left-0 w-2 h-2 bg-orange-500/70 rounded-full blur-[1px] opacity-60"></div>
-                                  <div className="absolute bottom-0 right-0 w-2 h-2 bg-orange-500/70 rounded-full blur-[1px] opacity-60"></div>
+                                  <div className="absolute bottom-0 right-0 w-2 h-2 bg-blue-500/70 rounded-full blur-[1px] opacity-60"></div>
                                   
                                   {/* Subtle shimmer effect */}
                                   <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 -translate-x-full animate-shimmer-slow transform"></div>
@@ -360,7 +360,7 @@ const FAQSection = ({ faqs }: FAQProps) => {
                                   {/* Ambient glow that adds depth */}
                                   <div className="absolute -inset-[3px] rounded-lg bg-orange-500/5 blur-md opacity-40" 
                                        style={{ 
-                                         boxShadow: 'inset 0 0 15px 0 rgba(251, 113, 36, 0.2)' 
+                                         boxShadow: 'inset 0 0 15px 0 rgba(251, 113, 36, 0.2), inset 0 0 15px 0 rgba(59, 130, 246, 0.2)' 
                                        }}>
                                   </div>
                                   
