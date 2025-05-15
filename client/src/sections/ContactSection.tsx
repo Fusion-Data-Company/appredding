@@ -140,15 +140,23 @@ const ContactSection = () => {
         zIndex: 0
       }}
     >
-      {/* Enterprise level backdrop overlay */}
-      <div className="absolute inset-0 bg-black/40 backdrop-blur-sm z-0"></div>
+      {/* Enhanced enterprise level backdrop overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70 backdrop-blur-sm z-0"></div>
       
-      {/* Subtle animated ambient light effects */}
+      {/* Premium animated ambient light effects */}
       <div className="absolute top-0 left-1/4 w-1/2 h-1/3 bg-orange-500/10 blur-[150px] animate-pulse" style={{ animationDuration: '8s' }}></div>
       <div className="absolute bottom-0 right-1/4 w-1/2 h-1/3 bg-blue-500/10 blur-[150px] animate-pulse" style={{ animationDuration: '10s', animationDelay: '2s' }}></div>
+      <div className="absolute top-1/3 right-1/4 w-1/3 h-1/4 bg-purple-500/5 blur-[180px] animate-pulse" style={{ animationDuration: '15s', animationDelay: '1s' }}></div>
+      <div className="absolute bottom-1/3 left-1/4 w-1/3 h-1/4 bg-emerald-500/5 blur-[180px] animate-pulse" style={{ animationDuration: '12s', animationDelay: '3s' }}></div>
       
-      {/* Particle overlay for enterprise feel */}
+      {/* Premium particle overlay for enterprise feel */}
       <div className="absolute inset-0 bg-[url('/src/assets_dir/images/noise.svg')] opacity-[0.03] bg-repeat bg-[length:200px_200px] mix-blend-overlay pointer-events-none"></div>
+      
+      {/* Sophisticated diagonal line accents */}
+      <div className="absolute top-0 right-0 w-1/3 h-[1px] bg-gradient-to-r from-transparent via-blue-500/20 to-transparent transform rotate-45 translate-y-20 translate-x-10 opacity-70"></div>
+      <div className="absolute top-0 left-0 w-1/3 h-[1px] bg-gradient-to-r from-transparent via-orange-500/20 to-transparent transform -rotate-45 translate-y-32 -translate-x-10 opacity-70"></div>
+      <div className="absolute bottom-0 right-0 w-1/4 h-[1px] bg-gradient-to-r from-transparent via-orange-500/20 to-transparent transform -rotate-45 -translate-y-48 translate-x-10 opacity-70"></div>
+      <div className="absolute bottom-0 left-0 w-1/4 h-[1px] bg-gradient-to-r from-transparent via-blue-500/20 to-transparent transform rotate-45 -translate-y-64 -translate-x-10 opacity-70"></div>
       
       <div className="container mx-auto px-4 relative" style={{ zIndex: 2 }}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -551,14 +559,33 @@ const ContactSection = () => {
               
               <div className="space-y-8 p-8 relative">
                 {/* Premium Enterprise Contact Item - Location */}
-                <div className="group relative transform transition-all duration-500 hover:scale-[1.02] hover:z-10 rounded-xl p-4 hover:bg-gradient-to-r hover:from-orange-900/10 hover:via-transparent hover:to-orange-700/10">
-                  <div className="flex items-start">
+                <div className="group relative transform transition-all duration-500 hover:scale-[1.02] hover:z-10 rounded-xl p-4 hover:bg-gradient-to-r hover:from-orange-900/10 hover:via-transparent hover:to-orange-700/10 overflow-hidden">
+                  {/* Premium subtle glow effect */}
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                    <div className="absolute -inset-1 bg-orange-500/10 blur-[30px] rounded-full"></div>
+                  </div>
+                  
+                  {/* Animated corner accents on hover */}
+                  <div className="absolute top-0 left-0 w-12 h-12 opacity-0 group-hover:opacity-40 transition-opacity duration-700">
+                    <div className="absolute inset-0 bg-gradient-to-br from-orange-500/40 to-red-600/30 rounded-tl-xl blur-[2px] animate-pulse-slow" style={{ animationDuration: '4s' }}></div>
+                  </div>
+                  <div className="absolute bottom-0 right-0 w-12 h-12 opacity-0 group-hover:opacity-40 transition-opacity duration-700">
+                    <div className="absolute inset-0 bg-gradient-to-tl from-orange-500/40 to-red-600/30 rounded-br-xl blur-[2px] animate-pulse-slow" style={{ animationDuration: '5s' }}></div>
+                  </div>
+                  
+                  {/* Moving shine effect */}
+                  <div 
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full opacity-0 group-hover:opacity-100 transition-all ease-in-out pointer-events-none"
+                    style={{ transitionDuration: '1.5s', transitionDelay: '0.1s' }}
+                  ></div>
+                  
+                  <div className="flex items-start relative z-10">
                     {/* Premium Enterprise Icon Container */}
                     <div className="relative flex-shrink-0">
                       {/* Premium Icon Container */}
                       <div className="relative bg-gradient-to-br from-gray-900/95 to-gray-950/95 backdrop-blur-xl rounded-full p-4 mr-5 shadow-[0_10px_30px_rgba(0,0,0,0.3)] z-10 group-hover:scale-110 transition-transform duration-500">
                         {/* Premium gradient border effect - Fire variant */}
-                        <div className="absolute inset-0 p-0.5 rounded-full bg-gradient-to-r from-orange-500/60 via-red-500/60 to-red-600/60 opacity-70"></div>
+                        <div className="absolute inset-0 p-0.5 rounded-full bg-gradient-to-r from-orange-500/60 via-red-500/60 to-red-600/60 opacity-70 group-hover:opacity-100 transition-opacity duration-500"></div>
                         
                         {/* Inner highlight */}
                         <div className="absolute inset-0 rounded-full bg-gradient-to-b from-white/20 via-transparent to-transparent opacity-50 pointer-events-none"></div>
@@ -567,17 +594,20 @@ const ContactSection = () => {
                         <div className="relative z-10">
                           <i className="fas fa-map-marker-alt text-2xl text-gradient from-orange-400 to-red-600 w-6 h-6 flex items-center justify-center"></i>
                         </div>
+                        
+                        {/* Subtle glow effect */}
+                        <div className="absolute -inset-1 bg-orange-500/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-pulse-slow"></div>
                       </div>
                     </div>
                     
                     <div className="flex-grow">
-                      <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-300 to-amber-400 pb-1">Global Headquarters</h3>
-                      <p className="text-gray-300">
+                      <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-300 to-amber-400 pb-1 group-hover:scale-[1.02] transition-transform duration-500 origin-left">Global Headquarters</h3>
+                      <p className="text-gray-300 group-hover:text-gray-200 transition-colors duration-500">
                         2500 Innovation Boulevard<br />
                         Suite 300<br />
                         Houston, Texas 77042
                       </p>
-                      <div className="h-0.5 w-0 group-hover:w-full bg-gradient-to-r from-orange-500/60 via-transparent to-transparent rounded-full transition-all duration-700 mt-2"></div>
+                      <div className="h-0.5 w-0 group-hover:w-full bg-gradient-to-r from-orange-500/60 via-transparent to-transparent rounded-full transition-all duration-700 mt-2 opacity-60 group-hover:opacity-100"></div>
                     </div>
                   </div>
                 </div>
