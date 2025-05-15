@@ -222,7 +222,7 @@ const ChatWidget = () => {
     <div className="fixed bottom-4 right-4 z-[9999] flex flex-col items-end">
       {/* Main Chat Widget */}
       {isOpen && (
-        <Card className="w-[500px] h-[650px] mb-4 shadow-[0_0_40px_rgba(255,255,255,0.25)] dark:bg-gray-900/90 backdrop-blur-lg flex flex-col overflow-hidden animate-in slide-in-from-bottom-10 duration-300 border-2 dark:border-gray-700/70">
+        <Card className="w-[500px] h-[650px] mb-4 shadow-[0_0_40px_rgba(255,140,50,0.25)] bg-gradient-to-br from-orange-950/80 via-primary-950/90 to-blue-950/80 backdrop-blur-lg flex flex-col overflow-hidden animate-in slide-in-from-bottom-10 duration-300 border-2 border-orange-700/30">
           <CardHeader className="flex-shrink-0 border-b py-5 px-8 flex flex-row items-center justify-between bg-gradient-to-r from-blue-900/80 to-orange-900/80 shadow-md">
             <CardTitle className="text-xl font-semibold flex items-center gap-4 text-white">
               <div className="h-10 w-10 rounded-full bg-gradient-to-r from-blue-600 to-orange-600 flex items-center justify-center shadow-[0_0_15px_rgba(255,130,30,0.3)]">
@@ -330,7 +330,7 @@ const ChatWidget = () => {
                 <div className="w-16 h-16 rounded-full bg-red-700/80 flex items-center justify-center shadow-[0_0_20px_rgba(255,100,100,0.3)]">
                   <X className="h-8 w-8 text-white" />
                 </div>
-                <div className="bg-gray-900/90 p-5 rounded-lg border border-red-500/30 shadow-lg">
+                <div className="bg-gradient-to-r from-red-950/80 via-orange-950/90 to-red-950/80 p-5 rounded-lg border border-red-500/30 shadow-lg">
                   <p className="text-red-400 font-medium">
                     Failed to load messages. Please try again.
                   </p>
@@ -371,7 +371,7 @@ const ChatWidget = () => {
                   </div>
                   
                   {msg.role === "assistant" && msg.citedDocuments && msg.citedDocuments.length > 0 && (
-                    <div className="mt-2 text-xs bg-gray-800/80 text-gray-300 px-3 py-2 rounded-md border border-blue-500/30 inline-block shadow-sm">
+                    <div className="mt-2 text-xs bg-gradient-to-r from-blue-950/80 to-primary-950/90 text-gray-300 px-3 py-2 rounded-md border border-blue-500/30 inline-block shadow-sm">
                       <p className="font-medium">Sources: <span className="text-blue-300">Documents {msg.citedDocuments.join(', ')}</span></p>
                     </div>
                   )}

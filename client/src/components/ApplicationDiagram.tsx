@@ -124,9 +124,9 @@ const ApplicationDiagram = () => {
                         <div className={cn(
                           "absolute top-1/2 -translate-y-1/2 w-6 h-6 rotate-45 border-2 border-t-0 border-l-0",
                           index % 2 === 0 ? "-left-3" : "-right-3",
-                          layer.name === "Substrate" ? "border-slate-500 bg-primary-950/80" : 
-                          layer.name === "Primer Layer" ? "border-blue-500 bg-primary-950/80" :
-                          layer.name === "Base Coat" ? "border-primary-500 bg-primary-950/80" : "border-orange-500 bg-primary-950/80"
+                          layer.name === "Substrate" ? "border-slate-500 bg-gradient-to-br from-orange-950/50 to-blue-950/50" : 
+                          layer.name === "Primer Layer" ? "border-blue-500 bg-gradient-to-br from-blue-950/50 to-orange-950/50" :
+                          layer.name === "Base Coat" ? "border-primary-500 bg-gradient-to-br from-orange-950/50 to-blue-950/50" : "border-orange-500 bg-gradient-to-br from-orange-950/50 to-blue-950/50"
                         )}></div>
                         <h4 className={cn(
                           "font-semibold mb-1",

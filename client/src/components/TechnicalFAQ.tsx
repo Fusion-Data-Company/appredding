@@ -16,10 +16,10 @@ interface FAQItemProps {
 
 const FAQItem: React.FC<FAQItemProps> = ({ question, answer, icon, value }) => {
   return (
-    <AccordionItem value={value} className="border-blue-500/30">
+    <AccordionItem value={value} className="border-orange-500/30">
       <AccordionTrigger className="text-white hover:text-blue-300 text-left">
         <div className="flex items-center gap-3">
-          <div className="bg-blue-900/50 p-2 rounded-full border border-blue-500/30">
+          <div className="bg-gradient-to-r from-orange-900/50 to-blue-900/50 p-2 rounded-full border border-orange-500/30">
             {icon}
           </div>
           <span>{question}</span>
