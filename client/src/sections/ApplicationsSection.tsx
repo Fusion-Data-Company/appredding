@@ -211,13 +211,7 @@ const ApplicationsSection = () => {
                 <div className="absolute bottom-0 right-0 w-3 h-3 bg-red-500/50 rounded-full blur-[2px]"></div>
               </div>
               
-              {/* Moved Technical Data badge to top - moved up a bit */}
-              <div className="relative z-50 -mt-2 mb-6 flex justify-center">
-                <div className="px-3 py-1.5 rounded-full border border-amber-300 dark:border-amber-700 bg-amber-100/50 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300 inline-flex items-center shadow-[0_0_10px_rgba(251,113,36,0.3)] relative z-50">
-                  <Shield className="h-4 w-4 mr-2 text-amber-500" />
-                  <span className="text-sm font-medium">Technical Data</span>
-                </div>
-              </div>
+              {/* Badge removed per user request */}
               
               {/* Shimmer heading */}
               <div className="relative z-10 mb-8 px-6 py-2 overflow-hidden">

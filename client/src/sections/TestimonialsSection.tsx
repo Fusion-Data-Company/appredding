@@ -26,12 +26,7 @@ const TestimonialsSection = () => {
       
       <div className="container mx-auto px-4 relative" style={{ zIndex: 2 }}>
         <div className="text-center mb-20">
-          {/* Premium badge positioned completely outside the card */}
-          <div className="relative w-full">
-            <PremiumBadge>
-              CLIENT TESTIMONIALS
-            </PremiumBadge>
-          </div>
+          {/* Badge removed per user request */}
           
           {/* Card with premium enterprise styling matching Video Section */}
           <div className="relative group mx-auto max-w-4xl mb-10 inline-block transform hover:scale-[1.02] transition-all duration-700 hover:-translate-y-1 hover:z-10">
