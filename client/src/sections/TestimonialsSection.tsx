@@ -46,29 +46,29 @@ const TestimonialsSection = () => {
               <div className="absolute -top-20 -right-20 w-72 h-72 bg-orange-500/20 rounded-full filter blur-[100px] opacity-70 animate-pulse-slow"></div>
               <div className="absolute -bottom-20 -left-20 w-72 h-72 bg-blue-500/25 rounded-full filter blur-[100px] opacity-70 animate-pulse-slow-delayed"></div>
               
-              {/* Enhanced corner accent decorations - matching Video Section */}
-              <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none z-10">
-                <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-orange-500/70 rounded-tl-lg"></div>
-                <div className="absolute top-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+              {/* Restored original corner accent squares as requested */}
+              <div className="absolute top-4 left-4 w-12 h-12 z-10">
+                <div className="absolute left-0 top-0 w-6 h-6 border-l-2 border-t-2 border-orange-500/40 rounded-tl-md"></div>
+                <div className="absolute left-1 top-1 w-8 h-8 border-l border-t border-blue-500/30 rounded-tl-md"></div>
               </div>
-              <div className="absolute top-0 right-0 w-16 h-16 pointer-events-none z-10">
-                <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-blue-500/70 rounded-tr-lg"></div>
-                <div className="absolute top-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
+              <div className="absolute top-4 right-4 w-12 h-12 z-10">
+                <div className="absolute right-0 top-0 w-6 h-6 border-r-2 border-t-2 border-orange-500/40 rounded-tr-md"></div>
+                <div className="absolute right-1 top-1 w-8 h-8 border-r border-t border-blue-500/30 rounded-tr-md"></div>
               </div>
-              <div className="absolute bottom-0 left-0 w-16 h-16 pointer-events-none z-10">
-                <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-blue-500/70 rounded-bl-lg"></div>
-                <div className="absolute bottom-0 left-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
+              <div className="absolute bottom-4 right-4 w-12 h-12 z-10">
+                <div className="absolute right-0 bottom-0 w-6 h-6 border-r-2 border-b-2 border-orange-500/40 rounded-br-md"></div>
+                <div className="absolute right-1 bottom-1 w-8 h-8 border-r border-b border-amber-500/30 rounded-br-md"></div>
               </div>
-              <div className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none z-10">
-                <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-orange-500/70 rounded-br-lg"></div>
-                <div className="absolute bottom-0 right-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+              <div className="absolute bottom-4 left-4 w-12 h-12 z-10">
+                <div className="absolute left-0 bottom-0 w-6 h-6 border-l-2 border-b-2 border-orange-500/40 rounded-bl-md"></div>
+                <div className="absolute left-1 bottom-1 w-8 h-8 border-l border-b border-amber-500/30 rounded-bl-md"></div>
               </div>
               
-              {/* Additional corner accent with gradient areas for emphasis */}
-              <div className="absolute top-0 right-0 w-32 h-32 opacity-20 z-10">
+              {/* Additional background gradient areas */}
+              <div className="absolute top-0 right-0 w-32 h-32 opacity-20 z-5">
                 <div className="absolute inset-0 bg-gradient-to-bl from-orange-500/40 to-blue-500/40 rounded-tr-xl blur-[2px]"></div>
               </div>
-              <div className="absolute bottom-0 left-0 w-32 h-32 opacity-20 z-10">
+              <div className="absolute bottom-0 left-0 w-32 h-32 opacity-20 z-5">
                 <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/40 to-orange-500/40 rounded-bl-xl blur-[2px]"></div>
               </div>
               
@@ -134,22 +134,22 @@ const TestimonialsSection = () => {
               {/* Main card container - enhanced to match new standard */}
               <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black backdrop-blur-xl rounded-xl p-10 md:p-12 lg:p-14 z-10 border border-orange-500/30 overflow-hidden hover:shadow-[0_0_25px_rgba(249,115,22,0.3)] transition-shadow duration-500">
                 
-                {/* Enhanced corner accent decorations - matching new standard */}
-                <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none z-10">
-                  <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-orange-500/70 rounded-tl-lg"></div>
-                  <div className="absolute top-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+                {/* Restored original corner accent squares as requested */}
+                <div className="absolute top-4 left-4 w-12 h-12 z-10">
+                  <div className="absolute left-0 top-0 w-6 h-6 border-l-2 border-t-2 border-orange-500/40 rounded-tl-md"></div>
+                  <div className="absolute left-1 top-1 w-8 h-8 border-l border-t border-blue-500/30 rounded-tl-md"></div>
                 </div>
-                <div className="absolute top-0 right-0 w-16 h-16 pointer-events-none z-10">
-                  <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-blue-500/70 rounded-tr-lg"></div>
-                  <div className="absolute top-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
+                <div className="absolute top-4 right-4 w-12 h-12 z-10">
+                  <div className="absolute right-0 top-0 w-6 h-6 border-r-2 border-t-2 border-orange-500/40 rounded-tr-md"></div>
+                  <div className="absolute right-1 top-1 w-8 h-8 border-r border-t border-blue-500/30 rounded-tr-md"></div>
                 </div>
-                <div className="absolute bottom-0 left-0 w-16 h-16 pointer-events-none z-10">
-                  <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-blue-500/70 rounded-bl-lg"></div>
-                  <div className="absolute bottom-0 left-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
+                <div className="absolute bottom-4 left-4 w-12 h-12 z-10">
+                  <div className="absolute left-0 bottom-0 w-6 h-6 border-l-2 border-b-2 border-orange-500/40 rounded-bl-md"></div>
+                  <div className="absolute left-1 bottom-1 w-8 h-8 border-l border-b border-amber-500/30 rounded-bl-md"></div>
                 </div>
-                <div className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none z-10">
-                  <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-orange-500/70 rounded-br-lg"></div>
-                  <div className="absolute bottom-0 right-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+                <div className="absolute bottom-4 right-4 w-12 h-12 z-10">
+                  <div className="absolute right-0 bottom-0 w-6 h-6 border-r-2 border-b-2 border-orange-500/40 rounded-br-md"></div>
+                  <div className="absolute right-1 bottom-1 w-8 h-8 border-r border-b border-amber-500/30 rounded-br-md"></div>
                 </div>
                 
                 {/* Additional corner accent with gradient areas for emphasis */}
