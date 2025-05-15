@@ -91,15 +91,15 @@ const ApplicationDiagram = () => {
     <div className="space-y-16">
       {/* Coating System Diagram */}
       <div>
-        <h2 className="text-2xl md:text-3xl font-bold text-center mb-6 bg-gradient-to-r from-blue-300 via-white to-blue-300 bg-clip-text text-transparent">
+        <h2 className="text-2xl md:text-3xl font-bold text-center mb-6 bg-gradient-to-r from-orange-300 via-white to-blue-300 bg-clip-text text-transparent">
           NASA Ceramic Coating System Diagram
         </h2>
-        <div className="rounded-xl overflow-hidden border border-blue-500/50 shadow-xl">
-          <div className="bg-primary-900/50 p-5 border-b border-blue-500/40">
-            <h3 className="text-xl text-blue-300 font-semibold text-center">Cross-Section Diagram - Full System</h3>
+        <div className="rounded-xl overflow-hidden border border-orange-500/50 shadow-xl">
+          <div className="bg-gradient-to-r from-orange-900/50 to-blue-900/50 p-5 border-b border-orange-500/40">
+            <h3 className="text-xl text-orange-300 font-semibold text-center">Cross-Section Diagram - Full System</h3>
           </div>
           
-          <div className="bg-gradient-to-r from-primary-950 to-blue-950 p-6 md:p-10">
+          <div className="bg-gradient-to-r from-orange-950 via-primary-950 to-blue-950 p-6 md:p-10">
             <div className="relative w-full max-w-4xl mx-auto overflow-visible">
               <div className="flex flex-col">
                 {layers.map((layer, index) => (
@@ -173,7 +173,7 @@ const ApplicationDiagram = () => {
                 
                 <div className="relative flex items-center">
                   <div className="h-px w-4 bg-white/30 absolute -left-4"></div>
-                  <div className="text-xs text-white/70 whitespace-nowrap rotate-90 absolute -right-12">PRAETORIAN NASA CERAMIC SYSTEM</div>
+                  <div className="text-xs bg-gradient-to-r from-orange-300/90 to-blue-300/90 bg-clip-text text-transparent whitespace-nowrap rotate-90 absolute -right-12 font-semibold">PRAETORIAN NASA CERAMIC SYSTEM</div>
                 </div>
               </div>
               
