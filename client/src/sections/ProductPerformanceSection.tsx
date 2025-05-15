@@ -324,7 +324,7 @@ const ProductPerformanceSection = () => {
                   </div>
                   
                   {/* Statistic text with premium styling */}
-                  <div className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 drop-shadow-[0_2px_10px_rgba(245,158,11,0.5)] group-hover:scale-110 transform transition-transform duration-500">
+                  <div className="text-6xl font-bold text-white drop-shadow-[0_2px_10px_rgba(245,158,11,0.5)] group-hover:scale-110 transform transition-transform duration-500">
                     0/100
                   </div>
                 </div>

@@ -14,17 +14,22 @@ export const GradientHeading = ({
   level = 2,
   variant = 'mixed',
 }: GradientHeadingProps) => {
-  const gradientClass = 
+  // Shadow class based on original variant for consistent styling
+  const shadowClass = 
     variant === 'blue' 
-      ? 'gradient-text-blue' 
+      ? 'drop-shadow-[0_2px_4px_rgba(59,130,246,0.5)]' 
       : variant === 'fire' 
-        ? 'gradient-text-fire' 
-        : 'gradient-heading-mixed';
+        ? 'drop-shadow-[0_2px_4px_rgba(249,115,22,0.5)]' 
+        : 'drop-shadow-[0_2px_4px_rgba(255,255,255,0.3)]';
   
   const Tag = `h${level}` as keyof JSX.IntrinsicElements;
   
   return (
-    <Tag className={cn("font-sans font-bold text-center mx-auto text-lg md:text-xl lg:text-2xl", gradientClass, className)}>
+    <Tag className={cn(
+      "font-sans font-bold text-center mx-auto text-lg md:text-xl lg:text-2xl text-white", 
+      shadowClass, 
+      className
+    )}>
       {children}
     </Tag>
   );
