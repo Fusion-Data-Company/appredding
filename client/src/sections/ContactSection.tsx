@@ -641,7 +641,7 @@ const ContactSection = () => {
                         {/* Enhanced content text */}
                         <p className="text-gray-300 text-base group-hover:text-gray-200 transition-colors duration-500">
                           (916) 809-6619<br/>
-                          <span className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors duration-500">(Call or text welcome)</span>
+                          <span className="text-base text-gray-400 group-hover:text-gray-300 transition-colors duration-500">(Call or text welcome)</span>
                         </p>
                       </div>
                     </div>
@@ -685,7 +685,7 @@ const ContactSection = () => {
                         </div>
                         
                         {/* Enhanced content text with premium email links */}
-                        <p className="text-gray-300 text-[15px]">
+                        <p className="text-gray-300 text-base group-hover:text-gray-200 transition-colors duration-500">
                           <a 
                             href="mailto:info@praetoriansmartcoat.com" 
                             className="relative inline-block group-hover:text-gray-200 transition-colors duration-500"
@@ -703,7 +703,7 @@ const ContactSection = () => {
                             {/* Animated underline for link */}
                             <span className="absolute bottom-0 left-0 w-0 h-px bg-gradient-to-r from-blue-500 to-cyan-400 group-hover:w-full transition-all duration-700"></span>
                           </a>
-                          <span className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors duration-500 ml-1">(Management)</span>
+                          <span className="text-base text-gray-400 group-hover:text-gray-300 transition-colors duration-500 ml-1">(Management)</span>
                         </p>
                       </div>
                     </div>
