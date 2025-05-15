@@ -83,7 +83,7 @@ const BrandShowcaseSection = () => {
                 {/* Shimmer heading */}
                 <div className="relative z-10 mb-8 px-6 py-2 overflow-hidden">
                   {/* Animated glow behind text */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-orange-600/10 via-orange-500/20 to-red-600/10 opacity-50 blur-xl animate-pulse-slow"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-orange-600/10 via-blue-500/20 to-orange-600/10 opacity-50 blur-xl animate-pulse-slow"></div>
                   
                   {/* Heading with enhanced enterprise styling and shadows */}
                   <div className="shimmer-fire-text font-bold text-3xl md:text-4xl lg:text-5xl tracking-tight relative z-10">
@@ -93,7 +93,7 @@ const BrandShowcaseSection = () => {
                     </div>
                     
                     {/* Main text with premium gradient - improved z-index to bring yellow text in front */}
-                    <span className="relative z-20 text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-amber-500 to-red-500
+                    <span className="relative z-20 text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-amber-500 to-blue-500
                       drop-shadow-[0_0px_1px_rgba(251,113,36,0.2)] 
                       [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(251,146,60,0.3)]">
                       Elite Protection Technology
@@ -114,10 +114,10 @@ const BrandShowcaseSection = () => {
                   {/* Positioned cool glowing decorative accent line under the title */}
                   <div className="absolute left-[8%] bottom-[-0.5in] transform group w-14 h-2.5 rounded-full overflow-hidden z-50 transition-all duration-700 hover:w-72">
                     {/* Base gradient */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-amber-500 to-red-600"></div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-amber-500 to-blue-600"></div>
                     
                     {/* Glow effect */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-amber-500 to-red-600 blur-md opacity-70"></div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-amber-500 to-blue-600 blur-md opacity-70"></div>
                     
                     {/* Pulsing dots */}
                     <div className="absolute h-full w-4 bg-white/80 right-4 rounded-full blur-[1px] animate-pulse-slow"></div>
@@ -223,12 +223,12 @@ const BrandShowcaseSection = () => {
                   <div className="group/item relative transform transition-all duration-500 hover:translate-x-1 hover:z-10 rounded-xl p-4">
                     {/* Enhanced heading with subtle effects */}
                     <div className="relative mb-3 pb-2">
-                      <h3 className="text-2xl font-semibold bg-gradient-to-r from-amber-300 via-orange-500 to-red-500 bg-clip-text text-transparent drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">
+                      <h3 className="text-2xl font-semibold bg-gradient-to-r from-amber-300 via-orange-500 to-blue-500 bg-clip-text text-transparent drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">
                         Enterprise-Grade Protection
                       </h3>
                       
                       {/* Animated underline that extends on hover */}
-                      <div className="absolute bottom-0 left-0 w-1/3 h-0.5 bg-gradient-to-r from-orange-500 to-red-500 group-hover/item:w-1/2 transition-all duration-700 rounded-full opacity-70 shadow-[0_0_5px_rgba(251,113,36,0.6)]"></div>
+                      <div className="absolute bottom-0 left-0 w-1/3 h-0.5 bg-gradient-to-r from-orange-500 to-blue-500 group-hover/item:w-1/2 transition-all duration-700 rounded-full opacity-70 shadow-[0_0_5px_rgba(251,113,36,0.6)]"></div>
                     </div>
                     <p className="text-gray-300">
                       Praetorian SmartCoat's premium protective coating systems offer unmatched performance for industrial, commercial, and residential applications.

@@ -175,7 +175,7 @@ const PremiumButton = forwardRef<HTMLButtonElement, PremiumButtonProps>(
           {isFire && (
             <>
               {/* Ambient inner glow */}
-              <div className="absolute inset-0 bg-gradient-to-br from-orange-600/30 to-red-600/20 opacity-40 group-hover:opacity-70 transition-opacity duration-700"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-orange-600/30 to-blue-600/20 opacity-40 group-hover:opacity-70 transition-opacity duration-700"></div>
               
               {/* Base shimmer effect - always active but subtle */}
               <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-20 -translate-x-full animate-shimmer-slow transform"></div>
