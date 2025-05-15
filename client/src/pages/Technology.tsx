@@ -43,7 +43,7 @@ const Technology = () => {
         <section className="relative pt-28 pb-16 z-10">
           <div className="container mx-auto px-4">
             <div className="flex flex-col items-center justify-center text-center mb-16">
-              <div className="inline-flex items-center gap-2 bg-blue-900/30 px-4 py-2 rounded-full border border-blue-500/30 text-blue-300 text-sm mb-4">
+              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-900/30 via-blue-900/30 to-orange-900/30 px-4 py-2 rounded-full border border-orange-500/30 text-orange-300 text-sm mb-4">
                 <Microscope className="h-4 w-4" />
                 <span>NASA-DERIVED CERAMIC TECHNOLOGY</span>
               </div>
@@ -57,37 +57,37 @@ const Technology = () => {
               </p>
               
               <div className="flex flex-wrap gap-3 justify-center">
-                <a href="#executive-summary" className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300 shadow-lg shadow-blue-900/30 text-sm">
+                <a href="#executive-summary" className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-600 to-blue-500 hover:from-orange-500 hover:to-blue-400 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300 shadow-lg shadow-orange-900/30 text-sm">
                   <Shield className="h-4 w-4" />
                   <span>Executive Summary</span>
                 </a>
                 
-                <a href="#technical-data" className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300 shadow-lg shadow-blue-900/30 text-sm">
+                <a href="#technical-data" className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-600 to-blue-500 hover:from-orange-500 hover:to-blue-400 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300 shadow-lg shadow-orange-900/30 text-sm">
                   <Beaker className="h-4 w-4" />
                   <span>Technical Specs</span>
                 </a>
                 
-                <a href="#physical-mechanics" className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300 shadow-lg shadow-blue-900/30 text-sm">
+                <a href="#physical-mechanics" className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-600 to-blue-500 hover:from-orange-500 hover:to-blue-400 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300 shadow-lg shadow-orange-900/30 text-sm">
                   <Microscope className="h-4 w-4" />
                   <span>Physical Mechanics</span>
                 </a>
                 
-                <a href="#application-diagram" className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300 shadow-lg shadow-blue-900/30 text-sm">
+                <a href="#application-diagram" className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-600 to-blue-500 hover:from-orange-500 hover:to-blue-400 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300 shadow-lg shadow-orange-900/30 text-sm">
                   <Shield className="h-4 w-4" />
                   <span>System Architecture</span>
                 </a>
                 
-                <a href="#performance-comparison" className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300 shadow-lg shadow-blue-900/30 text-sm">
+                <a href="#performance-comparison" className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-600 to-blue-500 hover:from-orange-500 hover:to-blue-400 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300 shadow-lg shadow-orange-900/30 text-sm">
                   <Shield className="h-4 w-4" />
                   <span>Performance Comparison</span>
                 </a>
                 
-                <a href="#case-studies" className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300 shadow-lg shadow-blue-900/30 text-sm">
+                <a href="#case-studies" className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-600 to-blue-500 hover:from-orange-500 hover:to-blue-400 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300 shadow-lg shadow-orange-900/30 text-sm">
                   <FlaskConical className="h-4 w-4" />
                   <span>Case Studies</span>
                 </a>
                 
-                <a href="#technical-faq" className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300 shadow-lg shadow-blue-900/30 text-sm">
+                <a href="#technical-faq" className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-600 to-blue-500 hover:from-orange-500 hover:to-blue-400 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300 shadow-lg shadow-orange-900/30 text-sm">
                   <Shield className="h-4 w-4" />
                   <span>Technical FAQ</span>
                 </a>
