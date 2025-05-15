@@ -120,37 +120,87 @@ const ProductComparison = () => {
         
         <div className="text-center mb-12">
           {/* Premium Enterprise-level heading container */}
-          <div className="relative mx-auto max-w-4xl mb-8 inline-block">
-            {/* Premium Card Container */}
-            <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-gray-900/95 backdrop-blur-xl rounded-xl py-8 px-10 shadow-[0_10px_50px_rgba(0,0,0,0.5)] z-10">
-              {/* Premium gradient border effect - Fire variant */}
-              <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/50 via-transparent to-red-500/50 opacity-70"></div>
+          <div className="relative group mx-auto max-w-4xl mb-10 inline-block transform transition-all duration-500">
+            {/* Multiple layered background effects */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/40 via-red-600/40 to-amber-600/40 rounded-xl blur-xl opacity-70 group-hover:opacity-100 group-hover:blur-xl transition-all duration-1000 animate-pulse-slow"></div>
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/80 via-amber-500/80 to-red-500/80 rounded-xl blur-md opacity-90 group-hover:opacity-100 transition-all duration-500"></div>
+            
+            {/* Main card container */}
+            <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black backdrop-blur-xl rounded-xl py-12 px-12 z-10 border border-orange-500/30 overflow-hidden group hover:shadow-[0_0_25px_rgba(249,115,22,0.3)] transition-shadow duration-500">
+              {/* Subtle dots and squares pattern background in burnt orange */}
+              <div className="absolute inset-0 opacity-25 z-0">
+                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoMjQ5LDExNSwyMiwwLjQpIiBkPSJNMCAwaDJ2Mkgwem0yIDJoMnYySDJ6Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCBmaWxsPSJ1cmwoI2EpIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIi8+PC9zdmc+')]"></div>
+              </div>
               
-              {/* Inner highlight */}
-              <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
+              {/* Ambient glow effect - positioned away from text */}
+              <div className="absolute -top-60 -right-40 w-80 h-80 bg-orange-600/15 rounded-full filter blur-[100px] animate-pulse-slow-delayed"></div>
+              <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-orange-500/20 rounded-full filter blur-[120px] animate-pulse-slow"></div>
               
-              {/* Subtle ambient glow */}
-              <div className="absolute top-0 left-1/4 w-1/2 h-1/2 bg-gradient-to-r from-orange-500/5 via-amber-500/5 to-red-500/5 blur-[100px] rounded-full"></div>
+              {/* Corner accent with gradient - top-right corner */}
+              <div className="absolute top-0 right-0 w-32 h-32 opacity-20 z-10">
+                <div className="absolute inset-0 bg-gradient-to-bl from-orange-500/40 to-blue-500/40 rounded-tr-xl blur-[2px]"></div>
+              </div>
               
-              {/* Content */}
-              <div className="relative z-10 text-center">
-                {/* Elite enterprise styled heading */}
-                <div className="relative mb-4">
-                  {/* Top horizontal accent line with enhanced glow */}
-                  <span className="absolute -top-6 left-1/2 transform -translate-x-1/2 w-1/2 h-1 bg-gradient-to-r from-transparent via-orange-400/50 to-transparent rounded-full blur-sm"></span>
-                  
-                  <GradientHeading level={2} className="text-3xl md:text-4xl shimmer-fire-text" variant="fire">
+              {/* Additional corner accent lines */}
+              <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none z-10">
+                <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-orange-500/70 rounded-tl-lg"></div>
+                <div className="absolute top-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+              </div>
+              <div className="absolute top-0 right-0 w-16 h-16 pointer-events-none z-10">
+                <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-red-500/70 rounded-tr-lg"></div>
+                <div className="absolute top-0 right-0 w-3 h-3 bg-red-500/50 rounded-full blur-[2px]"></div>
+              </div>
+              <div className="absolute bottom-0 left-0 w-16 h-16 pointer-events-none z-10">
+                <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-orange-500/70 rounded-bl-lg"></div>
+                <div className="absolute bottom-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+              </div>
+              <div className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none z-10">
+                <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-red-500/70 rounded-br-lg"></div>
+                <div className="absolute bottom-0 right-0 w-3 h-3 bg-red-500/50 rounded-full blur-[2px]"></div>
+              </div>
+              
+              {/* Shimmer heading */}
+              <div className="relative z-10 mb-8 px-6 py-2 overflow-hidden">
+                {/* Animated glow behind text */}
+                <div className="absolute inset-0 bg-gradient-to-r from-orange-600/10 via-orange-500/20 to-red-600/10 opacity-50 blur-xl animate-pulse-slow"></div>
+                
+                {/* Heading with enhanced enterprise styling and shadows */}
+                <div className="shimmer-fire-text font-bold text-4xl tracking-tight relative z-10">
+                  {/* Background glow for letter definition */}
+                  <div className="absolute inset-0 flex justify-center items-center text-4xl font-bold tracking-tight text-orange-900/10 blur-[5px] scale-110">
                     How Praetorian Outperforms the Competition
-                  </GradientHeading>
+                  </div>
                   
-                  {/* Bottom horizontal accent line with enhanced glow */}
-                  <span className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 w-1/2 h-1 bg-gradient-to-r from-transparent via-red-400/50 to-transparent rounded-full blur-sm"></span>
+                  {/* Main text with premium gradient */}
+                  <span className="relative z-20 text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-amber-500 to-red-500
+                    drop-shadow-[0_0px_1px_rgba(251,113,36,0.2)] 
+                    [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(251,146,60,0.3)]">
+                    How Praetorian Outperforms the Competition
+                  </span>
+                  
+                  {/* Top glossy reflection */}
+                  <div className="absolute top-0 left-0 right-0 h-[40%] bg-gradient-to-b from-white/10 to-transparent rounded-t-lg"></div>
                 </div>
                 
-                <p className="text-gray-300 max-w-2xl mx-auto mt-8">
-                  See why Praetorian's revolutionary ceramic technology delivers superior performance across all key metrics compared to traditional protective coatings.
-                </p>
+                {/* Multiple text shadows for depth - reduced blur effects */}
+                <div className="absolute inset-0 flex items-center justify-center text-4xl font-bold tracking-tight opacity-10 blur-[3px] text-orange-700/30 -z-10 transform scale-105">
+                  How Praetorian Outperforms the Competition
+                </div>
+                <div className="absolute inset-0 flex items-center justify-center text-4xl font-bold tracking-tight opacity-20 blur-[1px] text-red-900/20 -z-10">
+                  How Praetorian Outperforms the Competition
+                </div>
               </div>
+              
+              {/* Enhanced description */}
+              <p className="text-gray-200 text-xl max-w-2xl mx-auto relative z-20">
+                {/* Left accent - animated pulse */}
+                <span className="absolute -left-6 top-1/2 transform -translate-y-1/2 w-1.5 h-20 bg-gradient-to-b from-orange-500/0 via-orange-500/70 to-orange-500/0 rounded-full animate-pulse-slow z-20"></span>
+                
+                See why Praetorian's revolutionary ceramic technology delivers superior performance across all key metrics compared to traditional protective coatings.
+                
+                {/* Right accent - animated pulse with delay */}
+                <span className="absolute -right-6 top-1/2 transform -translate-y-1/2 w-1.5 h-20 bg-gradient-to-b from-orange-500/0 via-orange-500/70 to-orange-500/0 rounded-full animate-pulse-slow-delayed z-20"></span>
+              </p>
             </div>
             
             {/* Subtle bottom reflection */}
@@ -167,30 +217,61 @@ const ProductComparison = () => {
         >
           {/* Headers - Premium Enterprise Styling */}
           <div className="grid grid-cols-12 gap-4 mb-6 relative">
-            {/* Premium Card Container */}
-            <div className="col-span-12 relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-gray-900/95 backdrop-blur-xl rounded-xl py-6 px-6 shadow-[0_10px_50px_rgba(0,0,0,0.5)] z-10">
-              {/* Premium gradient border effect - Fire variant */}
-              <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/50 via-transparent to-red-500/50 opacity-70"></div>
+            {/* Premium Card Container with enhanced styling */}
+            <div className="col-span-12 relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black backdrop-blur-xl rounded-xl py-6 px-8 shadow-[0_10px_50px_rgba(0,0,0,0.5)] z-10 border border-orange-500/30 group hover:shadow-[0_0_25px_rgba(249,115,22,0.3)] transition-shadow duration-500">
+              {/* Multiple layered background effects */}
+              <div className="absolute -inset-px bg-gradient-to-r from-orange-600/30 via-amber-600/30 to-red-600/30 rounded-xl blur-sm opacity-70 group-hover:opacity-100 transition-all duration-500"></div>
+              
+              {/* Subtle dots and squares pattern background */}
+              <div className="absolute inset-0 opacity-20 z-0">
+                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoMjQ5LDExNSwyMiwwLjQpIiBkPSJNMCAwaDJ2Mkgwem0yIDJoMnYySDJ6Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCBmaWxsPSJ1cmwoI2EpIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIi8+PC9zdmc+')]"></div>
+              </div>
               
               {/* Inner highlight */}
               <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
               
+              {/* Ambient glow effect */}
+              <div className="absolute -top-20 -right-20 w-60 h-60 bg-orange-600/10 rounded-full filter blur-[80px] animate-pulse-slow-delayed"></div>
+              <div className="absolute -bottom-20 -left-20 w-60 h-60 bg-orange-500/15 rounded-full filter blur-[100px] animate-pulse-slow"></div>
+              
+              {/* Corner accent lines */}
+              <div className="absolute top-0 left-0 w-12 h-12 pointer-events-none z-10">
+                <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-orange-500/70 rounded-tl-lg"></div>
+                <div className="absolute top-0 left-0 w-2 h-2 bg-orange-500/50 rounded-full blur-[1px]"></div>
+              </div>
+              <div className="absolute top-0 right-0 w-12 h-12 pointer-events-none z-10">
+                <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-red-500/70 rounded-tr-lg"></div>
+                <div className="absolute top-0 right-0 w-2 h-2 bg-red-500/50 rounded-full blur-[1px]"></div>
+              </div>
+              <div className="absolute bottom-0 left-0 w-12 h-12 pointer-events-none z-10">
+                <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-orange-500/70 rounded-bl-lg"></div>
+                <div className="absolute bottom-0 left-0 w-2 h-2 bg-orange-500/50 rounded-full blur-[1px]"></div>
+              </div>
+              <div className="absolute bottom-0 right-0 w-12 h-12 pointer-events-none z-10">
+                <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-red-500/70 rounded-br-lg"></div>
+                <div className="absolute bottom-0 right-0 w-2 h-2 bg-red-500/50 rounded-full blur-[1px]"></div>
+              </div>
+              
               {/* Content */}
-              <div className="grid grid-cols-12 gap-4 items-center relative z-10">
+              <div className="grid grid-cols-12 gap-4 items-center relative z-20">
                 <div className="col-span-4 font-bold text-lg">
-                  <span className="bg-gradient-to-r from-amber-300 to-orange-400 bg-clip-text text-transparent">Feature</span>
+                  <span className="relative z-20 bg-gradient-to-r from-amber-300 to-orange-400 bg-clip-text text-transparent drop-shadow-[0_0px_1px_rgba(251,113,36,0.2)]">
+                    Feature
+                  </span>
                 </div>
                 <div className="col-span-4 font-bold text-center text-lg">
                   <div className="flex items-center justify-center gap-2">
                     <div className="relative">
                       <div className="absolute inset-0 rounded-full bg-gradient-to-r from-amber-500 to-orange-600 blur-[6px] opacity-60"></div>
-                      <Sparkles className="h-5 w-5 text-amber-300 relative z-10" />
+                      <Sparkles className="h-5 w-5 text-amber-300 relative z-20" />
                     </div>
-                    <span className="bg-gradient-to-r from-amber-300 to-orange-400 bg-clip-text text-transparent">Praetorian</span>
+                    <span className="relative z-20 bg-gradient-to-r from-amber-300 to-orange-400 bg-clip-text text-transparent drop-shadow-[0_0px_1px_rgba(251,113,36,0.2)]">
+                      Praetorian
+                    </span>
                   </div>
                 </div>
                 <div className="col-span-4 font-bold text-center text-lg">
-                  <span className="text-gray-400">Competitors</span>
+                  <span className="relative z-20 text-gray-300">Competitors</span>
                 </div>
               </div>
             </div>
@@ -203,13 +284,40 @@ const ProductComparison = () => {
           <div className="space-y-6">
             {comparisons.map((item, index) => (
               <div key={index} className="group relative transform transition-all duration-500 hover:scale-105 hover:z-10">
-                {/* Premium Card Container */}
-                <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-gray-900/95 backdrop-blur-xl rounded-xl py-5 px-6 shadow-[0_10px_50px_rgba(0,0,0,0.5)] z-10">
-                  {/* Premium gradient border effect - Fire variant with index-based opacity variation */}
-                  <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/50 via-transparent to-red-500/50 opacity-70"></div>
+                {/* Premium Card Container with full Specialized Application styling */}
+                <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black backdrop-blur-xl rounded-xl py-5 px-6 shadow-[0_10px_50px_rgba(0,0,0,0.5)] z-10 border border-orange-500/30 overflow-hidden">
+                  {/* Multiple layered background effects */}
+                  <div className="absolute -inset-px bg-gradient-to-r from-orange-600/20 via-red-600/20 to-amber-600/20 rounded-xl blur-sm opacity-70 group-hover:opacity-100 transition-all duration-500"></div>
+                  
+                  {/* Subtle dots and squares pattern background */}
+                  <div className="absolute inset-0 opacity-15 z-0">
+                    <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoMjQ5LDExNSwyMiwwLjQpIiBkPSJNMCAwaDJ2Mkgwem0yIDJoMnYySDJ6Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCBmaWxsPSJ1cmwoI2EpIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIi8+PC9zdmc+')]"></div>
+                  </div>
                   
                   {/* Inner highlight */}
                   <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
+                  
+                  {/* Ambient glow effects */}
+                  <div className="absolute -top-15 -right-15 w-40 h-40 bg-orange-600/10 rounded-full filter blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                  <div className="absolute -bottom-15 -left-15 w-40 h-40 bg-orange-500/15 rounded-full filter blur-[70px] opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                  
+                  {/* Corner accent lines - smaller for comparison cards */}
+                  <div className="absolute top-0 left-0 w-6 h-6 pointer-events-none z-10">
+                    <div className="absolute top-0 left-0 w-3 h-3 border-t-[1px] border-l-[1px] border-orange-500/70 rounded-tl-lg"></div>
+                    <div className="absolute top-0 left-0 w-1 h-1 bg-orange-500/50 rounded-full blur-[1px]"></div>
+                  </div>
+                  <div className="absolute top-0 right-0 w-6 h-6 pointer-events-none z-10">
+                    <div className="absolute top-0 right-0 w-3 h-3 border-t-[1px] border-r-[1px] border-red-500/70 rounded-tr-lg"></div>
+                    <div className="absolute top-0 right-0 w-1 h-1 bg-red-500/50 rounded-full blur-[1px]"></div>
+                  </div>
+                  <div className="absolute bottom-0 left-0 w-6 h-6 pointer-events-none z-10">
+                    <div className="absolute bottom-0 left-0 w-3 h-3 border-b-[1px] border-l-[1px] border-orange-500/70 rounded-bl-lg"></div>
+                    <div className="absolute bottom-0 left-0 w-1 h-1 bg-orange-500/50 rounded-full blur-[1px]"></div>
+                  </div>
+                  <div className="absolute bottom-0 right-0 w-6 h-6 pointer-events-none z-10">
+                    <div className="absolute bottom-0 right-0 w-3 h-3 border-b-[1px] border-r-[1px] border-red-500/70 rounded-br-lg"></div>
+                    <div className="absolute bottom-0 right-0 w-1 h-1 bg-red-500/50 rounded-full blur-[1px]"></div>
+                  </div>
                   
                   {/* Subtle ambient glow that activates on hover */}
                   <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-30 transition-opacity duration-700 ease-in-out" 
@@ -217,10 +325,10 @@ const ProductComparison = () => {
                   </div>
                   
                   {/* Content with z-index to appear above effects */}
-                  <div className="grid grid-cols-12 gap-4 items-center relative z-10">
+                  <div className="grid grid-cols-12 gap-4 items-center relative z-20">
                     {/* Feature name */}
                     <div className="col-span-12 md:col-span-4 font-medium text-base relative">
-                      <span className="text-white group-hover:text-amber-200 transition-colors duration-300">
+                      <span className="relative z-20 text-white group-hover:text-amber-200 transition-colors duration-300">
                         {item.feature}
                       </span>
                       {/* Subtle underline that appears on hover */}
@@ -236,13 +344,13 @@ const ProductComparison = () => {
                           <div className="absolute inset-0 rounded-full bg-gradient-to-r from-green-500/30 to-green-600/30 blur-[8px] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                           
                           {/* Status icon */}
-                          <div className="relative z-10">
+                          <div className="relative z-20">
                             {renderStatus(item.praetorian)}
                           </div>
                         </div>
                         
                         {/* Data with gradient text on hover */}
-                        <p className="text-sm text-center text-amber-400/90 font-medium group-hover:bg-gradient-to-r group-hover:from-amber-300 group-hover:to-orange-400 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
+                        <p className="text-sm text-center text-amber-400/90 font-medium group-hover:bg-gradient-to-r group-hover:from-amber-300 group-hover:to-orange-400 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300 relative z-20">
                           {item.praetorianDetails}
                         </p>
                       </div>
@@ -261,13 +369,13 @@ const ProductComparison = () => {
                           }`}></div>
                           
                           {/* Status icon */}
-                          <div className="relative z-10">
+                          <div className="relative z-20">
                             {renderStatus(item.competitors)}
                           </div>
                         </div>
                         
                         {/* Competitor data text */}
-                        <p className="text-sm text-center text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
+                        <p className="text-sm text-center text-gray-300 group-hover:text-gray-200 transition-colors duration-300 relative z-20">
                           {item.competitorDetails}
                         </p>
                       </div>
@@ -284,22 +392,50 @@ const ProductComparison = () => {
 
         <div className="mt-10 text-center">
           {/* Premium Enterprise Bottom Note */}
-          <div className="relative inline-block">
-            {/* Premium Note Container */}
-            <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-gray-900/95 backdrop-blur-xl rounded-xl py-4 px-6 shadow-[0_10px_50px_rgba(0,0,0,0.5)] z-10">
-              {/* Premium gradient border effect - Subtle variant */}
-              <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/30 via-transparent to-red-500/30 opacity-60"></div>
+          <div className="relative group inline-block transform transition-all duration-500">
+            {/* Multiple layered background effects */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/30 via-red-600/30 to-amber-600/30 rounded-xl blur-lg opacity-70 group-hover:opacity-100 transition-all duration-1000 animate-pulse-slow"></div>
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/60 via-amber-500/60 to-red-500/60 rounded-xl blur-sm opacity-80 group-hover:opacity-100 transition-all duration-500"></div>
+            
+            {/* Main card container */}
+            <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black backdrop-blur-xl rounded-xl py-4 px-8 z-10 border border-orange-500/30 overflow-hidden group hover:shadow-[0_0_25px_rgba(249,115,22,0.3)] transition-shadow duration-500">
+              {/* Subtle dots and squares pattern background */}
+              <div className="absolute inset-0 opacity-20 z-0">
+                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoMjQ5LDExNSwyMiwwLjQpIiBkPSJNMCAwaDJ2Mkgwem0yIDJoMnYySDJ6Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCBmaWxsPSJ1cmwoI2EpIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIi8+PC9zdmc+')]"></div>
+              </div>
               
               {/* Inner highlight */}
               <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
               
+              {/* Ambient glow effect */}
+              <div className="absolute -top-20 -right-20 w-50 h-50 bg-orange-600/10 rounded-full filter blur-[70px] animate-pulse-slow-delayed"></div>
+              <div className="absolute -bottom-20 -left-20 w-50 h-50 bg-orange-500/15 rounded-full filter blur-[80px] animate-pulse-slow"></div>
+              
+              {/* Corner accent lines - smaller for bottom note */}
+              <div className="absolute top-0 left-0 w-8 h-8 pointer-events-none z-10">
+                <div className="absolute top-0 left-0 w-4 h-4 border-t-[1px] border-l-[1px] border-orange-500/70 rounded-tl-lg"></div>
+                <div className="absolute top-0 left-0 w-1.5 h-1.5 bg-orange-500/50 rounded-full blur-[1px]"></div>
+              </div>
+              <div className="absolute top-0 right-0 w-8 h-8 pointer-events-none z-10">
+                <div className="absolute top-0 right-0 w-4 h-4 border-t-[1px] border-r-[1px] border-red-500/70 rounded-tr-lg"></div>
+                <div className="absolute top-0 right-0 w-1.5 h-1.5 bg-red-500/50 rounded-full blur-[1px]"></div>
+              </div>
+              <div className="absolute bottom-0 left-0 w-8 h-8 pointer-events-none z-10">
+                <div className="absolute bottom-0 left-0 w-4 h-4 border-b-[1px] border-l-[1px] border-orange-500/70 rounded-bl-lg"></div>
+                <div className="absolute bottom-0 left-0 w-1.5 h-1.5 bg-orange-500/50 rounded-full blur-[1px]"></div>
+              </div>
+              <div className="absolute bottom-0 right-0 w-8 h-8 pointer-events-none z-10">
+                <div className="absolute bottom-0 right-0 w-4 h-4 border-b-[1px] border-r-[1px] border-red-500/70 rounded-br-lg"></div>
+                <div className="absolute bottom-0 right-0 w-1.5 h-1.5 bg-red-500/50 rounded-full blur-[1px]"></div>
+              </div>
+              
               {/* Content */}
-              <div className="relative z-10 flex items-center">
+              <div className="relative z-20 flex items-center">
                 <div className="hidden md:block mr-3 relative">
-                  <div className="absolute inset-0 rounded-full bg-orange-500/20 blur-[10px] opacity-50"></div>
-                  <Shield className="h-5 w-5 text-orange-400 relative z-10" />
+                  <div className="absolute inset-0 rounded-full bg-orange-500/30 blur-[10px] opacity-60"></div>
+                  <Shield className="h-5 w-5 text-orange-400 relative z-20" />
                 </div>
-                <p className="text-sm text-gray-300">
+                <p className="text-sm text-gray-300 relative z-20">
                   Data based on independent laboratory testing comparing Praetorian SmartCoat to leading industry competitors.
                   Product performance may vary based on application methods and environmental conditions.
                 </p>
