@@ -47,6 +47,9 @@ const FAQSection = ({ faqs }: FAQProps) => {
         {/* Enterprise grade header card with premium styling */}
         <div className="text-center mb-16">
           <div className="relative inline-block">
+            {/* Premium Header Badge */}
+            <PremiumBadge>ENTERPRISE GRADE</PremiumBadge>
+            
             {/* Premium Enterprise Header Card */}
             <div className="relative p-12 bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 backdrop-blur-xl rounded-xl shadow-[0_10px_50px_rgba(0,0,0,0.7)] mb-8 group">
               {/* Blue and orange outer glow effect */}
@@ -87,10 +90,7 @@ const FAQSection = ({ faqs }: FAQProps) => {
               <div className="absolute bottom-1/2 left-12 w-12 h-12 rounded-lg border border-orange-500/20 opacity-0 group-hover:opacity-60 -rotate-45 transition-all duration-1000 animate-pulse-slow"></div>
 
               {/* Heading with premium styling */}
-              <div 
-                className="relative z-20 inline-flex items-center justify-center"
-              >
-                <PremiumBadge className="mr-4" />
+              <div className="relative z-20">
                 <h2 
                   className="text-4xl font-bold md:text-5xl lg:text-6xl tracking-tight text-white"
                   style={{ 
@@ -121,50 +121,57 @@ const FAQSection = ({ faqs }: FAQProps) => {
         </div>
         
         {/* FAQ Categories */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-20">
           {faqs.map((category, categoryIdx) => {
             return (
               <div key={categoryIdx} className="group relative">
                 {/* Premium styled FAQ category card */}
-                <div className="p-8 bg-gradient-to-br from-gray-900/90 via-gray-950/90 to-black/90 backdrop-blur-md rounded-xl shadow-lg relative overflow-hidden">
-                  {/* Border glow effect */}
-                  <div className="absolute inset-0 rounded-xl opacity-50 z-0" 
-                     style={{ boxShadow: 'inset 0 0 20px 0 rgba(59,130,246,0.2), inset 0 0 10px 0 rgba(249,115,22,0.2)' }}>
+                <div className="p-4 bg-gradient-to-br from-gray-900/90 via-gray-950/90 to-black/90 backdrop-blur-md rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.5)] relative overflow-hidden">
+                  {/* Enhanced outer glow effect */}
+                  <div className="absolute -inset-1 rounded-xl opacity-70 z-0" 
+                     style={{ boxShadow: '0 0 20px 2px rgba(59,130,246,0.3), 0 0 15px 2px rgba(249,115,22,0.3)' }}>
                   </div>
                   
-                  {/* Subtle dual-edge border effect */}
-                  <div className="absolute inset-0 rounded-xl border border-orange-500/20 group-hover:border-orange-500/30 transition-all duration-700"></div>
-                  <div className="absolute inset-[1px] rounded-xl border border-blue-500/10 group-hover:border-blue-500/20 transition-all duration-700"></div>
+                  {/* Inset glow effect */}
+                  <div className="absolute inset-0 rounded-xl opacity-70 z-0" 
+                     style={{ boxShadow: 'inset 0 0 30px 0 rgba(59,130,246,0.2), inset 0 0 20px 0 rgba(249,115,22,0.2)' }}>
+                  </div>
+                  
+                  {/* Enhanced dual-edge border effect */}
+                  <div className="absolute inset-0 rounded-xl border-2 border-orange-500/40 group-hover:border-orange-500/60 transition-all duration-700 animate-pulse" style={{ animationDuration: '3s' }}></div>
+                  <div className="absolute inset-[2px] rounded-xl border border-blue-500/30 group-hover:border-blue-500/50 transition-all duration-700"></div>
 
                   {/* Corner accent decorations */}
-                  <div className="absolute top-0 right-0 w-12 h-12 opacity-40">
-                    <div className="absolute right-0 top-0 w-4 h-4 border-r border-t border-orange-500/40 rounded-tr-md"></div>
-                    <div className="absolute right-1 top-1 w-6 h-6 border-r border-t border-blue-500/30 rounded-tr-md"></div>
+                  <div className="absolute top-0 right-0 w-10 h-10 opacity-70">
+                    <div className="absolute right-0 top-0 w-4 h-4 border-r-2 border-t-2 border-orange-500/60 rounded-tr-md"></div>
+                    <div className="absolute right-1 top-1 w-6 h-6 border-r border-t border-blue-500/50 rounded-tr-md"></div>
                   </div>
-                  <div className="absolute top-0 left-0 w-12 h-12 opacity-40">
-                    <div className="absolute left-0 top-0 w-4 h-4 border-l border-t border-orange-500/40 rounded-tl-md"></div>
-                    <div className="absolute left-1 top-1 w-6 h-6 border-l border-t border-blue-500/30 rounded-tl-md"></div>
+                  <div className="absolute top-0 left-0 w-10 h-10 opacity-70">
+                    <div className="absolute left-0 top-0 w-4 h-4 border-l-2 border-t-2 border-orange-500/60 rounded-tl-md"></div>
+                    <div className="absolute left-1 top-1 w-6 h-6 border-l border-t border-blue-500/50 rounded-tl-md"></div>
                   </div>
-                  <div className="absolute bottom-0 right-0 w-12 h-12 opacity-40">
-                    <div className="absolute right-0 bottom-0 w-4 h-4 border-r border-b border-blue-500/40 rounded-br-md"></div>
-                    <div className="absolute right-1 bottom-1 w-6 h-6 border-r border-b border-blue-500/30 rounded-br-md"></div>
+                  <div className="absolute bottom-0 right-0 w-10 h-10 opacity-70">
+                    <div className="absolute right-0 bottom-0 w-4 h-4 border-r-2 border-b-2 border-blue-500/60 rounded-br-md"></div>
+                    <div className="absolute right-1 bottom-1 w-6 h-6 border-r border-b border-blue-500/50 rounded-br-md"></div>
                   </div>
-                  <div className="absolute bottom-0 left-0 w-12 h-12 opacity-40">
-                    <div className="absolute left-0 bottom-0 w-4 h-4 border-l border-b border-blue-500/40 rounded-bl-md"></div>
-                    <div className="absolute left-1 bottom-1 w-6 h-6 border-l border-b border-blue-500/30 rounded-bl-md"></div>
+                  <div className="absolute bottom-0 left-0 w-10 h-10 opacity-70">
+                    <div className="absolute left-0 bottom-0 w-4 h-4 border-l-2 border-b-2 border-blue-500/60 rounded-bl-md"></div>
+                    <div className="absolute left-1 bottom-1 w-6 h-6 border-l border-b border-blue-500/50 rounded-bl-md"></div>
                   </div>
                   
-                  {/* Ambient glow */}
-                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3/4 h-20 bg-gradient-to-r from-orange-500/0 via-orange-500/5 to-orange-500/0 blur-[40px] rounded-full"></div>
-                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3/4 h-20 bg-gradient-to-r from-blue-500/0 via-blue-500/5 to-blue-500/0 blur-[40px] rounded-full"></div>
+                  {/* Enhanced ambient glow */}
+                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-24 bg-gradient-to-r from-orange-500/0 via-orange-500/15 to-orange-500/0 blur-[40px] rounded-full"></div>
+                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-24 bg-gradient-to-r from-blue-500/0 via-blue-500/15 to-blue-500/0 blur-[40px] rounded-full"></div>
                   
-                  {/* Animated fading square */}
-                  <div className="absolute top-4 right-4 w-8 h-8 rounded-md border border-orange-500/10 opacity-0 group-hover:opacity-30 rotate-12 transition-all duration-1000 animate-pulse-slow"></div>
-                  <div className="absolute bottom-4 left-4 w-6 h-6 rounded-md border border-blue-500/10 opacity-0 group-hover:opacity-30 -rotate-12 transition-all duration-1000 animate-pulse-slow-delayed"></div>
+                  {/* Animated fading squares */}
+                  <div className="absolute top-6 right-4 w-8 h-8 rounded-md border border-orange-500/20 opacity-0 group-hover:opacity-50 rotate-12 transition-all duration-1000 animate-pulse-slow"></div>
+                  <div className="absolute bottom-6 left-4 w-7 h-7 rounded-md border border-blue-500/20 opacity-0 group-hover:opacity-50 -rotate-12 transition-all duration-1000 animate-pulse-slow-delayed"></div>
+                  <div className="absolute top-1/3 right-6 w-6 h-6 rounded-md border border-purple-500/15 opacity-0 group-hover:opacity-40 rotate-45 transition-all duration-1000 animate-pulse"></div>
+                  <div className="absolute bottom-1/3 left-6 w-6 h-6 rounded-md border border-orange-500/15 opacity-0 group-hover:opacity-40 -rotate-45 transition-all duration-1000 animate-pulse-slow"></div>
 
                   {/* Category title with premium styling */}
                   <h3 
-                    className="text-2xl font-bold mb-6 text-white relative z-10"
+                    className="text-xl font-bold mb-4 text-white relative z-10"
                     style={{ 
                       textShadow: '0 1px 2px rgba(0,0,0,0.8)'
                     }}
@@ -173,7 +180,7 @@ const FAQSection = ({ faqs }: FAQProps) => {
                   </h3>
                   
                   {/* FAQ Questions for this category */}
-                  <div className="space-y-4 relative z-10">
+                  <div className="space-y-3 relative z-10">
                     {category.questions.map((faq, questionIdx) => {
                       // Create a unique key for this question
                       const questionKey = `${categoryIdx}-${questionIdx}`;
@@ -184,23 +191,37 @@ const FAQSection = ({ faqs }: FAQProps) => {
                           key={questionIdx} 
                           className="group/faq"
                         >
-                          {/* Premium styled question button with hover effects */}
+                          {/* Premium styled question button with enhanced hover effects */}
                           <button
-                            className="w-full text-left p-4 rounded-lg relative bg-gradient-to-br from-gray-800/60 via-gray-850/60 to-gray-900/60 backdrop-blur-sm group-hover/faq:from-gray-800/80 group-hover/faq:to-gray-900/80 transition-all duration-300"
+                            className="w-full text-left p-3 rounded-lg relative bg-gradient-to-br from-gray-800/60 via-gray-850/60 to-gray-900/60 backdrop-blur-sm group-hover/faq:from-gray-800/80 group-hover/faq:to-gray-900/80 transition-all duration-300"
                             onClick={() => toggleQuestion(categoryIdx, questionIdx)}
                           >
-                            {/* Border glow */}
-                            <div className="absolute inset-0 rounded-lg opacity-0 group-hover/faq:opacity-100 transition-opacity duration-500 z-0" 
-                              style={{ boxShadow: '0 0 10px 1px rgba(59,130,246,0.2), 0 0 5px 1px rgba(249,115,22,0.2)' }}>
+                            {/* Enhanced border glow */}
+                            <div className="absolute -inset-px rounded-lg opacity-40 group-hover/faq:opacity-100 transition-opacity duration-500 z-0" 
+                              style={{ boxShadow: '0 0 15px 2px rgba(59,130,246,0.3), 0 0 10px 2px rgba(249,115,22,0.3)' }}>
                             </div>
                             
-                            {/* Subtle border */}
-                            <div className="absolute inset-0 rounded-lg border border-orange-500/10 group-hover/faq:border-orange-500/20 transition-colors duration-500"></div>
-                            <div className="absolute inset-[1px] rounded-lg border border-blue-500/5 group-hover/faq:border-blue-500/15 transition-colors duration-500"></div>
+                            {/* Enhanced dual-edge border effect */}
+                            <div className="absolute inset-0 rounded-lg border border-orange-500/30 group-hover/faq:border-orange-500/50 transition-colors duration-500"></div>
+                            <div className="absolute inset-[1px] rounded-lg border border-blue-500/20 group-hover/faq:border-blue-500/40 transition-colors duration-500"></div>
                             
-                            <div className="flex items-center justify-between">
+                            {/* Corner accent decorations for questions */}
+                            <div className="absolute top-0 right-0 w-8 h-8 opacity-60">
+                              <div className="absolute right-0 top-0 w-3 h-3 border-r border-t border-orange-500/50 rounded-tr-sm"></div>
+                              <div className="absolute right-0.5 top-0.5 w-5 h-5 border-r border-t border-blue-500/40 rounded-tr-sm"></div>
+                            </div>
+                            <div className="absolute top-0 left-0 w-8 h-8 opacity-60">
+                              <div className="absolute left-0 top-0 w-3 h-3 border-l border-t border-orange-500/50 rounded-tl-sm"></div>
+                              <div className="absolute left-0.5 top-0.5 w-5 h-5 border-l border-t border-blue-500/40 rounded-tl-sm"></div>
+                            </div>
+                            
+                            {/* Subtle ambient glow */}
+                            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-12 bg-gradient-to-r from-orange-500/0 via-orange-500/10 to-orange-500/0 blur-[30px] rounded-full opacity-0 group-hover/faq:opacity-100 transition-opacity duration-700"></div>
+                            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-12 bg-gradient-to-r from-blue-500/0 via-blue-500/10 to-blue-500/0 blur-[30px] rounded-full opacity-0 group-hover/faq:opacity-100 transition-opacity duration-700"></div>
+                            
+                            <div className="flex items-center justify-between relative z-10">
                               <h4 
-                                className="font-medium text-white text-base md:text-lg relative z-10"
+                                className="font-medium text-white text-base md:text-lg"
                                 style={{ 
                                   textShadow: '0 1px 1px rgba(0,0,0,0.7)'
                                 }}
@@ -208,10 +229,13 @@ const FAQSection = ({ faqs }: FAQProps) => {
                                 {faq.question}
                               </h4>
                               <svg
-                                className={`w-5 h-5 text-gray-400 transform transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
+                                className={`w-5 h-5 text-gray-300 transform transition-transform duration-300 ${isOpen ? 'rotate-180 text-blue-400' : ''}`}
                                 fill="none"
                                 viewBox="0 0 24 24"
                                 stroke="currentColor"
+                                style={{
+                                  filter: isOpen ? 'drop-shadow(0 0 3px rgba(59,130,246,0.4))' : 'none'
+                                }}
                               >
                                 <path
                                   strokeLinecap="round"
@@ -223,14 +247,29 @@ const FAQSection = ({ faqs }: FAQProps) => {
                             </div>
                           </button>
                           
-                          {/* Sliding answer panel with premium styling */}
+                          {/* Enhanced sliding answer panel with premium styling */}
                           <div 
-                            className={`overflow-hidden transition-all duration-300 ${
+                            className={`overflow-hidden transition-all duration-500 ${
                               isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
                             }`}
                           >
-                            <div className="p-4 text-gray-300 bg-gray-900/40 backdrop-blur-sm rounded-b-lg border-t border-t-gray-800/60">
-                              <p dangerouslySetInnerHTML={{ __html: faq.answer.replace(/\n/g, '<br />') }} />
+                            <div className="relative p-5 text-gray-300 bg-gradient-to-br from-gray-900/80 via-gray-950/80 to-black/80 backdrop-blur-sm rounded-b-lg border-t border-t-gray-800/60 mt-1">
+                              {/* Subtle answer glow effect */}
+                              <div className="absolute inset-0 rounded-b-lg opacity-30" 
+                                style={{ boxShadow: 'inset 0 0 20px 0 rgba(59,130,246,0.1), inset 0 0 10px 0 rgba(249,115,22,0.1)' }}>
+                              </div>
+                              
+                              {/* Corner accent decorations for answers */}
+                              <div className="absolute bottom-0 right-0 w-8 h-8 opacity-40">
+                                <div className="absolute right-0 bottom-0 w-3 h-3 border-r border-b border-blue-500/40 rounded-br-sm"></div>
+                                <div className="absolute right-0.5 bottom-0.5 w-5 h-5 border-r border-b border-blue-500/30 rounded-br-sm"></div>
+                              </div>
+                              <div className="absolute bottom-0 left-0 w-8 h-8 opacity-40">
+                                <div className="absolute left-0 bottom-0 w-3 h-3 border-l border-b border-blue-500/40 rounded-bl-sm"></div>
+                                <div className="absolute left-0.5 bottom-0.5 w-5 h-5 border-l border-b border-blue-500/30 rounded-bl-sm"></div>
+                              </div>
+                              
+                              <p className="relative z-10" dangerouslySetInnerHTML={{ __html: faq.answer.replace(/\n/g, '<br />') }} />
                             </div>
                           </div>
                         </div>
