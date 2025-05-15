@@ -56,8 +56,8 @@ const FAQSection = ({ faqs }: FAQProps) => {
             <div className="absolute -bottom-20 right-[10%] w-72 h-72 bg-orange-600/10 rounded-full filter blur-[100px]"></div>
           </div>
           
-          {/* Premium badge positioned above the card - outside parent with overflow hidden */}
-          <div className="absolute top-0 left-0 right-0 flex justify-center -mt-6 z-[500]">
+          {/* Premium badge positioned with negative margin to move it outside any parent with overflow:hidden */}
+          <div className="absolute top-0 left-0 right-0 -mt-8 flex justify-center" style={{zIndex: 9999}}>
             <PremiumBadge>
               FREQUENTLY ASKED
             </PremiumBadge>
