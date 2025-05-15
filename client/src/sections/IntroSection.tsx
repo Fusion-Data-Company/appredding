@@ -82,8 +82,8 @@ const IntroSection = () => {
                 
                 {/* Main heading with improved z-index */}
                 <div className="shimmer-fire-text font-bold text-4xl md:text-6xl tracking-tight relative z-10">
-                  {/* Main text with premium gradient - matching styling from Specialized Applications */}
-                  <span className="relative text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-amber-500 to-blue-500
+                  {/* Main text with white color - matching testimonials section */}
+                  <span className="relative text-white
                     drop-shadow-[0_0px_1px_rgba(251,113,36,0.2)] 
                     [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(251,146,60,0.3)]">
                     NASA-Derived Ceramic Coating Technology
@@ -190,7 +190,7 @@ const IntroSection = () => {
                     
                     {/* Main text with premium gradient - matching mixed style - higher z-index to bring in front */}
                     <div className="shimmer-fire-text font-bold tracking-tight relative z-10">
-                      <span className="text-2xl md:text-3xl mb-2 relative text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-amber-500 to-blue-500
+                      <span className="text-2xl md:text-3xl mb-2 relative text-white
                         drop-shadow-[0_0px_1px_rgba(251,113,36,0.2)] 
                         [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(251,146,60,0.3)]">
                         Elite Performance Metrics
@@ -294,7 +294,7 @@ const IntroSection = () => {
                     
                     {/* Main heading with improved z-index */}
                     <div className="shimmer-fire-text font-bold tracking-tight relative z-10">
-                      <span className="text-2xl md:text-3xl relative text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-amber-500 to-blue-500
+                      <span className="text-2xl md:text-3xl relative text-white
                         drop-shadow-[0_0px_1px_rgba(251,113,36,0.2)] 
                         [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(251,146,60,0.3)]">
                         Class A Fire Protection
