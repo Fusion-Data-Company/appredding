@@ -63,8 +63,8 @@ const IntroSection = () => {
                 <div className="absolute bottom-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
               </div>
               
-              {/* NASA Premium badge with ultra-high z-index and positioned absolutely above all containers */}
-              <div className="absolute -top-8 left-0 right-0 flex justify-center z-[500]">
+              {/* NASA Premium badge with position handled directly in the component */}
+              <div className="relative w-full">
                 <PremiumBadge>
                   NASA TECHNOLOGY
                 </PremiumBadge>

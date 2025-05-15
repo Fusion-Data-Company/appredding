@@ -21,7 +21,13 @@ const ShieldIcon = () => (
 
 export function PremiumBadge({ children, icon, className = '' }: PremiumBadgeProps) {
   return (
-    <div className="px-3 py-1.5 rounded-full border border-orange-500/40 bg-gradient-to-r from-orange-950/95 via-gray-950/95 to-blue-950/95 text-orange-300 inline-flex items-center shadow-[0_0_15px_rgba(249,115,22,0.4)] relative z-[999999] transition-all duration-300 hover:shadow-[0_0_20px_rgba(249,115,22,0.6)]">
+    <div style={{
+      position: 'absolute', 
+      zIndex: 999999,
+      top: '-24px',
+      left: '50%',
+      transform: 'translateX(-50%)'
+    }} className="px-3 py-1.5 rounded-full border border-orange-500/40 bg-gradient-to-r from-orange-950/95 via-gray-950/95 to-blue-950/95 text-orange-300 inline-flex items-center shadow-[0_0_15px_rgba(249,115,22,0.4)] transition-all duration-300 hover:shadow-[0_0_20px_rgba(249,115,22,0.6)]">
       {icon || <ShieldIcon />}
       <span className={`text-sm font-medium ${className}`}>
         {children}

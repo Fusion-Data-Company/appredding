@@ -56,8 +56,8 @@ const FAQSection = ({ faqs }: FAQProps) => {
             <div className="absolute -bottom-20 right-[10%] w-72 h-72 bg-orange-600/10 rounded-full filter blur-[100px]"></div>
           </div>
           
-          {/* Premium badge positioned at the very top of the section */}
-          <div className="absolute -top-6 left-0 right-0 flex justify-center">
+          {/* Premium badge positioned completely outside the card */}
+          <div className="relative w-full">
             <PremiumBadge>
               FREQUENTLY ASKED
             </PremiumBadge>
