@@ -127,53 +127,53 @@ const FAQSection = ({ faqs }: FAQProps) => {
           {faqs.map((category, categoryIdx) => {
             return (
               <div key={categoryIdx} className="group relative h-full">
-                {/* Enhanced ambient glow - placed BEHIND the card */}
-                <div className="absolute -top-10 -right-10 w-48 h-48 bg-orange-600/25 rounded-full filter blur-[70px] opacity-70 animate-pulse-slow"></div>
-                <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-blue-600/30 rounded-full filter blur-[70px] opacity-70 animate-pulse-slow-delayed"></div>
+                {/* Enhanced ambient glow - placed BEHIND the card with pointer-events-none */}
+                <div className="absolute -top-10 -right-10 w-48 h-48 bg-orange-600/25 rounded-full filter blur-[70px] opacity-70 animate-pulse-slow pointer-events-none"></div>
+                <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-blue-600/30 rounded-full filter blur-[70px] opacity-70 animate-pulse-slow-delayed pointer-events-none"></div>
                   
-                {/* Central glow - placed BEHIND the card */}
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-24 bg-gradient-to-r from-orange-500/0 via-orange-500/30 to-orange-500/0 blur-[40px] rounded-full animate-pulse-slow"></div>
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-24 bg-gradient-to-r from-blue-500/0 via-blue-500/30 to-blue-500/0 blur-[40px] rounded-full animate-pulse-slow-delayed"></div>
+                {/* Central glow - placed BEHIND the card with pointer-events-none */}
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-24 bg-gradient-to-r from-orange-500/0 via-orange-500/30 to-orange-500/0 blur-[40px] rounded-full animate-pulse-slow pointer-events-none"></div>
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-24 bg-gradient-to-r from-blue-500/0 via-blue-500/30 to-blue-500/0 blur-[40px] rounded-full animate-pulse-slow-delayed pointer-events-none"></div>
                 
-                {/* Outer glow effect - placed BEHIND the card */}
-                <div className="absolute -inset-1 rounded-xl opacity-70 z-0" 
+                {/* Outer glow effect - placed BEHIND the card with pointer-events-none */}
+                <div className="absolute -inset-1 rounded-xl opacity-70 z-0 pointer-events-none" 
                   style={{ boxShadow: '0 0 20px 2px rgba(59,130,246,0.3), 0 0 15px 2px rgba(249,115,22,0.3)' }}>
                 </div>
                 
                 {/* Premium styled FAQ category card */}
                 <div className="p-4 bg-gradient-to-br from-gray-900/90 via-gray-950/90 to-black/90 backdrop-blur-md rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.5)] relative overflow-hidden h-full flex flex-col justify-between z-20">
-                  {/* Inset glow effect */}
-                  <div className="absolute inset-0 rounded-xl opacity-70 z-0" 
+                  {/* Inset glow effect with pointer-events-none */}
+                  <div className="absolute inset-0 rounded-xl opacity-70 z-0 pointer-events-none" 
                     style={{ boxShadow: 'inset 0 0 30px 0 rgba(59,130,246,0.2), inset 0 0 20px 0 rgba(249,115,22,0.2)' }}>
                   </div>
                   
-                  {/* Enhanced dual-edge border effect */}
-                  <div className="absolute inset-0 rounded-xl border-2 border-orange-500/40 group-hover:border-orange-500/60 transition-all duration-700 animate-pulse" style={{ animationDuration: '3s' }}></div>
-                  <div className="absolute inset-[2px] rounded-xl border border-blue-500/30 group-hover:border-blue-500/50 transition-all duration-700"></div>
+                  {/* Enhanced dual-edge border effect with pointer-events-none */}
+                  <div className="absolute inset-0 rounded-xl border-2 border-orange-500/40 group-hover:border-orange-500/60 transition-all duration-700 animate-pulse pointer-events-none" style={{ animationDuration: '3s' }}></div>
+                  <div className="absolute inset-[2px] rounded-xl border border-blue-500/30 group-hover:border-blue-500/50 transition-all duration-700 pointer-events-none"></div>
 
-                  {/* Corner accent decorations */}
-                  <div className="absolute top-0 right-0 w-10 h-10 opacity-70">
+                  {/* Corner accent decorations with pointer-events-none */}
+                  <div className="absolute top-0 right-0 w-10 h-10 opacity-70 pointer-events-none">
                     <div className="absolute right-0 top-0 w-4 h-4 border-r-2 border-t-2 border-orange-500/60 rounded-tr-md"></div>
                     <div className="absolute right-1 top-1 w-6 h-6 border-r border-t border-blue-500/50 rounded-tr-md"></div>
                   </div>
-                  <div className="absolute top-0 left-0 w-10 h-10 opacity-70">
+                  <div className="absolute top-0 left-0 w-10 h-10 opacity-70 pointer-events-none">
                     <div className="absolute left-0 top-0 w-4 h-4 border-l-2 border-t-2 border-orange-500/60 rounded-tl-md"></div>
                     <div className="absolute left-1 top-1 w-6 h-6 border-l border-t border-blue-500/50 rounded-tl-md"></div>
                   </div>
-                  <div className="absolute bottom-0 right-0 w-10 h-10 opacity-70">
+                  <div className="absolute bottom-0 right-0 w-10 h-10 opacity-70 pointer-events-none">
                     <div className="absolute right-0 bottom-0 w-4 h-4 border-r-2 border-b-2 border-blue-500/60 rounded-br-md"></div>
                     <div className="absolute right-1 bottom-1 w-6 h-6 border-r border-b border-blue-500/50 rounded-br-md"></div>
                   </div>
-                  <div className="absolute bottom-0 left-0 w-10 h-10 opacity-70">
+                  <div className="absolute bottom-0 left-0 w-10 h-10 opacity-70 pointer-events-none">
                     <div className="absolute left-0 bottom-0 w-4 h-4 border-l-2 border-b-2 border-blue-500/60 rounded-bl-md"></div>
                     <div className="absolute left-1 bottom-1 w-6 h-6 border-l border-b border-blue-500/50 rounded-bl-md"></div>
                   </div>
                   
-                  {/* Animated fading squares */}
-                  <div className="absolute top-6 right-4 w-8 h-8 rounded-md border border-orange-500/20 opacity-0 group-hover:opacity-50 rotate-12 transition-all duration-1000 animate-pulse-slow"></div>
-                  <div className="absolute bottom-6 left-4 w-7 h-7 rounded-md border border-blue-500/20 opacity-0 group-hover:opacity-50 -rotate-12 transition-all duration-1000 animate-pulse-slow-delayed"></div>
-                  <div className="absolute top-1/3 right-6 w-6 h-6 rounded-md border border-purple-500/15 opacity-0 group-hover:opacity-40 rotate-45 transition-all duration-1000 animate-pulse"></div>
-                  <div className="absolute bottom-1/3 left-6 w-6 h-6 rounded-md border border-orange-500/15 opacity-0 group-hover:opacity-40 -rotate-45 transition-all duration-1000 animate-pulse-slow"></div>
+                  {/* Animated fading squares with pointer-events-none */}
+                  <div className="absolute top-6 right-4 w-8 h-8 rounded-md border border-orange-500/20 opacity-0 group-hover:opacity-50 rotate-12 transition-all duration-1000 animate-pulse-slow pointer-events-none"></div>
+                  <div className="absolute bottom-6 left-4 w-7 h-7 rounded-md border border-blue-500/20 opacity-0 group-hover:opacity-50 -rotate-12 transition-all duration-1000 animate-pulse-slow-delayed pointer-events-none"></div>
+                  <div className="absolute top-1/3 right-6 w-6 h-6 rounded-md border border-purple-500/15 opacity-0 group-hover:opacity-40 rotate-45 transition-all duration-1000 animate-pulse pointer-events-none"></div>
+                  <div className="absolute bottom-1/3 left-6 w-6 h-6 rounded-md border border-orange-500/15 opacity-0 group-hover:opacity-40 -rotate-45 transition-all duration-1000 animate-pulse-slow pointer-events-none"></div>
                   
                   {/* Content container with proper spacing */}
                   <div className="flex flex-col h-full">
@@ -200,16 +200,16 @@ const FAQSection = ({ faqs }: FAQProps) => {
                             className="group/faq"
                           >
                             {/* Premium styled question button with enhanced hover effects */}
-                            {/* Enhanced ambient glow effects - BEHIND button */}
-                            <div className="absolute -top-5 -right-5 w-24 h-24 bg-orange-600/20 rounded-full filter blur-[30px] opacity-0 group-hover/faq:opacity-70 transition-opacity duration-500"></div>
-                            <div className="absolute -bottom-5 -left-5 w-24 h-24 bg-blue-600/25 rounded-full filter blur-[30px] opacity-0 group-hover/faq:opacity-70 transition-opacity duration-500"></div>
+                            {/* Enhanced ambient glow effects - BEHIND button with pointer-events-none */}
+                            <div className="absolute -top-5 -right-5 w-24 h-24 bg-orange-600/20 rounded-full filter blur-[30px] opacity-0 group-hover/faq:opacity-70 transition-opacity duration-500 pointer-events-none"></div>
+                            <div className="absolute -bottom-5 -left-5 w-24 h-24 bg-blue-600/25 rounded-full filter blur-[30px] opacity-0 group-hover/faq:opacity-70 transition-opacity duration-500 pointer-events-none"></div>
                               
-                            {/* Central glow - BEHIND button */}
-                            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-12 bg-gradient-to-r from-orange-500/0 via-orange-500/25 to-orange-500/0 blur-[30px] rounded-full opacity-0 group-hover/faq:opacity-100 transition-opacity duration-700"></div>
-                            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-12 bg-gradient-to-r from-blue-500/0 via-blue-500/25 to-blue-500/0 blur-[30px] rounded-full opacity-0 group-hover/faq:opacity-100 transition-opacity duration-700"></div>
+                            {/* Central glow - BEHIND button with pointer-events-none */}
+                            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-12 bg-gradient-to-r from-orange-500/0 via-orange-500/25 to-orange-500/0 blur-[30px] rounded-full opacity-0 group-hover/faq:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+                            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-12 bg-gradient-to-r from-blue-500/0 via-blue-500/25 to-blue-500/0 blur-[30px] rounded-full opacity-0 group-hover/faq:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
                             
-                            {/* Enhanced border glow - BEHIND button */}
-                            <div className="absolute -inset-px rounded-lg opacity-40 group-hover/faq:opacity-100 transition-opacity duration-500 z-0" 
+                            {/* Enhanced border glow - BEHIND button with pointer-events-none */}
+                            <div className="absolute -inset-px rounded-lg opacity-40 group-hover/faq:opacity-100 transition-opacity duration-500 z-0 pointer-events-none" 
                               style={{ boxShadow: '0 0 15px 2px rgba(59,130,246,0.3), 0 0 10px 2px rgba(249,115,22,0.3)' }}>
                             </div>
                             
