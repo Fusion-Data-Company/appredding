@@ -192,7 +192,7 @@ const TechnicalFAQ: React.FC = () => {
               </p>
               <ul className="list-disc pl-5 space-y-2">
                 <li>Hollow, vacuum-sealed spheres ranging from 10-100 microns in diameter</li>
-                <li>Composed primarily of specially formulated ceramic oxides derived from NASA thermal protection research</li>
+                <li>Composed primarily of specially formulated ceramic oxides derived from <span className="bg-gradient-to-r from-orange-300 to-blue-300 bg-clip-text text-transparent font-semibold">NASA thermal protection research</span></li>
                 <li>Manufactured through a proprietary high-temperature process that creates perfectly spherical particles</li>
                 <li>Uniquely structured with a hard ceramic shell surrounding a vacuum or gas-filled core</li>
               </ul>
