@@ -93,8 +93,8 @@ const BrandShowcaseSection = () => {
                       Elite Protection Technology
                     </div>
                     
-                    {/* Main text with premium gradient - improved z-index to bring yellow text in front */}
-                    <span className="relative z-20 text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-amber-500 to-blue-500
+                    {/* Main text with white color - matching testimonials section */}
+                    <span className="relative z-20 text-white
                       drop-shadow-[0_0px_1px_rgba(251,113,36,0.2)] 
                       [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(251,146,60,0.3)]">
                       Elite Protection Technology
@@ -215,7 +215,7 @@ const BrandShowcaseSection = () => {
                   {/* Feature item 1 - Enhanced with subtle hover effects */}
                   <div className="relative p-4 mt-8 group/item hover:bg-gradient-to-r hover:from-orange-950/10 hover:to-blue-950/10 rounded-lg transition-all duration-300">
                     <div className="text-center mb-4">
-                      <h3 className="text-2xl font-semibold bg-gradient-to-r from-orange-400 via-amber-300 to-blue-400 bg-clip-text text-transparent drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">
+                      <h3 className="text-2xl font-semibold text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">
                         Enterprise-Grade Protection
                       </h3>
                       <div className="w-24 h-0.5 bg-gradient-to-r from-orange-500 to-blue-500 mx-auto mt-3 group-hover/item:w-32 transition-all duration-500"></div>
@@ -228,7 +228,7 @@ const BrandShowcaseSection = () => {
                   {/* Feature item 2 - Enhanced with subtle hover effects */}
                   <div className="relative p-4 mt-8 group/item hover:bg-gradient-to-r hover:from-orange-950/10 hover:to-blue-950/10 rounded-lg transition-all duration-300">
                     <div className="text-center mb-4">
-                      <h3 className="text-2xl font-semibold bg-gradient-to-r from-orange-400 via-amber-300 to-blue-400 bg-clip-text text-transparent drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">
+                      <h3 className="text-2xl font-semibold text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">
                         Advanced Ceramic Technology
                       </h3>
                       <div className="w-24 h-0.5 bg-gradient-to-r from-orange-500 to-blue-500 mx-auto mt-3 group-hover/item:w-32 transition-all duration-500"></div>
@@ -241,7 +241,7 @@ const BrandShowcaseSection = () => {
                   {/* Feature item 3 - Enhanced with subtle hover effects */}
                   <div className="relative p-4 mt-8 group/item hover:bg-gradient-to-r hover:from-orange-950/10 hover:to-blue-950/10 rounded-lg transition-all duration-300">
                     <div className="text-center mb-4">
-                      <h3 className="text-2xl font-semibold bg-gradient-to-r from-orange-400 via-amber-300 to-blue-400 bg-clip-text text-transparent drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">
+                      <h3 className="text-2xl font-semibold text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">
                         Scientifically Verified Results
                       </h3>
                       <div className="w-24 h-0.5 bg-gradient-to-r from-orange-500 to-blue-500 mx-auto mt-3 group-hover/item:w-32 transition-all duration-500"></div>
