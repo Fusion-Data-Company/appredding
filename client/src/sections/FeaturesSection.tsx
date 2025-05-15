@@ -8,15 +8,15 @@ const FeatureCard = ({ icon, title, description, index }: { icon: string; title:
   // Enhanced premium styling variables specifically for fire/orange theme (like Specialized Applications)
   const theme = {
     // Fire-themed border gradient
-    borderGradient: "from-orange-500/70 via-amber-500/40 to-red-500/70",
-    // Enhanced icon gradient with orange/red transitions (fire theme)
-    iconGradient: "from-orange-500 to-red-600",
+    borderGradient: "from-orange-500/70 via-amber-500/40 to-blue-500/70",
+    // Enhanced icon gradient with orange/blue transitions
+    iconGradient: "from-orange-500 to-blue-600",
     // Enhanced glow and shadow effects (fire theme)
     iconShadow: "0 0 30px rgba(249, 115, 22, 0.7)",
     // Enhanced ambient glow background (fire theme)
     ambientGlow: "radial-gradient(circle at center, rgba(251,113,36,0.3) 0%, rgba(245,158,11,0.2) 30%, rgba(220,38,38,0.2) 70%, transparent 80%)",
     // Enhanced corner accent colors (fire theme)
-    cornerAccent: "from-orange-500/40 to-red-500/40",
+    cornerAccent: "from-orange-500/40 to-blue-500/40",
     // Enhanced pulse color with gradient (fire theme)
     pulseColor: "rgba(249,115,22,0.8)",
     // Enhanced text shimmer gradient (fire theme)
@@ -117,7 +117,7 @@ const FeatureCard = ({ icon, title, description, index }: { icon: string; title:
             </div>
             
             {/* Main text with premium gradient - matching Specialized Applications */}
-            <span className="relative text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-amber-500 to-red-500
+            <span className="relative text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-amber-500 to-blue-500
               drop-shadow-[0_0px_1px_rgba(251,113,36,0.2)] 
               [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(251,146,60,0.3)]">
               {title}
@@ -341,7 +341,7 @@ const FeaturesSection = () => {
               <div className="relative inline-block mb-5">
                 {/* Decorative dots */}
                 <div className="absolute -left-10 top-1/2 -translate-y-1/2 flex items-center space-x-1.5">
-                  <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-orange-500 to-red-500"></div>
+                  <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-orange-500 to-blue-500"></div>
                   <div className="w-1 h-1 rounded-full bg-gradient-to-r from-orange-400 to-amber-500"></div>
                 </div>
                 <div className="absolute -right-10 top-1/2 -translate-y-1/2 flex items-center space-x-1.5">

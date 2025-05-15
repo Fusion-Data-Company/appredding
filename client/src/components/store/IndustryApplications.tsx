@@ -555,7 +555,7 @@ const IndustryApplications = () => {
                           app.id === "marinas" || app.id === "pools"
                             ? "from-blue-500/40 via-transparent to-cyan-500/40" 
                             : app.id === "fire-prevention"
-                              ? "from-orange-500/40 via-transparent to-red-500/40"
+                              ? "from-orange-500/40 via-transparent to-blue-500/40"
                               : "from-amber-500/40 via-transparent to-orange-500/40"
                         } opacity-80`}></div>
                         
