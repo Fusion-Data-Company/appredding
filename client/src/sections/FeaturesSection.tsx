@@ -2,85 +2,73 @@ import { GradientHeading } from "@/components/ui/gradient-heading";
 import { PRAETORIAN_HERO_IMAGE } from "../assets_dir/imageExports";
 
 const FeatureCard = ({ icon, title, description, index }: { icon: string; title: string; description: string; index: number }) => {
-  // Advanced premium enterprise theme variants
-  const variants = ["fire", "blue", "mixed"];
-  const variant = variants[index % variants.length] as "fire" | "blue" | "mixed";
+  // Use mixed theme for all cards to create consistent premium enterprise design
+  const variant = "mixed" as "fire" | "blue" | "mixed";
   
-  // Theme-specific variables for enhanced premium styling
-  const themeConfig = {
-    fire: {
-      // Premium border gradient with multiple color stops for fire theme
-      borderGradient: "from-orange-500/60 via-red-600/30 to-red-500/60",
-      // Enhanced icon gradient with more color transitions
-      iconGradient: "from-amber-400 via-orange-500 to-red-600",
-      // Glow and shadow effects
-      iconShadow: "0 0 30px rgba(251,113,36,0.7), 0 0 15px rgba(220,38,38,0.5)",
-      // Ambient glow background
-      ambientGlow: "radial-gradient(circle at center, rgba(251,113,36,0.4) 0%, rgba(220,38,38,0.2) 40%, transparent 70%)",
-      // Corner accent color
-      cornerAccent: "from-orange-500/40 to-red-600/40",
-      // Icon pulse color
-      pulseColor: "rgba(251,113,36,0.8)",
-      // Text shimmer gradient
-      textShimmer: "from-amber-300 via-orange-400 to-amber-300"
-    },
-    blue: {
-      // Premium border gradient with multiple color stops for blue theme
-      borderGradient: "from-blue-500/60 via-cyan-500/30 to-blue-600/60",
-      // Enhanced icon gradient with more color transitions
-      iconGradient: "from-cyan-400 via-blue-500 to-blue-700",
-      // Glow and shadow effects
-      iconShadow: "0 0 30px rgba(59,130,246,0.7), 0 0 15px rgba(14,165,233,0.5)",
-      // Ambient glow background
-      ambientGlow: "radial-gradient(circle at center, rgba(59,130,246,0.4) 0%, rgba(14,165,233,0.2) 40%, transparent 70%)",
-      // Corner accent color
-      cornerAccent: "from-blue-500/40 to-cyan-600/40",
-      // Icon pulse color
-      pulseColor: "rgba(59,130,246,0.8)",
-      // Text shimmer gradient
-      textShimmer: "from-blue-300 via-cyan-400 to-blue-300"
-    },
-    mixed: {
-      // Premium border gradient with multiple color stops for mixed theme
-      borderGradient: "from-orange-500/60 via-amber-500/40 to-blue-500/60",
-      // Enhanced icon gradient with more color transitions
-      iconGradient: "from-amber-500 via-orange-400 to-blue-600",
-      // Glow and shadow effects
-      iconShadow: "0 0 30px rgba(251,113,36,0.5), 0 0 30px rgba(59,130,246,0.5)",
-      // Ambient glow background
-      ambientGlow: "radial-gradient(circle at center, rgba(251,113,36,0.3) 0%, rgba(245,158,11,0.2) 30%, rgba(59,130,246,0.3) 60%, transparent 75%)",
-      // Corner accent color
-      cornerAccent: "from-orange-500/40 to-blue-500/40",
-      // Icon pulse color
-      pulseColor: "rgba(245,158,11,0.8)",
-      // Text shimmer gradient
-      textShimmer: "from-amber-300 via-orange-400 to-blue-300"
-    }
+  // Enhanced premium styling variables for mixed orange/blue theme
+  const theme = {
+    // Premium border gradient with mixed orange/blue theme
+    borderGradient: "from-orange-500/60 via-blue-500/30 to-orange-500/60",
+    // Enhanced icon gradient with orange/blue transitions
+    iconGradient: "from-orange-500 via-amber-400 to-blue-600",
+    // Enhanced glow and shadow effects
+    iconShadow: "0 0 30px rgba(251,113,36,0.5), 0 0 30px rgba(59,130,246,0.5)",
+    // Enhanced ambient glow background
+    ambientGlow: "radial-gradient(circle at center, rgba(251,113,36,0.3) 0%, rgba(245,158,11,0.2) 30%, rgba(59,130,246,0.3) 60%, transparent 75%)",
+    // Enhanced corner accent colors
+    cornerAccent: "from-orange-500/40 to-blue-500/40",
+    // Enhanced pulse color with gradient
+    pulseColor: "rgba(245,158,11,0.8)",
+    // Enhanced text shimmer gradient
+    textShimmer: "from-orange-300 via-amber-400 to-blue-300"
   };
-  
-  // Get current theme configuration
-  const theme = themeConfig[variant];
 
   return (
-    <div className="relative group h-full transform transition-all duration-700 hover:-translate-y-2 hover:scale-[1.03] flex flex-col justify-between">
+    <div className="relative group h-full transform transition-all duration-700 hover:-translate-y-2 hover:scale-[1.03] hover:z-10 flex flex-col justify-between">
+      {/* Multiple layered background effects - Mixed theme */}
+      <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/40 via-blue-600/40 to-orange-600/40 rounded-xl blur-xl opacity-70 group-hover:opacity-100 group-hover:blur-xl transition-all duration-1000 animate-pulse-slow"></div>
+      <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/80 via-blue-500/80 to-orange-500/80 rounded-xl blur-md opacity-90 group-hover:opacity-100 transition-all duration-500"></div>
+      
       {/* Advanced enterprise-level card styling with enhanced 3D effects */}
-      <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/98 to-gray-900/95 backdrop-blur-xl rounded-xl p-8 md:p-10 text-center border-0 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7)] h-full z-10">
+      <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black backdrop-blur-xl rounded-xl p-8 md:p-10 text-center border border-orange-500/30 overflow-hidden shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7)] h-full z-10">
+        {/* Subtle dots and squares pattern background in mixed colors */}
+        <div className="absolute inset-0 opacity-25 z-0">
+          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoMjMyLDEyMSw1OCwwLjMpIiBkPSJNMCAwaDJ2Mkgwem0yIDJoMnYySDJ6Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCBmaWxsPSJ1cmwoI2EpIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIi8+PC9zdmc+')]"></div>
+        </div>
+        
+        {/* Ambient glow effects - positioned away from text */}
+        <div className="absolute -top-40 -right-20 w-60 h-60 bg-orange-600/15 rounded-full filter blur-[120px] animate-pulse-slow-delayed"></div>
+        <div className="absolute -bottom-40 -left-20 w-60 h-60 bg-blue-500/20 rounded-full filter blur-[120px] animate-pulse-slow"></div>
+        
         {/* Premium dual-layer gradient border effect for enhanced depth */}
         <div className={`absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r ${theme.borderGradient} opacity-80`}></div>
         <div className={`absolute inset-[1px] p-0.5 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-30 pointer-events-none`}></div>
         
-        {/* Corner accent decorations for premium enterprise feel */}
-        <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl opacity-10">
-          <div className={`absolute inset-0 bg-gradient-to-bl ${theme.cornerAccent} rounded-tr-xl blur-[2px]`}></div>
+        {/* Additional corner accent lines - with mixed theme */}
+        <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none z-10">
+          <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-orange-500/70 rounded-tl-lg"></div>
+          <div className="absolute top-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
         </div>
-        <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr opacity-10">
-          <div className={`absolute inset-0 bg-gradient-to-tr ${theme.cornerAccent} rounded-bl-xl blur-[2px]`}></div>
+        <div className="absolute top-0 right-0 w-16 h-16 pointer-events-none z-10">
+          <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-blue-500/70 rounded-tr-lg"></div>
+          <div className="absolute top-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
+        </div>
+        <div className="absolute bottom-0 left-0 w-16 h-16 pointer-events-none z-10">
+          <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-orange-500/70 rounded-bl-lg"></div>
+          <div className="absolute bottom-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+        </div>
+        <div className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none z-10">
+          <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-blue-500/70 rounded-br-lg"></div>
+          <div className="absolute bottom-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
         </div>
         
-        {/* Advanced ambient glow effect with interactive animation */}
+        {/* Advanced ambient glow effect with mixed orange/blue interactive animation */}
         <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-40 transition-all duration-1000 ease-in-out" 
-             style={{ background: theme.ambientGlow }}>
+             style={{ background: "radial-gradient(circle at center, rgba(251,113,36,0.3), rgba(59,130,246,0.3), transparent 70%)" }}>
         </div>
+        
+        {/* Additional layered background effects - Mixed theme */}
+        <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/20 via-blue-600/20 to-orange-600/20 rounded-xl blur-xl opacity-0 group-hover:opacity-70 group-hover:blur-xl transition-all duration-1000 animate-pulse-slow"></div>
         
         {/* Premium animated hover effect for depth */}
         <div className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
@@ -241,56 +229,84 @@ const FeaturesSection = () => {
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/70 to-black/70" style={{ zIndex: 1 }}></div>
       <div className="container mx-auto px-4 relative" style={{ zIndex: 2 }}>
         <div className="text-center mb-16 md:mb-20">
-          {/* Advanced premium enterprise heading container with enhanced effects */}
-          <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/98 to-gray-900/95 backdrop-blur-xl rounded-xl py-10 px-8 md:py-12 md:px-16 mx-auto max-w-4xl mb-8 inline-block shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7)]">
-            {/* Premium gradient border effect - Mixed variant (matching the third card) */}
+          {/* Advanced premium enterprise heading container with enhanced mixed orange/blue theme */}
+          <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black backdrop-blur-xl rounded-xl py-10 px-8 md:py-12 md:px-16 mx-auto max-w-4xl mb-8 inline-block shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7)] border border-orange-500/30 group/nasa transform transition-all duration-500 hover:scale-[1.01]">
+            {/* Multiple layered background effects - Mixed theme */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/40 via-blue-600/40 to-orange-600/40 rounded-xl blur-xl opacity-70 group-hover/nasa:opacity-100 group-hover/nasa:blur-xl transition-all duration-1000 animate-pulse-slow"></div>
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/80 via-blue-500/80 to-orange-500/80 rounded-xl blur-md opacity-90 group-hover/nasa:opacity-100 transition-all duration-500"></div>
+            
+            {/* Subtle dots and squares pattern background in mixed colors */}
+            <div className="absolute inset-0 opacity-25 z-0">
+              <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoMjMyLDEyMSw1OCwwLjMpIiBkPSJNMCAwaDJ2Mkgwem0yIDJoMnYySDJ6Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCBmaWxsPSJ1cmwoI2EpIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIi8+PC9zdmc+')]"></div>
+            </div>
+            
+            {/* Ambient glow effects - positioned away from text */}
+            <div className="absolute -top-40 -right-20 w-80 h-80 bg-orange-600/15 rounded-full filter blur-[120px] animate-pulse-slow-delayed"></div>
+            <div className="absolute -bottom-40 -left-20 w-80 h-80 bg-blue-500/20 rounded-full filter blur-[120px] animate-pulse-slow"></div>
+            
+            {/* Premium gradient border effect - Mixed variant */}
             <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/50 via-transparent to-blue-400/50 opacity-70"></div>
             <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
             
-            {/* Subtle ambient glow that activates on hover */}
-            <div className="absolute inset-0 rounded-xl opacity-40 transition-opacity duration-700 ease-in-out" 
-                style={{ background: "radial-gradient(circle at center, rgba(251,113,36,0.3), rgba(59,130,246,0.3), transparent 70%)" }}>
+            {/* Additional corner accent lines - with mixed theme - enhanced */}
+            <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none z-10">
+              <div className="absolute top-0 left-0 w-10 h-10 border-t-2 border-l-2 border-orange-500/70 rounded-tl-lg"></div>
+              <div className="absolute top-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+            </div>
+            <div className="absolute top-0 right-0 w-16 h-16 pointer-events-none z-10">
+              <div className="absolute top-0 right-0 w-10 h-10 border-t-2 border-r-2 border-blue-500/70 rounded-tr-lg"></div>
+              <div className="absolute top-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
+            </div>
+            <div className="absolute bottom-0 left-0 w-16 h-16 pointer-events-none z-10">
+              <div className="absolute bottom-0 left-0 w-10 h-10 border-b-2 border-l-2 border-orange-500/70 rounded-bl-lg"></div>
+              <div className="absolute bottom-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+            </div>
+            <div className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none z-10">
+              <div className="absolute bottom-0 right-0 w-10 h-10 border-b-2 border-r-2 border-blue-500/70 rounded-br-lg"></div>
+              <div className="absolute bottom-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
             </div>
             
-            {/* Advanced ambient glow with interactive animation */}
-            <div className="absolute inset-0 bg-gradient-to-r from-orange-500/5 via-amber-500/5 to-blue-500/5 blur-[100px] rounded-xl"></div>
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2/3 h-2/3 bg-gradient-to-r from-orange-500/10 via-blue-500/10 to-blue-500/10 blur-[120px] rounded-full animate-pulse-slow"></div>
-            
-            {/* Premium decorative elements */}
-            <div className="absolute top-6 left-6 w-8 h-8 opacity-30">
-              <div className="absolute inset-0 border-t-2 border-l-2 border-orange-500/40 rounded-tl-lg"></div>
-            </div>
-            <div className="absolute bottom-6 right-6 w-8 h-8 opacity-30">
-              <div className="absolute inset-0 border-b-2 border-r-2 border-blue-500/40 rounded-br-lg"></div>
-            </div>
-            
-            {/* Enhanced premium badge with 3D effect - updated with specialized applications style */}
+            {/* Enhanced premium badge with mixed orange/blue styling */}
             <div className="absolute -top-5 left-1/2 -translate-x-1/2 flex z-50">
-              <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-gray-900/95 via-gray-950/95 to-gray-900/95 shadow-[0_10px_30px_rgba(0,0,0,0.5)] relative group z-50 transform transition-all duration-500 hover:scale-105">
-                {/* Premium gradient border effect - Fire variant */}
-                <div className="absolute inset-0 p-0.5 rounded-full bg-gradient-to-r from-orange-500/50 via-transparent to-red-500/50 opacity-70"></div>
+              <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-gray-900/95 via-gray-950/95 to-black shadow-[0_10px_30px_rgba(0,0,0,0.5)] relative group/badge transform transition-all duration-500 hover:scale-105">
+                {/* Multiple layered background effects for badge - Mixed theme */}
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/80 via-blue-500/80 to-orange-500/80 rounded-full blur-md opacity-90 group-hover/badge:opacity-100 transition-all duration-500"></div>
+                
+                {/* Premium gradient border effect - Mixed variant */}
+                <div className="absolute inset-0 border border-orange-500/30 rounded-full"></div>
                 
                 {/* Inner highlight for 3D effect */}
                 <div className="absolute inset-0 rounded-full bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
                 
                 {/* Subtle ambient glow that activates on hover */}
                 <div 
-                  className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-30 transition-opacity duration-700 ease-in-out" 
-                  style={{ background: "radial-gradient(circle at center, rgba(251,113,36,0.3) 0%, transparent 70%)" }}
+                  className="absolute inset-0 rounded-full opacity-0 group-hover/badge:opacity-30 transition-opacity duration-700 ease-in-out" 
+                  style={{ background: "radial-gradient(circle at center, rgba(251,113,36,0.3), rgba(59,130,246,0.3), transparent 70%)" }}
                 ></div>
                 
-                {/* Badge icon with enhanced glow effect */}
+                {/* Badge icon with enhanced mixed orange/blue glow effect */}
                 <div className="mr-2 relative">
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-r from-orange-500/60 to-amber-600/60 blur-[6px] opacity-70 group-hover:opacity-90 transition-all duration-300"></div>
-                  <svg className="h-5 w-5 text-amber-300 relative z-10 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-r from-orange-500/60 to-blue-500/60 blur-[6px] opacity-70 group-hover/badge:opacity-90 transition-all duration-300"></div>
+                  <svg className="h-5 w-5 relative z-10 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="url(#mixed-gradient-nasa)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M12 22a9.5 9.5 0 0 0 3.09-18.49A4.5 4.5 0 1 0 12 8.5a4.5 4.5 0 1 0-3.09-9.01A9.5 9.5 0 0 0 12 22z"></path>
+                  </svg>
+                  
+                  {/* Gradient definition for icon */}
+                  <svg width="0" height="0">
+                    <defs>
+                      <linearGradient id="mixed-gradient-nasa" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#f97316" />
+                        <stop offset="50%" stopColor="#f59e0b" />
+                        <stop offset="100%" stopColor="#3b82f6" />
+                      </linearGradient>
+                    </defs>
                   </svg>
                 </div>
                 
-                {/* Badge text with enhanced shimmer effect */}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-orange-400 to-amber-300 text-sm font-bold relative group-hover:from-amber-200 group-hover:via-orange-400 group-hover:to-amber-200 transition-all duration-300">
-                  <span className="relative z-10 tracking-wide">NASA TECHNOLOGY</span>
-                  <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+                {/* Badge text with enhanced mixed orange/blue shimmer effect */}
+                <span className="shimmer-mixed-text text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-300 to-blue-400 text-sm font-bold relative group-hover/badge:from-orange-300 group-hover/badge:via-amber-200 group-hover/badge:to-blue-300 transition-all duration-300">
+                  <span className="relative z-10 tracking-wide font-bold">NASA TECHNOLOGY</span>
+                  <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover/badge:opacity-100 transition-opacity duration-700"
                      style={{
                        backgroundSize: '200% 100%',
                        animation: 'shimmer 2s infinite'
@@ -298,8 +314,8 @@ const FeaturesSection = () => {
                   </span>
                 </span>
                 
-                {/* Bottom reflection */}
-                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-4/5 h-[1px] bg-gradient-to-r from-transparent via-orange-500/40 to-transparent rounded-full"></div>
+                {/* Bottom reflection with mixed orange/blue gradient */}
+                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-4/5 h-[1px] bg-gradient-to-r from-transparent via-blue-500/40 to-orange-500/40 rounded-full"></div>
               </div>
             </div>
             
