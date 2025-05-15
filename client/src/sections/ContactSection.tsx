@@ -587,14 +587,14 @@ const ContactSection = () => {
                       <div>
                         {/* Enhanced title with animated underline */}
                         <div className="relative mb-3 pb-2">
-                          <h4 className="font-bold text-lg text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">Serving</h4>
+                          <h4 className="font-bold text-xl text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">Serving</h4>
                           
                           {/* Animated underline */}
                           <div className="absolute bottom-0 left-0 w-1/3 h-0.5 bg-gradient-to-r from-orange-500 to-blue-500 group-hover:w-1/2 transition-all duration-700 rounded-full opacity-70"></div>
                         </div>
                         
                         {/* Enhanced content text */}
-                        <p className="text-gray-300 text-base group-hover:text-gray-200 transition-colors duration-500">
+                        <p className="text-gray-300 text-lg group-hover:text-gray-200 transition-colors duration-500">
                           Northern California<br/>& Nationwide Distribution
                         </p>
                       </div>
@@ -632,16 +632,16 @@ const ContactSection = () => {
                       <div>
                         {/* Enhanced title with animated underline */}
                         <div className="relative mb-3 pb-2">
-                          <h4 className="font-bold text-lg text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">Phone</h4>
+                          <h4 className="font-bold text-xl text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">Phone</h4>
                           
                           {/* Animated underline */}
                           <div className="absolute bottom-0 left-0 w-1/3 h-0.5 bg-gradient-to-r from-amber-500 to-orange-500 group-hover:w-1/2 transition-all duration-700 rounded-full opacity-70"></div>
                         </div>
                         
                         {/* Enhanced content text */}
-                        <p className="text-gray-300 text-base group-hover:text-gray-200 transition-colors duration-500">
+                        <p className="text-gray-300 text-lg group-hover:text-gray-200 transition-colors duration-500">
                           (916) 809-6619<br/>
-                          <span className="text-base text-gray-400 group-hover:text-gray-300 transition-colors duration-500">(Call or text welcome)</span>
+                          <span className="text-lg text-gray-400 group-hover:text-gray-300 transition-colors duration-500">(Call or text welcome)</span>
                         </p>
                       </div>
                     </div>
@@ -678,14 +678,14 @@ const ContactSection = () => {
                       <div>
                         {/* Enhanced title with animated underline */}
                         <div className="relative mb-3 pb-2">
-                          <h4 className="font-bold text-lg text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">Email</h4>
+                          <h4 className="font-bold text-xl text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">Email</h4>
                           
                           {/* Animated underline */}
                           <div className="absolute bottom-0 left-0 w-1/3 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-400 group-hover:w-1/2 transition-all duration-700 rounded-full opacity-70"></div>
                         </div>
                         
                         {/* Enhanced content text with premium email links */}
-                        <p className="text-gray-300 text-base group-hover:text-gray-200 transition-colors duration-500">
+                        <p className="text-gray-300 text-lg group-hover:text-gray-200 transition-colors duration-500">
                           <a 
                             href="mailto:info@praetoriansmartcoat.com" 
                             className="relative inline-block group-hover:text-gray-200 transition-colors duration-500"
@@ -703,7 +703,7 @@ const ContactSection = () => {
                             {/* Animated underline for link */}
                             <span className="absolute bottom-0 left-0 w-0 h-px bg-gradient-to-r from-blue-500 to-cyan-400 group-hover:w-full transition-all duration-700"></span>
                           </a>
-                          <span className="text-base text-gray-400 group-hover:text-gray-300 transition-colors duration-500 ml-1">(Management)</span>
+                          <span className="text-lg text-gray-400 group-hover:text-gray-300 transition-colors duration-500 ml-1">(Management)</span>
                         </p>
                       </div>
                     </div>
@@ -740,14 +740,14 @@ const ContactSection = () => {
                       <div>
                         {/* Enhanced title with animated underline */}
                         <div className="relative mb-3 pb-2">
-                          <h4 className="font-bold text-lg text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">Response Time</h4>
+                          <h4 className="font-bold text-xl text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">Response Time</h4>
                           
                           {/* Animated underline */}
                           <div className="absolute bottom-0 left-0 w-1/3 h-0.5 bg-gradient-to-r from-orange-500 to-blue-500 group-hover:w-1/2 transition-all duration-700 rounded-full opacity-70"></div>
                         </div>
                         
                         {/* Enhanced content text with premium styling */}
-                        <p className="text-gray-300 text-base group-hover:text-gray-200 transition-colors duration-500">
+                        <p className="text-gray-300 text-lg group-hover:text-gray-200 transition-colors duration-500">
                           <span className="inline-flex items-center">
                             <span className="opacity-90 group-hover:opacity-100 transition-opacity duration-300">Monday-Friday:</span>
                             <span className="ml-1 text-amber-300 group-hover:text-amber-200 transition-colors duration-300">Same day</span>
