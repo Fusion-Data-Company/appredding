@@ -30,7 +30,7 @@ const FeatureCard = ({ icon, title, description, index }: { icon: string; title:
       <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/80 via-blue-500/80 to-orange-500/80 rounded-xl blur-md opacity-90 group-hover:opacity-100 transition-all duration-500"></div>
       
       {/* Advanced enterprise-level card styling with enhanced 3D effects - grey face style */}
-      <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black backdrop-blur-xl rounded-xl p-8 md:p-10 text-center border border-orange-500/30 overflow-hidden shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7)] h-full z-10">
+      <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black backdrop-blur-xl rounded-xl p-8 md:p-10 text-center border border-orange-500/30 overflow-hidden shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7)] h-full z-40">
         {/* Subtle dots and squares pattern background in mixed colors */}
         <div className="absolute inset-0 opacity-25 z-0">
           <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoMjMyLDEyMSw1OCwwLjMpIiBkPSJNMCAwaDJ2Mkgwem0yIDJoMnYySDJ6Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCBmaWxsPSJ1cmwoI2EpIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIi8+PC9zdmc+')]"></div>
@@ -72,8 +72,8 @@ const FeatureCard = ({ icon, title, description, index }: { icon: string; title:
           <div className="w-full h-full bg-gradient-to-r from-transparent via-orange-500/60 to-transparent -translate-x-full animate-shimmer-slow-delayed"></div>
         </div>
       
-        {/* Enhanced enterprise icon with fire theme styling */}
-        <div className="relative inline-flex items-center justify-center w-20 h-20 md:w-24 md:h-24 mb-8 group-hover:scale-110 transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)]">
+        {/* Enhanced enterprise icon with mixed theme styling */}
+        <div className="relative inline-flex items-center justify-center w-20 h-20 md:w-24 md:h-24 mb-8 group-hover:scale-110 transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] z-50">
           {/* Outer glow ring with pulsing animation */}
           <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700"
                style={{ 
@@ -108,9 +108,9 @@ const FeatureCard = ({ icon, title, description, index }: { icon: string; title:
           ))}
         </div>
       
-        {/* Enhanced title with fire/orange styling (like Specialized Applications) */}
-        <div className="relative mb-6 group-hover:transform group-hover:scale-105 transition-transform duration-700">
-          <div className="shimmer-fire-text font-bold text-2xl md:text-2xl relative z-10">
+        {/* Enhanced title with mixed theme styling */}
+        <div className="relative mb-6 group-hover:transform group-hover:scale-105 transition-transform duration-700 z-50">
+          <div className="shimmer-fire-text font-bold text-2xl md:text-2xl relative z-50">
             {/* Background glow for letter definition */}
             <div className="absolute inset-0 flex justify-center items-center text-2xl md:text-2xl font-bold tracking-tight text-orange-900/10 blur-[2px] scale-110">
               {title}
@@ -137,8 +137,8 @@ const FeatureCard = ({ icon, title, description, index }: { icon: string; title:
         </div>
         
         {/* Enhanced description with premium animations */}
-        <div className="relative overflow-hidden">
-          <p className="text-gray-300 text-base md:text-lg relative z-10 transform group-hover:text-gray-200 transition-colors duration-700">
+        <div className="relative overflow-hidden z-50">
+          <p className="text-gray-300 text-base md:text-lg relative z-50 transform group-hover:text-gray-200 transition-colors duration-700">
             {description}
           </p>
           
@@ -152,8 +152,8 @@ const FeatureCard = ({ icon, title, description, index }: { icon: string; title:
           </div>
         </div>
         
-        {/* Premium Learn More link that reveals on hover - with orange/red gradient */}
-        <div className={`mt-6 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-700 delay-100`}>
+        {/* Premium Learn More link that reveals on hover - with orange/blue gradient */}
+        <div className={`mt-6 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-700 delay-100 z-50 relative`}>
           <span className={`cursor-pointer text-transparent bg-clip-text bg-gradient-to-r ${theme.iconGradient} text-sm font-medium inline-flex items-center group/link relative`}>
             Learn More
             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1 transform group-hover/link:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
