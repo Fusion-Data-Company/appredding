@@ -364,7 +364,7 @@ const ContactSection = () => {
                 {/* Premium Enterprise Label */}
                 <label htmlFor="interest" className="relative flex items-center mb-2 group">
                   {/* Label text with premium styling */}
-                  <span className="relative z-10 text-sm font-medium bg-clip-text text-transparent bg-gradient-to-r from-amber-300 via-orange-500 to-blue-500 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] tracking-wide">
+                  <span className="relative z-10 text-sm font-medium text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] tracking-wide">
                     I'm interested in
                   </span>
                   
@@ -398,7 +398,7 @@ const ContactSection = () => {
                     </select>
                     
                     {/* Custom dropdown arrow for enhanced styling */}
-                    <div className="absolute right-4 top-1/2 transform -translate-y-1/2 text-lg text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-blue-500 pointer-events-none">
+                    <div className="absolute right-4 top-1/2 transform -translate-y-1/2 text-lg text-white pointer-events-none drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">
                       <i className="fas fa-chevron-down"></i>
                     </div>
                     
@@ -416,7 +416,7 @@ const ContactSection = () => {
                 {/* Premium Enterprise Label */}
                 <label htmlFor="message" className="relative flex items-center mb-2 group">
                   {/* Label text with premium styling */}
-                  <span className="relative z-10 text-sm font-medium bg-clip-text text-transparent bg-gradient-to-r from-amber-300 via-orange-500 to-blue-500 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] tracking-wide">
+                  <span className="relative z-10 text-sm font-medium text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] tracking-wide">
                     Message
                   </span>
                   
@@ -573,7 +573,7 @@ const ContactSection = () => {
                           <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 shadow-[0_0_20px_rgba(251,113,36,0.6)]"></div>
                           
                           {/* Icon */}
-                          <i className="fas fa-map-marker-alt text-2xl text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-blue-500 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] relative z-10"></i>
+                          <i className="fas fa-map-marker-alt text-2xl text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] relative z-10"></i>
                           
                           {/* Animated concentric ring for enterprise effect */}
                           <div className="absolute inset-0 rounded-full border border-orange-500/20 scale-[1.15] opacity-0 group-hover:opacity-100 group-hover:scale-[1.4] transition-all duration-700"></div>
