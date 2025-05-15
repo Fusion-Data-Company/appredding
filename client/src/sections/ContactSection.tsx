@@ -650,7 +650,7 @@ const ContactSection = () => {
                           
                           {/* Icon itself */}
                           <div className="relative z-10">
-                            <i className="fab fa-x-twitter text-2xl text-white w-7 h-7 flex items-center justify-center group-hover:scale-110 transition-transform duration-500"></i>
+                            <i className="fab fa-twitter text-2xl text-gradient from-gray-100 to-gray-300 w-7 h-7 flex items-center justify-center group-hover:scale-110 transition-transform duration-500"></i>
                           </div>
                           
                           {/* Subtle glow effect */}
