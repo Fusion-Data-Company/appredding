@@ -148,12 +148,17 @@ export const PraetorianButton = ({
         {variant === "premium" && (
           <>
             {/* Enhanced orange-red glow effect for premium buttons */}
-            <div className="absolute -inset-px rounded-md bg-gradient-to-r from-orange-500 via-amber-500 to-orange-500 opacity-30 blur-sm"></div>
-            
-            {/* Controlled ambient glow that fades in on hover - kept tight to button */}
-            <div className="absolute -inset-[1px] rounded-md bg-orange-500/15 blur-[1px] opacity-0 group-hover:opacity-70 transition-opacity duration-700" 
+            <div className="absolute -inset-px rounded-md bg-gradient-to-r from-orange-500 via-amber-500 to-orange-500 opacity-30 blur-sm"
                  style={{ 
-                   boxShadow: 'inset 0 0 4px 0 rgba(251, 113, 36, 0.6)' 
+                   animation: 'borderPulse 2s ease-in-out infinite',
+                   boxShadow: '0 0 5px 1px rgba(255, 106, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.1)' 
+                 }}>
+            </div>
+            
+            {/* Ambient glow that fades in on hover */}
+            <div className="absolute -inset-[2px] rounded-md bg-orange-500/20 blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-700" 
+                 style={{ 
+                   boxShadow: '0 0 8px 2px rgba(251, 113, 36, 0.4), 0 0 2px 0 rgba(255, 255, 255, 0.2)' 
                  }}>
             </div>
             

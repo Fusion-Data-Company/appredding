@@ -299,12 +299,16 @@ const FAQSection = ({ faqs }: FAQProps) => {
                         <div key={questionIdx} className="mb-5 relative transform transition-all duration-500">
                           {/* Enhanced Question Box with Premium Styling */}
                           <div className={`relative group/question transform ${isOpen ? 'scale-[1.01]' : ''} transition-all duration-500`}>
-                            {/* Controlled premium gradient border effect - stays tight to the button */}
-                            <div className={`absolute -inset-[1px] rounded-lg bg-gradient-to-r from-orange-500/60 via-amber-600/30 to-red-500/60 transition-all duration-500 ${isOpen ? 'opacity-60 blur-[0.5px]' : 'opacity-40 blur-[0.3px]'}`}></div>
+                            {/* Premium gradient border effect with glow animation */}
+                            <div className={`absolute -inset-[1px] rounded-lg bg-gradient-to-r from-orange-500/60 via-amber-600/30 to-red-500/60 transition-all duration-500 ${isOpen ? 'opacity-70 blur-[0.5px]' : 'opacity-50 blur-[0.3px]'}`}
+                                style={{ 
+                                  animation: 'borderPulse 2s ease-in-out infinite',
+                                  boxShadow: '0 0 5px 1px rgba(255, 106, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1)' 
+                                }}></div>
                             
                             <button
                               onClick={() => toggleQuestion(categoryIdx, questionIdx)}
-                              className={`relative w-full group bg-black backdrop-blur-sm rounded-lg px-6 py-4 text-left transition-all text-base border-2 border-orange-500/70 hover:shadow-[0_0_8px_rgba(255,106,0,0.3)] flex justify-between items-center overflow-hidden`}
+                              className={`relative w-full group bg-black backdrop-blur-sm rounded-lg px-6 py-4 text-left transition-all text-base border-2 border-orange-500/70 hover:shadow-[0_0_12px_rgba(255,106,0,0.5)] flex justify-between items-center overflow-hidden`}
                             >
                               {/* Subtle hover accent effect - controlled glow */}
                               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-orange-500/5 to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-500"></div>
@@ -313,8 +317,8 @@ const FAQSection = ({ faqs }: FAQProps) => {
                               <div className="absolute top-0 left-0 w-2 h-2 bg-orange-500/70 rounded-full blur-[1px] opacity-40 group-hover:opacity-100 transition-opacity duration-300"></div>
                               <div className="absolute bottom-0 right-0 w-2 h-2 bg-orange-500/70 rounded-full blur-[1px] opacity-40 group-hover:opacity-100 transition-opacity duration-300"></div>
                               
-                              {/* Enhanced question text */}
-                              <span className={`pr-8 font-medium ${isOpen ? 'text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-300 to-orange-400' : 'text-gray-200'} transition-colors duration-500`}>
+                              {/* Enhanced question text with glow effect when open */}
+                              <span className={`pr-8 font-medium ${isOpen ? 'text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-300 to-orange-400 drop-shadow-[0_0_1px_rgba(255,165,0,0.8)]' : 'text-gray-200'} transition-colors duration-500`}>
                                 {faq.question}
                               </span>
                               

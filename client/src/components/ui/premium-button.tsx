@@ -183,11 +183,12 @@ const PremiumButton = forwardRef<HTMLButtonElement, PremiumButtonProps>(
               {/* Additional hover shimmer effect */}
               <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 -translate-x-full group-hover:translate-x-full transform transition-transform duration-1000"></div>
               
-              {/* Enhanced orange-red glow effect */}
-              <div className="absolute -inset-[1px] rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500" 
+              {/* Enhanced orange-red glow effect with animation */}
+              <div className="absolute -inset-[1px] rounded-lg opacity-40 transition-opacity duration-500" 
                   style={{ 
-                    background: 'linear-gradient(to right, rgba(255,111,0,0.1), rgba(255,111,0,0) 10%, rgba(255,111,0,0) 90%, rgba(255,111,0,0.1))',
-                    boxShadow: 'inset 0 1px 0 0 rgba(255,147,47,0.5), inset 0 -1px 0 0 rgba(255,147,47,0.5), 0 0 15px 2px rgba(255,79,0,0.5)'
+                    background: 'linear-gradient(to right, rgba(255,111,0,0.3), rgba(255,89,0,0.2) 35%, rgba(255,79,0,0.3) 65%, rgba(255,111,0,0.3))',
+                    boxShadow: 'inset 0 1px 0 0 rgba(255,147,47,0.5), inset 0 -1px 0 0 rgba(255,147,47,0.5), 0 0 6px 1px rgba(255,79,0,0.6), 0 0 0 1px rgba(255, 255, 255, 0.1)',
+                    animation: 'borderPulse 2s ease-in-out infinite',
                   }}>
               </div>
               
@@ -195,10 +196,10 @@ const PremiumButton = forwardRef<HTMLButtonElement, PremiumButtonProps>(
               <div className="absolute top-0 left-0 w-2 h-2 bg-orange-500/70 rounded-full blur-[1px] opacity-60 group-hover:opacity-100 transition-opacity duration-300"></div>
               <div className="absolute bottom-0 right-0 w-2 h-2 bg-orange-500/70 rounded-full blur-[1px] opacity-60 group-hover:opacity-100 transition-opacity duration-300"></div>
               
-              {/* Controlled ambient glow that stays tightly behind the button */}
-              <div className="absolute -inset-[1px] rounded-lg bg-orange-500/15 blur-[1px] opacity-0 group-hover:opacity-70 transition-opacity duration-700" 
+              {/* Ambient glow that fades in on hover */}
+              <div className="absolute -inset-[2px] rounded-md bg-orange-500/20 blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-700" 
                    style={{ 
-                     boxShadow: 'inset 0 0 4px 0 rgba(251, 113, 36, 0.6)' 
+                     boxShadow: '0 0 8px 2px rgba(251, 113, 36, 0.4), 0 0 2px 0 rgba(255, 255, 255, 0.2)' 
                    }}>
               </div>
             </>
