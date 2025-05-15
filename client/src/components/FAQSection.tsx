@@ -56,8 +56,8 @@ const FAQSection = ({ faqs }: FAQProps) => {
             <div className="absolute -bottom-20 right-[10%] w-72 h-72 bg-orange-600/10 rounded-full filter blur-[100px]"></div>
           </div>
           
-          {/* Premium badge positioned with negative margin to move it outside any parent with overflow:hidden */}
-          <div className="absolute top-0 left-0 right-0 -mt-8 flex justify-center" style={{zIndex: 9999}}>
+          {/* Premium badge positioned at the very top of the section */}
+          <div className="absolute -top-6 left-0 right-0 flex justify-center">
             <PremiumBadge>
               FREQUENTLY ASKED
             </PremiumBadge>
