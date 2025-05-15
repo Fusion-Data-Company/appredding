@@ -514,18 +514,28 @@ const ProductHistorySection = () => {
                   </div>
                 </div>
                 
-                {/* Subtle bottom reflection */}
-                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2/3 h-[2px] bg-gradient-to-r from-transparent via-orange-500/10 to-transparent rounded-full blur-sm"></div>
+                {/* Enhanced bottom reflection with mixed orange/blue theme */}
+                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2/3 h-[2px] bg-gradient-to-r from-orange-500/20 via-blue-500/20 to-orange-500/20 rounded-full blur-sm"></div>
               </div>
             </div>
             
-            {/* Bottom reflection effect - adjusted to fire theme */}
-            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2/3 h-[2px] bg-gradient-to-r from-transparent via-orange-500/20 to-transparent rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
+            {/* Enhanced bottom effects with mixed orange/blue theme */}
+            <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-2/3 h-[2px] bg-gradient-to-r from-orange-500/20 via-blue-500/30 to-orange-500/20 rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
+            
+            {/* Floating particles - only appear on hover */}
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000 overflow-hidden pointer-events-none">
+              {/* Orange particle */}
+              <div className="absolute w-2 h-2 rounded-full bg-orange-500/30 blur-sm top-1/4 left-[10%] animate-float-slow"></div>
+              {/* Blue particle */}
+              <div className="absolute w-1.5 h-1.5 rounded-full bg-blue-500/30 blur-sm bottom-1/4 right-[15%] animate-float-slow-delayed"></div>
+              {/* Mixed particle */}
+              <div className="absolute w-1 h-1 rounded-full bg-gradient-to-r from-orange-500/20 to-blue-500/20 blur-sm top-1/2 right-[30%] animate-float-slower"></div>
+            </div>
           </div>
         </div>
       </div>
       
-      {/* Add keyframes for animations */}
+      {/* Enhanced keyframes for animations */}
       <style dangerouslySetInnerHTML={{ __html: `
         @keyframes pulse-slow {
           0%, 100% { opacity: 0.2; transform: scale(0.9); }
@@ -541,6 +551,67 @@ const ProductHistorySection = () => {
         @keyframes shimmer {
           0% { background-position: 200% 0; }
           100% { background-position: -200% 0; }
+        }
+        
+        @keyframes ping-slow {
+          0% { transform: scale(1); opacity: 0.8; }
+          75%, 100% { transform: scale(1.2); opacity: 0; }
+        }
+        
+        @keyframes ping-slow-delayed {
+          0% { transform: scale(1); opacity: 0.8; }
+          75%, 100% { transform: scale(1.2); opacity: 0; }
+          animation-delay: 0.5s;
+        }
+        
+        @keyframes float-slow {
+          0% { transform: translateY(0) translateX(0); opacity: 0.3; }
+          25% { transform: translateY(-10px) translateX(5px); opacity: 0.6; }
+          50% { transform: translateY(-15px) translateX(-5px); opacity: 0.3; }
+          75% { transform: translateY(-5px) translateX(-10px); opacity: 0.6; }
+          100% { transform: translateY(0) translateX(0); opacity: 0.3; }
+        }
+        
+        @keyframes float-slow-delayed {
+          0% { transform: translateY(0) translateX(0); opacity: 0.3; }
+          25% { transform: translateY(-8px) translateX(7px); opacity: 0.6; }
+          50% { transform: translateY(-12px) translateX(-3px); opacity: 0.3; }
+          75% { transform: translateY(-4px) translateX(-8px); opacity: 0.6; }
+          100% { transform: translateY(0) translateX(0); opacity: 0.3; }
+          animation-delay: 0.7s;
+        }
+        
+        @keyframes float-slower {
+          0% { transform: translateY(0) translateX(0); opacity: 0.2; }
+          33% { transform: translateY(-15px) translateX(10px); opacity: 0.5; }
+          66% { transform: translateY(-7px) translateX(-12px); opacity: 0.3; }
+          100% { transform: translateY(0) translateX(0); opacity: 0.2; }
+          animation-duration: 8s;
+        }
+        
+        .animate-ping-slow {
+          animation: ping-slow 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+        }
+        
+        .animate-ping-slow-delayed {
+          animation: ping-slow-delayed 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+        }
+        
+        .animate-float-slow {
+          animation: float-slow 4s ease-in-out infinite;
+        }
+        
+        .animate-float-slow-delayed {
+          animation: float-slow-delayed 5s ease-in-out infinite;
+        }
+        
+        .animate-float-slower {
+          animation: float-slower 6s ease-in-out infinite;
+        }
+        
+        .shimmer-mixed-text {
+          background-size: 200% auto;
+          animation: shimmer 5s linear infinite;
         }
       `}} />
     </section>
