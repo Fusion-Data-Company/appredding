@@ -158,15 +158,45 @@ const ContactSection = () => {
             <div className="absolute -bottom-10 right-1/4 w-1/2 h-1/3 bg-blue-500/10 blur-[100px] rounded-full pointer-events-none"></div>
             
             <div className="mb-12 flex justify-center w-full">
-              <div className="text-center">
-                <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                  Get In Touch
-                </h2>
-                <p className="text-gray-300 text-lg max-w-xl mx-auto mb-6">
-                  Have questions about our products or services? Contact our team of coating experts for personalized assistance.
-                </p>
-                <div className="flex justify-center">
-                  <div className="h-0.5 w-24 bg-gradient-to-r from-transparent via-orange-500/40 to-transparent rounded-full"></div>
+              <div className="relative w-full max-w-2xl group">
+                {/* Enterprise card background for section title */}
+                <div className="absolute inset-0 bg-gradient-to-br from-gray-900/95 via-gray-950/98 to-black/95 backdrop-blur-xl rounded-xl -z-10 transform scale-[1.03] shadow-[0_10px_50px_rgba(0,0,0,0.5)]"></div>
+                
+                {/* Premium gradient border effect */}
+                <div className="absolute inset-0 scale-[1.03] rounded-xl bg-gradient-to-r from-orange-500/50 via-blue-500/30 to-orange-500/50 opacity-70 group-hover:opacity-90 transition-opacity duration-700 -z-10"></div>
+                
+                {/* Ambient glow effects - positioned behind card */}
+                <div className="absolute -right-10 -bottom-5 w-40 h-40 bg-orange-500/20 rounded-full blur-[60px] opacity-70 group-hover:opacity-100 transition-opacity duration-1000 -z-20"></div>
+                <div className="absolute -left-10 -top-5 w-40 h-40 bg-blue-500/20 rounded-full blur-[60px] opacity-70 group-hover:opacity-100 transition-opacity duration-1000 -z-20"></div>
+                
+                {/* Animated corner accents - premium effect */}
+                <div className="absolute top-0 left-0 w-16 h-16 opacity-60 scale-[1.03] -z-10">
+                  <div className="absolute inset-0 bg-gradient-to-br from-amber-500/40 to-blue-600/30 rounded-tl-xl blur-[2px] group-hover:animate-pulse-slow" style={{ animationDuration: '4s' }}></div>
+                </div>
+                <div className="absolute top-0 right-0 w-16 h-16 opacity-60 scale-[1.03] -z-10">
+                  <div className="absolute inset-0 bg-gradient-to-bl from-amber-500/40 to-blue-600/30 rounded-tr-xl blur-[2px] group-hover:animate-pulse-slow" style={{ animationDuration: '5s' }}></div>
+                </div>
+                <div className="absolute bottom-0 left-0 w-16 h-16 opacity-60 scale-[1.03] -z-10">
+                  <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/30 to-amber-500/40 rounded-bl-xl blur-[2px] group-hover:animate-pulse-slow" style={{ animationDuration: '4.5s' }}></div>
+                </div>
+                <div className="absolute bottom-0 right-0 w-16 h-16 opacity-60 scale-[1.03] -z-10">
+                  <div className="absolute inset-0 bg-gradient-to-tl from-blue-600/30 to-amber-500/40 rounded-br-xl blur-[2px] group-hover:animate-pulse-slow" style={{ animationDuration: '5.5s' }}></div>
+                </div>
+                
+                {/* Animated edge highlight effects */}
+                <div className="absolute top-0 inset-x-0 h-[2px] scale-[1.03] bg-gradient-to-r from-orange-500/0 via-orange-500/70 to-orange-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000 blur-[1px] -z-10"></div>
+                <div className="absolute bottom-0 inset-x-0 h-[2px] scale-[1.03] bg-gradient-to-r from-blue-500/0 via-blue-500/70 to-blue-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000 blur-[1px] -z-10"></div>
+                
+                <div className="text-center relative px-8 py-8 z-10">
+                  <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                    Get In Touch
+                  </h2>
+                  <p className="text-gray-300 text-lg max-w-xl mx-auto mb-6">
+                    Have questions about our products or services? Contact our team of coating experts for personalized assistance.
+                  </p>
+                  <div className="flex justify-center">
+                    <div className="h-0.5 w-24 bg-gradient-to-r from-transparent via-orange-500/40 to-transparent rounded-full"></div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -444,15 +474,45 @@ const ContactSection = () => {
             <div className="absolute -bottom-10 right-1/4 w-1/2 h-1/3 bg-orange-500/10 blur-[100px] rounded-full pointer-events-none"></div>
             
             <div className="mb-12 flex justify-center w-full">
-              <div className="text-center">
-                <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                  Contact Information
-                </h2>
-                <p className="text-gray-300 text-lg max-w-xl mx-auto mb-6">
-                  Reach out to our team through any of these channels for inquiries, support, or partnership opportunities.
-                </p>
-                <div className="flex justify-center">
-                  <div className="h-0.5 w-24 bg-gradient-to-r from-transparent via-blue-500/40 to-transparent rounded-full"></div>
+              <div className="relative w-full max-w-2xl group">
+                {/* Enterprise card background for section title - blue variant */}
+                <div className="absolute inset-0 bg-gradient-to-br from-gray-900/95 via-gray-950/98 to-black/95 backdrop-blur-xl rounded-xl -z-10 transform scale-[1.03] shadow-[0_10px_50px_rgba(0,0,0,0.5)]"></div>
+                
+                {/* Premium gradient border effect - flipped color order from first card */}
+                <div className="absolute inset-0 scale-[1.03] rounded-xl bg-gradient-to-r from-blue-500/50 via-orange-500/30 to-blue-500/50 opacity-70 group-hover:opacity-90 transition-opacity duration-700 -z-10"></div>
+                
+                {/* Ambient glow effects - blue-dominant, opposite of first card */}
+                <div className="absolute -right-10 -bottom-5 w-40 h-40 bg-blue-500/20 rounded-full blur-[60px] opacity-70 group-hover:opacity-100 transition-opacity duration-1000 -z-20"></div>
+                <div className="absolute -left-10 -top-5 w-40 h-40 bg-orange-500/20 rounded-full blur-[60px] opacity-70 group-hover:opacity-100 transition-opacity duration-1000 -z-20"></div>
+                
+                {/* Animated corner accents - blue variant */}
+                <div className="absolute top-0 left-0 w-16 h-16 opacity-60 scale-[1.03] -z-10">
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/40 to-orange-600/30 rounded-tl-xl blur-[2px] group-hover:animate-pulse-slow" style={{ animationDuration: '5s' }}></div>
+                </div>
+                <div className="absolute top-0 right-0 w-16 h-16 opacity-60 scale-[1.03] -z-10">
+                  <div className="absolute inset-0 bg-gradient-to-bl from-blue-500/40 to-orange-600/30 rounded-tr-xl blur-[2px] group-hover:animate-pulse-slow" style={{ animationDuration: '4s' }}></div>
+                </div>
+                <div className="absolute bottom-0 left-0 w-16 h-16 opacity-60 scale-[1.03] -z-10">
+                  <div className="absolute inset-0 bg-gradient-to-tr from-orange-600/30 to-blue-500/40 rounded-bl-xl blur-[2px] group-hover:animate-pulse-slow" style={{ animationDuration: '5.5s' }}></div>
+                </div>
+                <div className="absolute bottom-0 right-0 w-16 h-16 opacity-60 scale-[1.03] -z-10">
+                  <div className="absolute inset-0 bg-gradient-to-tl from-orange-600/30 to-blue-500/40 rounded-br-xl blur-[2px] group-hover:animate-pulse-slow" style={{ animationDuration: '4.5s' }}></div>
+                </div>
+                
+                {/* Animated edge highlight effects - flipped colors from first card */}
+                <div className="absolute top-0 inset-x-0 h-[2px] scale-[1.03] bg-gradient-to-r from-blue-500/0 via-blue-500/70 to-blue-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000 blur-[1px] -z-10"></div>
+                <div className="absolute bottom-0 inset-x-0 h-[2px] scale-[1.03] bg-gradient-to-r from-orange-500/0 via-orange-500/70 to-orange-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000 blur-[1px] -z-10"></div>
+                
+                <div className="text-center relative px-8 py-8 z-10">
+                  <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                    Contact Information
+                  </h2>
+                  <p className="text-gray-300 text-lg max-w-xl mx-auto mb-6">
+                    Reach out to our team through any of these channels for inquiries, support, or partnership opportunities.
+                  </p>
+                  <div className="flex justify-center">
+                    <div className="h-0.5 w-24 bg-gradient-to-r from-transparent via-blue-500/40 to-transparent rounded-full"></div>
+                  </div>
                 </div>
               </div>
             </div>
