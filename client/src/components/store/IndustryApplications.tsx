@@ -301,56 +301,80 @@ const IndustryApplications = () => {
             {/* Right corner accent */}
             <span className="absolute -top-4 -right-4 w-8 h-8 border-t-2 border-r-2 border-blue-500/70 rounded-tr-lg"></span>
             
-            {/* Heading text with enhanced shimmer effect */}
-            <div className="relative z-10 px-6 py-2 overflow-hidden">
-              {/* Additional animated glow behind text */}
-              <div className="absolute inset-0 bg-gradient-to-r from-orange-600/10 via-blue-500/20 to-orange-600/10 opacity-50 blur-xl animate-pulse-slow"></div>
+            {/* Premium Enterprise header - matching "What Our Clients Say" header style */}
+            <div className="relative group mx-auto max-w-5xl w-full mb-3 inline-block transform hover:scale-[1.02] transition-all duration-700 hover:z-10">
+              {/* Multiple layered background effects - matching "What Our Clients Say" */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/40 via-blue-600/40 to-orange-600/40 rounded-xl blur-xl opacity-70 group-hover:opacity-100 group-hover:blur-xl transition-all duration-1000 animate-pulse-slow"></div>
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/80 via-blue-500/80 to-orange-500/80 rounded-xl blur-md opacity-90 group-hover:opacity-100 transition-all duration-500"></div>
               
-              {/* Shimmer overlay */}
-              <div className="shimmer-fire-text font-bold text-4xl tracking-tight">
-                <span className="text-white">
+              {/* Main heading container - matching premium styling */}
+              <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black backdrop-blur-xl rounded-xl py-10 px-8 z-10 border border-orange-500/30 overflow-hidden hover:shadow-[0_0_25px_rgba(249,115,22,0.3)] transition-shadow duration-500">
+                
+                {/* Enhanced ambient glow */}
+                <div className="absolute -top-20 -right-20 w-72 h-72 bg-orange-500/20 rounded-full filter blur-[100px] opacity-70 animate-pulse-slow"></div>
+                <div className="absolute -bottom-20 -left-20 w-72 h-72 bg-blue-500/25 rounded-full filter blur-[100px] opacity-70 animate-pulse-slow-delayed"></div>
+                
+                {/* Corner accent elements - matching "What Our Clients Say" */}
+                <div className="absolute top-4 left-4 w-12 h-12 z-10">
+                  <div className="absolute left-0 top-0 w-6 h-6 border-l-2 border-t-2 border-orange-500/40 rounded-tl-md"></div>
+                  <div className="absolute left-1 top-1 w-8 h-8 border-l border-t border-blue-500/30 rounded-tl-md"></div>
+                </div>
+                <div className="absolute top-4 right-4 w-12 h-12 z-10">
+                  <div className="absolute right-0 top-0 w-6 h-6 border-r-2 border-t-2 border-orange-500/40 rounded-tr-md"></div>
+                  <div className="absolute right-1 top-1 w-8 h-8 border-r border-t border-blue-500/30 rounded-tr-md"></div>
+                </div>
+                <div className="absolute bottom-4 right-4 w-12 h-12 z-10">
+                  <div className="absolute right-0 bottom-0 w-6 h-6 border-r-2 border-b-2 border-orange-500/40 rounded-br-md"></div>
+                  <div className="absolute right-1 bottom-1 w-8 h-8 border-r border-b border-amber-500/30 rounded-br-md"></div>
+                </div>
+                <div className="absolute bottom-4 left-4 w-12 h-12 z-10">
+                  <div className="absolute left-0 bottom-0 w-6 h-6 border-l-2 border-b-2 border-orange-500/40 rounded-bl-md"></div>
+                  <div className="absolute left-1 bottom-1 w-8 h-8 border-l border-b border-amber-500/30 rounded-bl-md"></div>
+                </div>
+                
+                {/* Additional background gradient areas */}
+                <div className="absolute top-0 right-0 w-32 h-32 opacity-20 z-5">
+                  <div className="absolute inset-0 bg-gradient-to-bl from-orange-500/40 to-blue-500/40 rounded-tr-xl blur-[2px]"></div>
+                </div>
+                <div className="absolute bottom-0 left-0 w-32 h-32 opacity-20 z-5">
+                  <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/40 to-orange-500/40 rounded-bl-xl blur-[2px]"></div>
+                </div>
+                
+                {/* Background blur text */}
+                <div className="absolute inset-0 flex justify-center items-center text-5xl font-bold tracking-tight text-orange-900/10 blur-[5px] scale-110 pointer-events-none">
                   Protection Across Every Industry
-                </span>
+                </div>
+                
+                {/* Main title with premium styling - matching "What Our Clients Say" */}
+                <h2 className="text-white
+                  drop-shadow-[0_0px_1px_rgba(251,113,36,0.2)] 
+                  [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(251,146,60,0.3)]
+                  text-4xl md:text-5xl font-bold relative z-30 mb-6 whitespace-nowrap">
+                  Protection Across Every Industry
+                </h2>
+                
+                {/* Multiple text shadows for depth */}
+                <div className="absolute inset-0 flex items-center justify-center text-5xl font-bold tracking-tight opacity-10 blur-[3px] text-orange-700/30 z-10 transform scale-105 pointer-events-none">
+                  <span className="whitespace-nowrap">Protection Across Every Industry</span>
+                </div>
               </div>
-              
-              {/* Text shadow for depth */}
-              <div className="absolute inset-0 flex items-center justify-center text-4xl font-bold tracking-tight opacity-70 blur-[2px] text-blue-900/30 -z-10">
-                Protection Across Every Industry
-              </div>
-              
-              {/* Subtle moving highlight */}
-              <div className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-white/15 to-transparent"></div>
             </div>
-            
-            {/* Bottom horizontal accent line with enhanced glow */}
-            <span className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 w-3/4 h-1.5 bg-gradient-to-r from-transparent via-blue-400/60 to-transparent rounded-full blur-sm animate-pulse-slow"></span>
-            
-            {/* Left bottom corner accent */}
-            <span className="absolute -bottom-4 -left-4 w-8 h-8 border-b-2 border-l-2 border-orange-500/50 rounded-bl-lg"></span>
-            
-            {/* Right bottom corner accent */}
-            <span className="absolute -bottom-4 -right-4 w-8 h-8 border-b-2 border-r-2 border-blue-500/70 rounded-br-lg"></span>
           </h2>
           
-          {/* Enhanced description with premium styling */}
-          <p className="text-gray-200 dark:text-gray-300 max-w-2xl mx-auto font-medium text-lg tracking-wide leading-relaxed mb-10 mt-10 relative px-6">
-            {/* Left side ornamental accent */}
-            <span className="absolute -left-2 top-1/2 transform -translate-y-1/2 w-6 h-6">
-              <span className="absolute inset-0 rounded-full bg-gradient-to-br from-orange-500/30 to-blue-500/30 blur-md"></span>
-              <span className="absolute left-1/2 top-0 h-full w-0.5 bg-gradient-to-b from-orange-500/20 via-orange-500/40 to-orange-500/20"></span>
-            </span>
+          {/* Premium styled description with same styling as other headers */}
+          <div className="relative max-w-3xl mx-auto mt-4 mb-12">
+            <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/20 via-orange-500/20 to-blue-500/20 rounded-xl blur-lg opacity-70 animate-pulse-slow"></div>
             
-            {/* Enhanced text with subtle highlight */}
-            <span className="relative">
-              Explore how Praetorian's advanced ceramic coating technology delivers specialized protection and exceptional performance for diverse industries and applications.
-            </span>
-            
-            {/* Right side ornamental accent */}
-            <span className="absolute -right-2 top-1/2 transform -translate-y-1/2 w-6 h-6">
-              <span className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-500/30 to-orange-500/30 blur-md"></span>
-              <span className="absolute left-1/2 top-0 h-full w-0.5 bg-gradient-to-b from-blue-500/20 via-blue-500/40 to-blue-500/20"></span>
-            </span>
-          </p>
+            <p className="text-gray-200 font-medium text-xl tracking-wide leading-relaxed relative z-10 p-6 bg-gray-900/80 backdrop-blur-sm rounded-xl border border-blue-500/20 shadow-lg">
+              {/* Enhanced text with premium styling */}
+              <span className="relative text-center block">
+                Explore how Praetorian's advanced ceramic coating technology delivers specialized protection and exceptional performance for diverse industries and applications.
+              </span>
+              
+              {/* Bottom reflection effect */}
+              <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-3/4 h-[2px] bg-gradient-to-r from-transparent via-white/10 to-transparent rounded-full blur-sm"></span>
+            </p>
+          </div>
         </div>
         
         {/* Premium Enterprise Tabs Container */}
