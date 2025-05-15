@@ -67,20 +67,26 @@ const IntroSection = () => {
                 {/* Background glow animation */}
                 <div className="absolute inset-0 bg-gradient-to-r from-orange-600/10 via-blue-500/20 to-orange-600/10 opacity-50 blur-xl animate-pulse-slow-delayed"></div>
                 
-                {/* Background blurred title with consistent styling */}
-                <div className="absolute inset-0 flex justify-center items-center text-6xl font-bold tracking-tight text-orange-900/10 blur-[5px] scale-110 opacity-50 font-cinzel">
+                {/* Background blurred title - updated styling */}
+                <div className="absolute inset-0 flex justify-center items-center text-6xl font-bold tracking-tight text-orange-900/10 blur-[5px] scale-110">
                   NASA-Derived Technology
                 </div>
                 
                 {/* Main heading with improved z-index */}
-                <div className="shimmer-mixed-text font-bold text-4xl md:text-6xl tracking-tight relative z-20 font-cinzel">
-                  <GradientHeading level={1} className="relative z-20 drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)] font-cinzel" variant="mixed">
+                <div className="shimmer-fire-text font-bold text-4xl md:text-6xl tracking-tight relative z-10">
+                  {/* Main text with premium gradient - matching styling from Specialized Applications */}
+                  <span className="relative text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-amber-500 to-blue-500
+                    drop-shadow-[0_0px_1px_rgba(251,113,36,0.2)] 
+                    [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(251,146,60,0.3)]">
                     NASA-Derived Ceramic Coating Technology
-                  </GradientHeading>
+                  </span>
                 </div>
                 
                 {/* Multiple text shadows for depth - reduced blur effects */}
-                <div className="absolute inset-0 flex justify-center items-center text-4xl md:text-6xl font-bold tracking-tight opacity-10 blur-[3px] text-orange-700/30 -z-10 transform scale-105 font-cinzel">
+                <div className="absolute inset-0 flex justify-center items-center text-4xl md:text-6xl font-bold tracking-tight opacity-10 blur-[3px] text-orange-700/30 -z-10 transform scale-105">
+                  NASA-Derived Ceramic Coating Technology
+                </div>
+                <div className="absolute inset-0 flex justify-center items-center text-4xl md:text-6xl font-bold tracking-tight opacity-20 blur-[1px] text-red-900/20 -z-10">
                   NASA-Derived Ceramic Coating Technology
                 </div>
                 
@@ -170,19 +176,24 @@ const IntroSection = () => {
                     <div className="absolute inset-0 bg-gradient-to-r from-orange-600/10 via-blue-500/20 to-orange-600/10 opacity-50 blur-xl animate-pulse-slow-delayed"></div>
                     
                     {/* Background blur text */}
-                    <div className="absolute inset-0 flex justify-center items-center text-3xl font-bold tracking-tight text-orange-900/10 blur-[5px] scale-110 opacity-50 font-cinzel">
+                    <div className="absolute inset-0 flex justify-center items-center text-3xl font-bold tracking-tight text-orange-900/10 blur-[5px] scale-110 opacity-50">
                       Performance Metrics
                     </div>
                     
                     {/* Main text with premium gradient - matching mixed style - higher z-index to bring in front */}
-                    <div className="shimmer-mixed-text font-bold tracking-tight relative z-20 font-cinzel">
-                      <GradientHeading level={3} className="text-2xl md:text-3xl mb-2 font-bold relative z-20 text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-amber-500 to-blue-400 drop-shadow-[0_2px_2px_rgba(0,0,0,0.3)] font-cinzel" variant="mixed">
+                    <div className="shimmer-fire-text font-bold tracking-tight relative z-10">
+                      <span className="text-2xl md:text-3xl mb-2 relative text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-amber-500 to-blue-500
+                        drop-shadow-[0_0px_1px_rgba(251,113,36,0.2)] 
+                        [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(251,146,60,0.3)]">
                         Elite Performance Metrics
-                      </GradientHeading>
+                      </span>
                     </div>
                     
                     {/* Multiple text shadows for depth - reduced blur effects */}
-                    <div className="absolute inset-0 flex justify-center items-center text-3xl font-bold tracking-tight opacity-10 blur-[3px] text-orange-700/30 -z-10 transform scale-105 font-cinzel">
+                    <div className="absolute inset-0 flex justify-center items-center text-3xl font-bold tracking-tight opacity-10 blur-[3px] text-orange-700/30 -z-10 transform scale-105">
+                      Elite Performance Metrics
+                    </div>
+                    <div className="absolute inset-0 flex justify-center items-center text-3xl font-bold tracking-tight opacity-20 blur-[1px] text-red-900/20 -z-10">
                       Elite Performance Metrics
                     </div>
                     
@@ -269,15 +280,17 @@ const IntroSection = () => {
                     <div className="absolute inset-0 bg-gradient-to-r from-orange-600/10 via-blue-500/20 to-orange-600/10 opacity-50 blur-xl animate-pulse-slow"></div>
                     
                     {/* Background blur text */}
-                    <div className="absolute inset-0 flex justify-start items-center text-3xl font-bold tracking-tight text-orange-900/10 blur-[5px] scale-110 opacity-50 font-cinzel">
+                    <div className="absolute inset-0 flex justify-start items-center text-3xl font-bold tracking-tight text-orange-900/10 blur-[5px] scale-110 opacity-50">
                       Fire Protection
                     </div>
                     
                     {/* Main heading with improved z-index */}
-                    <div className="shimmer-fire-text font-bold tracking-tight relative z-20 font-cinzel">
-                      <GradientHeading level={3} className="text-2xl md:text-3xl relative z-20 text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-amber-500 to-blue-500 drop-shadow-[0_1px_1px_rgba(0,0,0,0.3)] font-cinzel" variant="fire">
+                    <div className="shimmer-fire-text font-bold tracking-tight relative z-10">
+                      <span className="text-2xl md:text-3xl relative text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-amber-500 to-blue-500
+                        drop-shadow-[0_0px_1px_rgba(251,113,36,0.2)] 
+                        [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(251,146,60,0.3)]">
                         Class A Fire Protection
-                      </GradientHeading>
+                      </span>
                     </div>
                     
                     {/* Animated underline */}
@@ -349,15 +362,17 @@ const IntroSection = () => {
                     <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 via-blue-500/20 to-cyan-600/10 opacity-50 blur-xl animate-pulse-slow"></div>
                     
                     {/* Background blur text */}
-                    <div className="absolute inset-0 flex justify-start items-center text-3xl font-bold tracking-tight text-blue-900/10 blur-[5px] scale-110 opacity-50 font-cinzel">
+                    <div className="absolute inset-0 flex justify-start items-center text-3xl font-bold tracking-tight text-blue-900/10 blur-[5px] scale-110 opacity-50">
                       Ceramic Technology
                     </div>
                     
                     {/* Main heading with improved z-index */}
-                    <div className="shimmer-blue-text font-bold tracking-tight relative z-20 font-cinzel">
-                      <GradientHeading level={3} className="text-2xl md:text-3xl relative z-20 text-transparent bg-clip-text bg-gradient-to-br from-blue-400 via-cyan-400 to-blue-500 drop-shadow-[0_1px_1px_rgba(0,0,0,0.3)] font-cinzel" variant="blue">
+                    <div className="shimmer-blue-text font-bold tracking-tight relative z-10">
+                      <span className="text-2xl md:text-3xl relative text-transparent bg-clip-text bg-gradient-to-br from-blue-400 via-cyan-400 to-blue-500
+                        drop-shadow-[0_0px_1px_rgba(251,113,36,0.2)] 
+                        [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(59,130,246,0.3)]">
                         Ceramic Microsphere Technology
-                      </GradientHeading>
+                      </span>
                     </div>
                     
                     {/* Animated underline */}
@@ -429,15 +444,17 @@ const IntroSection = () => {
                     <div className="absolute inset-0 bg-gradient-to-r from-orange-600/10 via-blue-500/20 to-orange-600/10 opacity-50 blur-xl animate-pulse-slow"></div>
                     
                     {/* Background blur text */}
-                    <div className="absolute inset-0 flex justify-start items-center text-3xl font-bold tracking-tight text-orange-900/10 blur-[5px] scale-110 opacity-50 font-cinzel">
+                    <div className="absolute inset-0 flex justify-start items-center text-3xl font-bold tracking-tight text-orange-900/10 blur-[5px] scale-110 opacity-50">
                       Energy Efficiency
                     </div>
                     
                     {/* Main heading with improved z-index */}
-                    <div className="shimmer-mixed-text font-bold tracking-tight relative z-20 font-cinzel">
-                      <GradientHeading level={3} className="text-2xl md:text-3xl relative z-20 text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-amber-500 to-blue-400 drop-shadow-[0_1px_1px_rgba(0,0,0,0.3)] font-cinzel" variant="mixed">
+                    <div className="shimmer-mixed-text font-bold tracking-tight relative z-10">
+                      <span className="text-2xl md:text-3xl relative text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-amber-500 to-blue-400
+                        drop-shadow-[0_0px_1px_rgba(251,113,36,0.2)] 
+                        [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(251,146,60,0.3)]">
                         Extreme Energy Efficiency
-                      </GradientHeading>
+                      </span>
                     </div>
                     
                     {/* Animated underline */}
