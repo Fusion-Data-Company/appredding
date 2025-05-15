@@ -230,6 +230,21 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
                     <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoMjU1LDEzOCwwLDAuMikiIGQ9Ik0wIDBoMnYySDB6bTIgMmgydjJIMnoiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IGZpbGw9InVybCgjYSkiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiLz48L3N2Zz4=')]"></div>
                   </div>
                   
+                  {/* Shining edge effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover/video:opacity-100 transition-opacity duration-1000"
+                      style={{
+                        backgroundSize: '200% 100%',
+                        animation: 'shimmer 8s linear infinite',
+                        animationPlayState: 'paused'
+                      }}
+                      onMouseEnter={(e) => e.currentTarget.style.animationPlayState = 'running'}
+                      onMouseLeave={(e) => e.currentTarget.style.animationPlayState = 'paused'}>
+                  </div>
+                  
+                  {/* Fading squares animation */}
+                  <div className="absolute top-4 right-4 w-12 h-12 border border-orange-500/40 rounded opacity-0 group-hover/video:opacity-70 transition-all duration-700 animate-pulse-slow"></div>
+                  <div className="absolute bottom-4 left-4 w-8 h-8 border border-blue-500/40 rounded opacity-0 group-hover/video:opacity-70 transition-all duration-700 delay-100 animate-pulse-slow-delayed"></div>
+                  
                   {/* Corner accent with uniform styling across all corners */}
                   <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none z-10">
                     <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-orange-500/70 rounded-tl-lg"></div>
@@ -451,6 +466,21 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
                 <div className="absolute inset-0 opacity-25 z-0">
                   <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoMjMyLDEyMSw1OCwwLjIpIiBkPSJNMCAwaDJ2Mkgwem0yIDJoMnYySDJ6Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCBmaWxsPSJ1cmwoI2EpIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIi8+PC9zdmc+')]"></div>
                 </div>
+                
+                {/* Shining edge effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover/library:opacity-100 transition-opacity duration-1000"
+                    style={{
+                      backgroundSize: '200% 100%',
+                      animation: 'shimmer 8s linear infinite',
+                      animationPlayState: 'paused'
+                    }}
+                    onMouseEnter={(e) => e.currentTarget.style.animationPlayState = 'running'}
+                    onMouseLeave={(e) => e.currentTarget.style.animationPlayState = 'paused'}>
+                </div>
+                
+                {/* Fading squares animation */}
+                <div className="absolute top-4 right-4 w-10 h-10 border border-orange-500/40 rounded opacity-0 group-hover/library:opacity-70 transition-all duration-700 animate-pulse-slow"></div>
+                <div className="absolute bottom-4 left-4 w-6 h-6 border border-blue-500/40 rounded opacity-0 group-hover/library:opacity-70 transition-all duration-700 delay-100 animate-pulse-slow-delayed"></div>
                 
                 {/* Corner accent with uniform styling across all corners */}
                 <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none z-10">
