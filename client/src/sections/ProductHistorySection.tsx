@@ -69,7 +69,7 @@ const ProductHistorySection = () => {
               </div>
               
               {/* Main text with premium gradient */}
-              <span className="relative text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-amber-500 to-red-500
+              <span className="relative text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-amber-500 to-blue-500
                 drop-shadow-[0_0px_1px_rgba(251,113,36,0.2)] 
                 [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(251,146,60,0.3)]
                 transform -translate-y-[0.25in] text-5xl md:text-6xl lg:text-7xl font-bold">
@@ -90,10 +90,10 @@ const ProductHistorySection = () => {
               {/* Decorative accent line */}
               <div className="absolute left-[8%] bottom-[-0.5in] transform group w-14 h-2.5 rounded-full overflow-hidden z-50 transition-all duration-700 hover:w-72">
                 {/* Base gradient */}
-                <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-amber-500 to-red-600"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-amber-500 to-blue-600"></div>
                 
                 {/* Glow effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-amber-500 to-red-600 blur-md opacity-70"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-amber-500 to-blue-600 blur-md opacity-70"></div>
                 
                 {/* Pulsing dots */}
                 <div className="absolute h-full w-4 bg-white/80 right-4 rounded-full blur-[1px] animate-pulse-slow"></div>

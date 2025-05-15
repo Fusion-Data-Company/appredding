@@ -329,7 +329,7 @@ const IndustryApplications = () => {
             <span className="absolute -bottom-4 -left-4 w-8 h-8 border-b-2 border-l-2 border-orange-500/50 rounded-bl-lg"></span>
             
             {/* Right bottom corner accent */}
-            <span className="absolute -bottom-4 -right-4 w-8 h-8 border-b-2 border-r-2 border-red-500/50 rounded-br-lg"></span>
+            <span className="absolute -bottom-4 -right-4 w-8 h-8 border-b-2 border-r-2 border-blue-500/70 rounded-br-lg"></span>
           </h2>
           
           {/* Enhanced description with premium styling */}
