@@ -166,18 +166,32 @@ const ContactSection = () => {
             </div>
             
             <div className="relative mb-8 flex justify-center w-full">
-              <div className="absolute -inset-4 bg-gradient-to-r from-orange-500 via-amber-400 to-orange-500 rounded-lg blur-lg opacity-30 dark:opacity-40 z-10"></div>
-              <h2 
-                className="relative z-20 text-center text-white font-extrabold tracking-tight py-2" 
-                style={{ 
-                  fontSize: '3.25rem',
-                  textShadow: '0 1px 8px rgba(255,150,0,0.3), 0 1px 3px rgba(0,0,0,0.3)',
-                  marginBottom: '1.5rem',
-                  letterSpacing: '-0.02em'
-                }}
-              >
-                Get In Touch
-              </h2>
+              {/* Premium Enterprise Card Header - Get In Touch */}
+              <div className="relative py-4 px-10 bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black rounded-lg z-10">
+                {/* Premium gradient border effect */}
+                <div className="absolute inset-0 p-0.5 rounded-lg bg-gradient-to-r from-orange-500/40 via-amber-400/20 to-blue-500/30 opacity-70"></div>
+                
+                {/* Corner accents */}
+                <div className="absolute -top-1 -left-1 w-6 h-6 border-t-2 border-l-2 border-orange-500/40 rounded-tl-md z-10"></div>
+                <div className="absolute -top-1 -right-1 w-6 h-6 border-t-2 border-r-2 border-blue-500/30 rounded-tr-md z-10"></div>
+                <div className="absolute -bottom-1 -left-1 w-6 h-6 border-b-2 border-l-2 border-blue-500/30 rounded-bl-md z-10"></div>
+                <div className="absolute -bottom-1 -right-1 w-6 h-6 border-b-2 border-r-2 border-orange-500/40 rounded-br-md z-10"></div>
+                
+                {/* Ambient glow behind heading */}
+                <div className="absolute -inset-4 bg-gradient-to-r from-orange-500/20 via-amber-400/20 to-blue-500/20 rounded-lg blur-lg opacity-30 dark:opacity-40 z-0"></div>
+                
+                <h2 
+                  className="relative z-20 text-center text-white font-extrabold tracking-tight py-2" 
+                  style={{ 
+                    fontSize: '3.25rem',
+                    textShadow: '0 1px 8px rgba(255,150,0,0.3), 0 1px 3px rgba(0,0,0,0.3)',
+                    marginBottom: '1rem',
+                    letterSpacing: '-0.02em'
+                  }}
+                >
+                  Get In Touch
+                </h2>
+              </div>
             </div>
             <div className="relative z-10 mb-8" style={{ marginTop: "-2.5rem" }}>
               <p className="text-gray-300 text-lg text-center max-w-xl mx-auto mb-2">
@@ -533,18 +547,32 @@ const ContactSection = () => {
               
               <div className="p-8 relative z-20">
                 <div className="relative mb-8 flex justify-center w-full">
-                  <div className="absolute -inset-4 bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-500 rounded-lg blur-lg opacity-30 dark:opacity-40"></div>
-                  <h2 
-                    className="relative z-10 text-center text-white font-extrabold tracking-tight py-2 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]" 
-                    style={{ 
-                      fontSize: '3.25rem',
-                      textShadow: '0 1px 8px rgba(0,150,255,0.3)',
-                      marginBottom: '1.5rem',
-                      letterSpacing: '-0.02em'
-                    }}
-                  >
-                    Contact Information
-                  </h2>
+                  {/* Premium Enterprise Card Header - Contact Information */}
+                  <div className="relative py-4 px-10 bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black rounded-lg z-10">
+                    {/* Premium gradient border effect */}
+                    <div className="absolute inset-0 p-0.5 rounded-lg bg-gradient-to-r from-blue-500/40 via-cyan-400/20 to-blue-500/30 opacity-70"></div>
+                    
+                    {/* Corner accents */}
+                    <div className="absolute -top-1 -left-1 w-6 h-6 border-t-2 border-l-2 border-blue-500/40 rounded-tl-md z-10"></div>
+                    <div className="absolute -top-1 -right-1 w-6 h-6 border-t-2 border-r-2 border-orange-500/30 rounded-tr-md z-10"></div>
+                    <div className="absolute -bottom-1 -left-1 w-6 h-6 border-b-2 border-l-2 border-orange-500/30 rounded-bl-md z-10"></div>
+                    <div className="absolute -bottom-1 -right-1 w-6 h-6 border-b-2 border-r-2 border-blue-500/40 rounded-br-md z-10"></div>
+                    
+                    {/* Ambient glow behind heading */}
+                    <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 via-cyan-400/20 to-blue-500/20 rounded-lg blur-lg opacity-30 dark:opacity-40 z-0"></div>
+                    
+                    <h2 
+                      className="relative z-10 text-center text-white font-extrabold tracking-tight py-2 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]" 
+                      style={{ 
+                        fontSize: '3.25rem',
+                        textShadow: '0 1px 8px rgba(0,150,255,0.3)',
+                        marginBottom: '1rem',
+                        letterSpacing: '-0.02em'
+                      }}
+                    >
+                      Contact Information
+                    </h2>
+                  </div>
                 </div>
                 <div className="relative z-10 mb-8" style={{ marginTop: "-2.5rem" }}>
                   <p className="text-gray-300 text-lg text-center max-w-xl mx-auto mb-2">
