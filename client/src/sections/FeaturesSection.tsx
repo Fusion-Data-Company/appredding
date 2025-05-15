@@ -25,9 +25,9 @@ const FeatureCard = ({ icon, title, description, index }: { icon: string; title:
 
   return (
     <div className="relative group h-full transform transition-all duration-700 hover:-translate-y-2 hover:scale-[1.03] hover:z-10 flex flex-col justify-between">
-      {/* Multiple layered background effects - Fire theme (like Specialized Applications) */}
-      <div className="absolute -inset-0 bg-gradient-to-r from-orange-600/90 via-red-600/80 to-orange-600/90 rounded-xl blur-[2px] opacity-90 group-hover:opacity-100 group-hover:blur-[1px] transition-all duration-500 animate-pulse-slow"></div>
-      <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/90 via-amber-500/90 to-red-500/90 rounded-xl blur-[1px] opacity-100 group-hover:opacity-100 transition-all duration-300"></div>
+      {/* Subtle layered background effects with reduced opacity */}
+      <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/40 via-red-600/30 to-orange-600/40 rounded-xl blur-xl opacity-60 group-hover:opacity-70 group-hover:blur-xl transition-all duration-500 animate-pulse-slow z-0"></div>
+      <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/30 via-amber-500/30 to-red-500/30 rounded-xl blur-md opacity-70 group-hover:opacity-80 transition-all duration-300 z-0"></div>
       
       {/* Advanced enterprise-level card styling with enhanced 3D effects */}
       <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black backdrop-blur-xl rounded-xl p-8 md:p-10 text-center border border-orange-500/30 overflow-hidden shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7)] h-full z-10">
@@ -247,9 +247,9 @@ const FeaturesSection = () => {
         <div className="text-center mb-16 md:mb-20">
           {/* Advanced premium enterprise heading container with enhanced mixed orange/blue theme */}
           <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black backdrop-blur-xl rounded-xl py-10 px-8 md:py-12 md:px-16 mx-auto max-w-4xl mb-8 inline-block shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7)] border border-orange-500/30 group/nasa transform transition-all duration-500 hover:scale-[1.01]">
-            {/* Multiple layered background effects - Mixed theme with more vibrant border glow */}
-            <div className="absolute -inset-0 bg-gradient-to-r from-orange-600/90 via-blue-600/80 to-orange-600/90 rounded-xl blur-[2px] opacity-90 group-hover/nasa:opacity-100 group-hover/nasa:blur-[1px] transition-all duration-500 animate-pulse-slow"></div>
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/90 via-blue-500/90 to-orange-500/90 rounded-xl blur-[1px] opacity-100 group-hover/nasa:opacity-100 transition-all duration-300"></div>
+            {/* Multiple layered background effects - Mixed theme with subtle glow */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/40 via-blue-600/40 to-orange-600/40 rounded-xl blur-xl opacity-70 group-hover/nasa:opacity-80 group-hover/nasa:blur-xl transition-all duration-1000 animate-pulse-slow z-0"></div>
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/80 via-blue-500/80 to-orange-500/80 rounded-xl blur-md opacity-80 group-hover/nasa:opacity-90 transition-all duration-500 z-0"></div>
             
             {/* Subtle dots and squares pattern background in mixed colors */}
             <div className="absolute inset-0 opacity-25 z-0">
