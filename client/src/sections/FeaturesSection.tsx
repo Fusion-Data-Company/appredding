@@ -4,48 +4,53 @@ import { PRAETORIAN_HERO_IMAGE } from "../assets_dir/imageExports";
 const FeatureCard = ({ icon, title, description, index }: { icon: string; title: string; description: string; index: number }) => {
   return (
     <div className="relative group h-full transform transition-all duration-700 hover:scale-[1.02] hover:z-10">
-      {/* Gray border effect without glow */}
-      <div className="absolute -inset-0.5 bg-gradient-to-r from-gray-700/50 via-gray-600/50 to-gray-700/50 rounded-xl opacity-90"></div>
+      {/* Orange/blue gradient border with glow */}
+      <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-700/50 via-blue-600/50 to-orange-700/50 rounded-xl opacity-90 shadow-[0_0_15px_rgba(249,115,22,0.2)]"></div>
       
-      {/* Premium Card Container with gray gradient */}
-      <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black backdrop-blur-xl rounded-xl p-8 md:p-8 text-center border border-gray-600/30 overflow-hidden h-full z-10">
-        {/* Subtle dots and squares pattern background in gray */}
-        <div className="absolute inset-0 opacity-20 z-0">
-          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoMjI5LDIyOSwyMjksMC4yKSIgZD0iTTAgMGgydjJIM3ptMiAyaDJ2MkgyeiIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgZmlsbD0idXJsKCNhKSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPjwvc3ZnPg==')]"></div>
+      {/* Premium Card Container with orange/blue gradient styling */}
+      <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black backdrop-blur-xl rounded-xl p-8 md:p-8 text-center border border-orange-500/30 overflow-hidden h-full z-10 hover:shadow-[0_0_25px_rgba(249,115,22,0.3)] transition-shadow duration-500">
+        {/* Subtle dots pattern background in orange */}
+        <div className="absolute inset-0 opacity-25 z-0">
+          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoMjQ5LDExNSwyMiwwLjIpIiBkPSJNMCAwaDJ2Mkgwem0yIDJoMnYySDJ6Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCBmaWxsPSJ1cmwoI2EpIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIi8+PC9zdmc+')]"></div>
         </div>
         
-        {/* Removed ambient glow effects as requested */}
+        {/* Ambient glow effects */}
+        <div className="absolute -top-40 -right-20 w-60 h-60 bg-orange-600/15 rounded-full filter blur-[100px] animate-pulse-slow-delayed"></div>
+        <div className="absolute -bottom-40 -left-20 w-60 h-60 bg-blue-500/20 rounded-full filter blur-[120px] animate-pulse-slow"></div>
         
-        {/* Corner accent lines with gray theme */}
+        {/* Corner accent lines with orange/blue theme */}
         <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none z-10">
-          <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-gray-500/40 rounded-tl-lg"></div>
-          <div className="absolute top-0 left-0 w-3 h-3 bg-gray-500/30 rounded-full blur-[2px]"></div>
+          <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-orange-500/40 rounded-tl-lg"></div>
+          <div className="absolute top-0 left-0 w-3 h-3 bg-orange-500/30 rounded-full blur-[2px]"></div>
         </div>
         <div className="absolute top-0 right-0 w-16 h-16 pointer-events-none z-10">
-          <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-gray-500/40 rounded-tr-lg"></div>
-          <div className="absolute top-0 right-0 w-3 h-3 bg-gray-500/30 rounded-full blur-[2px]"></div>
+          <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-blue-500/40 rounded-tr-lg"></div>
+          <div className="absolute top-0 right-0 w-3 h-3 bg-blue-500/30 rounded-full blur-[2px]"></div>
         </div>
         <div className="absolute bottom-0 left-0 w-16 h-16 pointer-events-none z-10">
-          <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-gray-500/40 rounded-bl-lg"></div>
-          <div className="absolute bottom-0 left-0 w-3 h-3 bg-gray-500/30 rounded-full blur-[2px]"></div>
+          <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-orange-500/40 rounded-bl-lg"></div>
+          <div className="absolute bottom-0 left-0 w-3 h-3 bg-orange-500/30 rounded-full blur-[2px]"></div>
         </div>
         <div className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none z-10">
-          <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-gray-500/40 rounded-br-lg"></div>
-          <div className="absolute bottom-0 right-0 w-3 h-3 bg-gray-500/30 rounded-full blur-[2px]"></div>
+          <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-blue-500/40 rounded-br-lg"></div>
+          <div className="absolute bottom-0 right-0 w-3 h-3 bg-blue-500/30 rounded-full blur-[2px]"></div>
         </div>
         
         {/* Content with improved z-indices to ensure it appears above effects */}
         <div className="relative z-20">
-          {/* Icon styling with gray theme */}
+          {/* Icon styling with orange/blue gradient theme */}
           <div className="relative inline-flex items-center justify-center w-16 h-16 mb-4 group-hover:scale-110 transition-all duration-700 ease-out">
-            {/* Icon background */}
-            <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-900 rounded-full"></div>
+            {/* Icon background with gradient */}
+            <div className="absolute inset-0 bg-gradient-to-br from-orange-950/80 to-blue-950/80 rounded-full shadow-[0_0_10px_rgba(249,115,22,0.3)]"></div>
             
-            {/* Icon with white color */}
-            <i className={`${icon} text-gray-200 text-3xl relative z-10 drop-shadow-[0_2px_3px_rgba(0,0,0,0.5)]`}></i>
+            {/* Icon with orange glow */}
+            <i className={`${icon} text-orange-300 text-3xl relative z-10 drop-shadow-[0_2px_3px_rgba(249,115,22,0.4)]`}></i>
             
-            {/* Icon border with gray */}
-            <div className="absolute inset-0 rounded-full border border-gray-500/40 scale-110"></div>
+            {/* Icon border with gradient */}
+            <div className="absolute inset-0 rounded-full border border-orange-500/40 scale-110"></div>
+            
+            {/* Subtle glow effect */}
+            <div className="absolute inset-0 rounded-full bg-orange-500/10 blur-[5px] scale-125 z-[5]"></div>
           </div>
           
           {/* Title styling with gray theme */}
@@ -135,34 +140,36 @@ const FeaturesSection = () => {
         <div className="text-center mb-16 md:mb-20">
           {/* Header card with gray theme */}
           <div className="relative group/nasa transform transition-all duration-700 hover:scale-[1.02] hover:z-10 mx-auto max-w-4xl mb-8 inline-block">
-            {/* Gray border without glow */}
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-gray-700/50 via-gray-600/50 to-gray-700/50 rounded-xl opacity-90"></div>
+            {/* Orange/blue gradient border with glow */}
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-700/50 via-blue-600/50 to-orange-700/50 rounded-xl opacity-90 shadow-[0_0_15px_rgba(249,115,22,0.2)]"></div>
             
-            {/* Premium Card Container */}
-            <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black backdrop-blur-xl rounded-xl py-10 px-8 md:py-12 md:px-16 border border-gray-600/30 overflow-hidden shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7)] z-10">
-              {/* Subtle dots pattern background in gray */}
-              <div className="absolute inset-0 opacity-20 z-0">
-                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoMjI5LDIyOSwyMjksMC4yKSIgZD0iTTAgMGgydjJIM3ptMiAyaDJ2MkgyeiIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgZmlsbD0idXJsKCNhKSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPjwvc3ZnPg==')]"></div>
+            {/* Premium Card Container with orange/blue gradient styling */}
+            <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black backdrop-blur-xl rounded-xl py-10 px-8 md:py-12 md:px-16 border border-orange-500/30 overflow-hidden shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7)] z-10 hover:shadow-[0_0_25px_rgba(249,115,22,0.3)] transition-shadow duration-500">
+              {/* Subtle dots pattern background in orange */}
+              <div className="absolute inset-0 opacity-25 z-0">
+                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoMjQ5LDExNSwyMiwwLjIpIiBkPSJNMCAwaDJ2Mkgwem0yIDJoMnYySDJ6Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCBmaWxsPSJ1cmwoI2EpIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIi8+PC9zdmc+')]"></div>
               </div>
               
-              {/* Removed ambient glow effects as requested */}
+              {/* Ambient glow effects */}
+              <div className="absolute -top-60 -right-40 w-80 h-80 bg-orange-600/15 rounded-full filter blur-[100px] animate-pulse-slow-delayed"></div>
+              <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-500/20 rounded-full filter blur-[120px] animate-pulse-slow"></div>
               
-              {/* Corner accent lines with gray theme */}
+              {/* Corner accent lines with orange/blue theme */}
               <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none z-10">
-                <div className="absolute top-0 left-0 w-10 h-10 border-t-2 border-l-2 border-gray-500/40 rounded-tl-lg"></div>
-                <div className="absolute top-0 left-0 w-3 h-3 bg-gray-500/30 rounded-full blur-[2px]"></div>
+                <div className="absolute top-0 left-0 w-10 h-10 border-t-2 border-l-2 border-orange-500/40 rounded-tl-lg"></div>
+                <div className="absolute top-0 left-0 w-3 h-3 bg-orange-500/30 rounded-full blur-[2px]"></div>
               </div>
               <div className="absolute top-0 right-0 w-16 h-16 pointer-events-none z-10">
-                <div className="absolute top-0 right-0 w-10 h-10 border-t-2 border-r-2 border-gray-500/40 rounded-tr-lg"></div>
-                <div className="absolute top-0 right-0 w-3 h-3 bg-gray-500/30 rounded-full blur-[2px]"></div>
+                <div className="absolute top-0 right-0 w-10 h-10 border-t-2 border-r-2 border-blue-500/40 rounded-tr-lg"></div>
+                <div className="absolute top-0 right-0 w-3 h-3 bg-blue-500/30 rounded-full blur-[2px]"></div>
               </div>
               <div className="absolute bottom-0 left-0 w-16 h-16 pointer-events-none z-10">
-                <div className="absolute bottom-0 left-0 w-10 h-10 border-b-2 border-l-2 border-gray-500/40 rounded-bl-lg"></div>
-                <div className="absolute bottom-0 left-0 w-3 h-3 bg-gray-500/30 rounded-full blur-[2px]"></div>
+                <div className="absolute bottom-0 left-0 w-10 h-10 border-b-2 border-l-2 border-orange-500/40 rounded-bl-lg"></div>
+                <div className="absolute bottom-0 left-0 w-3 h-3 bg-orange-500/30 rounded-full blur-[2px]"></div>
               </div>
               <div className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none z-10">
-                <div className="absolute bottom-0 right-0 w-10 h-10 border-b-2 border-r-2 border-gray-500/40 rounded-br-lg"></div>
-                <div className="absolute bottom-0 right-0 w-3 h-3 bg-gray-500/30 rounded-full blur-[2px]"></div>
+                <div className="absolute bottom-0 right-0 w-10 h-10 border-b-2 border-r-2 border-blue-500/40 rounded-br-lg"></div>
+                <div className="absolute bottom-0 right-0 w-3 h-3 bg-blue-500/30 rounded-full blur-[2px]"></div>
               </div>
               
               {/* Enhanced premium badge with layered orange/blue gradient styling and increased z-index */}
