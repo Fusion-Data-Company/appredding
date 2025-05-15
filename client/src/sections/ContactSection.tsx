@@ -172,23 +172,31 @@ const ContactSection = () => {
                 <div className="absolute -inset-3 bg-gradient-to-r from-amber-600/20 via-orange-500/25 to-red-500/20 rounded-lg blur-xl opacity-70 group-hover:opacity-100 transition-all duration-1000 z-0 animate-pulse-slow"></div>
                 <div className="absolute -inset-2 bg-gradient-to-r from-blue-500/10 via-purple-400/15 to-blue-500/10 rounded-lg blur-lg opacity-80 group-hover:opacity-100 transition-all duration-1000 z-0 animate-pulse-slow-delayed"></div>
                 
-                {/* Enhanced 3D text effect */}
-                <h2 
-                  className="relative z-20 text-center font-extrabold tracking-tight py-3 w-full group-hover:scale-[1.02] transition-transform duration-700"
-                  style={{ 
-                    fontSize: 'clamp(2.7rem, 5vw, 3.5rem)',
-                    textShadow: '0 0 15px rgba(249,115,22,0.5), 0 0 30px rgba(249,115,22,0.3), 0 2px 5px rgba(0,0,0,0.8)',
-                    letterSpacing: '-0.025em',
-                    whiteSpace: 'nowrap',
-                    marginBottom: '0.5rem',
-                    background: 'linear-gradient(to bottom, #ffffff, #fef3c7)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.8))'
-                  }}
-                >
-                  Get In Touch
-                </h2>
+                {/* Enhanced text with unique shimmer effect different from buttons */}
+                <div className="relative overflow-hidden">
+                  <h2 
+                    className="relative z-20 text-center font-extrabold tracking-tight py-3 w-full group-hover:scale-[1.02] transition-transform duration-700"
+                    style={{ 
+                      fontSize: 'clamp(2.7rem, 5vw, 3.5rem)',
+                      textShadow: '0 0 8px rgba(249,115,22,0.25), 0 0 15px rgba(249,115,22,0.15), 0 0 2px rgba(255,255,255,0.8), 0 2px 4px rgba(0,0,0,0.7)',
+                      letterSpacing: '-0.025em',
+                      whiteSpace: 'nowrap',
+                      marginBottom: '0.5rem',
+                      background: 'linear-gradient(to bottom, #ffffff, #fef3c7)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.8)) drop-shadow(0 0 2px rgba(255,255,255,0.6))'
+                    }}
+                  >
+                    Get In Touch
+                  </h2>
+                  
+                  {/* Custom shimmer effect overlay */}
+                  <div 
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform ease-in-out pointer-events-none"
+                    style={{ transitionDuration: '1.5s', transitionDelay: '0.3s' }}
+                  />
+                </div>
                 
                 {/* Animated gradient underline */}
                 <div className="h-1 w-0 group-hover:w-full bg-gradient-to-r from-amber-500 via-orange-500 to-red-500 rounded-full mx-auto transition-all duration-1000 opacity-80"></div>
@@ -561,19 +569,19 @@ const ContactSection = () => {
                     <div className="absolute -inset-2 bg-gradient-to-r from-blue-600/20 via-cyan-400/25 to-blue-500/20 rounded-lg blur-xl opacity-70 dark:opacity-80 group-hover:opacity-100 transition-all duration-1000 z-0 animate-pulse-slow"></div>
                     <div className="absolute -inset-1 bg-gradient-to-r from-orange-500/10 via-amber-400/10 to-orange-500/10 rounded-lg blur-lg opacity-80 dark:opacity-90 group-hover:opacity-100 transition-all duration-1000 z-0 animate-pulse-slow-delayed"></div>
                     
-                    {/* Text with enhanced glow */}
+                    {/* Text with enhanced glow - toned down by 50% */}
                     <h2 
                       className="relative z-10 text-white font-extrabold tracking-tight py-3 drop-shadow-[0_2px_2px_rgba(0,0,0,0.9)] group-hover:scale-[1.02] transition-transform duration-700"
                       style={{ 
                         fontSize: 'clamp(2.7rem, 5vw, 3.5rem)',
-                        textShadow: '0 0 15px rgba(59,130,246,0.5), 0 0 30px rgba(59,130,246,0.3), 0 1px 8px rgba(0,0,0,0.8)',
+                        textShadow: '0 0 8px rgba(59,130,246,0.25), 0 0 15px rgba(59,130,246,0.15), 0 0 2px rgba(255,255,255,0.8), 0 2px 4px rgba(0,0,0,0.7)',
                         letterSpacing: '-0.02em',
                         whiteSpace: 'nowrap',
                         marginBottom: '0.5rem',
                         background: 'linear-gradient(to bottom, #ffffff, #e2e8f0)',
                         WebkitBackgroundClip: 'text',
                         WebkitTextFillColor: 'transparent',
-                        filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.8))'
+                        filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.8)) drop-shadow(0 0 2px rgba(255,255,255,0.6))'
                       }}
                     >
                       Contact Information
