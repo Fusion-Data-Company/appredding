@@ -137,13 +137,17 @@ const FAQSection = ({ faqs }: FAQProps) => {
               
               {/* Premium badge with orange/blue gradient styling and increased z-index */}
               <div className="absolute -top-5 left-1/2 -translate-x-1/2 flex z-[100]">
-                <div className="px-3 py-1.5 rounded-full border border-orange-500/40 bg-gradient-to-r from-orange-950/95 via-primary-950/95 to-blue-950/95 text-orange-300 inline-flex items-center shadow-[0_0_15px_rgba(249,115,22,0.4)] relative z-[100]">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-2 text-blue-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <line x1="12" y1="16" x2="12" y2="12"></line>
-                    <line x1="12" y1="8" x2="12.01" y2="8"></line>
-                  </svg>
-                  <span className="text-sm font-medium">Frequently Asked</span>
+                <div className="px-4 py-2 rounded-full border border-orange-500/40 bg-gradient-to-r from-orange-700 to-blue-700 inline-flex items-center shadow-[0_0_25px_rgba(249,115,22,0.5)] relative transition-all duration-500 hover:scale-105 z-[100]">
+                  {/* Badge icon with pulsing glow */}
+                  <div className="mr-2 relative">
+                    <div className="absolute inset-0 bg-blue-500/20 rounded-full blur-[6px] animate-pulse-slow"></div>
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-orange-300 relative z-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <line x1="12" y1="16" x2="12" y2="12"></line>
+                      <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                    </svg>
+                  </div>
+                  <span className="text-white text-sm font-medium">Frequently Asked</span>
                 </div>
               </div>
             </div>
