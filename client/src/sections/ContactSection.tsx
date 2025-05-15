@@ -177,8 +177,7 @@ const ContactSection = () => {
                 <div className="absolute -bottom-1 -left-1 w-6 h-6 border-b-2 border-l-2 border-blue-500/30 rounded-bl-md z-10"></div>
                 <div className="absolute -bottom-1 -right-1 w-6 h-6 border-b-2 border-r-2 border-orange-500/40 rounded-br-md z-10"></div>
                 
-                {/* Ambient glow behind heading */}
-                <div className="absolute -inset-4 bg-gradient-to-r from-orange-500/20 via-amber-400/20 to-blue-500/20 rounded-lg blur-lg opacity-30 dark:opacity-40 z-0"></div>
+                {/* Remove ambient glow background as requested */}
                 
                 <h2 
                   className="relative z-20 text-center text-white font-extrabold tracking-tight py-2 w-full" 
@@ -559,8 +558,7 @@ const ContactSection = () => {
                     <div className="absolute -bottom-1 -left-1 w-6 h-6 border-b-2 border-l-2 border-orange-500/30 rounded-bl-md z-10"></div>
                     <div className="absolute -bottom-1 -right-1 w-6 h-6 border-b-2 border-r-2 border-blue-500/40 rounded-br-md z-10"></div>
                     
-                    {/* Ambient glow behind heading */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 via-cyan-400/20 to-blue-500/20 rounded-lg blur-md opacity-40 dark:opacity-50 z-0"></div>
+                    {/* Remove ambient glow background as requested */}
                     
                     <h2 
                       className="relative z-10 text-white font-extrabold tracking-tight py-2 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] mx-auto"
@@ -800,8 +798,7 @@ const ContactSection = () => {
                 <div className="relative mt-[2rem] mb-14">
                   {/* Premium Enterprise Heading Container */}
                   <div className="relative mb-10 flex justify-center w-full">
-                    {/* Ambient glow behind heading */}
-                    <div className="absolute -inset-4 bg-gradient-to-r from-amber-500/20 via-blue-500/20 to-amber-500/20 rounded-lg blur-lg opacity-30"></div>
+                    {/* Remove ambient glow background as requested */}
                     
                     {/* Premium heading with enhanced styling */}
                     <div className="relative z-10 inline-block" style={{ position: 'relative', top: '60px' }}>
