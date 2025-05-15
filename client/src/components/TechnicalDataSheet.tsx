@@ -264,14 +264,14 @@ export const TechnicalDataSheet = () => {
           {/* Premium Card Container */}
           <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-gray-900/95 backdrop-blur-xl rounded-xl p-7 shadow-[0_10px_50px_rgba(0,0,0,0.5)] z-10 h-full">
             {/* Premium gradient border effect */}
-            <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-blue-500/50 via-transparent to-cyan-400/50 opacity-70"></div>
+            <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/50 via-blue-500/30 to-orange-500/50 opacity-70"></div>
             
             {/* Inner highlight */}
             <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
             
             {/* Subtle ambient glow */}
             <div className="absolute inset-0 opacity-0 group-hover:opacity-30 transition-opacity duration-700 ease-in-out rounded-xl" 
-                style={{ background: "radial-gradient(circle at center, rgba(59,130,246,0.4) 0%, transparent 70%)" }}>
+                style={{ background: "radial-gradient(circle at center, rgba(234,88,12,0.4) 0%, rgba(59,130,246,0.2) 35%, transparent 70%)" }}>
             </div>
             
             {/* Content */}

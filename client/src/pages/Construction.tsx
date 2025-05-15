@@ -279,35 +279,35 @@ const ConstructionPage = () => {
                           </div>
                           <p className="text-xs text-blue-100">40% thinner application vs. traditional coatings</p>
                         </div>
-                        <div className="bg-blue-900/30 p-3 rounded-lg border border-blue-500/20">
+                        <div className="bg-gradient-to-br from-orange-900/30 via-blue-900/30 to-orange-900/30 p-3 rounded-lg border border-orange-500/20">
                           <div className="flex justify-between items-center mb-1">
-                            <span className="text-sm text-blue-200">Energy Savings</span>
+                            <span className="text-sm text-orange-200">Energy Savings</span>
                             <span className="text-white font-bold flex items-center">
-                              <span className="bg-blue-500/20 p-0.5 rounded-full text-blue-300 mr-1">✓</span>
+                              <span className="bg-gradient-to-r from-orange-500/20 to-blue-500/20 p-0.5 rounded-full text-orange-300 mr-1">✓</span>
                               87% reduction
                             </span>
                           </div>
-                          <p className="text-xs text-blue-100">$4.2M operational cost savings over 10 years</p>
+                          <p className="text-xs text-orange-100">$4.2M operational cost savings over 10 years</p>
                         </div>
-                        <div className="bg-blue-900/30 p-3 rounded-lg border border-blue-500/20">
+                        <div className="bg-gradient-to-br from-orange-900/30 via-blue-900/30 to-orange-900/30 p-3 rounded-lg border border-orange-500/20">
                           <div className="flex justify-between items-center mb-1">
-                            <span className="text-sm text-blue-200">Application Time</span>
+                            <span className="text-sm text-orange-200">Application Time</span>
                             <span className="text-white font-bold flex items-center">
-                              <span className="bg-blue-500/20 p-0.5 rounded-full text-blue-300 mr-1">✓</span>
+                              <span className="bg-gradient-to-r from-orange-500/20 to-blue-500/20 p-0.5 rounded-full text-orange-300 mr-1">✓</span>
                               53% faster
                             </span>
                           </div>
-                          <p className="text-xs text-blue-100">78 days ahead of construction schedule</p>
+                          <p className="text-xs text-orange-100">78 days ahead of construction schedule</p>
                         </div>
-                        <div className="bg-blue-900/30 p-3 rounded-lg border border-blue-500/20">
+                        <div className="bg-gradient-to-br from-orange-900/30 via-blue-900/30 to-orange-900/30 p-3 rounded-lg border border-orange-500/20">
                           <div className="flex justify-between items-center mb-1">
-                            <span className="text-sm text-blue-200">Weight Reduction</span>
+                            <span className="text-sm text-orange-200">Weight Reduction</span>
                             <span className="text-white font-bold flex items-center">
-                              <span className="bg-blue-500/20 p-0.5 rounded-full text-blue-300 mr-1">✓</span>
+                              <span className="bg-gradient-to-r from-orange-500/20 to-blue-500/20 p-0.5 rounded-full text-orange-300 mr-1">✓</span>
                               64% lighter
                             </span>
                           </div>
-                          <p className="text-xs text-blue-100">192 tons total structural weight savings</p>
+                          <p className="text-xs text-orange-100">192 tons total structural weight savings</p>
                         </div>
                       </div>
                     </div>
