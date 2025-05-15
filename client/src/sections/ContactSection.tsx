@@ -547,34 +547,18 @@ const ContactSection = () => {
               
               <div className="p-8 relative z-20">
                 <div className="relative mb-8 flex justify-center w-full">
-                  {/* Premium Enterprise Card Header - Contact Information */}
-                  <div className="relative py-4 px-14 w-full md:w-4/5 lg:w-3/4 bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black rounded-lg z-10">
-                    {/* Premium gradient border effect removed */}
-                    
-                    {/* Corner accents */}
-                    <div className="absolute -top-1 -left-1 w-6 h-6 border-t-2 border-l-2 border-blue-500/40 rounded-tl-md z-10"></div>
-                    <div className="absolute -top-1 -right-1 w-6 h-6 border-t-2 border-r-2 border-orange-500/30 rounded-tr-md z-10"></div>
-                    <div className="absolute -bottom-1 -left-1 w-6 h-6 border-b-2 border-l-2 border-orange-500/30 rounded-bl-md z-10"></div>
-                    <div className="absolute -bottom-1 -right-1 w-6 h-6 border-b-2 border-r-2 border-blue-500/40 rounded-br-md z-10"></div>
-                    
-                    {/* Remove ambient glow background as requested */}
-                    
-                    <h2 
-                      className="relative z-10 text-white font-extrabold tracking-tight py-2 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] mx-auto"
-                      style={{ 
-                        fontSize: 'clamp(2.5rem, 5vw, 3.25rem)',
-                        textShadow: '0 1px 8px rgba(0,150,255,0.3)',
-                        marginBottom: '1rem',
-                        letterSpacing: '-0.02em',
-                        whiteSpace: 'nowrap',
-                        display: 'table',
-                        position: 'relative',
-                        left: '-150px'
-                      }}
-                    >
-                      Contact Information
-                    </h2>
-                  </div>
+                  {/* Simplified Contact Information Header */}
+                  <h2 
+                    className="relative z-10 text-white font-extrabold tracking-tight py-2 mb-4 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]"
+                    style={{ 
+                      fontSize: 'clamp(2.5rem, 5vw, 3.25rem)',
+                      textShadow: '0 1px 8px rgba(0,150,255,0.3)',
+                      letterSpacing: '-0.02em',
+                      whiteSpace: 'nowrap'
+                    }}
+                  >
+                    Contact Information
+                  </h2>
                 </div>
                 <div className="relative z-10 mb-8" style={{ marginTop: "-2.5rem" }}>
                   <p className="text-gray-300 text-lg text-center max-w-xl mx-auto mb-2">
