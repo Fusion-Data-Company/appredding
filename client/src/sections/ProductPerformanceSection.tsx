@@ -197,12 +197,12 @@ const ProductPerformanceSection = () => {
             <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2/3 h-[2px] bg-gradient-to-r from-transparent via-amber-500/10 to-transparent rounded-full blur-sm"></div>
           </div>
           
-          {/* Premium Enterprise Stat Card 2 - Fire Theme */}
+          {/* Premium Enterprise Stat Card 2 - Mixed Theme */}
           <div className="group relative transform transition-all duration-500 hover:scale-105 hover:z-10 min-h-[350px]">
             {/* Premium Card Container */}
             <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-gray-900/95 backdrop-blur-xl rounded-xl p-10 shadow-[0_10px_50px_rgba(0,0,0,0.5)] h-full z-10 flex flex-col items-center justify-center">
-              {/* Premium gradient border effect - Fire variant */}
-              <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/50 via-transparent to-red-500/50 opacity-70"></div>
+              {/* Premium gradient border effect - Mixed variant */}
+              <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/50 via-transparent to-blue-500/50 opacity-70"></div>
               
               {/* Inner highlight */}
               <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
@@ -299,12 +299,12 @@ const ProductPerformanceSection = () => {
             <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2/3 h-[2px] bg-gradient-to-r from-transparent via-blue-500/10 to-transparent rounded-full blur-sm"></div>
           </div>
           
-          {/* Premium Enterprise Stat Card 4 - Fire Theme */}
+          {/* Premium Enterprise Stat Card 4 - Mixed Theme */}
           <div className="group relative transform transition-all duration-500 hover:scale-105 hover:z-10 min-h-[350px]">
             {/* Premium Card Container */}
             <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-gray-900/95 backdrop-blur-xl rounded-xl p-10 shadow-[0_10px_50px_rgba(0,0,0,0.5)] h-full z-10 flex flex-col items-center justify-center">
-              {/* Premium gradient border effect - Fire variant */}
-              <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/50 via-transparent to-red-500/50 opacity-70"></div>
+              {/* Premium gradient border effect - Mixed variant */}
+              <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/50 via-transparent to-blue-500/50 opacity-70"></div>
               
               {/* Inner highlight */}
               <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
@@ -400,8 +400,8 @@ const ProductPerformanceSection = () => {
                         <div className="relative flex-shrink-0">
                           {/* Premium Icon Container */}
                           <div className="relative bg-gradient-to-br from-gray-900/95 to-gray-950/95 backdrop-blur-xl rounded-full p-4 shadow-[0_10px_30px_rgba(0,0,0,0.3)] z-10 group-hover/item:scale-110 transition-transform duration-500">
-                            {/* Premium gradient border effect - Fire variant */}
-                            <div className="absolute inset-0 p-0.5 rounded-full bg-gradient-to-r from-orange-500/60 via-red-500/60 to-red-600/60 opacity-70"></div>
+                            {/* Premium gradient border effect - Mixed variant */}
+                            <div className="absolute inset-0 p-0.5 rounded-full bg-gradient-to-r from-orange-500/60 via-blue-500/60 to-blue-600/60 opacity-70"></div>
                             
                             {/* Inner highlight */}
                             <div className="absolute inset-0 rounded-full bg-gradient-to-b from-white/20 via-transparent to-transparent opacity-50 pointer-events-none"></div>
