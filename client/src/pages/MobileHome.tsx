@@ -917,7 +917,7 @@ const MobileHome = () => {
                 <GradientHeading level={2} className="text-3xl md:text-4xl mb-2 text-center" variant="mixed">
                   Technical Specifications
                 </GradientHeading>
-                <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mb-4"></div>
+                <div className="w-24 h-1 bg-gradient-to-r from-orange-500 to-blue-500 rounded-full mb-4"></div>
                 <p className="text-white/80 text-center max-w-2xl mb-10">
                   The PraetorianShield™ MH-Pro ceramic coating system incorporates NASA-derived technology to achieve industry-leading performance metrics and protection for mobile home applications.
                 </p>

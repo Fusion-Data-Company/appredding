@@ -371,7 +371,7 @@ const ConstructionPage = () => {
                             <span className="text-white font-bold">3-hour</span>
                           </div>
                           <div className="w-full h-3 bg-blue-900/70 rounded-full p-0.5">
-                            <div className="bg-gradient-to-r from-blue-500 to-blue-400 h-2 rounded-full" style={{ width: '100%' }}></div>
+                            <div className="bg-gradient-to-r from-orange-500 to-blue-400 h-2 rounded-full" style={{ width: '100%' }}></div>
                           </div>
                           <div className="flex justify-between mt-1">
                             <span className="text-xs text-blue-300">ASTM E119</span>
@@ -388,7 +388,7 @@ const ConstructionPage = () => {
                             <span className="text-white font-bold">R-19.8</span>
                           </div>
                           <div className="w-full h-3 bg-blue-900/70 rounded-full p-0.5">
-                            <div className="bg-gradient-to-r from-blue-500 to-blue-400 h-2 rounded-full" style={{ width: '90%' }}></div>
+                            <div className="bg-gradient-to-r from-orange-500 to-blue-400 h-2 rounded-full" style={{ width: '90%' }}></div>
                           </div>
                           <div className="flex justify-between mt-1">
                             <span className="text-xs text-blue-300">ASTM C518</span>
@@ -405,7 +405,7 @@ const ConstructionPage = () => {
                             <span className="text-white font-bold">15,000+ hrs</span>
                           </div>
                           <div className="w-full h-3 bg-blue-900/70 rounded-full p-0.5">
-                            <div className="bg-gradient-to-r from-blue-500 to-blue-400 h-2 rounded-full" style={{ width: '95%' }}></div>
+                            <div className="bg-gradient-to-r from-orange-500 to-blue-400 h-2 rounded-full" style={{ width: '95%' }}></div>
                           </div>
                           <div className="flex justify-between mt-1">
                             <span className="text-xs text-blue-300">ASTM B117</span>
@@ -422,7 +422,7 @@ const ConstructionPage = () => {
                             <span className="text-white font-bold">12 pts</span>
                           </div>
                           <div className="w-full h-3 bg-blue-900/70 rounded-full p-0.5">
-                            <div className="bg-gradient-to-r from-blue-500 to-blue-400 h-2 rounded-full" style={{ width: '80%' }}></div>
+                            <div className="bg-gradient-to-r from-orange-500 to-blue-400 h-2 rounded-full" style={{ width: '80%' }}></div>
                           </div>
                           <div className="flex justify-between mt-1">
                             <span className="text-xs text-blue-300">USGBC v4.1</span>
@@ -517,8 +517,8 @@ const ConstructionPage = () => {
         <section className="py-16 backdrop-blur-sm bg-primary-900/40 relative z-10">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto mb-16 text-center">
-              <div className="inline-block mb-3 px-4 py-1 rounded-full bg-gradient-to-r from-blue-600/30 to-blue-800/30 border border-blue-500/30 relative z-50">
-                <span className="text-blue-300 text-sm font-bold uppercase tracking-wider">Enterprise Solution</span>
+              <div className="inline-block mb-3 px-4 py-1 rounded-full bg-gradient-to-r from-orange-600/30 via-blue-600/30 to-orange-600/30 border border-orange-500/30 relative z-50">
+                <span className="text-orange-300 text-sm font-bold uppercase tracking-wider">Enterprise Solution</span>
               </div>
               <GradientHeading level={2} className="text-3xl md:text-4xl mb-4" variant="mixed">Advanced Ceramic Coating Application Systems</GradientHeading>
               <p className="text-white text-lg mb-8">Our NASA-derived ceramic coating systems are engineered for professional application with specialized equipment and trained technicians. Our patented application process ensures consistent performance across all construction environments.</p>
@@ -956,8 +956,8 @@ const ConstructionPage = () => {
         <section className="py-16 backdrop-blur-sm bg-gradient-to-b from-blue-900/40 to-primary-900/40 relative z-10">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto mb-12 text-center">
-              <div className="inline-block mb-3 px-4 py-1 rounded-full bg-gradient-to-r from-blue-600/30 to-blue-800/30 border border-blue-500/30 relative z-50">
-                <span className="text-blue-300 text-sm font-bold uppercase tracking-wider">Scientific Innovation</span>
+              <div className="inline-block mb-3 px-4 py-1 rounded-full bg-gradient-to-r from-orange-600/30 via-blue-600/30 to-orange-600/30 border border-orange-500/30 relative z-50">
+                <span className="text-orange-300 text-sm font-bold uppercase tracking-wider">Scientific Innovation</span>
               </div>
               <GradientHeading level={2} className="text-3xl md:text-4xl mb-4" variant="mixed">Advanced Research & Development</GradientHeading>
               <p className="text-white text-lg">Our multi-disciplinary research team includes PhD material scientists and thermal engineers developing next-generation ceramic microsphere technology.</p>
