@@ -217,39 +217,40 @@ const ProductComparison = () => {
         >
           {/* Headers - Premium Enterprise Styling */}
           <div className="grid grid-cols-12 gap-4 mb-6 relative">
-            {/* Premium Card Container with enhanced styling */}
+            {/* Premium Card Container with mixed orange/blue styling - matching the bottom card */}
             <div className="col-span-12 relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black backdrop-blur-xl rounded-xl py-6 px-8 shadow-[0_10px_50px_rgba(0,0,0,0.5)] z-10 border border-orange-500/30 group hover:shadow-[0_0_25px_rgba(249,115,22,0.3)] transition-shadow duration-500">
-              {/* Multiple layered background effects */}
-              <div className="absolute -inset-px bg-gradient-to-r from-orange-600/30 via-amber-600/30 to-red-600/30 rounded-xl blur-sm opacity-70 group-hover:opacity-100 transition-all duration-500"></div>
+              {/* Multiple layered background effects - Mixed orange/blue theme */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/40 via-blue-600/40 to-orange-600/40 rounded-xl blur-xl opacity-70 group-hover:opacity-100 group-hover:blur-xl transition-all duration-1000 animate-pulse-slow"></div>
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/80 via-blue-500/80 to-orange-500/80 rounded-xl blur-md opacity-90 group-hover:opacity-100 transition-all duration-500"></div>
               
-              {/* Subtle dots and squares pattern background */}
-              <div className="absolute inset-0 opacity-20 z-0">
-                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoMjQ5LDExNSwyMiwwLjQpIiBkPSJNMCAwaDJ2Mkgwem0yIDJoMnYySDJ6Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCBmaWxsPSJ1cmwoI2EpIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIi8+PC9zdmc+')]"></div>
+              {/* Subtle dots and squares pattern background in mixed colors */}
+              <div className="absolute inset-0 opacity-25 z-0">
+                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoMjMyLDEyMSw1OCwwLjMpIiBkPSJNMCAwaDJ2Mkgwem0yIDJoMnYySDJ6Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCBmaWxsPSJ1cmwoI2EpIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIi8+PC9zdmc+')]"></div>
               </div>
               
               {/* Inner highlight */}
               <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
               
-              {/* Ambient glow effect */}
-              <div className="absolute -top-20 -right-20 w-60 h-60 bg-orange-600/10 rounded-full filter blur-[80px] animate-pulse-slow-delayed"></div>
-              <div className="absolute -bottom-20 -left-20 w-60 h-60 bg-orange-500/15 rounded-full filter blur-[100px] animate-pulse-slow"></div>
+              {/* Ambient glow effects - positioned away from text - with blue/orange mixed glow */}
+              <div className="absolute -top-20 -right-20 w-60 h-60 bg-orange-600/15 rounded-full filter blur-[100px] animate-pulse-slow-delayed"></div>
+              <div className="absolute -bottom-20 -left-20 w-60 h-60 bg-blue-500/20 rounded-full filter blur-[100px] animate-pulse-slow"></div>
               
-              {/* Corner accent lines */}
+              {/* Corner accent lines - with mixed theme - exactly like the bottom card */}
               <div className="absolute top-0 left-0 w-12 h-12 pointer-events-none z-10">
                 <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-orange-500/70 rounded-tl-lg"></div>
                 <div className="absolute top-0 left-0 w-2 h-2 bg-orange-500/50 rounded-full blur-[1px]"></div>
               </div>
               <div className="absolute top-0 right-0 w-12 h-12 pointer-events-none z-10">
-                <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-red-500/70 rounded-tr-lg"></div>
-                <div className="absolute top-0 right-0 w-2 h-2 bg-red-500/50 rounded-full blur-[1px]"></div>
+                <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-blue-500/70 rounded-tr-lg"></div>
+                <div className="absolute top-0 right-0 w-2 h-2 bg-blue-500/50 rounded-full blur-[1px]"></div>
               </div>
               <div className="absolute bottom-0 left-0 w-12 h-12 pointer-events-none z-10">
                 <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-orange-500/70 rounded-bl-lg"></div>
                 <div className="absolute bottom-0 left-0 w-2 h-2 bg-orange-500/50 rounded-full blur-[1px]"></div>
               </div>
               <div className="absolute bottom-0 right-0 w-12 h-12 pointer-events-none z-10">
-                <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-red-500/70 rounded-br-lg"></div>
-                <div className="absolute bottom-0 right-0 w-2 h-2 bg-red-500/50 rounded-full blur-[1px]"></div>
+                <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-blue-500/70 rounded-br-lg"></div>
+                <div className="absolute bottom-0 right-0 w-2 h-2 bg-blue-500/50 rounded-full blur-[1px]"></div>
               </div>
               
               {/* Content */}
