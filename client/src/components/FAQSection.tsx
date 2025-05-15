@@ -1,7 +1,6 @@
 import React from 'react';
 import { Card } from "@/components/ui/card";
 import backgroundImg from "../assets_dir/images/optimized/praetorian-background-new.png";
-import { PremiumBadge } from "@/components/ui/premium-badge";
 
 // Simple interface for FAQ data
 interface FAQProps {
@@ -47,8 +46,7 @@ const FAQSection = ({ faqs }: FAQProps) => {
         {/* Enterprise grade header card with premium styling */}
         <div className="text-center mb-16">
           <div className="relative inline-block">
-            {/* Premium Header Badge */}
-            <PremiumBadge>ENTERPRISE GRADE</PremiumBadge>
+            {/* No badge as requested */}
             
             {/* Premium Enterprise Header Card */}
             <div className="relative p-12 bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 backdrop-blur-xl rounded-xl shadow-[0_10px_50px_rgba(0,0,0,0.7)] mb-8 group">

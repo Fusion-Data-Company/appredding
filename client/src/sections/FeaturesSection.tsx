@@ -179,12 +179,7 @@ const FeaturesSection = () => {
                 <div className="absolute bottom-0 right-0 w-3 h-3 bg-blue-500/30 rounded-full blur-[2px]"></div>
               </div>
               
-              {/* Enhanced premium badge with layered orange/blue gradient styling and increased z-index */}
-              <div className="relative w-full">
-                <PremiumBadge>
-                  NASA TECHNOLOGY
-                </PremiumBadge>
-              </div>
+              {/* Badge removed per user request */}
               
               {/* Content with enhanced animations */}
               <div className="relative z-10 mt-2">

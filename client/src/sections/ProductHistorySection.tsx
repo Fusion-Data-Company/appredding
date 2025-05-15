@@ -244,25 +244,7 @@ const ProductHistorySection = () => {
                 <div className="absolute bottom-0 right-0 w-3 h-3 bg-gray-500/30 rounded-full blur-[2px]"></div>
               </div>
               
-              {/* Timeline Innovation badge with gray styling */}
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-50">
-                <div className="group/badge px-3 py-1.5 rounded-full border-2 border-gray-500/40 bg-gradient-to-r from-gray-900/90 to-gray-950/90 text-white inline-flex items-center backdrop-blur-sm relative z-50 hover:scale-105 transition-transform duration-300">
-                  {/* Badge background */}
-                  <div className="absolute inset-0 rounded-full border border-gray-500/30"></div>
-                  
-                  {/* Icon with gray theme */}
-                  <div className="relative mr-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-300 relative z-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  </div>
-                  
-                  {/* Text with gray styling */}
-                  <span className="text-sm font-bold relative overflow-hidden group-hover/badge:scale-105 transition-transform duration-300">
-                    <span className="relative z-10 text-gray-300 drop-shadow-[0_1px_1px_rgba(0,0,0,0.5)]">Innovation Timeline</span>
-                  </span>
-                </div>
-              </div>
+              {/* Timeline Innovation badge removed per request */}
               
               {/* Enhanced header section - adjusted to mixed orange/blue theme */}
               <div className="p-8 border-b border-gray-600/40 relative">
