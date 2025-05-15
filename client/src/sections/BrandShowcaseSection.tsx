@@ -193,20 +193,20 @@ const BrandShowcaseSection = () => {
               {/* Outer glow layer for depth - positioned BEHIND the card */}
               <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/40 via-blue-600/40 to-orange-600/40 rounded-xl blur-xl opacity-70 group-hover:opacity-100 group-hover:blur-xl transition-all duration-1000 animate-pulse-slow"></div>
               
-              <div className="relative bg-gradient-to-br from-black/95 via-gray-900/95 to-black/95 rounded-xl p-8 z-10 space-y-8 min-h-[calc(896px + 48px)]">
+              {/* Edge glow effect - moved BEHIND the card */}
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/80 via-blue-500/80 to-orange-500/80 rounded-xl blur-md opacity-90 group-hover:opacity-100 transition-opacity duration-500"></div>
+              
+              <div className="relative bg-gradient-to-br from-black/95 via-gray-900/95 to-black/95 rounded-xl p-8 z-20 space-y-8 min-h-[calc(896px + 48px)]">
                   
                   {/* Enhanced blue and orange glowing border */}
-                  <div className="absolute inset-0 rounded-xl border border-transparent bg-gradient-to-r from-orange-500/30 via-blue-500/40 to-orange-500/30 z-0 opacity-90 overflow-hidden">
+                  <div className="absolute inset-0 rounded-xl border border-transparent bg-gradient-to-r from-orange-500/30 via-blue-500/40 to-orange-500/30 z-5 opacity-90 overflow-hidden">
                     <div className="absolute inset-px rounded-[10px] bg-black"></div>
                   </div>
                   
                   {/* Animated subtle glow effect in the border */}
-                  <div className="absolute inset-0 rounded-xl overflow-hidden">
+                  <div className="absolute inset-0 rounded-xl overflow-hidden z-6">
                     <div className="absolute inset-0 opacity-40 bg-gradient-to-r from-orange-500/0 via-blue-500/50 to-orange-500/0 blur-sm animate-pulse-slow"></div>
                   </div>
-                  
-                  {/* Edge glow effect - enhanced intensity to match other cards */}
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/80 via-blue-500/80 to-orange-500/80 rounded-xl blur-md opacity-90 group-hover:opacity-100 transition-opacity duration-500"></div>
                   
                   {/* Badge removed per user request */}
                   
