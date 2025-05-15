@@ -786,7 +786,7 @@ const ContactSection = () => {
                     {/* Ambient glow behind icons */}
                     <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-amber-500/5 via-blue-500/5 to-blue-500/5 blur-[50px] opacity-50"></div>
                     
-                    <div className="flex space-x-6 inline-flex justify-center ml-10" style={{position: "relative", zIndex: 55}}>
+                    <div className="flex space-x-8 justify-center items-center" style={{position: "relative", zIndex: 55}}>
                       {/* Facebook Icon - Premium Enterprise Styling */}
                       <a 
                         href="https://facebook.com/praetoriansmartcoat" 
@@ -795,9 +795,9 @@ const ContactSection = () => {
                         className="group relative"
                       >
                         {/* Premium Icon Container */}
-                        <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-gray-900/95 backdrop-blur-xl rounded-full w-16 h-16 flex items-center justify-center shadow-[0_10px_30px_rgba(0,0,0,0.3)] z-55 group-hover:scale-110 transition-transform duration-500" style={{ position: 'relative' }}>
+                        <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-gray-900/95 backdrop-blur-xl rounded-full w-16 h-16 flex items-center justify-center shadow-[0_10px_30px_rgba(0,0,0,0.3)] z-55 group-hover:scale-110 transition-all duration-500">
                           {/* Premium gradient border effect - Blue variant */}
-                          <div className="absolute inset-0 p-0.5 rounded-full bg-gradient-to-r from-blue-500/50 via-transparent to-blue-600/50 opacity-70"></div>
+                          <div className="absolute inset-0 p-0.5 rounded-full bg-gradient-to-r from-blue-500/50 via-transparent to-blue-600/50 opacity-70 animate-pulse-slow"></div>
                           
                           {/* Inner highlight */}
                           <div className="absolute inset-0 rounded-full bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
@@ -805,15 +805,14 @@ const ContactSection = () => {
                           {/* Subtle glow effect */}
                           <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 shadow-[0_0_20px_rgba(59,130,246,0.6)]"></div>
                           
-                          {/* Icon */}
-                          <div className="absolute top-0 transform -translate-y-1/2 z-50">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" className="w-8 h-8 text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] transition-all duration-300">
-                              <path fill="currentColor" d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
-                            </svg>
-                          </div>
+                          {/* Icon - Perfectly centered */}
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" className="w-7 h-7 text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] transition-all duration-300 group-hover:text-blue-100">
+                            <path fill="currentColor" d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
+                          </svg>
                           
-                          {/* Animated concentric ring for enterprise effect */}
+                          {/* Animated concentric rings for enterprise effect */}
                           <div className="absolute inset-0 rounded-full border border-blue-500/20 scale-[1.15] opacity-0 group-hover:opacity-100 group-hover:scale-[1.4] transition-all duration-700"></div>
+                          <div className="absolute inset-0 rounded-full border border-blue-400/10 scale-[1.05] opacity-0 group-hover:opacity-100 group-hover:scale-[1.6] transition-all duration-1000 delay-100"></div>
                         </div>
                         
                         {/* Subtle bottom reflection */}
@@ -828,9 +827,9 @@ const ContactSection = () => {
                         className="group relative"
                       >
                         {/* Premium Icon Container */}
-                        <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-gray-900/95 backdrop-blur-xl rounded-full w-16 h-16 flex items-center justify-center shadow-[0_10px_30px_rgba(0,0,0,0.3)] z-30 group-hover:scale-110 transition-transform duration-500">
+                        <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-gray-900/95 backdrop-blur-xl rounded-full w-16 h-16 flex items-center justify-center shadow-[0_10px_30px_rgba(0,0,0,0.3)] z-30 group-hover:scale-110 transition-all duration-500">
                           {/* Premium gradient border effect - Red variant */}
-                          <div className="absolute inset-0 p-0.5 rounded-full bg-gradient-to-r from-red-500/50 via-transparent to-red-600/50 opacity-70"></div>
+                          <div className="absolute inset-0 p-0.5 rounded-full bg-gradient-to-r from-red-500/50 via-transparent to-red-600/50 opacity-70 animate-pulse-slow-delayed"></div>
                           
                           {/* Inner highlight */}
                           <div className="absolute inset-0 rounded-full bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
@@ -838,13 +837,14 @@ const ContactSection = () => {
                           {/* Subtle glow effect */}
                           <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 shadow-[0_0_20px_rgba(220,38,38,0.6)]"></div>
                           
-                          {/* Icon */}
-                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" className="w-8 h-8 text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] relative z-40 transition-all duration-300">
+                          {/* Icon - Perfectly centered */}
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" className="w-7 h-7 text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] transition-all duration-300 group-hover:text-red-100">
                             <path fill="currentColor" d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" />
                           </svg>
                           
-                          {/* Animated concentric ring for enterprise effect */}
-                          <div className="absolute inset-0 rounded-full border border-blue-500/20 scale-[1.15] opacity-0 group-hover:opacity-100 group-hover:scale-[1.4] transition-all duration-700"></div>
+                          {/* Animated concentric rings for enterprise effect */}
+                          <div className="absolute inset-0 rounded-full border border-red-500/20 scale-[1.15] opacity-0 group-hover:opacity-100 group-hover:scale-[1.4] transition-all duration-700"></div>
+                          <div className="absolute inset-0 rounded-full border border-red-400/10 scale-[1.05] opacity-0 group-hover:opacity-100 group-hover:scale-[1.6] transition-all duration-1000 delay-100"></div>
                         </div>
                         
                         {/* Subtle bottom reflection */}
