@@ -219,10 +219,11 @@ const ProductComparison = () => {
           <div className="grid grid-cols-12 gap-4 mb-6 relative">
             {/* Premium Card Container with mixed orange/blue styling - matching the bottom card */}
             <div className="col-span-12 relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black backdrop-blur-xl rounded-xl py-6 px-8 shadow-[0_10px_50px_rgba(0,0,0,0.5)] z-10 border border-orange-500/30 group hover:shadow-[0_0_25px_rgba(249,115,22,0.3)] transition-shadow duration-500">
-              {/* External glow effects - behind the card */}
-              <div className="absolute -inset-3 bg-gradient-to-r from-orange-600/30 via-blue-600/30 to-orange-600/30 rounded-2xl blur-2xl opacity-60 group-hover:opacity-80 transition-all duration-1000 animate-pulse-slow"></div>
+              {/* Multiple layered background effects - Mixed theme */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/40 via-blue-600/40 to-orange-600/40 rounded-xl blur-xl opacity-70 group-hover:opacity-100 group-hover:blur-xl transition-all duration-1000 animate-pulse-slow"></div>
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/80 via-blue-500/80 to-orange-500/80 rounded-xl blur-md opacity-90 group-hover:opacity-100 transition-all duration-500"></div>
               
-              {/* Subtle dots and squares pattern background for visible gray texture */}
+              {/* Subtle dots and squares pattern background in mixed colors */}
               <div className="absolute inset-0 opacity-30 z-0">
                 <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoMjMyLDEyMSw1OCwwLjI1KSIgZD0iTTAgMGgydjJIMHptMiAyaDJ2MkgyeiIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgZmlsbD0idXJsKCNhKSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPjwvc3ZnPg==')]"></div>
               </div>
@@ -286,10 +287,11 @@ const ProductComparison = () => {
               <div key={index} className="group relative transform transition-all duration-500 hover:scale-105 hover:z-10">
                 {/* Premium Card Container with full Specialized Application styling */}
                 <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black backdrop-blur-xl rounded-xl py-5 px-6 shadow-[0_10px_50px_rgba(0,0,0,0.5)] z-10 border border-orange-500/30 overflow-hidden">
-                  {/* External glow effects - behind the card */}
-                  <div className="absolute -inset-3 bg-gradient-to-r from-orange-600/30 via-blue-600/30 to-orange-600/30 rounded-2xl blur-2xl opacity-60 group-hover:opacity-80 transition-all duration-1000 animate-pulse-slow"></div>
+                  {/* Multiple layered background effects - Mixed theme */}
+                  <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/40 via-blue-600/40 to-orange-600/40 rounded-xl blur-xl opacity-70 group-hover:opacity-100 group-hover:blur-xl transition-all duration-1000 animate-pulse-slow"></div>
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/80 via-blue-500/80 to-orange-500/80 rounded-xl blur-md opacity-90 group-hover:opacity-100 transition-all duration-500"></div>
                   
-                  {/* Subtle dots and squares pattern background for visible gray texture */}
+                  {/* Subtle dots and squares pattern background in mixed colors */}
                   <div className="absolute inset-0 opacity-30 z-0">
                     <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoMjMyLDEyMSw1OCwwLjI1KSIgZD0iTTAgMGgydjJIMHptMiAyaDJ2MkgyeiIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgZmlsbD0idXJsKCNhKSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPjwvc3ZnPg==')]"></div>
                   </div>
