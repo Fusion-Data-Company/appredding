@@ -45,7 +45,7 @@ const FAQSection = ({ faqs }: FAQProps) => {
       <div className="container mx-auto px-4 relative z-20">
         {/* Enterprise grade header card with premium styling to match Testimonials */}
         <div className="text-center mb-16">
-          <div className="relative group mx-auto max-w-4xl mb-10 inline-block transform hover:scale-[1.02] transition-all duration-700 hover:-translate-y-1 hover:z-10">
+          <div className="relative group mx-auto max-w-5xl w-full mb-10 inline-block transform hover:scale-[1.02] transition-all duration-700 hover:-translate-y-1 hover:z-10">
             {/* Multiple layered background effects - matching "What Our Clients Say" */}
             <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/40 via-blue-600/40 to-orange-600/40 rounded-xl blur-xl opacity-70 group-hover:opacity-100 group-hover:blur-xl transition-all duration-1000 animate-pulse-slow"></div>
             <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/80 via-blue-500/80 to-orange-500/80 rounded-xl blur-md opacity-90 group-hover:opacity-100 transition-all duration-500"></div>
