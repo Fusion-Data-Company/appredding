@@ -31,8 +31,8 @@ const ProductHistorySection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           {/* Left column - NASA Technology Content */}
           <div className="relative group">
-            {/* NASA Badge with premium styling */}
-            <div className="absolute -top-12 -left-6 z-[100]">
+            {/* NASA Badge with premium styling - moved 1.5 inches up */}
+            <div className="absolute -top-36 -left-6 z-[100]">
               <div className="relative inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-orange-950/95 via-primary-950/95 to-blue-950/95 border border-orange-500/40 shadow-[0_10px_25px_rgba(0,0,0,0.5)]">
                 {/* Premium gradient border effect - Mixed variant */}
                 <div className="absolute inset-0 p-0.5 rounded-full bg-gradient-to-r from-orange-500/50 via-transparent to-blue-400/50 opacity-70"></div>
@@ -72,7 +72,7 @@ const ProductHistorySection = () => {
               <span className="relative text-white
                 drop-shadow-[0_0px_1px_rgba(251,113,36,0.2)] 
                 [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(251,146,60,0.3)]
-                transform -translate-y-[1.75in] text-5xl md:text-6xl lg:text-7xl font-bold">
+                transform -translate-y-[0.25in] text-5xl md:text-6xl lg:text-7xl font-bold">
                 Space Technology Heritage
               </span>
               
