@@ -375,26 +375,26 @@ const ProductHistorySection = () => {
                   <div className="overflow-x-auto relative z-10">
                     <table className="w-full text-lg">
                       <thead>
-                        <tr className="border-b border-orange-500/20">
-                          {/* Year column header with orange/red styling to match feature cards */}
+                        <tr className="border-b border-gray-600/30">
+                          {/* Year column header with gray styling */}
                           <th className="text-left py-6 px-6 text-xl relative z-20">
-                            {/* White text to match feature cards */}
+                            {/* White text */}
                             <span className="relative z-20 font-bold text-white drop-shadow-[0_2px_2px_rgba(0,0,0,0.3)]">
                               Year
                             </span>
                             
-                            {/* Animated orange/red underline */}
-                            <div className="absolute bottom-[6px] left-6 right-6 h-1 w-12 bg-gradient-to-r from-orange-600 to-red-600 rounded-full opacity-70 group-hover/table:w-1/4 transition-all duration-1000 shadow-[0_0_5px_rgba(251,113,36,0.6)]"></div>
+                            {/* Animated gray underline */}
+                            <div className="absolute bottom-[6px] left-6 right-6 h-1 w-12 bg-gradient-to-r from-gray-500/40 to-gray-600/40 rounded-full opacity-60 group-hover/table:w-1/4 transition-all duration-1000"></div>
                           </th>
                           
-                          {/* Innovation column header with orange/red styling */}
+                          {/* Innovation column header with gray styling */}
                           <th className="text-left py-6 px-6 text-xl relative z-20">
                             <span className="relative z-20 font-bold text-white drop-shadow-[0_2px_2px_rgba(0,0,0,0.3)]">
                               Innovation
                             </span>
                             
-                            {/* Animated orange/red underline */}
-                            <div className="absolute bottom-[6px] left-6 right-6 h-1 w-20 bg-gradient-to-r from-orange-600 to-red-600 rounded-full opacity-70 group-hover/table:w-1/3 transition-all duration-1000 shadow-[0_0_5px_rgba(251,113,36,0.6)]"></div>
+                            {/* Animated gray underline */}
+                            <div className="absolute bottom-[6px] left-6 right-6 h-1 w-20 bg-gradient-to-r from-gray-500/40 to-gray-600/40 rounded-full opacity-60 group-hover/table:w-1/3 transition-all duration-1000"></div>
                           </th>
                           
                           {/* Impact column header with subtle styling */}
@@ -431,25 +431,25 @@ const ProductHistorySection = () => {
                             description: "30-year inspection of original 1989 installations showed no deterioration and continued performance, confirming exceptional durability claims"
                           }
                         ].map((item, index) => (
-                          <tr key={index} className="border-b border-gray-600/30 group/row hover:bg-gradient-to-r hover:from-orange-950/10 hover:via-gray-900/10 hover:to-blue-950/10 transition-all duration-500">
-                            {/* Year column with mixed gradient styling */}
+                          <tr key={index} className="border-b border-gray-600/30 group/row hover:bg-gradient-to-r hover:from-gray-800/30 hover:via-gray-900/10 hover:to-gray-800/30 transition-all duration-500">
+                            {/* Year column with gray gradient styling */}
                             <td className="py-5 px-6 w-[120px] font-semibold text-xl relative z-10">
                               <div className="relative group/cell transform transition-all duration-300 hover:scale-105">
-                                {/* Plain white text to match feature cards */}
-                                <span className="text-orange-400 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] relative z-10">
+                                {/* Plain gray text */}
+                                <span className="text-gray-300 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] relative z-10">
                                   {item.year}
                                 </span>
                                 
-                                {/* Hover glow effect */}
-                                <div className="absolute -inset-2 bg-gradient-to-r from-orange-500/5 to-blue-500/5 rounded-lg blur-md opacity-0 group-hover/cell:opacity-100 transition-opacity duration-300 -z-10"></div>
+                                {/* Hover effect */}
+                                <div className="absolute -inset-2 bg-gradient-to-r from-gray-500/5 to-gray-600/5 rounded-lg blur-md opacity-0 group-hover/cell:opacity-100 transition-opacity duration-300 -z-10"></div>
                               </div>
                             </td>
                             
                             {/* Innovation column with hover effects */}
                             <td className="py-5 px-6 font-medium text-gray-100 group-hover/row:text-gray-200 transition-colors duration-300 relative">
                               <div className="relative transform transition-all duration-300 group-hover/row:translate-x-1">
-                                {/* Blue vertical accent on hover */}
-                                <div className="absolute -left-3 top-1/2 -translate-y-1/2 w-1 h-0 bg-gradient-to-b from-blue-500/0 via-blue-500/70 to-blue-500/0 rounded-full opacity-0 group-hover/row:opacity-100 group-hover/row:h-4/5 transition-all duration-500"></div>
+                                {/* Gray vertical accent on hover */}
+                                <div className="absolute -left-3 top-1/2 -translate-y-1/2 w-1 h-0 bg-gradient-to-b from-gray-500/0 via-gray-500/40 to-gray-500/0 rounded-full opacity-0 group-hover/row:opacity-100 group-hover/row:h-4/5 transition-all duration-500"></div>
                                 
                                 {item.title}
                               </div>
@@ -461,8 +461,8 @@ const ProductHistorySection = () => {
                                 {/* Text content */}
                                 {item.description}
                                 
-                                {/* Orange vertical accent on hover */}
-                                <div className="absolute -right-3 top-1/2 -translate-y-1/2 w-1 h-0 bg-gradient-to-b from-orange-500/0 via-orange-500/70 to-orange-500/0 rounded-full opacity-0 group-hover/row:opacity-100 group-hover/row:h-4/5 transition-all duration-500"></div>
+                                {/* Gray vertical accent on hover */}
+                                <div className="absolute -right-3 top-1/2 -translate-y-1/2 w-1 h-0 bg-gradient-to-b from-gray-500/0 via-gray-500/40 to-gray-500/0 rounded-full opacity-0 group-hover/row:opacity-100 group-hover/row:h-4/5 transition-all duration-500"></div>
                                 
                                 {/* Shimmer animation on hover */}
                                 <div className="absolute inset-0 opacity-0 group-hover/row:opacity-100 pointer-events-none transition-opacity duration-700 z-10 -translate-x-full group-hover/row:translate-x-full transition-transform duration-1500 ease-in-out"
@@ -480,22 +480,22 @@ const ProductHistorySection = () => {
                   </div>
                 </div>
                 
-                {/* Enhanced bottom reflection with mixed orange/blue theme */}
-                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2/3 h-[2px] bg-gradient-to-r from-orange-500/20 via-blue-500/20 to-orange-500/20 rounded-full blur-sm"></div>
+                {/* Enhanced bottom reflection with gray theme */}
+                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2/3 h-[2px] bg-gradient-to-r from-gray-600/20 via-gray-500/20 to-gray-600/20 rounded-full blur-sm"></div>
               </div>
             </div>
             
-            {/* Enhanced bottom effects with mixed orange/blue theme */}
-            <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-2/3 h-[2px] bg-gradient-to-r from-orange-500/20 via-blue-500/30 to-orange-500/20 rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
+            {/* Enhanced bottom effects with gray theme */}
+            <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-2/3 h-[2px] bg-gradient-to-r from-gray-600/20 via-gray-500/20 to-gray-600/20 rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
             
             {/* Floating particles - only appear on hover */}
             <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000 overflow-hidden pointer-events-none">
-              {/* Orange particle */}
-              <div className="absolute w-2 h-2 rounded-full bg-orange-500/30 blur-sm top-1/4 left-[10%] animate-float-slow"></div>
-              {/* Blue particle */}
-              <div className="absolute w-1.5 h-1.5 rounded-full bg-blue-500/30 blur-sm bottom-1/4 right-[15%] animate-float-slow-delayed"></div>
-              {/* Mixed particle */}
-              <div className="absolute w-1 h-1 rounded-full bg-gradient-to-r from-orange-500/20 to-blue-500/20 blur-sm top-1/2 right-[30%] animate-float-slower"></div>
+              {/* Gray particle 1 */}
+              <div className="absolute w-2 h-2 rounded-full bg-gray-500/30 blur-sm top-1/4 left-[10%] animate-float-slow"></div>
+              {/* Gray particle 2 */}
+              <div className="absolute w-1.5 h-1.5 rounded-full bg-gray-500/30 blur-sm bottom-1/4 right-[15%] animate-float-slow-delayed"></div>
+              {/* Gray particle 3 */}
+              <div className="absolute w-1 h-1 rounded-full bg-gray-600/20 blur-sm top-1/2 right-[30%] animate-float-slower"></div>
             </div>
           </div>
         </div>
