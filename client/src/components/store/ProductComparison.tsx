@@ -171,9 +171,9 @@ const ProductComparison = () => {
                     How Praetorian Outperforms the Competition
                   </div>
                   
-                  {/* Main text with premium gradient */}
-                  <span className="relative z-20 text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-amber-500 to-blue-500
-                    drop-shadow-[0_0px_1px_rgba(251,113,36,0.2)] 
+                  {/* Main text with white styling */}
+                  <span className="relative z-20 text-white
+                    drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] 
                     [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(251,146,60,0.3)]">
                     How Praetorian Outperforms the Competition
                   </span>
@@ -263,7 +263,7 @@ const ProductComparison = () => {
                 {/* Content */}
                 <div className="grid grid-cols-12 gap-4 items-center relative z-20">
                   <div className="col-span-4 font-bold text-lg">
-                    <span className="relative z-20 bg-gradient-to-r from-amber-300 to-orange-400 bg-clip-text text-transparent drop-shadow-[0_0px_1px_rgba(251,113,36,0.2)]">
+                    <span className="relative z-20 text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">
                       Feature
                     </span>
                   </div>

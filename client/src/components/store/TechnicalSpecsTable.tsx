@@ -152,9 +152,9 @@ const TechnicalSpecsTable = () => {
                     Performance Specifications
                   </div>
                   
-                  {/* Main text with premium gradient - matching mixed style */}
-                  <span className="shimmer-mixed-text relative text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-amber-500 to-blue-400
-                    drop-shadow-[0_2px_2px_rgba(0,0,0,0.3)] 
+                  {/* Main text with white styling */}
+                  <span className="relative text-white
+                    drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] 
                     [text-shadow:0_1px_1px_rgba(0,0,0,0.15)]
                     text-3xl md:text-4xl font-bold relative z-20">
                     Performance Specifications
