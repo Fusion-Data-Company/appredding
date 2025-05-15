@@ -48,7 +48,7 @@ const Technology = () => {
                 <span>NASA-DERIVED CERAMIC TECHNOLOGY</span>
               </div>
               
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-blue-300 via-white to-blue-300 bg-clip-text text-transparent mb-6 leading-tight max-w-4xl">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-orange-300 via-white to-blue-300 bg-clip-text text-transparent mb-6 leading-tight max-w-4xl">
                 Advanced Ceramic Coating Technology
               </h1>
               
