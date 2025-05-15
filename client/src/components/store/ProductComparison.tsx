@@ -219,13 +219,12 @@ const ProductComparison = () => {
           <div className="grid grid-cols-12 gap-4 mb-6 relative">
             {/* Premium Card Container with mixed orange/blue styling - matching the bottom card */}
             <div className="col-span-12 relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black backdrop-blur-xl rounded-xl py-6 px-8 shadow-[0_10px_50px_rgba(0,0,0,0.5)] z-10 border border-orange-500/30 group hover:shadow-[0_0_25px_rgba(249,115,22,0.3)] transition-shadow duration-500">
-              {/* Multiple layered background effects - Mixed orange/blue theme */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/40 via-blue-600/40 to-orange-600/40 rounded-xl blur-xl opacity-70 group-hover:opacity-100 group-hover:blur-xl transition-all duration-1000 animate-pulse-slow"></div>
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/80 via-blue-500/80 to-orange-500/80 rounded-xl blur-md opacity-90 group-hover:opacity-100 transition-all duration-500"></div>
+              {/* External glow effects - behind the card */}
+              <div className="absolute -inset-3 bg-gradient-to-r from-orange-600/30 via-blue-600/30 to-orange-600/30 rounded-2xl blur-2xl opacity-60 group-hover:opacity-80 transition-all duration-1000 animate-pulse-slow"></div>
               
-              {/* Subtle dots and squares pattern background in mixed colors */}
-              <div className="absolute inset-0 opacity-25 z-0">
-                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoMjMyLDEyMSw1OCwwLjMpIiBkPSJNMCAwaDJ2Mkgwem0yIDJoMnYySDJ6Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCBmaWxsPSJ1cmwoI2EpIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIi8+PC9zdmc+')]"></div>
+              {/* Subtle dots and squares pattern background for visible gray texture */}
+              <div className="absolute inset-0 opacity-30 z-0">
+                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoMjMyLDEyMSw1OCwwLjI1KSIgZD0iTTAgMGgydjJIMHptMiAyaDJ2MkgyeiIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgZmlsbD0idXJsKCNhKSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPjwvc3ZnPg==')]"></div>
               </div>
               
               {/* Inner highlight */}
@@ -287,42 +286,42 @@ const ProductComparison = () => {
               <div key={index} className="group relative transform transition-all duration-500 hover:scale-105 hover:z-10">
                 {/* Premium Card Container with full Specialized Application styling */}
                 <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black backdrop-blur-xl rounded-xl py-5 px-6 shadow-[0_10px_50px_rgba(0,0,0,0.5)] z-10 border border-orange-500/30 overflow-hidden">
-                  {/* Multiple layered background effects */}
-                  <div className="absolute -inset-px bg-gradient-to-r from-orange-600/20 via-red-600/20 to-amber-600/20 rounded-xl blur-sm opacity-70 group-hover:opacity-100 transition-all duration-500"></div>
+                  {/* External glow effects - behind the card */}
+                  <div className="absolute -inset-3 bg-gradient-to-r from-orange-600/30 via-blue-600/30 to-orange-600/30 rounded-2xl blur-2xl opacity-60 group-hover:opacity-80 transition-all duration-1000 animate-pulse-slow"></div>
                   
-                  {/* Subtle dots and squares pattern background */}
-                  <div className="absolute inset-0 opacity-15 z-0">
-                    <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoMjQ5LDExNSwyMiwwLjQpIiBkPSJNMCAwaDJ2Mkgwem0yIDJoMnYySDJ6Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCBmaWxsPSJ1cmwoI2EpIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIi8+PC9zdmc+')]"></div>
+                  {/* Subtle dots and squares pattern background for visible gray texture */}
+                  <div className="absolute inset-0 opacity-30 z-0">
+                    <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoMjMyLDEyMSw1OCwwLjI1KSIgZD0iTTAgMGgydjJIMHptMiAyaDJ2MkgyeiIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgZmlsbD0idXJsKCNhKSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPjwvc3ZnPg==')]"></div>
                   </div>
                   
                   {/* Inner highlight */}
                   <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
                   
-                  {/* Ambient glow effects */}
-                  <div className="absolute -top-15 -right-15 w-40 h-40 bg-orange-600/10 rounded-full filter blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-                  <div className="absolute -bottom-15 -left-15 w-40 h-40 bg-orange-500/15 rounded-full filter blur-[70px] opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                  {/* Ambient glow effects - mixed orange/blue */}
+                  <div className="absolute -top-20 -right-20 w-40 h-40 bg-orange-600/15 rounded-full filter blur-[100px] animate-pulse-slow-delayed"></div>
+                  <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-blue-500/20 rounded-full filter blur-[100px] animate-pulse-slow"></div>
                   
-                  {/* Corner accent lines - smaller for comparison cards */}
+                  {/* Corner accent lines - with mixed orange/blue theme */}
                   <div className="absolute top-0 left-0 w-6 h-6 pointer-events-none z-10">
                     <div className="absolute top-0 left-0 w-3 h-3 border-t-[1px] border-l-[1px] border-orange-500/70 rounded-tl-lg"></div>
                     <div className="absolute top-0 left-0 w-1 h-1 bg-orange-500/50 rounded-full blur-[1px]"></div>
                   </div>
                   <div className="absolute top-0 right-0 w-6 h-6 pointer-events-none z-10">
-                    <div className="absolute top-0 right-0 w-3 h-3 border-t-[1px] border-r-[1px] border-red-500/70 rounded-tr-lg"></div>
-                    <div className="absolute top-0 right-0 w-1 h-1 bg-red-500/50 rounded-full blur-[1px]"></div>
+                    <div className="absolute top-0 right-0 w-3 h-3 border-t-[1px] border-r-[1px] border-blue-500/70 rounded-tr-lg"></div>
+                    <div className="absolute top-0 right-0 w-1 h-1 bg-blue-500/50 rounded-full blur-[1px]"></div>
                   </div>
                   <div className="absolute bottom-0 left-0 w-6 h-6 pointer-events-none z-10">
                     <div className="absolute bottom-0 left-0 w-3 h-3 border-b-[1px] border-l-[1px] border-orange-500/70 rounded-bl-lg"></div>
                     <div className="absolute bottom-0 left-0 w-1 h-1 bg-orange-500/50 rounded-full blur-[1px]"></div>
                   </div>
                   <div className="absolute bottom-0 right-0 w-6 h-6 pointer-events-none z-10">
-                    <div className="absolute bottom-0 right-0 w-3 h-3 border-b-[1px] border-r-[1px] border-red-500/70 rounded-br-lg"></div>
-                    <div className="absolute bottom-0 right-0 w-1 h-1 bg-red-500/50 rounded-full blur-[1px]"></div>
+                    <div className="absolute bottom-0 right-0 w-3 h-3 border-b-[1px] border-r-[1px] border-blue-500/70 rounded-br-lg"></div>
+                    <div className="absolute bottom-0 right-0 w-1 h-1 bg-blue-500/50 rounded-full blur-[1px]"></div>
                   </div>
                   
-                  {/* Subtle ambient glow that activates on hover */}
+                  {/* Subtle ambient glow that activates on hover - updated with mixed theme */}
                   <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-30 transition-opacity duration-700 ease-in-out" 
-                      style={{ background: "radial-gradient(circle at center, rgba(251,113,36,0.3) 0%, transparent 70%)" }}>
+                      style={{ background: "radial-gradient(circle at center, rgba(59,130,246,0.2) 0%, rgba(251,113,36,0.2) 50%, transparent 80%)" }}>
                   </div>
                   
                   {/* Content with z-index to appear above effects */}
@@ -400,9 +399,9 @@ const ProductComparison = () => {
             
             {/* Main card container */}
             <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black backdrop-blur-xl rounded-xl py-4 px-8 z-10 border border-orange-500/30 overflow-hidden group hover:shadow-[0_0_25px_rgba(249,115,22,0.3)] transition-shadow duration-500">
-              {/* Subtle dots and squares pattern background in mixed colors */}
-              <div className="absolute inset-0 opacity-25 z-0">
-                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoMjMyLDEyMSw1OCwwLjMpIiBkPSJNMCAwaDJ2Mkgwem0yIDJoMnYySDJ6Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCBmaWxsPSJ1cmwoI2EpIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIi8+PC9zdmc+')]"></div>
+              {/* Subtle dots and squares pattern background for visible gray texture */}
+              <div className="absolute inset-0 opacity-30 z-0">
+                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoMjMyLDEyMSw1OCwwLjI1KSIgZD0iTTAgMGgydjJIMHptMiAyaDJ2MkgyeiIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgZmlsbD0idXJsKCNhKSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPjwvc3ZnPg==')]"></div>
               </div>
               
               {/* Ambient glow effects - positioned away from text */}
