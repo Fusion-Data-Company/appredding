@@ -65,23 +65,22 @@ const ProductPerformanceSection = () => {
               {/* Spacer to maintain layout */}
               <div className="h-6 mb-6"></div>
               
-              {/* Shimmer heading */}
-              <div className="relative z-10 mb-8 px-6 py-2 overflow-hidden">
+              {/* Shimmer heading - Centered with improved styling */}
+              <div className="relative z-10 mb-8 px-6 py-2 overflow-hidden text-center">
                 {/* Animated glow behind text */}
                 <div className="absolute inset-0 bg-gradient-to-r from-orange-600/10 via-blue-500/20 to-orange-600/10 opacity-50 blur-xl animate-pulse-slow"></div>
                 
-                {/* Heading with enhanced enterprise styling and shadows */}
-                <div className="shimmer-fire-text font-bold text-5xl tracking-tight relative z-10">
+                {/* Heading with enhanced enterprise styling and shadows - properly centered */}
+                <div className="mx-auto shimmer-fire-text font-bold text-5xl tracking-tight relative z-10 inline-block">
                   {/* Background glow for letter definition */}
                   <div className="absolute inset-0 flex justify-center items-center text-5xl font-bold tracking-tight text-orange-900/10 blur-[5px] scale-110">
                     Product Performance Data
                   </div>
                   
-                  {/* Main text with white color - matching testimonials section */}
+                  {/* Main text with white color - matching testimonials section - centered */}
                   <span className="relative text-white
-                    drop-shadow-[0_0px_1px_rgba(251,113,36,0.2)] 
-                    [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(251,146,60,0.3)]
-                    transform -translate-y-[0.25in]">
+                    drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] 
+                    [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(251,146,60,0.3)]">
                     Product Performance Data
                   </span>
                   
@@ -89,13 +88,16 @@ const ProductPerformanceSection = () => {
                   <div className="absolute top-0 left-0 right-0 h-[40%] bg-gradient-to-b from-white/10 to-transparent rounded-t-lg"></div>
                 </div>
                 
-                {/* Multiple text shadows for depth - reduced blur effects */}
+                {/* Multiple text shadows for depth - reduced blur effects - properly centered */}
                 <div className="absolute inset-0 flex items-center justify-center text-5xl font-bold tracking-tight opacity-10 blur-[3px] text-orange-700/30 -z-10 transform scale-105">
                   Product Performance Data
                 </div>
                 <div className="absolute inset-0 flex items-center justify-center text-5xl font-bold tracking-tight opacity-20 blur-[1px] text-red-900/20 -z-10">
                   Product Performance Data
                 </div>
+                
+                {/* Animated underline with mixed-themed gradient for better centering */}
+                <div className="w-48 h-1 bg-gradient-to-r from-orange-500 via-blue-500 to-orange-500 mx-auto mt-4 rounded-full animate-pulse-slow"></div>
               </div>
             </div>
           </div>
@@ -115,20 +117,24 @@ const ProductPerformanceSection = () => {
               {/* Content */}
               <div className="relative z-10">
                 {/* Enhanced Premium Heading Container */}
-                {/* Premium Enterprise NASA-Grade Testing Protocols Header Card */}
-                <div className="relative mb-14 group/card">
-                  {/* Enhanced ambient glow effects - positioned BEHIND the card */}
-                  <div className="absolute -top-20 -right-20 w-72 h-72 bg-orange-600/20 rounded-full filter blur-[100px] opacity-80 animate-pulse-slow pointer-events-none"></div>
-                  <div className="absolute -bottom-20 -left-20 w-72 h-72 bg-blue-600/25 rounded-full filter blur-[100px] opacity-80 animate-pulse-slow-delayed pointer-events-none"></div>
+                {/* Premium Enterprise NASA-Grade Testing Protocols Header Card - Enhanced to match "What Our Clients Say" card styling */}
+                <div className="relative mb-14 group/card transform transition-all duration-500 hover:scale-[1.01] hover:-translate-y-1 hover:z-10">
+                  {/* Multiple layered background effects */}
+                  <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/40 via-blue-600/40 to-orange-600/40 rounded-xl blur-xl opacity-70 group-hover/card:opacity-100 group-hover/card:blur-xl transition-all duration-1000 animate-pulse-slow"></div>
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/80 via-blue-500/80 to-orange-500/80 rounded-xl blur-md opacity-90 group-hover/card:opacity-100 transition-all duration-300"></div>
                   
                   {/* Main card container with grey gradient background */}
-                  <div className="relative z-10 bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 backdrop-blur-md rounded-xl p-10 border border-transparent overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.3)] transform transition-all duration-500 group-hover/card:shadow-[0_15px_50px_rgba(0,0,0,0.4)]">
-                    {/* Inner border glow effect */}
-                    <div className="absolute inset-0 rounded-xl border border-transparent bg-gradient-to-r from-orange-500/30 via-blue-500/40 to-orange-500/30 z-0 opacity-90 overflow-hidden pointer-events-none">
-                      <div className="absolute inset-px rounded-[10px] bg-black"></div>
+                  <div className="relative z-10 bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 backdrop-blur-xl rounded-xl p-10 border border-orange-500/30 overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.3)] transform transition-all duration-500 group-hover/card:shadow-[0_15px_50px_rgba(249,115,22,0.3)]">
+                    {/* Subtle dots and squares pattern background */}
+                    <div className="absolute inset-0 opacity-25 z-0">
+                      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoMjMyLDEyMSw1OCwwLjMpIiBkPSJNMCAwaDJ2Mkgwem0yIDJoMnYySDJ6Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCBmaWxsPSJ1cmwoI2EpIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIi8+PC9zdmc+')]"></div>
                     </div>
                     
-                    {/* Animated corner accents */}
+                    {/* Ambient glow effects - positioned away from text */}
+                    <div className="absolute -top-40 -right-20 w-60 h-60 bg-orange-600/15 rounded-full filter blur-[120px] animate-pulse-slow-delayed"></div>
+                    <div className="absolute -bottom-40 -left-20 w-60 h-60 bg-blue-500/20 rounded-full filter blur-[120px] animate-pulse-slow"></div>
+                    
+                    {/* Corner accent with uniform styling across all corners */}
                     <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none z-10">
                       <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-orange-500/70 rounded-tl-lg"></div>
                       <div className="absolute top-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
@@ -138,36 +144,55 @@ const ProductPerformanceSection = () => {
                       <div className="absolute top-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
                     </div>
                     <div className="absolute bottom-0 left-0 w-16 h-16 pointer-events-none z-10">
-                      <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-blue-500/70 rounded-bl-lg"></div>
-                      <div className="absolute bottom-0 left-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
+                      <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-orange-500/70 rounded-bl-lg"></div>
+                      <div className="absolute bottom-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
                     </div>
                     <div className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none z-10">
-                      <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-orange-500/70 rounded-br-lg"></div>
-                      <div className="absolute bottom-0 right-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+                      <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-blue-500/70 rounded-br-lg"></div>
+                      <div className="absolute bottom-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
                     </div>
-                    
-                    {/* Subtle animated background pattern */}
-                    <div className="absolute inset-0 opacity-5 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9IiNmZmZmZmYiIGQ9Ik0wIDBoMnYySDB6bTIgMmgydjJIMnoiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IGZpbGw9InVybCgjYSkiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiLz48L3N2Zz4=')] z-0 pointer-events-none"></div>
                     
                     {/* Content container with proper z-index */}
                     <div className="relative z-20 text-center">
-                      {/* Heading text with white color and enhanced drop shadow */}
-                      <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white tracking-tight drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)] relative">
-                        NASA-Grade Testing Protocols
-                      </h2>
-                      
-                      {/* Enhanced animated underline with pulsing effect */}
-                      <div className="w-48 h-1 bg-gradient-to-r from-orange-500 via-blue-500 to-orange-500 mx-auto mb-8 rounded-full animate-pulse-slow"></div>
+                      {/* Premium card header styling matching testimonials card */}
+                      <div className="relative h-20 flex items-center justify-center">
+                        {/* Animated glow behind heading with mixed colors */}
+                        <div className="absolute inset-0 bg-gradient-to-r from-orange-600/10 via-blue-500/20 to-orange-600/10 opacity-50 blur-xl animate-pulse-slow-delayed"></div>
+                        
+                        {/* Background blur text */}
+                        <div className="absolute inset-0 flex justify-center items-center text-5xl font-bold tracking-tight text-orange-900/10 blur-[5px] scale-110 opacity-50">
+                          NASA-Grade Testing Protocols
+                        </div>
+                        
+                        {/* Main text with white styling */}
+                        <span className="relative text-white
+                          drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] 
+                          [text-shadow:0_1px_1px_rgba(0,0,0,0.15)]
+                          text-3xl md:text-4xl lg:text-5xl font-bold z-20">
+                          NASA-Grade Testing Protocols
+                        </span>
+                        
+                        {/* Multiple text shadows for depth - reduced blur effects */}
+                        <div className="absolute inset-0 flex justify-center items-center text-5xl font-bold tracking-tight opacity-10 blur-[3px] text-orange-700/30 -z-10 transform scale-105">
+                          NASA-Grade Testing Protocols
+                        </div>
+                        
+                        {/* Animated underline with mixed-themed gradient */}
+                        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-20 h-0.5 bg-gradient-to-r from-orange-500 to-blue-500 group-hover/card:w-48 transition-all duration-700 rounded-full opacity-70 shadow-[0_0_5px_rgba(251,113,36,0.4),_0_0_5px_rgba(59,130,246,0.4)]"></div>
+                      </div>
                       
                       {/* Enhanced paragraph with better spacing and readability */}
-                      <p className="text-xl text-gray-200 max-w-4xl mx-auto leading-relaxed">
+                      <p className="text-gray-200 text-lg md:text-xl relative z-20 mt-8 font-medium">
                         Our triple-component system utilizes vacuum-filled ceramic microspheres in a water-based acrylic elastomeric polymer with 156% elongation capability. This advanced ceramic technology provides exceptional thermal insulation properties and fire resistance across a wide range of applications.
                       </p>
                       
-                      {/* Subtle animated glow effect at the bottom */}
-                      <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-3/4 h-[2px] bg-gradient-to-r from-transparent via-blue-500/30 to-transparent rounded-full blur-sm opacity-70 animate-pulse-slow"></div>
+                      {/* Decorative horizontal line - matching testimonial card */}
+                      <div className="absolute left-1/2 bottom-2 transform -translate-x-1/2 w-20 h-0.5 bg-gradient-to-r from-orange-600 via-amber-500 to-blue-600 rounded-full opacity-70 group-hover/card:w-40 transition-all duration-1000 shadow-[0_0_5px_rgba(251,113,36,0.6)]"></div>
                     </div>
                   </div>
+                  
+                  {/* Subtle bottom reflection with dual-color gradient */}
+                  <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2/3 h-[2px] bg-gradient-to-r from-transparent via-white/10 to-transparent rounded-full blur-sm"></div>
                 </div>
                 
                 {/* Enhanced Content Grid */}
@@ -175,18 +200,36 @@ const ProductPerformanceSection = () => {
                   {/* Testing Protocols Side */}
                   <div>
                     <div className="space-y-10">
-                      {/* Protocol Item 1 - Fire Testing - Premium Enterprise Style */}
+                      {/* Protocol Item 1 - Fire Testing - Premium Enterprise Style matching "What Our Clients Say" card */}
                       <div className="group/item relative hover:z-10 transform transition-all duration-500 hover:scale-[1.02] rounded-xl p-6">
-                        {/* Enhanced ambient glow - positioned BEHIND the item */}
-                        <div className="absolute -top-5 -right-5 w-48 h-48 bg-orange-600/15 rounded-full filter blur-[70px] opacity-0 group-hover/item:opacity-70 transition-opacity duration-500 pointer-events-none"></div>
-                        <div className="absolute -bottom-5 -left-5 w-48 h-48 bg-blue-600/20 rounded-full filter blur-[70px] opacity-0 group-hover/item:opacity-70 transition-opacity duration-500 pointer-events-none"></div>
+                        {/* Multiple layered background effects for premium glow */}
+                        <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/40 via-blue-600/40 to-orange-600/40 rounded-xl blur-xl opacity-0 group-hover/item:opacity-70 group-hover/item:blur-xl transition-all duration-1000 animate-pulse-slow"></div>
+                        <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/30 via-blue-500/30 to-orange-500/30 rounded-xl blur-md opacity-0 group-hover/item:opacity-90 transition-all duration-300"></div>
                         
-                        {/* Card Background with gradient - positioned in front of glows */}
-                        <div className="absolute inset-0 bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 backdrop-blur-md rounded-xl z-10 opacity-0 group-hover/item:opacity-100 transition-opacity duration-500">
-                          {/* Inner border glow effect */}
-                          <div className="absolute inset-0 rounded-xl border border-transparent bg-gradient-to-r from-orange-500/30 via-blue-500/40 to-orange-500/30 z-0 opacity-90 overflow-hidden pointer-events-none">
-                            <div className="absolute inset-px rounded-[10px] bg-black"></div>
+                        {/* Card Background with gradient - with consistent styling */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 backdrop-blur-xl rounded-xl z-10 opacity-0 group-hover/item:opacity-100 transition-opacity duration-500 border border-orange-500/30 overflow-hidden">
+                          {/* Subtle dots and squares pattern background */}
+                          <div className="absolute inset-0 opacity-25 z-0">
+                            <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoMjMyLDEyMSw1OCwwLjMpIiBkPSJNMCAwaDJ2Mkgwem0yIDJoMnYySDJ6Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCBmaWxsPSJ1cmwoI2EpIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIi8+PC9zdmc+')]"></div>
                           </div>
+                        </div>
+                        
+                        {/* Corner accent with uniform styling across all corners */}
+                        <div className="absolute top-0 left-0 w-12 h-12 pointer-events-none z-20 opacity-0 group-hover/item:opacity-100 transition-opacity duration-500">
+                          <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-orange-500/70 rounded-tl-lg"></div>
+                          <div className="absolute top-0 left-0 w-2 h-2 bg-orange-500/50 rounded-full blur-[2px]"></div>
+                        </div>
+                        <div className="absolute top-0 right-0 w-12 h-12 pointer-events-none z-20 opacity-0 group-hover/item:opacity-100 transition-opacity duration-500">
+                          <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-blue-500/70 rounded-tr-lg"></div>
+                          <div className="absolute top-0 right-0 w-2 h-2 bg-blue-500/50 rounded-full blur-[2px]"></div>
+                        </div>
+                        <div className="absolute bottom-0 left-0 w-12 h-12 pointer-events-none z-20 opacity-0 group-hover/item:opacity-100 transition-opacity duration-500">
+                          <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-orange-500/70 rounded-bl-lg"></div>
+                          <div className="absolute bottom-0 left-0 w-2 h-2 bg-orange-500/50 rounded-full blur-[2px]"></div>
+                        </div>
+                        <div className="absolute bottom-0 right-0 w-12 h-12 pointer-events-none z-20 opacity-0 group-hover/item:opacity-100 transition-opacity duration-500">
+                          <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-blue-500/70 rounded-br-lg"></div>
+                          <div className="absolute bottom-0 right-0 w-2 h-2 bg-blue-500/50 rounded-full blur-[2px]"></div>
                         </div>
                         
                         <div className="flex items-start gap-6 relative z-20">
