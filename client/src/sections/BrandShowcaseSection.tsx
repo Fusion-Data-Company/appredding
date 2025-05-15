@@ -1,6 +1,7 @@
 import React from "react";
 import { GradientHeading } from "@/components/ui/gradient-heading";
 import { PremiumButton } from "@/components/ui/premium-button";
+import PremiumBadge from "@/components/ui/premium-badge";
 import praetorianBrandImage from '../assets_dir/images/optimized/praetorian-brand-showcase.webp';
 import backgroundImg from "../assets_dir/images/optimized/praetorian-background-new.png";
 
@@ -184,46 +185,50 @@ const BrandShowcaseSection = () => {
             {/* Text side with premium enhancements */}
             <div className="order-1 md:order-2">
               <div className="relative group transform hover:scale-[1.02] transition-all duration-500 hover:-translate-y-1 hover:z-10">
-                <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/98 to-gray-900/95 backdrop-blur-xl rounded-xl p-8 shadow-[0_10px_50px_rgba(0,0,0,0.5)] z-10 space-y-8">
-                  {/* Multiple layered background effects - Mixed theme */}
-                  <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/40 via-blue-600/40 to-orange-600/40 rounded-xl blur-xl opacity-70 group-hover:opacity-100 group-hover:blur-xl transition-all duration-1000 animate-pulse-slow"></div>
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/80 via-blue-500/80 to-orange-500/80 rounded-xl blur-md opacity-90 group-hover:opacity-100 transition-all duration-500"></div>
+                <div className="relative bg-gradient-to-br from-black/90 via-gray-950/95 to-black/90 backdrop-blur-xl rounded-xl p-8 shadow-[0_10px_50px_rgba(0,0,0,0.5)] z-10 space-y-8 border border-orange-500/10">
+                  {/* Updated background gradient matching site style */}
+                  <div className="absolute -inset-px bg-gradient-to-r from-orange-500/10 via-blue-500/20 to-orange-500/10 rounded-xl blur-md"></div>
+                  <div className="absolute inset-px rounded-xl bg-gradient-to-b from-black/90 via-gray-900/95 to-black/90"></div>
                   
-                  {/* Subtle dots and squares pattern background in mixed colors */}
-                  <div className="absolute inset-0 opacity-30 z-0">
-                    <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoNjAsMTQwLDI0MCwwLjI1KSIgZD0iTTAgMGgydjJIMHptMiAyaDJ2MkgyeiIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgZmlsbD0idXJsKCNhKSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPjwvc3ZnPg==')]"></div>
+                  {/* Premium gradient border */}
+                  <div className="absolute inset-0 rounded-xl border border-transparent bg-gradient-to-r from-orange-500/20 via-blue-500/30 to-orange-500/20 z-0 opacity-90 overflow-hidden">
+                    <div className="absolute inset-px rounded-[10px] bg-black"></div>
                   </div>
                   
-                  {/* Ambient glow effects - positioned away from text */}
-                  <div className="absolute -top-20 -right-20 w-60 h-60 bg-orange-600/15 rounded-full filter blur-[100px] animate-pulse-slow-delayed"></div>
-                  <div className="absolute -bottom-20 -left-20 w-60 h-60 bg-blue-500/20 rounded-full filter blur-[100px] animate-pulse-slow"></div>
+                  {/* Updated ambient glow effects to match other sections */}
+                  <div className="absolute -top-20 -right-20 w-72 h-72 bg-orange-500/10 rounded-full filter blur-[100px] opacity-70"></div>
+                  <div className="absolute -bottom-20 -left-20 w-72 h-72 bg-blue-500/15 rounded-full filter blur-[100px] opacity-70"></div>
                   
-                  {/* Corner accent lines - with mixed orange/blue theme */}
-                  <div className="absolute top-0 left-0 w-8 h-8 pointer-events-none z-10">
-                    <div className="absolute top-0 left-0 w-4 h-4 border-t-[1px] border-l-[1px] border-orange-500/70 rounded-tl-lg"></div>
-                    <div className="absolute top-0 left-0 w-1.5 h-1.5 bg-orange-500/50 rounded-full blur-[1px]"></div>
+                  {/* Corner accent lines - matching other premium sections */}
+                  <div className="absolute top-0 left-0 w-20 h-20 pointer-events-none z-10">
+                    <div className="absolute top-0 left-0 w-10 h-10 border-t-2 border-l-2 border-orange-500/70 rounded-tl-lg"></div>
+                    <div className="absolute top-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
                   </div>
-                  <div className="absolute top-0 right-0 w-8 h-8 pointer-events-none z-10">
-                    <div className="absolute top-0 right-0 w-4 h-4 border-t-[1px] border-r-[1px] border-blue-500/70 rounded-tr-lg"></div>
-                    <div className="absolute top-0 right-0 w-1.5 h-1.5 bg-blue-500/50 rounded-full blur-[1px]"></div>
+                  <div className="absolute top-0 right-0 w-20 h-20 pointer-events-none z-10">
+                    <div className="absolute top-0 right-0 w-10 h-10 border-t-2 border-r-2 border-blue-500/70 rounded-tr-lg"></div>
+                    <div className="absolute top-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
                   </div>
-                  <div className="absolute bottom-0 left-0 w-8 h-8 pointer-events-none z-10">
-                    <div className="absolute bottom-0 left-0 w-4 h-4 border-b-[1px] border-l-[1px] border-orange-500/70 rounded-bl-lg"></div>
-                    <div className="absolute bottom-0 left-0 w-1.5 h-1.5 bg-orange-500/50 rounded-full blur-[1px]"></div>
+                  <div className="absolute bottom-0 left-0 w-20 h-20 pointer-events-none z-10">
+                    <div className="absolute bottom-0 left-0 w-10 h-10 border-b-2 border-l-2 border-orange-500/70 rounded-bl-lg"></div>
+                    <div className="absolute bottom-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
                   </div>
-                  <div className="absolute bottom-0 right-0 w-8 h-8 pointer-events-none z-10">
-                    <div className="absolute bottom-0 right-0 w-4 h-4 border-b-[1px] border-r-[1px] border-blue-500/70 rounded-br-lg"></div>
-                    <div className="absolute bottom-0 right-0 w-1.5 h-1.5 bg-blue-500/50 rounded-full blur-[1px]"></div>
+                  <div className="absolute bottom-0 right-0 w-20 h-20 pointer-events-none z-10">
+                    <div className="absolute bottom-0 right-0 w-10 h-10 border-b-2 border-r-2 border-blue-500/70 rounded-br-lg"></div>
+                    <div className="absolute bottom-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
                   </div>
                   
-                  {/* Decorative horizontal line - matching other cards */}
-                  <div className="absolute left-1/2 bottom-2 transform -translate-x-1/2 w-16 h-0.5 bg-gradient-to-r from-orange-600 via-amber-500 to-blue-600 rounded-full opacity-60 group-hover:w-1/3 transition-all duration-1000 shadow-[0_0_4px_rgba(251,113,36,0.4),_0_0_4px_rgba(59,130,246,0.4)]"></div>
+                  {/* Premium badge positioned completely outside the card */}
+                  <div className="relative w-full">
+                    <PremiumBadge>
+                      ENTERPRISE GRADE
+                    </PremiumBadge>
+                  </div>
                   
-                  {/* Feature item 1 - Fire theme */}
+                  {/* Feature item 1 - Updated with consistent orange-blue gradient */}
                   <div className="group/item relative transform transition-all duration-500 hover:translate-x-1 hover:z-10 rounded-xl p-4">
-                    {/* Enhanced heading with subtle effects */}
+                    {/* Enhanced heading with consistent gradient */}
                     <div className="relative mb-3 pb-2">
-                      <h3 className="text-2xl font-semibold bg-gradient-to-r from-amber-300 via-orange-500 to-blue-500 bg-clip-text text-transparent drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">
+                      <h3 className="text-2xl font-semibold bg-gradient-to-r from-orange-400 via-amber-300 to-blue-400 bg-clip-text text-transparent drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">
                         Enterprise-Grade Protection
                       </h3>
                       
@@ -235,27 +240,27 @@ const BrandShowcaseSection = () => {
                     </p>
                   </div>
                   
-                  {/* Feature item 2 - Blue theme */}
+                  {/* Feature item 2 - Updated with consistent orange-blue gradient */}
                   <div className="group/item relative transform transition-all duration-500 hover:translate-x-1 hover:z-10 rounded-xl p-4">
-                    {/* Enhanced heading with subtle effects */}
+                    {/* Enhanced heading with consistent gradient */}
                     <div className="relative mb-3 pb-2">
-                      <h3 className="text-2xl font-semibold bg-gradient-to-r from-blue-300 via-cyan-400 to-blue-500 bg-clip-text text-transparent drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">
+                      <h3 className="text-2xl font-semibold bg-gradient-to-r from-orange-400 via-amber-300 to-blue-400 bg-clip-text text-transparent drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">
                         Advanced Ceramic Technology
                       </h3>
                       
                       {/* Animated underline that extends on hover */}
-                      <div className="absolute bottom-0 left-0 w-1/3 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-400 group-hover/item:w-1/2 transition-all duration-700 rounded-full opacity-70 shadow-[0_0_5px_rgba(59,130,246,0.6)]"></div>
+                      <div className="absolute bottom-0 left-0 w-1/3 h-0.5 bg-gradient-to-r from-orange-500 to-blue-500 group-hover/item:w-1/2 transition-all duration-700 rounded-full opacity-70 shadow-[0_0_5px_rgba(59,130,246,0.6)]"></div>
                     </div>
                     <p className="text-gray-300">
                       Utilizing ceramic microsphere technology developed from aerospace research, our coatings create an impenetrable protective barrier with exceptional durability.
                     </p>
                   </div>
                   
-                  {/* Feature item 3 - Mixed theme */}
+                  {/* Feature item 3 - Updated with consistent orange-blue gradient */}
                   <div className="group/item relative transform transition-all duration-500 hover:translate-x-1 hover:z-10 rounded-xl p-4">
-                    {/* Enhanced heading with subtle effects */}
+                    {/* Enhanced heading with consistent gradient */}
                     <div className="relative mb-3 pb-2">
-                      <h3 className="text-2xl font-semibold bg-gradient-to-r from-amber-300 via-orange-400 to-blue-400 bg-clip-text text-transparent drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">
+                      <h3 className="text-2xl font-semibold bg-gradient-to-r from-orange-400 via-amber-300 to-blue-400 bg-clip-text text-transparent drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">
                         Scientifically Verified Results
                       </h3>
                       
