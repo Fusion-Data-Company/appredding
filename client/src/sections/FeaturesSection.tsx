@@ -4,8 +4,11 @@ import { PRAETORIAN_HERO_IMAGE } from "../assets_dir/imageExports";
 const FeatureCard = ({ icon, title, description, index }: { icon: string; title: string; description: string; index: number }) => {
   return (
     <div className="relative group h-full transform transition-all duration-700 hover:scale-[1.02] hover:z-10">
-      {/* Orange/blue gradient border with glow */}
-      <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-700/50 via-blue-600/50 to-orange-700/50 rounded-xl opacity-90 shadow-[0_0_15px_rgba(249,115,22,0.2)]"></div>
+      {/* Enhanced orange/blue gradient border with stronger glow */}
+      <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-700/60 via-blue-600/60 to-orange-700/60 rounded-xl opacity-95 shadow-[0_0_25px_rgba(249,115,22,0.4)]"></div>
+      {/* Additional outer glow */}
+      <div className="absolute -inset-3 bg-orange-500/10 rounded-2xl blur-[15px] z-0"></div>
+      <div className="absolute -inset-6 bg-blue-500/10 rounded-2xl blur-[25px] z-0"></div>
       
       {/* Premium Card Container with orange/blue gradient styling */}
       <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black backdrop-blur-xl rounded-xl p-8 md:p-8 text-center border border-orange-500/30 overflow-hidden h-full z-10 hover:shadow-[0_0_25px_rgba(249,115,22,0.3)] transition-shadow duration-500">
@@ -140,8 +143,11 @@ const FeaturesSection = () => {
         <div className="text-center mb-16 md:mb-20">
           {/* Header card with gray theme */}
           <div className="relative group/nasa transform transition-all duration-700 hover:scale-[1.02] hover:z-10 mx-auto max-w-4xl mb-8 inline-block">
-            {/* Orange/blue gradient border with glow */}
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-700/50 via-blue-600/50 to-orange-700/50 rounded-xl opacity-90 shadow-[0_0_15px_rgba(249,115,22,0.2)]"></div>
+            {/* Enhanced orange/blue gradient border with stronger glow */}
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-700/60 via-blue-600/60 to-orange-700/60 rounded-xl opacity-95 shadow-[0_0_25px_rgba(249,115,22,0.4)]"></div>
+            {/* Additional outer glow */}
+            <div className="absolute -inset-4 bg-orange-500/10 rounded-2xl blur-[20px] z-0"></div>
+            <div className="absolute -inset-8 bg-blue-500/10 rounded-2xl blur-[30px] z-0"></div>
             
             {/* Premium Card Container with orange/blue gradient styling */}
             <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black backdrop-blur-xl rounded-xl py-10 px-8 md:py-12 md:px-16 border border-orange-500/30 overflow-hidden shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7)] z-10 hover:shadow-[0_0_25px_rgba(249,115,22,0.3)] transition-shadow duration-500">
@@ -174,7 +180,7 @@ const FeaturesSection = () => {
               
               {/* Enhanced premium badge with layered orange/blue gradient styling and increased z-index */}
               <div className="absolute -top-6 left-1/2 -translate-x-1/2 flex z-[100]">
-                <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-orange-950/95 via-primary-950/95 to-blue-950/95 border border-orange-500/40 shadow-[0_0_15px_rgba(249,115,22,0.4)] relative transition-all duration-500 hover:scale-105 z-[100]">
+                <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-orange-700 to-blue-700 border border-orange-500/40 shadow-[0_0_25px_rgba(249,115,22,0.5)] relative transition-all duration-500 hover:scale-105 z-[100]">
                   {/* Badge icon with pulsing glow */}
                   <div className="mr-2 relative">
                     <div className="absolute inset-0 bg-blue-500/20 rounded-full blur-[6px] animate-pulse-slow"></div>
@@ -184,7 +190,7 @@ const FeaturesSection = () => {
                   </div>
                   
                   {/* Badge text with enhanced styling */}
-                  <span className="text-blue-300 text-sm font-medium tracking-wide">
+                  <span className="text-white text-sm font-medium tracking-wide">
                     NASA TECHNOLOGY
                   </span>
                 </div>
