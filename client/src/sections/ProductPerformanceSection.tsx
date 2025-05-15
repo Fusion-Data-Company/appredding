@@ -65,13 +65,13 @@ const ProductPerformanceSection = () => {
               {/* Spacer to maintain layout */}
               <div className="h-6 mb-6"></div>
               
-              {/* Shimmer heading - Centered with improved styling */}
-              <div className="relative z-10 mb-8 px-6 py-2 overflow-hidden text-center">
+              {/* Shimmer heading - Centered with improved styling - vertically centered */}
+              <div className="relative z-10 mb-8 px-6 py-8 flex flex-col items-center justify-center min-h-[160px] overflow-hidden text-center">
                 {/* Animated glow behind text */}
                 <div className="absolute inset-0 bg-gradient-to-r from-orange-600/10 via-blue-500/20 to-orange-600/10 opacity-50 blur-xl animate-pulse-slow"></div>
                 
-                {/* Heading with enhanced enterprise styling and shadows - properly centered */}
-                <div className="mx-auto shimmer-fire-text font-bold text-5xl tracking-tight relative z-10 inline-block">
+                {/* Heading with enhanced enterprise styling and shadows - properly centered vertically and horizontally */}
+                <div className="mx-auto shimmer-fire-text font-bold text-5xl tracking-tight relative z-10 inline-block -mt-4">
                   {/* Background glow for letter definition */}
                   <div className="absolute inset-0 flex justify-center items-center text-5xl font-bold tracking-tight text-orange-900/10 blur-[5px] scale-110">
                     Product Performance Data
