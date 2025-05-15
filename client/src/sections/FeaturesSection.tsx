@@ -29,45 +29,45 @@ const FeatureCard = ({ icon, title, description, index }: { icon: string; title:
       <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/40 via-blue-600/40 to-orange-600/40 rounded-xl blur-xl opacity-70 group-hover:opacity-100 group-hover:blur-xl transition-all duration-1000 animate-pulse-slow"></div>
       <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/80 via-blue-500/80 to-orange-500/80 rounded-xl blur-md opacity-90 group-hover:opacity-100 transition-all duration-500"></div>
       
-      {/* Advanced enterprise-level card styling with enhanced 3D effects */}
+      {/* Advanced enterprise-level card styling with enhanced 3D effects - grey face style */}
       <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black backdrop-blur-xl rounded-xl p-8 md:p-10 text-center border border-orange-500/30 overflow-hidden shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7)] h-full z-10">
-        {/* Subtle dots and squares pattern in burnt orange (like Specialized Applications) */}
-        <div className="absolute inset-0 opacity-15 z-0">
-          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoMjQ5LDExNSwyMiwwLjMpIiBkPSJNMCAwaDJ2Mkgwem0yIDJoMnYySDJ6Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCBmaWxsPSJ1cmwoI2EpIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIi8+PC9zdmc+')]"></div>
+        {/* Subtle dots and squares pattern background in mixed colors */}
+        <div className="absolute inset-0 opacity-25 z-0">
+          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoMjMyLDEyMSw1OCwwLjMpIiBkPSJNMCAwaDJ2Mkgwem0yIDJoMnYySDJ6Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCBmaWxsPSJ1cmwoI2EpIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIi8+PC9zdmc+')]"></div>
         </div>
         
-        {/* Ambient glow effects - positioned away from text (fire theme) */}
+        {/* Ambient glow effects - positioned away from text with fixed colors */}
         <div className="absolute -top-40 -right-20 w-60 h-60 bg-orange-600/15 rounded-full filter blur-[80px] animate-pulse-slow-delayed"></div>
-        <div className="absolute -bottom-40 -left-20 w-60 h-60 bg-red-500/15 rounded-full filter blur-[80px] animate-pulse-slow"></div>
+        <div className="absolute -bottom-40 -left-20 w-60 h-60 bg-blue-500/15 rounded-full filter blur-[80px] animate-pulse-slow"></div>
         
-        {/* Premium dual-layer gradient border effect for enhanced depth (fire theme) */}
+        {/* Premium dual-layer gradient border effect for enhanced depth */}
         <div className={`absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r ${theme.borderGradient} opacity-80`}></div>
         <div className={`absolute inset-[1px] p-0.5 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-30 pointer-events-none`}></div>
         
-        {/* Corner accent elements in four corners - fire theme styling (like Specialized Applications) */}
+        {/* Corner accent elements in four corners - mixed orange/blue theme styling */}
         <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none z-10">
           <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-orange-500/70 rounded-tl-lg"></div>
           <div className="absolute top-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
         </div>
         <div className="absolute top-0 right-0 w-16 h-16 pointer-events-none z-10">
-          <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-red-500/70 rounded-tr-lg"></div>
-          <div className="absolute top-0 right-0 w-3 h-3 bg-red-500/50 rounded-full blur-[2px]"></div>
+          <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-blue-500/70 rounded-tr-lg"></div>
+          <div className="absolute top-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
         </div>
         <div className="absolute bottom-0 left-0 w-16 h-16 pointer-events-none z-10">
           <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-orange-500/70 rounded-bl-lg"></div>
           <div className="absolute bottom-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
         </div>
         <div className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none z-10">
-          <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-red-500/70 rounded-br-lg"></div>
-          <div className="absolute bottom-0 right-0 w-3 h-3 bg-red-500/50 rounded-full blur-[2px]"></div>
+          <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-blue-500/70 rounded-br-lg"></div>
+          <div className="absolute bottom-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
         </div>
         
-        {/* Horizontal animated line - top (like in Specialized Applications) */}
+        {/* Horizontal animated line - top with mixed theme */}
         <div className="absolute top-[16%] left-0 w-full h-[1px] overflow-hidden z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-          <div className="w-full h-full bg-gradient-to-r from-transparent via-orange-500/60 to-transparent -translate-x-full animate-shimmer-slow"></div>
+          <div className="w-full h-full bg-gradient-to-r from-transparent via-blue-500/60 to-transparent -translate-x-full animate-shimmer-slow"></div>
         </div>
         
-        {/* Horizontal animated line - bottom (like in Specialized Applications) */}
+        {/* Horizontal animated line - bottom with mixed theme */}
         <div className="absolute bottom-[16%] left-0 w-full h-[1px] overflow-hidden z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
           <div className="w-full h-full bg-gradient-to-r from-transparent via-orange-500/60 to-transparent -translate-x-full animate-shimmer-slow-delayed"></div>
         </div>
@@ -116,10 +116,10 @@ const FeatureCard = ({ icon, title, description, index }: { icon: string; title:
               {title}
             </div>
             
-            {/* Main text with premium gradient - matching Specialized Applications */}
-            <span className="relative text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-amber-500 to-blue-500
+            {/* Main text with premium gradient - matching mixed orange/blue theme */}
+            <span className="relative text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-amber-300 to-blue-500
               drop-shadow-[0_0px_1px_rgba(251,113,36,0.2)] 
-              [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(251,146,60,0.3)]">
+              [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(59,130,246,0.3)]">
               {title}
             </span>
             
@@ -165,8 +165,8 @@ const FeatureCard = ({ icon, title, description, index }: { icon: string; title:
         </div>
       </div>
       
-      {/* Enhanced bottom reflection */}
-      <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-4/5 h-[1px] bg-gradient-to-r from-transparent via-orange-500/40 to-transparent rounded-full"></div>
+      {/* Enhanced bottom reflection with mixed theme */}
+      <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-4/5 h-[1px] bg-gradient-to-r from-transparent via-blue-500/40 to-orange-500/40 rounded-full"></div>
       
       {/* Dynamic floating animation based on index - using regular style element */}
       <style dangerouslySetInnerHTML={{ __html: `
