@@ -104,13 +104,20 @@ const ProductPerformanceSection = () => {
           
           {/* Performance Data Section */}
           <div className="relative group/main">
+            {/* Bottom reflection for the entire section */}
+            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-3/4 h-[5px] bg-gradient-to-r from-transparent via-orange-500/20 to-transparent rounded-full blur-md group-hover/main:via-orange-500/30 transition-all duration-1000 z-0"></div>
+            
             {/* Premium ambient glow effects - positioned BEHIND the card */}
-            <div className="absolute top-1/2 right-1/4 transform -translate-y-1/2 w-[600px] h-[600px] bg-orange-600/25 rounded-full filter blur-[150px] animate-pulse-slow-delayed"></div>
-            <div className="absolute top-1/2 left-1/4 transform -translate-y-1/2 w-[500px] h-[500px] bg-blue-600/20 rounded-full filter blur-[150px] animate-pulse-slow"></div>
-            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[400px] h-[400px] bg-orange-500/30 rounded-full filter blur-[120px] animate-pulse-slow-offset"></div>
+            {/* Large ambient glows positioned behind the card for orange effect */}
+            <div className="absolute top-1/2 right-1/4 transform -translate-y-1/2 w-[600px] h-[600px] bg-orange-600/25 rounded-full filter blur-[150px] animate-pulse-slow-delayed pointer-events-none"></div>
+            <div className="absolute top-1/2 left-1/4 transform -translate-y-1/2 w-[500px] h-[500px] bg-blue-600/20 rounded-full filter blur-[150px] animate-pulse-slow pointer-events-none"></div>
+            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[400px] h-[400px] bg-orange-500/30 rounded-full filter blur-[120px] animate-pulse-slow-offset pointer-events-none"></div>
             
             {/* Premium Enterprise Card Container with hover effects */}
             <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 backdrop-blur-xl rounded-xl py-16 px-6 md:px-12 shadow-[0_10px_50px_rgba(0,0,0,0.3)] overflow-hidden border border-orange-500/30 z-10 group hover:shadow-[0_15px_60px_rgba(249,115,22,0.2)] transition-all duration-500 hover:-translate-y-1">
+            
+              {/* Subtle bottom reflection with dual-color gradient - below the card but above the background */}
+              <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-[80%] h-[3px] bg-gradient-to-r from-transparent via-orange-500/30 to-transparent rounded-full blur-sm opacity-70 z-0"></div>
               {/* Secondary ambient glow effects - inside the card */}
               <div className="absolute -top-60 -right-60 w-96 h-96 bg-orange-600/10 rounded-full filter blur-[100px] animate-pulse-slow opacity-50"></div>
               <div className="absolute -bottom-60 -left-60 w-96 h-96 bg-blue-600/10 rounded-full filter blur-[100px] animate-pulse-slow-delayed opacity-50"></div>
