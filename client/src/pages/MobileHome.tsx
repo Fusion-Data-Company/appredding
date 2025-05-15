@@ -909,9 +909,9 @@ const MobileHome = () => {
           <div className="container mx-auto">
             <div className="backdrop-blur-sm bg-gradient-to-br from-primary-900/80 to-primary-950/90 p-8 md:p-12 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] mb-12">
               <div className="flex flex-col items-center">
-                <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-px rounded-full mb-6 animate-pulse">
+                <div className="bg-gradient-to-r from-orange-600 to-blue-600 p-px rounded-full mb-6 animate-pulse">
                   <div className="bg-primary-900 rounded-full p-3">
-                    <FileText className="h-6 w-6 text-blue-300" />
+                    <FileText className="h-6 w-6 text-orange-300" />
                   </div>
                 </div>
                 <GradientHeading level={2} className="text-3xl md:text-4xl mb-2 text-center" variant="mixed">
@@ -930,10 +930,10 @@ const MobileHome = () => {
                     <Shield className="h-8 w-8 text-primary-300" />
                   </div>
                   <h3 className="text-xl font-bold mb-2 text-primary-100">Fire Resistance</h3>
-                  <div className="text-3xl font-bold text-blue-300 mb-2">Class A</div>
+                  <div className="text-3xl font-bold text-orange-300 mb-2">Class A</div>
                   <p className="text-primary-300 mb-3">Highest possible fire rating (0/0 score) in both flame spread and smoke development</p>
                   <div className="mt-auto">
-                    <span className="inline-block bg-blue-900/50 text-blue-200 text-xs font-semibold px-2.5 py-1 rounded-full border border-blue-700/30">
+                    <span className="inline-block bg-gradient-to-r from-orange-900/50 to-blue-900/50 text-orange-200 text-xs font-semibold px-2.5 py-1 rounded-full border border-orange-700/30">
                       ASTM E84 Certified
                     </span>
                   </div>
@@ -947,21 +947,21 @@ const MobileHome = () => {
                   <div className="text-3xl font-bold text-yellow-300 mb-2">89%</div>
                   <p className="text-primary-300 mb-3">Exceptional solar reflectance, significantly reducing heat absorption and interior temperatures</p>
                   <div className="mt-auto">
-                    <span className="inline-block bg-blue-900/50 text-blue-200 text-xs font-semibold px-2.5 py-1 rounded-full border border-blue-700/30">
+                    <span className="inline-block bg-gradient-to-r from-orange-900/50 to-blue-900/50 text-orange-200 text-xs font-semibold px-2.5 py-1 rounded-full border border-orange-700/30">
                       Energy Star® Rated
                     </span>
                   </div>
                 </div>
                 
                 <div className="bg-primary-950/80 backdrop-blur-md p-6 rounded-xl border border-primary-500/30 shadow-lg transform hover:scale-[1.02] transition-transform duration-300 flex flex-col items-center text-center">
-                  <div className="bg-gradient-to-br from-primary-500/20 to-primary-700/20 p-3 rounded-full mb-4 border border-primary-500/40">
-                    <WavesIcon className="h-8 w-8 text-blue-300" />
+                  <div className="bg-gradient-to-br from-orange-500/20 via-blue-500/20 to-orange-500/20 p-3 rounded-full mb-4 border border-orange-500/40">
+                    <WavesIcon className="h-8 w-8 text-orange-300" />
                   </div>
                   <h3 className="text-xl font-bold mb-2 text-primary-100">Elastomeric Flex</h3>
-                  <div className="text-3xl font-bold text-blue-300 mb-2">156%</div>
+                  <div className="text-3xl font-bold text-orange-300 mb-2">156%</div>
                   <p className="text-primary-300 mb-3">Superior elongation before break, allowing for structural movement without cracking or separating</p>
                   <div className="mt-auto">
-                    <span className="inline-block bg-blue-900/50 text-blue-200 text-xs font-semibold px-2.5 py-1 rounded-full border border-blue-700/30">
+                    <span className="inline-block bg-gradient-to-r from-orange-900/50 to-blue-900/50 text-orange-200 text-xs font-semibold px-2.5 py-1 rounded-full border border-orange-700/30">
                       ASTM D6083 Compliant
                     </span>
                   </div>
@@ -1160,13 +1160,13 @@ const MobileHome = () => {
                     </div>
                   </div>
                   
-                  <div className="bg-gradient-to-br from-blue-900/80 to-primary-900/90 backdrop-blur-md p-6 rounded-xl border border-blue-500/30 shadow-lg">
+                  <div className="bg-gradient-to-br from-orange-900/50 via-blue-900/80 to-primary-900/90 backdrop-blur-md p-6 rounded-xl border border-orange-500/30 shadow-lg">
                     <div className="flex items-center mb-4">
-                      <Download className="h-6 w-6 mr-3 text-blue-300" />
+                      <Download className="h-6 w-6 mr-3 text-orange-300" />
                       <h3 className="text-xl font-bold text-white">Technical Resources</h3>
                     </div>
                     
-                    <p className="text-blue-100 mb-6">
+                    <p className="text-orange-100 mb-6">
                       Access comprehensive documentation and technical information about our PraetorianShield™ MH-Pro systems and specifications.
                     </p>
                     
@@ -1191,10 +1191,10 @@ const MobileHome = () => {
                     </div>
                     
                     <div className="flex items-center justify-between space-x-3">
-                      <span className="text-xs bg-blue-800/50 text-blue-200 px-2 py-1 rounded-full border border-blue-500/30">Low VOC</span>
-                      <span className="text-xs bg-blue-800/50 text-blue-200 px-2 py-1 rounded-full border border-blue-500/30">Non-Toxic</span>
-                      <span className="text-xs bg-blue-800/50 text-blue-200 px-2 py-1 rounded-full border border-blue-500/30">Lead-Free</span>
-                      <span className="text-xs bg-blue-800/50 text-blue-200 px-2 py-1 rounded-full border border-blue-500/30">FDA Compliant</span>
+                      <span className="text-xs bg-gradient-to-r from-orange-800/50 to-blue-800/50 text-orange-200 px-2 py-1 rounded-full border border-orange-500/30">Low VOC</span>
+                      <span className="text-xs bg-gradient-to-r from-orange-800/50 to-blue-800/50 text-orange-200 px-2 py-1 rounded-full border border-orange-500/30">Non-Toxic</span>
+                      <span className="text-xs bg-gradient-to-r from-orange-800/50 to-blue-800/50 text-orange-200 px-2 py-1 rounded-full border border-orange-500/30">Lead-Free</span>
+                      <span className="text-xs bg-gradient-to-r from-orange-800/50 to-blue-800/50 text-orange-200 px-2 py-1 rounded-full border border-orange-500/30">FDA Compliant</span>
                     </div>
                   </div>
                 </div>
@@ -1279,7 +1279,7 @@ const MobileHome = () => {
                       <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path>
                       <path d="m9 12 2 2 4-4"></path>
                     </svg>
-                    <span className="text-blue-200">Verified Customer</span>
+                    <span className="text-orange-200">Verified Customer</span>
                   </div>
                 </div>
                 
@@ -1316,7 +1316,7 @@ const MobileHome = () => {
                       <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path>
                       <path d="m9 12 2 2 4-4"></path>
                     </svg>
-                    <span className="text-blue-200">Verified Customer</span>
+                    <span className="text-orange-200">Verified Customer</span>
                   </div>
                 </div>
                 
@@ -1353,7 +1353,7 @@ const MobileHome = () => {
                       <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path>
                       <path d="m9 12 2 2 4-4"></path>
                     </svg>
-                    <span className="text-blue-200">Verified Customer</span>
+                    <span className="text-orange-200">Verified Customer</span>
                   </div>
                 </div>
               </div>
