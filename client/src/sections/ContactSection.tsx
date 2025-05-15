@@ -572,7 +572,7 @@ const ContactSection = () => {
                         whiteSpace: 'nowrap',
                         display: 'table',
                         position: 'relative',
-                        left: '-24px'
+                        left: '-48px'
                       }}
                     >
                       Contact Information
