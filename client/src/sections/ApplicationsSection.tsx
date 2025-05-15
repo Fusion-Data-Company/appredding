@@ -186,7 +186,7 @@ const ApplicationsSection = () => {
               
               {/* Ambient glow effect - positioned away from text */}
               <div className="absolute -top-60 -right-40 w-80 h-80 bg-orange-600/15 rounded-full filter blur-[100px] animate-pulse-slow-delayed"></div>
-              <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-orange-500/20 rounded-full filter blur-[120px] animate-pulse-slow"></div>
+              <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-500/20 rounded-full filter blur-[120px] animate-pulse-slow"></div>
               
               {/* Corner accent with gradient - top-right corner only */}
               <div className="absolute top-0 right-0 w-32 h-32 opacity-20 z-10">

@@ -281,7 +281,7 @@ const IntroSection = () => {
                     </div>
                     
                     {/* Animated underline */}
-                    <div className="absolute bottom-0 left-0 w-1/3 h-0.5 bg-gradient-to-r from-orange-500 to-red-500 group-hover:w-2/3 transition-all duration-700 rounded-full opacity-70 shadow-[0_0_5px_rgba(251,113,36,0.6)]"></div>
+                    <div className="absolute bottom-0 left-0 w-1/3 h-0.5 bg-gradient-to-r from-orange-500 to-blue-500 group-hover:w-2/3 transition-all duration-700 rounded-full opacity-70 shadow-[0_0_5px_rgba(251,113,36,0.6)]"></div>
                   </div>
                   
                   {/* Enhanced content text */}
@@ -293,12 +293,12 @@ const IntroSection = () => {
                       Perfect 0/100 scores in ASTM E84 testing for both Flame Spread and Smoke Development. Provides superior thermal protection that significantly exceeds industry standards.
                       
                       {/* Right accent - animated pulse with delay */}
-                      <span className="absolute -right-4 top-1/2 transform -translate-y-1/2 w-1 h-16 bg-gradient-to-b from-red-500/0 via-red-500/70 to-red-500/0 rounded-full animate-pulse-slow-delayed z-20"></span>
+                      <span className="absolute -right-4 top-1/2 transform -translate-y-1/2 w-1 h-16 bg-gradient-to-b from-blue-500/0 via-blue-500/70 to-blue-500/0 rounded-full animate-pulse-slow-delayed z-20"></span>
                     </p>
                   </div>
                   
                   {/* Decorative horizontal line */}
-                  <div className="absolute left-1/2 bottom-2 transform -translate-x-1/2 w-16 h-0.5 bg-gradient-to-r from-orange-600 via-amber-500 to-red-600 rounded-full opacity-70 group-hover:w-32 transition-all duration-1000 shadow-[0_0_5px_rgba(251,113,36,0.6)]"></div>
+                  <div className="absolute left-1/2 bottom-2 transform -translate-x-1/2 w-16 h-0.5 bg-gradient-to-r from-orange-600 via-blue-500 to-orange-600 rounded-full opacity-70 group-hover:w-32 transition-all duration-1000 shadow-[0_0_5px_rgba(251,113,36,0.6)]"></div>
                 </div>
               </div>
               

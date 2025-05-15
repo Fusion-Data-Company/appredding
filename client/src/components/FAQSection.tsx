@@ -58,7 +58,7 @@ const FAQSection = ({ faqs }: FAQProps) => {
           {/* Card container */}
           <div className="relative mx-auto max-w-4xl bg-gradient-to-b from-gray-900/80 to-black/90 rounded-2xl overflow-hidden">
             {/* Premium gradient border */}
-            <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-orange-500/20 via-amber-500/20 to-orange-500/20 blur-[2px]"></div>
+            <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-orange-500/20 via-blue-500/20 to-orange-500/20 blur-[2px]"></div>
             
             {/* Inner border glow */}
             <div className="absolute inset-[1px] rounded-xl border border-orange-500/30 bg-black/50 z-0"></div>
@@ -70,7 +70,7 @@ const FAQSection = ({ faqs }: FAQProps) => {
             <div className="absolute top-4 right-4 w-12 h-12 z-10">
               <div className="absolute right-0 top-0 w-6 h-6 border-r-2 border-t-2 border-orange-500/40 rounded-tr-md"></div>
               <div className="absolute right-1 top-1 w-8 h-8 border-r border-t border-amber-500/30 rounded-tr-md"></div>
-              <div className="absolute right-2 top-2 w-4 h-4 bg-gradient-to-br from-orange-500/30 to-amber-500/5 rounded-tr-sm filter blur-[1px]"></div>
+              <div className="absolute right-2 top-2 w-4 h-4 bg-gradient-to-br from-orange-500/30 to-blue-500/5 rounded-tr-sm filter blur-[1px]"></div>
             </div>
             
             {/* Corner accent squares - TOP LEFT */}
