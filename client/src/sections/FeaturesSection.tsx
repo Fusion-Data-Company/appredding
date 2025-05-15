@@ -247,9 +247,9 @@ const FeaturesSection = () => {
         <div className="text-center mb-16 md:mb-20">
           {/* Advanced premium enterprise heading container with enhanced mixed orange/blue theme */}
           <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black backdrop-blur-xl rounded-xl py-10 px-8 md:py-12 md:px-16 mx-auto max-w-4xl mb-8 inline-block shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7)] border border-orange-500/30 group/nasa transform transition-all duration-500 hover:scale-[1.01]">
-            {/* Multiple layered background effects - Mixed theme */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/40 via-blue-600/40 to-orange-600/40 rounded-xl blur-xl opacity-70 group-hover/nasa:opacity-100 group-hover/nasa:blur-xl transition-all duration-1000 animate-pulse-slow"></div>
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/80 via-blue-500/80 to-orange-500/80 rounded-xl blur-md opacity-90 group-hover/nasa:opacity-100 transition-all duration-500"></div>
+            {/* Multiple layered background effects - Mixed theme with more vibrant border glow */}
+            <div className="absolute -inset-0 bg-gradient-to-r from-orange-600/90 via-blue-600/80 to-orange-600/90 rounded-xl blur-[2px] opacity-90 group-hover/nasa:opacity-100 group-hover/nasa:blur-[1px] transition-all duration-500 animate-pulse-slow"></div>
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/90 via-blue-500/90 to-orange-500/90 rounded-xl blur-[1px] opacity-100 group-hover/nasa:opacity-100 transition-all duration-300"></div>
             
             {/* Subtle dots and squares pattern background in mixed colors */}
             <div className="absolute inset-0 opacity-25 z-0">

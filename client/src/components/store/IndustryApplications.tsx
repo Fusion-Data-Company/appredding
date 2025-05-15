@@ -466,10 +466,14 @@ const IndustryApplications = () => {
                         
                         return (
                           <div key={index} className="group relative transform transition-all duration-500 hover:scale-105 hover:z-10">
+                            {/* Multiple layered background effects - Theme variant */}
+                            <div className="absolute -inset-0 bg-gradient-to-r from-orange-600/90 via-red-600/80 to-orange-600/90 rounded-xl blur-[2px] opacity-90 group-hover:opacity-100 group-hover:blur-[1px] transition-all duration-500 animate-pulse-slow"></div>
+                            <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/90 via-amber-500/90 to-red-500/90 rounded-xl blur-[1px] opacity-100 group-hover:opacity-100 transition-all duration-300"></div>
+                            
                             {/* Premium Card Container */}
-                            <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-gray-900/95 backdrop-blur-xl rounded-xl p-5 shadow-[0_10px_50px_rgba(0,0,0,0.5)] z-10 h-full">
-                              {/* Premium gradient border effect - Theme variant with index-based opacity variation */}
-                              <div className={`absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r ${themeGradient} opacity-70`} style={{ opacity: 0.7 + (index % 3) * 0.05 }}></div>
+                            <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-gray-900/95 backdrop-blur-xl rounded-xl p-5 shadow-[0_10px_50px_rgba(0,0,0,0.5)] z-10 h-full border border-orange-500/30">
+                              {/* Premium gradient border effect - Theme variant with index-based opacity variation - moved inside */}
+                              <div className={`absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r ${themeGradient} opacity-30`} style={{ opacity: 0.3 + (index % 3) * 0.05 }}></div>
                               
                               {/* Inner highlight */}
                               <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
