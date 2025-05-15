@@ -25,9 +25,9 @@ const FeatureCard = ({ icon, title, description, index }: { icon: string; title:
 
   return (
     <div className="relative group h-full transform transition-all duration-700 hover:-translate-y-2 hover:scale-[1.03] hover:z-10 flex flex-col justify-between">
-      {/* Multiple layered background effects */}
-      <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/40 via-blue-600/40 to-orange-600/40 rounded-xl blur-xl opacity-70 group-hover:opacity-100 group-hover:blur-xl transition-all duration-1000 animate-pulse-slow"></div>
-      <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/80 via-blue-500/80 to-orange-500/80 rounded-xl blur-md opacity-90 group-hover:opacity-100 transition-all duration-500"></div>
+      {/* Multiple layered background effects - further reduced glow */}
+      <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/10 via-blue-600/10 to-orange-600/10 rounded-xl blur-md opacity-30 group-hover:opacity-50 group-hover:blur-lg transition-all duration-1000 animate-pulse-slow"></div>
+      <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/30 via-blue-500/30 to-orange-500/30 rounded-xl blur-sm opacity-50 group-hover:opacity-60 transition-all duration-500"></div>
       
       {/* Advanced enterprise-level card styling with enhanced 3D effects - grey face style */}
       <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black backdrop-blur-xl rounded-xl p-8 md:p-10 text-center border border-orange-500/30 overflow-hidden shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7)] h-full z-40">
@@ -36,48 +36,48 @@ const FeatureCard = ({ icon, title, description, index }: { icon: string; title:
           <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoMjMyLDEyMSw1OCwwLjMpIiBkPSJNMCAwaDJ2Mkgwem0yIDJoMnYySDJ6Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCBmaWxsPSJ1cmwoI2EpIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIi8+PC9zdmc+')]"></div>
         </div>
         
-        {/* Ambient glow effects - positioned away from text with fixed colors */}
-        <div className="absolute -top-40 -right-20 w-60 h-60 bg-orange-600/15 rounded-full filter blur-[80px] animate-pulse-slow-delayed"></div>
-        <div className="absolute -bottom-40 -left-20 w-60 h-60 bg-blue-500/15 rounded-full filter blur-[80px] animate-pulse-slow"></div>
+        {/* Ambient glow effects - further reduced intensity */}
+        <div className="absolute -top-40 -right-20 w-60 h-60 bg-orange-600/5 rounded-full filter blur-[40px] animate-pulse-slow-delayed"></div>
+        <div className="absolute -bottom-40 -left-20 w-60 h-60 bg-blue-500/5 rounded-full filter blur-[40px] animate-pulse-slow"></div>
         
-        {/* Premium dual-layer gradient border effect for enhanced depth */}
-        <div className={`absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r ${theme.borderGradient} opacity-80`}></div>
-        <div className={`absolute inset-[1px] p-0.5 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-30 pointer-events-none`}></div>
+        {/* Premium dual-layer gradient border effect - further reduced glow */}
+        <div className={`absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r ${theme.borderGradient} opacity-25`}></div>
+        <div className={`absolute inset-[1px] p-0.5 rounded-xl bg-gradient-to-b from-white/5 via-transparent to-transparent opacity-10 pointer-events-none`}></div>
         
-        {/* Corner accent elements in four corners - mixed orange/blue theme styling */}
+        {/* Corner accent elements in four corners - further reduced opacity */}
         <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none z-10">
-          <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-orange-500/70 rounded-tl-lg"></div>
-          <div className="absolute top-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+          <div className="absolute top-0 left-0 w-8 h-8 border-t border-l border-orange-500/20 rounded-tl-lg"></div>
+          <div className="absolute top-0 left-0 w-1.5 h-1.5 bg-orange-500/15 rounded-full blur-[1px]"></div>
         </div>
         <div className="absolute top-0 right-0 w-16 h-16 pointer-events-none z-10">
-          <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-blue-500/70 rounded-tr-lg"></div>
-          <div className="absolute top-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
+          <div className="absolute top-0 right-0 w-8 h-8 border-t border-r border-blue-500/20 rounded-tr-lg"></div>
+          <div className="absolute top-0 right-0 w-1.5 h-1.5 bg-blue-500/15 rounded-full blur-[1px]"></div>
         </div>
         <div className="absolute bottom-0 left-0 w-16 h-16 pointer-events-none z-10">
-          <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-orange-500/70 rounded-bl-lg"></div>
-          <div className="absolute bottom-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+          <div className="absolute bottom-0 left-0 w-8 h-8 border-b border-l border-orange-500/20 rounded-bl-lg"></div>
+          <div className="absolute bottom-0 left-0 w-1.5 h-1.5 bg-orange-500/15 rounded-full blur-[1px]"></div>
         </div>
         <div className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none z-10">
-          <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-blue-500/70 rounded-br-lg"></div>
-          <div className="absolute bottom-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
+          <div className="absolute bottom-0 right-0 w-8 h-8 border-b border-r border-blue-500/20 rounded-br-lg"></div>
+          <div className="absolute bottom-0 right-0 w-1.5 h-1.5 bg-blue-500/15 rounded-full blur-[1px]"></div>
         </div>
         
-        {/* Horizontal animated line - top with mixed theme */}
-        <div className="absolute top-[16%] left-0 w-full h-[1px] overflow-hidden z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-          <div className="w-full h-full bg-gradient-to-r from-transparent via-blue-500/60 to-transparent -translate-x-full animate-shimmer-slow"></div>
+        {/* Horizontal animated line - top with reduced glow */}
+        <div className="absolute top-[16%] left-0 w-full h-[1px] overflow-hidden z-10 opacity-0 group-hover:opacity-70 transition-opacity duration-700">
+          <div className="w-full h-full bg-gradient-to-r from-transparent via-blue-500/40 to-transparent -translate-x-full animate-shimmer-slow"></div>
         </div>
         
-        {/* Horizontal animated line - bottom with mixed theme */}
-        <div className="absolute bottom-[16%] left-0 w-full h-[1px] overflow-hidden z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-          <div className="w-full h-full bg-gradient-to-r from-transparent via-orange-500/60 to-transparent -translate-x-full animate-shimmer-slow-delayed"></div>
+        {/* Horizontal animated line - bottom with reduced glow */}
+        <div className="absolute bottom-[16%] left-0 w-full h-[1px] overflow-hidden z-10 opacity-0 group-hover:opacity-70 transition-opacity duration-700">
+          <div className="w-full h-full bg-gradient-to-r from-transparent via-orange-500/40 to-transparent -translate-x-full animate-shimmer-slow-delayed"></div>
         </div>
       
-        {/* Enhanced enterprise icon with mixed theme styling */}
+        {/* Enhanced enterprise icon with reduced glow */}
         <div className="relative inline-flex items-center justify-center w-20 h-20 md:w-24 md:h-24 mb-8 group-hover:scale-110 transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] z-50">
-          {/* Outer glow ring with pulsing animation */}
-          <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+          {/* Outer glow ring with pulsing animation - reduced intensity */}
+          <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-60 transition-opacity duration-700"
                style={{ 
-                 boxShadow: theme.iconShadow,
+                 boxShadow: "0 0 15px rgba(249, 115, 22, 0.4)",
                  animation: "pulse 2s infinite ease-in-out" 
                }}>
           </div>
