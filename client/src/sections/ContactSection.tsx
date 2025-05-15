@@ -594,7 +594,7 @@ const ContactSection = () => {
                         </div>
                         
                         {/* Enhanced content text */}
-                        <p className="text-gray-300 text-[15px] group-hover:text-gray-200 transition-colors duration-500">
+                        <p className="text-gray-300 text-base group-hover:text-gray-200 transition-colors duration-500">
                           Northern California<br/>& Nationwide Distribution
                         </p>
                       </div>
@@ -639,7 +639,7 @@ const ContactSection = () => {
                         </div>
                         
                         {/* Enhanced content text */}
-                        <p className="text-gray-300 text-[15px] group-hover:text-gray-200 transition-colors duration-500">
+                        <p className="text-gray-300 text-base group-hover:text-gray-200 transition-colors duration-500">
                           (916) 809-6619<br/>
                           <span className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors duration-500">(Call or text welcome)</span>
                         </p>
