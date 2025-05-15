@@ -604,23 +604,49 @@ const ProductPerformanceSection = () => {
                 <div className="relative">
                   {/* Enhanced Premium Heading with animated underline */}
                   <div className="relative mb-8 pb-3">
-                    <GradientHeading level={3} className="text-3xl" variant="fire">
+                    <h3 className="text-3xl font-bold text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
                       Product Comparison Chart
-                    </GradientHeading>
+                    </h3>
                     
-                    {/* Animated underline */}
-                    <div className="absolute bottom-0 left-0 w-1/3 h-0.5 bg-gradient-to-r from-orange-500 to-blue-500 group-hover:w-1/2 transition-all duration-1000 rounded-full opacity-70"></div>
+                    {/* Enhanced animated underline with pulsing effect */}
+                    <div className="absolute bottom-0 left-0 w-1/3 h-0.5 bg-gradient-to-r from-orange-500 via-blue-500 to-orange-500 transition-all duration-1000 rounded-full opacity-70 animate-pulse-slow"></div>
                   </div>
                   
-                  {/* Enhanced Premium Table Container */}
-                  <div className="relative bg-gradient-to-br from-gray-900/90 via-gray-950/90 to-gray-900/90 backdrop-blur-xl rounded-xl overflow-hidden shadow-[0_5px_30px_rgba(0,0,0,0.3)] z-10">
-                    {/* Premium subtle border effect */}
-                    <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/40 via-transparent to-blue-500/40 opacity-60"></div>
+                  {/* Premium Enterprise Table Container - Group for hover effects */}
+                  <div className="relative group/card">
+                    {/* Enhanced ambient glow effects - positioned BEHIND the card */}
+                    <div className="absolute -top-20 -right-20 w-80 h-80 bg-orange-600/15 rounded-full filter blur-[100px] opacity-60 animate-pulse-slow pointer-events-none"></div>
+                    <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-blue-600/20 rounded-full filter blur-[100px] opacity-60 animate-pulse-slow-delayed pointer-events-none"></div>
                     
-                    {/* Inner highlight */}
-                    <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-40 pointer-events-none"></div>
-                    
-                    {/* Enhanced Table */}
+                    {/* Enhanced Premium Table Container */}
+                    <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 backdrop-blur-md rounded-xl overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.3)] transform transition-all duration-500 group-hover/card:shadow-[0_15px_50px_rgba(0,0,0,0.4)] z-10">
+                      {/* Inner border glow effect */}
+                      <div className="absolute inset-0 rounded-xl border border-transparent bg-gradient-to-r from-orange-500/30 via-blue-500/40 to-orange-500/30 z-0 opacity-90 overflow-hidden pointer-events-none">
+                        <div className="absolute inset-px rounded-[10px] bg-black"></div>
+                      </div>
+                      
+                      {/* Animated corner accents */}
+                      <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none z-10">
+                        <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-orange-500/70 rounded-tl-lg"></div>
+                        <div className="absolute top-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+                      </div>
+                      <div className="absolute top-0 right-0 w-16 h-16 pointer-events-none z-10">
+                        <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-blue-500/70 rounded-tr-lg"></div>
+                        <div className="absolute top-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
+                      </div>
+                      <div className="absolute bottom-0 left-0 w-16 h-16 pointer-events-none z-10">
+                        <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-blue-500/70 rounded-bl-lg"></div>
+                        <div className="absolute bottom-0 left-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
+                      </div>
+                      <div className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none z-10">
+                        <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-orange-500/70 rounded-br-lg"></div>
+                        <div className="absolute bottom-0 right-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+                      </div>
+                      
+                      {/* Subtle animated background pattern */}
+                      <div className="absolute inset-0 opacity-5 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9IiNmZmZmZmYiIGQ9Ik0wIDBoMnYySDB6bTIgMmgydjJIMnoiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IGZpbGw9InVybCgjYSkiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiLz48L3N2Zz4=')] z-0 pointer-events-none"></div>
+                      
+                      {/* Enhanced Table */}
                     <div className="overflow-x-auto relative z-10">
                       <table className="w-full text-lg">
                         <thead>
