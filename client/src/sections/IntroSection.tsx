@@ -67,9 +67,12 @@ const IntroSection = () => {
               <div className="relative -top-6 flex justify-center mb-8 z-[100]">
                 <PremiumBadge
                   icon={
-                    <svg className="h-5 w-5 text-orange-300 relative z-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M12 22a9.5 9.5 0 0 0 3.09-18.49A4.5 4.5 0 1 0 12 8.5a4.5 4.5 0 1 0-3.09-9.01A9.5 9.5 0 0 0 12 22z"></path>
-                    </svg>
+                    <div className="relative h-5 w-5">
+                      <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-gray-900/95 backdrop-blur-xl rounded-full p-0.5 z-10 border border-orange-500/20">
+                        <i className="fas fa-shield-alt text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-blue-500 text-sm"></i>
+                      </div>
+                      <div className="absolute inset-0 rounded-full shadow-[0_0_10px_rgba(251,113,36,0.4)]"></div>
+                    </div>
                   }
                 >
                   NASA TECHNOLOGY
