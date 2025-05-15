@@ -181,12 +181,13 @@ const ContactSection = () => {
                 <div className="absolute -inset-4 bg-gradient-to-r from-orange-500/20 via-amber-400/20 to-blue-500/20 rounded-lg blur-lg opacity-30 dark:opacity-40 z-0"></div>
                 
                 <h2 
-                  className="relative z-20 text-center text-white font-extrabold tracking-tight py-2" 
+                  className="relative z-20 text-center text-white font-extrabold tracking-tight py-2 w-full" 
                   style={{ 
                     fontSize: 'clamp(2.5rem, 5vw, 3.25rem)',
                     textShadow: '0 1px 8px rgba(255,150,0,0.3), 0 1px 3px rgba(0,0,0,0.3)',
                     marginBottom: '1rem',
-                    letterSpacing: '-0.02em'
+                    letterSpacing: '-0.02em',
+                    whiteSpace: 'nowrap'
                   }}
                 >
                   Get In Touch
@@ -562,12 +563,13 @@ const ContactSection = () => {
                     <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 via-cyan-400/20 to-blue-500/20 rounded-lg blur-lg opacity-30 dark:opacity-40 z-0"></div>
                     
                     <h2 
-                      className="relative z-10 text-center text-white font-extrabold tracking-tight py-2 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]" 
+                      className="relative z-10 text-center text-white font-extrabold tracking-tight py-2 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] w-full"
                       style={{ 
                         fontSize: 'clamp(2.5rem, 5vw, 3.25rem)',
                         textShadow: '0 1px 8px rgba(0,150,255,0.3)',
                         marginBottom: '1rem',
-                        letterSpacing: '-0.02em'
+                        letterSpacing: '-0.02em',
+                        whiteSpace: 'nowrap'
                       }}
                     >
                       Contact Information
