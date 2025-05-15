@@ -1,7 +1,6 @@
 import React from 'react';
 import { GradientHeading } from "@/components/ui/gradient-heading";
 import { PRAETORIAN_HERO_IMAGE } from "../assets_dir/imageExports";
-import { PremiumBadge } from "@/components/ui/premium-badge";
 
 const ProductPerformanceSection = () => {
   return (

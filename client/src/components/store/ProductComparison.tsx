@@ -111,12 +111,8 @@ const ProductComparison = () => {
       {/* Semi-transparent overlay for better readability */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-black/70" style={{ zIndex: 1 }}></div>
       <div className="container mx-auto px-4 relative" style={{ zIndex: 2 }}>
-        <div className="flex justify-center mb-5">
-          <div className="px-3 py-1.5 rounded-full border border-amber-300 dark:border-amber-700 bg-amber-100/50 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300 inline-flex items-center shadow-[0_0_10px_rgba(251,113,36,0.3)] relative z-50">
-            <Shield className="h-4 w-4 mr-2 text-amber-500" />
-            <span className="text-sm font-medium">Competitive Comparison</span>
-          </div>
-        </div>
+        {/* Badge removed as requested */}
+        <div className="mb-5"></div>
         
         <div className="text-center mb-12">
           {/* Premium Enterprise-level heading container */}
