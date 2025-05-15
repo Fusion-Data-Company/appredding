@@ -376,7 +376,7 @@ const IntroSection = () => {
                     
                     {/* Main heading with improved z-index */}
                     <div className="shimmer-blue-text font-bold tracking-tight relative z-10">
-                      <span className="text-2xl md:text-3xl relative text-transparent bg-clip-text bg-gradient-to-br from-blue-400 via-cyan-400 to-blue-500
+                      <span className="text-2xl md:text-3xl relative text-white
                         drop-shadow-[0_0px_1px_rgba(251,113,36,0.2)] 
                         [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(59,130,246,0.3)]">
                         Ceramic Microsphere Technology
@@ -458,7 +458,7 @@ const IntroSection = () => {
                     
                     {/* Main heading with improved z-index */}
                     <div className="shimmer-mixed-text font-bold tracking-tight relative z-10">
-                      <span className="text-2xl md:text-3xl relative text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-amber-500 to-blue-400
+                      <span className="text-2xl md:text-3xl relative text-white
                         drop-shadow-[0_0px_1px_rgba(251,113,36,0.2)] 
                         [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(251,146,60,0.3)]">
                         Extreme Energy Efficiency
