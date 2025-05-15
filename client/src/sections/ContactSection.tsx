@@ -165,19 +165,41 @@ const ContactSection = () => {
               <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3/4 h-32 bg-gradient-to-r from-orange-500/0 via-amber-500/20 to-orange-500/0 blur-[100px] rounded-full"></div>
             </div>
             
-            <div className="relative mb-8 flex justify-center w-full">
-              {/* Simplified Get In Touch Header */}
-              <h2 
-                className="relative z-20 text-center text-white font-extrabold tracking-tight py-2 mb-4 w-full" 
-                style={{ 
-                  fontSize: 'clamp(2.5rem, 5vw, 3.25rem)',
-                  textShadow: '0 1px 8px rgba(255,150,0,0.3), 0 1px 3px rgba(0,0,0,0.3)',
-                  letterSpacing: '-0.02em',
-                  whiteSpace: 'nowrap'
-                }}
-              >
-                Get In Touch
-              </h2>
+            <div className="relative mb-8 flex justify-center w-full group">
+              {/* Ultra Premium Get In Touch Header */}
+              <div className="relative">
+                {/* Dual layered ambient glow effects with animation */}
+                <div className="absolute -inset-3 bg-gradient-to-r from-amber-600/20 via-orange-500/25 to-red-500/20 rounded-lg blur-xl opacity-70 group-hover:opacity-100 transition-all duration-1000 z-0 animate-pulse-slow"></div>
+                <div className="absolute -inset-2 bg-gradient-to-r from-blue-500/10 via-purple-400/15 to-blue-500/10 rounded-lg blur-lg opacity-80 group-hover:opacity-100 transition-all duration-1000 z-0 animate-pulse-slow-delayed"></div>
+                
+                {/* Enhanced 3D text effect */}
+                <h2 
+                  className="relative z-20 text-center font-extrabold tracking-tight py-3 w-full group-hover:scale-[1.02] transition-transform duration-700"
+                  style={{ 
+                    fontSize: 'clamp(2.7rem, 5vw, 3.5rem)',
+                    textShadow: '0 0 15px rgba(249,115,22,0.5), 0 0 30px rgba(249,115,22,0.3), 0 2px 5px rgba(0,0,0,0.8)',
+                    letterSpacing: '-0.025em',
+                    whiteSpace: 'nowrap',
+                    marginBottom: '0.5rem',
+                    background: 'linear-gradient(to bottom, #ffffff, #fef3c7)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.8))'
+                  }}
+                >
+                  Get In Touch
+                </h2>
+                
+                {/* Animated gradient underline */}
+                <div className="h-1 w-0 group-hover:w-full bg-gradient-to-r from-amber-500 via-orange-500 to-red-500 rounded-full mx-auto transition-all duration-1000 opacity-80"></div>
+                
+                {/* Subtle floating particles effect */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000 pointer-events-none">
+                  <div className="absolute top-0 left-1/4 w-2 h-2 bg-amber-500/40 rounded-full animate-float"></div>
+                  <div className="absolute top-1/2 left-3/4 w-1.5 h-1.5 bg-orange-500/40 rounded-full animate-float" style={{ animationDelay: '1s' }}></div>
+                  <div className="absolute bottom-0 left-1/2 w-2 h-2 bg-red-500/40 rounded-full animate-float" style={{ animationDelay: '1.5s' }}></div>
+                </div>
+              </div>
             </div>
             <div className="relative z-10 mb-8" style={{ marginTop: "-2.5rem" }}>
               <p className="text-gray-300 text-lg text-center max-w-xl mx-auto mb-2">
@@ -532,19 +554,34 @@ const ContactSection = () => {
               </div>
               
               <div className="p-8 relative z-20">
-                <div className="relative mb-8 flex justify-center w-full">
-                  {/* Simplified Contact Information Header */}
-                  <h2 
-                    className="relative z-10 text-white font-extrabold tracking-tight py-2 mb-4 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]"
-                    style={{ 
-                      fontSize: 'clamp(2.5rem, 5vw, 3.25rem)',
-                      textShadow: '0 1px 8px rgba(0,150,255,0.3)',
-                      letterSpacing: '-0.02em',
-                      whiteSpace: 'nowrap'
-                    }}
-                  >
-                    Contact Information
-                  </h2>
+                <div className="relative mb-8 flex justify-center w-full group">
+                  {/* Ultra Premium Contact Information Header */}
+                  <div className="relative">
+                    {/* Ambient glow effects with animation */}
+                    <div className="absolute -inset-2 bg-gradient-to-r from-blue-600/20 via-cyan-400/25 to-blue-500/20 rounded-lg blur-xl opacity-70 dark:opacity-80 group-hover:opacity-100 transition-all duration-1000 z-0 animate-pulse-slow"></div>
+                    <div className="absolute -inset-1 bg-gradient-to-r from-orange-500/10 via-amber-400/10 to-orange-500/10 rounded-lg blur-lg opacity-80 dark:opacity-90 group-hover:opacity-100 transition-all duration-1000 z-0 animate-pulse-slow-delayed"></div>
+                    
+                    {/* Text with enhanced glow */}
+                    <h2 
+                      className="relative z-10 text-white font-extrabold tracking-tight py-3 drop-shadow-[0_2px_2px_rgba(0,0,0,0.9)] group-hover:scale-[1.02] transition-transform duration-700"
+                      style={{ 
+                        fontSize: 'clamp(2.7rem, 5vw, 3.5rem)',
+                        textShadow: '0 0 15px rgba(59,130,246,0.5), 0 0 30px rgba(59,130,246,0.3), 0 1px 8px rgba(0,0,0,0.8)',
+                        letterSpacing: '-0.02em',
+                        whiteSpace: 'nowrap',
+                        marginBottom: '0.5rem',
+                        background: 'linear-gradient(to bottom, #ffffff, #e2e8f0)',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.8))'
+                      }}
+                    >
+                      Contact Information
+                    </h2>
+                    
+                    {/* Animated underline with gradient */}
+                    <div className="h-1 w-0 group-hover:w-full bg-gradient-to-r from-blue-600 via-cyan-400 to-blue-500 rounded-full mx-auto transition-all duration-1000 opacity-80"></div>
+                  </div>
                 </div>
                 <div className="relative z-10 mb-8" style={{ marginTop: "-2.5rem" }}>
                   <p className="text-gray-300 text-lg text-center max-w-xl mx-auto mb-2">
