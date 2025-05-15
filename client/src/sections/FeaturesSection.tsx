@@ -28,78 +28,89 @@ const FeatureCard = ({ icon, title, description, index }: { icon: string; title:
       {/* Glow effects ONLY BEHIND the card - elite enterprise styling */}
       <div className="absolute -inset-4 bg-gradient-to-r from-orange-600/15 via-blue-600/15 to-orange-600/15 rounded-2xl blur-xl opacity-30 group-hover:opacity-50 transition-all duration-1000 animate-pulse-slow z-0"></div>
       
-      {/* Advanced enterprise-level card styling with enhanced 3D effects - grey face style */}
-      <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black backdrop-blur-xl rounded-xl p-8 md:p-10 text-center border border-gray-800 overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.7)] h-full z-40">
+      {/* Premium Card Container - matching TechnicalSpecsTable.tsx */}
+      <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black backdrop-blur-xl rounded-xl p-8 md:p-10 text-center border border-orange-500/30 overflow-hidden hover:shadow-[0_0_25px_rgba(249,115,22,0.3)] transition-shadow duration-500 h-full z-40">
         {/* Subtle dots and squares pattern background in mixed colors */}
         <div className="absolute inset-0 opacity-25 z-0">
           <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoMjMyLDEyMSw1OCwwLjMpIiBkPSJNMCAwaDJ2Mkgwem0yIDJoMnYySDJ6Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCBmaWxsPSJ1cmwoI2EpIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIi8+PC9zdmc+')]"></div>
         </div>
         
-        {/* Elite enterprise styling corner accents - subtle */}
+        {/* Ambient glow effects - positioned away from text */}
+        <div className="absolute -top-40 -right-20 w-60 h-60 bg-orange-600/15 rounded-full filter blur-[120px] animate-pulse-slow-delayed"></div>
+        <div className="absolute -bottom-40 -left-20 w-60 h-60 bg-blue-500/20 rounded-full filter blur-[120px] animate-pulse-slow"></div>
+        
+        {/* Additional corner accent lines - with mixed theme */}
         <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none z-10">
-          <div className="absolute top-0 left-0 w-8 h-8 border-t border-l border-gray-700 rounded-tl-lg"></div>
+          <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-orange-500/70 rounded-tl-lg"></div>
+          <div className="absolute top-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
         </div>
         <div className="absolute top-0 right-0 w-16 h-16 pointer-events-none z-10">
-          <div className="absolute top-0 right-0 w-8 h-8 border-t border-r border-gray-700 rounded-tr-lg"></div>
+          <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-blue-500/70 rounded-tr-lg"></div>
+          <div className="absolute top-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
         </div>
         <div className="absolute bottom-0 left-0 w-16 h-16 pointer-events-none z-10">
-          <div className="absolute bottom-0 left-0 w-8 h-8 border-b border-l border-gray-700 rounded-bl-lg"></div>
+          <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-orange-500/70 rounded-bl-lg"></div>
+          <div className="absolute bottom-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
         </div>
         <div className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none z-10">
-          <div className="absolute bottom-0 right-0 w-8 h-8 border-b border-r border-gray-700 rounded-br-lg"></div>
+          <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-blue-500/70 rounded-br-lg"></div>
+          <div className="absolute bottom-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
         </div>
         
-        {/* Removed animated lines for cleaner elite enterprise look */}
-      
-        {/* Elite enterprise icon with minimal styling */}
-        <div className="relative inline-flex items-center justify-center w-20 h-20 md:w-24 md:h-24 mb-8 group-hover:scale-105 transition-all duration-700 ease-out z-50">
-          {/* Icon background with subtle gradient */}
-          <div className={`absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-900 rounded-full`}></div>
-          
-          {/* Icon inner highlight with subtle reflective effect */}
-          <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-transparent to-transparent rounded-full"></div>
-          
-          {/* Icon with premium styling */}
-          <i className={`${icon} text-white text-4xl md:text-5xl relative z-10 drop-shadow-[0_1px_1px_rgba(0,0,0,0.5)] transform group-hover:scale-105 transition-transform duration-700`}></i>
-          
-          {/* Single subtle border */}
-          <div className="absolute inset-0 rounded-full border border-white/10 scale-[1.1]"></div>
-        </div>
-      
-        {/* Elite enterprise title styling - clean and minimal */}
-        <div className="relative mb-6 group-hover:transform group-hover:scale-105 transition-transform duration-700 z-50">
-          <div className="font-bold text-2xl md:text-2xl relative">
-            {/* Main text with refined styling */}
-            <span className="relative text-white font-semibold tracking-tight">
-              {title}
-            </span>
+        {/* Content with improved z-indices to ensure it appears above effects */}
+        <div className="relative z-20">
+          {/* Enhanced premium icon with glow effect */}
+          <div className="relative inline-flex items-center justify-center w-20 h-20 md:w-24 md:h-24 mb-8 group-hover:scale-110 transition-all duration-700 ease-out">
+            {/* Icon glow effect */}
+            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-orange-500/30 to-blue-500/30 blur-[10px] opacity-40 group-hover:opacity-70 transition-opacity duration-500"></div>
+            
+            {/* Icon background */}
+            <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-900 rounded-full"></div>
+            
+            {/* Icon */}
+            <i className={`${icon} text-white text-4xl md:text-5xl relative z-10 group-hover:text-amber-100 transition-colors duration-700`}></i>
+            
+            {/* Top glossy reflection */}
+            <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-transparent to-transparent rounded-full"></div>
+            
+            {/* Icon border */}
+            <div className="absolute inset-0 rounded-full border border-orange-500/30 scale-110"></div>
           </div>
           
-          {/* Subtle underline */}
-          <div className="w-16 h-[1px] mx-auto mt-2 bg-gray-700"></div>
-        </div>
-        
-        {/* Clean enterprise description */}
-        <div className="relative z-50">
-          <p className="text-gray-400 text-base md:text-lg relative z-50 transform group-hover:text-gray-300 transition-colors duration-700">
+          {/* Enhanced title with mixed theme styling */}
+          <div className="relative mb-6">
+            {/* Shimmer text effect */}
+            <div className="shimmer-mixed-text text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-amber-300 to-blue-400 font-bold text-2xl md:text-2xl relative z-10">
+              {title}
+            </div>
+            
+            {/* Animated underline with mixed-themed gradient */}
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-10 h-0.5 bg-gradient-to-r from-orange-500 to-blue-500 group-hover:w-24 transition-all duration-700 rounded-full opacity-70 shadow-[0_0_5px_rgba(251,113,36,0.4),_0_0_5px_rgba(59,130,246,0.4)]"></div>
+          </div>
+          
+          {/* Enhanced description */}
+          <p className="text-gray-300 text-base md:text-lg relative z-20 group-hover:text-gray-200 transition-colors duration-700">
             {description}
           </p>
+          
+          {/* Premium Learn More link that reveals on hover - with orange/blue gradient */}
+          <div className="mt-6 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-700 delay-100 relative z-20">
+            <span className="cursor-pointer text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-blue-400 text-sm font-medium inline-flex items-center group/link relative">
+              Learn More
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1 transform group-hover/link:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+              {/* Animated underline */}
+              <span className="absolute bottom-0 left-0 w-0 h-px bg-gradient-to-r from-orange-500 to-blue-500 group-hover/link:w-full transition-all duration-300"></span>
+            </span>
+          </div>
         </div>
         
-        {/* Minimal Learn More link that reveals on hover */}
-        <div className={`mt-6 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-500 delay-100 z-50 relative`}>
-          <span className={`cursor-pointer text-blue-400 text-sm font-medium inline-flex items-center group/link relative`}>
-            Learn More
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1 transform group-hover/link:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
-            </svg>
-          </span>
-        </div>
+        {/* Subtle bottom reflection with dual-color gradient */}
+        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2/3 h-[2px] bg-gradient-to-r from-transparent via-white/10 to-transparent rounded-full blur-sm"></div>
       </div>
       
-      {/* No bottom reflection for cleaner enterprise look */}
-      
-      {/* Dynamic floating animation based on index - using regular style element */}
+      {/* Dynamic floating animation based on index */}
       <style dangerouslySetInnerHTML={{ __html: `
         @keyframes float-${index} {
           0%, 100% { transform: translateY(0px); }
