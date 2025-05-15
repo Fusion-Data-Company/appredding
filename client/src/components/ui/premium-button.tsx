@@ -174,21 +174,22 @@ const PremiumButton = forwardRef<HTMLButtonElement, PremiumButtonProps>(
           {/* Enhanced Shimmer effect animation for fire variant - always active */}
           {isFire && (
             <>
-              {/* Ambient inner glow */}
-              <div className="absolute inset-0 bg-gradient-to-br from-orange-600/30 to-blue-600/20 opacity-40 group-hover:opacity-70 transition-opacity duration-700"></div>
+              {/* Black background for button face with onyx coloring */}
+              <div className="absolute inset-0 bg-black rounded-lg"></div>
               
-              {/* Base shimmer effect - always active but subtle */}
-              <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-20 -translate-x-full animate-shimmer-slow transform"></div>
+              {/* Base shimmer effect on the black background - always active but subtle */}
+              <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-20 -translate-x-full animate-shimmer-slow transform rounded-lg"></div>
               
-              {/* Additional hover shimmer effect */}
-              <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 -translate-x-full group-hover:translate-x-full transform transition-transform duration-1000"></div>
+              {/* Additional hover shimmer effect on black surface */}
+              <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 -translate-x-full group-hover:translate-x-full transform transition-transform duration-1000 rounded-lg"></div>
               
-              {/* Enhanced orange-red glow effect with animation */}
-              <div className="absolute -inset-[1px] rounded-lg opacity-40 transition-opacity duration-500" 
+              {/* Orange ambient glow behind the button */}
+              <div className="absolute -inset-[1px] rounded-lg opacity-40 transition-opacity duration-500"
                   style={{ 
                     background: 'linear-gradient(to right, rgba(255,111,0,0.3), rgba(255,89,0,0.2) 35%, rgba(255,79,0,0.3) 65%, rgba(255,111,0,0.3))',
-                    boxShadow: 'inset 0 1px 0 0 rgba(255,147,47,0.5), inset 0 -1px 0 0 rgba(255,147,47,0.5), 0 0 6px 1px rgba(255,79,0,0.6), 0 0 0 1px rgba(255, 255, 255, 0.1)',
+                    boxShadow: 'inset 0 1px 0 0 rgba(255,147,47,0.4), inset 0 -1px 0 0 rgba(255,147,47,0.4), 0 0 8px 2px rgba(255,79,0,0.5), 0 0 0 1px rgba(255, 255, 255, 0.1)',
                     animation: 'borderPulse 2s ease-in-out infinite',
+                    zIndex: -1
                   }}>
               </div>
               
@@ -196,10 +197,10 @@ const PremiumButton = forwardRef<HTMLButtonElement, PremiumButtonProps>(
               <div className="absolute top-0 left-0 w-2 h-2 bg-orange-500/70 rounded-full blur-[1px] opacity-60 group-hover:opacity-100 transition-opacity duration-300"></div>
               <div className="absolute bottom-0 right-0 w-2 h-2 bg-orange-500/70 rounded-full blur-[1px] opacity-60 group-hover:opacity-100 transition-opacity duration-300"></div>
               
-              {/* Ambient glow that fades in on hover - toned down and slowed */}
-              <div className="absolute -inset-[2px] rounded-md bg-orange-500/10 blur-sm opacity-0 group-hover:opacity-70 transition-opacity duration-1000" 
+              {/* Ambient glow that fades in on hover - behind black button face */}
+              <div className="absolute -inset-[2px] rounded-md bg-orange-500/20 blur-sm opacity-30 group-hover:opacity-80 transition-opacity duration-1000" 
                    style={{ 
-                     boxShadow: '0 0 6px 1px rgba(251, 113, 36, 0.2), 0 0 2px 0 rgba(255, 255, 255, 0.1)' 
+                     boxShadow: '0 0 10px 2px rgba(251, 113, 36, 0.3), 0 0 4px 0 rgba(255, 255, 255, 0.1)' 
                    }}>
               </div>
             </>
