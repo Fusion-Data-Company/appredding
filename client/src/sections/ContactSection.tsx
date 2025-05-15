@@ -560,7 +560,7 @@ const ContactSection = () => {
                     <div className="absolute -bottom-1 -right-1 w-6 h-6 border-b-2 border-r-2 border-blue-500/40 rounded-br-md z-10"></div>
                     
                     {/* Ambient glow behind heading */}
-                    <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 via-cyan-400/20 to-blue-500/20 rounded-lg blur-lg opacity-30 dark:opacity-40 z-0"></div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 via-cyan-400/20 to-blue-500/20 rounded-lg blur-md opacity-40 dark:opacity-50 z-0"></div>
                     
                     <h2 
                       className="relative z-10 text-white font-extrabold tracking-tight py-2 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] mx-auto"
