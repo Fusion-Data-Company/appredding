@@ -42,7 +42,7 @@ const FAQSection = ({ faqs }: FAQProps) => {
       {/* Dark Overlay */}
       <div className="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 relative z-20">
         {/* Enterprise grade header card with premium styling */}
         <div className="text-center mb-16">
           <div className="relative inline-block">
@@ -141,7 +141,7 @@ const FAQSection = ({ faqs }: FAQProps) => {
                 </div>
                 
                 {/* Premium styled FAQ category card */}
-                <div className="p-4 bg-gradient-to-br from-gray-900/90 via-gray-950/90 to-black/90 backdrop-blur-md rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.5)] relative overflow-hidden h-full flex flex-col justify-between">
+                <div className="p-4 bg-gradient-to-br from-gray-900/90 via-gray-950/90 to-black/90 backdrop-blur-md rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.5)] relative overflow-hidden h-full flex flex-col justify-between z-20">
                   {/* Inset glow effect */}
                   <div className="absolute inset-0 rounded-xl opacity-70 z-0" 
                     style={{ boxShadow: 'inset 0 0 30px 0 rgba(59,130,246,0.2), inset 0 0 20px 0 rgba(249,115,22,0.2)' }}>
@@ -214,7 +214,7 @@ const FAQSection = ({ faqs }: FAQProps) => {
                             </div>
                             
                             <button
-                              className="w-full text-left p-3 rounded-lg relative bg-gradient-to-br from-gray-800/60 via-gray-850/60 to-gray-900/60 backdrop-blur-sm group-hover/faq:from-gray-800/80 group-hover/faq:to-gray-900/80 transition-all duration-300"
+                              className="w-full text-left p-3 rounded-lg relative bg-gradient-to-br from-gray-800/60 via-gray-850/60 to-gray-900/60 backdrop-blur-sm group-hover/faq:from-gray-800/80 group-hover/faq:to-gray-900/80 transition-all duration-300 z-20"
                               onClick={() => toggleQuestion(categoryIdx, questionIdx)}
                             >
                               {/* Enhanced dual-edge border effect */}
