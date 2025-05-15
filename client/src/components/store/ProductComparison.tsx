@@ -219,9 +219,9 @@ const ProductComparison = () => {
           <div className="grid grid-cols-12 gap-4 mb-6 relative">
             {/* Premium Card Container with mixed orange/blue styling - matching the bottom card */}
             <div className="col-span-12 relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black backdrop-blur-xl rounded-xl py-6 px-8 shadow-[0_10px_50px_rgba(0,0,0,0.5)] z-10 border border-orange-500/30 group hover:shadow-[0_0_25px_rgba(249,115,22,0.3)] transition-shadow duration-500">
-              {/* Multiple layered background effects - Mixed theme */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/40 via-blue-600/40 to-orange-600/40 rounded-xl blur-xl opacity-70 group-hover:opacity-100 group-hover:blur-xl transition-all duration-1000 animate-pulse-slow"></div>
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/80 via-blue-500/80 to-orange-500/80 rounded-xl blur-md opacity-90 group-hover:opacity-100 transition-all duration-500"></div>
+              {/* Multiple layered background effects - Mixed theme with backward glow */}
+              <div className="absolute -inset-3 bg-gradient-to-r from-orange-600/30 via-blue-600/30 to-orange-600/30 rounded-xl blur-xl opacity-50 group-hover:opacity-70 group-hover:blur-2xl transition-all duration-1000 animate-pulse-slow"></div>
+              <div className="absolute -inset-1 bg-gradient-to-r from-orange-500/40 via-blue-500/40 to-orange-500/40 rounded-xl blur-lg opacity-60 group-hover:opacity-80 transition-all duration-500"></div>
               
               {/* Subtle dots and squares pattern background in mixed colors */}
               <div className="absolute inset-0 opacity-30 z-0">
@@ -287,9 +287,9 @@ const ProductComparison = () => {
               <div key={index} className="group relative transform transition-all duration-500 hover:scale-105 hover:z-10">
                 {/* Premium Card Container with full Specialized Application styling */}
                 <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black backdrop-blur-xl rounded-xl py-5 px-6 shadow-[0_10px_50px_rgba(0,0,0,0.5)] z-10 border border-orange-500/30 overflow-hidden">
-                  {/* Multiple layered background effects - Mixed theme */}
-                  <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/40 via-blue-600/40 to-orange-600/40 rounded-xl blur-xl opacity-70 group-hover:opacity-100 group-hover:blur-xl transition-all duration-1000 animate-pulse-slow"></div>
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/80 via-blue-500/80 to-orange-500/80 rounded-xl blur-md opacity-90 group-hover:opacity-100 transition-all duration-500"></div>
+                  {/* Multiple layered background effects - Mixed theme with backward glow */}
+                  <div className="absolute -inset-3 bg-gradient-to-r from-orange-600/30 via-blue-600/30 to-orange-600/30 rounded-xl blur-xl opacity-50 group-hover:opacity-70 group-hover:blur-2xl transition-all duration-1000 animate-pulse-slow"></div>
+                  <div className="absolute -inset-1 bg-gradient-to-r from-orange-500/40 via-blue-500/40 to-orange-500/40 rounded-xl blur-lg opacity-60 group-hover:opacity-80 transition-all duration-500"></div>
                   
                   {/* Subtle dots and squares pattern background in mixed colors */}
                   <div className="absolute inset-0 opacity-30 z-0">

@@ -107,9 +107,9 @@ const TechnicalSpecsTable = () => {
         <div className="text-center mb-12">
           {/* Premium Enterprise-level heading container with mixed orange/blue styling */}
           <div className="relative mx-auto max-w-4xl mb-8 inline-block group transform transition-all duration-500 hover:scale-[1.01] hover:-translate-y-1 hover:z-10">
-            {/* Multiple layered background effects - Mixed theme */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/40 via-blue-600/40 to-orange-600/40 rounded-xl blur-xl opacity-70 group-hover:opacity-100 group-hover:blur-xl transition-all duration-1000 animate-pulse-slow"></div>
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/80 via-blue-500/80 to-orange-500/80 rounded-xl blur-md opacity-90 group-hover:opacity-100 transition-all duration-500"></div>
+            {/* Multiple layered background effects - Mixed theme with backward glow */}
+            <div className="absolute -inset-3 bg-gradient-to-r from-orange-600/30 via-blue-600/30 to-orange-600/30 rounded-xl blur-xl opacity-50 group-hover:opacity-70 group-hover:blur-2xl transition-all duration-1000 animate-pulse-slow"></div>
+            <div className="absolute -inset-1 bg-gradient-to-r from-orange-500/40 via-blue-500/40 to-orange-500/40 rounded-xl blur-lg opacity-60 group-hover:opacity-80 transition-all duration-500"></div>
             
             {/* Premium Card Container */}
             <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black backdrop-blur-xl rounded-xl py-8 px-10 border border-orange-500/30 overflow-hidden hover:shadow-[0_0_25px_rgba(249,115,22,0.3)] transition-shadow duration-500 z-10">
@@ -307,9 +307,9 @@ const TechnicalSpecsTable = () => {
         <div className="mt-10 text-center">
           {/* Premium Enterprise Bottom Note with Mixed Orange/Blue Theme */}
           <div className="relative group inline-block transform transition-all duration-500 hover:scale-[1.01] hover:-translate-y-1 hover:z-10">
-            {/* Multiple layered background effects - Mixed theme */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/40 via-blue-600/40 to-orange-600/40 rounded-xl blur-xl opacity-70 group-hover:opacity-100 group-hover:blur-xl transition-all duration-1000 animate-pulse-slow"></div>
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/80 via-blue-500/80 to-orange-500/80 rounded-xl blur-md opacity-90 group-hover:opacity-100 transition-all duration-500"></div>
+            {/* Multiple layered background effects - Mixed theme with backward glow */}
+            <div className="absolute -inset-3 bg-gradient-to-r from-orange-600/30 via-blue-600/30 to-orange-600/30 rounded-xl blur-xl opacity-50 group-hover:opacity-70 group-hover:blur-2xl transition-all duration-1000 animate-pulse-slow"></div>
+            <div className="absolute -inset-1 bg-gradient-to-r from-orange-500/40 via-blue-500/40 to-orange-500/40 rounded-xl blur-lg opacity-60 group-hover:opacity-80 transition-all duration-500"></div>
             
             {/* Main card container */}
             <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black backdrop-blur-xl rounded-xl py-4 px-8 z-10 border border-orange-500/30 overflow-hidden group hover:shadow-[0_0_25px_rgba(249,115,22,0.3)] transition-shadow duration-500">
