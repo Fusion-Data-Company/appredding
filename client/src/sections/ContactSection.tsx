@@ -168,10 +168,10 @@ const ContactSection = () => {
             <div className="relative mb-8 flex justify-center w-full">
               <div className="absolute -inset-4 bg-gradient-to-r from-orange-500 via-amber-400 to-orange-500 rounded-lg blur-lg opacity-30 dark:opacity-40 z-10"></div>
               <h2 
-                className="relative z-20 text-center bg-clip-text text-transparent bg-gradient-to-r from-amber-400 via-orange-500 to-blue-500 font-extrabold tracking-tight py-2" 
+                className="relative z-20 text-center text-white font-extrabold tracking-tight py-2" 
                 style={{ 
                   fontSize: '3.25rem',
-                  textShadow: '0 1px 8px rgba(255,150,0,0.3)',
+                  textShadow: '0 1px 8px rgba(255,150,0,0.3), 0 1px 3px rgba(0,0,0,0.3)',
                   marginBottom: '1.5rem',
                   letterSpacing: '-0.02em'
                 }}
@@ -213,7 +213,7 @@ const ContactSection = () => {
                   {/* Premium Enterprise Label */}
                   <label htmlFor="firstName" className="relative flex items-center mb-2 group">
                     {/* Label text with premium styling */}
-                    <span className="relative z-10 text-sm font-medium bg-clip-text text-transparent bg-gradient-to-r from-amber-300 via-orange-500 to-blue-500 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] tracking-wide">
+                    <span className="relative z-10 text-sm font-medium text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] tracking-wide">
                       First Name
                     </span>
                     
@@ -242,7 +242,7 @@ const ContactSection = () => {
                   {/* Premium Enterprise Label */}
                   <label htmlFor="lastName" className="relative flex items-center mb-2 group">
                     {/* Label text with premium styling */}
-                    <span className="relative z-10 text-sm font-medium bg-clip-text text-transparent bg-gradient-to-r from-amber-300 via-orange-500 to-blue-500 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] tracking-wide">
+                    <span className="relative z-10 text-sm font-medium text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] tracking-wide">
                       Last Name
                     </span>
                     
