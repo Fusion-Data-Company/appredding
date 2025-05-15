@@ -181,13 +181,7 @@ const FeaturesSection = () => {
               
               {/* Enhanced premium badge with layered orange/blue gradient styling and increased z-index */}
               <div className="absolute -top-6 left-1/2 -translate-x-1/2 flex z-[100]">
-                <PremiumBadge
-                  icon={
-                    <svg className="h-5 w-5 text-orange-300 relative z-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M12 22a9.5 9.5 0 0 0 3.09-18.49A4.5 4.5 0 1 0 12 8.5a4.5 4.5 0 1 0-3.09-9.01A9.5 9.5 0 0 0 12 22z"></path>
-                    </svg>
-                  }
-                >
+                <PremiumBadge>
                   NASA TECHNOLOGY
                 </PremiumBadge>
               </div>
