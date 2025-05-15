@@ -65,16 +65,7 @@ const IntroSection = () => {
               
               {/* NASA Premium badge with high z-index */}
               <div className="relative -top-6 flex justify-center mb-8 z-[100]">
-                <PremiumBadge
-                  icon={
-                    <div className="relative h-5 w-5">
-                      <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-gray-900/95 backdrop-blur-xl rounded-full p-0.5 z-10 border border-orange-500/20">
-                        <i className="fas fa-shield-alt text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-blue-500 text-sm"></i>
-                      </div>
-                      <div className="absolute inset-0 rounded-full shadow-[0_0_10px_rgba(251,113,36,0.4)]"></div>
-                    </div>
-                  }
-                >
+                <PremiumBadge>
                   NASA TECHNOLOGY
                 </PremiumBadge>
               </div>
