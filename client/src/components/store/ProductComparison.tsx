@@ -122,8 +122,8 @@ const ProductComparison = () => {
           {/* Premium Enterprise-level heading container */}
           <div className="relative group mx-auto max-w-4xl mb-10 inline-block transform transition-all duration-500">
             {/* Multiple layered background effects */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/40 via-red-600/40 to-amber-600/40 rounded-xl blur-xl opacity-70 group-hover:opacity-100 group-hover:blur-xl transition-all duration-1000 animate-pulse-slow"></div>
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/80 via-amber-500/80 to-red-500/80 rounded-xl blur-md opacity-90 group-hover:opacity-100 transition-all duration-500"></div>
+            <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/40 via-blue-600/40 to-orange-600/40 rounded-xl blur-xl opacity-70 group-hover:opacity-100 group-hover:blur-xl transition-all duration-1000 animate-pulse-slow"></div>
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/80 via-blue-500/80 to-orange-500/80 rounded-xl blur-md opacity-90 group-hover:opacity-100 transition-all duration-500"></div>
             
             {/* Main card container */}
             <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black backdrop-blur-xl rounded-xl py-12 px-12 z-10 border border-orange-500/30 overflow-hidden group hover:shadow-[0_0_25px_rgba(249,115,22,0.3)] transition-shadow duration-500">
@@ -162,7 +162,7 @@ const ProductComparison = () => {
               {/* Shimmer heading */}
               <div className="relative z-10 mb-8 px-6 py-2 overflow-hidden">
                 {/* Animated glow behind text */}
-                <div className="absolute inset-0 bg-gradient-to-r from-orange-600/10 via-orange-500/20 to-red-600/10 opacity-50 blur-xl animate-pulse-slow"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-orange-600/10 via-blue-500/20 to-orange-600/10 opacity-50 blur-xl animate-pulse-slow"></div>
                 
                 {/* Heading with enhanced enterprise styling and shadows */}
                 <div className="shimmer-fire-text font-bold text-4xl tracking-tight relative z-10">
@@ -172,7 +172,7 @@ const ProductComparison = () => {
                   </div>
                   
                   {/* Main text with premium gradient */}
-                  <span className="relative z-20 text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-amber-500 to-red-500
+                  <span className="relative z-20 text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-amber-500 to-blue-500
                     drop-shadow-[0_0px_1px_rgba(251,113,36,0.2)] 
                     [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(251,146,60,0.3)]">
                     How Praetorian Outperforms the Competition
@@ -334,7 +334,7 @@ const ProductComparison = () => {
                         {item.feature}
                       </span>
                       {/* Subtle underline that appears on hover */}
-                      <div className="absolute -bottom-1 left-0 w-0 h-px bg-gradient-to-r from-orange-500 to-red-500 group-hover:w-1/2 transition-all duration-700 opacity-60"></div>
+                      <div className="absolute -bottom-1 left-0 w-0 h-px bg-gradient-to-r from-orange-500 to-blue-500 group-hover:w-1/2 transition-all duration-700 opacity-60"></div>
                     </div>
                     
                     {/* Praetorian data */}

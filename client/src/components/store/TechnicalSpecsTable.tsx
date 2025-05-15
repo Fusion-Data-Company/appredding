@@ -193,7 +193,7 @@ const TechnicalSpecsTable = () => {
           {/* Premium Enterprise Table Container */}
           <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-gray-900/95 backdrop-blur-xl rounded-xl overflow-hidden shadow-[0_10px_50px_rgba(0,0,0,0.5)] z-10">
             {/* Premium gradient border effect */}
-            <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/40 via-transparent to-red-500/40 opacity-70"></div>
+            <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/40 via-transparent to-blue-500/40 opacity-70"></div>
             
             {/* Inner highlight */}
             <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-40 pointer-events-none"></div>
@@ -219,7 +219,7 @@ const TechnicalSpecsTable = () => {
                   <TableRow className="border-0">
                     {/* Premium Header Gradient */}
                     <th colSpan={3} className="p-0">
-                      <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-amber-900/80 via-red-900/60 to-gray-900/80"></div>
+                      <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-amber-900/80 via-blue-900/60 to-gray-900/80"></div>
                     </th>
                   </TableRow>
                   <TableRow className="relative">
@@ -285,7 +285,7 @@ const TechnicalSpecsTable = () => {
                           </span>
                           
                           {/* Animated underline on hover */}
-                          <div className="absolute -bottom-1 left-0 h-px w-0 group-hover:w-1/2 transition-all duration-700 bg-gradient-to-r from-orange-500 to-red-500 opacity-60"></div>
+                          <div className="absolute -bottom-1 left-0 h-px w-0 group-hover:w-1/2 transition-all duration-700 bg-gradient-to-r from-orange-500 to-blue-500 opacity-60"></div>
                         </div>
                       </TableCell>
                       
