@@ -171,26 +171,37 @@ const ContactSection = () => {
               </div>
             </div>
             
-            <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/98 to-black/95 backdrop-blur-xl rounded-xl p-1 border-0 shadow-[0_10px_50px_rgba(0,0,0,0.5)]">
+            <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/98 to-black/95 backdrop-blur-xl rounded-xl p-1 border-0 shadow-[0_10px_50px_rgba(0,0,0,0.5)] group">
               {/* Premium gradient border effect */}
-              <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-orange-500/50 via-blue-500/30 to-orange-500/50 opacity-70"></div>
+              <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-orange-500/50 via-blue-500/30 to-orange-500/50 opacity-70 group-hover:opacity-90 transition-opacity duration-700"></div>
+              
+              {/* Ambient glow effects - positioned behind card */}
+              <div className="absolute -right-20 -bottom-10 w-40 h-40 bg-orange-500/20 rounded-full blur-[80px] opacity-70 group-hover:opacity-100 transition-opacity duration-1000"></div>
+              <div className="absolute -left-20 -top-10 w-40 h-40 bg-blue-500/20 rounded-full blur-[80px] opacity-70 group-hover:opacity-100 transition-opacity duration-1000"></div>
               
               {/* Animated corner accents - premium effect */}
-              <div className="absolute top-0 left-0 w-16 h-16 opacity-40">
-                <div className="absolute inset-0 bg-gradient-to-br from-amber-500/40 to-blue-600/30 rounded-tl-xl blur-[2px]"></div>
+              <div className="absolute top-0 left-0 w-16 h-16 opacity-60">
+                <div className="absolute inset-0 bg-gradient-to-br from-amber-500/40 to-blue-600/30 rounded-tl-xl blur-[2px] group-hover:animate-pulse-slow" style={{ animationDuration: '4s' }}></div>
               </div>
-              <div className="absolute top-0 right-0 w-16 h-16 opacity-40">
-                <div className="absolute inset-0 bg-gradient-to-bl from-amber-500/40 to-blue-600/30 rounded-tr-xl blur-[2px]"></div>
+              <div className="absolute top-0 right-0 w-16 h-16 opacity-60">
+                <div className="absolute inset-0 bg-gradient-to-bl from-amber-500/40 to-blue-600/30 rounded-tr-xl blur-[2px] group-hover:animate-pulse-slow" style={{ animationDuration: '5s' }}></div>
               </div>
-              <div className="absolute bottom-0 left-0 w-16 h-16 opacity-40">
-                <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/30 to-amber-500/40 rounded-bl-xl blur-[2px]"></div>
+              <div className="absolute bottom-0 left-0 w-16 h-16 opacity-60">
+                <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/30 to-amber-500/40 rounded-bl-xl blur-[2px] group-hover:animate-pulse-slow" style={{ animationDuration: '4.5s' }}></div>
               </div>
-              <div className="absolute bottom-0 right-0 w-16 h-16 opacity-40">
-                <div className="absolute inset-0 bg-gradient-to-tl from-blue-600/30 to-amber-500/40 rounded-br-xl blur-[2px]"></div>
+              <div className="absolute bottom-0 right-0 w-16 h-16 opacity-60">
+                <div className="absolute inset-0 bg-gradient-to-tl from-blue-600/30 to-amber-500/40 rounded-br-xl blur-[2px] group-hover:animate-pulse-slow" style={{ animationDuration: '5.5s' }}></div>
               </div>
+              
+              {/* Animated edge highlight effects */}
+              <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-orange-500/0 via-orange-500/70 to-orange-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000 blur-[1px]"></div>
+              <div className="absolute bottom-0 inset-x-0 h-[2px] bg-gradient-to-r from-blue-500/0 via-blue-500/70 to-blue-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000 blur-[1px]"></div>
               
               {/* Inner highlight */}
               <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
+              
+              {/* Premium subtle texture overlay */}
+              <div className="absolute inset-0 opacity-[0.03] bg-repeat bg-[length:150px_150px] mix-blend-overlay pointer-events-none rounded-xl" style={{ backgroundImage: "url('/src/assets_dir/images/textures/stone-texture.png')" }}></div>
               
               <form className="space-y-6 p-8 relative" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -446,26 +457,37 @@ const ContactSection = () => {
               </div>
             </div>
             
-            <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/98 to-black/95 backdrop-blur-xl rounded-xl p-1 border-0 shadow-[0_10px_50px_rgba(0,0,0,0.5)]">
-              {/* Premium gradient border effect */}
-              <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-500/50 via-orange-500/30 to-blue-500/50 opacity-70"></div>
+            <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/98 to-black/95 backdrop-blur-xl rounded-xl p-1 border-0 shadow-[0_10px_50px_rgba(0,0,0,0.5)] group">
+              {/* Premium gradient border effect - flipped color order from first card */}
+              <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-500/50 via-orange-500/30 to-blue-500/50 opacity-70 group-hover:opacity-90 transition-opacity duration-700"></div>
               
-              {/* Animated corner accents - premium effect (blue variant) */}
-              <div className="absolute top-0 left-0 w-16 h-16 opacity-40">
-                <div className="absolute inset-0 bg-gradient-to-br from-orange-500/40 to-blue-600/30 rounded-tl-xl blur-[2px]"></div>
+              {/* Ambient glow effects - blue-dominant, opposite of first card */}
+              <div className="absolute -right-20 -bottom-10 w-40 h-40 bg-blue-500/20 rounded-full blur-[80px] opacity-70 group-hover:opacity-100 transition-opacity duration-1000"></div>
+              <div className="absolute -left-20 -top-10 w-40 h-40 bg-orange-500/20 rounded-full blur-[80px] opacity-70 group-hover:opacity-100 transition-opacity duration-1000"></div>
+              
+              {/* Animated corner accents - blue variant */}
+              <div className="absolute top-0 left-0 w-16 h-16 opacity-60">
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/40 to-orange-600/30 rounded-tl-xl blur-[2px] group-hover:animate-pulse-slow" style={{ animationDuration: '5s' }}></div>
               </div>
-              <div className="absolute top-0 right-0 w-16 h-16 opacity-40">
-                <div className="absolute inset-0 bg-gradient-to-bl from-orange-500/40 to-blue-600/30 rounded-tr-xl blur-[2px]"></div>
+              <div className="absolute top-0 right-0 w-16 h-16 opacity-60">
+                <div className="absolute inset-0 bg-gradient-to-bl from-blue-500/40 to-orange-600/30 rounded-tr-xl blur-[2px] group-hover:animate-pulse-slow" style={{ animationDuration: '4s' }}></div>
               </div>
-              <div className="absolute bottom-0 left-0 w-16 h-16 opacity-40">
-                <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/30 to-orange-500/40 rounded-bl-xl blur-[2px]"></div>
+              <div className="absolute bottom-0 left-0 w-16 h-16 opacity-60">
+                <div className="absolute inset-0 bg-gradient-to-tr from-orange-600/30 to-blue-500/40 rounded-bl-xl blur-[2px] group-hover:animate-pulse-slow" style={{ animationDuration: '5.5s' }}></div>
               </div>
-              <div className="absolute bottom-0 right-0 w-16 h-16 opacity-40">
-                <div className="absolute inset-0 bg-gradient-to-tl from-blue-600/30 to-orange-500/40 rounded-br-xl blur-[2px]"></div>
+              <div className="absolute bottom-0 right-0 w-16 h-16 opacity-60">
+                <div className="absolute inset-0 bg-gradient-to-tl from-orange-600/30 to-blue-500/40 rounded-br-xl blur-[2px] group-hover:animate-pulse-slow" style={{ animationDuration: '4.5s' }}></div>
               </div>
+              
+              {/* Animated edge highlight effects - flipped colors from first card */}
+              <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-blue-500/0 via-blue-500/70 to-blue-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000 blur-[1px]"></div>
+              <div className="absolute bottom-0 inset-x-0 h-[2px] bg-gradient-to-r from-orange-500/0 via-orange-500/70 to-orange-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000 blur-[1px]"></div>
               
               {/* Inner highlight */}
               <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
+              
+              {/* Premium subtle texture overlay */}
+              <div className="absolute inset-0 opacity-[0.03] bg-repeat bg-[length:150px_150px] mix-blend-overlay pointer-events-none rounded-xl" style={{ backgroundImage: "url('/src/assets_dir/images/textures/stone-texture.png')" }}></div>
               
               <div className="space-y-8 p-8 relative">
                 {/* Premium Enterprise Contact Item - Location */}
@@ -578,34 +600,37 @@ const ContactSection = () => {
                     {/* Animated gradient underline - center aligned */}
                     <div className="h-0.5 w-0 group-hover:w-48 bg-gradient-to-r from-orange-500/40 via-blue-500/40 to-orange-500/40 rounded-full mx-auto transition-all duration-700 mb-6"></div>
                     
-                    {/* Floating effect container - all icons sit on same horizontal line */}
-                    <div className="flex justify-center flex-wrap gap-5 pt-2">
+                    {/* Floating effect container with enhanced styling */}
+                    <div className="flex justify-center flex-wrap gap-6 pt-4">
                       {/* Facebook Icon - Premium Enterprise Styling */}
                       <a 
                         href="https://facebook.com/praetoriansmartcoat" 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="group relative"
+                        className="group relative transform transition-all duration-500"
                       >
-                        {/* Premium Icon Container */}
-                        <div className="relative bg-gradient-to-br from-gray-900/95 to-gray-950/95 backdrop-blur-xl rounded-full p-4 shadow-[0_10px_30px_rgba(0,0,0,0.3)] z-10 group-hover:scale-110 transition-transform duration-500 transform hover:rotate-6">
+                        {/* Premium Icon Container with enhanced styling */}
+                        <div className="relative bg-gradient-to-br from-gray-900/95 to-gray-950/95 backdrop-blur-xl rounded-full p-5 shadow-[0_10px_30px_rgba(0,0,0,0.4)] z-10 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 group-hover:shadow-[0_15px_40px_rgba(59,130,246,0.4)]">
                           {/* Premium gradient border effect - Blue variant for Facebook */}
-                          <div className="absolute inset-0 p-0.5 rounded-full bg-gradient-to-r from-blue-500/50 via-blue-600/50 to-blue-700/50 opacity-70 group-hover:opacity-100 transition-opacity"></div>
+                          <div className="absolute inset-0 p-0.5 rounded-full bg-gradient-to-r from-blue-500/50 via-blue-600/50 to-blue-700/50 opacity-70 group-hover:opacity-100 transition-opacity duration-700"></div>
                           
                           {/* Inner highlight */}
                           <div className="absolute inset-0 rounded-full bg-gradient-to-b from-white/20 via-transparent to-transparent opacity-50 pointer-events-none"></div>
                           
                           {/* Icon itself */}
                           <div className="relative z-10">
-                            <i className="fab fa-facebook-f text-xl text-gradient from-blue-400 to-blue-600 w-6 h-6 flex items-center justify-center"></i>
+                            <i className="fab fa-facebook-f text-2xl text-gradient from-blue-400 to-blue-600 w-7 h-7 flex items-center justify-center group-hover:scale-110 transition-transform duration-500"></i>
                           </div>
                           
                           {/* Subtle glow effect */}
-                          <div className="absolute -inset-1 bg-blue-500/20 rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                          <div className="absolute -inset-1 bg-blue-500/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none animate-pulse-slow"></div>
                         </div>
                         
                         {/* Animated bottom shine effect */}
-                        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2/3 h-[2px] bg-gradient-to-r from-transparent via-blue-700/20 to-transparent rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-3/4 h-[2px] bg-gradient-to-r from-transparent via-blue-700/40 to-transparent rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                        
+                        {/* Subtle hover tooltip */}
+                        <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 whitespace-nowrap text-xs text-blue-400 font-medium tracking-wide">Facebook</div>
                       </a>
                       
                       {/* X (formerly Twitter) Icon - Premium Enterprise Styling */}
@@ -613,27 +638,30 @@ const ContactSection = () => {
                         href="https://x.com/praetoriansmartcoat" 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="group relative"
+                        className="group relative transform transition-all duration-500"
                       >
-                        {/* Premium Icon Container */}
-                        <div className="relative bg-gradient-to-br from-gray-900/95 to-gray-950/95 backdrop-blur-xl rounded-full p-4 shadow-[0_10px_30px_rgba(0,0,0,0.3)] z-10 group-hover:scale-110 transition-transform duration-500 transform hover:rotate-6">
+                        {/* Premium Icon Container with enhanced styling */}
+                        <div className="relative bg-gradient-to-br from-gray-900/95 to-gray-950/95 backdrop-blur-xl rounded-full p-5 shadow-[0_10px_30px_rgba(0,0,0,0.4)] z-10 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 group-hover:shadow-[0_15px_40px_rgba(156,163,175,0.4)]">
                           {/* Premium gradient border effect - X variant */}
-                          <div className="absolute inset-0 p-0.5 rounded-full bg-gradient-to-r from-gray-700/50 via-gray-800/50 to-gray-900/50 opacity-70 group-hover:opacity-100 transition-opacity"></div>
+                          <div className="absolute inset-0 p-0.5 rounded-full bg-gradient-to-r from-gray-700/50 via-gray-800/50 to-gray-900/50 opacity-70 group-hover:opacity-100 transition-opacity duration-700"></div>
                           
                           {/* Inner highlight */}
                           <div className="absolute inset-0 rounded-full bg-gradient-to-b from-white/20 via-transparent to-transparent opacity-50 pointer-events-none"></div>
                           
                           {/* Icon itself */}
                           <div className="relative z-10">
-                            <i className="fab fa-x-twitter text-xl text-white w-6 h-6 flex items-center justify-center"></i>
+                            <i className="fab fa-x-twitter text-2xl text-white w-7 h-7 flex items-center justify-center group-hover:scale-110 transition-transform duration-500"></i>
                           </div>
                           
                           {/* Subtle glow effect */}
-                          <div className="absolute -inset-1 bg-white/20 rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                          <div className="absolute -inset-1 bg-white/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none animate-pulse-slow"></div>
                         </div>
                         
                         {/* Animated bottom shine effect */}
-                        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2/3 h-[2px] bg-gradient-to-r from-transparent via-gray-500/20 to-transparent rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-3/4 h-[2px] bg-gradient-to-r from-transparent via-gray-500/40 to-transparent rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                        
+                        {/* Subtle hover tooltip */}
+                        <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 whitespace-nowrap text-xs text-gray-400 font-medium tracking-wide">X</div>
                       </a>
                       
                       {/* LinkedIn Icon - Premium Enterprise Styling */}
@@ -641,27 +669,30 @@ const ContactSection = () => {
                         href="https://linkedin.com/company/praetorian-smartcoat" 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="group relative"
+                        className="group relative transform transition-all duration-500"
                       >
-                        {/* Premium Icon Container */}
-                        <div className="relative bg-gradient-to-br from-gray-900/95 to-gray-950/95 backdrop-blur-xl rounded-full p-4 shadow-[0_10px_30px_rgba(0,0,0,0.3)] z-10 group-hover:scale-110 transition-transform duration-500 transform hover:rotate-6">
+                        {/* Premium Icon Container with enhanced styling */}
+                        <div className="relative bg-gradient-to-br from-gray-900/95 to-gray-950/95 backdrop-blur-xl rounded-full p-5 shadow-[0_10px_30px_rgba(0,0,0,0.4)] z-10 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 group-hover:shadow-[0_15px_40px_rgba(37,99,235,0.4)]">
                           {/* Premium gradient border effect - LinkedIn variant */}
-                          <div className="absolute inset-0 p-0.5 rounded-full bg-gradient-to-r from-blue-700/50 via-blue-800/50 to-blue-900/50 opacity-70 group-hover:opacity-100 transition-opacity"></div>
+                          <div className="absolute inset-0 p-0.5 rounded-full bg-gradient-to-r from-blue-700/50 via-blue-800/50 to-blue-900/50 opacity-70 group-hover:opacity-100 transition-opacity duration-700"></div>
                           
                           {/* Inner highlight */}
                           <div className="absolute inset-0 rounded-full bg-gradient-to-b from-white/20 via-transparent to-transparent opacity-50 pointer-events-none"></div>
                           
                           {/* Icon itself */}
                           <div className="relative z-10">
-                            <i className="fab fa-linkedin-in text-xl text-gradient from-blue-500 to-blue-700 w-6 h-6 flex items-center justify-center"></i>
+                            <i className="fab fa-linkedin-in text-2xl text-gradient from-blue-500 to-blue-700 w-7 h-7 flex items-center justify-center group-hover:scale-110 transition-transform duration-500"></i>
                           </div>
                           
                           {/* Subtle glow effect */}
-                          <div className="absolute -inset-1 bg-blue-700/20 rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                          <div className="absolute -inset-1 bg-blue-700/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none animate-pulse-slow"></div>
                         </div>
                         
                         {/* Animated bottom shine effect */}
-                        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2/3 h-[2px] bg-gradient-to-r from-transparent via-blue-700/20 to-transparent rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-3/4 h-[2px] bg-gradient-to-r from-transparent via-blue-700/40 to-transparent rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                        
+                        {/* Subtle hover tooltip */}
+                        <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 whitespace-nowrap text-xs text-blue-400 font-medium tracking-wide">LinkedIn</div>
                       </a>
                       
                       {/* YouTube Icon - Premium Enterprise Styling */}
@@ -669,27 +700,30 @@ const ContactSection = () => {
                         href="https://youtube.com/praetoriansmartcoat"
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="group relative"
+                        className="group relative transform transition-all duration-500"
                       >
-                        {/* Premium Icon Container */}
-                        <div className="relative bg-gradient-to-br from-gray-900/95 to-gray-950/95 backdrop-blur-xl rounded-full p-4 shadow-[0_10px_30px_rgba(0,0,0,0.3)] z-10 group-hover:scale-110 transition-transform duration-500 transform hover:rotate-6">
+                        {/* Premium Icon Container with enhanced styling */}
+                        <div className="relative bg-gradient-to-br from-gray-900/95 to-gray-950/95 backdrop-blur-xl rounded-full p-5 shadow-[0_10px_30px_rgba(0,0,0,0.4)] z-10 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 group-hover:shadow-[0_15px_40px_rgba(220,38,38,0.4)]">
                           {/* Premium gradient border effect - YouTube variant */}
-                          <div className="absolute inset-0 p-0.5 rounded-full bg-gradient-to-r from-red-600/50 via-red-700/50 to-red-800/50 opacity-70 group-hover:opacity-100 transition-opacity"></div>
+                          <div className="absolute inset-0 p-0.5 rounded-full bg-gradient-to-r from-red-600/50 via-red-700/50 to-red-800/50 opacity-70 group-hover:opacity-100 transition-opacity duration-700"></div>
                           
                           {/* Inner highlight */}
                           <div className="absolute inset-0 rounded-full bg-gradient-to-b from-white/20 via-transparent to-transparent opacity-50 pointer-events-none"></div>
                           
                           {/* Icon itself */}
                           <div className="relative z-10">
-                            <i className="fab fa-youtube text-xl text-gradient from-red-500 to-red-700 w-6 h-6 flex items-center justify-center"></i>
+                            <i className="fab fa-youtube text-2xl text-gradient from-red-500 to-red-700 w-7 h-7 flex items-center justify-center group-hover:scale-110 transition-transform duration-500"></i>
                           </div>
                           
                           {/* Subtle glow effect */}
-                          <div className="absolute -inset-1 bg-red-600/20 rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                          <div className="absolute -inset-1 bg-red-600/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none animate-pulse-slow"></div>
                         </div>
                         
                         {/* Animated bottom shine effect */}
-                        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2/3 h-[2px] bg-gradient-to-r from-transparent via-red-600/20 to-transparent rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-3/4 h-[2px] bg-gradient-to-r from-transparent via-red-600/40 to-transparent rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                        
+                        {/* Subtle hover tooltip */}
+                        <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 whitespace-nowrap text-xs text-red-400 font-medium tracking-wide">YouTube</div>
                       </a>
                       
                       {/* Instagram Icon - Premium Enterprise Styling */}
@@ -697,27 +731,30 @@ const ContactSection = () => {
                         href="https://instagram.com/praetoriansmartcoat"
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="group relative"
+                        className="group relative transform transition-all duration-500"
                       >
-                        {/* Premium Icon Container */}
-                        <div className="relative bg-gradient-to-br from-gray-900/95 to-gray-950/95 backdrop-blur-xl rounded-full p-4 shadow-[0_10px_30px_rgba(0,0,0,0.3)] z-10 group-hover:scale-110 transition-transform duration-500 transform hover:rotate-6">
+                        {/* Premium Icon Container with enhanced styling */}
+                        <div className="relative bg-gradient-to-br from-gray-900/95 to-gray-950/95 backdrop-blur-xl rounded-full p-5 shadow-[0_10px_30px_rgba(0,0,0,0.4)] z-10 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 group-hover:shadow-[0_15px_40px_rgba(236,72,153,0.4)]">
                           {/* Premium gradient border effect - Instagram variant */}
-                          <div className="absolute inset-0 p-0.5 rounded-full bg-gradient-to-r from-purple-600/50 via-pink-500/50 to-orange-500/50 opacity-70 group-hover:opacity-100 transition-opacity"></div>
+                          <div className="absolute inset-0 p-0.5 rounded-full bg-gradient-to-r from-purple-600/50 via-pink-500/50 to-orange-500/50 opacity-70 group-hover:opacity-100 transition-opacity duration-700"></div>
                           
                           {/* Inner highlight */}
                           <div className="absolute inset-0 rounded-full bg-gradient-to-b from-white/20 via-transparent to-transparent opacity-50 pointer-events-none"></div>
                           
                           {/* Icon itself */}
                           <div className="relative z-10">
-                            <i className="fab fa-instagram text-xl text-gradient from-purple-500 via-pink-500 to-orange-500 w-6 h-6 flex items-center justify-center"></i>
+                            <i className="fab fa-instagram text-2xl text-gradient from-purple-500 via-pink-500 to-orange-500 w-7 h-7 flex items-center justify-center group-hover:scale-110 transition-transform duration-500"></i>
                           </div>
                           
                           {/* Subtle glow effect */}
-                          <div className="absolute -inset-1 bg-gradient-to-r from-purple-600/20 via-pink-500/20 to-orange-500/20 rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                          <div className="absolute -inset-1 bg-gradient-to-r from-purple-600/20 via-pink-500/20 to-orange-500/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none animate-pulse-slow"></div>
                         </div>
                         
                         {/* Animated bottom shine effect */}
-                        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2/3 h-[2px] bg-gradient-to-r from-transparent via-pink-500/20 to-transparent rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-3/4 h-[2px] bg-gradient-to-r from-transparent via-pink-500/40 to-transparent rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                        
+                        {/* Subtle hover tooltip */}
+                        <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 whitespace-nowrap text-xs text-pink-400 font-medium tracking-wide">Instagram</div>
                       </a>
                     </div>
                   </div>
