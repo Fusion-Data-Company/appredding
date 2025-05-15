@@ -83,8 +83,8 @@ const ProductPerformanceSection = () => {
                     Product Performance Data
                   </div>
                   
-                  {/* Main text with premium gradient - moved up 0.25 inch - reduced glow/shadow effects */}
-                  <span className="relative text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-amber-500 to-blue-500
+                  {/* Main text with white color - matching testimonials section */}
+                  <span className="relative text-white
                     drop-shadow-[0_0px_1px_rgba(251,113,36,0.2)] 
                     [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(251,146,60,0.3)]
                     transform -translate-y-[0.25in]">
@@ -171,7 +171,7 @@ const ProductPerformanceSection = () => {
                   </div>
                   
                   {/* Statistic text with premium styling */}
-                  <div className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-500 to-blue-400 drop-shadow-[0_2px_10px_rgba(245,158,11,0.5)] group-hover:scale-110 transform transition-transform duration-500">
+                  <div className="text-6xl font-bold text-white drop-shadow-[0_2px_10px_rgba(245,158,11,0.5)] group-hover:scale-110 transform transition-transform duration-500">
                     99%
                   </div>
                 </div>
@@ -222,7 +222,7 @@ const ProductPerformanceSection = () => {
                   </div>
                   
                   {/* Statistic text with premium styling */}
-                  <div className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 drop-shadow-[0_2px_10px_rgba(245,158,11,0.5)] group-hover:scale-110 transform transition-transform duration-500">
+                  <div className="text-6xl font-bold text-white drop-shadow-[0_2px_10px_rgba(245,158,11,0.5)] group-hover:scale-110 transform transition-transform duration-500">
                     30+
                   </div>
                 </div>
@@ -273,7 +273,7 @@ const ProductPerformanceSection = () => {
                   </div>
                   
                   {/* Statistic text with premium styling */}
-                  <div className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-500 to-blue-600 drop-shadow-[0_2px_10px_rgba(59,130,246,0.5)] group-hover:scale-110 transform transition-transform duration-500">
+                  <div className="text-6xl font-bold text-white drop-shadow-[0_2px_10px_rgba(59,130,246,0.5)] group-hover:scale-110 transform transition-transform duration-500">
                     87%
                   </div>
                 </div>
