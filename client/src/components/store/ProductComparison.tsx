@@ -391,59 +391,60 @@ const ProductComparison = () => {
         </motion.div>
 
         <div className="mt-10 text-center">
-          {/* Premium Enterprise Bottom Note */}
-          <div className="relative group inline-block transform transition-all duration-500">
-            {/* Multiple layered background effects */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/30 via-red-600/30 to-amber-600/30 rounded-xl blur-lg opacity-70 group-hover:opacity-100 transition-all duration-1000 animate-pulse-slow"></div>
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/60 via-amber-500/60 to-red-500/60 rounded-xl blur-sm opacity-80 group-hover:opacity-100 transition-all duration-500"></div>
+          {/* Premium Enterprise Bottom Note with Mixed Orange/Blue Theme */}
+          <div className="relative group inline-block transform transition-all duration-500 hover:scale-[1.01] hover:-translate-y-1 hover:z-10">
+            {/* Multiple layered background effects - Mixed theme */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/40 via-blue-600/40 to-orange-600/40 rounded-xl blur-xl opacity-70 group-hover:opacity-100 group-hover:blur-xl transition-all duration-1000 animate-pulse-slow"></div>
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/80 via-blue-500/80 to-orange-500/80 rounded-xl blur-md opacity-90 group-hover:opacity-100 transition-all duration-500"></div>
             
             {/* Main card container */}
             <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black backdrop-blur-xl rounded-xl py-4 px-8 z-10 border border-orange-500/30 overflow-hidden group hover:shadow-[0_0_25px_rgba(249,115,22,0.3)] transition-shadow duration-500">
-              {/* Subtle dots and squares pattern background */}
-              <div className="absolute inset-0 opacity-20 z-0">
-                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoMjQ5LDExNSwyMiwwLjQpIiBkPSJNMCAwaDJ2Mkgwem0yIDJoMnYySDJ6Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCBmaWxsPSJ1cmwoI2EpIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIi8+PC9zdmc+')]"></div>
+              {/* Subtle dots and squares pattern background in mixed colors */}
+              <div className="absolute inset-0 opacity-25 z-0">
+                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoMjMyLDEyMSw1OCwwLjMpIiBkPSJNMCAwaDJ2Mkgwem0yIDJoMnYySDJ6Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCBmaWxsPSJ1cmwoI2EpIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIi8+PC9zdmc+')]"></div>
               </div>
               
-              {/* Inner highlight */}
-              <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
+              {/* Ambient glow effects - positioned away from text */}
+              <div className="absolute -top-20 -right-20 w-60 h-60 bg-orange-600/15 rounded-full filter blur-[100px] animate-pulse-slow-delayed"></div>
+              <div className="absolute -bottom-20 -left-20 w-60 h-60 bg-blue-500/20 rounded-full filter blur-[100px] animate-pulse-slow"></div>
               
-              {/* Ambient glow effect */}
-              <div className="absolute -top-20 -right-20 w-50 h-50 bg-orange-600/10 rounded-full filter blur-[70px] animate-pulse-slow-delayed"></div>
-              <div className="absolute -bottom-20 -left-20 w-50 h-50 bg-orange-500/15 rounded-full filter blur-[80px] animate-pulse-slow"></div>
-              
-              {/* Corner accent lines - smaller for bottom note */}
+              {/* Corner accent lines - with mixed theme */}
               <div className="absolute top-0 left-0 w-8 h-8 pointer-events-none z-10">
                 <div className="absolute top-0 left-0 w-4 h-4 border-t-[1px] border-l-[1px] border-orange-500/70 rounded-tl-lg"></div>
                 <div className="absolute top-0 left-0 w-1.5 h-1.5 bg-orange-500/50 rounded-full blur-[1px]"></div>
               </div>
               <div className="absolute top-0 right-0 w-8 h-8 pointer-events-none z-10">
-                <div className="absolute top-0 right-0 w-4 h-4 border-t-[1px] border-r-[1px] border-red-500/70 rounded-tr-lg"></div>
-                <div className="absolute top-0 right-0 w-1.5 h-1.5 bg-red-500/50 rounded-full blur-[1px]"></div>
+                <div className="absolute top-0 right-0 w-4 h-4 border-t-[1px] border-r-[1px] border-blue-500/70 rounded-tr-lg"></div>
+                <div className="absolute top-0 right-0 w-1.5 h-1.5 bg-blue-500/50 rounded-full blur-[1px]"></div>
               </div>
               <div className="absolute bottom-0 left-0 w-8 h-8 pointer-events-none z-10">
                 <div className="absolute bottom-0 left-0 w-4 h-4 border-b-[1px] border-l-[1px] border-orange-500/70 rounded-bl-lg"></div>
                 <div className="absolute bottom-0 left-0 w-1.5 h-1.5 bg-orange-500/50 rounded-full blur-[1px]"></div>
               </div>
               <div className="absolute bottom-0 right-0 w-8 h-8 pointer-events-none z-10">
-                <div className="absolute bottom-0 right-0 w-4 h-4 border-b-[1px] border-r-[1px] border-red-500/70 rounded-br-lg"></div>
-                <div className="absolute bottom-0 right-0 w-1.5 h-1.5 bg-red-500/50 rounded-full blur-[1px]"></div>
+                <div className="absolute bottom-0 right-0 w-4 h-4 border-b-[1px] border-r-[1px] border-blue-500/70 rounded-br-lg"></div>
+                <div className="absolute bottom-0 right-0 w-1.5 h-1.5 bg-blue-500/50 rounded-full blur-[1px]"></div>
               </div>
               
-              {/* Content */}
+              {/* Content with improved z-indices */}
               <div className="relative z-20 flex items-center">
                 <div className="hidden md:block mr-3 relative">
-                  <div className="absolute inset-0 rounded-full bg-orange-500/30 blur-[10px] opacity-60"></div>
-                  <Shield className="h-5 w-5 text-orange-400 relative z-20" />
+                  {/* Icon with mixed glow effect */}
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-r from-orange-500/30 to-blue-500/30 blur-[10px] opacity-70 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <Shield className="h-5 w-5 text-orange-400 relative z-20 group-hover:text-amber-300 transition-colors duration-300" />
                 </div>
-                <p className="text-sm text-gray-300 relative z-20">
+                <p className="text-sm text-gray-200 relative z-20 font-medium">
                   Data based on independent laboratory testing comparing Praetorian SmartCoat to leading industry competitors.
                   Product performance may vary based on application methods and environmental conditions.
                 </p>
               </div>
+              
+              {/* Decorative horizontal line - matching NASA card */}
+              <div className="absolute left-1/2 bottom-1 transform -translate-x-1/2 w-12 h-0.5 bg-gradient-to-r from-orange-600 via-amber-500 to-blue-600 rounded-full opacity-60 group-hover:w-1/4 transition-all duration-1000 shadow-[0_0_4px_rgba(251,113,36,0.4),_0_0_4px_rgba(59,130,246,0.4)]"></div>
             </div>
             
-            {/* Subtle bottom reflection */}
-            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2/3 h-[2px] bg-gradient-to-r from-transparent via-orange-500/10 to-transparent rounded-full blur-sm"></div>
+            {/* Subtle bottom reflection with dual-color gradient */}
+            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2/3 h-[2px] bg-gradient-to-r from-transparent via-white/10 to-transparent rounded-full blur-sm"></div>
           </div>
         </div>
       </div>

@@ -226,37 +226,79 @@ const IntroSection = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-24">
-            {/* Card 1: Class A Fire Protection - Premium Enterprise Styling */}
+            {/* Card 1: Class A Fire Protection - Ultra Premium Enterprise Styling */}
             <div className="group relative transform transition-all duration-500 hover:scale-105 hover:-translate-y-2 hover:z-10 h-full min-h-[280px]">
+              {/* Multiple layered background effects - Fire theme */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/40 via-red-600/40 to-amber-600/40 rounded-xl blur-xl opacity-70 group-hover:opacity-100 group-hover:blur-xl transition-all duration-1000 animate-pulse-slow"></div>
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/80 via-amber-500/80 to-red-500/80 rounded-xl blur-md opacity-90 group-hover:opacity-100 transition-all duration-500"></div>
+              
               {/* Premium Card Container */}
-              <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-gray-900/95 backdrop-blur-xl rounded-xl p-10 shadow-[0_10px_50px_rgba(0,0,0,0.5)] h-full z-10 flex flex-col justify-between">
-                {/* Premium gradient border effect - Fire variant */}
-                <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/50 via-transparent to-red-500/50 opacity-70"></div>
-                
-                {/* Inner highlight */}
-                <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
-                
-                {/* Subtle ambient glow that activates on hover */}
-                <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-30 transition-opacity duration-700 ease-in-out" 
-                    style={{ background: "radial-gradient(circle at center, rgba(251,113,36,0.4) 0%, transparent 70%)" }}>
+              <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black backdrop-blur-xl rounded-xl p-8 border border-orange-500/30 overflow-hidden group hover:shadow-[0_0_25px_rgba(249,115,22,0.3)] transition-shadow duration-500 z-10 flex flex-col justify-between h-full">
+                {/* Subtle dots and squares pattern background */}
+                <div className="absolute inset-0 opacity-25 z-0">
+                  <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoMjQ5LDExNSwyMiwwLjQpIiBkPSJNMCAwaDJ2Mkgwem0yIDJoMnYySDJ6Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCBmaWxsPSJ1cmwoI2EpIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIi8+PC9zdmc+')]"></div>
                 </div>
                 
-                {/* Card content with z-index to appear above effects */}
-                <div className="relative z-10">
+                {/* Ambient glow effects - positioned away from text */}
+                <div className="absolute -top-40 -right-20 w-60 h-60 bg-orange-600/15 rounded-full filter blur-[100px] animate-pulse-slow-delayed"></div>
+                <div className="absolute -bottom-40 -left-20 w-60 h-60 bg-red-500/20 rounded-full filter blur-[120px] animate-pulse-slow"></div>
+                
+                {/* Additional corner accent lines - with fire theme */}
+                <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none z-10">
+                  <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-orange-500/70 rounded-tl-lg"></div>
+                  <div className="absolute top-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+                </div>
+                <div className="absolute top-0 right-0 w-16 h-16 pointer-events-none z-10">
+                  <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-red-500/70 rounded-tr-lg"></div>
+                  <div className="absolute top-0 right-0 w-3 h-3 bg-red-500/50 rounded-full blur-[2px]"></div>
+                </div>
+                <div className="absolute bottom-0 left-0 w-16 h-16 pointer-events-none z-10">
+                  <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-orange-500/70 rounded-bl-lg"></div>
+                  <div className="absolute bottom-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+                </div>
+                <div className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none z-10">
+                  <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-red-500/70 rounded-br-lg"></div>
+                  <div className="absolute bottom-0 right-0 w-3 h-3 bg-red-500/50 rounded-full blur-[2px]"></div>
+                </div>
+                
+                {/* Content with improved z-indices to ensure it appears above effects */}
+                <div className="relative z-20 flex flex-col h-full">
                   {/* Enhanced heading with subtle effects */}
-                  <div className="relative mb-6 pb-2">
-                    <GradientHeading level={3} className="text-2xl md:text-3xl relative z-10" variant="fire">
-                      Class A Fire Protection
-                    </GradientHeading>
+                  <div className="relative pb-4 mb-4">
+                    {/* Animated glow behind heading */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-orange-600/10 via-amber-500/20 to-red-600/10 opacity-50 blur-xl animate-pulse-slow"></div>
                     
-                    {/* Animated underline that extends on hover */}
-                    <div className="absolute bottom-0 left-0 w-1/3 h-0.5 bg-gradient-to-r from-orange-500 to-red-500 group-hover:w-1/2 transition-all duration-700 rounded-full opacity-70 shadow-[0_0_5px_rgba(251,113,36,0.6)]"></div>
+                    {/* Background blur text */}
+                    <div className="absolute inset-0 flex justify-start items-center text-3xl font-bold tracking-tight text-orange-900/10 blur-[5px] scale-110 opacity-50">
+                      Fire Protection
+                    </div>
+                    
+                    {/* Main heading with improved z-index */}
+                    <div className="shimmer-fire-text font-bold tracking-tight relative z-20">
+                      <GradientHeading level={3} className="text-2xl md:text-3xl relative z-20 text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-amber-500 to-red-500 drop-shadow-[0_1px_1px_rgba(0,0,0,0.3)]" variant="fire">
+                        Class A Fire Protection
+                      </GradientHeading>
+                    </div>
+                    
+                    {/* Animated underline */}
+                    <div className="absolute bottom-0 left-0 w-1/3 h-0.5 bg-gradient-to-r from-orange-500 to-red-500 group-hover:w-2/3 transition-all duration-700 rounded-full opacity-70 shadow-[0_0_5px_rgba(251,113,36,0.6)]"></div>
                   </div>
                   
                   {/* Enhanced content text */}
-                  <p className="text-gray-300 text-lg md:text-xl relative z-10">
-                    Perfect 0/100 scores in ASTM E84 testing for both Flame Spread and Smoke Development. Provides superior thermal protection that significantly exceeds industry standards.
-                  </p>
+                  <div className="relative flex-grow">
+                    <p className="text-gray-200 text-lg md:text-xl relative z-20">
+                      {/* Left accent - animated pulse */}
+                      <span className="absolute -left-4 top-1/2 transform -translate-y-1/2 w-1 h-16 bg-gradient-to-b from-orange-500/0 via-orange-500/70 to-orange-500/0 rounded-full animate-pulse-slow z-20"></span>
+                      
+                      Perfect 0/100 scores in ASTM E84 testing for both Flame Spread and Smoke Development. Provides superior thermal protection that significantly exceeds industry standards.
+                      
+                      {/* Right accent - animated pulse with delay */}
+                      <span className="absolute -right-4 top-1/2 transform -translate-y-1/2 w-1 h-16 bg-gradient-to-b from-red-500/0 via-red-500/70 to-red-500/0 rounded-full animate-pulse-slow-delayed z-20"></span>
+                    </p>
+                  </div>
+                  
+                  {/* Decorative horizontal line */}
+                  <div className="absolute left-1/2 bottom-2 transform -translate-x-1/2 w-16 h-0.5 bg-gradient-to-r from-orange-600 via-amber-500 to-red-600 rounded-full opacity-70 group-hover:w-32 transition-all duration-1000 shadow-[0_0_5px_rgba(251,113,36,0.6)]"></div>
                 </div>
               </div>
               
@@ -264,37 +306,79 @@ const IntroSection = () => {
               <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2/3 h-[2px] bg-gradient-to-r from-transparent via-orange-500/10 to-transparent rounded-full blur-sm"></div>
             </div>
             
-            {/* Card 2: Ceramic Microsphere Technology - Premium Enterprise Styling */}
+            {/* Card 2: Ceramic Microsphere Technology - Ultra Premium Enterprise Styling */}
             <div className="group relative transform transition-all duration-500 hover:scale-105 hover:-translate-y-2 hover:z-10 h-full min-h-[280px]">
+              {/* Multiple layered background effects - Blue theme */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/40 via-cyan-600/40 to-blue-600/40 rounded-xl blur-xl opacity-70 group-hover:opacity-100 group-hover:blur-xl transition-all duration-1000 animate-pulse-slow"></div>
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500/80 via-cyan-500/80 to-blue-500/80 rounded-xl blur-md opacity-90 group-hover:opacity-100 transition-all duration-500"></div>
+              
               {/* Premium Card Container */}
-              <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-gray-900/95 backdrop-blur-xl rounded-xl p-10 shadow-[0_10px_50px_rgba(0,0,0,0.5)] h-full z-10 flex flex-col justify-between">
-                {/* Premium gradient border effect - Blue variant */}
-                <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-blue-500/50 via-transparent to-cyan-400/50 opacity-70"></div>
-                
-                {/* Inner highlight */}
-                <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
-                
-                {/* Subtle ambient glow that activates on hover */}
-                <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-30 transition-opacity duration-700 ease-in-out" 
-                    style={{ background: "radial-gradient(circle at center, rgba(59,130,246,0.4) 0%, transparent 70%)" }}>
+              <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black backdrop-blur-xl rounded-xl p-8 border border-blue-500/30 overflow-hidden group hover:shadow-[0_0_25px_rgba(59,130,246,0.3)] transition-shadow duration-500 z-10 flex flex-col justify-between h-full">
+                {/* Subtle dots and squares pattern background */}
+                <div className="absolute inset-0 opacity-25 z-0">
+                  <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoNTksMTMwLDI0NiwwLjQpIiBkPSJNMCAwaDJ2Mkgwem0yIDJoMnYySDJ6Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCBmaWxsPSJ1cmwoI2EpIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIi8+PC9zdmc+')]"></div>
                 </div>
                 
-                {/* Card content with z-index to appear above effects */}
-                <div className="relative z-10">
+                {/* Ambient glow effects - positioned away from text */}
+                <div className="absolute -top-40 -right-20 w-60 h-60 bg-blue-600/15 rounded-full filter blur-[100px] animate-pulse-slow-delayed"></div>
+                <div className="absolute -bottom-40 -left-20 w-60 h-60 bg-cyan-500/20 rounded-full filter blur-[120px] animate-pulse-slow"></div>
+                
+                {/* Additional corner accent lines - with blue theme */}
+                <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none z-10">
+                  <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-blue-500/70 rounded-tl-lg"></div>
+                  <div className="absolute top-0 left-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
+                </div>
+                <div className="absolute top-0 right-0 w-16 h-16 pointer-events-none z-10">
+                  <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-cyan-500/70 rounded-tr-lg"></div>
+                  <div className="absolute top-0 right-0 w-3 h-3 bg-cyan-500/50 rounded-full blur-[2px]"></div>
+                </div>
+                <div className="absolute bottom-0 left-0 w-16 h-16 pointer-events-none z-10">
+                  <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-blue-500/70 rounded-bl-lg"></div>
+                  <div className="absolute bottom-0 left-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
+                </div>
+                <div className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none z-10">
+                  <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-cyan-500/70 rounded-br-lg"></div>
+                  <div className="absolute bottom-0 right-0 w-3 h-3 bg-cyan-500/50 rounded-full blur-[2px]"></div>
+                </div>
+                
+                {/* Content with improved z-indices to ensure it appears above effects */}
+                <div className="relative z-20 flex flex-col h-full">
                   {/* Enhanced heading with subtle effects */}
-                  <div className="relative mb-6 pb-2">
-                    <GradientHeading level={3} className="text-2xl md:text-3xl relative z-10" variant="blue">
-                      Ceramic Microsphere Technology
-                    </GradientHeading>
+                  <div className="relative pb-4 mb-4">
+                    {/* Animated glow behind heading */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 via-blue-500/20 to-cyan-600/10 opacity-50 blur-xl animate-pulse-slow"></div>
                     
-                    {/* Animated underline that extends on hover */}
-                    <div className="absolute bottom-0 left-0 w-1/3 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-400 group-hover:w-1/2 transition-all duration-700 rounded-full opacity-70 shadow-[0_0_5px_rgba(59,130,246,0.6)]"></div>
+                    {/* Background blur text */}
+                    <div className="absolute inset-0 flex justify-start items-center text-3xl font-bold tracking-tight text-blue-900/10 blur-[5px] scale-110 opacity-50">
+                      Ceramic Technology
+                    </div>
+                    
+                    {/* Main heading with improved z-index */}
+                    <div className="shimmer-blue-text font-bold tracking-tight relative z-20">
+                      <GradientHeading level={3} className="text-2xl md:text-3xl relative z-20 text-transparent bg-clip-text bg-gradient-to-br from-blue-400 via-cyan-400 to-blue-500 drop-shadow-[0_1px_1px_rgba(0,0,0,0.3)]" variant="blue">
+                        Ceramic Microsphere Technology
+                      </GradientHeading>
+                    </div>
+                    
+                    {/* Animated underline */}
+                    <div className="absolute bottom-0 left-0 w-1/3 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-400 group-hover:w-2/3 transition-all duration-700 rounded-full opacity-70 shadow-[0_0_5px_rgba(59,130,246,0.6)]"></div>
                   </div>
                   
                   {/* Enhanced content text */}
-                  <p className="text-gray-300 text-lg md:text-xl relative z-10">
-                    Vacuum-filled ceramic microspheres physically block heat transfer through all three heat transmission mechanisms — conduction, convection, and radiation — a feat unmatched by conventional insulation.
-                  </p>
+                  <div className="relative flex-grow">
+                    <p className="text-gray-200 text-lg md:text-xl relative z-20">
+                      {/* Left accent - animated pulse */}
+                      <span className="absolute -left-4 top-1/2 transform -translate-y-1/2 w-1 h-16 bg-gradient-to-b from-blue-500/0 via-blue-500/70 to-blue-500/0 rounded-full animate-pulse-slow z-20"></span>
+                      
+                      Vacuum-filled ceramic microspheres physically block heat transfer through all three heat transmission mechanisms — conduction, convection, and radiation — a feat unmatched by conventional insulation.
+                      
+                      {/* Right accent - animated pulse with delay */}
+                      <span className="absolute -right-4 top-1/2 transform -translate-y-1/2 w-1 h-16 bg-gradient-to-b from-cyan-500/0 via-cyan-500/70 to-cyan-500/0 rounded-full animate-pulse-slow-delayed z-20"></span>
+                    </p>
+                  </div>
+                  
+                  {/* Decorative horizontal line */}
+                  <div className="absolute left-1/2 bottom-2 transform -translate-x-1/2 w-16 h-0.5 bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-600 rounded-full opacity-70 group-hover:w-32 transition-all duration-1000 shadow-[0_0_5px_rgba(59,130,246,0.6)]"></div>
                 </div>
               </div>
               
@@ -302,42 +386,84 @@ const IntroSection = () => {
               <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2/3 h-[2px] bg-gradient-to-r from-transparent via-blue-500/10 to-transparent rounded-full blur-sm"></div>
             </div>
             
-            {/* Card 3: Extreme Energy Efficiency - Premium Enterprise Styling */}
+            {/* Card 3: Extreme Energy Efficiency - Ultra Premium Enterprise Styling */}
             <div className="group relative transform transition-all duration-500 hover:scale-105 hover:-translate-y-2 hover:z-10 h-full min-h-[280px]">
+              {/* Multiple layered background effects - Mixed theme */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/40 via-blue-600/40 to-orange-600/40 rounded-xl blur-xl opacity-70 group-hover:opacity-100 group-hover:blur-xl transition-all duration-1000 animate-pulse-slow"></div>
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/80 via-blue-500/80 to-orange-500/80 rounded-xl blur-md opacity-90 group-hover:opacity-100 transition-all duration-500"></div>
+              
               {/* Premium Card Container */}
-              <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-gray-900/95 backdrop-blur-xl rounded-xl p-10 shadow-[0_10px_50px_rgba(0,0,0,0.5)] h-full z-10 flex flex-col justify-between">
-                {/* Premium gradient border effect - Mixed variant */}
-                <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/50 via-transparent to-blue-400/50 opacity-70"></div>
-                
-                {/* Inner highlight */}
-                <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
-                
-                {/* Subtle ambient glow that activates on hover */}
-                <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-30 transition-opacity duration-700 ease-in-out" 
-                    style={{ background: "radial-gradient(circle at center, rgba(251,113,36,0.3), rgba(59,130,246,0.3), transparent 70%)" }}>
+              <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black backdrop-blur-xl rounded-xl p-8 border border-orange-500/30 overflow-hidden group hover:shadow-[0_0_25px_rgba(249,115,22,0.3)] transition-shadow duration-500 z-10 flex flex-col justify-between h-full">
+                {/* Subtle dots and squares pattern background */}
+                <div className="absolute inset-0 opacity-25 z-0">
+                  <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoMjMyLDEyMSw1OCwwLjMpIiBkPSJNMCAwaDJ2Mkgwem0yIDJoMnYySDJ6Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCBmaWxsPSJ1cmwoI2EpIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIi8+PC9zdmc+')]"></div>
                 </div>
                 
-                {/* Card content with z-index to appear above effects */}
-                <div className="relative z-10">
+                {/* Ambient glow effects - positioned away from text */}
+                <div className="absolute -top-40 -right-20 w-60 h-60 bg-orange-600/15 rounded-full filter blur-[100px] animate-pulse-slow-delayed"></div>
+                <div className="absolute -bottom-40 -left-20 w-60 h-60 bg-blue-500/20 rounded-full filter blur-[120px] animate-pulse-slow"></div>
+                
+                {/* Additional corner accent lines - with mixed theme */}
+                <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none z-10">
+                  <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-orange-500/70 rounded-tl-lg"></div>
+                  <div className="absolute top-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+                </div>
+                <div className="absolute top-0 right-0 w-16 h-16 pointer-events-none z-10">
+                  <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-blue-500/70 rounded-tr-lg"></div>
+                  <div className="absolute top-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
+                </div>
+                <div className="absolute bottom-0 left-0 w-16 h-16 pointer-events-none z-10">
+                  <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-orange-500/70 rounded-bl-lg"></div>
+                  <div className="absolute bottom-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+                </div>
+                <div className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none z-10">
+                  <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-blue-500/70 rounded-br-lg"></div>
+                  <div className="absolute bottom-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
+                </div>
+                
+                {/* Content with improved z-indices to ensure it appears above effects */}
+                <div className="relative z-20 flex flex-col h-full">
                   {/* Enhanced heading with subtle effects */}
-                  <div className="relative mb-6 pb-2">
-                    <GradientHeading level={3} className="text-2xl md:text-3xl relative z-10" variant="mixed">
-                      Extreme Energy Efficiency
-                    </GradientHeading>
+                  <div className="relative pb-4 mb-4">
+                    {/* Animated glow behind heading */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-orange-600/10 via-blue-500/20 to-orange-600/10 opacity-50 blur-xl animate-pulse-slow"></div>
                     
-                    {/* Animated underline that extends on hover with dual-colored gradient */}
-                    <div className="absolute bottom-0 left-0 w-1/3 h-0.5 bg-gradient-to-r from-orange-500 to-blue-500 group-hover:w-1/2 transition-all duration-700 rounded-full opacity-70 shadow-[0_0_5px_rgba(251,113,36,0.4),_0_0_5px_rgba(59,130,246,0.4)]"></div>
+                    {/* Background blur text */}
+                    <div className="absolute inset-0 flex justify-start items-center text-3xl font-bold tracking-tight text-orange-900/10 blur-[5px] scale-110 opacity-50">
+                      Energy Efficiency
+                    </div>
+                    
+                    {/* Main heading with improved z-index */}
+                    <div className="shimmer-mixed-text font-bold tracking-tight relative z-20">
+                      <GradientHeading level={3} className="text-2xl md:text-3xl relative z-20 text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-amber-500 to-blue-400 drop-shadow-[0_1px_1px_rgba(0,0,0,0.3)]" variant="mixed">
+                        Extreme Energy Efficiency
+                      </GradientHeading>
+                    </div>
+                    
+                    {/* Animated underline */}
+                    <div className="absolute bottom-0 left-0 w-1/3 h-0.5 bg-gradient-to-r from-orange-500 to-blue-500 group-hover:w-2/3 transition-all duration-700 rounded-full opacity-70 shadow-[0_0_5px_rgba(251,113,36,0.4),_0_0_5px_rgba(59,130,246,0.4)]"></div>
                   </div>
                   
                   {/* Enhanced content text */}
-                  <p className="text-gray-300 text-lg md:text-xl relative z-10">
-                    Documented energy savings from 20-87% in real-world applications, with 89% solar reflection and 89% thermal emittance. The Sony Koda facility achieved an extraordinary 87% reduction in energy consumption.
-                  </p>
+                  <div className="relative flex-grow">
+                    <p className="text-gray-200 text-lg md:text-xl relative z-20">
+                      {/* Left accent - animated pulse - orange */}
+                      <span className="absolute -left-4 top-1/2 transform -translate-y-1/2 w-1 h-16 bg-gradient-to-b from-orange-500/0 via-orange-500/70 to-orange-500/0 rounded-full animate-pulse-slow z-20"></span>
+                      
+                      Documented energy savings from 20-87% in real-world applications, with 89% solar reflection and 89% thermal emittance. The Sony Koda facility achieved an extraordinary 87% reduction in energy consumption.
+                      
+                      {/* Right accent - animated pulse with delay - blue */}
+                      <span className="absolute -right-4 top-1/2 transform -translate-y-1/2 w-1 h-16 bg-gradient-to-b from-blue-500/0 via-blue-500/70 to-blue-500/0 rounded-full animate-pulse-slow-delayed z-20"></span>
+                    </p>
+                  </div>
+                  
+                  {/* Decorative horizontal line */}
+                  <div className="absolute left-1/2 bottom-2 transform -translate-x-1/2 w-16 h-0.5 bg-gradient-to-r from-orange-600 via-amber-500 to-blue-600 rounded-full opacity-70 group-hover:w-32 transition-all duration-1000 shadow-[0_0_5px_rgba(251,113,36,0.4),_0_0_5px_rgba(59,130,246,0.4)]"></div>
                 </div>
               </div>
               
-              {/* Subtle bottom reflection with dual-color gradient */}
-              <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2/3 h-[2px] bg-gradient-to-r from-transparent via-[rgba(255,255,255,0.1)] to-transparent rounded-full blur-sm"></div>
+              {/* Subtle bottom reflection */}
+              <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2/3 h-[2px] bg-gradient-to-r from-transparent via-white/10 to-transparent rounded-full blur-sm"></div>
             </div>
           </div>
         </div>

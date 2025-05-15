@@ -105,69 +105,81 @@ const TechnicalSpecsTable = () => {
         </div>
         
         <div className="text-center mb-12">
-          {/* Premium Enterprise-level heading container */}
-          <div className="relative mx-auto max-w-4xl mb-8 inline-block">
+          {/* Premium Enterprise-level heading container with mixed orange/blue styling */}
+          <div className="relative mx-auto max-w-4xl mb-8 inline-block group transform transition-all duration-500 hover:scale-[1.01] hover:-translate-y-1 hover:z-10">
+            {/* Multiple layered background effects - Mixed theme */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/40 via-blue-600/40 to-orange-600/40 rounded-xl blur-xl opacity-70 group-hover:opacity-100 group-hover:blur-xl transition-all duration-1000 animate-pulse-slow"></div>
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/80 via-blue-500/80 to-orange-500/80 rounded-xl blur-md opacity-90 group-hover:opacity-100 transition-all duration-500"></div>
+            
             {/* Premium Card Container */}
-            <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-gray-900/95 backdrop-blur-xl rounded-xl py-8 px-10 shadow-[0_10px_50px_rgba(0,0,0,0.5)] z-10">
-              {/* Premium gradient border effect - Fire variant */}
-              <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/50 via-transparent to-red-500/50 opacity-70"></div>
+            <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black backdrop-blur-xl rounded-xl py-8 px-10 border border-orange-500/30 overflow-hidden hover:shadow-[0_0_25px_rgba(249,115,22,0.3)] transition-shadow duration-500 z-10">
+              {/* Subtle dots and squares pattern background in mixed colors */}
+              <div className="absolute inset-0 opacity-25 z-0">
+                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoMjMyLDEyMSw1OCwwLjMpIiBkPSJNMCAwaDJ2Mkgwem0yIDJoMnYySDJ6Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCBmaWxsPSJ1cmwoI2EpIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIi8+PC9zdmc+')]"></div>
+              </div>
               
-              {/* Inner highlight */}
-              <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
+              {/* Ambient glow effects - positioned away from text */}
+              <div className="absolute -top-40 -right-20 w-60 h-60 bg-orange-600/15 rounded-full filter blur-[120px] animate-pulse-slow-delayed"></div>
+              <div className="absolute -bottom-40 -left-20 w-60 h-60 bg-blue-500/20 rounded-full filter blur-[120px] animate-pulse-slow"></div>
               
-              {/* Subtle ambient glow */}
-              <div className="absolute top-0 left-1/4 w-1/2 h-1/2 bg-gradient-to-r from-orange-500/5 via-amber-500/5 to-red-500/5 blur-[100px] rounded-full"></div>
+              {/* Additional corner accent lines - with mixed theme */}
+              <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none z-10">
+                <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-orange-500/70 rounded-tl-lg"></div>
+                <div className="absolute top-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+              </div>
+              <div className="absolute top-0 right-0 w-16 h-16 pointer-events-none z-10">
+                <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-blue-500/70 rounded-tr-lg"></div>
+                <div className="absolute top-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
+              </div>
+              <div className="absolute bottom-0 left-0 w-16 h-16 pointer-events-none z-10">
+                <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-orange-500/70 rounded-bl-lg"></div>
+                <div className="absolute bottom-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+              </div>
+              <div className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none z-10">
+                <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-blue-500/70 rounded-br-lg"></div>
+                <div className="absolute bottom-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
+              </div>
               
-              {/* Content */}
-              <div className="relative z-10 text-center">
-                {/* Premium card header styling matching Specialized Applications */}
+              {/* Content with improved z-indices to ensure it appears above effects */}
+              <div className="relative z-20 text-center">
+                {/* Premium card header styling matching NASA card */}
                 <div className="relative h-20 flex items-center justify-center">
+                  {/* Animated glow behind heading with mixed colors */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-orange-600/10 via-blue-500/20 to-orange-600/10 opacity-50 blur-xl animate-pulse-slow-delayed"></div>
+                  
                   {/* Background blur text */}
-                  <div className="absolute inset-0 flex justify-center items-center text-5xl font-bold tracking-tight text-orange-900/10 blur-[5px] scale-110">
+                  <div className="absolute inset-0 flex justify-center items-center text-5xl font-bold tracking-tight text-orange-900/10 blur-[5px] scale-110 opacity-50">
                     Performance Specifications
                   </div>
                   
-                  {/* Main text with premium gradient */}
-                  <span className="relative text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-amber-500 to-red-500
-                    drop-shadow-[0_0px_1px_rgba(251,113,36,0.2)] 
-                    [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(251,146,60,0.3)]
-                    transform -translate-y-[0.25in] text-3xl md:text-4xl font-bold">
+                  {/* Main text with premium gradient - matching mixed style */}
+                  <span className="shimmer-mixed-text relative text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-amber-500 to-blue-400
+                    drop-shadow-[0_2px_2px_rgba(0,0,0,0.3)] 
+                    [text-shadow:0_1px_1px_rgba(0,0,0,0.15)]
+                    text-3xl md:text-4xl font-bold relative z-20">
                     Performance Specifications
                   </span>
                   
-                  {/* Top glossy reflection */}
-                  <div className="absolute top-0 left-0 right-0 h-[40%] bg-gradient-to-b from-white/10 to-transparent rounded-t-lg"></div>
-                  
                   {/* Multiple text shadows for depth - reduced blur effects */}
-                  <div className="absolute inset-0 flex items-center justify-center text-5xl font-bold tracking-tight opacity-10 blur-[3px] text-orange-700/30 -z-10 transform scale-105">
-                    Performance Specifications
-                  </div>
-                  <div className="absolute inset-0 flex items-center justify-center text-5xl font-bold tracking-tight opacity-20 blur-[1px] text-red-900/20 -z-10">
+                  <div className="absolute inset-0 flex justify-center items-center text-5xl font-bold tracking-tight opacity-10 blur-[3px] text-orange-700/30 -z-10 transform scale-105">
                     Performance Specifications
                   </div>
                   
-                  {/* Decorative accent line */}
-                  <div className="absolute left-[8%] bottom-[-0.5in] transform group w-14 h-2.5 rounded-full overflow-hidden z-50 transition-all duration-700 hover:w-72">
-                    {/* Base gradient */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-amber-500 to-red-600"></div>
-                    
-                    {/* Glow effect */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-amber-500 to-red-600 blur-md opacity-70"></div>
-                    
-                    {/* Pulsing dots */}
-                    <div className="absolute h-full w-4 bg-white/80 right-4 rounded-full blur-[1px] animate-pulse-slow"></div>
-                    <div className="absolute h-full w-3 bg-white/80 right-24 rounded-full blur-[1px] animate-pulse-slow-delayed opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
-                  </div>
+                  {/* Animated underline with mixed-themed gradient */}
+                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-20 h-0.5 bg-gradient-to-r from-orange-500 to-blue-500 group-hover:w-48 transition-all duration-700 rounded-full opacity-70 shadow-[0_0_5px_rgba(251,113,36,0.4),_0_0_5px_rgba(59,130,246,0.4)]"></div>
                 </div>
                 
-                <p className="text-gray-300 max-w-2xl mx-auto mt-8">
+                <p className="text-gray-200 text-lg md:text-xl relative z-20 mt-8 font-medium">
                   Praetorian's ceramic-based coatings deliver industry-leading performance metrics that exceed traditional protective coatings across all key indicators.
                 </p>
+                
+                {/* Decorative horizontal line - matching NASA card */}
+                <div className="absolute left-1/2 bottom-2 transform -translate-x-1/2 w-20 h-0.5 bg-gradient-to-r from-orange-600 via-amber-500 to-blue-600 rounded-full opacity-70 group-hover:w-40 transition-all duration-1000 shadow-[0_0_5px_rgba(251,113,36,0.6)]"></div>
               </div>
             </div>
             
-            {/* Subtle bottom reflection */}
-            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2/3 h-[2px] bg-gradient-to-r from-transparent via-orange-500/10 to-transparent rounded-full blur-sm"></div>
+            {/* Subtle bottom reflection with dual-color gradient */}
+            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2/3 h-[2px] bg-gradient-to-r from-transparent via-white/10 to-transparent rounded-full blur-sm"></div>
           </div>
         </div>
 
@@ -293,30 +305,59 @@ const TechnicalSpecsTable = () => {
         </motion.div>
 
         <div className="mt-10 text-center">
-          {/* Premium Enterprise Bottom Note */}
-          <div className="relative inline-block">
-            {/* Premium Note Container */}
-            <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-gray-900/95 backdrop-blur-xl rounded-xl py-4 px-6 shadow-[0_10px_50px_rgba(0,0,0,0.5)] z-10">
-              {/* Premium gradient border effect - Subtle variant */}
-              <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/30 via-transparent to-red-500/30 opacity-60"></div>
+          {/* Premium Enterprise Bottom Note with Mixed Orange/Blue Theme */}
+          <div className="relative group inline-block transform transition-all duration-500 hover:scale-[1.01] hover:-translate-y-1 hover:z-10">
+            {/* Multiple layered background effects - Mixed theme */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/40 via-blue-600/40 to-orange-600/40 rounded-xl blur-xl opacity-70 group-hover:opacity-100 group-hover:blur-xl transition-all duration-1000 animate-pulse-slow"></div>
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/80 via-blue-500/80 to-orange-500/80 rounded-xl blur-md opacity-90 group-hover:opacity-100 transition-all duration-500"></div>
+            
+            {/* Main card container */}
+            <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black backdrop-blur-xl rounded-xl py-4 px-8 z-10 border border-orange-500/30 overflow-hidden group hover:shadow-[0_0_25px_rgba(249,115,22,0.3)] transition-shadow duration-500">
+              {/* Subtle dots and squares pattern background in mixed colors */}
+              <div className="absolute inset-0 opacity-25 z-0">
+                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoMjMyLDEyMSw1OCwwLjMpIiBkPSJNMCAwaDJ2Mkgwem0yIDJoMnYySDJ6Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCBmaWxsPSJ1cmwoI2EpIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIi8+PC9zdmc+')]"></div>
+              </div>
               
-              {/* Inner highlight */}
-              <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
+              {/* Ambient glow effects - positioned away from text */}
+              <div className="absolute -top-20 -right-20 w-60 h-60 bg-orange-600/15 rounded-full filter blur-[100px] animate-pulse-slow-delayed"></div>
+              <div className="absolute -bottom-20 -left-20 w-60 h-60 bg-blue-500/20 rounded-full filter blur-[100px] animate-pulse-slow"></div>
               
-              {/* Content */}
-              <div className="relative z-10 flex items-center">
+              {/* Corner accent lines - with mixed theme */}
+              <div className="absolute top-0 left-0 w-8 h-8 pointer-events-none z-10">
+                <div className="absolute top-0 left-0 w-4 h-4 border-t-[1px] border-l-[1px] border-orange-500/70 rounded-tl-lg"></div>
+                <div className="absolute top-0 left-0 w-1.5 h-1.5 bg-orange-500/50 rounded-full blur-[1px]"></div>
+              </div>
+              <div className="absolute top-0 right-0 w-8 h-8 pointer-events-none z-10">
+                <div className="absolute top-0 right-0 w-4 h-4 border-t-[1px] border-r-[1px] border-blue-500/70 rounded-tr-lg"></div>
+                <div className="absolute top-0 right-0 w-1.5 h-1.5 bg-blue-500/50 rounded-full blur-[1px]"></div>
+              </div>
+              <div className="absolute bottom-0 left-0 w-8 h-8 pointer-events-none z-10">
+                <div className="absolute bottom-0 left-0 w-4 h-4 border-b-[1px] border-l-[1px] border-orange-500/70 rounded-bl-lg"></div>
+                <div className="absolute bottom-0 left-0 w-1.5 h-1.5 bg-orange-500/50 rounded-full blur-[1px]"></div>
+              </div>
+              <div className="absolute bottom-0 right-0 w-8 h-8 pointer-events-none z-10">
+                <div className="absolute bottom-0 right-0 w-4 h-4 border-b-[1px] border-r-[1px] border-blue-500/70 rounded-br-lg"></div>
+                <div className="absolute bottom-0 right-0 w-1.5 h-1.5 bg-blue-500/50 rounded-full blur-[1px]"></div>
+              </div>
+              
+              {/* Content with improved z-indices */}
+              <div className="relative z-20 flex items-center">
                 <div className="hidden md:block mr-3 relative">
-                  <div className="absolute inset-0 rounded-full bg-orange-500/20 blur-[10px] opacity-50"></div>
-                  <Shield className="h-5 w-5 text-orange-400 relative z-10" />
+                  {/* Icon with mixed glow effect */}
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-r from-orange-500/30 to-blue-500/30 blur-[10px] opacity-70 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <Shield className="h-5 w-5 text-orange-400 relative z-20 group-hover:text-amber-300 transition-colors duration-300" />
                 </div>
-                <p className="text-sm text-gray-300">
+                <p className="text-sm text-gray-200 relative z-20 font-medium">
                   For detailed technical data sheets or certification documentation, please contact our technical support team.
                 </p>
               </div>
+              
+              {/* Decorative horizontal line - matching NASA card */}
+              <div className="absolute left-1/2 bottom-1 transform -translate-x-1/2 w-12 h-0.5 bg-gradient-to-r from-orange-600 via-amber-500 to-blue-600 rounded-full opacity-60 group-hover:w-1/4 transition-all duration-1000 shadow-[0_0_4px_rgba(251,113,36,0.4),_0_0_4px_rgba(59,130,246,0.4)]"></div>
             </div>
             
-            {/* Subtle bottom reflection */}
-            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2/3 h-[2px] bg-gradient-to-r from-transparent via-orange-500/10 to-transparent rounded-full blur-sm"></div>
+            {/* Subtle bottom reflection with dual-color gradient */}
+            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2/3 h-[2px] bg-gradient-to-r from-transparent via-white/10 to-transparent rounded-full blur-sm"></div>
           </div>
         </div>
       </div>
