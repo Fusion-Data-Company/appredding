@@ -806,7 +806,7 @@ const ContactSection = () => {
                           <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 shadow-[0_0_20px_rgba(59,130,246,0.6)]"></div>
                           
                           {/* Icon */}
-                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" className="w-8 h-8 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] relative z-40 transition-all duration-300">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" className="w-8 h-8 text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] relative z-40 transition-all duration-300">
                             <path fill="currentColor" d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
                           </svg>
                           
@@ -837,7 +837,7 @@ const ContactSection = () => {
                           <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 shadow-[0_0_20px_rgba(220,38,38,0.6)]"></div>
                           
                           {/* Icon */}
-                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" className="w-8 h-8 text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-red-600 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] relative z-40 transition-all duration-300">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" className="w-8 h-8 text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] relative z-40 transition-all duration-300">
                             <path fill="currentColor" d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" />
                           </svg>
                           

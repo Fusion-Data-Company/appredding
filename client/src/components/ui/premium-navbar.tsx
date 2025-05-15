@@ -135,7 +135,7 @@ export function PremiumNavbar() {
   const solutionsContent = (
     <div className="p-4">
       <div className="border-b border-gray-700 pb-2 mb-3">
-        <h3 className="text-base font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-orange-600">
+        <h3 className="text-base font-bold text-center text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">
           Protection Across Every Industry
         </h3>
       </div>
@@ -192,7 +192,7 @@ export function PremiumNavbar() {
   const professionalsContent = (
     <div className="p-4">
       <div className="border-b border-gray-700 pb-2 mb-3">
-        <h3 className="text-base font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-orange-500">
+        <h3 className="text-base font-bold text-center text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">
           Professional Network
         </h3>
       </div>
@@ -250,7 +250,7 @@ export function PremiumNavbar() {
   const productsContent = (
     <div className="p-4">
       <div className="border-b border-gray-700 pb-2 mb-3">
-        <h3 className="text-base font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-red-500">
+        <h3 className="text-base font-bold text-center text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">
           Product Resources
         </h3>
       </div>

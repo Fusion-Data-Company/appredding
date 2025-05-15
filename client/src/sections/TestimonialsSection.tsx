@@ -78,7 +78,7 @@ const TestimonialsSection = () => {
               </div>
               
               {/* Main title with premium gradient */}
-              <h2 className="text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-amber-500 to-blue-500
+              <h2 className="text-white
                 drop-shadow-[0_0px_1px_rgba(251,113,36,0.2)] 
                 [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(251,146,60,0.3)]
                 text-4xl md:text-5xl font-bold relative z-30 mb-6">
@@ -162,7 +162,7 @@ const TestimonialsSection = () => {
                 
                 {/* Rating stars with enhanced styling */}
                 <div className="flex items-center mb-6">
-                  <div className="text-transparent bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-2xl flex space-x-2">
+                  <div className="text-yellow-400 text-2xl flex space-x-2">
                     <i className="fas fa-star drop-shadow-[0_0_8px_rgba(245,158,11,0.5)]"></i>
                     <i className="fas fa-star drop-shadow-[0_0_8px_rgba(245,158,11,0.5)]"></i>
                     <i className="fas fa-star drop-shadow-[0_0_8px_rgba(245,158,11,0.5)]"></i>
@@ -174,14 +174,14 @@ const TestimonialsSection = () => {
                 {/* Testimonial text with enhanced styling */}
                 <p className="text-lg sm:text-xl md:text-2xl italic mb-8 md:mb-10 text-gray-100 leading-relaxed relative">
                   {/* Quote symbol with gradient styling */}
-                  <span className="absolute -top-2 -left-2 text-6xl text-transparent bg-clip-text bg-gradient-to-br from-orange-400/20 to-blue-500/20">"</span>
+                  <span className="absolute -top-2 -left-2 text-6xl text-white/20">"</span>
                   
                   After applying Praetorian SmartCoat's FireGuard Pro to our mountain cabin, we had peace of mind during wildfire season. 
                   When fires swept through our area last summer, our home was one of the few left standing. 
                   The investment literally saved our family home.
                   
                   {/* Quote end symbol with gradient styling */}
-                  <span className="absolute -bottom-8 -right-2 text-6xl text-transparent bg-clip-text bg-gradient-to-br from-orange-400/20 to-blue-500/20">"</span>
+                  <span className="absolute -bottom-8 -right-2 text-6xl text-white/20">"</span>
                 </p>
                 
                 {/* Author info with enhanced styling */}
