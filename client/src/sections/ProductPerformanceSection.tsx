@@ -405,8 +405,13 @@ const ProductPerformanceSection = () => {
                       <div className="absolute -top-5 -right-5 w-48 h-48 bg-orange-600/15 rounded-full filter blur-[70px] opacity-0 group-hover/item:opacity-70 transition-opacity duration-500 pointer-events-none"></div>
                       <div className="absolute -bottom-5 -left-5 w-48 h-48 bg-blue-600/20 rounded-full filter blur-[70px] opacity-0 group-hover/item:opacity-70 transition-opacity duration-500 pointer-events-none"></div>
                       
-                      {/* Card Background - positioned in front of glows */}
-                      <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 via-gray-950/90 to-black/90 backdrop-blur-md rounded-xl z-10 opacity-0 group-hover/item:opacity-100 transition-opacity duration-500"></div>
+                      {/* Card Background with gradient - positioned in front of glows */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 backdrop-blur-md rounded-xl z-10 opacity-0 group-hover/item:opacity-100 transition-opacity duration-500">
+                        {/* Inner border glow effect */}
+                        <div className="absolute inset-0 rounded-xl border border-transparent bg-gradient-to-r from-orange-500/30 via-blue-500/40 to-orange-500/30 z-0 opacity-90 overflow-hidden pointer-events-none">
+                          <div className="absolute inset-px rounded-[10px] bg-black"></div>
+                        </div>
+                      </div>
                       
                       <div className="flex items-start gap-6 relative z-20">
                         {/* Enhanced Icon Container */}
@@ -458,8 +463,13 @@ const ProductPerformanceSection = () => {
                       <div className="absolute -top-5 -right-5 w-48 h-48 bg-orange-600/20 rounded-full filter blur-[70px] opacity-0 group-hover/item:opacity-70 transition-opacity duration-500 pointer-events-none"></div>
                       <div className="absolute -bottom-5 -left-5 w-48 h-48 bg-amber-600/20 rounded-full filter blur-[70px] opacity-0 group-hover/item:opacity-70 transition-opacity duration-500 pointer-events-none"></div>
                       
-                      {/* Card Background - positioned in front of glows */}
-                      <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 via-gray-950/90 to-black/90 backdrop-blur-md rounded-xl z-10 opacity-0 group-hover/item:opacity-100 transition-opacity duration-500"></div>
+                      {/* Card Background with gradient - positioned in front of glows */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 backdrop-blur-md rounded-xl z-10 opacity-0 group-hover/item:opacity-100 transition-opacity duration-500">
+                        {/* Inner border glow effect */}
+                        <div className="absolute inset-0 rounded-xl border border-transparent bg-gradient-to-r from-orange-500/30 via-amber-500/40 to-orange-500/30 z-0 opacity-90 overflow-hidden pointer-events-none">
+                          <div className="absolute inset-px rounded-[10px] bg-black"></div>
+                        </div>
+                      </div>
                       
                       <div className="flex items-start gap-6 relative z-20">
                         {/* Enhanced Icon Container */}
@@ -483,22 +493,43 @@ const ProductPerformanceSection = () => {
                           <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-3/4 h-[2px] bg-gradient-to-r from-transparent via-amber-500/20 to-transparent rounded-full blur-sm opacity-0 group-hover/item:opacity-100 transition-opacity duration-700"></div>
                         </div>
                         
-                        {/* Enhanced Content */}
+                        {/* Enhanced Content with Premium Enterprise Styling */}
                         <div>
                           <div className="relative mb-3 pb-2">
-                            <h4 className="font-semibold text-2xl mb-2 text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-orange-500 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">Extreme Heat Differential Tests</h4>
+                            {/* White heading with drop shadow instead of gradient text */}
+                            <h4 className="font-semibold text-2xl mb-2 text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">Extreme Heat Differential Tests</h4>
                             
                             {/* Animated underline */}
                             <div className="absolute bottom-0 left-0 w-1/3 h-0.5 bg-gradient-to-r from-amber-500 to-orange-500 group-hover/item:w-1/2 transition-all duration-700 rounded-full opacity-70"></div>
                           </div>
-                          <p className="text-lg text-gray-300 group-hover/item:text-gray-200 transition-colors duration-500">Advanced ceramic microspheres create physical impossibility for heat traversal through vacuum spaces. 5-6 coats (30 mils) on 1/4 inch steel withstand 1550°F (843°C) for 25+ minutes, significantly outperforming conventional systems.</p>
+                          <p className="text-lg text-gray-300 group-hover/item:text-gray-200 transition-colors duration-500">
+                            Advanced ceramic microspheres create physical impossibility for heat traversal through vacuum spaces. 5-6 coats (30 mils) on 1/4 inch steel withstand 1550°F (843°C) for 25+ minutes, significantly outperforming conventional systems.
+                          </p>
+                          
+                          {/* Animated corner accent - appears on hover */}
+                          <div className="absolute bottom-2 right-2 w-8 h-8 opacity-0 group-hover/item:opacity-70 transition-all duration-700 pointer-events-none">
+                            <div className="absolute right-0 bottom-0 w-4 h-4 border-r border-b border-orange-500/60 rounded-br-sm"></div>
+                            <div className="absolute right-1 bottom-1 w-6 h-6 border-r border-b border-amber-500/50 rounded-br-sm"></div>
+                          </div>
                         </div>
                       </div>
                     </div>
                     
-                    {/* Protocol Item 3 - Solar Reflectance */}
-                    <div className="group/item relative hover:z-10 transform transition-all duration-500 hover:scale-[1.02] rounded-xl p-6 hover:bg-gradient-to-r hover:from-blue-900/10 hover:via-transparent hover:to-cyan-700/10">
-                      <div className="flex items-start gap-6">
+                    {/* Protocol Item 3 - Solar Reflectance - Premium Enterprise Style */}
+                    <div className="group/item relative hover:z-10 transform transition-all duration-500 hover:scale-[1.02] rounded-xl p-6">
+                      {/* Enhanced ambient glow - positioned BEHIND the item */}
+                      <div className="absolute -top-5 -right-5 w-48 h-48 bg-blue-600/20 rounded-full filter blur-[70px] opacity-0 group-hover/item:opacity-70 transition-opacity duration-500 pointer-events-none"></div>
+                      <div className="absolute -bottom-5 -left-5 w-48 h-48 bg-cyan-600/20 rounded-full filter blur-[70px] opacity-0 group-hover/item:opacity-70 transition-opacity duration-500 pointer-events-none"></div>
+                      
+                      {/* Card Background with gradient - positioned in front of glows */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 backdrop-blur-md rounded-xl z-10 opacity-0 group-hover/item:opacity-100 transition-opacity duration-500">
+                        {/* Inner border glow effect */}
+                        <div className="absolute inset-0 rounded-xl border border-transparent bg-gradient-to-r from-blue-500/30 via-cyan-500/40 to-blue-500/30 z-0 opacity-90 overflow-hidden pointer-events-none">
+                          <div className="absolute inset-px rounded-[10px] bg-black"></div>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-start gap-6 relative z-20">
                         {/* Enhanced Icon Container */}
                         <div className="relative flex-shrink-0">
                           {/* Premium Icon Container */}
@@ -520,15 +551,24 @@ const ProductPerformanceSection = () => {
                           <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-3/4 h-[2px] bg-gradient-to-r from-transparent via-blue-500/20 to-transparent rounded-full blur-sm opacity-0 group-hover/item:opacity-100 transition-opacity duration-700"></div>
                         </div>
                         
-                        {/* Enhanced Content */}
+                        {/* Enhanced Content with Premium Enterprise Styling */}
                         <div>
                           <div className="relative mb-3 pb-2">
-                            <h4 className="font-semibold text-2xl mb-2 text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-500 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">Solar Reflectance Testing</h4>
+                            {/* White heading with drop shadow instead of gradient text */}
+                            <h4 className="font-semibold text-2xl mb-2 text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">Solar Reflectance Testing</h4>
                             
                             {/* Animated underline */}
                             <div className="absolute bottom-0 left-0 w-1/3 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-400 group-hover/item:w-1/2 transition-all duration-700 rounded-full opacity-70"></div>
                           </div>
-                          <p className="text-lg text-gray-300 group-hover/item:text-gray-200 transition-colors duration-500">Titanium Dioxide reflective technology verified by Cool Roof Rating Council with 89% reflection and 89% thermal emittance. Blocks 95% of solar radiation with only 1% degradation over 3 years compared to 10-20% degradation in competing products.</p>
+                          <p className="text-lg text-gray-300 group-hover/item:text-gray-200 transition-colors duration-500">
+                            Titanium Dioxide reflective technology verified by Cool Roof Rating Council with 89% reflection and 89% thermal emittance. Blocks 95% of solar radiation with only 1% degradation over 3 years compared to 10-20% degradation in competing products.
+                          </p>
+                          
+                          {/* Animated corner accent - appears on hover */}
+                          <div className="absolute bottom-2 right-2 w-8 h-8 opacity-0 group-hover/item:opacity-70 transition-all duration-700 pointer-events-none">
+                            <div className="absolute right-0 bottom-0 w-4 h-4 border-r border-b border-blue-500/60 rounded-br-sm"></div>
+                            <div className="absolute right-1 bottom-1 w-6 h-6 border-r border-b border-cyan-500/50 rounded-br-sm"></div>
+                          </div>
                         </div>
                       </div>
                     </div>
