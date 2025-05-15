@@ -134,7 +134,7 @@ const ProductHistorySection = () => {
                       {/* Icon background with theme-specific gradient */}
                       <div className={`absolute inset-0 rounded-full bg-gradient-to-r ${
                         index % 2 === 0 
-                          ? "from-orange-600/20 to-red-600/20 group-hover/item:from-orange-600/30 group-hover/item:to-red-600/30" 
+                          ? "from-orange-600/20 to-blue-600/20 group-hover/item:from-orange-600/30 group-hover/item:to-blue-600/30" 
                           : "from-blue-600/20 to-cyan-600/20 group-hover/item:from-blue-600/30 group-hover/item:to-cyan-600/30"
                       } transition-colors duration-500`}></div>
                       
