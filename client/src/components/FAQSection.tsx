@@ -61,9 +61,19 @@ const FAQSection = ({ faqs }: FAQProps) => {
             <div className="relative mb-12 group/card mx-auto max-w-4xl">
               {/* Premium enterprise card with gradient background */}
               <div className="relative p-10 bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.8)] group-hover/card:scale-[1.01] transition-transform duration-700 overflow-hidden">
-                {/* Outer glow effect that intensifies on hover */}
-                <div className="absolute -inset-1 rounded-xl opacity-30 group-hover/card:opacity-100 transition-opacity duration-1000 z-0" 
-                  style={{ boxShadow: '0 0 50px 5px rgba(59,130,246,0.3), 0 0 30px 5px rgba(249,115,22,0.3)' }}>
+                {/* Enhanced outer glow effect that intensifies on hover and pulses */}
+                <div className="absolute -inset-2 rounded-xl opacity-60 group-hover/card:opacity-100 transition-opacity duration-1000 z-0 animate-glow-pulse" 
+                  style={{ boxShadow: '0 0 100px 15px rgba(59,130,246,0.5), 0 0 60px 15px rgba(249,115,22,0.5)' }}>
+                </div>
+                
+                {/* Secondary outer glow for layered effect */}
+                <div className="absolute -inset-6 rounded-xl opacity-30 group-hover/card:opacity-80 transition-opacity duration-1000 z-0" 
+                  style={{ boxShadow: '0 0 150px 30px rgba(59,130,246,0.25), 0 0 100px 30px rgba(249,115,22,0.25)' }}>
+                </div>
+                
+                {/* Tertiary outer glow for maximum effect */}
+                <div className="absolute -inset-10 rounded-xl opacity-20 group-hover/card:opacity-60 transition-opacity duration-1000 z-0" 
+                  style={{ boxShadow: '0 0 200px 50px rgba(59,130,246,0.15), 0 0 150px 50px rgba(249,115,22,0.15)' }}>
                 </div>
                 
                 {/* Dual-layer border effect */}
@@ -120,8 +130,8 @@ const FAQSection = ({ faqs }: FAQProps) => {
                   <h2 
                     className="text-white font-extrabold tracking-tight py-3 text-center text-4xl md:text-5xl group-hover/card:scale-105 transition-transform duration-700"
                     style={{ 
-                      textShadow: '0 0 15px rgba(59,130,246,0.4), 0 0 30px rgba(59,130,246,0.3), 0 0 2px rgba(255,255,255,0.9), 0 2px 4px rgba(0,0,0,0.9)',
-                      filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.9)) drop-shadow(0 0 4px rgba(255,255,255,0.8))'
+                      textShadow: '0 0 1px rgba(255,255,255,0.7), 0 2px 4px rgba(0,0,0,0.7)',
+                      filter: 'drop-shadow(0 2px 3px rgba(0,0,0,0.9))'
                     }}
                   >
                     Frequently Asked Questions
@@ -149,8 +159,8 @@ const FAQSection = ({ faqs }: FAQProps) => {
                 {/* Subtitle with premium styling */}
                 <p className="text-gray-300 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed z-20 mt-8 text-center relative"
                   style={{ 
-                    textShadow: '0 1px 2px rgba(0,0,0,0.9)',
-                    filter: 'drop-shadow(0 1px 1px rgba(0,0,0,0.7))'
+                    textShadow: '0 1px 1px rgba(0,0,0,0.7)',
+                    filter: 'drop-shadow(0 1px 1px rgba(0,0,0,0.5))'
                   }}
                 >
                   Find answers to common questions about our protective coating products and services.
@@ -247,17 +257,28 @@ const FAQSection = ({ faqs }: FAQProps) => {
               <div key={categoryIdx} className="group/table relative">
                 {/* Enhanced premium card container */}
                 <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 backdrop-blur-xl rounded-lg h-full border-0 shadow-[0_10px_50px_rgba(0,0,0,0.6)] group-hover/table:scale-[1.01] transition-transform duration-700">
-                  {/* Outer glow effect that intensifies on hover */}
-                  <div className="absolute -inset-1 rounded-lg opacity-0 group-hover/table:opacity-100 transition-opacity duration-700" 
-                    style={{ boxShadow: `0 0 25px 5px ${isFirstCard ? orangeGlow : isSecondCard ? blueGlow : purpleGlow}` }}>
+                  {/* Enhanced outer glow effect that intensifies on hover and pulses */}
+                  <div className="absolute -inset-1 rounded-lg opacity-30 group-hover/table:opacity-100 transition-opacity duration-700 animate-glow-pulse" 
+                    style={{ boxShadow: `0 0 35px 5px ${isFirstCard ? orangeGlow : isSecondCard ? blueGlow : purpleGlow}` }}>
+                  </div>
+                  
+                  {/* Secondary outer glow for layered effect */}
+                  <div className="absolute -inset-3 rounded-lg opacity-0 group-hover/table:opacity-60 transition-opacity duration-1000" 
+                    style={{ boxShadow: `0 0 50px 15px ${isFirstCard ? 'rgba(249,115,22,0.2)' : isSecondCard ? 'rgba(59,130,246,0.2)' : 'rgba(139,92,246,0.2)'}` }}>
                   </div>
                   
                   {/* Animated border gradients */}
                   <div className="absolute inset-0 rounded-lg p-[1px] overflow-hidden">
                     <div className="absolute inset-0 rounded-lg overflow-hidden">
-                      <div className="absolute inset-0 bg-gradient-to-r from-orange-500/20 via-blue-500/20 to-purple-500/20 animate-gradient-x"></div>
+                      <div className="absolute inset-0 bg-gradient-to-r from-orange-500/30 via-blue-500/30 to-purple-500/30 animate-gradient-x"></div>
                     </div>
                   </div>
+                  
+                  {/* Animated fading squares - appearing and disappearing */}
+                  <div className="absolute -top-4 -right-4 w-16 h-16 rounded-lg border border-orange-500/30 opacity-0 group-hover/table:opacity-60 rotate-12 transition-all duration-1000 animate-pulse-slow"></div>
+                  <div className="absolute -bottom-4 -left-4 w-12 h-12 rounded-lg border border-blue-500/30 opacity-0 group-hover/table:opacity-60 -rotate-12 transition-all duration-1000 animate-pulse-slow-delayed"></div>
+                  <div className="absolute top-1/2 -right-6 w-8 h-8 rounded-lg border border-purple-500/30 opacity-0 group-hover/table:opacity-50 rotate-45 transition-all duration-1000 animate-pulse"></div>
+                  <div className="absolute bottom-1/2 -left-6 w-8 h-8 rounded-lg border border-orange-500/30 opacity-0 group-hover/table:opacity-50 -rotate-45 transition-all duration-1000 animate-pulse-slow"></div>
                   
                   {/* Inner container with premium effects */}
                   <div className="absolute inset-[1px] bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 rounded-lg overflow-hidden">
