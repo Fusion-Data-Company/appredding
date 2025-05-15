@@ -22,84 +22,75 @@ const ProductPerformanceSection = () => {
       <div className="container mx-auto px-4 relative" style={{ zIndex: 2 }}>
         {/* Premium Enterprise Main Heading Section */}
         <div className="text-center mb-24">
-          <div className="relative group mx-auto max-w-4xl mb-10 inline-block transform transition-all duration-500">
-            {/* Multiple layered background effects */}
+          {/* Card with premium enterprise styling matching Testimonials Section */}
+          <div className="relative group mx-auto max-w-4xl mb-10 inline-block transform hover:scale-[1.02] transition-all duration-700 hover:-translate-y-1 hover:z-10">
+            {/* Multiple layered background effects - matching Testimonials Section */}
             <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/40 via-blue-600/40 to-orange-600/40 rounded-xl blur-xl opacity-70 group-hover:opacity-100 group-hover:blur-xl transition-all duration-1000 animate-pulse-slow"></div>
             <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/80 via-blue-500/80 to-orange-500/80 rounded-xl blur-md opacity-90 group-hover:opacity-100 transition-all duration-500"></div>
             
-            {/* Main card container */}
+            {/* Main card container - enhanced to match Testimonials Section */}
             <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black backdrop-blur-xl rounded-xl py-12 px-12 z-10 border border-orange-500/30 overflow-hidden group hover:shadow-[0_0_25px_rgba(249,115,22,0.3)] transition-shadow duration-500">
-              {/* Subtle dots and squares pattern background in burnt orange - increased opacity for visibility */}
-              <div className="absolute inset-0 opacity-25 z-0">
-                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoMjQ5LDExNSwyMiwwLjQpIiBkPSJNMCAwaDJ2Mkgwem0yIDJoMnYySDJ6Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCBmaWxsPSJ1cmwoI2EpIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIi8+PC9zdmc+')]"></div>
-              </div>
               
-              {/* Ambient glow effect - positioned away from text */}
-              <div className="absolute -top-60 -right-40 w-80 h-80 bg-orange-600/15 rounded-full filter blur-[100px] animate-pulse-slow-delayed"></div>
-              <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-orange-500/20 rounded-full filter blur-[120px] animate-pulse-slow"></div>
+              {/* Enhanced ambient glow - matching Testimonials Section */}
+              <div className="absolute -top-20 -right-20 w-72 h-72 bg-orange-500/20 rounded-full filter blur-[100px] opacity-70 animate-pulse-slow"></div>
+              <div className="absolute -bottom-20 -left-20 w-72 h-72 bg-blue-500/25 rounded-full filter blur-[100px] opacity-70 animate-pulse-slow-delayed"></div>
               
-              {/* Corner accent with gradient - top-right corner only */}
-              <div className="absolute top-0 right-0 w-32 h-32 opacity-20 z-10">
+              {/* Additional background gradient areas - matching Testimonials Section */}
+              <div className="absolute top-0 right-0 w-32 h-32 opacity-20 z-5">
                 <div className="absolute inset-0 bg-gradient-to-bl from-orange-500/40 to-blue-500/40 rounded-tr-xl blur-[2px]"></div>
               </div>
-              
-              {/* Additional corner accent lines */}
-              <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none z-10">
-                <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-orange-500/70 rounded-tl-lg"></div>
-                <div className="absolute top-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
-              </div>
-              <div className="absolute top-0 right-0 w-16 h-16 pointer-events-none z-10">
-                <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-red-500/70 rounded-tr-lg"></div>
-                <div className="absolute top-0 right-0 w-3 h-3 bg-red-500/50 rounded-full blur-[2px]"></div>
-              </div>
-              <div className="absolute bottom-0 left-0 w-16 h-16 pointer-events-none z-10">
-                <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-orange-500/70 rounded-bl-lg"></div>
-                <div className="absolute bottom-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
-              </div>
-              <div className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none z-10">
-                <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-red-500/70 rounded-br-lg"></div>
-                <div className="absolute bottom-0 right-0 w-3 h-3 bg-red-500/50 rounded-full blur-[2px]"></div>
+              <div className="absolute bottom-0 left-0 w-32 h-32 opacity-20 z-5">
+                <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/40 to-orange-500/40 rounded-bl-xl blur-[2px]"></div>
               </div>
               
-              {/* Badge removed per user request */}
-              {/* Spacer to maintain layout */}
-              <div className="h-6 mb-6"></div>
+              {/* Corner accents - exactly matching Testimonials Section */}
+              <div className="absolute top-4 left-4 w-12 h-12 z-10">
+                <div className="absolute left-0 top-0 w-6 h-6 border-l-2 border-t-2 border-orange-500/40 rounded-tl-md"></div>
+                <div className="absolute left-1 top-1 w-8 h-8 border-l border-t border-blue-500/30 rounded-tl-md"></div>
+              </div>
+              <div className="absolute top-4 right-4 w-12 h-12 z-10">
+                <div className="absolute right-0 top-0 w-6 h-6 border-r-2 border-t-2 border-orange-500/40 rounded-tr-md"></div>
+                <div className="absolute right-1 top-1 w-8 h-8 border-r border-t border-blue-500/30 rounded-tr-md"></div>
+              </div>
+              <div className="absolute bottom-4 right-4 w-12 h-12 z-10">
+                <div className="absolute right-0 bottom-0 w-6 h-6 border-r-2 border-b-2 border-orange-500/40 rounded-br-md"></div>
+                <div className="absolute right-1 bottom-1 w-8 h-8 border-r border-b border-amber-500/30 rounded-br-md"></div>
+              </div>
+              <div className="absolute bottom-4 left-4 w-12 h-12 z-10">
+                <div className="absolute left-0 bottom-0 w-6 h-6 border-l-2 border-b-2 border-orange-500/40 rounded-bl-md"></div>
+                <div className="absolute left-1 bottom-1 w-8 h-8 border-l border-b border-amber-500/30 rounded-bl-md"></div>
+              </div>
               
-              {/* Shimmer heading - Centered with improved styling - vertically centered */}
-              <div className="relative z-10 mb-8 px-6 py-8 flex flex-col items-center justify-center min-h-[160px] overflow-hidden text-center">
-                {/* Animated glow behind text */}
-                <div className="absolute inset-0 bg-gradient-to-r from-orange-600/10 via-blue-500/20 to-orange-600/10 opacity-50 blur-xl animate-pulse-slow"></div>
-                
-                {/* Heading with enhanced enterprise styling and shadows - properly centered vertically and horizontally */}
-                <div className="mx-auto shimmer-fire-text font-bold text-5xl tracking-tight relative z-10 inline-block -mt-4">
-                  {/* Background glow for letter definition */}
-                  <div className="absolute inset-0 flex justify-center items-center text-5xl font-bold tracking-tight text-orange-900/10 blur-[5px] scale-110">
-                    Product Performance Data
-                  </div>
-                  
-                  {/* Main text with white color - matching testimonials section - centered */}
-                  <span className="relative text-white
-                    drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] 
-                    [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(251,146,60,0.3)]">
-                    Product Performance Data
-                  </span>
-                  
-                  {/* Top glossy reflection */}
-                  <div className="absolute top-0 left-0 right-0 h-[40%] bg-gradient-to-b from-white/10 to-transparent rounded-t-lg"></div>
-                </div>
-                
-                {/* Multiple text shadows for depth - reduced blur effects - properly centered */}
-                <div className="absolute inset-0 flex items-center justify-center text-5xl font-bold tracking-tight opacity-10 blur-[3px] text-orange-700/30 -z-10 transform scale-105">
+              {/* Background blur text - matching Testimonials Section */}
+              <div className="absolute inset-0 flex justify-center items-center text-5xl font-bold tracking-tight text-orange-900/10 blur-[5px] scale-110 pointer-events-none">
+                Product Performance Data
+              </div>
+              
+              <div className="relative z-10">
+                {/* Main title with premium text styling - matching Testimonials Section */}
+                <h2 className="text-white
+                drop-shadow-[0_0px_1px_rgba(251,113,36,0.2)] 
+                [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(251,146,60,0.3)]
+                text-4xl md:text-5xl font-bold relative z-30 mb-6">
                   Product Performance Data
-                </div>
-                <div className="absolute inset-0 flex items-center justify-center text-5xl font-bold tracking-tight opacity-20 blur-[1px] text-red-900/20 -z-10">
+                </h2>
+                
+                {/* Multiple text shadows for depth - reduced blur effects */}
+                <div className="absolute inset-0 flex items-center justify-center text-5xl font-bold tracking-tight opacity-10 blur-[3px] text-orange-700/30 z-10 transform scale-105 pointer-events-none">
                   Product Performance Data
                 </div>
                 
-                {/* Animated underline with mixed-themed gradient for better centering */}
-                <div className="w-48 h-1 bg-gradient-to-r from-orange-500 via-blue-500 to-orange-500 mx-auto mt-4 rounded-full animate-pulse-slow"></div>
+                <p className="text-gray-300 text-xl max-w-2xl mx-auto relative z-30">
+                  Explore the superior performance metrics of our Praetorian protective coating solutions.
+                </p>
+                
+                {/* Decorative accent line */}
+                <div className="absolute left-1/2 bottom-4 transform -translate-x-1/2 w-32 h-0.5 bg-gradient-to-r from-transparent via-orange-500/70 to-transparent rounded-full"></div>
               </div>
             </div>
+            
+            {/* Bottom reflection */}
+            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-4/5 h-[1px] bg-gradient-to-r from-transparent via-orange-500/40 to-transparent rounded-full"></div>
           </div>
           
           {/* Performance Data Section */}
