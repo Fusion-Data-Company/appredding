@@ -249,15 +249,15 @@ const FAQSection = ({ faqs }: FAQProps) => {
                   
                   {/* Corner accent decorations */}
                   <div className="absolute top-0 right-0 w-24 h-24 opacity-20">
-                    <div className={`absolute inset-0 bg-gradient-to-bl ${theme.cornerAccent} rounded-tr-xl blur-[2px]`}></div>
+                    <div className="absolute inset-0 bg-gradient-to-bl from-orange-500/40 to-red-600/40 rounded-tr-xl blur-[2px]"></div>
                   </div>
                   <div className="absolute bottom-0 left-0 w-24 h-24 opacity-20">
-                    <div className={`absolute inset-0 bg-gradient-to-tr ${theme.cornerAccent} rounded-bl-xl blur-[2px]`}></div>
+                    <div className="absolute inset-0 bg-gradient-to-tr from-orange-500/40 to-red-600/40 rounded-bl-xl blur-[2px]"></div>
                   </div>
                   
                   {/* Ambient glow effect */}
                   <div className="absolute inset-0 rounded-xl opacity-30 group-hover:opacity-40 transition-opacity duration-1000" 
-                       style={{ background: theme.ambientGlow }}>
+                       style={{ background: "radial-gradient(circle at center, rgba(251,113,36,0.2) 0%, rgba(220,38,38,0.1) 40%, transparent 70%)" }}>
                   </div>
                   
                   {/* Category Title with enhanced styling */}
@@ -300,7 +300,7 @@ const FAQSection = ({ faqs }: FAQProps) => {
                           {/* Enhanced Question Box with Premium Styling */}
                           <div className={`relative group/question transform ${isOpen ? 'scale-[1.01]' : ''} transition-all duration-500`}>
                             {/* Premium gradient border effect */}
-                            <div className={`absolute -inset-0.5 rounded-lg bg-gradient-to-r ${theme.questionBorder} ${isOpen ? 'opacity-70 blur-[1px]' : 'opacity-50 blur-[0.5px]'} transition-all duration-500`}></div>
+                            <div className={`absolute -inset-0.5 rounded-lg bg-gradient-to-r from-orange-500/60 via-amber-600/30 to-red-500/60 transition-all duration-500 ${isOpen ? 'opacity-70 blur-[1px]' : 'opacity-50 blur-[0.5px]'}`}></div>
                             
                             <button
                               onClick={() => toggleQuestion(categoryIdx, questionIdx)}
@@ -314,7 +314,7 @@ const FAQSection = ({ faqs }: FAQProps) => {
                               <div className="absolute bottom-0 right-0 w-2 h-2 bg-orange-500/70 rounded-full blur-[1px] opacity-40 group-hover:opacity-100 transition-opacity duration-300"></div>
                               
                               {/* Enhanced question text */}
-                              <span className={`pr-8 font-medium ${isOpen ? 'text-transparent bg-clip-text bg-gradient-to-r ' + theme.textGradient : 'text-gray-200'} transition-colors duration-500`}>
+                              <span className={`pr-8 font-medium ${isOpen ? 'text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-300 to-orange-400' : 'text-gray-200'} transition-colors duration-500`}>
                                 {faq.question}
                               </span>
                               
@@ -343,7 +343,7 @@ const FAQSection = ({ faqs }: FAQProps) => {
                             <div className="mt-3 overflow-hidden transform transition-all duration-700 opacity-100 max-h-[1000px]">
                               <div className="relative">
                                 {/* Premium gradient border effect */}
-                                <div className={`absolute -inset-0.5 rounded-lg bg-gradient-to-r ${theme.answerBorder} opacity-30 blur-[0.5px]`}></div>
+                                <div className="absolute -inset-0.5 rounded-lg bg-gradient-to-r from-orange-600/40 to-red-600/40 opacity-30 blur-[0.5px]"></div>
                                 
                                 <div className="relative bg-black backdrop-blur-sm rounded-lg p-6 text-gray-300 text-base leading-relaxed border-2 border-orange-500/50 overflow-hidden">
                                   {/* Corner accent points */}
