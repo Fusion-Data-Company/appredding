@@ -336,7 +336,7 @@ const IndustryApplications = () => {
           <p className="text-gray-200 dark:text-gray-300 max-w-2xl mx-auto font-medium text-lg tracking-wide leading-relaxed mb-10 mt-10 relative px-6">
             {/* Left side ornamental accent */}
             <span className="absolute -left-2 top-1/2 transform -translate-y-1/2 w-6 h-6">
-              <span className="absolute inset-0 rounded-full bg-gradient-to-br from-orange-500/30 to-red-500/30 blur-md"></span>
+              <span className="absolute inset-0 rounded-full bg-gradient-to-br from-orange-500/30 to-blue-500/30 blur-md"></span>
               <span className="absolute left-1/2 top-0 h-full w-0.5 bg-gradient-to-b from-orange-500/20 via-orange-500/40 to-orange-500/20"></span>
             </span>
             
@@ -348,7 +348,7 @@ const IndustryApplications = () => {
             
             {/* Right side ornamental accent */}
             <span className="absolute -right-2 top-1/2 transform -translate-y-1/2 w-6 h-6">
-              <span className="absolute inset-0 rounded-full bg-gradient-to-br from-orange-500/30 to-red-500/30 blur-md"></span>
+              <span className="absolute inset-0 rounded-full bg-gradient-to-br from-orange-500/30 to-blue-500/30 blur-md"></span>
               <span className="absolute left-1/2 top-0 h-full w-0.5 bg-gradient-to-b from-orange-500/20 via-orange-500/40 to-orange-500/20"></span>
             </span>
           </p>
@@ -454,7 +454,7 @@ const IndustryApplications = () => {
                         const themeGradient = isWaterRelated 
                           ? "from-blue-500/50 via-transparent to-cyan-500/50" 
                           : isFireRelated
-                            ? "from-orange-500/50 via-transparent to-red-500/50"
+                            ? "from-orange-500/50 via-transparent to-blue-500/50"
                             : "from-amber-500/50 via-transparent to-orange-500/50";
                             
                         // Set glow theme based on application
@@ -527,7 +527,7 @@ const IndustryApplications = () => {
                                     isWaterRelated 
                                       ? "from-blue-400 to-cyan-400" 
                                       : isFireRelated
-                                        ? "from-orange-500 to-red-500"
+                                        ? "from-orange-500 to-blue-500"
                                         : "from-amber-400 to-orange-400"
                                   }`}></div>
                                 </h4>
