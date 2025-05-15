@@ -165,17 +165,18 @@ const FeaturesSection = () => {
                 <div className="absolute bottom-0 right-0 w-3 h-3 bg-gray-500/30 rounded-full blur-[2px]"></div>
               </div>
               
-              {/* Premium badge with gray styling */}
-              <div className="absolute -top-5 left-1/2 -translate-x-1/2 flex z-[100]">
-                <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-orange-950/95 via-primary-950/95 to-blue-950/95 border border-orange-500/40 shadow-lg relative transition-all duration-500 hover:scale-105">
-                  {/* Badge icon */}
+              {/* Enhanced premium badge with layered orange/blue gradient styling and increased z-index */}
+              <div className="absolute -top-6 left-1/2 -translate-x-1/2 flex z-[100]">
+                <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-orange-950/95 via-primary-950/95 to-blue-950/95 border border-orange-500/40 shadow-[0_0_15px_rgba(249,115,22,0.4)] relative transition-all duration-500 hover:scale-105 z-[100]">
+                  {/* Badge icon with pulsing glow */}
                   <div className="mr-2 relative">
+                    <div className="absolute inset-0 bg-blue-500/20 rounded-full blur-[6px] animate-pulse-slow"></div>
                     <svg className="h-5 w-5 text-orange-300 relative z-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M12 22a9.5 9.5 0 0 0 3.09-18.49A4.5 4.5 0 1 0 12 8.5a4.5 4.5 0 1 0-3.09-9.01A9.5 9.5 0 0 0 12 22z"></path>
                     </svg>
                   </div>
                   
-                  {/* Badge text with gray styling */}
+                  {/* Badge text with enhanced styling */}
                   <span className="text-blue-300 text-sm font-medium tracking-wide">
                     NASA TECHNOLOGY
                   </span>

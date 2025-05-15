@@ -135,10 +135,10 @@ const FAQSection = ({ faqs }: FAQProps) => {
                 <div className="absolute h-full w-3 bg-white/80 right-24 rounded-full blur-[1px] animate-pulse-slow-delayed opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
               </div>
               
-              {/* Premium badge with consistent styling */}
-              <div className="absolute -top-5 left-1/2 -translate-x-1/2 flex z-50">
-                <div className="px-3 py-1.5 rounded-full border border-amber-300 dark:border-amber-700 bg-amber-100/50 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300 inline-flex items-center shadow-[0_0_10px_rgba(251,113,36,0.3)] relative z-50">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-2 text-amber-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              {/* Premium badge with orange/blue gradient styling and increased z-index */}
+              <div className="absolute -top-5 left-1/2 -translate-x-1/2 flex z-[100]">
+                <div className="px-3 py-1.5 rounded-full border border-orange-500/40 bg-gradient-to-r from-orange-950/95 via-primary-950/95 to-blue-950/95 text-orange-300 inline-flex items-center shadow-[0_0_15px_rgba(249,115,22,0.4)] relative z-[100]">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-2 text-blue-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <circle cx="12" cy="12" r="10"></circle>
                     <line x1="12" y1="16" x2="12" y2="12"></line>
                     <line x1="12" y1="8" x2="12.01" y2="8"></line>
