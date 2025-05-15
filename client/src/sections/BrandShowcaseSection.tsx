@@ -206,7 +206,7 @@ const BrandShowcaseSection = () => {
                     </PremiumBadge>
                   </div>
                   
-                  {/* Feature item 1 - Styled to match screenshot */}
+                  {/* Feature items restored with updated styling */}
                   <div className="group/item relative text-center p-4 mt-8">
                     {/* Centered heading with gradient */}
                     <div className="relative mb-5">
@@ -223,7 +223,39 @@ const BrandShowcaseSection = () => {
                     </p>
                   </div>
                   
-                  {/* Feature item 2 - Removed, as only one feature item is shown in screenshot */}
+                  {/* Advanced Ceramic Technology - restored with updated styling */}
+                  <div className="group/item relative text-center p-4 mt-10">
+                    {/* Centered heading with gradient */}
+                    <div className="relative mb-5">
+                      <h3 className="text-3xl font-semibold bg-gradient-to-r from-orange-400 via-amber-300 to-blue-400 bg-clip-text text-transparent drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">
+                        Advanced Ceramic Technology
+                      </h3>
+                    </div>
+                    
+                    {/* Simple orange underline */}
+                    <div className="w-24 h-0.5 bg-orange-500 mx-auto mb-5"></div>
+                    
+                    <p className="text-gray-300">
+                      Utilizing ceramic microsphere technology developed from aerospace research, our coatings create an impenetrable protective barrier with exceptional durability.
+                    </p>
+                  </div>
+                  
+                  {/* Scientifically Verified Results - restored with updated styling */}
+                  <div className="group/item relative text-center p-4 mt-10">
+                    {/* Centered heading with gradient */}
+                    <div className="relative mb-5">
+                      <h3 className="text-3xl font-semibold bg-gradient-to-r from-orange-400 via-amber-300 to-blue-400 bg-clip-text text-transparent drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">
+                        Scientifically Verified Results
+                      </h3>
+                    </div>
+                    
+                    {/* Simple orange underline */}
+                    <div className="w-24 h-0.5 bg-orange-500 mx-auto mb-5"></div>
+                    
+                    <p className="text-gray-300">
+                      Our products have been rigorously tested and certified to meet the highest standards of performance in fire resistance, thermal protection, and longevity.
+                    </p>
+                  </div>
                 </div>
                 
                 {/* Bottom reflection effect */}
