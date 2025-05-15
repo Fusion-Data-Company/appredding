@@ -365,33 +365,58 @@ const ProductPerformanceSection = () => {
             <div className="relative z-10">
               {/* Enhanced Premium Heading Container */}
               {/* Premium Enterprise NASA-Grade Testing Protocols Header Card */}
-              <div className="text-center mb-14 relative">
+              <div className="relative mb-14 group/card">
                 {/* Enhanced ambient glow effects - positioned BEHIND the card */}
                 <div className="absolute -top-20 -right-20 w-72 h-72 bg-orange-600/20 rounded-full filter blur-[100px] opacity-80 animate-pulse-slow pointer-events-none"></div>
                 <div className="absolute -bottom-20 -left-20 w-72 h-72 bg-blue-600/25 rounded-full filter blur-[100px] opacity-80 animate-pulse-slow-delayed pointer-events-none"></div>
                 
-                {/* Central glow - positioned BEHIND the card */}
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3/4 h-40 bg-gradient-to-r from-orange-500/0 via-orange-500/30 to-orange-500/0 blur-[80px] rounded-full animate-pulse-slow pointer-events-none"></div>
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3/4 h-40 bg-gradient-to-r from-blue-500/0 via-blue-500/30 to-blue-500/0 blur-[80px] rounded-full animate-pulse-slow-delayed pointer-events-none"></div>
-                
-                {/* Blue and orange outer glow effect - positioned BEHIND the heading */}
-                <div className="absolute -inset-4 rounded-xl opacity-60 z-0 animate-glow-pulse pointer-events-none" 
-                  style={{ boxShadow: '0 0 80px 20px rgba(59,130,246,0.3), 0 0 50px 20px rgba(249,115,22,0.3)' }}>
+                {/* Main card container with grey gradient background */}
+                <div className="relative z-10 bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 backdrop-blur-md rounded-xl p-10 border border-transparent overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.3)] transform transition-all duration-500 group-hover/card:shadow-[0_15px_50px_rgba(0,0,0,0.4)]">
+                  {/* Inner border glow effect */}
+                  <div className="absolute inset-0 rounded-xl border border-transparent bg-gradient-to-r from-orange-500/30 via-blue-500/40 to-orange-500/30 z-0 opacity-90 overflow-hidden pointer-events-none">
+                    <div className="absolute inset-px rounded-[10px] bg-black"></div>
+                  </div>
+                  
+                  {/* Animated corner accents */}
+                  <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none z-10">
+                    <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-orange-500/70 rounded-tl-lg"></div>
+                    <div className="absolute top-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+                  </div>
+                  <div className="absolute top-0 right-0 w-16 h-16 pointer-events-none z-10">
+                    <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-blue-500/70 rounded-tr-lg"></div>
+                    <div className="absolute top-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
+                  </div>
+                  <div className="absolute bottom-0 left-0 w-16 h-16 pointer-events-none z-10">
+                    <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-blue-500/70 rounded-bl-lg"></div>
+                    <div className="absolute bottom-0 left-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
+                  </div>
+                  <div className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none z-10">
+                    <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-orange-500/70 rounded-br-lg"></div>
+                    <div className="absolute bottom-0 right-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+                  </div>
+                  
+                  {/* Subtle animated background pattern */}
+                  <div className="absolute inset-0 opacity-5 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9IiNmZmZmZmYiIGQ9Ik0wIDBoMnYySDB6bTIgMmgydjJIMnoiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IGZpbGw9InVybCgjYSkiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiLz48L3N2Zz4=')] z-0 pointer-events-none"></div>
+                  
+                  {/* Content container with proper z-index */}
+                  <div className="relative z-20 text-center">
+                    {/* Heading text with white color and enhanced drop shadow */}
+                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white tracking-tight drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)] relative">
+                      NASA-Grade Testing Protocols
+                    </h2>
+                    
+                    {/* Enhanced animated underline with pulsing effect */}
+                    <div className="w-48 h-1 bg-gradient-to-r from-orange-500 via-blue-500 to-orange-500 mx-auto mb-8 rounded-full animate-pulse-slow"></div>
+                    
+                    {/* Enhanced paragraph with better spacing and readability */}
+                    <p className="text-xl text-gray-200 max-w-4xl mx-auto leading-relaxed">
+                      Our triple-component system utilizes vacuum-filled ceramic microspheres in a water-based acrylic elastomeric polymer with 156% elongation capability. This advanced ceramic technology provides exceptional thermal insulation properties and fire resistance across a wide range of applications.
+                    </p>
+                    
+                    {/* Subtle animated glow effect at the bottom */}
+                    <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-3/4 h-[2px] bg-gradient-to-r from-transparent via-blue-500/30 to-transparent rounded-full blur-sm opacity-70 animate-pulse-slow"></div>
+                  </div>
                 </div>
-                
-                {/* Badge removed per user request */}
-                
-                {/* Heading text with white color and drop shadow instead of gradient */}
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white tracking-tight drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)] relative z-20">
-                  NASA-Grade Testing Protocols
-                </h2>
-                
-                {/* Animated underline */}
-                <div className="w-40 h-1 bg-gradient-to-r from-orange-500 to-blue-500 mx-auto mb-6 rounded-full"></div>
-                
-                <p className="text-xl text-gray-200 max-w-4xl mx-auto leading-relaxed relative z-20">
-                  Our triple-component system utilizes vacuum-filled ceramic microspheres in a water-based acrylic elastomeric polymer with 156% elongation capability. This advanced ceramic technology provides exceptional thermal insulation properties and fire resistance across a wide range of applications.
-                </p>
               </div>
               
               {/* Enhanced Content Grid */}
