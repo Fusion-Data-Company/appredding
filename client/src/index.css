@@ -69,6 +69,10 @@ section + section {
     animation: pulseSlow 3s infinite 1.5s ease-in-out;
   }
   
+  .animate-pulse-slow-offset {
+    animation: pulseSlow 4s infinite 0.75s ease-in-out;
+  }
+  
   @keyframes shimmerSlow {
     0% {
       transform: translateX(-100%);
