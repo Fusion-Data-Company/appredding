@@ -186,7 +186,14 @@ const BrandShowcaseSection = () => {
             <div className="order-1 md:order-2">
               <div className="relative group transform hover:scale-[1.02] transition-all duration-500 hover:-translate-y-1 hover:z-10 hover:shadow-[0_0_30px_rgba(249,115,22,0.4)]">
                 {/* Card with grey gradient background */}
-                <div className="relative bg-gradient-to-br from-black/95 via-gray-900/95 to-black/95 rounded-xl p-8 z-10 space-y-8 min-h-[calc(896px + 48px)]">
+                {/* Ambient glow effects - positioned BEHIND the card */}
+              <div className="absolute -top-20 -right-20 w-72 h-72 bg-orange-600/30 rounded-full filter blur-[100px] opacity-80 animate-pulse-slow"></div>
+              <div className="absolute -bottom-20 -left-20 w-72 h-72 bg-blue-600/35 rounded-full filter blur-[100px] opacity-80 animate-pulse-slow-delayed"></div>
+              
+              {/* Outer glow layer for depth - positioned BEHIND the card */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/40 via-blue-600/40 to-orange-600/40 rounded-xl blur-xl opacity-70 group-hover:opacity-100 group-hover:blur-xl transition-all duration-1000 animate-pulse-slow"></div>
+              
+              <div className="relative bg-gradient-to-br from-black/95 via-gray-900/95 to-black/95 rounded-xl p-8 z-10 space-y-8 min-h-[calc(896px + 48px)]">
                   
                   {/* Enhanced blue and orange glowing border */}
                   <div className="absolute inset-0 rounded-xl border border-transparent bg-gradient-to-r from-orange-500/30 via-blue-500/40 to-orange-500/30 z-0 opacity-90 overflow-hidden">
@@ -200,13 +207,6 @@ const BrandShowcaseSection = () => {
                   
                   {/* Edge glow effect - enhanced intensity to match other cards */}
                   <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/80 via-blue-500/80 to-orange-500/80 rounded-xl blur-md opacity-90 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  
-                  {/* Outer glow layer for depth */}
-                  <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/40 via-blue-600/40 to-orange-600/40 rounded-xl blur-xl opacity-70 group-hover:opacity-100 group-hover:blur-xl transition-all duration-1000 animate-pulse-slow"></div>
-                  
-                  {/* Enhanced ambient glow */}
-                  <div className="absolute -top-20 -right-20 w-72 h-72 bg-orange-600/30 rounded-full filter blur-[100px] opacity-80 animate-pulse-slow"></div>
-                  <div className="absolute -bottom-20 -left-20 w-72 h-72 bg-blue-600/35 rounded-full filter blur-[100px] opacity-80 animate-pulse-slow-delayed"></div>
                   
                   {/* Badge removed per user request */}
                   

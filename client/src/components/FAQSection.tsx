@@ -48,13 +48,21 @@ const FAQSection = ({ faqs }: FAQProps) => {
           <div className="relative inline-block">
             {/* No badge as requested */}
             
+            {/* Enhanced ambient glow effects - BEHIND the card */}
+            <div className="absolute -top-20 -right-20 w-72 h-72 bg-orange-600/30 rounded-full filter blur-[100px] opacity-80 animate-pulse-slow"></div>
+            <div className="absolute -bottom-20 -left-20 w-72 h-72 bg-blue-600/35 rounded-full filter blur-[100px] opacity-80 animate-pulse-slow-delayed"></div>
+              
+            {/* Central glow - BEHIND the card */}
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3/4 h-40 bg-gradient-to-r from-orange-500/0 via-orange-500/40 to-orange-500/0 blur-[100px] rounded-full animate-pulse-slow"></div>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3/4 h-40 bg-gradient-to-r from-blue-500/0 via-blue-500/40 to-blue-500/0 blur-[100px] rounded-full animate-pulse-slow-delayed"></div>
+            
+            {/* Blue and orange outer glow effect - BEHIND the card */}
+            <div className="absolute -inset-4 rounded-xl opacity-60 z-0 animate-glow-pulse" 
+              style={{ boxShadow: '0 0 80px 20px rgba(59,130,246,0.4), 0 0 50px 20px rgba(249,115,22,0.4)' }}>
+            </div>
+            
             {/* Premium Enterprise Header Card */}
             <div className="relative p-12 bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 backdrop-blur-xl rounded-xl shadow-[0_10px_50px_rgba(0,0,0,0.7)] mb-8 group">
-              {/* Blue and orange outer glow effect */}
-              <div className="absolute -inset-4 rounded-xl opacity-60 z-0 animate-glow-pulse" 
-                style={{ boxShadow: '0 0 80px 20px rgba(59,130,246,0.4), 0 0 50px 20px rgba(249,115,22,0.4)' }}>
-              </div>
-              
               {/* Dual-layer border effect */}
               <div className="absolute inset-0 rounded-xl border-2 border-orange-500/40 animate-glowing-border"></div>
               <div className="absolute inset-[2px] rounded-xl border border-blue-500/30"></div>
@@ -76,14 +84,6 @@ const FAQSection = ({ faqs }: FAQProps) => {
                 <div className="absolute left-0 bottom-0 w-8 h-8 border-l-2 border-b-2 border-blue-500/60 rounded-bl-md"></div>
                 <div className="absolute left-1 bottom-1 w-12 h-12 border-l border-b border-blue-500/50 rounded-bl-md"></div>
               </div>
-              
-              {/* Enhanced ambient glow effect with multiple layers */}
-              <div className="absolute -top-20 -right-20 w-72 h-72 bg-orange-600/30 rounded-full filter blur-[100px] opacity-80 animate-pulse-slow"></div>
-              <div className="absolute -bottom-20 -left-20 w-72 h-72 bg-blue-600/35 rounded-full filter blur-[100px] opacity-80 animate-pulse-slow-delayed"></div>
-              
-              {/* Central glow */}
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3/4 h-40 bg-gradient-to-r from-orange-500/0 via-orange-500/40 to-orange-500/0 blur-[100px] rounded-full animate-pulse-slow"></div>
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3/4 h-40 bg-gradient-to-r from-blue-500/0 via-blue-500/40 to-blue-500/0 blur-[100px] rounded-full animate-pulse-slow-delayed"></div>
               
               {/* Animated fading squares - appearing and disappearing */}
               <div className="absolute top-8 right-8 w-20 h-20 rounded-lg border border-orange-500/20 opacity-0 group-hover:opacity-70 rotate-12 transition-all duration-1000 animate-pulse-slow"></div>
@@ -127,13 +127,21 @@ const FAQSection = ({ faqs }: FAQProps) => {
           {faqs.map((category, categoryIdx) => {
             return (
               <div key={categoryIdx} className="group relative h-full">
+                {/* Enhanced ambient glow - placed BEHIND the card */}
+                <div className="absolute -top-10 -right-10 w-48 h-48 bg-orange-600/25 rounded-full filter blur-[70px] opacity-70 animate-pulse-slow"></div>
+                <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-blue-600/30 rounded-full filter blur-[70px] opacity-70 animate-pulse-slow-delayed"></div>
+                  
+                {/* Central glow - placed BEHIND the card */}
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-24 bg-gradient-to-r from-orange-500/0 via-orange-500/30 to-orange-500/0 blur-[40px] rounded-full animate-pulse-slow"></div>
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-24 bg-gradient-to-r from-blue-500/0 via-blue-500/30 to-blue-500/0 blur-[40px] rounded-full animate-pulse-slow-delayed"></div>
+                
+                {/* Outer glow effect - placed BEHIND the card */}
+                <div className="absolute -inset-1 rounded-xl opacity-70 z-0" 
+                  style={{ boxShadow: '0 0 20px 2px rgba(59,130,246,0.3), 0 0 15px 2px rgba(249,115,22,0.3)' }}>
+                </div>
+                
                 {/* Premium styled FAQ category card */}
                 <div className="p-4 bg-gradient-to-br from-gray-900/90 via-gray-950/90 to-black/90 backdrop-blur-md rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.5)] relative overflow-hidden h-full flex flex-col justify-between">
-                  {/* Enhanced outer glow effect */}
-                  <div className="absolute -inset-1 rounded-xl opacity-70 z-0" 
-                    style={{ boxShadow: '0 0 20px 2px rgba(59,130,246,0.3), 0 0 15px 2px rgba(249,115,22,0.3)' }}>
-                  </div>
-                  
                   {/* Inset glow effect */}
                   <div className="absolute inset-0 rounded-xl opacity-70 z-0" 
                     style={{ boxShadow: 'inset 0 0 30px 0 rgba(59,130,246,0.2), inset 0 0 20px 0 rgba(249,115,22,0.2)' }}>
@@ -160,14 +168,6 @@ const FAQSection = ({ faqs }: FAQProps) => {
                     <div className="absolute left-0 bottom-0 w-4 h-4 border-l-2 border-b-2 border-blue-500/60 rounded-bl-md"></div>
                     <div className="absolute left-1 bottom-1 w-6 h-6 border-l border-b border-blue-500/50 rounded-bl-md"></div>
                   </div>
-                  
-                  {/* Enhanced ambient glow with multiple layers */}
-                  <div className="absolute -top-10 -right-10 w-48 h-48 bg-orange-600/25 rounded-full filter blur-[70px] opacity-70 animate-pulse-slow"></div>
-                  <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-blue-600/30 rounded-full filter blur-[70px] opacity-70 animate-pulse-slow-delayed"></div>
-                  
-                  {/* Central glow */}
-                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-24 bg-gradient-to-r from-orange-500/0 via-orange-500/30 to-orange-500/0 blur-[40px] rounded-full animate-pulse-slow"></div>
-                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-24 bg-gradient-to-r from-blue-500/0 via-blue-500/30 to-blue-500/0 blur-[40px] rounded-full animate-pulse-slow-delayed"></div>
                   
                   {/* Animated fading squares */}
                   <div className="absolute top-6 right-4 w-8 h-8 rounded-md border border-orange-500/20 opacity-0 group-hover:opacity-50 rotate-12 transition-all duration-1000 animate-pulse-slow"></div>
@@ -200,15 +200,23 @@ const FAQSection = ({ faqs }: FAQProps) => {
                             className="group/faq"
                           >
                             {/* Premium styled question button with enhanced hover effects */}
+                            {/* Enhanced ambient glow effects - BEHIND button */}
+                            <div className="absolute -top-5 -right-5 w-24 h-24 bg-orange-600/20 rounded-full filter blur-[30px] opacity-0 group-hover/faq:opacity-70 transition-opacity duration-500"></div>
+                            <div className="absolute -bottom-5 -left-5 w-24 h-24 bg-blue-600/25 rounded-full filter blur-[30px] opacity-0 group-hover/faq:opacity-70 transition-opacity duration-500"></div>
+                              
+                            {/* Central glow - BEHIND button */}
+                            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-12 bg-gradient-to-r from-orange-500/0 via-orange-500/25 to-orange-500/0 blur-[30px] rounded-full opacity-0 group-hover/faq:opacity-100 transition-opacity duration-700"></div>
+                            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-12 bg-gradient-to-r from-blue-500/0 via-blue-500/25 to-blue-500/0 blur-[30px] rounded-full opacity-0 group-hover/faq:opacity-100 transition-opacity duration-700"></div>
+                            
+                            {/* Enhanced border glow - BEHIND button */}
+                            <div className="absolute -inset-px rounded-lg opacity-40 group-hover/faq:opacity-100 transition-opacity duration-500 z-0" 
+                              style={{ boxShadow: '0 0 15px 2px rgba(59,130,246,0.3), 0 0 10px 2px rgba(249,115,22,0.3)' }}>
+                            </div>
+                            
                             <button
                               className="w-full text-left p-3 rounded-lg relative bg-gradient-to-br from-gray-800/60 via-gray-850/60 to-gray-900/60 backdrop-blur-sm group-hover/faq:from-gray-800/80 group-hover/faq:to-gray-900/80 transition-all duration-300"
                               onClick={() => toggleQuestion(categoryIdx, questionIdx)}
                             >
-                              {/* Enhanced border glow */}
-                              <div className="absolute -inset-px rounded-lg opacity-40 group-hover/faq:opacity-100 transition-opacity duration-500 z-0" 
-                                style={{ boxShadow: '0 0 15px 2px rgba(59,130,246,0.3), 0 0 10px 2px rgba(249,115,22,0.3)' }}>
-                              </div>
-                              
                               {/* Enhanced dual-edge border effect */}
                               <div className="absolute inset-0 rounded-lg border border-orange-500/30 group-hover/faq:border-orange-500/50 transition-colors duration-500"></div>
                               <div className="absolute inset-[1px] rounded-lg border border-blue-500/20 group-hover/faq:border-blue-500/40 transition-colors duration-500"></div>
@@ -222,14 +230,6 @@ const FAQSection = ({ faqs }: FAQProps) => {
                                 <div className="absolute left-0 top-0 w-3 h-3 border-l border-t border-orange-500/50 rounded-tl-sm"></div>
                                 <div className="absolute left-0.5 top-0.5 w-5 h-5 border-l border-t border-blue-500/40 rounded-tl-sm"></div>
                               </div>
-                              
-                              {/* Enhanced ambient glow */}
-                              <div className="absolute -top-5 -right-5 w-24 h-24 bg-orange-600/20 rounded-full filter blur-[30px] opacity-0 group-hover/faq:opacity-70 transition-opacity duration-500"></div>
-                              <div className="absolute -bottom-5 -left-5 w-24 h-24 bg-blue-600/25 rounded-full filter blur-[30px] opacity-0 group-hover/faq:opacity-70 transition-opacity duration-500"></div>
-                              
-                              {/* Central glow */}
-                              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-12 bg-gradient-to-r from-orange-500/0 via-orange-500/25 to-orange-500/0 blur-[30px] rounded-full opacity-0 group-hover/faq:opacity-100 transition-opacity duration-700"></div>
-                              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-12 bg-gradient-to-r from-blue-500/0 via-blue-500/25 to-blue-500/0 blur-[30px] rounded-full opacity-0 group-hover/faq:opacity-100 transition-opacity duration-700"></div>
                               
                               <div className="flex items-center justify-between relative z-10">
                                 <h4 
