@@ -210,51 +210,41 @@ const ProductHistorySection = () => {
               
               {/* Removed ambient glow effects as requested to match FeaturesSection.tsx */}
               
-              {/* Additional corner accent lines - with mixed theme */}
+              {/* Corner accent lines with orange/red theme to match feature cards */}
               <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none z-10">
-                <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-orange-500/70 rounded-tl-lg"></div>
-                <div className="absolute top-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+                <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-orange-500/80 rounded-tl-lg"></div>
+                <div className="absolute top-0 left-0 w-3 h-3 bg-orange-500/70 rounded-full blur-[2px]"></div>
               </div>
               <div className="absolute top-0 right-0 w-16 h-16 pointer-events-none z-10">
-                <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-blue-500/70 rounded-tr-lg"></div>
-                <div className="absolute top-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
+                <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-orange-600/80 rounded-tr-lg"></div>
+                <div className="absolute top-0 right-0 w-3 h-3 bg-orange-600/70 rounded-full blur-[2px]"></div>
               </div>
               <div className="absolute bottom-0 left-0 w-16 h-16 pointer-events-none z-10">
-                <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-orange-500/70 rounded-bl-lg"></div>
-                <div className="absolute bottom-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+                <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-orange-500/80 rounded-bl-lg"></div>
+                <div className="absolute bottom-0 left-0 w-3 h-3 bg-orange-500/70 rounded-full blur-[2px]"></div>
               </div>
               <div className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none z-10">
-                <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-blue-500/70 rounded-br-lg"></div>
-                <div className="absolute bottom-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
+                <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-orange-600/80 rounded-br-lg"></div>
+                <div className="absolute bottom-0 right-0 w-3 h-3 bg-orange-600/70 rounded-full blur-[2px]"></div>
               </div>
               
-              {/* Timeline Innovation badge with mixed orange/blue styling */}
+              {/* Timeline Innovation badge with orange/red styling to match feature cards */}
               <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-50">
-                <div className="group/badge px-3 py-1.5 rounded-full border-2 border-gradient-to-r from-orange-400 to-blue-500 bg-gradient-to-r from-gray-900/90 to-gray-950/90 text-white inline-flex items-center shadow-[0_0_15px_rgba(251,113,36,0.5),_0_0_15px_rgba(59,130,246,0.5)] backdrop-blur-sm relative z-50 hover:scale-105 transition-transform duration-300">
-                  {/* Badge background glow effects */}
-                  <div className="absolute inset-0 rounded-full border border-orange-500/50"></div>
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-r from-orange-600/20 via-transparent to-blue-600/20 opacity-50 group-hover/badge:opacity-80 transition-opacity duration-500"></div>
+                <div className="group/badge px-3 py-1.5 rounded-full border-2 border-orange-500/80 bg-gradient-to-r from-gray-900/90 to-gray-950/90 text-white inline-flex items-center shadow-[0_0_15px_rgba(251,113,36,0.5)] backdrop-blur-sm relative z-50 hover:scale-105 transition-transform duration-300">
+                  {/* Badge background */}
+                  <div className="absolute inset-0 rounded-full border border-orange-500/60"></div>
                   
-                  {/* Icon with mixed theme glow */}
+                  {/* Icon with orange theme */}
                   <div className="relative mr-2">
-                    <div className="absolute inset-0 bg-gradient-to-r from-orange-500/40 to-blue-500/40 blur-sm rounded-full animate-pulse-slow"></div>
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-blue-400 relative z-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                    <div className="absolute inset-0 bg-gradient-to-r from-orange-500/40 to-red-500/40 blur-sm rounded-full"></div>
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-orange-400 relative z-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
                   
-                  {/* Text with shimmer effect */}
+                  {/* Text with simplified styling */}
                   <span className="text-sm font-bold relative overflow-hidden group-hover/badge:scale-105 transition-transform duration-300">
-                    <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-300 to-blue-400 drop-shadow-[0_2px_2px_rgba(0,0,0,0.3)]">Innovation Timeline</span>
-                    
-                    {/* Shimmer animation on hover */}
-                    <div className="absolute inset-0 opacity-0 group-hover/badge:opacity-100 pointer-events-none transition-opacity duration-700 z-10"
-                         style={{
-                           background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent)",
-                           backgroundSize: '200% 100%',
-                           animation: 'shimmer 2s infinite'
-                         }}>
-                    </div>
+                    <span className="relative z-10 text-orange-400 drop-shadow-[0_1px_1px_rgba(0,0,0,0.5)]">Innovation Timeline</span>
                   </span>
                 </div>
               </div>
@@ -265,55 +255,39 @@ const ProductHistorySection = () => {
                 <div className="flex items-center">
                   <div className="relative mr-4 group/icon">
                     <div className="w-14 h-14 rounded-full flex items-center justify-center relative overflow-hidden">
-                      {/* Multiple layered effects for icon background */}
-                      <div className="absolute inset-0 rounded-full bg-gradient-to-r from-orange-600/40 via-blue-600/40 to-orange-600/40 opacity-70 animate-pulse-slow"></div>
-                      <div className="absolute inset-1 rounded-full bg-gradient-to-r from-orange-500/50 via-blue-500/50 to-orange-500/50 animate-pulse-slow-delayed"></div>
+                      {/* Icon background with orange/red styling to match feature cards */}
+                      <div className="absolute inset-0 rounded-full bg-gradient-to-r from-orange-600/50 via-red-600/50 to-orange-600/50 opacity-80"></div>
+                      <div className="absolute inset-1 rounded-full bg-gradient-to-r from-orange-500/70 via-red-500/70 to-orange-500/70"></div>
                       <div className="absolute inset-2 rounded-full bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black"></div>
                       
-                      {/* Animated glow effect */}
-                      <div className="absolute inset-0 rounded-full opacity-0 group-hover/icon:opacity-30 transition-opacity duration-700"
-                           style={{ background: "radial-gradient(circle at center, rgba(255,255,255,0.3) 0%, transparent 70%)" }}>
-                      </div>
-                      
-                      {/* Icon with mixed gradient */}
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 relative z-10" fill="none" viewBox="0 0 24 24" stroke="url(#mixed-gradient)" strokeWidth={2}>
+                      {/* Icon with orange color */}
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 relative z-10 text-orange-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
                       
-                      {/* Gradient definition for icon */}
-                      <svg width="0" height="0">
-                        <defs>
-                          <linearGradient id="mixed-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stopColor="#f97316" />
-                            <stop offset="50%" stopColor="#f59e0b" />
-                            <stop offset="100%" stopColor="#3b82f6" />
-                          </linearGradient>
-                        </defs>
-                      </svg>
-                      
-                      {/* Corner accents for icon */}
+                      {/* Corner accents for icon - all orange */}
                       <div className="absolute top-0 left-0 w-4 h-4 pointer-events-none">
-                        <div className="absolute top-1 left-1 w-2 h-2 border-t-[1px] border-l-[1px] border-orange-500/70 rounded-tl"></div>
+                        <div className="absolute top-1 left-1 w-2 h-2 border-t-[1px] border-l-[1px] border-orange-500/80 rounded-tl"></div>
                       </div>
                       <div className="absolute top-0 right-0 w-4 h-4 pointer-events-none">
-                        <div className="absolute top-1 right-1 w-2 h-2 border-t-[1px] border-r-[1px] border-blue-500/70 rounded-tr"></div>
+                        <div className="absolute top-1 right-1 w-2 h-2 border-t-[1px] border-r-[1px] border-orange-600/80 rounded-tr"></div>
                       </div>
                       <div className="absolute bottom-0 left-0 w-4 h-4 pointer-events-none">
-                        <div className="absolute bottom-1 left-1 w-2 h-2 border-b-[1px] border-l-[1px] border-orange-500/70 rounded-bl"></div>
+                        <div className="absolute bottom-1 left-1 w-2 h-2 border-b-[1px] border-l-[1px] border-orange-500/80 rounded-bl"></div>
                       </div>
                       <div className="absolute bottom-0 right-0 w-4 h-4 pointer-events-none">
-                        <div className="absolute bottom-1 right-1 w-2 h-2 border-b-[1px] border-r-[1px] border-blue-500/70 rounded-br"></div>
+                        <div className="absolute bottom-1 right-1 w-2 h-2 border-b-[1px] border-r-[1px] border-orange-600/80 rounded-br"></div>
                       </div>
                     </div>
                     
-                    {/* Animated ripple effect */}
+                    {/* Animated ripple effect - orange/red only */}
                     <div className="absolute inset-0 rounded-full border-2 border-orange-500/30 scale-100 animate-ping-slow opacity-0 group-hover/icon:opacity-100"></div>
-                    <div className="absolute inset-0 rounded-full border-2 border-blue-500/30 scale-100 animate-ping-slow-delayed opacity-0 group-hover/icon:opacity-100"></div>
+                    <div className="absolute inset-0 rounded-full border-2 border-red-500/30 scale-100 animate-ping-slow-delayed opacity-0 group-hover/icon:opacity-100"></div>
                   </div>
                   
                   <div>
-                    {/* Main heading with mixed orange/blue gradient */}
-                    <h3 className="shimmer-mixed-text text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-amber-500 to-blue-400 drop-shadow-[0_2px_2px_rgba(0,0,0,0.3)] relative z-20">
+                    {/* Main heading with pure white text to match feature cards */}
+                    <h3 className="text-2xl md:text-3xl font-bold text-white drop-shadow-[0_2px_2px_rgba(0,0,0,0.3)] relative z-20">
                       Product Innovation Timeline
                     </h3>
                     
@@ -337,70 +311,67 @@ const ProductHistorySection = () => {
                   </div>
                 </div>
                 
-                {/* Animated underline with mixed-themed gradient */}
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1/3 h-0.5 bg-gradient-to-r from-orange-500 to-blue-500 group-hover:w-2/3 transition-all duration-700 rounded-full opacity-70 shadow-[0_0_5px_rgba(251,113,36,0.4),_0_0_5px_rgba(59,130,246,0.4)]"></div>
+                {/* Animated underline with orange/red theme */}
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1/3 h-0.5 bg-gradient-to-r from-orange-500 to-red-500 group-hover:w-2/3 transition-all duration-700 rounded-full opacity-70 shadow-[0_0_5px_rgba(251,113,36,0.6)]"></div>
               </div>
               
               {/* Product Innovation Timeline - Styled to match mixed orange/blue theme */}
               <div className="p-8">
-                {/* Enhanced Premium Heading with animated underline - mixed orange/blue theme */}
+                {/* Premium Heading with orange/red theme to match feature cards */}
                 <div className="relative mb-8 pb-3 z-20">
-                  {/* Animated glow behind heading with mixed colors */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-orange-600/10 via-blue-500/20 to-orange-600/10 opacity-50 blur-xl animate-pulse-slow-delayed"></div>
-                  
                   {/* Background blur text */}
                   <div className="absolute inset-0 flex justify-start items-center text-4xl font-bold tracking-tight text-orange-900/10 blur-[5px] scale-110 opacity-50">
                     Innovation Timeline
                   </div>
                   
-                  {/* Main text with premium gradient - matching mixed style */}
-                  <div className="shimmer-mixed-text font-bold tracking-tight relative z-20">
-                    <GradientHeading level={3} className="text-3xl font-bold relative z-20 text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-amber-500 to-blue-400 drop-shadow-[0_2px_2px_rgba(0,0,0,0.3)]" variant="mixed">
+                  {/* Main text with white color to match feature cards */}
+                  <div className="font-bold tracking-tight relative z-20">
+                    <h3 className="text-3xl font-bold relative z-20 text-white drop-shadow-[0_2px_2px_rgba(0,0,0,0.3)]">
                       Product Innovation Timeline
-                    </GradientHeading>
+                    </h3>
                   </div>
                   
-                  {/* Multiple text shadows for depth - reduced blur effects */}
+                  {/* Reduced text shadow */}
                   <div className="absolute inset-0 flex justify-start items-center text-4xl font-bold tracking-tight opacity-10 blur-[3px] text-orange-700/30 -z-10 transform scale-105">
                     Innovation Timeline
                   </div>
                   
-                  {/* Animated underline with mixed-themed gradient */}
-                  <div className="absolute bottom-0 left-0 w-1/3 h-0.5 bg-gradient-to-r from-orange-500 to-blue-500 group-hover:w-2/3 transition-all duration-700 rounded-full opacity-70 shadow-[0_0_5px_rgba(251,113,36,0.4),_0_0_5px_rgba(59,130,246,0.4)]"></div>
+                  {/* Animated underline with orange/red theme */}
+                  <div className="absolute bottom-0 left-0 w-1/3 h-0.5 bg-gradient-to-r from-orange-500 to-red-500 group-hover:w-2/3 transition-all duration-700 rounded-full opacity-80 shadow-[0_0_5px_rgba(251,113,36,0.6)]"></div>
                 </div>
                 
                 {/* Enhanced Premium Table Container with mixed orange/blue styling */}
                 <div className="relative group/table bg-gradient-to-br from-gray-900/90 via-gray-950/90 to-black backdrop-blur-xl rounded-xl overflow-hidden shadow-[0_5px_30px_rgba(0,0,0,0.3)] z-10 transform transition-all duration-500 hover:scale-[1.01]">
-                  {/* Multiple layered background effects for table - Mixed theme */}
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-600/30 via-blue-600/30 to-orange-600/30 rounded-xl blur-md opacity-70 group-hover/table:opacity-100 transition-all duration-500"></div>
+                  {/* Layered background effects with orange/red theme to match feature cards */}
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-600/60 via-red-600/60 to-orange-600/60 rounded-xl blur-md opacity-90 group-hover/table:opacity-100 transition-all duration-500"></div>
                   
-                  {/* Premium subtle border effect - mixed theme */}
-                  <div className="absolute inset-0 p-0.5 rounded-xl border border-orange-500/30 overflow-hidden"></div>
+                  {/* Premium border effect */}
+                  <div className="absolute inset-0 p-0.5 rounded-xl border border-orange-500/50 overflow-hidden"></div>
                   
                   {/* Inner highlight */}
                   <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-40 pointer-events-none"></div>
                   
-                  {/* Subtle dots and squares pattern background in mixed colors */}
-                  <div className="absolute inset-0 opacity-15 z-0">
-                    <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoMjMyLDEyMSw1OCwwLjMpIiBkPSJNMCAwaDJ2Mkgwem0yIDJoMnYySDJ6Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCBmaWxsPSJ1cmwoI2EpIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIi8+PC9zdmc+')]"></div>
+                  {/* Subtle dots pattern with orange/red theme */}
+                  <div className="absolute inset-0 opacity-20 z-0">
+                    <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoMjM5LDY4LDY4LDAuNCkiIGQ9Ik0wIDBoMnYySDN6bTIgMmgydjJIMnoiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IGZpbGw9InVybCgjYSkiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiLz48L3N2Zz4=')]"></div>
                   </div>
                   
-                  {/* Corner accent lines - with mixed theme - smaller for table */}
+                  {/* Corner accent lines with orange/red theme to match feature cards */}
                   <div className="absolute top-0 left-0 w-8 h-8 pointer-events-none z-10">
-                    <div className="absolute top-0 left-0 w-5 h-5 border-t-[1px] border-l-[1px] border-orange-500/70 rounded-tl-lg"></div>
-                    <div className="absolute top-0 left-0 w-2 h-2 bg-orange-500/50 rounded-full blur-[1px]"></div>
+                    <div className="absolute top-0 left-0 w-5 h-5 border-t-[1px] border-l-[1px] border-orange-500/80 rounded-tl-lg"></div>
+                    <div className="absolute top-0 left-0 w-2 h-2 bg-orange-500/70 rounded-full blur-[1px]"></div>
                   </div>
                   <div className="absolute top-0 right-0 w-8 h-8 pointer-events-none z-10">
-                    <div className="absolute top-0 right-0 w-5 h-5 border-t-[1px] border-r-[1px] border-blue-500/70 rounded-tr-lg"></div>
-                    <div className="absolute top-0 right-0 w-2 h-2 bg-blue-500/50 rounded-full blur-[1px]"></div>
+                    <div className="absolute top-0 right-0 w-5 h-5 border-t-[1px] border-r-[1px] border-orange-600/80 rounded-tr-lg"></div>
+                    <div className="absolute top-0 right-0 w-2 h-2 bg-orange-600/70 rounded-full blur-[1px]"></div>
                   </div>
                   <div className="absolute bottom-0 left-0 w-8 h-8 pointer-events-none z-10">
-                    <div className="absolute bottom-0 left-0 w-5 h-5 border-b-[1px] border-l-[1px] border-orange-500/70 rounded-bl-lg"></div>
-                    <div className="absolute bottom-0 left-0 w-2 h-2 bg-orange-500/50 rounded-full blur-[1px]"></div>
+                    <div className="absolute bottom-0 left-0 w-5 h-5 border-b-[1px] border-l-[1px] border-orange-500/80 rounded-bl-lg"></div>
+                    <div className="absolute bottom-0 left-0 w-2 h-2 bg-orange-500/70 rounded-full blur-[1px]"></div>
                   </div>
                   <div className="absolute bottom-0 right-0 w-8 h-8 pointer-events-none z-10">
-                    <div className="absolute bottom-0 right-0 w-5 h-5 border-b-[1px] border-r-[1px] border-blue-500/70 rounded-br-lg"></div>
-                    <div className="absolute bottom-0 right-0 w-2 h-2 bg-blue-500/50 rounded-full blur-[1px]"></div>
+                    <div className="absolute bottom-0 right-0 w-5 h-5 border-b-[1px] border-r-[1px] border-orange-600/80 rounded-br-lg"></div>
+                    <div className="absolute bottom-0 right-0 w-2 h-2 bg-orange-600/70 rounded-full blur-[1px]"></div>
                   </div>
                   
                   {/* Enhanced Table */}
@@ -408,25 +379,25 @@ const ProductHistorySection = () => {
                     <table className="w-full text-lg">
                       <thead>
                         <tr className="border-b border-orange-500/20">
-                          {/* Year column header with mixed gradient styling */}
+                          {/* Year column header with orange/red styling to match feature cards */}
                           <th className="text-left py-6 px-6 text-xl relative z-20">
-                            {/* Premium mixed orange/blue gradient */}
-                            <span className="relative z-20 font-bold text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-amber-500 to-blue-400 drop-shadow-[0_2px_2px_rgba(0,0,0,0.3)]">
+                            {/* White text to match feature cards */}
+                            <span className="relative z-20 font-bold text-white drop-shadow-[0_2px_2px_rgba(0,0,0,0.3)]">
                               Year
                             </span>
                             
-                            {/* Animated glow under header text */}
-                            <div className="absolute bottom-[6px] left-6 right-6 h-1 w-12 bg-gradient-to-r from-orange-600 via-amber-500 to-blue-600 rounded-full opacity-60 group-hover/table:w-1/4 transition-all duration-1000 shadow-[0_0_5px_rgba(251,113,36,0.4),_0_0_5px_rgba(59,130,246,0.4)]"></div>
+                            {/* Animated orange/red underline */}
+                            <div className="absolute bottom-[6px] left-6 right-6 h-1 w-12 bg-gradient-to-r from-orange-600 to-red-600 rounded-full opacity-70 group-hover/table:w-1/4 transition-all duration-1000 shadow-[0_0_5px_rgba(251,113,36,0.6)]"></div>
                           </th>
                           
-                          {/* Innovation column header with mixed gradient styling */}
+                          {/* Innovation column header with orange/red styling */}
                           <th className="text-left py-6 px-6 text-xl relative z-20">
-                            <span className="relative z-20 font-bold text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-amber-500 to-blue-400 drop-shadow-[0_2px_2px_rgba(0,0,0,0.3)]">
+                            <span className="relative z-20 font-bold text-white drop-shadow-[0_2px_2px_rgba(0,0,0,0.3)]">
                               Innovation
                             </span>
                             
-                            {/* Animated glow under header text */}
-                            <div className="absolute bottom-[6px] left-6 right-6 h-1 w-20 bg-gradient-to-r from-orange-600 via-amber-500 to-blue-600 rounded-full opacity-60 group-hover/table:w-1/3 transition-all duration-1000 shadow-[0_0_5px_rgba(251,113,36,0.4),_0_0_5px_rgba(59,130,246,0.4)]"></div>
+                            {/* Animated orange/red underline */}
+                            <div className="absolute bottom-[6px] left-6 right-6 h-1 w-20 bg-gradient-to-r from-orange-600 to-red-600 rounded-full opacity-70 group-hover/table:w-1/3 transition-all duration-1000 shadow-[0_0_5px_rgba(251,113,36,0.6)]"></div>
                           </th>
                           
                           {/* Impact column header with subtle styling */}
@@ -467,8 +438,8 @@ const ProductHistorySection = () => {
                             {/* Year column with mixed gradient styling */}
                             <td className="py-5 px-6 w-[120px] font-semibold text-xl relative z-10">
                               <div className="relative group/cell transform transition-all duration-300 hover:scale-105">
-                                {/* Main text with mixed gradient */}
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-400 to-blue-400 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] relative z-10">
+                                {/* Plain white text to match feature cards */}
+                                <span className="text-orange-400 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] relative z-10">
                                   {item.year}
                                 </span>
                                 
