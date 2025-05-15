@@ -274,7 +274,7 @@ const ContactSection = () => {
                 {/* Premium Enterprise Label */}
                 <label htmlFor="email" className="relative flex items-center mb-2 group">
                   {/* Label text with premium styling */}
-                  <span className="relative z-10 text-sm font-medium bg-clip-text text-transparent bg-gradient-to-r from-amber-300 via-orange-500 to-blue-500 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] tracking-wide">
+                  <span className="relative z-10 text-sm font-medium text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] tracking-wide">
                     Email Address
                   </span>
                   
@@ -320,7 +320,7 @@ const ContactSection = () => {
                 {/* Premium Enterprise Label */}
                 <label htmlFor="phone" className="relative flex items-center mb-2 group">
                   {/* Label text with premium styling */}
-                  <span className="relative z-10 text-sm font-medium bg-clip-text text-transparent bg-gradient-to-r from-amber-300 via-orange-500 to-blue-500 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] tracking-wide">
+                  <span className="relative z-10 text-sm font-medium text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] tracking-wide">
                     Phone Number
                   </span>
                   
