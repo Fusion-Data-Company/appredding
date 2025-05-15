@@ -464,13 +464,12 @@ const ContactSection = () => {
                 <div className="flex justify-center pt-4">
                   <PremiumActionButton 
                     type="submit"
-                    label={isSubmitting ? "Processing..." : "Send Message"}
-                    icon={isSubmitting ? "spinner" : "send"}
-                    theme="fire-ice"
                     disabled={isSubmitting}
-                    pulse={isSubmitting}
+                    variant="fire"
                     size="lg"
-                  />
+                  >
+                    {isSubmitting ? "Processing..." : "Send Message"}
+                  </PremiumActionButton>
                 </div>
               </form>
             </div>
