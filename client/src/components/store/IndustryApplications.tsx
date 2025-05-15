@@ -453,8 +453,8 @@ const IndustryApplications = () => {
                                 style={{ background: glowTheme }}>
                             </div>
                             
-                            {/* Content with z-index to appear above effects */}
-                            <div className="relative z-10 flex flex-col h-full">
+                            {/* Content with z-index to appear above effects - moved right and away from edge */}
+                            <div className="relative z-10 flex flex-col h-full pl-6 pr-8">
                               {/* Icon with enhanced glow effect */}
                               <div className="mb-3 relative">
                                 {/* Icon background glow */}
