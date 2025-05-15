@@ -190,8 +190,8 @@ const BrandShowcaseSection = () => {
                   <div className="absolute -inset-px bg-gradient-to-r from-orange-500/10 via-blue-500/20 to-orange-500/10 rounded-xl blur-md"></div>
                   <div className="absolute inset-px rounded-xl bg-gradient-to-b from-black/90 via-gray-900/95 to-black/90"></div>
                   
-                  {/* Premium gradient border */}
-                  <div className="absolute inset-0 rounded-xl border border-transparent bg-gradient-to-r from-orange-500/20 via-blue-500/30 to-orange-500/20 z-0 opacity-90 overflow-hidden">
+                  {/* Premium gradient border - extended height by half an inch */}
+                  <div className="absolute inset-0 rounded-xl border border-transparent bg-gradient-to-r from-orange-500/20 via-blue-500/30 to-orange-500/20 z-0 opacity-90 overflow-hidden" style={{ height: 'calc(100% + 48px)', top: '-24px', bottom: '-24px' }}>
                     <div className="absolute inset-px rounded-[10px] bg-black"></div>
                   </div>
                   
