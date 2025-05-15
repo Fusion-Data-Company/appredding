@@ -186,24 +186,26 @@ const PremiumButton = forwardRef<HTMLButtonElement, PremiumButtonProps>(
               {/* Extra shimmer effect with different timing */}
               <div className="absolute inset-0 w-2/3 h-full bg-gradient-to-r from-transparent via-white/8 to-transparent opacity-10 -translate-x-full animate-shimmer-medium transform rounded-lg"></div>
               
-              {/* Enhanced orange ambient glow behind the button */}
-              <div className="absolute -inset-[3px] rounded-lg opacity-40 group-hover:opacity-70 transition-opacity duration-500"
+              {/* Premium dual-color ambient glow matching site cards */}
+              <div className="absolute -inset-[3px] rounded-lg opacity-40 group-hover:opacity-80 transition-opacity duration-500"
                   style={{ 
-                    background: 'linear-gradient(to right, rgba(255,111,0,0.3), rgba(255,89,0,0.2) 35%, rgba(255,79,0,0.3) 65%, rgba(255,111,0,0.3))',
-                    boxShadow: '0 0 12px 3px rgba(255,79,0,0.4), 0 0 6px 1px rgba(255,147,47,0.3)',
-                    animation: 'borderPulse 2s ease-in-out infinite',
+                    background: 'linear-gradient(to right, rgba(255,111,0,0.4), rgba(59,130,246,0.4), rgba(255,111,0,0.4))',
+                    boxShadow: '0 0 12px 3px rgba(255,79,0,0.4), 0 0 6px 1px rgba(59,130,246,0.4)',
+                    animation: 'pulse 3s ease-in-out infinite',
                     zIndex: -1
                   }}>
               </div>
               
-              {/* Corner accent points - premium touch */}
+              {/* Corner accent points - premium touch matching cards */}
               <div className="absolute top-0 left-0 w-2 h-2 bg-orange-500/70 rounded-full blur-[1px] opacity-60 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute top-0 right-0 w-2 h-2 bg-blue-500/70 rounded-full blur-[1px] opacity-60 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute bottom-0 left-0 w-2 h-2 bg-blue-500/70 rounded-full blur-[1px] opacity-60 group-hover:opacity-100 transition-opacity duration-300"></div>
               <div className="absolute bottom-0 right-0 w-2 h-2 bg-orange-500/70 rounded-full blur-[1px] opacity-60 group-hover:opacity-100 transition-opacity duration-300"></div>
               
               {/* Ambient glow that fades in on hover - behind black button face */}
-              <div className="absolute -inset-[2px] rounded-md bg-orange-500/20 blur-sm opacity-30 group-hover:opacity-80 transition-opacity duration-1000" 
+              <div className="absolute -inset-[2px] rounded-md bg-gradient-to-r from-orange-600/20 via-blue-500/20 to-orange-600/20 blur-sm opacity-30 group-hover:opacity-80 transition-opacity duration-1000" 
                    style={{ 
-                     boxShadow: '0 0 10px 2px rgba(251, 113, 36, 0.3), 0 0 4px 0 rgba(255, 255, 255, 0.1)' 
+                     boxShadow: '0 0 10px 2px rgba(251, 113, 36, 0.3), 0 0 8px 1px rgba(59, 130, 246, 0.3)' 
                    }}>
               </div>
             </>
