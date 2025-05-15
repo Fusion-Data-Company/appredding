@@ -244,7 +244,7 @@ const FAQSection = ({ faqs }: FAQProps) => {
                 {/* Premium Card Container with enhanced styling */}
                 <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/98 to-gray-900/95 backdrop-blur-xl rounded-xl p-8 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7)] z-10">
                   {/* Premium dual-layer gradient border effect */}
-                  <div className={`absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r ${theme.borderGradient} opacity-80`}></div>
+                  <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/60 via-red-600/30 to-red-500/60 opacity-80"></div>
                   <div className={`absolute inset-[1px] p-0.5 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-30 pointer-events-none`}></div>
                   
                   {/* Corner accent decorations */}
@@ -267,7 +267,7 @@ const FAQSection = ({ faqs }: FAQProps) => {
                       <div className="relative flex-shrink-0 mr-3">
                         <div className="w-10 h-10 rounded-full flex items-center justify-center">
                           <div className="absolute inset-0 rounded-full bg-gradient-to-r from-gray-800 to-gray-700"></div>
-                          <div className={`absolute inset-0 rounded-full bg-gradient-to-r ${theme.iconGradient} opacity-50`}></div>
+                          <div className="absolute inset-0 rounded-full bg-gradient-to-r from-amber-400 via-orange-500 to-red-600 opacity-50"></div>
                           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white relative z-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             {categoryIdx % 3 === 0 ? (
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -281,7 +281,7 @@ const FAQSection = ({ faqs }: FAQProps) => {
                       </div>
                       
                       {/* Enhanced category heading */}
-                      <h3 className={`text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r ${theme.textGradient}`}>
+                      <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-300 to-orange-400">
                         {category.category}
                       </h3>
                     </div>
