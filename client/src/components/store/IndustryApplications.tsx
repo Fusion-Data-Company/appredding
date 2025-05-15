@@ -275,8 +275,8 @@ const IndustryApplications = () => {
             <div className="absolute top-0 left-0 w-2 h-2 bg-orange-500/50 rounded-full blur-[2px]"></div>
           </div>
           <div className="absolute top-0 right-0 w-16 h-16 pointer-events-none">
-            <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-red-500/70 rounded-tr-md"></div>
-            <div className="absolute top-0 right-0 w-2 h-2 bg-red-500/50 rounded-full blur-[2px]"></div>
+            <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-blue-500/70 rounded-tr-md"></div>
+            <div className="absolute top-0 right-0 w-2 h-2 bg-blue-500/50 rounded-full blur-[2px]"></div>
           </div>
           
           {/* Elite Enterprise CTA Button - Moved to top position */}
@@ -314,7 +314,7 @@ const IndustryApplications = () => {
               </div>
               
               {/* Text shadow for depth */}
-              <div className="absolute inset-0 flex items-center justify-center text-4xl font-bold tracking-tight opacity-70 blur-[2px] text-red-900/30 -z-10">
+              <div className="absolute inset-0 flex items-center justify-center text-4xl font-bold tracking-tight opacity-70 blur-[2px] text-blue-900/30 -z-10">
                 Protection Across Every Industry
               </div>
               
@@ -571,7 +571,7 @@ const IndustryApplications = () => {
                             app.id === "marinas" || app.id === "pools"
                               ? "bg-gradient-to-b from-blue-400 to-cyan-600" 
                               : app.id === "fire-prevention"
-                                ? "bg-gradient-to-b from-orange-400 to-red-600"
+                                ? "bg-gradient-to-b from-orange-400 to-blue-600"
                                 : "bg-gradient-to-b from-amber-400 to-orange-600"
                           } animate-pulse-subtle`}></div>
                           
@@ -595,7 +595,7 @@ const IndustryApplications = () => {
                               app.id === "marinas" || app.id === "pools"
                                 ? "bg-blue-900/40 border border-blue-700/30" 
                                 : app.id === "fire-prevention"
-                                  ? "bg-red-900/40 border border-red-700/30"
+                                  ? "bg-blue-900/40 border border-blue-700/30"
                                   : "bg-amber-900/40 border border-amber-700/30"
                             }`}>
                               <span className="text-gray-300 text-sm font-medium">
@@ -618,7 +618,7 @@ const IndustryApplications = () => {
                                   app.id === "marinas" || app.id === "pools"
                                     ? "from-blue-500/30 via-transparent to-cyan-500/30" 
                                     : app.id === "fire-prevention"
-                                      ? "from-orange-500/30 via-transparent to-red-500/30"
+                                      ? "from-orange-500/30 via-transparent to-blue-500/30"
                                       : "from-amber-500/30 via-transparent to-orange-500/30"
                                 } opacity-70 transition-opacity duration-300 group-hover:opacity-90`}></div>
                                 
@@ -633,7 +633,7 @@ const IndustryApplications = () => {
                                       app.id === "marinas" || app.id === "pools"
                                         ? "bg-blue-900/70 text-blue-300" 
                                         : app.id === "fire-prevention"
-                                          ? "bg-red-900/70 text-amber-300"
+                                          ? "bg-blue-900/70 text-amber-300"
                                           : "bg-amber-900/70 text-amber-300"
                                     }`}>1</div>
                                     <p className={`font-medium text-sm uppercase tracking-wide ${
@@ -652,7 +652,7 @@ const IndustryApplications = () => {
                                       app.id === "marinas" || app.id === "pools"
                                         ? "bg-blue-800/50" 
                                         : app.id === "fire-prevention"
-                                          ? "bg-red-800/50"
+                                          ? "bg-blue-800/50"
                                           : "bg-amber-800/50"
                                     } rounded-full`}></span>
                                     {app.caseStudy.challenge}
@@ -671,7 +671,7 @@ const IndustryApplications = () => {
                                   app.id === "marinas" || app.id === "pools"
                                     ? "from-blue-500/30 via-transparent to-cyan-500/30" 
                                     : app.id === "fire-prevention"
-                                      ? "from-orange-500/30 via-transparent to-red-500/30"
+                                      ? "from-orange-500/30 via-transparent to-blue-500/30"
                                       : "from-amber-500/30 via-transparent to-orange-500/30"
                                 } opacity-70 transition-opacity duration-300 group-hover:opacity-90`}></div>
                                 
@@ -686,7 +686,7 @@ const IndustryApplications = () => {
                                       app.id === "marinas" || app.id === "pools"
                                         ? "bg-blue-900/70 text-blue-300" 
                                         : app.id === "fire-prevention"
-                                          ? "bg-red-900/70 text-amber-300"
+                                          ? "bg-blue-900/70 text-amber-300"
                                           : "bg-amber-900/70 text-amber-300"
                                     }`}>2</div>
                                     <p className={`font-medium text-sm uppercase tracking-wide ${
@@ -705,7 +705,7 @@ const IndustryApplications = () => {
                                       app.id === "marinas" || app.id === "pools"
                                         ? "bg-blue-800/50" 
                                         : app.id === "fire-prevention"
-                                          ? "bg-red-800/50"
+                                          ? "bg-blue-800/50"
                                           : "bg-amber-800/50"
                                     } rounded-full`}></span>
                                     {app.caseStudy.solution}
@@ -725,7 +725,7 @@ const IndustryApplications = () => {
                                   app.id === "marinas" || app.id === "pools"
                                     ? "from-blue-500/30 via-transparent to-cyan-500/30" 
                                     : app.id === "fire-prevention"
-                                      ? "from-orange-500/30 via-transparent to-red-500/30"
+                                      ? "from-orange-500/30 via-transparent to-blue-500/30"
                                       : "from-amber-500/30 via-transparent to-orange-500/30"
                                 } opacity-70 transition-opacity duration-300 group-hover:opacity-90`}></div>
                                 
@@ -740,7 +740,7 @@ const IndustryApplications = () => {
                                       app.id === "marinas" || app.id === "pools"
                                         ? "bg-blue-900/70 text-blue-300" 
                                         : app.id === "fire-prevention"
-                                          ? "bg-red-900/70 text-amber-300"
+                                          ? "bg-blue-900/70 text-amber-300"
                                           : "bg-amber-900/70 text-amber-300"
                                     }`}>3</div>
                                     <p className={`font-medium text-sm uppercase tracking-wide ${
@@ -759,7 +759,7 @@ const IndustryApplications = () => {
                                       app.id === "marinas" || app.id === "pools"
                                         ? "bg-blue-800/50" 
                                         : app.id === "fire-prevention"
-                                          ? "bg-red-800/50"
+                                          ? "bg-blue-800/50"
                                           : "bg-amber-800/50"
                                     } rounded-full`}></span>
                                     
@@ -810,7 +810,7 @@ const IndustryApplications = () => {
                                 app.id === "marinas" || app.id === "pools"
                                   ? "border-blue-700/30" 
                                   : app.id === "fire-prevention"
-                                    ? "border-red-700/30"
+                                    ? "border-blue-700/30"
                                     : "border-amber-700/30"
                                 } shadow-[0_10px_40px_rgba(0,0,0,0.4)] transform transition-all duration-700 group-hover/image:scale-[1.03]`}>
                                 {/* Image */}
@@ -837,7 +837,7 @@ const IndustryApplications = () => {
                                 app.id === "marinas" || app.id === "pools"
                                   ? "bg-gradient-to-t from-blue-900/80 to-blue-900/0" 
                                   : app.id === "fire-prevention"
-                                    ? "bg-gradient-to-t from-red-900/80 to-red-900/0"
+                                    ? "bg-gradient-to-t from-blue-900/80 to-blue-900/0"
                                     : "bg-gradient-to-t from-amber-900/80 to-amber-900/0"
                               }`} style={{zIndex: 51}}>
                                 <p className="text-white font-bold text-lg md:text-xl lg:text-2xl opacity-0 group-hover/image:opacity-100 transform translate-y-4 group-hover/image:translate-y-0 transition-all duration-500 relative overflow-hidden" style={{marginTop: "50px", position: "relative", top: "30px"}}>
