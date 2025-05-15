@@ -22,25 +22,25 @@ const StatCard: React.FC<StatCardProps> = ({
   const colorVariants = {
     blue: {
       text: "text-blue-300",
-      iconBg: "bg-blue-900/50",
+      iconBg: "bg-gradient-to-r from-blue-900/50 to-blue-800/50",
       iconBorder: "border-blue-600/30",
       icon: "text-blue-400"
     },
     orange: {
       text: "text-orange-300",
-      iconBg: "bg-orange-900/50",
+      iconBg: "bg-gradient-to-r from-orange-900/50 to-orange-800/50",
       iconBorder: "border-orange-600/30",
       icon: "text-orange-400"
     },
     green: {
       text: "text-emerald-300",
-      iconBg: "bg-emerald-900/50",
+      iconBg: "bg-gradient-to-r from-emerald-900/50 to-emerald-800/50",
       iconBorder: "border-emerald-600/30",
       icon: "text-emerald-400"
     },
     purple: {
       text: "text-purple-300",
-      iconBg: "bg-purple-900/50",
+      iconBg: "bg-gradient-to-r from-purple-900/50 to-purple-800/50",
       iconBorder: "border-purple-600/30",
       icon: "text-purple-400"
     }

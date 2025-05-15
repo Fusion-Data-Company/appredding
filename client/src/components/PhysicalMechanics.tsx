@@ -13,7 +13,7 @@ interface MechanicsCardProps {
 const MechanicsCard: React.FC<MechanicsCardProps> = ({ title, description, icon, iconBg, className }) => {
   return (
     <div className={cn(
-      "bg-primary-900/20 backdrop-blur-sm rounded-xl border border-blue-500/20 p-6 hover:bg-primary-900/30 transition-colors duration-300",
+      "bg-gradient-to-br from-orange-950/30 via-primary-950/30 to-blue-950/30 backdrop-blur-sm rounded-xl border border-orange-500/20 p-6 hover:bg-gradient-to-br hover:from-orange-950/40 hover:via-primary-950/40 hover:to-blue-950/40 transition-all duration-300",
       className
     )}>
       <div className="flex items-center gap-4 mb-4">

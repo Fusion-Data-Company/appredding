@@ -46,25 +46,25 @@ export const CompetitiveMatrix: React.FC = () => {
       id: "competitor_a", 
       name: "Competitor A", 
       description: "Ceramic-Based",
-      className: "bg-gradient-to-r from-gray-900/20 to-neutral-900/20" 
+      className: "bg-gradient-to-r from-blue-950/30 via-gray-900/20 to-orange-950/30" 
     },
     { 
       id: "competitor_b", 
       name: "Competitor B", 
       description: "Elastomeric",
-      className: "bg-gradient-to-r from-gray-900/20 to-neutral-900/20" 
+      className: "bg-gradient-to-r from-blue-950/30 via-gray-900/20 to-orange-950/30" 
     },
     { 
       id: "traditional", 
       name: "Traditional Insulation", 
       description: "Conventional",
-      className: "bg-gradient-to-r from-gray-900/20 to-neutral-900/20" 
+      className: "bg-gradient-to-r from-blue-950/30 via-gray-900/20 to-orange-950/30" 
     },
     { 
       id: "standard", 
       name: "Standard Paint", 
       description: "Basic",
-      className: "bg-gradient-to-r from-gray-900/20 to-neutral-900/20" 
+      className: "bg-gradient-to-r from-blue-950/30 via-gray-900/20 to-orange-950/30" 
     },
   ];
 
