@@ -603,7 +603,7 @@ const ContactSection = () => {
                       <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-300 to-amber-400 pb-1 group-hover:scale-[1.02] transition-transform duration-500 origin-left">Global Headquarters</h3>
                       <p className="text-gray-300 group-hover:text-gray-200 transition-colors duration-500">
                         Praetorian SmartCoat Solutions<br />
-                        Sacramento Area<br />
+                        Redding<br />
                         California, USA
                       </p>
                       <div className="h-0.5 w-0 group-hover:w-full bg-gradient-to-r from-orange-500/60 via-transparent to-transparent rounded-full transition-all duration-700 mt-2 opacity-60 group-hover:opacity-100"></div>
