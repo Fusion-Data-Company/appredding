@@ -198,12 +198,15 @@ const BrandShowcaseSection = () => {
                     <div className="absolute inset-0 opacity-40 bg-gradient-to-r from-orange-500/0 via-blue-500/50 to-orange-500/0 blur-sm animate-pulse-slow"></div>
                   </div>
                   
-                  {/* Edge glow effect to match other cards */}
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/20 via-blue-500/20 to-orange-500/20 rounded-xl blur-md opacity-80 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  {/* Edge glow effect - enhanced intensity to match other cards */}
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/80 via-blue-500/80 to-orange-500/80 rounded-xl blur-md opacity-90 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  
+                  {/* Outer glow layer for depth */}
+                  <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/40 via-blue-600/40 to-orange-600/40 rounded-xl blur-xl opacity-70 group-hover:opacity-100 group-hover:blur-xl transition-all duration-1000 animate-pulse-slow"></div>
                   
                   {/* Enhanced ambient glow */}
-                  <div className="absolute -top-20 -right-20 w-72 h-72 bg-orange-500/20 rounded-full filter blur-[100px] opacity-70 animate-pulse-slow"></div>
-                  <div className="absolute -bottom-20 -left-20 w-72 h-72 bg-blue-500/25 rounded-full filter blur-[100px] opacity-70 animate-pulse-slow-delayed"></div>
+                  <div className="absolute -top-20 -right-20 w-72 h-72 bg-orange-600/30 rounded-full filter blur-[100px] opacity-80 animate-pulse-slow"></div>
+                  <div className="absolute -bottom-20 -left-20 w-72 h-72 bg-blue-600/35 rounded-full filter blur-[100px] opacity-80 animate-pulse-slow-delayed"></div>
                   
                   {/* Badge removed per user request */}
                   

@@ -77,9 +77,13 @@ const FAQSection = ({ faqs }: FAQProps) => {
                 <div className="absolute left-1 bottom-1 w-12 h-12 border-l border-b border-blue-500/50 rounded-bl-md"></div>
               </div>
               
-              {/* Ambient glow effect */}
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3/4 h-40 bg-gradient-to-r from-orange-500/0 via-orange-500/20 to-orange-500/0 blur-[100px] rounded-full"></div>
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3/4 h-40 bg-gradient-to-r from-blue-500/0 via-blue-500/20 to-blue-500/0 blur-[100px] rounded-full"></div>
+              {/* Enhanced ambient glow effect with multiple layers */}
+              <div className="absolute -top-20 -right-20 w-72 h-72 bg-orange-600/30 rounded-full filter blur-[100px] opacity-80 animate-pulse-slow"></div>
+              <div className="absolute -bottom-20 -left-20 w-72 h-72 bg-blue-600/35 rounded-full filter blur-[100px] opacity-80 animate-pulse-slow-delayed"></div>
+              
+              {/* Central glow */}
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3/4 h-40 bg-gradient-to-r from-orange-500/0 via-orange-500/40 to-orange-500/0 blur-[100px] rounded-full animate-pulse-slow"></div>
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3/4 h-40 bg-gradient-to-r from-blue-500/0 via-blue-500/40 to-blue-500/0 blur-[100px] rounded-full animate-pulse-slow-delayed"></div>
               
               {/* Animated fading squares - appearing and disappearing */}
               <div className="absolute top-8 right-8 w-20 h-20 rounded-lg border border-orange-500/20 opacity-0 group-hover:opacity-70 rotate-12 transition-all duration-1000 animate-pulse-slow"></div>
@@ -157,9 +161,13 @@ const FAQSection = ({ faqs }: FAQProps) => {
                     <div className="absolute left-1 bottom-1 w-6 h-6 border-l border-b border-blue-500/50 rounded-bl-md"></div>
                   </div>
                   
-                  {/* Enhanced ambient glow */}
-                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-24 bg-gradient-to-r from-orange-500/0 via-orange-500/15 to-orange-500/0 blur-[40px] rounded-full"></div>
-                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-24 bg-gradient-to-r from-blue-500/0 via-blue-500/15 to-blue-500/0 blur-[40px] rounded-full"></div>
+                  {/* Enhanced ambient glow with multiple layers */}
+                  <div className="absolute -top-10 -right-10 w-48 h-48 bg-orange-600/25 rounded-full filter blur-[70px] opacity-70 animate-pulse-slow"></div>
+                  <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-blue-600/30 rounded-full filter blur-[70px] opacity-70 animate-pulse-slow-delayed"></div>
+                  
+                  {/* Central glow */}
+                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-24 bg-gradient-to-r from-orange-500/0 via-orange-500/30 to-orange-500/0 blur-[40px] rounded-full animate-pulse-slow"></div>
+                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-24 bg-gradient-to-r from-blue-500/0 via-blue-500/30 to-blue-500/0 blur-[40px] rounded-full animate-pulse-slow-delayed"></div>
                   
                   {/* Animated fading squares */}
                   <div className="absolute top-6 right-4 w-8 h-8 rounded-md border border-orange-500/20 opacity-0 group-hover:opacity-50 rotate-12 transition-all duration-1000 animate-pulse-slow"></div>
@@ -215,9 +223,13 @@ const FAQSection = ({ faqs }: FAQProps) => {
                                 <div className="absolute left-0.5 top-0.5 w-5 h-5 border-l border-t border-blue-500/40 rounded-tl-sm"></div>
                               </div>
                               
-                              {/* Subtle ambient glow */}
-                              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-12 bg-gradient-to-r from-orange-500/0 via-orange-500/10 to-orange-500/0 blur-[30px] rounded-full opacity-0 group-hover/faq:opacity-100 transition-opacity duration-700"></div>
-                              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-12 bg-gradient-to-r from-blue-500/0 via-blue-500/10 to-blue-500/0 blur-[30px] rounded-full opacity-0 group-hover/faq:opacity-100 transition-opacity duration-700"></div>
+                              {/* Enhanced ambient glow */}
+                              <div className="absolute -top-5 -right-5 w-24 h-24 bg-orange-600/20 rounded-full filter blur-[30px] opacity-0 group-hover/faq:opacity-70 transition-opacity duration-500"></div>
+                              <div className="absolute -bottom-5 -left-5 w-24 h-24 bg-blue-600/25 rounded-full filter blur-[30px] opacity-0 group-hover/faq:opacity-70 transition-opacity duration-500"></div>
+                              
+                              {/* Central glow */}
+                              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-12 bg-gradient-to-r from-orange-500/0 via-orange-500/25 to-orange-500/0 blur-[30px] rounded-full opacity-0 group-hover/faq:opacity-100 transition-opacity duration-700"></div>
+                              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-12 bg-gradient-to-r from-blue-500/0 via-blue-500/25 to-blue-500/0 blur-[30px] rounded-full opacity-0 group-hover/faq:opacity-100 transition-opacity duration-700"></div>
                               
                               <div className="flex items-center justify-between relative z-10">
                                 <h4 
