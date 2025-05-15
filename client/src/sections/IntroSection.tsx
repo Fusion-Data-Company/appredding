@@ -1,6 +1,7 @@
 import React from "react";
 import { GradientHeading } from "@/components/ui/gradient-heading";
 import { PRAETORIAN_HERO_IMAGE } from "../assets_dir/imageExports";
+import { PremiumBadge } from "@/components/ui/premium-badge";
 
 const IntroSection = () => {
   return (
@@ -62,6 +63,19 @@ const IntroSection = () => {
                 <div className="absolute bottom-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
               </div>
               
+              {/* NASA Premium badge with high z-index */}
+              <div className="relative -top-6 flex justify-center mb-8 z-[100]">
+                <PremiumBadge
+                  icon={
+                    <svg className="h-5 w-5 text-orange-300 relative z-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M12 22a9.5 9.5 0 0 0 3.09-18.49A4.5 4.5 0 1 0 12 8.5a4.5 4.5 0 1 0-3.09-9.01A9.5 9.5 0 0 0 12 22z"></path>
+                    </svg>
+                  }
+                >
+                  NASA TECHNOLOGY
+                </PremiumBadge>
+              </div>
+            
               {/* Main title with enhanced visual effects */}
               <div className="relative mb-8 z-20">
                 {/* Background glow animation */}
