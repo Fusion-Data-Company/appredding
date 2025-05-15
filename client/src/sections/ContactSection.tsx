@@ -233,8 +233,8 @@ const ContactSection = () => {
                       required
                     />
                     
-                    {/* Subtle focus effect */}
-                    <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-amber-500/0 to-blue-500/0 dark:group-focus-within:from-amber-500/20 dark:group-focus-within:to-blue-500/20 opacity-0 transition-opacity duration-300 pointer-events-none"></div>
+                    {/* Premium enterprise focus effect */}
+                    <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-orange-500/0 to-blue-500/0 group-focus-within:from-orange-500/20 group-focus-within:to-blue-500/20 opacity-0 group-focus-within:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
                   </div>
                   {formErrors.firstName && <p className="text-blue-500 text-xs mt-1">{formErrors.firstName}</p>}
                 </div>
@@ -262,8 +262,8 @@ const ContactSection = () => {
                       required
                     />
                     
-                    {/* Subtle focus effect */}
-                    <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-amber-500/0 to-blue-500/0 dark:group-focus-within:from-amber-500/20 dark:group-focus-within:to-blue-500/20 opacity-0 transition-opacity duration-300 pointer-events-none"></div>
+                    {/* Premium enterprise focus effect */}
+                    <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-orange-500/0 to-blue-500/0 group-focus-within:from-orange-500/20 group-focus-within:to-blue-500/20 opacity-0 group-focus-within:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
                   </div>
                   {formErrors.lastName && <p className="text-blue-500 text-xs mt-1">{formErrors.lastName}</p>}
                 </div>
