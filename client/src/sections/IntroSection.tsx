@@ -229,8 +229,8 @@ const IntroSection = () => {
             {/* Card 1: Class A Fire Protection - Ultra Premium Enterprise Styling */}
             <div className="group relative transform transition-all duration-500 hover:scale-105 hover:-translate-y-2 hover:z-10 h-full min-h-[280px]">
               {/* Multiple layered background effects - Fire theme */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/40 via-red-600/40 to-amber-600/40 rounded-xl blur-xl opacity-70 group-hover:opacity-100 group-hover:blur-xl transition-all duration-1000 animate-pulse-slow"></div>
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/80 via-amber-500/80 to-red-500/80 rounded-xl blur-md opacity-90 group-hover:opacity-100 transition-all duration-500"></div>
+              <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/40 via-blue-600/40 to-orange-600/40 rounded-xl blur-xl opacity-70 group-hover:opacity-100 group-hover:blur-xl transition-all duration-1000 animate-pulse-slow"></div>
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/80 via-blue-500/80 to-orange-500/80 rounded-xl blur-md opacity-90 group-hover:opacity-100 transition-all duration-500"></div>
               
               {/* Premium Card Container */}
               <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black backdrop-blur-xl rounded-xl p-8 border border-orange-500/30 overflow-hidden group hover:shadow-[0_0_25px_rgba(249,115,22,0.3)] transition-shadow duration-500 z-10 flex flex-col justify-between h-full">
@@ -266,7 +266,7 @@ const IntroSection = () => {
                   {/* Enhanced heading with subtle effects */}
                   <div className="relative pb-4 mb-4">
                     {/* Animated glow behind heading */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-orange-600/10 via-amber-500/20 to-red-600/10 opacity-50 blur-xl animate-pulse-slow"></div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-orange-600/10 via-blue-500/20 to-orange-600/10 opacity-50 blur-xl animate-pulse-slow"></div>
                     
                     {/* Background blur text */}
                     <div className="absolute inset-0 flex justify-start items-center text-3xl font-bold tracking-tight text-orange-900/10 blur-[5px] scale-110 opacity-50">
@@ -275,7 +275,7 @@ const IntroSection = () => {
                     
                     {/* Main heading with improved z-index */}
                     <div className="shimmer-fire-text font-bold tracking-tight relative z-20">
-                      <GradientHeading level={3} className="text-2xl md:text-3xl relative z-20 text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-amber-500 to-red-500 drop-shadow-[0_1px_1px_rgba(0,0,0,0.3)]" variant="fire">
+                      <GradientHeading level={3} className="text-2xl md:text-3xl relative z-20 text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-amber-500 to-blue-500 drop-shadow-[0_1px_1px_rgba(0,0,0,0.3)]" variant="fire">
                         Class A Fire Protection
                       </GradientHeading>
                     </div>
