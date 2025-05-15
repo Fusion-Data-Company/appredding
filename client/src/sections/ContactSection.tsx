@@ -795,7 +795,7 @@ const ContactSection = () => {
                         className="group relative"
                       >
                         {/* Premium Icon Container */}
-                        <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-gray-900/95 backdrop-blur-xl rounded-full w-16 h-16 flex items-center justify-center shadow-[0_10px_30px_rgba(0,0,0,0.3)] z-55 group-hover:scale-110 transition-transform duration-500">
+                        <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-gray-900/95 backdrop-blur-xl rounded-full w-16 h-16 flex items-center justify-center shadow-[0_10px_30px_rgba(0,0,0,0.3)] z-55 group-hover:scale-110 transition-transform duration-500" style={{ position: 'relative' }}>
                           {/* Premium gradient border effect - Blue variant */}
                           <div className="absolute inset-0 p-0.5 rounded-full bg-gradient-to-r from-blue-500/50 via-transparent to-blue-600/50 opacity-70"></div>
                           

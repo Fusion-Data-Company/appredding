@@ -279,7 +279,7 @@ const FAQSection = ({ faqs }: FAQProps) => {
                       </div>
                       
                       {/* Enhanced category heading */}
-                      <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-300 to-orange-400">
+                      <h3 className="text-2xl font-bold text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">
                         {category.category}
                       </h3>
                     </div>
@@ -316,7 +316,7 @@ const FAQSection = ({ faqs }: FAQProps) => {
                               <div className="absolute bottom-0 right-0 w-2 h-2 bg-orange-500/70 rounded-full blur-[1px] opacity-40 group-hover:opacity-100 transition-opacity duration-300"></div>
                               
                               {/* Enhanced question text with glow effect when open */}
-                              <span className={`pr-8 font-medium ${isOpen ? 'text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-300 to-orange-400 drop-shadow-[0_0_1px_rgba(255,165,0,0.8)]' : 'text-gray-200'} transition-colors duration-500`}>
+                              <span className={`pr-8 font-medium ${isOpen ? 'text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]' : 'text-gray-200'} transition-colors duration-500`}>
                                 {faq.question}
                               </span>
                               
