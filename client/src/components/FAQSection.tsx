@@ -109,8 +109,8 @@ const FAQSection = ({ faqs }: FAQProps) => {
                 Frequently Asked Questions
               </div>
               
-              {/* Main text with premium gradient */}
-              <h2 className="text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-amber-500 to-blue-500
+              {/* Main text with white color */}
+              <h2 className="text-white
                 drop-shadow-[0_0px_1px_rgba(251,113,36,0.2)] 
                 [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(251,146,60,0.3)]
                 text-4xl md:text-5xl font-bold relative z-30 mb-6">
