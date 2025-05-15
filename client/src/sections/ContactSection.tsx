@@ -227,7 +227,7 @@ const ContactSection = () => {
                     <input 
                       type="text" 
                       id="firstName" 
-                      className={`w-full dark:bg-gradient-to-br dark:from-gray-800/95 dark:via-gray-900/95 dark:to-gray-800/95 bg-gray-100/90 border ${formErrors.firstName ? 'border-red-500' : 'dark:border-gray-600/30 border-gray-300'} rounded-lg px-4 py-3 focus:outline-none dark:focus:border-amber-500/70 focus:border-amber-500 dark:text-white text-gray-800 relative z-10 transition-all duration-300 backdrop-blur-sm placeholder-gray-400/80`}
+                      className={`w-full dark:bg-gradient-to-br dark:from-gray-800/95 dark:via-gray-900/95 dark:to-gray-800/95 bg-gray-100/90 border ${formErrors.firstName ? 'border-blue-500' : 'dark:border-gray-600/30 border-gray-300'} rounded-lg px-4 py-3 focus:outline-none dark:focus:border-amber-500/70 focus:border-amber-500 dark:text-white text-gray-800 relative z-10 transition-all duration-300 backdrop-blur-sm placeholder-gray-400/80`}
                       value={formData.firstName}
                       onChange={handleInputChange}
                       required
@@ -236,7 +236,7 @@ const ContactSection = () => {
                     {/* Subtle focus effect */}
                     <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-amber-500/0 to-blue-500/0 dark:group-focus-within:from-amber-500/20 dark:group-focus-within:to-blue-500/20 opacity-0 transition-opacity duration-300 pointer-events-none"></div>
                   </div>
-                  {formErrors.firstName && <p className="text-red-500 text-xs mt-1">{formErrors.firstName}</p>}
+                  {formErrors.firstName && <p className="text-blue-500 text-xs mt-1">{formErrors.firstName}</p>}
                 </div>
                 <div>
                   {/* Premium Enterprise Label */}
@@ -256,7 +256,7 @@ const ContactSection = () => {
                     <input 
                       type="text" 
                       id="lastName" 
-                      className={`w-full dark:bg-gradient-to-br dark:from-gray-800/95 dark:via-gray-900/95 dark:to-gray-800/95 bg-gray-100/90 border ${formErrors.lastName ? 'border-red-500' : 'dark:border-gray-600/30 border-gray-300'} rounded-lg px-4 py-3 focus:outline-none dark:focus:border-amber-500/70 focus:border-amber-500 dark:text-white text-gray-800 relative z-10 transition-all duration-300 backdrop-blur-sm placeholder-gray-400/80`}
+                      className={`w-full dark:bg-gradient-to-br dark:from-gray-800/95 dark:via-gray-900/95 dark:to-gray-800/95 bg-gray-100/90 border ${formErrors.lastName ? 'border-blue-500' : 'dark:border-gray-600/30 border-gray-300'} rounded-lg px-4 py-3 focus:outline-none dark:focus:border-amber-500/70 focus:border-amber-500 dark:text-white text-gray-800 relative z-10 transition-all duration-300 backdrop-blur-sm placeholder-gray-400/80`}
                       value={formData.lastName}
                       onChange={handleInputChange}
                       required
@@ -265,7 +265,7 @@ const ContactSection = () => {
                     {/* Subtle focus effect */}
                     <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-amber-500/0 to-blue-500/0 dark:group-focus-within:from-amber-500/20 dark:group-focus-within:to-blue-500/20 opacity-0 transition-opacity duration-300 pointer-events-none"></div>
                   </div>
-                  {formErrors.lastName && <p className="text-red-500 text-xs mt-1">{formErrors.lastName}</p>}
+                  {formErrors.lastName && <p className="text-blue-500 text-xs mt-1">{formErrors.lastName}</p>}
                 </div>
               </div>
               
@@ -293,7 +293,7 @@ const ContactSection = () => {
                   <input 
                     type="email" 
                     id="email" 
-                    className={`w-full dark:bg-gradient-to-br dark:from-gray-800/95 dark:via-gray-900/95 dark:to-gray-800/95 bg-gray-100/90 border ${formErrors.email ? 'border-red-500' : 'dark:border-gray-600/30 border-gray-300'} rounded-lg pl-10 pr-4 py-3 focus:outline-none dark:focus:border-amber-500/70 focus:border-amber-500 dark:text-white text-gray-800 relative z-10 transition-all duration-300 backdrop-blur-sm placeholder-gray-400/80`}
+                    className={`w-full dark:bg-gradient-to-br dark:from-gray-800/95 dark:via-gray-900/95 dark:to-gray-800/95 bg-gray-100/90 border ${formErrors.email ? 'border-blue-500' : 'dark:border-gray-600/30 border-gray-300'} rounded-lg pl-10 pr-4 py-3 focus:outline-none dark:focus:border-amber-500/70 focus:border-amber-500 dark:text-white text-gray-800 relative z-10 transition-all duration-300 backdrop-blur-sm placeholder-gray-400/80`}
                     value={formData.email}
                     onChange={handleInputChange}
                     required
@@ -308,7 +308,7 @@ const ContactSection = () => {
                 
                 {/* Error message with enhanced styling */}
                 {formErrors.email && (
-                  <p className="text-red-500 text-xs mt-1 flex items-center">
+                  <p className="text-blue-500 text-xs mt-1 flex items-center">
                     <i className="fas fa-exclamation-circle mr-1"></i>
                     {formErrors.email}
                   </p>
@@ -842,7 +842,7 @@ const ContactSection = () => {
                           </svg>
                           
                           {/* Animated concentric ring for enterprise effect */}
-                          <div className="absolute inset-0 rounded-full border border-red-500/20 scale-[1.15] opacity-0 group-hover:opacity-100 group-hover:scale-[1.4] transition-all duration-700"></div>
+                          <div className="absolute inset-0 rounded-full border border-blue-500/20 scale-[1.15] opacity-0 group-hover:opacity-100 group-hover:scale-[1.4] transition-all duration-700"></div>
                         </div>
                         
                         {/* Subtle bottom reflection */}
