@@ -535,7 +535,7 @@ const ContactSection = () => {
                 <div className="relative mb-8 flex justify-center w-full">
                   <div className="absolute -inset-4 bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-500 rounded-lg blur-lg opacity-30 dark:opacity-40"></div>
                   <h2 
-                    className="relative z-10 text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-400 font-extrabold tracking-tight py-2" 
+                    className="relative z-10 text-center text-white font-extrabold tracking-tight py-2 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]" 
                     style={{ 
                       fontSize: '3.25rem',
                       textShadow: '0 1px 8px rgba(0,150,255,0.3)',
@@ -772,7 +772,7 @@ const ContactSection = () => {
                     
                     {/* Premium heading with enhanced styling */}
                     <div className="relative z-10 inline-block" style={{ position: 'relative', top: '60px' }}>
-                      <h4 className="font-bold text-xl relative bg-clip-text text-transparent bg-gradient-to-r from-amber-400 via-orange-500 to-blue-500 inline-block">
+                      <h4 className="font-bold text-xl relative text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] inline-block">
                         Connect With Us
                         
                         {/* Animated underline */}

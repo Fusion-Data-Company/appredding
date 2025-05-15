@@ -3,16 +3,16 @@ import { VariantProps, cva } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 
 const gradientTextVariants = cva(
-  "bg-clip-text text-transparent inline-block",
+  "text-white inline-block drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]",
   {
     variants: {
       variant: {
-        fire: "bg-gradient-to-r from-fire-400 via-orange-500 to-red-500",
-        water: "bg-gradient-to-r from-blue-400 via-cyan-500 to-water-500",
-        dual: "bg-gradient-to-r from-fire-500 via-white to-water-500",
-        metal: "bg-gradient-to-r from-gray-300 via-gray-100 to-gray-400",
-        amber: "bg-gradient-to-r from-amber-400 via-orange-500 to-amber-600",
-        rainbow: "bg-gradient-to-r from-red-500 via-yellow-500 via-green-500 via-blue-500 to-orange-500",
+        fire: "",
+        water: "",
+        dual: "",
+        metal: "",
+        amber: "",
+        rainbow: "",
       },
       size: {
         xs: "text-xs",
