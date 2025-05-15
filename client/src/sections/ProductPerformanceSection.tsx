@@ -133,8 +133,8 @@ const ProductPerformanceSection = () => {
                 <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/40 to-orange-500/40 rounded-tl-xl blur-[2px]"></div>
               </div>
               
-              {/* Subtle animated overlay */}
-              <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent opacity-30 rounded-xl"></div>
+              {/* Subtle animated overlay with blue and orange styling */}
+              <div className="absolute inset-0 bg-gradient-to-r from-orange-600/10 via-blue-500/15 to-orange-600/10 opacity-30 rounded-xl"></div>
               
               {/* Shimmer effect */}
               <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-30 -translate-x-full animate-shimmer-slow transform rounded-xl overflow-hidden"></div>
