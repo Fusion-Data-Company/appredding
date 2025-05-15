@@ -197,7 +197,7 @@ const FeaturesSection = () => {
                   
                   {/* Advanced premium gradient heading */}
                   <GradientHeading level={2} className="text-3xl md:text-4xl lg:text-5xl relative" variant="mixed">
-                    NASA-Derived Ceramic Technology
+                    Ceramic Technology
                   </GradientHeading>
                   
                   {/* Animated decorative line below heading */}
