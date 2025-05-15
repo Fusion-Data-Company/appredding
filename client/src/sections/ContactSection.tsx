@@ -613,14 +613,33 @@ const ContactSection = () => {
                 </div>
                 
                 {/* Premium Enterprise Contact Item - Phone */}
-                <div className="group relative transform transition-all duration-500 hover:scale-[1.02] hover:z-10 rounded-xl p-4 hover:bg-gradient-to-r hover:from-orange-900/10 hover:via-transparent hover:to-orange-700/10">
-                  <div className="flex items-start">
+                <div className="group relative transform transition-all duration-500 hover:scale-[1.02] hover:z-10 rounded-xl p-4 hover:bg-gradient-to-r hover:from-blue-900/10 hover:via-transparent hover:to-blue-700/10 overflow-hidden">
+                  {/* Premium subtle glow effect */}
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                    <div className="absolute -inset-1 bg-blue-500/10 blur-[30px] rounded-full"></div>
+                  </div>
+                  
+                  {/* Animated corner accents on hover */}
+                  <div className="absolute top-0 left-0 w-12 h-12 opacity-0 group-hover:opacity-40 transition-opacity duration-700">
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/40 to-cyan-600/30 rounded-tl-xl blur-[2px] animate-pulse-slow" style={{ animationDuration: '4.2s' }}></div>
+                  </div>
+                  <div className="absolute bottom-0 right-0 w-12 h-12 opacity-0 group-hover:opacity-40 transition-opacity duration-700">
+                    <div className="absolute inset-0 bg-gradient-to-tl from-blue-500/40 to-cyan-600/30 rounded-br-xl blur-[2px] animate-pulse-slow" style={{ animationDuration: '5.2s' }}></div>
+                  </div>
+                  
+                  {/* Moving shine effect */}
+                  <div 
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full opacity-0 group-hover:opacity-100 transition-all ease-in-out pointer-events-none"
+                    style={{ transitionDuration: '1.5s', transitionDelay: '0.1s' }}
+                  ></div>
+                  
+                  <div className="flex items-start relative z-10">
                     {/* Premium Enterprise Icon Container */}
                     <div className="relative flex-shrink-0">
                       {/* Premium Icon Container */}
                       <div className="relative bg-gradient-to-br from-gray-900/95 to-gray-950/95 backdrop-blur-xl rounded-full p-4 mr-5 shadow-[0_10px_30px_rgba(0,0,0,0.3)] z-10 group-hover:scale-110 transition-transform duration-500">
                         {/* Premium gradient border effect - Water variant */}
-                        <div className="absolute inset-0 p-0.5 rounded-full bg-gradient-to-r from-blue-500/60 via-blue-500/60 to-blue-600/60 opacity-70"></div>
+                        <div className="absolute inset-0 p-0.5 rounded-full bg-gradient-to-r from-blue-500/60 via-blue-500/60 to-blue-600/60 opacity-70 group-hover:opacity-100 transition-opacity duration-500"></div>
                         
                         {/* Inner highlight */}
                         <div className="absolute inset-0 rounded-full bg-gradient-to-b from-white/20 via-transparent to-transparent opacity-50 pointer-events-none"></div>
@@ -629,30 +648,52 @@ const ContactSection = () => {
                         <div className="relative z-10">
                           <i className="fas fa-phone-alt text-2xl text-gradient from-blue-400 to-blue-600 w-6 h-6 flex items-center justify-center"></i>
                         </div>
+                        
+                        {/* Subtle glow effect */}
+                        <div className="absolute -inset-1 bg-blue-500/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-pulse-slow"></div>
                       </div>
                     </div>
                     
                     <div className="flex-grow">
-                      <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-blue-400 pb-1">Phone Support</h3>
-                      <p className="text-gray-300">
+                      <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-blue-400 pb-1 group-hover:scale-[1.02] transition-transform duration-500 origin-left">Phone Support</h3>
+                      <p className="text-gray-300 group-hover:text-gray-200 transition-colors duration-500">
                         Main: (800) 555-7890<br />
                         Technical Support: (800) 555-7891<br />
                         Hours: 24/7 Support Available
                       </p>
-                      <div className="h-0.5 w-0 group-hover:w-full bg-gradient-to-r from-blue-500/60 via-transparent to-transparent rounded-full transition-all duration-700 mt-2"></div>
+                      <div className="h-0.5 w-0 group-hover:w-full bg-gradient-to-r from-blue-500/60 via-transparent to-transparent rounded-full transition-all duration-700 mt-2 opacity-60 group-hover:opacity-100"></div>
                     </div>
                   </div>
                 </div>
                 
                 {/* Premium Enterprise Contact Item - Email */}
-                <div className="group relative transform transition-all duration-500 hover:scale-[1.02] hover:z-10 rounded-xl p-4 hover:bg-gradient-to-r hover:from-orange-900/10 hover:via-transparent hover:to-orange-700/10">
-                  <div className="flex items-start">
+                <div className="group relative transform transition-all duration-500 hover:scale-[1.02] hover:z-10 rounded-xl p-4 hover:bg-gradient-to-r hover:from-orange-900/10 hover:via-blue-900/10 hover:to-orange-700/10 overflow-hidden">
+                  {/* Premium subtle glow effect */}
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                    <div className="absolute -inset-1 bg-gradient-to-r from-orange-500/10 via-blue-500/10 to-orange-500/10 blur-[30px] rounded-full"></div>
+                  </div>
+                  
+                  {/* Animated corner accents on hover */}
+                  <div className="absolute top-0 left-0 w-12 h-12 opacity-0 group-hover:opacity-40 transition-opacity duration-700">
+                    <div className="absolute inset-0 bg-gradient-to-br from-orange-500/40 to-blue-600/30 rounded-tl-xl blur-[2px] animate-pulse-slow" style={{ animationDuration: '4.6s' }}></div>
+                  </div>
+                  <div className="absolute bottom-0 right-0 w-12 h-12 opacity-0 group-hover:opacity-40 transition-opacity duration-700">
+                    <div className="absolute inset-0 bg-gradient-to-tl from-blue-500/40 to-orange-600/30 rounded-br-xl blur-[2px] animate-pulse-slow" style={{ animationDuration: '5.6s' }}></div>
+                  </div>
+                  
+                  {/* Moving shine effect */}
+                  <div 
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full opacity-0 group-hover:opacity-100 transition-all ease-in-out pointer-events-none"
+                    style={{ transitionDuration: '1.5s', transitionDelay: '0.1s' }}
+                  ></div>
+                  
+                  <div className="flex items-start relative z-10">
                     {/* Premium Enterprise Icon Container */}
                     <div className="relative flex-shrink-0">
                       {/* Premium Icon Container */}
                       <div className="relative bg-gradient-to-br from-gray-900/95 to-gray-950/95 backdrop-blur-xl rounded-full p-4 mr-5 shadow-[0_10px_30px_rgba(0,0,0,0.3)] z-10 group-hover:scale-110 transition-transform duration-500">
                         {/* Premium gradient border effect - Dual variant */}
-                        <div className="absolute inset-0 p-0.5 rounded-full bg-gradient-to-r from-orange-500/60 via-blue-500/60 to-orange-500/60 opacity-70"></div>
+                        <div className="absolute inset-0 p-0.5 rounded-full bg-gradient-to-r from-orange-500/60 via-blue-500/60 to-orange-500/60 opacity-70 group-hover:opacity-100 transition-opacity duration-500"></div>
                         
                         {/* Inner highlight */}
                         <div className="absolute inset-0 rounded-full bg-gradient-to-b from-white/20 via-transparent to-transparent opacity-50 pointer-events-none"></div>
@@ -661,17 +702,20 @@ const ContactSection = () => {
                         <div className="relative z-10">
                           <i className="fas fa-envelope text-2xl text-gradient from-amber-400 to-blue-400 w-6 h-6 flex items-center justify-center"></i>
                         </div>
+                        
+                        {/* Subtle glow effect */}
+                        <div className="absolute -inset-1 bg-gradient-to-r from-orange-500/20 via-blue-500/20 to-orange-500/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-pulse-slow"></div>
                       </div>
                     </div>
                     
                     <div className="flex-grow">
-                      <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-300 via-amber-300 to-blue-300 pb-1">Email</h3>
-                      <p className="text-gray-300">
+                      <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-300 via-amber-300 to-blue-300 pb-1 group-hover:scale-[1.02] transition-transform duration-500 origin-left">Email</h3>
+                      <p className="text-gray-300 group-hover:text-gray-200 transition-colors duration-500">
                         Sales: sales@praetoriansmartcoat.com<br />
                         Support: support@praetoriansmartcoat.com<br />
                         Press: media@praetoriansmartcoat.com
                       </p>
-                      <div className="h-0.5 w-0 group-hover:w-full bg-gradient-to-r from-orange-500/60 via-blue-500/40 to-transparent rounded-full transition-all duration-700 mt-2"></div>
+                      <div className="h-0.5 w-0 group-hover:w-full bg-gradient-to-r from-orange-500/60 via-blue-500/40 to-transparent rounded-full transition-all duration-700 mt-2 opacity-60 group-hover:opacity-100"></div>
                     </div>
                   </div>
                 </div>
@@ -679,7 +723,22 @@ const ContactSection = () => {
                 {/* Premium Enterprise Social Media Connect */}
                 <div className="pt-8 group">
                   <div className="relative overflow-hidden">
-                    <h3 className="text-xl font-bold mb-5 text-center text-white relative group-hover:scale-[1.02] transition-transform duration-700"
+                    {/* Premium card background for social media */}
+                    <div className="absolute inset-0 -z-10 bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 opacity-0 group-hover:opacity-80 transition-opacity duration-700 rounded-xl"></div>
+                    
+                    {/* Premium animated ambient light effects */}
+                    <div className="absolute top-0 left-1/4 w-1/2 h-1/3 bg-orange-500/5 blur-[100px] opacity-0 group-hover:opacity-100 transition-opacity duration-700 -z-10"></div>
+                    <div className="absolute bottom-0 right-1/4 w-1/2 h-1/3 bg-blue-500/5 blur-[100px] opacity-0 group-hover:opacity-100 transition-opacity duration-700 -z-10"></div>
+                    
+                    {/* Animated corner accents on hover */}
+                    <div className="absolute top-0 left-0 w-12 h-12 opacity-0 group-hover:opacity-40 transition-opacity duration-700 -z-10">
+                      <div className="absolute inset-0 bg-gradient-to-br from-orange-500/40 to-blue-600/30 rounded-tl-xl blur-[2px] animate-pulse-slow" style={{ animationDuration: '4.8s' }}></div>
+                    </div>
+                    <div className="absolute bottom-0 right-0 w-12 h-12 opacity-0 group-hover:opacity-40 transition-opacity duration-700 -z-10">
+                      <div className="absolute inset-0 bg-gradient-to-tl from-blue-500/40 to-orange-600/30 rounded-br-xl blur-[2px] animate-pulse-slow" style={{ animationDuration: '5.8s' }}></div>
+                    </div>
+                    
+                    <h3 className="text-xl font-bold mb-5 text-center text-white relative group-hover:scale-[1.02] transition-transform duration-700 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
                       style={{ 
                         textShadow: '0 0 10px rgba(59,130,246,0.2), 0 0 5px rgba(59,130,246,0.1)'
                       }}
