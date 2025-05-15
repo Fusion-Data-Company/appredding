@@ -299,15 +299,15 @@ const FAQSection = ({ faqs }: FAQProps) => {
                         <div key={questionIdx} className="mb-5 relative transform transition-all duration-500">
                           {/* Enhanced Question Box with Premium Styling */}
                           <div className={`relative group/question transform ${isOpen ? 'scale-[1.01]' : ''} transition-all duration-500`}>
-                            {/* Premium gradient border effect */}
-                            <div className={`absolute -inset-0.5 rounded-lg bg-gradient-to-r from-orange-500/60 via-amber-600/30 to-red-500/60 transition-all duration-500 ${isOpen ? 'opacity-70 blur-[1px]' : 'opacity-50 blur-[0.5px]'}`}></div>
+                            {/* Controlled premium gradient border effect - stays tight to the button */}
+                            <div className={`absolute -inset-[1px] rounded-lg bg-gradient-to-r from-orange-500/60 via-amber-600/30 to-red-500/60 transition-all duration-500 ${isOpen ? 'opacity-60 blur-[0.5px]' : 'opacity-40 blur-[0.3px]'}`}></div>
                             
                             <button
                               onClick={() => toggleQuestion(categoryIdx, questionIdx)}
-                              className={`relative w-full group bg-black backdrop-blur-sm rounded-lg px-6 py-4 text-left transition-all text-base border-2 border-orange-500/70 hover:shadow-[0_0_15px_rgba(255,106,0,0.4)] flex justify-between items-center overflow-hidden`}
+                              className={`relative w-full group bg-black backdrop-blur-sm rounded-lg px-6 py-4 text-left transition-all text-base border-2 border-orange-500/70 hover:shadow-[0_0_8px_rgba(255,106,0,0.3)] flex justify-between items-center overflow-hidden`}
                             >
-                              {/* Hover accent effect with orange glow */}
-                              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-orange-500/10 to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-500"></div>
+                              {/* Subtle hover accent effect - controlled glow */}
+                              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-orange-500/5 to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-500"></div>
                               
                               {/* Corner accent points */}
                               <div className="absolute top-0 left-0 w-2 h-2 bg-orange-500/70 rounded-full blur-[1px] opacity-40 group-hover:opacity-100 transition-opacity duration-300"></div>
