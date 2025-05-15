@@ -621,56 +621,119 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
               <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2/3 h-[2px] bg-gradient-to-r from-transparent via-orange-500/20 to-transparent rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
             </div>
 
-            {/* Request demo card with premium styling */}
-            <div className="group relative transform hover:scale-[1.01] transition-all duration-700">
-              <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/98 to-gray-900/95 backdrop-blur-xl rounded-xl p-8 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7)] z-10">
-                {/* Premium dual-layer gradient border effect */}
-                <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-yellow-500/60 via-amber-500/30 to-yellow-500/60 opacity-80"></div>
-                <div className="absolute inset-[1px] p-0.5 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-30 pointer-events-none"></div>
+            {/* Request demo card with premium enterprise styling */}
+            <div className="group/demo relative">
+              {/* Premium ambient glow effects - positioned BEHIND the card */}
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-orange-500/15 rounded-full filter blur-[150px] animate-pulse-slow-delayed pointer-events-none"></div>
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] bg-blue-600/15 rounded-full filter blur-[180px] animate-pulse-slow pointer-events-none"></div>
+              
+              {/* Main card with enterprise premium styling */}
+              <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 backdrop-blur-xl rounded-xl p-8 shadow-[0_10px_40px_rgba(0,0,0,0.4)] overflow-hidden border border-orange-500/30 z-10 transform transition-all duration-500 hover:shadow-[0_15px_60px_rgba(249,115,22,0.2)] hover:-translate-y-1">
+                {/* Subtle dots and squares pattern background */}
+                <div className="absolute inset-0 opacity-20 z-0">
+                  <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoMjU1LDEzOCwwLDAuMikiIGQ9Ik0wIDBoMnYySDB6bTIgMmgydjJIMnoiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IGZpbGw9InVybCgjYSkiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiLz48L3N2Zz4=')]"></div>
+                </div>
                 
-                {/* Corner accent decorations */}
-                <div className="absolute top-0 right-0 w-20 h-20 opacity-20">
-                  <div className="absolute inset-0 bg-gradient-to-bl from-yellow-500/40 to-amber-500/40 rounded-tr-xl blur-[2px]"></div>
+                {/* Corner accent with uniform styling across all corners */}
+                <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none z-10">
+                  <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-orange-500/70 rounded-tl-lg"></div>
+                  <div className="absolute top-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+                </div>
+                <div className="absolute top-0 right-0 w-16 h-16 pointer-events-none z-10">
+                  <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-blue-500/70 rounded-tr-lg"></div>
+                  <div className="absolute top-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
+                </div>
+                <div className="absolute bottom-0 left-0 w-16 h-16 pointer-events-none z-10">
+                  <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-blue-500/70 rounded-bl-lg"></div>
+                  <div className="absolute bottom-0 left-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
+                </div>
+                <div className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none z-10">
+                  <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-orange-500/70 rounded-br-lg"></div>
+                  <div className="absolute bottom-0 right-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
                 </div>
                 
                 <div className="flex items-start gap-6 relative z-10">
-                  {/* Enhanced icon with premium styling */}
+                  {/* Enterprise-styled icon with premium effects */}
                   <div className="relative flex-shrink-0">
                     <div className="w-16 h-16 rounded-full flex items-center justify-center relative">
-                      <div className="absolute inset-0 rounded-full bg-gradient-to-r from-yellow-600 to-amber-600 opacity-20 animate-pulse-slow"></div>
-                      <div className="absolute inset-2 rounded-full bg-gradient-to-r from-yellow-500 to-amber-500"></div>
-                      <Star className="h-8 w-8 text-white relative z-10" />
+                      {/* Dual-color glow effect behind icon */}
+                      <div className="absolute -inset-3 opacity-30 rounded-full filter blur-xl" 
+                           style={{ background: 'radial-gradient(circle, rgba(249,115,22,0.4) 0%, rgba(59,130,246,0.2) 70%)' }}>
+                      </div>
+                      
+                      {/* Premium gradient background */}
+                      <div className="absolute inset-0 rounded-full bg-gradient-to-br from-gray-800 via-gray-900 to-black border border-orange-500/40 shadow-[0_0_15px_rgba(249,115,22,0.3)]"></div>
+                      
+                      {/* Star icon with enhanced styling */}
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <Star className="h-8 w-8 text-orange-500 drop-shadow-[0_0_8px_rgba(249,115,22,0.5)] relative z-10" />
+                      </div>
+                      
+                      {/* Subtle pulsing ring */}
+                      <div className="absolute -inset-1 rounded-full border border-orange-500/30 opacity-60 animate-pulse-slow"></div>
                     </div>
                     
-                    {/* Animated concentric ring */}
-                    <div className="absolute inset-0 rounded-full border-2 border-yellow-500/30 scale-[1.2] opacity-0 group-hover:opacity-100 group-hover:scale-[1.5] transition-all duration-1000"></div>
+                    {/* Animated concentric rings with orange/blue gradient */}
+                    <div className="absolute -inset-2 rounded-full border-2 border-orange-500/20 scale-100 opacity-0 group-hover/demo:opacity-100 group-hover/demo:scale-[1.3] transition-all duration-1000"></div>
+                    <div className="absolute -inset-3 rounded-full border border-blue-500/20 scale-100 opacity-0 group-hover/demo:opacity-80 group-hover/demo:scale-[1.5] transition-all duration-1500 delay-100"></div>
                   </div>
                   
-                  <div>
-                    {/* Enhanced heading with premium styling */}
-                    <GradientHeading level={4} className="text-xl mb-2" variant="fire">
+                  <div className="flex-1">
+                    {/* White text heading with drop shadow */}
+                    <h4 className="text-xl font-bold text-white tracking-tight drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)] [text-shadow:0_1px_1px_rgba(0,0,0,0.15)] mb-2">
                       Request Custom Demonstration
-                    </GradientHeading>
+                    </h4>
                     
                     {/* Enhanced description with premium styling */}
                     <p className="text-gray-300 text-md mb-5 leading-relaxed">
                       Need to see a specific application technique? Request a personalized video demonstration from our experts.
                     </p>
                     
-                    {/* Enhanced button with premium styling */}
-                    <button className="relative px-5 py-2.5 rounded-lg bg-gradient-to-r from-yellow-600 to-amber-600 text-white font-medium transition-transform hover:scale-105 hover:-translate-y-0.5 group/btn">
-                      <span className="absolute inset-0 rounded-lg bg-gradient-to-r from-yellow-500 to-amber-500 opacity-0 group-hover/btn:opacity-100 transition-opacity blur-[2px]"></span>
-                      <span className="relative z-10 flex items-center">
-                        Request Demo
-                        <i className="fas fa-chevron-right ml-2 text-xs transform group-hover/btn:translate-x-1 transition-transform"></i>
-                      </span>
-                    </button>
+                    {/* Premium enterprise-styled button */}
+                    <div className="group/btn relative inline-block">
+                      {/* Glow effect behind button */}
+                      <div className="absolute inset-0 rounded-lg opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300 pointer-events-none"
+                           style={{ boxShadow: '0 0 25px rgba(251, 113, 36, 0.35), 0 0 15px rgba(59, 130, 246, 0.2)' }}>
+                      </div>
+                      
+                      <button className="px-5 py-3 bg-gradient-to-r from-orange-500 via-orange-600 to-orange-500 rounded-lg text-white font-medium relative overflow-hidden border border-orange-400/50 shadow-[0_4px_12px_rgba(251,113,36,0.15)] transform transition-all duration-300 hover:-translate-y-1">
+                        {/* Corner accents matching card style */}
+                        <div className="absolute top-0 left-0 w-5 h-5 pointer-events-none">
+                          <div className="absolute top-0 left-0 w-2.5 h-2.5 border-t border-l border-white/30 rounded-tl-sm"></div>
+                        </div>
+                        <div className="absolute top-0 right-0 w-5 h-5 pointer-events-none">
+                          <div className="absolute top-0 right-0 w-2.5 h-2.5 border-t border-r border-white/30 rounded-tr-sm"></div>
+                        </div>
+                        <div className="absolute bottom-0 left-0 w-5 h-5 pointer-events-none">
+                          <div className="absolute bottom-0 left-0 w-2.5 h-2.5 border-b border-l border-white/30 rounded-bl-sm"></div>
+                        </div>
+                        <div className="absolute bottom-0 right-0 w-5 h-5 pointer-events-none">
+                          <div className="absolute bottom-0 right-0 w-2.5 h-2.5 border-b border-r border-white/30 rounded-br-sm"></div>
+                        </div>
+                        
+                        {/* Shine animation effect */}
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover/btn:opacity-100 transition-opacity"
+                             style={{
+                               clipPath: 'polygon(0 0, 30% 0, 50% 100%, 0% 100%)',
+                               transform: 'translateX(-100%)',
+                               animation: 'slideRightToLeft 2.5s ease-in-out infinite'
+                             }}>
+                        </div>
+                        
+                        <span className="relative z-10 flex items-center font-semibold drop-shadow-[0_1px_1px_rgba(0,0,0,0.2)]">
+                          Request Demo
+                          <div className="ml-2 w-5 h-5 rounded-full bg-white/10 border border-white/20 flex items-center justify-center opacity-70 group-hover/btn:opacity-100 transform group-hover/btn:translate-x-1 transition-all">
+                            <i className="fas fa-chevron-right text-[10px]"></i>
+                          </div>
+                        </span>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
               
               {/* Bottom reflection effect */}
-              <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2/3 h-[2px] bg-gradient-to-r from-transparent via-yellow-500/20 to-transparent rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
+              <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2/3 h-[2px] bg-gradient-to-r from-transparent via-orange-500/20 to-transparent rounded-full blur-[1px] opacity-0 group-hover/demo:opacity-100 transition-all duration-700"></div>
             </div>
           </div>
         </div>
