@@ -227,7 +227,7 @@ const ContactSection = () => {
                     <input 
                       type="text" 
                       id="firstName" 
-                      className={`w-full dark:bg-gradient-to-br dark:from-gray-800/95 dark:via-gray-900/95 dark:to-gray-800/95 bg-gray-100/90 border ${formErrors.firstName ? 'border-blue-500' : 'dark:border-gray-600/30 border-gray-300'} rounded-lg px-4 py-3 focus:outline-none dark:focus:border-amber-500/70 focus:border-amber-500 dark:text-white text-gray-800 relative z-10 transition-all duration-300 backdrop-blur-sm placeholder-gray-400/80`}
+                      className={`w-full bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 border ${formErrors.firstName ? 'border-blue-500' : 'border-gray-600/30'} rounded-lg px-4 py-3 focus:outline-none focus:border-orange-500/70 text-white relative z-10 transition-all duration-300 backdrop-blur-sm placeholder-gray-400/80`}
                       value={formData.firstName}
                       onChange={handleInputChange}
                       required
@@ -256,7 +256,7 @@ const ContactSection = () => {
                     <input 
                       type="text" 
                       id="lastName" 
-                      className={`w-full dark:bg-gradient-to-br dark:from-gray-800/95 dark:via-gray-900/95 dark:to-gray-800/95 bg-gray-100/90 border ${formErrors.lastName ? 'border-blue-500' : 'dark:border-gray-600/30 border-gray-300'} rounded-lg px-4 py-3 focus:outline-none dark:focus:border-amber-500/70 focus:border-amber-500 dark:text-white text-gray-800 relative z-10 transition-all duration-300 backdrop-blur-sm placeholder-gray-400/80`}
+                      className={`w-full bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 border ${formErrors.lastName ? 'border-blue-500' : 'border-gray-600/30'} rounded-lg px-4 py-3 focus:outline-none focus:border-orange-500/70 text-white relative z-10 transition-all duration-300 backdrop-blur-sm placeholder-gray-400/80`}
                       value={formData.lastName}
                       onChange={handleInputChange}
                       required
@@ -293,7 +293,7 @@ const ContactSection = () => {
                   <input 
                     type="email" 
                     id="email" 
-                    className={`w-full dark:bg-gradient-to-br dark:from-gray-800/95 dark:via-gray-900/95 dark:to-gray-800/95 bg-gray-100/90 border ${formErrors.email ? 'border-blue-500' : 'dark:border-gray-600/30 border-gray-300'} rounded-lg pl-10 pr-4 py-3 focus:outline-none dark:focus:border-amber-500/70 focus:border-amber-500 dark:text-white text-gray-800 relative z-10 transition-all duration-300 backdrop-blur-sm placeholder-gray-400/80`}
+                    className={`w-full bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 border ${formErrors.email ? 'border-blue-500' : 'border-gray-600/30'} rounded-lg pl-10 pr-4 py-3 focus:outline-none focus:border-orange-500/70 text-white relative z-10 transition-all duration-300 backdrop-blur-sm placeholder-gray-400/80`}
                     value={formData.email}
                     onChange={handleInputChange}
                     required
@@ -339,7 +339,7 @@ const ContactSection = () => {
                   <input 
                     type="tel" 
                     id="phone" 
-                    className="w-full dark:bg-gradient-to-br dark:from-gray-800/95 dark:via-gray-900/95 dark:to-gray-800/95 bg-gray-100/90 border dark:border-gray-600/30 border-gray-300 rounded-lg pl-10 pr-4 py-3 focus:outline-none dark:focus:border-amber-500/70 focus:border-amber-500 dark:text-white text-gray-800 relative z-10 transition-all duration-300 backdrop-blur-sm placeholder-gray-400/80"
+                    className="w-full bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 border border-gray-600/30 rounded-lg pl-10 pr-4 py-3 focus:outline-none focus:border-orange-500/70 text-white relative z-10 transition-all duration-300 backdrop-blur-sm placeholder-gray-400/80"
                     value={formData.phone}
                     onChange={handleInputChange}
                     placeholder="(000) 000-0000"
@@ -383,7 +383,7 @@ const ContactSection = () => {
                   <div className="relative">
                     <select 
                       id="interest" 
-                      className="w-full dark:bg-gradient-to-br dark:from-gray-800/95 dark:via-gray-900/95 dark:to-gray-800/95 bg-gray-100/90 border dark:border-gray-600/30 border-gray-300 rounded-lg pl-10 pr-10 py-3 focus:outline-none dark:focus:border-amber-500/70 focus:border-amber-500 dark:text-white text-gray-800 relative z-10 transition-all duration-300 backdrop-blur-sm appearance-none"
+                      className="w-full bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 border border-gray-600/30 rounded-lg pl-10 pr-10 py-3 focus:outline-none focus:border-orange-500/70 text-white relative z-10 transition-all duration-300 backdrop-blur-sm appearance-none"
                       value={formData.interest}
                       onChange={handleSelectChange}
                       required
@@ -436,7 +436,7 @@ const ContactSection = () => {
                     <textarea 
                       id="message" 
                       rows={5} 
-                      className="w-full dark:bg-gradient-to-br dark:from-gray-800/95 dark:via-gray-900/95 dark:to-gray-800/95 bg-gray-100/90 border dark:border-gray-600/30 border-gray-300 rounded-lg pl-10 pr-4 py-3 focus:outline-none dark:focus:border-amber-500/70 focus:border-amber-500 dark:text-white text-gray-800 relative z-10 transition-all duration-300 backdrop-blur-sm resize-none"
+                      className="w-full bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 border border-gray-600/30 rounded-lg pl-10 pr-4 py-3 focus:outline-none focus:border-orange-500/70 text-white relative z-10 transition-all duration-300 backdrop-blur-sm resize-none"
                       value={formData.message}
                       onChange={handleInputChange}
                       required
@@ -450,7 +450,7 @@ const ContactSection = () => {
                     
                     {/* Premium glow effect on focus */}
                     <div className="absolute inset-0 rounded-lg opacity-0 group-focus-within:opacity-100 transition-opacity duration-500 pointer-events-none">
-                      <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-amber-500/0 to-blue-500/0 dark:group-focus-within:from-amber-500/20 dark:group-focus-within:to-blue-500/20 opacity-0 group-focus-within:opacity-100 transition-opacity duration-300"></div>
+                      <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-amber-500/0 to-blue-500/0 group-focus-within:from-orange-500/20 group-focus-within:to-blue-500/20 opacity-0 group-focus-within:opacity-100 transition-opacity duration-300"></div>
                       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1/2 h-1 bg-gradient-to-r from-amber-500/0 to-blue-500/0 group-focus-within:from-amber-500/30 group-focus-within:to-blue-500/30 rounded-full blur-md opacity-0 group-focus-within:opacity-100 transition-opacity duration-300"></div>
                     </div>
                   </div>
