@@ -403,11 +403,11 @@ const ContactSection = () => {
                     </div>
                     
                     {/* Animated glow effect on focus */}
-                    <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-amber-500/0 to-blue-500/0 dark:group-focus-within:from-amber-500/10 dark:group-focus-within:to-blue-500/10 opacity-0 group-focus-within:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+                    <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-amber-500/0 to-blue-500/0 group-focus-within:from-orange-500/10 group-focus-within:to-blue-500/10 opacity-0 group-focus-within:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
                   </div>
                   
                   {/* Enhanced hover effect */}
-                  <div className="absolute inset-0 rounded-lg dark:bg-gradient-to-r dark:from-amber-500/5 dark:to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+                  <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-orange-500/5 to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
                 </div>
               </div>
               
@@ -456,7 +456,7 @@ const ContactSection = () => {
                   </div>
                   
                   {/* Enhanced hover effect */}
-                  <div className="absolute inset-0 rounded-lg dark:bg-gradient-to-r dark:from-amber-500/5 dark:to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+                  <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-orange-500/5 to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
                 </div>
                 
                 {/* Helper text */}
@@ -489,7 +489,7 @@ const ContactSection = () => {
             {/* Ambient blue glow for the card */}
             <div className="absolute -bottom-10 right-1/2 transform translate-x-1/2 w-3/4 h-20 bg-gradient-to-r from-blue-500/0 via-blue-500/20 to-blue-500/0 blur-[100px] rounded-full"></div>
             
-            <div className="relative dark:bg-gradient-to-br dark:from-gray-900/95 dark:via-gray-950/95 dark:to-gray-900/95 bg-white/90 backdrop-blur-xl rounded-lg overflow-hidden h-full border-0 shadow-[0_10px_50px_rgba(0,0,0,0.5)]">
+            <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/98 to-black/95 backdrop-blur-xl rounded-lg overflow-hidden h-full border-0 shadow-[0_10px_50px_rgba(0,0,0,0.5)]">
               {/* Enterprise level gradient border */}
               <div className="absolute inset-0 p-0.5 rounded-lg bg-gradient-to-r from-blue-500/50 via-cyan-400/30 to-blue-500/50 opacity-70"></div>
               
