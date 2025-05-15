@@ -124,9 +124,9 @@ const FAQSection = ({ faqs }: FAQProps) => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-20">
           {faqs.map((category, categoryIdx) => {
             return (
-              <div key={categoryIdx} className="group relative">
+              <div key={categoryIdx} className="group relative h-full">
                 {/* Premium styled FAQ category card */}
-                <div className="p-4 bg-gradient-to-br from-gray-900/90 via-gray-950/90 to-black/90 backdrop-blur-md rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.5)] relative overflow-hidden">
+                <div className="p-4 bg-gradient-to-br from-gray-900/90 via-gray-950/90 to-black/90 backdrop-blur-md rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.5)] relative overflow-hidden h-full min-h-[500px] flex flex-col">
                   {/* Enhanced outer glow effect */}
                   <div className="absolute -inset-1 rounded-xl opacity-70 z-0" 
                      style={{ boxShadow: '0 0 20px 2px rgba(59,130,246,0.3), 0 0 15px 2px rgba(249,115,22,0.3)' }}>
@@ -180,7 +180,7 @@ const FAQSection = ({ faqs }: FAQProps) => {
                   </h3>
                   
                   {/* FAQ Questions for this category */}
-                  <div className="space-y-3 relative z-10">
+                  <div className="space-y-3 relative z-10 flex-grow">
                     {category.questions.map((faq, questionIdx) => {
                       // Create a unique key for this question
                       const questionKey = `${categoryIdx}-${questionIdx}`;
