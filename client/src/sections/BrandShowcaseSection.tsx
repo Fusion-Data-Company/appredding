@@ -185,15 +185,22 @@ const BrandShowcaseSection = () => {
             {/* Text side with premium enhancements */}
             <div className="order-1 md:order-2">
               <div className="relative group transform hover:scale-[1.02] transition-all duration-500 hover:-translate-y-1 hover:z-10">
-                {/* Basic card with minimal styling - completely rebuilt */}
-                <div className="relative bg-black rounded-xl p-8 z-10 space-y-8 min-h-[calc(896px + 48px)]">
+                {/* Card with grey gradient background */}
+                <div className="relative bg-gradient-to-br from-black/95 via-gray-900/95 to-black/95 rounded-xl p-8 z-10 space-y-8 min-h-[calc(896px + 48px)]">
                   
-                  {/* Simple orange border */}
-                  <div className="absolute inset-0 rounded-xl border-2 border-orange-500/50"></div>
+                  {/* Enhanced blue and orange glowing border */}
+                  <div className="absolute inset-0 rounded-xl border border-transparent bg-gradient-to-r from-orange-500/30 via-blue-500/40 to-orange-500/30 z-0 opacity-90 overflow-hidden">
+                    <div className="absolute inset-px rounded-[10px] bg-black"></div>
+                  </div>
                   
-                  {/* Subtle ambient glow */}
-                  <div className="absolute -top-20 -right-20 w-72 h-72 bg-orange-500/10 rounded-full filter blur-[100px] opacity-70"></div>
-                  <div className="absolute -bottom-20 -left-20 w-72 h-72 bg-blue-500/15 rounded-full filter blur-[100px] opacity-70"></div>
+                  {/* Animated subtle glow effect in the border */}
+                  <div className="absolute inset-0 rounded-xl overflow-hidden">
+                    <div className="absolute inset-0 opacity-40 bg-gradient-to-r from-orange-500/0 via-blue-500/50 to-orange-500/0 blur-sm animate-pulse-slow"></div>
+                  </div>
+                  
+                  {/* Enhanced ambient glow */}
+                  <div className="absolute -top-20 -right-20 w-72 h-72 bg-orange-500/20 rounded-full filter blur-[100px] opacity-70 animate-pulse-slow"></div>
+                  <div className="absolute -bottom-20 -left-20 w-72 h-72 bg-blue-500/25 rounded-full filter blur-[100px] opacity-70 animate-pulse-slow-delayed"></div>
                   
                   {/* Premium badge */}
                   <div className="relative w-full -mt-4">
@@ -202,39 +209,39 @@ const BrandShowcaseSection = () => {
                     </PremiumBadge>
                   </div>
                   
-                  {/* Feature item 1 */}
-                  <div className="relative p-4 mt-8">
+                  {/* Feature item 1 - Enhanced with subtle hover effects */}
+                  <div className="relative p-4 mt-8 group/item hover:bg-gradient-to-r hover:from-orange-950/10 hover:to-blue-950/10 rounded-lg transition-all duration-300">
                     <div className="text-center mb-4">
-                      <h3 className="text-2xl font-semibold bg-gradient-to-r from-orange-400 via-amber-300 to-blue-400 bg-clip-text text-transparent">
+                      <h3 className="text-2xl font-semibold bg-gradient-to-r from-orange-400 via-amber-300 to-blue-400 bg-clip-text text-transparent drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">
                         Enterprise-Grade Protection
                       </h3>
-                      <div className="w-24 h-0.5 bg-orange-500 mx-auto mt-3"></div>
+                      <div className="w-24 h-0.5 bg-gradient-to-r from-orange-500 to-blue-500 mx-auto mt-3 group-hover/item:w-32 transition-all duration-500"></div>
                     </div>
                     <p className="text-gray-300 text-center">
                       Praetorian SmartCoat's premium protective coating systems offer unmatched performance for industrial, commercial, and residential applications.
                     </p>
                   </div>
                   
-                  {/* Feature item 2 */}
-                  <div className="relative p-4 mt-4">
+                  {/* Feature item 2 - Enhanced with subtle hover effects */}
+                  <div className="relative p-4 mt-8 group/item hover:bg-gradient-to-r hover:from-orange-950/10 hover:to-blue-950/10 rounded-lg transition-all duration-300">
                     <div className="text-center mb-4">
-                      <h3 className="text-2xl font-semibold bg-gradient-to-r from-orange-400 via-amber-300 to-blue-400 bg-clip-text text-transparent">
+                      <h3 className="text-2xl font-semibold bg-gradient-to-r from-orange-400 via-amber-300 to-blue-400 bg-clip-text text-transparent drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">
                         Advanced Ceramic Technology
                       </h3>
-                      <div className="w-24 h-0.5 bg-orange-500 mx-auto mt-3"></div>
+                      <div className="w-24 h-0.5 bg-gradient-to-r from-orange-500 to-blue-500 mx-auto mt-3 group-hover/item:w-32 transition-all duration-500"></div>
                     </div>
                     <p className="text-gray-300 text-center">
                       Utilizing ceramic microsphere technology developed from aerospace research, our coatings create an impenetrable protective barrier with exceptional durability.
                     </p>
                   </div>
                   
-                  {/* Feature item 3 */}
-                  <div className="relative p-4 mt-4">
+                  {/* Feature item 3 - Enhanced with subtle hover effects */}
+                  <div className="relative p-4 mt-8 group/item hover:bg-gradient-to-r hover:from-orange-950/10 hover:to-blue-950/10 rounded-lg transition-all duration-300">
                     <div className="text-center mb-4">
-                      <h3 className="text-2xl font-semibold bg-gradient-to-r from-orange-400 via-amber-300 to-blue-400 bg-clip-text text-transparent">
+                      <h3 className="text-2xl font-semibold bg-gradient-to-r from-orange-400 via-amber-300 to-blue-400 bg-clip-text text-transparent drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">
                         Scientifically Verified Results
                       </h3>
-                      <div className="w-24 h-0.5 bg-orange-500 mx-auto mt-3"></div>
+                      <div className="w-24 h-0.5 bg-gradient-to-r from-orange-500 to-blue-500 mx-auto mt-3 group-hover/item:w-32 transition-all duration-500"></div>
                     </div>
                     <p className="text-gray-300 text-center">
                       Our products have been rigorously tested and certified to meet the highest standards of performance in fire resistance, thermal protection, and longevity.
