@@ -33,42 +33,43 @@ const TestimonialsSection = () => {
             </PremiumBadge>
           </div>
           
-          {/* Card with premium enterprise styling */}
-          <div className="relative group mx-auto max-w-4xl mb-10 inline-block transform hover:scale-[1.02] transition-all duration-700 hover:-translate-y-1 hover:z-10 hover:shadow-[0_0_30px_rgba(249,115,22,0.4)]">
-            <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/98 to-gray-900/95 rounded-xl p-8 z-10 backdrop-blur-xl">
-              {/* Premium dual-layer gradient border effect */}
-              <div className="absolute inset-0 rounded-xl border border-transparent bg-gradient-to-r from-orange-500/30 via-blue-500/40 to-orange-500/30 z-0 opacity-90 overflow-hidden">
-                <div className="absolute inset-px rounded-[10px] bg-black"></div>
-              </div>
-              
-              {/* Animated subtle glow effect in the border */}
-              <div className="absolute inset-0 rounded-xl overflow-hidden">
-                <div className="absolute inset-0 opacity-40 bg-gradient-to-r from-orange-500/0 via-blue-500/50 to-orange-500/0 blur-sm animate-pulse-slow"></div>
-              </div>
-              
-              {/* Edge glow effect to match other cards */}
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/20 via-blue-500/20 to-orange-500/20 rounded-xl blur-md opacity-80 group-hover:opacity-100 transition-opacity duration-500"></div>
+          {/* Card with premium enterprise styling matching Video Section */}
+          <div className="relative group mx-auto max-w-4xl mb-10 inline-block transform hover:scale-[1.02] transition-all duration-700 hover:-translate-y-1 hover:z-10">
+            {/* Multiple layered background effects - matching Video Section */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/40 via-blue-600/40 to-orange-600/40 rounded-xl blur-xl opacity-70 group-hover:opacity-100 group-hover:blur-xl transition-all duration-1000 animate-pulse-slow"></div>
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/80 via-blue-500/80 to-orange-500/80 rounded-xl blur-md opacity-90 group-hover:opacity-100 transition-all duration-500"></div>
+            
+            {/* Main card container - enhanced to match Video Section */}
+            <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black backdrop-blur-xl rounded-xl py-12 px-12 z-10 border border-orange-500/30 overflow-hidden group hover:shadow-[0_0_25px_rgba(249,115,22,0.3)] transition-shadow duration-500">
               
               {/* Enhanced ambient glow */}
               <div className="absolute -top-20 -right-20 w-72 h-72 bg-orange-500/20 rounded-full filter blur-[100px] opacity-70 animate-pulse-slow"></div>
               <div className="absolute -bottom-20 -left-20 w-72 h-72 bg-blue-500/25 rounded-full filter blur-[100px] opacity-70 animate-pulse-slow-delayed"></div>
               
-              {/* Corner accent squares */}
-              <div className="absolute top-4 right-4 w-12 h-12 z-10">
-                <div className="absolute right-0 top-0 w-6 h-6 border-r-2 border-t-2 border-orange-500/40 rounded-tr-md"></div>
-                <div className="absolute right-1 top-1 w-8 h-8 border-r border-t border-blue-500/30 rounded-tr-md"></div>
+              {/* Enhanced corner accent decorations - matching Video Section */}
+              <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none z-10">
+                <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-orange-500/70 rounded-tl-lg"></div>
+                <div className="absolute top-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
               </div>
-              <div className="absolute top-4 left-4 w-12 h-12 z-10">
-                <div className="absolute left-0 top-0 w-6 h-6 border-l-2 border-t-2 border-orange-500/40 rounded-tl-md"></div>
-                <div className="absolute left-1 top-1 w-8 h-8 border-l border-t border-blue-500/30 rounded-tl-md"></div>
+              <div className="absolute top-0 right-0 w-16 h-16 pointer-events-none z-10">
+                <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-blue-500/70 rounded-tr-lg"></div>
+                <div className="absolute top-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
               </div>
-              <div className="absolute bottom-4 right-4 w-12 h-12 z-10">
-                <div className="absolute right-0 bottom-0 w-6 h-6 border-r-2 border-b-2 border-orange-500/40 rounded-br-md"></div>
-                <div className="absolute right-1 bottom-1 w-8 h-8 border-r border-b border-amber-500/30 rounded-br-md"></div>
+              <div className="absolute bottom-0 left-0 w-16 h-16 pointer-events-none z-10">
+                <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-blue-500/70 rounded-bl-lg"></div>
+                <div className="absolute bottom-0 left-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
               </div>
-              <div className="absolute bottom-4 left-4 w-12 h-12 z-10">
-                <div className="absolute left-0 bottom-0 w-6 h-6 border-l-2 border-b-2 border-orange-500/40 rounded-bl-md"></div>
-                <div className="absolute left-1 bottom-1 w-8 h-8 border-l border-b border-amber-500/30 rounded-bl-md"></div>
+              <div className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none z-10">
+                <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-orange-500/70 rounded-br-lg"></div>
+                <div className="absolute bottom-0 right-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+              </div>
+              
+              {/* Additional corner accent with gradient areas for emphasis */}
+              <div className="absolute top-0 right-0 w-32 h-32 opacity-20 z-10">
+                <div className="absolute inset-0 bg-gradient-to-bl from-orange-500/40 to-blue-500/40 rounded-tr-xl blur-[2px]"></div>
+              </div>
+              <div className="absolute bottom-0 left-0 w-32 h-32 opacity-20 z-10">
+                <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/40 to-orange-500/40 rounded-bl-xl blur-[2px]"></div>
               </div>
               
               {/* Background blur text */}
@@ -124,23 +125,39 @@ const TestimonialsSection = () => {
         
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 gap-10">
-            {/* Testimonial card with enterprise-grade styling */}
-            <div className="group relative transform hover:scale-[1.02] transition-all duration-500 hover:-translate-y-1 hover:z-10 hover:shadow-[0_0_30px_rgba(249,115,22,0.4)]">
-              <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/98 to-gray-900/95 backdrop-blur-xl rounded-xl p-10 md:p-12 lg:p-14 z-10">
-                {/* Premium dual-layer gradient border effect */}
-                <div className="absolute inset-0 rounded-xl border border-transparent bg-gradient-to-r from-orange-500/30 via-blue-500/40 to-orange-500/30 z-0 opacity-90 overflow-hidden">
-                  <div className="absolute inset-px rounded-[10px] bg-black"></div>
+            {/* Testimonial card with enterprise-grade styling - matching the new standard */}
+            <div className="group relative transform hover:scale-[1.02] transition-all duration-700 hover:-translate-y-1 hover:z-10">
+              {/* Multiple layered background effects - matching new standard */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/40 via-blue-600/40 to-orange-600/40 rounded-xl blur-xl opacity-70 group-hover:opacity-100 group-hover:blur-xl transition-all duration-1000 animate-pulse-slow"></div>
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/80 via-blue-500/80 to-orange-500/80 rounded-xl blur-md opacity-90 group-hover:opacity-100 transition-all duration-500"></div>
+              
+              {/* Main card container - enhanced to match new standard */}
+              <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black backdrop-blur-xl rounded-xl p-10 md:p-12 lg:p-14 z-10 border border-orange-500/30 overflow-hidden hover:shadow-[0_0_25px_rgba(249,115,22,0.3)] transition-shadow duration-500">
+                
+                {/* Enhanced corner accent decorations - matching new standard */}
+                <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none z-10">
+                  <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-orange-500/70 rounded-tl-lg"></div>
+                  <div className="absolute top-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+                </div>
+                <div className="absolute top-0 right-0 w-16 h-16 pointer-events-none z-10">
+                  <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-blue-500/70 rounded-tr-lg"></div>
+                  <div className="absolute top-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
+                </div>
+                <div className="absolute bottom-0 left-0 w-16 h-16 pointer-events-none z-10">
+                  <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-blue-500/70 rounded-bl-lg"></div>
+                  <div className="absolute bottom-0 left-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
+                </div>
+                <div className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none z-10">
+                  <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-orange-500/70 rounded-br-lg"></div>
+                  <div className="absolute bottom-0 right-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
                 </div>
                 
-                {/* Edge glow effect */}
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/20 via-blue-500/20 to-orange-500/20 rounded-xl blur-md opacity-80 group-hover:opacity-100 transition-opacity duration-500"></div>
-                
-                {/* Corner accent decorations */}
-                <div className="absolute top-0 right-0 w-24 h-24 opacity-20">
-                  <div className="absolute inset-0 bg-gradient-to-bl from-orange-500/40 to-blue-600/40 rounded-tr-xl blur-[2px]"></div>
+                {/* Additional corner accent with gradient areas for emphasis */}
+                <div className="absolute top-0 right-0 w-32 h-32 opacity-20 z-10">
+                  <div className="absolute inset-0 bg-gradient-to-bl from-orange-500/40 to-blue-500/40 rounded-tr-xl blur-[2px]"></div>
                 </div>
-                <div className="absolute bottom-0 left-0 w-24 h-24 opacity-20">
-                  <div className="absolute inset-0 bg-gradient-to-tr from-orange-500/40 to-blue-600/40 rounded-bl-xl blur-[2px]"></div>
+                <div className="absolute bottom-0 left-0 w-32 h-32 opacity-20 z-10">
+                  <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/40 to-orange-500/40 rounded-bl-xl blur-[2px]"></div>
                 </div>
                 
                 {/* Rating stars with enhanced styling */}
