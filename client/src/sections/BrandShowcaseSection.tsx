@@ -186,8 +186,7 @@ const BrandShowcaseSection = () => {
             <div className="order-1 md:order-2">
               <div className="relative group transform hover:scale-[1.02] transition-all duration-500 hover:-translate-y-1 hover:z-10">
                 <div className="relative bg-gradient-to-br from-black/90 via-gray-950/95 to-black/90 backdrop-blur-xl rounded-xl p-8 shadow-[0_10px_50px_rgba(0,0,0,0.5)] z-10 space-y-8 border border-orange-500/10 min-h-[896px]">
-                  {/* Updated background gradient matching site style */}
-                  <div className="absolute -inset-px bg-gradient-to-r from-orange-500/10 via-blue-500/20 to-orange-500/10 rounded-xl blur-md"></div>
+                  {/* Background gradient removed */}
                   <div className="absolute inset-px rounded-xl bg-gradient-to-b from-black/90 via-gray-900/95 to-black/90"></div>
                   
                   {/* Premium gradient border - extended height by half an inch */}
