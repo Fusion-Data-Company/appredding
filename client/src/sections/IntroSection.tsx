@@ -22,23 +22,100 @@ const IntroSection = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/70" style={{ zIndex: 1 }}></div>
       <div className="container mx-auto px-4 relative" style={{ zIndex: 2 }}>
         <div className="max-w-5xl mx-auto text-center">
-          <div className="group relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-gray-900/95 backdrop-blur-xl rounded-xl border-0 py-14 px-10 md:px-16 mx-auto max-w-5xl mb-16 shadow-[0_10px_50px_rgba(0,0,0,0.5)] z-10 transform transition-all duration-500 hover:scale-[1.01]">
-            {/* Premium gradient border effect - Mixed variant */}
-            <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/50 via-transparent to-blue-400/50 opacity-70"></div>
+          {/* Main hero card with ultra-premium styling */}
+          <div className="group relative transform transition-all duration-500 hover:scale-[1.01] mx-auto max-w-5xl mb-16">
+            {/* Multiple layered background effects */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/40 via-blue-600/40 to-orange-600/40 rounded-xl blur-xl opacity-70 group-hover:opacity-100 group-hover:blur-xl transition-all duration-1000 animate-pulse-slow"></div>
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/80 via-blue-500/80 to-orange-500/80 rounded-xl blur-md opacity-90 group-hover:opacity-100 transition-all duration-500"></div>
             
-            {/* Inner highlight */}
-            <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
-            
-            {/* Subtle ambient glow that activates on hover */}
-            <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-30 transition-opacity duration-700 ease-in-out" 
-                style={{ background: "radial-gradient(circle at center, rgba(251,113,36,0.3), rgba(59,130,246,0.3), transparent 70%)" }}>
+            {/* Main card container */}
+            <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black backdrop-blur-xl rounded-xl py-14 px-10 md:px-16 z-10 border border-orange-500/30 overflow-hidden group hover:shadow-[0_0_25px_rgba(249,115,22,0.3)] transition-shadow duration-500">
+              {/* Subtle dots and squares pattern background in mixed colors */}
+              <div className="absolute inset-0 opacity-25 z-0">
+                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoMjMyLDEyMSw1OCwwLjMpIiBkPSJNMCAwaDJ2Mkgwem0yIDJoMnYySDJ6Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCBmaWxsPSJ1cmwoI2EpIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIi8+PC9zdmc+')]"></div>
+              </div>
+              
+              {/* Ambient glow effects - positioned away from text */}
+              <div className="absolute -top-80 -right-40 w-96 h-96 bg-orange-600/15 rounded-full filter blur-[120px] animate-pulse-slow-delayed"></div>
+              <div className="absolute -bottom-80 -left-40 w-96 h-96 bg-blue-500/20 rounded-full filter blur-[150px] animate-pulse-slow"></div>
+              
+              {/* Corner accent with gradient - top-right corner */}
+              <div className="absolute top-0 right-0 w-40 h-40 opacity-20 z-10">
+                <div className="absolute inset-0 bg-gradient-to-bl from-orange-500/40 to-blue-500/40 rounded-tr-xl blur-[2px]"></div>
+              </div>
+              
+              {/* Additional corner accent lines */}
+              <div className="absolute top-0 left-0 w-20 h-20 pointer-events-none z-10">
+                <div className="absolute top-0 left-0 w-10 h-10 border-t-2 border-l-2 border-orange-500/70 rounded-tl-lg"></div>
+                <div className="absolute top-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+              </div>
+              <div className="absolute top-0 right-0 w-20 h-20 pointer-events-none z-10">
+                <div className="absolute top-0 right-0 w-10 h-10 border-t-2 border-r-2 border-blue-500/70 rounded-tr-lg"></div>
+                <div className="absolute top-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
+              </div>
+              <div className="absolute bottom-0 left-0 w-20 h-20 pointer-events-none z-10">
+                <div className="absolute bottom-0 left-0 w-10 h-10 border-b-2 border-l-2 border-orange-500/70 rounded-bl-lg"></div>
+                <div className="absolute bottom-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+              </div>
+              <div className="absolute bottom-0 right-0 w-20 h-20 pointer-events-none z-10">
+                <div className="absolute bottom-0 right-0 w-10 h-10 border-b-2 border-r-2 border-blue-500/70 rounded-br-lg"></div>
+                <div className="absolute bottom-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
+              </div>
+              
+              {/* Main title with enhanced visual effects */}
+              <div className="relative mb-8 z-20">
+                {/* Background glow animation */}
+                <div className="absolute inset-0 bg-gradient-to-r from-orange-600/10 via-blue-500/20 to-orange-600/10 opacity-50 blur-xl animate-pulse-slow-delayed"></div>
+                
+                {/* Background blurred title */}
+                <div className="absolute inset-0 flex justify-center items-center text-6xl font-bold tracking-tight text-orange-900/10 blur-[5px] scale-110 opacity-50">
+                  NASA-Derived Technology
+                </div>
+                
+                {/* Main heading with improved z-index */}
+                <div className="shimmer-mixed-text font-bold text-4xl md:text-6xl tracking-tight relative z-20">
+                  <GradientHeading level={1} className="relative z-20 drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)]" variant="mixed">
+                    NASA-Derived Ceramic Coating Technology
+                  </GradientHeading>
+                </div>
+                
+                {/* Multiple text shadows for depth - reduced blur effects */}
+                <div className="absolute inset-0 flex justify-center items-center text-4xl md:text-6xl font-bold tracking-tight opacity-10 blur-[3px] text-orange-700/30 -z-10 transform scale-105">
+                  NASA-Derived Ceramic Coating Technology
+                </div>
+                
+                {/* Ambient light reflections */}
+                <div className="absolute top-0 left-0 right-0 h-[20%] bg-gradient-to-b from-white/10 to-transparent rounded-t-lg"></div>
+              </div>
+              
+              {/* Enhanced paragraph with animated accents and improved visibility */}
+              <div className="relative z-20">
+                <p className="text-gray-200 text-xl md:text-2xl max-w-3xl mx-auto font-medium relative">
+                  {/* Left animated accent */}
+                  <span className="absolute -left-6 top-1/2 transform -translate-y-1/2 w-1.5 h-28 bg-gradient-to-b from-orange-500/0 via-orange-500/70 to-orange-500/0 rounded-full animate-pulse-slow z-20"></span>
+                  
+                  Revolutionary triple-component system with perfect Class A fire protection and superior thermal insulation using vacuum-filled ceramic microsphere technology.
+                  
+                  {/* Right animated accent */}
+                  <span className="absolute -right-6 top-1/2 transform -translate-y-1/2 w-1.5 h-28 bg-gradient-to-b from-blue-500/0 via-blue-500/70 to-blue-500/0 rounded-full animate-pulse-slow-delayed z-20"></span>
+                </p>
+                
+                {/* Text shimmer animation on hover */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-700 z-10"
+                   style={{
+                     background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent)",
+                     backgroundSize: '200% 100%',
+                     animation: 'shimmer 2s infinite'
+                   }}>
+                </div>
+              </div>
+              
+              {/* Decorative horizontal line */}
+              <div className="absolute left-1/2 bottom-6 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-orange-600 via-amber-500 to-blue-600 rounded-full opacity-70 group-hover:w-48 transition-all duration-1000 shadow-[0_0_5px_rgba(251,113,36,0.6)]"></div>
             </div>
-            <GradientHeading level={1} className="text-4xl md:text-6xl mb-8" variant="mixed">
-              NASA-Derived Ceramic Coating Technology
-            </GradientHeading>
-            <p className="text-gray-300 text-xl md:text-2xl max-w-3xl mx-auto">
-              Revolutionary triple-component system with perfect Class A fire protection and superior thermal insulation using vacuum-filled ceramic microsphere technology.
-            </p>
+            
+            {/* Subtle bottom reflection */}
+            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2/3 h-[2px] bg-gradient-to-r from-transparent via-white/10 to-transparent rounded-full blur-sm"></div>
           </div>
           
           {/* Bottom reflection effect */}
