@@ -466,12 +466,12 @@ const IndustryApplications = () => {
                         
                         return (
                           <div key={index} className="group relative transform transition-all duration-500 hover:scale-105 hover:z-10">
-                            {/* Multiple layered background effects - Theme variant */}
-                            <div className="absolute -inset-0 bg-gradient-to-r from-orange-600/90 via-red-600/80 to-orange-600/90 rounded-xl blur-[2px] opacity-90 group-hover:opacity-100 group-hover:blur-[1px] transition-all duration-500 animate-pulse-slow"></div>
-                            <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/90 via-amber-500/90 to-red-500/90 rounded-xl blur-[1px] opacity-100 group-hover:opacity-100 transition-all duration-300"></div>
-                            
                             {/* Premium Card Container */}
                             <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-gray-900/95 backdrop-blur-xl rounded-xl p-5 shadow-[0_10px_50px_rgba(0,0,0,0.5)] z-10 h-full border border-orange-500/30">
+                              
+                              {/* Background glow effects BEHIND the content */}
+                              <div className="absolute -inset-4 -z-10 bg-gradient-to-r from-orange-600/70 via-red-600/60 to-orange-600/70 rounded-xl blur-[3px] opacity-60 group-hover:opacity-80 group-hover:blur-[2px] transition-all duration-500 animate-pulse-slow"></div>
+                              <div className="absolute -inset-2 -z-10 bg-gradient-to-r from-orange-500/70 via-amber-500/70 to-red-500/70 rounded-xl blur-[1.5px] opacity-60 group-hover:opacity-80 transition-all duration-300"></div>
                               {/* Premium gradient border effect - Theme variant with index-based opacity variation - moved inside */}
                               <div className={`absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r ${themeGradient} opacity-30`} style={{ opacity: 0.3 + (index % 3) * 0.05 }}></div>
                               
@@ -552,12 +552,12 @@ const IndustryApplications = () => {
                     
                     {/* Premium Enterprise Case Study Container */}
                     <div className="relative group">
-                      {/* Multiple layered background effects - Theme variant */}
-                      <div className="absolute -inset-0 bg-gradient-to-r from-orange-600/90 via-red-600/80 to-orange-600/90 rounded-xl blur-[2px] opacity-90 group-hover:opacity-100 group-hover:blur-[1px] transition-all duration-500 animate-pulse-slow"></div>
-                      <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/90 via-amber-500/90 to-red-500/90 rounded-xl blur-[1px] opacity-100 group-hover:opacity-100 transition-all duration-300"></div>
-                      
                       {/* Premium Card Container */}
                       <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-gray-900/95 backdrop-blur-xl rounded-xl p-8 shadow-[0_20px_80px_rgba(0,0,0,0.6)] z-10 border border-orange-500/30">
+                        
+                        {/* Background glow effects BEHIND the content */}
+                        <div className="absolute -inset-4 -z-10 bg-gradient-to-r from-orange-600/70 via-red-600/60 to-orange-600/70 rounded-xl blur-[3px] opacity-60 group-hover:opacity-80 group-hover:blur-[2px] transition-all duration-500 animate-pulse-slow"></div>
+                        <div className="absolute -inset-2 -z-10 bg-gradient-to-r from-orange-500/70 via-amber-500/70 to-red-500/70 rounded-xl blur-[1.5px] opacity-60 group-hover:opacity-80 transition-all duration-300"></div>
                         {/* Premium gradient border effect - Theme-based styling - reduced opacity */}
                         <div className={`absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r ${
                           app.id === "marinas" || app.id === "pools"
@@ -619,12 +619,12 @@ const IndustryApplications = () => {
                           <div className="md:w-2/3 space-y-5">
                             {/* Challenge card */}
                             <div className="group relative">
-                              {/* Multiple layered background effects - Theme variant */}
-                              <div className="absolute -inset-0 bg-gradient-to-r from-orange-600/90 via-red-600/80 to-orange-600/90 rounded-lg blur-[2px] opacity-90 group-hover:opacity-100 group-hover:blur-[1px] transition-all duration-500 animate-pulse-slow"></div>
-                              <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/90 via-amber-500/90 to-red-500/90 rounded-lg blur-[1px] opacity-100 group-hover:opacity-100 transition-all duration-300"></div>
-                              
                               {/* Premium Card Container */}
                               <div className="relative bg-gradient-to-br from-gray-900/90 via-gray-950/90 to-gray-900/90 backdrop-blur-xl rounded-lg p-4 shadow-[0_8px_30px_rgba(0,0,0,0.3)] z-10 border border-orange-500/30">
+                                
+                                {/* Background glow effects BEHIND the content */}
+                                <div className="absolute -inset-4 -z-10 bg-gradient-to-r from-orange-600/70 via-red-600/60 to-orange-600/70 rounded-lg blur-[3px] opacity-60 group-hover:opacity-80 group-hover:blur-[2px] transition-all duration-500 animate-pulse-slow"></div>
+                                <div className="absolute -inset-2 -z-10 bg-gradient-to-r from-orange-500/70 via-amber-500/70 to-red-500/70 rounded-lg blur-[1.5px] opacity-60 group-hover:opacity-80 transition-all duration-300"></div>
                                 {/* Premium gradient border effect - reduced opacity */}
                                 <div className={`absolute inset-0 p-0.5 rounded-lg bg-gradient-to-r ${
                                   app.id === "marinas" || app.id === "pools"
@@ -676,8 +676,12 @@ const IndustryApplications = () => {
                             {/* Solution card */}
                             <div className="group relative">
                               {/* Premium Card Container */}
-                              <div className="relative bg-gradient-to-br from-gray-900/90 via-gray-950/90 to-gray-900/90 backdrop-blur-xl rounded-lg p-4 shadow-[0_8px_30px_rgba(0,0,0,0.3)] z-10">
-                                {/* Premium gradient border effect */}
+                              <div className="relative bg-gradient-to-br from-gray-900/90 via-gray-950/90 to-gray-900/90 backdrop-blur-xl rounded-lg p-4 shadow-[0_8px_30px_rgba(0,0,0,0.3)] z-10 border border-orange-500/30">
+                              
+                                {/* Background glow effects BEHIND the content */}
+                                <div className="absolute -inset-4 -z-10 bg-gradient-to-r from-orange-600/70 via-red-600/60 to-orange-600/70 rounded-lg blur-[3px] opacity-60 group-hover:opacity-80 group-hover:blur-[2px] transition-all duration-500 animate-pulse-slow"></div>
+                                <div className="absolute -inset-2 -z-10 bg-gradient-to-r from-orange-500/70 via-amber-500/70 to-red-500/70 rounded-lg blur-[1.5px] opacity-60 group-hover:opacity-80 transition-all duration-300"></div>
+                                {/* Premium gradient border effect - reduced opacity */}
                                 <div className={`absolute inset-0 p-0.5 rounded-lg bg-gradient-to-r ${
                                   app.id === "marinas" || app.id === "pools"
                                     ? "from-blue-500/30 via-transparent to-cyan-500/30" 
@@ -728,7 +732,11 @@ const IndustryApplications = () => {
                             {/* Results card */}
                             <div className="group relative">
                               {/* Premium Card Container */}
-                              <div className="relative bg-gradient-to-br from-gray-900/90 via-gray-950/90 to-gray-900/90 backdrop-blur-xl rounded-lg p-4 shadow-[0_8px_30px_rgba(0,0,0,0.3)] z-10">
+                              <div className="relative bg-gradient-to-br from-gray-900/90 via-gray-950/90 to-gray-900/90 backdrop-blur-xl rounded-lg p-4 shadow-[0_8px_30px_rgba(0,0,0,0.3)] z-10 border border-orange-500/30">
+                              
+                                {/* Background glow effects BEHIND the content */}
+                                <div className="absolute -inset-4 -z-10 bg-gradient-to-r from-orange-600/70 via-red-600/60 to-orange-600/70 rounded-lg blur-[3px] opacity-60 group-hover:opacity-80 group-hover:blur-[2px] transition-all duration-500 animate-pulse-slow"></div>
+                                <div className="absolute -inset-2 -z-10 bg-gradient-to-r from-orange-500/70 via-amber-500/70 to-red-500/70 rounded-lg blur-[1.5px] opacity-60 group-hover:opacity-80 transition-all duration-300"></div>
                                 {/* Premium gradient border effect */}
                                 <div className={`absolute inset-0 p-0.5 rounded-lg bg-gradient-to-r ${
                                   app.id === "marinas" || app.id === "pools"
