@@ -196,10 +196,10 @@ const PremiumButton = forwardRef<HTMLButtonElement, PremiumButtonProps>(
               <div className="absolute top-0 left-0 w-2 h-2 bg-orange-500/70 rounded-full blur-[1px] opacity-60 group-hover:opacity-100 transition-opacity duration-300"></div>
               <div className="absolute bottom-0 right-0 w-2 h-2 bg-orange-500/70 rounded-full blur-[1px] opacity-60 group-hover:opacity-100 transition-opacity duration-300"></div>
               
-              {/* Ambient glow that fades in on hover */}
-              <div className="absolute -inset-[2px] rounded-md bg-orange-500/20 blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-700" 
+              {/* Ambient glow that fades in on hover - toned down and slowed */}
+              <div className="absolute -inset-[2px] rounded-md bg-orange-500/10 blur-sm opacity-0 group-hover:opacity-70 transition-opacity duration-1000" 
                    style={{ 
-                     boxShadow: '0 0 8px 2px rgba(251, 113, 36, 0.4), 0 0 2px 0 rgba(255, 255, 255, 0.2)' 
+                     boxShadow: '0 0 6px 1px rgba(251, 113, 36, 0.2), 0 0 2px 0 rgba(255, 255, 255, 0.1)' 
                    }}>
               </div>
             </>
