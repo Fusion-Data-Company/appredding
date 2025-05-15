@@ -52,8 +52,8 @@ const PhysicalMechanics: React.FC = () => {
     {
       title: "Ceramic Technology",
       description: "NASA-derived hollow vacuum microspheres create billions of microscopic air pockets that dramatically slow heat transfer and provide superior thermal insulation.",
-      icon: <Boxes className="h-6 w-6 text-blue-300" />,
-      iconBg: "bg-blue-900/50 border border-blue-500/30"
+      icon: <Boxes className="h-6 w-6 text-orange-300" />,
+      iconBg: "bg-gradient-to-r from-orange-900/50 to-blue-900/50 border border-orange-500/30"
     },
     {
       title: "Thermal Physics",
