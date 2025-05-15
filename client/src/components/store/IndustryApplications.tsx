@@ -664,11 +664,8 @@ const IndustryApplications = () => {
                             {/* Solution card */}
                             <div className="group relative">
                               {/* Premium Card Container */}
-                              <div className="relative bg-gradient-to-br from-gray-900/90 via-gray-950/90 to-gray-900/90 backdrop-blur-xl rounded-lg p-4 shadow-[0_8px_30px_rgba(0,0,0,0.3)] z-10 border border-orange-500/30">
+                              <div className="relative bg-gradient-to-br from-gray-900/90 via-gray-950/90 to-gray-900/90 backdrop-blur-xl rounded-lg p-4 shadow-[0_8px_30px_rgba(0,0,0,0.3)] z-10 ">
                               
-                                {/* Background glow effects BEHIND the content */}
-                                <div className="absolute -inset-4 -z-10 bg-gradient-to-r from-orange-600/70 via-red-600/60 to-orange-600/70 rounded-lg blur-[3px] opacity-60 group-hover:opacity-80 group-hover:blur-[2px] transition-all duration-500 animate-pulse-slow"></div>
-                                <div className="absolute -inset-2 -z-10 bg-gradient-to-r from-orange-500/70 via-amber-500/70 to-red-500/70 rounded-lg blur-[1.5px] opacity-60 group-hover:opacity-80 transition-all duration-300"></div>
                                 {/* Premium gradient border effect - reduced opacity */}
                                 <div className={`absolute inset-0 p-0.5 rounded-lg bg-gradient-to-r ${
                                   app.id === "marinas" || app.id === "pools"
@@ -720,11 +717,9 @@ const IndustryApplications = () => {
                             {/* Results card */}
                             <div className="group relative">
                               {/* Premium Card Container */}
-                              <div className="relative bg-gradient-to-br from-gray-900/90 via-gray-950/90 to-gray-900/90 backdrop-blur-xl rounded-lg p-4 shadow-[0_8px_30px_rgba(0,0,0,0.3)] z-10 border border-orange-500/30">
+                              <div className="relative bg-gradient-to-br from-gray-900/90 via-gray-950/90 to-gray-900/90 backdrop-blur-xl rounded-lg p-4 shadow-[0_8px_30px_rgba(0,0,0,0.3)] z-10 ">
                               
                                 {/* Background glow effects BEHIND the content */}
-                                <div className="absolute -inset-4 -z-10 bg-gradient-to-r from-orange-600/70 via-red-600/60 to-orange-600/70 rounded-lg blur-[3px] opacity-60 group-hover:opacity-80 group-hover:blur-[2px] transition-all duration-500 animate-pulse-slow"></div>
-                                <div className="absolute -inset-2 -z-10 bg-gradient-to-r from-orange-500/70 via-amber-500/70 to-red-500/70 rounded-lg blur-[1.5px] opacity-60 group-hover:opacity-80 transition-all duration-300"></div>
                                 {/* Premium gradient border effect */}
                                 <div className={`absolute inset-0 p-0.5 rounded-lg bg-gradient-to-r ${
                                   app.id === "marinas" || app.id === "pools"
