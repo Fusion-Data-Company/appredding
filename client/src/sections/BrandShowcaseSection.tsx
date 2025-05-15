@@ -184,7 +184,7 @@ const BrandShowcaseSection = () => {
             
             {/* Text side with premium enhancements */}
             <div className="order-1 md:order-2">
-              <div className="relative group transform hover:scale-[1.02] transition-all duration-500 hover:-translate-y-1 hover:z-10">
+              <div className="relative group transform hover:scale-[1.02] transition-all duration-500 hover:-translate-y-1 hover:z-10 hover:shadow-[0_0_30px_rgba(249,115,22,0.4)]">
                 {/* Card with grey gradient background */}
                 <div className="relative bg-gradient-to-br from-black/95 via-gray-900/95 to-black/95 rounded-xl p-8 z-10 space-y-8 min-h-[calc(896px + 48px)]">
                   
@@ -197,6 +197,9 @@ const BrandShowcaseSection = () => {
                   <div className="absolute inset-0 rounded-xl overflow-hidden">
                     <div className="absolute inset-0 opacity-40 bg-gradient-to-r from-orange-500/0 via-blue-500/50 to-orange-500/0 blur-sm animate-pulse-slow"></div>
                   </div>
+                  
+                  {/* Edge glow effect to match other cards */}
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/20 via-blue-500/20 to-orange-500/20 rounded-xl blur-md opacity-80 group-hover:opacity-100 transition-opacity duration-500"></div>
                   
                   {/* Enhanced ambient glow */}
                   <div className="absolute -top-20 -right-20 w-72 h-72 bg-orange-500/20 rounded-full filter blur-[100px] opacity-70 animate-pulse-slow"></div>
