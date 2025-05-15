@@ -166,17 +166,17 @@ const FeaturesSection = () => {
               </div>
               
               {/* Premium badge with gray styling */}
-              <div className="absolute -top-5 left-1/2 -translate-x-1/2 flex z-50">
-                <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-gray-900/95 via-gray-950/95 to-black border border-gray-500/40 shadow-lg relative transition-all duration-500 hover:scale-105">
+              <div className="absolute -top-5 left-1/2 -translate-x-1/2 flex z-[100]">
+                <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-orange-950/95 via-primary-950/95 to-blue-950/95 border border-orange-500/40 shadow-lg relative transition-all duration-500 hover:scale-105">
                   {/* Badge icon */}
                   <div className="mr-2 relative">
-                    <svg className="h-5 w-5 text-gray-300 relative z-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                    <svg className="h-5 w-5 text-orange-300 relative z-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M12 22a9.5 9.5 0 0 0 3.09-18.49A4.5 4.5 0 1 0 12 8.5a4.5 4.5 0 1 0-3.09-9.01A9.5 9.5 0 0 0 12 22z"></path>
                     </svg>
                   </div>
                   
                   {/* Badge text with gray styling */}
-                  <span className="text-gray-300 text-sm font-medium tracking-wide">
+                  <span className="text-blue-300 text-sm font-medium tracking-wide">
                     NASA TECHNOLOGY
                   </span>
                 </div>
