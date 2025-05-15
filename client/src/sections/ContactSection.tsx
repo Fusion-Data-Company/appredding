@@ -156,7 +156,7 @@ const ContactSection = () => {
             {/* Premium card container for heading - extends behind title */}
             <div className="absolute -top-12 inset-x-0 h-60 bg-gradient-to-br from-gray-800/95 via-gray-900/95 to-gray-800/95 backdrop-blur-md rounded-t-xl z-0">
               {/* Premium gradient border effect - top edges only */}
-              <div className="absolute inset-0 rounded-t-xl bg-gradient-to-r from-orange-500/50 via-transparent to-red-500/50 opacity-70" style={{ maskImage: 'linear-gradient(to bottom, black 20%, transparent 100%)' }}></div>
+              <div className="absolute inset-0 rounded-t-xl bg-gradient-to-r from-orange-500/50 via-transparent to-blue-500/50 opacity-70" style={{ maskImage: 'linear-gradient(to bottom, black 20%, transparent 100%)' }}></div>
               
               {/* Inner highlight */}
               <div className="absolute inset-0 rounded-t-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
@@ -168,7 +168,7 @@ const ContactSection = () => {
             <div className="relative mb-8 flex justify-center w-full">
               <div className="absolute -inset-4 bg-gradient-to-r from-orange-500 via-amber-400 to-orange-500 rounded-lg blur-lg opacity-30 dark:opacity-40 z-10"></div>
               <h2 
-                className="relative z-20 text-center bg-clip-text text-transparent bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 font-extrabold tracking-tight py-2" 
+                className="relative z-20 text-center bg-clip-text text-transparent bg-gradient-to-r from-amber-400 via-orange-500 to-blue-500 font-extrabold tracking-tight py-2" 
                 style={{ 
                   fontSize: '3.25rem',
                   textShadow: '0 1px 8px rgba(255,150,0,0.3)',
@@ -190,17 +190,17 @@ const ContactSection = () => {
             
             <form className="space-y-6 bg-gradient-to-br from-gray-800/95 via-gray-900/95 to-gray-800/95 backdrop-blur-md rounded-xl p-8 border-0 relative shadow-[0_10px_50px_rgba(0,0,0,0.5)]" onSubmit={handleSubmit}>
               {/* Premium gradient border effect */}
-              <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/50 via-red-500/30 to-orange-500/50 opacity-70"></div>
+              <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/50 via-blue-500/30 to-orange-500/50 opacity-70"></div>
               
               {/* Animated corner accents - premium effect */}
               <div className="absolute top-0 left-0 w-16 h-16 opacity-40">
-                <div className="absolute inset-0 bg-gradient-to-br from-amber-500/40 to-red-600/30 rounded-tl-xl blur-[2px]"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-amber-500/40 to-blue-600/30 rounded-tl-xl blur-[2px]"></div>
               </div>
               <div className="absolute top-0 right-0 w-16 h-16 opacity-40">
-                <div className="absolute inset-0 bg-gradient-to-bl from-amber-500/40 to-red-600/30 rounded-tr-xl blur-[2px]"></div>
+                <div className="absolute inset-0 bg-gradient-to-bl from-amber-500/40 to-blue-600/30 rounded-tr-xl blur-[2px]"></div>
               </div>
               <div className="absolute bottom-0 left-0 w-16 h-16 opacity-40">
-                <div className="absolute inset-0 bg-gradient-to-tr from-red-600/30 to-amber-500/40 rounded-bl-xl blur-[2px]"></div>
+                <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/30 to-amber-500/40 rounded-bl-xl blur-[2px]"></div>
               </div>
               <div className="absolute bottom-0 right-0 w-16 h-16 opacity-40">
                 <div className="absolute inset-0 bg-gradient-to-tl from-red-600/30 to-amber-500/40 rounded-br-xl blur-[2px]"></div>

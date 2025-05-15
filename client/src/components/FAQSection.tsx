@@ -69,15 +69,15 @@ const FAQSection = ({ faqs }: FAQProps) => {
             {/* Corner accent squares - TOP RIGHT */}
             <div className="absolute top-4 right-4 w-12 h-12 z-10">
               <div className="absolute right-0 top-0 w-6 h-6 border-r-2 border-t-2 border-orange-500/40 rounded-tr-md"></div>
-              <div className="absolute right-1 top-1 w-8 h-8 border-r border-t border-amber-500/30 rounded-tr-md"></div>
+              <div className="absolute right-1 top-1 w-8 h-8 border-r border-t border-blue-500/30 rounded-tr-md"></div>
               <div className="absolute right-2 top-2 w-4 h-4 bg-gradient-to-br from-orange-500/30 to-blue-500/5 rounded-tr-sm filter blur-[1px]"></div>
             </div>
             
             {/* Corner accent squares - TOP LEFT */}
             <div className="absolute top-4 left-4 w-12 h-12 z-10">
               <div className="absolute left-0 top-0 w-6 h-6 border-l-2 border-t-2 border-orange-500/40 rounded-tl-md"></div>
-              <div className="absolute left-1 top-1 w-8 h-8 border-l border-t border-amber-500/30 rounded-tl-md"></div>
-              <div className="absolute left-2 top-2 w-4 h-4 bg-gradient-to-bl from-orange-500/30 to-amber-500/5 rounded-tl-sm filter blur-[1px]"></div>
+              <div className="absolute left-1 top-1 w-8 h-8 border-l border-t border-blue-500/30 rounded-tl-md"></div>
+              <div className="absolute left-2 top-2 w-4 h-4 bg-gradient-to-bl from-orange-500/30 to-blue-500/5 rounded-tl-sm filter blur-[1px]"></div>
             </div>
             
             {/* Corner accent squares - BOTTOM RIGHT */}
