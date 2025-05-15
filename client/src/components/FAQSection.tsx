@@ -199,16 +199,16 @@ const FAQSection = ({ faqs }: FAQProps) => {
             // Define themes as an array instead of an object with numeric keys
             const themes: ThemeConfig[] = [
               { // Fire theme
-                borderGradient: "from-orange-500/60 via-red-600/30 to-red-500/60",
+                borderGradient: "from-orange-500/60 via-blue-600/30 to-orange-500/60",
                 textGradient: "from-orange-400 via-amber-300 to-orange-400",
-                iconGradient: "from-amber-400 via-orange-500 to-red-600",
-                iconShadow: "0 0 30px rgba(251,113,36,0.7), 0 0 15px rgba(220,38,38,0.5)",
-                ambientGlow: "radial-gradient(circle at center, rgba(251,113,36,0.2) 0%, rgba(220,38,38,0.1) 40%, transparent 70%)",
-                cornerAccent: "from-orange-500/40 to-red-600/40",
-                questionBorder: "from-orange-500/60 via-amber-600/30 to-red-500/60",
+                iconGradient: "from-amber-400 via-orange-500 to-blue-600",
+                iconShadow: "0 0 30px rgba(251,113,36,0.7), 0 0 15px rgba(59,130,246,0.5)",
+                ambientGlow: "radial-gradient(circle at center, rgba(251,113,36,0.2) 0%, rgba(59,130,246,0.1) 40%, transparent 70%)",
+                cornerAccent: "from-orange-500/40 to-blue-600/40",
+                questionBorder: "from-orange-500/60 via-amber-600/30 to-blue-500/60",
                 answerGradient: "from-gray-900/90 to-gray-800/90",
-                answerBorder: "from-orange-600/40 to-red-600/40",
-                hoverAccent: "from-orange-500/30 to-red-500/30"
+                answerBorder: "from-orange-600/40 to-blue-600/40",
+                hoverAccent: "from-orange-500/30 to-blue-500/30"
               },
               { // Blue theme
                 borderGradient: "from-blue-500/60 via-cyan-500/30 to-blue-600/60",
@@ -244,15 +244,15 @@ const FAQSection = ({ faqs }: FAQProps) => {
                 {/* Premium Card Container with enhanced styling */}
                 <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/98 to-gray-900/95 backdrop-blur-xl rounded-xl p-8 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7)] z-10">
                   {/* Premium dual-layer gradient border effect */}
-                  <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/60 via-red-600/30 to-red-500/60 opacity-80"></div>
+                  <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/60 via-blue-600/30 to-orange-500/60 opacity-80"></div>
                   <div className={`absolute inset-[1px] p-0.5 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-30 pointer-events-none`}></div>
                   
                   {/* Corner accent decorations */}
                   <div className="absolute top-0 right-0 w-24 h-24 opacity-20">
-                    <div className="absolute inset-0 bg-gradient-to-bl from-orange-500/40 to-red-600/40 rounded-tr-xl blur-[2px]"></div>
+                    <div className="absolute inset-0 bg-gradient-to-bl from-orange-500/40 to-blue-600/40 rounded-tr-xl blur-[2px]"></div>
                   </div>
                   <div className="absolute bottom-0 left-0 w-24 h-24 opacity-20">
-                    <div className="absolute inset-0 bg-gradient-to-tr from-orange-500/40 to-red-600/40 rounded-bl-xl blur-[2px]"></div>
+                    <div className="absolute inset-0 bg-gradient-to-tr from-orange-500/40 to-blue-600/40 rounded-bl-xl blur-[2px]"></div>
                   </div>
                   
                   {/* Ambient glow effect */}
