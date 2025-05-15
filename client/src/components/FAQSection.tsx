@@ -43,82 +43,69 @@ const FAQSection = ({ faqs }: FAQProps) => {
       <div className="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
 
       <div className="container mx-auto px-4 relative z-20">
-        {/* Enterprise grade header card with premium styling */}
+        {/* Enterprise grade header card with premium styling to match Testimonials */}
         <div className="text-center mb-16">
-          <div className="relative inline-block">
-            {/* No badge as requested */}
+          <div className="relative group mx-auto max-w-4xl mb-10 inline-block transform hover:scale-[1.02] transition-all duration-700 hover:-translate-y-1 hover:z-10">
+            {/* Multiple layered background effects - matching "What Our Clients Say" */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/40 via-blue-600/40 to-orange-600/40 rounded-xl blur-xl opacity-70 group-hover:opacity-100 group-hover:blur-xl transition-all duration-1000 animate-pulse-slow"></div>
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/80 via-blue-500/80 to-orange-500/80 rounded-xl blur-md opacity-90 group-hover:opacity-100 transition-all duration-500"></div>
             
-            {/* Enhanced ambient glow effects - BEHIND the card */}
-            <div className="absolute -top-20 -right-20 w-72 h-72 bg-orange-600/30 rounded-full filter blur-[100px] opacity-80 animate-pulse-slow"></div>
-            <div className="absolute -bottom-20 -left-20 w-72 h-72 bg-blue-600/35 rounded-full filter blur-[100px] opacity-80 animate-pulse-slow-delayed"></div>
+            {/* Main card container - matching "What Our Clients Say" */}
+            <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black backdrop-blur-xl rounded-xl py-12 px-12 z-10 border border-orange-500/30 overflow-hidden group hover:shadow-[0_0_25px_rgba(249,115,22,0.3)] transition-shadow duration-500">
               
-            {/* Central glow - BEHIND the card */}
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3/4 h-40 bg-gradient-to-r from-orange-500/0 via-orange-500/40 to-orange-500/0 blur-[100px] rounded-full animate-pulse-slow"></div>
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3/4 h-40 bg-gradient-to-r from-blue-500/0 via-blue-500/40 to-blue-500/0 blur-[100px] rounded-full animate-pulse-slow-delayed"></div>
-            
-            {/* Blue and orange outer glow effect - BEHIND the card */}
-            <div className="absolute -inset-4 rounded-xl opacity-60 z-0 animate-glow-pulse" 
-              style={{ boxShadow: '0 0 80px 20px rgba(59,130,246,0.4), 0 0 50px 20px rgba(249,115,22,0.4)' }}>
+              {/* Enhanced ambient glow */}
+              <div className="absolute -top-20 -right-20 w-72 h-72 bg-orange-500/20 rounded-full filter blur-[100px] opacity-70 animate-pulse-slow"></div>
+              <div className="absolute -bottom-20 -left-20 w-72 h-72 bg-blue-500/25 rounded-full filter blur-[100px] opacity-70 animate-pulse-slow-delayed"></div>
+              
+              {/* Corner accent elements - matching "What Our Clients Say" */}
+              <div className="absolute top-4 left-4 w-12 h-12 z-10">
+                <div className="absolute left-0 top-0 w-6 h-6 border-l-2 border-t-2 border-orange-500/40 rounded-tl-md"></div>
+                <div className="absolute left-1 top-1 w-8 h-8 border-l border-t border-blue-500/30 rounded-tl-md"></div>
+              </div>
+              <div className="absolute top-4 right-4 w-12 h-12 z-10">
+                <div className="absolute right-0 top-0 w-6 h-6 border-r-2 border-t-2 border-orange-500/40 rounded-tr-md"></div>
+                <div className="absolute right-1 top-1 w-8 h-8 border-r border-t border-blue-500/30 rounded-tr-md"></div>
+              </div>
+              <div className="absolute bottom-4 right-4 w-12 h-12 z-10">
+                <div className="absolute right-0 bottom-0 w-6 h-6 border-r-2 border-b-2 border-orange-500/40 rounded-br-md"></div>
+                <div className="absolute right-1 bottom-1 w-8 h-8 border-r border-b border-amber-500/30 rounded-br-md"></div>
+              </div>
+              <div className="absolute bottom-4 left-4 w-12 h-12 z-10">
+                <div className="absolute left-0 bottom-0 w-6 h-6 border-l-2 border-b-2 border-orange-500/40 rounded-bl-md"></div>
+                <div className="absolute left-1 bottom-1 w-8 h-8 border-l border-b border-amber-500/30 rounded-bl-md"></div>
+              </div>
+              
+              {/* Additional background gradient areas */}
+              <div className="absolute top-0 right-0 w-32 h-32 opacity-20 z-5">
+                <div className="absolute inset-0 bg-gradient-to-bl from-orange-500/40 to-blue-500/40 rounded-tr-xl blur-[2px]"></div>
+              </div>
+              <div className="absolute bottom-0 left-0 w-32 h-32 opacity-20 z-5">
+                <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/40 to-orange-500/40 rounded-bl-xl blur-[2px]"></div>
+              </div>
+              
+              {/* Background blur text */}
+              <div className="absolute inset-0 flex justify-center items-center text-5xl font-bold tracking-tight text-orange-900/10 blur-[5px] scale-110 pointer-events-none">
+                Frequently Asked Questions
+              </div>
+              
+              {/* Main title with premium styling - matching "What Our Clients Say" */}
+              <h2 className="text-white
+                drop-shadow-[0_0px_1px_rgba(251,113,36,0.2)] 
+                [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(251,146,60,0.3)]
+                text-4xl md:text-5xl font-bold relative z-30 mb-6">
+                Frequently Asked Questions
+              </h2>
+              
+              {/* Multiple text shadows for depth */}
+              <div className="absolute inset-0 flex items-center justify-center text-5xl font-bold tracking-tight opacity-10 blur-[3px] text-orange-700/30 z-10 transform scale-105 pointer-events-none">
+                Frequently Asked Questions
+              </div>
+              
+              {/* Subtitle with enhanced styling */}
+              <p className="text-gray-300 text-xl max-w-2xl mx-auto relative z-30">
+                Find answers to common questions about our protective coating products and services.
+              </p>
             </div>
-            
-            {/* Premium Enterprise Header Card */}
-            <div className="relative p-12 bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 backdrop-blur-xl rounded-xl shadow-[0_10px_50px_rgba(0,0,0,0.7)] mb-8 group">
-              {/* Dual-layer border effect */}
-              <div className="absolute inset-0 rounded-xl border-2 border-orange-500/40 animate-glowing-border"></div>
-              <div className="absolute inset-[2px] rounded-xl border border-blue-500/30"></div>
-              
-              {/* Corner accent decorations */}
-              <div className="absolute top-0 right-0 w-20 h-20 opacity-70">
-                <div className="absolute right-0 top-0 w-8 h-8 border-r-2 border-t-2 border-orange-500/60 rounded-tr-md"></div>
-                <div className="absolute right-1 top-1 w-12 h-12 border-r border-t border-blue-500/50 rounded-tr-md"></div>
-              </div>
-              <div className="absolute top-0 left-0 w-20 h-20 opacity-70">
-                <div className="absolute left-0 top-0 w-8 h-8 border-l-2 border-t-2 border-orange-500/60 rounded-tl-md"></div>
-                <div className="absolute left-1 top-1 w-12 h-12 border-l border-t border-blue-500/50 rounded-tl-md"></div>
-              </div>
-              <div className="absolute bottom-0 right-0 w-20 h-20 opacity-70">
-                <div className="absolute right-0 bottom-0 w-8 h-8 border-r-2 border-b-2 border-blue-500/60 rounded-br-md"></div>
-                <div className="absolute right-1 bottom-1 w-12 h-12 border-r border-b border-blue-500/50 rounded-br-md"></div>
-              </div>
-              <div className="absolute bottom-0 left-0 w-20 h-20 opacity-70">
-                <div className="absolute left-0 bottom-0 w-8 h-8 border-l-2 border-b-2 border-blue-500/60 rounded-bl-md"></div>
-                <div className="absolute left-1 bottom-1 w-12 h-12 border-l border-b border-blue-500/50 rounded-bl-md"></div>
-              </div>
-              
-              {/* Animated fading squares - appearing and disappearing */}
-              <div className="absolute top-8 right-8 w-20 h-20 rounded-lg border border-orange-500/20 opacity-0 group-hover:opacity-70 rotate-12 transition-all duration-1000 animate-pulse-slow"></div>
-              <div className="absolute bottom-8 left-8 w-16 h-16 rounded-lg border border-blue-500/20 opacity-0 group-hover:opacity-70 -rotate-12 transition-all duration-1000 animate-pulse-slow-delayed"></div>
-              <div className="absolute top-1/2 right-12 w-12 h-12 rounded-lg border border-purple-500/20 opacity-0 group-hover:opacity-60 rotate-45 transition-all duration-1000 animate-pulse"></div>
-              <div className="absolute bottom-1/2 left-12 w-12 h-12 rounded-lg border border-orange-500/20 opacity-0 group-hover:opacity-60 -rotate-45 transition-all duration-1000 animate-pulse-slow"></div>
-
-              {/* Heading with premium styling */}
-              <div className="relative z-20">
-                <h2 
-                  className="text-4xl font-bold md:text-5xl lg:text-6xl tracking-tight text-white"
-                  style={{ 
-                    textShadow: '0 0 8px rgba(255,255,255,0.3), 0 0 30px rgba(59,130,246,0.3), 0 0 30px rgba(249,115,22,0.2)'
-                  }}
-                >
-                  Frequently Asked Questions
-                </h2>
-              </div>
-                
-              {/* Subtle top highlight */}
-              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
-                
-              {/* Bottom reflection effect */}
-              <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-3/4 h-[2px] bg-gradient-to-r from-transparent via-white/10 to-transparent rounded-full blur-sm"></div>
-            </div>
-              
-            {/* Subtitle with premium styling */}
-            <p className="text-gray-300 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed z-20 mt-8 text-center relative"
-              style={{ 
-                textShadow: '0 1px 1px rgba(0,0,0,0.7)',
-                filter: 'drop-shadow(0 1px 1px rgba(0,0,0,0.5))'
-              }}
-            >
-              Find answers to common questions about our protective coating products and services.
-            </p>
           </div>
         </div>
         
