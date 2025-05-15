@@ -131,7 +131,7 @@ const PremiumButton = forwardRef<HTMLButtonElement, PremiumButtonProps>(
         )}
 
         <button
-          className={cn(premiumButtonVariants({ variant, size, className }))}
+          className={cn(premiumButtonVariants({ variant, size, className }), "shadow-2xl shadow-orange-500/50 drop-shadow-[0_35px_35px_rgba(59,130,246,0.4)]")}
           ref={ref}
           {...props}
         >
