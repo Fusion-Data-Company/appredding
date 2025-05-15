@@ -48,7 +48,7 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
 
   return (
     <section 
-      className="py-24 relative" 
+      className="pt-24 pb-32 relative" 
       id="videos"
       style={{ 
         backgroundImage: `url(${PRAETORIAN_HERO_IMAGE})`,
@@ -69,8 +69,8 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
       <div className="absolute bottom-1/4 right-1/3 w-64 h-64 rounded-full bg-blue-500/10 filter blur-[100px] animate-pulse-slow-delayed" style={{ zIndex: 1 }}></div>
       
       <div className="container mx-auto px-4 relative" style={{ zIndex: 2 }}>
-        <div className="text-center mb-16">
-          <div className="relative group mx-auto max-w-4xl mb-10 inline-block transform transition-all duration-500">
+        <div className="text-center mb-20">
+          <div className="relative group mx-auto max-w-4xl mb-12 inline-block transform transition-all duration-500">
             {/* Multiple layered background effects */}
             <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/40 via-blue-600/40 to-orange-600/40 rounded-xl blur-xl opacity-70 group-hover:opacity-100 group-hover:blur-xl transition-all duration-1000 animate-pulse-slow"></div>
             <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/80 via-blue-500/80 to-orange-500/80 rounded-xl blur-md opacity-90 group-hover:opacity-100 transition-all duration-500"></div>
