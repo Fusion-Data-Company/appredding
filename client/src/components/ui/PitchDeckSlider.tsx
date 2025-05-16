@@ -116,7 +116,7 @@ const PitchDeckSlider = () => {
               {/* Button with premium styling */}
               <GradientButton 
                 onClick={togglePitchDeck}
-                className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black backdrop-blur-xl rounded-full py-3 px-6 z-10 border border-blue-500/30 overflow-hidden group-hover:shadow-[0_0_25px_rgba(59,130,246,0.4)] transition-all duration-500 flex items-center gap-3 intro-button-shimmer transform group-hover:scale-105"
+                className="relative bg-gradient-to-br from-blue-950/95 via-blue-900/95 to-blue-950/95 backdrop-blur-xl rounded-full py-3 px-6 z-10 border border-blue-500/30 overflow-hidden group-hover:shadow-[0_0_25px_rgba(59,130,246,0.4)] transition-all duration-500 flex items-center gap-3 intro-button-shimmer transform group-hover:scale-105"
                 variant="default"
                 size="lg"
               >
