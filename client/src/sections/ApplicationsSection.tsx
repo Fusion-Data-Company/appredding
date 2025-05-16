@@ -113,10 +113,10 @@ const ApplicationCard = ({ imageSrc, title, description, link }: ApplicationCard
 const ApplicationsSection = () => {
   const applications = [
     {
-      imageSrc: "/assets/wildfire-protection.jpg",
-      title: "Wildfire Protection",
-      description: "Class-A fire retardant for homes in wildfire-prone areas",
-      link: "/fire-prevention"
+      imageSrc: "/assets/painters.jpg",
+      title: "Painters",
+      description: "Premium coatings for professional painters and contractors",
+      link: "/painters"
     },
     {
       imageSrc: "/assets/marine-protection.jpg",

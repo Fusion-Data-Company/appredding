@@ -11,6 +11,7 @@ import CRM from "@/pages/CRM";
 import PainterNetwork from "@/pages/PainterNetwork";
 import Marinas from "@/pages/Marinas";
 import FirePrevention from "@/pages/FirePrevention";
+import Painters from "@/pages/Painters";
 import Pools from "@/pages/Pools";
 const Construction = lazy(() => import('./pages/Construction'));
 import MobileHome from "@/pages/MobileHome";
