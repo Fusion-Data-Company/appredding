@@ -21,11 +21,12 @@ const premiumButtonVariants = cva(
           "bg-black text-white border-2 border-black shadow-lg hover:shadow-[0_0_15px_rgba(59,130,246,0.4)]"
       },
       size: {
-        sm: "h-9 px-3 py-2 text-xs rounded-lg",
-        md: "h-10 px-4 py-2 text-sm rounded-lg",
-        lg: "h-12 px-6 py-3 text-base rounded-xl",
-        xl: "h-14 px-8 py-4 text-lg rounded-xl"
-      },
+        sm: "h-10 px-4 py-2 text-sm rounded-lg",
+        md: "h-12 px-5 py-3 text-base rounded-lg",
+        lg: "h-14 px-8 py-4 text-lg rounded-xl",
+        xl: "h-16 px-10 py-5 text-xl rounded-xl",
+        xxl: "h-20 px-12 py-6 text-2xl rounded-xl"
+      } as const,
     },
     defaultVariants: {
       variant: "default",

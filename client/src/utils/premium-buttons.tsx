@@ -11,8 +11,8 @@ import { ShoppingCart, ArrowRight, Check, ExternalLink } from 'lucide-react';
 export const PremiumCartButton = ({ children, onClick, className, ...props }: React.ComponentProps<typeof PremiumButton>) => (
   <PremiumButton 
     variant="fire" 
-    size="xl" 
-    icon={<ShoppingCart size={24} className="text-white" />} 
+    size="xxl" 
+    icon={<ShoppingCart size={30} className="text-white" />} 
     className={`group ${className || ''}`}
     onClick={onClick}
     glowEffect={true}
