@@ -7,7 +7,7 @@ import backgroundImg from "../assets_dir/images/optimized/praetorian-background-
 const ProductHistorySection = () => {
   return (
     <section 
-      className="py-32 md:py-40 relative" 
+      className="py-32 md:py-48 relative" 
       style={{
         backgroundImage: `url(${backgroundImg})`,
         backgroundSize: "cover",
