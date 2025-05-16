@@ -153,12 +153,50 @@ const Painters = () => {
                   <div className="absolute bottom-0 right-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
                 </div>
                 
-                <h1 className="text-3xl sm:text-4xl md:text-5xl mb-4 md:mb-6 text-white drop-shadow-[0_0px_1px_rgba(251,113,36,0.2)] [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(251,146,60,0.3)]">
-                  Professional Painter Solutions
-                </h1>
-                <p className="text-base sm:text-lg md:text-xl text-white mb-6 md:mb-8 leading-relaxed">
-                  Elevate your painting business with Praetorian's advanced ceramic coating systems. Our professional-grade products offer unmatched durability, temperature resistance, and energy efficiency, helping you deliver superior results to your clients.
-                </p>
+                <motion.h1 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.7 }}
+                  className="text-3xl sm:text-4xl md:text-5xl mb-4 md:mb-6 text-white drop-shadow-[0_0px_1px_rgba(251,113,36,0.2)] [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(251,146,60,0.3)]"
+                >
+                  Boost Your Painting Business Profits
+                </motion.h1>
+                <motion.p 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.7, delay: 0.2 }}
+                  className="text-base sm:text-lg md:text-xl text-white mb-6 md:mb-8 leading-relaxed"
+                >
+                  Praetorian's premium ceramic coatings aren't just better for your clients — they're better for your bottom line. 
+                  Charge 15-25% more per project while reducing callbacks by up to 90%, and expand into high-margin specialized markets that regular painters can't access.
+                </motion.p>
+                
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: 0.4 }}
+                  className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-6"
+                >
+                  <div className="relative group">
+                    <div className="absolute -inset-0.5 bg-blue-600 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-200"></div>
+                    <button 
+                      onClick={handleShowContactForm}
+                      className="relative px-6 py-3 bg-gradient-to-br from-gray-900 to-black text-white font-medium rounded-lg border border-blue-500/50 hover:border-blue-400 transition duration-200"
+                    >
+                      Become a Certified Partner
+                    </button>
+                  </div>
+                  
+                  <div className="relative group">
+                    <div className="absolute -inset-0.5 bg-orange-600 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-200"></div>
+                    <a 
+                      href="#profit-calculator" 
+                      className="relative flex items-center px-6 py-3 bg-gradient-to-br from-gray-900 to-black text-white font-medium rounded-lg border border-orange-500/50 hover:border-orange-400 transition duration-200"
+                    >
+                      Calculate Your Profit <ChevronRight className="ml-2 h-4 w-4" />
+                    </a>
+                  </div>
+                </motion.div>
               </div>
             </div>
 
