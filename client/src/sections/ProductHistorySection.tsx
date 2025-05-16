@@ -422,8 +422,8 @@ const ProductHistorySection = () => {
                   {/* Inner highlight */}
                   <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-40 pointer-events-none"></div>
                   
-                  {/* Subtle dots pattern with gray theme */}
-                  <div className="absolute inset-0 opacity-20 z-0">
+                  {/* Subtle dots pattern with gray theme - lowered z-index */}
+                  <div className="absolute inset-0 opacity-20 -z-10 pointer-events-none">
                     <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoMjI5LDIyOSwyMjksMC4yKSIgZD0iTTAgMGgydjJIM3ptMiAyaDJ2MkgyeiIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgZmlsbD0idXJsKCNhKSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPjwvc3ZnPg==')]"></div>
                   </div>
                   
@@ -445,13 +445,13 @@ const ProductHistorySection = () => {
                     <div className="absolute bottom-0 right-0 w-2 h-2 bg-gray-500/30 rounded-full blur-[1px]"></div>
                   </div>
                   
-                  {/* Timeline content with enhanced premium styling */}
-                  <div className="relative p-6 overflow-y-auto" style={{ maxHeight: "500px" }}>
+                  {/* Timeline content with enhanced premium styling - higher z-index */}
+                  <div className="relative p-6 overflow-y-auto z-30" style={{ maxHeight: "500px" }}>
                     {/* Timeline items - styled with premium enterprise theme */}
-                    <div className="space-y-8">
+                    <div className="space-y-8 relative z-30">
                       <div className="group/item relative transform transition-all duration-500 hover:-translate-y-1 hover:scale-[1.01] pl-8 pb-8 border-l-2 border-gray-600/30">
                         {/* Year with enhanced styling */}
-                        <div className="absolute -left-4 flex items-center justify-center">
+                        <div className="absolute -left-4 flex items-center justify-center z-20">
                           <div className="relative w-8 h-8">
                             <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600/50 to-orange-600/50 blur-[5px] opacity-0 group-hover/item:opacity-100 transition-opacity duration-700"></div>
                             <div className="absolute inset-0 rounded-full bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black border border-blue-500/30 transition-all duration-500 group-hover/item:shadow-[0_0_15px_rgba(59,130,246,0.3)]"></div>
@@ -462,8 +462,10 @@ const ProductHistorySection = () => {
                             <div className="absolute -inset-1 rounded-full border border-blue-500/20 scale-0 group-hover/item:scale-[1.4] opacity-0 group-hover/item:opacity-70 transition-all duration-1000 delay-100"></div>
                           </div>
                         </div>
-                        <h4 className="text-xl font-bold text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.3)] mb-2">SmartCoat Enterprise Platform</h4>
-                        <p className="text-gray-200 text-lg leading-relaxed">Advanced monitoring and reporting system for enterprise-level installation management, offering real-time performance analytics, predictive maintenance, and automated compliance reporting.</p>
+                        <div className="relative z-30">
+                          <h4 className="text-xl font-bold text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.5)] mb-2">SON-SHIELD Brand Update</h4>
+                          <p className="text-gray-200 text-lg leading-relaxed">SON-SHIELD Coating received a comprehensive branding upgrade for direct public presentation, making advanced industrial coating technology accessible to consumers with improved communication, marketing materials, and direct consumer sales channels.</p>
+                        </div>
                       </div>
                       
                       <div className="group/item relative transform transition-all duration-500 hover:-translate-y-1 hover:scale-[1.01] pl-8 pb-8 border-l-2 border-gray-600/30">
