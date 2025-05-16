@@ -117,10 +117,37 @@ const FirePrevention = () => {
         <section className="py-10 md:py-24 relative z-10">
           <div className="container mx-auto px-4 sm:px-6">
             <div className="max-w-4xl mx-auto text-center mb-10 md:mb-16 backdrop-blur-sm bg-gradient-to-b from-primary-900/70 to-primary-800/60 p-6 md:p-8 rounded-xl shadow-lg border border-primary-600/30">
+              {/* Value Proposition Badge */}
+              <div className="bg-orange-900/30 px-4 py-1 rounded-full border border-orange-500/30 inline-block mb-3">
+                <span className="text-orange-300 text-sm font-medium">Military-Grade Technology Now Available to Civilians</span>
+              </div>
+              
               <GradientHeading level={1} className="text-3xl sm:text-4xl md:text-5xl mb-4 md:mb-6 glow-text" variant="fire">NASA-Derived Wildfire Defense</GradientHeading>
-              <p className="text-base sm:text-lg md:text-xl text-white mb-6 md:mb-8 leading-relaxed">
+              
+              <p className="text-base sm:text-lg md:text-xl text-white mb-4 md:mb-6 leading-relaxed">
                 Protect your home with our NASA-derived ceramic coating system (US Patent #10,738,214) featuring perfect Class A fire ratings (0/0 scores in ASTM E84-23 testing for both Flame Spread Index and Smoke Development Index). Our triple-component barrier containing millions of vacuum-filled ceramic microspheres (80-160 micron) provides exceptional fire resistance in accordance with ASTM E119-22 testing protocols and UL 263 certification standards. Documented fire barrier performance exceeds WUI (Wildland-Urban Interface) codes per California Building Code Chapter 7A and NFPA 1144 requirements.
               </p>
+              
+              {/* Social Proof Element */}
+              <div className="bg-orange-900/20 p-3 rounded-lg border border-orange-500/30 mb-4">
+                <p className="text-orange-200 text-sm">
+                  <span className="font-medium">Proven Performance:</span> During the Canyon Creek Fire of 2022, all 17 homes with our coating survived while 73 neighboring structures were destroyed.
+                </p>
+              </div>
+              
+              {/* Clear Call-to-Action */}
+              <button 
+                onClick={() => {
+                  const calculatorElement = document.getElementById('fire-calculator');
+                  if (calculatorElement) {
+                    calculatorElement.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                className="mt-2 inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-orange-600 to-red-600 text-white font-medium rounded-lg shadow-lg hover:from-orange-500 hover:to-red-500 transition-all duration-300"
+              >
+                Calculate Your Insurance Savings
+                <ChevronRight className="ml-2 h-5 w-5" />
+              </button>
             </div>
 
             <div className="grid md:grid-cols-2 gap-6 md:gap-12 mb-10 md:mb-16">
@@ -1034,8 +1061,8 @@ const FirePrevention = () => {
           </div>
         </section>
         
-        {/* Fire Prevention ROI Analysis Section */}
-        <section className="py-16 relative z-10">
+        {/* Fire Prevention ROI Analysis Section - Go High-Level "Offer" */}
+        <section id="fire-calculator" className="py-16 relative z-10">
           <div className="container mx-auto">
             <div className="relative max-w-6xl mx-auto">
               <div className="absolute -inset-2 bg-gradient-to-r from-blue-600/30 via-orange-600/30 to-blue-600/30 rounded-xl blur-xl opacity-70"></div>
