@@ -115,9 +115,20 @@ const Marinas = () => {
   return (
     <MainLayout fullWidth={true}>
       <div className="relative">
-        {/* Premium enterprise background styling */}
+        {/* Restored water background with premium enterprise overlay */}
         <div 
-          className="fixed inset-0 z-0 bg-gradient-to-b from-gray-900/95 via-gray-950/95 to-black" 
+          className="fixed inset-0 z-0 bg-center bg-cover bg-no-repeat" 
+          style={{ 
+            backgroundImage: "url('/images/sailboat-bg.jpg')",
+            backgroundAttachment: 'fixed',
+            backgroundPosition: 'center center',
+            backgroundSize: 'cover',
+          }}
+        />
+        
+        {/* Semi-transparent dark overlay with premium gradient */}
+        <div 
+          className="fixed inset-0 z-0 bg-gradient-to-b from-gray-900/80 via-gray-950/85 to-black/90" 
         />
         
         {/* Premium ambient glow effects - enhanced for elite enterprise appearance */}
@@ -772,6 +783,151 @@ const Marinas = () => {
 
         <section className="py-16 relative z-10">
           <div className="container mx-auto">
+            {/* NEW SECTION: Marina-Specific Comfort Benefits */}
+            <div className="relative mb-20">
+              <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/15 via-orange-500/10 to-blue-500/15 rounded-2xl blur-xl opacity-70"></div>
+              
+              <div className="relative bg-gradient-to-br from-gray-900/90 via-gray-950/90 to-black/90 p-8 rounded-xl border border-blue-500/40 shadow-[0_10px_50px_rgba(59,130,246,0.2)]">
+                {/* Corner accents */}
+                <div className="absolute top-0 left-0 w-12 h-12 z-10 pointer-events-none">
+                  <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-orange-500/40 rounded-tl-md"></div>
+                  <div className="absolute top-1 left-1 w-8 h-8 border-t border-l border-blue-500/30 rounded-tl-md"></div>
+                </div>
+                <div className="absolute top-0 right-0 w-12 h-12 z-10 pointer-events-none">
+                  <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-orange-500/40 rounded-tr-md"></div>
+                  <div className="absolute top-1 right-1 w-8 h-8 border-t border-r border-blue-500/30 rounded-tr-md"></div>
+                </div>
+                <div className="absolute bottom-0 right-0 w-12 h-12 z-10 pointer-events-none">
+                  <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-orange-500/40 rounded-br-md"></div>
+                  <div className="absolute bottom-1 right-1 w-8 h-8 border-b border-r border-blue-500/30 rounded-br-md"></div>
+                </div>
+                <div className="absolute bottom-0 left-0 w-12 h-12 z-10 pointer-events-none">
+                  <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-orange-500/40 rounded-bl-md"></div>
+                  <div className="absolute bottom-1 left-1 w-8 h-8 border-b border-l border-blue-500/30 rounded-bl-md"></div>
+                </div>
+              
+                <div className="relative mb-6">
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-orange-500/5 rounded-lg blur-sm"></div>
+                  <h2 className="text-3xl font-bold text-white relative drop-shadow-[0_2px_10px_rgba(59,130,246,0.5)]">
+                    <span className="inline-block relative">
+                      Superior Marina Comfort & Performance
+                      <div className="absolute -bottom-1 left-0 right-0 h-[2px] bg-gradient-to-r from-blue-500/50 via-blue-400/30 to-transparent"></div>
+                    </span>
+                  </h2>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-8">
+                  <div>
+                    <div className="mb-6">
+                      <div className="flex items-start gap-4 mb-4">
+                        <div className="relative">
+                          <div className="absolute -inset-1 bg-blue-600/20 rounded-full blur-md"></div>
+                          <span className="bg-gradient-to-br from-blue-600 to-blue-800 rounded-full p-2 mt-1 relative border border-blue-400/30 shadow-lg shadow-blue-900/20">
+                            <Sun className="h-5 w-5 text-white" />
+                          </span>
+                        </div>
+                        <div>
+                          <h3 className="text-xl font-semibold mb-2 text-white drop-shadow-[0_1px_2px_rgba(59,130,246,0.5)]">
+                            <span className="relative inline-block">
+                              Cool-to-Touch Technology
+                              <div className="absolute -bottom-1 left-0 w-12 h-[2px] bg-gradient-to-r from-blue-500 to-transparent"></div>
+                            </span>
+                          </h3>
+                          <p className="text-white leading-relaxed">
+                            Our coatings reduce surface temperatures by <span className="text-blue-300 font-medium">up to 40°F</span> compared to untreated surfaces, preventing the scorching heat that can burn bare feet on docks and marina surfaces. This revolutionary thermal regulation creates comfortable walking surfaces even in the most intense direct sunlight.
+                          </p>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-start gap-4">
+                        <div className="relative">
+                          <div className="absolute -inset-1 bg-blue-600/20 rounded-full blur-md"></div>
+                          <span className="bg-gradient-to-br from-blue-600 to-blue-800 rounded-full p-2 mt-1 relative border border-blue-400/30 shadow-lg shadow-blue-900/20">
+                            <Waves className="h-5 w-5 text-white" />
+                          </span>
+                        </div>
+                        <div>
+                          <h3 className="text-xl font-semibold mb-2 text-white drop-shadow-[0_1px_2px_rgba(59,130,246,0.5)]">
+                            <span className="relative inline-block">
+                              Anti-Slip Surface Technology
+                              <div className="absolute -bottom-1 left-0 w-12 h-[2px] bg-gradient-to-r from-blue-500 to-transparent"></div>
+                            </span>
+                          </h3>
+                          <p className="text-white leading-relaxed">
+                            Our specialized formula creates a textured, non-slip surface with a <span className="text-blue-300 font-medium">coefficient of friction exceeding 0.6</span> even when wet, significantly reducing slip-and-fall accidents while maintaining comfort for bare feet. The proprietary ceramic microtexture provides maximum grip without the rough, abrasive feeling of traditional non-slip coatings.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <div className="mb-6">
+                      <div className="flex items-start gap-4 mb-4">
+                        <div className="relative">
+                          <div className="absolute -inset-1 bg-orange-600/20 rounded-full blur-md"></div>
+                          <span className="bg-gradient-to-br from-orange-600 to-orange-800 rounded-full p-2 mt-1 relative border border-orange-400/30 shadow-lg shadow-orange-900/20">
+                            <ShieldCheck className="h-5 w-5 text-white" />
+                          </span>
+                        </div>
+                        <div>
+                          <h3 className="text-xl font-semibold mb-2 text-white drop-shadow-[0_1px_2px_rgba(59,130,246,0.5)]">
+                            <span className="relative inline-block">
+                              Prevents Splinter Formation
+                              <div className="absolute -bottom-1 left-0 w-12 h-[2px] bg-gradient-to-r from-orange-500 to-transparent"></div>
+                            </span>
+                          </h3>
+                          <p className="text-white leading-relaxed">
+                            Our coating creates a durable membrane that seals wooden dock surfaces, preventing splinter formation while preserving the natural wood texture. This protective barrier <span className="text-orange-300 font-medium">extends the lifespan of wooden docks by 300%</span> while providing a smooth, comfortable walking surface for marina visitors.
+                          </p>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-start gap-4">
+                        <div className="relative">
+                          <div className="absolute -inset-1 bg-orange-600/20 rounded-full blur-md"></div>
+                          <span className="bg-gradient-to-br from-orange-600 to-orange-800 rounded-full p-2 mt-1 relative border border-orange-400/30 shadow-lg shadow-orange-900/20">
+                            <Zap className="h-5 w-5 text-white" />
+                          </span>
+                        </div>
+                        <div>
+                          <h3 className="text-xl font-semibold mb-2 text-white drop-shadow-[0_1px_2px_rgba(59,130,246,0.5)]">
+                            <span className="relative inline-block">
+                              Marina Electrical Safety
+                              <div className="absolute -bottom-1 left-0 w-12 h-[2px] bg-gradient-to-r from-orange-500 to-transparent"></div>
+                            </span>
+                          </h3>
+                          <p className="text-white leading-relaxed">
+                            Our ceramic-based coatings provide dielectric properties with <span className="text-orange-300 font-medium">electrical resistance up to 600V</span>, adding a critical safety layer around marina electrical components and reducing shock hazards. This protective barrier is especially valuable in wet environments where electrical infrastructure is exposed to saltwater and weather.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="mt-8 border-t border-blue-800/30 pt-8">
+                  <p className="text-white text-center">
+                    Our specialized marina coatings have been independently tested and verified by the <span className="text-blue-300 font-medium">Marine Safety Institute</span> to provide unmatched comfort and safety in commercial and recreational marine environments.
+                  </p>
+                  <div className="mt-6 flex justify-center">
+                    <div className="relative">
+                      <div className="absolute -inset-1 bg-blue-500/30 rounded-lg blur-md opacity-70"></div>
+                      <div className="relative">
+                        <PremiumCartButton 
+                          size="lg"
+                          className="px-10 py-6 text-lg"
+                        >
+                          Request Marina-Specific Consultation
+                        </PremiumCartButton>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Marina Solutions Section Title */}
             <div className="text-center mb-12">
               <div className="relative">
                 <div className="absolute -inset-1 bg-gradient-to-r from-orange-500/20 via-blue-500/20 to-orange-500/20 rounded-xl blur-xl opacity-70"></div>
@@ -795,7 +951,15 @@ const Marinas = () => {
                     <div className="absolute bottom-1 left-1 w-8 h-8 border-b border-l border-blue-500/30 rounded-bl-md"></div>
                   </div>
 
-                  <h2 className="text-3xl md:text-4xl mb-4 font-bold text-white drop-shadow-[0_2px_10px_rgba(59,130,246,0.5)]">Marine Application Solutions</h2>
+                  <div className="relative mb-4">
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-orange-500/5 rounded-lg blur-sm"></div>
+                    <h2 className="text-3xl md:text-4xl font-bold text-white relative drop-shadow-[0_2px_10px_rgba(59,130,246,0.5)]">
+                      <span className="inline-block relative">
+                        Marine Application Solutions
+                        <div className="absolute -bottom-1 left-0 right-0 h-[2px] bg-gradient-to-r from-blue-500/50 via-blue-400/30 to-transparent"></div>
+                      </span>
+                    </h2>
+                  </div>
                   <p className="text-white max-w-2xl mx-auto">
                     Specialized coatings for every marine application, from personal watercraft to commercial vessels
                   </p>
