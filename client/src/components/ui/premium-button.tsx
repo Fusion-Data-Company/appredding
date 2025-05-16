@@ -183,39 +183,39 @@ const PremiumButton = forwardRef<HTMLButtonElement, PremiumButtonProps>(
               {/* Extra shimmer effect with different timing */}
               <div className="absolute inset-0 w-2/3 h-full bg-gradient-to-r from-transparent via-white/8 to-transparent opacity-10 -translate-x-full animate-shimmer-medium transform rounded-lg"></div>
               
-              {/* Extremely prominent blue/orange glow - button size only, in front of card but behind button */}
+              {/* Extremely prominent blue/orange glow matching cards - button size only, in front of card but behind button */}
               <div className="absolute -inset-[5px] rounded-3xl opacity-100 transition-opacity duration-500"
                   style={{ 
-                    background: 'linear-gradient(to right, rgba(255,111,0,0.3), rgba(59,130,246,0.8), rgba(255,111,0,0.3))',
-                    boxShadow: '0 0 15px 8px rgba(59,130,246,0.7), 0 0 12px 5px rgba(59,130,246,0.7), 0 15px 15px rgba(59,130,246,0.6), 0 20px 30px rgba(59,130,246,0.5)',
+                    background: 'linear-gradient(to right, rgba(249,115,22,0.3), rgba(59,130,246,0.5), rgba(249,115,22,0.3))',
+                    boxShadow: '0 0 15px 8px rgba(59,130,246,0.4), 0 0 12px 5px rgba(249,115,22,0.3)',
                     animation: 'pulse 3s ease-in-out infinite',
                     zIndex: -1
                   }}>
               </div>
               
-              {/* Corner accent points - premium touch matching cards */}
-              <div className="absolute top-0 left-0 w-2 h-2 bg-blue-500/90 rounded-full blur-[1px] opacity-100 transition-opacity duration-300"></div>
+              {/* Corner accent points - premium touch matching cards exactly */}
+              <div className="absolute top-0 left-0 w-2 h-2 bg-orange-500/90 rounded-full blur-[1px] opacity-100 transition-opacity duration-300"></div>
               <div className="absolute top-0 right-0 w-2 h-2 bg-blue-500/90 rounded-full blur-[1px] opacity-100 transition-opacity duration-300"></div>
-              <div className="absolute bottom-0 left-0 w-2 h-2 bg-blue-500/90 rounded-full blur-[1px] opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute bottom-0 left-0 w-2 h-2 bg-orange-500/90 rounded-full blur-[1px] opacity-100 transition-opacity duration-300"></div>
               <div className="absolute bottom-0 right-0 w-2 h-2 bg-blue-500/90 rounded-full blur-[1px] opacity-100 transition-opacity duration-300"></div>
               
-              {/* Button-size ambient blur glow, in front of card but behind button - with permanent blue glow EVEN ALL AROUND */}
-              <div className="absolute -inset-[15px] rounded-3xl bg-blue-500/60 blur-xl opacity-100 transition-opacity duration-1000 animate-pulse-slow" 
+              {/* Button-size ambient blur glow - matching card glow across the site */}
+              <div className="absolute -inset-[15px] rounded-3xl opacity-100 transition-opacity duration-1000 animate-pulse-slow" 
                    style={{ 
+                     background: 'radial-gradient(circle, rgba(59,130,246,0.4) 0%, rgba(249,115,22,0.2) 70%)',
                      filter: 'blur(12px)',
-                     boxShadow: '0 0 15px 12px rgba(59,130,246,0.6)',
                      zIndex: -1
                    }}>
               </div>
                 
-              {/* Balanced ambient glow effect - equal on all sides */}
-              <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-[100%] h-10 bg-gradient-to-t from-blue-500/70 to-transparent blur-2xl opacity-80 transition-opacity duration-500 rounded-full">
+              {/* Balanced ambient glow effect - equal on all sides, matching card glow */}
+              <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-[100%] h-10 bg-gradient-to-t from-orange-500/40 to-transparent blur-2xl opacity-70 transition-opacity duration-500 rounded-full">
               </div>
-              <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-[100%] h-10 bg-gradient-to-b from-blue-500/70 to-transparent blur-2xl opacity-80 transition-opacity duration-500 rounded-full">
+              <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-[100%] h-10 bg-gradient-to-b from-blue-500/40 to-transparent blur-2xl opacity-70 transition-opacity duration-500 rounded-full">
               </div>
-              <div className="absolute -left-8 top-1/2 -translate-y-1/2 h-[100%] w-10 bg-gradient-to-l from-blue-500/70 to-transparent blur-2xl opacity-80 transition-opacity duration-500 rounded-full">
+              <div className="absolute -left-8 top-1/2 -translate-y-1/2 h-[100%] w-10 bg-gradient-to-l from-orange-500/40 to-transparent blur-2xl opacity-70 transition-opacity duration-500 rounded-full">
               </div>
-              <div className="absolute -right-8 top-1/2 -translate-y-1/2 h-[100%] w-10 bg-gradient-to-r from-blue-500/70 to-transparent blur-2xl opacity-80 transition-opacity duration-500 rounded-full">
+              <div className="absolute -right-8 top-1/2 -translate-y-1/2 h-[100%] w-10 bg-gradient-to-r from-blue-500/40 to-transparent blur-2xl opacity-70 transition-opacity duration-500 rounded-full">
               </div>
             </>
           )}
