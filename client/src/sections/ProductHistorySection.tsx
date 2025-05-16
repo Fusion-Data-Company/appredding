@@ -61,39 +61,44 @@ const ProductHistorySection = () => {
               </div>
             </div>
             
-            {/* Premium card header styling matching Specialized Applications */}
-            <div className="relative h-28 flex items-center justify-center mb-10">
-              {/* Background blur text */}
-              <div className="absolute inset-0 flex justify-center items-center text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-orange-900/10 blur-[5px] scale-110">
+            {/* Premium enterprise-level card header styling */}
+            <div className="relative h-28 flex items-center justify-center mb-20">
+              {/* Ambient glow effects behind the title */}
+              <div className="absolute inset-0 flex justify-center items-center">
+                <div className="absolute w-full h-full bg-gradient-to-r from-blue-600/20 via-transparent to-orange-600/20 blur-[50px] opacity-70 animate-pulse-slow rounded-full"></div>
+              </div>
+              
+              {/* Background blur text with premium effect */}
+              <div className="absolute inset-0 flex justify-center items-center text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-gray-800/10 blur-[6px] scale-110">
                 Space Technology Heritage
               </div>
               
-              {/* Main text with white color - matching testimonials section */}
+              {/* Main text with premium white color and enhanced drop shadow */}
               <span className="relative text-white
-                drop-shadow-[0_0px_1px_rgba(251,113,36,0.2)] 
-                [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(251,146,60,0.3)]
-                transform -translate-y-[0.25in] text-5xl md:text-6xl lg:text-7xl font-bold">
+                drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)] 
+                [text-shadow:0_2px_2px_rgba(0,0,0,0.3),0_2px_10px_rgba(59,130,246,0.4)]
+                transform -translate-y-[0.25in] text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight">
                 Space Technology Heritage
               </span>
               
-              {/* Top glossy reflection */}
-              <div className="absolute top-0 left-0 right-0 h-[40%] bg-gradient-to-b from-white/10 to-transparent rounded-t-lg"></div>
+              {/* Premium accent line below text */}
+              <div className="absolute bottom-[-10px] left-1/2 transform -translate-x-1/2 w-48 h-[3px] bg-gradient-to-r from-blue-500/70 via-white/80 to-orange-500/70 rounded-full shadow-lg"></div>
+              <div className="absolute bottom-[-18px] left-1/2 transform -translate-x-1/2 w-32 h-[2px] bg-gradient-to-r from-orange-500/60 via-white/70 to-blue-500/60 rounded-full shadow-lg"></div>
               
-              {/* Multiple text shadows for depth - reduced blur effects */}
-              <div className="absolute inset-0 flex items-center justify-center text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight opacity-10 blur-[3px] text-orange-700/30 -z-10 transform scale-105">
-                Space Technology Heritage
+              {/* Enhanced corner accent elements */}
+              <div className="absolute top-0 left-0 w-8 h-8 pointer-events-none">
+                <div className="absolute top-1 left-1 w-5 h-5 border-t-2 border-l-2 border-blue-500/30 rounded-tl-lg"></div>
+                <div className="absolute top-1 left-1 w-2 h-2 bg-blue-500/60 rounded-full blur-[1px]"></div>
               </div>
-              <div className="absolute inset-0 flex items-center justify-center text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight opacity-20 blur-[1px] text-red-900/20 -z-10">
-                Space Technology Heritage
+              <div className="absolute top-0 right-0 w-8 h-8 pointer-events-none">
+                <div className="absolute top-1 right-1 w-5 h-5 border-t-2 border-r-2 border-orange-500/30 rounded-tr-lg"></div>
+                <div className="absolute top-1 right-1 w-2 h-2 bg-orange-500/60 rounded-full blur-[1px]"></div>
               </div>
               
               {/* Decorative accent line */}
               <div className="absolute left-[8%] bottom-[-0.5in] transform group w-14 h-2.5 rounded-full overflow-hidden z-50 transition-all duration-700 hover:w-72">
                 {/* Base gradient */}
                 <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-amber-500 to-blue-600"></div>
-                
-                {/* Glow effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-amber-500 to-blue-600 blur-md opacity-70"></div>
                 
                 {/* Pulsing dots */}
                 <div className="absolute h-full w-4 bg-white/80 right-4 rounded-full blur-[1px] animate-pulse-slow"></div>
@@ -105,18 +110,38 @@ const ProductHistorySection = () => {
               <div className="absolute -bottom-6 -right-10 w-20 h-20 rounded-full bg-blue-500/5 filter blur-[20px]"></div>
             </div>
             
-            {/* Enhanced description with premium styling */}
-            <div className="relative">
-              <div className="absolute -top-4 -left-4 w-8 h-8 opacity-20">
-                <div className="absolute inset-0 border-t border-l border-orange-500/30 rounded-tl-lg"></div>
+            {/* Enhanced description with premium enterprise-level styling */}
+            <div className="relative group/desc transform transition-all duration-500 hover:scale-[1.01]">
+              {/* Premium card backdrop */}
+              <div className="absolute -inset-4 bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black rounded-lg shadow-[0_10px_50px_rgba(0,0,0,0.2)] opacity-0 group-hover/desc:opacity-100 transition-opacity duration-500 -z-10"></div>
+              
+              {/* Premium corner accents with improved opacity and styling */}
+              <div className="absolute -top-6 -left-6 w-12 h-12 opacity-70 pointer-events-none">
+                <div className="absolute inset-0 border-t-2 border-l-2 border-blue-500/30 rounded-tl-xl"></div>
+                <div className="absolute top-0 left-0 w-3 h-3 bg-blue-500/40 rounded-full blur-[1px]"></div>
               </div>
-              <div className="absolute -bottom-4 -right-4 w-8 h-8 opacity-20">
-                <div className="absolute inset-0 border-b border-r border-orange-500/30 rounded-br-lg"></div>
+              <div className="absolute -bottom-6 -right-6 w-12 h-12 opacity-70 pointer-events-none">
+                <div className="absolute inset-0 border-b-2 border-r-2 border-orange-500/30 rounded-br-xl"></div>
+                <div className="absolute bottom-0 right-0 w-3 h-3 bg-orange-500/40 rounded-full blur-[1px]"></div>
               </div>
               
-              <p className="text-gray-100 text-xl leading-relaxed relative z-10 mb-10">
-                Praetorian SmartCoat's foundation is built upon NASA space shuttle thermal protection technology, utilizing 80-160 micron vacuum-filled ceramic microspheres in a specialized elastomeric matrix with 156% flexibility. Each microsphere contains a vacuum void that creates a physical heat traversal impossibility (0.00543 W/cm²/K conductivity) in our triple-component system, addressing radiation, conduction, and convection simultaneously while providing Class A fire protection.
+              {/* Premium background highlight on hover */}
+              <div className="absolute inset-0 bg-gradient-to-b from-blue-500/5 to-orange-500/5 rounded-lg opacity-0 group-hover/desc:opacity-100 transition-opacity duration-500 -z-10"></div>
+              
+              {/* Enhanced text styling with better readability and premium feel */}
+              <p className="text-gray-100 text-xl leading-relaxed relative z-10 mb-10 px-4 py-2 backdrop-blur-sm">
+                <span className="font-medium text-white">Praetorian SmartCoat's</span> foundation is built upon 
+                <span className="text-blue-200 font-medium"> NASA space shuttle thermal protection technology</span>, 
+                utilizing 80-160 micron vacuum-filled ceramic microspheres in a specialized elastomeric matrix with 
+                <span className="text-orange-200 font-medium"> 156% flexibility</span>. 
+                Each microsphere contains a vacuum void that creates a physical heat traversal impossibility 
+                (<span className="text-blue-200 font-medium">0.00543 W/cm²/K conductivity</span>) 
+                in our triple-component system, addressing radiation, conduction, and convection simultaneously 
+                while providing <span className="text-orange-200 font-medium">Class A fire protection</span>.
               </p>
+              
+              {/* Subtle line beneath text */}
+              <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 w-1/3 h-[1px] bg-gradient-to-r from-transparent via-blue-500/30 to-transparent rounded-full opacity-50 group-hover/desc:w-2/3 transition-all duration-700"></div>
             </div>
             
             {/* Enhanced feature list with premium styling */}
@@ -127,40 +152,74 @@ const ProductHistorySection = () => {
                 "US Air Force tests in Arizona demonstrated metal buildings maintaining 85°F interior temperature while ambient temperatures reached 111-113°F, with coatings demonstrating solar reflectivity of 89% and thermal emissivity of 89%, effectively blocking 95% of solar radiation",
                 "Multi-certified with Class A fire ratings (0/100 flame spread, 0/100 smoke development), Cool Roof Rating Council verification (89% reflection, 89% emittance), and American Bureau of Shipping (ABS) approval"
               ].map((item, index) => (
-                <li key={index} className="group/item relative transform transition-all duration-500 hover:-translate-y-1">
+                <li key={index} className="group/item relative transform transition-all duration-500 hover:-translate-y-1 hover:scale-[1.01]">
+                  {/* Premium backdrop for the entire item */}
+                  <div className="absolute -inset-4 bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black rounded-lg shadow-[0_10px_50px_rgba(0,0,0,0.2)] opacity-0 group-hover/item:opacity-100 transition-opacity duration-500 -z-10"></div>
+                  
+                  {/* Premium animated glow effect */}
+                  <div className="absolute -inset-2 bg-gradient-to-r from-blue-600/5 via-transparent to-orange-600/5 rounded-lg opacity-0 group-hover/item:opacity-100 transition-opacity duration-500 -z-10"></div>
+                  
                   {/* Premium check icon with enhanced styling */}
                   <div className="absolute left-0 top-0 flex items-center justify-center">
-                    <div className="relative w-9 h-9">
-                      {/* Icon background with theme-specific gradient */}
+                    <div className="relative w-10 h-10">
+                      {/* Icon glow effect */}
+                      <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600/20 to-orange-600/20 blur-[5px] opacity-0 group-hover/item:opacity-100 transition-opacity duration-700"></div>
+                      
+                      {/* Icon background with advanced gradient and animation */}
                       <div className={`absolute inset-0 rounded-full bg-gradient-to-r ${
                         index % 2 === 0 
-                          ? "from-orange-600/20 to-blue-600/20 group-hover/item:from-orange-600/30 group-hover/item:to-blue-600/30" 
-                          : "from-blue-600/20 to-cyan-600/20 group-hover/item:from-blue-600/30 group-hover/item:to-cyan-600/30"
-                      } transition-colors duration-500`}></div>
+                          ? "from-blue-600/30 to-orange-600/20 group-hover/item:from-blue-600/40 group-hover/item:to-orange-600/30" 
+                          : "from-orange-600/30 to-blue-600/20 group-hover/item:from-orange-600/40 group-hover/item:to-blue-600/30"
+                      } transition-all duration-500 group-hover/item:shadow-[0_0_15px_rgba(59,130,246,0.3)]`}></div>
                       
-                      {/* Icon with enhanced styling */}
+                      {/* Icon with improved styling and animation */}
                       <div className="absolute inset-0 flex items-center justify-center">
-                        <i className={`fas fa-check text-lg ${
-                          index % 2 === 0 
-                            ? "text-orange-400 group-hover/item:text-orange-300" 
-                            : "text-blue-400 group-hover/item:text-blue-300"
-                        } transition-colors duration-500`}></i>
+                        <svg 
+                          xmlns="http://www.w3.org/2000/svg" 
+                          className={`w-5 h-5 ${
+                            index % 2 === 0 
+                              ? "text-blue-300 group-hover/item:text-blue-200" 
+                              : "text-orange-300 group-hover/item:text-orange-200"
+                          } transition-colors duration-500 transform group-hover/item:scale-110`}
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={2}
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
                       </div>
                       
-                      {/* Animated concentric ring */}
-                      <div className={`absolute inset-0 rounded-full border ${
+                      {/* Enhanced animated concentric rings */}
+                      <div className={`absolute inset-0 rounded-full border-2 ${
                         index % 2 === 0 
-                          ? "border-orange-500/30" 
-                          : "border-blue-500/30"
-                      } scale-0 group-hover/item:scale-[1.5] opacity-0 group-hover/item:opacity-100 transition-all duration-700`}></div>
+                          ? "border-blue-500/30" 
+                          : "border-orange-500/30"
+                      } scale-0 group-hover/item:scale-[1.2] opacity-0 group-hover/item:opacity-100 transition-all duration-700`}></div>
+                      <div className={`absolute -inset-1 rounded-full border ${
+                        index % 2 === 0 
+                          ? "border-blue-500/20" 
+                          : "border-orange-500/20"
+                      } scale-0 group-hover/item:scale-[1.4] opacity-0 group-hover/item:opacity-70 transition-all duration-1000 delay-100`}></div>
                     </div>
                   </div>
                   
-                  {/* Feature text with enhanced styling */}
-                  <div className="pl-14">
-                    <p className="text-gray-200 text-lg leading-relaxed group-hover/item:text-white transition-colors duration-500">
+                  {/* Feature text with premium enterprise-level styling */}
+                  <div className="pl-16 relative">
+                    {/* Subtle left border accent */}
+                    <div className={`absolute left-10 top-0 bottom-0 w-[2px] ${
+                      index % 2 === 0 
+                        ? "bg-gradient-to-b from-blue-500/30 via-blue-500/10 to-blue-500/30" 
+                        : "bg-gradient-to-b from-orange-500/30 via-orange-500/10 to-orange-500/30"
+                    } opacity-0 group-hover/item:opacity-100 transition-opacity duration-700 rounded-full`}></div>
+                    
+                    {/* Enhanced text with premium styling */}
+                    <p className="text-gray-200 text-lg leading-relaxed group-hover/item:text-white transition-colors duration-500 backdrop-blur-sm py-2">
                       {item}
                     </p>
+                    
+                    {/* Bottom shimmer effect */}
+                    <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover/item:opacity-100 transition-opacity duration-700"></div>
                   </div>
                 </li>
               ))}
