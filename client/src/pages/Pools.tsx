@@ -197,33 +197,50 @@ const Pools = () => {
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto text-center mb-16">
               <div className="relative">
-                <div className="absolute -inset-1 bg-gradient-to-r from-orange-500/20 via-blue-500/20 to-orange-500/20 rounded-xl blur-xl opacity-70"></div>
+                <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/40 via-blue-600/40 to-orange-600/40 rounded-xl blur-xl opacity-70 animate-pulse-slow"></div>
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/80 via-blue-500/80 to-orange-500/80 rounded-xl blur-md opacity-90"></div>
                 
-                <div className="relative bg-gradient-to-br from-gray-900/90 via-gray-950/90 to-black/90 py-8 px-10 rounded-xl border border-orange-500/40 shadow-[0_10px_50px_rgba(59,130,246,0.2)]">
+                <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 py-8 px-10 rounded-xl border border-orange-500/30 overflow-hidden hover:shadow-[0_0_25px_rgba(249,115,22,0.3)] transition-shadow duration-500">
                   {/* Corner Accents */}
-                  <div className="absolute top-0 left-0 w-12 h-12 z-10 pointer-events-none">
-                    <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-orange-500/40 rounded-tl-md"></div>
-                    <div className="absolute top-1 left-1 w-8 h-8 border-t border-l border-blue-500/30 rounded-tl-md"></div>
+                  <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none">
+                    <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-orange-500/70 rounded-tl-lg"></div>
+                    <div className="absolute top-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
                   </div>
-                  <div className="absolute top-0 right-0 w-12 h-12 z-10 pointer-events-none">
-                    <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-orange-500/40 rounded-tr-md"></div>
-                    <div className="absolute top-1 right-1 w-8 h-8 border-t border-r border-blue-500/30 rounded-tr-md"></div>
+                  <div className="absolute top-0 right-0 w-16 h-16 pointer-events-none">
+                    <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-blue-500/70 rounded-tr-lg"></div>
+                    <div className="absolute top-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
                   </div>
-                  <div className="absolute bottom-0 right-0 w-12 h-12 z-10 pointer-events-none">
-                    <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-orange-500/40 rounded-br-md"></div>
-                    <div className="absolute bottom-1 right-1 w-8 h-8 border-b border-r border-blue-500/30 rounded-br-md"></div>
+                  <div className="absolute bottom-0 left-0 w-16 h-16 pointer-events-none">
+                    <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-blue-500/70 rounded-bl-lg"></div>
+                    <div className="absolute bottom-0 left-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
                   </div>
-                  <div className="absolute bottom-0 left-0 w-12 h-12 z-10 pointer-events-none">
-                    <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-orange-500/40 rounded-bl-md"></div>
-                    <div className="absolute bottom-1 left-1 w-8 h-8 border-b border-l border-blue-500/30 rounded-bl-md"></div>
+                  <div className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none">
+                    <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-orange-500/70 rounded-br-lg"></div>
+                    <div className="absolute bottom-0 right-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
                   </div>
                   
-                  <h1 className="text-3xl md:text-5xl font-bold mb-4 text-white drop-shadow-[0_2px_4px_rgba(59,130,246,0.4)]">
-                    NASA-Derived Ceramic Pool Deck Coatings
+                  <h1 className="text-3xl md:text-5xl font-bold mb-4 text-white drop-shadow-[0_0px_1px_rgba(251,113,36,0.2)] [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(251,146,60,0.3)]">
+                    Boost Your Pool Business Revenue
                   </h1>
                   <p className="text-xl text-blue-100 mb-6">
-                    Protect and enhance your pool deck with cutting-edge ceramic technology that keeps surfaces cool, prevents slips, and lasts for years
+                    Premium ceramic pool deck coatings that deliver <span className="font-semibold text-white">65-80% profit margins</span> with <span className="font-semibold text-white">minimal investment</span> and exclusive contractor pricing
                   </p>
+                  
+                  <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-6">
+                    <a href="#contractor-registration" className="relative group">
+                      <div className="absolute -inset-0.5 bg-blue-600 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-200"></div>
+                      <button className="relative px-6 py-3 bg-gradient-to-br from-gray-900 to-black text-white font-medium rounded-lg border border-blue-500/50 hover:border-blue-400 transition duration-200">
+                        Become a Certified Installer
+                      </button>
+                    </a>
+                    
+                    <a href="#profit-calculator" className="relative group">
+                      <div className="absolute -inset-0.5 bg-orange-600 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-200"></div>
+                      <button className="relative flex items-center px-6 py-3 bg-gradient-to-br from-gray-900 to-black text-white font-medium rounded-lg border border-orange-500/50 hover:border-orange-400 transition duration-200">
+                        Calculate Your Profits <CircleDollarSign className="ml-2 h-4 w-4" />
+                      </button>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -232,7 +249,13 @@ const Pools = () => {
               {/* Feature Card 1 */}
               <div className="relative group">
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600/30 to-orange-600/30 rounded-lg blur opacity-50 group-hover:opacity-75 transition duration-300"></div>
-                <div className="relative bg-gradient-to-br from-gray-900 to-black rounded-lg p-6 border border-gray-800">
+                <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 rounded-lg p-6 border border-blue-500/30 h-full overflow-hidden">
+                  {/* Corner accent elements */}
+                  <div className="absolute top-0 left-0 w-12 h-12 pointer-events-none">
+                    <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-blue-500/70 rounded-tl-md"></div>
+                    <div className="absolute top-0 left-0 w-2 h-2 bg-blue-500/50 rounded-full blur-[2px]"></div>
+                  </div>
+                  
                   <div className="mb-4 relative">
                     <div className="absolute -inset-1 bg-blue-600/20 rounded-full blur-md"></div>
                     <div className="bg-gradient-to-br from-blue-600 to-blue-800 rounded-full p-3 relative border border-blue-400/30 shadow-lg shadow-blue-900/20">
@@ -247,7 +270,13 @@ const Pools = () => {
               {/* Feature Card 2 */}
               <div className="relative group">
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600/30 to-orange-600/30 rounded-lg blur opacity-50 group-hover:opacity-75 transition duration-300"></div>
-                <div className="relative bg-gradient-to-br from-gray-900 to-black rounded-lg p-6 border border-gray-800">
+                <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 rounded-lg p-6 border border-blue-500/30 h-full overflow-hidden">
+                  {/* Corner accent elements */}
+                  <div className="absolute top-0 right-0 w-12 h-12 pointer-events-none">
+                    <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-orange-500/70 rounded-tr-md"></div>
+                    <div className="absolute top-0 right-0 w-2 h-2 bg-orange-500/50 rounded-full blur-[2px]"></div>
+                  </div>
+                  
                   <div className="mb-4 relative">
                     <div className="absolute -inset-1 bg-blue-600/20 rounded-full blur-md"></div>
                     <div className="bg-gradient-to-br from-blue-600 to-blue-800 rounded-full p-3 relative border border-blue-400/30 shadow-lg shadow-blue-900/20">
@@ -262,7 +291,13 @@ const Pools = () => {
               {/* Feature Card 3 */}
               <div className="relative group">
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600/30 to-orange-600/30 rounded-lg blur opacity-50 group-hover:opacity-75 transition duration-300"></div>
-                <div className="relative bg-gradient-to-br from-gray-900 to-black rounded-lg p-6 border border-gray-800">
+                <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 rounded-lg p-6 border border-blue-500/30 h-full overflow-hidden">
+                  {/* Corner accent elements */}
+                  <div className="absolute bottom-0 left-0 w-12 h-12 pointer-events-none">
+                    <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-blue-500/70 rounded-bl-md"></div>
+                    <div className="absolute bottom-0 left-0 w-2 h-2 bg-blue-500/50 rounded-full blur-[2px]"></div>
+                  </div>
+                  
                   <div className="mb-4 relative">
                     <div className="absolute -inset-1 bg-blue-600/20 rounded-full blur-md"></div>
                     <div className="bg-gradient-to-br from-blue-600 to-blue-800 rounded-full p-3 relative border border-blue-400/30 shadow-lg shadow-blue-900/20">
@@ -272,6 +307,143 @@ const Pools = () => {
                   <h3 className="text-xl font-bold mb-2 text-white">Long-Term Durability</h3>
                   <p className="text-gray-300">Enhanced with UV stabilizers and elastomeric properties, our coatings last 3-5× longer than conventional pool deck materials.</p>
                 </div>
+              </div>
+            </div>
+            
+            {/* Pool Contractor Business Opportunity Section */}
+            <div id="profit-calculator" className="relative mb-20 scroll-mt-24">
+              <div className="absolute -inset-2 bg-gradient-to-r from-blue-600/30 via-orange-600/30 to-blue-600/30 rounded-xl blur-xl opacity-70"></div>
+              <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 rounded-xl p-6 md:p-8 shadow-lg border border-blue-500/30 overflow-hidden">
+                {/* Corner accent elements */}
+                <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none">
+                  <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-blue-500/70 rounded-tl-lg"></div>
+                  <div className="absolute top-0 left-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
+                </div>
+                <div className="absolute top-0 right-0 w-16 h-16 pointer-events-none">
+                  <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-orange-500/70 rounded-tr-lg"></div>
+                  <div className="absolute top-0 right-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+                </div>
+                <div className="absolute bottom-0 left-0 w-16 h-16 pointer-events-none">
+                  <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-orange-500/70 rounded-bl-lg"></div>
+                  <div className="absolute bottom-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+                </div>
+                <div className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none">
+                  <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-blue-500/70 rounded-br-lg"></div>
+                  <div className="absolute bottom-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
+                </div>
+                
+                <h2 className="text-2xl md:text-3xl mb-6 text-center text-white drop-shadow-[0_0px_1px_rgba(59,130,246,0.2)] [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(59,130,246,0.3)]">
+                  The Praetorian Pool Contractor Opportunity
+                </h2>
+                
+                <div className="grid md:grid-cols-2 gap-8 mb-8">
+                  <div>
+                    <h3 className="text-xl font-semibold mb-4 text-white">Why Pool Professionals Choose Praetorian</h3>
+                    <ul className="space-y-3">
+                      <li className="flex items-start">
+                        <CheckIcon className="h-5 w-5 text-blue-400 mr-2 mt-0.5 shrink-0" />
+                        <span className="text-gray-200">
+                          <span className="font-semibold text-white">Premium pricing power</span> - Charge 60-80% more than standard deck resurfacing projects
+                        </span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckIcon className="h-5 w-5 text-blue-400 mr-2 mt-0.5 shrink-0" />
+                        <span className="text-gray-200">
+                          <span className="font-semibold text-white">Exclusive territory rights</span> - Become the only certified installer in your region
+                        </span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckIcon className="h-5 w-5 text-blue-400 mr-2 mt-0.5 shrink-0" />
+                        <span className="text-gray-200">
+                          <span className="font-semibold text-white">Direct lead generation</span> - We send qualified homeowner leads directly to you
+                        </span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckIcon className="h-5 w-5 text-blue-400 mr-2 mt-0.5 shrink-0" />
+                        <span className="text-gray-200">
+                          <span className="font-semibold text-white">No specialized equipment needed</span> - Uses standard application tools you already own
+                        </span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckIcon className="h-5 w-5 text-blue-400 mr-2 mt-0.5 shrink-0" />
+                        <span className="text-gray-200">
+                          <span className="font-semibold text-white">Contractor pricing discounts</span> - 25-35% below retail pricing for certified partners
+                        </span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckIcon className="h-5 w-5 text-blue-400 mr-2 mt-0.5 shrink-0" />
+                        <span className="text-gray-200">
+                          <span className="font-semibold text-white">Year-round installation</span> - Not limited by swimming season, expand your business calendar
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+                  
+                  <div className="bg-gradient-to-br from-gray-800/80 via-gray-900/80 to-black/80 rounded-lg p-6 border border-blue-500/20">
+                    <h3 className="text-xl font-semibold mb-4 text-white">Pool Contractor Revenue Example</h3>
+                    
+                    <div className="relative">
+                      <div className="absolute top-0 left-0 w-12 h-12 pointer-events-none">
+                        <div className="absolute top-0 left-0 w-4 h-4 border-t border-l border-blue-500/30 rounded-tl-sm"></div>
+                      </div>
+                      <div className="absolute bottom-0 right-0 w-12 h-12 pointer-events-none">
+                        <div className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-blue-500/30 rounded-br-sm"></div>
+                      </div>
+                      
+                      <div className="space-y-1 mb-6">
+                        <div className="flex justify-between border-b border-gray-700 pb-1">
+                          <span className="text-gray-300">Average pool deck size:</span>
+                          <span className="text-white font-medium">750 sq ft</span>
+                        </div>
+                        <div className="flex justify-between border-b border-gray-700 pb-1">
+                          <span className="text-gray-300">Your cost (materials):</span>
+                          <span className="text-white font-medium">$8.75/sq ft</span>
+                        </div>
+                        <div className="flex justify-between border-b border-gray-700 pb-1">
+                          <span className="text-gray-300">Labor cost (your crew):</span>
+                          <span className="text-white font-medium">$3.25/sq ft</span>
+                        </div>
+                        <div className="flex justify-between border-b border-gray-700 pb-1">
+                          <span className="text-gray-300">Your total cost:</span>
+                          <span className="text-white font-medium">$12.00/sq ft</span>
+                        </div>
+                        <div className="flex justify-between border-b border-gray-700 pb-1">
+                          <span className="text-gray-300">Retail price to homeowner:</span>
+                          <span className="text-white font-medium">$22.00/sq ft</span>
+                        </div>
+                        <div className="flex justify-between pb-1 text-lg">
+                          <span className="text-gray-200 font-medium">Your profit margin:</span>
+                          <span className="text-green-400 font-semibold">45%</span>
+                        </div>
+                      </div>
+                      
+                      <div className="bg-blue-950/30 rounded-lg border border-blue-500/30 p-4">
+                        <h4 className="text-lg font-semibold text-white mb-2">Profit Per Average Project</h4>
+                        <div className="grid grid-cols-2 gap-4">
+                          <div>
+                            <p className="text-sm text-gray-300 mb-1">Total Project Revenue</p>
+                            <p className="text-2xl font-bold text-white">$16,500</p>
+                          </div>
+                          <div>
+                            <p className="text-sm text-gray-300 mb-1">Your Profit</p>
+                            <p className="text-2xl font-bold text-green-400">$7,500</p>
+                          </div>
+                        </div>
+                        <p className="text-center text-gray-300 mt-3 text-sm">Completing just 2 projects per month = <span className="font-semibold text-green-400">$180,000/year profit</span></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="text-center mb-4">
+                  <a href="#contractor-registration" className="relative inline-block group">
+                    <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-600 to-blue-600 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-200"></div>
+                    <button className="relative px-8 py-4 bg-gradient-to-br from-gray-900 to-black text-white font-medium text-lg rounded-lg border border-blue-500/50 hover:border-blue-400 transition duration-200">
+                      Register as a Certified Pool Installer
+                    </button>
+                  </a>
+                </div>
+                <p className="text-center text-gray-400 text-sm">Limited territories available - Apply today to secure your region</p>
               </div>
             </div>
           </div>
