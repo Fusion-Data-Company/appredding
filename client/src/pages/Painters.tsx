@@ -1140,6 +1140,273 @@ const Painters = () => {
             </div>
           </div>
         </section>
+        
+        {/* Painters Business ROI Analysis Section */}
+        <section className="py-16 relative z-10">
+          <div className="container mx-auto">
+            <div className="relative max-w-6xl mx-auto">
+              <div className="absolute -inset-2 bg-gradient-to-r from-blue-600/30 via-orange-600/30 to-blue-600/30 rounded-xl blur-xl opacity-70"></div>
+              <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 rounded-xl p-6 md:p-8 shadow-lg border border-blue-500/30 overflow-hidden">
+                {/* Corner accent elements */}
+                <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none">
+                  <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-blue-500/70 rounded-tl-lg"></div>
+                  <div className="absolute top-0 left-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
+                </div>
+                <div className="absolute top-0 right-0 w-16 h-16 pointer-events-none">
+                  <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-orange-500/70 rounded-tr-lg"></div>
+                  <div className="absolute top-0 right-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+                </div>
+                <div className="absolute bottom-0 left-0 w-16 h-16 pointer-events-none">
+                  <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-orange-500/70 rounded-bl-lg"></div>
+                  <div className="absolute bottom-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+                </div>
+                <div className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none">
+                  <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-blue-500/70 rounded-br-lg"></div>
+                  <div className="absolute bottom-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
+                </div>
+                
+                <h2 className="text-3xl font-bold mb-8 text-center text-white drop-shadow-[0_0px_1px_rgba(59,130,246,0.2)] [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(59,130,246,0.3)]">
+                  Painting Business Revenue Analysis
+                </h2>
+                
+                <div className="grid md:grid-cols-2 gap-8 mb-8">
+                  <div>
+                    <h3 className="text-xl font-semibold mb-4 text-white">Professional Painting Challenges</h3>
+                    
+                    <div className="bg-gradient-to-br from-gray-800/70 via-gray-850/70 to-gray-900/70 p-6 rounded-lg border border-red-500/20 mb-6">
+                      <h4 className="text-lg font-semibold text-white mb-3 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-red-400 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                          <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                        </svg>
+                        Industry Pain Points
+                      </h4>
+                      
+                      <ul className="space-y-3">
+                        <li className="flex items-start">
+                          <div className="min-w-6 h-6 bg-red-900/40 rounded-full flex items-center justify-center mt-0.5 mr-2">
+                            <span className="text-red-400 text-xs font-bold">1</span>
+                          </div>
+                          <span className="text-gray-200">
+                            <span className="font-semibold text-white">Razor-thin margins</span> - Average profit margins for painting contractors are just 8.3% and declining
+                          </span>
+                        </li>
+                        <li className="flex items-start">
+                          <div className="min-w-6 h-6 bg-red-900/40 rounded-full flex items-center justify-center mt-0.5 mr-2">
+                            <span className="text-red-400 text-xs font-bold">2</span>
+                          </div>
+                          <span className="text-gray-200">
+                            <span className="font-semibold text-white">High competition</span> - 94% of painting businesses have 9 or fewer employees with minimal differentiation
+                          </span>
+                        </li>
+                        <li className="flex items-start">
+                          <div className="min-w-6 h-6 bg-red-900/40 rounded-full flex items-center justify-center mt-0.5 mr-2">
+                            <span className="text-red-400 text-xs font-bold">3</span>
+                          </div>
+                          <span className="text-gray-200">
+                            <span className="font-semibold text-white">Callback costs</span> - Average contractor spends 10-15% of revenue on warranty repairs and customer callbacks
+                          </span>
+                        </li>
+                        <li className="flex items-start">
+                          <div className="min-w-6 h-6 bg-red-900/40 rounded-full flex items-center justify-center mt-0.5 mr-2">
+                            <span className="text-red-400 text-xs font-bold">4</span>
+                          </div>
+                          <span className="text-gray-200">
+                            <span className="font-semibold text-white">Project timeline pressure</span> - Standard paint curing times create scheduling bottlenecks and cash flow issues
+                          </span>
+                        </li>
+                      </ul>
+                    </div>
+                    
+                    <div className="bg-blue-950/30 rounded-lg border border-blue-500/30 p-6">
+                      <h4 className="text-lg font-semibold text-white mb-3 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-400 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                        </svg>
+                        Praetorian Painter Partnership Benefits
+                      </h4>
+                      
+                      <ul className="space-y-3">
+                        <li className="flex items-start">
+                          <div className="min-w-6 h-6 bg-blue-900/40 rounded-full flex items-center justify-center mt-0.5 mr-2">
+                            <span className="text-blue-400 text-xs font-bold">1</span>
+                          </div>
+                          <span className="text-gray-200">
+                            <span className="font-semibold text-white">Premium pricing power</span> - Offer high-performance coatings that command 35-65% higher project prices
+                          </span>
+                        </li>
+                        <li className="flex items-start">
+                          <div className="min-w-6 h-6 bg-blue-900/40 rounded-full flex items-center justify-center mt-0.5 mr-2">
+                            <span className="text-blue-400 text-xs font-bold">2</span>
+                          </div>
+                          <span className="text-gray-200">
+                            <span className="font-semibold text-white">Better profit margins</span> - Average Praetorian partner contractors achieve 27-42% profit margins on premium projects
+                          </span>
+                        </li>
+                        <li className="flex items-start">
+                          <div className="min-w-6 h-6 bg-blue-900/40 rounded-full flex items-center justify-center mt-0.5 mr-2">
+                            <span className="text-blue-400 text-xs font-bold">3</span>
+                          </div>
+                          <span className="text-gray-200">
+                            <span className="font-semibold text-white">Technical differentiation</span> - Certified exclusive installer status with documented performance capabilities
+                          </span>
+                        </li>
+                        <li className="flex items-start">
+                          <div className="min-w-6 h-6 bg-blue-900/40 rounded-full flex items-center justify-center mt-0.5 mr-2">
+                            <span className="text-blue-400 text-xs font-bold">4</span>
+                          </div>
+                          <span className="text-gray-200">
+                            <span className="font-semibold text-white">20+ year warranty support</span> - Virtually eliminates callback costs with documented performance certification
+                          </span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-gradient-to-br from-gray-800/80 via-gray-900/80 to-black/80 rounded-lg p-6 border border-blue-500/20">
+                    <h3 className="text-xl font-semibold mb-4 text-white flex items-center">
+                      <Brush className="h-5 w-5 text-blue-400 mr-2" />
+                      Painter Revenue Enhancement Model
+                    </h3>
+                    
+                    <div className="relative mb-6">
+                      <div className="absolute top-0 left-0 w-12 h-12 pointer-events-none">
+                        <div className="absolute top-0 left-0 w-4 h-4 border-t border-l border-blue-500/30 rounded-tl-sm"></div>
+                      </div>
+                      <div className="absolute bottom-0 right-0 w-12 h-12 pointer-events-none">
+                        <div className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-blue-500/30 rounded-br-sm"></div>
+                      </div>
+                      
+                      <div className="bg-blue-950/40 rounded-lg border border-blue-700/30 p-4 mb-4">
+                        <h4 className="text-lg font-medium text-white mb-2">Residential Painting Business <span className="text-sm text-blue-300">(5-person crew)</span></h4>
+                        
+                        <div className="grid grid-cols-2 gap-x-4 gap-y-2 mb-4">
+                          <div className="col-span-2">
+                            <div className="flex justify-between border-b border-gray-700/50 pb-1 mb-1">
+                              <span className="text-sm text-gray-400">Standard Annual Business</span>
+                              <span></span>
+                            </div>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-gray-300">Project revenue (25 projects):</span>
+                            <span className="text-white font-medium">$312,500</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-gray-300">Cost of materials/labor:</span>
+                            <span className="text-white font-medium">$265,625</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-gray-300">Callback/warranty costs:</span>
+                            <span className="text-white font-medium">$21,875</span>
+                          </div>
+                          <div className="flex justify-between pt-1 border-t border-gray-700/50">
+                            <span className="text-gray-200 font-medium">Standard Annual Profit:</span>
+                            <span className="text-white font-semibold">$25,000</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-gray-300">Profit Margin:</span>
+                            <span className="text-white font-medium">8.0%</span>
+                          </div>
+                        </div>
+                        
+                        <div className="grid grid-cols-2 gap-x-4 gap-y-2">
+                          <div className="col-span-2">
+                            <div className="flex justify-between border-b border-gray-700/50 pb-1 mb-1">
+                              <span className="text-sm text-gray-400">With Praetorian Partnership</span>
+                              <span></span>
+                            </div>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-gray-300">Premium project revenue (15 projects):</span>
+                            <span className="text-white font-medium">$375,000</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-gray-300">Cost of materials/labor:</span>
+                            <span className="text-white font-medium">$243,750</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-gray-300">Callback/warranty costs:</span>
+                            <span className="text-white font-medium">$3,750</span>
+                          </div>
+                          <div className="flex justify-between pt-1 border-t border-gray-700/50">
+                            <span className="text-gray-200 font-medium">Enhanced Annual Profit:</span>
+                            <span className="text-green-400 font-semibold">$127,500</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-gray-300">Profit Margin:</span>
+                            <span className="text-green-400 font-semibold">34.0%</span>
+                          </div>
+                        </div>
+                        
+                        <div className="mt-3 text-center text-blue-300 text-sm">
+                          <span className="font-semibold">Annual Profit Increase: $102,500</span> | 410% improvement
+                        </div>
+                      </div>
+                      
+                      <div className="bg-blue-950/40 rounded-lg border border-blue-700/30 p-4">
+                        <h4 className="text-lg font-medium text-white mb-2">Commercial Painting Business <span className="text-sm text-blue-300">(10-person crew)</span></h4>
+                        
+                        <div className="mb-4">
+                          <div className="flex justify-between items-center mb-2">
+                            <span className="text-gray-300">Average project value increase:</span>
+                            <span className="text-white font-semibold">58.3%</span>
+                          </div>
+                          <div className="w-full h-3 bg-gray-700/50 rounded-full mb-4 overflow-hidden">
+                            <div className="h-full bg-gradient-to-r from-green-500 to-blue-500 rounded-full" style={{ width: "58.3%" }}></div>
+                          </div>
+                        </div>
+                        
+                        <div className="mb-4">
+                          <div className="flex justify-between items-center mb-2">
+                            <span className="text-gray-300">Callbacks reduction:</span>
+                            <span className="text-white font-semibold">91.7%</span>
+                          </div>
+                          <div className="w-full h-3 bg-gray-700/50 rounded-full mb-4 overflow-hidden">
+                            <div className="h-full bg-gradient-to-r from-green-500 to-blue-500 rounded-full" style={{ width: "91.7%" }}></div>
+                          </div>
+                        </div>
+                        
+                        <div className="flex justify-between items-center mb-4">
+                          <span className="text-gray-300">Annual company revenue potential:</span>
+                          <span className="text-white font-semibold">$1.25M - $2.8M</span>
+                        </div>
+                        
+                        <div className="mt-4 p-3 bg-blue-900/20 rounded border border-blue-700/20">
+                          <div className="flex items-center">
+                            <CircleDollarSign className="h-5 w-5 text-green-400 mr-2 flex-shrink-0" />
+                            <span className="text-sm text-gray-200">
+                              <span className="font-semibold text-white">Premium Positioning:</span> Specialized certification allows partners to target higher-value clients in commercial, industrial, and luxury residential segments
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="text-center mt-6">
+                      <button 
+                        onClick={() => setShowContactForm(true)}
+                        className="relative inline-flex items-center justify-center px-8 py-4 overflow-hidden font-medium text-blue-600 transition duration-300 ease-out border-2 border-blue-500 rounded-lg shadow-md group"
+                      >
+                        <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-blue-600 group-hover:translate-x-0 ease">
+                          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                          </svg>
+                        </span>
+                        <span className="absolute flex items-center justify-center w-full h-full text-blue-500 transition-all duration-300 transform group-hover:translate-x-full ease">Become a Certified Partner</span>
+                        <span className="relative invisible">Become a Certified Partner</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="text-center text-gray-300 text-sm max-w-3xl mx-auto">
+                  <p>
+                    Praetorian provides full certification, training, and marketing support to our exclusive network of professional painting partners. Access premium clients and projects unavailable to standard painting contractors.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </MainLayout>
   );
