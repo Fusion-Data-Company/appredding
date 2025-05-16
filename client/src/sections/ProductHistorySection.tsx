@@ -28,9 +28,9 @@ const ProductHistorySection = () => {
       
       <div className="container mx-auto px-4 relative" style={{ zIndex: 2 }}>
         {/* Premium Enterprise Styled Grid with equal height columns */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-stretch h-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start h-full">
           {/* Left column - NASA Technology Content - matching right column */}
-          <div className="group relative transform hover:scale-[1.01] transition-all duration-700">
+          <div className="group relative transform hover:scale-[1.01] transition-all duration-700 h-[900px]">
             {/* Multiple layered background effects - Mixed theme with subtle glow - exactly like right column */}
             <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/40 via-blue-600/40 to-orange-600/40 rounded-xl blur-xl opacity-70 group-hover:opacity-100 group-hover:blur-xl transition-all duration-1000 animate-pulse-slow"></div>
             <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/80 via-blue-500/80 to-orange-500/80 rounded-xl blur-md opacity-90 group-hover:opacity-100 transition-all duration-500"></div>
@@ -269,7 +269,7 @@ const ProductHistorySection = () => {
           </div>
           
           {/* Right column - Premium Timeline Card */}
-          <div className="group relative transform hover:scale-[1.01] transition-all duration-700">
+          <div className="group relative transform hover:scale-[1.01] transition-all duration-700 h-[900px]">
             {/* Multiple layered background effects - Mixed theme with subtle glow */}
             <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/40 via-blue-600/40 to-orange-600/40 rounded-xl blur-xl opacity-70 group-hover:opacity-100 group-hover:blur-xl transition-all duration-1000 animate-pulse-slow"></div>
             <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/80 via-blue-500/80 to-orange-500/80 rounded-xl blur-md opacity-90 group-hover:opacity-100 transition-all duration-500"></div>
