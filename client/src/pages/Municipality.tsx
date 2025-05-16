@@ -737,17 +737,28 @@ const MunicipalityPage = () => {
             </div>
 
             {/* Key Benefits Section */}
-            <div className="backdrop-blur-sm bg-gradient-to-br from-primary-900/80 to-primary-950/90 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] p-8 md:p-12 mb-16">
-              <div className="flex flex-col items-center mb-8">
-                <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mb-4"></div>
-                <h2 className="text-3xl md:text-4xl font-bold text-center mb-2">
-                  <span className="text-blue-300">Municipal </span>
-                  <span className="text-white">Infrastructure </span>
-                  <span className="text-orange-400">Protection</span>
+            <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black rounded-xl border border-gray-800 shadow-[0_0_60px_rgba(59,130,246,0.2)] p-8 md:p-12 mb-16">
+              {/* Corner Accents */}
+              <div className="absolute top-0 left-0 w-full h-full rounded-lg overflow-hidden pointer-events-none">
+                <div className="absolute top-0 left-0 w-40 h-40 border-t-4 border-l-4 border-orange-500/40 rounded-tl-lg"></div>
+                <div className="absolute top-0 right-0 w-40 h-40 border-t-4 border-r-4 border-blue-500/30 rounded-tr-lg"></div>
+                <div className="absolute bottom-0 left-0 w-40 h-40 border-b-4 border-l-4 border-blue-500/30 rounded-bl-lg"></div>
+                <div className="absolute bottom-0 right-0 w-40 h-40 border-b-4 border-r-4 border-orange-500/40 rounded-br-lg"></div>
+              </div>
+              
+              {/* Ambient glow effects */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-blue-600/10 rounded-full blur-[100px] pointer-events-none"></div>
+              
+              <div className="flex flex-col items-center mb-8 relative z-10">
+                <h2 className="text-3xl md:text-4xl font-bold text-center mb-6 text-white drop-shadow-[0_2px_4px_rgba(59,130,246,0.5)]">
+                  <span className="relative inline-block">
+                    Municipal Infrastructure Protection
+                    <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-80 h-[2px] bg-gradient-to-r from-transparent via-blue-500 to-transparent"></div>
+                  </span>
                 </h2>
-                <div className="w-36 h-1 bg-gradient-to-r from-orange-500 to-blue-500 rounded-full mb-6"></div>
-                <p className="text-white mb-4 text-center max-w-3xl mx-auto">
-                  Our NASA-derived ceramic microsphere technology provides documented ROI in 1-3 years with 20-87% energy cost reduction 
+                
+                <p className="text-blue-100 mb-4 text-center max-w-3xl mx-auto">
+                  Our ceramic microsphere technology provides documented ROI in 1-3 years with 20-87% energy cost reduction 
                   across municipal infrastructure. With 10-20 mils thickness, it achieves equivalent performance to inches of traditional 
                   insulation while delivering Class A fire protection (0/100 flame spread), perfect smoke development rating (0/100), 
                   and verified 30+ year performance with only 1% reflectivity degradation after 3 years.
@@ -755,67 +766,76 @@ const MunicipalityPage = () => {
               </div>
               
               {/* Key Benefits Cards */}
-              <div className="grid md:grid-cols-3 gap-8 mt-8">
-                <div className="bg-gradient-to-br from-primary-900/80 to-primary-950/90 backdrop-blur-md rounded-xl p-6 border border-primary-500/30 shadow-lg transform hover:scale-[1.02] transition-transform duration-300">
-                  <div className="flex justify-between items-start mb-4">
-                    <div className="bg-gradient-to-br from-primary-500/20 to-primary-700/20 p-3 rounded-full border border-primary-500/40">
-                      <ShieldCheck className="h-8 w-8 text-green-400" />
+              <div className="grid md:grid-cols-3 gap-8 mt-8 relative z-10">
+                <div className="relative bg-gradient-to-br from-gray-900 to-black rounded-xl p-6 border border-gray-800 shadow-xl group hover:shadow-2xl transition-all duration-300">
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600/20 to-blue-600/20 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-300"></div>
+                  <div className="relative z-10">
+                    <div className="flex justify-between items-start mb-4">
+                      <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-3 rounded-full border border-blue-500/30 shadow-[0_0_15px_rgba(59,130,246,0.3)]">
+                        <ShieldCheck className="h-8 w-8 text-blue-400" />
+                      </div>
+                      <div className="bg-gray-900 px-2 py-1 rounded-full text-xs font-semibold text-blue-200 border border-blue-500/30">
+                        PROVEN TECHNOLOGY
+                      </div>
                     </div>
-                    <div className="bg-primary-900/60 px-2 py-1 rounded-full text-xs font-semibold text-primary-300 border border-primary-700/30">
-                      PROVEN TECHNOLOGY
-                    </div>
-                  </div>
-                  <h3 className="text-xl font-bold text-white mb-3">Infrastructure Protection</h3>
-                  <p className="text-gray-200 mb-4">Shields municipal buildings and infrastructure from extreme temperatures, UV damage, moisture, and chemical exposure, extending asset lifespans by up to 30 years.</p>
-                  <div className="mt-auto pt-3 border-t border-primary-700/30">
-                    <div className="flex items-center justify-between">
-                      <span className="text-primary-300 text-sm">Asset Lifespan Increase</span>
-                      <span className="text-white font-mono font-semibold">+30 years</span>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="bg-gradient-to-br from-primary-900/80 to-primary-950/90 backdrop-blur-md rounded-xl p-6 border border-primary-500/30 shadow-lg transform hover:scale-[1.02] transition-transform duration-300">
-                  <div className="flex justify-between items-start mb-4">
-                    <div className="bg-gradient-to-br from-primary-500/20 to-primary-700/20 p-3 rounded-full border border-primary-500/40">
-                      <Leaf className="h-8 w-8 text-green-400" />
-                    </div>
-                    <div className="bg-primary-900/60 px-2 py-1 rounded-full text-xs font-semibold text-primary-300 border border-primary-700/30">
-                      ENERGY EFFICIENT
-                    </div>
-                  </div>
-                  <h3 className="text-xl font-bold text-white mb-3">Sustainability Impact</h3>
-                  <p className="text-gray-200 mb-4">Reduces energy consumption and carbon footprint, contributing to sustainability goals while decreasing HVAC costs by 20-40% through superior thermal insulation.</p>
-                  <div className="mt-auto pt-3 border-t border-primary-700/30">
-                    <div className="flex items-center justify-between">
-                      <span className="text-primary-300 text-sm">HVAC Cost Reduction</span>
-                      <span className="text-white font-mono font-semibold">20-40%</span>
+                    <h3 className="text-xl font-bold text-white mb-3 drop-shadow-[0_1px_2px_rgba(59,130,246,0.5)]">Infrastructure Protection</h3>
+                    <p className="text-blue-100 mb-4">Shields municipal buildings and infrastructure from extreme temperatures, UV damage, moisture, and chemical exposure, extending asset lifespans by up to 30 years.</p>
+                    <div className="mt-auto pt-3 border-t border-gray-800">
+                      <div className="flex items-center justify-between">
+                        <span className="text-blue-300 text-sm">Asset Lifespan Increase</span>
+                        <span className="text-white font-mono font-semibold">+30 years</span>
+                      </div>
                     </div>
                   </div>
                 </div>
                 
-                <div className="bg-gradient-to-br from-primary-900/80 to-primary-950/90 backdrop-blur-md rounded-xl p-6 border border-primary-500/30 shadow-lg transform hover:scale-[1.02] transition-transform duration-300">
-                  <div className="flex justify-between items-start mb-4">
-                    <div className="bg-gradient-to-br from-primary-500/20 to-primary-700/20 p-3 rounded-full border border-primary-500/40">
-                      <Clock className="h-8 w-8 text-blue-300" />
+                <div className="relative bg-gradient-to-br from-gray-900 to-black rounded-xl p-6 border border-gray-800 shadow-xl group hover:shadow-2xl transition-all duration-300">
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-600/20 to-orange-600/20 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-300"></div>
+                  <div className="relative z-10">
+                    <div className="flex justify-between items-start mb-4">
+                      <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-3 rounded-full border border-orange-500/30 shadow-[0_0_15px_rgba(249,115,22,0.3)]">
+                        <Leaf className="h-8 w-8 text-orange-400" />
+                      </div>
+                      <div className="bg-gray-900 px-2 py-1 rounded-full text-xs font-semibold text-orange-200 border border-orange-500/30">
+                        ENERGY EFFICIENT
+                      </div>
                     </div>
-                    <div className="bg-primary-900/60 px-2 py-1 rounded-full text-xs font-semibold text-primary-300 border border-primary-700/30">
-                      LOW MAINTENANCE
+                    <h3 className="text-xl font-bold text-white mb-3 drop-shadow-[0_1px_2px_rgba(249,115,22,0.5)]">Sustainability Impact</h3>
+                    <p className="text-orange-100 mb-4">Reduces energy consumption and carbon footprint, contributing to sustainability goals while decreasing HVAC costs by 20-40% through superior thermal insulation.</p>
+                    <div className="mt-auto pt-3 border-t border-gray-800">
+                      <div className="flex items-center justify-between">
+                        <span className="text-orange-300 text-sm">HVAC Cost Reduction</span>
+                        <span className="text-white font-mono font-semibold">20-40%</span>
+                      </div>
                     </div>
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-3">Extended Longevity</h3>
-                  <p className="text-gray-200 mb-4">Minimizes maintenance requirements and extends the service life of municipal assets, providing long-term protection against environmental degradation.</p>
-                  <div className="mt-auto pt-3 border-t border-primary-700/30">
-                    <div className="flex items-center justify-between">
-                      <span className="text-primary-300 text-sm">Maintenance Reduction</span>
-                      <span className="text-white font-mono font-semibold">Up to 65%</span>
+                </div>
+                
+                <div className="relative bg-gradient-to-br from-gray-900 to-black rounded-xl p-6 border border-gray-800 shadow-xl group hover:shadow-2xl transition-all duration-300">
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600/20 to-blue-600/20 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-300"></div>
+                  <div className="relative z-10">
+                    <div className="flex justify-between items-start mb-4">
+                      <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-3 rounded-full border border-blue-500/30 shadow-[0_0_15px_rgba(59,130,246,0.3)]">
+                        <Clock className="h-8 w-8 text-blue-400" />
+                      </div>
+                      <div className="bg-gray-900 px-2 py-1 rounded-full text-xs font-semibold text-blue-200 border border-blue-500/30">
+                        LOW MAINTENANCE
+                      </div>
+                    </div>
+                    <h3 className="text-xl font-bold text-white mb-3 drop-shadow-[0_1px_2px_rgba(59,130,246,0.5)]">Extended Longevity</h3>
+                    <p className="text-blue-100 mb-4">Minimizes maintenance requirements and extends the service life of municipal assets, providing long-term protection against environmental degradation.</p>
+                    <div className="mt-auto pt-3 border-t border-gray-800">
+                      <div className="flex items-center justify-between">
+                        <span className="text-blue-300 text-sm">Maintenance Reduction</span>
+                        <span className="text-white font-mono font-semibold">Up to 65%</span>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
               
               {/* Lakewood Water Treatment Facility Case Study */}
-              <div className="bg-gradient-to-br from-blue-900/70 to-primary-950/80 backdrop-blur-md border border-blue-400/30 rounded-xl p-8 mt-12 mb-8 max-w-5xl mx-auto shadow-lg">
+              <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black rounded-xl border border-gray-800 p-8 mt-12 mb-8 max-w-5xl mx-auto shadow-[0_0_40px_rgba(59,130,246,0.15)]">
                 <div className="flex flex-col items-center mb-8">
                   <div className="bg-gradient-to-r from-blue-500 to-blue-600 p-px rounded-full mb-6">
                     <div className="bg-blue-900 rounded-full p-3">
