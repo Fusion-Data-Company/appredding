@@ -187,34 +187,34 @@ const PremiumButton = forwardRef<HTMLButtonElement, PremiumButtonProps>(
               <div className="absolute inset-0 w-2/3 h-full bg-gradient-to-r from-transparent via-white/8 to-transparent opacity-10 -translate-x-full animate-shimmer-medium transform rounded-lg"></div>
               
               {/* Extremely prominent blue/orange glow - button size only, in front of card but behind button */}
-              <div className="absolute -inset-[5px] rounded-3xl opacity-80 group-hover:opacity-100 transition-opacity duration-500"
+              <div className="absolute -inset-[5px] rounded-3xl opacity-100 transition-opacity duration-500"
                   style={{ 
-                    background: 'linear-gradient(to right, rgba(255,111,0,0.7), rgba(59,130,246,0.7), rgba(255,111,0,0.7))',
-                    boxShadow: '0 0 15px 8px rgba(255,79,0,0.7), 0 0 12px 5px rgba(59,130,246,0.7), 0 15px 15px rgba(255,79,0,0.5), 0 20px 30px rgba(59,130,246,0.4)',
+                    background: 'linear-gradient(to right, rgba(255,111,0,0.3), rgba(59,130,246,0.8), rgba(255,111,0,0.3))',
+                    boxShadow: '0 0 15px 8px rgba(59,130,246,0.7), 0 0 12px 5px rgba(59,130,246,0.7), 0 15px 15px rgba(59,130,246,0.6), 0 20px 30px rgba(59,130,246,0.5)',
                     animation: 'pulse 3s ease-in-out infinite',
                     zIndex: -1
                   }}>
               </div>
               
               {/* Corner accent points - premium touch matching cards */}
-              <div className="absolute top-0 left-0 w-2 h-2 bg-orange-500/70 rounded-full blur-[1px] opacity-60 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <div className="absolute top-0 right-0 w-2 h-2 bg-blue-500/70 rounded-full blur-[1px] opacity-60 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <div className="absolute bottom-0 left-0 w-2 h-2 bg-blue-500/70 rounded-full blur-[1px] opacity-60 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <div className="absolute bottom-0 right-0 w-2 h-2 bg-orange-500/70 rounded-full blur-[1px] opacity-60 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute top-0 left-0 w-2 h-2 bg-blue-500/90 rounded-full blur-[1px] opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute top-0 right-0 w-2 h-2 bg-blue-500/90 rounded-full blur-[1px] opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute bottom-0 left-0 w-2 h-2 bg-blue-500/90 rounded-full blur-[1px] opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute bottom-0 right-0 w-2 h-2 bg-blue-500/90 rounded-full blur-[1px] opacity-100 transition-opacity duration-300"></div>
               
-              {/* Button-size ambient blur glow, in front of card but behind button */}
-              <div className="absolute -inset-[10px] rounded-3xl bg-gradient-to-r from-orange-500/60 via-blue-500/60 to-orange-500/60 blur-xl opacity-70 group-hover:opacity-90 transition-opacity duration-1000 animate-pulse-slow" 
+              {/* Button-size ambient blur glow, in front of card but behind button - with permanent blue glow */}
+              <div className="absolute -inset-[10px] rounded-3xl bg-gradient-to-r from-blue-500/60 via-blue-500/80 to-blue-500/60 blur-xl opacity-100 transition-opacity duration-1000 animate-pulse-slow" 
                    style={{ 
                      filter: 'blur(15px)',
-                     boxShadow: 'inset 0 0 20px 5px rgba(255,111,0,0.5), inset 0 0 15px 5px rgba(59,130,246,0.5)',
+                     boxShadow: 'inset 0 0 20px 5px rgba(59,130,246,0.7), inset 0 0 15px 5px rgba(59,130,246,0.7)',
                      zIndex: -1
                    }}>
               </div>
                 
-              {/* Drop shadow ambient glow effect - 20% width */}
-              <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-[100%] h-10 bg-gradient-to-b from-orange-500/40 to-transparent blur-2xl opacity-60 group-hover:opacity-80 transition-opacity duration-500 rounded-full">
+              {/* Drop shadow ambient glow effect - permanent blue only */}
+              <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-[100%] h-10 bg-gradient-to-b from-blue-500/70 to-transparent blur-2xl opacity-80 transition-opacity duration-500 rounded-full">
               </div>
-              <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-[90%] h-8 bg-gradient-to-b from-blue-500/40 to-transparent blur-2xl opacity-50 group-hover:opacity-70 transition-opacity duration-500 rounded-full">
+              <div className="absolute -bottom-12 left-1/2 -translate-x-1/2 w-[90%] h-14 bg-gradient-to-b from-blue-500/50 to-transparent blur-2xl opacity-70 transition-opacity duration-500 rounded-full">
               </div>
             </>
           )}
