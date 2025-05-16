@@ -10,11 +10,11 @@ const premiumButtonVariants = cva(
     variants: {
       variant: {
         default: 
-          "bg-gradient-to-r from-gray-950 via-black to-gray-950 text-white border-2 border-blue-500/40 shadow-lg hover:shadow-[0_0_15px_rgba(59,130,246,0.5)]",
+          "bg-gradient-to-r from-gray-950 via-black to-gray-950 text-white border-2 border-blue-500/40 shadow-lg hover:shadow-[0_0_20px_rgba(59,130,246,0.6)] hover:border-blue-400/50 transition-all duration-500 hover:scale-[1.01]",
         gold: 
-          "bg-gradient-to-br from-amber-950 via-black to-amber-950 text-white border-2 border-amber-500/40 shadow-lg hover:shadow-[0_0_15px_rgba(251,191,36,0.5)]",
+          "bg-gradient-to-br from-amber-950 via-black to-amber-950 text-white border-2 border-amber-500/40 shadow-lg hover:shadow-[0_0_20px_rgba(251,191,36,0.6)] hover:border-amber-400/50 transition-all duration-500 hover:scale-[1.01]",
         fire: 
-          "bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white border-2 border-blue-500/40 shadow-lg hover:shadow-[0_0_30px_rgba(59,130,246,0.6)] transform transition-all duration-500 hover:scale-[1.02]",
+          "bg-gradient-to-br from-gray-900 via-black to-gray-950 text-white border-2 border-blue-500/40 shadow-lg hover:shadow-[0_0_30px_rgba(59,130,246,0.7)] transform transition-all duration-500 hover:scale-[1.02] hover:border-blue-400/50",
         outline: 
           "bg-black text-white border-2 border-blue-500/40 shadow-lg hover:shadow-[0_0_15px_rgba(59,130,246,0.5)]",
         ghost: 
@@ -133,7 +133,11 @@ const PremiumButton = forwardRef<HTMLButtonElement, PremiumButtonProps>(
         )}
 
         <button
-          className={cn(premiumButtonVariants({ variant, size, className }), "shadow-2xl shadow-orange-500/40 drop-shadow-[0_0_45px_rgba(59,130,246,0.3)]")}
+          className={cn(
+            premiumButtonVariants({ variant, size, className }), 
+            "shadow-2xl shadow-orange-500/40 drop-shadow-[0_0_45px_rgba(59,130,246,0.3)]",
+            "backdrop-filter backdrop-blur-[1px]"
+          )}
           ref={ref}
           {...props}
         >
@@ -142,9 +146,14 @@ const PremiumButton = forwardRef<HTMLButtonElement, PremiumButtonProps>(
           
           {/* Hover glow effect removed as requested */}
           
-          {/* Inner border for fire variant */}
+          {/* Inner border and glass effects for fire variant */}
           {isFire && (
-            <div className="absolute inset-0 rounded-[10px] border border-blue-500/30 pointer-events-none"></div>
+            <>
+              <div className="absolute inset-0 rounded-[10px] border border-blue-500/40 pointer-events-none"></div>
+              <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent pointer-events-none opacity-30"></div>
+              <div className="absolute inset-x-0 top-0 h-[1px] bg-white/20 rounded-full"></div>
+              <div className="absolute inset-0 rounded-[10px] backdrop-blur-[0.5px] opacity-50 pointer-events-none"></div>
+            </>
           )}
 
           {/* Button Content */}
@@ -157,8 +166,12 @@ const PremiumButton = forwardRef<HTMLButtonElement, PremiumButtonProps>(
               </div>
             )}
             
-            {/* Text with subtle text shadow for fire variant */}
-            <span className={isFire ? "drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]" : ""}>
+            {/* Text with subtle text shadow for fire variant and gradient effect on hover */}
+            <span className={cn(
+              "transition-all duration-500 tracking-wide",
+              isFire ? "drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]" : "",
+              "group-hover:text-gradient font-medium"
+            )}>
               {children}
             </span>
             
