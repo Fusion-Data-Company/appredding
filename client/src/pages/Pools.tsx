@@ -1040,7 +1040,7 @@ const Pools = () => {
                   </div>
                   
                   <div>
-                    <label className="block text-sm font-medium mb-2">
+                    <label className="block text-sm font-medium mb-2 text-white">
                       Coating System
                       <TooltipProvider>
                         <Tooltip>
