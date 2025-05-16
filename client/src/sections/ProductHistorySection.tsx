@@ -301,9 +301,10 @@ const ProductHistorySection = () => {
                 </h3>
               </div>
               
-              {/* Simplified timeline matching screenshot style */}
-              <div className="relative bg-gradient-to-br from-gray-800/30 via-gray-900/30 to-black/30 rounded-xl p-6 mb-6" style={{ zIndex: 60, position: "relative" }}>
-                <div className="space-y-8">
+              {/* Complete timeline with all items visible */}
+              <div className="relative bg-gradient-to-br from-gray-800/30 via-gray-900/30 to-black/30 rounded-xl p-6 mb-6 flex-grow" style={{ zIndex: 60, position: "relative" }}>
+                <div className="space-y-6">
+                  {/* 2025 */}
                   <div className="flex justify-between items-start">
                     <div className="flex-1">
                       <h4 className="text-xl font-bold text-white mb-1">SON-SHIELD Brand Update</h4>
@@ -314,6 +315,7 @@ const ProductHistorySection = () => {
                     </div>
                   </div>
                   
+                  {/* 2023 */}
                   <div className="flex justify-between items-start">
                     <div className="flex-1">
                       <h4 className="text-xl font-bold text-white mb-1">Praetorian SmartCoat Pro+</h4>
@@ -324,6 +326,7 @@ const ProductHistorySection = () => {
                     </div>
                   </div>
                   
+                  {/* 2020 */}
                   <div className="flex justify-between items-start">
                     <div className="flex-1">
                       <h4 className="text-xl font-bold text-white mb-1">First Carbon-Neutral Coating</h4>
@@ -333,29 +336,56 @@ const ProductHistorySection = () => {
                       <span className="text-blue-400 font-bold">2020</span>
                     </div>
                   </div>
+                  
+                  {/* 2015 */}
+                  <div className="flex justify-between items-start">
+                    <div className="flex-1">
+                      <h4 className="text-xl font-bold text-white mb-1">Original Praetorian Formula</h4>
+                      <p className="text-gray-200">First commercial release of NASA-derived ceramic insulation technology with best-in-class thermal protection.</p>
+                    </div>
+                    <div className="ml-4 bg-gradient-to-br from-gray-800 to-gray-900 px-3 py-1 rounded-md border border-orange-500/30">
+                      <span className="text-orange-400 font-bold">2015</span>
+                    </div>
+                  </div>
+                  
+                  {/* 2009 */}
+                  <div className="flex justify-between items-start">
+                    <div className="flex-1">
+                      <h4 className="text-xl font-bold text-white mb-1">Marine Grade Certification</h4>
+                      <p className="text-gray-200">Achieved American Bureau of Shipping certification for marine applications after extensive salt spray testing.</p>
+                    </div>
+                    <div className="ml-4 bg-gradient-to-br from-gray-800 to-gray-900 px-3 py-1 rounded-md border border-blue-500/30">
+                      <span className="text-blue-400 font-bold">2009</span>
+                    </div>
+                  </div>
+                  
+                  {/* 1994 */}
+                  <div className="flex justify-between items-start">
+                    <div className="flex-1">
+                      <h4 className="text-xl font-bold text-white mb-1">U.S. Air Force Testing</h4>
+                      <p className="text-gray-200">Selected for Arizona field tests demonstrating exceptional real-world thermal performance.</p>
+                    </div>
+                    <div className="ml-4 bg-gradient-to-br from-gray-800 to-gray-900 px-3 py-1 rounded-md border border-orange-500/30">
+                      <span className="text-orange-400 font-bold">1994</span>
+                    </div>
+                  </div>
+                  
+                  {/* 1989 */}
+                  <div className="flex justify-between items-start">
+                    <div className="flex-1">
+                      <h4 className="text-xl font-bold text-white mb-1">NASA Technology Transfer</h4>
+                      <p className="text-gray-200">Original commercial adaptation of space shuttle ceramic insulation technology for industrial applications.</p>
+                    </div>
+                    <div className="ml-4 bg-gradient-to-br from-gray-800 to-gray-900 px-3 py-1 rounded-md border border-blue-500/30">
+                      <span className="text-blue-400 font-bold">1989</span>
+                    </div>
+                  </div>
                 </div>
               </div>
               
-              {/* Show more button to reveal other timeline items */}
-              <div className="flex justify-center mb-4">
-                <button 
-                  className="px-4 py-2 rounded-md bg-gradient-to-r from-gray-800 to-gray-900 border border-blue-500/30 text-white hover:bg-gray-700 transition duration-300"
-                  style={{ zIndex: 60, position: "relative" }}
-                  onClick={() => {
-                    const element = document.getElementById('timeline-container');
-                    if (element) {
-                      element.scrollTop = element.scrollHeight;
-                    }
-                  }}
-                >
-                  View Full Timeline
-                </button>
-              </div>
-              
-              {/* Enhanced premium button */}
-              <div className="mt-2 flex justify-center">
-                <div className="relative" style={{position: "relative", zIndex: 50}}>
-                  {/* Premium button using PremiumButton component */}
+              {/* Enhanced premium button fully centered */}
+              <div className="flex-grow flex items-center justify-center" style={{position: "relative", zIndex: 50}}>
+                <div className="relative">
                   <PremiumButton 
                     variant="fire" 
                     size="xl" 
