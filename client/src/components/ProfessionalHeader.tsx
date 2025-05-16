@@ -116,13 +116,13 @@ const ProfessionalHeader = () => {
               <img 
                 src={praetorianLogo} 
                 alt="Praetorian SmartCoat" 
-                className="h-[110px] w-auto relative cursor-pointer logo-3d-effect"
+                className="h-[90px] w-auto relative cursor-pointer logo-3d-effect"
                 style={{ 
                   filter: 'drop-shadow(0 4px 6px rgba(0, 0, 0, 0.6))',
                   transform: 'scale(1.05) perspective(800px) rotateY(5deg)',
                   transformStyle: 'preserve-3d',
                   marginLeft: '60px',
-                  marginTop: '-16px',
+                  marginTop: '-6px',
                   position: 'relative',
                   zIndex: 2147483647
                 }}
