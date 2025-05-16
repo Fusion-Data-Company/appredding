@@ -549,140 +549,189 @@ const MunicipalityPage = () => {
         {/* Main content section */}
         <section className="py-16 md:py-24 relative z-10">
           <div className="container mx-auto">
-            <div className="max-w-4xl mx-auto text-center mb-16 backdrop-blur-sm bg-primary-900/80 p-8 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)]">
-              {/* Premium card header styling matching Specialized Applications */}
-              <div className="relative h-28 flex items-center justify-center mb-6">
-                {/* Background blur text */}
-                <div className="absolute inset-0 flex justify-center items-center text-5xl font-bold tracking-tight text-orange-900/10 blur-[5px] scale-110">
-                  NASA Ceramic Technology for Municipalities
-                </div>
-                
-                {/* Main text with premium gradient */}
-                <span className="relative text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-amber-500 to-red-500
-                  drop-shadow-[0_0px_1px_rgba(251,113,36,0.2)] 
-                  [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(251,146,60,0.3)]
-                  transform -translate-y-[0.25in] text-4xl md:text-5xl font-bold">
-                  NASA Ceramic Technology for Municipalities
-                </span>
-                
-                {/* Top glossy reflection */}
-                <div className="absolute top-0 left-0 right-0 h-[40%] bg-gradient-to-b from-white/10 to-transparent rounded-t-lg"></div>
-                
-                {/* Multiple text shadows for depth - reduced blur effects */}
-                <div className="absolute inset-0 flex items-center justify-center text-5xl font-bold tracking-tight opacity-10 blur-[3px] text-orange-700/30 -z-10 transform scale-105">
-                  NASA Ceramic Technology for Municipalities
-                </div>
-                <div className="absolute inset-0 flex items-center justify-center text-5xl font-bold tracking-tight opacity-20 blur-[1px] text-red-900/20 -z-10">
-                  NASA Ceramic Technology for Municipalities
-                </div>
-                
-                {/* Decorative accent line */}
-                <div className="absolute left-[8%] bottom-[-0.5in] transform group w-14 h-2.5 rounded-full overflow-hidden z-50 transition-all duration-700 hover:w-72">
-                  {/* Base gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-amber-500 to-red-600"></div>
-                  
-                  {/* Glow effect */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-amber-500 to-red-600 blur-md opacity-70"></div>
-                  
-                  {/* Pulsing dots */}
-                  <div className="absolute h-full w-4 bg-white/80 right-4 rounded-full blur-[1px] animate-pulse-slow"></div>
-                  <div className="absolute h-full w-3 bg-white/80 right-24 rounded-full blur-[1px] animate-pulse-slow-delayed opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
-                </div>
-              </div>
+            <div className="max-w-4xl mx-auto text-center mb-16 relative">
+              <div className="absolute -inset-1 bg-gradient-to-r from-orange-500/20 via-blue-500/20 to-orange-500/20 rounded-xl blur-xl opacity-70"></div>
               
-              <p className="text-xl text-white mb-8">
-                Class A fire-rated coatings with NASA-derived ceramic microsphere technology provide superior protection for municipal infrastructure with perfect 0/100 flame spread ratings and independently verified 30+ year lifespan.
-              </p>
+              <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black p-10 rounded-xl border border-orange-500/40 shadow-[0_10px_50px_rgba(59,130,246,0.2)]">
+                {/* Corner Accents */}
+                <div className="absolute top-0 left-0 w-16 h-16 z-10 pointer-events-none">
+                  <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-orange-500/40 rounded-tl-md"></div>
+                  <div className="absolute top-1 left-1 w-12 h-12 border-t border-l border-blue-500/30 rounded-tl-md"></div>
+                </div>
+                <div className="absolute top-0 right-0 w-16 h-16 z-10 pointer-events-none">
+                  <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-orange-500/40 rounded-tr-md"></div>
+                  <div className="absolute top-1 right-1 w-12 h-12 border-t border-r border-blue-500/30 rounded-tr-md"></div>
+                </div>
+                <div className="absolute bottom-0 right-0 w-16 h-16 z-10 pointer-events-none">
+                  <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-orange-500/40 rounded-br-md"></div>
+                  <div className="absolute bottom-1 right-1 w-12 h-12 border-b border-r border-blue-500/30 rounded-br-md"></div>
+                </div>
+                <div className="absolute bottom-0 left-0 w-16 h-16 z-10 pointer-events-none">
+                  <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-orange-500/40 rounded-bl-md"></div>
+                  <div className="absolute bottom-1 left-1 w-12 h-12 border-b border-l border-blue-500/30 rounded-bl-md"></div>
+                </div>
+                
+                <h1 className="text-4xl md:text-5xl font-bold mb-8 text-white drop-shadow-[0_2px_4px_rgba(59,130,246,0.4)] relative z-10">
+                  <span className="relative inline-block">
+                    Municipal Infrastructure Protection
+                    <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-64 h-[2px] bg-gradient-to-r from-transparent via-blue-500 to-transparent"></div>
+                  </span>
+                </h1>
+                
+                <p className="text-xl text-blue-100 mb-8 relative z-10">
+                  Class A fire-rated coatings with ceramic microsphere technology provide superior protection for municipal infrastructure with perfect 0/100 flame spread ratings and independently verified 30+ year lifespan.
+                </p>
+              </div>
             </div>
 
             <div className="grid md:grid-cols-2 gap-12 mb-16">
-              <div className="backdrop-blur-sm bg-primary-900/80 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] p-8">
-                <GradientHeading level={2} className="text-3xl font-bold mb-6" variant="mixed">NASA Ceramic Protection Technology</GradientHeading>
+              <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black rounded-xl border border-gray-800 shadow-[0_0_60px_rgba(59,130,246,0.2)] p-8">
+                {/* Corner Accents */}
+                <div className="absolute top-0 left-0 w-full h-full rounded-lg overflow-hidden pointer-events-none">
+                  <div className="absolute top-0 left-0 w-32 h-32 border-t-4 border-l-4 border-orange-500/40 rounded-tl-lg"></div>
+                  <div className="absolute top-0 right-0 w-32 h-32 border-t-4 border-r-4 border-blue-500/30 rounded-tr-lg"></div>
+                  <div className="absolute bottom-0 left-0 w-32 h-32 border-b-4 border-l-4 border-blue-500/30 rounded-bl-lg"></div>
+                  <div className="absolute bottom-0 right-0 w-32 h-32 border-b-4 border-r-4 border-orange-500/40 rounded-br-lg"></div>
+                </div>
                 
-                <div className="space-y-6">
-                  <div className="flex items-start gap-4">
-                    <span className="bg-gradient-to-r from-orange-600 to-blue-500 rounded-full p-2 mt-1">
-                      <Building className="h-5 w-5 text-white" />
-                    </span>
-                    <div>
-                      <h3 className="text-xl font-semibold mb-1 text-orange-300">Class A Fire Protection</h3>
-                      <p className="text-white">NASA-derived ceramic microsphere technology provides perfect 0/100 flame spread and smoke development ratings (ASTM E84), ensuring maximum protection for critical municipal infrastructure.</p>
+                <h2 className="text-3xl font-bold mb-8 text-white drop-shadow-[0_1px_3px_rgba(59,130,246,0.6)] relative z-10">
+                  <span className="relative inline-block">
+                    Ceramic Protection Technology
+                    <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-48 h-[2px] bg-gradient-to-r from-transparent via-blue-500 to-transparent"></div>
+                  </span>
+                </h2>
+                
+                <div className="space-y-6 relative z-10">
+                  <div className="relative bg-gradient-to-br from-gray-900 to-black rounded-lg p-4 border border-gray-800">
+                    <div className="absolute -inset-0.5 bg-blue-600/20 rounded-lg blur opacity-60"></div>
+                    <div className="relative z-10 flex items-start gap-4">
+                      <span className="bg-gradient-to-r from-orange-600 to-blue-500 rounded-full p-2 mt-1 shadow-[0_0_15px_rgba(59,130,246,0.4)]">
+                        <Building className="h-5 w-5 text-white" />
+                      </span>
+                      <div>
+                        <h3 className="text-xl font-semibold mb-1 text-white drop-shadow-[0_1px_2px_rgba(59,130,246,0.5)]">Class A Fire Protection</h3>
+                        <p className="text-blue-100">Ceramic microsphere technology provides perfect 0/100 flame spread and smoke development ratings (ASTM E84), ensuring maximum protection for critical municipal infrastructure.</p>
+                      </div>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-4">
-                    <span className="bg-gradient-to-r from-orange-600 to-blue-500 rounded-full p-2 mt-1">
-                      <Droplets className="h-5 w-5 text-white" />
-                    </span>
-                    <div>
-                      <h3 className="text-xl font-semibold mb-1 text-blue-300">Chemical & Water-Treatment Resistant</h3>
-                      <p className="text-white">NASA ceramic microsphere technology creates a 156% elastomeric waterproof barrier that withstands harsh chemicals, maintaining NSF/ANSI 61 certification for potable water after 10,000+ hours of salt spray testing.</p>
+                  <div className="relative bg-gradient-to-br from-gray-900 to-black rounded-lg p-4 border border-gray-800">
+                    <div className="absolute -inset-0.5 bg-orange-600/20 rounded-lg blur opacity-60"></div>
+                    <div className="relative z-10 flex items-start gap-4">
+                      <span className="bg-gradient-to-r from-blue-600 to-orange-500 rounded-full p-2 mt-1 shadow-[0_0_15px_rgba(249,115,22,0.4)]">
+                        <Droplets className="h-5 w-5 text-white" />
+                      </span>
+                      <div>
+                        <h3 className="text-xl font-semibold mb-1 text-white drop-shadow-[0_1px_2px_rgba(249,115,22,0.5)]">Chemical & Water-Treatment Resistant</h3>
+                        <p className="text-orange-100">Ceramic microsphere technology creates a 156% elastomeric waterproof barrier that withstands harsh chemicals, maintaining NSF/ANSI 61 certification for potable water after 10,000+ hours of salt spray testing.</p>
+                      </div>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-4">
-                    <span className="bg-gradient-to-r from-orange-600 to-blue-500 rounded-full p-2 mt-1">
-                      <ShieldCheck className="h-5 w-5 text-white" />
-                    </span>
-                    <div>
-                      <h3 className="text-xl font-semibold mb-1 text-orange-300">30+ Year Verified Performance</h3>
-                      <p className="text-white">NASA ceramic technology provides independently verified longevity, with original applications showing no degradation after 30+ years of extreme weather exposure, maintaining full EPA compliance.</p>
+                  <div className="relative bg-gradient-to-br from-gray-900 to-black rounded-lg p-4 border border-gray-800">
+                    <div className="absolute -inset-0.5 bg-blue-600/20 rounded-lg blur opacity-60"></div>
+                    <div className="relative z-10 flex items-start gap-4">
+                      <span className="bg-gradient-to-r from-orange-600 to-blue-500 rounded-full p-2 mt-1 shadow-[0_0_15px_rgba(59,130,246,0.4)]">
+                        <ShieldCheck className="h-5 w-5 text-white" />
+                      </span>
+                      <div>
+                        <h3 className="text-xl font-semibold mb-1 text-white drop-shadow-[0_1px_2px_rgba(59,130,246,0.5)]">30+ Year Verified Performance</h3>
+                        <p className="text-blue-100">Ceramic technology provides independently verified longevity, with original applications showing no degradation after 30+ years of extreme weather exposure, maintaining full EPA compliance.</p>
+                      </div>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-4">
-                    <span className="bg-gradient-to-r from-orange-600 to-blue-500 rounded-full p-2 mt-1">
-                      <Leaf className="h-5 w-5 text-white" />
-                    </span>
-                    <div>
-                      <h3 className="text-xl font-semibold mb-1 text-blue-300">89% Energy Efficiency</h3>
-                      <p className="text-white">NASA ceramic microsphere technology provides 89% UV reflection and reduces building energy consumption by up to 87% as verified in independent case studies, while exceeding all EPA environmental regulations.</p>
+                  <div className="relative bg-gradient-to-br from-gray-900 to-black rounded-lg p-4 border border-gray-800">
+                    <div className="absolute -inset-0.5 bg-orange-600/20 rounded-lg blur opacity-60"></div>
+                    <div className="relative z-10 flex items-start gap-4">
+                      <span className="bg-gradient-to-r from-blue-600 to-orange-500 rounded-full p-2 mt-1 shadow-[0_0_15px_rgba(249,115,22,0.4)]">
+                        <Leaf className="h-5 w-5 text-white" />
+                      </span>
+                      <div>
+                        <h3 className="text-xl font-semibold mb-1 text-white drop-shadow-[0_1px_2px_rgba(249,115,22,0.5)]">89% Energy Efficiency</h3>
+                        <p className="text-orange-100">Ceramic microsphere technology provides 89% UV reflection and reduces building energy consumption by up to 87% as verified in independent case studies, while exceeding all EPA environmental regulations.</p>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="backdrop-blur-sm bg-primary-900/80 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] p-8 flex flex-col">
-                <GradientHeading level={2} className="text-3xl font-bold mb-6" variant="mixed">NASA Ceramic Applications</GradientHeading>
-                <p className="mb-4 text-white">Our NASA-derived ceramic microsphere technology provides Class A fire protection and 30+ year longevity for diverse municipal infrastructure:</p>
-                <div className="grid md:grid-cols-2 gap-4 mb-6 flex-grow">
-                  <div className="flex items-center gap-2 text-white">
-                    <span className="text-blue-400">✓</span>
-                    <span>Water storage tanks</span>
+              <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black rounded-xl border border-gray-800 shadow-[0_0_60px_rgba(59,130,246,0.2)] p-8 flex flex-col">
+                {/* Corner Accents */}
+                <div className="absolute top-0 left-0 w-full h-full rounded-lg overflow-hidden pointer-events-none">
+                  <div className="absolute top-0 left-0 w-32 h-32 border-t-4 border-l-4 border-orange-500/40 rounded-tl-lg"></div>
+                  <div className="absolute top-0 right-0 w-32 h-32 border-t-4 border-r-4 border-blue-500/30 rounded-tr-lg"></div>
+                  <div className="absolute bottom-0 left-0 w-32 h-32 border-b-4 border-l-4 border-blue-500/30 rounded-bl-lg"></div>
+                  <div className="absolute bottom-0 right-0 w-32 h-32 border-b-4 border-r-4 border-orange-500/40 rounded-br-lg"></div>
+                </div>
+                
+                <h2 className="text-3xl font-bold mb-6 text-white drop-shadow-[0_1px_3px_rgba(59,130,246,0.6)] relative z-10">
+                  <span className="relative inline-block">
+                    Municipal Applications
+                    <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-48 h-[2px] bg-gradient-to-r from-transparent via-blue-500 to-transparent"></div>
+                  </span>
+                </h2>
+                
+                <p className="mb-6 text-blue-100 relative z-10">Our ceramic microsphere technology provides Class A fire protection and 30+ year longevity for diverse municipal infrastructure:</p>
+                
+                <div className="grid md:grid-cols-2 gap-4 mb-6 flex-grow relative z-10">
+                  <div className="flex items-center gap-2 relative">
+                    <span className="flex items-center justify-center w-5 h-5 bg-blue-500/20 border border-blue-500/40 rounded-full">
+                      <span className="text-blue-400 text-xs">✓</span>
+                    </span>
+                    <span className="text-blue-100">Water storage tanks</span>
                   </div>
-                  <div className="flex items-center gap-2 text-white">
-                    <span className="text-orange-400">✓</span>
-                    <span>Wastewater facilities</span>
+                  <div className="flex items-center gap-2 relative">
+                    <span className="flex items-center justify-center w-5 h-5 bg-orange-500/20 border border-orange-500/40 rounded-full">
+                      <span className="text-orange-400 text-xs">✓</span>
+                    </span>
+                    <span className="text-orange-100">Wastewater facilities</span>
                   </div>
-                  <div className="flex items-center gap-2 text-white">
-                    <span className="text-blue-400">✓</span>
-                    <span>Bridge structures</span>
+                  <div className="flex items-center gap-2 relative">
+                    <span className="flex items-center justify-center w-5 h-5 bg-blue-500/20 border border-blue-500/40 rounded-full">
+                      <span className="text-blue-400 text-xs">✓</span>
+                    </span>
+                    <span className="text-blue-100">Bridge structures</span>
                   </div>
-                  <div className="flex items-center gap-2 text-white">
-                    <span className="text-orange-400">✓</span>
-                    <span>Public buildings</span>
+                  <div className="flex items-center gap-2 relative">
+                    <span className="flex items-center justify-center w-5 h-5 bg-orange-500/20 border border-orange-500/40 rounded-full">
+                      <span className="text-orange-400 text-xs">✓</span>
+                    </span>
+                    <span className="text-orange-100">Public buildings</span>
                   </div>
-                  <div className="flex items-center gap-2 text-white">
-                    <span className="text-blue-400">✓</span>
-                    <span>Traffic infrastructure</span>
+                  <div className="flex items-center gap-2 relative">
+                    <span className="flex items-center justify-center w-5 h-5 bg-blue-500/20 border border-blue-500/40 rounded-full">
+                      <span className="text-blue-400 text-xs">✓</span>
+                    </span>
+                    <span className="text-blue-100">Traffic infrastructure</span>
                   </div>
-                  <div className="flex items-center gap-2 text-white">
-                    <span className="text-orange-400">✓</span>
-                    <span>Park facilities</span>
+                  <div className="flex items-center gap-2 relative">
+                    <span className="flex items-center justify-center w-5 h-5 bg-orange-500/20 border border-orange-500/40 rounded-full">
+                      <span className="text-orange-400 text-xs">✓</span>
+                    </span>
+                    <span className="text-orange-100">Park facilities</span>
                   </div>
-                  <div className="flex items-center gap-2 text-white">
-                    <span className="text-blue-400">✓</span>
-                    <span>Transportation terminals</span>
+                  <div className="flex items-center gap-2 relative">
+                    <span className="flex items-center justify-center w-5 h-5 bg-blue-500/20 border border-blue-500/40 rounded-full">
+                      <span className="text-blue-400 text-xs">✓</span>
+                    </span>
+                    <span className="text-blue-100">Transportation terminals</span>
                   </div>
-                  <div className="flex items-center gap-2 text-white">
-                    <span className="text-orange-400">✓</span>
-                    <span>Parking structures</span>
+                  <div className="flex items-center gap-2 relative">
+                    <span className="flex items-center justify-center w-5 h-5 bg-orange-500/20 border border-orange-500/40 rounded-full">
+                      <span className="text-orange-400 text-xs">✓</span>
+                    </span>
+                    <span className="text-orange-100">Parking structures</span>
                   </div>
                 </div>
-                <div className="mt-6">
-                  <GradientButton variant="variant" className="w-full">
-                    Request a Consultation
-                  </GradientButton>
+                
+                <div className="mt-6 relative z-10">
+                  <div className="relative group">
+                    <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-orange-600 rounded-lg blur opacity-60 group-hover:opacity-100 transition duration-500"></div>
+                    <button className="relative w-full bg-black border border-gray-800 rounded-lg py-3 px-6 font-semibold text-white shadow-[0_10px_20px_rgba(0,0,0,0.4)] group-hover:shadow-[0_10px_25px_rgba(59,130,246,0.5)] transition duration-300">
+                      Request a Consultation
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>

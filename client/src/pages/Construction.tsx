@@ -158,6 +158,7 @@ const ConstructionPage = () => {
                 <p className="text-xl text-blue-100 mb-8">
                   Our ceramic microsphere technology provides construction materials with Class A fire protection (0/100 scores), offers 156% elastomeric flexibility, and delivers 30+ year verified durability for commercial and residential structures.
                 </p>
+              </div>
             </div>
 
             <div className="grid md:grid-cols-2 gap-12 mb-16">
