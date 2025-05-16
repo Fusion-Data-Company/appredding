@@ -1056,7 +1056,7 @@ const Pools = () => {
                       </TooltipProvider>
                     </label>
                     <select 
-                      className="w-full bg-primary-900 border border-primary-700 rounded p-2"
+                      className="w-full bg-gradient-to-br from-gray-900 to-gray-950 border border-blue-900/50 rounded-md p-2.5 text-white shadow-inner"
                       value={coatingType}
                       onChange={(e) => setCoatingType(e.target.value)}
                     >
@@ -1068,31 +1068,45 @@ const Pools = () => {
                 </div>
                 
                 <div className="grid md:grid-cols-3 gap-6 mb-6">
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Deck Length (ft)</label>
-                    <input 
-                      type="number" 
-                      className="w-full bg-primary-900 border border-primary-700 rounded p-2" 
-                      placeholder="Enter deck length" 
-                      value={length || ''}
-                      onChange={(e) => setLength(e.target.value ? parseFloat(e.target.value) : undefined)}
-                      min="1"
-                    />
+                  <div className="relative group">
+                    <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600/30 to-orange-600/30 rounded-lg blur opacity-50 group-hover:opacity-75 transition duration-300"></div>
+                    <div className="relative bg-gradient-to-br from-gray-900 to-black rounded-lg p-5 border border-gray-800">
+                      <label className="flex items-center gap-2 text-sm font-medium mb-3 text-white">
+                        <DropletIcon className="h-4 w-4 text-blue-400" />
+                        Deck Length (ft)
+                      </label>
+                      <input 
+                        type="number" 
+                        className="w-full bg-gradient-to-br from-gray-900 to-gray-950 border border-blue-900/50 rounded-md p-2.5 text-white shadow-inner" 
+                        placeholder="Enter deck length" 
+                        value={length || ''}
+                        onChange={(e) => setLength(e.target.value ? parseFloat(e.target.value) : undefined)}
+                        min="1"
+                      />
+                    </div>
                   </div>
                   
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Deck Width (ft)</label>
-                    <input 
-                      type="number" 
-                      className="w-full bg-primary-900 border border-primary-700 rounded p-2" 
-                      placeholder="Enter deck width" 
-                      value={width || ''}
-                      onChange={(e) => setWidth(e.target.value ? parseFloat(e.target.value) : undefined)}
-                      min="1"
-                    />
+                  <div className="relative group">
+                    <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600/30 to-orange-600/30 rounded-lg blur opacity-50 group-hover:opacity-75 transition duration-300"></div>
+                    <div className="relative bg-gradient-to-br from-gray-900 to-black rounded-lg p-5 border border-gray-800">
+                      <label className="flex items-center gap-2 text-sm font-medium mb-3 text-white">
+                        <DropletIcon className="h-4 w-4 text-blue-400" />
+                        Deck Width (ft)
+                      </label>
+                      <input 
+                        type="number" 
+                        className="w-full bg-gradient-to-br from-gray-900 to-gray-950 border border-blue-900/50 rounded-md p-2.5 text-white shadow-inner" 
+                        placeholder="Enter deck width" 
+                        value={width || ''}
+                        onChange={(e) => setWidth(e.target.value ? parseFloat(e.target.value) : undefined)}
+                        min="1"
+                      />
+                    </div>
                   </div>
                   
-                  <div>
+                  <div className="relative group">
+                    <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600/30 to-orange-600/30 rounded-lg blur opacity-50 group-hover:opacity-75 transition duration-300"></div>
+                    <div className="relative bg-gradient-to-br from-gray-900 to-black rounded-lg p-5 border border-gray-800">
                     <label className="block text-sm font-medium mb-2">
                       Additional Areas (%)
                       <TooltipProvider>
