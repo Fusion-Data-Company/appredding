@@ -411,191 +411,172 @@ const ProductHistorySection = () => {
                   <div className="absolute bottom-0 left-0 w-1/3 h-0.5 bg-gradient-to-r from-gray-500/40 to-gray-600/40 group-hover:w-2/3 transition-all duration-700 rounded-full opacity-60"></div>
                 </div>
                 
-                {/* Enhanced Premium Table Container with gray styling - lowered z-index */}
-                <div className="relative group/table bg-gradient-to-br from-gray-950/60 via-gray-950/60 to-black/60 backdrop-blur-xl rounded-xl overflow-hidden shadow-[0_5px_30px_rgba(0,0,0,0.3)] transform transition-all duration-500 hover:scale-[1.01] flex-grow" style={{ zIndex: 1 }}>
-                  {/* Gray gradient border */}
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-gray-700/50 via-gray-600/50 to-gray-700/50 rounded-xl opacity-90"></div>
-                  
-                  {/* All decorative elements moved below content */}
-                  
-                  {/* Corner accent lines with gray theme */}
-                  <div className="absolute top-0 left-0 w-8 h-8 pointer-events-none z-10">
-                    <div className="absolute top-0 left-0 w-5 h-5 border-t-[1px] border-l-[1px] border-gray-500/40 rounded-tl-lg"></div>
-                    <div className="absolute top-0 left-0 w-2 h-2 bg-gray-500/30 rounded-full blur-[1px]"></div>
-                  </div>
-                  <div className="absolute top-0 right-0 w-8 h-8 pointer-events-none z-10">
-                    <div className="absolute top-0 right-0 w-5 h-5 border-t-[1px] border-r-[1px] border-gray-500/40 rounded-tr-lg"></div>
-                    <div className="absolute top-0 right-0 w-2 h-2 bg-gray-500/30 rounded-full blur-[1px]"></div>
-                  </div>
-                  <div className="absolute bottom-0 left-0 w-8 h-8 pointer-events-none z-10">
-                    <div className="absolute bottom-0 left-0 w-5 h-5 border-b-[1px] border-l-[1px] border-gray-500/40 rounded-bl-lg"></div>
-                    <div className="absolute bottom-0 left-0 w-2 h-2 bg-gray-500/30 rounded-full blur-[1px]"></div>
-                  </div>
-                  <div className="absolute bottom-0 right-0 w-8 h-8 pointer-events-none z-10">
-                    <div className="absolute bottom-0 right-0 w-5 h-5 border-b-[1px] border-r-[1px] border-gray-500/40 rounded-br-lg"></div>
-                    <div className="absolute bottom-0 right-0 w-2 h-2 bg-gray-500/30 rounded-full blur-[1px]"></div>
-                  </div>
-                  
-                  {/* Timeline content moved to front with maximum priority */}
-                  <div className="relative p-6 overflow-y-auto" style={{ maxHeight: "500px", zIndex: 9999, position: 'relative' }}>
-                    {/* Timeline items - styled with premium enterprise theme - front layer */}
-                    <div className="space-y-8 relative z-[999] bg-transparent" style={{ position: 'relative' }}>
-                      <div className="group/item relative transform transition-all duration-500 hover:-translate-y-1 hover:scale-[1.01] pl-8 pb-8 border-l-2 border-gray-600/30">
-                        {/* Year with enhanced styling */}
-                        <div className="absolute -left-4 flex items-center justify-center z-20">
-                          <div className="relative w-8 h-8">
-                            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600/50 to-orange-600/50 blur-[5px] opacity-0 group-hover/item:opacity-100 transition-opacity duration-700"></div>
-                            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black border border-blue-500/30 transition-all duration-500 group-hover/item:shadow-[0_0_15px_rgba(59,130,246,0.3)]"></div>
-                            <div className="absolute inset-0 flex items-center justify-center">
-                              <span className="text-blue-300 font-bold text-sm group-hover/item:text-blue-200 transition-colors duration-500">2025</span>
+                {/* Completely rebuilt timeline card */}
+                <div className="bg-gradient-to-br from-gray-900 via-gray-950 to-black rounded-xl overflow-hidden shadow-[0_5px_30px_rgba(0,0,0,0.3)] transform transition-all duration-500 hover:scale-[1.01] flex-grow">
+                  {/* Simple border */}
+                  <div className="border border-gray-700/50 rounded-xl h-full">
+                    <div className="p-6 overflow-y-auto" style={{ maxHeight: "500px" }}>
+                      {/* Timeline items */}
+                      <div className="space-y-8">
+                        {/* 2025 */}
+                        <div className="relative pl-8 pb-8 border-l-2 border-blue-500/30 hover:border-blue-500/50 transition-colors duration-300">
+                          <div className="absolute -left-3 top-0">
+                            <div className="w-6 h-6 rounded-full bg-gray-900 border-2 border-blue-500 flex items-center justify-center">
+                              <div className="w-2 h-2 rounded-full bg-blue-500"></div>
                             </div>
-                            <div className="absolute inset-0 rounded-full border border-blue-500/30 scale-0 group-hover/item:scale-[1.2] opacity-0 group-hover/item:opacity-100 transition-all duration-700"></div>
-                            <div className="absolute -inset-1 rounded-full border border-blue-500/20 scale-0 group-hover/item:scale-[1.4] opacity-0 group-hover/item:opacity-70 transition-all duration-1000 delay-100"></div>
+                          </div>
+                          <div>
+                            <div className="flex items-center mb-1">
+                              <span className="text-blue-400 text-sm font-bold mr-2">2025</span>
+                              <div className="h-px bg-blue-500/30 flex-grow"></div>
+                            </div>
+                            <h4 className="text-xl font-bold text-white drop-shadow-[0_2px_3px_rgba(0,0,0,0.7)] mb-2">SON-SHIELD Brand Update</h4>
+                            <p className="text-gray-200 text-lg">SON-SHIELD Coating received a comprehensive branding upgrade for direct public presentation, making advanced industrial coating technology accessible to consumers with improved communication, marketing materials, and direct consumer sales channels.</p>
                           </div>
                         </div>
-                        <div className="relative z-50">
-                          <h4 className="text-xl font-bold text-white drop-shadow-[0_2px_3px_rgba(0,0,0,0.7)] mb-2">SON-SHIELD Brand Update</h4>
-                          <p className="text-gray-200 text-lg leading-relaxed drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">SON-SHIELD Coating received a comprehensive branding upgrade for direct public presentation, making advanced industrial coating technology accessible to consumers with improved communication, marketing materials, and direct consumer sales channels.</p>
-                        </div>
-                      </div>
-                      
-                      <div className="group/item relative transform transition-all duration-500 hover:-translate-y-1 hover:scale-[1.01] pl-8 pb-8 border-l-2 border-gray-600/30">
-                        <div className="absolute -left-4 flex items-center justify-center z-20">
-                          <div className="relative w-8 h-8">
-                            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-orange-600/50 to-blue-600/50 blur-[5px] opacity-0 group-hover/item:opacity-100 transition-opacity duration-700"></div>
-                            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black border border-orange-500/30 transition-all duration-500 group-hover/item:shadow-[0_0_15px_rgba(249,115,22,0.3)]"></div>
-                            <div className="absolute inset-0 flex items-center justify-center">
-                              <span className="text-orange-300 font-bold text-sm group-hover/item:text-orange-200 transition-colors duration-500">2023</span>
+
+                        {/* 2023 */}
+                        <div className="relative pl-8 pb-8 border-l-2 border-orange-500/30 hover:border-orange-500/50 transition-colors duration-300">
+                          <div className="absolute -left-3 top-0">
+                            <div className="w-6 h-6 rounded-full bg-gray-900 border-2 border-orange-500 flex items-center justify-center">
+                              <div className="w-2 h-2 rounded-full bg-orange-500"></div>
                             </div>
-                            <div className="absolute inset-0 rounded-full border border-orange-500/30 scale-0 group-hover/item:scale-[1.2] opacity-0 group-hover/item:opacity-100 transition-all duration-700"></div>
-                            <div className="absolute -inset-1 rounded-full border border-orange-500/20 scale-0 group-hover/item:scale-[1.4] opacity-0 group-hover/item:opacity-70 transition-all duration-1000 delay-100"></div>
+                          </div>
+                          <div>
+                            <div className="flex items-center mb-1">
+                              <span className="text-orange-400 text-sm font-bold mr-2">2023</span>
+                              <div className="h-px bg-orange-500/30 flex-grow"></div>
+                            </div>
+                            <h4 className="text-xl font-bold text-white drop-shadow-[0_2px_3px_rgba(0,0,0,0.7)] mb-2">Praetorian SmartCoat Pro+</h4>
+                            <p className="text-gray-200 text-lg">Next-generation high-solids formula with improved VOC compliance, enhanced corrosion resistance, and expanded temperature range performance (-70°F to +475°F) for extreme environment applications.</p>
                           </div>
                         </div>
-                        <div className="relative z-50">
-                          <h4 className="text-xl font-bold text-white drop-shadow-[0_2px_3px_rgba(0,0,0,0.7)] mb-2">Praetorian SmartCoat Pro+</h4>
-                          <p className="text-gray-200 text-lg leading-relaxed drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">Next-generation high-solids formula with improved VOC compliance, enhanced corrosion resistance, and expanded temperature range performance (-70°F to +475°F) for extreme environment applications.</p>
-                        </div>
-                      </div>
-                      
-                      <div className="group/item relative transform transition-all duration-500 hover:-translate-y-1 hover:scale-[1.01] pl-8 pb-8 border-l-2 border-gray-600/30">
-                        <div className="absolute -left-4 flex items-center justify-center z-20">
-                          <div className="relative w-8 h-8">
-                            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600/50 to-orange-600/50 blur-[5px] opacity-0 group-hover/item:opacity-100 transition-opacity duration-700"></div>
-                            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black border border-blue-500/30 transition-all duration-500 group-hover/item:shadow-[0_0_15px_rgba(59,130,246,0.3)]"></div>
-                            <div className="absolute inset-0 flex items-center justify-center">
-                              <span className="text-blue-300 font-bold text-sm group-hover/item:text-blue-200 transition-colors duration-500">2020</span>
+
+                        {/* 2020 */}
+                        <div className="relative pl-8 pb-8 border-l-2 border-blue-500/30 hover:border-blue-500/50 transition-colors duration-300">
+                          <div className="absolute -left-3 top-0">
+                            <div className="w-6 h-6 rounded-full bg-gray-900 border-2 border-blue-500 flex items-center justify-center">
+                              <div className="w-2 h-2 rounded-full bg-blue-500"></div>
                             </div>
-                            <div className="absolute inset-0 rounded-full border border-blue-500/30 scale-0 group-hover/item:scale-[1.2] opacity-0 group-hover/item:opacity-100 transition-all duration-700"></div>
-                            <div className="absolute -inset-1 rounded-full border border-blue-500/20 scale-0 group-hover/item:scale-[1.4] opacity-0 group-hover/item:opacity-70 transition-all duration-1000 delay-100"></div>
+                          </div>
+                          <div>
+                            <div className="flex items-center mb-1">
+                              <span className="text-blue-400 text-sm font-bold mr-2">2020</span>
+                              <div className="h-px bg-blue-500/30 flex-grow"></div>
+                            </div>
+                            <h4 className="text-xl font-bold text-white drop-shadow-[0_2px_3px_rgba(0,0,0,0.7)] mb-2">First Industrial Carbon-Neutral Coating</h4>
+                            <p className="text-gray-200 text-lg">Industry-first carbon-neutral manufacturing process implemented, with advanced carbon capture technology and renewable energy integration at production facilities.</p>
                           </div>
                         </div>
-                        <div className="relative z-50">
-                          <h4 className="text-xl font-bold text-white drop-shadow-[0_2px_3px_rgba(0,0,0,0.7)] mb-2">First Industrial Carbon-Neutral Coating</h4>
-                          <p className="text-gray-200 text-lg leading-relaxed drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">Industry-first carbon-neutral manufacturing process implemented, with advanced carbon capture technology and renewable energy integration at production facilities.</p>
-                        </div>
-                      </div>
-                      
-                      <div className="group/item relative transform transition-all duration-500 hover:-translate-y-1 hover:scale-[1.01] pl-8 pb-8 border-l-2 border-gray-600/30">
-                        <div className="absolute -left-4 flex items-center justify-center">
-                          <div className="relative w-8 h-8">
-                            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-orange-600/50 to-blue-600/50 blur-[5px] opacity-0 group-hover/item:opacity-100 transition-opacity duration-700"></div>
-                            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black border border-orange-500/30 transition-all duration-500 group-hover/item:shadow-[0_0_15px_rgba(249,115,22,0.3)]"></div>
-                            <div className="absolute inset-0 flex items-center justify-center">
-                              <span className="text-orange-300 font-bold text-sm group-hover/item:text-orange-200 transition-colors duration-500">2015</span>
+
+                        {/* 2015 */}
+                        <div className="relative pl-8 pb-8 border-l-2 border-orange-500/30 hover:border-orange-500/50 transition-colors duration-300">
+                          <div className="absolute -left-3 top-0">
+                            <div className="w-6 h-6 rounded-full bg-gray-900 border-2 border-orange-500 flex items-center justify-center">
+                              <div className="w-2 h-2 rounded-full bg-orange-500"></div>
                             </div>
-                            <div className="absolute inset-0 rounded-full border border-orange-500/30 scale-0 group-hover/item:scale-[1.2] opacity-0 group-hover/item:opacity-100 transition-all duration-700"></div>
-                            <div className="absolute -inset-1 rounded-full border border-orange-500/20 scale-0 group-hover/item:scale-[1.4] opacity-0 group-hover/item:opacity-70 transition-all duration-1000 delay-100"></div>
+                          </div>
+                          <div>
+                            <div className="flex items-center mb-1">
+                              <span className="text-orange-400 text-sm font-bold mr-2">2015</span>
+                              <div className="h-px bg-orange-500/30 flex-grow"></div>
+                            </div>
+                            <h4 className="text-xl font-bold text-white drop-shadow-[0_2px_3px_rgba(0,0,0,0.7)] mb-2">Original Praetorian Formula</h4>
+                            <p className="text-gray-200 text-lg">First commercial release of our NASA-derived ceramic insulation technology, featuring 80-160 micron ceramic microspheres with vacuum voids and providing best-in-class thermal and UV protection with 156% flexibility.</p>
                           </div>
                         </div>
-                        <h4 className="text-xl font-bold text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.3)] mb-2">Original Praetorian Formula</h4>
-                        <p className="text-gray-200 text-lg leading-relaxed">First commercial release of our NASA-derived ceramic insulation technology, featuring 80-160 micron ceramic microspheres with vacuum voids and providing best-in-class thermal and UV protection with 156% flexibility.</p>
-                      </div>
-                      
-                      <div className="group/item relative transform transition-all duration-500 hover:-translate-y-1 hover:scale-[1.01] pl-8 pb-8 border-l-2 border-gray-600/30">
-                        <div className="absolute -left-4 flex items-center justify-center">
-                          <div className="relative w-8 h-8">
-                            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600/50 to-orange-600/50 blur-[5px] opacity-0 group-hover/item:opacity-100 transition-opacity duration-700"></div>
-                            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black border border-blue-500/30 transition-all duration-500 group-hover/item:shadow-[0_0_15px_rgba(59,130,246,0.3)]"></div>
-                            <div className="absolute inset-0 flex items-center justify-center">
-                              <span className="text-blue-300 font-bold text-sm group-hover/item:text-blue-200 transition-colors duration-500">2009</span>
+
+                        {/* 2009 */}
+                        <div className="relative pl-8 pb-8 border-l-2 border-blue-500/30 hover:border-blue-500/50 transition-colors duration-300">
+                          <div className="absolute -left-3 top-0">
+                            <div className="w-6 h-6 rounded-full bg-gray-900 border-2 border-blue-500 flex items-center justify-center">
+                              <div className="w-2 h-2 rounded-full bg-blue-500"></div>
                             </div>
-                            <div className="absolute inset-0 rounded-full border border-blue-500/30 scale-0 group-hover/item:scale-[1.2] opacity-0 group-hover/item:opacity-100 transition-all duration-700"></div>
-                            <div className="absolute -inset-1 rounded-full border border-blue-500/20 scale-0 group-hover/item:scale-[1.4] opacity-0 group-hover/item:opacity-70 transition-all duration-1000 delay-100"></div>
+                          </div>
+                          <div>
+                            <div className="flex items-center mb-1">
+                              <span className="text-blue-400 text-sm font-bold mr-2">2009</span>
+                              <div className="h-px bg-blue-500/30 flex-grow"></div>
+                            </div>
+                            <h4 className="text-xl font-bold text-white drop-shadow-[0_2px_3px_rgba(0,0,0,0.7)] mb-2">Marine Grade Certification</h4>
+                            <p className="text-gray-200 text-lg">Achieved American Bureau of Shipping (ABS) certification for marine applications after extensive salt spray and corrosion testing, opening new markets for maritime and offshore infrastructure protection.</p>
                           </div>
                         </div>
-                        <h4 className="text-xl font-bold text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.3)] mb-2">Marine Grade Certification</h4>
-                        <p className="text-gray-200 text-lg leading-relaxed">Achieved American Bureau of Shipping (ABS) certification for marine applications after extensive salt spray and corrosion testing, opening new markets for maritime and offshore infrastructure protection.</p>
-                      </div>
-                      
-                      <div className="group/item relative transform transition-all duration-500 hover:-translate-y-1 hover:scale-[1.01] pl-8 pb-8 border-l-2 border-gray-600/30">
-                        <div className="absolute -left-4 flex items-center justify-center">
-                          <div className="relative w-8 h-8">
-                            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-orange-600/50 to-blue-600/50 blur-[5px] opacity-0 group-hover/item:opacity-100 transition-opacity duration-700"></div>
-                            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black border border-orange-500/30 transition-all duration-500 group-hover/item:shadow-[0_0_15px_rgba(249,115,22,0.3)]"></div>
-                            <div className="absolute inset-0 flex items-center justify-center">
-                              <span className="text-orange-300 font-bold text-sm group-hover/item:text-orange-200 transition-colors duration-500">2003</span>
+
+                        {/* 2003 */}
+                        <div className="relative pl-8 pb-8 border-l-2 border-orange-500/30 hover:border-orange-500/50 transition-colors duration-300">
+                          <div className="absolute -left-3 top-0">
+                            <div className="w-6 h-6 rounded-full bg-gray-900 border-2 border-orange-500 flex items-center justify-center">
+                              <div className="w-2 h-2 rounded-full bg-orange-500"></div>
                             </div>
-                            <div className="absolute inset-0 rounded-full border border-orange-500/30 scale-0 group-hover/item:scale-[1.2] opacity-0 group-hover/item:opacity-100 transition-all duration-700"></div>
-                            <div className="absolute -inset-1 rounded-full border border-orange-500/20 scale-0 group-hover/item:scale-[1.4] opacity-0 group-hover/item:opacity-70 transition-all duration-1000 delay-100"></div>
+                          </div>
+                          <div>
+                            <div className="flex items-center mb-1">
+                              <span className="text-orange-400 text-sm font-bold mr-2">2003</span>
+                              <div className="h-px bg-orange-500/30 flex-grow"></div>
+                            </div>
+                            <h4 className="text-xl font-bold text-white drop-shadow-[0_2px_3px_rgba(0,0,0,0.7)] mb-2">Cool Roof Rating Council Approval</h4>
+                            <p className="text-gray-200 text-lg">Achieved CRRC certification with industry-leading solar reflectivity (89%) and thermal emittance (89%) values, offering quantified energy savings for commercial structures and meeting emerging green building standards.</p>
                           </div>
                         </div>
-                        <h4 className="text-xl font-bold text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.3)] mb-2">Cool Roof Rating Council Approval</h4>
-                        <p className="text-gray-200 text-lg leading-relaxed">Achieved CRRC certification with industry-leading solar reflectivity (89%) and thermal emittance (89%) values, offering quantified energy savings for commercial structures and meeting emerging green building standards.</p>
-                      </div>
-                      
-                      <div className="group/item relative transform transition-all duration-500 hover:-translate-y-1 hover:scale-[1.01] pl-8 pb-8 border-l-2 border-gray-600/30">
-                        <div className="absolute -left-4 flex items-center justify-center">
-                          <div className="relative w-8 h-8">
-                            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600/50 to-orange-600/50 blur-[5px] opacity-0 group-hover/item:opacity-100 transition-opacity duration-700"></div>
-                            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black border border-blue-500/30 transition-all duration-500 group-hover/item:shadow-[0_0_15px_rgba(59,130,246,0.3)]"></div>
-                            <div className="absolute inset-0 flex items-center justify-center">
-                              <span className="text-blue-300 font-bold text-sm group-hover/item:text-blue-200 transition-colors duration-500">1998</span>
+
+                        {/* 1998 */}
+                        <div className="relative pl-8 pb-8 border-l-2 border-blue-500/30 hover:border-blue-500/50 transition-colors duration-300">
+                          <div className="absolute -left-3 top-0">
+                            <div className="w-6 h-6 rounded-full bg-gray-900 border-2 border-blue-500 flex items-center justify-center">
+                              <div className="w-2 h-2 rounded-full bg-blue-500"></div>
                             </div>
-                            <div className="absolute inset-0 rounded-full border border-blue-500/30 scale-0 group-hover/item:scale-[1.2] opacity-0 group-hover/item:opacity-100 transition-all duration-700"></div>
-                            <div className="absolute -inset-1 rounded-full border border-blue-500/20 scale-0 group-hover/item:scale-[1.4] opacity-0 group-hover/item:opacity-70 transition-all duration-1000 delay-100"></div>
+                          </div>
+                          <div>
+                            <div className="flex items-center mb-1">
+                              <span className="text-blue-400 text-sm font-bold mr-2">1998</span>
+                              <div className="h-px bg-blue-500/30 flex-grow"></div>
+                            </div>
+                            <h4 className="text-xl font-bold text-white drop-shadow-[0_2px_3px_rgba(0,0,0,0.7)] mb-2">Class A Fire Rating</h4>
+                            <p className="text-gray-200 text-lg">Achieved UL Class A fire rating (0/100 flame spread, 0/100 smoke development) certification, providing critical fire safety performance for industrial facilities and commercial buildings without sacrificing thermal properties.</p>
                           </div>
                         </div>
-                        <h4 className="text-xl font-bold text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.3)] mb-2">Class A Fire Rating</h4>
-                        <p className="text-gray-200 text-lg leading-relaxed">Achieved UL Class A fire rating (0/100 flame spread, 0/100 smoke development) certification, providing critical fire safety performance for industrial facilities and commercial buildings without sacrificing thermal properties.</p>
-                      </div>
-                      
-                      <div className="group/item relative transform transition-all duration-500 hover:-translate-y-1 hover:scale-[1.01] pl-8 pb-8 border-l-2 border-gray-600/30">
-                        <div className="absolute -left-4 flex items-center justify-center">
-                          <div className="relative w-8 h-8">
-                            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-orange-600/50 to-blue-600/50 blur-[5px] opacity-0 group-hover/item:opacity-100 transition-opacity duration-700"></div>
-                            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black border border-orange-500/30 transition-all duration-500 group-hover/item:shadow-[0_0_15px_rgba(249,115,22,0.3)]"></div>
-                            <div className="absolute inset-0 flex items-center justify-center">
-                              <span className="text-orange-300 font-bold text-sm group-hover/item:text-orange-200 transition-colors duration-500">1994</span>
+
+                        {/* 1994 */}
+                        <div className="relative pl-8 pb-8 border-l-2 border-orange-500/30 hover:border-orange-500/50 transition-colors duration-300">
+                          <div className="absolute -left-3 top-0">
+                            <div className="w-6 h-6 rounded-full bg-gray-900 border-2 border-orange-500 flex items-center justify-center">
+                              <div className="w-2 h-2 rounded-full bg-orange-500"></div>
                             </div>
-                            <div className="absolute inset-0 rounded-full border border-orange-500/30 scale-0 group-hover/item:scale-[1.2] opacity-0 group-hover/item:opacity-100 transition-all duration-700"></div>
-                            <div className="absolute -inset-1 rounded-full border border-orange-500/20 scale-0 group-hover/item:scale-[1.4] opacity-0 group-hover/item:opacity-70 transition-all duration-1000 delay-100"></div>
+                          </div>
+                          <div>
+                            <div className="flex items-center mb-1">
+                              <span className="text-orange-400 text-sm font-bold mr-2">1994</span>
+                              <div className="h-px bg-orange-500/30 flex-grow"></div>
+                            </div>
+                            <h4 className="text-xl font-bold text-white drop-shadow-[0_2px_3px_rgba(0,0,0,0.7)] mb-2">U.S. Air Force Testing</h4>
+                            <p className="text-gray-200 text-lg">Selected for Arizona field tests where metal buildings coated with our technology maintained 85°F interior temperature despite 111-113°F ambient conditions, demonstrating exceptional real-world thermal performance.</p>
                           </div>
                         </div>
-                        <h4 className="text-xl font-bold text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.3)] mb-2">U.S. Air Force Testing</h4>
-                        <p className="text-gray-200 text-lg leading-relaxed">Selected for Arizona field tests where metal buildings coated with our technology maintained 85°F interior temperature despite 111-113°F ambient conditions, demonstrating exceptional real-world thermal performance.</p>
-                      </div>
-                      
-                      <div className="group/item relative transform transition-all duration-500 hover:-translate-y-1 hover:scale-[1.01] pl-8 border-l-2 border-gray-600/30">
-                        <div className="absolute -left-4 flex items-center justify-center">
-                          <div className="relative w-8 h-8">
-                            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600/50 to-orange-600/50 blur-[5px] opacity-0 group-hover/item:opacity-100 transition-opacity duration-700"></div>
-                            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black border border-blue-500/30 transition-all duration-500 group-hover/item:shadow-[0_0_15px_rgba(59,130,246,0.3)]"></div>
-                            <div className="absolute inset-0 flex items-center justify-center">
-                              <span className="text-blue-300 font-bold text-sm group-hover/item:text-blue-200 transition-colors duration-500">1989</span>
+
+                        {/* 1989 */}
+                        <div className="relative pl-8 border-l-2 border-blue-500/30 hover:border-blue-500/50 transition-colors duration-300">
+                          <div className="absolute -left-3 top-0">
+                            <div className="w-6 h-6 rounded-full bg-gray-900 border-2 border-blue-500 flex items-center justify-center">
+                              <div className="w-2 h-2 rounded-full bg-blue-500"></div>
                             </div>
-                            <div className="absolute inset-0 rounded-full border border-blue-500/30 scale-0 group-hover/item:scale-[1.2] opacity-0 group-hover/item:opacity-100 transition-all duration-700"></div>
-                            <div className="absolute -inset-1 rounded-full border border-blue-500/20 scale-0 group-hover/item:scale-[1.4] opacity-0 group-hover/item:opacity-70 transition-all duration-1000 delay-100"></div>
+                          </div>
+                          <div>
+                            <div className="flex items-center mb-1">
+                              <span className="text-blue-400 text-sm font-bold mr-2">1989</span>
+                              <div className="h-px bg-blue-500/30 flex-grow"></div>
+                            </div>
+                            <h4 className="text-xl font-bold text-white drop-shadow-[0_2px_3px_rgba(0,0,0,0.7)] mb-2">NASA Technology Transfer</h4>
+                            <p className="text-gray-200 text-lg">Original commercial adaptation of space shuttle ceramic insulation technology, creating the foundation for all future Praetorian products with the first ceramic microsphere coating system for industrial applications.</p>
                           </div>
                         </div>
-                        <h4 className="text-xl font-bold text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.3)] mb-2">NASA Technology Transfer</h4>
-                        <p className="text-gray-200 text-lg leading-relaxed">Original commercial adaptation of space shuttle ceramic insulation technology, creating the foundation for all future Praetorian products with the first ceramic microsphere coating system for industrial applications.</p>
                       </div>
                     </div>
                   </div>
                 </div>
                 
                 {/* Enhanced premium button */}
-                <div className="relative mt-auto mt-8">
+                <div className="relative mt-8 flex justify-center">
                   {/* Premium button using PremiumButton component */}
                   <PremiumButton 
                     variant="fire" 
