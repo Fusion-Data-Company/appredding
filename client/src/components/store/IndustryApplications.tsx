@@ -415,14 +415,14 @@ export default function IndustryApplications() {
                         : "radial-gradient(circle at center, rgba(251,191,36,0.3) 0%, transparent 70%)";
                     
                     return (
-                      <div key={index} className="relative transform transition-all duration-500 hover:z-10">
+                      <div key={index} className="relative transform transition-all duration-500 z-20">
                         <div className="group relative">
-                          {/* Multiple layered background effects - matching Testimonials section */}
-                          <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/40 via-blue-600/40 to-orange-600/40 rounded-xl blur-xl opacity-70 group-hover:opacity-100 group-hover:blur-xl transition-all duration-1000 animate-pulse-slow"></div>
-                          <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/80 via-blue-500/80 to-orange-500/80 rounded-xl blur-md opacity-90 group-hover:opacity-100 transition-all duration-500"></div>
+                          {/* Multiple layered background effects - matching Testimonials section - MOVED TO BACK */}
+                          <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/40 via-blue-600/40 to-orange-600/40 rounded-xl blur-xl opacity-70 group-hover:opacity-100 group-hover:blur-xl transition-all duration-1000 animate-pulse-slow z-0"></div>
+                          <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/80 via-blue-500/80 to-orange-500/80 rounded-xl blur-md opacity-90 group-hover:opacity-100 transition-all duration-500 z-0"></div>
                           
-                          {/* Main card container - matching Testimonials section */}
-                          <div className="relative backdrop-blur-sm rounded-xl p-5 z-10 border border-orange-500/30 overflow-hidden hover:shadow-[0_0_25px_rgba(249,115,22,0.3)] transition-shadow duration-500 h-full">
+                          {/* Main card container - matching Testimonials section - PULLED TO FRONT */}
+                          <div className="relative backdrop-blur-sm bg-black/90 rounded-xl p-5 z-30 border border-orange-500/30 overflow-hidden hover:shadow-[0_0_25px_rgba(249,115,22,0.3)] transition-shadow duration-500 h-full">
                           
                             {/* Inner highlight */}
                             <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
