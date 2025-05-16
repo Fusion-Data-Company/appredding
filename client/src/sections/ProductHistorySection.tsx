@@ -412,17 +412,11 @@ const ProductHistorySection = () => {
                 </div>
                 
                 {/* Enhanced Premium Table Container with gray styling - lowered z-index */}
-                <div className="relative group/table bg-gradient-to-br from-gray-900/90 via-gray-950/90 to-black backdrop-blur-xl rounded-xl overflow-hidden shadow-[0_5px_30px_rgba(0,0,0,0.3)] transform transition-all duration-500 hover:scale-[1.01] flex-grow" style={{ zIndex: 1 }}>
+                <div className="relative group/table bg-gradient-to-br from-gray-950/60 via-gray-950/60 to-black/60 backdrop-blur-xl rounded-xl overflow-hidden shadow-[0_5px_30px_rgba(0,0,0,0.3)] transform transition-all duration-500 hover:scale-[1.01] flex-grow" style={{ zIndex: 1 }}>
                   {/* Gray gradient border */}
                   <div className="absolute -inset-0.5 bg-gradient-to-r from-gray-700/50 via-gray-600/50 to-gray-700/50 rounded-xl opacity-90"></div>
                   
-                  {/* Premium border effect */}
-                  <div className="absolute inset-0 p-0.5 rounded-xl border border-gray-500/30 overflow-hidden"></div>
-                  
-                  {/* Inner highlight */}
-                  <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-40 pointer-events-none"></div>
-                  
-                  {/* Dots pattern removed to avoid interference with text visibility */}
+                  {/* All decorative elements moved below content */}
                   
                   {/* Corner accent lines with gray theme */}
                   <div className="absolute top-0 left-0 w-8 h-8 pointer-events-none z-10">
@@ -442,8 +436,8 @@ const ProductHistorySection = () => {
                     <div className="absolute bottom-0 right-0 w-2 h-2 bg-gray-500/30 rounded-full blur-[1px]"></div>
                   </div>
                   
-                  {/* Timeline content with enhanced premium styling - maximum z-index */}
-                  <div className="relative p-6 overflow-y-auto" style={{ maxHeight: "500px", zIndex: 1000, position: 'relative' }}>
+                  {/* Timeline content moved to front with maximum priority */}
+                  <div className="relative p-6 overflow-y-auto" style={{ maxHeight: "500px", zIndex: 9999, position: 'relative' }}>
                     {/* Timeline items - styled with premium enterprise theme - front layer */}
                     <div className="space-y-8 relative z-[999] bg-transparent" style={{ position: 'relative' }}>
                       <div className="group/item relative transform transition-all duration-500 hover:-translate-y-1 hover:scale-[1.01] pl-8 pb-8 border-l-2 border-gray-600/30">
