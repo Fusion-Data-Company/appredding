@@ -1,49 +1,27 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import MainLayout from "@/components/layout/MainLayout";
+import { Button } from "@/components/ui/button";
 import { GradientButton } from "@/components/ui/gradient-button";
-import { Alert, AlertDescription } from "@/components/ui/alert";
-import { 
-  CircleDollarSign, 
-  DropletIcon, 
-  HelpCircle, 
-  Info, 
-  Loader2, 
-  ThermometerIcon, 
+import { GradientHeading } from "@/components/ui/gradient-heading";
+import {
+  CircleDollarSign,
+  DropletIcon,
+  HelpCircle,
   ShieldCheck,
+  ThermometerIcon,
   TimerIcon,
   BarChart3Icon,
+  Loader2,
   Check as CheckIcon
 } from "lucide-react";
-import { GradientHeading } from "@/components/ui/gradient-heading";
 import poolImage from "@assets/Screenshot 2025-04-22 at 14.04.08.png";
-import waterBgImage from "@assets/pool-water-bg.jpg";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { Button } from "@/components/ui/button";
-import GoogleReviews from "@/components/GoogleReviews";
-import { insertPoolProfessionalSchema } from "@shared/schema";
-import * as z from "zod";
-import { useMutation } from "@tanstack/react-query";
-import { apiRequest } from "@/lib/queryClient";
-import { useToast } from "@/hooks/use-toast";
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Checkbox } from "@/components/ui/checkbox";
-import { 
-  Card, 
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle
-} from "@/components/ui/card";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { Alert, AlertDescription } from "@/components/ui/alert";
 
 // Extended schema with additional validation for pool professional registration
 const poolProfessionalFormSchema = insertPoolProfessionalSchema.extend({
