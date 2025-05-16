@@ -241,28 +241,29 @@ const ProductHistorySection = () => {
                   ))}
                 </ul>
                 
-                {/* Enhanced premium button */}
-                <div className="relative mt-auto">
-                  {/* Enhanced premium button using PremiumButton component */}
-                  <PremiumButton 
-                    variant="fire" 
-                    size="xl" 
-                    onClick={() => window.location.href="#contact"}
-                    className="px-10 py-5 text-xl font-medium"
-                  >
-                    <span className="flex items-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                      </svg>
-                      Learn About Our Story
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-3 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                      </svg>
-                    </span>
-                  </PremiumButton>
-                  
-                  {/* Subtle reflection */}
-                  <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-2/3 h-[2px] bg-gradient-to-r from-transparent via-white/10 to-transparent rounded-full blur-sm"></div>
+                {/* Enhanced premium button with proper alignment */}
+                <div className="flex-grow flex items-center justify-center pt-6 mt-6">
+                  <div className="relative mx-auto">
+                    <PremiumButton 
+                      variant="fire" 
+                      size="xl" 
+                      onClick={() => window.location.href="#contact"}
+                      className="px-10 py-5 text-xl font-medium"
+                    >
+                      <span className="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                        </svg>
+                        Learn About Our Story
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-3 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </svg>
+                      </span>
+                    </PremiumButton>
+                    
+                    {/* Subtle reflection */}
+                    <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-2/3 h-[2px] bg-gradient-to-r from-transparent via-white/10 to-transparent rounded-full blur-sm"></div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -383,9 +384,9 @@ const ProductHistorySection = () => {
                 </div>
               </div>
               
-              {/* Enhanced premium button fully centered */}
-              <div className="flex-grow flex items-center justify-center" style={{position: "relative", zIndex: 50}}>
-                <div className="relative">
+              {/* Enhanced premium button with matching alignment */}
+              <div className="flex-grow flex items-center justify-center pt-6 mt-6" style={{position: "relative", zIndex: 50}}>
+                <div className="relative mx-auto">
                   <PremiumButton 
                     variant="fire" 
                     size="xl" 
