@@ -2,6 +2,7 @@
 import heroImagePlaceholder from '../assets_dir/images/optimized/new-praetorian-hero.png';
 import heroImageFull from '../assets_dir/images/optimized/new-praetorian-hero.png';
 import { GradientButton } from "@/components/ui/gradient-button";
+import { PremiumButton } from "@/components/ui/premium-button";
 import { useEffect, useState, useRef } from "react";
 
 const HeroSection = () => {
@@ -85,7 +86,25 @@ const HeroSection = () => {
             onLoad={() => setImageLoaded(true)}
           />
           
-          {/* Buttons removed from here */}
+          {/* Premium CTA Button positioned at the bottom of the hero image */}
+          <div className="absolute bottom-12 left-0 w-full flex justify-center items-center z-30 pointer-events-none">
+            <div className="pointer-events-auto">
+              <PremiumButton 
+                variant="fire" 
+                size="xl"
+                className="transform hover:scale-105 transition-transform duration-300"
+                onClick={() => {
+                  const productsSection = document.getElementById('features');
+                  if (productsSection) {
+                    productsSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                glowEffect={true}
+              >
+                Explore SmartCoat Technology
+              </PremiumButton>
+            </div>
+          </div>
         </div>
       </div>
     </section>
