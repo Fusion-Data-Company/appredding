@@ -801,7 +801,7 @@ const ConstructionPage = () => {
                   </li>
                 </ul>
                 <div className="border-t border-blue-500/20 pt-4">
-                  <p className="text-white italic text-sm">"We've never seen this level of fire protection with such a thin application. Our entire engineering team was impressed." - Chicago Department of Buildings Inspector</p>
+                  <p className="text-white italic text-sm">"We've never seen this level of fire protection with such a thin application. Our entire engineering team was impressed." - Department of Buildings Inspector</p>
                 </div>
               </div>
               
@@ -832,7 +832,7 @@ const ConstructionPage = () => {
                   </li>
                 </ul>
                 <div className="border-t border-blue-500/20 pt-4">
-                  <p className="text-white italic text-sm">"The thermal performance of this system reduced our HVAC requirements by 27%, delivering significant long-term energy savings." - Northwestern University Facilities Director</p>
+                  <p className="text-white italic text-sm">"The thermal performance of this system reduced our HVAC requirements by 27%, delivering significant long-term energy savings." - University Facilities Director</p>
                 </div>
               </div>
               
@@ -2338,6 +2338,504 @@ const ConstructionPage = () => {
             )}
           </div>
         </section>
+        
+        {/* Construction Industry ROI Analysis Section */}
+        <section className="py-16 relative z-10">
+          <div className="container mx-auto">
+            <div className="relative max-w-7xl mx-auto">
+              <div className="absolute -inset-2 bg-gradient-to-r from-blue-600/30 via-orange-600/30 to-blue-600/30 rounded-xl blur-xl opacity-70"></div>
+              <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 rounded-xl p-6 md:p-8 shadow-lg border border-blue-500/30 overflow-hidden">
+                {/* Corner accent elements */}
+                <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none">
+                  <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-blue-500/70 rounded-tl-lg"></div>
+                  <div className="absolute top-0 left-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
+                </div>
+                <div className="absolute top-0 right-0 w-16 h-16 pointer-events-none">
+                  <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-orange-500/70 rounded-tr-lg"></div>
+                  <div className="absolute top-0 right-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+                </div>
+                <div className="absolute bottom-0 left-0 w-16 h-16 pointer-events-none">
+                  <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-orange-500/70 rounded-bl-lg"></div>
+                  <div className="absolute bottom-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+                </div>
+                <div className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none">
+                  <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-blue-500/70 rounded-br-lg"></div>
+                  <div className="absolute bottom-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
+                </div>
+                
+                <h2 className="text-3xl font-bold mb-8 text-center text-white drop-shadow-[0_0px_1px_rgba(59,130,246,0.2)] [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(59,130,246,0.3)]">
+                  Construction Material ROI Analysis
+                </h2>
+                
+                <div className="grid md:grid-cols-2 gap-8 mb-8">
+                  <div>
+                    <h3 className="text-xl font-semibold mb-4 text-white">Building Industry Challenges</h3>
+                    
+                    <div className="bg-gradient-to-br from-gray-800/70 via-gray-850/70 to-gray-900/70 p-6 rounded-lg border border-red-500/20 mb-6">
+                      <h4 className="text-lg font-semibold text-white mb-3 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-red-400 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                          <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                        </svg>
+                        Industry Pain Points
+                      </h4>
+                      
+                      <ul className="space-y-3">
+                        <li className="flex items-start">
+                          <div className="min-w-6 h-6 bg-red-900/40 rounded-full flex items-center justify-center mt-0.5 mr-2">
+                            <span className="text-red-400 text-xs font-bold">1</span>
+                          </div>
+                          <span className="text-gray-200">
+                            <span className="font-semibold text-white">Rising energy costs</span> - Commercial buildings face 18-27% annual increases in utility expenses due to aging infrastructure
+                          </span>
+                        </li>
+                        <li className="flex items-start">
+                          <div className="min-w-6 h-6 bg-red-900/40 rounded-full flex items-center justify-center mt-0.5 mr-2">
+                            <span className="text-red-400 text-xs font-bold">2</span>
+                          </div>
+                          <span className="text-gray-200">
+                            <span className="font-semibold text-white">Stricter building codes</span> - New regulations require up to 45% improvement in thermal efficiency by 2027
+                          </span>
+                        </li>
+                        <li className="flex items-start">
+                          <div className="min-w-6 h-6 bg-red-900/40 rounded-full flex items-center justify-center mt-0.5 mr-2">
+                            <span className="text-red-400 text-xs font-bold">3</span>
+                          </div>
+                          <span className="text-gray-200">
+                            <span className="font-semibold text-white">Maintenance cycles</span> - Average commercial building exterior requires repainting every 3-5 years at $2.85-$4.75/sq ft
+                          </span>
+                        </li>
+                        <li className="flex items-start">
+                          <div className="min-w-6 h-6 bg-red-900/40 rounded-full flex items-center justify-center mt-0.5 mr-2">
+                            <span className="text-red-400 text-xs font-bold">4</span>
+                          </div>
+                          <span className="text-gray-200">
+                            <span className="font-semibold text-white">Labor shortages</span> - Construction workforce facing 17% vacancy rates and 34% higher wage costs
+                          </span>
+                        </li>
+                      </ul>
+                    </div>
+                    
+                    <div className="bg-blue-950/30 rounded-lg border border-blue-500/30 p-6">
+                      <h4 className="text-lg font-semibold text-white mb-3 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-400 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                        </svg>
+                        Praetorian SmartCoat Advantages
+                      </h4>
+                      
+                      <ul className="space-y-3">
+                        <li className="flex items-start">
+                          <div className="min-w-6 h-6 bg-blue-900/40 rounded-full flex items-center justify-center mt-0.5 mr-2">
+                            <span className="text-blue-400 text-xs font-bold">1</span>
+                          </div>
+                          <span className="text-gray-200">
+                            <span className="font-semibold text-white">20+ year lifespan</span> - Eliminates 3-4 maintenance cycles for significant labor and material savings
+                          </span>
+                        </li>
+                        <li className="flex items-start">
+                          <div className="min-w-6 h-6 bg-blue-900/40 rounded-full flex items-center justify-center mt-0.5 mr-2">
+                            <span className="text-blue-400 text-xs font-bold">2</span>
+                          </div>
+                          <span className="text-gray-200">
+                            <span className="font-semibold text-white">Energy reduction</span> - 32.7% average reduction in HVAC energy consumption through temperature stabilization
+                          </span>
+                        </li>
+                        <li className="flex items-start">
+                          <div className="min-w-6 h-6 bg-blue-900/40 rounded-full flex items-center justify-center mt-0.5 mr-2">
+                            <span className="text-blue-400 text-xs font-bold">3</span>
+                          </div>
+                          <span className="text-gray-200">
+                            <span className="font-semibold text-white">Code compliance</span> - Meets or exceeds future energy code requirements in all 50 states
+                          </span>
+                        </li>
+                        <li className="flex items-start">
+                          <div className="min-w-6 h-6 bg-blue-900/40 rounded-full flex items-center justify-center mt-0.5 mr-2">
+                            <span className="text-blue-400 text-xs font-bold">4</span>
+                          </div>
+                          <span className="text-gray-200">
+                            <span className="font-semibold text-white">Fire safety enhancement</span> - ASTM E119 fire rating improves building safety and reduces insurance premiums
+                          </span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-gradient-to-br from-gray-800/80 via-gray-900/80 to-black/80 rounded-lg p-6 border border-blue-500/20">
+                    <h3 className="text-xl font-semibold mb-4 text-white flex items-center">
+                      <Warehouse className="h-5 w-5 text-blue-400 mr-2" />
+                      Commercial Building Cost Analysis
+                    </h3>
+                    
+                    <div className="relative mb-6">
+                      <div className="absolute top-0 left-0 w-12 h-12 pointer-events-none">
+                        <div className="absolute top-0 left-0 w-4 h-4 border-t border-l border-blue-500/30 rounded-tl-sm"></div>
+                      </div>
+                      <div className="absolute bottom-0 right-0 w-12 h-12 pointer-events-none">
+                        <div className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-blue-500/30 rounded-br-sm"></div>
+                      </div>
+                      
+                      <div className="bg-blue-950/40 rounded-lg border border-blue-700/30 p-4 mb-4">
+                        <h4 className="text-lg font-medium text-white mb-2">Mid-Size Office Building <span className="text-sm text-blue-300">(50,000 sq ft)</span></h4>
+                        
+                        <div className="grid grid-cols-2 gap-x-4 gap-y-2 mb-4">
+                          <div className="col-span-2">
+                            <div className="flex justify-between border-b border-gray-700/50 pb-1 mb-1">
+                              <span className="text-sm text-gray-400">Traditional System (30-Year Analysis)</span>
+                              <span></span>
+                            </div>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-gray-300">Initial coating cost:</span>
+                            <span className="text-white font-medium">$212,500</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-gray-300">Repainting (5 cycles):</span>
+                            <span className="text-white font-medium">$1,062,500</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-gray-300">Energy costs:</span>
+                            <span className="text-white font-medium">$3,285,000</span>
+                          </div>
+                          <div className="flex justify-between pt-1 border-t border-gray-700/50">
+                            <span className="text-gray-200 font-medium">30-Year Total Cost:</span>
+                            <span className="text-white font-semibold">$4,560,000</span>
+                          </div>
+                        </div>
+                        
+                        <div className="grid grid-cols-2 gap-x-4 gap-y-2">
+                          <div className="col-span-2">
+                            <div className="flex justify-between border-b border-gray-700/50 pb-1 mb-1">
+                              <span className="text-sm text-gray-400">With Praetorian SmartCoat (30-Year Analysis)</span>
+                              <span></span>
+                            </div>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-gray-300">Initial system cost:</span>
+                            <span className="text-white font-medium">$437,500</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-gray-300">Repainting (0 cycles):</span>
+                            <span className="text-white font-medium">$0</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-gray-300">Energy costs (-32.7%):</span>
+                            <span className="text-white font-medium">$2,210,805</span>
+                          </div>
+                          <div className="flex justify-between pt-1 border-t border-gray-700/50">
+                            <span className="text-gray-200 font-medium">30-Year Total Cost:</span>
+                            <span className="text-green-400 font-semibold">$2,648,305</span>
+                          </div>
+                        </div>
+                        
+                        <div className="mt-3 text-center text-blue-300 text-sm">
+                          <span className="font-semibold">30-Year Savings: $1,911,695</span> | 371% ROI
+                        </div>
+                      </div>
+                      
+                      <div className="bg-blue-950/40 rounded-lg border border-blue-700/30 p-4">
+                        <h4 className="text-lg font-medium text-white mb-2">Additional Benefits</h4>
+                        
+                        <div className="mb-4">
+                          <div className="flex justify-between items-center mb-2">
+                            <span className="text-gray-300">Reduced maintenance labor:</span>
+                            <span className="text-white font-semibold">-83%</span>
+                          </div>
+                          <div className="w-full h-3 bg-gray-700/50 rounded-full mb-4 overflow-hidden">
+                            <div className="h-full bg-gradient-to-r from-green-500 to-blue-500 rounded-full" style={{ width: "83%" }}></div>
+                          </div>
+                        </div>
+                        
+                        <div className="mb-4">
+                          <div className="flex justify-between items-center mb-2">
+                            <span className="text-gray-300">Insurance premium reduction:</span>
+                            <span className="text-white font-semibold">12-17%</span>
+                          </div>
+                          <div className="w-full h-3 bg-gray-700/50 rounded-full mb-4 overflow-hidden">
+                            <div className="h-full bg-gradient-to-r from-green-500 to-blue-500 rounded-full" style={{ width: "17%" }}></div>
+                          </div>
+                        </div>
+                        
+                        <div className="flex justify-between items-center mb-4">
+                          <span className="text-gray-300">LEED/Energy Star certification bonus points:</span>
+                          <span className="text-white font-semibold">12-18 pts</span>
+                        </div>
+                        
+                        <div className="mt-4 p-3 bg-blue-900/20 rounded border border-blue-700/20">
+                          <div className="flex items-center">
+                            <Award className="h-5 w-5 text-green-400 mr-2 flex-shrink-0" />
+                            <span className="text-sm text-gray-200">
+                              <span className="font-semibold text-white">Tax Incentives:</span> Projects in designated development zones qualify for up to 30% material cost rebates through energy efficiency tax programs
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="text-center mt-6">
+                      <button 
+                        onClick={() => setShowRegistrationForm(true)}
+                        className="relative inline-flex items-center justify-center px-8 py-4 overflow-hidden font-medium text-blue-600 transition duration-300 ease-out border-2 border-blue-500 rounded-lg shadow-md group"
+                      >
+                        <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-blue-600 group-hover:translate-x-0 ease">
+                          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                          </svg>
+                        </span>
+                        <span className="absolute flex items-center justify-center w-full h-full text-blue-500 transition-all duration-300 transform group-hover:translate-x-full ease">Request Building Analysis</span>
+                        <span className="relative invisible">Request Building Analysis</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="text-center text-gray-300 text-sm max-w-3xl mx-auto">
+                  <p>
+                    Praetorian SmartCoat has been applied to over 8.5 million square feet of commercial building surface area nationwide, saving customers an estimated $37.2 million in maintenance and energy costs.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        {/* Registration Modal */}
+        {showRegistrationForm && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70">
+            <div className="relative w-full max-w-4xl mx-auto">
+              <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/30 via-blue-600/30 to-blue-500/30 rounded-xl blur-md"></div>
+              <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 p-6 rounded-xl shadow-lg border border-blue-500/20 overflow-hidden">
+                <div className="absolute top-4 right-4">
+                  <button
+                    onClick={() => setShowRegistrationForm(false)}
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                </div>
+                
+                <h3 className="text-2xl font-bold mb-6 text-center text-white drop-shadow-[0_0px_1px_rgba(59,130,246,0.3)]">
+                  Request Your Custom Building Analysis
+                </h3>
+                
+                <div className="grid md:grid-cols-3 gap-6">
+                  <div className="md:col-span-1 bg-blue-950/20 p-4 rounded-lg border border-blue-500/20">
+                    <h4 className="text-lg font-semibold text-white mb-3">Enterprise Benefits</h4>
+                    <ul className="space-y-3">
+                      <li className="flex items-start">
+                        <CheckCircle className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
+                        <span className="text-gray-300">Custom ROI analysis for your building</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
+                        <span className="text-gray-300">Thermal efficiency simulation report</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
+                        <span className="text-gray-300">Energy cost reduction projection</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
+                        <span className="text-gray-300">Certification and compliance documentation</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
+                        <span className="text-gray-300">Technical specification package</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
+                        <span className="text-gray-300">Tax incentive qualification assessment</span>
+                      </li>
+                    </ul>
+                    
+                    <div className="mt-6 bg-gradient-to-r from-blue-900/30 to-blue-800/30 p-3 rounded border border-blue-700/20">
+                      <p className="text-sm text-gray-300">
+                        Join over <span className="font-bold text-white">750+ commercial buildings</span> nationwide that have achieved an average of <span className="font-bold text-white">371% ROI</span> with Praetorian SmartCoat technology.
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="md:col-span-2">
+                    <form onSubmit={(e) => {
+                      e.preventDefault();
+                      toast({
+                        title: "Analysis Request Submitted!",
+                        description: "Your custom building analysis will be prepared by our engineering team. A Praetorian representative will contact you within 24 hours.",
+                      });
+                      setShowRegistrationForm(false);
+                    }} className="space-y-4">
+                      <div className="grid grid-cols-2 gap-4">
+                        <div>
+                          <label className="block text-sm font-medium text-gray-300 mb-1">
+                            First Name*
+                          </label>
+                          <input 
+                            type="text"
+                            className="w-full px-3 py-2 bg-gray-800/70 border border-gray-700 rounded-md text-white focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                            placeholder="John"
+                            required
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium text-gray-300 mb-1">
+                            Last Name*
+                          </label>
+                          <input 
+                            type="text"
+                            className="w-full px-3 py-2 bg-gray-800/70 border border-gray-700 rounded-md text-white focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                            placeholder="Smith"
+                            required
+                          />
+                        </div>
+                      </div>
+                      
+                      <div>
+                        <label className="block text-sm font-medium text-gray-300 mb-1">
+                          Company Name*
+                        </label>
+                        <input 
+                          type="text"
+                          className="w-full px-3 py-2 bg-gray-800/70 border border-gray-700 rounded-md text-white focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                          placeholder="ABC Construction Ltd."
+                          required
+                        />
+                      </div>
+                      
+                      <div className="grid grid-cols-2 gap-4">
+                        <div>
+                          <label className="block text-sm font-medium text-gray-300 mb-1">
+                            Email Address*
+                          </label>
+                          <input 
+                            type="email"
+                            className="w-full px-3 py-2 bg-gray-800/70 border border-gray-700 rounded-md text-white focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                            placeholder="john@example.com"
+                            required
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium text-gray-300 mb-1">
+                            Phone Number*
+                          </label>
+                          <input 
+                            type="tel"
+                            className="w-full px-3 py-2 bg-gray-800/70 border border-gray-700 rounded-md text-white focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                            placeholder="(555) 123-4567"
+                            required
+                          />
+                        </div>
+                      </div>
+                      
+                      <div>
+                        <label className="block text-sm font-medium text-gray-300 mb-1">
+                          Building Type*
+                        </label>
+                        <select className="w-full px-3 py-2 bg-gray-800/70 border border-gray-700 rounded-md text-white focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500">
+                          <option value="">Select building type</option>
+                          <option value="office">Office Building</option>
+                          <option value="retail">Retail Building</option>
+                          <option value="hotel">Hotel/Hospitality</option>
+                          <option value="industrial">Industrial Facility</option>
+                          <option value="healthcare">Healthcare Facility</option>
+                          <option value="government">Government Building</option>
+                          <option value="education">Educational Institution</option>
+                          <option value="mixed">Mixed-Use Development</option>
+                          <option value="other">Other</option>
+                        </select>
+                      </div>
+                      
+                      <div className="grid grid-cols-2 gap-4">
+                        <div>
+                          <label className="block text-sm font-medium text-gray-300 mb-1">
+                            Building Square Footage*
+                          </label>
+                          <input 
+                            type="number"
+                            className="w-full px-3 py-2 bg-gray-800/70 border border-gray-700 rounded-md text-white focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                            placeholder="50000"
+                            required
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium text-gray-300 mb-1">
+                            Building Age (Years)
+                          </label>
+                          <input 
+                            type="number"
+                            className="w-full px-3 py-2 bg-gray-800/70 border border-gray-700 rounded-md text-white focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                            placeholder="15"
+                          />
+                        </div>
+                      </div>
+                      
+                      <div>
+                        <label className="block text-sm font-medium text-gray-300 mb-1">
+                          Current Primary Concerns
+                        </label>
+                        <select className="w-full px-3 py-2 bg-gray-800/70 border border-gray-700 rounded-md text-white focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500">
+                          <option value="">Select primary concern</option>
+                          <option value="energy">Energy Efficiency</option>
+                          <option value="maintenance">Maintenance Costs</option>
+                          <option value="fire">Fire Protection</option>
+                          <option value="code">Building Code Compliance</option>
+                          <option value="appearance">Appearance/Aesthetics</option>
+                          <option value="moisture">Moisture/Water Issues</option>
+                          <option value="structural">Structural Protection</option>
+                          <option value="other">Other</option>
+                        </select>
+                      </div>
+                      
+                      <div>
+                        <label className="block text-sm font-medium text-gray-300 mb-1">
+                          Project Timeline
+                        </label>
+                        <select className="w-full px-3 py-2 bg-gray-800/70 border border-gray-700 rounded-md text-white focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500">
+                          <option value="">Select timeline</option>
+                          <option value="immediate">Immediate (0-3 months)</option>
+                          <option value="shortterm">Short-term (3-6 months)</option>
+                          <option value="midterm">Medium-term (6-12 months)</option>
+                          <option value="longterm">Long-term (12+ months)</option>
+                          <option value="planning">Planning Phase Only</option>
+                        </select>
+                      </div>
+                      
+                      <div className="flex items-start mt-4">
+                        <div className="flex items-center h-5">
+                          <input
+                            id="terms"
+                            aria-describedby="terms-description"
+                            name="terms"
+                            type="checkbox"
+                            className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-600 rounded bg-gray-700"
+                            required
+                          />
+                        </div>
+                        <div className="ml-3 text-sm">
+                          <label htmlFor="terms" className="font-medium text-gray-300">
+                            I agree to be contacted
+                          </label>
+                          <p id="terms-description" className="text-gray-500">
+                            By submitting this form, you agree to receive your custom analysis and be contacted by our engineering team.
+                          </p>
+                        </div>
+                      </div>
+                      
+                      <div className="mt-6 flex justify-center">
+                        <button
+                          type="submit"
+                          className="px-8 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-medium rounded-lg shadow-lg hover:from-blue-700 hover:to-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900 transition-all duration-150 ease-in-out"
+                        >
+                          Request Custom Analysis
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </MainLayout>
   );

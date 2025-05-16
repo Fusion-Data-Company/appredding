@@ -1141,6 +1141,234 @@ const Painters = () => {
             </div>
           </div>
         </section>
+        {/* Registration Modal */}
+        {showRegistrationForm && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70">
+            <div className="relative w-full max-w-4xl mx-auto">
+              <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/30 via-blue-600/30 to-blue-500/30 rounded-xl blur-md"></div>
+              <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 p-6 rounded-xl shadow-lg border border-blue-500/20 overflow-hidden">
+                <div className="absolute top-4 right-4">
+                  <button
+                    onClick={() => setShowRegistrationForm(false)}
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                </div>
+                
+                <h3 className="text-2xl font-bold mb-6 text-center text-white drop-shadow-[0_0px_1px_rgba(59,130,246,0.3)]">
+                  Become a Certified Praetorian Painting Partner
+                </h3>
+                
+                <div className="grid md:grid-cols-3 gap-6">
+                  <div className="md:col-span-1 bg-blue-950/20 p-4 rounded-lg border border-blue-500/20">
+                    <h4 className="text-lg font-semibold text-white mb-3">Partnership Benefits</h4>
+                    <ul className="space-y-3">
+                      <li className="flex items-start">
+                        <CheckCircle className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
+                        <span className="text-gray-300">Exclusive territory protection</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
+                        <span className="text-gray-300">Project lead referrals in your area</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
+                        <span className="text-gray-300">Professional certification & training</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
+                        <span className="text-gray-300">Marketing support & materials</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
+                        <span className="text-gray-300">Dedicated account manager</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
+                        <span className="text-gray-300">Preferential product pricing</span>
+                      </li>
+                    </ul>
+                    
+                    <div className="mt-6 bg-gradient-to-r from-blue-900/30 to-blue-800/30 p-3 rounded border border-blue-700/20">
+                      <p className="text-sm text-gray-300">
+                        Our partners see an average of <span className="font-bold text-white">410% increase</span> in annual profits when offering Praetorian premium coating solutions.
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="md:col-span-2">
+                    <form onSubmit={(e) => {
+                      e.preventDefault();
+                      toast({
+                        title: "Registration Complete!",
+                        description: "Your partnership application has been received. A Praetorian representative will contact you within 24 hours.",
+                      });
+                      setShowRegistrationForm(false);
+                    }} className="space-y-4">
+                      <div className="grid grid-cols-2 gap-4">
+                        <div>
+                          <label className="block text-sm font-medium text-gray-300 mb-1">
+                            First Name*
+                          </label>
+                          <input 
+                            type="text"
+                            className="w-full px-3 py-2 bg-gray-800/70 border border-gray-700 rounded-md text-white focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                            placeholder="John"
+                            required
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium text-gray-300 mb-1">
+                            Last Name*
+                          </label>
+                          <input 
+                            type="text"
+                            className="w-full px-3 py-2 bg-gray-800/70 border border-gray-700 rounded-md text-white focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                            placeholder="Smith"
+                            required
+                          />
+                        </div>
+                      </div>
+                      
+                      <div>
+                        <label className="block text-sm font-medium text-gray-300 mb-1">
+                          Company Name*
+                        </label>
+                        <input 
+                          type="text"
+                          className="w-full px-3 py-2 bg-gray-800/70 border border-gray-700 rounded-md text-white focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                          placeholder="Professional Painters Inc."
+                          required
+                        />
+                      </div>
+                      
+                      <div className="grid grid-cols-2 gap-4">
+                        <div>
+                          <label className="block text-sm font-medium text-gray-300 mb-1">
+                            Email Address*
+                          </label>
+                          <input 
+                            type="email"
+                            className="w-full px-3 py-2 bg-gray-800/70 border border-gray-700 rounded-md text-white focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                            placeholder="john@example.com"
+                            required
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium text-gray-300 mb-1">
+                            Phone Number*
+                          </label>
+                          <input 
+                            type="tel"
+                            className="w-full px-3 py-2 bg-gray-800/70 border border-gray-700 rounded-md text-white focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                            placeholder="(555) 123-4567"
+                            required
+                          />
+                        </div>
+                      </div>
+                      
+                      <div>
+                        <label className="block text-sm font-medium text-gray-300 mb-1">
+                          Service Area (Cities/Regions)*
+                        </label>
+                        <input 
+                          type="text"
+                          className="w-full px-3 py-2 bg-gray-800/70 border border-gray-700 rounded-md text-white focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                          placeholder="e.g., Greater Los Angeles, Northern California"
+                          required
+                        />
+                      </div>
+                      
+                      <div className="grid grid-cols-2 gap-4">
+                        <div>
+                          <label className="block text-sm font-medium text-gray-300 mb-1">
+                            Years in Business
+                          </label>
+                          <input 
+                            type="number"
+                            className="w-full px-3 py-2 bg-gray-800/70 border border-gray-700 rounded-md text-white focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                            placeholder="5"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium text-gray-300 mb-1">
+                            Number of Painters
+                          </label>
+                          <input 
+                            type="number"
+                            className="w-full px-3 py-2 bg-gray-800/70 border border-gray-700 rounded-md text-white focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                            placeholder="10"
+                          />
+                        </div>
+                      </div>
+                      
+                      <div>
+                        <label className="block text-sm font-medium text-gray-300 mb-1">
+                          Primary Business Focus
+                        </label>
+                        <select className="w-full px-3 py-2 bg-gray-800/70 border border-gray-700 rounded-md text-white focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500">
+                          <option value="">Select business focus</option>
+                          <option value="residential">Residential</option>
+                          <option value="commercial">Commercial</option>
+                          <option value="industrial">Industrial</option>
+                          <option value="mixed">Mixed</option>
+                        </select>
+                      </div>
+                      
+                      <div>
+                        <label className="block text-sm font-medium text-gray-300 mb-1">
+                          How did you hear about us?
+                        </label>
+                        <select className="w-full px-3 py-2 bg-gray-800/70 border border-gray-700 rounded-md text-white focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500">
+                          <option value="">Select option</option>
+                          <option value="search">Internet Search</option>
+                          <option value="referral">Referral</option>
+                          <option value="tradeshow">Trade Show</option>
+                          <option value="industry">Industry Publication</option>
+                          <option value="social">Social Media</option>
+                          <option value="other">Other</option>
+                        </select>
+                      </div>
+                      
+                      <div className="flex items-start mt-4">
+                        <div className="flex items-center h-5">
+                          <input
+                            id="terms"
+                            aria-describedby="terms-description"
+                            name="terms"
+                            type="checkbox"
+                            className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-600 rounded bg-gray-700"
+                            required
+                          />
+                        </div>
+                        <div className="ml-3 text-sm">
+                          <label htmlFor="terms" className="font-medium text-gray-300">
+                            I agree to the partnership terms
+                          </label>
+                          <p id="terms-description" className="text-gray-500">
+                            By submitting this form, you agree to be contacted by our team and receive relevant business communications.
+                          </p>
+                        </div>
+                      </div>
+                      
+                      <div className="mt-6 flex justify-center">
+                        <button
+                          type="submit"
+                          className="px-8 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-medium rounded-lg shadow-lg hover:from-blue-700 hover:to-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900 transition-all duration-150 ease-in-out"
+                        >
+                          Submit Partnership Application
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
         
         {/* Painters Business ROI Analysis Section */}
         <section className="py-16 relative z-10">
