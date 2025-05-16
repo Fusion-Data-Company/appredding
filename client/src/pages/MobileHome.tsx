@@ -151,89 +151,161 @@ const MobileHome = () => {
         />
         
         {/* Semi-transparent dark overlay to make text readable */}
-        <div className="fixed inset-0 z-0 bg-black/50"></div>
+        <div className="fixed inset-0 z-0 bg-gradient-to-b from-gray-900/80 via-gray-950/85 to-black/90"></div>
+        
+        {/* Ambient glow effects */}
+        <div className="fixed top-0 left-0 w-full h-full z-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-[5%] left-[10%] w-[45rem] h-[45rem] bg-blue-600/15 rounded-full blur-[150px] animate-pulse-slow"></div>
+          <div className="absolute bottom-[10%] right-[15%] w-[40rem] h-[40rem] bg-orange-500/10 rounded-full blur-[150px] animate-pulse-slow"></div>
+        </div>
         
         {/* Main content section */}
         <section className="py-16 md:py-24 relative z-10">
           <div className="container mx-auto">
-            <div className="max-w-4xl mx-auto text-center mb-16 backdrop-blur-sm bg-primary-900/60 p-8 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)]">
-              <GradientHeading level={1} className="text-4xl md:text-5xl mb-6 glow-text" variant="mixed">NASA Ceramic Technology for Mobile Homes</GradientHeading>
-              <p className="text-xl text-white mb-8">
-                Protect your mobile home with our revolutionary NASA-derived ceramic microsphere coating technology. Our Class A fire-rated system (perfect 0/100 ASTM E84 scores) provides unmatched thermal protection, extending your home's lifespan by 15+ years with documented 87% energy cost reduction.
-              </p>
+            <div className="max-w-4xl mx-auto text-center mb-16 relative">
+              <div className="absolute -inset-1 bg-gradient-to-r from-orange-500/20 via-blue-500/20 to-orange-500/20 rounded-xl blur-xl opacity-70"></div>
+              
+              <div className="relative bg-gradient-to-br from-gray-900/90 via-gray-950/90 to-black/90 py-8 px-10 rounded-xl border border-orange-500/40 shadow-[0_10px_50px_rgba(59,130,246,0.2)]">
+                {/* Corner Accents */}
+                <div className="absolute top-0 left-0 w-12 h-12 z-10 pointer-events-none">
+                  <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-orange-500/40 rounded-tl-md"></div>
+                  <div className="absolute top-1 left-1 w-8 h-8 border-t border-l border-blue-500/30 rounded-tl-md"></div>
+                </div>
+                <div className="absolute top-0 right-0 w-12 h-12 z-10 pointer-events-none">
+                  <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-orange-500/40 rounded-tr-md"></div>
+                  <div className="absolute top-1 right-1 w-8 h-8 border-t border-r border-blue-500/30 rounded-tr-md"></div>
+                </div>
+                <div className="absolute bottom-0 right-0 w-12 h-12 z-10 pointer-events-none">
+                  <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-orange-500/40 rounded-br-md"></div>
+                  <div className="absolute bottom-1 right-1 w-8 h-8 border-b border-r border-blue-500/30 rounded-br-md"></div>
+                </div>
+                <div className="absolute bottom-0 left-0 w-12 h-12 z-10 pointer-events-none">
+                  <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-orange-500/40 rounded-bl-md"></div>
+                  <div className="absolute bottom-1 left-1 w-8 h-8 border-b border-l border-blue-500/30 rounded-bl-md"></div>
+                </div>
+                
+                <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white drop-shadow-[0_2px_4px_rgba(59,130,246,0.4)]">
+                  Mobile Home Protection Technology
+                </h1>
+                <p className="text-xl text-blue-100 mb-8">
+                  Protect your mobile home with our revolutionary ceramic microsphere coating technology. Our Class A fire-rated system (perfect 0/100 ASTM E84 scores) provides unmatched thermal protection, extending your home's lifespan by 15+ years with documented 87% energy cost reduction.
+                </p>
+              </div>
             </div>
 
             <div className="grid md:grid-cols-2 gap-12 mb-16">
-              <div className="backdrop-blur-sm bg-primary-900/60 border-4 border-white rounded-xl p-8 shadow-[0_0_60px_rgba(255,255,255,0.4)]">
-                <GradientHeading level={2} className="text-3xl mb-6" variant="mixed">NASA Ceramic Microsphere Benefits</GradientHeading>
+              <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black rounded-xl border border-gray-800 shadow-[0_0_60px_rgba(59,130,246,0.2)] p-8">
+                {/* Corner Accents */}
+                <div className="absolute top-0 left-0 w-full h-full rounded-lg overflow-hidden pointer-events-none">
+                  <div className="absolute top-0 left-0 w-32 h-32 border-t-4 border-l-4 border-orange-500/40 rounded-tl-lg"></div>
+                  <div className="absolute top-0 right-0 w-32 h-32 border-t-4 border-r-4 border-blue-500/30 rounded-tr-lg"></div>
+                  <div className="absolute bottom-0 left-0 w-32 h-32 border-b-4 border-l-4 border-blue-500/30 rounded-bl-lg"></div>
+                  <div className="absolute bottom-0 right-0 w-32 h-32 border-b-4 border-r-4 border-orange-500/40 rounded-br-lg"></div>
+                </div>
                 
-                <div className="space-y-6">
-                  <div className="flex items-start gap-4">
-                    <span className="bg-gradient-to-r from-orange-600 to-blue-500 rounded-full p-2 mt-1 shadow-lg">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
-                        <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path>
-                        <path d="M17 4a2 2 0 0 0 2 2a2 2 0 0 0 -2 2a2 2 0 0 0 -2 -2a2 2 0 0 0 2 -2"></path>
-                        <path d="M19 11h2m-1 -1v2"></path>
-                      </svg>
-                    </span>
-                    <div>
-                      <h3 className="text-xl font-semibold mb-2 text-white">NASA Ceramic UV Shield</h3>
-                      <p className="text-gray-100">NASA-derived ceramic microspheres provide 89% UV reflection (verified by Cool Roof Rating Council) and resist extreme temperature fluctuations (-40°F to 300°F) with only 1% reflectivity loss after 3 years.</p>
+                <h2 className="text-3xl font-bold mb-8 text-white drop-shadow-[0_1px_3px_rgba(59,130,246,0.6)] relative z-10">
+                  <span className="relative inline-block">
+                    Ceramic Microsphere Benefits
+                    <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-48 h-[2px] bg-gradient-to-r from-transparent via-blue-500 to-transparent"></div>
+                  </span>
+                </h2>
+                
+                <div className="space-y-6 relative z-10">
+                  <div className="relative bg-gradient-to-br from-gray-900 to-black rounded-lg p-4 border border-gray-800">
+                    <div className="absolute -inset-0.5 bg-blue-600/20 rounded-lg blur opacity-60"></div>
+                    <div className="relative z-10 flex items-start gap-4">
+                      <span className="bg-gradient-to-r from-blue-700 to-blue-500 rounded-full p-2 mt-1 shadow-[0_0_15px_rgba(59,130,246,0.4)]">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
+                          <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path>
+                          <path d="M17 4a2 2 0 0 0 2 2a2 2 0 0 0 -2 2a2 2 0 0 0 -2 -2a2 2 0 0 0 2 -2"></path>
+                          <path d="M19 11h2m-1 -1v2"></path>
+                        </svg>
+                      </span>
+                      <div>
+                        <h3 className="text-xl font-semibold mb-2 text-white drop-shadow-[0_1px_2px_rgba(59,130,246,0.5)]">Ceramic UV Shield</h3>
+                        <p className="text-blue-100">Ceramic microspheres provide 89% UV reflection (verified by Cool Roof Rating Council) and resist extreme temperature fluctuations (-40°F to 300°F) with only 1% reflectivity loss after 3 years.</p>
+                      </div>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-4">
-                    <span className="bg-gradient-to-r from-orange-600 to-blue-500 rounded-full p-2 mt-1 shadow-lg">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
-                        <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572"></path>
-                      </svg>
-                    </span>
-                    <div>
-                      <h3 className="text-xl font-semibold mb-2 text-white">NASA-Verified Energy Efficiency</h3>
-                      <p className="text-gray-100">Ceramic microsphere technology delivers documented 87% energy reduction (verified by independent case study) with thermal barrier properties that reduce cooling costs 30-40% more than standard reflective coatings.</p>
+                  <div className="relative bg-gradient-to-br from-gray-900 to-black rounded-lg p-4 border border-gray-800">
+                    <div className="absolute -inset-0.5 bg-orange-600/20 rounded-lg blur opacity-60"></div>
+                    <div className="relative z-10 flex items-start gap-4">
+                      <span className="bg-gradient-to-r from-orange-700 to-orange-500 rounded-full p-2 mt-1 shadow-[0_0_15px_rgba(249,115,22,0.4)]">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
+                          <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572"></path>
+                        </svg>
+                      </span>
+                      <div>
+                        <h3 className="text-xl font-semibold mb-2 text-white drop-shadow-[0_1px_2px_rgba(249,115,22,0.5)]">Verified Energy Efficiency</h3>
+                        <p className="text-orange-100">Ceramic microsphere technology delivers documented 87% energy reduction (verified by independent case study) with thermal barrier properties that reduce cooling costs 30-40% more than standard reflective coatings.</p>
+                      </div>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-4">
-                    <span className="bg-gradient-to-r from-orange-600 to-blue-500 rounded-full p-2 mt-1 shadow-lg">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
-                        <path d="M3 17h1m16 0h1m-15.4 -6.4l.7 .7m12.1 -.7l-.7 .7m-9.7 5.7a4 4 0 1 1 8 0"></path>
-                        <line x1="3" y1="21" x2="21" y2="21"></line>
-                        <path d="M9.7 8.7a8 8 0 1 1 4.6 0"></path>
-                        <path d="M12 3v5"></path>
-                      </svg>
-                    </span>
-                    <div>
-                      <h3 className="text-xl font-semibold mb-2 text-white">Ceramic Microsphere Waterproofing</h3>
-                      <p className="text-gray-100">NASA-derived ceramic microspheres create a 156% elastomeric waterproof membrane that remains 100% waterproof even after 10,000+ salt spray hours with self-healing properties for long-term protection.</p>
+                  <div className="relative bg-gradient-to-br from-gray-900 to-black rounded-lg p-4 border border-gray-800">
+                    <div className="absolute -inset-0.5 bg-blue-600/20 rounded-lg blur opacity-60"></div>
+                    <div className="relative z-10 flex items-start gap-4">
+                      <span className="bg-gradient-to-r from-blue-700 to-blue-500 rounded-full p-2 mt-1 shadow-[0_0_15px_rgba(59,130,246,0.4)]">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
+                          <path d="M3 17h1m16 0h1m-15.4 -6.4l.7 .7m12.1 -.7l-.7 .7m-9.7 5.7a4 4 0 1 1 8 0"></path>
+                          <line x1="3" y1="21" x2="21" y2="21"></line>
+                          <path d="M9.7 8.7a8 8 0 1 1 4.6 0"></path>
+                          <path d="M12 3v5"></path>
+                        </svg>
+                      </span>
+                      <div>
+                        <h3 className="text-xl font-semibold mb-2 text-white drop-shadow-[0_1px_2px_rgba(59,130,246,0.5)]">Elastomeric Waterproofing</h3>
+                        <p className="text-blue-100">Ceramic microspheres create a 156% elastomeric waterproof membrane that remains 100% waterproof even after 10,000+ salt spray hours with self-healing properties for long-term protection.</p>
+                      </div>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-4">
-                    <span className="bg-gradient-to-r from-orange-600 to-blue-500 rounded-full p-2 mt-1 shadow-lg">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
-                        <circle cx="12" cy="12" r="1"></circle>
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <circle cx="12" cy="12" r="9"></circle>
-                      </svg>
-                    </span>
-                    <div>
-                      <h3 className="text-xl font-semibold mb-2 text-white">Fire Protection & Extended Lifespan</h3>
-                      <p className="text-gray-100">Class A fire-rated protection (perfect 0/100 scores in ASTM E84 testing) with NASA ceramic technology that extends lifespan 30+ years with verified test data showing no degradation after decades of exposure.</p>
+                  <div className="relative bg-gradient-to-br from-gray-900 to-black rounded-lg p-4 border border-gray-800">
+                    <div className="absolute -inset-0.5 bg-orange-600/20 rounded-lg blur opacity-60"></div>
+                    <div className="relative z-10 flex items-start gap-4">
+                      <span className="bg-gradient-to-r from-orange-700 to-orange-500 rounded-full p-2 mt-1 shadow-[0_0_15px_rgba(249,115,22,0.4)]">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
+                          <circle cx="12" cy="12" r="1"></circle>
+                          <circle cx="12" cy="12" r="5"></circle>
+                          <circle cx="12" cy="12" r="9"></circle>
+                        </svg>
+                      </span>
+                      <div>
+                        <h3 className="text-xl font-semibold mb-2 text-white drop-shadow-[0_1px_2px_rgba(249,115,22,0.5)]">Extended Lifespan</h3>
+                        <p className="text-orange-100">Class A fire-rated protection (perfect 0/100 scores in ASTM E84 testing) with ceramic technology that extends lifespan 30+ years with verified test data showing no degradation after decades of exposure.</p>
+                      </div>
                     </div>
                   </div>
                 </div>
                 
-                <div className="mt-8">
-                  <GradientButton variant="variant">
-                    Schedule Free Assessment
-                  </GradientButton>
+                <div className="mt-8 relative">
+                  <div className="absolute -inset-2 bg-blue-600/30 rounded-full blur-xl opacity-70 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <button className="relative z-10 inline-flex items-center justify-center rounded-md bg-gradient-to-b from-gray-900 to-black border border-blue-500/40 px-6 py-3 font-semibold text-white shadow-[0_0_15px_rgba(59,130,246,0.5)] hover:shadow-[0_0_25px_rgba(59,130,246,0.75)] transition-all duration-300 overflow-hidden group">
+                    <span className="absolute inset-0 bg-gradient-to-br from-blue-800/10 to-blue-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                    <span className="relative z-20">Schedule Free Assessment</span>
+                  </button>
                 </div>
               </div>
 
-              <div className="backdrop-blur-sm bg-primary-900/60 border-4 border-white rounded-xl p-8 shadow-[0_0_60px_rgba(255,255,255,0.4)]">
-                <GradientHeading level={2} className="text-3xl mb-6" variant="mixed">NASA Ceramic Application Process</GradientHeading>
-                <p className="mb-8 text-gray-100">Our certified application process for NASA-derived ceramic microsphere technology ensures perfect adhesion and maximum performance</p>
+              <div className="relative">
+                <div className="absolute -inset-1 bg-gradient-to-r from-orange-500/20 via-blue-500/20 to-orange-500/20 rounded-xl blur-xl opacity-70"></div>
+                <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black rounded-xl border border-gray-800 shadow-[0_0_60px_rgba(59,130,246,0.2)] p-8">
+                  {/* Corner Accents */}
+                  <div className="absolute top-0 left-0 w-full h-full rounded-lg overflow-hidden pointer-events-none">
+                    <div className="absolute top-0 left-0 w-32 h-32 border-t-4 border-l-4 border-orange-500/40 rounded-tl-lg"></div>
+                    <div className="absolute top-0 right-0 w-32 h-32 border-t-4 border-r-4 border-blue-500/30 rounded-tr-lg"></div>
+                    <div className="absolute bottom-0 left-0 w-32 h-32 border-b-4 border-l-4 border-blue-500/30 rounded-bl-lg"></div>
+                    <div className="absolute bottom-0 right-0 w-32 h-32 border-b-4 border-r-4 border-orange-500/40 rounded-br-lg"></div>
+                  </div>
+                  
+                  <h2 className="text-3xl font-bold mb-6 text-white drop-shadow-[0_1px_3px_rgba(59,130,246,0.6)] relative z-10">
+                    <span className="relative inline-block">
+                      Ceramic Application Process
+                      <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-48 h-[2px] bg-gradient-to-r from-transparent via-blue-500 to-transparent"></div>
+                    </span>
+                  </h2>
+                  <p className="mb-8 text-blue-100 relative z-10">Our certified application process for ceramic microsphere technology ensures perfect adhesion and maximum performance</p>
                 
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
