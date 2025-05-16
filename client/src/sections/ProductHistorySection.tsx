@@ -412,7 +412,7 @@ const ProductHistorySection = () => {
                 </div>
                 
                 {/* Enhanced Premium Table Container with gray styling - lowered z-index */}
-                <div className="relative group/table bg-gradient-to-br from-gray-900/90 via-gray-950/90 to-black backdrop-blur-xl rounded-xl overflow-hidden shadow-[0_5px_30px_rgba(0,0,0,0.3)] transform transition-all duration-500 hover:scale-[1.01] flex-grow">
+                <div className="relative group/table bg-gradient-to-br from-gray-900/90 via-gray-950/90 to-black backdrop-blur-xl rounded-xl overflow-hidden shadow-[0_5px_30px_rgba(0,0,0,0.3)] transform transition-all duration-500 hover:scale-[1.01] flex-grow" style={{ zIndex: 1 }}>
                   {/* Gray gradient border */}
                   <div className="absolute -inset-0.5 bg-gradient-to-r from-gray-700/50 via-gray-600/50 to-gray-700/50 rounded-xl opacity-90"></div>
                   
@@ -422,10 +422,7 @@ const ProductHistorySection = () => {
                   {/* Inner highlight */}
                   <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-40 pointer-events-none"></div>
                   
-                  {/* Subtle dots pattern with gray theme - lowered z-index */}
-                  <div className="absolute inset-0 opacity-20 -z-10 pointer-events-none">
-                    <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoMjI5LDIyOSwyMjksMC4yKSIgZD0iTTAgMGgydjJIM3ptMiAyaDJ2MkgyeiIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgZmlsbD0idXJsKCNhKSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPjwvc3ZnPg==')]"></div>
-                  </div>
+                  {/* Dots pattern removed to avoid interference with text visibility */}
                   
                   {/* Corner accent lines with gray theme */}
                   <div className="absolute top-0 left-0 w-8 h-8 pointer-events-none z-10">
@@ -446,9 +443,9 @@ const ProductHistorySection = () => {
                   </div>
                   
                   {/* Timeline content with enhanced premium styling - maximum z-index */}
-                  <div className="relative p-6 overflow-y-auto z-50" style={{ maxHeight: "500px" }}>
-                    {/* Timeline items - styled with premium enterprise theme */}
-                    <div className="space-y-8 relative z-50">
+                  <div className="relative p-6 overflow-y-auto" style={{ maxHeight: "500px", zIndex: 1000, position: 'relative' }}>
+                    {/* Timeline items - styled with premium enterprise theme - front layer */}
+                    <div className="space-y-8 relative z-[999] bg-transparent" style={{ position: 'relative' }}>
                       <div className="group/item relative transform transition-all duration-500 hover:-translate-y-1 hover:scale-[1.01] pl-8 pb-8 border-l-2 border-gray-600/30">
                         {/* Year with enhanced styling */}
                         <div className="absolute -left-4 flex items-center justify-center z-20">
