@@ -152,6 +152,9 @@ const BrandShowcaseSection = () => {
                   <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/50 via-transparent to-blue-400/50 opacity-70"></div>
                   <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
                   
+                  {/* Grey gradient card behind glow effect */}
+                  <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 border border-gray-800/50"></div>
+                  
                   {/* Subtle ambient glow that activates on hover */}
                   <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-30 transition-opacity duration-700 ease-in-out" 
                       style={{ background: "radial-gradient(circle at center, rgba(251,113,36,0.3), rgba(59,130,246,0.3), transparent 70%)" }}>
