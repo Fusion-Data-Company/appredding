@@ -11,7 +11,8 @@ import {
   ThermometerIcon, 
   ShieldCheck,
   TimerIcon,
-  BarChart3Icon
+  BarChart3Icon,
+  Check as CheckIcon
 } from "lucide-react";
 import { GradientHeading } from "@/components/ui/gradient-heading";
 import poolImage from "@assets/Screenshot 2025-04-22 at 14.04.08.png";
@@ -895,32 +896,70 @@ const Pools = () => {
                   className="rounded-xl w-full h-64 object-cover mb-8"
                 />
                 
-                <GradientHeading level={2} className="text-3xl mb-6" variant="blue">Cool-Touch Pool Deck & Furniture Benefits</GradientHeading>
+                <h2 className="text-3xl font-bold mb-6 text-white drop-shadow-[0_1px_3px_rgba(59,130,246,0.6)]">
+                  <span className="relative inline-block">
+                    Cool-Touch Pool Deck & Furniture Benefits
+                    <div className="absolute -bottom-1 left-0 w-36 h-[2px] bg-gradient-to-r from-blue-500 to-transparent"></div>
+                  </span>
+                </h2>
                 
-                <div className="space-y-4">
-                  <div className="flex items-center gap-3">
-                    <i className="fas fa-check-circle text-primary-400"></i>
-                    <p>Reduces surface temperatures by up to 40°F (22.2°C), preventing painful burns on bare feet even in direct sunlight</p>
+                <div className="space-y-5">
+                  <div className="flex items-start gap-4 group">
+                    <div className="relative mt-1">
+                      <div className="absolute -inset-1 bg-blue-600/20 rounded-full blur-md group-hover:bg-blue-600/30 transition-all duration-300"></div>
+                      <div className="bg-gradient-to-br from-blue-600 to-blue-800 rounded-full p-1 relative border border-blue-400/30 shadow-lg shadow-blue-900/20">
+                        <CheckIcon className="h-4 w-4 text-white" />
+                      </div>
+                    </div>
+                    <p className="text-white leading-relaxed">Reduces surface temperatures by up to <span className="text-blue-300 font-medium">40°F (22.2°C)</span>, preventing painful burns on bare feet even in direct sunlight</p>
                   </div>
-                  <div className="flex items-center gap-3">
-                    <i className="fas fa-check-circle text-primary-400"></i>
-                    <p>Creates child and pet-safe surfaces on concrete, pavers, coping stones, and pool furniture that stay cool to the touch</p>
+                  
+                  <div className="flex items-start gap-4 group">
+                    <div className="relative mt-1">
+                      <div className="absolute -inset-1 bg-orange-600/20 rounded-full blur-md group-hover:bg-orange-600/30 transition-all duration-300"></div>
+                      <div className="bg-gradient-to-br from-orange-600 to-orange-800 rounded-full p-1 relative border border-orange-400/30 shadow-lg shadow-orange-900/20">
+                        <CheckIcon className="h-4 w-4 text-white" />
+                      </div>
+                    </div>
+                    <p className="text-white leading-relaxed">Creates child and pet-safe surfaces on concrete, pavers, coping stones, and pool furniture that stay <span className="text-orange-300 font-medium">cool to the touch</span></p>
                   </div>
-                  <div className="flex items-center gap-3">
-                    <i className="fas fa-check-circle text-primary-400"></i>
-                    <p>Superior slip resistance (0.65 coefficient) exceeds public safety standards in wet conditions</p>
+                  
+                  <div className="flex items-start gap-4 group">
+                    <div className="relative mt-1">
+                      <div className="absolute -inset-1 bg-blue-600/20 rounded-full blur-md group-hover:bg-blue-600/30 transition-all duration-300"></div>
+                      <div className="bg-gradient-to-br from-blue-600 to-blue-800 rounded-full p-1 relative border border-blue-400/30 shadow-lg shadow-blue-900/20">
+                        <CheckIcon className="h-4 w-4 text-white" />
+                      </div>
+                    </div>
+                    <p className="text-white leading-relaxed">Superior slip resistance <span className="text-blue-300 font-medium">(0.65 coefficient)</span> exceeds public safety standards in wet conditions</p>
                   </div>
-                  <div className="flex items-center gap-3">
-                    <i className="fas fa-check-circle text-primary-400"></i>
-                    <p>70% improved abrasion resistance compared to traditional sealers, with only 3.2mg material loss after 1,000 test cycles</p>
+                  
+                  <div className="flex items-start gap-4 group">
+                    <div className="relative mt-1">
+                      <div className="absolute -inset-1 bg-orange-600/20 rounded-full blur-md group-hover:bg-orange-600/30 transition-all duration-300"></div>
+                      <div className="bg-gradient-to-br from-orange-600 to-orange-800 rounded-full p-1 relative border border-orange-400/30 shadow-lg shadow-orange-900/20">
+                        <CheckIcon className="h-4 w-4 text-white" />
+                      </div>
+                    </div>
+                    <p className="text-white leading-relaxed"><span className="text-orange-300 font-medium">70% improved</span> abrasion resistance compared to traditional sealers, with only 3.2mg material loss after 1,000 test cycles</p>
                   </div>
-                  <div className="flex items-center gap-3">
-                    <i className="fas fa-check-circle text-primary-400"></i>
-                    <p>Class A fire rating (0/0 scores) provides critical safety for equipment areas and reduces fire spread hazards</p>
+                  <div className="flex items-start gap-4 group">
+                    <div className="relative mt-1">
+                      <div className="absolute -inset-1 bg-blue-600/20 rounded-full blur-md group-hover:bg-blue-600/30 transition-all duration-300"></div>
+                      <div className="bg-gradient-to-br from-blue-600 to-blue-800 rounded-full p-1 relative border border-blue-400/30 shadow-lg shadow-blue-900/20">
+                        <CheckIcon className="h-4 w-4 text-white" />
+                      </div>
+                    </div>
+                    <p className="text-white leading-relaxed">Class A fire rating <span className="text-blue-300 font-medium">(0/0 scores)</span> provides critical safety for equipment areas and reduces fire spread hazards</p>
                   </div>
-                  <div className="flex items-center gap-3">
-                    <i className="fas fa-check-circle text-primary-400"></i>
-                    <p>30-year transferable warranty with documented performance in outdoor pool environments since 1989</p>
+                  <div className="flex items-start gap-4 group">
+                    <div className="relative mt-1">
+                      <div className="absolute -inset-1 bg-orange-600/20 rounded-full blur-md group-hover:bg-orange-600/30 transition-all duration-300"></div>
+                      <div className="bg-gradient-to-br from-orange-600 to-orange-800 rounded-full p-1 relative border border-orange-400/30 shadow-lg shadow-orange-900/20">
+                        <CheckIcon className="h-4 w-4 text-white" />
+                      </div>
+                    </div>
+                    <p className="text-white leading-relaxed"><span className="text-orange-300 font-medium">30-year transferable warranty</span> with documented performance in outdoor pool environments since 1989</p>
                   </div>
                 </div>
                 
@@ -937,11 +976,32 @@ const Pools = () => {
         {/* Calculator section */}
         <section className="py-16 relative z-10">
           <div className="container mx-auto">
-            <div className="backdrop-blur-sm bg-primary-900/60 p-8 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] mb-12">
-              <GradientHeading level={2} className="text-3xl md:text-4xl mb-12 text-center" variant="blue">Pool Deck Coverage Calculator</GradientHeading>
-              <div className="max-w-4xl mx-auto">
-                <h3 className="text-2xl font-bold mb-4 text-center">Calculate How Much Coating You Need</h3>
-                <p className="text-center mb-6">Enter your pool deck dimensions to determine the amount of coating needed to protect surrounding surfaces</p>
+            <div className="relative backdrop-blur-sm bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black p-8 rounded-xl border-4 shadow-[0_0_60px_rgba(59,130,246,0.2)] mb-12">
+              <div className="absolute top-0 left-0 w-full h-full rounded-lg overflow-hidden pointer-events-none">
+                <div className="absolute top-0 left-0 w-32 h-32 border-t-4 border-l-4 border-orange-500/40 rounded-tl-lg"></div>
+                <div className="absolute top-0 right-0 w-32 h-32 border-t-4 border-r-4 border-blue-500/30 rounded-tr-lg"></div>
+                <div className="absolute bottom-0 left-0 w-32 h-32 border-b-4 border-l-4 border-blue-500/30 rounded-bl-lg"></div>
+                <div className="absolute bottom-0 right-0 w-32 h-32 border-b-4 border-r-4 border-orange-500/40 rounded-br-lg"></div>
+              </div>
+              
+              <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-white drop-shadow-[0_1px_3px_rgba(59,130,246,0.6)]">
+                <span className="relative inline-block">
+                  Pool Deck Coverage Calculator
+                  <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-48 h-[2px] bg-gradient-to-r from-transparent via-blue-500 to-transparent"></div>
+                </span>
+              </h2>
+              
+              <div className="max-w-4xl mx-auto relative z-10">
+                <div className="flex items-center justify-center mb-6 gap-3">
+                  <div className="relative">
+                    <div className="absolute -inset-1 bg-blue-600/20 rounded-full blur-md"></div>
+                    <div className="bg-gradient-to-br from-blue-600 to-blue-800 rounded-full p-2 relative border border-blue-400/30 shadow-lg shadow-blue-900/20">
+                      <BarChart3Icon className="h-5 w-5 text-white" />
+                    </div>
+                  </div>
+                  <h3 className="text-2xl font-bold text-white">Calculate How Much Coating You Need</h3>
+                </div>
+                <p className="text-center text-blue-100 mb-8 max-w-2xl mx-auto">Enter your pool deck dimensions to determine the precise amount of coating needed to protect surrounding surfaces with our enterprise-grade ceramic technology</p>
                 
                 {validationError && (
                   <Alert variant="destructive" className="mb-6">
@@ -949,25 +1009,28 @@ const Pools = () => {
                   </Alert>
                 )}
                 
-                <div className="grid md:grid-cols-2 gap-6 mb-6">
-                  <div>
-                    <label className="block text-sm font-medium mb-2">
-                      Deck Area Shape
-                      <TooltipProvider>
-                        <Tooltip>
-                          <TooltipTrigger asChild>
-                            <span className="inline-block ml-1">
-                              <HelpCircle className="h-4 w-4 inline text-gray-400" />
-                            </span>
-                          </TooltipTrigger>
-                          <TooltipContent>
-                            <p className="w-60">Select the layout that best matches your pool deck area to get an accurate estimate.</p>
-                          </TooltipContent>
-                        </Tooltip>
-                      </TooltipProvider>
-                    </label>
-                    <select 
-                      className="w-full bg-primary-900 border border-primary-700 rounded p-2"
+                <div className="grid md:grid-cols-2 gap-8 mb-8">
+                  <div className="relative group">
+                    <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600/30 to-orange-600/30 rounded-lg blur opacity-50 group-hover:opacity-75 transition duration-300"></div>
+                    <div className="relative bg-gradient-to-br from-gray-900 to-black rounded-lg p-5 border border-gray-800">
+                      <label className="flex items-center gap-2 text-sm font-medium mb-3 text-white">
+                        <DropletIcon className="h-4 w-4 text-blue-400" />
+                        Deck Area Shape
+                        <TooltipProvider>
+                          <Tooltip>
+                            <TooltipTrigger asChild>
+                              <span className="inline-block ml-1 cursor-pointer">
+                                <HelpCircle className="h-4 w-4 inline text-gray-400 hover:text-blue-400 transition-colors" />
+                              </span>
+                            </TooltipTrigger>
+                            <TooltipContent className="bg-gray-900 border border-blue-900 text-white">
+                              <p className="w-60">Select the layout that best matches your pool deck area to get an accurate estimate.</p>
+                            </TooltipContent>
+                          </Tooltip>
+                        </TooltipProvider>
+                      </label>
+                      <select 
+                        className="w-full bg-gradient-to-br from-gray-900 to-gray-950 border border-blue-900/50 rounded-md p-2.5 text-white shadow-inner"
                       value={poolShape}
                       onChange={(e) => setPoolShape(e.target.value)}
                     >
