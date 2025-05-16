@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { PremiumTabs, PremiumTabsList, PremiumTabsTrigger, PremiumTabsContent } from "@/components/ui/premium-tabs";
 
 interface ProductFeature {
   name: string;
@@ -222,16 +222,16 @@ const ProductComparison = () => {
               <h2 className="text-2xl font-bold mb-6">Select Products to Compare</h2>
               <p className="mb-6 text-gray-300">Choose up to 3 products to compare their features, specifications, and pricing.</p>
               
-              <Tabs defaultValue="all" onValueChange={setActiveCategory} className="w-full">
-                <TabsList className="mb-8 flex flex-wrap">
-                  <TabsTrigger value="all">All Products</TabsTrigger>
-                  <TabsTrigger value="wildfire">Wildfire Protection</TabsTrigger>
-                  <TabsTrigger value="marine">Marine Coatings</TabsTrigger>
-                  <TabsTrigger value="pool">Pool Coatings</TabsTrigger>
-                  <TabsTrigger value="construction">Construction Coatings</TabsTrigger>
-                </TabsList>
+              <PremiumTabs defaultValue="all" onValueChange={setActiveCategory} className="w-full">
+                <PremiumTabsList>
+                  <PremiumTabsTrigger value="all">All Products</PremiumTabsTrigger>
+                  <PremiumTabsTrigger value="wildfire">Wildfire Protection</PremiumTabsTrigger>
+                  <PremiumTabsTrigger value="marine">Marine Coatings</PremiumTabsTrigger>
+                  <PremiumTabsTrigger value="pool">Pool Coatings</PremiumTabsTrigger>
+                  <PremiumTabsTrigger value="construction">Construction Coatings</PremiumTabsTrigger>
+                </PremiumTabsList>
                 
-                <TabsContent value="all" className="mt-0">
+                <PremiumTabsContent value="all">
                   <div className="grid md:grid-cols-2 gap-6">
                     {filteredProducts.map(product => (
                       <div key={product.id} className="bg-primary-700 rounded-lg p-6 flex gap-4">
@@ -280,9 +280,9 @@ const ProductComparison = () => {
                       </div>
                     ))}
                   </div>
-                </TabsContent>
+                </PremiumTabsContent>
                 
-                <TabsContent value="wildfire" className="mt-0">
+                <PremiumTabsContent value="wildfire">
                   <div className="grid md:grid-cols-2 gap-6">
                     {filteredProducts.map(product => (
                       <div key={product.id} className="bg-primary-700 rounded-lg p-6 flex gap-4">
