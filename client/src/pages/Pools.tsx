@@ -824,41 +824,71 @@ const Pools = () => {
                         <p className="text-white leading-relaxed">Our ceramic microsphere technology creates surfaces that remain cool to the touch even in direct sunlight, reducing surface temperatures by up to <span className="text-blue-300 font-medium">40°F (22.2°C)</span> compared to untreated concrete, pavers, or furnishings. Testing confirms coating surface temperatures of only <span className="text-blue-300 font-medium">85°F (29.4°C)</span> when untreated surfaces reach <span className="text-blue-300 font-medium">125°F+ (51.7°C+)</span> in identical conditions (ASTM C1371-15 thermal emittance protocol).</p>
                       </div>
                     </div>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <span className="bg-primary-600/80 rounded-full p-2 mt-1">
-                      <i className="fas fa-sun text-white"></i>
-                    </span>
-                    <div>
-                      <h3 className="text-xl font-semibold mb-2">Child & Pet-Safe Surface Protection</h3>
-                      <p>Our coatings prevent painful burns from hot pool decks, pavers, and concrete surfaces that can reach 140°F+ (60°C+) in direct sunlight - temperatures that cause second-degree burns in just 3 seconds of skin contact. Independent testing confirms our coating maintains safe-touch temperatures of 85-95°F (29-35°C) on identical surfaces in identical conditions. The 89% solar reflection rating (verified by Cool Roof Rating Council and ASTM C1549-16 protocols) combined with 0.91 thermal emittance (ASTM C1371-15) provides immediate temperature reduction on application. Surface heat mitigation remains effective for 20+ years with only minimal maintenance. The water-based formula contains zero VOCs (ASTM D6886-21) and meets the strictest California environmental standards for outdoor coatings with CDPH Section 01350 certification for safe use in areas where children and pets play.</p>
+                  
+                    <div className="flex items-start gap-4 mt-6">
+                      <div className="relative">
+                        <div className="absolute -inset-1 bg-orange-600/20 rounded-full blur-md"></div>
+                        <span className="bg-gradient-to-br from-orange-600 to-orange-800 rounded-full p-2 mt-1 relative border border-orange-400/30 shadow-lg shadow-orange-900/20">
+                          <ThermometerIcon className="h-5 w-5 text-white" />
+                        </span>
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-semibold mb-2 text-white drop-shadow-[0_1px_2px_rgba(59,130,246,0.5)]">
+                          <span className="relative inline-block">
+                            Child & Pet-Safe Surface Protection
+                            <div className="absolute -bottom-1 left-0 w-12 h-[2px] bg-gradient-to-r from-orange-500 to-transparent"></div>
+                          </span>
+                        </h3>
+                        <p className="text-white leading-relaxed">Our coatings prevent painful burns from hot pool decks, pavers, and concrete surfaces that can reach <span className="text-orange-300 font-medium">140°F+ (60°C+)</span> in direct sunlight - temperatures that cause second-degree burns in just 3 seconds of skin contact. Independent testing confirms our coating maintains safe-touch temperatures of <span className="text-blue-300 font-medium">85-95°F (29-35°C)</span> on identical surfaces in identical conditions.</p>
+                      </div>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-4">
-                    <span className="bg-primary-600/80 rounded-full p-2 mt-1">
-                      <i className="fas fa-fire-alt text-white"></i>
-                    </span>
+                  <div className="flex items-start gap-4 mt-6">
+                    <div className="relative">
+                      <div className="absolute -inset-1 bg-orange-600/20 rounded-full blur-md"></div>
+                      <span className="bg-gradient-to-br from-orange-600 to-orange-800 rounded-full p-2 mt-1 relative border border-orange-400/30 shadow-lg shadow-orange-900/20">
+                        <ShieldCheck className="h-5 w-5 text-white" />
+                      </span>
+                    </div>
                     <div>
-                      <h3 className="text-xl font-semibold mb-2">Class A Fire Rating for Pool Equipment Protection</h3>
-                      <p>Perfect 0/0 scores in ASTM E84-23 testing for both Flame Spread and Smoke Development provides critical fire protection for pool equipment rooms, pump housings, electrical panels, and surrounding structures. Meets NFPA 101 requirements for Class A materials in equipment enclosures where fire hazards are elevated. Testing per UL 263 demonstrates 2-hour fireproof rating at 1,400°F (760°C) with coating integrity maintained - particularly critical for protecting expensive pool equipment and preventing electrical fires from spreading to adjacent structures. Complies with ICC-ES AC10 acceptance criteria for code compliance with full verification documentation.</p>
+                      <h3 className="text-xl font-semibold mb-2 text-white drop-shadow-[0_1px_2px_rgba(59,130,246,0.5)]">
+                        <span className="relative inline-block">
+                          Class A Fire Rating for Pool Equipment Protection
+                          <div className="absolute -bottom-1 left-0 w-12 h-[2px] bg-gradient-to-r from-orange-500 to-transparent"></div>
+                        </span>
+                      </h3>
+                      <p className="text-white leading-relaxed">Perfect <span className="text-orange-300 font-medium">0/0 scores</span> in ASTM E84-23 testing for both Flame Spread and Smoke Development provides critical fire protection for pool equipment rooms, pump housings, electrical panels, and surrounding structures. Meets NFPA 101 requirements for Class A materials in equipment enclosures where fire hazards are elevated. Testing per UL 263 demonstrates <span className="text-orange-300 font-medium">2-hour fireproof rating at 1,400°F (760°C)</span> with coating integrity maintained.</p>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-4">
-                    <span className="bg-primary-600/80 rounded-full p-2 mt-1">
-                      <i className="fas fa-clock text-white"></i>
-                    </span>
+                  <div className="flex items-start gap-4 mt-6">
+                    <div className="relative">
+                      <div className="absolute -inset-1 bg-blue-600/20 rounded-full blur-md"></div>
+                      <span className="bg-gradient-to-br from-blue-600 to-blue-800 rounded-full p-2 mt-1 relative border border-blue-400/30 shadow-lg shadow-blue-900/20">
+                        <TimerIcon className="h-5 w-5 text-white" />
+                      </span>
+                    </div>
                     <div>
-                      <h3 className="text-xl font-semibold mb-2">All-Weather Deck & Furniture Protection</h3>
-                      <p>Our coating creates a durable protective barrier on pool decks, pavers, furniture, and equipment areas that withstands heavy foot traffic, pool chemicals, and harsh weather conditions. Abrasion resistance testing (ASTM D4060-19) demonstrates 70% less wear than traditional paint/sealers, with only 3.2mg material loss after 1,000 cycles compared to 12-15mg for conventional products. The 156% elastomeric flexibility (ASTM D2370-16) prevents cracking from concrete expansion/contraction during freeze-thaw cycles. Original applications from 1989 showed only minimal degradation when inspected 30 years later in 2019, verified through both visual documentation and laboratory tests confirming 97% retention of original specifications. Coating maintains slip resistance (ASTM D2047-17) rating of 0.65 in wet conditions, exceeding the 0.50 minimum safety standard for public pool areas.</p>
+                      <h3 className="text-xl font-semibold mb-2 text-white drop-shadow-[0_1px_2px_rgba(59,130,246,0.5)]">
+                        <span className="relative inline-block">
+                          All-Weather Deck & Furniture Protection
+                          <div className="absolute -bottom-1 left-0 w-12 h-[2px] bg-gradient-to-r from-blue-500 to-transparent"></div>
+                        </span>
+                      </h3>
+                      <p className="text-white leading-relaxed">Our coating creates a durable protective barrier on pool decks, pavers, furniture, and equipment areas that withstands heavy foot traffic, pool chemicals, and harsh weather conditions. Abrasion resistance testing demonstrates <span className="text-blue-300 font-medium">70% less wear</span> than traditional paint/sealers, with only 3.2mg material loss after 1,000 cycles compared to 12-15mg for conventional products. Original applications from 1989 showed only minimal degradation when inspected 30 years later in 2019.</p>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="backdrop-blur-sm bg-primary-900/60 border-4 border-white rounded-xl p-8 shadow-[0_0_60px_rgba(255,255,255,0.4)]">
+              <div className="relative backdrop-blur-sm bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black border-4 rounded-xl p-8 shadow-[0_0_60px_rgba(59,130,246,0.2)]">
+                <div className="absolute top-0 left-0 w-full h-full rounded-lg overflow-hidden pointer-events-none">
+                  <div className="absolute top-0 left-0 w-32 h-32 border-t-4 border-l-4 border-orange-500/40 rounded-tl-lg"></div>
+                  <div className="absolute top-0 right-0 w-32 h-32 border-t-4 border-r-4 border-blue-500/30 rounded-tr-lg"></div>
+                  <div className="absolute bottom-0 left-0 w-32 h-32 border-b-4 border-l-4 border-blue-500/30 rounded-bl-lg"></div>
+                  <div className="absolute bottom-0 right-0 w-32 h-32 border-b-4 border-r-4 border-orange-500/40 rounded-br-lg"></div>
+                </div>
                 <img 
                   src={poolImage} 
                   alt="Elegant luxury pool with pristine Praetorian coating" 
