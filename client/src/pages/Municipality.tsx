@@ -1144,6 +1144,253 @@ const MunicipalityPage = () => {
           </div>
         </section>
         
+        {/* Municipal Budget & ROI Analysis Section */}
+        <section className="py-16 relative z-10">
+          <div className="container mx-auto">
+            <div className="relative max-w-6xl mx-auto">
+              <div className="absolute -inset-2 bg-gradient-to-r from-blue-600/30 via-orange-600/30 to-blue-600/30 rounded-xl blur-xl opacity-70"></div>
+              <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 rounded-xl p-6 md:p-8 shadow-lg border border-blue-500/30 overflow-hidden">
+                {/* Corner accent elements */}
+                <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none">
+                  <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-blue-500/70 rounded-tl-lg"></div>
+                  <div className="absolute top-0 left-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
+                </div>
+                <div className="absolute top-0 right-0 w-16 h-16 pointer-events-none">
+                  <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-orange-500/70 rounded-tr-lg"></div>
+                  <div className="absolute top-0 right-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+                </div>
+                <div className="absolute bottom-0 left-0 w-16 h-16 pointer-events-none">
+                  <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-orange-500/70 rounded-bl-lg"></div>
+                  <div className="absolute bottom-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+                </div>
+                <div className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none">
+                  <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-blue-500/70 rounded-br-lg"></div>
+                  <div className="absolute bottom-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
+                </div>
+                
+                <h2 className="text-3xl font-bold mb-8 text-center text-white drop-shadow-[0_0px_1px_rgba(59,130,246,0.2)] [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(59,130,246,0.3)]">
+                  Municipal Budget Impact: Lifecycle Cost Analysis
+                </h2>
+                
+                <div className="grid md:grid-cols-2 gap-8 mb-8">
+                  <div>
+                    <h3 className="text-xl font-semibold mb-4 text-white">Municipal Infrastructure Challenges</h3>
+                    
+                    <div className="bg-gradient-to-br from-gray-800/70 via-gray-850/70 to-gray-900/70 p-6 rounded-lg border border-red-500/20 mb-6">
+                      <h4 className="text-lg font-semibold text-white mb-3 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-red-400 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                          <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                        </svg>
+                        Critical Budgetary Issues
+                      </h4>
+                      
+                      <ul className="space-y-3">
+                        <li className="flex items-start">
+                          <div className="min-w-6 h-6 bg-red-900/40 rounded-full flex items-center justify-center mt-0.5 mr-2">
+                            <span className="text-red-400 text-xs font-bold">1</span>
+                          </div>
+                          <span className="text-gray-200">
+                            <span className="font-semibold text-white">Deferred maintenance backlog</span> - U.S. municipalities face over $2.35 trillion in infrastructure maintenance debt
+                          </span>
+                        </li>
+                        <li className="flex items-start">
+                          <div className="min-w-6 h-6 bg-red-900/40 rounded-full flex items-center justify-center mt-0.5 mr-2">
+                            <span className="text-red-400 text-xs font-bold">2</span>
+                          </div>
+                          <span className="text-gray-200">
+                            <span className="font-semibold text-white">Short budget cycles</span> - 1-2 year funding windows force short-term maintenance decisions with higher lifetime costs
+                          </span>
+                        </li>
+                        <li className="flex items-start">
+                          <div className="min-w-6 h-6 bg-red-900/40 rounded-full flex items-center justify-center mt-0.5 mr-2">
+                            <span className="text-red-400 text-xs font-bold">3</span>
+                          </div>
+                          <span className="text-gray-200">
+                            <span className="font-semibold text-white">Energy efficiency mandates</span> - Executive orders require 30-50% building energy reduction by 2030 without budget increases
+                          </span>
+                        </li>
+                        <li className="flex items-start">
+                          <div className="min-w-6 h-6 bg-red-900/40 rounded-full flex items-center justify-center mt-0.5 mr-2">
+                            <span className="text-red-400 text-xs font-bold">4</span>
+                          </div>
+                          <span className="text-gray-200">
+                            <span className="font-semibold text-white">Critical facility protection</span> - Emergency services buildings and water infrastructure require continuous operation during disasters
+                          </span>
+                        </li>
+                      </ul>
+                    </div>
+                    
+                    <div className="bg-blue-950/30 rounded-lg border border-blue-500/30 p-6">
+                      <h4 className="text-lg font-semibold text-white mb-3 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-400 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                        </svg>
+                        Praetorian Municipal Solutions
+                      </h4>
+                      
+                      <ul className="space-y-3">
+                        <li className="flex items-start">
+                          <div className="min-w-6 h-6 bg-blue-900/40 rounded-full flex items-center justify-center mt-0.5 mr-2">
+                            <span className="text-blue-400 text-xs font-bold">1</span>
+                          </div>
+                          <span className="text-gray-200">
+                            <span className="font-semibold text-white">25+ year documented lifecycle</span> - Extends maintenance intervals by 3-5× compared to conventional materials
+                          </span>
+                        </li>
+                        <li className="flex items-start">
+                          <div className="min-w-6 h-6 bg-blue-900/40 rounded-full flex items-center justify-center mt-0.5 mr-2">
+                            <span className="text-blue-400 text-xs font-bold">2</span>
+                          </div>
+                          <span className="text-gray-200">
+                            <span className="font-semibold text-white">Energy reduction of 20-40%</span> - Immediate utility savings through reduced HVAC load with documented performance
+                          </span>
+                        </li>
+                        <li className="flex items-start">
+                          <div className="min-w-6 h-6 bg-blue-900/40 rounded-full flex items-center justify-center mt-0.5 mr-2">
+                            <span className="text-blue-400 text-xs font-bold">3</span>
+                          </div>
+                          <span className="text-gray-200">
+                            <span className="font-semibold text-white">Grants and incentive eligible</span> - Qualifies for federal infrastructure, energy efficiency, and resilience funding
+                          </span>
+                        </li>
+                        <li className="flex items-start">
+                          <div className="min-w-6 h-6 bg-blue-900/40 rounded-full flex items-center justify-center mt-0.5 mr-2">
+                            <span className="text-blue-400 text-xs font-bold">4</span>
+                          </div>
+                          <span className="text-gray-200">
+                            <span className="font-semibold text-white">Critical infrastructure protection</span> - Class A fire resistance and documented resilience in extreme weather events
+                          </span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-gradient-to-br from-gray-800/80 via-gray-900/80 to-black/80 rounded-lg p-6 border border-blue-500/20">
+                    <h3 className="text-xl font-semibold mb-4 text-white">
+                      <CircleDollarSign className="h-5 w-5 text-green-400 mr-2 inline-block" />
+                      Municipal Infrastructure ROI
+                    </h3>
+                    
+                    <div className="relative mb-6">
+                      <div className="absolute top-0 left-0 w-12 h-12 pointer-events-none">
+                        <div className="absolute top-0 left-0 w-4 h-4 border-t border-l border-blue-500/30 rounded-tl-sm"></div>
+                      </div>
+                      <div className="absolute bottom-0 right-0 w-12 h-12 pointer-events-none">
+                        <div className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-blue-500/30 rounded-br-sm"></div>
+                      </div>
+                      
+                      <div className="bg-blue-950/40 rounded-lg border border-blue-700/30 p-4 mb-4">
+                        <h4 className="text-lg font-medium text-white mb-2">Water Treatment Facility <span className="text-sm text-blue-300">(100,000 sq ft)</span></h4>
+                        
+                        <div className="grid grid-cols-2 gap-x-4 gap-y-2 mb-4">
+                          <div className="col-span-2">
+                            <div className="flex justify-between border-b border-gray-700/50 pb-1 mb-1">
+                              <span className="text-sm text-gray-400">30-Year Lifecycle Analysis</span>
+                              <span></span>
+                            </div>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-gray-300">Standard maintenance cost:</span>
+                            <span className="text-white font-medium">$4.86 million</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-gray-300">Praetorian system cost:</span>
+                            <span className="text-white font-medium">$1.92 million</span>
+                          </div>
+                          <div className="flex justify-between pt-1 border-t border-gray-700/50">
+                            <span className="text-gray-200 font-medium">Direct savings:</span>
+                            <span className="text-green-400 font-semibold">$2.94 million</span>
+                          </div>
+                        </div>
+                        
+                        <div className="grid grid-cols-2 gap-x-4 gap-y-2">
+                          <div className="col-span-2">
+                            <div className="flex justify-between border-b border-gray-700/50 pb-1 mb-1">
+                              <span className="text-sm text-gray-400">Additional Budget Benefits</span>
+                              <span></span>
+                            </div>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-gray-300">Energy reduction savings:</span>
+                            <span className="text-white font-medium">$1.74 million</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-gray-300">Operational continuity value:</span>
+                            <span className="text-white font-medium">$0.95 million</span>
+                          </div>
+                          <div className="flex justify-between pt-1 border-t border-gray-700/50">
+                            <span className="text-gray-200 font-medium">Total 30-Year Budget Impact:</span>
+                            <span className="text-green-400 font-semibold">$5.63 million</span>
+                          </div>
+                        </div>
+                        
+                        <div className="mt-3 text-center text-blue-300 text-sm">
+                          Individual facility savings can be reinvested into additional infrastructure projects
+                        </div>
+                      </div>
+                      
+                      <div className="bg-blue-950/40 rounded-lg border border-blue-700/30 p-4">
+                        <h4 className="text-lg font-medium text-white mb-2">Municipal Building Portfolio <span className="text-sm text-blue-300">(20 buildings)</span></h4>
+                        
+                        <div className="flex justify-between items-center mb-2">
+                          <span className="text-gray-300">Annual utility expenditure reduction:</span>
+                          <span className="text-white font-semibold">28.4%</span>
+                        </div>
+                        <div className="w-full h-3 bg-gray-700/50 rounded-full mb-4 overflow-hidden">
+                          <div className="h-full bg-gradient-to-r from-green-500 to-blue-500 rounded-full" style={{ width: "28.4%" }}></div>
+                        </div>
+                        
+                        <div className="flex justify-between items-center mb-2">
+                          <span className="text-gray-300">Maintenance staffing hours reduction:</span>
+                          <span className="text-white font-semibold">42.7%</span>
+                        </div>
+                        <div className="w-full h-3 bg-gray-700/50 rounded-full mb-4 overflow-hidden">
+                          <div className="h-full bg-gradient-to-r from-green-500 to-blue-500 rounded-full" style={{ width: "42.7%" }}></div>
+                        </div>
+                        
+                        <div className="flex justify-between items-center mb-2">
+                          <span className="text-gray-300">Extended facility serviceable lifespan:</span>
+                          <span className="text-white font-semibold">+15-20 years</span>
+                        </div>
+                        
+                        <div className="mt-4 p-3 bg-blue-900/20 rounded border border-blue-700/20">
+                          <div className="flex items-center">
+                            <TrendingUp className="h-5 w-5 text-green-400 mr-2 flex-shrink-0" />
+                            <span className="text-sm text-gray-200">
+                              <span className="font-semibold text-white">Portfolio Savings Calculator:</span> Every $1M invested in Praetorian systems returns $4.2M-$5.8M in 30-year lifecycle value
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="text-center mt-6">
+                      <button 
+                        onClick={() => setShowRegistrationForm(true)}
+                        className="relative inline-flex items-center justify-center px-8 py-4 overflow-hidden font-medium text-blue-600 transition duration-300 ease-out border-2 border-blue-500 rounded-lg shadow-md group"
+                      >
+                        <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-blue-600 group-hover:translate-x-0 ease">
+                          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                          </svg>
+                        </span>
+                        <span className="absolute flex items-center justify-center w-full h-full text-blue-500 transition-all duration-300 transform group-hover:translate-x-full ease">Request Budget Impact Study</span>
+                        <span className="relative invisible">Request Budget Impact Study</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="text-center text-gray-300 text-sm max-w-3xl mx-auto">
+                  <p>
+                    Praetorian is an approved vendor through GSA Schedule Contract #GS-00F-000XXX and multiple state cooperative purchasing agreements. Contact us for simplified procurement options.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        
         <section className="py-16 backdrop-blur-sm bg-primary-900/80 relative z-10">
           <div className="container mx-auto">
             <div className="text-center mb-12">
