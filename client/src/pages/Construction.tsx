@@ -119,16 +119,45 @@ const ConstructionPage = () => {
         />
         
         {/* Semi-transparent dark overlay to make text readable */}
-        <div className="fixed inset-0 z-0 bg-black/50"></div>
+        <div className="fixed inset-0 z-0 bg-gradient-to-b from-gray-900/80 via-gray-950/85 to-black/90"></div>
+        
+        {/* Ambient glow effects */}
+        <div className="fixed top-0 left-0 w-full h-full z-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-[5%] left-[10%] w-[45rem] h-[45rem] bg-blue-600/15 rounded-full blur-[150px] animate-pulse-slow"></div>
+          <div className="absolute bottom-[10%] right-[15%] w-[40rem] h-[40rem] bg-orange-500/10 rounded-full blur-[150px] animate-pulse-slow"></div>
+        </div>
         
         {/* Main content section */}
         <section className="py-16 md:py-24 relative z-10">
           <div className="container mx-auto">
-            <div className="max-w-4xl mx-auto text-center mb-16 backdrop-blur-sm bg-primary-900/60 p-8 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)]">
-              <GradientHeading level={1} className="text-4xl md:text-5xl mb-6 glow-text" variant="mixed">NASA-Derived Construction Protection</GradientHeading>
-              <p className="text-xl text-white mb-8">
-                Our ceramic microsphere technology provides construction materials with Class A fire protection (0/100 scores), offers 156% elastomeric flexibility, and delivers 30+ year verified durability for commercial and residential structures.
-              </p>
+            <div className="max-w-4xl mx-auto text-center mb-16 relative">
+              <div className="absolute -inset-1 bg-gradient-to-r from-orange-500/20 via-blue-500/20 to-orange-500/20 rounded-xl blur-xl opacity-70"></div>
+              
+              <div className="relative bg-gradient-to-br from-gray-900/90 via-gray-950/90 to-black/90 py-8 px-10 rounded-xl border border-orange-500/40 shadow-[0_10px_50px_rgba(59,130,246,0.2)]">
+                {/* Corner Accents */}
+                <div className="absolute top-0 left-0 w-12 h-12 z-10 pointer-events-none">
+                  <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-orange-500/40 rounded-tl-md"></div>
+                  <div className="absolute top-1 left-1 w-8 h-8 border-t border-l border-blue-500/30 rounded-tl-md"></div>
+                </div>
+                <div className="absolute top-0 right-0 w-12 h-12 z-10 pointer-events-none">
+                  <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-orange-500/40 rounded-tr-md"></div>
+                  <div className="absolute top-1 right-1 w-8 h-8 border-t border-r border-blue-500/30 rounded-tr-md"></div>
+                </div>
+                <div className="absolute bottom-0 right-0 w-12 h-12 z-10 pointer-events-none">
+                  <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-orange-500/40 rounded-br-md"></div>
+                  <div className="absolute bottom-1 right-1 w-8 h-8 border-b border-r border-blue-500/30 rounded-br-md"></div>
+                </div>
+                <div className="absolute bottom-0 left-0 w-12 h-12 z-10 pointer-events-none">
+                  <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-orange-500/40 rounded-bl-md"></div>
+                  <div className="absolute bottom-1 left-1 w-8 h-8 border-b border-l border-blue-500/30 rounded-bl-md"></div>
+                </div>
+                
+                <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white drop-shadow-[0_2px_4px_rgba(59,130,246,0.4)]">
+                  Advanced Construction Protection
+                </h1>
+                <p className="text-xl text-blue-100 mb-8">
+                  Our ceramic microsphere technology provides construction materials with Class A fire protection (0/100 scores), offers 156% elastomeric flexibility, and delivers 30+ year verified durability for commercial and residential structures.
+                </p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-12 mb-16">
@@ -223,26 +252,41 @@ const ConstructionPage = () => {
               </div>
             </div>
 
-            <div className="backdrop-blur-sm bg-primary-900/60 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] p-8 mb-16">
-              <GradientHeading level={2} className="text-2xl font-bold mb-6 text-center" variant="mixed">NASA Ceramic Microsphere Technology</GradientHeading>
-              <p className="text-white mb-8 text-center max-w-3xl mx-auto">
-                Our construction coatings feature NASA-derived ceramic microsphere technology that provides unparalleled protection for concrete, steel, wood, and composites. 
+            <div className="relative backdrop-blur-sm bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black p-8 rounded-xl border border-gray-800 shadow-[0_0_60px_rgba(59,130,246,0.2)] mb-16">
+              {/* Corner Accents */}
+              <div className="absolute top-0 left-0 w-full h-full rounded-lg overflow-hidden pointer-events-none">
+                <div className="absolute top-0 left-0 w-32 h-32 border-t-4 border-l-4 border-orange-500/40 rounded-tl-lg"></div>
+                <div className="absolute top-0 right-0 w-32 h-32 border-t-4 border-r-4 border-blue-500/30 rounded-tr-lg"></div>
+                <div className="absolute bottom-0 left-0 w-32 h-32 border-b-4 border-l-4 border-blue-500/30 rounded-bl-lg"></div>
+                <div className="absolute bottom-0 right-0 w-32 h-32 border-b-4 border-r-4 border-orange-500/40 rounded-br-lg"></div>
+              </div>
+              
+              <h2 className="text-3xl font-bold mb-8 text-center text-white drop-shadow-[0_1px_3px_rgba(59,130,246,0.6)] relative z-10">
+                <span className="relative inline-block">
+                  Ceramic Technology
+                  <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-48 h-[2px] bg-gradient-to-r from-transparent via-blue-500 to-transparent"></div>
+                </span>
+              </h2>
+              
+              <p className="text-blue-100 mb-8 text-center max-w-3xl mx-auto relative z-10">
+                Our construction coatings feature ceramic microsphere technology that provides unparalleled protection for concrete, steel, wood, and composites. 
                 With perfect 0/100 scores in ASTM E84 testing, advanced thermal protection, and 156% elastomeric flexibility, 
                 these coatings create an advanced protective barrier with 30+ year verified durability.
               </p>
               
-              <div className="bg-primary-800/70 border border-blue-400/30 rounded-xl p-6 mb-8 max-w-4xl mx-auto">
-                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-blue-500/20 pb-3 mb-6">
+              <div className="relative bg-gradient-to-br from-gray-900 to-black rounded-lg p-6 border border-gray-800 mb-8 max-w-4xl mx-auto">
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600/30 to-orange-600/30 rounded-lg blur opacity-50"></div>
+                <div className="relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-blue-500/20 pb-3 mb-6">
                   <div className="flex items-center mb-2 sm:mb-0">
                     <div className="w-1.5 h-10 bg-gradient-to-b from-blue-400 to-blue-600 rounded-full mr-3"></div>
-                    <h3 className="text-xl font-bold text-blue-300">ENTERPRISE CASE STUDY: High-Rise Commercial Tower</h3>
+                    <h3 className="text-xl font-bold text-white drop-shadow-[0_1px_2px_rgba(59,130,246,0.5)]">ENTERPRISE CASE STUDY: High-Rise Commercial Tower</h3>
                   </div>
                   <div className="flex items-center">
-                    <div className="bg-blue-600/30 text-blue-200 text-xs font-bold px-3 py-1 rounded-full border border-blue-400/30 flex items-center">
+                    <div className="bg-blue-600/20 text-blue-200 text-xs font-bold px-3 py-1 rounded-full border border-blue-400/30 flex items-center shadow-[0_0_10px_rgba(59,130,246,0.3)]">
                       <span className="w-1.5 h-1.5 bg-blue-400 rounded-full mr-1.5"></span>
                       Major Urban Center
                     </div>
-                    <div className="bg-green-600/30 text-green-200 text-xs font-bold px-3 py-1 rounded-full border border-green-400/30 ml-2 flex items-center">
+                    <div className="bg-green-600/20 text-green-200 text-xs font-bold px-3 py-1 rounded-full border border-green-400/30 ml-2 flex items-center shadow-[0_0_10px_rgba(34,197,94,0.3)]">
                       <span className="w-1.5 h-1.5 bg-green-400 rounded-full mr-1.5"></span>
                       LEED Platinum
                     </div>
