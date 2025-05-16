@@ -316,22 +316,54 @@ const FirePrevention = () => {
           </div>
         </section>
         
-        {/* Registration Form */}
+        {/* Premium Enterprise Registration Form */}
         {showRegistrationForm && !registrationSuccess && (
           <section className="py-16 relative z-10">
-            <div className="container mx-auto">
-              <div className="backdrop-blur-md bg-primary-900/70 rounded-xl border-4 border-orange-500/30 shadow-[0_0_60px_rgba(255,110,0,0.3)] p-8 animate-fade-in">
-                <GradientHeading level={2} className="text-3xl font-bold mb-6 text-center" variant="fire">
-                  Wildfire Zone Homeowner Registration
-                </GradientHeading>
-                <p className="text-white text-center mb-8">
-                  Register your property to receive personalized wildfire defense recommendations, insurance discount opportunities, and priority access to our fire protection services.
-                </p>
+            <div className="container mx-auto px-4">
+              <div className="relative mb-8">
+                {/* Premium ambient glow behind card */}
+                <div className="absolute -inset-8 bg-gradient-to-r from-orange-500/30 via-blue-500/20 to-orange-500/30 rounded-2xl blur-xl opacity-70 animate-pulse-slow"></div>
                 
-                <Form {...form}>
-                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      {/* Personal Information */}
+                {/* Main premium form card with enterprise styling */}
+                <div className="relative bg-gradient-to-b from-gray-900/95 via-gray-950/95 to-black p-6 md:p-10 rounded-xl border border-orange-500/30 shadow-[0_10px_50px_rgba(249,115,22,0.15)] backdrop-blur-sm">
+                  {/* Premium corner accents */}
+                  <div className="absolute top-4 left-4 w-16 h-16 z-10 pointer-events-none">
+                    <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-orange-500/40 rounded-tl-md"></div>
+                    <div className="absolute top-1 left-1 w-10 h-10 border-t border-l border-blue-500/30 rounded-tl-md"></div>
+                  </div>
+                  <div className="absolute top-4 right-4 w-16 h-16 z-10 pointer-events-none">
+                    <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-orange-500/40 rounded-tr-md"></div>
+                    <div className="absolute top-1 right-1 w-10 h-10 border-t border-r border-blue-500/30 rounded-tr-md"></div>
+                  </div>
+                  <div className="absolute bottom-4 left-4 w-16 h-16 z-10 pointer-events-none">
+                    <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-orange-500/40 rounded-bl-md"></div>
+                    <div className="absolute bottom-1 left-1 w-10 h-10 border-b border-l border-blue-500/30 rounded-bl-md"></div>
+                  </div>
+                  <div className="absolute bottom-4 right-4 w-16 h-16 z-10 pointer-events-none">
+                    <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-orange-500/40 rounded-br-md"></div>
+                    <div className="absolute bottom-1 right-1 w-10 h-10 border-b border-r border-blue-500/30 rounded-br-md"></div>
+                  </div>
+                  
+                  {/* Premium styled title with white text + shadow per requirements */}
+                  <h2 className="text-white text-2xl md:text-4xl font-bold mb-6 text-center
+                    drop-shadow-[0_0px_1px_rgba(251,113,36,0.2)] 
+                    [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(251,146,60,0.3)]">
+                    Wildfire Zone Homeowner Registration
+                  </h2>
+                  
+                  {/* Premium styled description */}
+                  <div className="relative mb-8">
+                    <p className="text-gray-200 font-medium text-center relative z-10">
+                      Register your property to receive personalized wildfire defense recommendations, insurance discount opportunities, and priority access to our fire protection services.
+                    </p>
+                    {/* Text underline effect */}
+                    <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1/3 h-0.5 bg-gradient-to-r from-transparent via-orange-500/40 to-transparent rounded-full"></div>
+                  </div>
+                  
+                  <Form {...form}>
+                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 relative z-10">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        {/* Personal Information */}
                       <div className="space-y-4">
                         <h3 className="text-xl font-semibold text-orange-300 border-b border-orange-500/30 pb-2">
                           Personal Information
