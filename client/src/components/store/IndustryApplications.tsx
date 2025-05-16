@@ -7,6 +7,7 @@ import { GradientText } from "@/components/ui/gradient-text";
 import { Link } from "wouter";
 import { PremiumCartButton } from "@/utils/premium-buttons";
 import praetorianLogoFire from "../../assets_dir/images/praetorian-logo-fire.png";
+import fireBackground from "@assets/fire-bg.jpg";
 import { PRAETORIAN_HERO_IMAGE } from "../../assets_dir/imageExports";
 
 interface ApplicationData {
@@ -594,7 +595,13 @@ export default function IndustryApplications() {
                                   
                                   {/* Premium styled image */}
                                   <div className="aspect-video md:h-full w-full relative rounded-lg overflow-hidden">
-                                    {application.caseStudy.image && (
+                                    {isFireRelated ? (
+                                      <img 
+                                        src={fireBackground}
+                                        alt={application.caseStudy.title}
+                                        className="w-full h-full object-cover rounded-lg"
+                                      />
+                                    ) : application.caseStudy.image && (
                                       <img 
                                         src={application.caseStudy.image}
                                         alt={application.caseStudy.title}
