@@ -77,14 +77,49 @@ section + section {
     0%, 100% {
       opacity: 0.4;
       transform: scale(0.98);
+      filter: blur(8px);
     }
     35% {
       opacity: 0.9;
       transform: scale(1.03);
+      filter: blur(10px);
     }
     70% {
       opacity: 0.5;
       transform: scale(1);
+      filter: blur(7px);
+    }
+  }
+  
+  /* Introduction button hover shimmer effect */
+  .intro-button-shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .intro-button-shimmer::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      60deg,
+      transparent,
+      rgba(255, 255, 255, 0.05),
+      transparent 70%
+    );
+    transform: rotate(30deg);
+    animation: introButtonShimmer 8s linear infinite;
+  }
+  
+  @keyframes introButtonShimmer {
+    0% {
+      transform: rotate(30deg) translateX(-100%);
+    }
+    100% {
+      transform: rotate(30deg) translateX(100%);
     }
   }
   

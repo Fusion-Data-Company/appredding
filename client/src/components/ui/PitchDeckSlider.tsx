@@ -116,7 +116,7 @@ const PitchDeckSlider = () => {
               {/* Button with premium styling */}
               <GradientButton 
                 onClick={togglePitchDeck}
-                className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black backdrop-blur-xl rounded-full py-3 px-6 z-10 border border-orange-500/30 overflow-hidden group-hover:shadow-[0_0_25px_rgba(249,115,22,0.3)] transition-shadow duration-500 flex items-center gap-3"
+                className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black backdrop-blur-xl rounded-full py-3 px-6 z-10 border border-orange-500/30 overflow-hidden group-hover:shadow-[0_0_25px_rgba(249,115,22,0.3)] transition-all duration-500 flex items-center gap-3 intro-button-shimmer transform group-hover:scale-105"
                 variant="default"
                 size="lg"
               >
@@ -144,20 +144,34 @@ const PitchDeckSlider = () => {
                 </div>
                 
                 {/* Icon with premium styling */}
-                <div className="relative mr-1 z-10">
+                <div className="relative mr-1 z-10 group/icon">
                   <div className="w-9 h-9 rounded-full flex items-center justify-center relative overflow-hidden">
                     {/* Icon background with gradient */}
                     <div className="absolute inset-0 rounded-full bg-gradient-to-r from-gray-600/30 via-gray-600/30 to-gray-600/30 opacity-80"></div>
                     <div className="absolute inset-2 rounded-full bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black"></div>
-                    <Shield className="w-5 h-5 text-gray-200 relative z-10" />
+                    
+                    {/* Subtle gradient overlays */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-orange-500/10 rounded-full opacity-0 group-hover/icon:opacity-100 transition-opacity duration-700"></div>
+                    
+                    {/* Icon with premium styling */}
+                    <Shield className="w-5 h-5 text-orange-300 group-hover:text-blue-300 transition-colors duration-1000 animate-pulse-slow-delayed relative z-10" />
+                    
+                    {/* Add subtle animated ripple effect */}
+                    <div className="absolute inset-0 rounded-full border border-orange-500/20 scale-0 group-hover:scale-[1.2] opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
+                    <div className="absolute -inset-1 rounded-full border border-blue-500/20 scale-0 group-hover:scale-[1.4] opacity-0 group-hover:opacity-70 transition-all duration-1000 delay-100"></div>
                   </div>
                 </div>
                 
-                {/* Text with premium styling */}
-                <span className="text-white text-lg font-medium drop-shadow-[0_2px_2px_rgba(0,0,0,0.3)] relative z-10">Introduction</span>
+                {/* Text with premium styling and gradient effect */}
+                <span className="relative z-10">
+                  <span className="bg-gradient-to-r from-orange-300 via-white to-blue-300 bg-clip-text text-transparent text-lg font-medium drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)]">
+                    Introduction
+                  </span>
+                  <span className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-blue-400/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></span>
+                </span>
                 
-                {/* Animated arrow */}
-                <ArrowRight className="w-5 h-5 ml-1 text-blue-300 relative z-10 group-hover:translate-x-1 transition-transform duration-300" />
+                {/* Animated arrow with enhanced styling */}
+                <ArrowRight className="w-5 h-5 ml-1 text-blue-300 relative z-10 group-hover:translate-x-1 transition-all duration-500 group-hover:text-orange-300" />
               </GradientButton>
             </div>
           </motion.div>
