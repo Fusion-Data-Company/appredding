@@ -10,15 +10,15 @@ const premiumButtonVariants = cva(
     variants: {
       variant: {
         default: 
-          "bg-black text-white border-2 border-black shadow-lg hover:shadow-[0_0_15px_rgba(59,130,246,0.5)]",
+          "bg-gradient-to-r from-gray-950 via-black to-gray-950 text-white border-2 border-blue-500/40 shadow-lg hover:shadow-[0_0_15px_rgba(59,130,246,0.5)]",
         gold: 
-          "bg-black text-white border-2 border-black shadow-lg hover:shadow-[0_0_15px_rgba(59,130,246,0.5)]",
+          "bg-gradient-to-br from-amber-950 via-black to-amber-950 text-white border-2 border-amber-500/40 shadow-lg hover:shadow-[0_0_15px_rgba(251,191,36,0.5)]",
         fire: 
-          "bg-black text-white border-2 border-black shadow-lg hover:shadow-[0_0_20px_rgba(59,130,246,0.6)] transform transition-all duration-500 hover:scale-[1.02]",
+          "bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white border-2 border-blue-500/40 shadow-lg hover:shadow-[0_0_30px_rgba(59,130,246,0.6)] transform transition-all duration-500 hover:scale-[1.02]",
         outline: 
-          "bg-black text-white border-2 border-black shadow-lg hover:shadow-[0_0_15px_rgba(59,130,246,0.5)]",
+          "bg-black text-white border-2 border-blue-500/40 shadow-lg hover:shadow-[0_0_15px_rgba(59,130,246,0.5)]",
         ghost: 
-          "bg-black text-white border-2 border-black shadow-lg hover:shadow-[0_0_15px_rgba(59,130,246,0.4)]"
+          "bg-black text-white border-2 border-blue-500/30 shadow-lg hover:shadow-[0_0_15px_rgba(59,130,246,0.4)]"
       },
       size: {
         sm: "h-12 px-5 py-3 text-base rounded-lg",
@@ -185,11 +185,23 @@ const PremiumButton = forwardRef<HTMLButtonElement, PremiumButtonProps>(
               {/* Extremely prominent blue/orange glow matching cards - button size only, in front of card but behind button */}
               <div className="absolute -inset-[5px] rounded-3xl opacity-100 transition-opacity duration-500"
                   style={{ 
-                    background: 'linear-gradient(to right, rgba(249,115,22,0.3), rgba(59,130,246,0.5), rgba(249,115,22,0.3))',
-                    boxShadow: '0 0 15px 8px rgba(59,130,246,0.4), 0 0 12px 5px rgba(249,115,22,0.3)',
+                    background: 'linear-gradient(to right, rgba(249,115,22,0.3), rgba(59,130,246,0.6), rgba(249,115,22,0.3))',
+                    boxShadow: '0 0 25px 12px rgba(59,130,246,0.5), 0 0 15px 10px rgba(249,115,22,0.4), 0 0 40px 20px rgba(59,130,246,0.3)',
                     animation: 'pulse 3s ease-in-out infinite',
                     zIndex: -1
                   }}>
+              </div>
+              
+              {/* Additional animated gradient border for premium effect */}
+              <div className="absolute -inset-[2px] rounded-3xl opacity-90 transition-opacity duration-500 overflow-hidden"
+                  style={{ 
+                    zIndex: -1
+                  }}>
+                <div className="absolute inset-0 rounded-3xl animate-spin-very-slow"
+                     style={{
+                       background: 'conic-gradient(from 0deg, transparent, rgba(59,130,246,0.8), rgba(249,115,22,0.6), transparent)'
+                     }}>
+                </div>
               </div>
               
               {/* Corner accent points - premium touch matching cards exactly */}
