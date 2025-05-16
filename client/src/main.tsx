@@ -2,6 +2,7 @@ import { createRoot } from "react-dom/client";
 import { ThemeProvider } from "next-themes";
 import App from "./App";
 import "./index.css";
+import { logPerformanceMetrics, addPreconnect, preloadCriticalImages, identifyPerformanceIssues } from "./utils/performance-monitor";
 
 // Performance optimization for animations
 // This ensures smoother animations by using requestAnimationFrame
