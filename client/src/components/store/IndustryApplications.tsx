@@ -8,6 +8,7 @@ import { Link } from "wouter";
 import { PremiumCartButton } from "@/utils/premium-buttons";
 import praetorianLogoFire from "../../assets_dir/images/praetorian-logo-fire.png";
 import fireBackground from "@assets/fire-bg.jpg";
+import paintersBackground from "@assets/painters.jpg";
 import { PRAETORIAN_HERO_IMAGE } from "../../assets_dir/imageExports";
 
 interface ApplicationData {
@@ -597,7 +598,7 @@ export default function IndustryApplications() {
                                   <div className="aspect-video md:h-full w-full relative rounded-lg overflow-hidden">
                                     {isFireRelated ? (
                                       <img 
-                                        src={fireBackground}
+                                        src={paintersBackground}
                                         alt={application.caseStudy.title}
                                         className="w-full h-full object-cover rounded-lg"
                                       />
