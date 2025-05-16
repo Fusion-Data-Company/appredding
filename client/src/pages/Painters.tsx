@@ -13,7 +13,7 @@ import {
   FormLabel,
   FormMessage
 } from "@/components/ui/form";
-import { CheckCircle, PaintBucket, Brush, Clock, Palette, User, Building, ChevronRight, FileCheck, Zap } from "lucide-react";
+import { CheckCircle, PaintBucket, Brush, Clock, Palette, User, Building, ChevronRight, FileCheck, Zap, CircleDollarSign } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
@@ -49,6 +49,7 @@ type PainterContactForm = z.infer<typeof insertPainterContactSchema>;
 
 const Painters = () => {
   const [showContactForm, setShowContactForm] = useState(false);
+  const [showRegistrationForm, setShowRegistrationForm] = useState(false);
   const [contactSuccess, setContactSuccess] = useState(false);
   const { toast } = useToast();
   
@@ -1383,7 +1384,7 @@ const Painters = () => {
                     
                     <div className="text-center mt-6">
                       <button 
-                        onClick={() => setShowContactForm(true)}
+                        onClick={() => setShowRegistrationForm(true)}
                         className="relative inline-flex items-center justify-center px-8 py-4 overflow-hidden font-medium text-blue-600 transition duration-300 ease-out border-2 border-blue-500 rounded-lg shadow-md group"
                       >
                         <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-blue-600 group-hover:translate-x-0 ease">
