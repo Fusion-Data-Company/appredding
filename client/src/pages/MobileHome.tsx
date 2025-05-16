@@ -306,8 +306,8 @@ const MobileHome = () => {
                     </span>
                   </h2>
                   <p className="mb-8 text-blue-100 relative z-10">Our certified application process for ceramic microsphere technology ensures perfect adhesion and maximum performance</p>
-                
-                <div className="space-y-6">
+                  
+                  <div className="space-y-6 relative z-10">
                   <div className="flex items-start gap-4">
                     <div className="bg-gradient-to-r from-orange-600 to-blue-500 w-8 h-8 rounded-full flex items-center justify-center shadow-lg flex-shrink-0">
                       <span className="text-lg font-bold text-white">1</span>
