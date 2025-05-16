@@ -362,6 +362,210 @@ const Painters = () => {
               </div>
             </div>
             
+            {/* Profit Calculator Section */}
+            <div id="profit-calculator" className="relative mb-16 scroll-mt-24">
+              <div className="absolute -inset-2 bg-gradient-to-r from-blue-600/30 via-orange-600/30 to-blue-600/30 rounded-xl blur-xl opacity-70"></div>
+              <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 rounded-xl p-6 md:p-8 shadow-lg border border-blue-500/30 overflow-hidden">
+                {/* Corner accent elements */}
+                <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none">
+                  <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-blue-500/70 rounded-tl-lg"></div>
+                  <div className="absolute top-0 left-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
+                </div>
+                <div className="absolute top-0 right-0 w-16 h-16 pointer-events-none">
+                  <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-orange-500/70 rounded-tr-lg"></div>
+                  <div className="absolute top-0 right-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+                </div>
+                <div className="absolute bottom-0 left-0 w-16 h-16 pointer-events-none">
+                  <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-orange-500/70 rounded-bl-lg"></div>
+                  <div className="absolute bottom-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+                </div>
+                <div className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none">
+                  <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-blue-500/70 rounded-br-lg"></div>
+                  <div className="absolute bottom-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
+                </div>
+                
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.7 }}
+                >
+                  <h2 className="text-2xl md:text-3xl mb-6 text-center text-white drop-shadow-[0_0px_1px_rgba(59,130,246,0.2)] [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(59,130,246,0.3)]">
+                    How Praetorian Boosts Your Painting Business Revenue
+                  </h2>
+                  
+                  <div className="grid md:grid-cols-3 gap-6 mb-8">
+                    <div className="relative bg-gradient-to-br from-gray-800/90 via-gray-900/90 to-black/90 rounded-lg p-5 shadow-md border border-blue-500/20">
+                      <h3 className="text-xl font-semibold mb-3 text-white drop-shadow-sm">Premium Pricing</h3>
+                      <ul className="space-y-2 text-gray-100">
+                        <li className="flex items-start">
+                          <CheckCircle className="h-5 w-5 text-blue-400 mr-2 shrink-0 mt-0.5" />
+                          <span>Charge 15-25% more per project</span>
+                        </li>
+                        <li className="flex items-start">
+                          <CheckCircle className="h-5 w-5 text-blue-400 mr-2 shrink-0 mt-0.5" />
+                          <span>Move from commodity pricing to value pricing</span>
+                        </li>
+                        <li className="flex items-start">
+                          <CheckCircle className="h-5 w-5 text-blue-400 mr-2 shrink-0 mt-0.5" />
+                          <span>Justify higher margins with documented performance</span>
+                        </li>
+                      </ul>
+                    </div>
+                    
+                    <div className="relative bg-gradient-to-br from-gray-800/90 via-gray-900/90 to-black/90 rounded-lg p-5 shadow-md border border-orange-500/20">
+                      <h3 className="text-xl font-semibold mb-3 text-white drop-shadow-sm">Reduced Callbacks</h3>
+                      <ul className="space-y-2 text-gray-100">
+                        <li className="flex items-start">
+                          <CheckCircle className="h-5 w-5 text-orange-400 mr-2 shrink-0 mt-0.5" />
+                          <span>90% fewer warranty claims vs. standard paints</span>
+                        </li>
+                        <li className="flex items-start">
+                          <CheckCircle className="h-5 w-5 text-orange-400 mr-2 shrink-0 mt-0.5" />
+                          <span>Eliminate costs of repeat visits and touch-ups</span>
+                        </li>
+                        <li className="flex items-start">
+                          <CheckCircle className="h-5 w-5 text-orange-400 mr-2 shrink-0 mt-0.5" />
+                          <span>Free up workforce for new revenue-generating projects</span>
+                        </li>
+                      </ul>
+                    </div>
+                    
+                    <div className="relative bg-gradient-to-br from-gray-800/90 via-gray-900/90 to-black/90 rounded-lg p-5 shadow-md border border-blue-500/20">
+                      <h3 className="text-xl font-semibold mb-3 text-white drop-shadow-sm">New Markets</h3>
+                      <ul className="space-y-2 text-gray-100">
+                        <li className="flex items-start">
+                          <CheckCircle className="h-5 w-5 text-blue-400 mr-2 shrink-0 mt-0.5" />
+                          <span>Access high-value energy retrofit projects</span>
+                        </li>
+                        <li className="flex items-start">
+                          <CheckCircle className="h-5 w-5 text-blue-400 mr-2 shrink-0 mt-0.5" />
+                          <span>Win specialized commercial/industrial contracts</span>
+                        </li>
+                        <li className="flex items-start">
+                          <CheckCircle className="h-5 w-5 text-blue-400 mr-2 shrink-0 mt-0.5" />
+                          <span>Qualify for government and institutional projects</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-gradient-to-br from-gray-800/80 via-gray-900/80 to-black/80 rounded-lg p-6 border border-blue-500/20 mb-6">
+                    <h3 className="text-xl font-semibold mb-4 text-white text-center">Revenue Comparison: Standard Project vs. Praetorian Project</h3>
+                    
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div className="relative">
+                        <div className="absolute top-0 left-0 w-12 h-12 pointer-events-none">
+                          <div className="absolute top-0 left-0 w-4 h-4 border-t border-l border-gray-700 rounded-tl-sm"></div>
+                        </div>
+                        <div className="absolute bottom-0 right-0 w-12 h-12 pointer-events-none">
+                          <div className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-gray-700 rounded-br-sm"></div>
+                        </div>
+                        
+                        <h4 className="text-lg font-medium mb-3 text-gray-100">Standard Exterior Painting Project</h4>
+                        <ul className="space-y-2 text-gray-200">
+                          <li className="flex justify-between">
+                            <span>Project Size:</span>
+                            <span>2,500 sq ft home</span>
+                          </li>
+                          <li className="flex justify-between">
+                            <span>Standard Paint Price:</span>
+                            <span>$45/gallon</span>
+                          </li>
+                          <li className="flex justify-between">
+                            <span>Standard Labor Rate:</span>
+                            <span>$35/hour</span>
+                          </li>
+                          <li className="flex justify-between">
+                            <span>Standard Materials Cost:</span>
+                            <span>$1,350</span>
+                          </li>
+                          <li className="flex justify-between">
+                            <span>Standard Labor Cost:</span>
+                            <span>$4,200</span>
+                          </li>
+                          <li className="flex justify-between font-semibold border-t border-gray-700 pt-2 mt-2">
+                            <span>Standard Project Revenue:</span>
+                            <span>$7,500</span>
+                          </li>
+                          <li className="flex justify-between text-sm">
+                            <span>Standard Profit Margin:</span>
+                            <span>26%</span>
+                          </li>
+                          <li className="flex justify-between font-semibold text-green-400 mt-2">
+                            <span>Standard Project Profit:</span>
+                            <span>$1,950</span>
+                          </li>
+                        </ul>
+                      </div>
+                      
+                      <div className="relative">
+                        <div className="absolute top-0 left-0 w-12 h-12 pointer-events-none">
+                          <div className="absolute top-0 left-0 w-4 h-4 border-t border-l border-gray-700 rounded-tl-sm"></div>
+                        </div>
+                        <div className="absolute bottom-0 right-0 w-12 h-12 pointer-events-none">
+                          <div className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-gray-700 rounded-br-sm"></div>
+                        </div>
+                        
+                        <h4 className="text-lg font-medium mb-3 text-gray-100">Praetorian Ceramic Coating Project</h4>
+                        <ul className="space-y-2 text-gray-200">
+                          <li className="flex justify-between">
+                            <span>Project Size:</span>
+                            <span>2,500 sq ft home</span>
+                          </li>
+                          <li className="flex justify-between">
+                            <span>Praetorian Cost:</span>
+                            <span>$75/gallon</span>
+                          </li>
+                          <li className="flex justify-between">
+                            <span>Premium Labor Rate:</span>
+                            <span>$45/hour</span>
+                          </li>
+                          <li className="flex justify-between">
+                            <span>Premium Materials Cost:</span>
+                            <span>$2,250</span>
+                          </li>
+                          <li className="flex justify-between">
+                            <span>Premium Labor Cost:</span>
+                            <span>$5,400</span>
+                          </li>
+                          <li className="flex justify-between font-semibold border-t border-gray-700 pt-2 mt-2">
+                            <span>Premium Project Revenue:</span>
+                            <span>$11,250</span>
+                          </li>
+                          <li className="flex justify-between text-sm">
+                            <span>Premium Profit Margin:</span>
+                            <span>32%</span>
+                          </li>
+                          <li className="flex justify-between font-semibold text-green-400 mt-2">
+                            <span>Premium Project Profit:</span>
+                            <span>$3,600</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    
+                    <div className="mt-6 p-4 bg-blue-950/30 rounded-lg border border-blue-500/30">
+                      <p className="text-lg font-semibold text-center text-white mb-2">Your Additional Profit with Praetorian: <span className="text-green-400">$1,650 per project</span></p>
+                      <p className="text-sm text-center text-gray-200">At just 2 projects per month, that's an additional <span className="font-semibold text-green-400">$39,600 in profit per year</span></p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex justify-center">
+                    <div className="relative group">
+                      <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-600 to-blue-600 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-200"></div>
+                      <button 
+                        onClick={handleShowContactForm}
+                        className="relative px-8 py-4 bg-gradient-to-br from-gray-900 to-black text-white font-medium text-lg rounded-lg border border-blue-500/50 hover:border-blue-400 transition duration-200"
+                      >
+                        Register as a Praetorian Certified Contractor
+                      </button>
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
+            </div>
+            
             {/* Contact CTA Section */}
             <div className="text-center mb-16">
               {!showContactForm && !contactSuccess ? (
@@ -408,10 +612,63 @@ const Painters = () => {
                 // Contact Form
                 <div className="max-w-2xl mx-auto relative">
                   <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/30 via-orange-500/30 to-blue-500/30 rounded-xl blur-lg opacity-70"></div>
-                  <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 p-6 md:p-8 rounded-xl border border-blue-500/30">
-                    <h2 className="text-2xl font-bold mb-6 text-white drop-shadow-[0_0px_1px_rgba(59,130,246,0.2)] [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(59,130,246,0.3)]">
-                      Professional Painter Registration
-                    </h2>
+                  <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 p-6 md:p-8 rounded-xl border border-blue-500/30 overflow-hidden">
+                    {/* Corner accent elements */}
+                    <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none">
+                      <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-blue-500/70 rounded-tl-lg"></div>
+                      <div className="absolute top-0 left-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
+                    </div>
+                    <div className="absolute top-0 right-0 w-16 h-16 pointer-events-none">
+                      <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-orange-500/70 rounded-tr-lg"></div>
+                      <div className="absolute top-0 right-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+                    </div>
+                    <div className="absolute bottom-0 left-0 w-16 h-16 pointer-events-none">
+                      <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-orange-500/70 rounded-bl-lg"></div>
+                      <div className="absolute bottom-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+                    </div>
+                    <div className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none">
+                      <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-blue-500/70 rounded-br-lg"></div>
+                      <div className="absolute bottom-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
+                    </div>
+                    
+                    <div className="mb-8">
+                      <h2 className="text-2xl font-bold mb-3 text-white drop-shadow-[0_0px_1px_rgba(59,130,246,0.2)] [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(59,130,246,0.3)]">
+                        Become a Praetorian Certified Contractor
+                      </h2>
+                      <p className="text-gray-200 mb-4">
+                        Join our exclusive network of professional painters who enjoy premium pricing, priority lead generation, and advanced technical support.
+                      </p>
+                      
+                      <div className="bg-gradient-to-br from-gray-800/70 via-gray-900/70 to-gray-900/70 p-4 rounded-lg border border-orange-500/20 mb-6">
+                        <h3 className="text-lg font-semibold text-white mb-2">Certified Contractor Benefits:</h3>
+                        <ul className="grid md:grid-cols-2 gap-x-4 gap-y-2">
+                          <li className="flex items-center text-sm text-gray-200">
+                            <CheckCircle className="h-4 w-4 text-orange-400 mr-2 shrink-0" />
+                            <span>Priority lead generation in your service area</span>
+                          </li>
+                          <li className="flex items-center text-sm text-gray-200">
+                            <CheckCircle className="h-4 w-4 text-orange-400 mr-2 shrink-0" />
+                            <span>Exclusive access to contractor pricing</span>
+                          </li>
+                          <li className="flex items-center text-sm text-gray-200">
+                            <CheckCircle className="h-4 w-4 text-orange-400 mr-2 shrink-0" />
+                            <span>Official certification credentials</span>
+                          </li>
+                          <li className="flex items-center text-sm text-gray-200">
+                            <CheckCircle className="h-4 w-4 text-orange-400 mr-2 shrink-0" />
+                            <span>Featured listing on our contractor locator</span>
+                          </li>
+                          <li className="flex items-center text-sm text-gray-200">
+                            <CheckCircle className="h-4 w-4 text-orange-400 mr-2 shrink-0" />
+                            <span>Advanced technical training sessions</span>
+                          </li>
+                          <li className="flex items-center text-sm text-gray-200">
+                            <CheckCircle className="h-4 w-4 text-orange-400 mr-2 shrink-0" />
+                            <span>Co-branded marketing materials</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
                     
                     <Form {...form}>
                       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
