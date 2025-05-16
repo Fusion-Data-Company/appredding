@@ -321,13 +321,165 @@ const Painters = () => {
               </div>
             </div>
             
-            {/* Premium Enterprise Statistics Section */}
+            {/* Sandler Sales Pain Funnel - Painters & Solar Integration */}
             <div className="relative mb-16">
               <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/40 via-blue-600/40 to-orange-600/40 rounded-xl blur-xl opacity-70 animate-pulse-slow"></div>
               <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/80 via-blue-500/80 to-orange-500/80 rounded-xl blur-md opacity-90"></div>
               
               <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 p-8 rounded-xl z-10 border border-orange-500/30 overflow-hidden hover:shadow-[0_0_25px_rgba(249,115,22,0.3)] transition-shadow duration-500">
-                <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center text-white drop-shadow-[0_0px_1px_rgba(251,113,36,0.2)] [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(251,146,60,0.3)]">
+                <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center text-white drop-shadow-[0_0px_1px_rgba(251,113,36,0.2)] [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(251,146,60,0.3)]">
+                  Painter & Solar Contractor Revenue Opportunity
+                </h2>
+                
+                {/* Step 1: Sandler Pain Discovery - The Pain Funnel */}
+                <div className="grid md:grid-cols-2 gap-8 mb-8">
+                  <div className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 p-6 rounded-lg border border-red-500/20">
+                    <h3 className="text-xl font-semibold mb-4 text-white flex items-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-red-400 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                        <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                      </svg>
+                      Your Current Business Challenges
+                    </h3>
+                    
+                    <div className="space-y-4">
+                      <div className="flex items-start">
+                        <div className="min-w-8 h-8 bg-red-900/30 rounded-full flex items-center justify-center mt-0.5 mr-3">
+                          <span className="text-red-400 text-sm font-bold">1</span>
+                        </div>
+                        <div>
+                          <h5 className="font-medium text-white">Commodity Pricing Pressure</h5>
+                          <p className="text-gray-300">Your competitors keep undercutting bids by 15-22%, forcing you to either match prices or lose jobs. <span className="italic text-red-400">How is this impacting your financial stability?</span></p>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-start">
+                        <div className="min-w-8 h-8 bg-red-900/30 rounded-full flex items-center justify-center mt-0.5 mr-3">
+                          <span className="text-red-400 text-sm font-bold">2</span>
+                        </div>
+                        <div>
+                          <h5 className="font-medium text-white">High Warranty Expenses</h5>
+                          <p className="text-gray-300">The average contractor spends $32,850 annually on warranty callbacks for failed coatings. <span className="italic text-red-400">What's this costing your business each year?</span></p>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-start">
+                        <div className="min-w-8 h-8 bg-red-900/30 rounded-full flex items-center justify-center mt-0.5 mr-3">
+                          <span className="text-red-400 text-sm font-bold">3</span>
+                        </div>
+                        <div>
+                          <h5 className="font-medium text-white">Missing Solar Market Opportunity</h5>
+                          <p className="text-gray-300">Solar installations increase 27% annually, but 93% of contractors have no relationship with installation companies. <span className="italic text-red-400">How much potential revenue are you leaving untapped?</span></p>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-start">
+                        <div className="min-w-8 h-8 bg-red-900/30 rounded-full flex items-center justify-center mt-0.5 mr-3">
+                          <span className="text-red-400 text-sm font-bold">4</span>
+                        </div>
+                        <div>
+                          <h5 className="font-medium text-white">Shrinking Profit Margins</h5>
+                          <p className="text-gray-300">Rising material costs reduce profit margins while customers resist price increases. <span className="italic text-red-400">How are these margin pressures affecting your business growth?</span></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Step 2: Sandler Budget - Building Value Through Solutions */}
+                  <div className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 p-6 rounded-lg border border-blue-500/20">
+                    <h3 className="text-xl font-semibold mb-4 text-white flex items-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-400 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                      The SmartCoat Revenue Solution
+                    </h3>
+                    
+                    <div className="space-y-4">
+                      <div className="flex items-start">
+                        <div className="min-w-8 h-8 bg-blue-900/30 rounded-full flex items-center justify-center mt-0.5 mr-3">
+                          <span className="text-blue-400 text-sm font-bold">1</span>
+                        </div>
+                        <div>
+                          <h5 className="font-medium text-white">Value-Based Sales Platform <span className="text-green-400">+78%</span></h5>
+                          <p className="text-gray-300">Our performance data shifts client conversations from price to value, increasing your close rate on premium-priced projects by 78%.</p>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-start">
+                        <div className="min-w-8 h-8 bg-blue-900/30 rounded-full flex items-center justify-center mt-0.5 mr-3">
+                          <span className="text-blue-400 text-sm font-bold">2</span>
+                        </div>
+                        <div>
+                          <h5 className="font-medium text-white">Zero-Callback Revenue <span className="text-green-400">+$32,850</span></h5>
+                          <p className="text-gray-300">SmartCoat's 20-year durability eliminates warranty expenses, instantly converting current callback costs into pure profit.</p>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-start">
+                        <div className="min-w-8 h-8 bg-blue-900/30 rounded-full flex items-center justify-center mt-0.5 mr-3">
+                          <span className="text-blue-400 text-sm font-bold">3</span>
+                        </div>
+                        <div>
+                          <h5 className="font-medium text-white">Solar Integration Revenue <span className="text-green-400">+$5.20/sq ft</span></h5>
+                          <p className="text-gray-300">Pre-solar coating services add $3.85-$5.20/sq ft in high-margin revenue while improving panel efficiency by 14-22%.</p>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-start">
+                        <div className="min-w-8 h-8 bg-blue-900/30 rounded-full flex items-center justify-center mt-0.5 mr-3">
+                          <span className="text-blue-400 text-sm font-bold">4</span>
+                        </div>
+                        <div>
+                          <h5 className="font-medium text-white">Profit Margin Transformation <span className="text-green-400">+410%</span></h5>
+                          <p className="text-gray-300">SmartCoat contractors achieve 410% higher profit margins through premium positioning and specialized applications.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Step 3: Sandler Decision - Moving to Action */}
+                <div className="bg-gradient-to-br from-gray-800/80 via-gray-900/80 to-black/80 p-6 rounded-lg border border-green-500/20 mb-6">
+                  <h3 className="text-xl font-semibold mb-4 text-white text-center">The SmartCoat Decision: What's Your Next Step?</h3>
+                  
+                  <div className="text-center mb-6">
+                    <p className="text-gray-300 max-w-3xl mx-auto">
+                      If you're experiencing any of these industry challenges, you have three options:
+                    </p>
+                  </div>
+                  
+                  <div className="grid md:grid-cols-3 gap-6">
+                    <div className="bg-red-900/20 p-4 rounded-lg border border-red-500/20">
+                      <h4 className="font-semibold text-white mb-2">Option 1: Do Nothing</h4>
+                      <p className="text-sm text-gray-300">Continue facing price pressures, warranty callbacks, and shrinking margins while watching competitors capture the high-margin projects.</p>
+                    </div>
+                    
+                    <div className="bg-yellow-900/20 p-4 rounded-lg border border-yellow-500/20">
+                      <h4 className="font-semibold text-white mb-2">Option 2: DIY Solution</h4>
+                      <p className="text-sm text-gray-300">Invest your time and resources trying to develop your own premium positioning without the technical validation and certification to back claims.</p>
+                    </div>
+                    
+                    <div className="bg-green-900/20 p-4 rounded-lg border border-green-500/20">
+                      <h4 className="font-semibold text-white mb-2">Option 3: Partner With Us</h4>
+                      <p className="text-sm text-gray-300">Join our Certified Applicator network and access proven systems that are already generating $245,500+ in additional annual revenue for contractors like you.</p>
+                    </div>
+                  </div>
+                  
+                  <div className="mt-6 text-center">
+                    <button
+                      onClick={() => setShowRegistrationForm(true)}
+                      className="relative inline-flex items-center justify-center px-8 py-3 overflow-hidden font-bold text-white rounded-lg group"
+                    >
+                      <span className="absolute inset-0 w-full h-full bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800"></span>
+                      <span className="absolute bottom-0 right-0 block w-64 h-64 mb-32 mr-4 transition duration-500 origin-bottom-left transform rotate-45 translate-x-24 bg-blue-500 opacity-30 group-hover:rotate-90 ease"></span>
+                      <span className="relative flex items-center text-lg">
+                        Get Your Custom Revenue Projection
+                        <ChevronRight className="ml-2 h-5 w-5" />
+                      </span>
+                    </button>
+                  </div>
+                </div>
+                
+                <h2 className="text-2xl md:text-3xl font-bold mt-12 mb-8 text-center text-white drop-shadow-[0_0px_1px_rgba(251,113,36,0.2)] [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(251,146,60,0.3)]">
                   Performance Metrics
                 </h2>
                 
