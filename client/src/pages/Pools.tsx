@@ -1010,30 +1010,27 @@ const Pools = () => {
                 )}
                 
                 <div className="grid md:grid-cols-2 gap-8 mb-8">
-                  <div className="relative group">
-                    <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600/30 to-orange-600/30 rounded-lg blur opacity-50 group-hover:opacity-75 transition duration-300"></div>
-                    <div className="relative bg-gradient-to-br from-gray-900 to-black rounded-lg p-5 border border-gray-800">
-                      <label className="flex items-center gap-2 text-sm font-medium mb-3 text-white">
-                        <DropletIcon className="h-4 w-4 text-blue-400" />
-                        Deck Area Shape
-                        <TooltipProvider>
-                          <Tooltip>
-                            <TooltipTrigger asChild>
-                              <span className="inline-block ml-1 cursor-pointer">
-                                <HelpCircle className="h-4 w-4 inline text-gray-400 hover:text-blue-400 transition-colors" />
-                              </span>
-                            </TooltipTrigger>
-                            <TooltipContent className="bg-gray-900 border border-blue-900 text-white">
-                              <p className="w-60">Select the layout that best matches your pool deck area to get an accurate estimate.</p>
-                            </TooltipContent>
-                          </Tooltip>
-                        </TooltipProvider>
-                      </label>
-                      <select 
-                        className="w-full bg-gradient-to-br from-gray-900 to-gray-950 border border-blue-900/50 rounded-md p-2.5 text-white shadow-inner"
-                      value={poolShape}
-                      onChange={(e) => setPoolShape(e.target.value)}
-                    >
+                  <div>
+                    <label className="block text-sm font-medium mb-2 text-white">
+                      Deck Area Shape
+                      <TooltipProvider>
+                        <Tooltip>
+                          <TooltipTrigger asChild>
+                            <span className="inline-block ml-1">
+                              <HelpCircle className="h-4 w-4 inline text-gray-400" />
+                            </span>
+                          </TooltipTrigger>
+                          <TooltipContent>
+                            <p className="w-60">Select the layout that best matches your pool deck area to get an accurate estimate.</p>
+                          </TooltipContent>
+                        </Tooltip>
+                      </TooltipProvider>
+                    </label>
+                    <select 
+                      className="w-full bg-primary-900 border border-primary-700 rounded p-2 text-white"
+                        value={poolShape}
+                        onChange={(e) => setPoolShape(e.target.value)}
+                      >
                       <option value="rectangular">Rectangular Deck</option>
                       <option value="oval">Curved/Circular Deck</option>
                       <option value="kidney">L-Shaped Deck</option>
