@@ -411,8 +411,8 @@ const ProductHistorySection = () => {
                   <div className="absolute bottom-0 left-0 w-1/3 h-0.5 bg-gradient-to-r from-gray-500/40 to-gray-600/40 group-hover:w-2/3 transition-all duration-700 rounded-full opacity-60"></div>
                 </div>
                 
-                {/* Enhanced Premium Table Container with gray styling */}
-                <div className="relative group/table bg-gradient-to-br from-gray-900/90 via-gray-950/90 to-black backdrop-blur-xl rounded-xl overflow-hidden shadow-[0_5px_30px_rgba(0,0,0,0.3)] z-10 transform transition-all duration-500 hover:scale-[1.01] flex-grow">
+                {/* Enhanced Premium Table Container with gray styling - lowered z-index */}
+                <div className="relative group/table bg-gradient-to-br from-gray-900/90 via-gray-950/90 to-black backdrop-blur-xl rounded-xl overflow-hidden shadow-[0_5px_30px_rgba(0,0,0,0.3)] transform transition-all duration-500 hover:scale-[1.01] flex-grow">
                   {/* Gray gradient border */}
                   <div className="absolute -inset-0.5 bg-gradient-to-r from-gray-700/50 via-gray-600/50 to-gray-700/50 rounded-xl opacity-90"></div>
                   
@@ -445,10 +445,10 @@ const ProductHistorySection = () => {
                     <div className="absolute bottom-0 right-0 w-2 h-2 bg-gray-500/30 rounded-full blur-[1px]"></div>
                   </div>
                   
-                  {/* Timeline content with enhanced premium styling - higher z-index */}
-                  <div className="relative p-6 overflow-y-auto z-30" style={{ maxHeight: "500px" }}>
+                  {/* Timeline content with enhanced premium styling - maximum z-index */}
+                  <div className="relative p-6 overflow-y-auto z-50" style={{ maxHeight: "500px" }}>
                     {/* Timeline items - styled with premium enterprise theme */}
-                    <div className="space-y-8 relative z-30">
+                    <div className="space-y-8 relative z-50">
                       <div className="group/item relative transform transition-all duration-500 hover:-translate-y-1 hover:scale-[1.01] pl-8 pb-8 border-l-2 border-gray-600/30">
                         {/* Year with enhanced styling */}
                         <div className="absolute -left-4 flex items-center justify-center z-20">
@@ -462,14 +462,14 @@ const ProductHistorySection = () => {
                             <div className="absolute -inset-1 rounded-full border border-blue-500/20 scale-0 group-hover/item:scale-[1.4] opacity-0 group-hover/item:opacity-70 transition-all duration-1000 delay-100"></div>
                           </div>
                         </div>
-                        <div className="relative z-30">
-                          <h4 className="text-xl font-bold text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.5)] mb-2">SON-SHIELD Brand Update</h4>
-                          <p className="text-gray-200 text-lg leading-relaxed">SON-SHIELD Coating received a comprehensive branding upgrade for direct public presentation, making advanced industrial coating technology accessible to consumers with improved communication, marketing materials, and direct consumer sales channels.</p>
+                        <div className="relative z-50">
+                          <h4 className="text-xl font-bold text-white drop-shadow-[0_2px_3px_rgba(0,0,0,0.7)] mb-2">SON-SHIELD Brand Update</h4>
+                          <p className="text-gray-200 text-lg leading-relaxed drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">SON-SHIELD Coating received a comprehensive branding upgrade for direct public presentation, making advanced industrial coating technology accessible to consumers with improved communication, marketing materials, and direct consumer sales channels.</p>
                         </div>
                       </div>
                       
                       <div className="group/item relative transform transition-all duration-500 hover:-translate-y-1 hover:scale-[1.01] pl-8 pb-8 border-l-2 border-gray-600/30">
-                        <div className="absolute -left-4 flex items-center justify-center">
+                        <div className="absolute -left-4 flex items-center justify-center z-20">
                           <div className="relative w-8 h-8">
                             <div className="absolute inset-0 rounded-full bg-gradient-to-r from-orange-600/50 to-blue-600/50 blur-[5px] opacity-0 group-hover/item:opacity-100 transition-opacity duration-700"></div>
                             <div className="absolute inset-0 rounded-full bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black border border-orange-500/30 transition-all duration-500 group-hover/item:shadow-[0_0_15px_rgba(249,115,22,0.3)]"></div>
@@ -480,12 +480,14 @@ const ProductHistorySection = () => {
                             <div className="absolute -inset-1 rounded-full border border-orange-500/20 scale-0 group-hover/item:scale-[1.4] opacity-0 group-hover/item:opacity-70 transition-all duration-1000 delay-100"></div>
                           </div>
                         </div>
-                        <h4 className="text-xl font-bold text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.3)] mb-2">Praetorian SmartCoat Pro+</h4>
-                        <p className="text-gray-200 text-lg leading-relaxed">Next-generation high-solids formula with improved VOC compliance, enhanced corrosion resistance, and expanded temperature range performance (-70°F to +475°F) for extreme environment applications.</p>
+                        <div className="relative z-50">
+                          <h4 className="text-xl font-bold text-white drop-shadow-[0_2px_3px_rgba(0,0,0,0.7)] mb-2">Praetorian SmartCoat Pro+</h4>
+                          <p className="text-gray-200 text-lg leading-relaxed drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">Next-generation high-solids formula with improved VOC compliance, enhanced corrosion resistance, and expanded temperature range performance (-70°F to +475°F) for extreme environment applications.</p>
+                        </div>
                       </div>
                       
                       <div className="group/item relative transform transition-all duration-500 hover:-translate-y-1 hover:scale-[1.01] pl-8 pb-8 border-l-2 border-gray-600/30">
-                        <div className="absolute -left-4 flex items-center justify-center">
+                        <div className="absolute -left-4 flex items-center justify-center z-20">
                           <div className="relative w-8 h-8">
                             <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600/50 to-orange-600/50 blur-[5px] opacity-0 group-hover/item:opacity-100 transition-opacity duration-700"></div>
                             <div className="absolute inset-0 rounded-full bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black border border-blue-500/30 transition-all duration-500 group-hover/item:shadow-[0_0_15px_rgba(59,130,246,0.3)]"></div>
@@ -496,8 +498,10 @@ const ProductHistorySection = () => {
                             <div className="absolute -inset-1 rounded-full border border-blue-500/20 scale-0 group-hover/item:scale-[1.4] opacity-0 group-hover/item:opacity-70 transition-all duration-1000 delay-100"></div>
                           </div>
                         </div>
-                        <h4 className="text-xl font-bold text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.3)] mb-2">First Industrial Carbon-Neutral Coating</h4>
-                        <p className="text-gray-200 text-lg leading-relaxed">Industry-first carbon-neutral manufacturing process implemented, with advanced carbon capture technology and renewable energy integration at production facilities.</p>
+                        <div className="relative z-50">
+                          <h4 className="text-xl font-bold text-white drop-shadow-[0_2px_3px_rgba(0,0,0,0.7)] mb-2">First Industrial Carbon-Neutral Coating</h4>
+                          <p className="text-gray-200 text-lg leading-relaxed drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">Industry-first carbon-neutral manufacturing process implemented, with advanced carbon capture technology and renewable energy integration at production facilities.</p>
+                        </div>
                       </div>
                       
                       <div className="group/item relative transform transition-all duration-500 hover:-translate-y-1 hover:scale-[1.01] pl-8 pb-8 border-l-2 border-gray-600/30">
