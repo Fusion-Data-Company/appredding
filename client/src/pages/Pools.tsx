@@ -825,6 +825,190 @@ const Pools = () => {
             </div>
           </div>
         </section>
+        
+        {/* Contractor Registration Section */}
+        <section id="contractor-registration" className="py-16 relative z-10 scroll-mt-24">
+          <div className="container mx-auto">
+            <div className="relative max-w-5xl mx-auto">
+              <div className="absolute -inset-2 bg-gradient-to-r from-orange-600/30 via-blue-600/30 to-orange-600/30 rounded-xl blur-xl opacity-70"></div>
+              <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 rounded-xl p-6 md:p-8 shadow-lg border border-blue-500/30 overflow-hidden">
+                {/* Corner accent elements */}
+                <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none">
+                  <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-blue-500/70 rounded-tl-lg"></div>
+                  <div className="absolute top-0 left-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
+                </div>
+                <div className="absolute top-0 right-0 w-16 h-16 pointer-events-none">
+                  <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-orange-500/70 rounded-tr-lg"></div>
+                  <div className="absolute top-0 right-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+                </div>
+                <div className="absolute bottom-0 left-0 w-16 h-16 pointer-events-none">
+                  <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-orange-500/70 rounded-bl-lg"></div>
+                  <div className="absolute bottom-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+                </div>
+                <div className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none">
+                  <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-blue-500/70 rounded-br-lg"></div>
+                  <div className="absolute bottom-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
+                </div>
+                
+                <h2 className="text-2xl md:text-3xl mb-6 text-center text-white drop-shadow-[0_0px_1px_rgba(59,130,246,0.2)] [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(59,130,246,0.3)]">
+                  Become a Certified Pool Deck Installer
+                </h2>
+                
+                <div className="grid md:grid-cols-2 gap-8 mb-8">
+                  <div>
+                    <h3 className="text-xl font-semibold mb-4 text-white">Exclusive Contractor Benefits</h3>
+                    <div className="bg-gradient-to-br from-gray-800/70 via-gray-900/70 to-gray-900/70 p-4 rounded-lg border border-orange-500/20 mb-6">
+                      <ul className="grid gap-x-4 gap-y-2">
+                        <li className="flex items-center text-sm text-gray-200">
+                          <CheckIcon className="h-4 w-4 text-orange-400 mr-2 shrink-0" />
+                          <span>Exclusive territory rights in your service area</span>
+                        </li>
+                        <li className="flex items-center text-sm text-gray-200">
+                          <CheckIcon className="h-4 w-4 text-orange-400 mr-2 shrink-0" />
+                          <span>Priority lead generation from our marketing efforts</span>
+                        </li>
+                        <li className="flex items-center text-sm text-gray-200">
+                          <CheckIcon className="h-4 w-4 text-orange-400 mr-2 shrink-0" />
+                          <span>Wholesale pricing – 25-35% below retail</span>
+                        </li>
+                        <li className="flex items-center text-sm text-gray-200">
+                          <CheckIcon className="h-4 w-4 text-orange-400 mr-2 shrink-0" />
+                          <span>Free technical training and certification</span>
+                        </li>
+                        <li className="flex items-center text-sm text-gray-200">
+                          <CheckIcon className="h-4 w-4 text-orange-400 mr-2 shrink-0" />
+                          <span>Custom marketing materials with your branding</span>
+                        </li>
+                        <li className="flex items-center text-sm text-gray-200">
+                          <CheckIcon className="h-4 w-4 text-orange-400 mr-2 shrink-0" />
+                          <span>Featured listing on our installer locator</span>
+                        </li>
+                        <li className="flex items-center text-sm text-gray-200">
+                          <CheckIcon className="h-4 w-4 text-orange-400 mr-2 shrink-0" />
+                          <span>Dedicated technical support hotline</span>
+                        </li>
+                        <li className="flex items-center text-sm text-gray-200">
+                          <CheckIcon className="h-4 w-4 text-orange-400 mr-2 shrink-0" />
+                          <span>Year-round installation revenue opportunities</span>
+                        </li>
+                      </ul>
+                    </div>
+                    
+                    <div className="bg-blue-950/30 rounded-lg border border-blue-500/30 p-4 mb-6">
+                      <h4 className="text-lg font-semibold text-white mb-2">Territories Going Fast</h4>
+                      <p className="text-gray-300 text-sm mb-3">
+                        We limit the number of certified installers in each geographic area to ensure our partners maintain exclusive access to local pool deck projects and maximize their profitability.
+                      </p>
+                      <div className="flex justify-between items-center">
+                        <span className="text-gray-300 text-sm">Available territories:</span>
+                        <span className="text-orange-400 font-bold">73% claimed</span>
+                      </div>
+                      <div className="w-full bg-gray-800 rounded-full h-2.5 mt-1 overflow-hidden">
+                        <div className="bg-gradient-to-r from-orange-500 to-blue-500 h-2.5 rounded-full" style={{ width: "73%" }}></div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="relative bg-gradient-to-br from-gray-800/80 via-gray-900/80 to-black/80 rounded-lg p-6 border border-blue-500/20">
+                    <form className="space-y-4">
+                      <h3 className="text-xl font-semibold mb-4 text-white">Register Your Interest</h3>
+                      
+                      <div className="grid grid-cols-2 gap-4">
+                        <div>
+                          <label className="block text-sm font-medium text-gray-300 mb-1">First Name</label>
+                          <input 
+                            type="text"
+                            className="w-full bg-gradient-to-br from-gray-900 to-gray-950 border border-blue-900/50 rounded-md p-2.5 text-white shadow-inner" 
+                            placeholder="John"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium text-gray-300 mb-1">Last Name</label>
+                          <input 
+                            type="text"
+                            className="w-full bg-gradient-to-br from-gray-900 to-gray-950 border border-blue-900/50 rounded-md p-2.5 text-white shadow-inner" 
+                            placeholder="Smith"
+                          />
+                        </div>
+                      </div>
+                      
+                      <div>
+                        <label className="block text-sm font-medium text-gray-300 mb-1">Company Name</label>
+                        <input 
+                          type="text"
+                          className="w-full bg-gradient-to-br from-gray-900 to-gray-950 border border-blue-900/50 rounded-md p-2.5 text-white shadow-inner" 
+                          placeholder="Your Pool Business"
+                        />
+                      </div>
+                      
+                      <div className="grid grid-cols-2 gap-4">
+                        <div>
+                          <label className="block text-sm font-medium text-gray-300 mb-1">Email</label>
+                          <input 
+                            type="email"
+                            className="w-full bg-gradient-to-br from-gray-900 to-gray-950 border border-blue-900/50 rounded-md p-2.5 text-white shadow-inner" 
+                            placeholder="you@example.com"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium text-gray-300 mb-1">Phone</label>
+                          <input 
+                            type="tel"
+                            className="w-full bg-gradient-to-br from-gray-900 to-gray-950 border border-blue-900/50 rounded-md p-2.5 text-white shadow-inner" 
+                            placeholder="(555) 123-4567"
+                          />
+                        </div>
+                      </div>
+                      
+                      <div>
+                        <label className="block text-sm font-medium text-gray-300 mb-1">Service Area (City/State or Zip)</label>
+                        <input 
+                          type="text"
+                          className="w-full bg-gradient-to-br from-gray-900 to-gray-950 border border-blue-900/50 rounded-md p-2.5 text-white shadow-inner" 
+                          placeholder="Los Angeles, CA or 90210"
+                        />
+                      </div>
+                      
+                      <div>
+                        <label className="block text-sm font-medium text-gray-300 mb-1">Tell us about your business</label>
+                        <textarea
+                          rows={3}
+                          className="w-full bg-gradient-to-br from-gray-900 to-gray-950 border border-blue-900/50 rounded-md p-2.5 text-white shadow-inner" 
+                          placeholder="Years in business, types of customers, current service offerings, etc."
+                        ></textarea>
+                      </div>
+                      
+                      <div className="flex items-start">
+                        <input 
+                          type="checkbox"
+                          className="rounded border-gray-600 text-blue-600 mt-1 mr-2" 
+                        />
+                        <label className="text-sm text-gray-300">
+                          I agree to be contacted about the Praetorian Certified Installer program and understand my information will be kept confidential per our <a href="#" className="text-blue-400 hover:underline">privacy policy</a>.
+                        </label>
+                      </div>
+                      
+                      <div className="relative group inline-block w-full">
+                        <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-600 to-blue-600 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-200 w-full"></div>
+                        <button 
+                          className="relative w-full px-6 py-3 bg-gradient-to-br from-gray-900 to-black text-white font-medium text-lg rounded-lg border border-blue-500/50 hover:border-blue-400 transition duration-200"
+                        >
+                          Submit Application
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                
+                <div className="text-center text-gray-400 text-sm">
+                  <p>
+                    Questions? Contact our Contractor Relations team at <a href="mailto:partners@praetoriansmartcoat.com" className="text-blue-400 hover:underline">partners@praetoriansmartcoat.com</a> or call <a href="tel:9168096619" className="text-blue-400 hover:underline">(916) 809-6619</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </MainLayout>
   );
