@@ -223,9 +223,6 @@ const PremiumButton = forwardRef<HTMLButtonElement, PremiumButtonProps>(
         {/* Bottom reflection and additional effects for fire variant */}
         {isFire && (
           <>
-            {/* Primary bottom reflection */}
-            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-4/5 h-[1px] bg-gradient-to-r from-transparent via-orange-500/40 to-transparent rounded-full"></div>
-            
             {/* Secondary wider reflection - visible on hover */}
             <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-5/6 h-[1px] bg-gradient-to-r from-transparent via-orange-500/20 to-transparent rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             
