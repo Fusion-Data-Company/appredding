@@ -249,14 +249,8 @@ export default function IndustryApplications() {
   return (
     <section 
       id="industry-applications" 
-      className="py-20 relative overflow-hidden"
+      className="py-20 relative overflow-hidden bg-black"
       style={{ 
-        backgroundImage: `url(${PRAETORIAN_HERO_IMAGE})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center center",
-        backgroundRepeat: "no-repeat",
-        backgroundAttachment: "fixed",
-        backgroundColor: "#111111",
         zIndex: 999, 
         minHeight: "70vh", 
         marginTop: "-5px", 
