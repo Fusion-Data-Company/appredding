@@ -86,26 +86,6 @@ const HeroSection = () => {
           />
           
           {/* Button removed as requested - no replacement */}
-          
-          {/* Fade gradient at the bottom of hero section */}
-          <div 
-            className="absolute bottom-0 left-0 right-0 pointer-events-none" 
-            style={{ 
-              height: "3rem", /* Fade zone */
-              background: "linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,1) 60%)",
-              zIndex: 30
-            }}
-          ></div>
-          
-          {/* Black bar at the very bottom */}
-          <div 
-            className="absolute bottom-0 left-0 right-0 pointer-events-none" 
-            style={{ 
-              height: "1rem", /* Solid black bar */
-              backgroundColor: "black",
-              zIndex: 30
-            }}
-          ></div>
         </div>
       </div>
     </section>
