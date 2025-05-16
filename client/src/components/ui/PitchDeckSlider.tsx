@@ -109,38 +109,38 @@ const PitchDeckSlider = () => {
           >
             {/* Premium styled button with layered effects */}
             <div className="group relative">
-              {/* Ambient orange-red glow effect behind button to match site theme */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/40 via-red-500/40 to-orange-600/40 rounded-full blur-xl opacity-70 group-hover:opacity-100 group-hover:blur-xl transition-all duration-1000 animate-pulse-slow-offset"></div>
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/80 via-red-500/80 to-orange-500/80 rounded-full blur-md opacity-90 group-hover:opacity-100 transition-all duration-500"></div>
+              {/* Ambient blue glow effect behind button */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/40 via-blue-500/40 to-blue-600/40 rounded-full blur-xl opacity-70 group-hover:opacity-100 group-hover:blur-xl transition-all duration-1000 animate-pulse-slow-offset"></div>
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500/80 via-blue-400/80 to-blue-500/80 rounded-full blur-md opacity-90 group-hover:opacity-100 transition-all duration-500"></div>
               
               {/* Button with premium styling */}
               <GradientButton 
                 onClick={togglePitchDeck}
-                className="relative bg-gradient-to-br from-red-700/95 via-red-600/95 to-red-700/95 backdrop-blur-xl rounded-full py-3 px-6 z-10 border border-orange-500/30 overflow-hidden group-hover:shadow-[0_0_25px_rgba(249,115,22,0.4)] transition-all duration-500 flex items-center gap-3 intro-button-shimmer transform group-hover:scale-105"
+                className="relative bg-gradient-to-br from-blue-950/95 via-blue-900/95 to-blue-950/95 backdrop-blur-xl rounded-full py-3 px-6 z-10 border border-blue-500/30 overflow-hidden group-hover:shadow-[0_0_25px_rgba(59,130,246,0.4)] transition-all duration-500 flex items-center gap-3 intro-button-shimmer transform group-hover:scale-105"
                 variant="default"
                 size="lg"
               >
                 {/* Inner subtle animated glow */}
                 <div className="absolute inset-0 opacity-30 z-0">
-                  <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoMjQ5LDExNSwyMiwwLjI1KSIgZD0iTTAgMGgydjJIMHptMiAyaDJ2MkgyeiIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgZmlsbD0idXJsKCNhKSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPjwvc3ZnPg==')]"></div>
+                  <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoNTksMTMwLDI0NiwwLjI1KSIgZD0iTTAgMGgydjJIMHptMiAyaDJ2MkgyeiIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgZmlsbD0idXJsKCNhKSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPjwvc3ZnPg==')]"></div>
                 </div>
                 
-                {/* Corner accent lines - using orange-red theme */}
+                {/* Corner accent lines - using blue theme */}
                 <div className="absolute top-0 left-0 w-5 h-5 pointer-events-none z-10">
-                  <div className="absolute top-0 left-0 w-3 h-3 border-t-[1px] border-l-[1px] border-orange-500/70 rounded-tl-lg"></div>
-                  <div className="absolute top-0 left-0 w-1.5 h-1.5 bg-orange-500/50 rounded-full blur-[1px]"></div>
+                  <div className="absolute top-0 left-0 w-3 h-3 border-t-[1px] border-l-[1px] border-blue-500/70 rounded-tl-lg"></div>
+                  <div className="absolute top-0 left-0 w-1.5 h-1.5 bg-blue-500/50 rounded-full blur-[1px]"></div>
                 </div>
                 <div className="absolute top-0 right-0 w-5 h-5 pointer-events-none z-10">
-                  <div className="absolute top-0 right-0 w-3 h-3 border-t-[1px] border-r-[1px] border-orange-500/70 rounded-tr-lg"></div>
-                  <div className="absolute top-0 right-0 w-1.5 h-1.5 bg-orange-500/50 rounded-full blur-[1px]"></div>
+                  <div className="absolute top-0 right-0 w-3 h-3 border-t-[1px] border-r-[1px] border-blue-500/70 rounded-tr-lg"></div>
+                  <div className="absolute top-0 right-0 w-1.5 h-1.5 bg-blue-500/50 rounded-full blur-[1px]"></div>
                 </div>
                 <div className="absolute bottom-0 left-0 w-5 h-5 pointer-events-none z-10">
-                  <div className="absolute bottom-0 left-0 w-3 h-3 border-b-[1px] border-l-[1px] border-orange-500/70 rounded-bl-lg"></div>
-                  <div className="absolute bottom-0 left-0 w-1.5 h-1.5 bg-orange-500/50 rounded-full blur-[1px]"></div>
+                  <div className="absolute bottom-0 left-0 w-3 h-3 border-b-[1px] border-l-[1px] border-blue-500/70 rounded-bl-lg"></div>
+                  <div className="absolute bottom-0 left-0 w-1.5 h-1.5 bg-blue-500/50 rounded-full blur-[1px]"></div>
                 </div>
                 <div className="absolute bottom-0 right-0 w-5 h-5 pointer-events-none z-10">
-                  <div className="absolute bottom-0 right-0 w-3 h-3 border-b-[1px] border-r-[1px] border-orange-500/70 rounded-br-lg"></div>
-                  <div className="absolute bottom-0 right-0 w-1.5 h-1.5 bg-orange-500/50 rounded-full blur-[1px]"></div>
+                  <div className="absolute bottom-0 right-0 w-3 h-3 border-b-[1px] border-r-[1px] border-blue-500/70 rounded-br-lg"></div>
+                  <div className="absolute bottom-0 right-0 w-1.5 h-1.5 bg-blue-500/50 rounded-full blur-[1px]"></div>
                 </div>
                 
                 {/* Icon with premium styling */}
@@ -151,27 +151,27 @@ const PitchDeckSlider = () => {
                     <div className="absolute inset-2 rounded-full bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black"></div>
                     
                     {/* Subtle gradient overlays */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 to-red-400/10 rounded-full opacity-0 group-hover/icon:opacity-100 transition-opacity duration-700"></div>
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-blue-400/10 rounded-full opacity-0 group-hover/icon:opacity-100 transition-opacity duration-700"></div>
                     
                     {/* Icon with premium styling */}
-                    <Shield className="w-5 h-5 text-orange-300 group-hover:text-orange-200 transition-colors duration-1000 animate-pulse-slow-delayed relative z-10" />
+                    <Shield className="w-5 h-5 text-blue-300 group-hover:text-blue-200 transition-colors duration-1000 animate-pulse-slow-delayed relative z-10" />
                     
                     {/* Add subtle animated ripple effect */}
-                    <div className="absolute inset-0 rounded-full border border-orange-500/20 scale-0 group-hover:scale-[1.2] opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
-                    <div className="absolute -inset-1 rounded-full border border-red-500/20 scale-0 group-hover:scale-[1.4] opacity-0 group-hover:opacity-70 transition-all duration-1000 delay-100"></div>
+                    <div className="absolute inset-0 rounded-full border border-blue-500/20 scale-0 group-hover:scale-[1.2] opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
+                    <div className="absolute -inset-1 rounded-full border border-blue-500/20 scale-0 group-hover:scale-[1.4] opacity-0 group-hover:opacity-70 transition-all duration-1000 delay-100"></div>
                   </div>
                 </div>
                 
                 {/* Text with premium styling and gradient effect */}
                 <span className="relative z-10">
-                  <span className="bg-gradient-to-r from-orange-300 via-white to-orange-300 bg-clip-text text-transparent text-lg font-medium drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)]">
+                  <span className="bg-gradient-to-r from-blue-300 via-white to-blue-300 bg-clip-text text-transparent text-lg font-medium drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)]">
                     Introduction
                   </span>
-                  <span className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-orange-400/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></span>
+                  <span className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-blue-400/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></span>
                 </span>
                 
                 {/* Animated arrow with enhanced styling */}
-                <ArrowRight className="w-5 h-5 ml-1 text-orange-300 relative z-10 group-hover:translate-x-1 transition-all duration-500 group-hover:text-orange-200" />
+                <ArrowRight className="w-5 h-5 ml-1 text-blue-300 relative z-10 group-hover:translate-x-1 transition-all duration-500 group-hover:text-blue-200" />
               </GradientButton>
             </div>
           </motion.div>
