@@ -521,7 +521,7 @@ const ProductHistorySection = () => {
                 <div className="relative mt-auto mt-8">
                   {/* Premium button using PremiumButton component */}
                   <PremiumButton 
-                    variant="water" 
+                    variant="fire" 
                     size="xl" 
                     onClick={() => window.location.href="#contact"}
                     className="px-10 py-5 text-xl font-medium"

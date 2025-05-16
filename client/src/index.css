@@ -70,7 +70,22 @@ section + section {
   }
   
   .animate-pulse-slow-offset {
-    animation: pulseSlow 4s infinite 0.75s ease-in-out;
+    animation: pulseSlowOffset 7.7s infinite ease-in-out;
+  }
+  
+  @keyframes pulseSlowOffset {
+    0%, 100% {
+      opacity: 0.4;
+      transform: scale(0.98);
+    }
+    35% {
+      opacity: 0.9;
+      transform: scale(1.03);
+    }
+    70% {
+      opacity: 0.5;
+      transform: scale(1);
+    }
   }
   
   @keyframes shimmerSlow {
