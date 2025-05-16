@@ -248,7 +248,7 @@ export default function IndustryApplications() {
   return (
     <section 
       id="industry-applications" 
-      className="py-20 relative bg-gradient-to-b from-gray-900 via-gray-950 to-black overflow-hidden"
+      className="py-20 relative overflow-hidden"
       style={{ 
         zIndex: 999, 
         minHeight: "70vh", 
@@ -361,7 +361,7 @@ export default function IndustryApplications() {
           <div className="w-full max-w-[95%] sm:max-w-[90%] md:max-w-4xl mx-auto overflow-hidden relative">
             
             {/* Premium Tabs List with enhanced hover effects */}
-            <TabsList className="bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 h-auto mb-8 flex flex-wrap justify-center gap-2 border border-blue-500/20 rounded-xl px-2 py-3 relative">
+            <TabsList className="backdrop-blur-sm h-auto mb-8 flex flex-wrap justify-center gap-2 border border-blue-500/20 rounded-xl px-2 py-3 relative">
               {/* Inner ambient glow */}
               <div className="absolute inset-0 bg-gradient-to-br from-orange-600/5 via-blue-600/5 to-orange-600/5 rounded-xl"></div>
               
@@ -421,7 +421,7 @@ export default function IndustryApplications() {
                           <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/80 via-blue-500/80 to-orange-500/80 rounded-xl blur-md opacity-90 group-hover:opacity-100 transition-all duration-500"></div>
                           
                           {/* Main card container - matching Testimonials section */}
-                          <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black backdrop-blur-xl rounded-xl p-5 z-10 border border-orange-500/30 overflow-hidden hover:shadow-[0_0_25px_rgba(249,115,22,0.3)] transition-shadow duration-500 h-full">
+                          <div className="relative backdrop-blur-sm rounded-xl p-5 z-10 border border-orange-500/30 overflow-hidden hover:shadow-[0_0_25px_rgba(249,115,22,0.3)] transition-shadow duration-500 h-full">
                           
                             {/* Inner highlight */}
                             <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
