@@ -7,6 +7,7 @@ import { GradientText } from "@/components/ui/gradient-text";
 import { Link } from "wouter";
 import { PremiumCartButton } from "@/utils/premium-buttons";
 import praetorianLogoFire from "../../assets_dir/images/praetorian-logo-fire.png";
+import { PRAETORIAN_HERO_IMAGE } from "../../assets_dir/imageExports";
 
 interface ApplicationData {
   id: string;
@@ -250,6 +251,12 @@ export default function IndustryApplications() {
       id="industry-applications" 
       className="py-20 relative overflow-hidden"
       style={{ 
+        backgroundImage: `url(${PRAETORIAN_HERO_IMAGE})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center center",
+        backgroundRepeat: "no-repeat",
+        backgroundAttachment: "fixed",
+        backgroundColor: "#111111",
         zIndex: 999, 
         minHeight: "70vh", 
         marginTop: "-5px", 
