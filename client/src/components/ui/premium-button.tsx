@@ -138,10 +138,7 @@ const PremiumButton = forwardRef<HTMLButtonElement, PremiumButtonProps>(
           {/* Metallic shine effect */}
           <ShineEffect />
           
-          {/* Glow effect on hover - same for all variants */}
-          {glowEffect && (
-            <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-orange-500/0 via-blue-500/0 to-orange-500/0 group-hover:from-orange-500/0 group-hover:via-blue-500/10 group-hover:to-orange-500/0 blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-          )}
+          {/* Hover glow effect removed as requested */}
           
           {/* Inner border for fire variant */}
           {isFire && (
