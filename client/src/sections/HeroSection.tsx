@@ -88,7 +88,9 @@ const HeroSection = () => {
           
           {/* Premium CTA Button positioned at the bottom of the hero image */}
           <div className="absolute bottom-12 left-0 w-full flex justify-center items-center z-30 pointer-events-none">
-            <div className="pointer-events-auto">
+            {/* Additional centered glow effect behind button */}
+            <div className="absolute w-64 h-24 bg-blue-500/20 rounded-full filter blur-[30px] opacity-80"></div>
+            <div className="pointer-events-auto relative">
               <PremiumButton 
                 variant="fire" 
                 size="xl"

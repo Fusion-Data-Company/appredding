@@ -131,7 +131,7 @@ const PremiumButton = forwardRef<HTMLButtonElement, PremiumButtonProps>(
         )}
 
         <button
-          className={cn(premiumButtonVariants({ variant, size, className }), "shadow-2xl shadow-orange-500/40 drop-shadow-[0_45px_45px_rgba(59,130,246,0.3)]")}
+          className={cn(premiumButtonVariants({ variant, size, className }), "shadow-2xl shadow-orange-500/40 drop-shadow-[0_0_45px_rgba(59,130,246,0.3)]")}
           ref={ref}
           {...props}
         >
@@ -174,9 +174,6 @@ const PremiumButton = forwardRef<HTMLButtonElement, PremiumButtonProps>(
           {/* Enhanced Shimmer effect animation for fire variant - always active */}
           {isFire && (
             <>
-              {/* Black background for button face with onyx coloring */}
-              <div className="absolute inset-0 bg-black rounded-lg"></div>
-              
               {/* Base shimmer effect on the black background - always active but subtle */}
               <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-20 -translate-x-full animate-shimmer-slow transform rounded-lg"></div>
               
