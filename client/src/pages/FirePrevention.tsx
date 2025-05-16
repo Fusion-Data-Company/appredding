@@ -15,13 +15,15 @@ import {
   FormLabel,
   FormMessage
 } from "@/components/ui/form";
-import { CheckCircle, Shield, Home, Map } from "lucide-react";
+import { CheckCircle, Shield, Home, Map, ChevronRight, FileCheck, Zap } from "lucide-react";
 import { insertFirePreventionHomeownerSchema } from "@shared/schema";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
+import { PremiumCartButton } from "@/utils/premium-buttons";
+import { motion } from "framer-motion";
 import fireBgImage from "@assets/fire-bg.jpg";
 
 const FirePrevention = () => {
