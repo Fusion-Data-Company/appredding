@@ -317,7 +317,7 @@ const Painters = () => {
                   <div className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 p-4 rounded-lg border border-orange-500/20 relative overflow-hidden group">
                     <div className="absolute inset-0 bg-gradient-to-r from-orange-600/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     <p className="text-orange-300 text-sm font-medium mb-1">VOC Content</p>
-                    <p className="text-3xl font-bold text-white mb-1"><50g/L</p>
+                    <p className="text-3xl font-bold text-white mb-1">{"<50g/L"}</p>
                     <p className="text-xs text-gray-400">Eco-friendly formula</p>
                   </div>
                 </div>
@@ -353,8 +353,8 @@ const Painters = () => {
                       Thank you for your interest in becoming a certified Praetorian contractor. Our team will reach out to you within one business day to discuss next steps.
                     </p>
                     <div className="mt-6">
-                      <Button
-                        variant="outline"
+                      <PremiumCartButton
+                        size="sm"
                         className="border-green-500/50 text-green-400 hover:bg-green-500/10"
                         onClick={() => {
                           setContactSuccess(false);
@@ -362,7 +362,7 @@ const Painters = () => {
                         }}
                       >
                         Return to Painters Page
-                      </Button>
+                      </PremiumCartButton>
                     </div>
                   </div>
                 </div>

@@ -61,6 +61,7 @@ function Router() {
       <Route path="/painter-network" component={PainterNetwork} />
       <Route path="/marinas" component={Marinas} />
       <Route path="/fire-prevention" component={FirePrevention} />
+      <Route path="/painters" component={Painters} />
       <Route path="/pools" component={Pools} />
       <Route path="/construction" >
         <Suspense fallback={<div>Loading...</div>}>
