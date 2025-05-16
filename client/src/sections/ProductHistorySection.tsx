@@ -301,90 +301,55 @@ const ProductHistorySection = () => {
                 </h3>
               </div>
               
-              {/* New simplified timeline with text in front */}
-              <div className="overflow-auto mb-8 max-h-[500px]" style={{position: "relative", zIndex: 50}}>
-                <div className="space-y-6">
-                  {/* 2025 */}
-                  <div className="bg-gray-800/50 hover:bg-gray-800/80 transition-colors rounded p-4 border border-blue-500/20">
-                    <div className="flex justify-between items-center mb-1">
-                      <h4 className="text-xl font-bold text-white">SON-SHIELD Brand Update</h4>
+              {/* Simplified timeline matching screenshot style */}
+              <div className="relative bg-gradient-to-br from-gray-800/30 via-gray-900/30 to-black/30 rounded-xl p-6 mb-6" style={{ zIndex: 60, position: "relative" }}>
+                <div className="space-y-8">
+                  <div className="flex justify-between items-start">
+                    <div className="flex-1">
+                      <h4 className="text-xl font-bold text-white mb-1">SON-SHIELD Brand Update</h4>
+                      <p className="text-gray-200">SON-SHIELD Coating received a comprehensive branding upgrade for direct public presentation, making advanced industrial coating technology accessible to consumers.</p>
+                    </div>
+                    <div className="ml-4 bg-gradient-to-br from-gray-800 to-gray-900 px-3 py-1 rounded-md border border-blue-500/30">
                       <span className="text-blue-400 font-bold">2025</span>
                     </div>
-                    <p className="text-gray-200">SON-SHIELD Coating received a comprehensive branding upgrade for direct public presentation, making advanced industrial coating technology accessible to consumers.</p>
                   </div>
                   
-                  {/* 2023 */}
-                  <div className="bg-gray-800/50 hover:bg-gray-800/80 transition-colors rounded p-4 border border-orange-500/20">
-                    <div className="flex justify-between items-center mb-1">
-                      <h4 className="text-xl font-bold text-white">Praetorian SmartCoat Pro+</h4>
+                  <div className="flex justify-between items-start">
+                    <div className="flex-1">
+                      <h4 className="text-xl font-bold text-white mb-1">Praetorian SmartCoat Pro+</h4>
+                      <p className="text-gray-200">Next-generation high-solids formula with improved VOC compliance and expanded temperature range (-70°F to +475°F).</p>
+                    </div>
+                    <div className="ml-4 bg-gradient-to-br from-gray-800 to-gray-900 px-3 py-1 rounded-md border border-orange-500/30">
                       <span className="text-orange-400 font-bold">2023</span>
                     </div>
-                    <p className="text-gray-200">Next-generation high-solids formula with improved VOC compliance and expanded temperature range (-70°F to +475°F).</p>
                   </div>
                   
-                  {/* 2020 */}
-                  <div className="bg-gray-800/50 hover:bg-gray-800/80 transition-colors rounded p-4 border border-blue-500/20">
-                    <div className="flex justify-between items-center mb-1">
-                      <h4 className="text-xl font-bold text-white">First Carbon-Neutral Coating</h4>
+                  <div className="flex justify-between items-start">
+                    <div className="flex-1">
+                      <h4 className="text-xl font-bold text-white mb-1">First Carbon-Neutral Coating</h4>
+                      <p className="text-gray-200">Industry-first carbon-neutral manufacturing process with advanced carbon capture technology.</p>
+                    </div>
+                    <div className="ml-4 bg-gradient-to-br from-gray-800 to-gray-900 px-3 py-1 rounded-md border border-blue-500/30">
                       <span className="text-blue-400 font-bold">2020</span>
                     </div>
-                    <p className="text-gray-200">Industry-first carbon-neutral manufacturing process with advanced carbon capture technology.</p>
-                  </div>
-                  
-                  {/* 2015 */}
-                  <div className="bg-gray-800/50 hover:bg-gray-800/80 transition-colors rounded p-4 border border-orange-500/20">
-                    <div className="flex justify-between items-center mb-1">
-                      <h4 className="text-xl font-bold text-white">Original Praetorian Formula</h4>
-                      <span className="text-orange-400 font-bold">2015</span>
-                    </div>
-                    <p className="text-gray-200">First commercial release of NASA-derived ceramic insulation technology with best-in-class thermal protection.</p>
-                  </div>
-                  
-                  {/* 2009 */}
-                  <div className="bg-gray-800/50 hover:bg-gray-800/80 transition-colors rounded p-4 border border-blue-500/20">
-                    <div className="flex justify-between items-center mb-1">
-                      <h4 className="text-xl font-bold text-white">Marine Grade Certification</h4>
-                      <span className="text-blue-400 font-bold">2009</span>
-                    </div>
-                    <p className="text-gray-200">Achieved American Bureau of Shipping certification for marine applications after extensive salt spray testing.</p>
-                  </div>
-                  
-                  {/* 2003 */}
-                  <div className="bg-gray-800/50 hover:bg-gray-800/80 transition-colors rounded p-4 border border-orange-500/20">
-                    <div className="flex justify-between items-center mb-1">
-                      <h4 className="text-xl font-bold text-white">Cool Roof Rating Council</h4>
-                      <span className="text-orange-400 font-bold">2003</span>
-                    </div>
-                    <p className="text-gray-200">Achieved CRRC certification with industry-leading solar reflectivity (89%) and thermal emittance (89%).</p>
-                  </div>
-                  
-                  {/* 1998 */}
-                  <div className="bg-gray-800/50 hover:bg-gray-800/80 transition-colors rounded p-4 border border-blue-500/20">
-                    <div className="flex justify-between items-center mb-1">
-                      <h4 className="text-xl font-bold text-white">Class A Fire Rating</h4>
-                      <span className="text-blue-400 font-bold">1998</span>
-                    </div>
-                    <p className="text-gray-200">Achieved UL Class A fire rating (0/100 flame spread, 0/100 smoke development) certification.</p>
-                  </div>
-                  
-                  {/* 1994 */}
-                  <div className="bg-gray-800/50 hover:bg-gray-800/80 transition-colors rounded p-4 border border-orange-500/20">
-                    <div className="flex justify-between items-center mb-1">
-                      <h4 className="text-xl font-bold text-white">U.S. Air Force Testing</h4>
-                      <span className="text-orange-400 font-bold">1994</span>
-                    </div>
-                    <p className="text-gray-200">Selected for Arizona field tests where metal buildings maintained 85°F interior despite 111-113°F ambient.</p>
-                  </div>
-                  
-                  {/* 1989 */}
-                  <div className="bg-gray-800/50 hover:bg-gray-800/80 transition-colors rounded p-4 border border-blue-500/20">
-                    <div className="flex justify-between items-center mb-1">
-                      <h4 className="text-xl font-bold text-white">NASA Technology Transfer</h4>
-                      <span className="text-blue-400 font-bold">1989</span>
-                    </div>
-                    <p className="text-gray-200">Original commercial adaptation of space shuttle ceramic insulation technology for industrial applications.</p>
                   </div>
                 </div>
+              </div>
+              
+              {/* Show more button to reveal other timeline items */}
+              <div className="flex justify-center mb-4">
+                <button 
+                  className="px-4 py-2 rounded-md bg-gradient-to-r from-gray-800 to-gray-900 border border-blue-500/30 text-white hover:bg-gray-700 transition duration-300"
+                  style={{ zIndex: 60, position: "relative" }}
+                  onClick={() => {
+                    const element = document.getElementById('timeline-container');
+                    if (element) {
+                      element.scrollTop = element.scrollHeight;
+                    }
+                  }}
+                >
+                  View Full Timeline
+                </button>
               </div>
               
               {/* Enhanced premium button */}
