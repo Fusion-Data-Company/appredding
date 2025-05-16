@@ -6,11 +6,13 @@ import { Textarea } from "@/components/ui/textarea";
 import { 
   Form,
   FormControl,
+  FormDescription,
   FormField,
   FormItem,
   FormLabel,
   FormMessage
 } from "@/components/ui/form";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { 
   Anchor, 
@@ -118,10 +120,18 @@ const Marinas = () => {
           className="fixed inset-0 z-0 bg-gradient-to-b from-gray-900/95 via-gray-950/95 to-black" 
         />
         
-        {/* Premium ambient glow effects */}
+        {/* Premium ambient glow effects - enhanced for elite enterprise appearance */}
         <div className="fixed top-0 left-0 w-full h-full z-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-[10%] left-[15%] w-[40rem] h-[40rem] bg-blue-600/10 rounded-full blur-[120px] animate-pulse-slow"></div>
-          <div className="absolute bottom-[10%] right-[15%] w-[35rem] h-[35rem] bg-orange-600/10 rounded-full blur-[120px] animate-pulse-slow-delayed"></div>
+          <div className="absolute top-[5%] left-[10%] w-[45rem] h-[45rem] bg-blue-600/15 rounded-full blur-[150px] animate-pulse-slow"></div>
+          <div className="absolute bottom-[5%] right-[10%] w-[45rem] h-[45rem] bg-orange-600/15 rounded-full blur-[150px] animate-pulse-slow-delayed"></div>
+          <div className="absolute top-[30%] right-[25%] w-[30rem] h-[30rem] bg-blue-500/10 rounded-full blur-[100px] animate-pulse-slow"></div>
+          <div className="absolute bottom-[30%] left-[25%] w-[30rem] h-[30rem] bg-orange-500/10 rounded-full blur-[100px] animate-pulse-slow-delayed"></div>
+          
+          {/* Edge lighting effect */}
+          <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-blue-500/30 to-transparent"></div>
+          <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-orange-500/30 to-transparent"></div>
+          <div className="absolute top-0 bottom-0 left-0 w-[3px] bg-gradient-to-b from-transparent via-blue-500/30 to-transparent"></div>
+          <div className="absolute top-0 bottom-0 right-0 w-[3px] bg-gradient-to-b from-transparent via-orange-500/30 to-transparent"></div>
         </div>
         
         {/* Main content section */}
@@ -151,9 +161,19 @@ const Marinas = () => {
                   <div className="absolute bottom-1 left-1 w-8 h-8 border-b border-l border-blue-500/30 rounded-bl-md"></div>
                 </div>
               
-                <h1 className="text-4xl md:text-5xl mb-6 font-bold text-white drop-shadow-[0_2px_10px_rgba(59,130,246,0.5)]">ABS-Certified Marine Protection</h1>
-                <p className="text-xl text-white mb-8">
-                  Our American Bureau of Shipping (ABS) certified ceramic coating systems (certification #MC-1372) provide unmatched protection in harsh saltwater environments up to 3.5% NaCl concentration. The technology combines perfect Class A (0/100) fire rating with superior thermal insulation (R-value 16.8/inch), solar reflectance (89%), and corrosion resistance under ASTM B117 salt spray testing (2,000+ hours). This NASA-derived vacuum-filled ceramic microsphere technology delivers documented 30+ year protection for marine vessels and structures.
+                {/* Premium ultra header with layered effects */}
+                <div className="relative mb-6">
+                  <div className="absolute -inset-2 bg-gradient-to-r from-blue-500/10 via-blue-500/20 to-blue-500/10 rounded-lg blur-md"></div>
+                  <h1 className="text-4xl md:text-5xl font-bold text-white relative z-10 drop-shadow-[0_3px_10px_rgba(59,130,246,0.7)]">
+                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-100 to-white">ABS-Certified Marine Protection</span>
+                  </h1>
+                  <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent"></div>
+                </div>
+                
+                <p className="text-xl text-white mb-8 leading-relaxed relative">
+                  <span className="relative">
+                    Our American Bureau of Shipping (ABS) certified ceramic coating systems (certification <span className="text-blue-300 font-medium">#MC-1372</span>) provide unmatched protection in harsh saltwater environments up to 3.5% NaCl concentration. The technology combines perfect Class A (0/100) fire rating with superior thermal insulation (R-value 16.8/inch), solar reflectance (89%), and corrosion resistance under ASTM B117 salt spray testing (2,000+ hours). This NASA-derived vacuum-filled ceramic microsphere technology delivers documented <span className="text-blue-300 font-medium">30+ year protection</span> for marine vessels and structures.
+                  </span>
                 </p>
               </div>
             </div>
@@ -300,16 +320,33 @@ const Marinas = () => {
                     <div className="absolute bottom-1 left-1 w-8 h-8 border-b border-l border-blue-500/30 rounded-bl-md"></div>
                   </div>
                 
-                  <h2 className="text-3xl font-bold mb-6 text-white drop-shadow-[0_2px_10px_rgba(59,130,246,0.5)]">NASA-Derived Marine Benefits</h2>
+                  {/* Enhanced title with advanced styling */}
+                  <div className="relative mb-6">
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-orange-500/5 rounded-lg blur-sm"></div>
+                    <h2 className="text-3xl font-bold text-white relative drop-shadow-[0_2px_10px_rgba(59,130,246,0.5)]">
+                      <span className="inline-block relative">
+                        NASA-Derived Marine Benefits
+                        <div className="absolute -bottom-1 left-0 right-0 h-[2px] bg-gradient-to-r from-blue-500/50 via-blue-400/30 to-transparent"></div>
+                      </span>
+                    </h2>
+                  </div>
                   
                   <div className="space-y-4 flex-grow">
                     <div className="flex items-start gap-4">
-                      <span className="bg-blue-600 rounded-full p-2 mt-1">
-                        <Anchor className="h-5 w-5 text-white" />
-                      </span>
-                      <div>
-                        <h3 className="text-xl font-semibold mb-1 text-blue-300">American Bureau of Shipping (ABS) Certified</h3>
-                        <p className="text-white">Our ceramic microsphere technology (US Patent #10,738,214) is specifically certified for marine applications by the American Bureau of Shipping under certification #MC-1372, meeting all requirements for the harshest marine environments.</p>
+                      <div className="relative">
+                        <div className="absolute -inset-1 bg-blue-600/20 rounded-full blur-md"></div>
+                        <span className="bg-gradient-to-br from-blue-600 to-blue-800 rounded-full p-2 mt-1 relative border border-blue-400/30 shadow-lg shadow-blue-900/20">
+                          <Anchor className="h-5 w-5 text-white" />
+                        </span>
+                      </div>
+                      <div className="relative">
+                        <h3 className="text-xl font-semibold mb-2 text-white drop-shadow-[0_1px_2px_rgba(59,130,246,0.5)]">
+                          <span className="relative inline-block">
+                            American Bureau of Shipping (ABS) Certified
+                            <div className="absolute -bottom-1 left-0 w-12 h-[2px] bg-gradient-to-r from-blue-500 to-transparent"></div>
+                          </span>
+                        </h3>
+                        <p className="text-white leading-relaxed">Our ceramic microsphere technology (US Patent <span className="text-blue-300 font-medium">#10,738,214</span>) is specifically certified for marine applications by the American Bureau of Shipping under certification <span className="text-blue-300 font-medium">#MC-1372</span>, meeting all requirements for the harshest marine environments.</p>
                       </div>
                     </div>
 
@@ -642,7 +679,7 @@ const Marinas = () => {
                         control={form.control}
                         name="agreesToTerms"
                         render={({ field }) => (
-                          <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md p-4 bg-blue-900/20">
+                          <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md p-4 bg-gradient-to-br from-blue-900/20 via-blue-950/20 to-black/20 border border-blue-500/20">
                             <FormControl>
                               <Checkbox
                                 checked={field.value}
@@ -651,12 +688,12 @@ const Marinas = () => {
                               />
                             </FormControl>
                             <div className="space-y-1 leading-none">
-                              <FormLabel className="text-blue-200">
+                              <FormLabel className="text-blue-200 font-medium">
                                 I agree to the terms and conditions*
                               </FormLabel>
-                              <FormDescription className="text-gray-400 text-sm">
+                              <p className="text-gray-400 text-sm">
                                 By submitting this form, you agree to our terms of service and privacy policy.
-                              </FormDescription>
+                              </p>
                             </div>
                             <FormMessage />
                           </FormItem>
