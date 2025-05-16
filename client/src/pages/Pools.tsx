@@ -704,20 +704,25 @@ const Pools = () => {
   return (
     <MainLayout fullWidth={true}>
       <div className="relative">
-        {/* Full-page water background */}
+        {/* Premium enterprise water background */}
         <div 
           className="fixed inset-0 z-0 bg-center bg-cover bg-no-repeat" 
           style={{ 
             backgroundImage: `url(${waterBgImage})`,
             backgroundAttachment: 'fixed',
-            backgroundPosition: 'center center', // Standardized position
-            backgroundSize: 'cover',
-            opacity: 0.95
+            backgroundPosition: 'center center',
+            backgroundSize: 'cover'
           }}
         />
         
-        {/* Semi-transparent dark overlay to make text readable */}
-        <div className="fixed inset-0 z-0 bg-black/40"></div>
+        {/* Premium enterprise gradient overlay for enhanced appearance */}
+        <div className="fixed inset-0 z-0 bg-gradient-to-b from-gray-900/80 via-gray-950/85 to-black/90"></div>
+        
+        {/* Premium ambient glow effects for elite enterprise appearance */}
+        <div className="fixed top-0 left-0 w-full h-full z-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-[5%] left-[10%] w-[45rem] h-[45rem] bg-blue-600/15 rounded-full blur-[150px] animate-pulse-slow"></div>
+          <div className="absolute bottom-[10%] right-[15%] w-[40rem] h-[40rem] bg-orange-500/10 rounded-full blur-[150px] animate-pulse-slow"></div>
+        </div>
         
         {/* Main content section */}
         <section className="py-16 md:py-24 relative z-10">
