@@ -411,165 +411,166 @@ const ProductHistorySection = () => {
                   <div className="absolute bottom-0 left-0 w-1/3 h-0.5 bg-gradient-to-r from-gray-500/40 to-gray-600/40 group-hover:w-2/3 transition-all duration-700 rounded-full opacity-60"></div>
                 </div>
                 
-                {/* Completely rebuilt timeline card */}
-                <div className="bg-gradient-to-br from-gray-900 via-gray-950 to-black rounded-xl overflow-hidden shadow-[0_5px_30px_rgba(0,0,0,0.3)] transform transition-all duration-500 hover:scale-[1.01] flex-grow">
-                  {/* Simple border */}
-                  <div className="border border-gray-700/50 rounded-xl h-full">
-                    <div className="p-6 overflow-y-auto" style={{ maxHeight: "500px" }}>
-                      {/* Timeline items */}
-                      <div className="space-y-8">
-                        {/* 2025 */}
-                        <div className="relative pl-8 pb-8 border-l-2 border-blue-500/30 hover:border-blue-500/50 transition-colors duration-300">
-                          <div className="absolute -left-3 top-0">
-                            <div className="w-6 h-6 rounded-full bg-gray-900 border-2 border-blue-500 flex items-center justify-center">
-                              <div className="w-2 h-2 rounded-full bg-blue-500"></div>
-                            </div>
-                          </div>
-                          <div>
-                            <div className="flex items-center mb-1">
-                              <span className="text-blue-400 text-sm font-bold mr-2">2025</span>
-                              <div className="h-px bg-blue-500/30 flex-grow"></div>
-                            </div>
-                            <h4 className="text-xl font-bold text-white drop-shadow-[0_2px_3px_rgba(0,0,0,0.7)] mb-2">SON-SHIELD Brand Update</h4>
-                            <p className="text-gray-200 text-lg">SON-SHIELD Coating received a comprehensive branding upgrade for direct public presentation, making advanced industrial coating technology accessible to consumers with improved communication, marketing materials, and direct consumer sales channels.</p>
-                          </div>
+                {/* Matching left side style timeline */}
+                <div className="relative group/table bg-gradient-to-br from-gray-900/90 via-gray-950/90 to-black backdrop-blur-xl rounded-xl overflow-hidden shadow-[0_5px_30px_rgba(0,0,0,0.3)] transform transition-all duration-500 hover:scale-[1.01] flex-grow p-6">
+                  
+                  {/* Corner accent lines */}
+                  <div className="absolute top-0 left-0 w-8 h-8 pointer-events-none">
+                    <div className="absolute top-0 left-0 w-5 h-5 border-t-[1px] border-l-[1px] border-blue-500/40 rounded-tl-lg"></div>
+                    <div className="absolute top-0 left-0 w-2 h-2 bg-blue-500/30 rounded-full blur-[1px]"></div>
+                  </div>
+                  <div className="absolute top-0 right-0 w-8 h-8 pointer-events-none">
+                    <div className="absolute top-0 right-0 w-5 h-5 border-t-[1px] border-r-[1px] border-orange-500/40 rounded-tr-lg"></div>
+                    <div className="absolute top-0 right-0 w-2 h-2 bg-orange-500/30 rounded-full blur-[1px]"></div>
+                  </div>
+                  <div className="absolute bottom-0 left-0 w-8 h-8 pointer-events-none">
+                    <div className="absolute bottom-0 left-0 w-5 h-5 border-b-[1px] border-l-[1px] border-blue-500/40 rounded-bl-lg"></div>
+                    <div className="absolute bottom-0 left-0 w-2 h-2 bg-blue-500/30 rounded-full blur-[1px]"></div>
+                  </div>
+                  <div className="absolute bottom-0 right-0 w-8 h-8 pointer-events-none">
+                    <div className="absolute bottom-0 right-0 w-5 h-5 border-b-[1px] border-r-[1px] border-orange-500/40 rounded-br-lg"></div>
+                    <div className="absolute bottom-0 right-0 w-2 h-2 bg-orange-500/30 rounded-full blur-[1px]"></div>
+                  </div>
+                  
+                  {/* Product Innovation Timeline heading */}
+                  <h3 className="text-3xl font-bold text-white drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)] mb-8 text-center">
+                    Product Innovation Timeline
+                  </h3>
+                  
+                  {/* Timeline content */}
+                  <div className="space-y-12 overflow-y-auto" style={{ maxHeight: "500px" }}>
+                    {/* 2025 entry */}
+                    <div className="group">
+                      <div className="flex items-center mb-2">
+                        <div className="flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-gray-900 to-gray-950 border border-blue-500/30 group-hover:border-blue-500/60 transition-all duration-500 shadow-lg">
+                          <span className="text-blue-400 font-bold text-lg">2025</span>
                         </div>
-
-                        {/* 2023 */}
-                        <div className="relative pl-8 pb-8 border-l-2 border-orange-500/30 hover:border-orange-500/50 transition-colors duration-300">
-                          <div className="absolute -left-3 top-0">
-                            <div className="w-6 h-6 rounded-full bg-gray-900 border-2 border-orange-500 flex items-center justify-center">
-                              <div className="w-2 h-2 rounded-full bg-orange-500"></div>
-                            </div>
-                          </div>
-                          <div>
-                            <div className="flex items-center mb-1">
-                              <span className="text-orange-400 text-sm font-bold mr-2">2023</span>
-                              <div className="h-px bg-orange-500/30 flex-grow"></div>
-                            </div>
-                            <h4 className="text-xl font-bold text-white drop-shadow-[0_2px_3px_rgba(0,0,0,0.7)] mb-2">Praetorian SmartCoat Pro+</h4>
-                            <p className="text-gray-200 text-lg">Next-generation high-solids formula with improved VOC compliance, enhanced corrosion resistance, and expanded temperature range performance (-70°F to +475°F) for extreme environment applications.</p>
-                          </div>
+                        <div className="ml-4">
+                          <h4 className="text-2xl font-bold text-white drop-shadow-[0_2px_3px_rgba(0,0,0,0.5)]">SON-SHIELD Brand Update</h4>
                         </div>
-
-                        {/* 2020 */}
-                        <div className="relative pl-8 pb-8 border-l-2 border-blue-500/30 hover:border-blue-500/50 transition-colors duration-300">
-                          <div className="absolute -left-3 top-0">
-                            <div className="w-6 h-6 rounded-full bg-gray-900 border-2 border-blue-500 flex items-center justify-center">
-                              <div className="w-2 h-2 rounded-full bg-blue-500"></div>
-                            </div>
-                          </div>
-                          <div>
-                            <div className="flex items-center mb-1">
-                              <span className="text-blue-400 text-sm font-bold mr-2">2020</span>
-                              <div className="h-px bg-blue-500/30 flex-grow"></div>
-                            </div>
-                            <h4 className="text-xl font-bold text-white drop-shadow-[0_2px_3px_rgba(0,0,0,0.7)] mb-2">First Industrial Carbon-Neutral Coating</h4>
-                            <p className="text-gray-200 text-lg">Industry-first carbon-neutral manufacturing process implemented, with advanced carbon capture technology and renewable energy integration at production facilities.</p>
-                          </div>
+                      </div>
+                      <div className="pl-20">
+                        <p className="text-gray-200 text-lg">SON-SHIELD Coating received a comprehensive branding upgrade for direct public presentation, making advanced industrial coating technology accessible to consumers with improved communication, marketing materials, and direct consumer sales channels.</p>
+                      </div>
+                    </div>
+                    
+                    {/* 2023 entry */}
+                    <div className="group">
+                      <div className="flex items-center mb-2">
+                        <div className="flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-gray-900 to-gray-950 border border-orange-500/30 group-hover:border-orange-500/60 transition-all duration-500 shadow-lg">
+                          <span className="text-orange-400 font-bold text-lg">2023</span>
                         </div>
-
-                        {/* 2015 */}
-                        <div className="relative pl-8 pb-8 border-l-2 border-orange-500/30 hover:border-orange-500/50 transition-colors duration-300">
-                          <div className="absolute -left-3 top-0">
-                            <div className="w-6 h-6 rounded-full bg-gray-900 border-2 border-orange-500 flex items-center justify-center">
-                              <div className="w-2 h-2 rounded-full bg-orange-500"></div>
-                            </div>
-                          </div>
-                          <div>
-                            <div className="flex items-center mb-1">
-                              <span className="text-orange-400 text-sm font-bold mr-2">2015</span>
-                              <div className="h-px bg-orange-500/30 flex-grow"></div>
-                            </div>
-                            <h4 className="text-xl font-bold text-white drop-shadow-[0_2px_3px_rgba(0,0,0,0.7)] mb-2">Original Praetorian Formula</h4>
-                            <p className="text-gray-200 text-lg">First commercial release of our NASA-derived ceramic insulation technology, featuring 80-160 micron ceramic microspheres with vacuum voids and providing best-in-class thermal and UV protection with 156% flexibility.</p>
-                          </div>
+                        <div className="ml-4">
+                          <h4 className="text-2xl font-bold text-white drop-shadow-[0_2px_3px_rgba(0,0,0,0.5)]">Praetorian SmartCoat Pro+</h4>
                         </div>
-
-                        {/* 2009 */}
-                        <div className="relative pl-8 pb-8 border-l-2 border-blue-500/30 hover:border-blue-500/50 transition-colors duration-300">
-                          <div className="absolute -left-3 top-0">
-                            <div className="w-6 h-6 rounded-full bg-gray-900 border-2 border-blue-500 flex items-center justify-center">
-                              <div className="w-2 h-2 rounded-full bg-blue-500"></div>
-                            </div>
-                          </div>
-                          <div>
-                            <div className="flex items-center mb-1">
-                              <span className="text-blue-400 text-sm font-bold mr-2">2009</span>
-                              <div className="h-px bg-blue-500/30 flex-grow"></div>
-                            </div>
-                            <h4 className="text-xl font-bold text-white drop-shadow-[0_2px_3px_rgba(0,0,0,0.7)] mb-2">Marine Grade Certification</h4>
-                            <p className="text-gray-200 text-lg">Achieved American Bureau of Shipping (ABS) certification for marine applications after extensive salt spray and corrosion testing, opening new markets for maritime and offshore infrastructure protection.</p>
-                          </div>
+                      </div>
+                      <div className="pl-20">
+                        <p className="text-gray-200 text-lg">Next-generation high-solids formula with improved VOC compliance, enhanced corrosion resistance, and expanded temperature range performance (-70°F to +475°F) for extreme environment applications.</p>
+                      </div>
+                    </div>
+                    
+                    {/* 2020 entry */}
+                    <div className="group">
+                      <div className="flex items-center mb-2">
+                        <div className="flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-gray-900 to-gray-950 border border-blue-500/30 group-hover:border-blue-500/60 transition-all duration-500 shadow-lg">
+                          <span className="text-blue-400 font-bold text-lg">2020</span>
                         </div>
-
-                        {/* 2003 */}
-                        <div className="relative pl-8 pb-8 border-l-2 border-orange-500/30 hover:border-orange-500/50 transition-colors duration-300">
-                          <div className="absolute -left-3 top-0">
-                            <div className="w-6 h-6 rounded-full bg-gray-900 border-2 border-orange-500 flex items-center justify-center">
-                              <div className="w-2 h-2 rounded-full bg-orange-500"></div>
-                            </div>
-                          </div>
-                          <div>
-                            <div className="flex items-center mb-1">
-                              <span className="text-orange-400 text-sm font-bold mr-2">2003</span>
-                              <div className="h-px bg-orange-500/30 flex-grow"></div>
-                            </div>
-                            <h4 className="text-xl font-bold text-white drop-shadow-[0_2px_3px_rgba(0,0,0,0.7)] mb-2">Cool Roof Rating Council Approval</h4>
-                            <p className="text-gray-200 text-lg">Achieved CRRC certification with industry-leading solar reflectivity (89%) and thermal emittance (89%) values, offering quantified energy savings for commercial structures and meeting emerging green building standards.</p>
-                          </div>
+                        <div className="ml-4">
+                          <h4 className="text-2xl font-bold text-white drop-shadow-[0_2px_3px_rgba(0,0,0,0.5)]">First Industrial Carbon-Neutral Coating</h4>
                         </div>
-
-                        {/* 1998 */}
-                        <div className="relative pl-8 pb-8 border-l-2 border-blue-500/30 hover:border-blue-500/50 transition-colors duration-300">
-                          <div className="absolute -left-3 top-0">
-                            <div className="w-6 h-6 rounded-full bg-gray-900 border-2 border-blue-500 flex items-center justify-center">
-                              <div className="w-2 h-2 rounded-full bg-blue-500"></div>
-                            </div>
-                          </div>
-                          <div>
-                            <div className="flex items-center mb-1">
-                              <span className="text-blue-400 text-sm font-bold mr-2">1998</span>
-                              <div className="h-px bg-blue-500/30 flex-grow"></div>
-                            </div>
-                            <h4 className="text-xl font-bold text-white drop-shadow-[0_2px_3px_rgba(0,0,0,0.7)] mb-2">Class A Fire Rating</h4>
-                            <p className="text-gray-200 text-lg">Achieved UL Class A fire rating (0/100 flame spread, 0/100 smoke development) certification, providing critical fire safety performance for industrial facilities and commercial buildings without sacrificing thermal properties.</p>
-                          </div>
+                      </div>
+                      <div className="pl-20">
+                        <p className="text-gray-200 text-lg">Industry-first carbon-neutral manufacturing process implemented, with advanced carbon capture technology and renewable energy integration at production facilities.</p>
+                      </div>
+                    </div>
+                    
+                    {/* 2015 entry */}
+                    <div className="group">
+                      <div className="flex items-center mb-2">
+                        <div className="flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-gray-900 to-gray-950 border border-orange-500/30 group-hover:border-orange-500/60 transition-all duration-500 shadow-lg">
+                          <span className="text-orange-400 font-bold text-lg">2015</span>
                         </div>
-
-                        {/* 1994 */}
-                        <div className="relative pl-8 pb-8 border-l-2 border-orange-500/30 hover:border-orange-500/50 transition-colors duration-300">
-                          <div className="absolute -left-3 top-0">
-                            <div className="w-6 h-6 rounded-full bg-gray-900 border-2 border-orange-500 flex items-center justify-center">
-                              <div className="w-2 h-2 rounded-full bg-orange-500"></div>
-                            </div>
-                          </div>
-                          <div>
-                            <div className="flex items-center mb-1">
-                              <span className="text-orange-400 text-sm font-bold mr-2">1994</span>
-                              <div className="h-px bg-orange-500/30 flex-grow"></div>
-                            </div>
-                            <h4 className="text-xl font-bold text-white drop-shadow-[0_2px_3px_rgba(0,0,0,0.7)] mb-2">U.S. Air Force Testing</h4>
-                            <p className="text-gray-200 text-lg">Selected for Arizona field tests where metal buildings coated with our technology maintained 85°F interior temperature despite 111-113°F ambient conditions, demonstrating exceptional real-world thermal performance.</p>
-                          </div>
+                        <div className="ml-4">
+                          <h4 className="text-2xl font-bold text-white drop-shadow-[0_2px_3px_rgba(0,0,0,0.5)]">Original Praetorian Formula</h4>
                         </div>
-
-                        {/* 1989 */}
-                        <div className="relative pl-8 border-l-2 border-blue-500/30 hover:border-blue-500/50 transition-colors duration-300">
-                          <div className="absolute -left-3 top-0">
-                            <div className="w-6 h-6 rounded-full bg-gray-900 border-2 border-blue-500 flex items-center justify-center">
-                              <div className="w-2 h-2 rounded-full bg-blue-500"></div>
-                            </div>
-                          </div>
-                          <div>
-                            <div className="flex items-center mb-1">
-                              <span className="text-blue-400 text-sm font-bold mr-2">1989</span>
-                              <div className="h-px bg-blue-500/30 flex-grow"></div>
-                            </div>
-                            <h4 className="text-xl font-bold text-white drop-shadow-[0_2px_3px_rgba(0,0,0,0.7)] mb-2">NASA Technology Transfer</h4>
-                            <p className="text-gray-200 text-lg">Original commercial adaptation of space shuttle ceramic insulation technology, creating the foundation for all future Praetorian products with the first ceramic microsphere coating system for industrial applications.</p>
-                          </div>
+                      </div>
+                      <div className="pl-20">
+                        <p className="text-gray-200 text-lg">First commercial release of our NASA-derived ceramic insulation technology, featuring 80-160 micron ceramic microspheres with vacuum voids and providing best-in-class thermal and UV protection with 156% flexibility.</p>
+                      </div>
+                    </div>
+                    
+                    {/* 2009 entry */}
+                    <div className="group">
+                      <div className="flex items-center mb-2">
+                        <div className="flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-gray-900 to-gray-950 border border-blue-500/30 group-hover:border-blue-500/60 transition-all duration-500 shadow-lg">
+                          <span className="text-blue-400 font-bold text-lg">2009</span>
                         </div>
+                        <div className="ml-4">
+                          <h4 className="text-2xl font-bold text-white drop-shadow-[0_2px_3px_rgba(0,0,0,0.5)]">Marine Grade Certification</h4>
+                        </div>
+                      </div>
+                      <div className="pl-20">
+                        <p className="text-gray-200 text-lg">Achieved American Bureau of Shipping (ABS) certification for marine applications after extensive salt spray and corrosion testing, opening new markets for maritime and offshore infrastructure protection.</p>
+                      </div>
+                    </div>
+                    
+                    {/* 2003 entry */}
+                    <div className="group">
+                      <div className="flex items-center mb-2">
+                        <div className="flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-gray-900 to-gray-950 border border-orange-500/30 group-hover:border-orange-500/60 transition-all duration-500 shadow-lg">
+                          <span className="text-orange-400 font-bold text-lg">2003</span>
+                        </div>
+                        <div className="ml-4">
+                          <h4 className="text-2xl font-bold text-white drop-shadow-[0_2px_3px_rgba(0,0,0,0.5)]">Cool Roof Rating Council Approval</h4>
+                        </div>
+                      </div>
+                      <div className="pl-20">
+                        <p className="text-gray-200 text-lg">Achieved CRRC certification with industry-leading solar reflectivity (89%) and thermal emittance (89%) values, offering quantified energy savings for commercial structures and meeting emerging green building standards.</p>
+                      </div>
+                    </div>
+                    
+                    {/* 1998 entry */}
+                    <div className="group">
+                      <div className="flex items-center mb-2">
+                        <div className="flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-gray-900 to-gray-950 border border-blue-500/30 group-hover:border-blue-500/60 transition-all duration-500 shadow-lg">
+                          <span className="text-blue-400 font-bold text-lg">1998</span>
+                        </div>
+                        <div className="ml-4">
+                          <h4 className="text-2xl font-bold text-white drop-shadow-[0_2px_3px_rgba(0,0,0,0.5)]">Class A Fire Rating</h4>
+                        </div>
+                      </div>
+                      <div className="pl-20">
+                        <p className="text-gray-200 text-lg">Achieved UL Class A fire rating (0/100 flame spread, 0/100 smoke development) certification, providing critical fire safety performance for industrial facilities and commercial buildings without sacrificing thermal properties.</p>
+                      </div>
+                    </div>
+                    
+                    {/* 1994 entry */}
+                    <div className="group">
+                      <div className="flex items-center mb-2">
+                        <div className="flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-gray-900 to-gray-950 border border-orange-500/30 group-hover:border-orange-500/60 transition-all duration-500 shadow-lg">
+                          <span className="text-orange-400 font-bold text-lg">1994</span>
+                        </div>
+                        <div className="ml-4">
+                          <h4 className="text-2xl font-bold text-white drop-shadow-[0_2px_3px_rgba(0,0,0,0.5)]">U.S. Air Force Testing</h4>
+                        </div>
+                      </div>
+                      <div className="pl-20">
+                        <p className="text-gray-200 text-lg">Selected for Arizona field tests where metal buildings coated with our technology maintained 85°F interior temperature despite 111-113°F ambient conditions, demonstrating exceptional real-world thermal performance.</p>
+                      </div>
+                    </div>
+                    
+                    {/* 1989 entry */}
+                    <div className="group">
+                      <div className="flex items-center mb-2">
+                        <div className="flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-gray-900 to-gray-950 border border-blue-500/30 group-hover:border-blue-500/60 transition-all duration-500 shadow-lg">
+                          <span className="text-blue-400 font-bold text-lg">1989</span>
+                        </div>
+                        <div className="ml-4">
+                          <h4 className="text-2xl font-bold text-white drop-shadow-[0_2px_3px_rgba(0,0,0,0.5)]">NASA Technology Transfer</h4>
+                        </div>
+                      </div>
+                      <div className="pl-20">
+                        <p className="text-gray-200 text-lg">Original commercial adaptation of space shuttle ceramic insulation technology, creating the foundation for all future Praetorian products with the first ceramic microsphere coating system for industrial applications.</p>
                       </div>
                     </div>
                   </div>
