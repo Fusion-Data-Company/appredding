@@ -727,28 +727,102 @@ const Pools = () => {
         {/* Main content section */}
         <section className="py-16 md:py-24 relative z-10">
           <div className="container mx-auto">
-            {/* Header section */}
-            <div className="max-w-4xl mx-auto text-center mb-16 backdrop-blur-sm bg-primary-900/60 p-8 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)]">
-              <GradientHeading level={1} className="text-4xl md:text-5xl mb-6 glow-text" variant="blue">Cool-Touch Pool Deck Protection</GradientHeading>
-              <p className="text-xl text-white mb-8">
-                Our NASA-derived ceramic microsphere technology creates cool-to-touch surfaces for pool decks, surrounding areas, and furniture, with up to 40°F temperature reduction even in direct sunlight. Featuring 156% elastomeric flexibility, 89% UV reflection, and 30+ year service life — ending barefoot burns and protecting your investment.
-              </p>
+            {/* Premium header section */}
+            <div className="max-w-4xl mx-auto text-center mb-16">
+              <div className="relative">
+                <div className="absolute -inset-1 bg-gradient-to-r from-orange-500/20 via-blue-500/20 to-orange-500/20 rounded-xl blur-xl opacity-70"></div>
+                
+                <div className="relative bg-gradient-to-br from-gray-900/90 via-gray-950/90 to-black/90 py-8 px-10 rounded-xl border border-orange-500/40 shadow-[0_10px_50px_rgba(59,130,246,0.2)]">
+                  {/* Corner accents */}
+                  <div className="absolute top-0 left-0 w-12 h-12 z-10 pointer-events-none">
+                    <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-orange-500/40 rounded-tl-md"></div>
+                    <div className="absolute top-1 left-1 w-8 h-8 border-t border-l border-blue-500/30 rounded-tl-md"></div>
+                  </div>
+                  <div className="absolute top-0 right-0 w-12 h-12 z-10 pointer-events-none">
+                    <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-orange-500/40 rounded-tr-md"></div>
+                    <div className="absolute top-1 right-1 w-8 h-8 border-t border-r border-blue-500/30 rounded-tr-md"></div>
+                  </div>
+                  <div className="absolute bottom-0 right-0 w-12 h-12 z-10 pointer-events-none">
+                    <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-orange-500/40 rounded-br-md"></div>
+                    <div className="absolute bottom-1 right-1 w-8 h-8 border-b border-r border-blue-500/30 rounded-br-md"></div>
+                  </div>
+                  <div className="absolute bottom-0 left-0 w-12 h-12 z-10 pointer-events-none">
+                    <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-orange-500/40 rounded-bl-md"></div>
+                    <div className="absolute bottom-1 left-1 w-8 h-8 border-b border-l border-blue-500/30 rounded-bl-md"></div>
+                  </div>
+
+                  <div className="relative mb-6">
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-orange-500/5 rounded-lg blur-sm"></div>
+                    <h1 className="text-4xl md:text-5xl font-bold text-white relative drop-shadow-[0_2px_10px_rgba(59,130,246,0.5)]">
+                      <span className="inline-block relative">
+                        Cool-Touch Pool Deck Protection
+                        <div className="absolute -bottom-1 left-0 right-0 h-[2px] bg-gradient-to-r from-blue-500/50 via-blue-400/30 to-transparent"></div>
+                      </span>
+                    </h1>
+                  </div>
+                  
+                  <p className="text-xl text-white mb-8 leading-relaxed">
+                    Our NASA-derived ceramic microsphere technology creates cool-to-touch surfaces for pool decks, surrounding areas, and furniture, with up to <span className="text-blue-300 font-medium">40°F temperature reduction</span> even in direct sunlight. Featuring <span className="text-blue-300 font-medium">156% elastomeric flexibility</span>, <span className="text-blue-300 font-medium">89% UV reflection</span>, and <span className="text-blue-300 font-medium">30+ year service life</span> — ending barefoot burns and protecting your investment.
+                  </p>
+                </div>
+              </div>
             </div>
 
-            {/* Features grid section */}
+            {/* Features grid section with premium styling */}
             <div className="grid md:grid-cols-2 gap-12 mb-16">
-              <div className="backdrop-blur-sm bg-primary-900/60 border-4 border-white rounded-xl p-8 shadow-[0_0_60px_rgba(255,255,255,0.4)]">
-                <GradientHeading level={2} className="text-3xl mb-6" variant="blue">Cool-Touch Pool Deck & Furniture Technology</GradientHeading>
-                <p className="mb-8">Our NASA-derived ceramic microsphere coating systems create cool-to-touch surfaces for pool decks, pavers, furniture, and equipment areas - preventing painful burns even in 100°F+ temperatures with 30+ year documented durability</p>
+              <div className="relative">
+                <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/15 via-orange-500/10 to-blue-500/15 rounded-2xl blur-xl opacity-70"></div>
                 
-                <div className="space-y-6">
-                  <div className="flex items-start gap-4">
-                    <span className="bg-primary-600/80 rounded-full p-2 mt-1">
-                      <i className="fas fa-water text-white"></i>
-                    </span>
-                    <div>
-                      <h3 className="text-xl font-semibold mb-2">Cool-Touch Surface Technology</h3>
-                      <p>Our ceramic microsphere technology creates surfaces that remain cool to the touch even in direct sunlight, reducing surface temperatures by up to 40°F (22.2°C) compared to untreated concrete, pavers, or furnishings. Testing confirms coating surface temperatures of only 85°F (29.4°C) when untreated surfaces reach 125°F+ (51.7°C+) in identical conditions (ASTM C1371-15 thermal emittance protocol). Measurements per ASTM E1980-11 reveal Solar Reflectance Index (SRI) values of 109-113, significantly exceeding the minimum 82 SRI required for "cool pavement" certification. Thermal imaging verification (ASTM C1060-11a(2019)) confirms consistent temperature reduction across the entire treated surface area even at peak solar exposure.</p>
+                <div className="relative bg-gradient-to-br from-gray-900/90 via-gray-950/90 to-black/90 p-8 rounded-xl border border-blue-500/40 shadow-[0_10px_50px_rgba(59,130,246,0.2)]">
+                  {/* Corner accents */}
+                  <div className="absolute top-0 left-0 w-12 h-12 z-10 pointer-events-none">
+                    <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-orange-500/40 rounded-tl-md"></div>
+                    <div className="absolute top-1 left-1 w-8 h-8 border-t border-l border-blue-500/30 rounded-tl-md"></div>
+                  </div>
+                  <div className="absolute top-0 right-0 w-12 h-12 z-10 pointer-events-none">
+                    <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-orange-500/40 rounded-tr-md"></div>
+                    <div className="absolute top-1 right-1 w-8 h-8 border-t border-r border-blue-500/30 rounded-tr-md"></div>
+                  </div>
+                  <div className="absolute bottom-0 right-0 w-12 h-12 z-10 pointer-events-none">
+                    <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-orange-500/40 rounded-br-md"></div>
+                    <div className="absolute bottom-1 right-1 w-8 h-8 border-b border-r border-blue-500/30 rounded-br-md"></div>
+                  </div>
+                  <div className="absolute bottom-0 left-0 w-12 h-12 z-10 pointer-events-none">
+                    <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-orange-500/40 rounded-bl-md"></div>
+                    <div className="absolute bottom-1 left-1 w-8 h-8 border-b border-l border-blue-500/30 rounded-bl-md"></div>
+                  </div>
+                
+                  <div className="relative mb-6">
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-orange-500/5 rounded-lg blur-sm"></div>
+                    <h2 className="text-3xl font-bold text-white relative drop-shadow-[0_2px_10px_rgba(59,130,246,0.5)]">
+                      <span className="inline-block relative">
+                        Cool-Touch Pool Deck & Furniture Technology
+                        <div className="absolute -bottom-1 left-0 right-0 h-[2px] bg-gradient-to-r from-blue-500/50 via-blue-400/30 to-transparent"></div>
+                      </span>
+                    </h2>
+                  </div>
+                  
+                  <p className="mb-8 text-white leading-relaxed">
+                    Our NASA-derived ceramic microsphere coating systems create cool-to-touch surfaces for pool decks, pavers, furniture, and equipment areas - preventing painful burns even in <span className="text-blue-300 font-medium">100°F+ temperatures</span> with <span className="text-blue-300 font-medium">30+ year documented durability</span>
+                  </p>
+                
+                  <div className="space-y-6">
+                    <div className="flex items-start gap-4">
+                      <div className="relative">
+                        <div className="absolute -inset-1 bg-blue-600/20 rounded-full blur-md"></div>
+                        <span className="bg-gradient-to-br from-blue-600 to-blue-800 rounded-full p-2 mt-1 relative border border-blue-400/30 shadow-lg shadow-blue-900/20">
+                          <DropletIcon className="h-5 w-5 text-white" />
+                        </span>
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-semibold mb-2 text-white drop-shadow-[0_1px_2px_rgba(59,130,246,0.5)]">
+                          <span className="relative inline-block">
+                            Cool-Touch Surface Technology
+                            <div className="absolute -bottom-1 left-0 w-12 h-[2px] bg-gradient-to-r from-blue-500 to-transparent"></div>
+                          </span>
+                        </h3>
+                        <p className="text-white leading-relaxed">Our ceramic microsphere technology creates surfaces that remain cool to the touch even in direct sunlight, reducing surface temperatures by up to <span className="text-blue-300 font-medium">40°F (22.2°C)</span> compared to untreated concrete, pavers, or furnishings. Testing confirms coating surface temperatures of only <span className="text-blue-300 font-medium">85°F (29.4°C)</span> when untreated surfaces reach <span className="text-blue-300 font-medium">125°F+ (51.7°C+)</span> in identical conditions (ASTM C1371-15 thermal emittance protocol).</p>
+                      </div>
                     </div>
                   </div>
 
