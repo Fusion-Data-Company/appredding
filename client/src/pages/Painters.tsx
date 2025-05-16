@@ -1788,6 +1788,413 @@ const Painters = () => {
             </div>
           </div>
         </section>
+        
+        {/* Sandler Sales Lead Generation Form - Connect to CRM */}
+        <section id="registration-section" className="py-16 relative z-10">
+          <div className="container mx-auto px-4">
+            <div className="relative max-w-6xl mx-auto">
+              <div className="absolute -inset-2 bg-gradient-to-r from-blue-600/30 via-orange-600/30 to-blue-600/30 rounded-xl blur-xl opacity-70"></div>
+              <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 rounded-xl p-6 md:p-8 shadow-lg border border-blue-500/30 overflow-hidden">
+                {/* Corner accent elements */}
+                <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none">
+                  <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-blue-500/70 rounded-tl-lg"></div>
+                  <div className="absolute top-0 left-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
+                </div>
+                <div className="absolute top-0 right-0 w-16 h-16 pointer-events-none">
+                  <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-orange-500/70 rounded-tr-lg"></div>
+                  <div className="absolute top-0 right-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+                </div>
+                
+                <h2 className="text-3xl font-bold mb-6 text-center text-white drop-shadow-[0_0px_1px_rgba(59,130,246,0.2)] [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(59,130,246,0.3)]">
+                  Join Our Elite Contractor Network
+                </h2>
+                
+                <div className="text-center mb-8 max-w-3xl mx-auto">
+                  <p className="text-white text-lg">
+                    For decades, this advanced coating technology has been exclusively used by government agencies including the U.S. military. Now, for the first time, we're making it available to select professional contractors.
+                  </p>
+                  <p className="text-blue-300 mt-2">
+                    The Korean Incheon Bridge, spanning over a mile of salt water, was coated with our technology 14 years ago and has required zero repainting despite harsh marine conditions.
+                  </p>
+                </div>
+                
+                <div className="grid md:grid-cols-5 gap-8">
+                  <div className="md:col-span-2">
+                    <div className="bg-gradient-to-br from-gray-800/80 via-gray-900/80 to-black/80 rounded-lg p-6 border border-blue-500/20 h-full">
+                      <h3 className="text-xl font-semibold mb-4 text-white flex items-center">
+                        <CheckCircle className="h-5 w-5 text-blue-400 mr-2" />
+                        Certified Applicator Benefits
+                      </h3>
+                      
+                      <div className="space-y-4">
+                        <div className="flex items-start">
+                          <div className="min-w-6 h-6 bg-blue-900/40 rounded-full flex items-center justify-center mt-0.5 mr-2">
+                            <span className="text-blue-400 text-xs font-bold">1</span>
+                          </div>
+                          <span className="text-gray-200">
+                            <span className="font-semibold text-white">Exclusive Territory Rights</span> - Protected service areas with limited partner competition
+                          </span>
+                        </div>
+                        
+                        <div className="flex items-start">
+                          <div className="min-w-6 h-6 bg-blue-900/40 rounded-full flex items-center justify-center mt-0.5 mr-2">
+                            <span className="text-blue-400 text-xs font-bold">2</span>
+                          </div>
+                          <span className="text-gray-200">
+                            <span className="font-semibold text-white">Premium Lead Pipeline</span> - Direct referrals for high-margin projects
+                          </span>
+                        </div>
+                        
+                        <div className="flex items-start">
+                          <div className="min-w-6 h-6 bg-blue-900/40 rounded-full flex items-center justify-center mt-0.5 mr-2">
+                            <span className="text-blue-400 text-xs font-bold">3</span>
+                          </div>
+                          <span className="text-gray-200">
+                            <span className="font-semibold text-white">Solar Installation Partnerships</span> - Direct referrals from solar companies
+                          </span>
+                        </div>
+                        
+                        <div className="flex items-start">
+                          <div className="min-w-6 h-6 bg-blue-900/40 rounded-full flex items-center justify-center mt-0.5 mr-2">
+                            <span className="text-blue-400 text-xs font-bold">4</span>
+                          </div>
+                          <span className="text-gray-200">
+                            <span className="font-semibold text-white">Training & Certification</span> - Proprietary application techniques and equipment
+                          </span>
+                        </div>
+                        
+                        <div className="flex items-start">
+                          <div className="min-w-6 h-6 bg-blue-900/40 rounded-full flex items-center justify-center mt-0.5 mr-2">
+                            <span className="text-blue-400 text-xs font-bold">5</span>
+                          </div>
+                          <span className="text-gray-200">
+                            <span className="font-semibold text-white">Premium Marketing Materials</span> - Case studies and sales tools that help close deals
+                          </span>
+                        </div>
+                      </div>
+                      
+                      <div className="mt-6 bg-blue-900/20 p-4 rounded-lg border border-blue-600/20">
+                        <p className="text-gray-300 text-sm italic">
+                          "The SmartCoat system completely transformed our business. We've increased our annual revenue by 178% while dramatically reducing callback costs. Most importantly, we now have a waitlist of clients requesting our services."
+                        </p>
+                        <p className="text-right text-blue-300 text-sm mt-2">— Mason Anderson, Certified Partner since 2019</p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="md:col-span-3">
+                    {contactSuccess ? (
+                      <div className="bg-gradient-to-br from-gray-800/70 via-gray-900/70 to-gray-900/70 p-6 rounded-lg border border-green-500/30">
+                        <div className="text-center">
+                          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-900/30 mb-4">
+                            <CheckCircle className="h-8 w-8 text-green-400" />
+                          </div>
+                          <h3 className="text-2xl font-bold text-white mb-2">Application Received!</h3>
+                          <p className="text-gray-300 mb-4">
+                            Thank you for your interest in becoming a Praetorian SmartCoat certified contractor. A member of our partnership team will contact you within 24-48 hours to discuss next steps and answer any questions.
+                          </p>
+                          <p className="text-green-400 font-medium">Your reference number: PSC-{Math.floor(Math.random() * 10000)}</p>
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="bg-gradient-to-br from-gray-800/70 via-gray-900/70 to-gray-900/70 p-6 rounded-lg border border-blue-500/30">
+                        <h3 className="text-xl font-semibold mb-6 text-white">Apply To Become A Certified Partner</h3>
+                        
+                        <Form {...form}>
+                          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                              <FormField
+                                control={form.control}
+                                name="firstName"
+                                render={({ field }) => (
+                                  <FormItem>
+                                    <FormLabel className="text-white">First Name*</FormLabel>
+                                    <FormControl>
+                                      <Input placeholder="John" {...field} className="bg-gray-900/70 border-gray-700 text-white" />
+                                    </FormControl>
+                                    <FormMessage />
+                                  </FormItem>
+                                )}
+                              />
+                              
+                              <FormField
+                                control={form.control}
+                                name="lastName"
+                                render={({ field }) => (
+                                  <FormItem>
+                                    <FormLabel className="text-white">Last Name*</FormLabel>
+                                    <FormControl>
+                                      <Input placeholder="Smith" {...field} className="bg-gray-900/70 border-gray-700 text-white" />
+                                    </FormControl>
+                                    <FormMessage />
+                                  </FormItem>
+                                )}
+                              />
+                            </div>
+                            
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                              <FormField
+                                control={form.control}
+                                name="email"
+                                render={({ field }) => (
+                                  <FormItem>
+                                    <FormLabel className="text-white">Email*</FormLabel>
+                                    <FormControl>
+                                      <Input placeholder="you@company.com" {...field} className="bg-gray-900/70 border-gray-700 text-white" />
+                                    </FormControl>
+                                    <FormMessage />
+                                  </FormItem>
+                                )}
+                              />
+                              
+                              <FormField
+                                control={form.control}
+                                name="phone"
+                                render={({ field }) => (
+                                  <FormItem>
+                                    <FormLabel className="text-white">Phone Number*</FormLabel>
+                                    <FormControl>
+                                      <Input placeholder="(555) 123-4567" {...field} className="bg-gray-900/70 border-gray-700 text-white" />
+                                    </FormControl>
+                                    <FormMessage />
+                                  </FormItem>
+                                )}
+                              />
+                            </div>
+                            
+                            <FormField
+                              control={form.control}
+                              name="companyName"
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormLabel className="text-white">Company Name*</FormLabel>
+                                  <FormControl>
+                                    <Input placeholder="Your Company" {...field} className="bg-gray-900/70 border-gray-700 text-white" />
+                                  </FormControl>
+                                  <FormMessage />
+                                </FormItem>
+                              )}
+                            />
+                            
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                              <FormField
+                                control={form.control}
+                                name="city"
+                                render={({ field }) => (
+                                  <FormItem>
+                                    <FormLabel className="text-white">City*</FormLabel>
+                                    <FormControl>
+                                      <Input placeholder="Anytown" {...field} className="bg-gray-900/70 border-gray-700 text-white" />
+                                    </FormControl>
+                                    <FormMessage />
+                                  </FormItem>
+                                )}
+                              />
+                              
+                              <FormField
+                                control={form.control}
+                                name="state"
+                                render={({ field }) => (
+                                  <FormItem>
+                                    <FormLabel className="text-white">State*</FormLabel>
+                                    <FormControl>
+                                      <Input placeholder="CA" {...field} className="bg-gray-900/70 border-gray-700 text-white" />
+                                    </FormControl>
+                                    <FormMessage />
+                                  </FormItem>
+                                )}
+                              />
+                            </div>
+                            
+                            {/* Sandler Pain Discovery Fields */}
+                            <div className="bg-blue-900/20 p-4 rounded-lg border border-blue-700/20 space-y-5">
+                              <h4 className="text-white font-medium">Business Information</h4>
+                              
+                              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                                <FormField
+                                  control={form.control}
+                                  name="projectType"
+                                  render={({ field }) => (
+                                    <FormItem>
+                                      <FormLabel className="text-white">Primary Project Types*</FormLabel>
+                                      <Select
+                                        onValueChange={field.onChange}
+                                        defaultValue={field.value}
+                                      >
+                                        <FormControl>
+                                          <SelectTrigger className="bg-gray-900/70 border-gray-700 text-white">
+                                            <SelectValue placeholder="Select..." />
+                                          </SelectTrigger>
+                                        </FormControl>
+                                        <SelectContent className="bg-gray-800 border-gray-700 text-white">
+                                          <SelectItem value="residential">Residential</SelectItem>
+                                          <SelectItem value="commercial">Commercial</SelectItem>
+                                          <SelectItem value="industrial">Industrial</SelectItem>
+                                          <SelectItem value="other">Other</SelectItem>
+                                        </SelectContent>
+                                      </Select>
+                                      <FormMessage />
+                                    </FormItem>
+                                  )}
+                                />
+                                
+                                <FormField
+                                  control={form.control}
+                                  name="projectTimeline"
+                                  render={({ field }) => (
+                                    <FormItem>
+                                      <FormLabel className="text-white">Interest Timeline*</FormLabel>
+                                      <Select
+                                        onValueChange={field.onChange}
+                                        defaultValue={field.value}
+                                      >
+                                        <FormControl>
+                                          <SelectTrigger className="bg-gray-900/70 border-gray-700 text-white">
+                                            <SelectValue placeholder="Select..." />
+                                          </SelectTrigger>
+                                        </FormControl>
+                                        <SelectContent className="bg-gray-800 border-gray-700 text-white">
+                                          <SelectItem value="immediate">Immediate (0-30 days)</SelectItem>
+                                          <SelectItem value="soon">Near-term (1-3 months)</SelectItem>
+                                          <SelectItem value="planning">Planning Phase (3-6 months)</SelectItem>
+                                          <SelectItem value="future">Future Consideration (6+ months)</SelectItem>
+                                        </SelectContent>
+                                      </Select>
+                                      <FormMessage />
+                                    </FormItem>
+                                  )}
+                                />
+                              </div>
+                              
+                              {/* Solar Interest - Budget Step in Sandler */}
+                              <FormField
+                                control={form.control}
+                                name="coatingNeeds"
+                                render={({ field }) => (
+                                  <FormItem>
+                                    <FormLabel className="text-white">Solar Installation Interest</FormLabel>
+                                    <Select
+                                      onValueChange={field.onChange}
+                                      defaultValue={field.value}
+                                    >
+                                      <FormControl>
+                                        <SelectTrigger className="bg-gray-900/70 border-gray-700 text-white">
+                                          <SelectValue placeholder="Select..." />
+                                        </SelectTrigger>
+                                      </FormControl>
+                                      <SelectContent className="bg-gray-800 border-gray-700 text-white">
+                                        <SelectItem value="both">Very Interested - This is a major opportunity</SelectItem>
+                                        <SelectItem value="exterior">Somewhat Interested - Would like to learn more</SelectItem>
+                                        <SelectItem value="interior">Not currently working with solar companies</SelectItem>
+                                        <SelectItem value="specialized">Already partnered with solar installers</SelectItem>
+                                      </SelectContent>
+                                    </Select>
+                                    <FormMessage />
+                                  </FormItem>
+                                )}
+                              />
+                              
+                              {/* Decision Process - Sandler Decision Step */}
+                              <FormField
+                                control={form.control}
+                                name="projectSize"
+                                render={({ field }) => (
+                                  <FormItem>
+                                    <FormLabel className="text-white">Preferred Next Step*</FormLabel>
+                                    <Select
+                                      onValueChange={field.onChange}
+                                      defaultValue={field.value}
+                                    >
+                                      <FormControl>
+                                        <SelectTrigger className="bg-gray-900/70 border-gray-700 text-white">
+                                          <SelectValue placeholder="Select..." />
+                                        </SelectTrigger>
+                                      </FormControl>
+                                      <SelectContent className="bg-gray-800 border-gray-700 text-white">
+                                        <SelectItem value="small">Schedule Call with Sales Representative</SelectItem>
+                                        <SelectItem value="medium">Request Product Sample Kit</SelectItem>
+                                        <SelectItem value="large">Schedule In-Person Demonstration</SelectItem>
+                                        <SelectItem value="custom">Receive Digital Information Package</SelectItem>
+                                      </SelectContent>
+                                    </Select>
+                                    <FormMessage />
+                                  </FormItem>
+                                )}
+                              />
+                            </div>
+                            
+                            <FormField
+                              control={form.control}
+                              name="message"
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormLabel className="text-white">Tell us about your business challenges & opportunities</FormLabel>
+                                  <FormControl>
+                                    <Textarea 
+                                      placeholder="What specific challenges are you facing in your painting business? What opportunities are you looking to capture?"
+                                      className="bg-gray-900/70 border-gray-700 text-white min-h-[100px]" 
+                                      {...field} 
+                                    />
+                                  </FormControl>
+                                  <FormMessage />
+                                </FormItem>
+                              )}
+                            />
+                            
+                            <FormField
+                              control={form.control}
+                              name="agreeToTerms"
+                              render={({ field }) => (
+                                <FormItem className="flex flex-row items-start space-x-3 space-y-0">
+                                  <FormControl>
+                                    <Checkbox
+                                      checked={field.value}
+                                      onCheckedChange={field.onChange}
+                                      className="data-[state=checked]:bg-blue-600 data-[state=checked]:border-blue-600"
+                                    />
+                                  </FormControl>
+                                  <div className="space-y-1 leading-none">
+                                    <FormLabel className="text-sm text-gray-300">
+                                      I agree to be contacted about becoming a certified contractor and receiving information about Praetorian SmartCoat products.*
+                                    </FormLabel>
+                                  </div>
+                                </FormItem>
+                              )}
+                            />
+                            
+                            <div className="pt-2">
+                              <button
+                                type="submit"
+                                className="w-full relative inline-flex items-center justify-center px-8 py-4 overflow-hidden font-medium text-blue-600 transition duration-300 ease-out border-2 border-blue-500 rounded-lg shadow-md group"
+                                disabled={contactMutation.isPending}
+                              >
+                                <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-blue-600 group-hover:translate-x-0 ease">
+                                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                  </svg>
+                                </span>
+                                <span className="absolute flex items-center justify-center w-full h-full text-blue-500 transition-all duration-300 transform group-hover:translate-x-full ease">
+                                  {contactMutation.isPending ? "Processing..." : "Submit Application"}
+                                </span>
+                                <span className="relative invisible">Submit Application</span>
+                              </button>
+                            </div>
+                          </form>
+                        </Form>
+                      </div>
+                    )}
+                  </div>
+                </div>
+                
+                <div className="mt-8 text-center text-gray-400 text-sm max-w-3xl mx-auto">
+                  <p>
+                    Praetorian SmartCoat technology has been extensively tested and used by government agencies for over 30 years. Now, for the first time, this same military-grade technology is being made available to select commercial partners.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </MainLayout>
   );
