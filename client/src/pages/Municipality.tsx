@@ -1121,10 +1121,14 @@ export default function Municipality() {
                         </div>
                       </div>
                       
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-                        <div>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8 relative">
+                        {/* Enhanced green ambient glow for entire ROI calculator section */}
+                        <div className="absolute -inset-4 bg-green-500/30 rounded-xl blur-3xl opacity-70 z-0"></div>
+                        <div className="absolute -inset-8 bg-green-500/20 rounded-xl blur-2xl opacity-60 z-0 animate-pulse-slow"></div>
+                        
+                        <div className="relative z-10">
                           <h3 className="text-xl font-semibold mb-6 text-white flex items-center">
-                            <CircleDollarSign className="w-5 h-5 mr-2 text-blue-400" />
+                            <CircleDollarSign className="w-5 h-5 mr-2 text-green-400" />
                             Current Maintenance Expenditure
                           </h3>
                           
@@ -1136,7 +1140,7 @@ export default function Municipality() {
                               </label>
                               <input 
                                 type="number" 
-                                className="w-full bg-gray-900/50 border border-gray-700 rounded-lg p-3 text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                                className="w-full bg-gray-900/50 border border-green-500/30 rounded-lg p-3 text-white focus:border-green-500 focus:ring-1 focus:ring-green-500"
                                 placeholder="75000"
                                 value={roiCalculatorData.annualMaintenanceCost}
                                 onChange={(e) => setRoiCalculatorData({
@@ -1194,9 +1198,9 @@ export default function Municipality() {
                           </div>
                         </div>
                         
-                        <div>
+                        <div className="relative z-10">
                           <h3 className="text-xl font-semibold mb-6 text-white flex items-center">
-                            <Landmark className="w-5 h-5 mr-2 text-blue-400" />
+                            <Landmark className="w-5 h-5 mr-2 text-green-400" />
                             Infrastructure Specifications
                           </h3>
                           
@@ -1204,7 +1208,7 @@ export default function Municipality() {
                             <div>
                               <label className="block text-gray-300 mb-2">Infrastructure Type</label>
                               <select 
-                                className="w-full bg-gray-900/50 border border-gray-700 rounded-lg p-3 text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                                className="w-full bg-gray-900/50 border border-green-500/30 rounded-lg p-3 text-white focus:border-green-500 focus:ring-1 focus:ring-green-500"
                                 value={roiCalculatorData.infrastructureType}
                                 onChange={(e) => setRoiCalculatorData({
                                   ...roiCalculatorData,
@@ -1228,7 +1232,7 @@ export default function Municipality() {
                               <label className="block text-gray-300 mb-2">Total Surface Area (sq ft)</label>
                               <input 
                                 type="number" 
-                                className="w-full bg-gray-900/50 border border-gray-700 rounded-lg p-3 text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                                className="w-full bg-gray-900/50 border border-green-500/30 rounded-lg p-3 text-white focus:border-green-500 focus:ring-1 focus:ring-green-500"
                                 placeholder="50000"
                                 value={roiCalculatorData.surfaceArea}
                                 onChange={(e) => setRoiCalculatorData({
