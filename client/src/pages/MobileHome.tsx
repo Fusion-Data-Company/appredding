@@ -953,9 +953,10 @@ const MobileHome = () => {
                                     placeholder="Enter years in business" 
                                     type="number"
                                     onChange={(e: ChangeEvent<HTMLInputElement>) => 
-                                      onChange(parseInt(e.target.value) || 0)
+                                      onChange(e.target.value ? parseInt(e.target.value) : 0)
                                     }
-                                    {...rest} 
+                                    {...rest}
+                                    value={rest.value?.toString() || ""} 
                                     className="bg-gray-900/70 border-gray-700 text-white"
                                   />
                                 </FormControl>
@@ -1023,6 +1024,7 @@ const MobileHome = () => {
                                 <Textarea 
                                   placeholder="Any additional information you'd like to share" 
                                   {...field} 
+                                  value={field.value || ""}
                                   className="bg-gray-900/70 border-gray-700 text-white min-h-[100px]"
                                 />
                               </FormControl>

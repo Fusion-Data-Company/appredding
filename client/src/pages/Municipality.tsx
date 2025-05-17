@@ -357,7 +357,12 @@ const MunicipalityProfessionalForm = () => {
                     <FormItem>
                       <FormLabel>Registration/License Number</FormLabel>
                       <FormControl>
-                        <Input placeholder="Registration number" {...field} className="bg-primary-800 border-primary-600" />
+                        <Input 
+                          placeholder="Registration number" 
+                          {...field} 
+                          value={field.value || ""}
+                          className="bg-primary-800 border-primary-600" 
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
