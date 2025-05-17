@@ -1448,32 +1448,43 @@ export default function Municipality() {
                       
                       {/* Estimated 10-Year ROI Summary Box */}
                       <div className="mb-8 relative">
-                        {/* Premium ultra-bright green glow behind the ROI summary box */}
-                        <div className="absolute -inset-6 bg-green-500/40 rounded-xl blur-2xl opacity-90 -z-10 animate-pulse-slow"></div>
-                        <div className="absolute -inset-4 bg-green-400/30 rounded-xl blur-xl opacity-80 -z-10"></div>
-                        <div className="absolute -inset-2 bg-green-300/20 rounded-xl blur-md opacity-70 -z-10"></div>
+                        {/* Premium accent squares instead of blur glow */}
+                        <div className="absolute top-6 left-6 w-14 h-14 bg-green-500/20 border border-green-500/30 rounded-md -z-10"></div>
+                        <div className="absolute bottom-6 right-6 w-12 h-12 bg-green-500/20 border border-green-500/30 rounded-md -z-10"></div>
+                        <div className="absolute top-14 right-14 w-10 h-10 bg-blue-500/20 border border-blue-500/30 rounded-md -z-10"></div>
+                        <div className="absolute bottom-14 left-14 w-8 h-8 bg-orange-500/20 border border-orange-500/30 rounded-md -z-10"></div>
+                        
+                        {/* Green glow effect that doesn't blur */}
+                        <div className="absolute inset-0 border-4 border-green-500/20 rounded-xl -z-10"></div>
+                        <div className="absolute inset-[6px] border-2 border-green-400/30 rounded-xl -z-10"></div>
+                        <div className="absolute -bottom-1 -right-1 w-24 h-24 bg-green-500/10 rounded-full -z-10 animate-pulse-slow"></div>
+                        <div className="absolute -top-1 -left-1 w-24 h-24 bg-green-500/10 rounded-full -z-10 animate-pulse-slow"></div>
                         
                         {/* Main ROI summary box with fully opaque background */}
-                        <div className="relative border-2 border-green-500/50 rounded-xl bg-gray-900 shadow-[0_0_25px_rgba(74,222,128,0.4)] p-6 z-0">
+                        <div className="relative border-2 border-green-500/50 rounded-xl bg-gray-900 shadow-[0_0_15px_rgba(74,222,128,0.3)] p-6 z-0">
                           {/* Corner accents */}
-                          <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-green-400/80"></div>
-                          <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-green-400/80"></div>
-                          <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-green-400/80"></div>
-                          <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-green-400/80"></div>
+                          <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-green-400/80"></div>
+                          <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-green-400/80"></div>
+                          <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-green-400/80"></div>
+                          <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-green-400/80"></div>
                           
-                          {/* Header with premium styling */}
+                          {/* Edge accent lines */}
+                          <div className="absolute top-4 left-0 w-2 h-20 border-l-2 border-green-400/40"></div>
+                          <div className="absolute bottom-4 right-0 w-2 h-20 border-r-2 border-green-400/40"></div>
+                          
+                          {/* Header with premium styling - no blurring */}
                           <div className="text-center mb-6">
-                            <div className="inline-flex items-center mb-3 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 px-6 py-2 rounded-full border border-green-400/30">
+                            <div className="inline-flex items-center mb-3 bg-gradient-to-r from-gray-900 via-gray-850 to-gray-900 px-6 py-2 rounded-xl border border-green-400/30">
                               <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green-600 via-green-500 to-green-400 p-[2px] shadow-lg mr-3">
                                 <div className="w-full h-full rounded-full bg-gray-900 flex items-center justify-center overflow-hidden">
                                   <TrendingUp className="w-5 h-5 text-green-400" />
                                 </div>
                               </div>
-                              <h3 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-green-200 to-white animate-text-shimmer">
+                              <h3 className="text-xl font-bold text-white">
                                 Estimated 10-Year ROI
+                                <div className="h-[2px] w-full bg-gradient-to-r from-green-500 via-green-400 to-green-500 mt-1"></div>
                               </h3>
                             </div>
-                            <div className="h-[2px] w-48 mx-auto bg-gradient-to-r from-transparent via-green-400 to-transparent"></div>
                           </div>
                           
                           {/* ROI Value */}
@@ -1730,10 +1741,59 @@ export default function Municipality() {
                   </GradientButton>
                 </div>
                 
-                <div className="bg-gray-900/50 border border-blue-500/30 rounded-lg p-6 text-center">
-                  <h4 className="text-lg font-medium mb-3 text-white">Estimated 10-Year ROI</h4>
-                  <p className="text-3xl font-bold text-blue-300 mb-2">$380,000 - $450,000</p>
-                  <p className="text-gray-400">Based on average municipal infrastructure applications</p>
+                {/* Premium Estimated 10-Year ROI Section */}
+                <div className="relative mb-8">
+                  {/* Premium accent squares */}
+                  <div className="absolute top-4 left-4 w-12 h-12 bg-green-500/20 border border-green-500/30 rounded-md -z-10"></div>
+                  <div className="absolute bottom-4 right-4 w-10 h-10 bg-green-500/20 border border-green-500/30 rounded-md -z-10"></div>
+                  <div className="absolute top-10 right-10 w-8 h-8 bg-blue-500/20 border border-blue-500/30 rounded-md -z-10"></div>
+                  <div className="absolute bottom-10 left-10 w-6 h-6 bg-orange-500/20 border border-orange-500/30 rounded-md -z-10"></div>
+                  
+                  {/* Green accent glow without blur */}
+                  <div className="absolute inset-0 border-4 border-green-500/20 rounded-xl -z-10"></div>
+                  <div className="absolute inset-[6px] border-2 border-green-400/30 rounded-xl -z-10"></div>
+                  
+                  {/* Main ROI box with fully opaque background */}
+                  <div className="bg-gray-900 border-2 border-green-500/40 rounded-xl p-6 text-center relative shadow-[0_0_15px_rgba(74,222,128,0.3)] z-0">
+                    {/* Corner accents */}
+                    <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-green-400/80"></div>
+                    <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-green-400/80"></div>
+                    <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-green-400/80"></div>
+                    <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-green-400/80"></div>
+                    
+                    {/* Top premium header bar */}
+                    <div className="mb-6 relative">
+                      <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gray-900 px-4 z-10">
+                        <div className="flex items-center justify-center">
+                          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green-600 via-green-500 to-green-400 p-[2px] shadow-lg mr-3">
+                            <div className="w-full h-full rounded-full bg-gray-900 flex items-center justify-center">
+                              <TrendingUp className="w-5 h-5 text-green-400" />
+                            </div>
+                          </div>
+                          <h4 className="text-xl font-bold text-white">Estimated 10-Year ROI</h4>
+                        </div>
+                      </div>
+                      <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-green-500 to-transparent mt-4"></div>
+                    </div>
+
+                    {/* Premium money value display */}
+                    <div className="flex justify-center items-center mb-4">
+                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-green-600 via-green-500 to-green-400 p-[2px] shadow-xl mr-3 flex-shrink-0">
+                        <div className="w-full h-full rounded-full bg-gray-900 flex items-center justify-center">
+                          <DollarSign className="w-6 h-6 text-green-400" />
+                        </div>
+                      </div>
+                      <p className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-green-300 via-white to-green-300">
+                        $380,000 - $450,000
+                      </p>
+                    </div>
+                    
+                    <p className="text-green-300 text-lg mb-2">Return On Investment</p>
+                    <p className="text-gray-300">Based on average municipal infrastructure applications</p>
+                    
+                    {/* Bottom edge highlight */}
+                    <div className="h-[1px] w-2/3 mx-auto bg-gradient-to-r from-transparent via-green-500/30 to-transparent mt-4"></div>
+                  </div>
                 </div>
               </div>
             </div>
