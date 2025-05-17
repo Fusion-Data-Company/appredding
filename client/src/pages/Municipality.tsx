@@ -142,9 +142,31 @@ export default function Municipality() {
   return (
     <MainLayout>
       <div className="bg-black min-h-screen text-white">
-        {/* Hero Section */}
+        {/* Hero Section with enhanced infrastructure-themed background */}
         <section className="relative py-20 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-b from-blue-900/20 to-black/90 z-0"></div>
+          {/* Infrastructure-themed background with professional styling */}
+          <div className="absolute inset-0 bg-[url('/src/assets_dir/images/municipality-infrastructure.jpg')] bg-cover bg-center opacity-30 z-0"></div>
+          
+          {/* Premium enterprise-elite gradient overlay with enhanced depth */}
+          <div className="absolute inset-0 z-0 opacity-90" style={{ 
+            background: 'linear-gradient(150deg, rgba(0,0,20,0.90) 0%, rgba(0,20,40,0.95) 50%, rgba(10,30,60,0.92) 100%)',
+            mixBlendMode: 'multiply'
+          }}></div>
+          
+          {/* Dynamic light effect - subtle blue glow representing infrastructure technology */}
+          <div className="absolute inset-0 z-0 pointer-events-none">
+            <div className="absolute -bottom-10 left-1/3 w-[800px] h-[800px] bg-blue-600/5 rounded-full blur-[150px] animate-pulse-slow"></div>
+            <div className="absolute top-1/4 right-1/3 w-[500px] h-[500px] bg-blue-700/3 rounded-full blur-[100px] animate-pulse-slower"></div>
+          </div>
+          
+          {/* Low-opacity texture overlay for professional depth */}
+          <div 
+            className="absolute inset-0 z-0 opacity-10 pointer-events-none"
+            style={{
+              backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'40\' height=\'40\' viewBox=\'0 0 40 40\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%230077cc\' fill-opacity=\'0.3\' fill-rule=\'evenodd\'%3E%3Cpath d=\'M0 38.59l2.83-2.83 1.41 1.41L1.41 40H0v-1.41zM0 1.4l2.83 2.83 1.41-1.41L1.41 0H0v1.41zM38.59 40l-2.83-2.83 1.41-1.41L40 38.59V40h-1.41zM40 1.41l-2.83 2.83-1.41-1.41L38.59 0H40v1.41zM20 18.6l2.83-2.83 1.41 1.41L21.41 20l2.83 2.83-1.41 1.41L20 21.41l-2.83 2.83-1.41-1.41L18.59 20l-2.83-2.83 1.41-1.41L20 18.59z\'/%3E%3C/g%3E%3C/svg%3E")',
+              backgroundSize: '40px 40px'
+            }}
+          />
           <div className="container mx-auto px-4 relative z-10">
             <div className="flex flex-col items-center max-w-4xl mx-auto text-center mb-16 relative">
               {/* Premium ambient glow effect */}

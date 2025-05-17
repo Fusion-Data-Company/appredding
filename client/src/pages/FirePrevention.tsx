@@ -98,20 +98,38 @@ const FirePrevention = () => {
   return (
     <MainLayout fullWidth={true}>
       <div className="relative">
-        {/* Full-page fire background */}
+        {/* Full-page fire background with advanced styling */}
         <div 
           className="fixed inset-0 z-0 bg-center bg-cover bg-no-repeat" 
           style={{ 
             backgroundImage: `url(${fireBgImage})`,
             backgroundAttachment: 'fixed',
-            backgroundPosition: 'center center', // Standardized position
+            backgroundPosition: 'center center',
             backgroundSize: 'cover',
             opacity: 0.95
           }}
         />
         
-        {/* Semi-transparent dark overlay to make text readable */}
-        <div className="fixed inset-0 z-0 bg-black/40"></div>
+        {/* Premium enterprise-elite gradient overlay with enhanced depth */}
+        <div className="fixed inset-0 z-0 opacity-90" style={{ 
+          background: 'linear-gradient(130deg, rgba(0,0,0,0.85) 0%, rgba(20,5,0,0.95) 45%, rgba(30,10,0,0.92) 70%, rgba(50,20,2,0.85) 100%)',
+          mixBlendMode: 'multiply'
+        }}></div>
+        
+        {/* Dynamic ember particle effect - subtle fire particles */}
+        <div className="fixed inset-0 z-0 pointer-events-none">
+          <div className="absolute -bottom-10 left-1/3 w-[700px] h-[700px] bg-orange-600/5 rounded-full blur-[120px] animate-pulse-slow"></div>
+          <div className="absolute top-1/4 right-1/3 w-[500px] h-[500px] bg-red-700/3 rounded-full blur-[100px] animate-pulse-slower"></div>
+        </div>
+        
+        {/* Low-opacity carbon pattern overlay for texture */}
+        <div 
+          className="fixed inset-0 z-0 opacity-10 pointer-events-none"
+          style={{
+            backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23ff7700\' fill-opacity=\'0.3\' fill-rule=\'evenodd\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/svg%3E")',
+            backgroundSize: '60px 60px'
+          }}
+        />
         
         {/* Main content section - optimized for mobile */}
         <section className="py-10 md:py-24 relative z-10">
