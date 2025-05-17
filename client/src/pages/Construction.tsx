@@ -173,45 +173,67 @@ const ConstructionPage = () => {
                   <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent"></div>
                 </div>
                 
-                {/* Enhanced ROI-focused stats in enterprise grid format */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-                  {/* Cost Savings */}
-                  <div className="relative group">
-                    <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600/20 to-blue-400/20 rounded-lg blur opacity-50 group-hover:opacity-100 transition-all duration-500"></div>
-                    <div className="relative bg-gradient-to-br from-black/80 to-gray-900/80 p-5 rounded-lg border border-blue-500/30 shadow-[0_4px_20px_rgba(0,0,0,0.2)] transform group-hover:-translate-y-1 transition-all duration-300">
-                      <CircleDollarSign className="text-blue-400 h-6 w-6 mb-2 opacity-80 group-hover:opacity-100" />
-                      <p className="text-2xl font-bold text-white mb-1 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">$3.2M</p>
-                      <p className="text-blue-300 text-sm">Average Cost Savings</p>
-                    </div>
-                  </div>
+                {/* Enhanced ROI-focused stats in enterprise grid format with premium green styling */}
+                <div className="relative mb-8">
+                  {/* Enhanced green ambient glow for ROI section */}
+                  <div className="absolute -inset-4 bg-green-500/30 rounded-xl blur-3xl opacity-70 z-0"></div>
+                  <div className="absolute -inset-8 bg-green-500/20 rounded-xl blur-2xl opacity-60 z-0 animate-pulse-slow"></div>
                   
-                  {/* Lifecycle Reduction */}
-                  <div className="relative group">
-                    <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600/20 to-blue-400/20 rounded-lg blur opacity-50 group-hover:opacity-100 transition-all duration-500"></div>
-                    <div className="relative bg-gradient-to-br from-black/80 to-gray-900/80 p-5 rounded-lg border border-blue-500/30 shadow-[0_4px_20px_rgba(0,0,0,0.2)] transform group-hover:-translate-y-1 transition-all duration-300">
-                      <Building className="text-blue-400 h-6 w-6 mb-2 opacity-80 group-hover:opacity-100" />
-                      <p className="text-2xl font-bold text-white mb-1 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">27.8%</p>
-                      <p className="text-blue-300 text-sm">Lifecycle Cost Reduction</p>
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 relative z-10">
+                    {/* Cost Savings */}
+                    <div className="relative group">
+                      <div className="relative bg-gray-900/60 p-5 rounded-lg border-2 border-green-500/30 shadow-[0_0_20px_rgba(74,222,128,0.2)] transform group-hover:-translate-y-1 transition-all duration-300">
+                        <div className="flex items-center justify-center mb-2">
+                          <div className="bg-gradient-to-br from-green-600 to-green-700 rounded-full p-1 
+                            border border-green-400/40 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_0_4px_rgba(74,222,128,0.4)]">
+                            <CircleDollarSign className="w-4 h-4 text-green-100" />
+                          </div>
+                        </div>
+                        <p className="text-2xl font-bold text-green-400 mb-1 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">$3.2M</p>
+                        <p className="text-blue-300 text-sm">Average Cost Savings</p>
+                      </div>
                     </div>
-                  </div>
-                  
-                  {/* Maintenance Savings */}
-                  <div className="relative group">
-                    <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600/20 to-blue-400/20 rounded-lg blur opacity-50 group-hover:opacity-100 transition-all duration-500"></div>
-                    <div className="relative bg-gradient-to-br from-black/80 to-gray-900/80 p-5 rounded-lg border border-blue-500/30 shadow-[0_4px_20px_rgba(0,0,0,0.2)] transform group-hover:-translate-y-1 transition-all duration-300">
-                      <Wrench className="text-blue-400 h-6 w-6 mb-2 opacity-80 group-hover:opacity-100" />
-                      <p className="text-2xl font-bold text-white mb-1 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">76.4%</p>
-                      <p className="text-blue-300 text-sm">Maintenance Cost Savings</p>
+                    
+                    {/* Lifecycle Reduction */}
+                    <div className="relative group">
+                      <div className="relative bg-gray-900/60 p-5 rounded-lg border-2 border-green-500/30 shadow-[0_0_20px_rgba(74,222,128,0.2)] transform group-hover:-translate-y-1 transition-all duration-300">
+                        <div className="flex items-center justify-center mb-2">
+                          <div className="bg-gradient-to-br from-green-600 to-green-700 rounded-full p-1 
+                            border border-green-400/40 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_0_4px_rgba(74,222,128,0.4)]">
+                            <Building className="w-4 h-4 text-green-100" />
+                          </div>
+                        </div>
+                        <p className="text-2xl font-bold text-green-400 mb-1 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">27.8%</p>
+                        <p className="text-blue-300 text-sm">Lifecycle Cost Reduction</p>
+                      </div>
                     </div>
-                  </div>
-                  
-                  {/* Total ROI */}
-                  <div className="relative group">
-                    <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/30 to-blue-600/20 rounded-lg blur opacity-70 group-hover:opacity-100 transition-all duration-500"></div>
-                    <div className="relative bg-gradient-to-br from-black/80 to-gray-900/80 p-5 rounded-lg border border-orange-500/30 shadow-[0_4px_20px_rgba(0,0,0,0.2)] transform group-hover:-translate-y-1 transition-all duration-300">
-                      <Award className="text-orange-400 h-6 w-6 mb-2 opacity-80 group-hover:opacity-100" />
-                      <p className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-orange-300 to-orange-200 mb-1 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">642%</p>
-                      <p className="text-orange-300 text-sm">Total Cost ROI</p>
+                    
+                    {/* Maintenance Savings */}
+                    <div className="relative group">
+                      <div className="relative bg-gray-900/60 p-5 rounded-lg border-2 border-green-500/30 shadow-[0_0_20px_rgba(74,222,128,0.2)] transform group-hover:-translate-y-1 transition-all duration-300">
+                        <div className="flex items-center justify-center mb-2">
+                          <div className="bg-gradient-to-br from-green-600 to-green-700 rounded-full p-1 
+                            border border-green-400/40 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_0_4px_rgba(74,222,128,0.4)]">
+                            <Wrench className="w-4 h-4 text-green-100" />
+                          </div>
+                        </div>
+                        <p className="text-2xl font-bold text-green-400 mb-1 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">76.4%</p>
+                        <p className="text-blue-300 text-sm">Maintenance Cost Savings</p>
+                      </div>
+                    </div>
+                    
+                    {/* Total ROI */}
+                    <div className="relative group">
+                      <div className="relative bg-gray-900/60 p-5 rounded-lg border-2 border-green-500/30 shadow-[0_0_20px_rgba(74,222,128,0.2)] transform group-hover:-translate-y-1 transition-all duration-300">
+                        <div className="flex items-center justify-center mb-2">
+                          <div className="bg-gradient-to-br from-green-600 to-green-700 rounded-full p-1 
+                            border border-green-400/40 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_0_4px_rgba(74,222,128,0.4)]">
+                            <Award className="w-4 h-4 text-green-100" />
+                          </div>
+                        </div>
+                        <p className="text-2xl font-bold text-green-400 mb-1 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">642%</p>
+                        <p className="text-green-300 text-sm">Total Cost ROI</p>
+                      </div>
                     </div>
                   </div>
                 </div>

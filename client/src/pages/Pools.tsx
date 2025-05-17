@@ -1,7 +1,18 @@
 import { useState } from 'react';
 import MainLayout from '@/components/layout/MainLayout';
 import { motion } from "framer-motion";
-import { CheckCircle, Droplets, CircleDollarSign, AreaChart, BarChart3, BarChart2, ChevronRight } from "lucide-react";
+import { 
+  CheckCircle, 
+  Droplets, 
+  CircleDollarSign, 
+  AreaChart, 
+  BarChart3, 
+  BarChart2, 
+  ChevronRight,
+  TrendingUp,
+  DollarSign,
+  Clock
+} from "lucide-react";
 
 interface CoatingProduct {
   name: string;
