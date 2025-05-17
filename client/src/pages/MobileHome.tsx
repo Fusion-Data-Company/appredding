@@ -633,9 +633,16 @@ const MobileHome = () => {
                       </div>
                       
                       <button className="relative w-full mt-4 group" onClick={handleShowRegistrationForm}>
-                        <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-600 to-blue-600 rounded-lg blur opacity-60 group-hover:opacity-100 transition duration-300"></div>
-                        <div className="relative bg-black rounded-lg group-hover:bg-gradient-to-br from-gray-900 to-black transition-all duration-200 py-3 px-6 border border-orange-500/30 text-white font-semibold text-center">
-                          Get Detailed ROI Report
+                        <div className="absolute -inset-0.5 bg-gradient-to-r from-green-600 to-green-500 rounded-lg blur opacity-60 group-hover:opacity-100 transition duration-300"></div>
+                        <div className="relative bg-black rounded-lg group-hover:bg-gradient-to-br from-gray-900 to-black transition-all duration-200 py-3 px-6 border-2 border-green-500/50 text-white font-semibold text-center overflow-hidden">
+                          {/* Light shimmer animation effect */}
+                          <span className="absolute inset-0 overflow-hidden">
+                            <span className="absolute top-0 -left-3/4 w-1/2 h-full bg-gradient-to-r from-transparent via-green-100/20 to-transparent transform -skew-x-30 animate-shimmer"></span>
+                          </span>
+                          <div className="flex items-center justify-center">
+                            <CircleDollarSign className="w-5 h-5 mr-2 text-green-400" />
+                            Get Detailed ROI Report
+                          </div>
                         </div>
                       </button>
                     </div>

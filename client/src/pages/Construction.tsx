@@ -635,7 +635,11 @@ const ConstructionPage = () => {
                                 <FormControl>
                                   <Input 
                                     {...field} 
-                                    className="bg-gray-900/50 border-blue-500/30 text-white focus:border-blue-400" 
+                                    className="bg-gray-900/60 border-2 border-green-500/50 rounded-lg text-white focus:border-green-500 focus:ring-2 focus:ring-green-500/40 shadow-[0_0_10px_rgba(74,222,128,0.15)]"
+                                    style={{
+                                      textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)",
+                                      boxShadow: "0 0 15px rgba(74, 222, 128, 0.15), inset 0 0 10px rgba(0, 0, 0, 0.3)"
+                                    }}
                                     placeholder="Your Company Name" 
                                   />
                                 </FormControl>
@@ -707,13 +711,20 @@ const ConstructionPage = () => {
                         {/* Submit Button */}
                         <div className="text-center mt-6">
                           <div className="relative inline-block">
-                            <div className="absolute -inset-2 bg-gradient-to-r from-blue-600/20 via-blue-600/30 to-blue-600/20 rounded-full blur-xl opacity-70"></div>
+                            <div className="absolute -inset-2 bg-gradient-to-r from-green-600/20 via-green-600/30 to-green-600/20 rounded-full blur-xl opacity-70"></div>
                             <Button 
                               type="submit" 
-                              className="relative px-8 py-3 bg-gradient-to-r from-blue-600 to-blue-500 text-white text-lg font-medium rounded-lg hover:from-blue-700 hover:to-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900"
+                              className="relative px-8 py-3 bg-gradient-to-br from-gray-800 to-gray-900 text-white text-lg font-medium rounded-lg hover:from-gray-700 hover:to-gray-800 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-gray-900 border-2 border-green-500/50 overflow-hidden"
                               disabled={registerMutation.isPending}
                             >
-                              {registerMutation.isPending ? "Submitting..." : "Register for ROI Analysis"}
+                              {/* Light shimmer animation effect */}
+                              <span className="absolute inset-0 overflow-hidden">
+                                <span className="absolute top-0 -left-3/4 w-1/2 h-full bg-gradient-to-r from-transparent via-green-100/20 to-transparent transform -skew-x-30 animate-shimmer"></span>
+                              </span>
+                              <div className="flex items-center justify-center">
+                                <CircleDollarSign className="h-5 w-5 mr-2 text-green-400" />
+                                {registerMutation.isPending ? "Submitting..." : "Register for ROI Analysis"}
+                              </div>
                             </Button>
                           </div>
                         </div>

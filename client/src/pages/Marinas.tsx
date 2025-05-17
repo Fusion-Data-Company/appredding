@@ -605,8 +605,8 @@ const Marinas = () => {
                                   <span className="text-white font-semibold">$1.84M</span>
                                 </div>
                                 <div className="mt-3 flex justify-center items-center">
-                                  <div className="bg-gradient-to-r from-green-600 to-green-400 px-4 py-2 rounded-lg">
-                                    <span className="text-2xl font-bold text-white">411% ROI</span>
+                                  <div className="bg-gradient-to-r from-green-600 to-green-400 px-4 py-2 rounded-lg shadow-[0_0_15px_rgba(74,222,128,0.5)]">
+                                    <span className="text-2xl font-bold text-white" style={{ textShadow: "0 2px 4px rgba(0, 0, 0, 0.3)" }}>411% ROI</span>
                                   </div>
                                 </div>
                               </div>
@@ -615,13 +615,13 @@ const Marinas = () => {
                         </div>
                         
                         <div className="relative">
-                          <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/40 via-blue-500/30 to-blue-600/40 rounded-lg blur-md opacity-80"></div>
+                          <div className="absolute -inset-1 bg-gradient-to-r from-green-600/40 via-green-500/30 to-green-600/40 rounded-lg blur-md opacity-80"></div>
                           <div className="relative">
                             <PremiumCartButton 
                               onClick={handleShowRegistrationForm} 
                               size="lg" 
-                              className="w-full relative group"
-                              variant="blue"
+                              className="w-full relative group border border-green-500/50"
+                              variant="default"
                             >
                               <div className="flex items-center justify-center gap-2">
                                 <BarChart3 className="h-5 w-5" />
