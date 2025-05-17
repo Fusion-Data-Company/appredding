@@ -656,7 +656,11 @@ const FirePrevention = () => {
                                     <Input
                                       {...field}
                                       placeholder="Enter your first name"
-                                      className="bg-black/50 border-gray-700 text-white placeholder:text-gray-500"
+                                      className="bg-gray-900/60 border-2 border-green-500/50 rounded-lg text-white focus:border-green-500 focus:ring-2 focus:ring-green-500/40 shadow-[0_0_10px_rgba(74,222,128,0.15)] placeholder:text-gray-500"
+                                      style={{
+                                        textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)",
+                                        boxShadow: "0 0 15px rgba(74, 222, 128, 0.15), inset 0 0 10px rgba(0, 0, 0, 0.3)"
+                                      }}
                                     />
                                   </FormControl>
                                   <FormMessage />
@@ -673,7 +677,11 @@ const FirePrevention = () => {
                                     <Input
                                       {...field}
                                       placeholder="Enter your last name"
-                                      className="bg-black/50 border-gray-700 text-white placeholder:text-gray-500"
+                                      className="bg-gray-900/60 border-2 border-green-500/50 rounded-lg text-white focus:border-green-500 focus:ring-2 focus:ring-green-500/40 shadow-[0_0_10px_rgba(74,222,128,0.15)] placeholder:text-gray-500"
+                                      style={{
+                                        textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)",
+                                        boxShadow: "0 0 15px rgba(74, 222, 128, 0.15), inset 0 0 10px rgba(0, 0, 0, 0.3)"
+                                      }}
                                     />
                                   </FormControl>
                                   <FormMessage />
@@ -694,7 +702,11 @@ const FirePrevention = () => {
                                       {...field}
                                       type="email"
                                       placeholder="Enter your email"
-                                      className="bg-black/50 border-gray-700 text-white placeholder:text-gray-500"
+                                      className="bg-gray-900/60 border-2 border-green-500/50 rounded-lg text-white focus:border-green-500 focus:ring-2 focus:ring-green-500/40 shadow-[0_0_10px_rgba(74,222,128,0.15)] placeholder:text-gray-500"
+                                      style={{
+                                        textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)",
+                                        boxShadow: "0 0 15px rgba(74, 222, 128, 0.15), inset 0 0 10px rgba(0, 0, 0, 0.3)"
+                                      }}
                                     />
                                   </FormControl>
                                   <FormMessage />
@@ -749,7 +761,11 @@ const FirePrevention = () => {
                                     <Input
                                       {...field}
                                       placeholder="City"
-                                      className="bg-black/50 border-gray-700 text-white placeholder:text-gray-500"
+                                      className="bg-gray-900/60 border-2 border-green-500/50 rounded-lg text-white focus:border-green-500 focus:ring-2 focus:ring-green-500/40 shadow-[0_0_10px_rgba(74,222,128,0.15)] placeholder:text-gray-500"
+                                      style={{
+                                        textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)",
+                                        boxShadow: "0 0 15px rgba(74, 222, 128, 0.15), inset 0 0 10px rgba(0, 0, 0, 0.3)"
+                                      }}
                                     />
                                   </FormControl>
                                   <FormMessage />
@@ -766,7 +782,11 @@ const FirePrevention = () => {
                                     <Input
                                       {...field}
                                       placeholder="State"
-                                      className="bg-black/50 border-gray-700 text-white placeholder:text-gray-500"
+                                      className="bg-gray-900/60 border-2 border-green-500/50 rounded-lg text-white focus:border-green-500 focus:ring-2 focus:ring-green-500/40 shadow-[0_0_10px_rgba(74,222,128,0.15)] placeholder:text-gray-500"
+                                      style={{
+                                        textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)",
+                                        boxShadow: "0 0 15px rgba(74, 222, 128, 0.15), inset 0 0 10px rgba(0, 0, 0, 0.3)"
+                                      }}
                                     />
                                   </FormControl>
                                   <FormMessage />
@@ -783,7 +803,11 @@ const FirePrevention = () => {
                                     <Input
                                       {...field}
                                       placeholder="Zip Code"
-                                      className="bg-black/50 border-gray-700 text-white placeholder:text-gray-500"
+                                      className="bg-gray-900/60 border-2 border-green-500/50 rounded-lg text-white focus:border-green-500 focus:ring-2 focus:ring-green-500/40 shadow-[0_0_10px_rgba(74,222,128,0.15)] placeholder:text-gray-500"
+                                      style={{
+                                        textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)",
+                                        boxShadow: "0 0 15px rgba(74, 222, 128, 0.15), inset 0 0 10px rgba(0, 0, 0, 0.3)"
+                                      }}
                                     />
                                   </FormControl>
                                   <FormMessage />
@@ -829,7 +853,11 @@ const FirePrevention = () => {
                                     <Input
                                       {...field}
                                       placeholder="Property size in square feet"
-                                      className="bg-black/50 border-gray-700 text-white placeholder:text-gray-500"
+                                      className="bg-gray-900/60 border-2 border-green-500/50 rounded-lg text-white focus:border-green-500 focus:ring-2 focus:ring-green-500/40 shadow-[0_0_10px_rgba(74,222,128,0.15)] placeholder:text-gray-500"
+                                      style={{
+                                        textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)",
+                                        boxShadow: "0 0 15px rgba(74, 222, 128, 0.15), inset 0 0 10px rgba(0, 0, 0, 0.3)"
+                                      }}
                                     />
                                   </FormControl>
                                   <FormMessage />
