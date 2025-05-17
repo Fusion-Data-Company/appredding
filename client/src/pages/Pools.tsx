@@ -235,8 +235,11 @@ export default function Pools() {
                 
                 {/* Calculator results */}
                 <div className="col-span-1 md:col-span-2">
-                  <div className="relative bg-gradient-to-br from-gray-900/70 to-gray-950/70 rounded-xl border border-blue-500/30 p-6 h-full">
-                    <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600/10 to-blue-400/10 rounded-xl blur-sm opacity-30"></div>
+                  <div className="relative bg-gradient-to-br from-gray-900/70 to-gray-950/70 rounded-xl border border-green-500/30 p-6 h-full">
+                    {/* Strategic green ambient glow for financial/ROI section - ENHANCED */}
+                    <div className="absolute -inset-1 bg-green-500/40 rounded-xl blur-xl opacity-90 z-0"></div>
+                    <div className="absolute -inset-6 bg-green-500/30 rounded-xl blur-2xl opacity-80 z-0 animate-pulse-slow"></div>
+                    <div className="absolute -inset-3 bg-green-400/20 rounded-xl blur-md opacity-70 z-0"></div>
                     
                     {calculationResult ? (
                       <div className="relative z-10">
