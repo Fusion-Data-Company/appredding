@@ -618,26 +618,26 @@ const FirePrevention = () => {
               {showRegistrationForm ? (
                 <div className="relative">
                   {/* Form ambient glow */}
-                  <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/30 via-orange-500/30 to-blue-500/30 rounded-2xl blur-xl opacity-70"></div>
+                  <div className="absolute -inset-4 bg-gradient-to-r from-green-500/30 via-green-400/20 to-green-500/30 rounded-2xl blur-xl opacity-70"></div>
                   
                   {/* Premium form card */}
-                  <div className="relative bg-gradient-to-b from-gray-900/95 via-gray-950/95 to-black p-6 md:p-8 rounded-xl border border-orange-500/40 shadow-[0_10px_50px_rgba(234,88,12,0.2)] backdrop-blur-sm">
+                  <div className="relative bg-gradient-to-b from-gray-900/95 via-gray-950/95 to-black p-6 md:p-8 rounded-xl border border-green-500/40 shadow-[0_10px_50px_rgba(74,222,128,0.15)] backdrop-blur-sm">
                     {/* Premium corner accents */}
                     <div className="absolute top-4 left-4 w-16 h-16 z-10 pointer-events-none">
-                      <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-orange-500/40 rounded-tl-md"></div>
-                      <div className="absolute top-1 left-1 w-10 h-10 border-t border-l border-blue-500/30 rounded-tl-md"></div>
+                      <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-green-500/50 rounded-tl-md"></div>
+                      <div className="absolute top-1 left-1 w-10 h-10 border-t border-l border-green-400/30 rounded-tl-md"></div>
                     </div>
                     <div className="absolute top-4 right-4 w-16 h-16 z-10 pointer-events-none">
-                      <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-orange-500/40 rounded-tr-md"></div>
-                      <div className="absolute top-1 right-1 w-10 h-10 border-t border-r border-blue-500/30 rounded-tr-md"></div>
+                      <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-green-500/50 rounded-tr-md"></div>
+                      <div className="absolute top-1 right-1 w-10 h-10 border-t border-r border-green-400/30 rounded-tr-md"></div>
                     </div>
                     <div className="absolute bottom-4 left-4 w-16 h-16 z-10 pointer-events-none">
-                      <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-orange-500/40 rounded-bl-md"></div>
-                      <div className="absolute bottom-1 left-1 w-10 h-10 border-b border-l border-blue-500/30 rounded-bl-md"></div>
+                      <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-green-500/50 rounded-bl-md"></div>
+                      <div className="absolute bottom-1 left-1 w-10 h-10 border-b border-l border-green-400/30 rounded-bl-md"></div>
                     </div>
                     <div className="absolute bottom-4 right-4 w-16 h-16 z-10 pointer-events-none">
-                      <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-orange-500/40 rounded-br-md"></div>
-                      <div className="absolute bottom-1 right-1 w-10 h-10 border-b border-r border-blue-500/30 rounded-br-md"></div>
+                      <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-green-500/50 rounded-br-md"></div>
+                      <div className="absolute bottom-1 right-1 w-10 h-10 border-b border-r border-green-400/30 rounded-br-md"></div>
                     </div>
                     
                     <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 text-center drop-shadow-[0_1px_2px_rgba(59,130,246,0.4)]">Calculate Your Wildfire Defense ROI</h2>

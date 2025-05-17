@@ -221,7 +221,154 @@ const Painters = () => {
               </div>
             </div>
 
-            {/* Content Sections */}
+            {/* ROI Calculator Section with Premium Green Styling */}
+            <div id="profit-calculator" className="max-w-4xl mx-auto my-16 relative">
+              <div className="absolute -inset-10 bg-green-500/10 rounded-3xl blur-[60px] opacity-70"></div>
+              
+              <div className="relative z-10 bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 rounded-2xl overflow-hidden border border-green-500/30 shadow-[0_0_30px_rgba(74,222,128,0.15)]">
+                {/* Corner accents */}
+                <div className="absolute top-0 left-0 w-16 h-16 z-10 pointer-events-none">
+                  <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-green-500/70 rounded-tl-md"></div>
+                  <div className="absolute top-1 left-1 w-10 h-10 border-t border-l border-green-400/30 rounded-tl-md"></div>
+                </div>
+                <div className="absolute top-0 right-0 w-16 h-16 pointer-events-none">
+                  <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-green-500/70 rounded-tr-md"></div>
+                  <div className="absolute top-1 right-1 w-10 h-10 border-t border-r border-green-400/30 rounded-tr-md"></div>
+                </div>
+                <div className="absolute bottom-0 left-0 w-16 h-16 pointer-events-none">
+                  <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-green-500/70 rounded-bl-md"></div>
+                  <div className="absolute bottom-1 left-1 w-10 h-10 border-b border-l border-green-400/30 rounded-bl-md"></div>
+                </div>
+                <div className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none">
+                  <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-green-500/70 rounded-br-md"></div>
+                  <div className="absolute bottom-1 right-1 w-10 h-10 border-b border-r border-green-400/30 rounded-br-md"></div>
+                </div>
+                
+                <div className="px-6 py-8 md:p-10">
+                  <div className="text-center mb-8">
+                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-green-100 to-white inline-block">
+                        Painter's Profit Calculator
+                      </span>
+                    </h2>
+                    <p className="text-gray-300 max-w-2xl mx-auto">
+                      See how Praetorian's ceramic coating technology creates 
+                      <span className="text-green-400 font-semibold"> 543% higher margins</span> compared to traditional painting methods.
+                    </p>
+                  </div>
+                  
+                  <div className="grid md:grid-cols-2 gap-8">
+                    <div className="bg-gray-900/70 rounded-xl p-6 border border-green-500/20 shadow-[0_5px_15px_rgba(0,0,0,0.2),inset_0_1px_1px_rgba(255,255,255,0.1)]">
+                      <h3 className="text-xl font-semibold text-white mb-4 text-center">Traditional Painting</h3>
+                      
+                      <div className="space-y-3 mb-6">
+                        <div className="flex justify-between items-center border-b border-gray-700 pb-2">
+                          <span className="text-gray-300">Average Cost per sq.ft</span>
+                          <span className="text-white font-medium">$1.75</span>
+                        </div>
+                        <div className="flex justify-between items-center border-b border-gray-700 pb-2">
+                          <span className="text-gray-300">Materials Cost per sq.ft</span>
+                          <span className="text-white font-medium">$0.85</span>
+                        </div>
+                        <div className="flex justify-between items-center border-b border-gray-700 pb-2">
+                          <span className="text-gray-300">Labor Cost per sq.ft</span>
+                          <span className="text-white font-medium">$0.65</span>
+                        </div>
+                        <div className="flex justify-between items-center pb-2">
+                          <span className="text-gray-300 font-semibold">Profit per sq.ft</span>
+                          <span className="text-white font-semibold">$0.25</span>
+                        </div>
+                      </div>
+                      
+                      <div className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 p-3 rounded-lg border border-gray-700/50">
+                        <div className="flex justify-between items-center">
+                          <span className="text-gray-200">Project Size</span>
+                          <span className="text-white">2,500 sq.ft</span>
+                        </div>
+                        <div className="flex justify-between items-center mt-2">
+                          <span className="text-gray-200 font-semibold">Total Profit</span>
+                          <span className="text-white font-semibold">$625</span>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="bg-gradient-to-br from-gray-900/70 to-black/80 rounded-xl p-6 border border-green-500/40 shadow-[0_5px_15px_rgba(0,0,0,0.2),inset_0_1px_1px_rgba(255,255,255,0.1),0_0_20px_rgba(74,222,128,0.15)]">
+                      <h3 className="text-xl font-semibold text-white mb-4 text-center relative">
+                        <div className="absolute -top-3 -right-3 bg-gradient-to-r from-green-600 to-green-500 text-white text-xs py-1 px-2 rounded-md transform rotate-3 shadow-lg">
+                          PREMIUM SOLUTION
+                        </div>
+                        Praetorian Ceramic Coating
+                      </h3>
+                      
+                      <div className="space-y-3 mb-6">
+                        <div className="flex justify-between items-center border-b border-gray-700 pb-2">
+                          <span className="text-gray-300">Average Cost per sq.ft</span>
+                          <span className="text-green-300 font-medium">$15.00</span>
+                        </div>
+                        <div className="flex justify-between items-center border-b border-gray-700 pb-2">
+                          <span className="text-gray-300">Materials Cost per sq.ft</span>
+                          <span className="text-white font-medium">$2.25</span>
+                        </div>
+                        <div className="flex justify-between items-center border-b border-gray-700 pb-2">
+                          <span className="text-gray-300">Labor Cost per sq.ft</span>
+                          <span className="text-white font-medium">$0.75</span>
+                        </div>
+                        <div className="flex justify-between items-center pb-2">
+                          <span className="text-gray-300 font-semibold">Profit per sq.ft</span>
+                          <span className="text-green-400 font-bold">$12.00</span>
+                        </div>
+                      </div>
+                      
+                      <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-3 rounded-lg border border-green-500/30 shadow-[0_0_15px_rgba(74,222,128,0.2)]">
+                        <div className="flex justify-between items-center">
+                          <span className="text-gray-200">Project Size</span>
+                          <span className="text-white">2,500 sq.ft</span>
+                        </div>
+                        <div className="flex justify-between items-center mt-2">
+                          <span className="text-gray-200 font-semibold">Total Profit</span>
+                          <span className="text-green-400 font-bold">$30,000</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="mt-8 p-4 bg-gradient-to-br from-gray-800/80 to-gray-900/80 rounded-lg border border-green-500/30 shadow-[0_0_15px_rgba(74,222,128,0.2)]">
+                    <div className="flex flex-col md:flex-row justify-between items-center">
+                      <div className="mb-4 md:mb-0 md:mr-4">
+                        <div className="flex items-center justify-center">
+                          <div className="w-16 h-16 rounded-full bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center shadow-[0_0_15px_rgba(74,222,128,0.5)]">
+                            <CircleDollarSign className="h-8 w-8 text-white" />
+                          </div>
+                          <div className="ml-4 text-left">
+                            <span className="block text-white text-xl font-bold">543% ROI</span>
+                            <span className="text-green-400 text-sm">Additional Profit Margin</span>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div className="relative">
+                        <div className="absolute -inset-1 bg-gradient-to-r from-green-600/40 via-green-500/30 to-green-600/40 rounded-lg blur-md opacity-80"></div>
+                        <button
+                          onClick={handleShowContactForm}
+                          className="relative px-8 py-3 bg-gradient-to-br from-gray-800 to-gray-900 text-white text-lg font-medium rounded-lg border-2 border-green-500/50 hover:border-green-400/70 transition-all duration-300 overflow-hidden"
+                        >
+                          {/* Light shimmer animation effect */}
+                          <span className="absolute inset-0 overflow-hidden">
+                            <span className="absolute top-0 -left-3/4 w-1/2 h-full bg-gradient-to-r from-transparent via-green-100/20 to-transparent transform -skew-x-30 animate-shimmer"></span>
+                          </span>
+                          <div className="flex items-center justify-center">
+                            <CircleDollarSign className="h-5 w-5 mr-2 text-green-400" />
+                            Get Your Custom Profit Analysis
+                          </div>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Contact Info Section */}
             <div className="mt-8 text-center text-gray-400 text-sm max-w-3xl mx-auto">
               <p>For immediate assistance, please contact us directly at <a href="tel:9168096619" className="text-blue-400 hover:text-blue-300">(916) 809-6619</a> or email <a href="mailto:rob@praetoriansmartcoat.com" className="text-blue-400 hover:text-blue-300">rob@praetoriansmartcoat.com</a></p>
             </div>
