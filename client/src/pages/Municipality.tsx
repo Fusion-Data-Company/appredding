@@ -144,12 +144,28 @@ export default function Municipality() {
       <div className="bg-black min-h-screen text-white">
         {/* Hero Section with enhanced infrastructure-themed background */}
         <section className="relative py-20 overflow-hidden">
-          {/* Infrastructure-themed background with professional styling */}
-          <div className="absolute inset-0 bg-[url('/src/assets_dir/images/municipality-infrastructure.jpg')] bg-cover bg-center opacity-30 z-0"></div>
+          {/* Infrastructure-themed cityscape/bridge background with professional styling */}
+          <div 
+            className="absolute inset-0 bg-cover bg-center z-0"
+            style={{
+              backgroundImage: 'url("/src/assets_dir/images/municipality-thumb.jpg")',
+              opacity: 0.6,
+              filter: 'brightness(0.9) contrast(1.1)'
+            }}
+          ></div>
+          
+          {/* Supplementary background elements for richer enterprise visuals */}
+          <div 
+            className="absolute inset-0 bg-cover bg-right-top z-0 opacity-30 mix-blend-overlay"
+            style={{
+              backgroundImage: 'url("/src/assets_dir/images/praetorian-header.jpg")',
+              backgroundSize: '100% auto'
+            }}
+          ></div>
           
           {/* Premium enterprise-elite gradient overlay with enhanced depth */}
-          <div className="absolute inset-0 z-0 opacity-90" style={{ 
-            background: 'linear-gradient(150deg, rgba(0,0,20,0.90) 0%, rgba(0,20,40,0.95) 50%, rgba(10,30,60,0.92) 100%)',
+          <div className="absolute inset-0 z-0 opacity-80" style={{ 
+            background: 'linear-gradient(150deg, rgba(0,0,20,0.75) 0%, rgba(0,20,40,0.85) 50%, rgba(10,30,60,0.80) 100%)',
             mixBlendMode: 'multiply'
           }}></div>
           
