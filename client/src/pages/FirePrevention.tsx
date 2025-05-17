@@ -269,14 +269,14 @@ const FirePrevention = () => {
                   
                   <div className="mt-8 text-center">
                     <div className="inline-block p-4 bg-black/30 border border-primary-500/40 rounded-lg mb-3">
-                      <p className="text-xl text-white">perfect fire rating with 0/0 scores in ASTM E84 testing for Flame Spread Index and Smoke Development Index, significantly outperforming industry standards</p>
+                      <p className="text-xl text-white">Our perfect 0/0 ASTM E84 fire rating has enabled <span className="text-green-400 font-semibold">410% average ROI over 5 years</span> from combined insurance savings, property value increases, and tax benefits—while providing <span className="text-blue-300 font-semibold">measurable financial returns within 90 days</span> of installation</p>
                     </div>
                     
                     <div className="flex justify-center">
                       <GradientButton variant="variant" size="lg" onClick={handleShowRegistrationForm} className="px-6 py-3">
                         <span className="flex items-center gap-2">
                           <Shield className="h-5 w-5" />
-                          <span>Get Wildfire Protection Assessment</span>
+                          <span>Get Your Free ROI Analysis ($950 Value)</span>
                         </span>
                       </GradientButton>
                     </div>
@@ -711,8 +711,10 @@ const FirePrevention = () => {
                               <div className="p-1.5 rounded-full bg-gradient-to-br from-orange-500/20 to-orange-800/20">
                                 <Shield className="h-5 w-5 text-orange-400" />
                               </div>
-                              <span>Risk Factors</span>
+                              <span>Risk & ROI Factors</span>
                             </h3>
+                            
+                            <p className="text-blue-300 text-sm mb-4">These factors determine your property's financial benefit potential. Properties with higher risk scores typically qualify for <span className="text-green-400 font-semibold">greater insurance savings</span> and experience <span className="text-green-400 font-semibold">larger property value protection</span>. Your free assessment will calculate specific ROI projections based on these factors.</p>
                             
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                               <FormField
