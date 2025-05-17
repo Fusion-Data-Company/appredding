@@ -1208,7 +1208,11 @@ export default function Municipality() {
                             <div>
                               <label className="block text-gray-300 mb-2">Infrastructure Type</label>
                               <select 
-                                className="w-full bg-gray-900/50 border border-green-500/30 rounded-lg p-3 text-white focus:border-green-500 focus:ring-1 focus:ring-green-500"
+                                className="w-full bg-gray-900/60 border-2 border-green-500/50 rounded-lg p-3 text-white focus:border-green-500 focus:ring-2 focus:ring-green-500/40 shadow-[0_0_10px_rgba(74,222,128,0.15)] text-shadow-sm"
+                                style={{
+                                  textShadow: "0 1px 2px rgba(74, 222, 128, 0.3)",
+                                  boxShadow: "0 0 15px rgba(74, 222, 128, 0.15), inset 0 0 10px rgba(0, 0, 0, 0.3)"
+                                }}
                                 value={roiCalculatorData.infrastructureType}
                                 onChange={(e) => setRoiCalculatorData({
                                   ...roiCalculatorData,
@@ -1229,10 +1233,14 @@ export default function Municipality() {
                             </div>
                             
                             <div>
-                              <label className="block text-gray-300 mb-2">Total Surface Area (sq ft)</label>
+                              <label className="block text-gray-300 mb-2" style={{ textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)" }}>Total Surface Area (sq ft)</label>
                               <input 
                                 type="number" 
-                                className="w-full bg-gray-900/50 border border-green-500/30 rounded-lg p-3 text-white focus:border-green-500 focus:ring-1 focus:ring-green-500"
+                                className="w-full bg-gray-900/60 border-2 border-green-500/50 rounded-lg p-3 text-white focus:border-green-500 focus:ring-2 focus:ring-green-500/40 shadow-[0_0_10px_rgba(74,222,128,0.15)]"
+                                style={{
+                                  textShadow: "0 1px 2px rgba(74, 222, 128, 0.3)",
+                                  boxShadow: "0 0 15px rgba(74, 222, 128, 0.15), inset 0 0 10px rgba(0, 0, 0, 0.3)"
+                                }}
                                 placeholder="50000"
                                 value={roiCalculatorData.surfaceArea}
                                 onChange={(e) => setRoiCalculatorData({
@@ -1244,9 +1252,13 @@ export default function Municipality() {
                             </div>
                             
                             <div>
-                              <label className="block text-gray-300 mb-2">Environmental Exposure</label>
+                              <label className="block text-gray-300 mb-2" style={{ textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)" }}>Environmental Exposure</label>
                               <select 
-                                className="w-full bg-gray-900/50 border border-gray-700 rounded-lg p-3 text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                                className="w-full bg-gray-900/60 border-2 border-green-500/50 rounded-lg p-3 text-white focus:border-green-500 focus:ring-2 focus:ring-green-500/40 shadow-[0_0_10px_rgba(74,222,128,0.15)]"
+                                style={{
+                                  textShadow: "0 1px 2px rgba(74, 222, 128, 0.3)",
+                                  boxShadow: "0 0 15px rgba(74, 222, 128, 0.15), inset 0 0 10px rgba(0, 0, 0, 0.3)"
+                                }}
                                 value={roiCalculatorData.environmentalExposure}
                                 onChange={(e) => setRoiCalculatorData({
                                   ...roiCalculatorData,
@@ -1264,10 +1276,14 @@ export default function Municipality() {
                             </div>
                             
                             <div>
-                              <label className="block text-gray-300 mb-2">Current Asset Value ($)</label>
+                              <label className="block text-gray-300 mb-2" style={{ textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)" }}>Current Asset Value ($)</label>
                               <input 
                                 type="number" 
-                                className="w-full bg-gray-900/50 border border-gray-700 rounded-lg p-3 text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                                className="w-full bg-gray-900/60 border-2 border-green-500/50 rounded-lg p-3 text-white focus:border-green-500 focus:ring-2 focus:ring-green-500/40 shadow-[0_0_10px_rgba(74,222,128,0.15)]"
+                                style={{
+                                  textShadow: "0 1px 2px rgba(74, 222, 128, 0.3)",
+                                  boxShadow: "0 0 15px rgba(74, 222, 128, 0.15), inset 0 0 10px rgba(0, 0, 0, 0.3)"
+                                }}
                                 placeholder="1500000"
                                 value={roiCalculatorData.assetValue || 1500000}
                                 onChange={(e) => setRoiCalculatorData({
