@@ -1606,14 +1606,19 @@ export default function Municipality() {
               
               {/* Card background with money image and partial transparency */}
               <div className="absolute inset-0 rounded-xl z-1 border border-gray-700/70 overflow-hidden">
+                {/* Semi-transparent dark background */}
+                <div className="absolute inset-0 bg-gray-900/80"></div>
+                
+                {/* Money image with blend mode to make it stand out */}
                 <div className="absolute inset-0 bg-[url('/attached_assets/F7B18297-B3B4-46C2-B4E1-466869133B22.webp')]" 
                   style={{ 
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
-                    opacity: 0.35
+                    mixBlendMode: 'lighten',
+                    opacity: 0.4,
+                    filter: 'contrast(1.2) brightness(0.6)'
                   }}>
                 </div>
-                <div className="absolute inset-0 bg-gray-900/80"></div>
               </div>
               
               {/* Accent squares */}
