@@ -131,30 +131,48 @@ const ConstructionPage = () => {
         <section className="py-16 md:py-24 relative z-10">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto text-center mb-16 relative">
-              <div className="absolute -inset-1 bg-gradient-to-r from-orange-500/20 via-blue-500/20 to-orange-500/20 rounded-xl blur-xl opacity-70"></div>
+              {/* Advanced enterprise-grade backdrop with layered effects */}
+              <div className="absolute inset-0 bg-gradient-to-b from-gray-900/90 via-gray-950/95 to-black/95 rounded-2xl border border-blue-500/30 shadow-[0_0_30px_rgba(59,130,246,0.15)]"></div>
+              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/20 via-orange-600/10 to-blue-600/20 rounded-2xl blur-xl opacity-70"></div>
               
-              <div className="relative bg-gradient-to-br from-gray-900/90 via-gray-950/90 to-black/90 py-8 px-10 rounded-xl border border-orange-500/40 shadow-[0_10px_50px_rgba(59,130,246,0.2)]">
-                {/* Corner Accents */}
-                <div className="absolute top-0 left-0 w-12 h-12 z-10 pointer-events-none">
-                  <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-orange-500/40 rounded-tl-md"></div>
-                  <div className="absolute top-1 left-1 w-8 h-8 border-t border-l border-blue-500/30 rounded-tl-md"></div>
+              {/* Premium corner accents - enterprise elite style */}
+              <div className="absolute top-0 left-0 w-20 h-20 z-10 pointer-events-none">
+                <div className="absolute top-0 left-0 w-10 h-10 border-t-2 border-l-2 border-blue-500/60 rounded-tl-lg"></div>
+                <div className="absolute top-1 left-1 w-14 h-14 border-t border-l border-blue-500/40 rounded-tl-lg"></div>
+              </div>
+              <div className="absolute top-0 right-0 w-20 h-20 z-10 pointer-events-none">
+                <div className="absolute top-0 right-0 w-10 h-10 border-t-2 border-r-2 border-blue-500/60 rounded-tr-lg"></div>
+                <div className="absolute top-1 right-1 w-14 h-14 border-t border-r border-blue-500/40 rounded-tr-lg"></div>
+              </div>
+              <div className="absolute bottom-0 left-0 w-20 h-20 z-10 pointer-events-none">
+                <div className="absolute bottom-0 left-0 w-10 h-10 border-b-2 border-l-2 border-blue-500/60 rounded-bl-lg"></div>
+                <div className="absolute bottom-1 left-1 w-14 h-14 border-b border-l border-blue-500/40 rounded-bl-lg"></div>
+              </div>
+              <div className="absolute bottom-0 right-0 w-20 h-20 z-10 pointer-events-none">
+                <div className="absolute bottom-0 right-0 w-10 h-10 border-b-2 border-r-2 border-blue-500/60 rounded-br-lg"></div>
+                <div className="absolute bottom-1 right-1 w-14 h-14 border-b border-r border-blue-500/40 rounded-br-lg"></div>
+              </div>
+              
+              <div className="relative p-8 md:p-10 backdrop-blur-sm">
+                {/* Ultra-premium enterprise header with layered effects */}
+                <div className="relative mb-8">
+                  {/* Advanced layered glow effects */}
+                  <div className="absolute -inset-6 bg-gradient-to-r from-blue-500/30 via-blue-600/20 to-blue-500/30 rounded-full blur-xl opacity-80"></div>
+                  <div className="absolute -inset-8 bg-gradient-to-r from-blue-600/10 via-orange-500/5 to-blue-600/10 rounded-full blur-2xl opacity-70 animate-pulse-slow"></div>
+                  
+                  {/* Premium title with enterprise-grade styling */}
+                  <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white relative z-10 
+                    tracking-tight leading-tight drop-shadow-[0_2px_10px_rgba(59,130,246,0.5)]
+                    [text-shadow:0_1px_2px_rgba(0,0,0,0.8),0_2px_15px_rgba(59,130,246,0.3),0_-1px_35px_rgba(59,130,246,0.2)]">
+                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-50 to-white">
+                      642% Construction ROI System
+                    </span>
+                  </h1>
+                  
+                  {/* Sophisticated divider accents */}
+                  <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-blue-500/70 to-transparent"></div>
+                  <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent"></div>
                 </div>
-                <div className="absolute top-0 right-0 w-12 h-12 z-10 pointer-events-none">
-                  <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-orange-500/40 rounded-tr-md"></div>
-                  <div className="absolute top-1 right-1 w-8 h-8 border-t border-r border-blue-500/30 rounded-tr-md"></div>
-                </div>
-                <div className="absolute bottom-0 right-0 w-12 h-12 z-10 pointer-events-none">
-                  <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-orange-500/40 rounded-br-md"></div>
-                  <div className="absolute bottom-1 right-1 w-8 h-8 border-b border-r border-blue-500/30 rounded-br-md"></div>
-                </div>
-                <div className="absolute bottom-0 left-0 w-12 h-12 z-10 pointer-events-none">
-                  <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-orange-500/40 rounded-bl-md"></div>
-                  <div className="absolute bottom-1 left-1 w-8 h-8 border-b border-l border-blue-500/30 rounded-bl-md"></div>
-                </div>
-                
-                <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white drop-shadow-[0_1px_3px_rgba(59,130,246,0.6)]">
-                  642% Construction ROI Verification
-                </h1>
                 
                 {/* Enhanced ROI-focused stats in enterprise grid format */}
                 <div className="grid grid-cols-3 gap-3 mb-6">
