@@ -838,53 +838,77 @@ const Painters = () => {
                     </div>
                   </div>
                   
-                  <div className="bg-gradient-to-br from-gray-800/80 via-gray-900/80 to-black/80 rounded-lg p-6 border border-blue-500/20 mb-6">
-                    <h3 className="text-xl font-semibold mb-4 text-white text-center">Revenue Comparison: Standard Project vs. Praetorian Project</h3>
+                  <div className="relative group mb-8">
+                    <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/30 via-green-500/20 to-blue-600/30 rounded-lg blur-md opacity-75 group-hover:opacity-100 transition duration-300"></div>
+                    <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 rounded-lg p-6 md:p-8 border border-blue-500/30 shadow-lg group-hover:shadow-blue-900/20 transition duration-300">
+                      {/* Elite corner accents */}
+                      <div className="absolute top-0 left-0 w-12 h-12 pointer-events-none">
+                        <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-blue-500/40 rounded-tl-md"></div>
+                        <div className="absolute top-0 left-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
+                      </div>
+                      <div className="absolute top-0 right-0 w-12 h-12 pointer-events-none">
+                        <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-green-500/40 rounded-tr-md"></div>
+                        <div className="absolute top-0 right-0 w-3 h-3 bg-green-500/50 rounded-full blur-[2px]"></div>
+                      </div>
+                      <div className="absolute bottom-0 left-0 w-12 h-12 pointer-events-none">
+                        <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-green-500/40 rounded-bl-md"></div>
+                        <div className="absolute bottom-0 left-0 w-3 h-3 bg-green-500/50 rounded-full blur-[2px]"></div>
+                      </div>
+                      <div className="absolute bottom-0 right-0 w-12 h-12 pointer-events-none">
+                        <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-blue-500/40 rounded-br-md"></div>
+                        <div className="absolute bottom-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
+                      </div>
                     
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <div className="relative">
-                        <div className="absolute top-0 left-0 w-12 h-12 pointer-events-none">
-                          <div className="absolute top-0 left-0 w-4 h-4 border-t border-l border-gray-700 rounded-tl-sm"></div>
+                      <h3 className="text-2xl font-semibold mb-6 text-center relative z-10">
+                        <span className="bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent drop-shadow-[0_1px_2px_rgba(59,130,246,0.5)]">
+                          Revenue Comparison: Standard vs. Praetorian Project
+                        </span>
+                      </h3>
+                      
+                      <div className="grid md:grid-cols-2 gap-8 relative z-10">
+                        <div className="relative group">
+                        <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600/10 to-blue-400/5 rounded-lg blur-sm opacity-60 group-hover:opacity-100 transition duration-300"></div>
+                        <div className="relative bg-gradient-to-br from-gray-900/90 via-gray-950/90 to-black/90 rounded-lg p-5 border border-blue-500/20 shadow-lg">
+                          {/* Corner accent elements */}
+                          <div className="absolute top-0 left-0 w-8 h-8 border-t border-l border-blue-500/30 rounded-tl-md"></div>
+                          <div className="absolute bottom-0 right-0 w-8 h-8 border-b border-r border-blue-500/30 rounded-br-md"></div>
+                          
+                          <h4 className="text-lg font-semibold mb-4 text-gray-100 drop-shadow-sm border-b border-gray-800 pb-2">Standard Exterior Painting Project</h4>
+                          <ul className="space-y-2.5 text-gray-200">
+                            <li className="flex justify-between">
+                              <span className="text-gray-300">Project Size:</span>
+                              <span className="font-medium">2,500 sq ft home</span>
+                            </li>
+                            <li className="flex justify-between">
+                              <span className="text-gray-300">Standard Paint Price:</span>
+                              <span className="font-medium">$45/gallon</span>
+                            </li>
+                            <li className="flex justify-between">
+                              <span className="text-gray-300">Standard Labor Rate:</span>
+                              <span className="font-medium">$35/hour</span>
+                            </li>
+                            <li className="flex justify-between">
+                              <span className="text-gray-300">Standard Materials Cost:</span>
+                              <span className="font-medium text-red-300">$1,350</span>
+                            </li>
+                            <li className="flex justify-between">
+                              <span className="text-gray-300">Standard Labor Cost:</span>
+                              <span className="font-medium text-red-300">$4,200</span>
+                            </li>
+                            <li className="flex justify-between font-semibold border-t border-gray-700 pt-3 mt-3">
+                              <span className="text-gray-200">Standard Project Revenue:</span>
+                              <span className="text-white">$7,500</span>
+                            </li>
+                            <li className="flex justify-between">
+                              <span className="text-gray-200">Standard Profit Margin:</span>
+                              <span className="text-white">26%</span>
+                            </li>
+                            <li className="flex justify-between font-semibold mt-2">
+                              <span className="text-gray-200">Standard Project Profit:</span>
+                              <span className="text-blue-300">$1,950</span>
+                            </li>
+                          </ul>
                         </div>
-                        <div className="absolute bottom-0 right-0 w-12 h-12 pointer-events-none">
-                          <div className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-gray-700 rounded-br-sm"></div>
-                        </div>
-                        
-                        <h4 className="text-lg font-medium mb-3 text-gray-100">Standard Exterior Painting Project</h4>
-                        <ul className="space-y-2 text-gray-200">
-                          <li className="flex justify-between">
-                            <span>Project Size:</span>
-                            <span>2,500 sq ft home</span>
-                          </li>
-                          <li className="flex justify-between">
-                            <span>Standard Paint Price:</span>
-                            <span>$45/gallon</span>
-                          </li>
-                          <li className="flex justify-between">
-                            <span>Standard Labor Rate:</span>
-                            <span>$35/hour</span>
-                          </li>
-                          <li className="flex justify-between">
-                            <span>Standard Materials Cost:</span>
-                            <span>$1,350</span>
-                          </li>
-                          <li className="flex justify-between">
-                            <span>Standard Labor Cost:</span>
-                            <span>$4,200</span>
-                          </li>
-                          <li className="flex justify-between font-semibold border-t border-gray-700 pt-2 mt-2">
-                            <span>Standard Project Revenue:</span>
-                            <span>$7,500</span>
-                          </li>
-                          <li className="flex justify-between text-sm">
-                            <span>Standard Profit Margin:</span>
-                            <span>26%</span>
-                          </li>
-                          <li className="flex justify-between font-semibold text-green-400 mt-2">
-                            <span>Standard Project Profit:</span>
-                            <span>$1,950</span>
-                          </li>
-                        </ul>
                       </div>
                       
                       <div className="relative">
