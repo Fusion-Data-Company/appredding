@@ -124,8 +124,28 @@ const FirePrevention = () => {
             </div>
 
             <div className="grid md:grid-cols-2 gap-6 md:gap-12 mb-10 md:mb-16">
-              <div className="backdrop-blur-sm bg-gradient-to-b from-primary-900/70 to-primary-800/60 rounded-xl p-5 md:p-8 shadow-lg border border-primary-600/30">
-                <GradientHeading level={2} className="text-2xl md:text-3xl mb-4 md:mb-6" variant="fire">Ceramic Microsphere Technology</GradientHeading>
+              <div className="relative">
+                <div className="absolute -inset-2 bg-gradient-to-r from-blue-600/30 via-orange-600/30 to-blue-600/30 rounded-xl blur-xl opacity-70"></div>
+                <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 rounded-xl p-6 md:p-8 shadow-lg border border-blue-500/30 overflow-hidden">
+                  {/* Corner accent elements */}
+                  <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none">
+                    <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-blue-500/70 rounded-tl-lg"></div>
+                    <div className="absolute top-0 left-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
+                  </div>
+                  <div className="absolute top-0 right-0 w-16 h-16 pointer-events-none">
+                    <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-orange-500/70 rounded-tr-lg"></div>
+                    <div className="absolute top-0 right-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+                  </div>
+                  <div className="absolute bottom-0 left-0 w-16 h-16 pointer-events-none">
+                    <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-orange-500/70 rounded-bl-lg"></div>
+                    <div className="absolute bottom-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+                  </div>
+                  <div className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none">
+                    <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-blue-500/70 rounded-br-lg"></div>
+                    <div className="absolute bottom-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
+                  </div>
+                  
+                  <GradientHeading level={2} className="text-2xl md:text-3xl mb-4 md:mb-6 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]" variant="fire">Ceramic Microsphere Technology</GradientHeading>
                 
                 <div className="space-y-6">
                   <div className="flex flex-col sm:flex-row items-start gap-3 md:gap-4">
