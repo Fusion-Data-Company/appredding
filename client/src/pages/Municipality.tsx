@@ -1802,11 +1802,7 @@ export default function Municipality() {
                           <DollarSign className="w-5 h-5 text-green-400" />
                         </div>
                       </div>
-                      <span className="text-white font-semibold text-lg px-3 py-1 bg-gray-900/60 rounded-lg border border-green-500/40 drop-shadow-[0_2px_3px_rgba(0,0,0,0.9)] relative overflow-hidden">
-                        {/* Light shimmer animation effect */}
-                        <span className="absolute inset-0 overflow-hidden">
-                          <span className="absolute top-0 -left-3/4 w-1/2 h-full bg-gradient-to-r from-transparent via-green-100/30 to-transparent transform -skew-x-30 animate-shimmer"></span>
-                        </span>
+                      <span className="text-white font-semibold text-lg px-3 py-1 bg-gray-900/60 rounded-lg border border-green-500/40 drop-shadow-[0_2px_3px_rgba(0,0,0,0.9)]">
                         Calculate 10-Year Savings
                       </span>
                     </div>
