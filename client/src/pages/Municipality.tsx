@@ -738,6 +738,86 @@ export default function Municipality() {
                         </div>
                       </div>
                       
+                      {/* Advanced Ceramic Wildfire Defense System with ambient blue and orange styling */}
+                      <div className="bg-gray-900/80 border border-orange-500/30 rounded-lg p-6 mt-8 mb-8 relative overflow-hidden">
+                        {/* Ambient blue and orange fading squares */}
+                        <div className="absolute inset-0 z-0 overflow-hidden">
+                          {/* Blue ambient squares */}
+                          <div className="absolute top-0 left-0 w-32 h-32 bg-blue-500/10 rounded-lg blur-xl transform -translate-x-1/2 -translate-y-1/2 animate-pulse-slow"></div>
+                          <div className="absolute top-1/4 left-1/3 w-24 h-24 bg-blue-600/10 rounded-lg blur-xl animate-pulse-slow animation-delay-1000"></div>
+                          <div className="absolute bottom-0 left-1/4 w-48 h-48 bg-blue-700/5 rounded-lg blur-xl transform translate-y-1/2 animate-pulse-slow animation-delay-2000"></div>
+                          
+                          {/* Orange ambient squares */}
+                          <div className="absolute top-0 right-0 w-32 h-32 bg-orange-500/10 rounded-lg blur-xl transform translate-x-1/2 -translate-y-1/2 animate-pulse-slow animation-delay-1500"></div>
+                          <div className="absolute right-1/4 top-1/3 w-32 h-32 bg-orange-600/10 rounded-lg blur-xl animate-pulse-slow animation-delay-500"></div>
+                          <div className="absolute bottom-0 right-1/3 w-40 h-40 bg-orange-700/5 rounded-lg blur-xl transform translate-y-1/3 animate-pulse-slow animation-delay-750"></div>
+                        </div>
+                        
+                        <div className="relative z-10">
+                          <div className="flex items-center mb-4">
+                            <div className="w-12 h-12 rounded-full bg-gradient-to-br from-orange-600/30 to-blue-600/30 flex items-center justify-center mr-3
+                              border border-orange-500/20 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)]">
+                              <Flame className="h-6 w-6 text-orange-400" />
+                            </div>
+                            <h3 className="font-semibold text-xl text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">
+                              Advanced Ceramic Wildfire Defense System
+                            </h3>
+                          </div>
+                          
+                          <p className="text-gray-200 mb-4 relative">
+                            Our ceramic coating technology provides unmatched protection for municipal structures in wildfire-prone regions. The advanced ceramic barrier system has been proven to withstand direct flame exposure, protecting critical infrastructure during wildfire events.
+                          </p>
+                          
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                            <div className="bg-gradient-to-br from-gray-900/80 to-gray-950/80 border border-orange-500/20 rounded-lg p-3">
+                              <h5 className="text-orange-300 text-sm font-medium mb-2">Protection Performance</h5>
+                              <ul className="space-y-1">
+                                <li className="flex items-start gap-2 text-sm">
+                                  <span className="text-orange-400 text-xs mt-1">•</span>
+                                  <span className="text-gray-200">Perfect Class A fire rating (0/0 score in ASTM E84-23)</span>
+                                </li>
+                                <li className="flex items-start gap-2 text-sm">
+                                  <span className="text-orange-400 text-xs mt-1">•</span>
+                                  <span className="text-gray-200">Exceeds WUI (Wildland-Urban Interface) requirements</span>
+                                </li>
+                                <li className="flex items-start gap-2 text-sm">
+                                  <span className="text-orange-400 text-xs mt-1">•</span>
+                                  <span className="text-gray-200">Documented 96.6% survival rate in 2025 LA wildfire zone</span>
+                                </li>
+                              </ul>
+                            </div>
+                            
+                            <div className="bg-gradient-to-br from-gray-900/80 to-gray-950/80 border border-blue-500/20 rounded-lg p-3">
+                              <h5 className="text-blue-300 text-sm font-medium mb-2">Municipal Applications</h5>
+                              <ul className="space-y-1">
+                                <li className="flex items-start gap-2 text-sm">
+                                  <span className="text-blue-400 text-xs mt-1">•</span>
+                                  <span className="text-gray-200">Critical emergency response facilities</span>
+                                </li>
+                                <li className="flex items-start gap-2 text-sm">
+                                  <span className="text-blue-400 text-xs mt-1">•</span>
+                                  <span className="text-gray-200">Utility infrastructure in high-risk zones</span>
+                                </li>
+                                <li className="flex items-start gap-2 text-sm">
+                                  <span className="text-blue-400 text-xs mt-1">•</span>
+                                  <span className="text-gray-200">Communication towers and equipment</span>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                          
+                          <div className="flex justify-end">
+                            <button 
+                              className="text-blue-400 hover:text-blue-300 flex items-center text-sm font-medium"
+                              onClick={() => setActiveTab('case-studies')}
+                            >
+                              View wildfire protection case studies 
+                              <ChevronRight className="h-4 w-4 ml-1" />
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      
                       <div className="flex justify-center">
                         <GradientButton
                           onClick={() => setActiveTab('calculator')}
