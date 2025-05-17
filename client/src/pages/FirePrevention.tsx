@@ -970,7 +970,7 @@ const FirePrevention = () => {
                                     I agree to terms and conditions*
                                   </FormLabel>
                                   <p className="text-gray-300 text-sm">
-                                    By checking this box, I agree to be contacted regarding fire prevention services and acknowledge the terms of service.
+                                    By checking this box, I agree to receive my <span className="text-blue-300 font-semibold">personalized ROI analysis</span> showing potential <span className="text-green-400 font-semibold">insurance savings, property value protection, and tax benefits</span>. I consent to be contacted by a certified fire prevention specialist.
                                   </p>
                                 </div>
                               </FormItem>
@@ -1022,7 +1022,7 @@ const FirePrevention = () => {
                               ) : (
                                 <>
                                   <Shield className="mr-2 h-5 w-5 text-orange-300 group-hover:text-orange-200 transition-colors duration-300" />
-                                  <span>Submit Registration</span>
+                                  <span>Get My Free ROI Analysis</span>
                                 </>
                               )}
                             </div>
