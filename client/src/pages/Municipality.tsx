@@ -531,12 +531,12 @@ export default function Municipality() {
                       </div>
                     </div>
                     
-                    <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700 rounded-lg p-5 relative group">
+                    <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700/50 rounded-lg p-5 relative group">
                       <div className="absolute top-0 right-0 w-12 h-12 pointer-events-none">
-                        <div className="absolute top-0 right-0 w-5 h-5 border-t-2 border-r-2 border-gray-600 rounded-tr-md"></div>
+                        <div className="absolute top-0 right-0 w-5 h-5 border-t-2 border-r-2 border-green-500/30 rounded-tr-md"></div>
                       </div>
                       
-                      <div className="flex items-center justify-center h-12 w-12 rounded-full bg-gray-800 mb-4 text-gray-500">
+                      <div className="flex items-center justify-center h-12 w-12 rounded-full bg-gray-800/90 mb-4 text-green-500/40">
                         <Award className="h-6 w-6" />
                       </div>
                       
@@ -544,7 +544,7 @@ export default function Municipality() {
                       <p className="text-gray-500 mb-4">Custom implementation plan for maximum efficiency and minimal disruption.</p>
                       
                       <div className="border-t border-gray-700 pt-4 mt-auto">
-                        <p className="text-gray-500 text-sm">Upcoming</p>
+                        <p className="text-green-500/40 text-sm">Upcoming</p>
                       </div>
                     </div>
                   </div>
@@ -568,22 +568,22 @@ export default function Municipality() {
             
             <div className="max-w-5xl mx-auto">
               <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-                <TabsList className="grid w-full grid-cols-3 mb-8 bg-gray-800/50 p-1 rounded-lg border border-blue-500/20">
+                <TabsList className="grid w-full grid-cols-3 mb-8 bg-gray-800/50 p-1 rounded-lg border border-green-500/20">
                   <TabsTrigger 
                     value="overview" 
-                    className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-900/50 data-[state=active]:to-blue-700/50 data-[state=active]:text-white text-gray-400"
+                    className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-green-900/50 data-[state=active]:to-green-700/50 data-[state=active]:text-white text-gray-400"
                   >
                     Features & Benefits
                   </TabsTrigger>
                   <TabsTrigger 
                     value="case-studies" 
-                    className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-900/50 data-[state=active]:to-blue-700/50 data-[state=active]:text-white text-gray-400"
+                    className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-green-900/50 data-[state=active]:to-green-700/50 data-[state=active]:text-white text-gray-400"
                   >
                     Case Studies
                   </TabsTrigger>
                   <TabsTrigger 
                     value="calculator" 
-                    className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-900/50 data-[state=active]:to-blue-700/50 data-[state=active]:text-white text-gray-400"
+                    className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-green-900/50 data-[state=active]:to-green-700/50 data-[state=active]:text-white text-gray-400"
                   >
                     ROI Calculator
                   </TabsTrigger>
