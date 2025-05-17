@@ -853,7 +853,15 @@ const MobileHome = () => {
                               <FormItem>
                                 <FormLabel className="text-white">Email</FormLabel>
                                 <FormControl>
-                                  <Input placeholder="your@email.com" {...field} className="bg-gray-900 border-gray-700 text-white" />
+                                  <Input 
+                                    placeholder="your@email.com" 
+                                    {...field} 
+                                    className="bg-gray-900/60 border-2 border-green-500/50 rounded-lg text-white focus:border-green-500 focus:ring-2 focus:ring-green-500/40 shadow-[0_0_10px_rgba(74,222,128,0.15)] placeholder:text-gray-500"
+                                    style={{
+                                      textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)",
+                                      boxShadow: "0 0 15px rgba(74, 222, 128, 0.15), inset 0 0 10px rgba(0, 0, 0, 0.3)"
+                                    }}
+                                  />
                                 </FormControl>
                                 <FormMessage />
                               </FormItem>
@@ -867,7 +875,15 @@ const MobileHome = () => {
                               <FormItem>
                                 <FormLabel className="text-white">Confirm Email</FormLabel>
                                 <FormControl>
-                                  <Input placeholder="Confirm your email" {...field} className="bg-gray-900 border-gray-700 text-white" />
+                                  <Input 
+                                    placeholder="Confirm your email" 
+                                    {...field} 
+                                    className="bg-gray-900/60 border-2 border-green-500/50 rounded-lg text-white focus:border-green-500 focus:ring-2 focus:ring-green-500/40 shadow-[0_0_10px_rgba(74,222,128,0.15)] placeholder:text-gray-500"
+                                    style={{
+                                      textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)",
+                                      boxShadow: "0 0 15px rgba(74, 222, 128, 0.15), inset 0 0 10px rgba(0, 0, 0, 0.3)"
+                                    }}
+                                  />
                                 </FormControl>
                                 <FormMessage />
                               </FormItem>
@@ -881,7 +897,15 @@ const MobileHome = () => {
                               <FormItem>
                                 <FormLabel className="text-white">Phone</FormLabel>
                                 <FormControl>
-                                  <Input placeholder="(555) 123-4567" {...field} className="bg-gray-900 border-gray-700 text-white" />
+                                  <Input 
+                                    placeholder="(555) 123-4567" 
+                                    {...field} 
+                                    className="bg-gray-900/60 border-2 border-green-500/50 rounded-lg text-white focus:border-green-500 focus:ring-2 focus:ring-green-500/40 shadow-[0_0_10px_rgba(74,222,128,0.15)] placeholder:text-gray-500"
+                                    style={{
+                                      textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)",
+                                      boxShadow: "0 0 15px rgba(74, 222, 128, 0.15), inset 0 0 10px rgba(0, 0, 0, 0.3)"
+                                    }}
+                                  />
                                 </FormControl>
                                 <FormMessage />
                               </FormItem>
@@ -895,7 +919,15 @@ const MobileHome = () => {
                               <FormItem>
                                 <FormLabel className="text-white">Website (optional)</FormLabel>
                                 <FormControl>
-                                  <Input placeholder="https://your-website.com" {...field} className="bg-gray-900 border-gray-700 text-white" />
+                                  <Input 
+                                    placeholder="https://your-website.com" 
+                                    {...field} 
+                                    className="bg-gray-900/60 border-2 border-green-500/50 rounded-lg text-white focus:border-green-500 focus:ring-2 focus:ring-green-500/40 shadow-[0_0_10px_rgba(74,222,128,0.15)] placeholder:text-gray-500"
+                                    style={{
+                                      textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)",
+                                      boxShadow: "0 0 15px rgba(74, 222, 128, 0.15), inset 0 0 10px rgba(0, 0, 0, 0.3)"
+                                    }}
+                                  />
                                 </FormControl>
                                 <FormMessage />
                               </FormItem>
@@ -909,7 +941,15 @@ const MobileHome = () => {
                               <FormItem>
                                 <FormLabel className="text-white">Professional License (optional)</FormLabel>
                                 <FormControl>
-                                  <Input placeholder="License number" {...field} className="bg-gray-900 border-gray-700 text-white" />
+                                  <Input 
+                                    placeholder="License number" 
+                                    {...field} 
+                                    className="bg-gray-900/60 border-2 border-green-500/50 rounded-lg text-white focus:border-green-500 focus:ring-2 focus:ring-green-500/40 shadow-[0_0_10px_rgba(74,222,128,0.15)] placeholder:text-gray-500"
+                                    style={{
+                                      textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)",
+                                      boxShadow: "0 0 15px rgba(74, 222, 128, 0.15), inset 0 0 10px rgba(0, 0, 0, 0.3)"
+                                    }}
+                                  />
                                 </FormControl>
                                 <FormMessage />
                               </FormItem>
@@ -923,7 +963,16 @@ const MobileHome = () => {
                               <FormItem>
                                 <FormLabel className="text-white">Years in Business</FormLabel>
                                 <FormControl>
-                                  <Input type="number" placeholder="Years of experience" {...field} className="bg-gray-900 border-gray-700 text-white" />
+                                  <Input 
+                                    type="number" 
+                                    placeholder="Years of experience" 
+                                    {...field} 
+                                    className="bg-gray-900/60 border-2 border-green-500/50 rounded-lg text-white focus:border-green-500 focus:ring-2 focus:ring-green-500/40 shadow-[0_0_10px_rgba(74,222,128,0.15)] placeholder:text-gray-500"
+                                    style={{
+                                      textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)",
+                                      boxShadow: "0 0 15px rgba(74, 222, 128, 0.15), inset 0 0 10px rgba(0, 0, 0, 0.3)"
+                                    }}
+                                  />
                                 </FormControl>
                                 <FormMessage />
                               </FormItem>
