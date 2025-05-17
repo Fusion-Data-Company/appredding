@@ -1446,6 +1446,58 @@ export default function Municipality() {
                         </div>
                       </div>
                       
+                      {/* Estimated 10-Year ROI Summary Box */}
+                      <div className="mb-8 relative">
+                        {/* Premium ultra-bright green glow behind the ROI summary box */}
+                        <div className="absolute -inset-6 bg-green-500/40 rounded-xl blur-2xl opacity-90 -z-10 animate-pulse-slow"></div>
+                        <div className="absolute -inset-4 bg-green-400/30 rounded-xl blur-xl opacity-80 -z-10"></div>
+                        <div className="absolute -inset-2 bg-green-300/20 rounded-xl blur-md opacity-70 -z-10"></div>
+                        
+                        {/* Main ROI summary box with fully opaque background */}
+                        <div className="relative border-2 border-green-500/50 rounded-xl bg-gray-900 shadow-[0_0_25px_rgba(74,222,128,0.4)] p-6 z-0">
+                          {/* Corner accents */}
+                          <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-green-400/80"></div>
+                          <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-green-400/80"></div>
+                          <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-green-400/80"></div>
+                          <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-green-400/80"></div>
+                          
+                          {/* Header with premium styling */}
+                          <div className="text-center mb-6">
+                            <div className="inline-flex items-center mb-3 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 px-6 py-2 rounded-full border border-green-400/30">
+                              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green-600 via-green-500 to-green-400 p-[2px] shadow-lg mr-3">
+                                <div className="w-full h-full rounded-full bg-gray-900 flex items-center justify-center overflow-hidden">
+                                  <TrendingUp className="w-5 h-5 text-green-400" />
+                                </div>
+                              </div>
+                              <h3 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-green-200 to-white animate-text-shimmer">
+                                Estimated 10-Year ROI
+                              </h3>
+                            </div>
+                            <div className="h-[2px] w-48 mx-auto bg-gradient-to-r from-transparent via-green-400 to-transparent"></div>
+                          </div>
+                          
+                          {/* ROI Value */}
+                          <div className="flex flex-col items-center justify-center">
+                            <div className="flex items-center justify-center mb-3">
+                              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-green-600 via-green-500 to-green-400 p-[2px] shadow-xl mr-2">
+                                <div className="w-full h-full rounded-full bg-gray-900 flex items-center justify-center">
+                                  <DollarSign className="w-6 h-6 text-green-400" />
+                                </div>
+                              </div>
+                              <div className="text-5xl font-bold text-white">
+                                <span className="bg-clip-text text-transparent bg-gradient-to-r from-green-300 via-white to-green-300">835%</span>
+                              </div>
+                            </div>
+                            <p className="text-green-300 text-xl mb-4">Return on Investment</p>
+                            <p className="text-gray-300 text-center max-w-xl">
+                              Your municipality could see an estimated <span className="text-green-300 font-semibold">$2.4 million</span> in total savings 
+                              over a 10-year period through reduced maintenance costs, extended asset lifespan, 
+                              and decreased labor requirements.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      
                       <div className="bg-gradient-to-br from-blue-900/20 to-blue-800/10 border border-blue-500/30 rounded-lg p-5 mb-8">
                         <div className="flex items-start gap-4">
                           <div className="bg-blue-900/40 rounded-full p-3 flex-shrink-0">
