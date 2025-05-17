@@ -351,41 +351,9 @@ const FirePrevention = () => {
                         </div>
                         
                         <div className="mt-4 bg-gradient-to-br from-blue-900/20 to-gray-900/20 border border-blue-600/10 rounded p-3 flex items-start">
-                          {/* Premium Cinematic Metal Shield Icon */}
-                          <div className="relative mr-3 mt-0.5 w-6 h-6">
-                            {/* Metallic base glow effect */}
-                            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-500/30 to-blue-700/20 blur-sm"></div>
-                            
-                            {/* Metallic edge with light reflection */}
-                            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 
-                              border border-blue-400/40 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15),0_0_4px_rgba(59,130,246,0.4)]"></div>
-                            
-                            {/* Icon with metallic appearance */}
-                            <div className="absolute inset-0 flex items-center justify-center">
-                              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" 
-                                fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" 
-                                className="stroke-gradient" style={{ 
-                                  stroke: 'url(#blueShieldGradient)'
-                                }}>
-                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                              </svg>
-                            </div>
-                            
-                            {/* Subtle shimmer animation */}
-                            <div className="absolute inset-0 rounded-full overflow-hidden">
-                              <div className="absolute -inset-full w-1/2 h-full bg-gradient-to-r from-transparent via-blue-400/20 to-transparent transform skew-x-[-20deg] animate-[shimmer_2.5s_infinite] pointer-events-none"></div>
-                            </div>
-                            
-                            {/* SVG Definitions for gradient */}
-                            <svg width="0" height="0" className="absolute">
-                              <defs>
-                                <linearGradient id="blueShieldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                  <stop offset="0%" stopColor="rgba(191, 219, 254, 1)" />
-                                  <stop offset="50%" stopColor="rgba(147, 197, 253, 1)" />
-                                  <stop offset="100%" stopColor="rgba(59, 130, 246, 0.9)" />
-                                </linearGradient>
-                              </defs>
-                            </svg>
+                          <div className="text-blue-400 mr-2 mt-0.5 bg-gradient-to-br from-blue-700/90 to-blue-900/90 rounded-full p-1.5
+                            border border-blue-400/40 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15),0_0_3px_rgba(59,130,246,0.4)]">
+                            <Shield className="w-4 h-4" />
                           </div>
                           <p className="text-xs text-gray-300">
                             Properties with our ceramic coating qualified for Federal Insurance Exemption status, allowing homeowners to maintain insurance coverage despite being in designated high-risk zones where most policies were canceled or not renewed.
@@ -473,48 +441,12 @@ const FirePrevention = () => {
                     </div>
 
                     <div className="flex flex-col sm:flex-row items-start gap-3 md:gap-4">
-                      {/* Premium Cinematic Metal Icon */}
-                      <div className="relative mt-1 w-10 h-10">
-                        {/* Metallic base glow effect */}
-                        <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-600/30 to-blue-700/30 blur-md"></div>
-                        
-                        {/* Metallic edge with light reflection */}
-                        <div className="absolute inset-0 rounded-full bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 
-                          border border-blue-400/50 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_0_5px_rgba(59,130,246,0.5)]"></div>
-                        
-                        {/* Radial metallic sheen */}
-                        <div className="absolute inset-0 rounded-full overflow-hidden">
-                          <div className="absolute inset-0 bg-gradient-to-br from-blue-200/10 via-transparent to-transparent rotate-45"></div>
-                          <div className="absolute top-0 left-0 w-5 h-2 bg-white/20 blur-sm rounded-full"></div>
-                        </div>
-                        
-                        {/* Icon with metallic appearance */}
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" 
-                            fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" 
-                            className="stroke-gradient" style={{ 
-                              stroke: 'url(#blueIconGradient)'
-                            }}>
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                          </svg>
-                        </div>
-                        
-                        {/* Subtle shimmer animation */}
-                        <div className="absolute inset-0 rounded-full overflow-hidden">
-                          <div className="absolute -inset-full w-1/2 h-full bg-gradient-to-r from-transparent via-blue-400/30 to-transparent transform skew-x-[-20deg] animate-[shimmer_2s_infinite] pointer-events-none"></div>
-                        </div>
-                      </div>
-                      
-                      {/* SVG Definitions for gradient */}
-                      <svg width="0" height="0" className="absolute">
-                        <defs>
-                          <linearGradient id="blueIconGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stopColor="rgba(219, 234, 254, 1)" />
-                            <stop offset="50%" stopColor="rgba(147, 197, 253, 1)" />
-                            <stop offset="100%" stopColor="rgba(96, 165, 250, 1)" />
-                          </linearGradient>
-                        </defs>
-                      </svg>
+                      <span className="bg-gradient-to-br from-blue-600 to-blue-700 rounded-full p-2 mt-1 shadow-lg flex items-center justify-center
+                        border border-blue-400/50 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2)]">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-200">
+                          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
+                      </span>
                       <div>
                         <h3 className="text-lg md:text-xl font-semibold mb-2 text-white">Exceptional Durability Proven Over Decades</h3>
                         <p className="text-sm md:text-base text-gray-100">Original applications from 1989 showed only 1% reflectivity degradation when inspected 30 years later in 2019 (measured via ASTM C1549-16 protocols), compared to competing products that lose 10-20% reflectivity in just 3 years.</p>
@@ -585,7 +517,10 @@ const FirePrevention = () => {
                   <div className="space-y-6">
                     <div className="relative bg-gradient-to-br from-black/60 to-gray-900/60 border border-orange-500/30 rounded-xl p-5 backdrop-blur-sm">
                       <div className="flex items-center gap-3 mb-4">
-                        <CircleDollarSign className="h-6 w-6 text-green-400" />
+                        <div className="flex-shrink-0 bg-gradient-to-br from-green-600 to-green-700 rounded-full p-1.5
+                          border border-green-400/40 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_0_4px_rgba(74,222,128,0.4)]">
+                          <CircleDollarSign className="h-5 w-5 text-green-100" />
+                        </div>
                         <h3 className="text-xl font-semibold text-white">Ultimate Fire Protection ROI</h3>
                       </div>
                       
