@@ -541,78 +541,156 @@ const Painters = () => {
                 </div>
                 
                 {/* Step 3: Sandler Decision - Moving to Action */}
-                <div className="bg-gradient-to-br from-gray-800/80 via-gray-900/80 to-black/80 p-6 rounded-lg border border-green-500/20 mb-6">
-                  <h3 className="text-xl font-semibold mb-4 text-white text-center">The SmartCoat Decision: What's Your Next Step?</h3>
-                  
-                  <div className="text-center mb-6">
-                    <p className="text-gray-300 max-w-3xl mx-auto">
-                      If you're experiencing any of these industry challenges, you have three options:
-                    </p>
-                  </div>
-                  
-                  <div className="grid md:grid-cols-3 gap-6">
-                    <div className="bg-red-900/20 p-4 rounded-lg border border-red-500/20">
-                      <h4 className="font-semibold text-white mb-2">Option 1: Do Nothing</h4>
-                      <p className="text-sm text-gray-300">Continue facing price pressures, warranty callbacks, and shrinking margins while watching competitors capture the high-margin projects.</p>
+                <div className="relative group mb-6">
+                  <div className="absolute -inset-1 bg-gradient-to-r from-green-600/30 via-blue-600/30 to-green-600/30 rounded-lg blur-md opacity-75 group-hover:opacity-100 transition duration-300"></div>
+                  <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 rounded-lg p-8 border border-green-500/30 shadow-lg group-hover:shadow-green-900/20 transition duration-300">
+                    {/* Elite corner accents */}
+                    <div className="absolute top-0 left-0 w-12 h-12 pointer-events-none">
+                      <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-green-500/40 rounded-tl-md"></div>
+                      <div className="absolute top-0 left-0 w-3 h-3 bg-green-500/50 rounded-full blur-[2px]"></div>
                     </div>
-                    
-                    <div className="bg-yellow-900/20 p-4 rounded-lg border border-yellow-500/20">
-                      <h4 className="font-semibold text-white mb-2">Option 2: DIY Solution</h4>
-                      <p className="text-sm text-gray-300">Invest your time and resources trying to develop your own premium positioning without the technical validation and certification to back claims.</p>
+                    <div className="absolute top-0 right-0 w-12 h-12 pointer-events-none">
+                      <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-green-500/40 rounded-tr-md"></div>
+                      <div className="absolute top-0 right-0 w-3 h-3 bg-green-500/50 rounded-full blur-[2px]"></div>
                     </div>
-                    
-                    <div className="bg-green-900/20 p-4 rounded-lg border border-green-500/20">
-                      <h4 className="font-semibold text-white mb-2">Option 3: Partner With Us</h4>
-                      <p className="text-sm text-gray-300">Join our Certified Applicator network and access proven systems that are already generating $245,500+ in additional annual revenue for contractors like you.</p>
+                    <div className="absolute bottom-0 left-0 w-12 h-12 pointer-events-none">
+                      <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-green-500/40 rounded-bl-md"></div>
+                      <div className="absolute bottom-0 left-0 w-3 h-3 bg-green-500/50 rounded-full blur-[2px]"></div>
                     </div>
-                  </div>
+                    <div className="absolute bottom-0 right-0 w-12 h-12 pointer-events-none">
+                      <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-green-500/40 rounded-br-md"></div>
+                      <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-500/50 rounded-full blur-[2px]"></div>
+                    </div>
                   
-                  <div className="mt-6 text-center">
-                    <button
-                      onClick={() => setShowRegistrationForm(true)}
-                      className="relative inline-flex items-center justify-center px-8 py-3 overflow-hidden font-bold text-white rounded-lg group"
-                    >
-                      <span className="absolute inset-0 w-full h-full bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800"></span>
-                      <span className="absolute bottom-0 right-0 block w-64 h-64 mb-32 mr-4 transition duration-500 origin-bottom-left transform rotate-45 translate-x-24 bg-blue-500 opacity-30 group-hover:rotate-90 ease"></span>
-                      <span className="relative flex items-center text-lg">
-                        Get Your Custom Revenue Projection
-                        <ChevronRight className="ml-2 h-5 w-5" />
+                    <h3 className="text-2xl font-semibold mb-5 text-center relative z-10">
+                      <span className="bg-gradient-to-r from-white via-green-100 to-white bg-clip-text text-transparent drop-shadow-[0_1px_2px_rgba(34,197,94,0.5)]">
+                        The SmartCoat Decision: What's Your Next Step?
                       </span>
-                    </button>
+                    </h3>
+                    
+                    <div className="text-center mb-8 relative z-10">
+                      <p className="text-gray-200 max-w-3xl mx-auto text-lg">
+                        If you're experiencing any of these industry challenges, you have three options:
+                      </p>
+                    </div>
+                    
+                    <div className="grid md:grid-cols-3 gap-6 relative z-10">
+                      <div className="relative group">
+                        <div className="absolute -inset-0.5 bg-gradient-to-r from-red-600/20 to-red-400/10 rounded-lg blur-sm opacity-75 group-hover:opacity-100 transition duration-300"></div>
+                        <div className="relative bg-gradient-to-br from-gray-900/95 to-black/90 rounded-lg p-5 border border-red-500/30 shadow-lg">
+                          <h4 className="font-semibold text-white text-lg mb-3 drop-shadow-[0_1px_2px_rgba(239,68,68,0.3)]">Option 1: Do Nothing</h4>
+                          <p className="text-gray-300">Continue facing price pressures, warranty callbacks, and shrinking margins while watching competitors capture the high-margin projects.</p>
+                        </div>
+                      </div>
+                      
+                      <div className="relative group">
+                        <div className="absolute -inset-0.5 bg-gradient-to-r from-yellow-600/20 to-yellow-400/10 rounded-lg blur-sm opacity-75 group-hover:opacity-100 transition duration-300"></div>
+                        <div className="relative bg-gradient-to-br from-gray-900/95 to-black/90 rounded-lg p-5 border border-yellow-500/30 shadow-lg">
+                          <h4 className="font-semibold text-white text-lg mb-3 drop-shadow-[0_1px_2px_rgba(250,204,21,0.3)]">Option 2: DIY Solution</h4>
+                          <p className="text-gray-300">Invest your time and resources trying to develop your own premium positioning without the technical validation and certification to back claims.</p>
+                        </div>
+                      </div>
+                      
+                      <div className="relative group">
+                        <div className="absolute -inset-0.5 bg-gradient-to-r from-green-600/20 to-green-400/10 rounded-lg blur-sm opacity-75 group-hover:opacity-100 transition duration-300"></div>
+                        <div className="relative bg-gradient-to-br from-gray-900/95 to-black/90 rounded-lg p-5 border border-green-500/30 shadow-lg">
+                          <h4 className="font-semibold text-white text-lg mb-3 drop-shadow-[0_1px_2px_rgba(34,197,94,0.3)]">Option 3: Partner With Us</h4>
+                          <p className="text-gray-300">Join our Certified Applicator network and access proven systems that are already generating $245,500+ in additional annual revenue for contractors like you.</p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="mt-10 text-center relative z-10">
+                      <button
+                        onClick={() => setShowRegistrationForm(true)}
+                        className="relative group inline-flex items-center"
+                      >
+                        <div className="absolute -inset-0.5 bg-gradient-to-r from-green-600 to-blue-600 rounded-lg blur opacity-70 group-hover:opacity-100 transition duration-200"></div>
+                        <div className="relative bg-black rounded-lg group-hover:bg-gradient-to-br from-gray-900 to-black transition-all duration-200 py-3 px-8 border border-green-500/30 text-white font-semibold text-center">
+                          <span className="flex items-center text-lg">
+                            Get Your Custom Revenue Projection
+                            <ChevronRight className="ml-2 h-5 w-5" />
+                          </span>
+                        </div>
+                      </button>
+                    </div>
                   </div>
                 </div>
                 
-                <h2 className="text-2xl md:text-3xl font-bold mt-12 mb-8 text-center text-white drop-shadow-[0_0px_1px_rgba(251,113,36,0.2)] [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(251,146,60,0.3)]">
-                  Performance Metrics
-                </h2>
+                <div className="relative text-center mt-12 mb-10">
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 via-orange-600/10 to-blue-600/10 rounded-2xl blur-xl opacity-50"></div>
+                  <h2 className="relative text-3xl md:text-4xl font-bold mb-2 inline-block">
+                    <span className="bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent drop-shadow-[0_1px_2px_rgba(59,130,246,0.5)]">
+                      Performance Metrics
+                    </span>
+                  </h2>
+                  <div className="w-24 h-1 bg-gradient-to-r from-transparent via-blue-500 to-transparent mx-auto mb-2"></div>
+                  <p className="text-blue-200 max-w-2xl mx-auto text-lg">Documented performance that creates differentiation and premium value</p>
+                </div>
                 
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-                  <div className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 p-4 rounded-lg border border-blue-500/20 relative overflow-hidden group">
-                    <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    <p className="text-blue-300 text-sm font-medium mb-1">Thermal Resistance</p>
-                    <p className="text-3xl font-bold text-white mb-1">99.5%</p>
-                    <p className="text-xs text-gray-400">Compared to standard paints</p>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-6 mb-12">
+                  <div className="relative group">
+                    <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600/20 to-blue-400/10 rounded-lg blur-sm opacity-70 group-hover:opacity-100 transition duration-300"></div>
+                    <div className="relative bg-gradient-to-br from-gray-900/95 to-black/90 rounded-lg p-5 border border-blue-500/30 shadow-lg overflow-hidden">
+                      {/* Elite corner accents */}
+                      <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-blue-500/40 rounded-tl-md"></div>
+                      <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-blue-500/40 rounded-tr-md"></div>
+                      <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-blue-500/40 rounded-br-md"></div>
+                      <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-blue-500/40 rounded-bl-md"></div>
+                      
+                      <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                      <p className="text-blue-300 text-sm font-semibold mb-1 relative z-10">Thermal Resistance</p>
+                      <p className="text-3xl font-bold text-white mb-1 drop-shadow-sm relative z-10">99.5%</p>
+                      <p className="text-xs text-gray-300 relative z-10">Compared to standard paints</p>
+                    </div>
                   </div>
                   
-                  <div className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 p-4 rounded-lg border border-orange-500/20 relative overflow-hidden group">
-                    <div className="absolute inset-0 bg-gradient-to-r from-orange-600/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    <p className="text-orange-300 text-sm font-medium mb-1">Service Life</p>
-                    <p className="text-3xl font-bold text-white mb-1">30+ Years</p>
-                    <p className="text-xs text-gray-400">Documented performance</p>
+                  <div className="relative group">
+                    <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-600/20 to-orange-400/10 rounded-lg blur-sm opacity-70 group-hover:opacity-100 transition duration-300"></div>
+                    <div className="relative bg-gradient-to-br from-gray-900/95 to-black/90 rounded-lg p-5 border border-orange-500/30 shadow-lg overflow-hidden">
+                      {/* Elite corner accents */}
+                      <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-orange-500/40 rounded-tl-md"></div>
+                      <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-orange-500/40 rounded-tr-md"></div>
+                      <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-orange-500/40 rounded-br-md"></div>
+                      <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-orange-500/40 rounded-bl-md"></div>
+                      
+                      <div className="absolute inset-0 bg-gradient-to-r from-orange-600/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                      <p className="text-orange-300 text-sm font-semibold mb-1 relative z-10">Service Life</p>
+                      <p className="text-3xl font-bold text-white mb-1 drop-shadow-sm relative z-10">30+ Years</p>
+                      <p className="text-xs text-gray-300 relative z-10">Documented performance</p>
+                    </div>
                   </div>
                   
-                  <div className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 p-4 rounded-lg border border-blue-500/20 relative overflow-hidden group">
-                    <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    <p className="text-blue-300 text-sm font-medium mb-1">UV Reflection</p>
-                    <p className="text-3xl font-bold text-white mb-1">89%</p>
-                    <p className="text-xs text-gray-400">Reduces building heat load</p>
+                  <div className="relative group">
+                    <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600/20 to-blue-400/10 rounded-lg blur-sm opacity-70 group-hover:opacity-100 transition duration-300"></div>
+                    <div className="relative bg-gradient-to-br from-gray-900/95 to-black/90 rounded-lg p-5 border border-blue-500/30 shadow-lg overflow-hidden">
+                      {/* Elite corner accents */}
+                      <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-blue-500/40 rounded-tl-md"></div>
+                      <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-blue-500/40 rounded-tr-md"></div>
+                      <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-blue-500/40 rounded-br-md"></div>
+                      <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-blue-500/40 rounded-bl-md"></div>
+                      
+                      <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                      <p className="text-blue-300 text-sm font-semibold mb-1 relative z-10">UV Reflection</p>
+                      <p className="text-3xl font-bold text-white mb-1 drop-shadow-sm relative z-10">89%</p>
+                      <p className="text-xs text-gray-300 relative z-10">Reduces building heat load</p>
+                    </div>
                   </div>
                   
-                  <div className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 p-4 rounded-lg border border-orange-500/20 relative overflow-hidden group">
-                    <div className="absolute inset-0 bg-gradient-to-r from-orange-600/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    <p className="text-orange-300 text-sm font-medium mb-1">VOC Content</p>
-                    <p className="text-3xl font-bold text-white mb-1">{"<50g/L"}</p>
-                    <p className="text-xs text-gray-400">Eco-friendly formula</p>
+                  <div className="relative group">
+                    <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-600/20 to-orange-400/10 rounded-lg blur-sm opacity-70 group-hover:opacity-100 transition duration-300"></div>
+                    <div className="relative bg-gradient-to-br from-gray-900/95 to-black/90 rounded-lg p-5 border border-orange-500/30 shadow-lg overflow-hidden">
+                      {/* Elite corner accents */}
+                      <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-orange-500/40 rounded-tl-md"></div>
+                      <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-orange-500/40 rounded-tr-md"></div>
+                      <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-orange-500/40 rounded-br-md"></div>
+                      <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-orange-500/40 rounded-bl-md"></div>
+                      
+                      <div className="absolute inset-0 bg-gradient-to-r from-orange-600/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                      <p className="text-orange-300 text-sm font-semibold mb-1 relative z-10">VOC Content</p>
+                      <p className="text-3xl font-bold text-white mb-1 drop-shadow-sm relative z-10">{"<50g/L"}</p>
+                      <p className="text-xs text-gray-300 relative z-10">Eco-friendly formula</p>
+                    </div>
                   </div>
                 </div>
               </div>
