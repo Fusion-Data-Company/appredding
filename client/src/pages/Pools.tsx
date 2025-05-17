@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import MainLayout from '@/components/layout/MainLayout';
-import { GradientHeading } from "@/components/ui/gradient-heading";
 import { motion } from "framer-motion";
 import { CheckCircle, Droplets, CircleDollarSign, AreaChart, BarChart3, BarChart2, ChevronRight } from "lucide-react";
 
@@ -50,14 +49,15 @@ export default function Pools() {
       alert("Please enter a valid surface area");
       return;
     }
-
+    
     const product = products[selectedProduct];
-    const gallonsNeeded = (poolSurfaceArea / product.coverage) * coatCount;
-    const totalCost = gallonsNeeded * product.price;
-
+    const gallonsPerCoat = poolSurfaceArea / product.coverage;
+    const totalGallons = gallonsPerCoat * coatCount;
+    const totalCost = totalGallons * product.price;
+    
     setCalculationResult({
       surfaceArea: poolSurfaceArea,
-      gallonsNeeded,
+      gallonsNeeded: totalGallons,
       totalCost,
       productName: product.name,
       coatCount
@@ -65,173 +65,143 @@ export default function Pools() {
   };
 
   return (
-    <MainLayout fullWidth={true}>
-      <div className="relative">
-        {/* Structured data for SEO - JSON-LD */}
-        <script type="application/ld+json" dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Product",
-            "name": "Praetorian SmartCoat Pool Ceramic Coating",
-            "description": "Military-grade ceramic pool coating that reduces maintenance costs by 42%, extends surface life to 20+ years, and lowers energy costs by 28.7%.",
-            "brand": {
-              "@type": "Brand",
-              "name": "Praetorian SmartCoat"
-            },
-            "offers": {
-              "@type": "Offer",
-              "priceCurrency": "USD",
-              "price": "75.99",
-              "priceValidUntil": "2025-12-31",
-              "availability": "https://schema.org/InStock"
-            },
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "4.8",
-              "reviewCount": "127"
-            }
-          })
-        }} />
-        
-        {/* Premium gradient background */}
-        <div className="fixed inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-blue-950 to-black"></div>
-          
-          {/* Premium ambient glows */}
-          <div className="absolute top-0 right-0 w-2/3 h-1/2 bg-blue-600/10 rounded-full filter blur-[150px] animate-pulse-slow"></div>
-          <div className="absolute bottom-0 left-0 w-2/3 h-1/2 bg-cyan-600/10 rounded-full filter blur-[150px] animate-pulse-slow-delayed"></div>
-          
-          {/* Premium grid pattern overlay */}
-          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoMzgsMTk4LDI0MSwwLjIpIiBkPSJNMCAwaDJ2Mkgwem0yIDJoMnYySDJ6Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCBmaWxsPSJ1cmwoI2EpIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIi8+PC9zdmc+')]"></div>
+    <MainLayout>
+      {/* Hero Section */}
+      <section className="relative py-20 overflow-hidden bg-gray-950">
+        {/* Background elements */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute -top-[400px] -left-[400px] w-[800px] h-[800px] rounded-full bg-blue-600/30 blur-[100px]"></div>
+          <div className="absolute -bottom-[400px] -right-[400px] w-[800px] h-[800px] rounded-full bg-orange-600/20 blur-[100px]"></div>
         </div>
         
-        {/* Hero section with semantic HTML5 - SEO optimized */}
-        <section className="py-10 md:py-24 relative z-10" aria-labelledby="pool-coating-hero-title">
-          <div className="container mx-auto">
-            <div className="max-w-5xl mx-auto text-center mb-14 md:mb-20 relative">
-              {/* Advanced enterprise-grade backdrop with layered effects */}
-              <div className="absolute inset-0 bg-gradient-to-b from-gray-900/90 via-gray-950/95 to-black/95 rounded-2xl border border-blue-500/30 shadow-[0_0_30px_rgba(59,130,246,0.15)]"></div>
-              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/20 via-orange-600/10 to-blue-600/20 rounded-2xl blur-xl opacity-70"></div>
-              
-              {/* Premium corner accents - enterprise elite style */}
-              <div className="absolute top-0 left-0 w-20 h-20 z-10 pointer-events-none">
-                <div className="absolute top-0 left-0 w-10 h-10 border-t-2 border-l-2 border-blue-500/60 rounded-tl-lg"></div>
-                <div className="absolute top-1 left-1 w-14 h-14 border-t border-l border-blue-500/40 rounded-tl-lg"></div>
-              </div>
-              <div className="absolute top-0 right-0 w-20 h-20 z-10 pointer-events-none">
-                <div className="absolute top-0 right-0 w-10 h-10 border-t-2 border-r-2 border-blue-500/60 rounded-tr-lg"></div>
-                <div className="absolute top-1 right-1 w-14 h-14 border-t border-r border-blue-500/40 rounded-tr-lg"></div>
-              </div>
-              <div className="absolute bottom-0 left-0 w-20 h-20 z-10 pointer-events-none">
-                <div className="absolute bottom-0 left-0 w-10 h-10 border-b-2 border-l-2 border-blue-500/60 rounded-bl-lg"></div>
-                <div className="absolute bottom-1 left-1 w-14 h-14 border-b border-l border-blue-500/40 rounded-bl-lg"></div>
-              </div>
-              <div className="absolute bottom-0 right-0 w-20 h-20 z-10 pointer-events-none">
-                <div className="absolute bottom-0 right-0 w-10 h-10 border-b-2 border-r-2 border-blue-500/60 rounded-br-lg"></div>
-                <div className="absolute bottom-1 right-1 w-14 h-14 border-b border-r border-blue-500/40 rounded-br-lg"></div>
-              </div>
-              
-              <div className="relative p-8 md:p-10 backdrop-blur-sm">
-                {/* Ultra-premium enterprise header with layered effects */}
-                <div className="relative mb-8">
-                  {/* Advanced layered glow effects */}
-                  <div className="absolute -inset-6 bg-gradient-to-r from-blue-500/30 via-cyan-600/20 to-blue-500/30 rounded-full blur-xl opacity-80"></div>
-                  <div className="absolute -inset-8 bg-gradient-to-r from-blue-600/10 via-cyan-500/5 to-blue-600/10 rounded-full blur-2xl opacity-70 animate-pulse-slow"></div>
-                  
-                  <motion.h1 
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.7 }}
-                    id="pool-coating-hero-title"
-                    className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-white drop-shadow-[0_1px_3px_rgba(59,130,246,0.6)]"
-                  >
-                    Elite Ceramic Pool Coating System
-                  </motion.h1>
-                  
-                  <motion.p
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.7, delay: 0.2 }}
-                    className="text-xl text-cyan-100 mb-6"
-                  >
-                    Advanced Military-Grade Technology Now Available for Commercial & Residential Pools
-                  </motion.p>
-                  
-                  {/* Premium feature stats with enterprise-elite styling */}
-                  <div className="grid grid-cols-3 gap-4 sm:gap-6 mb-8">
-                    <div className="bg-gradient-to-br from-black/40 to-black/20 border border-cyan-600/30 rounded-lg p-3 text-center">
-                      <span className="text-green-400 font-bold text-xl md:text-2xl block">42%</span>
-                      <span className="text-cyan-200 text-xs">Lower maintenance cost</span>
-                    </div>
-                    <div className="bg-gradient-to-br from-black/40 to-black/20 border border-blue-600/30 rounded-lg p-3 text-center">
-                      <span className="text-green-400 font-bold text-xl md:text-2xl block">20+ yrs</span>
-                      <span className="text-cyan-200 text-xs">Extended surface life</span>
-                    </div>
-                    <div className="bg-gradient-to-br from-black/40 to-black/20 border border-cyan-600/30 rounded-lg p-3 text-center">
-                      <span className="text-green-400 font-bold text-xl md:text-2xl block">28.7%</span>
-                      <span className="text-cyan-200 text-xs">Energy cost reduction</span>
-                    </div>
-                  </div>
-                  
-                  {/* Sophisticated divider accents */}
-                  <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-blue-500/70 to-transparent"></div>
-                  <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent"></div>
+        <div className="container relative z-10 px-4 mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-12"
+          >
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 drop-shadow-[0_2px_10px_rgba(59,130,246,0.5)]">
+              Premium Pool Protection
+            </h1>
+            <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+              Elite ceramic coating technology that extends pool surface life by 300% while reducing maintenance costs and chemical usage.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16"
+          >
+            <div className="relative bg-gradient-to-br from-black/70 to-gray-900/70 rounded-xl p-6 border border-blue-400/30">
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500/10 to-blue-400/10 rounded-xl blur opacity-30"></div>
+              <div className="relative flex flex-col h-full">
+                <div className="text-blue-400 mb-4">
+                  <Droplets className="h-10 w-10" />
                 </div>
-                
-                {/* Enhanced subtitle with advanced typography */}
-                <p className="text-xl md:text-2xl text-white mb-8 leading-relaxed font-medium max-w-4xl mx-auto">
-                  Transform your pool with our premium ceramic coating for a <span className="text-blue-300 font-bold drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">42%</span> maintenance reduction and <span className="text-blue-300 font-bold drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">28.7%</span> energy savings – <span className="text-orange-300 italic">previously only available to luxury resorts</span>.
+                <h3 className="text-xl font-bold text-white mb-2">Reduced Chemical Usage</h3>
+                <p className="text-blue-200 mb-4 flex-grow">
+                  Our ceramic coating creates a molecular barrier that reduces chemical absorption, cutting pool maintenance costs by up to 42%.
                 </p>
+                <div className="bg-gray-800/40 p-3 rounded-lg">
+                  <div className="text-xl font-bold text-white">42%</div>
+                  <div className="text-blue-300 text-sm">Average Chemical Reduction</div>
+                </div>
               </div>
             </div>
-          </div>
-        </section>
 
-        {/* Calculator section */}
-        <section id="calculator" className="py-16 relative z-10">
-          <div className="container mx-auto">
-            <div className="relative backdrop-blur-sm bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black p-8 rounded-xl border border-blue-500/20 shadow-[0_0_60px_rgba(59,130,246,0.2)] mb-12">
-              {/* Corner accents */}
-              <div className="absolute top-0 left-0 w-32 h-32 pointer-events-none">
-                <div className="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-blue-500/40 rounded-tl-lg"></div>
-              </div>
-              <div className="absolute bottom-0 right-0 w-32 h-32 pointer-events-none">
-                <div className="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-blue-500/40 rounded-br-lg"></div>
-              </div>
-              
-              <div className="relative">
-                <div className="text-center mb-8">
-                  <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 
-                    [text-shadow:0_1px_2px_rgba(0,0,0,0.8),0_2px_10px_rgba(59,130,246,0.3)]">
-                    Premium Pool Coating ROI Calculator
-                  </h2>
-                  <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-                    Calculate your exact savings with our enterprise-grade ceramic coating technology
-                  </p>
+            <div className="relative bg-gradient-to-br from-black/70 to-gray-900/70 rounded-xl p-6 border border-blue-400/30">
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500/10 to-blue-400/10 rounded-xl blur opacity-30"></div>
+              <div className="relative flex flex-col h-full">
+                <div className="text-blue-400 mb-4">
+                  <BarChart3 className="h-10 w-10" />
                 </div>
-                
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                  {/* Calculator inputs */}
-                  <div className="col-span-1 md:col-span-1">
-                    <div className="space-y-6">
-                      <div>
-                        <label htmlFor="poolSurfaceArea" className="block text-white font-medium mb-2">Pool Surface Area (sq ft)</label>
+                <h3 className="text-xl font-bold text-white mb-2">Extended Surface Life</h3>
+                <p className="text-blue-200 mb-4 flex-grow">
+                  Praetorian ceramic coating extends pool surface lifespan by 300%, delaying costly resurfacing for decades.
+                </p>
+                <div className="bg-gray-800/40 p-3 rounded-lg">
+                  <div className="text-xl font-bold text-white">20+ years</div>
+                  <div className="text-blue-300 text-sm">Average Lifespan</div>
+                </div>
+              </div>
+            </div>
+
+            <div className="relative bg-gradient-to-br from-black/70 to-gray-900/70 rounded-xl p-6 border border-blue-400/30">
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500/10 to-blue-400/10 rounded-xl blur opacity-30"></div>
+              <div className="relative flex flex-col h-full">
+                <div className="text-blue-400 mb-4">
+                  <CircleDollarSign className="h-10 w-10" />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-2">Exceptional ROI</h3>
+                <p className="text-blue-200 mb-4 flex-grow">
+                  Investment in our protective coating delivers 371% ROI over 10 years through reduced maintenance and extended surface life.
+                </p>
+                <div className="bg-gray-800/40 p-3 rounded-lg">
+                  <div className="text-xl font-bold text-white">371%</div>
+                  <div className="text-blue-300 text-sm">10-Year ROI</div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Calculator Section */}
+      <section className="py-20 bg-gray-900">
+        <div className="container mx-auto px-4">
+          <div className="mb-12 text-center">
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-3xl md:text-4xl font-bold text-white mb-4 drop-shadow-[0_2px_10px_rgba(59,130,246,0.5)]"
+            >
+              Premium ROI Calculator
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-xl text-blue-100 max-w-3xl mx-auto"
+            >
+              Calculate your investment and long-term savings with our enterprise-grade coating system
+            </motion.p>
+          </div>
+
+          <div className="max-w-6xl mx-auto">
+            <div className="relative bg-gradient-to-br from-gray-900/70 to-gray-950/70 rounded-xl border border-blue-500/30 overflow-hidden">
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600/30 to-blue-400/30 rounded-xl blur-lg opacity-20"></div>
+              
+              <div className="relative grid grid-cols-1 md:grid-cols-3 gap-6 p-6">
+                <div className="col-span-1">
+                  <div className="relative bg-gradient-to-br from-gray-900/70 to-gray-950/70 rounded-xl border border-blue-500/30 p-6">
+                    <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600/10 to-blue-400/10 rounded-xl blur-sm opacity-30"></div>
+                    
+                    <div className="relative z-10">
+                      <h3 className="text-xl font-bold text-white mb-6">Calculate Your Investment</h3>
+                      
+                      <div className="mb-6">
+                        <label className="block text-blue-100 mb-2">Pool Surface Area (sq ft)</label>
                         <input
                           type="number"
-                          id="poolSurfaceArea"
+                          min="50"
                           value={poolSurfaceArea}
                           onChange={(e) => setPoolSurfaceArea(Number(e.target.value))}
-                          className="w-full bg-gray-800 border border-blue-500/30 rounded-lg px-4 py-3 text-white focus:border-blue-400 focus:ring-1 focus:ring-blue-400"
+                          className="w-full bg-gray-900 border border-blue-500/30 text-white rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500/50"
                         />
                       </div>
                       
-                      <div>
-                        <label htmlFor="productSelect" className="block text-white font-medium mb-2">Coating Product</label>
+                      <div className="mb-6">
+                        <label className="block text-blue-100 mb-2">Coating Product</label>
                         <select
-                          id="productSelect"
                           value={selectedProduct}
                           onChange={(e) => setSelectedProduct(e.target.value)}
-                          className="w-full bg-gray-800 border border-blue-500/30 rounded-lg px-4 py-3 text-white focus:border-blue-400 focus:ring-1 focus:ring-blue-400"
+                          className="w-full bg-gray-900 border border-blue-500/30 text-white rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500/50"
                         >
                           <option value="standard">Praetorian Standard</option>
                           <option value="premium">Praetorian Premium</option>
@@ -239,128 +209,710 @@ export default function Pools() {
                         </select>
                       </div>
                       
-                      <div>
-                        <label htmlFor="coatCount" className="block text-white font-medium mb-2">Number of Coats</label>
-                        <div className="flex items-center space-x-2">
-                          <button
-                            type="button"
-                            onClick={() => setCoatCount(Math.max(1, coatCount - 1))}
-                            className="bg-gray-700 text-white px-3 py-2 rounded-lg hover:bg-gray-600"
-                          >
-                            -
-                          </button>
-                          <input
-                            type="number"
-                            id="coatCount"
-                            value={coatCount}
-                            onChange={(e) => setCoatCount(Number(e.target.value))}
-                            className="w-full bg-gray-800 border border-blue-500/30 rounded-lg px-4 py-2 text-white focus:border-blue-400 focus:ring-1 focus:ring-blue-400 text-center"
-                            min="1"
-                            max="3"
-                          />
-                          <button
-                            type="button"
-                            onClick={() => setCoatCount(Math.min(3, coatCount + 1))}
-                            className="bg-gray-700 text-white px-3 py-2 rounded-lg hover:bg-gray-600"
-                          >
-                            +
-                          </button>
-                        </div>
+                      <div className="mb-8">
+                        <label className="block text-blue-100 mb-2">Number of Coats</label>
+                        <select
+                          value={coatCount}
+                          onChange={(e) => setCoatCount(Number(e.target.value))}
+                          className="w-full bg-gray-900 border border-blue-500/30 text-white rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500/50"
+                        >
+                          <option value={1}>Single Coat</option>
+                          <option value={2}>Double Coat (Recommended)</option>
+                          <option value={3}>Triple Coat (Maximum Protection)</option>
+                        </select>
                       </div>
                       
-                      <div className="pt-4">
-                        <button
-                          onClick={calculateResults}
-                          className="relative w-full py-3 bg-gray-950 text-white rounded-lg overflow-hidden group"
+                      <button
+                        onClick={calculateResults}
+                        className="relative w-full bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg px-6 py-3 shadow-lg transition-all duration-200"
+                      >
+                        <div className="absolute inset-0 -z-10 bg-blue-500/20 blur-md rounded-lg"></div>
+                        Calculate ROI
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Calculator results */}
+                <div className="col-span-1 md:col-span-2">
+                  <div className="relative bg-gradient-to-br from-gray-900/70 to-gray-950/70 rounded-xl border border-blue-500/30 p-6 h-full">
+                    <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600/10 to-blue-400/10 rounded-xl blur-sm opacity-30"></div>
+                    
+                    {calculationResult ? (
+                      <div className="relative z-10">
+                        <h3 className="text-center text-3xl md:text-4xl font-bold text-white mb-8 drop-shadow-[0_2px_10px_rgba(59,130,246,0.5)]">
+                          Elite Ceramic Coating ROI Analysis
+                        </h3>
+                        
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+                          <motion.div 
+                            whileHover={{ y: -5 }}
+                            transition={{ type: "spring", stiffness: 300 }}
+                            className="bg-gradient-to-br from-black/70 to-gray-900/70 p-5 rounded-lg border border-blue-500/30 shadow-[0_4px_20px_rgba(0,0,0,0.2)]"
+                          >
+                            <p className="text-blue-300 text-sm mb-1">Surface Area</p>
+                            <p className="text-2xl font-bold text-white">{calculationResult.surfaceArea} sq ft</p>
+                          </motion.div>
+                          <motion.div 
+                            whileHover={{ y: -5 }}
+                            transition={{ type: "spring", stiffness: 300 }}
+                            className="bg-gradient-to-br from-black/70 to-gray-900/70 p-5 rounded-lg border border-blue-500/30 shadow-[0_4px_20px_rgba(0,0,0,0.2)]"
+                          >
+                            <p className="text-blue-300 text-sm mb-1">Premium Product</p>
+                            <p className="text-2xl font-bold text-white">{calculationResult.productName}</p>
+                          </motion.div>
+                        </div>
+                        
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+                          <motion.div 
+                            whileHover={{ y: -5 }}
+                            transition={{ type: "spring", stiffness: 300 }}
+                            className="bg-gradient-to-br from-black/70 to-gray-900/70 p-5 rounded-lg border border-blue-500/30 shadow-[0_4px_20px_rgba(0,0,0,0.2)]"
+                          >
+                            <p className="text-blue-300 text-sm mb-1">Material Required</p>
+                            <p className="text-2xl font-bold text-white">{calculationResult.gallonsNeeded.toFixed(2)} gallons</p>
+                          </motion.div>
+                          <motion.div 
+                            whileHover={{ y: -5 }}
+                            transition={{ type: "spring", stiffness: 300 }}
+                            className="bg-gradient-to-br from-black/70 to-gray-900/70 p-5 rounded-lg border border-blue-500/30 shadow-[0_4px_20px_rgba(0,0,0,0.2)]"
+                          >
+                            <p className="text-blue-300 text-sm mb-1">Coats Required</p>
+                            <p className="text-2xl font-bold text-white">{calculationResult.coatCount}</p>
+                          </motion.div>
+                        </div>
+                        
+                        <motion.div 
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.5, delay: 0.2 }}
+                          className="mb-8"
                         >
-                          {/* Ambient glow positioned behind button */}
-                          <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-blue-400 rounded-lg opacity-70 blur-md group-hover:opacity-100 transition-opacity duration-300 z-0"></div>
-                          
-                          {/* Button face with proper z-index layering */}
-                          <div className="relative z-10 bg-gradient-to-br from-gray-900 to-black py-3 rounded-lg border border-blue-500/20
-                            shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),0_1px_10px_rgba(59,130,246,0.35)]">
-                            Calculate ROI
+                          <div className="relative bg-gradient-to-br from-blue-900/40 via-blue-950/40 to-blue-900/40 p-6 rounded-lg border border-blue-400/30 shadow-[0_8px_30px_rgba(0,0,0,0.3)]">
+                            {/* Premium ambient glow effect */}
+                            <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500/20 via-blue-400/10 to-blue-500/20 rounded-lg blur-md"></div>
+                            
+                            <div className="relative">
+                              <h4 className="text-center text-xl text-white mb-6 font-semibold drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">Premium Investment Analysis</h4>
+                              
+                              <div className="space-y-5">
+                                <div className="flex justify-between items-baseline border-b border-blue-500/20 pb-3">
+                                  <p className="text-blue-100 font-medium">Material Investment:</p>
+                                  <p className="text-2xl font-bold text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
+                                    ${calculationResult.totalCost.toFixed(2)}
+                                  </p>
+                                </div>
+                                
+                                <div className="flex justify-between items-baseline border-b border-blue-500/20 pb-3">
+                                  <p className="text-blue-100 font-medium">10-Year Maintenance Savings:</p>
+                                  <p className="text-2xl font-bold text-green-400 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
+                                    ${(calculationResult.totalCost * 3.71).toFixed(2)}
+                                  </p>
+                                </div>
+                                
+                                <div className="flex justify-between items-baseline pt-2">
+                                  <p className="text-blue-100 font-medium">Total 10-Year ROI:</p>
+                                  <div className="flex items-center gap-2">
+                                    <CircleDollarSign className="text-green-400 h-6 w-6" />
+                                    <p className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-green-300 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
+                                      371%
+                                    </p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
                           </div>
-                        </button>
+                        </motion.div>
+                      </div>
+                    ) : (
+                      <div className="relative z-10 flex flex-col items-center justify-center h-full text-center p-6">
+                        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 via-blue-500/2 to-blue-600/5 rounded-lg blur-md"></div>
+                        
+                        <div className="relative text-blue-400 mb-6">
+                          <CircleDollarSign className="h-16 w-16 mx-auto" />
+                        </div>
+                        
+                        <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 drop-shadow-[0_2px_10px_rgba(59,130,246,0.5)]">
+                          Premium ROI Calculator
+                        </h3>
+                        
+                        <p className="text-lg text-blue-100 mb-8 max-w-lg">
+                          Enter your pool dimensions and coating preferences to receive a detailed investment analysis showing your potential savings over 10 years.
+                        </p>
+                        
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-6">
+                          <div className="bg-gradient-to-br from-black/70 to-gray-900/70 p-5 rounded-lg border border-blue-500/30 shadow-[0_4px_20px_rgba(0,0,0,0.2)]">
+                            <p className="text-2xl font-bold text-green-400 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">371%</p>
+                            <p className="text-blue-300 text-sm">Average ROI</p>
+                          </div>
+                          <div className="bg-gradient-to-br from-black/70 to-gray-900/70 p-5 rounded-lg border border-blue-500/30 shadow-[0_4px_20px_rgba(0,0,0,0.2)]">
+                            <p className="text-2xl font-bold text-green-400 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">42%</p>
+                            <p className="text-blue-300 text-sm">Maintenance Reduction</p>
+                          </div>
+                          <div className="bg-gradient-to-br from-black/70 to-gray-900/70 p-5 rounded-lg border border-blue-500/30 shadow-[0_4px_20px_rgba(0,0,0,0.2)]">
+                            <p className="text-2xl font-bold text-green-400 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">20+ yrs</p>
+                            <p className="text-blue-300 text-sm">Extended Lifespan</p>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Features section */}
+      <section className="py-20 bg-gray-950">
+        <div className="container mx-auto px-4">
+          <div className="mb-16 text-center max-w-3xl mx-auto">
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-3xl md:text-4xl font-bold text-white mb-4 drop-shadow-[0_2px_10px_rgba(59,130,246,0.5)]"
+            >
+              Enterprise-Grade Technology
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-xl text-blue-100"
+            >
+              Previously available only to government agencies, our ceramic coating technology now protects commercial and residential pools worldwide
+            </motion.p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="relative bg-gradient-to-br from-black/70 to-gray-900/70 rounded-xl p-6 border border-blue-400/30"
+            >
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500/10 to-blue-400/10 rounded-xl blur opacity-30"></div>
+              <div className="relative">
+                <div className="text-blue-400 mb-4 flex items-center">
+                  <CheckCircle className="h-6 w-6 mr-2" />
+                  <h3 className="text-xl font-bold text-white">Ceramic Technology</h3>
+                </div>
+                <p className="text-blue-200 mb-4">
+                  Our proprietary ceramic formulation creates a molecular barrier that prevents chemical penetration and UV damage while enhancing durability.
+                </p>
+                <ul className="space-y-2">
+                  <li className="flex items-start">
+                    <div className="mt-1 mr-2 text-green-400"><CheckCircle className="h-4 w-4" /></div>
+                    <span className="text-blue-100">Temperature resistant to 500°F</span>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="mt-1 mr-2 text-green-400"><CheckCircle className="h-4 w-4" /></div>
+                    <span className="text-blue-100">Molecularly bonds to concrete & fiberglass</span>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="mt-1 mr-2 text-green-400"><CheckCircle className="h-4 w-4" /></div>
+                    <span className="text-blue-100">Ultra-low thermal conductivity</span>
+                  </li>
+                </ul>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="relative bg-gradient-to-br from-black/70 to-gray-900/70 rounded-xl p-6 border border-blue-400/30"
+            >
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500/10 to-blue-400/10 rounded-xl blur opacity-30"></div>
+              <div className="relative">
+                <div className="text-blue-400 mb-4 flex items-center">
+                  <CheckCircle className="h-6 w-6 mr-2" />
+                  <h3 className="text-xl font-bold text-white">Chemical Resistance</h3>
+                </div>
+                <p className="text-blue-200 mb-4">
+                  Our nano-ceramic barrier prevents chemical absorption into pool surfaces, reducing the amount of chemicals needed to maintain proper water balance.
+                </p>
+                <ul className="space-y-2">
+                  <li className="flex items-start">
+                    <div className="mt-1 mr-2 text-green-400"><CheckCircle className="h-4 w-4" /></div>
+                    <span className="text-blue-100">Reduces chlorine consumption by 42%</span>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="mt-1 mr-2 text-green-400"><CheckCircle className="h-4 w-4" /></div>
+                    <span className="text-blue-100">Prevents pH fluctuations</span>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="mt-1 mr-2 text-green-400"><CheckCircle className="h-4 w-4" /></div>
+                    <span className="text-blue-100">Resists algae formation</span>
+                  </li>
+                </ul>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="relative bg-gradient-to-br from-black/70 to-gray-900/70 rounded-xl p-6 border border-blue-400/30"
+            >
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500/10 to-blue-400/10 rounded-xl blur opacity-30"></div>
+              <div className="relative">
+                <div className="text-blue-400 mb-4 flex items-center">
+                  <CheckCircle className="h-6 w-6 mr-2" />
+                  <h3 className="text-xl font-bold text-white">UV Protection</h3>
+                </div>
+                <p className="text-blue-200 mb-4">
+                  Our ceramic formula includes advanced UV inhibitors that protect pool surfaces from sun damage, preventing fading, cracking and deterioration.
+                </p>
+                <ul className="space-y-2">
+                  <li className="flex items-start">
+                    <div className="mt-1 mr-2 text-green-400"><CheckCircle className="h-4 w-4" /></div>
+                    <span className="text-blue-100">Blocks 99.9% of UV radiation</span>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="mt-1 mr-2 text-green-400"><CheckCircle className="h-4 w-4" /></div>
+                    <span className="text-blue-100">Prevents surface chalking</span>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="mt-1 mr-2 text-green-400"><CheckCircle className="h-4 w-4" /></div>
+                    <span className="text-blue-100">Maintains surface color for 20+ years</span>
+                  </li>
+                </ul>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="relative bg-gradient-to-br from-black/70 to-gray-900/70 rounded-xl p-6 border border-blue-400/30"
+            >
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500/10 to-blue-400/10 rounded-xl blur opacity-30"></div>
+              <div className="relative">
+                <div className="text-blue-400 mb-4 flex items-center">
+                  <CheckCircle className="h-6 w-6 mr-2" />
+                  <h3 className="text-xl font-bold text-white">Extended Lifespan</h3>
+                </div>
+                <p className="text-blue-200 mb-4">
+                  Our ceramic coating creates a permanent bond with pool surfaces, extending their useful life by up to 300% and delaying expensive resurfacing.
+                </p>
+                <ul className="space-y-2">
+                  <li className="flex items-start">
+                    <div className="mt-1 mr-2 text-green-400"><CheckCircle className="h-4 w-4" /></div>
+                    <span className="text-blue-100">Prevents surface degradation</span>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="mt-1 mr-2 text-green-400"><CheckCircle className="h-4 w-4" /></div>
+                    <span className="text-blue-100">Inhibits concrete spalling</span>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="mt-1 mr-2 text-green-400"><CheckCircle className="h-4 w-4" /></div>
+                    <span className="text-blue-100">Eliminates the need for acid washing</span>
+                  </li>
+                </ul>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+              className="relative bg-gradient-to-br from-black/70 to-gray-900/70 rounded-xl p-6 border border-blue-400/30"
+            >
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500/10 to-blue-400/10 rounded-xl blur opacity-30"></div>
+              <div className="relative">
+                <div className="text-blue-400 mb-4 flex items-center">
+                  <CheckCircle className="h-6 w-6 mr-2" />
+                  <h3 className="text-xl font-bold text-white">Energy Efficiency</h3>
+                </div>
+                <p className="text-blue-200 mb-4">
+                  Our ceramic coating's thermal properties help maintain stable water temperatures, reducing heating costs for indoor and outdoor pools.
+                </p>
+                <ul className="space-y-2">
+                  <li className="flex items-start">
+                    <div className="mt-1 mr-2 text-green-400"><CheckCircle className="h-4 w-4" /></div>
+                    <span className="text-blue-100">Reduces heat loss by up to 28%</span>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="mt-1 mr-2 text-green-400"><CheckCircle className="h-4 w-4" /></div>
+                    <span className="text-blue-100">Lowers energy consumption</span>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="mt-1 mr-2 text-green-400"><CheckCircle className="h-4 w-4" /></div>
+                    <span className="text-blue-100">Improves solar heating efficiency</span>
+                  </li>
+                </ul>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+              className="relative bg-gradient-to-br from-black/70 to-gray-900/70 rounded-xl p-6 border border-blue-400/30"
+            >
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500/10 to-blue-400/10 rounded-xl blur opacity-30"></div>
+              <div className="relative">
+                <div className="text-blue-400 mb-4 flex items-center">
+                  <CheckCircle className="h-6 w-6 mr-2" />
+                  <h3 className="text-xl font-bold text-white">Professional Application</h3>
+                </div>
+                <p className="text-blue-200 mb-4">
+                  Our network of certified pool contractors ensures perfect application of our ceramic coating technology for optimal performance.
+                </p>
+                <ul className="space-y-2">
+                  <li className="flex items-start">
+                    <div className="mt-1 mr-2 text-green-400"><CheckCircle className="h-4 w-4" /></div>
+                    <span className="text-blue-100">Certified installer network</span>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="mt-1 mr-2 text-green-400"><CheckCircle className="h-4 w-4" /></div>
+                    <span className="text-blue-100">20-year manufacturer warranty</span>
+                  </li>
+                  <li className="flex items-start">
+                    <div className="mt-1 mr-2 text-green-400"><CheckCircle className="h-4 w-4" /></div>
+                    <span className="text-blue-100">Detailed documentation package</span>
+                  </li>
+                </ul>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="relative py-20 overflow-hidden bg-gray-900">
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute -bottom-[400px] -right-[400px] w-[800px] h-[800px] rounded-full bg-blue-600/30 blur-[100px]"></div>
+          <div className="absolute -top-[400px] -left-[400px] w-[800px] h-[800px] rounded-full bg-orange-600/20 blur-[100px]"></div>
+        </div>
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-4xl mx-auto">
+            <div className="relative bg-gradient-to-br from-gray-900/90 to-gray-950/90 rounded-xl border border-blue-500/30 p-8 md:p-12 overflow-hidden">
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500/20 to-blue-400/20 rounded-xl blur-lg opacity-30"></div>
+              
+              <div className="relative text-center max-w-3xl mx-auto">
+                <motion.h2
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                  className="text-3xl md:text-4xl font-bold text-white mb-6 drop-shadow-[0_2px_10px_rgba(59,130,246,0.5)]"
+                >
+                  Start Protecting Your Investment Today
+                </motion.h2>
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.1 }}
+                  className="text-xl text-blue-100 mb-10"
+                >
+                  Schedule a consultation with our pool coating experts to receive a customized quote and ROI analysis for your specific pool project.
+                </motion.p>
+                
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  className="flex flex-col sm:flex-row items-center justify-center gap-4"
+                >
+                  <a 
+                    href="#contact" 
+                    className="relative bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg px-8 py-4 shadow-lg transition-all duration-200 w-full sm:w-auto"
+                  >
+                    <div className="absolute inset-0 -z-10 bg-blue-500/20 blur-md rounded-lg"></div>
+                    Request Free Consultation
+                  </a>
+                  <a 
+                    href="tel:9168096619" 
+                    className="relative bg-transparent hover:bg-gray-800/50 text-white font-semibold rounded-lg px-8 py-4 border border-blue-500/30 transition-all duration-200 w-full sm:w-auto"
+                  >
+                    <div className="absolute inset-0 -z-10 bg-blue-500/5 blur-sm rounded-lg"></div>
+                    Call (916) 809-6619
+                  </a>
+                </motion.div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-20 bg-gray-950">
+        <div className="container mx-auto px-4">
+          <div className="mb-16 text-center max-w-3xl mx-auto">
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-3xl md:text-4xl font-bold text-white mb-4 drop-shadow-[0_2px_10px_rgba(59,130,246,0.5)]"
+            >
+              Client Success Stories
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-xl text-blue-100"
+            >
+              See how our ceramic coating technology has transformed commercial and residential pools across the country
+            </motion.p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="relative bg-gradient-to-br from-gray-900/70 to-gray-950/70 rounded-xl border border-blue-500/30 p-6"
+            >
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500/10 to-blue-400/10 rounded-xl blur opacity-30"></div>
+              <div className="relative">
+                <div className="flex items-center mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <svg key={i} className="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                    </svg>
+                  ))}
+                </div>
+                <p className="text-blue-100 mb-6 italic">
+                  "After applying Praetorian's ceramic coating to our resort's four pools, we've seen a 47% reduction in chemical usage and virtually eliminated the need for acid washing. The ROI has been exceptional."
+                </p>
+                <div className="flex items-center">
+                  <div className="ml-4">
+                    <p className="text-white font-semibold">Michael T.</p>
+                    <p className="text-blue-300 text-sm">Resort Facilities Director</p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="relative bg-gradient-to-br from-gray-900/70 to-gray-950/70 rounded-xl border border-blue-500/30 p-6"
+            >
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500/10 to-blue-400/10 rounded-xl blur opacity-30"></div>
+              <div className="relative">
+                <div className="flex items-center mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <svg key={i} className="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                    </svg>
+                  ))}
+                </div>
+                <p className="text-blue-100 mb-6 italic">
+                  "We manage 12 community pools, and the ceramic coating has been a game-changer for our maintenance costs. The water chemistry remains stable longer, and our resurfacing schedule has been extended by 15+ years."
+                </p>
+                <div className="flex items-center">
+                  <div className="ml-4">
+                    <p className="text-white font-semibold">Rebecca J.</p>
+                    <p className="text-blue-300 text-sm">HOA Manager</p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="relative bg-gradient-to-br from-gray-900/70 to-gray-950/70 rounded-xl border border-blue-500/30 p-6"
+            >
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500/10 to-blue-400/10 rounded-xl blur opacity-30"></div>
+              <div className="relative">
+                <div className="flex items-center mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <svg key={i} className="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                    </svg>
+                  ))}
+                </div>
+                <p className="text-blue-100 mb-6 italic">
+                  "As a pool contractor, I've added Praetorian's ceramic coating as a premium service option for my clients. The results are stunning - better water clarity, longer surface life, and significant chemical savings."
+                </p>
+                <div className="flex items-center">
+                  <div className="ml-4">
+                    <p className="text-white font-semibold">David K.</p>
+                    <p className="text-blue-300 text-sm">Pool Installation Contractor</p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Form Section */}
+      <section id="contact" className="py-20 bg-gray-900">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="relative bg-gradient-to-br from-gray-900/70 to-gray-950/70 rounded-xl border border-blue-500/30 overflow-hidden">
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600/30 to-blue-400/30 rounded-xl blur-lg opacity-20"></div>
+              
+              <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-8 p-8">
+                <div>
+                  <motion.h2 
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className="text-3xl md:text-4xl font-bold text-white mb-4 drop-shadow-[0_2px_10px_rgba(59,130,246,0.5)]"
+                  >
+                    Ready to Transform Your Pool?
+                  </motion.h2>
+                  <motion.p
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.1 }}
+                    className="text-xl text-blue-100 mb-8"
+                  >
+                    Contact us today for a free consultation and custom ROI analysis
+                  </motion.p>
+                  
+                  <div className="space-y-6 mb-8">
+                    <div className="flex items-start">
+                      <div className="flex-shrink-0 bg-blue-600/20 p-3 rounded-lg mr-4">
+                        <svg className="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-semibold text-white">Headquarters</h3>
+                        <p className="text-blue-200">Redding, California</p>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-start">
+                      <div className="flex-shrink-0 bg-blue-600/20 p-3 rounded-lg mr-4">
+                        <svg className="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                        </svg>
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-semibold text-white">Phone</h3>
+                        <p className="text-blue-200">(916) 809-6619</p>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-start">
+                      <div className="flex-shrink-0 bg-blue-600/20 p-3 rounded-lg mr-4">
+                        <svg className="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-semibold text-white">Email</h3>
+                        <p className="text-blue-200">rob@praetoriansmartcoat.com</p>
                       </div>
                     </div>
                   </div>
-                  
-                  {/* Calculator results */}
-                  <div className="col-span-1 md:col-span-2">
-                    <div className="relative bg-gradient-to-br from-gray-900/70 to-gray-950/70 rounded-xl border border-blue-500/30 p-6 h-full">
-                      <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600/10 to-blue-400/10 rounded-xl blur-sm opacity-30"></div>
+                </div>
+                
+                <div>
+                  <div className="relative bg-gradient-to-br from-black/70 to-gray-900/70 rounded-xl border border-blue-500/30 p-6">
+                    <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500/10 to-blue-400/10 rounded-xl blur opacity-30"></div>
+                    <div className="relative">
+                      <h3 className="text-xl font-bold text-white mb-6">Request Information</h3>
                       
-                      {calculationResult ? (
-                        <div className="relative z-10">
-                          <h3 className="text-2xl font-bold text-white mb-6 text-center">Your Custom ROI Analysis</h3>
-                          
-                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
-                            <div className="bg-gray-800/50 rounded-lg p-4 border border-blue-500/20">
-                              <p className="text-gray-400 text-sm mb-1">Surface Area</p>
-                              <p className="text-2xl font-bold text-white">{calculationResult.surfaceArea} sq ft</p>
-                            </div>
-                            <div className="bg-gray-800/50 rounded-lg p-4 border border-blue-500/20">
-                              <p className="text-gray-400 text-sm mb-1">Product</p>
-                              <p className="text-2xl font-bold text-white">{calculationResult.productName}</p>
-                            </div>
-                            <div className="bg-gray-800/50 rounded-lg p-4 border border-blue-500/20">
-                              <p className="text-gray-400 text-sm mb-1">Estimated Gallons Needed</p>
-                              <p className="text-2xl font-bold text-white">{calculationResult.gallonsNeeded.toFixed(1)} gallons</p>
-                            </div>
-                            <div className="bg-gray-800/50 rounded-lg p-4 border border-blue-500/20">
-                              <p className="text-gray-400 text-sm mb-1">Number of Coats</p>
-                              <p className="text-2xl font-bold text-white">{calculationResult.coatCount}</p>
-                            </div>
+                      <form className="space-y-6">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          <div>
+                            <label className="block text-blue-100 mb-2">First Name*</label>
+                            <input
+                              type="text"
+                              className="w-full bg-gray-900 border border-blue-500/30 text-white rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500/50"
+                              required
+                            />
                           </div>
-                          
-                          <div className="mb-8">
-                            <div className="bg-gradient-to-r from-blue-500/20 to-blue-600/20 rounded-lg p-5 border border-blue-400/30">
-                              <div className="flex justify-between items-baseline mb-2">
-                                <p className="text-gray-300">Estimated Material Cost:</p>
-                                <p className="text-2xl font-bold text-white">${calculationResult.totalCost.toFixed(2)}</p>
-                              </div>
-                              <div className="flex justify-between items-baseline mb-2">
-                                <p className="text-gray-300">10-Year Maintenance Savings:</p>
-                                <p className="text-2xl font-bold text-green-400">${(calculationResult.totalCost * 3.71).toFixed(2)}</p>
-                              </div>
-                              <div className="flex justify-between items-baseline">
-                                <p className="text-gray-300">Total 10-Year ROI:</p>
-                                <p className="text-3xl font-bold text-green-400">371%</p>
-                              </div>
-                            </div>
+                          <div>
+                            <label className="block text-blue-100 mb-2">Last Name*</label>
+                            <input
+                              type="text"
+                              className="w-full bg-gray-900 border border-blue-500/30 text-white rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500/50"
+                              required
+                            />
                           </div>
                         </div>
-                      ) : (
-                        <div className="relative z-10 flex flex-col items-center justify-center h-full text-center p-6">
-                          <h3 className="text-2xl font-bold text-white mb-4">Premium ROI Calculator</h3>
-                          <p className="text-gray-300 mb-6 max-w-lg">
-                            Enter your pool dimensions and coating preferences to receive a detailed ROI analysis showing your potential savings over 10 years.
-                          </p>
-                          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                            <div className="bg-gray-800/50 rounded-lg px-4 py-3 border border-blue-500/20 text-center">
-                              <p className="text-xl font-bold text-white">371%</p>
-                              <p className="text-blue-300 text-sm">Average ROI</p>
-                            </div>
-                            <div className="bg-gray-800/50 rounded-lg px-4 py-3 border border-blue-500/20 text-center">
-                              <p className="text-xl font-bold text-white">42%</p>
-                              <p className="text-blue-300 text-sm">Maintenance Reduction</p>
-                            </div>
-                            <div className="bg-gray-800/50 rounded-lg px-4 py-3 border border-blue-500/20 text-center">
-                              <p className="text-xl font-bold text-white">20+ yrs</p>
-                              <p className="text-blue-300 text-sm">Extended Lifespan</p>
-                            </div>
+                        
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          <div>
+                            <label className="block text-blue-100 mb-2">Email*</label>
+                            <input
+                              type="email"
+                              className="w-full bg-gray-900 border border-blue-500/30 text-white rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500/50"
+                              required
+                            />
+                          </div>
+                          <div>
+                            <label className="block text-blue-100 mb-2">Phone*</label>
+                            <input
+                              type="tel"
+                              className="w-full bg-gray-900 border border-blue-500/30 text-white rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500/50"
+                              required
+                            />
                           </div>
                         </div>
-                      )}
+                        
+                        <div>
+                          <label className="block text-blue-100 mb-2">Pool Type</label>
+                          <select
+                            className="w-full bg-gray-900 border border-blue-500/30 text-white rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500/50"
+                          >
+                            <option value="">Select Pool Type</option>
+                            <option value="residential">Residential</option>
+                            <option value="commercial">Commercial</option>
+                            <option value="municipal">Municipal</option>
+                            <option value="other">Other</option>
+                          </select>
+                        </div>
+                        
+                        <div>
+                          <label className="block text-blue-100 mb-2">Message</label>
+                          <textarea
+                            rows={4}
+                            className="w-full bg-gray-900 border border-blue-500/30 text-white rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500/50"
+                            placeholder="Tell us about your project..."
+                          ></textarea>
+                        </div>
+                        
+                        <button
+                          type="submit"
+                          className="relative w-full bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg px-6 py-3 shadow-lg transition-all duration-200"
+                        >
+                          <div className="absolute inset-0 -z-10 bg-blue-500/20 blur-md rounded-lg"></div>
+                          Submit Request
+                        </button>
+                      </form>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
     </MainLayout>
   );
 }
