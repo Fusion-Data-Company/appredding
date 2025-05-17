@@ -317,28 +317,52 @@ const Pools = () => {
                     <div className="absolute bottom-0 right-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
                   </div>
                   
-                  <h1 className="text-3xl md:text-5xl font-bold mb-4 text-white drop-shadow-[0_0px_1px_rgba(251,113,36,0.2)] [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(251,146,60,0.3)]">
-                    Boost Your Pool Business Profits
+                  <h1 className="text-3xl md:text-5xl font-bold mb-4 text-white drop-shadow-[0_1px_3px_rgba(59,130,246,0.6)]">
+                    371% Increased Pool Business Profit
                   </h1>
-                  <p className="text-xl text-blue-100 mb-4">
-                    <span className="text-orange-300 font-semibold">While 93% of pool companies struggle with 22-35% profit margins</span>, our contractors consistently achieve <span className="text-green-400 font-semibold">65-80% margins with ceramic pool coating services</span> and average <span className="text-green-400 font-semibold">371% ROI within 12 months</span>
+                  
+                  {/* Enhanced ROI-focused stats in enterprise grid format */}
+                  <div className="grid grid-cols-3 gap-3 mb-6">
+                    <div className="bg-gradient-to-br from-black/40 to-black/20 border border-orange-600/30 rounded-lg p-3 text-center">
+                      <span className="text-green-400 font-bold text-xl md:text-2xl block">328%</span>
+                      <span className="text-blue-200 text-xs">Higher Customer ROI</span>
+                    </div>
+                    <div className="bg-gradient-to-br from-black/40 to-black/20 border border-blue-600/30 rounded-lg p-3 text-center">
+                      <span className="text-green-400 font-bold text-xl md:text-2xl block">$14.80</span>
+                      <span className="text-blue-200 text-xs">Added profit per sq.ft</span>
+                    </div>
+                    <div className="bg-gradient-to-br from-black/40 to-black/20 border border-orange-600/30 rounded-lg p-3 text-center">
+                      <span className="text-green-400 font-bold text-xl md:text-2xl block">72%</span>
+                      <span className="text-blue-200 text-xs">Customer conversion rate</span>
+                    </div>
+                  </div>
+                  
+                  <p className="text-xl text-white mb-4">
+                    <span className="text-blue-300 font-semibold">While standard coatings only last 3-5 years</span>, our ceramic technology delivers <span className="text-orange-300 font-semibold">20+ year protection</span> with documented 42% maintenance cost reduction and 28.7% energy savings for pool owners.
                   </p>
-                  <p className="text-lg text-blue-100 mb-6">
-                    Previously only available for government and military facilities, this ceramic technology now gives your business a premium service offering that clients gladly pay <span className="text-green-400 font-semibold">$12-18 more per square foot</span> compared to standard coatings
-                  </p>
+                  
+                  <div className="bg-black/30 border border-blue-600/20 rounded-lg p-3 mb-4">
+                    <p className="text-sm text-blue-100 italic">Previously classified ceramic microsphere technology, now available exclusively to certified pool contractors</p>
+                  </div>
                   
                   <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-6">
                     <a href="#contractor-registration" className="relative group">
                       <div className="absolute -inset-0.5 bg-blue-600 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-200"></div>
-                      <button className="relative px-6 py-3 bg-gradient-to-br from-gray-900 to-black text-white font-medium rounded-lg border border-blue-500/50 hover:border-blue-400 transition duration-200">
-                        Unlock 65-80% Profit Margins
+                      <button className="relative px-6 py-3 bg-black text-white font-medium rounded-lg border border-blue-500/50 hover:border-blue-400 transition duration-200">
+                        <span className="flex items-center">
+                          <CircleDollarSign className="mr-2 h-5 w-5 text-green-400" />
+                          <span>Calculate Your Profit Potential</span>
+                        </span>
                       </button>
                     </a>
                     
                     <a href="#profit-calculator" className="relative group">
                       <div className="absolute -inset-0.5 bg-orange-600 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-200"></div>
-                      <button className="relative flex items-center px-6 py-3 bg-gradient-to-br from-gray-900 to-black text-white font-medium rounded-lg border border-orange-500/50 hover:border-orange-400 transition duration-200">
-                        See Your 371% ROI Potential <CircleDollarSign className="ml-2 h-4 w-4" />
+                      <button className="relative px-6 py-3 bg-black text-white font-medium rounded-lg border border-orange-500/50 hover:border-orange-400 transition duration-200">
+                        <span className="flex items-center">
+                          <BarChart3Icon className="mr-2 h-5 w-5 text-blue-400" />
+                          <span>Get Customer ROI Analysis</span>
+                        </span>
                       </button>
                     </a>
                   </div>
