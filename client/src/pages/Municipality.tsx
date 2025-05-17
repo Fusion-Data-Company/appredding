@@ -1604,17 +1604,12 @@ export default function Municipality() {
               <div className="absolute -inset-6 bg-green-500/50 rounded-xl blur-xl opacity-80 -z-5 animate-pulse-slow"></div>
               <div className="absolute -inset-3 bg-green-400/40 rounded-xl blur-md opacity-70 -z-4"></div>
               
-              {/* Card background with money image at the very front */}
-              <div className="absolute inset-0 rounded-xl z-10 border border-gray-700/70 overflow-hidden">
-                {/* Dark background first */}
-                <div className="absolute inset-0 bg-gray-900"></div>
-                
-                {/* Money image directly in front */}
+              {/* Money image fully visible */}
+              <div className="absolute inset-0 rounded-xl z-50 border border-gray-700/70 overflow-hidden">
                 <div className="absolute inset-0 bg-[url('/attached_assets/F7B18297-B3B4-46C2-B4E1-466869133B22.webp')]" 
                   style={{ 
                     backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    opacity: 0.7
+                    backgroundPosition: 'center'
                   }}>
                 </div>
               </div>
