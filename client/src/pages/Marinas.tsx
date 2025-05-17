@@ -585,8 +585,8 @@ const Marinas = () => {
                             
                             <div className="grid grid-cols-1 gap-5 mb-6">
                               <div className="relative group">
-                                <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600/30 to-blue-400/20 rounded-lg blur-sm opacity-70 group-hover:opacity-100 transition-opacity duration-300"></div>
-                                <div className="relative bg-gradient-to-br from-black/80 to-gray-900/80 border border-blue-600/40 rounded-lg p-4">
+                                <div className="absolute -inset-4 bg-green-500/20 rounded-xl blur-lg opacity-40 z-0"></div>
+                                <div className="relative bg-gray-900/60 rounded-lg p-4 border-2 border-green-500/30 shadow-[0_0_20px_rgba(74,222,128,0.2)] z-10">
                                   <div className="flex justify-between items-center mb-2">
                                     <span className="text-blue-300 font-semibold">Annual Maintenance Cost</span>
                                     <span className="text-green-400 font-semibold">$376,000</span>
@@ -607,22 +607,22 @@ const Marinas = () => {
                               </div>
                               
                               <div className="relative group">
-                                <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-600/30 to-orange-400/20 rounded-lg blur-sm opacity-70 group-hover:opacity-100 transition-opacity duration-300"></div>
-                                <div className="relative bg-gradient-to-br from-black/80 to-gray-900/80 border border-orange-600/40 rounded-lg p-4">
+                                <div className="absolute -inset-4 bg-green-500/20 rounded-xl blur-lg opacity-40 z-0"></div>
+                                <div className="relative bg-gray-900/60 rounded-lg p-4 border-2 border-green-500/30 shadow-[0_0_20px_rgba(74,222,128,0.2)] z-10">
                                   <div className="flex justify-between items-center mb-2">
-                                    <span className="text-orange-300 font-semibold">Original Asset Lifespan</span>
+                                    <span className="text-blue-300 font-semibold">Original Asset Lifespan</span>
                                     <span className="text-green-400 font-semibold">14 Years</span>
                                   </div>
                                   <div className="flex justify-between items-center mb-2">
-                                    <span className="text-orange-300 font-semibold">Extended Lifespan</span>
+                                    <span className="text-blue-300 font-semibold">Extended Lifespan</span>
                                     <span className="text-green-400 font-semibold">26.4 Years</span>
                                   </div>
                                   <div className="flex justify-between items-center mb-2">
-                                    <span className="text-orange-300 font-semibold">Additional Service Life</span>
+                                    <span className="text-blue-300 font-semibold">Additional Service Life</span>
                                     <span className="text-green-400 font-semibold">+12.4 Years</span>
                                   </div>
                                   <div className="flex justify-between items-center">
-                                    <span className="text-orange-300 font-semibold">Lifecycle Savings</span>
+                                    <span className="text-blue-300 font-semibold">Lifecycle Savings</span>
                                     <span className="text-green-400 font-semibold">$1.84M</span>
                                   </div>
                                 </div>
@@ -630,18 +630,18 @@ const Marinas = () => {
                             </div>
                             
                             <div className="relative group">
-                              <div className="absolute -inset-0.5 bg-gradient-to-r from-green-600/30 to-green-400/20 rounded-lg blur-sm opacity-70 group-hover:opacity-100 transition-opacity duration-300"></div>
-                              <div className="relative bg-gradient-to-br from-black/80 to-gray-900/80 border border-green-600/40 rounded-lg p-4">
+                              <div className="absolute -inset-4 bg-green-500/20 rounded-xl blur-lg opacity-40 z-0"></div>
+                              <div className="relative bg-gray-900/60 rounded-lg p-4 border-2 border-green-500/30 shadow-[0_0_20px_rgba(74,222,128,0.2)] z-10">
                                 <div className="flex justify-between items-center mb-1">
-                                  <span className="text-white font-semibold">Total Investment</span>
-                                  <span className="text-white font-semibold">$450,000</span>
+                                  <span className="text-blue-200 font-semibold">Total Investment</span>
+                                  <span className="text-green-400 font-semibold">$450,000</span>
                                 </div>
                                 <div className="flex justify-between items-center">
-                                  <span className="text-white font-semibold">Total 5-Year Return</span>
-                                  <span className="text-white font-semibold">$1.84M</span>
+                                  <span className="text-blue-200 font-semibold">Total 5-Year Return</span>
+                                  <span className="text-green-400 font-semibold">$1.84M</span>
                                 </div>
                                 <div className="mt-3 flex justify-center items-center">
-                                  <div className="bg-gradient-to-r from-green-600 to-green-400 px-4 py-2 rounded-lg shadow-[0_0_15px_rgba(74,222,128,0.5)]">
+                                  <div className="bg-gradient-to-r from-green-600 to-green-500 px-4 py-2 rounded-lg shadow-[0_0_15px_rgba(74,222,128,0.5)] border border-green-400/40">
                                     <span className="text-2xl font-bold text-white" style={{ textShadow: "0 2px 4px rgba(0, 0, 0, 0.3)" }}>411% ROI</span>
                                   </div>
                                 </div>
