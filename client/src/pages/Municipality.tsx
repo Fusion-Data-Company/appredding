@@ -1518,14 +1518,35 @@ export default function Municipality() {
               {/* Solid card overlay with higher z-index to prevent glow from bleeding through */}
               <div className="absolute inset-0 bg-gray-900 rounded-xl z-1 border border-gray-700/70"></div>
               
+              {/* Accent squares */}
+              <div className="absolute top-8 right-8 w-12 h-12 rounded-md bg-blue-600/20 blur-md animate-pulse-slow"></div>
+              <div className="absolute bottom-8 left-8 w-10 h-10 rounded-md bg-orange-500/20 blur-md animate-pulse-slow"></div>
+              
               <div className="relative z-10 p-6">
-                <div className="mb-6 text-center">
-                  <h3 className="text-2xl font-semibold mb-3 text-white drop-shadow-sm flex items-center justify-center">
-                    <Calculator className="w-6 h-6 mr-2 text-green-400" />
-                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-200">ROI Calculator</span>
-                  </h3>
-                  <div className="w-20 h-1 bg-gradient-to-r from-green-500 to-green-300 mx-auto rounded-full mb-4"></div>
-                  <p className="text-lg text-gray-300">
+                <div className="mb-8 text-center">
+                  {/* Premium metallic header with icon */}
+                  <div className="relative mb-3">
+                    <div className="absolute -inset-1 bg-gradient-to-r from-green-600/50 via-green-400/50 to-green-600/50 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-gradient-x"></div>
+                    <div className="relative px-7 py-4 bg-gray-900 ring-1 ring-gray-800/50 rounded-lg leading-none flex items-center justify-center">
+                      <div className="w-14 h-14 rounded-full bg-gradient-to-br from-green-600 to-green-400 p-[2px] shadow-xl mr-2">
+                        <div className="w-full h-full rounded-full bg-gray-900 flex items-center justify-center">
+                          <Calculator className="w-6 h-6 text-green-400" />
+                        </div>
+                      </div>
+                      <div>
+                        <h3 className="text-2xl font-bold mb-1">
+                          <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-green-200 to-white animate-text-shimmer">ROI Calculator</span>
+                        </h3>
+                        <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-green-400 to-transparent"></div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Corner accents */}
+                  <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-green-500/70"></div>
+                  <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-green-500/70"></div>
+                  
+                  <p className="text-lg text-gray-300 mx-auto max-w-2xl">
                     Calculate your potential savings by protecting municipal infrastructure with our ceramic coating technology.
                   </p>
                 </div>
@@ -1533,7 +1554,9 @@ export default function Municipality() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                   <div>
                     <h3 className="text-xl font-semibold mb-6 text-white flex items-center">
-                      <CircleDollarSign className="w-5 h-5 mr-2 text-blue-400" />
+                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-green-600 to-green-700 flex items-center justify-center mr-3 shadow-[0_0_10px_rgba(74,222,128,0.3)] border border-green-500/50">
+                        <CircleDollarSign className="w-4 h-4 text-white drop-shadow-sm" />
+                      </div>
                       Current Maintenance Costs
                     </h3>
                     
