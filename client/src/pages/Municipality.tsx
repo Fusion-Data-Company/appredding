@@ -1833,39 +1833,51 @@ const MunicipalityPage = () => {
             </div>
             
             <div className="grid md:grid-cols-3 gap-6">
-              <div className="backdrop-blur-sm bg-primary-900/40 rounded-xl border border-white/20 p-6 hover:shadow-[0_0_30px_rgba(255,255,255,0.15)] transition-all duration-300">
-                <div className="flex items-center mb-4">
-                  <div className="bg-gradient-to-r from-orange-600 to-blue-500 rounded-full w-12 h-12 flex items-center justify-center mr-4">
-                    <Landmark className="w-6 h-6 text-white" />
+              <div className="relative group">
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600/20 to-blue-400/20 rounded-lg blur opacity-50 group-hover:opacity-100 transition-all duration-500"></div>
+                <div className="relative backdrop-blur-sm bg-gradient-to-br from-black/80 to-gray-900/80 p-6 rounded-lg border border-blue-500/30 shadow-[0_4px_20px_rgba(0,0,0,0.2)] transform group-hover:-translate-y-1 transition-all duration-300">
+                  <div className="flex items-center mb-4">
+                    <div className="relative">
+                      <div className="absolute -inset-1 bg-gradient-to-r from-orange-500/40 to-blue-500/40 rounded-full blur-sm"></div>
+                      <div className="relative bg-gradient-to-r from-orange-600 to-blue-500 rounded-full w-12 h-12 flex items-center justify-center mr-4 shadow-[0_0_15px_rgba(59,130,246,0.3)]">
+                        <Landmark className="w-6 h-6 text-white" />
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-blue-300 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">Michael Hartman</h3>
+                      <p className="text-sm text-white/80">Municipal Engineer, Portland OR</p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="font-bold text-blue-300">Michael Hartman</h3>
-                    <p className="text-sm text-white/80">Municipal Engineer, Portland OR</p>
+                  <p className="text-blue-100 italic mb-4 leading-relaxed">
+                    "After becoming certified, we've secured 8 municipal water treatment projects. The NASA ceramic technology sells itself when clients see the performance metrics and 30-year warranty. Our profit margins are significantly higher than with traditional coatings."
+                  </p>
+                  <div className="flex items-center text-orange-400">
+                    <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
                   </div>
-                </div>
-                <p className="text-white italic mb-4">
-                  "After becoming certified, we've secured 8 municipal water treatment projects. The NASA ceramic technology sells itself when clients see the performance metrics and 30-year warranty. Our profit margins are significantly higher than with traditional coatings."
-                </p>
-                <div className="flex items-center text-orange-400">
-                  <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
                 </div>
               </div>
               
-              <div className="backdrop-blur-sm bg-primary-900/40 rounded-xl border border-white/20 p-6 hover:shadow-[0_0_30px_rgba(255,255,255,0.15)] transition-all duration-300">
-                <div className="flex items-center mb-4">
-                  <div className="bg-gradient-to-r from-orange-600 to-blue-500 rounded-full w-12 h-12 flex items-center justify-center mr-4">
-                    <Landmark className="w-6 h-6 text-white" />
+              <div className="relative group">
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600/20 to-blue-400/20 rounded-lg blur opacity-50 group-hover:opacity-100 transition-all duration-500"></div>
+                <div className="relative backdrop-blur-sm bg-gradient-to-br from-black/80 to-gray-900/80 p-6 rounded-lg border border-blue-500/30 shadow-[0_4px_20px_rgba(0,0,0,0.2)] transform group-hover:-translate-y-1 transition-all duration-300">
+                  <div className="flex items-center mb-4">
+                    <div className="relative">
+                      <div className="absolute -inset-1 bg-gradient-to-r from-orange-500/40 to-blue-500/40 rounded-full blur-sm"></div>
+                      <div className="relative bg-gradient-to-r from-orange-600 to-blue-500 rounded-full w-12 h-12 flex items-center justify-center mr-4 shadow-[0_0_15px_rgba(59,130,246,0.3)]">
+                        <Landmark className="w-6 h-6 text-white" />
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-blue-300 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">Sandra Reyes</h3>
+                      <p className="text-sm text-white/80">Public Works Director, Austin TX</p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="font-bold text-blue-300">Sandra Reyes</h3>
-                    <p className="text-sm text-white/80">Public Works Director, Austin TX</p>
+                  <p className="text-blue-100 italic mb-4 leading-relaxed">
+                    "The exclusive territory rights have eliminated competitive underbidding in our region. With the Class A fire rating certification, we've become the default provider for critical infrastructure projects. The technical training and support are outstanding."
+                  </p>
+                  <div className="flex items-center text-orange-400">
+                    <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
                   </div>
-                </div>
-                <p className="text-white italic mb-4">
-                  "The exclusive territory rights have eliminated competitive underbidding in our region. With the Class A fire rating certification, we've become the default provider for critical infrastructure projects. The technical training and support are outstanding."
-                </p>
-                <div className="flex items-center text-orange-400">
-                  <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
                 </div>
               </div>
               
