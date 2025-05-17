@@ -359,54 +359,114 @@ const MobileHome = () => {
                   <p className="mb-8 text-blue-100 relative z-10">Our certified application process for ceramic microsphere technology ensures perfect adhesion and maximum performance</p>
                   
                   <div className="space-y-6 relative z-10">
-                    <div className="relative bg-gradient-to-br from-gray-900 to-black rounded-lg p-4 border border-gray-800">
-                      <div className="absolute -inset-0.5 bg-blue-600/20 rounded-lg blur opacity-60"></div>
-                      <div className="relative z-10 flex items-start gap-4">
-                        <div className="bg-gradient-to-r from-blue-700 to-blue-500 w-8 h-8 rounded-full flex items-center justify-center shadow-[0_0_15px_rgba(59,130,246,0.4)] flex-shrink-0">
-                          <span className="text-lg font-bold text-white">1</span>
-                        </div>
-                        <div>
-                          <h3 className="text-xl font-semibold mb-2 text-white drop-shadow-[0_1px_2px_rgba(59,130,246,0.5)]">Surface Preparation</h3>
-                          <p className="text-blue-100">Professional preparation with industrial pressure washing and surface defect remediation for 100% adhesion</p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="relative bg-gradient-to-br from-gray-900 to-black rounded-lg p-4 border border-gray-800">
-                      <div className="absolute -inset-0.5 bg-orange-600/20 rounded-lg blur opacity-60"></div>
-                      <div className="relative z-10 flex items-start gap-4">
-                        <div className="bg-gradient-to-r from-orange-700 to-orange-500 w-8 h-8 rounded-full flex items-center justify-center shadow-[0_0_15px_rgba(249,115,22,0.4)] flex-shrink-0">
-                          <span className="text-lg font-bold text-white">2</span>
-                        </div>
-                        <div>
-                          <h3 className="text-xl font-semibold mb-2 text-white drop-shadow-[0_1px_2px_rgba(249,115,22,0.5)]">Primer Application</h3>
-                          <p className="text-orange-100">Self-priming ceramic microsphere technology that bonds directly to substrates with specialized application equipment</p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="relative bg-gradient-to-br from-gray-900 to-black rounded-lg p-4 border border-gray-800">
-                      <div className="absolute -inset-0.5 bg-blue-600/20 rounded-lg blur opacity-60"></div>
-                      <div className="relative z-10 flex items-start gap-4">
-                        <div className="bg-gradient-to-r from-blue-700 to-blue-500 w-8 h-8 rounded-full flex items-center justify-center shadow-[0_0_15px_rgba(59,130,246,0.4)] flex-shrink-0">
-                          <span className="text-lg font-bold text-white">3</span>
-                        </div>
-                        <div>
-                          <h3 className="text-xl font-semibold mb-2 text-white drop-shadow-[0_1px_2px_rgba(59,130,246,0.5)]">Main Coating Application</h3>
-                          <p className="text-blue-100">Ceramic microsphere application by certified professionals with specialized equipment for optimal ceramic distribution</p>
+                    <div className="relative group">
+                      {/* Premium outer glow effect */}
+                      <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/30 to-blue-400/20 rounded-lg blur-md opacity-75 group-hover:opacity-100 transition duration-300"></div>
+                      
+                      <div className="relative bg-gradient-to-br from-gray-900/95 to-black/95 rounded-lg p-6 border border-blue-500/30 shadow-lg group-hover:shadow-blue-900/20 transition duration-300">
+                        {/* Elite corner accents */}
+                        <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-blue-500/40 rounded-tl-md"></div>
+                        <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-blue-500/40 rounded-tr-md"></div>
+                        <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-blue-500/40 rounded-br-md"></div>
+                        <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-blue-500/40 rounded-bl-md"></div>
+                        
+                        <div className="relative z-10 flex items-start gap-5">
+                          <div className="relative">
+                            <div className="absolute -inset-1 bg-blue-500/30 rounded-full blur-sm"></div>
+                            <div className="relative flex items-center justify-center bg-gradient-to-br from-blue-600 to-blue-400 w-10 h-10 rounded-full shadow-[0_0_15px_rgba(59,130,246,0.4)] flex-shrink-0">
+                              <span className="text-lg font-bold text-white">1</span>
+                            </div>
+                          </div>
+                          <div>
+                            <h3 className="text-xl font-semibold mb-3 text-white drop-shadow-[0_1px_2px_rgba(59,130,246,0.5)]">
+                              <span className="bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent">Surface Preparation</span>
+                            </h3>
+                            <p className="text-gray-200">Professional preparation with industrial pressure washing and surface defect remediation for 100% adhesion</p>
+                          </div>
                         </div>
                       </div>
                     </div>
 
-                    <div className="relative bg-gradient-to-br from-gray-900 to-black rounded-lg p-4 border border-gray-800">
-                      <div className="absolute -inset-0.5 bg-orange-600/20 rounded-lg blur opacity-60"></div>
-                      <div className="relative z-10 flex items-start gap-4">
-                        <div className="bg-gradient-to-r from-orange-700 to-orange-500 w-8 h-8 rounded-full flex items-center justify-center shadow-[0_0_15px_rgba(249,115,22,0.4)] flex-shrink-0">
-                          <span className="text-lg font-bold text-white">4</span>
+                    <div className="relative group">
+                      {/* Premium outer glow effect */}
+                      <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/30 to-orange-400/20 rounded-lg blur-md opacity-75 group-hover:opacity-100 transition duration-300"></div>
+                      
+                      <div className="relative bg-gradient-to-br from-gray-900/95 to-black/95 rounded-lg p-6 border border-orange-500/30 shadow-lg group-hover:shadow-orange-900/20 transition duration-300">
+                        {/* Elite corner accents */}
+                        <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-orange-500/40 rounded-tl-md"></div>
+                        <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-orange-500/40 rounded-tr-md"></div>
+                        <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-orange-500/40 rounded-br-md"></div>
+                        <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-orange-500/40 rounded-bl-md"></div>
+                        
+                        <div className="relative z-10 flex items-start gap-5">
+                          <div className="relative">
+                            <div className="absolute -inset-1 bg-orange-500/30 rounded-full blur-sm"></div>
+                            <div className="relative flex items-center justify-center bg-gradient-to-br from-orange-600 to-orange-400 w-10 h-10 rounded-full shadow-[0_0_15px_rgba(249,115,22,0.4)] flex-shrink-0">
+                              <span className="text-lg font-bold text-white">2</span>
+                            </div>
+                          </div>
+                          <div>
+                            <h3 className="text-xl font-semibold mb-3 text-white drop-shadow-[0_1px_2px_rgba(249,115,22,0.5)]">
+                              <span className="bg-gradient-to-r from-white via-orange-100 to-white bg-clip-text text-transparent">Primer Application</span>
+                            </h3>
+                            <p className="text-gray-200">Self-priming ceramic microsphere technology that bonds directly to substrates with specialized application equipment</p>
+                          </div>
                         </div>
-                        <div>
-                          <h3 className="text-xl font-semibold mb-2 text-white drop-shadow-[0_1px_2px_rgba(249,115,22,0.5)]">Final Inspection & Documentation</h3>
-                          <p className="text-orange-100">Comprehensive inspection with thermal imaging verification and warranty documentation including 20-year performance guarantee</p>
+                      </div>
+                    </div>
+
+                    <div className="relative group">
+                      {/* Premium outer glow effect */}
+                      <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/30 to-blue-400/20 rounded-lg blur-md opacity-75 group-hover:opacity-100 transition duration-300"></div>
+                      
+                      <div className="relative bg-gradient-to-br from-gray-900/95 to-black/95 rounded-lg p-6 border border-blue-500/30 shadow-lg group-hover:shadow-blue-900/20 transition duration-300">
+                        {/* Elite corner accents */}
+                        <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-blue-500/40 rounded-tl-md"></div>
+                        <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-blue-500/40 rounded-tr-md"></div>
+                        <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-blue-500/40 rounded-br-md"></div>
+                        <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-blue-500/40 rounded-bl-md"></div>
+                        
+                        <div className="relative z-10 flex items-start gap-5">
+                          <div className="relative">
+                            <div className="absolute -inset-1 bg-blue-500/30 rounded-full blur-sm"></div>
+                            <div className="relative flex items-center justify-center bg-gradient-to-br from-blue-600 to-blue-400 w-10 h-10 rounded-full shadow-[0_0_15px_rgba(59,130,246,0.4)] flex-shrink-0">
+                              <span className="text-lg font-bold text-white">3</span>
+                            </div>
+                          </div>
+                          <div>
+                            <h3 className="text-xl font-semibold mb-3 text-white drop-shadow-[0_1px_2px_rgba(59,130,246,0.5)]">
+                              <span className="bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent">Main Coating Application</span>
+                            </h3>
+                            <p className="text-gray-200">Ceramic microsphere application by certified professionals with specialized equipment for optimal ceramic distribution</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="relative group">
+                      {/* Premium outer glow effect */}
+                      <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/30 to-orange-400/20 rounded-lg blur-md opacity-75 group-hover:opacity-100 transition duration-300"></div>
+                      
+                      <div className="relative bg-gradient-to-br from-gray-900/95 to-black/95 rounded-lg p-6 border border-orange-500/30 shadow-lg group-hover:shadow-orange-900/20 transition duration-300">
+                        {/* Elite corner accents */}
+                        <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-orange-500/40 rounded-tl-md"></div>
+                        <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-orange-500/40 rounded-tr-md"></div>
+                        <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-orange-500/40 rounded-br-md"></div>
+                        <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-orange-500/40 rounded-bl-md"></div>
+                        
+                        <div className="relative z-10 flex items-start gap-5">
+                          <div className="relative">
+                            <div className="absolute -inset-1 bg-orange-500/30 rounded-full blur-sm"></div>
+                            <div className="relative flex items-center justify-center bg-gradient-to-br from-orange-600 to-orange-400 w-10 h-10 rounded-full shadow-[0_0_15px_rgba(249,115,22,0.4)] flex-shrink-0">
+                              <span className="text-lg font-bold text-white">4</span>
+                            </div>
+                          </div>
+                          <div>
+                            <h3 className="text-xl font-semibold mb-3 text-white drop-shadow-[0_1px_2px_rgba(249,115,22,0.5)]">
+                              <span className="bg-gradient-to-r from-white via-orange-100 to-white bg-clip-text text-transparent">Final Inspection & Documentation</span>
+                            </h3>
+                            <p className="text-gray-200">Comprehensive inspection with thermal imaging verification and warranty documentation including 20-year performance guarantee</p>
+                          </div>
                         </div>
                       </div>
                     </div>
