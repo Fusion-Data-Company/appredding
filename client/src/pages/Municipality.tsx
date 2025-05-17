@@ -38,7 +38,8 @@ import {
   Calculator,
   BookOpen,
   Zap,
-  Badge
+  Badge,
+  Flame
 } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -757,7 +758,7 @@ export default function Municipality() {
                           <div className="flex items-center mb-4">
                             <div className="w-12 h-12 rounded-full bg-gradient-to-br from-orange-600/30 to-blue-600/30 flex items-center justify-center mr-3
                               border border-orange-500/20 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)]">
-                              <Flame className="h-6 w-6 text-orange-400" />
+                              <Shield className="h-6 w-6 text-orange-400" />
                             </div>
                             <h3 className="font-semibold text-xl text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">
                               Advanced Ceramic Wildfire Defense System
@@ -1276,10 +1277,11 @@ export default function Municipality() {
                         </div>
                       </div>
                       
-                      <div className="bg-gray-900/30 rounded-lg p-5 border border-blue-500/10 mb-8 relative">
-                        {/* Strategic green ambient glow for financial/ROI section */}
-                        <div className="absolute -inset-1 bg-green-500/10 rounded-xl blur-xl opacity-70 z-0"></div>
-                        <div className="absolute -inset-4 bg-green-600/5 rounded-xl blur-2xl opacity-60 z-0 animate-pulse-slow"></div>
+                      <div className="bg-gray-900/30 rounded-lg p-5 border border-green-500/30 mb-8 relative">
+                        {/* Strategic green ambient glow for financial/ROI section - ENHANCED */}
+                        <div className="absolute -inset-1 bg-green-500/40 rounded-xl blur-xl opacity-90 z-0"></div>
+                        <div className="absolute -inset-6 bg-green-500/30 rounded-xl blur-2xl opacity-80 z-0 animate-pulse-slow"></div>
+                        <div className="absolute -inset-3 bg-green-400/20 rounded-xl blur-md opacity-70 z-0"></div>
                         
                         <h4 className="text-white font-semibold mb-3 flex items-center relative z-10">
                           <div className="bg-gradient-to-br from-green-600 to-green-700 rounded-full p-1 mr-2 
@@ -1415,18 +1417,28 @@ export default function Municipality() {
                       </div>
                       
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-                        <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 border border-blue-500/20 rounded-lg p-5 text-center relative overflow-hidden">
-                          <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-blue-500/5 rounded-full"></div>
-                          <h4 className="text-lg font-medium mb-2 text-white">Annual Labor Savings</h4>
-                          <p className="text-3xl font-bold text-blue-300 mb-1">{calculatedROI.laborSavings || "1,020 hours/year"}</p>
-                          <p className="text-gray-400 text-sm">Maintenance staff time reclaimed</p>
+                        <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 border border-green-500/40 rounded-lg p-5 text-center relative overflow-hidden">
+                          {/* Enhanced green ambient glow */}
+                          <div className="absolute -inset-1 bg-green-500/50 rounded-xl blur-xl opacity-90 z-0"></div>
+                          <div className="absolute -inset-4 bg-green-500/40 rounded-xl blur-2xl opacity-80 z-0 animate-pulse-slow"></div>
+                          <div className="absolute -inset-2 bg-green-400/30 rounded-xl blur-md opacity-70 z-0"></div>
+                          
+                          <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-green-500/20 rounded-full"></div>
+                          <h4 className="text-lg font-medium mb-2 text-white relative z-10">Annual Labor Savings</h4>
+                          <p className="text-3xl font-bold text-green-300 mb-1 relative z-10">{calculatedROI.laborSavings || "1,020 hours/year"}</p>
+                          <p className="text-gray-400 text-sm relative z-10">Maintenance staff time reclaimed</p>
                         </div>
                         
-                        <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 border border-blue-500/20 rounded-lg p-5 text-center relative overflow-hidden">
-                          <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-blue-500/5 rounded-full"></div>
-                          <h4 className="text-lg font-medium mb-2 text-white">Asset Value Increase</h4>
-                          <p className="text-3xl font-bold text-blue-300 mb-1">{calculatedROI.assetValueIncrease || "$375,000"}</p>
-                          <p className="text-gray-400 text-sm">Infrastructure replacement deferral value</p>
+                        <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 border border-green-500/40 rounded-lg p-5 text-center relative overflow-hidden">
+                          {/* Enhanced green ambient glow */}
+                          <div className="absolute -inset-1 bg-green-500/50 rounded-xl blur-xl opacity-90 z-0"></div>
+                          <div className="absolute -inset-4 bg-green-500/40 rounded-xl blur-2xl opacity-80 z-0 animate-pulse-slow"></div>
+                          <div className="absolute -inset-2 bg-green-400/30 rounded-xl blur-md opacity-70 z-0"></div>
+                          
+                          <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-green-500/20 rounded-full"></div>
+                          <h4 className="text-lg font-medium mb-2 text-white relative z-10">Asset Value Increase</h4>
+                          <p className="text-3xl font-bold text-green-300 mb-1 relative z-10">{calculatedROI.assetValueIncrease || "$375,000"}</p>
+                          <p className="text-gray-400 text-sm relative z-10">Infrastructure replacement deferral value</p>
                         </div>
                       </div>
                       
