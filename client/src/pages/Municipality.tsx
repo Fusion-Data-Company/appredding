@@ -1524,20 +1524,58 @@ export default function Municipality() {
               
               <div className="relative z-10 p-6">
                 <div className="mb-8 text-center">
-                  {/* Premium metallic header with icon */}
-                  <div className="relative mb-3">
-                    <div className="absolute -inset-1 bg-gradient-to-r from-green-600/50 via-green-400/50 to-green-600/50 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-gradient-x"></div>
-                    <div className="relative px-7 py-4 bg-gray-900 ring-1 ring-gray-800/50 rounded-lg leading-none flex items-center justify-center">
-                      <div className="w-14 h-14 rounded-full bg-gradient-to-br from-green-600 to-green-400 p-[2px] shadow-xl mr-2">
-                        <div className="w-full h-full rounded-full bg-gray-900 flex items-center justify-center">
-                          <Calculator className="w-6 h-6 text-green-400" />
+                  {/* Ultra premium enterprise metallic header with 3D elements */}
+                  <div className="relative mb-6">
+                    {/* Outer glow effect */}
+                    <div className="absolute -inset-1 bg-gradient-to-r from-green-600/50 via-blue-400/30 to-green-600/50 rounded-lg blur-md opacity-75 transition duration-1000 animate-gradient-x"></div>
+                    
+                    {/* Main header container */}
+                    <div className="relative px-7 py-5 bg-gradient-to-b from-gray-900 to-gray-950 ring-1 ring-gray-800/50 rounded-lg leading-none flex items-center justify-center shadow-[0_10px_20px_rgba(0,0,0,0.3)]">
+                      
+                      {/* Diagonal line accent */}
+                      <div className="absolute top-0 right-0 w-16 h-16 overflow-hidden">
+                        <div className="absolute top-[-5px] right-[-5px] w-10 h-10 bg-gradient-to-br from-green-400 to-green-600 rotate-45 transform origin-bottom-left shadow-md"></div>
+                      </div>
+                      
+                      {/* Left corner accent */}
+                      <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-green-400"></div>
+                      <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-green-400"></div>
+                      
+                      {/* High-end 3D icon container */}
+                      <div className="w-16 h-16 relative mr-5 flex-shrink-0">
+                        {/* Shadow effect */}
+                        <div className="absolute inset-0 rounded-full bg-gradient-to-br from-green-600 to-green-400 opacity-70 blur-sm"></div>
+                        
+                        {/* Main icon container with metallic finish */}
+                        <div className="absolute inset-0 rounded-full bg-gradient-to-br from-green-600 via-green-500 to-green-400 p-[2px] shadow-xl border border-green-300/20">
+                          {/* Inner layer with glass effect */}
+                          <div className="w-full h-full rounded-full bg-gradient-to-b from-gray-900 to-gray-950 flex items-center justify-center overflow-hidden">
+                            {/* Reflection effect */}
+                            <div className="absolute top-0 left-0 right-0 h-1/3 bg-gradient-to-b from-white/10 to-transparent"></div>
+                            
+                            {/* Icon with glow */}
+                            <div className="relative">
+                              <div className="absolute inset-0 text-green-400 blur-sm opacity-70"></div>
+                              <Calculator className="w-7 h-7 text-green-400 relative z-10 drop-shadow-[0_0_3px_rgba(74,222,128,0.5)]" />
+                            </div>
+                          </div>
                         </div>
                       </div>
+                      
+                      {/* Title with metallic premium effect */}
                       <div>
-                        <h3 className="text-2xl font-bold mb-1">
+                        <h3 className="text-3xl font-bold mb-1 tracking-tight">
                           <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-green-200 to-white animate-text-shimmer">ROI Calculator</span>
                         </h3>
-                        <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-green-400 to-transparent"></div>
+                        
+                        {/* Premium underline with metallic finish */}
+                        <div className="relative h-[3px] w-full">
+                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-green-400 to-transparent"></div>
+                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent blur-sm"></div>
+                        </div>
+                        
+                        {/* Premium subtitle */}
+                        <p className="text-xs text-green-300/80 mt-1 tracking-widest uppercase">MUNICIPALITY EDITION</p>
                       </div>
                     </div>
                   </div>
@@ -1554,8 +1592,11 @@ export default function Municipality() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                   <div>
                     <h3 className="text-xl font-semibold mb-6 text-white flex items-center">
-                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-green-600 to-green-700 flex items-center justify-center mr-3 shadow-[0_0_10px_rgba(74,222,128,0.3)] border border-green-500/50">
-                        <CircleDollarSign className="w-4 h-4 text-white drop-shadow-sm" />
+                      <div className="flex-shrink-0 w-9 h-9 rounded-full bg-gradient-to-br from-green-600 via-green-500 to-green-400 flex items-center justify-center mr-3 shadow-[0_0_10px_rgba(74,222,128,0.4)] border border-green-400/30 p-[2px]">
+                        <div className="w-full h-full rounded-full bg-gradient-to-b from-gray-900 to-gray-950 flex items-center justify-center overflow-hidden">
+                          <div className="absolute top-0 left-0 right-0 h-1/3 bg-gradient-to-b from-white/10 to-transparent rounded-t-full"></div>
+                          <CircleDollarSign className="w-4 h-4 text-green-400 drop-shadow-[0_0_2px_rgba(74,222,128,0.5)]" />
+                        </div>
                       </div>
                       Current Maintenance Costs
                     </h3>
