@@ -874,6 +874,7 @@ const MobileHome = () => {
                                   <Input 
                                     placeholder="Enter your website URL" 
                                     {...field} 
+                                    value={field.value || ""}
                                     className="bg-gray-900/70 border-gray-700 text-white"
                                   />
                                 </FormControl>
@@ -894,6 +895,7 @@ const MobileHome = () => {
                                   <Input 
                                     placeholder="Enter your license number" 
                                     {...field} 
+                                    value={field.value || ""}
                                     className="bg-gray-900/70 border-gray-700 text-white"
                                   />
                                 </FormControl>

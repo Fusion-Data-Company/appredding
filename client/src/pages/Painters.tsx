@@ -2172,7 +2172,7 @@ const Painters = () => {
                             
                             <FormField
                               control={form.control}
-                              name="message"
+                              name="additionalDetails"
                               render={({ field }) => (
                                 <FormItem>
                                   <FormLabel className="text-white">Tell us about your business challenges & opportunities</FormLabel>
@@ -2181,6 +2181,7 @@ const Painters = () => {
                                       placeholder="What specific challenges are you facing in your painting business? What opportunities are you looking to capture?"
                                       className="bg-gray-900/70 border-gray-700 text-white min-h-[100px]" 
                                       {...field} 
+                                      value={field.value || ""}
                                     />
                                   </FormControl>
                                   <FormMessage />
@@ -2190,12 +2191,12 @@ const Painters = () => {
                             
                             <FormField
                               control={form.control}
-                              name="agreeToTerms"
+                              name="agreesToTerms"
                               render={({ field }) => (
                                 <FormItem className="flex flex-row items-start space-x-3 space-y-0">
                                   <FormControl>
                                     <Checkbox
-                                      checked={field.value}
+                                      checked={field.value === true}
                                       onCheckedChange={field.onChange}
                                       className="data-[state=checked]:bg-blue-600 data-[state=checked]:border-blue-600"
                                     />

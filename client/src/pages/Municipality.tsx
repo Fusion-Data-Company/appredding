@@ -338,7 +338,12 @@ const MunicipalityProfessionalForm = () => {
                     <FormItem>
                       <FormLabel>Website</FormLabel>
                       <FormControl>
-                        <Input placeholder="https://www.example.com" {...field} className="bg-primary-800 border-primary-600" />
+                        <Input 
+                          placeholder="https://www.example.com" 
+                          {...field} 
+                          value={field.value || ""} 
+                          className="bg-primary-800 border-primary-600" 
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
