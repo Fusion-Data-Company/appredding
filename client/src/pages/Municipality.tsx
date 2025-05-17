@@ -1736,9 +1736,47 @@ export default function Municipality() {
                 </div>
                 
                 <div className="flex justify-center mb-8">
-                  <GradientButton>
-                    Calculate 10-Year Savings
-                  </GradientButton>
+                  {/* Premium button with $100 bill background */}
+                  <button 
+                    className="relative overflow-hidden group rounded-lg border-2 border-green-500/50 px-10 py-4 transition-all duration-300 hover:shadow-[0_0_20px_rgba(74,222,128,0.5)]"
+                    style={{
+                      background: "linear-gradient(to right, rgba(17, 24, 39, 0.85), rgba(17, 24, 39, 0.95))"
+                    }}
+                  >
+                    {/* Money background image */}
+                    <div className="absolute inset-0 z-0 opacity-30 group-hover:opacity-40 transition-opacity duration-300">
+                      <div className="absolute inset-0 bg-gradient-to-r from-green-900/40 to-blue-900/40"></div>
+                      <div 
+                        className="absolute inset-0 bg-[url('/attached_assets/jU3xcPi4wPxwMp47Z6WSxb-1200-80.jpg')]" 
+                        style={{ 
+                          backgroundSize: 'cover',
+                          backgroundPosition: 'center',
+                          filter: 'saturate(0.8) contrast(1.2)'
+                        }}
+                      ></div>
+                    </div>
+                    
+                    {/* Premium corner accents */}
+                    <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-green-400 rounded-tl-sm z-10"></div>
+                    <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-green-400 rounded-tr-sm z-10"></div>
+                    <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-green-400 rounded-bl-sm z-10"></div>
+                    <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-green-400 rounded-br-sm z-10"></div>
+                    
+                    {/* Content */}
+                    <div className="flex items-center relative z-20">
+                      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-green-600 via-green-500 to-green-400 p-[2px] shadow-lg mr-3 flex-shrink-0">
+                        <div className="w-full h-full rounded-full bg-gray-900/80 flex items-center justify-center">
+                          <LineChart className="w-4 h-4 text-green-400" />
+                        </div>
+                      </div>
+                      <span className="text-white font-medium text-lg drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
+                        Calculate 10-Year Savings
+                      </span>
+                    </div>
+                    
+                    {/* Hover animation effect */}
+                    <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-gradient-to-r from-green-400 to-blue-400 group-hover:w-full transition-all duration-500 z-10"></div>
+                  </button>
                 </div>
                 
                 {/* Premium Estimated 10-Year ROI Section */}
