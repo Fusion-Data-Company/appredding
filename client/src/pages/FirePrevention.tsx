@@ -216,11 +216,70 @@ const FirePrevention = () => {
                       </div>
                     </div>
                     
-                    {/* Premium case study teaser with crisis context */}
-                    <div className="mt-6 bg-gradient-to-br from-black/60 to-gray-900/60 border border-red-600/20 rounded-lg p-4">
-                      <p className="text-white text-lg">
-                        <span className="text-red-400 font-semibold">Dixie Fire (2025)</span>: Properties with our ceramic coating showed <span className="text-blue-300 font-semibold">5x higher survival rates</span> than traditional fireproof solutions – while providing Federal Insurance Exemption status.
-                      </p>
+                    {/* LA 2025 Wildfire Case Study */}
+                    <div className="mt-6 bg-gradient-to-br from-gray-850/80 to-gray-900/80 border border-orange-500/30 rounded-lg p-6 relative overflow-hidden">
+                      {/* Premium corner accents */}
+                      <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none">
+                        <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-orange-500/70 rounded-tl-lg"></div>
+                        <div className="absolute top-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+                      </div>
+                      <div className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none">
+                        <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-blue-500/70 rounded-br-lg"></div>
+                        <div className="absolute bottom-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
+                      </div>
+                      
+                      {/* Background glow effect */}
+                      <div className="absolute top-1/2 left-20 w-[250px] h-[250px] bg-orange-600/10 rounded-full blur-[90px] opacity-40 z-0"></div>
+                      
+                      <div className="relative z-10">
+                        <div className="flex items-center mb-5">
+                          <div className="bg-gradient-to-r from-orange-600 to-orange-400 h-8 w-1 rounded-full mr-3"></div>
+                          <h3 className="text-2xl font-semibold text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">
+                            Case Study: Los Angeles 2025 Wildfire Zone
+                          </h3>
+                        </div>
+                        
+                        <div className="mb-6">
+                          <p className="text-gray-300 text-sm leading-relaxed">
+                            From January to August 2025, a series of destructive wildfires affected the Los Angeles metropolitan area, destroying 436 homes and damaging over 1,200 structures. However, a development of 58 homes in the Santa Monica Mountains that had been treated with our ceramic coating system in 2023 demonstrated remarkable resistance to these events.
+                          </p>
+                        </div>
+                        
+                        <div className="grid grid-cols-2 gap-4 mb-4">
+                          <div className="bg-gray-900/50 rounded p-3">
+                            <h5 className="text-orange-400 text-sm font-medium mb-1">Protected Homes</h5>
+                            <p className="text-2xl font-bold text-white">96.6%</p>
+                            <p className="text-xs text-gray-400">Survival rate</p>
+                          </div>
+                          <div className="bg-gray-900/50 rounded p-3">
+                            <h5 className="text-red-400 text-sm font-medium mb-1">Untreated Homes</h5>
+                            <p className="text-2xl font-bold text-white">17%</p>
+                            <p className="text-xs text-gray-400">Survival rate</p>
+                          </div>
+                        </div>
+                        
+                        <div className="grid grid-cols-2 gap-4">
+                          <div className="bg-gray-900/50 rounded p-3">
+                            <h5 className="text-blue-400 text-sm font-medium mb-1">Insurance Impact</h5>
+                            <p className="text-xl font-bold text-white">-27%</p>
+                            <p className="text-xs text-gray-400">Premium reduction</p>
+                          </div>
+                          <div className="bg-gray-900/50 rounded p-3">
+                            <h5 className="text-green-400 text-sm font-medium mb-1">Property Value</h5>
+                            <p className="text-xl font-bold text-white">+22%</p>
+                            <p className="text-xs text-gray-400">Value increase</p>
+                          </div>
+                        </div>
+                        
+                        <div className="mt-4 bg-gradient-to-br from-blue-900/20 to-gray-900/20 border border-blue-600/10 rounded p-3 flex items-start">
+                          <div className="text-blue-400 mr-2 mt-0.5">
+                            <Shield className="w-4 h-4" />
+                          </div>
+                          <p className="text-xs text-gray-300">
+                            Properties with our ceramic coating qualified for Federal Insurance Exemption status, allowing homeowners to maintain insurance coverage despite being in designated high-risk zones where most policies were canceled or not renewed.
+                          </p>
+                        </div>
+                      </div>
                     </div>
                     
                     {/* Government technology disclaimer with enhanced styling */}
