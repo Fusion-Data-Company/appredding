@@ -324,50 +324,133 @@ const ConstructionPage = () => {
                   </div>
                 
                 <div className="space-y-6">
-                  <div className="flex items-start gap-4">
-                    <span className="bg-gradient-to-r from-orange-600 to-blue-500 rounded-full p-2 mt-1">
-                      <HardHat className="h-5 w-5 text-white" />
-                    </span>
-                    <div>
-                      <h3 className="text-xl font-semibold mb-1 text-orange-300">Fire Insurance Premium Reduction: 25-31%</h3>
-                      <p className="text-white">Our ceramic microsphere technology delivers <span className="text-green-400">$85,000-120,000 annual insurance savings</span> for typical commercial projects. Perfect 0/100 scores in ASTM E84 testing qualified buildings for premium insurance rate reductions in 94% of applications.</p>
+                  {/* Premium feature item - Fire Insurance */}
+                  <div className="relative group">
+                    <div className="absolute -inset-3 bg-gradient-to-r from-orange-600/5 to-orange-400/5 rounded-lg blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    
+                    <div className="relative flex gap-5">
+                      {/* Enhanced premium icon container */}
+                      <div className="relative flex-shrink-0">
+                        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-orange-600/20 to-orange-500/20 blur-md"></div>
+                        <div className="relative w-12 h-12 bg-gradient-to-br from-orange-600 to-orange-500 rounded-full flex items-center justify-center p-2 border border-orange-500/30 shadow-lg shadow-orange-900/30">
+                          <HardHat className="h-6 w-6 text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]" />
+                        </div>
+                      </div>
+                      
+                      <div>
+                        <h3 className="text-xl font-bold mb-2 text-orange-300 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">
+                          Fire Insurance Premium Reduction: 25-31%
+                        </h3>
+                        <p className="text-gray-200 leading-relaxed">
+                          Our ceramic microsphere technology delivers <span className="text-green-400 font-semibold drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">$85,000-120,000 annual insurance savings</span> for typical commercial projects. Perfect 0/100 scores in ASTM E84 testing qualified buildings for premium insurance rate reductions in 94% of applications.
+                        </p>
+                      </div>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-4">
-                    <span className="bg-gradient-to-r from-orange-600 to-blue-500 rounded-full p-2 mt-1">
-                      <Droplets className="h-5 w-5 text-white" />
-                    </span>
-                    <div>
-                      <h3 className="text-xl font-semibold mb-1 text-blue-300">Maintenance Cost Reduction: 76.4%</h3>
-                      <p className="text-white">With 156% elastomeric flexibility, our ceramic coating delivers <span className="text-green-400">$3.67/sq.ft annual maintenance savings</span> by eliminating cracking, delamination, and water infiltration damage. Documented cases show <span className="text-green-400">$2.46M lifetime savings</span> on 200,000 sq.ft commercial structures.</p>
+                  {/* Premium feature item - Maintenance Cost */}
+                  <div className="relative group">
+                    <div className="absolute -inset-3 bg-gradient-to-r from-blue-600/5 to-blue-400/5 rounded-lg blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    
+                    <div className="relative flex gap-5">
+                      {/* Enhanced premium icon container */}
+                      <div className="relative flex-shrink-0">
+                        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600/20 to-blue-500/20 blur-md"></div>
+                        <div className="relative w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-500 rounded-full flex items-center justify-center p-2 border border-blue-500/30 shadow-lg shadow-blue-900/30">
+                          <Droplets className="h-6 w-6 text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]" />
+                        </div>
+                      </div>
+                      
+                      <div>
+                        <h3 className="text-xl font-bold mb-2 text-blue-300 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">
+                          Maintenance Cost Reduction: 76.4%
+                        </h3>
+                        <p className="text-gray-200 leading-relaxed">
+                          With 156% elastomeric flexibility, our ceramic coating delivers <span className="text-green-400 font-semibold drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">$3.67/sq.ft annual maintenance savings</span> by eliminating cracking, delamination, and water infiltration damage. Documented cases show <span className="text-green-400 font-semibold drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">$2.46M lifetime savings</span> on 200,000 sq.ft commercial structures.
+                        </p>
+                      </div>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-4">
-                    <span className="bg-gradient-to-r from-orange-600 to-blue-500 rounded-full p-2 mt-1">
-                      <ShieldCheck className="h-5 w-5 text-white" />
-                    </span>
-                    <div>
-                      <h3 className="text-xl font-semibold mb-1 text-orange-300">Asset Protection Value: $450-750/sq.ft</h3>
-                      <p className="text-white">Our coatings provide exceptional resistance to chemicals, delivering <span className="text-green-400">73% longer equipment lifespans</span> and <span className="text-green-400">$1.4M average asset protection value</span> for industrial facilities. Prevents costly equipment replacement and production downtime.</p>
+                  {/* Premium feature item - Asset Protection */}
+                  <div className="relative group">
+                    <div className="absolute -inset-3 bg-gradient-to-r from-orange-600/5 to-orange-400/5 rounded-lg blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    
+                    <div className="relative flex gap-5">
+                      {/* Enhanced premium icon container */}
+                      <div className="relative flex-shrink-0">
+                        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-orange-600/20 to-orange-500/20 blur-md"></div>
+                        <div className="relative w-12 h-12 bg-gradient-to-br from-orange-600 to-orange-500 rounded-full flex items-center justify-center p-2 border border-orange-500/30 shadow-lg shadow-orange-900/30">
+                          <ShieldCheck className="h-6 w-6 text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]" />
+                        </div>
+                      </div>
+                      
+                      <div>
+                        <h3 className="text-xl font-bold mb-2 text-orange-300 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">
+                          Asset Protection Value: $450-750/sq.ft
+                        </h3>
+                        <p className="text-gray-200 leading-relaxed">
+                          Our coatings provide exceptional resistance to chemicals, delivering <span className="text-green-400 font-semibold drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">73% longer equipment lifespans</span> and <span className="text-green-400 font-semibold drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">$1.4M average asset protection value</span> for industrial facilities. Prevents costly equipment replacement and production downtime.
+                        </p>
+                      </div>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-4">
-                    <span className="bg-gradient-to-r from-orange-600 to-blue-500 rounded-full p-2 mt-1">
-                      <Leaf className="h-5 w-5 text-white" />
-                    </span>
-                    <div>
-                      <h3 className="text-xl font-semibold mb-1 text-blue-300">LEED Certification Value: $4.36/sq.ft Premium</h3>
-                      <p className="text-white">Our environmentally responsible low VOC formulations contribute up to 9 LEED points, resulting in <span className="text-green-400">8.5% higher property valuations</span> and <span className="text-green-400">$4.36/sq.ft rent premiums</span>. Documented projects show <span className="text-green-400">12-18 month ROI</span> through increased occupancy rates.</p>
+                  {/* Premium feature item - LEED Certification */}
+                  <div className="relative group">
+                    <div className="absolute -inset-3 bg-gradient-to-r from-blue-600/5 to-blue-400/5 rounded-lg blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    
+                    <div className="relative flex gap-5">
+                      {/* Enhanced premium icon container */}
+                      <div className="relative flex-shrink-0">
+                        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600/20 to-blue-500/20 blur-md"></div>
+                        <div className="relative w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-500 rounded-full flex items-center justify-center p-2 border border-blue-500/30 shadow-lg shadow-blue-900/30">
+                          <Leaf className="h-6 w-6 text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]" />
+                        </div>
+                      </div>
+                      
+                      <div>
+                        <h3 className="text-xl font-bold mb-2 text-blue-300 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">
+                          LEED Certification Value: $4.36/sq.ft Premium
+                        </h3>
+                        <p className="text-gray-200 leading-relaxed">
+                          Our environmentally responsible low VOC formulations contribute up to 9 LEED points, resulting in <span className="text-green-400 font-semibold drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">8.5% higher property valuations</span> and <span className="text-green-400 font-semibold drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">$4.36/sq.ft rent premiums</span>. Documented projects show <span className="text-green-400 font-semibold drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">12-18 month ROI</span> through increased occupancy rates.
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
+                </div>
+              </div>
 
-              <div className="backdrop-blur-sm bg-primary-900/60 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] p-8 flex flex-col">
-                <GradientHeading level={2} className="text-3xl font-bold mb-6" variant="mixed">Financial Impact: Premium Construction Solutions</GradientHeading>
+              <div className="relative overflow-hidden">
+                {/* Advanced enterprise-grade backdrop with layered effects */}
+                <div className="absolute inset-0 bg-gradient-to-b from-gray-900/90 via-gray-950/95 to-black/95 rounded-xl border border-blue-500/30 shadow-[0_0_30px_rgba(59,130,246,0.15)]"></div>
+                <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/20 via-blue-500/10 to-blue-600/20 rounded-xl blur-xl opacity-70"></div>
+                
+                {/* Premium corner accents - enterprise elite style */}
+                <div className="absolute top-0 left-0 w-16 h-16 z-10 pointer-events-none">
+                  <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-blue-500/60 rounded-tl-lg"></div>
+                  <div className="absolute top-1 left-1 w-12 h-12 border-t border-l border-blue-500/40 rounded-tl-lg"></div>
+                </div>
+                <div className="absolute bottom-0 right-0 w-16 h-16 z-10 pointer-events-none">
+                  <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-blue-500/60 rounded-br-lg"></div>
+                  <div className="absolute bottom-1 right-1 w-12 h-12 border-b border-r border-blue-500/40 rounded-br-lg"></div>
+                </div>
+                
+                <div className="relative p-8 backdrop-blur-sm z-10 flex flex-col">
+                  {/* Premium enterprise title */}
+                  <div className="relative mb-8">
+                    <div className="absolute -inset-4 bg-gradient-to-r from-blue-600/10 via-blue-500/5 to-blue-600/10 rounded-full blur-xl opacity-70"></div>
+                    <h2 className="text-3xl font-bold text-white relative z-10 text-center
+                      tracking-tight leading-tight drop-shadow-[0_2px_4px_rgba(59,130,246,0.5)]
+                      [text-shadow:0_1px_2px_rgba(0,0,0,0.8),0_1px_10px_rgba(59,130,246,0.3)]">
+                      <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-100 to-white">
+                        Financial Impact: Premium Construction Solutions
+                      </span>
+                    </h2>
+                  </div>
                 <p className="mb-2 text-white">Our government-exclusive ceramic technology is now available to civilian construction firms, delivering measurable ROI across these applications:</p>
                 <p className="mb-4 text-orange-300 text-sm">Previously limited to classified infrastructure projects, now accessible for commercial use with proven performance metrics:</p>
                 <div className="grid md:grid-cols-2 gap-4 mb-6 flex-grow">
