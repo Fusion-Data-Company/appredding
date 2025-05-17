@@ -288,30 +288,52 @@ const MobileHome = () => {
                       </div>
                     </div>
 
-                    <div className="relative bg-gradient-to-br from-gray-900 to-black rounded-lg p-4 border border-gray-800">
-                      <div className="absolute -inset-0.5 bg-orange-600/20 rounded-lg blur opacity-60"></div>
-                      <div className="relative z-10 flex items-start gap-4">
-                        <span className="bg-gradient-to-r from-orange-700 to-orange-500 rounded-full p-2 mt-1 shadow-[0_0_15px_rgba(249,115,22,0.4)]">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
-                            <circle cx="12" cy="12" r="1"></circle>
-                            <circle cx="12" cy="12" r="5"></circle>
-                            <circle cx="12" cy="12" r="9"></circle>
-                          </svg>
-                        </span>
-                        <div>
-                          <h3 className="text-xl font-semibold mb-2 text-white drop-shadow-[0_1px_2px_rgba(249,115,22,0.5)]">Extended Lifespan</h3>
-                          <p className="text-orange-100">Class A fire-rated protection (perfect 0/100 scores in ASTM E84 testing) with ceramic technology that extends lifespan 30+ years with verified test data showing no degradation after decades of exposure.</p>
+                    <div className="relative group">
+                      {/* Premium outer glow effect */}
+                      <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/30 to-orange-400/20 rounded-lg blur-md opacity-75 group-hover:opacity-100 transition duration-300"></div>
+                      
+                      <div className="relative bg-gradient-to-br from-gray-900/95 to-black/95 rounded-lg p-6 border border-orange-500/30 shadow-lg group-hover:shadow-orange-900/20 transition duration-300">
+                        {/* Elite corner accents */}
+                        <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-orange-500/40 rounded-tl-md"></div>
+                        <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-orange-500/40 rounded-tr-md"></div>
+                        <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-orange-500/40 rounded-br-md"></div>
+                        <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-orange-500/40 rounded-bl-md"></div>
+                        
+                        <div className="relative z-10 flex items-start gap-5">
+                          <div className="relative">
+                            <div className="absolute -inset-1 bg-orange-500/30 rounded-full blur-sm"></div>
+                            <span className="relative flex items-center justify-center bg-gradient-to-br from-orange-600 to-orange-400 rounded-full p-3 mt-1 shadow-[0_0_15px_rgba(249,115,22,0.4)]">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
+                                <circle cx="12" cy="12" r="1"></circle>
+                                <circle cx="12" cy="12" r="5"></circle>
+                                <circle cx="12" cy="12" r="9"></circle>
+                              </svg>
+                            </span>
+                          </div>
+                          <div>
+                            <h3 className="text-xl font-semibold mb-3 text-white drop-shadow-[0_1px_2px_rgba(249,115,22,0.5)]">
+                              <span className="bg-gradient-to-r from-white via-orange-100 to-white bg-clip-text text-transparent">Extended Lifespan</span>
+                            </h3>
+                            <p className="text-gray-200">Class A fire-rated protection (perfect 0/100 scores in ASTM E84 testing) with ceramic technology that extends lifespan 30+ years with verified test data showing no degradation after decades of exposure.</p>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                   
                   <div className="mt-8 relative">
-                    <div className="absolute -inset-2 bg-blue-600/30 rounded-full blur-xl opacity-70 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <button className="relative z-10 inline-flex items-center justify-center rounded-md bg-gradient-to-b from-gray-900 to-black border border-blue-500/40 px-6 py-3 font-semibold text-white shadow-[0_0_15px_rgba(59,130,246,0.5)] hover:shadow-[0_0_25px_rgba(59,130,246,0.75)] transition-all duration-300 overflow-hidden group">
-                      <span className="absolute inset-0 bg-gradient-to-br from-blue-800/10 to-blue-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                      <span className="relative z-20">Schedule Free Assessment</span>
-                    </button>
+                    <div className="relative group">
+                      <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-blue-400 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-300"></div>
+                      <button 
+                        className="relative px-7 py-4 bg-gradient-to-br from-slate-950 to-slate-800 hover:from-slate-900 hover:to-slate-700 text-white font-medium rounded-lg border border-slate-700 transition duration-300 inline-flex items-center"
+                      >
+                        <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-blue-600/40 to-blue-400/40 blur-xl opacity-70 group-hover:opacity-100 transition duration-500"></span>
+                        <span className="relative z-10 flex items-center gap-2">
+                          <Clock className="w-5 h-5 mr-1 text-blue-300" />
+                          Schedule Free Assessment
+                        </span>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -617,10 +639,10 @@ const MobileHome = () => {
                     
                     <div className="flex justify-center mt-6 gap-4">
                       <div className="relative group">
-                        <div className="absolute -inset-0.5 bg-blue-600 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-200"></div>
+                        <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-blue-400 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-300"></div>
                         <button 
                           onClick={() => setShowRegistrationForm(true)}
-                          className="relative px-6 py-3 bg-black text-white font-medium rounded-lg border border-blue-500/50 hover:border-blue-400 transition duration-200"
+                          className="relative px-6 py-3 bg-gradient-to-br from-slate-950 to-slate-800 hover:from-slate-900 hover:to-slate-700 text-white font-medium rounded-lg border border-slate-700 transition duration-300"
                         >
                           <span className="flex items-center justify-center">
                             <CircleDollarSign className="mr-2 h-5 w-5 text-green-400" />
