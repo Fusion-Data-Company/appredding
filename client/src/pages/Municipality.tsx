@@ -1604,8 +1604,17 @@ export default function Municipality() {
               <div className="absolute -inset-6 bg-green-500/50 rounded-xl blur-xl opacity-80 -z-5 animate-pulse-slow"></div>
               <div className="absolute -inset-3 bg-green-400/40 rounded-xl blur-md opacity-70 -z-4"></div>
               
-              {/* Solid card overlay with higher z-index to prevent glow from bleeding through */}
-              <div className="absolute inset-0 bg-gray-900 rounded-xl z-1 border border-gray-700/70"></div>
+              {/* Card background with money image and partial transparency */}
+              <div className="absolute inset-0 rounded-xl z-1 border border-gray-700/70 overflow-hidden">
+                <div className="absolute inset-0 bg-[url('/attached_assets/F7B18297-B3B4-46C2-B4E1-466869133B22.webp')]" 
+                  style={{ 
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    opacity: 0.15
+                  }}>
+                </div>
+                <div className="absolute inset-0 bg-gray-900/90"></div>
+              </div>
               
               {/* Accent squares */}
               <div className="absolute top-8 right-8 w-12 h-12 rounded-md bg-blue-600/20 blur-md animate-pulse-slow"></div>
