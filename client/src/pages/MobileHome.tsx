@@ -34,7 +34,6 @@ import {
   Award,
   FileText,
   Download,
-  CircleDollarSign,
   TrendingUp
 } from "lucide-react";
 import { insertMobileHomeProfessionalSchema } from "@shared/schema";

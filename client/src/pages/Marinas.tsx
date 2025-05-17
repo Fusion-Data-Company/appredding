@@ -26,7 +26,9 @@ import {
   ChevronRight, 
   FileCheck, 
   BuildingIcon,
-  Zap
+  Zap,
+  CircleDollarSign,
+  BarChart3
 } from "lucide-react";
 import { insertMarinaProfessionalSchema } from "@shared/schema";
 import { useForm } from "react-hook-form";
@@ -175,17 +177,35 @@ const Marinas = () => {
                 {/* Premium ultra header with layered effects */}
                 <div className="relative mb-6">
                   <div className="absolute -inset-2 bg-gradient-to-r from-blue-500/10 via-blue-500/20 to-blue-500/10 rounded-lg blur-md"></div>
-                  <h1 className="text-4xl md:text-5xl font-bold text-white relative z-10 drop-shadow-[0_3px_10px_rgba(59,130,246,0.7)]">
-                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-100 to-white">ABS-Certified Marine Protection</span>
+                  <h1 className="text-4xl md:text-5xl font-bold text-white relative z-10 drop-shadow-[0_1px_3px_rgba(59,130,246,0.6)]">
+                    411% Marine ROI Certification
                   </h1>
                   <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent"></div>
                 </div>
                 
-                <p className="text-xl text-white mb-8 leading-relaxed relative">
-                  <span className="relative">
-                    Our American Bureau of Shipping (ABS) certified ceramic coating systems (certification <span className="text-blue-300 font-medium">#MC-1372</span>) provide unmatched protection in harsh saltwater environments up to 3.5% NaCl concentration. The technology combines perfect Class A (0/100) fire rating with superior thermal insulation (R-value 16.8/inch), solar reflectance (89%), and corrosion resistance under ASTM B117 salt spray testing (2,000+ hours). This NASA-derived vacuum-filled ceramic microsphere technology delivers documented <span className="text-blue-300 font-medium">30+ year protection</span> for marine vessels and structures.
-                  </span>
+                {/* Enhanced ROI-focused stats in enterprise grid format */}
+                <div className="grid grid-cols-3 gap-3 mb-6">
+                  <div className="bg-gradient-to-br from-black/40 to-black/20 border border-orange-600/30 rounded-lg p-3 text-center">
+                    <span className="text-green-400 font-bold text-xl md:text-2xl block">$1.84M</span>
+                    <span className="text-blue-200 text-xs">Lifecycle Savings</span>
+                  </div>
+                  <div className="bg-gradient-to-br from-black/40 to-black/20 border border-blue-600/30 rounded-lg p-3 text-center">
+                    <span className="text-green-400 font-bold text-xl md:text-2xl block">74%</span>
+                    <span className="text-blue-200 text-xs">Maintenance Reduction</span>
+                  </div>
+                  <div className="bg-gradient-to-br from-black/40 to-black/20 border border-orange-600/30 rounded-lg p-3 text-center">
+                    <span className="text-green-400 font-bold text-xl md:text-2xl block">30+</span>
+                    <span className="text-blue-200 text-xs">Years Protection</span>
+                  </div>
+                </div>
+                
+                <p className="text-xl text-white mb-4">
+                  Our <span className="text-orange-300 font-semibold">ABS-certified ceramic coating systems</span> (certification #MC-1372) provide <span className="text-blue-300 font-semibold">unmatched protection</span> in harsh saltwater environments with documented <span className="text-green-400 font-semibold">ASTM B117 salt spray resistance exceeding 2,000 hours</span>.
                 </p>
+                
+                <div className="bg-black/30 border border-blue-600/20 rounded-lg p-3 mb-4">
+                  <p className="text-sm text-blue-100 italic">Previously classified ceramic microsphere technology, formerly exclusive to military and government vessels, now available to commercial marine applications</p>
+                </div>
               </div>
             </div>
 
