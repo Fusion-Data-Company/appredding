@@ -247,7 +247,7 @@ const ConstructionPage = () => {
                 </div>
                 <div className="mt-6">
                   <GradientButton variant="variant" className="w-full" onClick={handleShowRegistrationForm}>
-                    Request a Consultation
+                    Get Your Free $1,200 Value ROI Analysis
                   </GradientButton>
                 </div>
               </div>
