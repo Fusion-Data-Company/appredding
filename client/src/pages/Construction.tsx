@@ -421,8 +421,6 @@ const ConstructionPage = () => {
                   </div>
                 </div>
               </div>
-                </div>
-              </div>
 
               <div className="relative overflow-hidden">
                 {/* Advanced enterprise-grade backdrop with layered effects */}
@@ -451,36 +449,83 @@ const ConstructionPage = () => {
                       </span>
                     </h2>
                   </div>
-                <p className="mb-2 text-white">Our government-exclusive ceramic technology is now available to civilian construction firms, delivering measurable ROI across these applications:</p>
-                <p className="mb-4 text-orange-300 text-sm">Previously limited to classified infrastructure projects, now accessible for commercial use with proven performance metrics:</p>
-                <div className="grid md:grid-cols-2 gap-4 mb-6 flex-grow">
-                  <div className="flex items-center gap-2 text-white">
-                    <span className="text-blue-400">✓</span>
-                    <span>Structural steel fire protection: <span className="text-green-400">$1.84M saved</span> on 3-hour rated ASTM E119 project</span>
+                <p className="mb-4 text-gray-200 leading-relaxed">Our government-exclusive ceramic technology is now available to civilian construction firms, delivering measurable ROI across these applications:</p>
+                <p className="mb-5 text-orange-300 text-sm italic">Previously limited to classified infrastructure projects, now accessible for commercial use with proven performance metrics:</p>
+                
+                <div className="grid md:grid-cols-2 gap-6 mb-6 flex-grow">
+                  {/* Enhanced premium stats item */}
+                  <div className="relative group">
+                    <div className="absolute -inset-2 bg-gradient-to-r from-blue-600/5 to-blue-500/5 rounded-lg blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div className="relative flex items-center gap-3">
+                      <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-blue-600/10 to-blue-500/10 flex items-center justify-center border border-blue-500/30">
+                        <span className="text-blue-400 text-xl font-bold">✓</span>
+                      </div>
+                      <span className="text-gray-200">Structural steel fire protection: <span className="text-green-400 font-semibold drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">$1.84M saved</span> on 3-hour rated ASTM E119 project</span>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-2 text-white">
-                    <span className="text-orange-400">✓</span>
-                    <span>Industrial flooring with 156% flexibility: <span className="text-green-400">$460K insurance discount</span> in seismic zones</span>
+                  
+                  {/* Enhanced premium stats item */}
+                  <div className="relative group">
+                    <div className="absolute -inset-2 bg-gradient-to-r from-orange-600/5 to-orange-500/5 rounded-lg blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div className="relative flex items-center gap-3">
+                      <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-orange-600/10 to-orange-500/10 flex items-center justify-center border border-orange-500/30">
+                        <span className="text-orange-400 text-xl font-bold">✓</span>
+                      </div>
+                      <span className="text-gray-200">Industrial flooring with 156% flexibility: <span className="text-green-400 font-semibold drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">$460K insurance discount</span> in seismic zones</span>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-2 text-white">
-                    <span className="text-blue-400">✓</span>
-                    <span>Concrete thermal protection: <span className="text-green-400">42% energy cost reduction</span> (89% reflection, 47°F cooler)</span>
+                  
+                  {/* Enhanced premium stats item */}
+                  <div className="relative group">
+                    <div className="absolute -inset-2 bg-gradient-to-r from-blue-600/5 to-blue-500/5 rounded-lg blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div className="relative flex items-center gap-3">
+                      <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-blue-600/10 to-blue-500/10 flex items-center justify-center border border-blue-500/30">
+                        <span className="text-blue-400 text-xl font-bold">✓</span>
+                      </div>
+                      <span className="text-gray-200">Concrete thermal protection: <span className="text-green-400 font-semibold drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">42% energy cost reduction</span> (89% reflection, 47°F cooler)</span>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-2 text-white">
-                    <span className="text-orange-400">✓</span>
-                    <span>Bridge infrastructure: <span className="text-green-400">$4.8M maintenance savings</span> (10,000+ salt spray hour protection)</span>
+                  {/* Enhanced premium stats item */}
+                  <div className="relative group">
+                    <div className="absolute -inset-2 bg-gradient-to-r from-orange-600/5 to-orange-500/5 rounded-lg blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div className="relative flex items-center gap-3">
+                      <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-orange-600/10 to-orange-500/10 flex items-center justify-center border border-orange-500/30">
+                        <span className="text-orange-400 text-xl font-bold">✓</span>
+                      </div>
+                      <span className="text-gray-200">Bridge infrastructure: <span className="text-green-400 font-semibold drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">$4.8M maintenance savings</span> (10,000+ salt spray hour protection)</span>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-2 text-white">
-                    <span className="text-blue-400">✓</span>
-                    <span>Building envelope thermal barriers: <span className="text-green-400">$3.82/sq.ft annual utility savings</span> (87% reduction)</span>
+                  {/* Enhanced premium stats item */}
+                  <div className="relative group">
+                    <div className="absolute -inset-2 bg-gradient-to-r from-blue-600/5 to-blue-500/5 rounded-lg blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div className="relative flex items-center gap-3">
+                      <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-blue-600/10 to-blue-500/10 flex items-center justify-center border border-blue-500/30">
+                        <span className="text-blue-400 text-xl font-bold">✓</span>
+                      </div>
+                      <span className="text-gray-200">Building envelope thermal barriers: <span className="text-green-400 font-semibold drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">$3.82/sq.ft annual utility savings</span> (87% reduction)</span>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-2 text-white">
-                    <span className="text-orange-400">✓</span>
-                    <span>Waterproofing with Class A fire rating: <span className="text-green-400">$14.50/sq.ft combined insurance/warranty savings</span></span>
+                  {/* Enhanced premium stats item */}
+                  <div className="relative group">
+                    <div className="absolute -inset-2 bg-gradient-to-r from-orange-600/5 to-orange-500/5 rounded-lg blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div className="relative flex items-center gap-3">
+                      <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-orange-600/10 to-orange-500/10 flex items-center justify-center border border-orange-500/30">
+                        <span className="text-orange-400 text-xl font-bold">✓</span>
+                      </div>
+                      <span className="text-gray-200">Waterproofing with Class A fire rating: <span className="text-green-400 font-semibold drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">$14.50/sq.ft combined insurance/warranty savings</span></span>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-2 text-white">
-                    <span className="text-blue-400">✓</span>
-                    <span>Concrete reinforcement: <span className="text-green-400">$2.1-3.8M lifecycle extension value</span> (30+ year performance)</span>
+                </div>
+              </div>
+            </div>
+                  <div className="relative group">
+                    <div className="absolute -inset-2 bg-gradient-to-r from-blue-600/5 to-blue-500/5 rounded-lg blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div className="relative flex items-center gap-3">
+                      <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-blue-600/10 to-blue-500/10 flex items-center justify-center border border-blue-500/30">
+                        <span className="text-blue-400 text-xl font-bold">✓</span>
+                      </div>
+                      <span className="text-gray-200">Concrete reinforcement: <span className="text-green-400 font-semibold drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">$2.1-3.8M lifecycle extension value</span> (30+ year performance)</span>
+                    </div>
                   </div>
                   <div className="flex items-center gap-2 text-white">
                     <span className="text-orange-400">✓</span>
