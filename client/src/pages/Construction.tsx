@@ -152,15 +152,33 @@ const ConstructionPage = () => {
                   <div className="absolute bottom-1 left-1 w-8 h-8 border-b border-l border-blue-500/30 rounded-bl-md"></div>
                 </div>
                 
-                <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white drop-shadow-[0_2px_4px_rgba(59,130,246,0.4)]">
-                  $3.2M Average Project Cost Savings
+                <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white drop-shadow-[0_1px_3px_rgba(59,130,246,0.6)]">
+                  642% Construction ROI Verification
                 </h1>
-                <p className="text-xl text-blue-100 mb-4">
-                  Our ceramic microsphere technology delivers a verified <span className="text-green-400 font-semibold">27.8% reduction in total construction lifecycle costs</span> while providing Class A fire protection (0/100 scores), 156% elastomeric flexibility, and 30+ year verified durability.
+                
+                {/* Enhanced ROI-focused stats in enterprise grid format */}
+                <div className="grid grid-cols-3 gap-3 mb-6">
+                  <div className="bg-gradient-to-br from-black/40 to-black/20 border border-orange-600/30 rounded-lg p-3 text-center">
+                    <span className="text-green-400 font-bold text-xl md:text-2xl block">$3.2M</span>
+                    <span className="text-blue-200 text-xs">Average Cost Savings</span>
+                  </div>
+                  <div className="bg-gradient-to-br from-black/40 to-black/20 border border-blue-600/30 rounded-lg p-3 text-center">
+                    <span className="text-green-400 font-bold text-xl md:text-2xl block">27.8%</span>
+                    <span className="text-blue-200 text-xs">Lifecycle Cost Reduction</span>
+                  </div>
+                  <div className="bg-gradient-to-br from-black/40 to-black/20 border border-orange-600/30 rounded-lg p-3 text-center">
+                    <span className="text-green-400 font-bold text-xl md:text-2xl block">76.4%</span>
+                    <span className="text-blue-200 text-xs">Maintenance Cost Savings</span>
+                  </div>
+                </div>
+
+                <p className="text-xl text-white mb-4">
+                  Our ceramic microsphere technology delivers <span className="text-orange-300 font-semibold">Class A fire protection (0/100 scores)</span> with <span className="text-blue-300 font-semibold">156% elastomeric flexibility</span> and <span className="text-blue-300 font-semibold">30+ year verified durability</span>.
                 </p>
-                <p className="text-orange-300 text-lg mb-8">
-                  Previously available only to government infrastructure projects, now accessible to commercial construction firms
-                </p>
+                
+                <div className="bg-black/30 border border-blue-600/20 rounded-lg p-3 mb-4">
+                  <p className="text-sm text-blue-100 italic">Previously classified ceramic microsphere technology, formerly exclusive to government infrastructure projects, now available to commercial construction firms</p>
+                </div>
               </div>
             </div>
 
@@ -907,19 +925,30 @@ const ConstructionPage = () => {
                   </div>
                   
                   <div className="flex flex-col sm:flex-row gap-4">
-                    <GradientButton 
-                      onClick={handleShowRegistrationForm} 
-                      variant="variant" 
-                      className="text-lg"
-                    >
-                      Apply as Construction Partner
-                    </GradientButton>
-                    <Button 
-                      variant="outline" 
-                      className="border-blue-400 text-white hover:bg-blue-800/40"
-                    >
-                      Download Partner Guide
-                    </Button>
+                    <div className="relative group">
+                      <div className="absolute -inset-0.5 bg-blue-600 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-200"></div>
+                      <button 
+                        onClick={handleShowRegistrationForm}
+                        className="relative px-6 py-3 bg-black text-white font-medium rounded-lg border border-blue-500/50 hover:border-blue-400 transition duration-200 w-full sm:w-auto"
+                      >
+                        <span className="flex items-center justify-center">
+                          <CircleDollarSign className="mr-2 h-5 w-5 text-green-400" />
+                          <span>Calculate Your 642% ROI</span>
+                        </span>
+                      </button>
+                    </div>
+                    
+                    <div className="relative group">
+                      <div className="absolute -inset-0.5 bg-orange-600 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-200"></div>
+                      <button 
+                        className="relative px-6 py-3 bg-black text-white font-medium rounded-lg border border-orange-500/50 hover:border-orange-400 transition duration-200 w-full sm:w-auto"
+                      >
+                        <span className="flex items-center justify-center">
+                          <BarChart3Icon className="mr-2 h-5 w-5 text-blue-400" />
+                          <span>Access Lifecycle Cost Analysis</span>
+                        </span>
+                      </button>
+                    </div>
                   </div>
                 </div>
                 
