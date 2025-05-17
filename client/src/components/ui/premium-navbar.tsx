@@ -5,20 +5,20 @@ import { ChevronDown } from "lucide-react";
 
 // Images for various solutions/applications
 const solutionImages = {
-  marinas: "/src/assets_dir/images/marinas-thumb.jpg",
-  pools: "/src/assets_dir/images/pools-thumb.jpg",
-  firePrevention: "/src/assets_dir/images/fire-prevention-thumb.jpg", 
-  construction: "/src/assets_dir/images/construction-thumb.jpg",
-  mobileHome: "/src/assets_dir/images/mobile-home-thumb.jpg",
-  municipality: "/src/assets_dir/images/municipality-thumb.jpg"
+  marinas: "/images/marinas-thumb.jpg",
+  pools: "/images/pools-thumb.jpg",
+  firePrevention: "/images/fire-prevention-thumb.jpg", 
+  construction: "/images/construction-thumb.jpg",
+  mobileHome: "/images/mobile-home-thumb.jpg",
+  municipality: "/images/municipality-thumb.jpg"
 };
 
 // Images for professional services
 const professionalImages = {
-  painters: "/src/assets_dir/images/painter-thumb.jpg",
-  poolPros: "/src/assets_dir/images/pools-thumb.jpg",
-  firePros: "/src/assets_dir/images/fire-prevention-thumb.jpg",
-  constructionPros: "/src/assets_dir/images/construction-thumb.jpg"
+  painters: "/images/painter-thumb.jpg",
+  poolPros: "/images/pools-thumb.jpg",
+  firePros: "/images/fire-prevention-thumb.jpg",
+  constructionPros: "/images/construction-thumb.jpg"
 };
 
 const DropdownSection = ({ title, items, gridCols = 2 }) => (
@@ -73,11 +73,11 @@ const NavItem = ({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="fixed left-1/2 top-24 z-[9999] w-[600px] -translate-x-1/2 transform px-4"
+            className="absolute left-1/2 -translate-x-1/2 transform top-12 z-[2147483647] w-[600px] px-4"
             style={{ maxWidth: "95vw" }}
           >
             <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black/5">
-              <div className="relative bg-gray-900 backdrop-blur-xl border border-gray-800">
+              <div className="relative bg-gray-900/95 backdrop-blur-xl border border-gray-800">
                 {content}
               </div>
             </div>
