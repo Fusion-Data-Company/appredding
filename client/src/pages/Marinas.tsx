@@ -17,7 +17,10 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { 
   Anchor, 
   ShieldCheck, 
-  Sun, 
+  Sun,
+  Settings,
+  Clock,
+  TrendingUp,
   Leaf, 
   Ship, 
   Factory, 
@@ -203,19 +206,43 @@ const Marinas = () => {
                   <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent"></div>
                 </div>
                 
-                {/* Enhanced ROI-focused stats in enterprise grid format */}
-                <div className="grid grid-cols-3 gap-3 mb-6">
-                  <div className="bg-gradient-to-br from-black/40 to-black/20 border border-orange-600/30 rounded-lg p-3 text-center">
-                    <span className="text-green-400 font-bold text-xl md:text-2xl block">$1.84M</span>
-                    <span className="text-blue-200 text-xs">Lifecycle Savings</span>
-                  </div>
-                  <div className="bg-gradient-to-br from-black/40 to-black/20 border border-blue-600/30 rounded-lg p-3 text-center">
-                    <span className="text-green-400 font-bold text-xl md:text-2xl block">74%</span>
-                    <span className="text-blue-200 text-xs">Maintenance Reduction</span>
-                  </div>
-                  <div className="bg-gradient-to-br from-black/40 to-black/20 border border-orange-600/30 rounded-lg p-3 text-center">
-                    <span className="text-green-400 font-bold text-xl md:text-2xl block">30+</span>
-                    <span className="text-blue-200 text-xs">Years Protection</span>
+                {/* Enhanced ROI-focused stats with premium green styling */}
+                <div className="relative mb-6">
+                  {/* Enhanced green ambient glow for ROI section */}
+                  <div className="absolute -inset-4 bg-green-500/30 rounded-xl blur-3xl opacity-70 z-0"></div>
+                  <div className="absolute -inset-8 bg-green-500/20 rounded-xl blur-2xl opacity-60 z-0 animate-pulse-slow"></div>
+                  
+                  <div className="grid grid-cols-3 gap-3 relative z-10">
+                    <div className="bg-gray-900/60 rounded-lg p-3 text-center border-2 border-green-500/30 shadow-[0_0_20px_rgba(74,222,128,0.2)]">
+                      <div className="flex items-center justify-center mb-2">
+                        <div className="bg-gradient-to-br from-green-600 to-green-700 rounded-full p-1 
+                          border border-green-400/40 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_0_4px_rgba(74,222,128,0.4)]">
+                          <CircleDollarSign className="w-4 h-4 text-green-100" />
+                        </div>
+                      </div>
+                      <span className="text-green-400 font-bold text-xl md:text-2xl block">$1.84M</span>
+                      <span className="text-blue-200 text-xs">Lifecycle Savings</span>
+                    </div>
+                    <div className="bg-gray-900/60 rounded-lg p-3 text-center border-2 border-green-500/30 shadow-[0_0_20px_rgba(74,222,128,0.2)]">
+                      <div className="flex items-center justify-center mb-2">
+                        <div className="bg-gradient-to-br from-green-600 to-green-700 rounded-full p-1 
+                          border border-green-400/40 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_0_4px_rgba(74,222,128,0.4)]">
+                          <Settings className="w-4 h-4 text-green-100" />
+                        </div>
+                      </div>
+                      <span className="text-green-400 font-bold text-xl md:text-2xl block">74%</span>
+                      <span className="text-blue-200 text-xs">Maintenance Reduction</span>
+                    </div>
+                    <div className="bg-gray-900/60 rounded-lg p-3 text-center border-2 border-green-500/30 shadow-[0_0_20px_rgba(74,222,128,0.2)]">
+                      <div className="flex items-center justify-center mb-2">
+                        <div className="bg-gradient-to-br from-green-600 to-green-700 rounded-full p-1 
+                          border border-green-400/40 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_0_4px_rgba(74,222,128,0.4)]">
+                          <Clock className="w-4 h-4 text-green-100" />
+                        </div>
+                      </div>
+                      <span className="text-green-400 font-bold text-xl md:text-2xl block">30+</span>
+                      <span className="text-blue-200 text-xs">Years Protection</span>
+                    </div>
                   </div>
                 </div>
                 
@@ -537,12 +564,21 @@ const Marinas = () => {
                       <div className="mt-6 pt-4 border-t border-blue-900/50">
                         <div className="relative group mb-6">
                           {/* Advanced layered glow effects */}
-                          <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600/30 to-blue-400/20 rounded-lg blur-sm opacity-70 group-hover:opacity-100 transition-opacity duration-300"></div>
+                          {/* Enhanced green ambient glow for ROI calculator section */}
+                          <div className="absolute -inset-4 bg-green-500/30 rounded-xl blur-3xl opacity-70 z-0"></div>
+                          <div className="absolute -inset-8 bg-green-500/20 rounded-xl blur-2xl opacity-60 z-0 animate-pulse-slow"></div>
                           
-                          <div className="relative bg-gradient-to-br from-gray-900/90 to-black/90 border border-blue-600/40 rounded-lg p-5 backdrop-blur-sm">
+                          <div className="relative bg-gradient-to-br from-gray-900/95 to-black/95 border border-green-500/30 rounded-lg p-5 backdrop-blur-sm z-10">
                             <div className="flex items-center gap-3 mb-3">
-                              <CircleDollarSign className="h-6 w-6 text-green-400" />
-                              <h4 className="text-xl font-semibold text-white">Advanced Marine ROI Calculator</h4>
+                              <div className="bg-gradient-to-br from-green-600 to-green-700 rounded-full p-2 
+                                border border-green-400/40 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_0_10px_rgba(74,222,128,0.4)]">
+                                <CircleDollarSign className="h-5 w-5 text-green-100" />
+                              </div>
+                              <h4 className="text-xl font-semibold">
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-green-100 to-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                                  Advanced Marine ROI Calculator
+                                </span>
+                              </h4>
                             </div>
                             
                             <p className="text-blue-100 mb-4">Calculate your 411% ROI potential with our government-grade marine protection system</p>
