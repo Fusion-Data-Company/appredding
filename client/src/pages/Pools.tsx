@@ -1,5 +1,8 @@
 import { useState } from 'react';
 import MainLayout from '@/components/layout/MainLayout';
+import { GradientHeading } from "@/components/ui/gradient-heading";
+import { motion } from "framer-motion";
+import { CheckCircle, Droplets, CircleDollarSign, AreaChart, BarChart3, BarChart2, ChevronRight } from "lucide-react";
 
 interface CoatingProduct {
   name: string;
@@ -62,7 +65,7 @@ export default function Pools() {
   };
 
   return (
-    <MainLayout>
+    <MainLayout fullWidth={true}>
       <div className="relative">
         {/* Structured data for SEO - JSON-LD */}
         <script type="application/ld+json" dangerouslySetInnerHTML={{
@@ -90,14 +93,20 @@ export default function Pools() {
           })
         }} />
         
-        {/* Background gradient effect */}
-        <div className="fixed top-0 left-0 w-full h-full z-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-[5%] left-[10%] w-[45rem] h-[45rem] bg-blue-600/15 rounded-full blur-[150px] animate-pulse-slow"></div>
-          <div className="absolute bottom-[10%] right-[15%] w-[40rem] h-[40rem] bg-orange-500/10 rounded-full blur-[150px] animate-pulse-slow"></div>
+        {/* Premium gradient background */}
+        <div className="fixed inset-0 z-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-blue-950 to-black"></div>
+          
+          {/* Premium ambient glows */}
+          <div className="absolute top-0 right-0 w-2/3 h-1/2 bg-blue-600/10 rounded-full filter blur-[150px] animate-pulse-slow"></div>
+          <div className="absolute bottom-0 left-0 w-2/3 h-1/2 bg-cyan-600/10 rounded-full filter blur-[150px] animate-pulse-slow-delayed"></div>
+          
+          {/* Premium grid pattern overlay */}
+          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoMzgsMTk4LDI0MSwwLjIpIiBkPSJNMCAwaDJ2Mkgwem0yIDJoMnYySDJ6Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCBmaWxsPSJ1cmwoI2EpIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIi8+PC9zdmc+')]"></div>
         </div>
         
         {/* Hero section with semantic HTML5 - SEO optimized */}
-        <section className="relative z-10 py-20" aria-labelledby="pool-coating-hero-title">
+        <section className="py-10 md:py-24 relative z-10" aria-labelledby="pool-coating-hero-title">
           <div className="container mx-auto">
             <div className="max-w-5xl mx-auto text-center mb-14 md:mb-20 relative">
               {/* Advanced enterprise-grade backdrop with layered effects */}
@@ -126,17 +135,43 @@ export default function Pools() {
                 {/* Ultra-premium enterprise header with layered effects */}
                 <div className="relative mb-8">
                   {/* Advanced layered glow effects */}
-                  <div className="absolute -inset-6 bg-gradient-to-r from-blue-500/30 via-blue-600/20 to-blue-500/30 rounded-full blur-xl opacity-80"></div>
-                  <div className="absolute -inset-8 bg-gradient-to-r from-blue-600/10 via-orange-500/5 to-blue-600/10 rounded-full blur-2xl opacity-70 animate-pulse-slow"></div>
+                  <div className="absolute -inset-6 bg-gradient-to-r from-blue-500/30 via-cyan-600/20 to-blue-500/30 rounded-full blur-xl opacity-80"></div>
+                  <div className="absolute -inset-8 bg-gradient-to-r from-blue-600/10 via-cyan-500/5 to-blue-600/10 rounded-full blur-2xl opacity-70 animate-pulse-slow"></div>
                   
-                  {/* Premium title with enterprise-grade styling */}
-                  <h1 id="pool-coating-hero-title" className="text-4xl sm:text-5xl md:text-6xl font-bold text-white relative z-10 
-                    tracking-tight leading-tight drop-shadow-[0_2px_10px_rgba(59,130,246,0.5)]
-                    [text-shadow:0_1px_2px_rgba(0,0,0,0.8),0_2px_15px_rgba(59,130,246,0.3),0_-1px_35px_rgba(59,130,246,0.2)]">
-                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-50 to-white">
-                      371% Pool Coating ROI
-                    </span>
-                  </h1>
+                  <motion.h1 
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.7 }}
+                    id="pool-coating-hero-title"
+                    className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-white drop-shadow-[0_1px_3px_rgba(59,130,246,0.6)]"
+                  >
+                    Elite Ceramic Pool Coating System
+                  </motion.h1>
+                  
+                  <motion.p
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.7, delay: 0.2 }}
+                    className="text-xl text-cyan-100 mb-6"
+                  >
+                    Advanced Military-Grade Technology Now Available for Commercial & Residential Pools
+                  </motion.p>
+                  
+                  {/* Premium feature stats with enterprise-elite styling */}
+                  <div className="grid grid-cols-3 gap-4 sm:gap-6 mb-8">
+                    <div className="bg-gradient-to-br from-black/40 to-black/20 border border-cyan-600/30 rounded-lg p-3 text-center">
+                      <span className="text-green-400 font-bold text-xl md:text-2xl block">42%</span>
+                      <span className="text-cyan-200 text-xs">Lower maintenance cost</span>
+                    </div>
+                    <div className="bg-gradient-to-br from-black/40 to-black/20 border border-blue-600/30 rounded-lg p-3 text-center">
+                      <span className="text-green-400 font-bold text-xl md:text-2xl block">20+ yrs</span>
+                      <span className="text-cyan-200 text-xs">Extended surface life</span>
+                    </div>
+                    <div className="bg-gradient-to-br from-black/40 to-black/20 border border-cyan-600/30 rounded-lg p-3 text-center">
+                      <span className="text-green-400 font-bold text-xl md:text-2xl block">28.7%</span>
+                      <span className="text-cyan-200 text-xs">Energy cost reduction</span>
+                    </div>
+                  </div>
                   
                   {/* Sophisticated divider accents */}
                   <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-blue-500/70 to-transparent"></div>
