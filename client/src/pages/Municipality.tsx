@@ -97,18 +97,25 @@ export default function Municipality() {
   const form = useForm<MunicipalityProfessionalFormValues>({
     resolver: zodResolver(municipalityProfessionalFormSchema),
     defaultValues: {
-      firstName: "",
-      lastName: "",
+      companyName: "",
+      contactName: "",
       email: "",
       confirmEmail: "",
       phone: "",
-      company: "",
-      title: "",
+      address: "",
+      city: "",
+      state: "",
+      zipCode: "",
+      website: "",
+      professionalType: "",
+      specialties: [],
       jurisdictions: "",
       clientTypes: "",
+      credentials: "",
       experienceYears: undefined,
+      registrationNumber: "",
       projectExperience: "",
-      communicationConsent: false
+      notes: ""
     }
   });
 
@@ -1890,13 +1897,13 @@ export default function Municipality() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <FormField
                         control={form.control}
-                        name="firstName"
+                        name="contactName"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel className="text-gray-300">First Name</FormLabel>
+                            <FormLabel className="text-gray-300">Contact Name</FormLabel>
                             <FormControl>
                               <Input 
-                                placeholder="John" 
+                                placeholder="John Smith" 
                                 {...field} 
                                 className="bg-gray-900/70 border-2 border-green-500/50 rounded-lg py-2 px-3 text-white"
                               />
@@ -1908,12 +1915,16 @@ export default function Municipality() {
                       
                       <FormField
                         control={form.control}
-                        name="lastName"
+                        name="companyName"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>Last Name</FormLabel>
+                            <FormLabel className="text-gray-300">Company Name</FormLabel>
                             <FormControl>
-                              <Input placeholder="Doe" {...field} />
+                              <Input 
+                                placeholder="Municipal Solutions Inc." 
+                                {...field} 
+                                className="bg-gray-900/70 border-2 border-green-500/50 rounded-lg py-2 px-3 text-white"
+                              />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -1927,9 +1938,14 @@ export default function Municipality() {
                         name="email"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>Email</FormLabel>
+                            <FormLabel className="text-gray-300">Email</FormLabel>
                             <FormControl>
-                              <Input type="email" placeholder="john.doe@example.com" {...field} />
+                              <Input 
+                                type="email" 
+                                placeholder="john.doe@example.com" 
+                                {...field} 
+                                className="bg-gray-900/70 border-2 border-green-500/50 rounded-lg py-2 px-3 text-white" 
+                              />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
