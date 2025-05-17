@@ -759,6 +759,7 @@ const MobileHome = () => {
               </div>
             </div>
           </div>
+        </div>
         </section>
 
         {/* Technology Applications Section */}
