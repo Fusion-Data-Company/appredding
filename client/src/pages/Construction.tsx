@@ -175,34 +175,153 @@ const ConstructionPage = () => {
                 </div>
                 
                 {/* Enhanced ROI-focused stats in enterprise grid format */}
-                <div className="grid grid-cols-3 gap-3 mb-6">
-                  <div className="bg-gradient-to-br from-black/40 to-black/20 border border-orange-600/30 rounded-lg p-3 text-center">
-                    <span className="text-green-400 font-bold text-xl md:text-2xl block">$3.2M</span>
-                    <span className="text-blue-200 text-xs">Average Cost Savings</span>
+                {/* Premium enterprise 4-column metrics display with enhanced styling */}
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                  {/* Cost Savings */}
+                  <div className="relative group overflow-hidden">
+                    {/* Enhanced background glow effect */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-gray-900/90 to-black/95 rounded-lg border border-blue-500/30 transition-opacity duration-300"></div>
+                    <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600/20 to-blue-500/20 rounded-lg blur-sm opacity-30 group-hover:opacity-70 transition-opacity duration-300"></div>
+                    
+                    {/* Premium corner accents */}
+                    <div className="absolute top-0 left-0 w-6 h-6 pointer-events-none">
+                      <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-blue-400/60 rounded-tl-md"></div>
+                    </div>
+                    <div className="absolute bottom-0 right-0 w-6 h-6 pointer-events-none">
+                      <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-blue-400/60 rounded-br-md"></div>
+                    </div>
+                    
+                    {/* Metric content with premium styling */}
+                    <div className="relative p-4 text-center backdrop-blur-sm">
+                      <p className="text-2xl md:text-3xl font-bold text-white mb-1 group-hover:text-green-400 transition-colors duration-300
+                        [text-shadow:0_1px_2px_rgba(0,0,0,0.8),0_0_10px_rgba(34,197,94,0.5)]">$3.2M</p>
+                      <p className="text-blue-100/80 text-sm font-medium">Average Cost Savings</p>
+                    </div>
                   </div>
-                  <div className="bg-gradient-to-br from-black/40 to-black/20 border border-blue-600/30 rounded-lg p-3 text-center">
-                    <span className="text-green-400 font-bold text-xl md:text-2xl block">27.8%</span>
-                    <span className="text-blue-200 text-xs">Lifecycle Cost Reduction</span>
+                  
+                  {/* Lifecycle Reduction */}
+                  <div className="relative group overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-br from-gray-900/90 to-black/95 rounded-lg border border-blue-500/30 transition-opacity duration-300"></div>
+                    <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600/20 to-blue-500/20 rounded-lg blur-sm opacity-30 group-hover:opacity-70 transition-opacity duration-300"></div>
+                    
+                    {/* Premium corner accents */}
+                    <div className="absolute top-0 left-0 w-6 h-6 pointer-events-none">
+                      <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-blue-400/60 rounded-tl-md"></div>
+                    </div>
+                    <div className="absolute bottom-0 right-0 w-6 h-6 pointer-events-none">
+                      <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-blue-400/60 rounded-br-md"></div>
+                    </div>
+                    
+                    <div className="relative p-4 text-center backdrop-blur-sm">
+                      <p className="text-2xl md:text-3xl font-bold text-white mb-1 group-hover:text-green-400 transition-colors duration-300
+                        [text-shadow:0_1px_2px_rgba(0,0,0,0.8),0_0_10px_rgba(34,197,94,0.5)]">27.8%</p>
+                      <p className="text-blue-100/80 text-sm font-medium">Lifecycle Cost Reduction</p>
+                    </div>
                   </div>
-                  <div className="bg-gradient-to-br from-black/40 to-black/20 border border-orange-600/30 rounded-lg p-3 text-center">
-                    <span className="text-green-400 font-bold text-xl md:text-2xl block">76.4%</span>
-                    <span className="text-blue-200 text-xs">Maintenance Cost Savings</span>
+                  
+                  {/* Maintenance Savings */}
+                  <div className="relative group overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-br from-gray-900/90 to-black/95 rounded-lg border border-blue-500/30 transition-opacity duration-300"></div>
+                    <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600/20 to-blue-500/20 rounded-lg blur-sm opacity-30 group-hover:opacity-70 transition-opacity duration-300"></div>
+                    
+                    {/* Premium corner accents */}
+                    <div className="absolute top-0 left-0 w-6 h-6 pointer-events-none">
+                      <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-blue-400/60 rounded-tl-md"></div>
+                    </div>
+                    <div className="absolute bottom-0 right-0 w-6 h-6 pointer-events-none">
+                      <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-blue-400/60 rounded-br-md"></div>
+                    </div>
+                    
+                    <div className="relative p-4 text-center backdrop-blur-sm">
+                      <p className="text-2xl md:text-3xl font-bold text-white mb-1 group-hover:text-green-400 transition-colors duration-300
+                        [text-shadow:0_1px_2px_rgba(0,0,0,0.8),0_0_10px_rgba(34,197,94,0.5)]">76.4%</p>
+                      <p className="text-blue-100/80 text-sm font-medium">Maintenance Cost Savings</p>
+                    </div>
+                  </div>
+                  
+                  {/* Total ROI */}
+                  <div className="relative group overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-br from-gray-900/90 to-black/95 rounded-lg border border-blue-500/30 transition-opacity duration-300"></div>
+                    <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/20 to-blue-600/20 rounded-lg blur-sm opacity-40 group-hover:opacity-80 transition-opacity duration-300"></div>
+                    
+                    {/* Premium corner accents */}
+                    <div className="absolute top-0 left-0 w-6 h-6 pointer-events-none">
+                      <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-orange-400/60 rounded-tl-md"></div>
+                    </div>
+                    <div className="absolute bottom-0 right-0 w-6 h-6 pointer-events-none">
+                      <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-orange-400/60 rounded-br-md"></div>
+                    </div>
+                    
+                    <div className="relative p-4 text-center backdrop-blur-sm">
+                      <p className="text-2xl md:text-3xl font-bold text-white mb-1 group-hover:text-orange-300 transition-colors duration-300
+                        [text-shadow:0_1px_2px_rgba(0,0,0,0.8),0_0_10px_rgba(234,88,12,0.5)]">642%</p>
+                      <p className="text-orange-100/80 text-sm font-medium">Total Cost ROI</p>
+                    </div>
                   </div>
                 </div>
 
-                <p className="text-xl text-white mb-4">
-                  Our ceramic microsphere technology delivers <span className="text-orange-300 font-semibold">Class A fire protection (0/100 scores)</span> with <span className="text-blue-300 font-semibold">156% elastomeric flexibility</span> and <span className="text-blue-300 font-semibold">30+ year verified durability</span>.
-                </p>
+                {/* Enhanced description with premium typography */}
+                <div className="relative">
+                  {/* Subtle glow effect behind premium text */}
+                  <div className="absolute -inset-2 bg-gradient-to-r from-blue-600/5 via-blue-600/10 to-blue-600/5 rounded-xl blur-lg opacity-70"></div>
+                  
+                  <div className="relative">
+                    <p className="text-xl text-white mb-6 leading-relaxed">
+                      Our ceramic microsphere technology delivers <span className="text-orange-300 font-semibold drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">Class A fire protection (0/100 scores)</span> with <span className="text-blue-300 font-semibold drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">156% elastomeric flexibility</span> and <span className="text-blue-300 font-semibold drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">30+ year verified durability</span>.
+                    </p>
+                  </div>
+                </div>
                 
-                <div className="bg-black/30 border border-blue-600/20 rounded-lg p-3 mb-4">
-                  <p className="text-sm text-blue-100 italic">Previously classified ceramic microsphere technology, formerly exclusive to government infrastructure projects, now available to commercial construction firms</p>
+                {/* Premium enterprise badge highlighting government technology */}
+                <div className="relative group mb-8 overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-950/50 via-blue-900/30 to-blue-950/50 rounded-lg border border-blue-500/30 transition-opacity duration-300"></div>
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500/20 to-blue-600/20 rounded-lg blur-sm opacity-30 group-hover:opacity-70 transition-opacity duration-300"></div>
+                  
+                  {/* Corner accents */}
+                  <div className="absolute top-0 left-0 w-6 h-6 pointer-events-none">
+                    <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-blue-400/60 rounded-tl-md"></div>
+                  </div>
+                  <div className="absolute bottom-0 right-0 w-6 h-6 pointer-events-none">
+                    <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-blue-400/60 rounded-br-md"></div>
+                  </div>
+                  
+                  <div className="relative p-5 text-center backdrop-blur-sm z-10">
+                    <p className="text-blue-100 italic text-base leading-relaxed">
+                      <span className="text-blue-300 font-semibold">Previously classified ceramic microsphere technology</span>, formerly exclusive to government infrastructure projects, now available to commercial construction firms
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
 
             <div className="grid md:grid-cols-2 gap-12 mb-16">
-              <div className="backdrop-blur-sm bg-primary-900/60 rounded-xl border-4 border-white shadow-[0_0_60px_rgba(255,255,255,0.4)] p-8">
-                <GradientHeading level={2} className="text-3xl font-bold mb-6" variant="mixed">642% ROI: Project Cost Reduction Analysis</GradientHeading>
+              <div className="relative overflow-hidden">
+                {/* Advanced enterprise-grade backdrop with layered effects */}
+                <div className="absolute inset-0 bg-gradient-to-b from-gray-900/90 via-gray-950/95 to-black/95 rounded-xl border border-blue-500/30 shadow-[0_0_30px_rgba(59,130,246,0.15)]"></div>
+                <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/20 via-blue-500/10 to-blue-600/20 rounded-xl blur-xl opacity-70"></div>
+                
+                {/* Premium corner accents - enterprise elite style */}
+                <div className="absolute top-0 left-0 w-16 h-16 z-10 pointer-events-none">
+                  <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-blue-500/60 rounded-tl-lg"></div>
+                  <div className="absolute top-1 left-1 w-12 h-12 border-t border-l border-blue-500/40 rounded-tl-lg"></div>
+                </div>
+                <div className="absolute bottom-0 right-0 w-16 h-16 z-10 pointer-events-none">
+                  <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-blue-500/60 rounded-br-lg"></div>
+                  <div className="absolute bottom-1 right-1 w-12 h-12 border-b border-r border-blue-500/40 rounded-br-lg"></div>
+                </div>
+                
+                <div className="relative p-8 backdrop-blur-sm z-10">
+                  {/* Premium enterprise title */}
+                  <div className="relative mb-8">
+                    <div className="absolute -inset-4 bg-gradient-to-r from-blue-600/10 via-blue-500/5 to-blue-600/10 rounded-full blur-xl opacity-70"></div>
+                    <h2 className="text-3xl font-bold text-white relative z-10 text-center
+                      tracking-tight leading-tight drop-shadow-[0_2px_4px_rgba(59,130,246,0.5)]
+                      [text-shadow:0_1px_2px_rgba(0,0,0,0.8),0_1px_10px_rgba(59,130,246,0.3)]">
+                      <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-100 to-white">
+                        642% ROI: Project Cost Reduction Analysis
+                      </span>
+                    </h2>
+                  </div>
                 
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
