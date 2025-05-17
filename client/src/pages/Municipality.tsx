@@ -484,20 +484,25 @@ export default function Municipality() {
                   
                   <div className="mb-8">
                     <div className="flex justify-between mb-2">
-                      <span className="text-blue-400">Start</span>
-                      <span className="text-blue-400">Analyze ROI</span>
-                      <span className="text-blue-400">Implementation</span>
+                      <span className="text-green-400">Start</span>
+                      <span className="text-green-400">Analyze ROI</span>
+                      <span className="text-green-400">Implementation</span>
                     </div>
-                    <Progress value={progress} className="h-3 bg-gray-700" indicatorClassName="bg-gradient-to-r from-blue-600 to-blue-400" />
+                    <div className="h-3 bg-gray-800 rounded-full overflow-hidden relative">
+                      <div 
+                        className="h-full bg-gradient-to-r from-green-600 to-green-400 rounded-full"
+                        style={{ width: `${progress}%` }}
+                      ></div>
+                    </div>
                   </div>
                   
                   <div className="grid md:grid-cols-3 gap-6">
-                    <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-blue-500/10 rounded-lg p-5 relative group">
+                    <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-green-500/20 rounded-lg p-5 relative group">
                       <div className="absolute top-0 left-0 w-12 h-12 pointer-events-none">
-                        <div className="absolute top-0 left-0 w-5 h-5 border-t-2 border-l-2 border-blue-500/50 rounded-tl-md"></div>
+                        <div className="absolute top-0 left-0 w-5 h-5 border-t-2 border-l-2 border-green-500/50 rounded-tl-md"></div>
                       </div>
                       
-                      <div className="flex items-center justify-center h-12 w-12 rounded-full bg-blue-600/20 mb-4 text-blue-400">
+                      <div className="flex items-center justify-center h-12 w-12 rounded-full bg-green-600/20 mb-4 text-green-400">
                         <Check className="h-6 w-6" />
                       </div>
                       
@@ -505,15 +510,15 @@ export default function Municipality() {
                       <p className="text-gray-400 mb-4">Schedule a comprehensive infrastructure assessment to identify key protection needs.</p>
                       
                       <div className="border-t border-gray-700 pt-4 mt-auto">
-                        <p className="text-blue-400 text-sm">Completed</p>
+                        <p className="text-green-400 text-sm">Completed</p>
                       </div>
                     </div>
                     
-                    <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-blue-500/20 rounded-lg p-5 relative group transform scale-105">
-                      <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg opacity-30 blur group-hover:opacity-40 transition duration-300"></div>
+                    <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-green-500/20 rounded-lg p-5 relative group transform scale-105">
+                      <div className="absolute -inset-0.5 bg-gradient-to-r from-green-500 to-green-400 rounded-lg opacity-30 blur group-hover:opacity-40 transition duration-300"></div>
                       
                       <div className="relative">
-                        <div className="flex items-center justify-center h-12 w-12 rounded-full bg-blue-600/20 mb-4 text-blue-400">
+                        <div className="flex items-center justify-center h-12 w-12 rounded-full bg-green-600/20 mb-4 text-green-400">
                           <BarChart3 className="h-6 w-6" />
                         </div>
                         
