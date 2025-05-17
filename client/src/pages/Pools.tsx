@@ -433,9 +433,12 @@ const Pools = () => {
                   <div className="absolute bottom-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
                 </div>
                 
-                <h2 className="text-2xl md:text-3xl mb-6 text-center text-white drop-shadow-[0_0px_1px_rgba(59,130,246,0.2)] [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(59,130,246,0.3)]">
-                  The Praetorian Pool Contractor Opportunity
+                <h2 className="text-2xl md:text-3xl mb-4 text-center text-white drop-shadow-[0_0px_1px_rgba(59,130,246,0.2)] [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(59,130,246,0.3)]">
+                  The Praetorian 371% ROI Contractor Program
                 </h2>
+                <p className="text-center text-blue-100 mb-6 max-w-3xl mx-auto">
+                  <span className="text-orange-300 font-semibold">While traditional pool contractors struggle with 18-25% profit margins</span>, our certified partners consistently achieve <span className="text-green-400 font-semibold">65-80% margins on premium ceramic installations</span> with our military-grade technology now available for civilian applications
+                </p>
                 
                 <div className="grid md:grid-cols-2 gap-8 mb-8">
                   <div>
@@ -444,31 +447,31 @@ const Pools = () => {
                       <li className="flex items-start">
                         <CheckIcon className="h-5 w-5 text-blue-400 mr-2 mt-0.5 shrink-0" />
                         <span className="text-gray-200">
-                          <span className="font-semibold text-white">Premium pricing power</span> - Charge 60-80% more than standard deck resurfacing projects
+                          <span className="font-semibold text-white">Premium pricing power</span> - Charge <span className="text-green-400 font-semibold">60-80% more</span> than standard deck resurfacing, adding <span className="text-green-400 font-semibold">$3,800-7,500 profit per job</span>
                         </span>
                       </li>
                       <li className="flex items-start">
                         <CheckIcon className="h-5 w-5 text-blue-400 mr-2 mt-0.5 shrink-0" />
                         <span className="text-gray-200">
-                          <span className="font-semibold text-white">Exclusive territory rights</span> - Become the only certified installer in your region
+                          <span className="font-semibold text-white">Exclusive territory rights</span> - Secure up to <span className="text-blue-300 font-semibold">85% market share</span> in your region with <span className="text-green-400 font-semibold">$125K-210K annual revenue potential</span> as the only certified installer
                         </span>
                       </li>
                       <li className="flex items-start">
                         <CheckIcon className="h-5 w-5 text-blue-400 mr-2 mt-0.5 shrink-0" />
                         <span className="text-gray-200">
-                          <span className="font-semibold text-white">Direct lead generation</span> - We send qualified homeowner leads directly to you
+                          <span className="font-semibold text-white">Direct lead generation</span> - Receive <span className="text-blue-300 font-semibold">12-18 qualified leads monthly</span> with <span className="text-green-400 font-semibold">38% conversion rate</span> and <span className="text-green-400 font-semibold">$4,200 average job value</span>
                         </span>
                       </li>
                       <li className="flex items-start">
                         <CheckIcon className="h-5 w-5 text-blue-400 mr-2 mt-0.5 shrink-0" />
                         <span className="text-gray-200">
-                          <span className="font-semibold text-white">No specialized equipment needed</span> - Uses standard application tools you already own
+                          <span className="font-semibold text-white">Low startup investment</span> - <span className="text-blue-300 font-semibold">Under $2,500 initial equipment cost</span> with <span className="text-green-400 font-semibold">ROI breakeven in 1-2 jobs</span> using standard application tools
                         </span>
                       </li>
                       <li className="flex items-start">
                         <CheckIcon className="h-5 w-5 text-blue-400 mr-2 mt-0.5 shrink-0" />
                         <span className="text-gray-200">
-                          <span className="font-semibold text-white">Contractor pricing discounts</span> - 25-35% below retail pricing for certified partners
+                          <span className="font-semibold text-white">Contractor pricing discounts</span> - <span className="text-blue-300 font-semibold">25-35% below retail</span>, adding <span className="text-green-400 font-semibold">$1,800-2,400 profit per job</span> compared to standard distribution margins
                         </span>
                       </li>
                       <li className="flex items-start">
@@ -481,7 +484,7 @@ const Pools = () => {
                   </div>
                   
                   <div className="bg-gradient-to-br from-gray-800/80 via-gray-900/80 to-black/80 rounded-lg p-6 border border-blue-500/20">
-                    <h3 className="text-xl font-semibold mb-4 text-white">Pool Contractor Revenue Example</h3>
+                    <h3 className="text-xl font-semibold mb-4 text-white">Pool Contractor 371% ROI Example</h3>
                     
                     <div className="relative">
                       <div className="absolute top-0 left-0 w-12 h-12 pointer-events-none">
