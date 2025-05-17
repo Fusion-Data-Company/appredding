@@ -179,29 +179,37 @@ export default function Pools() {
               
               <div className="relative grid grid-cols-1 md:grid-cols-3 gap-6 p-6">
                 <div className="col-span-1">
-                  <div className="relative bg-gradient-to-br from-gray-900/70 to-gray-950/70 rounded-xl border border-blue-500/30 p-6">
-                    <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600/10 to-blue-400/10 rounded-xl blur-sm opacity-30"></div>
+                  <div className="relative bg-gradient-to-br from-gray-900/70 to-gray-950/70 rounded-xl border border-green-500/30 p-6">
+                    <div className="absolute -inset-0.5 bg-gradient-to-r from-green-600/20 to-green-400/20 rounded-xl blur-sm opacity-40"></div>
                     
                     <div className="relative z-10">
                       <h3 className="text-xl font-bold text-white mb-6">Calculate Your Investment</h3>
                       
                       <div className="mb-6">
-                        <label className="block text-blue-100 mb-2">Pool Surface Area (sq ft)</label>
+                        <label className="block text-gray-300 mb-2" style={{ textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)" }}>Pool Surface Area (sq ft)</label>
                         <input
                           type="number"
                           min="50"
                           value={poolSurfaceArea}
                           onChange={(e) => setPoolSurfaceArea(Number(e.target.value))}
-                          className="w-full bg-gray-900 border border-blue-500/30 text-white rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500/50"
+                          className="w-full bg-gray-900/60 border-2 border-green-500/50 rounded-lg px-4 py-3 text-white focus:border-green-500 focus:ring-2 focus:ring-green-500/40 shadow-[0_0_10px_rgba(74,222,128,0.15)]"
+                          style={{
+                            textShadow: "0 1px 2px rgba(74, 222, 128, 0.3)",
+                            boxShadow: "0 0 15px rgba(74, 222, 128, 0.15), inset 0 0 10px rgba(0, 0, 0, 0.3)"
+                          }}
                         />
                       </div>
                       
                       <div className="mb-6">
-                        <label className="block text-blue-100 mb-2">Coating Product</label>
+                        <label className="block text-gray-300 mb-2" style={{ textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)" }}>Coating Product</label>
                         <select
                           value={selectedProduct}
                           onChange={(e) => setSelectedProduct(e.target.value)}
-                          className="w-full bg-gray-900 border border-blue-500/30 text-white rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500/50"
+                          className="w-full bg-gray-900/60 border-2 border-green-500/50 rounded-lg px-4 py-3 text-white focus:border-green-500 focus:ring-2 focus:ring-green-500/40 shadow-[0_0_10px_rgba(74,222,128,0.15)]"
+                          style={{
+                            textShadow: "0 1px 2px rgba(74, 222, 128, 0.3)",
+                            boxShadow: "0 0 15px rgba(74, 222, 128, 0.15), inset 0 0 10px rgba(0, 0, 0, 0.3)"
+                          }}
                         >
                           <option value="standard">Praetorian Standard</option>
                           <option value="premium">Praetorian Premium</option>
@@ -210,11 +218,15 @@ export default function Pools() {
                       </div>
                       
                       <div className="mb-8">
-                        <label className="block text-blue-100 mb-2">Number of Coats</label>
+                        <label className="block text-gray-300 mb-2" style={{ textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)" }}>Number of Coats</label>
                         <select
                           value={coatCount}
                           onChange={(e) => setCoatCount(Number(e.target.value))}
-                          className="w-full bg-gray-900 border border-blue-500/30 text-white rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500/50"
+                          className="w-full bg-gray-900/60 border-2 border-green-500/50 rounded-lg px-4 py-3 text-white focus:border-green-500 focus:ring-2 focus:ring-green-500/40 shadow-[0_0_10px_rgba(74,222,128,0.15)]"
+                          style={{
+                            textShadow: "0 1px 2px rgba(74, 222, 128, 0.3)",
+                            boxShadow: "0 0 15px rgba(74, 222, 128, 0.15), inset 0 0 10px rgba(0, 0, 0, 0.3)"
+                          }}
                         >
                           <option value={1}>Single Coat</option>
                           <option value={2}>Double Coat (Recommended)</option>
@@ -224,10 +236,20 @@ export default function Pools() {
                       
                       <button
                         onClick={calculateResults}
-                        className="relative w-full bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg px-6 py-3 shadow-lg transition-all duration-200"
+                        className="relative w-full bg-gradient-to-br from-gray-800 to-gray-900 hover:from-gray-700 hover:to-gray-800 text-white font-bold rounded-lg px-6 py-3 border-2 border-green-500/50 shadow-lg transition-all duration-200 overflow-hidden"
                       >
-                        <div className="absolute inset-0 -z-10 bg-blue-500/20 blur-md rounded-lg"></div>
-                        Calculate ROI
+                        {/* Green ambient glow effect */}
+                        <div className="absolute inset-0 -z-10 bg-green-500/20 blur-md rounded-lg"></div>
+                        
+                        {/* Light shimmer animation effect */}
+                        <span className="absolute inset-0 overflow-hidden">
+                          <span className="absolute top-0 -left-3/4 w-1/2 h-full bg-gradient-to-r from-transparent via-green-100/30 to-transparent transform -skew-x-30 animate-shimmer"></span>
+                        </span>
+                        
+                        <div className="flex items-center justify-center">
+                          <CircleDollarSign className="w-5 h-5 mr-2 text-green-400" />
+                          Calculate ROI
+                        </div>
                       </button>
                     </div>
                   </div>

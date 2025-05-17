@@ -515,7 +515,11 @@ const FirePrevention = () => {
                   
                   {/* Advanced ROI Calculator Interface */}
                   <div className="space-y-6">
-                    <div className="relative bg-gradient-to-br from-black/60 to-gray-900/60 border border-orange-500/30 rounded-xl p-5 backdrop-blur-sm">
+                    <div className="relative bg-gradient-to-br from-black/60 to-gray-900/60 border border-green-500/30 rounded-xl p-5 backdrop-blur-sm">
+                      {/* Strategic green ambient glow for financial/ROI section - ENHANCED */}
+                      <div className="absolute -inset-1 bg-green-500/40 rounded-xl blur-xl opacity-70 z-0"></div>
+                      <div className="absolute -inset-6 bg-green-500/30 rounded-xl blur-2xl opacity-60 z-0 animate-pulse-slow"></div>
+                      <div className="absolute -inset-3 bg-green-400/20 rounded-xl blur-md opacity-50 z-0"></div>
                       <div className="flex items-center gap-3 mb-4">
                         <div className="flex-shrink-0 bg-gradient-to-br from-green-600 to-green-700 rounded-full p-1.5
                           border border-green-400/40 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_0_4px_rgba(74,222,128,0.4)]">
