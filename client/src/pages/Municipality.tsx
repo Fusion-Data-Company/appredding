@@ -184,21 +184,23 @@ export default function Municipality() {
           />
           <div className="container mx-auto px-4 relative z-10">
             <div className="flex flex-col items-center max-w-4xl mx-auto text-center mb-16 relative">
-              {/* Premium ambient glow effect */}
-              <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 w-[600px] h-[200px] bg-blue-500/20 rounded-full blur-[80px] z-0 opacity-70"></div>
-              
-              <GradientHeading 
-                className="text-4xl md:text-5xl lg:text-6xl mb-6 font-bold" 
-                from="#ffffff" 
-                to="#a3c2ff"
-                shadow="rgba(0, 136, 255, 0.5)"
-              >
-                Municipal Infrastructure Protection
-              </GradientHeading>
-              
-              <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-3xl">
-                Specialized ceramic coating solutions for extending the life of critical municipal infrastructure while reducing maintenance costs and environmental impact.
-              </p>
+              {/* Enterprise-grade header container */}
+              <div className="relative bg-gradient-to-b from-gray-900/70 to-gray-950/90 p-8 rounded-xl border-b-2 border-blue-500/50 border-t border-t-blue-400/30 border-x border-x-blue-700/20 mb-8">
+                {/* Premium glow behind the header - not affecting text readability */}
+                <div className="absolute -inset-4 bg-gradient-to-br from-blue-700/20 via-blue-600/10 to-blue-800/15 rounded-lg blur-xl z-0 opacity-70"></div>
+                
+                {/* Enterprise header with crisp, readable text */}
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 relative z-10">
+                  Municipal Infrastructure Protection
+                </h1>
+                
+                {/* Elegant accent bar */}
+                <div className="w-32 h-1 bg-gradient-to-r from-blue-600 to-blue-400 mx-auto mb-6"></div>
+                
+                <p className="text-lg md:text-xl text-white mb-8 max-w-3xl mx-auto">
+                  Specialized ceramic coating solutions for extending the life of critical municipal infrastructure while reducing maintenance costs and environmental impact.
+                </p>
+              </div>
               
               <div className="flex flex-wrap justify-center gap-4">
                 <GradientButton onClick={() => setShowRegistrationForm(true)}>

@@ -161,19 +161,19 @@ const FirePrevention = () => {
               <div className="relative p-8 md:p-10 backdrop-blur-sm">
                 {/* Ultra-premium enterprise header with layered effects */}
                 <div className="relative mb-8">
-                  {/* Advanced layered glow effects */}
-                  <div className="absolute -inset-6 bg-gradient-to-r from-orange-500/30 via-red-600/20 to-orange-500/30 rounded-full blur-xl opacity-80"></div>
-                  <div className="absolute -inset-8 bg-gradient-to-r from-blue-600/10 via-blue-500/5 to-blue-600/10 rounded-full blur-2xl opacity-70 animate-pulse-slow"></div>
+                  {/* Refined professional glow effects - positioned below text */}
+                  <div className="absolute -inset-6 bg-gradient-to-r from-orange-500/20 via-red-600/10 to-orange-500/20 rounded-full blur-xl opacity-60"></div>
                   
-                  {/* Premium title with enterprise-grade styling */}
+                  {/* Enterprise-grade header with maximum readability */}
                   <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white relative z-10 
-                    tracking-tight leading-tight drop-shadow-[0_2px_10px_rgba(234,88,12,0.5)]
-                    [text-shadow:0_1px_2px_rgba(0,0,0,0.8),0_2px_15px_rgba(234,88,12,0.3),0_-1px_35px_rgba(30,64,175,0.2)]">
-                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-orange-50 to-white">
-                      Advanced Ceramic Wildfire Defense System
-                    </span>
+                    tracking-tight leading-tight">
+                    Advanced Ceramic Wildfire Defense System
                   </h1>
-                  <p className="text-xl md:text-2xl text-orange-100/90 mt-6 relative z-10">
+                  
+                  {/* Elegant accent bar */}
+                  <div className="w-24 h-1 bg-gradient-to-r from-orange-500 to-red-600 mx-auto mt-4 mb-6"></div>
+                  
+                  <p className="text-xl md:text-2xl text-white mt-6 relative z-10">
                     Previously restricted to government facilities. <span className="font-semibold">Now available for civilian structures.</span>
                   </p>
                   
