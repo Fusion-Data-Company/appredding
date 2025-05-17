@@ -161,21 +161,39 @@ const FirePrevention = () => {
               <div className="relative p-8 md:p-10 backdrop-blur-sm">
                 {/* Ultra-premium enterprise header with layered effects */}
                 <div className="relative mb-8">
-                  {/* Refined professional glow effects - positioned below text */}
-                  <div className="absolute -inset-6 bg-gradient-to-r from-orange-500/20 via-red-600/10 to-orange-500/20 rounded-full blur-xl opacity-60"></div>
-                  
-                  {/* Enterprise-grade header with maximum readability */}
-                  <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white relative z-10 
-                    tracking-tight leading-tight">
-                    Advanced Ceramic Wildfire Defense System
-                  </h1>
-                  
-                  {/* Elegant accent bar */}
-                  <div className="w-24 h-1 bg-gradient-to-r from-orange-500 to-red-600 mx-auto mt-4 mb-6"></div>
-                  
-                  <p className="text-xl md:text-2xl text-white mt-6 relative z-10">
-                    Previously restricted to government facilities. <span className="font-semibold">Now available for civilian structures.</span>
-                  </p>
+                  {/* Premium Enterprise Header Container */}
+                  <div className="relative py-6 px-4 bg-gradient-to-br from-black/60 via-gray-900/80 to-black/60 border-b-2 border-orange-500/60 border-t border-t-orange-400/30 rounded-lg mb-4">
+                    {/* Subtle background accent for premium feel without blur */}
+                    <div className="absolute top-0 right-0 w-96 h-96 bg-orange-600/5 rounded-full -mr-32 -mt-32"></div>
+                    <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-600/5 rounded-full -ml-32 -mb-32"></div>
+                    
+                    {/* Enterprise-grade header with perfect readability */}
+                    <div className="relative z-10">
+                      <div className="overflow-hidden relative mb-2">
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white tracking-tight leading-tight">
+                          Advanced Ceramic Wildfire Defense System
+                        </h1>
+                        
+                        {/* Animated highlight effect */}
+                        <div className="absolute -inset-3/4 w-1/4 h-full bg-gradient-to-r from-transparent via-orange-500/20 to-transparent skew-x-[-20deg] animate-[shimmer_2.5s_infinite] pointer-events-none"></div>
+                      </div>
+                    
+                      {/* Premium accent elements */}
+                      <div className="flex items-center justify-center gap-4 mb-6">
+                        <div className="h-px w-12 bg-gradient-to-r from-transparent via-orange-500 to-transparent"></div>
+                        <div className="h-1 w-24 bg-gradient-to-r from-orange-500 to-red-600 rounded-full"></div>
+                        <div className="h-px w-12 bg-gradient-to-r from-transparent via-orange-500 to-transparent"></div>
+                      </div>
+                      
+                      <p className="text-xl md:text-2xl text-white mb-2 relative">
+                        <span className="inline-block bg-gradient-to-r from-red-600/20 to-orange-500/20 px-4 py-1 rounded-full border border-orange-500/30 text-sm font-semibold mb-3">PREVIOUSLY GOVERNMENT-RESTRICTED TECHNOLOGY</span>
+                      </p>
+                      
+                      <p className="text-xl md:text-2xl text-white relative">
+                        <span className="font-semibold">Now available for civilian structures.</span>
+                      </p>
+                    </div>
+                  </div>
                   
                   {/* Sophisticated divider accents */}
                   <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-orange-500/70 to-transparent"></div>
