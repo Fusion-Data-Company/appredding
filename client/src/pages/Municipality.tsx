@@ -2052,12 +2052,13 @@ export default function Municipality() {
                       name="clientTypes"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Types of Infrastructure</FormLabel>
+                          <FormLabel className="text-gray-300">Types of Infrastructure</FormLabel>
                           <FormControl>
                             <Textarea 
                               placeholder="Describe the types of infrastructure you manage" 
                               {...field}
-                              value={field.value as string} 
+                              value={field.value as string}
+                              className="bg-gray-900/70 border-2 border-green-500/50 rounded-lg py-2 px-3 text-white min-h-[100px]"
                             />
                           </FormControl>
                           <FormMessage />
@@ -2070,14 +2071,15 @@ export default function Municipality() {
                       name="experienceYears"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Years of Experience</FormLabel>
+                          <FormLabel className="text-gray-300">Years of Experience</FormLabel>
                           <FormControl>
                             <Input 
                               type="number" 
                               placeholder="10" 
                               {...field}
                               onChange={(e) => field.onChange(e.target.valueAsNumber)}
-                              value={field.value as number | undefined} 
+                              value={field.value as number | undefined}
+                              className="bg-gray-900/70 border-2 border-green-500/50 rounded-lg py-2 px-3 text-white"
                             />
                           </FormControl>
                           <FormMessage />
@@ -2090,12 +2092,13 @@ export default function Municipality() {
                       name="projectExperience"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Current Infrastructure Challenges</FormLabel>
+                          <FormLabel className="text-gray-300">Current Infrastructure Challenges</FormLabel>
                           <FormControl>
                             <Textarea 
                               placeholder="Describe your current infrastructure maintenance challenges" 
                               {...field}
-                              value={field.value as string} 
+                              value={field.value as string}
+                              className="bg-gray-900/70 border-2 border-green-500/50 rounded-lg py-2 px-3 text-white min-h-[100px]"
                             />
                           </FormControl>
                           <FormMessage />
@@ -2107,27 +2110,32 @@ export default function Municipality() {
                       control={form.control}
                       name="communicationConsent"
                       render={({ field }) => (
-                        <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md p-4 border border-gray-800">
+                        <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md p-4 border-2 border-green-500/30 bg-gray-900/70">
                           <FormControl>
                             <Checkbox
                               checked={field.value}
                               onCheckedChange={field.onChange}
+                              className="border-green-500 data-[state=checked]:bg-green-500 data-[state=checked]:text-white"
                             />
                           </FormControl>
                           <div className="space-y-1 leading-none">
-                            <FormLabel>
+                            <FormLabel className="text-gray-300">
                               I consent to receive communications from Praetorian SmartCoat
                             </FormLabel>
-                            <FormDescription>
+                            <p className="text-sm text-gray-400">
                               You can unsubscribe at any time by clicking the link in the footer of our emails.
-                            </FormDescription>
+                            </p>
                           </div>
                         </FormItem>
                       )}
                     />
                     
                     <div className="flex justify-center mt-8">
-                      <GradientButton type="submit" disabled={isPending}>
+                      <GradientButton 
+                        type="submit" 
+                        disabled={isPending}
+                        className="text-white font-bold py-3 px-8 rounded-lg text-lg shadow-[0_0_15px_rgba(0,255,0,0.4)] border-2 border-green-500/50 bg-gradient-to-b from-gray-900 to-gray-800 transition-all hover:shadow-[0_0_25px_rgba(0,255,0,0.6)]"
+                      >
                         {isPending ? (
                           <>
                             <Loader2 className="mr-2 h-4 w-4 animate-spin" />
