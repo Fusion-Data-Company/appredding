@@ -578,44 +578,69 @@ const MobileHome = () => {
                       </ul>
                     </div>
                     
-                    <div className="bg-blue-950/30 rounded-lg border border-blue-500/30 p-6">
-                      <h4 className="text-lg font-semibold text-white mb-3 flex items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-400 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                        </svg>
-                        Praetorian Mobile Home Solutions
-                      </h4>
+                    <div className="relative group mb-6">
+                      {/* Premium outer glow effect */}
+                      <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/30 to-blue-400/20 rounded-lg blur-md opacity-75 group-hover:opacity-100 transition duration-300"></div>
                       
-                      <ul className="space-y-3">
-                        <li className="flex items-start">
-                          <div className="min-w-6 h-6 bg-blue-900/40 rounded-full flex items-center justify-center mt-0.5 mr-2">
-                            <span className="text-blue-400 text-xs font-bold">1</span>
+                      <div className="relative bg-gradient-to-br from-gray-900/95 to-black/95 rounded-lg p-6 border border-blue-500/30 shadow-lg group-hover:shadow-blue-900/20 transition duration-300">
+                        {/* Elite corner accents */}
+                        <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-blue-500/40 rounded-tl-md"></div>
+                        <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-blue-500/40 rounded-tr-md"></div>
+                        <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-blue-500/40 rounded-br-md"></div>
+                        <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-blue-500/40 rounded-bl-md"></div>
+                        
+                        <h4 className="text-lg font-semibold mb-3 flex items-center">
+                          <span className="relative mr-3 flex-shrink-0">
+                            <span className="absolute -inset-1 bg-blue-500/30 rounded-full blur-sm"></span>
+                            <svg xmlns="http://www.w3.org/2000/svg" className="relative h-6 w-6 text-blue-400" viewBox="0 0 20 20" fill="currentColor">
+                              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                            </svg>
+                          </span>
+                          <span className="bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent">Praetorian Mobile Home Solutions</span>
+                        </h4>
+                      
+                      <ul className="space-y-4">
+                        <li className="flex items-start group">
+                          <div className="relative flex-shrink-0 mr-3">
+                            <div className="absolute -inset-1 bg-blue-500/30 rounded-full blur-sm opacity-70 group-hover:opacity-100 transition duration-300"></div>
+                            <div className="relative w-7 h-7 bg-gradient-to-br from-blue-700 to-blue-500 rounded-full flex items-center justify-center shadow-[0_0_10px_rgba(59,130,246,0.3)]">
+                              <span className="text-white text-xs font-bold">1</span>
+                            </div>
                           </div>
-                          <span className="text-gray-200">
+                          <span className="text-gray-200 pt-0.5">
                             <span className="font-semibold text-white">Reduces internal temperature by 15-28°F</span> - Creates immediate comfort improvements and energy savings
                           </span>
                         </li>
-                        <li className="flex items-start">
-                          <div className="min-w-6 h-6 bg-blue-900/40 rounded-full flex items-center justify-center mt-0.5 mr-2">
-                            <span className="text-blue-400 text-xs font-bold">2</span>
+                        <li className="flex items-start group">
+                          <div className="relative flex-shrink-0 mr-3">
+                            <div className="absolute -inset-1 bg-blue-500/30 rounded-full blur-sm opacity-70 group-hover:opacity-100 transition duration-300"></div>
+                            <div className="relative w-7 h-7 bg-gradient-to-br from-blue-700 to-blue-500 rounded-full flex items-center justify-center shadow-[0_0_10px_rgba(59,130,246,0.3)]">
+                              <span className="text-white text-xs font-bold">2</span>
+                            </div>
                           </div>
-                          <span className="text-gray-200">
+                          <span className="text-gray-200 pt-0.5">
                             <span className="font-semibold text-white">25+ year roof protection</span> - One application extends roof life by 2-3× with documented performance
                           </span>
                         </li>
-                        <li className="flex items-start">
-                          <div className="min-w-6 h-6 bg-blue-900/40 rounded-full flex items-center justify-center mt-0.5 mr-2">
-                            <span className="text-blue-400 text-xs font-bold">3</span>
+                        <li className="flex items-start group">
+                          <div className="relative flex-shrink-0 mr-3">
+                            <div className="absolute -inset-1 bg-blue-500/30 rounded-full blur-sm opacity-70 group-hover:opacity-100 transition duration-300"></div>
+                            <div className="relative w-7 h-7 bg-gradient-to-br from-blue-700 to-blue-500 rounded-full flex items-center justify-center shadow-[0_0_10px_rgba(59,130,246,0.3)]">
+                              <span className="text-white text-xs font-bold">3</span>
+                            </div>
                           </div>
-                          <span className="text-gray-200">
+                          <span className="text-gray-200 pt-0.5">
                             <span className="font-semibold text-white">Utility reduction of 20-45%</span> - Average monthly savings of $85-140 on cooling/heating expenses
                           </span>
                         </li>
-                        <li className="flex items-start">
-                          <div className="min-w-6 h-6 bg-blue-900/40 rounded-full flex items-center justify-center mt-0.5 mr-2">
-                            <span className="text-blue-400 text-xs font-bold">4</span>
+                        <li className="flex items-start group">
+                          <div className="relative flex-shrink-0 mr-3">
+                            <div className="absolute -inset-1 bg-blue-500/30 rounded-full blur-sm opacity-70 group-hover:opacity-100 transition duration-300"></div>
+                            <div className="relative w-7 h-7 bg-gradient-to-br from-blue-700 to-blue-500 rounded-full flex items-center justify-center shadow-[0_0_10px_rgba(59,130,246,0.3)]">
+                              <span className="text-white text-xs font-bold">4</span>
+                            </div>
                           </div>
-                          <span className="text-gray-200">
+                          <span className="text-gray-200 pt-0.5">
                             <span className="font-semibold text-white">Increases property value by 5-12%</span> - Documented value retention improvement with professional certification
                           </span>
                         </li>
