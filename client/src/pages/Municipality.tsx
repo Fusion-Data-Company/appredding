@@ -260,7 +260,12 @@ const MunicipalityProfessionalForm = () => {
                     <FormItem>
                       <FormLabel>Address*</FormLabel>
                       <FormControl>
-                        <Input placeholder="Street address" {...field} className="bg-primary-800 border-primary-600" />
+                        <Input 
+                          placeholder="Street address" 
+                          {...field} 
+                          value={field.value || ""} 
+                          className="bg-primary-800 border-primary-600" 
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -275,7 +280,12 @@ const MunicipalityProfessionalForm = () => {
                       <FormItem>
                         <FormLabel>City*</FormLabel>
                         <FormControl>
-                          <Input placeholder="City" {...field} className="bg-primary-800 border-primary-600" />
+                          <Input 
+                            placeholder="City" 
+                            {...field} 
+                            value={field.value || ""} 
+                            className="bg-primary-800 border-primary-600" 
+                          />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -289,7 +299,12 @@ const MunicipalityProfessionalForm = () => {
                       <FormItem>
                         <FormLabel>State*</FormLabel>
                         <FormControl>
-                          <Input placeholder="State" {...field} className="bg-primary-800 border-primary-600" />
+                          <Input 
+                          placeholder="State" 
+                          {...field} 
+                          value={field.value || ""} 
+                          className="bg-primary-800 border-primary-600" 
+                        />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -304,7 +319,12 @@ const MunicipalityProfessionalForm = () => {
                     <FormItem>
                       <FormLabel>Zip Code*</FormLabel>
                       <FormControl>
-                        <Input placeholder="Zip code" {...field} className="bg-primary-800 border-primary-600" />
+                        <Input 
+                          placeholder="Zip code" 
+                          {...field} 
+                          value={field.value || ""} 
+                          className="bg-primary-800 border-primary-600" 
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
