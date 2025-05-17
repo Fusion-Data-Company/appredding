@@ -222,31 +222,31 @@ const ConstructionPage = () => {
                   </div>
                   <div className="flex items-center gap-2 text-white">
                     <span className="text-orange-400">✓</span>
-                    <span>Industrial flooring with 156% elastomeric flexibility for seismic zones</span>
+                    <span>Industrial flooring with 156% flexibility: <span className="text-green-400">$460K insurance discount</span> in seismic zones</span>
                   </div>
                   <div className="flex items-center gap-2 text-white">
                     <span className="text-blue-400">✓</span>
-                    <span>Concrete thermal protection (89% solar reflection, 47°F temperature reduction)</span>
+                    <span>Concrete thermal protection: <span className="text-green-400">42% energy cost reduction</span> (89% reflection, 47°F cooler)</span>
                   </div>
                   <div className="flex items-center gap-2 text-white">
                     <span className="text-orange-400">✓</span>
-                    <span>Bridge infrastructure (corrosion protection tested to 10,000+ salt spray hours)</span>
+                    <span>Bridge infrastructure: <span className="text-green-400">$4.8M maintenance savings</span> (10,000+ salt spray hour protection)</span>
                   </div>
                   <div className="flex items-center gap-2 text-white">
                     <span className="text-blue-400">✓</span>
-                    <span>Building envelope thermal barriers (87% documented energy reduction)</span>
+                    <span>Building envelope thermal barriers: <span className="text-green-400">$3.82/sq.ft annual utility savings</span> (87% reduction)</span>
                   </div>
                   <div className="flex items-center gap-2 text-white">
                     <span className="text-orange-400">✓</span>
-                    <span>Waterproofing systems with Class A fire rating (0/100 scores in ASTM E84)</span>
+                    <span>Waterproofing with Class A fire rating: <span className="text-green-400">$14.50/sq.ft combined insurance/warranty savings</span></span>
                   </div>
                   <div className="flex items-center gap-2 text-white">
                     <span className="text-blue-400">✓</span>
-                    <span>Concrete reinforcement (verified 30+ year performance without degradation)</span>
+                    <span>Concrete reinforcement: <span className="text-green-400">$2.1-3.8M lifecycle extension value</span> (30+ year performance)</span>
                   </div>
                   <div className="flex items-center gap-2 text-white">
                     <span className="text-orange-400">✓</span>
-                    <span>Historic preservation (meets National Park Service Technical Preservation Standards)</span>
+                    <span>Historic preservation: <span className="text-green-400">22% tax credit eligibility</span> (meets NPS Preservation Standards)</span>
                   </div>
                 </div>
                 <div className="mt-6">
