@@ -10,6 +10,19 @@
 @tailwind components;
 @tailwind utilities;
 
+@keyframes shimmer {
+  0% {
+    transform: translateX(0) skewX(-30deg);
+  }
+  100% {
+    transform: translateX(300%) skewX(-30deg);
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 3s infinite;
+}
+
 /* Fix section gaps globally - emergency fix */
 section + section {
   margin-top: -5px !important;
