@@ -215,9 +215,7 @@ export default function Municipality() {
                   <div className="absolute bottom-0 right-0 h-12 w-1 bg-gradient-to-t from-blue-500 to-transparent rounded-full"></div>
                 </div>
                 
-                {/* Premium subtle glow effects */}
-                <div className="absolute top-1/4 right-1/4 w-32 h-32 bg-blue-500/5 rounded-full blur-xl"></div>
-                <div className="absolute bottom-1/4 left-1/4 w-32 h-32 bg-cyan-500/5 rounded-full blur-xl"></div>
+                {/* Premium subtle styling without spotlight circles */}
                 
                 {/* Top badge */}
                 <div className="relative mb-3 inline-block">
@@ -1802,7 +1800,11 @@ export default function Municipality() {
                           <DollarSign className="w-5 h-5 text-green-400" />
                         </div>
                       </div>
-                      <span className="text-white font-semibold text-lg px-3 py-1 bg-gray-900/60 rounded-lg border border-green-500/40 drop-shadow-[0_2px_3px_rgba(0,0,0,0.9)]">
+                      <span className="text-white font-semibold text-lg px-3 py-1 bg-gray-900/60 rounded-lg border border-green-500/40 drop-shadow-[0_2px_3px_rgba(0,0,0,0.9)] relative overflow-hidden">
+                        {/* Light shimmer animation effect */}
+                        <span className="absolute inset-0 overflow-hidden">
+                          <span className="absolute top-0 -left-3/4 w-1/2 h-full bg-gradient-to-r from-transparent via-green-100/30 to-transparent transform -skew-x-30 animate-shimmer"></span>
+                        </span>
                         Calculate 10-Year Savings
                       </span>
                     </div>
