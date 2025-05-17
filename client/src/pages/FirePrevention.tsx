@@ -15,7 +15,7 @@ import {
   FormLabel,
   FormMessage
 } from "@/components/ui/form";
-import { CheckCircle, Shield, Home, Map, ChevronRight, FileCheck, Zap } from "lucide-react";
+import { CheckCircle, Shield, Home, Map, ChevronRight, FileCheck, Zap, CircleDollarSign, BarChart3, Calculator } from "lucide-react";
 import { insertFirePreventionHomeownerSchema } from "@shared/schema";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -402,6 +402,35 @@ const FirePrevention = () => {
                     </div>
                   </div>
                   
+                  {/* ROI Calculator Preview Box */}
+                  <div className="bg-gradient-to-br from-black/40 to-gray-900/40 border border-blue-600/30 rounded-xl p-5 my-6 relative">
+                    <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/20 to-blue-500/20 rounded-xl blur-md opacity-60"></div>
+                    
+                    <div className="relative">
+                      <div className="flex items-center gap-3 mb-3">
+                        <CircleDollarSign className="h-6 w-6 text-green-400" />
+                        <h3 className="text-xl font-semibold text-white">Fire Prevention ROI Calculator</h3>
+                      </div>
+                      
+                      <p className="text-blue-100 mb-4">Calculate your potential 1,390% ROI with our advanced wildfire protection technology</p>
+                      
+                      <div className="grid grid-cols-3 gap-3 mb-6">
+                        <div className="bg-black/50 border border-blue-500/20 rounded p-3 text-center">
+                          <span className="text-green-400 font-bold text-xl md:text-2xl block">$3,800</span>
+                          <span className="text-blue-200 text-xs">Annual Insurance Savings</span>
+                        </div>
+                        <div className="bg-black/50 border border-orange-500/20 rounded p-3 text-center">
+                          <span className="text-green-400 font-bold text-xl md:text-2xl block">23%</span>
+                          <span className="text-blue-200 text-xs">Property Value Increase</span>
+                        </div>
+                        <div className="bg-black/50 border border-blue-500/20 rounded p-3 text-center">
+                          <span className="text-green-400 font-bold text-xl md:text-2xl block">1,390%</span>
+                          <span className="text-blue-200 text-xs">5-Year ROI</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
                   {/* Premium animated CTA button */}
                   <div className="transform transition-all duration-700 hover:scale-105 relative z-20">
                     <PremiumCartButton 
@@ -411,8 +440,8 @@ const FirePrevention = () => {
                       variant="fire"
                     >
                       <div className="flex items-center justify-center">
-                        <span>Calculate Your Protection ROI</span>
-                        <Shield className="ml-2 h-5 w-5 group-hover:rotate-12 transition-transform duration-300" />
+                        <BarChart3 className="mr-2 h-5 w-5" />
+                        <span>Calculate Your 1,390% Fire Prevention ROI</span>
                       </div>
                     </PremiumCartButton>
                   </div>
@@ -1057,8 +1086,8 @@ const FirePrevention = () => {
                                 </>
                               ) : (
                                 <>
-                                  <Shield className="mr-2 h-5 w-5 text-orange-300 group-hover:text-orange-200 transition-colors duration-300" />
-                                  <span>Get My Free ROI Analysis</span>
+                                  <CircleDollarSign className="mr-2 h-5 w-5 text-green-300 group-hover:text-green-200 transition-colors duration-300" />
+                                  <span>Calculate My 1,390% Fire Prevention ROI</span>
                                 </>
                               )}
                             </div>
