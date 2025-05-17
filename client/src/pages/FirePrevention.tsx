@@ -476,41 +476,46 @@ const FirePrevention = () => {
               
               {/* Right column with advanced ROI calculator */}
               <div className="relative">
+                {/* Enhanced green ambient glow for ROI calculator section */}
+                <div className="absolute -inset-4 bg-green-500/30 rounded-xl blur-3xl opacity-70 z-0"></div>
+                <div className="absolute -inset-8 bg-green-500/20 rounded-xl blur-2xl opacity-60 z-0 animate-pulse-slow"></div>
+                
                 {/* Advanced layered background effects */}
-                <div className="absolute inset-0 bg-gradient-to-b from-gray-900/95 via-gray-950/98 to-black rounded-xl border border-orange-600/30 shadow-[0_5px_30px_rgba(234,88,12,0.15)]"></div>
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-600/20 via-orange-400/5 to-orange-600/20 rounded-xl blur-lg opacity-60"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-gray-900/95 via-gray-950/98 to-black rounded-xl border border-green-500/30 shadow-[0_5px_30px_rgba(74,222,128,0.15)] z-10"></div>
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-green-600/20 via-green-400/5 to-green-600/20 rounded-xl blur-lg opacity-60 z-10"></div>
                 
                 {/* Corner accents - enterprise-elite style */}
-                <div className="absolute top-0 left-0 w-16 h-16 z-10 pointer-events-none">
-                  <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-orange-500/60 rounded-tl-md"></div>
-                  <div className="absolute top-1 left-1 w-10 h-10 border-t border-l border-orange-400/40 rounded-tl-md"></div>
+                <div className="absolute top-0 left-0 w-16 h-16 z-20 pointer-events-none">
+                  <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-green-500/60 rounded-tl-md"></div>
+                  <div className="absolute top-1 left-1 w-10 h-10 border-t border-l border-green-400/40 rounded-tl-md"></div>
                 </div>
-                <div className="absolute top-0 right-0 w-16 h-16 z-10 pointer-events-none">
-                  <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-orange-500/60 rounded-tr-md"></div>
-                  <div className="absolute top-1 right-1 w-10 h-10 border-t border-r border-orange-400/40 rounded-tr-md"></div>
+                <div className="absolute top-0 right-0 w-16 h-16 z-20 pointer-events-none">
+                  <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-green-500/60 rounded-tr-md"></div>
+                  <div className="absolute top-1 right-1 w-10 h-10 border-t border-r border-green-400/40 rounded-tr-md"></div>
                 </div>
-                <div className="absolute bottom-0 left-0 w-16 h-16 z-10 pointer-events-none">
-                  <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-orange-500/60 rounded-bl-md"></div>
-                  <div className="absolute bottom-1 left-1 w-10 h-10 border-b border-l border-orange-400/40 rounded-bl-md"></div>
+                <div className="absolute bottom-0 left-0 w-16 h-16 z-20 pointer-events-none">
+                  <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-green-500/60 rounded-bl-md"></div>
+                  <div className="absolute bottom-1 left-1 w-10 h-10 border-b border-l border-green-400/40 rounded-bl-md"></div>
                 </div>
-                <div className="absolute bottom-0 right-0 w-16 h-16 z-10 pointer-events-none">
-                  <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-orange-500/60 rounded-br-md"></div>
-                  <div className="absolute bottom-1 right-1 w-10 h-10 border-b border-r border-orange-400/40 rounded-br-md"></div>
+                <div className="absolute bottom-0 right-0 w-16 h-16 z-20 pointer-events-none">
+                  <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-green-500/60 rounded-br-md"></div>
+                  <div className="absolute bottom-1 right-1 w-10 h-10 border-b border-r border-green-400/40 rounded-br-md"></div>
                 </div>
                 
                 {/* Enhanced content with premium padding */}
                 <div className="relative p-7 md:p-9 backdrop-blur-sm">
                   {/* Premium heading with enhanced styling */}
                   <div className="relative mb-8">
-                    <div className="absolute -inset-4 bg-gradient-to-r from-orange-500/20 via-orange-600/10 to-orange-500/20 rounded-full blur-lg opacity-70"></div>
+                    <div className="absolute -inset-4 bg-gradient-to-r from-green-500/20 via-green-600/10 to-green-500/20 rounded-full blur-lg opacity-70"></div>
                     
-                    <h2 className="text-3xl md:text-4xl font-bold text-white relative z-10 tracking-tight 
-                      [text-shadow:0_1px_1px_rgba(0,0,0,0.8),0_2px_10px_rgba(234,88,12,0.3),0_-1px_20px_rgba(234,88,12,0.2)]">
-                      1,390% Fire Prevention ROI
+                    <h2 className="text-3xl md:text-4xl font-bold relative z-10 tracking-tight">
+                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-green-100 to-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                        1,390% Fire Prevention ROI
+                      </span>
                     </h2>
                     
                     {/* Sophisticated accent line */}
-                    <div className="absolute -bottom-3 left-0 w-24 h-px bg-gradient-to-r from-orange-500/70 to-transparent"></div>
+                    <div className="absolute -bottom-3 left-0 w-24 h-px bg-gradient-to-r from-green-500/70 to-transparent"></div>
                   </div>
                   
                   {/* Advanced ROI Calculator Interface */}

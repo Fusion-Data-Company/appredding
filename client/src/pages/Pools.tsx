@@ -351,30 +351,53 @@ export default function Pools() {
                       </div>
                     ) : (
                       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center p-6">
-                        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 via-blue-500/2 to-blue-600/5 rounded-lg blur-md"></div>
+                        {/* Enhanced green ambient glow for ROI calculator section */}
+                        <div className="absolute -inset-4 bg-green-500/30 rounded-xl blur-3xl opacity-70 z-0"></div>
+                        <div className="absolute -inset-8 bg-green-500/20 rounded-xl blur-2xl opacity-60 z-0 animate-pulse-slow"></div>
                         
-                        <div className="relative text-blue-400 mb-6">
-                          <CircleDollarSign className="h-16 w-16 mx-auto" />
+                        <div className="relative z-10 bg-gradient-to-r from-green-600 to-green-700 rounded-full p-3 mb-6 
+                          border border-green-400/40 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_0_10px_rgba(74,222,128,0.4)]">
+                          <CircleDollarSign className="h-12 w-12 text-green-100" />
                         </div>
                         
-                        <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 drop-shadow-[0_2px_10px_rgba(59,130,246,0.5)]">
-                          Premium ROI Calculator
+                        <h3 className="text-2xl md:text-3xl font-bold mb-4 relative z-10">
+                          <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-green-100 to-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                            Premium ROI Calculator
+                          </span>
                         </h3>
                         
-                        <p className="text-lg text-blue-100 mb-8 max-w-lg">
+                        <p className="text-lg text-blue-100 mb-8 max-w-lg relative z-10">
                           Enter your pool dimensions and coating preferences to receive a detailed investment analysis showing your potential savings over 10 years.
                         </p>
                         
-                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-6">
-                          <div className="bg-gradient-to-br from-black/70 to-gray-900/70 p-5 rounded-lg border border-blue-500/30 shadow-[0_4px_20px_rgba(0,0,0,0.2)]">
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-6 relative z-10">
+                          <div className="bg-gray-900/60 p-5 rounded-lg border-2 border-green-500/30 shadow-[0_0_20px_rgba(74,222,128,0.2)]">
+                            <div className="flex items-center justify-center mb-2">
+                              <div className="bg-gradient-to-br from-green-600 to-green-700 rounded-full p-1 
+                                border border-green-400/40 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_0_4px_rgba(74,222,128,0.4)]">
+                                <TrendingUp className="w-4 h-4 text-green-100" />
+                              </div>
+                            </div>
                             <p className="text-2xl font-bold text-green-400 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">371%</p>
                             <p className="text-blue-300 text-sm">Average ROI</p>
                           </div>
-                          <div className="bg-gradient-to-br from-black/70 to-gray-900/70 p-5 rounded-lg border border-blue-500/30 shadow-[0_4px_20px_rgba(0,0,0,0.2)]">
+                          <div className="bg-gray-900/60 p-5 rounded-lg border-2 border-green-500/30 shadow-[0_0_20px_rgba(74,222,128,0.2)]">
+                            <div className="flex items-center justify-center mb-2">
+                              <div className="bg-gradient-to-br from-green-600 to-green-700 rounded-full p-1 
+                                border border-green-400/40 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_0_4px_rgba(74,222,128,0.4)]">
+                                <DollarSign className="w-4 h-4 text-green-100" />
+                              </div>
+                            </div>
                             <p className="text-2xl font-bold text-green-400 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">42%</p>
                             <p className="text-blue-300 text-sm">Maintenance Reduction</p>
                           </div>
-                          <div className="bg-gradient-to-br from-black/70 to-gray-900/70 p-5 rounded-lg border border-blue-500/30 shadow-[0_4px_20px_rgba(0,0,0,0.2)]">
+                          <div className="bg-gray-900/60 p-5 rounded-lg border-2 border-green-500/30 shadow-[0_0_20px_rgba(74,222,128,0.2)]">
+                            <div className="flex items-center justify-center mb-2">
+                              <div className="bg-gradient-to-br from-green-600 to-green-700 rounded-full p-1 
+                                border border-green-400/40 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_0_4px_rgba(74,222,128,0.4)]">
+                                <Clock className="w-4 h-4 text-green-100" />
+                              </div>
+                            </div>
                             <p className="text-2xl font-bold text-green-400 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">20+ yrs</p>
                             <p className="text-blue-300 text-sm">Extended Lifespan</p>
                           </div>
