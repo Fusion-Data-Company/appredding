@@ -176,84 +176,42 @@ const ConstructionPage = () => {
                 {/* Enhanced ROI-focused stats in enterprise grid format */}
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
                   {/* Cost Savings */}
-                  <div className="relative group overflow-hidden">
-                    {/* Enhanced background glow effect */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-gray-900/90 to-black/95 rounded-lg border border-blue-500/30 transition-opacity duration-300"></div>
-                    <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600/20 to-blue-500/20 rounded-lg blur-sm opacity-30 group-hover:opacity-70 transition-opacity duration-300"></div>
-                    
-                    {/* Premium corner accents */}
-                    <div className="absolute top-0 left-0 w-6 h-6 pointer-events-none">
-                      <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-blue-400/60 rounded-tl-md"></div>
-                    </div>
-                    <div className="absolute bottom-0 right-0 w-6 h-6 pointer-events-none">
-                      <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-blue-400/60 rounded-br-md"></div>
-                    </div>
-                    
-                    {/* Metric content with premium styling */}
-                    <div className="relative p-4 text-center backdrop-blur-sm">
-                      <p className="text-2xl md:text-3xl font-bold text-white mb-1 group-hover:text-green-400 transition-colors duration-300
-                        [text-shadow:0_1px_2px_rgba(0,0,0,0.8),0_0_10px_rgba(34,197,94,0.5)]">$3.2M</p>
-                      <p className="text-blue-100/80 text-sm font-medium">Average Cost Savings</p>
+                  <div className="relative group">
+                    <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600/20 to-blue-400/20 rounded-lg blur opacity-50 group-hover:opacity-100 transition-all duration-500"></div>
+                    <div className="relative bg-gradient-to-br from-black/80 to-gray-900/80 p-5 rounded-lg border border-blue-500/30 shadow-[0_4px_20px_rgba(0,0,0,0.2)] transform group-hover:-translate-y-1 transition-all duration-300">
+                      <CircleDollarSign className="text-blue-400 h-6 w-6 mb-2 opacity-80 group-hover:opacity-100" />
+                      <p className="text-2xl font-bold text-white mb-1 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">$3.2M</p>
+                      <p className="text-blue-300 text-sm">Average Cost Savings</p>
                     </div>
                   </div>
                   
                   {/* Lifecycle Reduction */}
-                  <div className="relative group overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-gray-900/90 to-black/95 rounded-lg border border-blue-500/30 transition-opacity duration-300"></div>
-                    <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600/20 to-blue-500/20 rounded-lg blur-sm opacity-30 group-hover:opacity-70 transition-opacity duration-300"></div>
-                    
-                    {/* Premium corner accents */}
-                    <div className="absolute top-0 left-0 w-6 h-6 pointer-events-none">
-                      <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-blue-400/60 rounded-tl-md"></div>
-                    </div>
-                    <div className="absolute bottom-0 right-0 w-6 h-6 pointer-events-none">
-                      <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-blue-400/60 rounded-br-md"></div>
-                    </div>
-                    
-                    <div className="relative p-4 text-center backdrop-blur-sm">
-                      <p className="text-2xl md:text-3xl font-bold text-white mb-1 group-hover:text-green-400 transition-colors duration-300
-                        [text-shadow:0_1px_2px_rgba(0,0,0,0.8),0_0_10px_rgba(34,197,94,0.5)]">27.8%</p>
-                      <p className="text-blue-100/80 text-sm font-medium">Lifecycle Cost Reduction</p>
+                  <div className="relative group">
+                    <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600/20 to-blue-400/20 rounded-lg blur opacity-50 group-hover:opacity-100 transition-all duration-500"></div>
+                    <div className="relative bg-gradient-to-br from-black/80 to-gray-900/80 p-5 rounded-lg border border-blue-500/30 shadow-[0_4px_20px_rgba(0,0,0,0.2)] transform group-hover:-translate-y-1 transition-all duration-300">
+                      <Building className="text-blue-400 h-6 w-6 mb-2 opacity-80 group-hover:opacity-100" />
+                      <p className="text-2xl font-bold text-white mb-1 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">27.8%</p>
+                      <p className="text-blue-300 text-sm">Lifecycle Cost Reduction</p>
                     </div>
                   </div>
                   
                   {/* Maintenance Savings */}
-                  <div className="relative group overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-gray-900/90 to-black/95 rounded-lg border border-blue-500/30 transition-opacity duration-300"></div>
-                    <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600/20 to-blue-500/20 rounded-lg blur-sm opacity-30 group-hover:opacity-70 transition-opacity duration-300"></div>
-                    
-                    {/* Premium corner accents */}
-                    <div className="absolute top-0 left-0 w-6 h-6 pointer-events-none">
-                      <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-blue-400/60 rounded-tl-md"></div>
-                    </div>
-                    <div className="absolute bottom-0 right-0 w-6 h-6 pointer-events-none">
-                      <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-blue-400/60 rounded-br-md"></div>
-                    </div>
-                    
-                    <div className="relative p-4 text-center backdrop-blur-sm">
-                      <p className="text-2xl md:text-3xl font-bold text-white mb-1 group-hover:text-green-400 transition-colors duration-300
-                        [text-shadow:0_1px_2px_rgba(0,0,0,0.8),0_0_10px_rgba(34,197,94,0.5)]">76.4%</p>
-                      <p className="text-blue-100/80 text-sm font-medium">Maintenance Cost Savings</p>
+                  <div className="relative group">
+                    <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600/20 to-blue-400/20 rounded-lg blur opacity-50 group-hover:opacity-100 transition-all duration-500"></div>
+                    <div className="relative bg-gradient-to-br from-black/80 to-gray-900/80 p-5 rounded-lg border border-blue-500/30 shadow-[0_4px_20px_rgba(0,0,0,0.2)] transform group-hover:-translate-y-1 transition-all duration-300">
+                      <Wrench className="text-blue-400 h-6 w-6 mb-2 opacity-80 group-hover:opacity-100" />
+                      <p className="text-2xl font-bold text-white mb-1 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">76.4%</p>
+                      <p className="text-blue-300 text-sm">Maintenance Cost Savings</p>
                     </div>
                   </div>
                   
                   {/* Total ROI */}
-                  <div className="relative group overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-gray-900/90 to-black/95 rounded-lg border border-blue-500/30 transition-opacity duration-300"></div>
-                    <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/20 to-blue-600/20 rounded-lg blur-sm opacity-40 group-hover:opacity-80 transition-opacity duration-300"></div>
-                    
-                    {/* Premium corner accents */}
-                    <div className="absolute top-0 left-0 w-6 h-6 pointer-events-none">
-                      <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-orange-400/60 rounded-tl-md"></div>
-                    </div>
-                    <div className="absolute bottom-0 right-0 w-6 h-6 pointer-events-none">
-                      <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-orange-400/60 rounded-br-md"></div>
-                    </div>
-                    
-                    <div className="relative p-4 text-center backdrop-blur-sm">
-                      <p className="text-2xl md:text-3xl font-bold text-white mb-1 group-hover:text-orange-300 transition-colors duration-300
-                        [text-shadow:0_1px_2px_rgba(0,0,0,0.8),0_0_10px_rgba(234,88,12,0.5)]">642%</p>
-                      <p className="text-orange-100/80 text-sm font-medium">Total Cost ROI</p>
+                  <div className="relative group">
+                    <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/30 to-blue-600/20 rounded-lg blur opacity-70 group-hover:opacity-100 transition-all duration-500"></div>
+                    <div className="relative bg-gradient-to-br from-black/80 to-gray-900/80 p-5 rounded-lg border border-orange-500/30 shadow-[0_4px_20px_rgba(0,0,0,0.2)] transform group-hover:-translate-y-1 transition-all duration-300">
+                      <Award className="text-orange-400 h-6 w-6 mb-2 opacity-80 group-hover:opacity-100" />
+                      <p className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-orange-300 to-orange-200 mb-1 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">642%</p>
+                      <p className="text-orange-300 text-sm">Total Cost ROI</p>
                     </div>
                   </div>
                 </div>
