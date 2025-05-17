@@ -1511,9 +1511,9 @@ export default function Municipality() {
                 <div className="absolute bottom-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
               </div>
               
-              {/* Card ambient glow */}
-              <div className="absolute -inset-10 bg-green-500/40 rounded-xl blur-2xl opacity-80 z-0 animate-pulse-slow"></div>
-              <div className="absolute -inset-6 bg-green-400/30 rounded-xl blur-xl opacity-70 z-0"></div>
+              {/* Card ambient glow - positioned fully behind card, in front of background */}
+              <div className="absolute -inset-16 bg-green-500/50 rounded-xl blur-3xl opacity-80 -z-5 animate-pulse-slow"></div>
+              <div className="absolute -inset-10 bg-green-400/40 rounded-xl blur-2xl opacity-70 -z-4"></div>
               <div className="absolute inset-0 bg-blue-500/5 rounded-xl z-0"></div>
               
               <div className="relative z-10">
