@@ -151,11 +151,31 @@ const Marinas = () => {
         <section className="py-16 md:py-24 relative z-10">
           <div className="container mx-auto">
             {/* Premium styled title card */}
-            <div className="max-w-4xl mx-auto text-center mb-16 relative">
-              {/* Ambient glow behind card */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-orange-500/20 via-blue-500/20 to-orange-500/20 rounded-xl blur-xl opacity-70"></div>
+            <div className="max-w-5xl mx-auto text-center mb-14 md:mb-20 relative">
+              {/* Advanced enterprise-grade backdrop with layered effects */}
+              <div className="absolute inset-0 bg-gradient-to-b from-gray-900/90 via-gray-950/95 to-black/95 rounded-2xl border border-blue-500/30 shadow-[0_0_30px_rgba(59,130,246,0.15)]"></div>
+              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/20 via-orange-600/10 to-blue-600/20 rounded-2xl blur-xl opacity-70"></div>
               
-              <div className="relative bg-gradient-to-br from-gray-900/90 via-gray-950/90 to-black/90 p-8 rounded-xl border border-orange-500/40 shadow-[0_10px_50px_rgba(59,130,246,0.3)]">
+              {/* Premium corner accents - enterprise elite style */}
+              <div className="absolute top-0 left-0 w-20 h-20 z-10 pointer-events-none">
+                <div className="absolute top-0 left-0 w-10 h-10 border-t-2 border-l-2 border-blue-500/60 rounded-tl-lg"></div>
+                <div className="absolute top-1 left-1 w-14 h-14 border-t border-l border-blue-500/40 rounded-tl-lg"></div>
+              </div>
+              <div className="absolute top-0 right-0 w-20 h-20 z-10 pointer-events-none">
+                <div className="absolute top-0 right-0 w-10 h-10 border-t-2 border-r-2 border-blue-500/60 rounded-tr-lg"></div>
+                <div className="absolute top-1 right-1 w-14 h-14 border-t border-r border-blue-500/40 rounded-tr-lg"></div>
+              </div>
+              <div className="absolute bottom-0 left-0 w-20 h-20 z-10 pointer-events-none">
+                <div className="absolute bottom-0 left-0 w-10 h-10 border-b-2 border-l-2 border-blue-500/60 rounded-bl-lg"></div>
+                <div className="absolute bottom-1 left-1 w-14 h-14 border-b border-l border-blue-500/40 rounded-bl-lg"></div>
+              </div>
+              <div className="absolute bottom-0 right-0 w-20 h-20 z-10 pointer-events-none">
+                <div className="absolute bottom-0 right-0 w-10 h-10 border-b-2 border-r-2 border-blue-500/60 rounded-br-lg"></div>
+                <div className="absolute bottom-1 right-1 w-14 h-14 border-b border-r border-blue-500/40 rounded-br-lg"></div>
+              </div>
+              
+              {/* Enhanced main content with premium padding */}
+              <div className="relative p-8 md:p-10 backdrop-blur-sm">
                 {/* Corner accents - premium enterprise style */}
                 <div className="absolute top-0 left-0 w-12 h-12 z-10 pointer-events-none">
                   <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-orange-500/40 rounded-tl-md"></div>
@@ -515,29 +535,94 @@ const Marinas = () => {
                       </div>
                       
                       <div className="mt-6 pt-4 border-t border-blue-900/50">
-                        <div className="bg-gradient-to-br from-blue-950/40 to-black/40 border border-blue-600/30 rounded-lg p-4 mb-4">
-                          <div className="flex items-center gap-3 mb-2">
-                            <CircleDollarSign className="h-6 w-6 text-green-400" />
-                            <h4 className="text-xl font-semibold text-white">Marine ROI Calculator</h4>
-                          </div>
-                          <p className="text-blue-100 mb-3">Calculate your 411% ROI potential with our advanced marine protection system</p>
-                          <div className="grid grid-cols-2 gap-3 mb-3">
-                            <div className="bg-black/30 border border-blue-500/20 rounded p-2">
-                              <span className="text-blue-200 text-xs">Avg. Maintenance Reduction:</span>
-                              <span className="text-green-400 font-bold text-lg block">$278K/year</span>
+                        <div className="relative group mb-6">
+                          {/* Advanced layered glow effects */}
+                          <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600/30 to-blue-400/20 rounded-lg blur-sm opacity-70 group-hover:opacity-100 transition-opacity duration-300"></div>
+                          
+                          <div className="relative bg-gradient-to-br from-gray-900/90 to-black/90 border border-blue-600/40 rounded-lg p-5 backdrop-blur-sm">
+                            <div className="flex items-center gap-3 mb-3">
+                              <CircleDollarSign className="h-6 w-6 text-green-400" />
+                              <h4 className="text-xl font-semibold text-white">Advanced Marine ROI Calculator</h4>
                             </div>
-                            <div className="bg-black/30 border border-orange-500/20 rounded p-2">
-                              <span className="text-blue-200 text-xs">Extended Asset Lifespan:</span>
-                              <span className="text-green-400 font-bold text-lg block">+12.4 years</span>
+                            
+                            <p className="text-blue-100 mb-4">Calculate your 411% ROI potential with our government-grade marine protection system</p>
+                            
+                            <div className="grid grid-cols-1 gap-5 mb-6">
+                              <div className="relative group">
+                                <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600/30 to-blue-400/20 rounded-lg blur-sm opacity-70 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                <div className="relative bg-gradient-to-br from-black/80 to-gray-900/80 border border-blue-600/40 rounded-lg p-4">
+                                  <div className="flex justify-between items-center mb-2">
+                                    <span className="text-blue-300 font-semibold">Annual Maintenance Cost</span>
+                                    <span className="text-green-400 font-semibold">$376,000</span>
+                                  </div>
+                                  <div className="flex justify-between items-center mb-2">
+                                    <span className="text-blue-300 font-semibold">Cost After Coating</span>
+                                    <span className="text-green-400 font-semibold">$98,000</span>
+                                  </div>
+                                  <div className="flex justify-between items-center mb-2">
+                                    <span className="text-blue-300 font-semibold">Annual Savings</span>
+                                    <span className="text-green-400 font-semibold">$278,000</span>
+                                  </div>
+                                  <div className="flex justify-between items-center">
+                                    <span className="text-blue-300 font-semibold">5-Year Savings</span>
+                                    <span className="text-green-400 font-semibold">$1.39M</span>
+                                  </div>
+                                </div>
+                              </div>
+                              
+                              <div className="relative group">
+                                <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-600/30 to-orange-400/20 rounded-lg blur-sm opacity-70 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                <div className="relative bg-gradient-to-br from-black/80 to-gray-900/80 border border-orange-600/40 rounded-lg p-4">
+                                  <div className="flex justify-between items-center mb-2">
+                                    <span className="text-orange-300 font-semibold">Original Asset Lifespan</span>
+                                    <span className="text-green-400 font-semibold">14 Years</span>
+                                  </div>
+                                  <div className="flex justify-between items-center mb-2">
+                                    <span className="text-orange-300 font-semibold">Extended Lifespan</span>
+                                    <span className="text-green-400 font-semibold">26.4 Years</span>
+                                  </div>
+                                  <div className="flex justify-between items-center mb-2">
+                                    <span className="text-orange-300 font-semibold">Additional Service Life</span>
+                                    <span className="text-green-400 font-semibold">+12.4 Years</span>
+                                  </div>
+                                  <div className="flex justify-between items-center">
+                                    <span className="text-orange-300 font-semibold">Lifecycle Savings</span>
+                                    <span className="text-green-400 font-semibold">$1.84M</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            
+                            <div className="relative group">
+                              <div className="absolute -inset-0.5 bg-gradient-to-r from-green-600/30 to-green-400/20 rounded-lg blur-sm opacity-70 group-hover:opacity-100 transition-opacity duration-300"></div>
+                              <div className="relative bg-gradient-to-br from-black/80 to-gray-900/80 border border-green-600/40 rounded-lg p-4">
+                                <div className="flex justify-between items-center mb-1">
+                                  <span className="text-white font-semibold">Total Investment</span>
+                                  <span className="text-white font-semibold">$450,000</span>
+                                </div>
+                                <div className="flex justify-between items-center">
+                                  <span className="text-white font-semibold">Total 5-Year Return</span>
+                                  <span className="text-white font-semibold">$1.84M</span>
+                                </div>
+                                <div className="mt-3 flex justify-center items-center">
+                                  <div className="bg-gradient-to-r from-green-600 to-green-400 px-4 py-2 rounded-lg">
+                                    <span className="text-2xl font-bold text-white">411% ROI</span>
+                                  </div>
+                                </div>
+                              </div>
                             </div>
                           </div>
                         </div>
                         
-                        <h4 className="text-xl font-semibold text-white mb-3">Calculate Your Marine ROI Potential</h4>
                         <div className="relative">
-                          <div className="absolute -inset-1 bg-orange-500/30 rounded-lg blur-md opacity-70"></div>
+                          <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/40 via-blue-500/30 to-blue-600/40 rounded-lg blur-md opacity-80"></div>
                           <div className="relative">
-                            <PremiumCartButton onClick={handleShowRegistrationForm} size="lg" className="w-full">
+                            <PremiumCartButton 
+                              onClick={handleShowRegistrationForm} 
+                              size="lg" 
+                              className="w-full relative group"
+                              variant="blue"
+                            >
                               <div className="flex items-center justify-center gap-2">
                                 <BarChart3 className="h-5 w-5" />
                                 <span>Calculate 411% ROI For Your Marina</span>
