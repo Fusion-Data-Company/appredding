@@ -1893,9 +1893,13 @@ export default function Municipality() {
                         name="firstName"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>First Name</FormLabel>
+                            <FormLabel className="text-gray-300">First Name</FormLabel>
                             <FormControl>
-                              <Input placeholder="John" {...field} />
+                              <Input 
+                                placeholder="John" 
+                                {...field} 
+                                className="bg-gray-900/70 border-2 border-green-500/50 rounded-lg py-2 px-3 text-white"
+                              />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
