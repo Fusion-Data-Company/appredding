@@ -161,37 +161,80 @@ const FirePrevention = () => {
               <div className="relative p-8 md:p-10 backdrop-blur-sm">
                 {/* Ultra-premium enterprise header with layered effects */}
                 <div className="relative mb-8">
-                  {/* Premium Enterprise Header Container */}
-                  <div className="relative py-6 px-4 bg-gradient-to-br from-black/60 via-gray-900/80 to-black/60 border-b-2 border-orange-500/60 border-t border-t-orange-400/30 rounded-lg mb-4">
-                    {/* Subtle background accent for premium feel without blur */}
-                    <div className="absolute top-0 right-0 w-96 h-96 bg-orange-600/5 rounded-full -mr-32 -mt-32"></div>
-                    <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-600/5 rounded-full -ml-32 -mb-32"></div>
+                  {/* Premium Cinematic Enterprise Header Container */}
+                  <div className="relative py-8 px-6 bg-gradient-to-br from-black/80 via-gray-900/90 to-black/80 
+                    border-b-2 border-orange-500/60 border-t border-t-orange-400/30 rounded-lg mb-4
+                    shadow-[0_10px_50px_rgba(234,88,12,0.15),inset_0_1px_20px_rgba(234,88,12,0.05)]">
                     
-                    {/* Enterprise-grade header with perfect readability */}
+                    {/* Metallic corner accents */}
+                    <div className="absolute top-0 left-0 w-20 h-20 pointer-events-none">
+                      <div className="absolute top-0 left-0 w-12 h-1 bg-gradient-to-r from-orange-500 to-transparent rounded-full"></div>
+                      <div className="absolute top-0 left-0 h-12 w-1 bg-gradient-to-b from-orange-500 to-transparent rounded-full"></div>
+                    </div>
+                    <div className="absolute top-0 right-0 w-20 h-20 pointer-events-none">
+                      <div className="absolute top-0 right-0 w-12 h-1 bg-gradient-to-l from-orange-500 to-transparent rounded-full"></div>
+                      <div className="absolute top-0 right-0 h-12 w-1 bg-gradient-to-b from-orange-500 to-transparent rounded-full"></div>
+                    </div>
+                    <div className="absolute bottom-0 left-0 w-20 h-20 pointer-events-none">
+                      <div className="absolute bottom-0 left-0 w-12 h-1 bg-gradient-to-r from-orange-500 to-transparent rounded-full"></div>
+                      <div className="absolute bottom-0 left-0 h-12 w-1 bg-gradient-to-t from-orange-500 to-transparent rounded-full"></div>
+                    </div>
+                    <div className="absolute bottom-0 right-0 w-20 h-20 pointer-events-none">
+                      <div className="absolute bottom-0 right-0 w-12 h-1 bg-gradient-to-l from-orange-500 to-transparent rounded-full"></div>
+                      <div className="absolute bottom-0 right-0 h-12 w-1 bg-gradient-to-t from-orange-500 to-transparent rounded-full"></div>
+                    </div>
+                    
+                    {/* Premium subtle glow effects */}
+                    <div className="absolute top-1/4 right-1/4 w-32 h-32 bg-orange-500/5 rounded-full blur-xl"></div>
+                    <div className="absolute bottom-1/4 left-1/4 w-32 h-32 bg-blue-500/5 rounded-full blur-xl"></div>
+                    
+                    {/* Cinematic metallic header with layered elements */}
                     <div className="relative z-10">
-                      <div className="overflow-hidden relative mb-2">
-                        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white tracking-tight leading-tight">
+                      {/* Top badge */}
+                      <div className="relative mb-3 inline-block">
+                        <div className="absolute inset-0 bg-gradient-to-r from-orange-700/20 to-red-700/20 blur-sm rounded-full"></div>
+                        <span className="relative inline-block px-4 py-1 rounded-full 
+                          bg-gradient-to-r from-black/80 to-gray-900/80
+                          border border-orange-500/40 text-sm font-semibold text-orange-300
+                          shadow-[0_2px_10px_rgba(234,88,12,0.2)]">
+                          PREVIOUSLY A GOVERNMENT RESOURCE
+                        </span>
+                      </div>
+                      
+                      {/* Main title with layered metal effect */}
+                      <div className="overflow-hidden relative mb-4">
+                        <div className="absolute inset-0 bg-gradient-to-b from-orange-500/5 via-transparent to-transparent rounded-lg"></div>
+                        
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-tight
+                          bg-clip-text text-transparent bg-gradient-to-b from-white via-gray-200 to-gray-300
+                          drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
                           Advanced Ceramic Wildfire Defense System
                         </h1>
                         
-                        {/* Animated highlight effect */}
+                        {/* Multiple shimmer animations */}
                         <div className="absolute -inset-3/4 w-1/4 h-full bg-gradient-to-r from-transparent via-orange-500/20 to-transparent skew-x-[-20deg] animate-[shimmer_2.5s_infinite] pointer-events-none"></div>
+                        <div className="absolute -inset-1/2 w-1/4 h-full bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-[-20deg] animate-[shimmer_3s_infinite_0.5s] pointer-events-none"></div>
                       </div>
                     
-                      {/* Premium accent elements */}
-                      <div className="flex items-center justify-center gap-4 mb-6">
-                        <div className="h-px w-12 bg-gradient-to-r from-transparent via-orange-500 to-transparent"></div>
-                        <div className="h-1 w-24 bg-gradient-to-r from-orange-500 to-red-600 rounded-full"></div>
-                        <div className="h-px w-12 bg-gradient-to-r from-transparent via-orange-500 to-transparent"></div>
+                      {/* Premium metallic divider */}
+                      <div className="relative h-2 max-w-xl mx-auto mb-6 overflow-hidden">
+                        <div className="absolute inset-0 opacity-25 bg-gradient-to-r from-transparent via-orange-500 to-transparent"></div>
+                        <div className="absolute inset-y-0 left-0 right-0 h-px top-0 bg-gradient-to-r from-transparent via-orange-500/90 to-transparent"></div>
+                        <div className="absolute inset-y-0 left-0 right-0 h-px bottom-0 bg-gradient-to-r from-transparent via-orange-400/70 to-transparent"></div>
                       </div>
                       
-                      <p className="text-xl md:text-2xl text-white mb-2 relative">
-                        <span className="inline-block bg-gradient-to-r from-red-600/20 to-orange-500/20 px-4 py-1 rounded-full border border-orange-500/30 text-sm font-semibold mb-3">PREVIOUSLY A GOVERNMENT RESOURCE</span>
+                      {/* Tagline with premium styling */}
+                      <p className="text-xl md:text-2xl mb-2 relative">
+                        <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-gray-100 to-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">
+                          Now available for civilian structures.
+                        </span>
                       </p>
                       
-                      <p className="text-xl md:text-2xl text-white relative">
-                        <span className="font-semibold">Now available for civilian structures.</span>
-                      </p>
+                      {/* Subtle animated flame accent */}
+                      <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-32 h-6 pointer-events-none opacity-40">
+                        <div className="absolute bottom-0 left-0 right-0 h-full bg-gradient-to-t from-orange-500/10 via-orange-400/5 to-transparent 
+                          rounded-t-3xl animate-pulse-slow"></div>
+                      </div>
                     </div>
                   </div>
                   
