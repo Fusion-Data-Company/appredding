@@ -1689,28 +1689,28 @@ export default function Municipality() {
                     
                     <div className="space-y-4">
                       <div>
-                        <label className="block text-gray-400 mb-2">Annual Maintenance Cost</label>
+                        <label className="block text-gray-300 mb-2">Annual Maintenance Cost</label>
                         <input 
                           type="number" 
-                          className="w-full bg-gray-900/50 border border-gray-700 rounded-lg p-3 text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                          className="w-full bg-gray-900/70 border-2 border-green-500/50 rounded-lg p-3 text-white focus:border-green-500 focus:ring-1 focus:ring-green-500"
                           placeholder="$0"
                         />
                       </div>
                       
                       <div>
-                        <label className="block text-gray-400 mb-2">Average Replacement Cycle (Years)</label>
+                        <label className="block text-gray-300 mb-2">Average Replacement Cycle (Years)</label>
                         <input 
                           type="number" 
-                          className="w-full bg-gray-900/50 border border-gray-700 rounded-lg p-3 text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                          className="w-full bg-gray-900/70 border-2 border-green-500/50 rounded-lg p-3 text-white focus:border-green-500 focus:ring-1 focus:ring-green-500"
                           placeholder="7"
                         />
                       </div>
                       
                       <div>
-                        <label className="block text-gray-400 mb-2">Annual Labor Hours</label>
+                        <label className="block text-gray-300 mb-2">Annual Labor Hours</label>
                         <input 
                           type="number" 
-                          className="w-full bg-gray-900/50 border border-gray-700 rounded-lg p-3 text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                          className="w-full bg-gray-900/70 border-2 border-green-500/50 rounded-lg p-3 text-white focus:border-green-500 focus:ring-1 focus:ring-green-500"
                           placeholder="0"
                         />
                       </div>
@@ -1719,14 +1719,18 @@ export default function Municipality() {
                   
                   <div>
                     <h3 className="text-xl font-semibold mb-6 text-white flex items-center">
-                      <Landmark className="w-5 h-5 mr-2 text-blue-400" />
+                      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-green-600 via-green-500 to-green-400 p-[2px] shadow-lg mr-3 flex-shrink-0">
+                        <div className="w-full h-full rounded-full bg-gray-900/80 flex items-center justify-center">
+                          <Landmark className="w-4 h-4 text-green-400" />
+                        </div>
+                      </div>
                       Infrastructure Details
                     </h3>
                     
                     <div className="space-y-4">
                       <div>
-                        <label className="block text-gray-400 mb-2">Infrastructure Type</label>
-                        <select className="w-full bg-gray-900/50 border border-gray-700 rounded-lg p-3 text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500">
+                        <label className="block text-gray-300 mb-2">Infrastructure Type</label>
+                        <select className="w-full bg-gray-900/70 border-2 border-green-500/50 rounded-lg p-3 text-white focus:border-green-500 focus:ring-1 focus:ring-green-500">
                           <option>Water Treatment Plant</option>
                           <option>Wastewater Facility</option>
                           <option>Public Buildings</option>
@@ -1736,17 +1740,17 @@ export default function Municipality() {
                       </div>
                       
                       <div>
-                        <label className="block text-gray-400 mb-2">Surface Area (sq ft)</label>
+                        <label className="block text-gray-300 mb-2">Surface Area (sq ft)</label>
                         <input 
                           type="number" 
-                          className="w-full bg-gray-900/50 border border-gray-700 rounded-lg p-3 text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                          className="w-full bg-gray-900/70 border-2 border-green-500/50 rounded-lg p-3 text-white focus:border-green-500 focus:ring-1 focus:ring-green-500"
                           placeholder="0"
                         />
                       </div>
                       
                       <div>
-                        <label className="block text-gray-400 mb-2">Environmental Exposure</label>
-                        <select className="w-full bg-gray-900/50 border border-gray-700 rounded-lg p-3 text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500">
+                        <label className="block text-gray-300 mb-2">Environmental Exposure</label>
+                        <select className="w-full bg-gray-900/70 border-2 border-green-500/50 rounded-lg p-3 text-white focus:border-green-500 focus:ring-1 focus:ring-green-500">
                           <option>Coastal/Marine</option>
                           <option>Urban/Industrial</option>
                           <option>Rural</option>
