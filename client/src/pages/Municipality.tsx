@@ -684,49 +684,49 @@ const MunicipalityPage = () => {
                     <span className="flex items-center justify-center w-5 h-5 bg-blue-500/20 border border-blue-500/40 rounded-full">
                       <span className="text-blue-400 text-xs">✓</span>
                     </span>
-                    <span className="text-blue-100">Water storage tanks</span>
+                    <span className="text-blue-100">Water storage tanks: <span className="text-green-400">$940K lifecycle savings</span></span>
                   </div>
                   <div className="flex items-center gap-2 relative">
                     <span className="flex items-center justify-center w-5 h-5 bg-orange-500/20 border border-orange-500/40 rounded-full">
                       <span className="text-orange-400 text-xs">✓</span>
                     </span>
-                    <span className="text-orange-100">Wastewater facilities</span>
+                    <span className="text-orange-100">Wastewater facilities: <span className="text-green-400">$1.2M annual maintenance savings</span></span>
                   </div>
                   <div className="flex items-center gap-2 relative">
                     <span className="flex items-center justify-center w-5 h-5 bg-blue-500/20 border border-blue-500/40 rounded-full">
                       <span className="text-blue-400 text-xs">✓</span>
                     </span>
-                    <span className="text-blue-100">Bridge structures</span>
+                    <span className="text-blue-100">Bridge structures: <span className="text-green-400">$4.8M 14-year maintenance reduction</span></span>
                   </div>
                   <div className="flex items-center gap-2 relative">
                     <span className="flex items-center justify-center w-5 h-5 bg-orange-500/20 border border-orange-500/40 rounded-full">
                       <span className="text-orange-400 text-xs">✓</span>
                     </span>
-                    <span className="text-orange-100">Public buildings</span>
+                    <span className="text-orange-100">Public buildings: <span className="text-green-400">87% energy savings ($95K annually)</span></span>
                   </div>
                   <div className="flex items-center gap-2 relative">
                     <span className="flex items-center justify-center w-5 h-5 bg-blue-500/20 border border-blue-500/40 rounded-full">
                       <span className="text-blue-400 text-xs">✓</span>
                     </span>
-                    <span className="text-blue-100">Traffic infrastructure</span>
+                    <span className="text-blue-100">Traffic infrastructure: <span className="text-green-400">$560K warranty extension value</span></span>
                   </div>
                   <div className="flex items-center gap-2 relative">
                     <span className="flex items-center justify-center w-5 h-5 bg-orange-500/20 border border-orange-500/40 rounded-full">
                       <span className="text-orange-400 text-xs">✓</span>
                     </span>
-                    <span className="text-orange-100">Park facilities</span>
+                    <span className="text-orange-100">Park facilities: <span className="text-green-400">$280K chemical resistance value</span></span>
                   </div>
                   <div className="flex items-center gap-2 relative">
                     <span className="flex items-center justify-center w-5 h-5 bg-blue-500/20 border border-blue-500/40 rounded-full">
                       <span className="text-blue-400 text-xs">✓</span>
                     </span>
-                    <span className="text-blue-100">Transportation terminals</span>
+                    <span className="text-blue-100">Transportation terminals: <span className="text-green-400">$1.7M corrosion protection</span></span>
                   </div>
                   <div className="flex items-center gap-2 relative">
                     <span className="flex items-center justify-center w-5 h-5 bg-orange-500/20 border border-orange-500/40 rounded-full">
                       <span className="text-orange-400 text-xs">✓</span>
                     </span>
-                    <span className="text-orange-100">Parking structures</span>
+                    <span className="text-orange-100">Parking structures: <span className="text-green-400">$450K salt/chemical damage prevention</span></span>
                   </div>
                 </div>
                 
