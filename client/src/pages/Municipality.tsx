@@ -1957,9 +1957,14 @@ export default function Municipality() {
                         name="confirmEmail"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>Confirm Email</FormLabel>
+                            <FormLabel className="text-gray-300">Confirm Email</FormLabel>
                             <FormControl>
-                              <Input type="email" placeholder="john.doe@example.com" {...field} />
+                              <Input 
+                                type="email" 
+                                placeholder="john.doe@example.com" 
+                                {...field} 
+                                className="bg-gray-900/70 border-2 border-green-500/50 rounded-lg py-2 px-3 text-white"
+                              />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -1973,9 +1978,13 @@ export default function Municipality() {
                         name="phone"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>Phone</FormLabel>
+                            <FormLabel className="text-gray-300">Phone</FormLabel>
                             <FormControl>
-                              <Input placeholder="(123) 456-7890" {...field} />
+                              <Input 
+                                placeholder="(123) 456-7890" 
+                                {...field} 
+                                className="bg-gray-900/70 border-2 border-green-500/50 rounded-lg py-2 px-3 text-white"
+                              />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -1984,12 +1993,16 @@ export default function Municipality() {
                       
                       <FormField
                         control={form.control}
-                        name="company"
+                        name="address"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>Municipality/Organization</FormLabel>
+                            <FormLabel className="text-gray-300">Address</FormLabel>
                             <FormControl>
-                              <Input placeholder="City of Springfield" {...field} />
+                              <Input 
+                                placeholder="123 Main Street" 
+                                {...field} 
+                                className="bg-gray-900/70 border-2 border-green-500/50 rounded-lg py-2 px-3 text-white"
+                              />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -1999,12 +2012,16 @@ export default function Municipality() {
                     
                     <FormField
                       control={form.control}
-                      name="title"
+                      name="professionalType"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Job Title</FormLabel>
+                          <FormLabel className="text-gray-300">Professional Type</FormLabel>
                           <FormControl>
-                            <Input placeholder="Facilities Manager" {...field} />
+                            <Input 
+                              placeholder="Consultant, Public Works Director, etc." 
+                              {...field} 
+                              className="bg-gray-900/70 border-2 border-green-500/50 rounded-lg py-2 px-3 text-white"
+                            />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -2016,12 +2033,13 @@ export default function Municipality() {
                       name="jurisdictions"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Jurisdictions/Areas Served</FormLabel>
+                          <FormLabel className="text-gray-300">Jurisdictions/Areas Served</FormLabel>
                           <FormControl>
                             <Textarea 
                               placeholder="List the jurisdictions or areas your organization serves" 
                               {...field} 
                               value={field.value as string}
+                              className="bg-gray-900/70 border-2 border-green-500/50 rounded-lg py-2 px-3 text-white min-h-[100px]"
                             />
                           </FormControl>
                           <FormMessage />
