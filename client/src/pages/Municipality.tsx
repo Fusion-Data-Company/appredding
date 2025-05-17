@@ -1518,10 +1518,17 @@ export default function Municipality() {
               {/* Solid card overlay with higher z-index to prevent glow from bleeding through */}
               <div className="absolute inset-0 bg-gray-900 rounded-xl z-1 border border-gray-700/70"></div>
               
-              <div className="relative z-10">
-                <p className="text-lg text-gray-300 mb-8 text-center">
-                  Calculate your potential savings by protecting municipal infrastructure with our ceramic coating technology.
-                </p>
+              <div className="relative z-10 p-6">
+                <div className="mb-6 text-center">
+                  <h3 className="text-2xl font-semibold mb-3 text-white drop-shadow-sm flex items-center justify-center">
+                    <Calculator className="w-6 h-6 mr-2 text-green-400" />
+                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-200">ROI Calculator</span>
+                  </h3>
+                  <div className="w-20 h-1 bg-gradient-to-r from-green-500 to-green-300 mx-auto rounded-full mb-4"></div>
+                  <p className="text-lg text-gray-300">
+                    Calculate your potential savings by protecting municipal infrastructure with our ceramic coating technology.
+                  </p>
+                </div>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                   <div>
