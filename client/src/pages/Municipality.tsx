@@ -1514,7 +1514,9 @@ export default function Municipality() {
               {/* Card ambient glow - positioned fully behind card, in front of background */}
               <div className="absolute -inset-16 bg-green-500/50 rounded-xl blur-3xl opacity-80 -z-5 animate-pulse-slow"></div>
               <div className="absolute -inset-10 bg-green-400/40 rounded-xl blur-2xl opacity-70 -z-4"></div>
-              <div className="absolute inset-0 bg-blue-500/5 rounded-xl z-0"></div>
+              
+              {/* Card overlay with higher z-index to force it in front of glow */}
+              <div className="absolute inset-0 bg-gray-900/80 rounded-xl z-1 backdrop-blur-sm border border-gray-700/70"></div>
               
               <div className="relative z-10">
                 <p className="text-lg text-gray-300 mb-8 text-center">
