@@ -1740,20 +1740,20 @@ export default function Municipality() {
                   <button 
                     className="relative overflow-hidden group rounded-lg border-2 border-green-500/50 px-10 py-4 transition-all duration-300 hover:shadow-[0_0_20px_rgba(74,222,128,0.5)]"
                     style={{
-                      background: "linear-gradient(to right, rgba(17, 24, 39, 0.85), rgba(17, 24, 39, 0.95))"
+                      background: "linear-gradient(to right, rgba(17, 24, 39, 0.65), rgba(17, 24, 39, 0.75))"
                     }}
                   >
-                    {/* Money background image */}
-                    <div className="absolute inset-0 z-0 opacity-30 group-hover:opacity-40 transition-opacity duration-300">
-                      <div className="absolute inset-0 bg-gradient-to-r from-green-900/40 to-blue-900/40"></div>
+                    {/* Money background image - increased visibility */}
+                    <div className="absolute inset-0 z-0 opacity-70 group-hover:opacity-80 transition-opacity duration-300">
                       <div 
                         className="absolute inset-0 bg-[url('/attached_assets/jU3xcPi4wPxwMp47Z6WSxb-1200-80.jpg')]" 
                         style={{ 
                           backgroundSize: 'cover',
                           backgroundPosition: 'center',
-                          filter: 'saturate(0.8) contrast(1.2)'
+                          filter: 'brightness(1.2) contrast(1.3)'
                         }}
                       ></div>
+                      <div className="absolute inset-0 bg-gradient-to-r from-gray-900/40 to-gray-900/50"></div>
                     </div>
                     
                     {/* Premium corner accents */}
