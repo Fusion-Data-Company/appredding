@@ -998,7 +998,7 @@ const FirePrevention = () => {
                                   <Checkbox
                                     checked={field.value}
                                     onCheckedChange={field.onChange}
-                                    className="data-[state=checked]:bg-orange-600 data-[state=checked]:border-orange-600"
+                                    className="data-[state=checked]:bg-green-600 data-[state=checked]:border-green-600 border-2 border-green-500/50"
                                   />
                                 </FormControl>
                                 <div className="space-y-1 leading-none">
@@ -1032,11 +1032,11 @@ const FirePrevention = () => {
                           {/* Submit button with premium styling */}
                           <div className="relative group">
                             {/* Button glow effect */}
-                            <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/50 to-red-600/50 rounded-lg blur-md opacity-75 group-hover:opacity-100 transition-opacity duration-500 group-hover:duration-200"></div>
+                            <div className="absolute -inset-1 bg-gradient-to-r from-green-600/50 to-emerald-600/50 rounded-lg blur-md opacity-75 group-hover:opacity-100 transition-opacity duration-500 group-hover:duration-200"></div>
                             
                             <button 
                               type="submit"
-                              className="relative bg-gradient-to-br from-gray-900 to-black hover:from-gray-800 hover:to-gray-900 text-white font-medium py-2.5 px-8 rounded-lg overflow-hidden transition-all duration-300 z-10 border border-orange-500/40 group-hover:border-orange-500/60"
+                              className="relative bg-gradient-to-br from-gray-900 to-black hover:from-gray-800 hover:to-gray-900 text-white font-medium py-2.5 px-8 rounded-lg overflow-hidden transition-all duration-300 z-10 border border-green-500/40 group-hover:border-green-500/60"
                               disabled={registerMutation.isPending}
                             >
                               {/* Inner glass effect */}
