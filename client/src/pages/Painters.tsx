@@ -728,59 +728,113 @@ const Painters = () => {
                     How Praetorian Boosts Your Painting Business Revenue
                   </h2>
                   
-                  <div className="grid md:grid-cols-3 gap-6 mb-8">
-                    <div className="relative bg-gradient-to-br from-gray-800/90 via-gray-900/90 to-black/90 rounded-lg p-5 shadow-md border border-blue-500/20">
-                      <h3 className="text-xl font-semibold mb-3 text-white drop-shadow-sm">Premium Pricing</h3>
-                      <ul className="space-y-2 text-gray-100">
-                        <li className="flex items-start">
-                          <CheckCircle className="h-5 w-5 text-blue-400 mr-2 shrink-0 mt-0.5" />
-                          <span>Charge 15-25% more per project</span>
-                        </li>
-                        <li className="flex items-start">
-                          <CheckCircle className="h-5 w-5 text-blue-400 mr-2 shrink-0 mt-0.5" />
-                          <span>Move from commodity pricing to value pricing</span>
-                        </li>
-                        <li className="flex items-start">
-                          <CheckCircle className="h-5 w-5 text-blue-400 mr-2 shrink-0 mt-0.5" />
-                          <span>Justify higher margins with documented performance</span>
-                        </li>
-                      </ul>
+                  <div className="grid md:grid-cols-3 gap-6 mb-10">
+                    <div className="relative group">
+                      <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600/20 to-blue-400/10 rounded-lg blur-sm opacity-70 group-hover:opacity-100 transition duration-300"></div>
+                      <div className="relative bg-gradient-to-br from-gray-900/95 to-black/90 rounded-lg p-6 shadow-lg border border-blue-500/30 overflow-hidden">
+                        {/* Elite corner accents */}
+                        <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-blue-500/40 rounded-tl-md"></div>
+                        <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-blue-500/40 rounded-tr-md"></div>
+                        <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-blue-500/40 rounded-br-md"></div>
+                        <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-blue-500/40 rounded-bl-md"></div>
+                        
+                        <h3 className="text-xl font-semibold mb-4 text-white drop-shadow-[0_1px_2px_rgba(59,130,246,0.3)]">Premium Pricing</h3>
+                        <ul className="space-y-3 text-gray-100">
+                          <li className="flex items-start group">
+                            <span className="relative flex-shrink-0 mr-3">
+                              <span className="absolute -inset-1 bg-blue-500/20 rounded-full blur-sm opacity-0 group-hover:opacity-100 transition duration-300"></span>
+                              <CheckCircle className="relative h-5 w-5 text-blue-400" />
+                            </span>
+                            <span>Charge 15-25% more per project</span>
+                          </li>
+                          <li className="flex items-start group">
+                            <span className="relative flex-shrink-0 mr-3">
+                              <span className="absolute -inset-1 bg-blue-500/20 rounded-full blur-sm opacity-0 group-hover:opacity-100 transition duration-300"></span>
+                              <CheckCircle className="relative h-5 w-5 text-blue-400" />
+                            </span>
+                            <span>Move from commodity pricing to value pricing</span>
+                          </li>
+                          <li className="flex items-start group">
+                            <span className="relative flex-shrink-0 mr-3">
+                              <span className="absolute -inset-1 bg-blue-500/20 rounded-full blur-sm opacity-0 group-hover:opacity-100 transition duration-300"></span>
+                              <CheckCircle className="relative h-5 w-5 text-blue-400" />
+                            </span>
+                            <span>Justify higher margins with documented performance</span>
+                          </li>
+                        </ul>
+                      </div>
                     </div>
                     
-                    <div className="relative bg-gradient-to-br from-gray-800/90 via-gray-900/90 to-black/90 rounded-lg p-5 shadow-md border border-orange-500/20">
-                      <h3 className="text-xl font-semibold mb-3 text-white drop-shadow-sm">Reduced Callbacks</h3>
-                      <ul className="space-y-2 text-gray-100">
-                        <li className="flex items-start">
-                          <CheckCircle className="h-5 w-5 text-orange-400 mr-2 shrink-0 mt-0.5" />
-                          <span>90% fewer warranty claims vs. standard paints</span>
-                        </li>
-                        <li className="flex items-start">
-                          <CheckCircle className="h-5 w-5 text-orange-400 mr-2 shrink-0 mt-0.5" />
-                          <span>Eliminate costs of repeat visits and touch-ups</span>
-                        </li>
-                        <li className="flex items-start">
-                          <CheckCircle className="h-5 w-5 text-orange-400 mr-2 shrink-0 mt-0.5" />
-                          <span>Free up workforce for new revenue-generating projects</span>
-                        </li>
-                      </ul>
+                    <div className="relative group">
+                      <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-600/20 to-orange-400/10 rounded-lg blur-sm opacity-70 group-hover:opacity-100 transition duration-300"></div>
+                      <div className="relative bg-gradient-to-br from-gray-900/95 to-black/90 rounded-lg p-6 shadow-lg border border-orange-500/30 overflow-hidden">
+                        {/* Elite corner accents */}
+                        <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-orange-500/40 rounded-tl-md"></div>
+                        <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-orange-500/40 rounded-tr-md"></div>
+                        <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-orange-500/40 rounded-br-md"></div>
+                        <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-orange-500/40 rounded-bl-md"></div>
+                        
+                        <h3 className="text-xl font-semibold mb-4 text-white drop-shadow-[0_1px_2px_rgba(251,146,60,0.3)]">Reduced Callbacks</h3>
+                        <ul className="space-y-3 text-gray-100">
+                          <li className="flex items-start group">
+                            <span className="relative flex-shrink-0 mr-3">
+                              <span className="absolute -inset-1 bg-orange-500/20 rounded-full blur-sm opacity-0 group-hover:opacity-100 transition duration-300"></span>
+                              <CheckCircle className="relative h-5 w-5 text-orange-400" />
+                            </span>
+                            <span>90% fewer warranty claims vs. standard paints</span>
+                          </li>
+                          <li className="flex items-start group">
+                            <span className="relative flex-shrink-0 mr-3">
+                              <span className="absolute -inset-1 bg-orange-500/20 rounded-full blur-sm opacity-0 group-hover:opacity-100 transition duration-300"></span>
+                              <CheckCircle className="relative h-5 w-5 text-orange-400" />
+                            </span>
+                            <span>Eliminate costs of repeat visits and touch-ups</span>
+                          </li>
+                          <li className="flex items-start group">
+                            <span className="relative flex-shrink-0 mr-3">
+                              <span className="absolute -inset-1 bg-orange-500/20 rounded-full blur-sm opacity-0 group-hover:opacity-100 transition duration-300"></span>
+                              <CheckCircle className="relative h-5 w-5 text-orange-400" />
+                            </span>
+                            <span>Free up workforce for new revenue-generating projects</span>
+                          </li>
+                        </ul>
+                      </div>
                     </div>
                     
-                    <div className="relative bg-gradient-to-br from-gray-800/90 via-gray-900/90 to-black/90 rounded-lg p-5 shadow-md border border-blue-500/20">
-                      <h3 className="text-xl font-semibold mb-3 text-white drop-shadow-sm">New Markets</h3>
-                      <ul className="space-y-2 text-gray-100">
-                        <li className="flex items-start">
-                          <CheckCircle className="h-5 w-5 text-blue-400 mr-2 shrink-0 mt-0.5" />
-                          <span>Access high-value energy retrofit projects</span>
-                        </li>
-                        <li className="flex items-start">
-                          <CheckCircle className="h-5 w-5 text-blue-400 mr-2 shrink-0 mt-0.5" />
-                          <span>Win specialized commercial/industrial contracts</span>
-                        </li>
-                        <li className="flex items-start">
-                          <CheckCircle className="h-5 w-5 text-blue-400 mr-2 shrink-0 mt-0.5" />
-                          <span>Qualify for government and institutional projects</span>
-                        </li>
-                      </ul>
+                    <div className="relative group">
+                      <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600/20 to-blue-400/10 rounded-lg blur-sm opacity-70 group-hover:opacity-100 transition duration-300"></div>
+                      <div className="relative bg-gradient-to-br from-gray-900/95 to-black/90 rounded-lg p-6 shadow-lg border border-blue-500/30 overflow-hidden">
+                        {/* Elite corner accents */}
+                        <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-blue-500/40 rounded-tl-md"></div>
+                        <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-blue-500/40 rounded-tr-md"></div>
+                        <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-blue-500/40 rounded-br-md"></div>
+                        <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-blue-500/40 rounded-bl-md"></div>
+                        
+                        <h3 className="text-xl font-semibold mb-4 text-white drop-shadow-[0_1px_2px_rgba(59,130,246,0.3)]">New Markets</h3>
+                        <ul className="space-y-3 text-gray-100">
+                          <li className="flex items-start group">
+                            <span className="relative flex-shrink-0 mr-3">
+                              <span className="absolute -inset-1 bg-blue-500/20 rounded-full blur-sm opacity-0 group-hover:opacity-100 transition duration-300"></span>
+                              <CheckCircle className="relative h-5 w-5 text-blue-400" />
+                            </span>
+                            <span>Access high-value energy retrofit projects</span>
+                          </li>
+                          <li className="flex items-start group">
+                            <span className="relative flex-shrink-0 mr-3">
+                              <span className="absolute -inset-1 bg-blue-500/20 rounded-full blur-sm opacity-0 group-hover:opacity-100 transition duration-300"></span>
+                              <CheckCircle className="relative h-5 w-5 text-blue-400" />
+                            </span>
+                            <span>Win specialized commercial/industrial contracts</span>
+                          </li>
+                          <li className="flex items-start group">
+                            <span className="relative flex-shrink-0 mr-3">
+                              <span className="absolute -inset-1 bg-blue-500/20 rounded-full blur-sm opacity-0 group-hover:opacity-100 transition duration-300"></span>
+                              <CheckCircle className="relative h-5 w-5 text-blue-400" />
+                            </span>
+                            <span>Qualify for government and institutional projects</span>
+                          </li>
+                        </ul>
+                      </div>
                     </div>
                   </div>
                   
