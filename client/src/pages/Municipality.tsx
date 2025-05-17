@@ -144,30 +144,29 @@ export default function Municipality() {
       <div className="bg-black min-h-screen text-white">
         {/* Hero Section with enhanced infrastructure-themed background */}
         <section className="relative py-20 overflow-hidden">
-          {/* Infrastructure-themed cityscape/bridge background with professional styling */}
-          <div 
-            className="absolute inset-0 bg-cover bg-center z-0"
-            style={{
-              backgroundImage: 'url("/src/assets_dir/images/municipality-thumb.jpg")',
-              opacity: 0.6,
-              filter: 'brightness(0.9) contrast(1.1)'
-            }}
-          ></div>
-          
-          {/* Supplementary background elements for richer enterprise visuals */}
-          <div 
-            className="absolute inset-0 bg-cover bg-right-top z-0 opacity-30 mix-blend-overlay"
-            style={{
-              backgroundImage: 'url("/src/assets_dir/images/praetorian-header.jpg")',
-              backgroundSize: '100% auto'
-            }}
-          ></div>
-          
-          {/* Premium enterprise-elite gradient overlay with enhanced depth */}
-          <div className="absolute inset-0 z-0 opacity-80" style={{ 
-            background: 'linear-gradient(150deg, rgba(0,0,20,0.75) 0%, rgba(0,20,40,0.85) 50%, rgba(10,30,60,0.80) 100%)',
-            mixBlendMode: 'multiply'
+          {/* Advanced premium gradient background with layered effects */}
+          <div className="absolute inset-0 z-0" style={{ 
+            background: 'linear-gradient(135deg, #000814 0%, #001440 35%, #002060 60%, #00184d 100%)'
           }}></div>
+          
+          {/* Dynamic layered background elements */}
+          <div className="absolute inset-0 z-0 opacity-40" style={{ 
+            backgroundImage: 'radial-gradient(circle at 20% 70%, rgba(0, 60, 120, 0.8) 0%, rgba(0, 0, 50, 0) 50%)'
+          }}></div>
+          
+          <div className="absolute inset-0 z-0 opacity-30" style={{ 
+            backgroundImage: 'radial-gradient(circle at 80% 20%, rgba(0, 40, 90, 0.6) 0%, rgba(0, 0, 40, 0) 60%)'
+          }}></div>
+          
+          {/* Advanced blue accent sweep effect */}
+          <div className="absolute inset-0 z-0 overflow-hidden">
+            <div className="absolute -top-[200px] -right-[100px] w-[700px] h-[700px] bg-blue-900/10 rounded-full blur-[90px] animate-pulse-slow"></div>
+            <div className="absolute -bottom-[300px] -left-[150px] w-[800px] h-[800px] bg-blue-800/10 rounded-full blur-[120px] animate-pulse-slower"></div>
+            
+            {/* Green accent glow for balance */}
+            <div className="absolute top-1/4 right-1/3 w-[400px] h-[400px] bg-emerald-700/10 rounded-full blur-[80px] animate-pulse-slower"></div>
+            <div className="absolute bottom-1/3 left-2/3 w-[300px] h-[300px] bg-green-700/5 rounded-full blur-[60px] animate-pulse-slow"></div>
+          </div>
           
           {/* Dynamic light effect - subtle blue glow representing infrastructure technology */}
           <div className="absolute inset-0 z-0 pointer-events-none">

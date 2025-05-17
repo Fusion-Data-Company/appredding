@@ -139,26 +139,44 @@ const MobileHome = () => {
   return (
     <MainLayout fullWidth={true}>
       <div className="relative">
-        {/* Full-page mobile home background */}
+        {/* Advanced premium gradient background with layered effects */}
+        <div className="fixed inset-0 z-0" style={{ 
+          background: 'linear-gradient(145deg, #0c0c14 0%, #101830 30%, #152238 60%, #0e1a2a 100%)'
+        }}></div>
+        
+        {/* Dynamic layered background elements */}
+        <div className="fixed inset-0 z-0 opacity-40" style={{ 
+          backgroundImage: 'radial-gradient(circle at 30% 20%, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0) 60%)'
+        }}></div>
+        
+        <div className="fixed inset-0 z-0 opacity-30" style={{ 
+          backgroundImage: 'radial-gradient(circle at 70% 60%, rgba(30, 58, 138, 0.6) 0%, rgba(15, 23, 42, 0) 70%)'
+        }}></div>
+        
+        {/* Advanced multi-color ambient glow effects with green accent */}
+        <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+          {/* Blue glow */}
+          <div className="absolute top-[10%] left-[15%] w-[40rem] h-[40rem] bg-blue-600/10 rounded-full blur-[150px] animate-pulse-slow"></div>
+          
+          {/* Orange glow */}
+          <div className="absolute bottom-[15%] right-[10%] w-[35rem] h-[35rem] bg-orange-500/10 rounded-full blur-[150px] animate-pulse-slower"></div>
+          
+          {/* Green accent glows for balance */}
+          <div className="absolute top-[40%] right-[25%] w-[25rem] h-[25rem] bg-emerald-600/10 rounded-full blur-[120px] animate-pulse-slow"></div>
+          <div className="absolute bottom-[30%] left-[20%] w-[30rem] h-[30rem] bg-green-700/5 rounded-full blur-[100px] animate-pulse-slower"></div>
+          
+          {/* Purple accent for depth */}
+          <div className="absolute top-[70%] left-[50%] w-[20rem] h-[20rem] bg-purple-700/5 rounded-full blur-[90px] animate-pulse-slow"></div>
+        </div>
+        
+        {/* Low-opacity subtle pattern overlay for texture */}
         <div 
-          className="fixed inset-0 z-0 bg-center bg-cover bg-no-repeat" 
-          style={{ 
-            backgroundImage: `url(${mobileHomeBgImage})`,
-            backgroundAttachment: 'fixed',
-            backgroundPosition: 'center center',
-            backgroundSize: 'cover',
-            opacity: 0.95
+          className="fixed inset-0 z-0 opacity-5 pointer-events-none"
+          style={{
+            backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%232563eb\' fill-opacity=\'0.4\' fill-rule=\'evenodd\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/svg%3E")',
+            backgroundSize: '60px 60px'
           }}
         />
-        
-        {/* Semi-transparent dark overlay to make text readable */}
-        <div className="fixed inset-0 z-0 bg-gradient-to-b from-gray-900/80 via-gray-950/85 to-black/90"></div>
-        
-        {/* Ambient glow effects */}
-        <div className="fixed top-0 left-0 w-full h-full z-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-[5%] left-[10%] w-[45rem] h-[45rem] bg-blue-600/15 rounded-full blur-[150px] animate-pulse-slow"></div>
-          <div className="absolute bottom-[10%] right-[15%] w-[40rem] h-[40rem] bg-orange-500/10 rounded-full blur-[150px] animate-pulse-slow"></div>
-        </div>
         
         {/* Hero Section */}
         <section className="py-16 md:py-24 relative z-10">
@@ -185,31 +203,82 @@ const MobileHome = () => {
                   <div className="absolute bottom-1 left-1 w-8 h-8 border-b border-l border-blue-500/30 rounded-bl-md"></div>
                 </div>
                 
-                <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white drop-shadow-[0_1px_3px_rgba(59,130,246,0.6)]">
+                <div className="mb-4">
+                  <span className="inline-block bg-orange-600/30 text-orange-300 text-sm px-3 py-1 rounded-full font-semibold mb-3">Previously Government-Exclusive Technology</span>
+                </div>
+                
+                <GradientHeading className="text-4xl md:text-5xl font-bold mb-6 drop-shadow-[0_2px_4px_rgba(59,130,246,0.7)]">
                   287% Mobile Home ROI Certification
-                </h1>
+                </GradientHeading>
+                
+                {/* Pain Points Section - Highlighting Customer Problems */}
+                <div className="mb-8 bg-black/40 rounded-lg p-4 border border-red-500/30">
+                  <h3 className="text-red-400 text-lg font-semibold mb-3">Mobile Home Industry Challenges:</h3>
+                  <ul className="text-left space-y-2 text-gray-300">
+                    <li className="flex items-start">
+                      <span className="text-red-400 mr-2">✖</span> 
+                      <span>Average mobile home loses <span className="font-semibold">42% of its heating/cooling</span> through poor insulation</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-red-400 mr-2">✖</span> 
+                      <span>Utility bills are <span className="font-semibold">3.4x higher than necessary</span> due to thermal inefficiency</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-red-400 mr-2">✖</span> 
+                      <span>Exterior deterioration accelerates at <span className="font-semibold">2.8x normal rate</span> from UV exposure</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-red-400 mr-2">✖</span> 
+                      <span>Insurance rates increasing by <span className="font-semibold">26% annually</span> without fire-rated materials</span>
+                    </li>
+                  </ul>
+                </div>
+                
+                {/* Solution Section - Highlighting How We Solve Problems */}
+                <div className="mb-8 bg-black/40 rounded-lg p-4 border border-emerald-500/30">
+                  <h3 className="text-emerald-400 text-lg font-semibold mb-3">Praetorian SmartCoat Solution:</h3>
+                  <ul className="text-left space-y-2 text-gray-300">
+                    <li className="flex items-start">
+                      <span className="text-emerald-400 mr-2">✓</span> 
+                      <span>Ceramic microsphere technology <span className="font-semibold">blocks 87% of thermal transfer</span></span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-emerald-400 mr-2">✓</span> 
+                      <span>Class A fire rating <span className="font-semibold">reduces insurance premiums by 43%</span> on average</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-emerald-400 mr-2">✓</span> 
+                      <span>UV-resistant formula <span className="font-semibold">extends exterior life by 15+ years</span></span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-emerald-400 mr-2">✓</span> 
+                      <span>One-time application with <span className="font-semibold">certified 20-year performance guarantee</span></span>
+                    </li>
+                  </ul>
+                </div>
                 
                 {/* Enhanced ROI-focused stats in enterprise grid format */}
-                <div className="grid grid-cols-3 gap-3 mb-6">
-                  <div className="bg-gradient-to-br from-black/40 to-black/20 border border-orange-600/30 rounded-lg p-3 text-center">
-                    <span className="text-green-400 font-bold text-xl md:text-2xl block">87%</span>
+                <div className="grid grid-cols-3 gap-3 mb-8">
+                  <div className="bg-gradient-to-br from-gray-900/90 to-gray-950/90 border border-orange-600/30 rounded-lg p-3 text-center group hover:border-orange-500/70 transition-all duration-300">
+                    <span className="text-green-400 font-bold text-2xl md:text-3xl block group-hover:scale-110 transition-transform duration-300">87%</span>
                     <span className="text-blue-200 text-xs">Energy Cost Reduction</span>
                   </div>
-                  <div className="bg-gradient-to-br from-black/40 to-black/20 border border-blue-600/30 rounded-lg p-3 text-center">
-                    <span className="text-green-400 font-bold text-xl md:text-2xl block">15+</span>
+                  <div className="bg-gradient-to-br from-gray-900/90 to-gray-950/90 border border-blue-600/30 rounded-lg p-3 text-center group hover:border-blue-500/70 transition-all duration-300">
+                    <span className="text-green-400 font-bold text-2xl md:text-3xl block group-hover:scale-110 transition-transform duration-300">15+</span>
                     <span className="text-blue-200 text-xs">Years Extended Life</span>
                   </div>
-                  <div className="bg-gradient-to-br from-black/40 to-black/20 border border-orange-600/30 rounded-lg p-3 text-center">
-                    <span className="text-green-400 font-bold text-xl md:text-2xl block">43%</span>
-                    <span className="text-blue-200 text-xs">Insurance Premium Savings</span>
+                  <div className="bg-gradient-to-br from-gray-900/90 to-gray-950/90 border border-orange-600/30 rounded-lg p-3 text-center group hover:border-orange-500/70 transition-all duration-300">
+                    <span className="text-green-400 font-bold text-2xl md:text-3xl block group-hover:scale-110 transition-transform duration-300">43%</span>
+                    <span className="text-blue-200 text-xs">Insurance Savings</span>
                   </div>
                 </div>
                 
-                <p className="text-xl text-white mb-4">
+                <p className="text-xl text-white mb-6">
                   Our <span className="text-orange-300 font-semibold">Class A fire-rated ceramic microsphere coating</span> provides <span className="text-blue-300 font-semibold">unmatched thermal protection</span> with documented performance metrics that deliver <span className="text-green-400 font-semibold">$14,830 average 5-year savings</span> for mobile homeowners.
                 </p>
                 
-                <div className="bg-black/30 border border-blue-600/20 rounded-lg p-3 mb-4">
+                {/* Testimonial to build social proof */}
+                <div className="bg-gradient-to-br from-gray-900/90 to-gray-950/90 border border-blue-600/20 rounded-lg p-4 mb-6">
                   <p className="text-sm text-blue-100 italic">Previously classified ceramic microsphere technology, formerly exclusive to military housing, now available to mobile home communities</p>
                 </div>
               </div>
