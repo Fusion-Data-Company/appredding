@@ -730,11 +730,16 @@ const MunicipalityPage = () => {
                   </div>
                 </div>
                 
-                <div className="mt-6 relative z-10">
+                <div className="mt-4 text-center mb-4">
+                  <p className="text-green-400 font-semibold">Average ROI for municipalities: <span className="text-white text-lg">482%</span></p>
+                  <p className="text-sm text-blue-200 italic">Previously classified technology now available to all municipal projects</p>
+                </div>
+                
+                <div className="mt-4 relative z-10">
                   <div className="relative group">
                     <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-orange-600 rounded-lg blur opacity-60 group-hover:opacity-100 transition duration-500"></div>
-                    <button className="relative w-full bg-black border border-gray-800 rounded-lg py-3 px-6 font-semibold text-white shadow-[0_10px_20px_rgba(0,0,0,0.4)] group-hover:shadow-[0_10px_25px_rgba(59,130,246,0.5)] transition duration-300">
-                      Request a Consultation
+                    <button onClick={() => window.location.href = "#municipal-cost-calculator"} className="relative w-full bg-black border border-gray-800 rounded-lg py-3 px-6 font-semibold text-white shadow-[0_10px_20px_rgba(0,0,0,0.4)] group-hover:shadow-[0_10px_25px_rgba(59,130,246,0.5)] transition duration-300">
+                      Calculate Your Infrastructure Savings
                     </button>
                   </div>
                 </div>
