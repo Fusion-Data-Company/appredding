@@ -878,7 +878,11 @@ const FirePrevention = () => {
                                       {...field}
                                       type="number"
                                       placeholder="Estimated value in USD"
-                                      className="bg-black/50 border-gray-700 text-white placeholder:text-gray-500"
+                                      className="bg-gray-900/60 border-2 border-green-500/50 rounded-lg text-white focus:border-green-500 focus:ring-2 focus:ring-green-500/40 shadow-[0_0_10px_rgba(74,222,128,0.15)] placeholder:text-gray-500"
+                                      style={{
+                                        textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)",
+                                        boxShadow: "0 0 15px rgba(74, 222, 128, 0.15), inset 0 0 10px rgba(0, 0, 0, 0.3)"
+                                      }}
                                     />
                                   </FormControl>
                                   <FormMessage />
@@ -895,7 +899,11 @@ const FirePrevention = () => {
                                     <Input
                                       {...field}
                                       placeholder="Distance in miles"
-                                      className="bg-black/50 border-gray-700 text-white placeholder:text-gray-500"
+                                      className="bg-gray-900/60 border-2 border-green-500/50 rounded-lg text-white focus:border-green-500 focus:ring-2 focus:ring-green-500/40 shadow-[0_0_10px_rgba(74,222,128,0.15)] placeholder:text-gray-500"
+                                      style={{
+                                        textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)",
+                                        boxShadow: "0 0 15px rgba(74, 222, 128, 0.15), inset 0 0 10px rgba(0, 0, 0, 0.3)"
+                                      }}
                                     />
                                   </FormControl>
                                   <FormMessage />
@@ -914,7 +922,11 @@ const FirePrevention = () => {
                                   <Input
                                     {...field}
                                     placeholder="Your current insurance provider"
-                                    className="bg-black/50 border-gray-700 text-white placeholder:text-gray-500"
+                                    className="bg-gray-900/60 border-2 border-green-500/50 rounded-lg text-white focus:border-green-500 focus:ring-2 focus:ring-green-500/40 shadow-[0_0_10px_rgba(74,222,128,0.15)] placeholder:text-gray-500"
+                                    style={{
+                                      textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)",
+                                      boxShadow: "0 0 15px rgba(74, 222, 128, 0.15), inset 0 0 10px rgba(0, 0, 0, 0.3)"
+                                    }}
                                   />
                                 </FormControl>
                                 <FormMessage />
@@ -933,11 +945,17 @@ const FirePrevention = () => {
                                   defaultValue={field.value}
                                 >
                                   <FormControl>
-                                    <SelectTrigger className="bg-black/50 border-gray-700 text-white">
+                                    <SelectTrigger 
+                                      className="bg-gray-900/60 border-2 border-green-500/50 rounded-lg text-white focus:border-green-500 focus:ring-2 focus:ring-green-500/40 shadow-[0_0_10px_rgba(74,222,128,0.15)]"
+                                      style={{
+                                        textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)",
+                                        boxShadow: "0 0 15px rgba(74, 222, 128, 0.15), inset 0 0 10px rgba(0, 0, 0, 0.3)"
+                                      }}
+                                    >
                                       <SelectValue placeholder="Select your concern level" />
                                     </SelectTrigger>
                                   </FormControl>
-                                  <SelectContent className="bg-gray-900 border-gray-700 text-white">
+                                  <SelectContent className="bg-gray-900 border-2 border-green-500/50 text-white">
                                     <SelectItem value="low">Low</SelectItem>
                                     <SelectItem value="medium">Medium</SelectItem>
                                     <SelectItem value="high">High</SelectItem>
@@ -959,7 +977,11 @@ const FirePrevention = () => {
                                   <Textarea
                                     {...field}
                                     placeholder="Any additional details about your property or concerns"
-                                    className="bg-black/50 border-gray-700 text-white placeholder:text-gray-500 min-h-[100px]"
+                                    className="bg-gray-900/60 border-2 border-green-500/50 rounded-lg text-white focus:border-green-500 focus:ring-2 focus:ring-green-500/40 shadow-[0_0_10px_rgba(74,222,128,0.15)] placeholder:text-gray-500 min-h-[100px]"
+                                    style={{
+                                      textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)",
+                                      boxShadow: "0 0 15px rgba(74, 222, 128, 0.15), inset 0 0 10px rgba(0, 0, 0, 0.3)"
+                                    }}
                                   />
                                 </FormControl>
                                 <FormMessage />
