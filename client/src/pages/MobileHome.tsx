@@ -606,21 +606,25 @@ const MobileHome = () => {
                       <h4 className="text-lg font-semibold mb-3 text-white">Projected 5-Year Returns</h4>
                       
                       <div className="grid grid-cols-2 gap-4">
-                        <div className="bg-blue-900/20 border border-blue-500/30 rounded-lg p-3">
-                          <div className="text-lg font-bold text-green-400">$14,830</div>
-                          <div className="text-sm text-blue-100">Total Savings</div>
+                        <div className="relative bg-gray-900/60 border-2 border-green-500/50 rounded-lg p-3">
+                          <div className="absolute -inset-0.5 bg-green-500/20 rounded-lg blur-sm opacity-70 -z-10"></div>
+                          <div className="text-lg font-bold text-green-400" style={{ textShadow: "0 2px 4px rgba(0, 0, 0, 0.3)" }}>$14,830</div>
+                          <div className="text-sm text-gray-300" style={{ textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)" }}>Total Savings</div>
                         </div>
-                        <div className="bg-blue-900/20 border border-blue-500/30 rounded-lg p-3">
-                          <div className="text-lg font-bold text-green-400">287%</div>
-                          <div className="text-sm text-blue-100">ROI</div>
+                        <div className="relative bg-gray-900/60 border-2 border-green-500/50 rounded-lg p-3">
+                          <div className="absolute -inset-0.5 bg-green-500/20 rounded-lg blur-sm opacity-70 -z-10"></div>
+                          <div className="text-lg font-bold text-green-400" style={{ textShadow: "0 2px 4px rgba(0, 0, 0, 0.3)" }}>287%</div>
+                          <div className="text-sm text-gray-300" style={{ textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)" }}>ROI</div>
                         </div>
-                        <div className="bg-blue-900/20 border border-blue-500/30 rounded-lg p-3">
-                          <div className="text-lg font-bold text-green-400">1.7 years</div>
-                          <div className="text-sm text-blue-100">Payback Period</div>
+                        <div className="relative bg-gray-900/60 border-2 border-green-500/50 rounded-lg p-3">
+                          <div className="absolute -inset-0.5 bg-green-500/20 rounded-lg blur-sm opacity-70 -z-10"></div>
+                          <div className="text-lg font-bold text-green-400" style={{ textShadow: "0 2px 4px rgba(0, 0, 0, 0.3)" }}>1.7 years</div>
+                          <div className="text-sm text-gray-300" style={{ textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)" }}>Payback Period</div>
                         </div>
-                        <div className="bg-blue-900/20 border border-blue-500/30 rounded-lg p-3">
-                          <div className="text-lg font-bold text-green-400">$8,600</div>
-                          <div className="text-sm text-blue-100">Value Increase</div>
+                        <div className="relative bg-gray-900/60 border-2 border-green-500/50 rounded-lg p-3">
+                          <div className="absolute -inset-0.5 bg-green-500/20 rounded-lg blur-sm opacity-70 -z-10"></div>
+                          <div className="text-lg font-bold text-green-400" style={{ textShadow: "0 2px 4px rgba(0, 0, 0, 0.3)" }}>$8,600</div>
+                          <div className="text-sm text-gray-300" style={{ textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)" }}>Value Increase</div>
                         </div>
                       </div>
                       

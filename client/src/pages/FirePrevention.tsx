@@ -530,44 +530,44 @@ const FirePrevention = () => {
                       
                       <div className="grid grid-cols-1 gap-5 mb-6">
                         <div className="relative group">
-                          <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-600/30 to-red-600/20 rounded-lg blur-sm opacity-70 group-hover:opacity-100 transition-opacity duration-300"></div>
-                          <div className="relative bg-gradient-to-br from-black/80 to-gray-900/80 border border-orange-600/40 rounded-lg p-4">
+                          <div className="absolute -inset-0.5 bg-gradient-to-r from-green-600/30 to-green-400/20 rounded-lg blur-sm opacity-70 group-hover:opacity-100 transition-opacity duration-300"></div>
+                          <div className="relative bg-gradient-to-br from-black/80 to-gray-900/80 border border-green-600/40 rounded-lg p-4">
                             <div className="flex justify-between items-center mb-2">
-                              <span className="text-orange-300 font-semibold">Annual Insurance Premium</span>
+                              <span className="text-gray-300 font-semibold" style={{ textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)" }}>Annual Insurance Premium</span>
                               <span className="text-green-400 font-semibold">$14,800</span>
                             </div>
                             <div className="flex justify-between items-center mb-2">
-                              <span className="text-orange-300 font-semibold">Premium After Coating</span>
+                              <span className="text-gray-300 font-semibold" style={{ textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)" }}>Premium After Coating</span>
                               <span className="text-green-400 font-semibold">$11,000</span>
                             </div>
                             <div className="flex justify-between items-center mb-2">
-                              <span className="text-orange-300 font-semibold">Annual Savings</span>
+                              <span className="text-gray-300 font-semibold" style={{ textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)" }}>Annual Savings</span>
                               <span className="text-green-400 font-semibold">$3,800</span>
                             </div>
                             <div className="flex justify-between items-center">
-                              <span className="text-orange-300 font-semibold">5-Year Savings</span>
+                              <span className="text-gray-300 font-semibold" style={{ textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)" }}>5-Year Savings</span>
                               <span className="text-green-400 font-semibold">$19,000</span>
                             </div>
                           </div>
                         </div>
                         
                         <div className="relative group">
-                          <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600/30 to-blue-400/20 rounded-lg blur-sm opacity-70 group-hover:opacity-100 transition-opacity duration-300"></div>
-                          <div className="relative bg-gradient-to-br from-black/80 to-gray-900/80 border border-blue-600/40 rounded-lg p-4">
+                          <div className="absolute -inset-0.5 bg-gradient-to-r from-green-600/30 to-green-400/20 rounded-lg blur-sm opacity-70 group-hover:opacity-100 transition-opacity duration-300"></div>
+                          <div className="relative bg-gradient-to-br from-black/80 to-gray-900/80 border border-green-600/40 rounded-lg p-4">
                             <div className="flex justify-between items-center mb-2">
-                              <span className="text-blue-300 font-semibold">Home Value Before</span>
+                              <span className="text-gray-300 font-semibold" style={{ textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)" }}>Home Value Before</span>
                               <span className="text-green-400 font-semibold">$750,000</span>
                             </div>
                             <div className="flex justify-between items-center mb-2">
-                              <span className="text-blue-300 font-semibold">Home Value After</span>
+                              <span className="text-gray-300 font-semibold" style={{ textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)" }}>Home Value After</span>
                               <span className="text-green-400 font-semibold">$922,500</span>
                             </div>
                             <div className="flex justify-between items-center mb-2">
-                              <span className="text-blue-300 font-semibold">Value Increase</span>
+                              <span className="text-gray-300 font-semibold" style={{ textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)" }}>Value Increase</span>
                               <span className="text-green-400 font-semibold">23%</span>
                             </div>
                             <div className="flex justify-between items-center">
-                              <span className="text-blue-300 font-semibold">Net Equity Gain</span>
+                              <span className="text-gray-300 font-semibold" style={{ textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)" }}>Net Equity Gain</span>
                               <span className="text-green-400 font-semibold">$172,500</span>
                             </div>
                           </div>
@@ -586,8 +586,8 @@ const FirePrevention = () => {
                             <span className="text-white font-semibold">$191,500</span>
                           </div>
                           <div className="mt-3 flex justify-center items-center">
-                            <div className="bg-gradient-to-r from-green-600 to-green-400 px-4 py-2 rounded-lg">
-                              <span className="text-2xl font-bold text-white">1,390% ROI</span>
+                            <div className="bg-gradient-to-r from-green-600 to-green-400 px-4 py-2 rounded-lg shadow-[0_0_15px_rgba(74,222,128,0.5)]">
+                              <span className="text-2xl font-bold text-white" style={{ textShadow: "0 2px 4px rgba(0, 0, 0, 0.3)" }}>1,390% ROI</span>
                             </div>
                           </div>
                         </div>
@@ -599,8 +599,8 @@ const FirePrevention = () => {
                       <PremiumCartButton 
                         size="lg" 
                         onClick={handleShowRegistrationForm}
-                        className="px-8 py-4 text-lg relative group w-full"
-                        variant="fire"
+                        className="px-8 py-4 text-lg relative group w-full border border-green-500/50"
+                        variant="default"
                       >
                         <div className="flex items-center justify-center">
                           <BarChart3 className="mr-2 h-5 w-5" />
