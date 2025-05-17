@@ -186,7 +186,7 @@ const FirePrevention = () => {
                       </div>
                       
                       <p className="text-xl md:text-2xl text-white mb-2 relative">
-                        <span className="inline-block bg-gradient-to-r from-red-600/20 to-orange-500/20 px-4 py-1 rounded-full border border-orange-500/30 text-sm font-semibold mb-3">EXCLUSIVELY A GOVERNMENT PRODUCT UNTIL NOW</span>
+                        <span className="inline-block bg-gradient-to-r from-red-600/20 to-orange-500/20 px-4 py-1 rounded-full border border-orange-500/30 text-sm font-semibold mb-3">PREVIOUSLY A GOVERNMENT RESOURCE</span>
                       </p>
                       
                       <p className="text-xl md:text-2xl text-white relative">
