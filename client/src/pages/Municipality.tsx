@@ -1778,14 +1778,15 @@ export default function Municipality() {
                     {/* Money background image - increased visibility */}
                     <div className="absolute inset-0 z-0 opacity-70 group-hover:opacity-80 transition-opacity duration-300">
                       <div 
-                        className="absolute inset-0 bg-[url('/attached_assets/jU3xcPi4wPxwMp47Z6WSxb-1200-80.jpg')]" 
+                        className="absolute inset-0 bg-[url('/attached_assets/F7B18297-B3B4-46C2-B4E1-466869133B22.webp')]" 
                         style={{ 
                           backgroundSize: 'cover',
                           backgroundPosition: 'center',
-                          filter: 'brightness(1.2) contrast(1.3)'
+                          filter: 'brightness(1.3) contrast(1.4)',
+                          opacity: 0.7
                         }}
                       ></div>
-                      <div className="absolute inset-0 bg-gradient-to-r from-gray-900/40 to-gray-900/50"></div>
+                      <div className="absolute inset-0 bg-gradient-to-r from-gray-900/30 to-gray-900/40"></div>
                     </div>
                     
                     {/* Premium corner accents */}
@@ -1795,13 +1796,13 @@ export default function Municipality() {
                     <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-green-400 rounded-br-sm z-10"></div>
                     
                     {/* Content */}
-                    <div className="flex items-center relative z-20">
-                      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-green-600 via-green-500 to-green-400 p-[2px] shadow-lg mr-3 flex-shrink-0">
+                    <div className="flex items-center justify-center relative z-20">
+                      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green-600 via-green-500 to-green-400 p-[2px] shadow-lg mr-3 flex-shrink-0">
                         <div className="w-full h-full rounded-full bg-gray-900/80 flex items-center justify-center">
-                          <LineChart className="w-4 h-4 text-green-400" />
+                          <DollarSign className="w-5 h-5 text-green-400" />
                         </div>
                       </div>
-                      <span className="text-white font-medium text-lg drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
+                      <span className="text-white font-semibold text-lg px-3 py-1 bg-gray-900/60 rounded-lg border border-green-500/40 drop-shadow-[0_2px_3px_rgba(0,0,0,0.9)]">
                         Calculate 10-Year Savings
                       </span>
                     </div>
