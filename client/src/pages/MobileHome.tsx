@@ -990,7 +990,11 @@ const MobileHome = () => {
                                     <Textarea 
                                       placeholder="Tell us about your business, services, or specific interests in mobile home products..." 
                                       {...field} 
-                                      className="bg-gray-900 border-gray-700 text-white min-h-[120px]"
+                                      className="bg-gray-900/60 border-2 border-green-500/50 rounded-lg text-white focus:border-green-500 focus:ring-2 focus:ring-green-500/40 shadow-[0_0_10px_rgba(74,222,128,0.15)] placeholder:text-gray-500 min-h-[120px]"
+                                      style={{
+                                        textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)",
+                                        boxShadow: "0 0 15px rgba(74, 222, 128, 0.15), inset 0 0 10px rgba(0, 0, 0, 0.3)"
+                                      }}
                                     />
                                   </FormControl>
                                   <FormMessage />
@@ -1009,12 +1013,15 @@ const MobileHome = () => {
                                     <Checkbox
                                       checked={field.value}
                                       onCheckedChange={field.onChange}
-                                      className="data-[state=checked]:bg-blue-500"
+                                      className="border-2 border-green-500/50 data-[state=checked]:bg-green-500 data-[state=checked]:border-green-500"
+                                      style={{
+                                        boxShadow: "0 0 10px rgba(74, 222, 128, 0.2)"
+                                      }}
                                     />
                                   </FormControl>
                                   <div className="space-y-1 leading-none">
                                     <FormLabel className="text-white">
-                                      I agree to the <a href="#" className="text-blue-400 underline">terms of service</a> and <a href="#" className="text-blue-400 underline">privacy policy</a>
+                                      I agree to the <a href="#" className="text-green-400 underline hover:text-green-300 transition-colors">terms of service</a> and <a href="#" className="text-green-400 underline hover:text-green-300 transition-colors">privacy policy</a>
                                     </FormLabel>
                                     <FormMessage />
                                   </div>
@@ -1030,8 +1037,8 @@ const MobileHome = () => {
                             className="relative group inline-flex items-center"
                             disabled={registerMutation.isPending}
                           >
-                            <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-orange-600 rounded-lg blur opacity-70 group-hover:opacity-100 transition duration-200"></div>
-                            <div className="relative bg-black rounded-lg group-hover:bg-gradient-to-br from-gray-900 to-black transition-all duration-200 py-3 px-8 border border-blue-500/30 text-white font-semibold text-center">
+                            <div className="absolute -inset-0.5 bg-gradient-to-r from-green-600 to-emerald-500 rounded-lg blur opacity-70 group-hover:opacity-100 transition duration-200"></div>
+                            <div className="relative bg-black rounded-lg group-hover:bg-gradient-to-br from-gray-900 to-black transition-all duration-200 py-3 px-8 border border-green-500/30 text-white font-semibold text-center">
                               {registerMutation.isPending ? "Submitting..." : "Submit Registration"}
                             </div>
                           </button>
