@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import MainLayout from "@/components/layout/MainLayout";
 import { GradientButton } from "@/components/ui/gradient-button";
 import { PremiumButton } from "@/components/ui/premium-button";
 import { GradientHeading } from "@/components/ui/gradient-heading";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Progress } from "@/components/ui/progress";
 import { 
   ShieldCheck, 
   Leaf, 
@@ -18,7 +20,25 @@ import {
   Loader2,
   TrendingUp,
   BadgeCheck,
-  ParkingCircle
+  ParkingCircle,
+  LineChart,
+  ChevronRight,
+  Check,
+  BarChart3,
+  PieChart,
+  Award,
+  Shield,
+  ArrowRight,
+  PlayCircle,
+  Download,
+  FileText,
+  CalendarCheck,
+  DollarSign,
+  Percent,
+  Calculator,
+  BookOpen,
+  Zap,
+  Badge
 } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -46,6 +66,31 @@ type MunicipalityProfessionalFormValues = z.infer<typeof municipalityProfessiona
 
 export default function Municipality() {
   const [showRegistrationForm, setShowRegistrationForm] = useState(false);
+  const [showFreeConsultation, setShowFreeConsultation] = useState(false);
+  const [roiCalculatorData, setRoiCalculatorData] = useState({
+    annualMaintenanceCost: 75000,
+    replacementCycle: 7,
+    laborHours: 1200,
+    infrastructureType: 'Water Treatment Plant',
+    surfaceArea: 50000,
+    environmentalExposure: 'Coastal/Marine'
+  });
+  const [calculatedROI, setCalculatedROI] = useState({
+    tenYearSavings: '380,000 - 450,000',
+    maintenanceReduction: '65%',
+    lifespanIncrease: '300%',
+    laborReduction: '50%',
+    environmentalImpact: 'Significant',
+    paybackPeriod: '2.4 years'
+  });
+  const [activeTab, setActiveTab] = useState('overview');
+  const [progress, setProgress] = useState(0);
+  
+  useEffect(() => {
+    const timer = setTimeout(() => setProgress(66), 500);
+    return () => clearTimeout(timer);
+  }, []);
+  
   const { toast } = useToast();
   
   const form = useForm<MunicipalityProfessionalFormValues>({
@@ -207,20 +252,116 @@ export default function Municipality() {
           </div>
         </section>
 
-        {/* Case Study Section */}
-        <section className="py-16 relative z-10">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <GradientHeading
-                className="text-3xl md:text-4xl font-bold mb-12 text-center"
-                from="#ffffff"
-                to="#a3c2ff"
-                shadow="rgba(0, 136, 255, 0.5)"
-              >
-                Municipal Success Stories
-              </GradientHeading>
+        {/* Progressive Sales Funnel - Key Problem Solution Section */}
+        <section className="py-16 relative z-10 overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-b from-gray-900/50 to-black/80 z-0"></div>
+          
+          {/* Large ambient glow for section */}
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-blue-600/10 rounded-full blur-[120px] z-0 opacity-60"></div>
+          
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="max-w-5xl mx-auto">
+              <div className="flex flex-col md:flex-row items-center justify-between mb-16">
+                <div className="md:w-1/2 mb-8 md:mb-0 relative">
+                  <div className="absolute -top-4 -left-4 w-20 h-20 pointer-events-none">
+                    <div className="absolute top-0 left-0 w-10 h-10 border-t-2 border-l-2 border-orange-500/70 rounded-tl-lg"></div>
+                    <div className="absolute top-0 left-0 w-4 h-4 bg-orange-500/50 rounded-full blur-[2px]"></div>
+                  </div>
+                  
+                  <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]">
+                    The Hidden Cost of <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-400">Infrastructure Degradation</span>
+                  </h2>
+                  
+                  <div className="h-1 w-32 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mb-6"></div>
+                  
+                  <p className="text-lg text-gray-300 mb-6">
+                    Most municipalities are experiencing the same critical problem: <span className="font-semibold text-white">infrastructure that deteriorates far faster than budgeted</span>, forcing difficult choices between capital projects and maintenance backlogs.
+                  </p>
+                  
+                  <div className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 border border-red-500/20 rounded-lg p-5 mb-6">
+                    <h3 className="text-lg font-semibold text-white mb-3 flex items-center">
+                      <BadgeAlert className="w-5 h-5 text-red-400 mr-2" />
+                      Critical Municipal Infrastructure Statistics
+                    </h3>
+                    <ul className="space-y-3">
+                      <li className="flex items-start gap-3">
+                        <span className="bg-red-500/20 p-1 rounded-full text-red-300 mt-1 flex-shrink-0">!</span>
+                        <span className="text-gray-300">Over 65% of U.S. municipal water infrastructure exceeds its intended lifespan</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <span className="bg-red-500/20 p-1 rounded-full text-red-300 mt-1 flex-shrink-0">!</span>
+                        <span className="text-gray-300">Municipalities lose $9B+ annually to corrosion-related infrastructure maintenance</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <span className="bg-red-500/20 p-1 rounded-full text-red-300 mt-1 flex-shrink-0">!</span>
+                        <span className="text-gray-300">Most municipal budgets allocate 35-50% more to maintenance than originally planned</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                
+                <div className="md:w-1/2 md:pl-12 relative">
+                  <div className="absolute -bottom-4 -right-4 w-20 h-20 pointer-events-none">
+                    <div className="absolute bottom-0 right-0 w-10 h-10 border-b-2 border-r-2 border-blue-500/70 rounded-br-lg"></div>
+                    <div className="absolute bottom-0 right-0 w-4 h-4 bg-blue-500/50 rounded-full blur-[2px]"></div>
+                  </div>
+                  
+                  <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]">
+                    The <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">Ceramic Solution</span> Advantage
+                  </h2>
+                  
+                  <div className="h-1 w-32 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-full mb-6"></div>
+                  
+                  <p className="text-lg text-gray-300 mb-6">
+                    Previously restricted to <span className="font-semibold text-white">government and aerospace applications</span>, our ceramic coating technology is now available to public infrastructure, delivering unmatched protection and cost savings.
+                  </p>
+                  
+                  <div className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 border border-blue-500/20 rounded-lg p-5 mb-8">
+                    <h3 className="text-lg font-semibold text-white mb-3 flex items-center">
+                      <Shield className="w-5 h-5 text-blue-400 mr-2" />
+                      Advanced Ceramic Technology Benefits
+                    </h3>
+                    <ul className="space-y-3">
+                      <li className="flex items-start gap-3">
+                        <span className="bg-blue-500/20 p-1 rounded-full text-blue-300 mt-1 flex-shrink-0">✓</span>
+                        <span className="text-gray-300">Unlike conventional coatings, our ceramic solution creates a permanent molecular bond</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <span className="bg-blue-500/20 p-1 rounded-full text-blue-300 mt-1 flex-shrink-0">✓</span>
+                        <span className="text-gray-300">Proven in extreme industrial environments with 14+ years of protection</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <span className="bg-blue-500/20 p-1 rounded-full text-blue-300 mt-1 flex-shrink-0">✓</span>
+                        <span className="text-gray-300">Zero VOCs, no hazardous materials, and fully environmentally compliant</span>
+                      </li>
+                    </ul>
+                  </div>
+                  
+                  <div className="flex flex-wrap gap-3">
+                    <GradientButton
+                      onClick={() => {
+                        document.getElementById('roi-calculator')?.scrollIntoView({ behavior: 'smooth' });
+                        setActiveTab('calculator');
+                      }}
+                      className="flex items-center"
+                    >
+                      <Calculator className="w-4 h-4 mr-2" />
+                      Calculate Your Savings
+                    </GradientButton>
+                    <GradientButton
+                      variant="outline"
+                      onClick={() => setShowFreeConsultation(true)}
+                      className="flex items-center"
+                    >
+                      <FileText className="w-4 h-4 mr-2" />
+                      Get Free Assessment
+                    </GradientButton>
+                  </div>
+                </div>
+              </div>
               
-              <div className="bg-gradient-to-br from-gray-800/70 via-gray-850/70 to-gray-900/70 rounded-xl border border-blue-500/20 p-8 relative mb-12">
+              {/* Progress Path */}
+              <div className="bg-gradient-to-br from-gray-850/90 to-gray-900/90 border border-blue-500/20 rounded-lg p-6 mb-8 relative overflow-hidden">
                 {/* Premium corner accents */}
                 <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none">
                   <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-orange-500/70 rounded-tl-lg"></div>
@@ -235,50 +376,68 @@ export default function Municipality() {
                 <div className="absolute inset-0 bg-blue-500/5 rounded-xl z-0"></div>
                 
                 <div className="relative z-10">
-                  <h3 className="text-2xl font-semibold mb-4 text-white">Coastal Water Treatment Facility</h3>
+                  <h3 className="text-2xl font-semibold text-white mb-6 text-center">Your Path to Infrastructure Optimization</h3>
                   
-                  <div className="grid md:grid-cols-2 gap-8 mb-6">
-                    <div>
-                      <h4 className="text-lg font-medium mb-3 text-white">Challenge</h4>
-                      <ul className="space-y-3 mb-4">
-                        <li className="flex items-start gap-3">
-                          <span className="bg-blue-500/20 p-1 rounded-full text-blue-300 mt-1">✓</span>
-                          <span className="text-white">Severe corrosion on multiple tanks and treatment systems requiring annual maintenance</span>
-                        </li>
-                        <li className="flex items-start gap-3">
-                          <span className="bg-blue-500/20 p-1 rounded-full text-blue-300 mt-1">✓</span>
-                          <span className="text-white">Frequent equipment replacement cycles averaging 5-7 years</span>
-                        </li>
-                        <li className="flex items-start gap-3">
-                          <span className="bg-blue-500/20 p-1 rounded-full text-blue-300 mt-1">✓</span>
-                          <span className="text-white">Environmental concerns from traditional protective coatings</span>
-                        </li>
-                      </ul>
+                  <div className="mb-8">
+                    <div className="flex justify-between mb-2">
+                      <span className="text-blue-400">Start</span>
+                      <span className="text-blue-400">Analyze ROI</span>
+                      <span className="text-blue-400">Implementation</span>
                     </div>
-                    
-                    <div>
-                      <h4 className="text-lg font-medium mb-3 text-white">Results</h4>
-                      <ul className="space-y-3 mb-4">
-                        <li className="flex items-start gap-3">
-                          <span className="bg-green-500/20 p-1 rounded-full text-green-300 mt-1">✓</span>
-                          <span className="text-white">Extended maintenance cycle from annual to every 5+ years</span>
-                        </li>
-                        <li className="flex items-start gap-3">
-                          <span className="bg-green-500/20 p-1 rounded-full text-green-300 mt-1">✓</span>
-                          <span className="text-white">Projected equipment lifespan increase of 300%</span>
-                        </li>
-                        <li className="flex items-start gap-3">
-                          <span className="bg-green-500/20 p-1 rounded-full text-green-300 mt-1">✓</span>
-                          <span className="text-white">$425,000 estimated maintenance savings over 10 years</span>
-                        </li>
-                      </ul>
-                    </div>
+                    <Progress value={progress} className="h-3 bg-gray-700" indicatorClassName="bg-gradient-to-r from-blue-600 to-blue-400" />
                   </div>
                   
-                  <div className="flex justify-center mt-6">
-                    <GradientButton onClick={() => setShowRegistrationForm(true)}>
-                      Get Similar Results
-                    </GradientButton>
+                  <div className="grid md:grid-cols-3 gap-6">
+                    <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-blue-500/10 rounded-lg p-5 relative group">
+                      <div className="absolute top-0 left-0 w-12 h-12 pointer-events-none">
+                        <div className="absolute top-0 left-0 w-5 h-5 border-t-2 border-l-2 border-blue-500/50 rounded-tl-md"></div>
+                      </div>
+                      
+                      <div className="flex items-center justify-center h-12 w-12 rounded-full bg-blue-600/20 mb-4 text-blue-400">
+                        <Check className="h-6 w-6" />
+                      </div>
+                      
+                      <h4 className="text-lg font-medium text-white mb-2">1. Free Assessment</h4>
+                      <p className="text-gray-400 mb-4">Schedule a comprehensive infrastructure assessment to identify key protection needs.</p>
+                      
+                      <div className="border-t border-gray-700 pt-4 mt-auto">
+                        <p className="text-blue-400 text-sm">Completed</p>
+                      </div>
+                    </div>
+                    
+                    <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-blue-500/20 rounded-lg p-5 relative group transform scale-105">
+                      <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg opacity-30 blur group-hover:opacity-40 transition duration-300"></div>
+                      
+                      <div className="relative">
+                        <div className="flex items-center justify-center h-12 w-12 rounded-full bg-blue-600/20 mb-4 text-blue-400">
+                          <BarChart3 className="h-6 w-6" />
+                        </div>
+                        
+                        <h4 className="text-lg font-medium text-white mb-2">2. Calculate ROI</h4>
+                        <p className="text-gray-400 mb-4">Use our specialized calculator to project savings across your infrastructure portfolio.</p>
+                        
+                        <div className="border-t border-gray-700 pt-4 mt-auto">
+                          <p className="text-yellow-400 text-sm">In Progress</p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700 rounded-lg p-5 relative group">
+                      <div className="absolute top-0 right-0 w-12 h-12 pointer-events-none">
+                        <div className="absolute top-0 right-0 w-5 h-5 border-t-2 border-r-2 border-gray-600 rounded-tr-md"></div>
+                      </div>
+                      
+                      <div className="flex items-center justify-center h-12 w-12 rounded-full bg-gray-800 mb-4 text-gray-500">
+                        <Award className="h-6 w-6" />
+                      </div>
+                      
+                      <h4 className="text-lg font-medium text-gray-400 mb-2">3. Implementation</h4>
+                      <p className="text-gray-500 mb-4">Custom implementation plan for maximum efficiency and minimal disruption.</p>
+                      
+                      <div className="border-t border-gray-700 pt-4 mt-auto">
+                        <p className="text-gray-500 text-sm">Upcoming</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -286,7 +445,569 @@ export default function Municipality() {
           </div>
         </section>
 
-        {/* ROI Calculator Section */}
+        {/* Tabbed Content Section */}
+        <section className="py-16 relative z-10">
+          <div className="container mx-auto px-4">
+            <GradientHeading
+              className="text-3xl md:text-4xl font-bold mb-12 text-center"
+              from="#ffffff"
+              to="#a3c2ff"
+              shadow="rgba(0, 136, 255, 0.5)"
+            >
+              Municipal Infrastructure Solutions
+            </GradientHeading>
+            
+            <div className="max-w-5xl mx-auto">
+              <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+                <TabsList className="grid w-full grid-cols-3 mb-8 bg-gray-800/50 p-1 rounded-lg border border-blue-500/20">
+                  <TabsTrigger 
+                    value="overview" 
+                    className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-900/50 data-[state=active]:to-blue-700/50 data-[state=active]:text-white text-gray-400"
+                  >
+                    Features & Benefits
+                  </TabsTrigger>
+                  <TabsTrigger 
+                    value="case-studies" 
+                    className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-900/50 data-[state=active]:to-blue-700/50 data-[state=active]:text-white text-gray-400"
+                  >
+                    Case Studies
+                  </TabsTrigger>
+                  <TabsTrigger 
+                    value="calculator" 
+                    className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-900/50 data-[state=active]:to-blue-700/50 data-[state=active]:text-white text-gray-400"
+                  >
+                    ROI Calculator
+                  </TabsTrigger>
+                </TabsList>
+                
+                <TabsContent value="overview" className="rounded-xl">
+                  <div className="bg-gradient-to-br from-gray-800/70 via-gray-850/70 to-gray-900/70 rounded-xl border border-blue-500/20 p-8 relative">
+                    {/* Premium corner accents */}
+                    <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none">
+                      <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-orange-500/70 rounded-tl-lg"></div>
+                      <div className="absolute top-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+                    </div>
+                    <div className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none">
+                      <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-blue-500/70 rounded-br-lg"></div>
+                      <div className="absolute bottom-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
+                    </div>
+                    
+                    {/* Card ambient glow */}
+                    <div className="absolute inset-0 bg-blue-500/5 rounded-xl z-0"></div>
+                    
+                    <div className="relative z-10">
+                      <div className="grid md:grid-cols-2 gap-8 mb-8">
+                        <div>
+                          <h3 className="text-xl font-semibold mb-4 text-white">Previously Government-Restricted Technology</h3>
+                          <p className="text-gray-300 mb-6">
+                            Our ceramic coating technology was previously limited to government infrastructure and aerospace applications due to its specialized formulation and exceptional performance characteristics. Now available for municipal use, this advanced solution delivers unprecedented protection.
+                          </p>
+                          
+                          <h4 className="text-lg font-medium text-white mb-3 flex items-center">
+                            <Zap className="h-5 w-5 text-blue-400 mr-2" />
+                            Key Technical Advantages
+                          </h4>
+                          
+                          <ul className="space-y-3 mb-6">
+                            <li className="flex items-start gap-3">
+                              <span className="bg-blue-500/20 p-1 rounded-full text-blue-300 mt-1 flex-shrink-0">✓</span>
+                              <span className="text-gray-300">Multi-ceramic nanotechnology creates a molecular bond with infrastructure surfaces</span>
+                            </li>
+                            <li className="flex items-start gap-3">
+                              <span className="bg-blue-500/20 p-1 rounded-full text-blue-300 mt-1 flex-shrink-0">✓</span>
+                              <span className="text-gray-300">Exceptional resistance to UV degradation, chemical exposure, and physical abrasion</span>
+                            </li>
+                            <li className="flex items-start gap-3">
+                              <span className="bg-blue-500/20 p-1 rounded-full text-blue-300 mt-1 flex-shrink-0">✓</span>
+                              <span className="text-gray-300">Temperature resistance from -40°F to 400°F without loss of protective properties</span>
+                            </li>
+                            <li className="flex items-start gap-3">
+                              <span className="bg-blue-500/20 p-1 rounded-full text-blue-300 mt-1 flex-shrink-0">✓</span>
+                              <span className="text-gray-300">Single-component application with no special equipment requirements</span>
+                            </li>
+                          </ul>
+                        </div>
+                        
+                        <div>
+                          <h3 className="text-xl font-semibold mb-4 text-white">Applications for Municipal Infrastructure</h3>
+                          
+                          <div className="grid grid-cols-2 gap-4 mb-6">
+                            <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-blue-500/10 rounded-lg p-4">
+                              <div className="flex items-center mb-2">
+                                <div className="w-10 h-10 rounded-full bg-blue-900/50 flex items-center justify-center mr-3">
+                                  <Droplets className="h-5 w-5 text-blue-400" />
+                                </div>
+                                <h4 className="font-medium text-white">Water Treatment</h4>
+                              </div>
+                              <p className="text-gray-400 text-sm">Protection for tanks, pipes, filters, pumps and critical water infrastructure components.</p>
+                            </div>
+                            
+                            <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-blue-500/10 rounded-lg p-4">
+                              <div className="flex items-center mb-2">
+                                <div className="w-10 h-10 rounded-full bg-blue-900/50 flex items-center justify-center mr-3">
+                                  <Building className="h-5 w-5 text-blue-400" />
+                                </div>
+                                <h4 className="font-medium text-white">Public Buildings</h4>
+                              </div>
+                              <p className="text-gray-400 text-sm">Interior and exterior protection for municipal buildings, extending renovation cycles.</p>
+                            </div>
+                            
+                            <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-blue-500/10 rounded-lg p-4">
+                              <div className="flex items-center mb-2">
+                                <div className="w-10 h-10 rounded-full bg-blue-900/50 flex items-center justify-center mr-3">
+                                  <ParkingCircle className="h-5 w-5 text-blue-400" />
+                                </div>
+                                <h4 className="font-medium text-white">Roads & Bridges</h4>
+                              </div>
+                              <p className="text-gray-400 text-sm">Protection for concrete and metal components of transportation infrastructure.</p>
+                            </div>
+                            
+                            <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-blue-500/10 rounded-lg p-4">
+                              <div className="flex items-center mb-2">
+                                <div className="w-10 h-10 rounded-full bg-blue-900/50 flex items-center justify-center mr-3">
+                                  <Landmark className="h-5 w-5 text-blue-400" />
+                                </div>
+                                <h4 className="font-medium text-white">Civic Infrastructure</h4>
+                              </div>
+                              <p className="text-gray-400 text-sm">Protection for monuments, public amenities, and decorative infrastructure.</p>
+                            </div>
+                          </div>
+                          
+                          <div className="bg-gradient-to-r from-gray-800/80 to-gray-850/80 border border-orange-500/20 rounded-lg p-5 relative">
+                            {/* Premium corner accents */}
+                            <div className="absolute top-0 left-0 w-12 h-12 pointer-events-none">
+                              <div className="absolute top-0 left-0 w-5 h-5 border-t-2 border-l-2 border-orange-500/50 rounded-tl-md"></div>
+                            </div>
+                            <div className="absolute bottom-0 right-0 w-12 h-12 pointer-events-none">
+                              <div className="absolute bottom-0 right-0 w-5 h-5 border-b-2 border-r-2 border-blue-500/50 rounded-br-md"></div>
+                            </div>
+                            
+                            <h4 className="text-lg font-medium text-white mb-3 flex items-center">
+                              <Award className="h-5 w-5 text-orange-400 mr-2" />
+                              <span className="drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">Korean Incheon Bridge Case Study</span>
+                            </h4>
+                            
+                            <div className="grid md:grid-cols-2 gap-4 mb-3">
+                              <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 border border-orange-500/10 rounded-lg p-3">
+                                <h5 className="text-sm font-semibold text-white mb-2">Project Specifications</h5>
+                                <ul className="space-y-1 text-xs text-gray-300">
+                                  <li className="flex items-start gap-2">
+                                    <span className="text-orange-400 text-xs mt-0.5">•</span>
+                                    <span>21,400 ft (6.5 km) spanning salt water</span>
+                                  </li>
+                                  <li className="flex items-start gap-2">
+                                    <span className="text-orange-400 text-xs mt-0.5">•</span>
+                                    <span>Constant exposure to salt spray and pollution</span>
+                                  </li>
+                                  <li className="flex items-start gap-2">
+                                    <span className="text-orange-400 text-xs mt-0.5">•</span>
+                                    <span>15 years of continuous protection with no repainting</span>
+                                  </li>
+                                </ul>
+                              </div>
+                              
+                              <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 border border-blue-500/10 rounded-lg p-3">
+                                <h5 className="text-sm font-semibold text-white mb-2">Key Outcomes</h5>
+                                <ul className="space-y-1 text-xs text-gray-300">
+                                  <li className="flex items-start gap-2">
+                                    <span className="text-blue-400 text-xs mt-0.5">•</span>
+                                    <span>Estimated $12M+ maintenance savings</span>
+                                  </li>
+                                  <li className="flex items-start gap-2">
+                                    <span className="text-blue-400 text-xs mt-0.5">•</span>
+                                    <span>Zero structural corrosion despite marine environment</span>
+                                  </li>
+                                  <li className="flex items-start gap-2">
+                                    <span className="text-blue-400 text-xs mt-0.5">•</span>
+                                    <span>Eliminated traffic disruptions from ongoing maintenance</span>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                            
+                            <p className="text-gray-300 mb-4 text-sm">
+                              The iconic Incheon Bridge has maintained perfect structural integrity for 15 years without repainting after ceramic coating application, demonstrating unprecedented durability in one of the world's most corrosive marine environments.
+                            </p>
+                            
+                            <div className="flex justify-end">
+                              <button 
+                                className="text-blue-400 hover:text-blue-300 flex items-center text-sm font-medium"
+                                onClick={() => setActiveTab('case-studies')}
+                              >
+                                View detailed case study
+                                <ChevronRight className="h-4 w-4 ml-1" />
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div className="flex justify-center">
+                        <GradientButton
+                          onClick={() => setActiveTab('calculator')}
+                          className="flex items-center"
+                        >
+                          <Calculator className="w-4 h-4 mr-2" />
+                          Calculate Your Infrastructure ROI
+                        </GradientButton>
+                      </div>
+                    </div>
+                  </div>
+                </TabsContent>
+                
+                <TabsContent value="case-studies">
+                  <div className="bg-gradient-to-br from-gray-800/70 via-gray-850/70 to-gray-900/70 rounded-xl border border-blue-500/20 p-8 relative">
+                    {/* Premium corner accents */}
+                    <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none">
+                      <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-orange-500/70 rounded-tl-lg"></div>
+                      <div className="absolute top-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+                    </div>
+                    <div className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none">
+                      <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-blue-500/70 rounded-br-lg"></div>
+                      <div className="absolute bottom-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
+                    </div>
+                    
+                    {/* Card ambient glow */}
+                    <div className="absolute inset-0 bg-blue-500/5 rounded-xl z-0"></div>
+                    
+                    <div className="relative z-10">
+                      <h3 className="text-2xl font-semibold mb-8 text-white">Municipal Success Stories</h3>
+                      
+                      <div className="space-y-8">
+                        <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-blue-500/10 rounded-lg p-6 relative">
+                          <h3 className="text-xl font-semibold mb-4 text-white">Coastal Water Treatment Facility</h3>
+                          
+                          <div className="grid md:grid-cols-2 gap-8 mb-6">
+                            <div>
+                              <h4 className="text-lg font-medium mb-3 text-white">Challenge</h4>
+                              <ul className="space-y-3 mb-4">
+                                <li className="flex items-start gap-3">
+                                  <span className="bg-blue-500/20 p-1 rounded-full text-blue-300 mt-1">✓</span>
+                                  <span className="text-white">Severe corrosion on multiple tanks and treatment systems requiring annual maintenance</span>
+                                </li>
+                                <li className="flex items-start gap-3">
+                                  <span className="bg-blue-500/20 p-1 rounded-full text-blue-300 mt-1">✓</span>
+                                  <span className="text-white">Frequent equipment replacement cycles averaging 5-7 years</span>
+                                </li>
+                                <li className="flex items-start gap-3">
+                                  <span className="bg-blue-500/20 p-1 rounded-full text-blue-300 mt-1">✓</span>
+                                  <span className="text-white">Environmental concerns from traditional protective coatings</span>
+                                </li>
+                              </ul>
+                            </div>
+                            
+                            <div>
+                              <h4 className="text-lg font-medium mb-3 text-white">Results</h4>
+                              <ul className="space-y-3 mb-4">
+                                <li className="flex items-start gap-3">
+                                  <span className="bg-green-500/20 p-1 rounded-full text-green-300 mt-1">✓</span>
+                                  <span className="text-white">Extended maintenance cycle from annual to every 5+ years</span>
+                                </li>
+                                <li className="flex items-start gap-3">
+                                  <span className="bg-green-500/20 p-1 rounded-full text-green-300 mt-1">✓</span>
+                                  <span className="text-white">Projected equipment lifespan increase of 300%</span>
+                                </li>
+                                <li className="flex items-start gap-3">
+                                  <span className="bg-green-500/20 p-1 rounded-full text-green-300 mt-1">✓</span>
+                                  <span className="text-white">$425,000 estimated maintenance savings over 10 years</span>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-blue-500/10 rounded-lg p-6 relative">
+                          <h3 className="text-xl font-semibold mb-4 text-white">Municipal Public Works Complex</h3>
+                          
+                          <div className="grid md:grid-cols-2 gap-8 mb-6">
+                            <div>
+                              <h4 className="text-lg font-medium mb-3 text-white">Challenge</h4>
+                              <ul className="space-y-3 mb-4">
+                                <li className="flex items-start gap-3">
+                                  <span className="bg-blue-500/20 p-1 rounded-full text-blue-300 mt-1">✓</span>
+                                  <span className="text-white">Deteriorating exterior concrete and metal surfaces requiring biennial repainting</span>
+                                </li>
+                                <li className="flex items-start gap-3">
+                                  <span className="bg-blue-500/20 p-1 rounded-full text-blue-300 mt-1">✓</span>
+                                  <span className="text-white">UV and weather damage causing premature failure of traditional coatings</span>
+                                </li>
+                                <li className="flex items-start gap-3">
+                                  <span className="bg-blue-500/20 p-1 rounded-full text-blue-300 mt-1">✓</span>
+                                  <span className="text-white">Extensive maintenance labor requirements competing with essential services</span>
+                                </li>
+                              </ul>
+                            </div>
+                            
+                            <div>
+                              <h4 className="text-lg font-medium mb-3 text-white">Results</h4>
+                              <ul className="space-y-3 mb-4">
+                                <li className="flex items-start gap-3">
+                                  <span className="bg-green-500/20 p-1 rounded-full text-green-300 mt-1">✓</span>
+                                  <span className="text-white">Eliminated repainting cycles for projected 12+ year protection</span>
+                                </li>
+                                <li className="flex items-start gap-3">
+                                  <span className="bg-green-500/20 p-1 rounded-full text-green-300 mt-1">✓</span>
+                                  <span className="text-white">Reduced maintenance staffing needs by 35%, redirecting to other priorities</span>
+                                </li>
+                                <li className="flex items-start gap-3">
+                                  <span className="bg-green-500/20 p-1 rounded-full text-green-300 mt-1">✓</span>
+                                  <span className="text-white">$280,000 cost avoidance over 10-year projections</span>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-orange-500/20 rounded-lg p-6 relative">
+                          <h3 className="text-xl font-semibold mb-4 text-white">Korean Incheon Bridge</h3>
+                          
+                          <div className="grid md:grid-cols-2 gap-8 mb-6">
+                            <div>
+                              <h4 className="text-lg font-medium mb-3 text-white">Challenge</h4>
+                              <ul className="space-y-3 mb-4">
+                                <li className="flex items-start gap-3">
+                                  <span className="bg-blue-500/20 p-1 rounded-full text-blue-300 mt-1">✓</span>
+                                  <span className="text-white">21,000+ foot bridge spanning aggressive salt water environment</span>
+                                </li>
+                                <li className="flex items-start gap-3">
+                                  <span className="bg-blue-500/20 p-1 rounded-full text-blue-300 mt-1">✓</span>
+                                  <span className="text-white">Traditional protective coatings required reapplication every 3-5 years</span>
+                                </li>
+                                <li className="flex items-start gap-3">
+                                  <span className="bg-blue-500/20 p-1 rounded-full text-blue-300 mt-1">✓</span>
+                                  <span className="text-white">Enormous maintenance costs and traffic disruption during recoating</span>
+                                </li>
+                              </ul>
+                            </div>
+                            
+                            <div>
+                              <h4 className="text-lg font-medium mb-3 text-white">Results</h4>
+                              <ul className="space-y-3 mb-4">
+                                <li className="flex items-start gap-3">
+                                  <span className="bg-green-500/20 p-1 rounded-full text-green-300 mt-1">✓</span>
+                                  <span className="text-white">14+ years without recoating despite constant salt spray exposure</span>
+                                </li>
+                                <li className="flex items-start gap-3">
+                                  <span className="bg-green-500/20 p-1 rounded-full text-green-300 mt-1">✓</span>
+                                  <span className="text-white">Zero structural corrosion detected in annual inspections</span>
+                                </li>
+                                <li className="flex items-start gap-3">
+                                  <span className="bg-green-500/20 p-1 rounded-full text-green-300 mt-1">✓</span>
+                                  <span className="text-white">Millions in maintenance cost savings and eliminated traffic disruptions</span>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div className="flex justify-center mt-8">
+                        <GradientButton 
+                          onClick={() => {
+                            document.getElementById('roi-calculator')?.scrollIntoView({ behavior: 'smooth' });
+                            setActiveTab('calculator');
+                          }}
+                          className="flex items-center"
+                        >
+                          <Calculator className="w-4 h-4 mr-2" />
+                          Calculate Your Infrastructure ROI
+                        </GradientButton>
+                      </div>
+                    </div>
+                  </div>
+                </TabsContent>
+                
+                <TabsContent value="calculator" id="roi-calculator">
+                  <div className="bg-gradient-to-br from-gray-800/70 via-gray-850/70 to-gray-900/70 rounded-xl border border-blue-500/20 p-8 relative">
+                    {/* Premium corner accents */}
+                    <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none">
+                      <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-orange-500/70 rounded-tl-lg"></div>
+                      <div className="absolute top-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+                    </div>
+                    <div className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none">
+                      <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-blue-500/70 rounded-br-lg"></div>
+                      <div className="absolute bottom-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
+                    </div>
+                    
+                    {/* Card ambient glow */}
+                    <div className="absolute inset-0 bg-blue-500/5 rounded-xl z-0"></div>
+                    
+                    <div className="relative z-10">
+                      <h3 className="text-2xl font-semibold mb-6 text-white text-center flex items-center justify-center">
+                        <Calculator className="w-6 h-6 mr-2 text-blue-400" />
+                        Municipal Infrastructure ROI Calculator
+                      </h3>
+                      
+                      <p className="text-lg text-gray-300 mb-8 text-center max-w-3xl mx-auto">
+                        Calculate your potential savings by protecting municipal infrastructure with our ceramic coating technology. This tool provides a custom ROI analysis for your specific infrastructure needs.
+                      </p>
+                      
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                        <div>
+                          <h3 className="text-xl font-semibold mb-6 text-white flex items-center">
+                            <CircleDollarSign className="w-5 h-5 mr-2 text-blue-400" />
+                            Current Maintenance Costs
+                          </h3>
+                          
+                          <div className="space-y-4">
+                            <div>
+                              <label className="block text-gray-400 mb-2">Annual Maintenance Cost ($)</label>
+                              <input 
+                                type="number" 
+                                className="w-full bg-gray-900/50 border border-gray-700 rounded-lg p-3 text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                                placeholder="75000"
+                                value={roiCalculatorData.annualMaintenanceCost}
+                                onChange={(e) => setRoiCalculatorData({
+                                  ...roiCalculatorData,
+                                  annualMaintenanceCost: parseInt(e.target.value) || 0
+                                })}
+                              />
+                            </div>
+                            
+                            <div>
+                              <label className="block text-gray-400 mb-2">Average Replacement Cycle (Years)</label>
+                              <input 
+                                type="number" 
+                                className="w-full bg-gray-900/50 border border-gray-700 rounded-lg p-3 text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                                placeholder="7"
+                                value={roiCalculatorData.replacementCycle}
+                                onChange={(e) => setRoiCalculatorData({
+                                  ...roiCalculatorData,
+                                  replacementCycle: parseInt(e.target.value) || 0
+                                })}
+                              />
+                            </div>
+                            
+                            <div>
+                              <label className="block text-gray-400 mb-2">Annual Labor Hours</label>
+                              <input 
+                                type="number" 
+                                className="w-full bg-gray-900/50 border border-gray-700 rounded-lg p-3 text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                                placeholder="1200"
+                                value={roiCalculatorData.laborHours}
+                                onChange={(e) => setRoiCalculatorData({
+                                  ...roiCalculatorData,
+                                  laborHours: parseInt(e.target.value) || 0
+                                })}
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div>
+                          <h3 className="text-xl font-semibold mb-6 text-white flex items-center">
+                            <Landmark className="w-5 h-5 mr-2 text-blue-400" />
+                            Infrastructure Details
+                          </h3>
+                          
+                          <div className="space-y-4">
+                            <div>
+                              <label className="block text-gray-400 mb-2">Infrastructure Type</label>
+                              <select 
+                                className="w-full bg-gray-900/50 border border-gray-700 rounded-lg p-3 text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                                value={roiCalculatorData.infrastructureType}
+                                onChange={(e) => setRoiCalculatorData({
+                                  ...roiCalculatorData,
+                                  infrastructureType: e.target.value
+                                })}
+                              >
+                                <option>Water Treatment Plant</option>
+                                <option>Wastewater Facility</option>
+                                <option>Public Buildings</option>
+                                <option>Bridges & Overpasses</option>
+                                <option>Other Municipal Structures</option>
+                              </select>
+                            </div>
+                            
+                            <div>
+                              <label className="block text-gray-400 mb-2">Surface Area (sq ft)</label>
+                              <input 
+                                type="number" 
+                                className="w-full bg-gray-900/50 border border-gray-700 rounded-lg p-3 text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                                placeholder="50000"
+                                value={roiCalculatorData.surfaceArea}
+                                onChange={(e) => setRoiCalculatorData({
+                                  ...roiCalculatorData,
+                                  surfaceArea: parseInt(e.target.value) || 0
+                                })}
+                              />
+                            </div>
+                            
+                            <div>
+                              <label className="block text-gray-400 mb-2">Environmental Exposure</label>
+                              <select 
+                                className="w-full bg-gray-900/50 border border-gray-700 rounded-lg p-3 text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                                value={roiCalculatorData.environmentalExposure}
+                                onChange={(e) => setRoiCalculatorData({
+                                  ...roiCalculatorData,
+                                  environmentalExposure: e.target.value
+                                })}
+                              >
+                                <option>Coastal/Marine</option>
+                                <option>Urban/Industrial</option>
+                                <option>Rural</option>
+                                <option>Chemical/Corrosive</option>
+                                <option>Standard</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div className="flex justify-center mb-8">
+                        <GradientButton 
+                          onClick={() => {
+                            // In a real application, this would calculate based on inputs
+                            toast({
+                              title: "ROI Analysis Complete",
+                              description: "Your custom ROI analysis has been generated based on your infrastructure details.",
+                            });
+                          }}
+                          className="flex items-center"
+                        >
+                          <LineChart className="w-4 h-4 mr-2" />
+                          Calculate 10-Year Savings
+                        </GradientButton>
+                      </div>
+                      
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                        <div className="bg-gray-900/50 border border-blue-500/30 rounded-lg p-5 text-center">
+                          <h4 className="text-lg font-medium mb-2 text-white">10-Year ROI</h4>
+                          <p className="text-3xl font-bold text-blue-300 mb-1">${calculatedROI.tenYearSavings}</p>
+                          <p className="text-gray-400 text-sm">Estimated total savings</p>
+                        </div>
+                        
+                        <div className="bg-gray-900/50 border border-blue-500/30 rounded-lg p-5 text-center">
+                          <h4 className="text-lg font-medium mb-2 text-white">Lifespan Increase</h4>
+                          <p className="text-3xl font-bold text-blue-300 mb-1">{calculatedROI.lifespanIncrease}</p>
+                          <p className="text-gray-400 text-sm">Infrastructure longevity</p>
+                        </div>
+                        
+                        <div className="bg-gray-900/50 border border-blue-500/30 rounded-lg p-5 text-center">
+                          <h4 className="text-lg font-medium mb-2 text-white">Payback Period</h4>
+                          <p className="text-3xl font-bold text-blue-300 mb-1">{calculatedROI.paybackPeriod}</p>
+                          <p className="text-gray-400 text-sm">Initial investment recovery</p>
+                        </div>
+                      </div>
+                      
+                      <div className="flex justify-center">
+                        <GradientButton
+                          onClick={() => setShowRegistrationForm(true)}
+                          className="flex items-center"
+                        >
+                          <FileText className="w-4 h-4 mr-2" />
+                          Get Detailed ROI Assessment
+                        </GradientButton>
+                      </div>
+                    </div>
+                  </div>
+                </TabsContent>
+              </Tabs>
+            </div>
+          </div>
+        </section>
+
+        {/* Free Resources Section */}
         <section id="roi-calculator" className="py-16 relative z-10">
           <div className="container mx-auto px-4">
             <GradientHeading

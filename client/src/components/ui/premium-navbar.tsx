@@ -73,7 +73,7 @@ const NavItem = ({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="absolute left-1/2 -translate-x-1/2 transform top-12 z-[2147483647] w-[600px] px-4"
+            className="absolute left-1/2 -translate-x-1/2 transform top-12 z-[9999] w-[600px] px-4"
             style={{ maxWidth: "95vw" }}
           >
             <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black/5">
