@@ -1683,7 +1683,6 @@ export default function Municipality() {
                     <h3 className="text-xl font-semibold mb-6 text-white flex items-center">
                       <div className="flex-shrink-0 w-9 h-9 rounded-full bg-gradient-to-br from-green-600 via-green-500 to-green-400 flex items-center justify-center mr-3 shadow-[0_0_10px_rgba(74,222,128,0.4)] border border-green-400/30 p-[2px]">
                         <div className="w-full h-full rounded-full bg-gradient-to-b from-gray-900 to-gray-950 flex items-center justify-center overflow-hidden">
-                          <div className="absolute top-0 left-0 right-0 h-1/3 bg-gradient-to-b from-white/10 to-transparent rounded-t-full"></div>
                           <CircleDollarSign className="w-4 h-4 text-green-400 drop-shadow-[0_0_2px_rgba(74,222,128,0.5)]" />
                         </div>
                       </div>
