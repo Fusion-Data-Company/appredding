@@ -15,7 +15,7 @@ import {
   FormLabel,
   FormMessage
 } from "@/components/ui/form";
-import { HardHat, Droplets, ShieldCheck, Leaf, Building, PaintBucket, Umbrella, HardDrive, Hammer, Ruler, Wrench, CheckCircle, Warehouse, Truck, Award } from "lucide-react";
+import { HardHat, Droplets, ShieldCheck, Leaf, Building, PaintBucket, Umbrella, HardDrive, Hammer, Ruler, Wrench, CheckCircle, Warehouse, Truck, Award, CircleDollarSign, BarChart3 as BarChart3Icon } from "lucide-react";
 import { insertConstructionDistributorSchema } from "@shared/schema";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";

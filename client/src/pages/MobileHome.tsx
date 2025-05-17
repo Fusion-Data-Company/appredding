@@ -28,6 +28,8 @@ import {
   Waves as WavesIcon,
   Droplets as DropletIcon,
   Timer as TimerIcon,
+  BarChart2,
+  CircleDollarSign,
   Thermometer as ThermometerIcon,
   Award,
   FileText,
@@ -614,19 +616,31 @@ const MobileHome = () => {
                       </div>
                     </div>
                     
-                    <div className="text-center mt-6">
-                      <button 
-                        onClick={() => setShowRegistrationForm(true)}
-                        className="relative inline-flex items-center justify-center px-8 py-4 overflow-hidden font-medium text-blue-600 transition duration-300 ease-out border-2 border-blue-500 rounded-lg shadow-md group"
-                      >
-                        <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-blue-600 group-hover:translate-x-0 ease">
-                          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                          </svg>
-                        </span>
-                        <span className="absolute flex items-center justify-center w-full h-full text-blue-500 transition-all duration-300 transform group-hover:translate-x-full ease">Get Custom ROI Analysis</span>
-                        <span className="relative invisible">Get Custom ROI Analysis</span>
-                      </button>
+                    <div className="flex justify-center mt-6 gap-4">
+                      <div className="relative group">
+                        <div className="absolute -inset-0.5 bg-blue-600 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-200"></div>
+                        <button 
+                          onClick={() => setShowRegistrationForm(true)}
+                          className="relative px-6 py-3 bg-black text-white font-medium rounded-lg border border-blue-500/50 hover:border-blue-400 transition duration-200"
+                        >
+                          <span className="flex items-center justify-center">
+                            <CircleDollarSign className="mr-2 h-5 w-5 text-green-400" />
+                            <span>Calculate Your 287% ROI</span>
+                          </span>
+                        </button>
+                      </div>
+                      
+                      <div className="relative group">
+                        <div className="absolute -inset-0.5 bg-orange-600 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-200"></div>
+                        <button 
+                          className="relative px-6 py-3 bg-black text-white font-medium rounded-lg border border-orange-500/50 hover:border-orange-400 transition duration-200"
+                        >
+                          <span className="flex items-center justify-center">
+                            <BarChart2 className="mr-2 h-5 w-5 text-blue-400" />
+                            <span>View 10-Year Savings Model</span>
+                          </span>
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
