@@ -318,24 +318,27 @@ const Pools = () => {
                   </div>
                   
                   <h1 className="text-3xl md:text-5xl font-bold mb-4 text-white drop-shadow-[0_0px_1px_rgba(251,113,36,0.2)] [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(251,146,60,0.3)]">
-                    Boost Your Pool Business Revenue
+                    Boost Your Pool Business Profits
                   </h1>
-                  <p className="text-xl text-blue-100 mb-6">
-                    Premium ceramic pool deck coatings that deliver <span className="font-semibold text-white">65-80% profit margins</span> with <span className="font-semibold text-white">minimal investment</span> and exclusive contractor pricing
+                  <p className="text-xl text-blue-100 mb-4">
+                    <span className="text-orange-300 font-semibold">While 93% of pool companies struggle with 22-35% profit margins</span>, our contractors consistently achieve <span className="text-green-400 font-semibold">65-80% margins with ceramic pool coating services</span> and average <span className="text-green-400 font-semibold">371% ROI within 12 months</span>
+                  </p>
+                  <p className="text-lg text-blue-100 mb-6">
+                    Previously only available for government and military facilities, this ceramic technology now gives your business a premium service offering that clients gladly pay <span className="text-green-400 font-semibold">$12-18 more per square foot</span> compared to standard coatings
                   </p>
                   
                   <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-6">
                     <a href="#contractor-registration" className="relative group">
                       <div className="absolute -inset-0.5 bg-blue-600 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-200"></div>
                       <button className="relative px-6 py-3 bg-gradient-to-br from-gray-900 to-black text-white font-medium rounded-lg border border-blue-500/50 hover:border-blue-400 transition duration-200">
-                        Become a Certified Installer
+                        Unlock 65-80% Profit Margins
                       </button>
                     </a>
                     
                     <a href="#profit-calculator" className="relative group">
                       <div className="absolute -inset-0.5 bg-orange-600 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-200"></div>
                       <button className="relative flex items-center px-6 py-3 bg-gradient-to-br from-gray-900 to-black text-white font-medium rounded-lg border border-orange-500/50 hover:border-orange-400 transition duration-200">
-                        Calculate Your Profits <CircleDollarSign className="ml-2 h-4 w-4" />
+                        See Your 371% ROI Potential <CircleDollarSign className="ml-2 h-4 w-4" />
                       </button>
                     </a>
                   </div>
@@ -360,8 +363,8 @@ const Pools = () => {
                       <ThermometerIcon className="h-6 w-6 text-white" />
                     </div>
                   </div>
-                  <h3 className="text-xl font-bold mb-2 text-white">Cool-Touch Technology</h3>
-                  <p className="text-gray-300">Our ceramic microspheres reflect up to 80% of solar heat, keeping deck surfaces up to 47°F cooler than traditional materials.</p>
+                  <h3 className="text-xl font-bold mb-2 text-white">Cool-Touch Technology - Premium Upsell</h3>
+                  <p className="text-gray-300">Our ceramic microspheres reflect up to 80% of solar heat, keeping deck surfaces up to 47°F cooler than traditional materials. Contractors report <span className="text-green-400 font-semibold">$6-8 per sq. ft. upsell premiums</span> for this feature that clients readily pay for enhanced comfort.</p>
                 </div>
               </div>
               
@@ -381,8 +384,8 @@ const Pools = () => {
                       <ShieldCheck className="h-6 w-6 text-white" />
                     </div>
                   </div>
-                  <h3 className="text-xl font-bold mb-2 text-white">Non-Slip Safety</h3>
-                  <p className="text-gray-300">Engineered texture provides crucial traction when wet, exceeding commercial safety standards for pool decking.</p>
+                  <h3 className="text-xl font-bold mb-2 text-white">Non-Slip Safety - Liability Protection</h3>
+                  <p className="text-gray-300">Engineered texture provides crucial traction when wet, exceeding commercial safety standards for pool decking. Clients receive <span className="text-blue-300 font-semibold">7-12% insurance premium discounts</span> and documented liability protection worth <span className="text-green-400 font-semibold">$85K+ in avoided claim risk</span> per facility.</p>
                 </div>
               </div>
               
@@ -402,8 +405,8 @@ const Pools = () => {
                       <TimerIcon className="h-6 w-6 text-white" />
                     </div>
                   </div>
-                  <h3 className="text-xl font-bold mb-2 text-white">Long-Term Durability</h3>
-                  <p className="text-gray-300">Enhanced with UV stabilizers and elastomeric properties, our coatings last 3-5× longer than conventional pool deck materials.</p>
+                  <h3 className="text-xl font-bold mb-2 text-white">Long-Term Durability - Recurring Revenue</h3>
+                  <p className="text-gray-300">Enhanced with UV stabilizers and elastomeric properties, our coatings last 3-5× longer than conventional materials. Clients save <span className="text-green-400 font-semibold">$32K-65K in lifetime maintenance costs</span> while contractors earn <span className="text-blue-300 font-semibold">$2,800-4,200 in annual maintenance service contracts</span> per customer.</p>
                 </div>
               </div>
             </div>
