@@ -388,6 +388,7 @@ const MunicipalityProfessionalForm = () => {
                         <Textarea 
                           placeholder="Water treatment, public works, regulatory compliance, etc."
                           {...field}
+                          value={field.value ? (typeof field.value === 'string' ? field.value : JSON.stringify(field.value)) : ""}
                           className="bg-primary-800 border-primary-600 min-h-[100px]"
                         />
                       </FormControl>
@@ -426,6 +427,7 @@ const MunicipalityProfessionalForm = () => {
                         <Textarea 
                           placeholder="Relevant certifications, credentials, or qualifications"
                           {...field}
+                          value={field.value || ""}
                           className="bg-primary-800 border-primary-600 min-h-[100px]"
                         />
                       </FormControl>
@@ -501,6 +503,7 @@ const MunicipalityProfessionalForm = () => {
                       <Textarea 
                         placeholder="Any additional information you'd like to provide"
                         {...field}
+                        value={field.value || ""}
                         className="bg-primary-800 border-primary-600 min-h-[100px]"
                       />
                     </FormControl>
