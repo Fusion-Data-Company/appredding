@@ -515,12 +515,33 @@ const Marinas = () => {
                       </div>
                       
                       <div className="mt-6 pt-4 border-t border-blue-900/50">
-                        <h4 className="text-xl font-semibold text-white mb-3">Need Professional Application?</h4>
+                        <div className="bg-gradient-to-br from-blue-950/40 to-black/40 border border-blue-600/30 rounded-lg p-4 mb-4">
+                          <div className="flex items-center gap-3 mb-2">
+                            <CircleDollarSign className="h-6 w-6 text-green-400" />
+                            <h4 className="text-xl font-semibold text-white">Marine ROI Calculator</h4>
+                          </div>
+                          <p className="text-blue-100 mb-3">Calculate your 411% ROI potential with our advanced marine protection system</p>
+                          <div className="grid grid-cols-2 gap-3 mb-3">
+                            <div className="bg-black/30 border border-blue-500/20 rounded p-2">
+                              <span className="text-blue-200 text-xs">Avg. Maintenance Reduction:</span>
+                              <span className="text-green-400 font-bold text-lg block">$278K/year</span>
+                            </div>
+                            <div className="bg-black/30 border border-orange-500/20 rounded p-2">
+                              <span className="text-blue-200 text-xs">Extended Asset Lifespan:</span>
+                              <span className="text-green-400 font-bold text-lg block">+12.4 years</span>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <h4 className="text-xl font-semibold text-white mb-3">Calculate Your Marine ROI Potential</h4>
                         <div className="relative">
                           <div className="absolute -inset-1 bg-orange-500/30 rounded-lg blur-md opacity-70"></div>
                           <div className="relative">
                             <PremiumCartButton onClick={handleShowRegistrationForm} size="lg" className="w-full">
-                              Register as Marina Professional
+                              <div className="flex items-center justify-center gap-2">
+                                <BarChart3 className="h-5 w-5" />
+                                <span>Calculate 411% ROI For Your Marina</span>
+                              </div>
                             </PremiumCartButton>
                           </div>
                         </div>
@@ -740,7 +761,10 @@ const Marinas = () => {
                             className="w-full"
                             disabled={registerMutation.isPending}
                           >
-                            {registerMutation.isPending ? "Submitting..." : "Submit Registration"}
+                            <div className="flex items-center justify-center gap-2">
+                              <CircleDollarSign className="h-5 w-5" />
+                              <span>{registerMutation.isPending ? "Submitting..." : "Get Your 411% ROI Analysis"}</span>
+                            </div>
                           </PremiumCartButton>
                         </div>
                       </div>
