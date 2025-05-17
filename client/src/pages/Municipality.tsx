@@ -1196,9 +1196,16 @@ export default function Municipality() {
                         </div>
                       </div>
                       
-                      <div className="bg-gray-900/30 rounded-lg p-5 border border-blue-500/10 mb-8">
-                        <h4 className="text-white font-semibold mb-3 flex items-center">
-                          <BookOpen className="w-4 h-4 mr-2 text-blue-400" />
+                      <div className="bg-gray-900/30 rounded-lg p-5 border border-blue-500/10 mb-8 relative">
+                        {/* Strategic green ambient glow for financial/ROI section */}
+                        <div className="absolute -inset-1 bg-green-500/10 rounded-xl blur-xl opacity-70 z-0"></div>
+                        <div className="absolute -inset-4 bg-green-600/5 rounded-xl blur-2xl opacity-60 z-0 animate-pulse-slow"></div>
+                        
+                        <h4 className="text-white font-semibold mb-3 flex items-center relative z-10">
+                          <div className="bg-gradient-to-br from-green-600 to-green-700 rounded-full p-1 mr-2 
+                            border border-green-400/40 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_0_4px_rgba(74,222,128,0.4)]">
+                            <BookOpen className="w-4 h-4 text-green-100" />
+                          </div>
                           Advanced Ceramic Technology vs. Traditional Protection
                         </h4>
                         
@@ -1293,25 +1300,37 @@ export default function Municipality() {
                       </div>
                       
                       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-                        <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 border border-blue-500/30 rounded-lg p-5 text-center relative overflow-hidden">
-                          <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-blue-500/5 rounded-full"></div>
-                          <h4 className="text-lg font-medium mb-2 text-white">15-Year Savings</h4>
-                          <p className="text-3xl font-bold text-blue-300 mb-1">${calculatedROI.tenYearSavings}</p>
-                          <p className="text-gray-400 text-sm">Total projected savings</p>
+                        <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 border border-green-500/30 rounded-lg p-5 text-center relative overflow-hidden">
+                          {/* Strategic green ambient glow for money card */}
+                          <div className="absolute -inset-1 bg-green-500/10 rounded-xl blur-lg opacity-70 z-0"></div>
+                          <div className="absolute -inset-4 bg-green-500/5 rounded-xl blur-2xl opacity-60 z-0 animate-pulse-slow"></div>
+                          
+                          <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-green-500/10 rounded-full"></div>
+                          <h4 className="text-lg font-medium mb-2 text-white relative z-10">15-Year Savings</h4>
+                          <p className="text-3xl font-bold text-green-300 mb-1 relative z-10">${calculatedROI.tenYearSavings}</p>
+                          <p className="text-gray-400 text-sm relative z-10">Total projected savings</p>
                         </div>
                         
-                        <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 border border-blue-500/30 rounded-lg p-5 text-center relative overflow-hidden">
-                          <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-blue-500/5 rounded-full"></div>
-                          <h4 className="text-lg font-medium mb-2 text-white">Asset Life Extension</h4>
-                          <p className="text-3xl font-bold text-blue-300 mb-1">{calculatedROI.lifespanIncrease}</p>
-                          <p className="text-gray-400 text-sm">Extended infrastructure longevity</p>
+                        <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 border border-green-500/30 rounded-lg p-5 text-center relative overflow-hidden">
+                          {/* Strategic green ambient glow for money card */}
+                          <div className="absolute -inset-1 bg-green-500/10 rounded-xl blur-lg opacity-70 z-0"></div>
+                          <div className="absolute -inset-4 bg-green-500/5 rounded-xl blur-2xl opacity-60 z-0 animate-pulse-slow"></div>
+                          
+                          <div className="absolute -top-4 -left-4 w-32 h-32 bg-green-500/10 rounded-full"></div>
+                          <h4 className="text-lg font-medium mb-2 text-white relative z-10">Asset Life Extension</h4>
+                          <p className="text-3xl font-bold text-green-300 mb-1 relative z-10">{calculatedROI.lifespanIncrease}</p>
+                          <p className="text-gray-400 text-sm relative z-10">Extended infrastructure longevity</p>
                         </div>
                         
-                        <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 border border-blue-500/30 rounded-lg p-5 text-center relative overflow-hidden">
-                          <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-blue-500/5 rounded-full"></div>
-                          <h4 className="text-lg font-medium mb-2 text-white">ROI Breakeven</h4>
-                          <p className="text-3xl font-bold text-blue-300 mb-1">{calculatedROI.paybackPeriod}</p>
-                          <p className="text-gray-400 text-sm">Investment recovery timeline</p>
+                        <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 border border-green-500/30 rounded-lg p-5 text-center relative overflow-hidden">
+                          {/* Strategic green ambient glow for money card */}
+                          <div className="absolute -inset-1 bg-green-500/10 rounded-xl blur-lg opacity-70 z-0"></div>
+                          <div className="absolute -inset-4 bg-green-500/5 rounded-xl blur-2xl opacity-60 z-0 animate-pulse-slow"></div>
+                          
+                          <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-green-500/10 rounded-full"></div>
+                          <h4 className="text-lg font-medium mb-2 text-white relative z-10">ROI Breakeven</h4>
+                          <p className="text-3xl font-bold text-green-300 mb-1 relative z-10">{calculatedROI.paybackPeriod}</p>
+                          <p className="text-gray-400 text-sm relative z-10">Investment recovery timeline</p>
                         </div>
                       </div>
                       
