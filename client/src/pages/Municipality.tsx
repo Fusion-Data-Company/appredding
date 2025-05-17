@@ -184,22 +184,79 @@ export default function Municipality() {
           />
           <div className="container mx-auto px-4 relative z-10">
             <div className="flex flex-col items-center max-w-4xl mx-auto text-center mb-16 relative">
-              {/* Enterprise-grade header container */}
-              <div className="relative bg-gradient-to-b from-gray-900/70 to-gray-950/90 p-8 rounded-xl border-b-2 border-blue-500/50 border-t border-t-blue-400/30 border-x border-x-blue-700/20 mb-8">
-                {/* Premium glow behind the header - not affecting text readability */}
-                <div className="absolute -inset-4 bg-gradient-to-br from-blue-700/20 via-blue-600/10 to-blue-800/15 rounded-lg blur-xl z-0 opacity-70"></div>
+              {/* Premium Cinematic Enterprise Header Container */}
+              <div className="relative py-8 px-6 bg-gradient-to-br from-gray-900/90 via-gray-950/95 to-gray-900/90 
+                border-b-2 border-blue-500/60 border-t border-t-blue-400/30 rounded-lg mb-8
+                shadow-[0_10px_50px_rgba(59,130,246,0.15),inset_0_1px_20px_rgba(59,130,246,0.05)]">
                 
-                {/* Enterprise header with crisp, readable text */}
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 relative z-10">
-                  Municipal Infrastructure Protection
-                </h1>
+                {/* Metallic corner accents */}
+                <div className="absolute top-0 left-0 w-20 h-20 pointer-events-none">
+                  <div className="absolute top-0 left-0 w-12 h-1 bg-gradient-to-r from-blue-500 to-transparent rounded-full"></div>
+                  <div className="absolute top-0 left-0 h-12 w-1 bg-gradient-to-b from-blue-500 to-transparent rounded-full"></div>
+                </div>
+                <div className="absolute top-0 right-0 w-20 h-20 pointer-events-none">
+                  <div className="absolute top-0 right-0 w-12 h-1 bg-gradient-to-l from-blue-500 to-transparent rounded-full"></div>
+                  <div className="absolute top-0 right-0 h-12 w-1 bg-gradient-to-b from-blue-500 to-transparent rounded-full"></div>
+                </div>
+                <div className="absolute bottom-0 left-0 w-20 h-20 pointer-events-none">
+                  <div className="absolute bottom-0 left-0 w-12 h-1 bg-gradient-to-r from-blue-500 to-transparent rounded-full"></div>
+                  <div className="absolute bottom-0 left-0 h-12 w-1 bg-gradient-to-t from-blue-500 to-transparent rounded-full"></div>
+                </div>
+                <div className="absolute bottom-0 right-0 w-20 h-20 pointer-events-none">
+                  <div className="absolute bottom-0 right-0 w-12 h-1 bg-gradient-to-l from-blue-500 to-transparent rounded-full"></div>
+                  <div className="absolute bottom-0 right-0 h-12 w-1 bg-gradient-to-t from-blue-500 to-transparent rounded-full"></div>
+                </div>
                 
-                {/* Elegant accent bar */}
-                <div className="w-32 h-1 bg-gradient-to-r from-blue-600 to-blue-400 mx-auto mb-6"></div>
+                {/* Premium subtle glow effects */}
+                <div className="absolute top-1/4 right-1/4 w-32 h-32 bg-blue-500/5 rounded-full blur-xl"></div>
+                <div className="absolute bottom-1/4 left-1/4 w-32 h-32 bg-cyan-500/5 rounded-full blur-xl"></div>
                 
-                <p className="text-lg md:text-xl text-white mb-8 max-w-3xl mx-auto">
-                  Specialized ceramic coating solutions for extending the life of critical municipal infrastructure while reducing maintenance costs and environmental impact.
+                {/* Top badge */}
+                <div className="relative mb-3 inline-block">
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-700/20 to-blue-400/20 blur-sm rounded-full"></div>
+                  <span className="relative inline-block px-4 py-1 rounded-full 
+                    bg-gradient-to-r from-black/80 to-gray-900/80
+                    border border-blue-500/40 text-sm font-semibold text-blue-300
+                    shadow-[0_2px_10px_rgba(59,130,246,0.2)]">
+                    PREVIOUSLY A GOVERNMENT RESOURCE
+                  </span>
+                </div>
+                
+                {/* Main title with layered metal effect */}
+                <div className="overflow-hidden relative mb-4">
+                  <div className="absolute inset-0 bg-gradient-to-b from-blue-500/5 via-transparent to-transparent rounded-lg"></div>
+                  
+                  <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-tight
+                    bg-clip-text text-transparent bg-gradient-to-b from-white via-gray-200 to-gray-300
+                    drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
+                    Municipal Infrastructure Protection
+                  </h1>
+                  
+                  {/* Multiple shimmer animations */}
+                  <div className="absolute -inset-3/4 w-1/4 h-full bg-gradient-to-r from-transparent via-blue-500/20 to-transparent skew-x-[-20deg] animate-[shimmer_2.5s_infinite] pointer-events-none"></div>
+                  <div className="absolute -inset-1/2 w-1/4 h-full bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-[-20deg] animate-[shimmer_3s_infinite_0.5s] pointer-events-none"></div>
+                </div>
+                
+                {/* Premium metallic divider */}
+                <div className="relative h-2 max-w-xl mx-auto mb-6 overflow-hidden">
+                  <div className="absolute inset-0 opacity-25 bg-gradient-to-r from-transparent via-blue-500 to-transparent"></div>
+                  <div className="absolute inset-y-0 left-0 right-0 h-px top-0 bg-gradient-to-r from-transparent via-blue-500/90 to-transparent"></div>
+                  <div className="absolute inset-y-0 left-0 right-0 h-px bottom-0 bg-gradient-to-r from-transparent via-blue-400/70 to-transparent"></div>
+                </div>
+                
+                {/* Description with premium styling */}
+                <p className="text-lg md:text-xl mb-2 max-w-3xl mx-auto">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-100 to-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">
+                    Specialized ceramic coating solutions for extending the life of critical municipal infrastructure 
+                    while reducing maintenance costs and environmental impact.
+                  </span>
                 </p>
+                
+                {/* Subtle animated water ripple accent */}
+                <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-32 h-6 pointer-events-none opacity-40">
+                  <div className="absolute bottom-0 left-0 right-0 h-full bg-gradient-to-t from-blue-500/10 via-blue-400/5 to-transparent 
+                    rounded-t-3xl animate-pulse-slow"></div>
+                </div>
               </div>
               
               <div className="flex flex-wrap justify-center gap-4">
