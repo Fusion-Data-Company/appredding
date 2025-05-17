@@ -1610,10 +1610,10 @@ export default function Municipality() {
                   style={{ 
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
-                    opacity: 0.15
+                    opacity: 0.35
                   }}>
                 </div>
-                <div className="absolute inset-0 bg-gray-900/90"></div>
+                <div className="absolute inset-0 bg-gray-900/80"></div>
               </div>
               
               {/* Accent squares */}
