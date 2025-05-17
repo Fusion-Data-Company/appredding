@@ -152,9 +152,12 @@ const FirePrevention = () => {
                     tracking-tight leading-tight drop-shadow-[0_2px_10px_rgba(234,88,12,0.5)]
                     [text-shadow:0_1px_2px_rgba(0,0,0,0.8),0_2px_15px_rgba(234,88,12,0.3),0_-1px_35px_rgba(30,64,175,0.2)]">
                     <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-orange-50 to-white">
-                      1,390% ROI Wildfire Defense System
+                      Advanced Ceramic Wildfire Defense System
                     </span>
                   </h1>
+                  <p className="text-xl md:text-2xl text-orange-100/90 mt-6 relative z-10">
+                    Previously restricted to government facilities. <span className="font-semibold">Now available for civilian structures.</span>
+                  </p>
                   
                   {/* Sophisticated divider accents */}
                   <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-orange-500/70 to-transparent"></div>
@@ -170,6 +173,13 @@ const FirePrevention = () => {
                     <p className="text-xl md:text-2xl text-white leading-relaxed font-medium mb-6">
                       <span className="text-orange-300 font-bold">2025 Los Angeles wildfire insurance denials up 3,150%</span> – with property values dropping 35% in high-risk zones and <span className="text-red-400">traditional fire treatments failing in 80% of incidents</span>. Our ceramic microsphere technology delivers documented financial impact:
                     </p>
+                    
+                    <div className="flex items-center mb-6">
+                      <div className="h-6 w-1 bg-gradient-to-b from-orange-600 to-red-600 rounded-full mr-3"></div>
+                      <p className="text-base text-gray-300">
+                        The ceramic-based coating system was previously available only to <span className="text-blue-300">government facilities, military buildings, and critical infrastructure</span>. This advanced wildfire protection technology is now available for residential and commercial property owners.
+                      </p>
+                    </div>
                     
                     {/* Enterprise-grade 4-column metrics with advanced styling */}
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
