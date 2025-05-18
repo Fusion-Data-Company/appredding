@@ -31,7 +31,7 @@ const calendarData = {
       id: 2,
       title: "Follow-up Call",
       description: "Marina dock restoration proposal",
-      date: "2025-04-22",
+      date: "2023-04-22",
       time: "2:30 PM",
       type: "call",
       relatedTo: "Coastal Marinas LLC"
@@ -40,7 +40,7 @@ const calendarData = {
       id: 3,
       title: "Project Kickoff",
       description: "Building waterproofing project start",
-      date: "2025-04-28",
+      date: "2023-04-28",
       time: "9:00 AM",
       type: "project",
       relatedTo: "ABC Construction"
@@ -49,7 +49,7 @@ const calendarData = {
       id: 4,
       title: "Product Demo",
       description: "Fire retardant application showcase",
-      date: "2025-04-25",
+      date: "2023-04-25",
       time: "1:00 PM",
       type: "demo",
       relatedTo: "Regional Fire Prevention"
@@ -58,7 +58,7 @@ const calendarData = {
       id: 5,
       title: "Team Meeting",
       description: "Weekly status update",
-      date: "2025-04-22",
+      date: "2023-04-22",
       time: "9:00 AM",
       type: "internal",
       relatedTo: null
@@ -67,7 +67,7 @@ const calendarData = {
       id: 6,
       title: "Site Visit",
       description: "Mobile home community inspection",
-      date: "2025-04-23",
+      date: "2023-04-23",
       time: "11:00 AM",
       type: "site-visit",
       relatedTo: "Sunrise Mobile Estates"
