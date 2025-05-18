@@ -297,9 +297,9 @@ const MobileHome = () => {
                 </GradientHeading>
                 
                 {/* SANDLER STAGE 1: IDENTIFY THE PAINS */}
-                <div className="mb-10 relative bg-gradient-to-br from-black/70 to-gray-900/70 border border-red-500/40 rounded-xl p-6 backdrop-blur-sm">
-                  <div className="absolute -inset-4 bg-gradient-to-r from-red-600/30 via-red-500/20 to-red-600/30 rounded-xl blur-xl opacity-80"></div>
-                  <div className="absolute -inset-6 bg-red-600/20 rounded-xl blur-2xl opacity-50 animate-pulse-slow"></div>
+                <div className="mb-10 relative bg-gradient-to-br from-black/70 to-gray-900/70 border border-red-500/40 rounded-xl p-6 backdrop-blur-sm z-10">
+                  <div className="absolute -inset-4 bg-gradient-to-r from-red-600/30 via-red-500/20 to-red-600/30 rounded-xl blur-xl opacity-80 -z-10"></div>
+                  <div className="absolute -inset-6 bg-red-600/20 rounded-xl blur-2xl opacity-50 animate-pulse-slow -z-10"></div>
                   
                   <h2 className="text-2xl font-bold text-white mb-4">
                     Are These Mobile Home Problems Costing You Money?
