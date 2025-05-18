@@ -442,18 +442,17 @@ const Painters = () => {
                   transition={{ duration: 0.5, delay: 0.4 }}
                   className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-6"
                 >
-                  <div className="relative group">
-                    <div className="absolute -inset-0.5 bg-green-600 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-200"></div>
-                    <button 
-                      onClick={handleShowContactForm}
-                      className="relative px-8 py-4 bg-black text-white font-medium rounded-lg border border-green-500/50 hover:border-green-400 transition duration-200"
-                    >
-                      <span className="flex items-center">
-                        <CircleDollarSign className="mr-2 h-5 w-5 text-green-400" />
-                        <span>Become a Certified Partner Today</span>
-                      </span>
-                    </button>
-                  </div>
+                  <PremiumActionButton
+                    onClick={handleShowContactForm}
+                    size="lg"
+                    className="transform hover:scale-105 transition-transform duration-300"
+                    glowEffect={true}
+                  >
+                    <span className="flex items-center">
+                      <CircleDollarSign className="mr-2 h-6 w-6 text-amber-300" />
+                      <span>Become a Certified Partner Today</span>
+                    </span>
+                  </PremiumActionButton>
                   
                   <div className="relative group">
                     <div className="absolute -inset-0.5 bg-orange-600 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-200"></div>
@@ -935,29 +934,28 @@ const Painters = () => {
                           />
                           
                           <div className="pt-4 text-center">
-                            <div className="relative inline-block">
-                              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-green-600 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-200"></div>
-                              <button 
-                                type="submit"
-                                disabled={contactMutation.isPending}
-                                className="relative px-8 py-4 bg-gradient-to-r from-gray-900 to-gray-800 text-white text-lg font-medium rounded-lg border border-blue-500/50 hover:border-green-400 transition duration-300 disabled:opacity-70"
-                              >
-                                {contactMutation.isPending ? (
-                                  <span className="flex items-center">
-                                    <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                                    </svg>
-                                    Processing...
-                                  </span>
-                                ) : (
-                                  <span className="flex items-center">
-                                    <CircleDollarSign className="mr-2 h-5 w-5 text-green-400" />
-                                    <span>Submit Application</span>
-                                  </span>
-                                )}
-                              </button>
-                            </div>
+                            <PremiumFireButton 
+                              type="submit"
+                              disabled={contactMutation.isPending}
+                              size="xl"
+                              className="w-full sm:w-auto transform hover:scale-105 transition-transform duration-300"
+                              glowEffect={true}
+                            >
+                              {contactMutation.isPending ? (
+                                <span className="flex items-center justify-center">
+                                  <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                  </svg>
+                                  Processing...
+                                </span>
+                              ) : (
+                                <span className="flex items-center">
+                                  <CircleDollarSign className="mr-2 h-6 w-6 text-amber-300" />
+                                  <span>Submit Application</span>
+                                </span>
+                              )}
+                            </PremiumFireButton>
                           </div>
                         </form>
                       </Form>
