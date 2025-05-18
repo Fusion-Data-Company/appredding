@@ -23,14 +23,6 @@ const Footer = () => {
         {/* Logo section */}
         <div className="flex flex-col items-center mb-12">
           <div className="flex items-center gap-3 mb-6">
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-orange-500/20 to-blue-500/20 filter blur-md rounded-full"></div>
-              <img 
-                src={praetorianShield} 
-                alt="Praetorian Shield" 
-                className="h-14 w-auto relative z-10 filter drop-shadow-lg"
-              />
-            </div>
             <div className="text-[1.8rem] leading-none whitespace-nowrap">
               <span className="gradient-text-combined font-bold">Praetorian</span>
               <span className="text-white/90 mx-1 font-light">|</span>
