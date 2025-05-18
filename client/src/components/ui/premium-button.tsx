@@ -90,11 +90,11 @@ const ShineEffect = () => (
       }}
     />
     
-    {/* Border glow pulse effect */}
+    {/* Border glow pulse effect - changed to black */}
     <motion.div
-      className="absolute inset-0 border-[1px] border-orange-500/60 rounded-lg opacity-0 group-hover:opacity-100"
+      className="absolute inset-0 border-[1px] border-gray-500/60 rounded-lg opacity-0 group-hover:opacity-100"
       animate={{ 
-        boxShadow: ['0 0 0px rgba(249, 115, 22, 0)', '0 0 8px rgba(249, 115, 22, 0.6)', '0 0 0px rgba(249, 115, 22, 0)']
+        boxShadow: ['0 0 0px rgba(0, 0, 0, 0)', '0 0 8px rgba(0, 0, 0, 0.6)', '0 0 0px rgba(0, 0, 0, 0)']
       }}
       transition={{ 
         repeat: Infinity, 
@@ -105,9 +105,9 @@ const ShineEffect = () => (
       }}
     />
     
-    {/* Corner accent points */}
-    <div className="absolute top-0 left-0 w-2 h-2 bg-orange-500/70 rounded-full blur-[1px] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-    <div className="absolute bottom-0 right-0 w-2 h-2 bg-orange-500/70 rounded-full blur-[1px] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+    {/* Corner accent points - changed to black */}
+    <div className="absolute top-0 left-0 w-2 h-2 bg-gray-300/70 rounded-full blur-[1px] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+    <div className="absolute bottom-0 right-0 w-2 h-2 bg-gray-300/70 rounded-full blur-[1px] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
   </>
 );
 
@@ -135,7 +135,7 @@ const PremiumButton = forwardRef<HTMLButtonElement, PremiumButtonProps>(
         <button
           className={cn(
             premiumButtonVariants({ variant, size, className }), 
-            "shadow-2xl shadow-orange-500/40 drop-shadow-[0_0_45px_rgba(59,130,246,0.3)]",
+            "shadow-2xl shadow-gray-900/40 drop-shadow-[0_0_45px_rgba(0,0,0,0.3)]",
             "backdrop-filter backdrop-blur-[1px]"
           )}
           ref={ref}
@@ -149,7 +149,7 @@ const PremiumButton = forwardRef<HTMLButtonElement, PremiumButtonProps>(
           {/* Inner border and glass effects for fire variant */}
           {isFire && (
             <>
-              <div className="absolute inset-0 rounded-[10px] border border-blue-500/40 pointer-events-none"></div>
+              <div className="absolute inset-0 rounded-[10px] border border-gray-500/40 pointer-events-none"></div>
               <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent pointer-events-none opacity-30"></div>
               <div className="absolute inset-x-0 top-0 h-[1px] bg-white/20 rounded-full"></div>
               <div className="absolute inset-0 rounded-[10px] backdrop-blur-[0.5px] opacity-50 pointer-events-none"></div>
@@ -161,7 +161,7 @@ const PremiumButton = forwardRef<HTMLButtonElement, PremiumButtonProps>(
             {/* Icon with specialized glow for fire variant */}
             {icon && iconPosition === 'left' && (
               <div className={isFire ? "relative" : ""}>
-                {isFire && <div className="absolute inset-0 bg-orange-500/30 blur-md rounded-full opacity-80 group-hover:opacity-100 transition-opacity duration-500"></div>}
+                {isFire && <div className="absolute inset-0 bg-gray-500/30 blur-md rounded-full opacity-80 group-hover:opacity-100 transition-opacity duration-500"></div>}
                 <div className={isFire ? "relative z-10 animate-subtle-bounce" : ""}>{icon}</div>
               </div>
             )}
@@ -177,7 +177,7 @@ const PremiumButton = forwardRef<HTMLButtonElement, PremiumButtonProps>(
             
             {icon && iconPosition === 'right' && (
               <div className={isFire ? "relative" : ""}>
-                {isFire && <div className="absolute inset-0 bg-orange-500/30 blur-md rounded-full opacity-80 group-hover:opacity-100 transition-opacity duration-500"></div>}
+                {isFire && <div className="absolute inset-0 bg-gray-500/30 blur-md rounded-full opacity-80 group-hover:opacity-100 transition-opacity duration-500"></div>}
                 <div className={isFire ? "relative z-10 animate-subtle-bounce" : ""}>{icon}</div>
               </div>
             )}
@@ -195,11 +195,11 @@ const PremiumButton = forwardRef<HTMLButtonElement, PremiumButtonProps>(
               {/* Extra shimmer effect with different timing */}
               <div className="absolute inset-0 w-2/3 h-full bg-gradient-to-r from-transparent via-white/8 to-transparent opacity-10 -translate-x-full animate-shimmer-medium transform rounded-lg"></div>
               
-              {/* Extremely prominent blue/orange glow matching cards - button size only, in front of card but behind button */}
+              {/* Prominent black glow effect - button size only, in front of card but behind button */}
               <div className="absolute -inset-[5px] rounded-3xl opacity-100 transition-opacity duration-500 translate-y-[2px]"
                   style={{ 
-                    background: 'linear-gradient(to right, rgba(249,115,22,0.3), rgba(59,130,246,0.6), rgba(249,115,22,0.3))',
-                    boxShadow: '0 0 25px 12px rgba(59,130,246,0.5), 0 0 15px 10px rgba(249,115,22,0.4), 0 0 40px 20px rgba(59,130,246,0.3)',
+                    background: 'linear-gradient(to right, rgba(0,0,0,0.3), rgba(50,50,50,0.6), rgba(0,0,0,0.3))',
+                    boxShadow: '0 0 25px 12px rgba(0,0,0,0.5), 0 0 15px 10px rgba(0,0,0,0.4), 0 0 40px 20px rgba(0,0,0,0.3)',
                     animation: 'pulse 3s ease-in-out infinite',
                     zIndex: -1
                   }}>
@@ -212,21 +212,21 @@ const PremiumButton = forwardRef<HTMLButtonElement, PremiumButtonProps>(
                   }}>
                 <div className="absolute inset-0 rounded-3xl animate-spin-very-slow"
                      style={{
-                       background: 'conic-gradient(from 0deg, transparent, rgba(59,130,246,0.8), rgba(249,115,22,0.6), transparent)'
+                       background: 'conic-gradient(from 0deg, transparent, rgba(50,50,50,0.8), rgba(0,0,0,0.6), transparent)'
                      }}>
                 </div>
               </div>
               
-              {/* Corner accent points - premium touch matching cards exactly */}
-              <div className="absolute top-0 left-0 w-2 h-2 bg-orange-500/90 rounded-full blur-[1px] opacity-100 transition-opacity duration-300"></div>
-              <div className="absolute top-0 right-0 w-2 h-2 bg-blue-500/90 rounded-full blur-[1px] opacity-100 transition-opacity duration-300"></div>
-              <div className="absolute bottom-0 left-0 w-2 h-2 bg-orange-500/90 rounded-full blur-[1px] opacity-100 transition-opacity duration-300"></div>
-              <div className="absolute bottom-0 right-0 w-2 h-2 bg-blue-500/90 rounded-full blur-[1px] opacity-100 transition-opacity duration-300"></div>
+              {/* Corner accent points - premium touch with black theme */}
+              <div className="absolute top-0 left-0 w-2 h-2 bg-gray-300/90 rounded-full blur-[1px] opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute top-0 right-0 w-2 h-2 bg-gray-300/90 rounded-full blur-[1px] opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute bottom-0 left-0 w-2 h-2 bg-gray-300/90 rounded-full blur-[1px] opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute bottom-0 right-0 w-2 h-2 bg-gray-300/90 rounded-full blur-[1px] opacity-100 transition-opacity duration-300"></div>
               
-              {/* Button-size ambient blur glow - matching card glow across the site */}
+              {/* Button-size ambient blur glow - black theme */}
               <div className="absolute -inset-[15px] rounded-3xl opacity-100 transition-opacity duration-1000 animate-pulse-slow" 
                    style={{ 
-                     background: 'radial-gradient(circle, rgba(59,130,246,0.4) 0%, rgba(249,115,22,0.2) 70%)',
+                     background: 'radial-gradient(circle, rgba(100,100,100,0.4) 0%, rgba(0,0,0,0.2) 70%)',
                      filter: 'blur(12px)',
                      zIndex: -1
                    }}>
