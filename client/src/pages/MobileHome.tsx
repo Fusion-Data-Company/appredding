@@ -28,6 +28,10 @@ import {
   Sun as SunIcon,
   Waves as WavesIcon,
   Droplets as DropletIcon,
+  DollarSign,
+  CalendarDays,
+  CloudSun,
+  Calculator,
   Timer as TimerIcon,
   CircleDollarSign,
   BarChart2,
@@ -793,31 +797,37 @@ const MobileHome = () => {
                 <div className="grid md:grid-cols-2 gap-8">
                   <div>
                     <div className="relative group mb-6">
-                      {/* Premium outer glow effect */}
-                      <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/30 to-blue-400/20 rounded-lg blur-md opacity-75 group-hover:opacity-100 transition duration-300"></div>
+                      {/* Premium green outer glow effect - CONVERTED FROM BLUE TO GREEN */}
+                      <div className="absolute -inset-1 bg-gradient-to-r from-green-600/40 to-green-400/30 rounded-lg blur-md opacity-75 group-hover:opacity-100 transition duration-300"></div>
+                      <div className="absolute -inset-4 bg-green-600/20 rounded-lg blur-xl opacity-50 group-hover:opacity-70 transition duration-300"></div>
                       
-                      <div className="relative bg-gradient-to-br from-gray-900/95 to-black/95 rounded-lg p-6 border border-blue-500/30 shadow-lg group-hover:shadow-blue-900/20 transition duration-300">
-                        {/* Elite corner accents */}
-                        <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-blue-500/40 rounded-tl-md"></div>
-                        <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-blue-500/40 rounded-tr-md"></div>
-                        <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-blue-500/40 rounded-br-md"></div>
-                        <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-blue-500/40 rounded-bl-md"></div>
+                      <div className="relative bg-gradient-to-br from-gray-900/95 to-black/95 rounded-lg p-6 border border-green-500/30 shadow-lg group-hover:shadow-green-900/20 transition duration-300">
+                        {/* Elite corner accents - GREEN-STYLED */}
+                        <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-green-500/40 rounded-tl-md"></div>
+                        <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-green-500/40 rounded-tr-md"></div>
+                        <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-green-500/40 rounded-br-md"></div>
+                        <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-green-500/40 rounded-bl-md"></div>
                         
-                        <h4 className="text-lg font-semibold mb-3 flex items-center">
+                        {/* Glass shimmer effect */}
+                        <div className="absolute inset-0 overflow-hidden rounded-lg">
+                          <div className="h-full w-1/3 bg-gradient-to-r from-transparent via-green-400/10 to-transparent skew-x-[-20deg] animate-shimmer-slow"></div>
+                        </div>
+                        
+                        <h4 className="text-lg font-semibold mb-3 flex items-center relative z-10">
                           <span className="relative mr-3 flex-shrink-0">
-                            <span className="absolute -inset-1 bg-blue-500/30 rounded-full blur-sm"></span>
-                            <svg xmlns="http://www.w3.org/2000/svg" className="relative h-6 w-6 text-blue-400" viewBox="0 0 20 20" fill="currentColor">
-                              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                            </svg>
+                            <span className="absolute -inset-1 bg-green-500/30 rounded-full blur-sm"></span>
+                            <div className="relative h-6 w-6 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center shadow-[0_0_10px_rgba(74,222,128,0.5)]">
+                              <CheckCircle className="h-4 w-4 text-white" />
+                            </div>
                           </span>
-                          <span className="bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent">Praetorian Mobile Home Solutions</span>
+                          <span className="bg-gradient-to-r from-white via-green-100 to-white bg-clip-text text-transparent">Praetorian Mobile Home Solutions</span>
                         </h4>
                       
-                        <ul className="space-y-4">
+                        <ul className="space-y-4 relative z-10">
                           <li className="flex items-start group">
                             <div className="relative flex-shrink-0 mr-3">
-                              <div className="absolute -inset-1 bg-blue-500/30 rounded-full blur-sm opacity-70 group-hover:opacity-100 transition duration-300"></div>
-                              <div className="relative w-7 h-7 bg-gradient-to-br from-blue-700 to-blue-500 rounded-full flex items-center justify-center shadow-[0_0_10px_rgba(59,130,246,0.3)]">
+                              <div className="absolute -inset-1 bg-green-500/30 rounded-full blur-sm opacity-70 group-hover:opacity-100 transition duration-300"></div>
+                              <div className="relative w-7 h-7 bg-gradient-to-br from-green-700 to-green-500 rounded-full flex items-center justify-center shadow-[0_0_10px_rgba(74,222,128,0.4)]">
                                 <span className="text-white text-xs font-bold">1</span>
                               </div>
                             </div>
@@ -827,8 +837,8 @@ const MobileHome = () => {
                           </li>
                           <li className="flex items-start group">
                             <div className="relative flex-shrink-0 mr-3">
-                              <div className="absolute -inset-1 bg-blue-500/30 rounded-full blur-sm opacity-70 group-hover:opacity-100 transition duration-300"></div>
-                              <div className="relative w-7 h-7 bg-gradient-to-br from-blue-700 to-blue-500 rounded-full flex items-center justify-center shadow-[0_0_10px_rgba(59,130,246,0.3)]">
+                              <div className="absolute -inset-1 bg-green-500/30 rounded-full blur-sm opacity-70 group-hover:opacity-100 transition duration-300"></div>
+                              <div className="relative w-7 h-7 bg-gradient-to-br from-green-700 to-green-500 rounded-full flex items-center justify-center shadow-[0_0_10px_rgba(74,222,128,0.4)]">
                                 <span className="text-white text-xs font-bold">2</span>
                               </div>
                             </div>
@@ -838,8 +848,8 @@ const MobileHome = () => {
                           </li>
                           <li className="flex items-start group">
                             <div className="relative flex-shrink-0 mr-3">
-                              <div className="absolute -inset-1 bg-blue-500/30 rounded-full blur-sm opacity-70 group-hover:opacity-100 transition duration-300"></div>
-                              <div className="relative w-7 h-7 bg-gradient-to-br from-blue-700 to-blue-500 rounded-full flex items-center justify-center shadow-[0_0_10px_rgba(59,130,246,0.3)]">
+                              <div className="absolute -inset-1 bg-green-500/30 rounded-full blur-sm opacity-70 group-hover:opacity-100 transition duration-300"></div>
+                              <div className="relative w-7 h-7 bg-gradient-to-br from-green-700 to-green-500 rounded-full flex items-center justify-center shadow-[0_0_10px_rgba(74,222,128,0.4)]">
                                 <span className="text-white text-xs font-bold">3</span>
                               </div>
                             </div>
@@ -849,8 +859,8 @@ const MobileHome = () => {
                           </li>
                           <li className="flex items-start group">
                             <div className="relative flex-shrink-0 mr-3">
-                              <div className="absolute -inset-1 bg-blue-500/30 rounded-full blur-sm opacity-70 group-hover:opacity-100 transition duration-300"></div>
-                              <div className="relative w-7 h-7 bg-gradient-to-br from-blue-700 to-blue-500 rounded-full flex items-center justify-center shadow-[0_0_10px_rgba(59,130,246,0.3)]">
+                              <div className="absolute -inset-1 bg-green-500/30 rounded-full blur-sm opacity-70 group-hover:opacity-100 transition duration-300"></div>
+                              <div className="relative w-7 h-7 bg-gradient-to-br from-green-700 to-green-500 rounded-full flex items-center justify-center shadow-[0_0_10px_rgba(74,222,128,0.4)]">
                                 <span className="text-white text-xs font-bold">4</span>
                               </div>
                             </div>
@@ -863,60 +873,98 @@ const MobileHome = () => {
                     </div>
                   </div>
                   
-                  <div className="bg-gradient-to-br from-gray-800/80 via-gray-900/80 to-black/80 rounded-lg p-6 border border-blue-500/20">
-                    <h3 className="text-xl font-semibold mb-4 text-white">
-                      <CircleDollarSign className="h-5 w-5 text-green-400 mr-2 inline-block" />
-                      Return on Investment Analysis
+                  <div className="bg-gradient-to-br from-gray-800/80 via-gray-900/80 to-black/80 rounded-lg p-6 border border-green-500/20">
+                    {/* Green glass shimmer effect */}
+                    <div className="absolute inset-0 overflow-hidden rounded-lg">
+                      <div className="h-full w-1/2 bg-gradient-to-r from-transparent via-green-400/5 to-transparent skew-x-[-20deg] animate-shimmer-slow"></div>
+                    </div>
+                    
+                    <h3 className="text-xl font-semibold mb-6 text-white flex items-center">
+                      <div className="relative mr-3 flex-shrink-0">
+                        <div className="absolute -inset-1 bg-green-500/40 rounded-full blur-md"></div>
+                        <div className="relative h-10 w-10 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center shadow-[0_0_15px_rgba(74,222,128,0.5)]">
+                          <CircleDollarSign className="h-5 w-5 text-white" />
+                        </div>
+                      </div>
+                      <span className="bg-gradient-to-r from-white via-green-100 to-white bg-clip-text text-transparent">Return on Investment Analysis</span>
                     </h3>
                     
-                    <div className="space-y-4">
-                      <div>
-                        <label className="text-sm text-gray-300 block mb-1">Mobile Home Size (sq ft)</label>
-                        <div className="flex items-center">
-                          <input 
-                            type="number" 
-                            className="bg-gray-900 text-white border border-gray-700 rounded-l p-2 w-full focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500" 
-                            placeholder="e.g. 1,200"
-                            defaultValue={1200}
-                          />
-                          <span className="bg-gray-800 text-gray-300 px-3 py-2 border border-gray-700 border-l-0 rounded-r">sq ft</span>
+                    <div className="space-y-6 relative">
+                      <div className="group">
+                        <label className="text-sm text-gray-300 block mb-2 flex items-center">
+                          <Home className="h-4 w-4 text-green-400 mr-2" />
+                          Mobile Home Size (sq ft)
+                        </label>
+                        <div className="flex items-center relative">
+                          {/* Input glow effect */}
+                          <div className="absolute -inset-0.5 bg-green-500/20 rounded-lg blur-sm opacity-60 group-hover:opacity-100 transition duration-300"></div>
+                          <div className="relative flex items-center w-full">
+                            <input 
+                              type="number" 
+                              className="bg-gray-900/90 text-white border border-green-600/30 rounded-l p-2.5 w-full focus:outline-none focus:ring-2 focus:ring-green-500/50 focus:border-green-500/50 shadow-[0_0_10px_rgba(74,222,128,0.1)] relative z-10" 
+                              placeholder="e.g. 1,200"
+                              defaultValue={1200}
+                            />
+                            <span className="bg-gray-800/90 text-green-100 px-4 py-2.5 border border-green-600/30 border-l-0 rounded-r shadow-inner relative z-10">sq ft</span>
+                          </div>
                         </div>
                       </div>
                       
-                      <div>
-                        <label className="text-sm text-gray-300 block mb-1">Monthly Energy Bill</label>
-                        <div className="flex items-center">
-                          <span className="bg-gray-800 text-gray-300 px-3 py-2 border border-gray-700 border-r-0 rounded-l">$</span>
+                      <div className="group">
+                        <label className="text-sm text-gray-300 block mb-2 flex items-center">
+                          <DollarSign className="h-4 w-4 text-green-400 mr-2" />
+                          Monthly Energy Bill
+                        </label>
+                        <div className="flex items-center relative">
+                          {/* Input glow effect */}
+                          <div className="absolute -inset-0.5 bg-green-500/20 rounded-lg blur-sm opacity-60 group-hover:opacity-100 transition duration-300"></div>
+                          <div className="relative flex items-center w-full">
+                            <span className="bg-gray-800/90 text-green-100 px-4 py-2.5 border border-green-600/30 border-r-0 rounded-l shadow-inner relative z-10">$</span>
+                            <input 
+                              type="number" 
+                              className="bg-gray-900/90 text-white border border-green-600/30 rounded-r p-2.5 w-full focus:outline-none focus:ring-2 focus:ring-green-500/50 focus:border-green-500/50 shadow-[0_0_10px_rgba(74,222,128,0.1)] relative z-10" 
+                              placeholder="e.g. 280"
+                              defaultValue={280}
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div className="group">
+                        <label className="text-sm text-gray-300 block mb-2 flex items-center">
+                          <CalendarDays className="h-4 w-4 text-green-400 mr-2" />
+                          Mobile Home Age (years)
+                        </label>
+                        <div className="relative">
+                          {/* Input glow effect */}
+                          <div className="absolute -inset-0.5 bg-green-500/20 rounded-lg blur-sm opacity-60 group-hover:opacity-100 transition duration-300"></div>
                           <input 
                             type="number" 
-                            className="bg-gray-900 text-white border border-gray-700 rounded-r p-2 w-full focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500" 
-                            placeholder="e.g. 280"
-                            defaultValue={280}
+                            className="bg-gray-900/90 text-white border border-green-600/30 rounded p-2.5 w-full focus:outline-none focus:ring-2 focus:ring-green-500/50 focus:border-green-500/50 shadow-[0_0_10px_rgba(74,222,128,0.1)] relative z-10" 
+                            placeholder="e.g. 15"
+                            defaultValue={15}
                           />
                         </div>
                       </div>
                       
-                      <div>
-                        <label className="text-sm text-gray-300 block mb-1">Mobile Home Age (years)</label>
-                        <input 
-                          type="number" 
-                          className="bg-gray-900 text-white border border-gray-700 rounded p-2 w-full focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500" 
-                          placeholder="e.g. 15"
-                          defaultValue={15}
-                        />
-                      </div>
-                      
-                      <div>
-                        <label className="text-sm text-gray-300 block mb-1">Local Climate Zone</label>
-                        <select className="bg-gray-900 text-white border border-gray-700 rounded p-2 w-full focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500">
-                          <option value="hot">Hot (Southern Regions)</option>
-                          <option value="mixed" selected>Mixed/Moderate</option>
-                          <option value="cold">Cold (Northern Regions)</option>
-                        </select>
+                      <div className="group">
+                        <label className="text-sm text-gray-300 block mb-2 flex items-center">
+                          <CloudSun className="h-4 w-4 text-green-400 mr-2" />
+                          Local Climate Zone
+                        </label>
+                        <div className="relative">
+                          {/* Input glow effect */}
+                          <div className="absolute -inset-0.5 bg-green-500/20 rounded-lg blur-sm opacity-60 group-hover:opacity-100 transition duration-300"></div>
+                          <select className="bg-gray-900/90 text-white border border-green-600/30 rounded p-2.5 w-full focus:outline-none focus:ring-2 focus:ring-green-500/50 focus:border-green-500/50 shadow-[0_0_10px_rgba(74,222,128,0.1)] relative z-10">
+                            <option value="hot">Hot (Southern Regions)</option>
+                            <option value="mixed">Mixed/Moderate</option>
+                            <option value="cold">Cold (Northern Regions)</option>
+                          </select>
+                        </div>
                       </div>
                       
                       {/* Ambient blue-to-orange gradient glow wrapper around the button without affecting the button itself */}
-                      <div className="relative mt-4">
+                      <div className="relative mt-6">
                         <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-orange-600 rounded-lg blur opacity-70 group-hover:opacity-100 transition duration-200"></div>
                         <div className="relative">
                           <PremiumFireButton 
@@ -925,7 +973,10 @@ const MobileHome = () => {
                             glowEffect={true}
                             onClick={() => calculateROI()}
                           >
-                            Calculate My ROI
+                            <span className="flex items-center justify-center">
+                              <Calculator className="w-5 h-5 mr-2" />
+                              Calculate My ROI
+                            </span>
                           </PremiumFireButton>
                         </div>
                       </div>
@@ -1003,9 +1054,10 @@ const MobileHome = () => {
                         Results based on average data for similar mobile homes in your climate zone. Contact us for a precise custom assessment.
                       </div>
                       
-                      {/* Ambient glow wrapped around the button without affecting the button itself */}
-                      <div className="relative mt-4">
-                        <div className="absolute -inset-3 bg-blue-600/30 blur-xl rounded-xl opacity-80 transition-opacity duration-500"></div>
+                      {/* Enhanced ambient purple glow wrapped around the button */}
+                      <div className="relative mt-6">
+                        <div className="absolute -inset-4 bg-gradient-to-r from-purple-600/40 via-violet-600/30 to-purple-600/40 blur-xl rounded-xl opacity-80 transition-opacity duration-500"></div>
+                        <div className="absolute -inset-2 bg-purple-800/20 blur-lg rounded-xl opacity-70 transition-opacity duration-500 animate-pulse-slow"></div>
                         <div className="relative">
                           <PremiumCartButton
                             onClick={handleShowRegistrationForm}
@@ -1014,7 +1066,10 @@ const MobileHome = () => {
                             glowEffect={true}
                           >
                             <div className="flex items-center justify-center">
-                              <CircleDollarSign className="w-6 h-6 mr-3 text-amber-300" />
+                              <div className="relative mr-2">
+                                <div className="absolute -inset-1 bg-purple-400/30 rounded-full blur-md"></div>
+                                <CircleDollarSign className="w-6 h-6 relative text-white" />
+                              </div>
                               Get Detailed ROI Report
                             </div>
                           </PremiumCartButton>
