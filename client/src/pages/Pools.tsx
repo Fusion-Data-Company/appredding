@@ -148,10 +148,10 @@ export default function Pools() {
                 </div>
                 <h3 className="text-xl font-bold text-white mb-2">Exceptional ROI</h3>
                 <p className="text-blue-200 mb-4 flex-grow">
-                  Investment in our protective coating delivers 371% ROI over 10 years through reduced maintenance and extended surface life.
+                  Investment in our protective coating delivers 35% ROI over 10 years through reduced maintenance and extended surface life.
                 </p>
                 <div className="bg-gray-800/40 p-3 rounded-lg">
-                  <div className="text-xl font-bold text-white">371%</div>
+                  <div className="text-xl font-bold text-white">35%</div>
                   <div className="text-blue-300 text-sm">10-Year ROI</div>
                 </div>
               </div>
@@ -389,7 +389,7 @@ export default function Pools() {
                                 <TrendingUp className="w-4 h-4 text-green-100" />
                               </div>
                             </div>
-                            <p className="text-2xl font-bold text-green-400 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">371%</p>
+                            <p className="text-2xl font-bold text-green-400 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">35%</p>
                             <p className="text-blue-300 text-sm">Average ROI</p>
                           </div>
                           <div className="bg-gray-900/60 p-5 rounded-lg border-2 border-green-500/30 shadow-[0_0_20px_rgba(74,222,128,0.2)]">
@@ -751,7 +751,7 @@ export default function Pools() {
                   ))}
                 </div>
                 <p className="text-blue-100 mb-6 italic">
-                  "After applying Praetorian's ceramic coating to our resort's four pools, we've seen a 47% reduction in chemical usage and virtually eliminated the need for acid washing. The ROI has been exceptional."
+                  "After applying Praetorian's ceramic coating to our resort's four pools, we've seen a 25% reduction in chemical usage and significantly reduced the need for acid washing. The ROI has been solid."
                 </p>
                 <div className="flex items-center">
                   <div className="ml-4">

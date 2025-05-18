@@ -442,7 +442,7 @@ const MobileHome = () => {
                         <div className="bg-gradient-to-r from-orange-700 to-orange-500 rounded-full w-8 h-8 flex items-center justify-center text-white font-bold flex-shrink-0 mt-1 shadow-[0_0_15px_rgba(249,115,22,0.4)]">4</div>
                         <div>
                           <h3 className="text-xl font-semibold mb-2 text-white drop-shadow-[0_1px_2px_rgba(249,115,22,0.5)]">Certification & Documentation</h3>
-                          <p className="text-orange-100">Upon completion, you receive official ROI certification documentation, thermal performance verification, and a 15-year warranty that can be transferred to future homeowners.</p>
+                          <p className="text-orange-100">Upon completion, you receive official ROI certification documentation, thermal performance verification, and a 10-year warranty that can be transferred to future homeowners.</p>
                         </div>
                       </div>
                     </div>
