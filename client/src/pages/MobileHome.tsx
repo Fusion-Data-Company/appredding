@@ -327,13 +327,22 @@ const MobileHome = () => {
                   <div className="absolute bottom-1 left-1 w-10 h-10 border-b border-l border-gray-600 rounded-bl-md"></div>
                 </div>
                 
-                <div className="mb-4 relative">
-                  <span className="inline-block bg-gray-800 text-gray-200 text-sm px-4 py-1.5 rounded-full font-semibold mb-3 border border-gray-700 shadow-md">Previously Government-Exclusive Technology</span>
+                <div className="relative mb-8">
+                  {/* Green glow positioned behind the header card */}
+                  <div className="absolute -inset-2 bg-green-500/20 rounded-xl blur-2xl opacity-50 z-0"></div>
+                  <div className="absolute -inset-4 bg-green-500/15 rounded-xl blur-3xl opacity-40 z-0 animate-pulse-slow"></div>
+                  
+                  {/* Main header card with clean styling */}
+                  <div className="relative p-6 bg-gradient-to-br from-black/80 to-gray-900/80 border border-green-500/30 rounded-xl transition-all duration-300 shadow-lg z-10">
+                    <h2 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-green-200 mb-3" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.8)" }}>
+                      Previously Government-Exclusive Technology
+                    </h2>
+                    
+                    <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
+                      Transform Your Mobile Home, Cut Costs & Extend Life
+                    </h1>
+                  </div>
                 </div>
-                
-                <GradientHeading className="text-4xl md:text-5xl font-bold mb-6">
-                  Transform Your Mobile Home, Cut Costs & Extend Life
-                </GradientHeading>
                 
                 {/* SANDLER STAGE 1: IDENTIFY THE PAINS */}
                 <div className="mb-10 relative">
@@ -419,16 +428,21 @@ const MobileHome = () => {
                   <div className="absolute -inset-6 bg-green-600/10 rounded-xl blur-2xl opacity-50 animate-pulse-slow"></div>
                   
                   <div className="relative bg-gradient-to-br from-black/80 to-gray-900/80 border border-green-500/40 rounded-xl p-6 backdrop-blur-sm shadow-lg">
-                    {/* Enhanced elite enterprise badge */}
-                    <div className="absolute -top-5 left-1/2 transform -translate-x-1/2 flex items-center justify-center">
-                      <div className="absolute -inset-1 bg-green-500/40 rounded-full blur-md opacity-90"></div>
-                      <div className="px-7 py-2 bg-gradient-to-r from-green-900/95 via-green-800/95 to-green-900/95 rounded-full border border-green-400/50 shadow-[0_0_15px_rgba(74,222,128,0.4)] flex items-center space-x-2">
-                        <CheckCircle className="w-4 h-4 text-green-300 mr-1.5" />
-                        <span className="text-green-100 font-bold text-sm tracking-wide uppercase">PROVEN SOLUTION</span>
+                    {/* Enhanced semantic header hierarchy */}
+                    <div className="flex items-start mb-3">
+                      <div className="relative mr-2">
+                        <div className="absolute -inset-1 bg-green-500/30 rounded-full blur-md"></div>
+                        <div className="relative h-6 w-6 flex items-center justify-center">
+                          <div className="absolute inset-0 bg-gradient-to-b from-green-600/80 to-green-800/80 rounded-full shadow-[0_0_8px_rgba(74,222,128,0.6)]"></div>
+                          <CheckCircle className="w-3.5 h-3.5 text-green-100 relative z-10" />
+                        </div>
                       </div>
+                      <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-green-200" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.8)" }}>
+                        PROVEN SOLUTION
+                      </h3>
                     </div>
                     
-                    <h2 className="text-2xl md:text-3xl text-white font-bold mt-6 mb-6 bg-clip-text text-transparent bg-gradient-to-r from-green-200 to-emerald-100 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.8), 0 8px 24px rgba(74,222,128,0.2)" }}>
+                    <h2 className="text-2xl md:text-3xl text-white font-bold mb-6 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
                       Praetorian Smart-Coat – Advanced Mobile Home Protection
                     </h2>
                     
@@ -567,11 +581,11 @@ const MobileHome = () => {
                   <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/20 via-blue-500/20 to-blue-600/20 rounded-xl blur-md opacity-80"></div>
                   
                   <div className="relative bg-gradient-to-br from-black/70 to-gray-900/70 border border-blue-500/30 rounded-xl p-6 backdrop-blur-sm">
-                    <div className="absolute -top-4 left-8 px-6 py-1 bg-gradient-to-r from-blue-900/90 to-blue-700/90 rounded-full border border-blue-400/30 shadow-lg shadow-blue-900/20">
-                      <span className="text-blue-200 font-semibold">MEASURABLE BENEFITS</span>
-                    </div>
+                    <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-blue-200 mb-3" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.8)" }}>
+                      MEASURABLE BENEFITS
+                    </h3>
                     
-                    <h2 className="text-2xl md:text-3xl text-white font-bold mt-4 mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-200 to-cyan-100 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
+                    <h2 className="text-2xl md:text-3xl text-white font-bold mb-6 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
                       Real Results for Your Mobile Home
                     </h2>
                     
@@ -681,9 +695,21 @@ const MobileHome = () => {
                   </div>
                 </div>
                 
-                {/* Testimonial to build social proof */}
-                <div className="bg-gradient-to-br from-gray-900/90 to-gray-950/90 border border-blue-600/20 rounded-lg p-4 mb-6">
-                  <p className="text-sm text-blue-100 italic">Previously classified ceramic microsphere technology, formerly exclusive to military housing, now available to mobile home communities</p>
+                {/* Testimonial with proper heading structure */}
+                <div className="relative mb-6">
+                  {/* Blue glow behind the container */}
+                  <div className="absolute -inset-2 bg-blue-500/10 rounded-xl blur-2xl opacity-50 z-0"></div>
+                  <div className="absolute -inset-4 bg-blue-500/10 rounded-xl blur-3xl opacity-40 z-0 animate-pulse-slow"></div>
+                  
+                  {/* Content card */}
+                  <div className="relative bg-gradient-to-br from-gray-900/90 to-gray-950/90 border border-blue-600/20 rounded-lg p-4 z-10">
+                    <h4 className="text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-blue-200 mb-2" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.8)" }}>
+                      Military-Grade Technology
+                    </h4>
+                    <p className="text-sm text-blue-100 italic">
+                      Previously classified ceramic microsphere technology, formerly exclusive to military housing, now available to mobile home communities
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
