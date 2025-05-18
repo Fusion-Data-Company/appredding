@@ -148,14 +148,19 @@ const Painters = () => {
                   <div className="absolute bottom-0 right-0 w-3 h-3 bg-red-500/50 rounded-full blur-[2px]"></div>
                 </div>
                 
-                <motion.h1 
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.7 }}
-                  className="text-3xl sm:text-4xl md:text-5xl mb-4 md:mb-6 text-white drop-shadow-[0_1px_3px_rgba(239,68,68,0.6)]"
-                >
-                  The Painter's Profit Crisis
-                </motion.h1>
+                <div className="relative mb-6">
+                  <div className="inline-block mb-3 bg-red-500/20 px-3 py-1 rounded-full">
+                    <span className="text-xs font-semibold text-red-300 uppercase tracking-wider">PREVIOUSLY A GOVERNMENT RESOURCE</span>
+                  </div>
+                  <motion.h1 
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.7 }}
+                    className="text-3xl sm:text-4xl md:text-5xl mb-4 md:mb-6 text-white drop-shadow-[0_1px_3px_rgba(239,68,68,0.6)]"
+                  >
+                    The Painter's Profit Crisis
+                  </motion.h1>
+                </div>
                 
                 {/* Pain Points Content */}
                 <motion.div
