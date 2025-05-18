@@ -108,11 +108,11 @@ const PitchDeckSlider = () => {
             transition={{ duration: 0.5 }}
           >
             {/* Premium styled button with layered effects */}
-            <div className="group relative">
-              {/* Ambient blue-to-orange gradient glow effect behind button */}
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-orange-600 rounded-lg blur opacity-70 group-hover:opacity-100 transition duration-200"></div>
+            <div className="group relative inline-block">
+              {/* Ambient blue-to-orange gradient glow effect positioned behind button */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-orange-600 rounded-full blur-md opacity-70 group-hover:opacity-100 transition duration-300"></div>
               
-              {/* Button with premium styling */}
+              {/* Button with premium black styling */}
               <GradientButton 
                 onClick={togglePitchDeck}
                 className="relative bg-black rounded-full py-3 px-6 z-10 border border-gray-800 overflow-hidden group-hover:shadow-[0_0_25px_rgba(0,0,0,0.4)] transition-all duration-500 flex items-center gap-3 intro-button-shimmer transform group-hover:scale-105"
@@ -300,17 +300,19 @@ const PitchDeckSlider = () => {
                             </SelectContent>
                           </Select>
                           
-                          <div className="relative inline-block">
-                            {/* Ambient blue-to-orange gradient glow effect behind button */}
-                            <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-orange-600 rounded-lg blur opacity-70 group-hover:opacity-100 transition duration-200"></div>
+                          <div className="group relative inline-block">
+                            {/* Ambient blue-to-orange gradient glow effect positioned behind button */}
+                            <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-orange-600 rounded-full blur-md opacity-70 group-hover:opacity-100 transition duration-300"></div>
                             <GradientButton 
                               onClick={() => selectedIndustry && handleIndustrySelect(selectedIndustry)}
                               disabled={!selectedIndustry}
-                              className="relative min-w-[150px] bg-black border border-gray-700"
+                              className="relative min-w-[150px] bg-black rounded-full border border-gray-800 z-10 overflow-hidden"
                               variant="default"
                             >
-                              Continue
-                              <ArrowRight className="w-4 h-4 ml-2" />
+                              <span className="flex items-center">
+                                Continue
+                                <ArrowRight className="w-4 h-4 ml-2" />
+                              </span>
                             </GradientButton>
                           </div>
                         </div>
