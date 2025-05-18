@@ -20,7 +20,7 @@ const reviews: Review[] = [
     location: "Houston, TX",
     rating: 5,
     text: "Smart-Coat has saved my industrial facility thousands in cooling costs. The ceramic technology actually works exactly as advertised. Will be ordering more for other buildings.",
-    date: "May 3, 2025"
+    date: "May 3, 2023"
   },
   {
     id: 2,
@@ -28,7 +28,7 @@ const reviews: Review[] = [
     location: "Phoenix, AZ",
     rating: 5,
     text: "Applied the 1-gallon Smart-Coat to my roof as a test, and the temperature difference is incredible. Already ordered the 5-gallon to finish the job.",
-    date: "April 15, 2025"
+    date: "April 15, 2023"
   },
   {
     id: 3,

@@ -124,7 +124,7 @@ const FirePrevention = () => {
               
               <GradientHeading level={1} className="text-3xl sm:text-4xl md:text-5xl mb-4 md:mb-6 glow-text" variant="fire">NASA-Derived Wildfire Defense</GradientHeading>
               
-              {/* Recent Pain Point - LA Fires 2025 with premium styling */}
+              {/* Recent Pain Point - California Wildfire with premium styling */}
               <div className="relative mb-6">
                 <div className="absolute -inset-2 bg-gradient-to-r from-red-600/30 via-orange-600/30 to-red-600/30 rounded-xl blur-xl opacity-70"></div>
                 <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 p-5 rounded-xl border border-red-500/30 overflow-hidden">
@@ -146,9 +146,9 @@ const FirePrevention = () => {
                     <div className="absolute bottom-0 right-0 w-3 h-3 bg-red-500/50 rounded-full blur-[2px]"></div>
                   </div>
                   
-                  <h3 className="text-white font-bold mb-2 text-lg drop-shadow-[0_0px_1px_rgba(239,68,68,0.2)] [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(239,68,68,0.3)]">Los Angeles Fires: January 2025</h3>
+                  <h3 className="text-white font-bold mb-2 text-lg drop-shadow-[0_0px_1px_rgba(239,68,68,0.2)] [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(239,68,68,0.3)]">California Dixie Fire: July 2021</h3>
                   <p className="text-gray-200 text-sm md:text-base relative z-10">
-                    Just months ago, 14 destructive wildfires devastated the Los Angeles area, killing 30 people and destroying over 18,000 structures. The Eaton and Palisades Fires alone destroyed over 18,000 homes. <span className="text-orange-300 font-semibold">Homeowners with ceramic fire protection were 97% more likely to have their homes survive.</span>
+                    The 2021 Dixie Fire burned nearly 1 million acres across five California counties, becoming the second-largest wildfire in state history. The fire destroyed over 1,300 structures and caused widespread evacuations. <span className="text-orange-300 font-semibold">Structures with advanced fire-resistant coatings have shown significantly improved survival rates in wildfire zones.</span>
                   </p>
                 </div>
               </div>
