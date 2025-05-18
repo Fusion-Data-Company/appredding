@@ -266,7 +266,7 @@ const Painters = () => {
                   transition={{ duration: 0.7 }}
                   className="text-3xl sm:text-4xl md:text-5xl mb-4 md:mb-6 text-white drop-shadow-[0_1px_3px_rgba(59,130,246,0.6)]"
                 >
-                  543% Increased Painting Profit Margin
+                  25-40% Increased Painting Profit Margin
                 </motion.h1>
                 
                 {/* Enhanced ROI-focused stats in enterprise grid format */}
@@ -283,7 +283,7 @@ const Painters = () => {
                           <CircleDollarSign className="w-4 h-4 text-green-100" />
                         </div>
                       </div>
-                      <span className="text-green-400 font-bold text-xl md:text-2xl block group-hover:scale-110 transition-transform duration-300">$37.50</span>
+                      <span className="text-green-400 font-bold text-xl md:text-2xl block group-hover:scale-110 transition-transform duration-300">$2.50</span>
                       <span className="text-blue-200 text-xs">Extra profit per sq.ft</span>
                     </div>
                     <div className="bg-gray-900/60 p-3 rounded-lg border-2 border-green-500/30 shadow-[0_0_20px_rgba(74,222,128,0.2)] text-center group">
@@ -293,7 +293,7 @@ const Painters = () => {
                           <CheckCircle className="w-4 h-4 text-green-100" />
                         </div>
                       </div>
-                      <span className="text-green-400 font-bold text-xl md:text-2xl block group-hover:scale-110 transition-transform duration-300">87.3%</span>
+                      <span className="text-green-400 font-bold text-xl md:text-2xl block group-hover:scale-110 transition-transform duration-300">35%</span>
                       <span className="text-blue-200 text-xs">Callback reduction</span>
                     </div>
                     <div className="bg-gray-900/60 p-3 rounded-lg border-2 border-green-500/30 shadow-[0_0_20px_rgba(74,222,128,0.2)] text-center group">
@@ -303,7 +303,7 @@ const Painters = () => {
                           <Clock className="w-4 h-4 text-green-100" />
                         </div>
                       </div>
-                      <span className="text-green-400 font-bold text-xl md:text-2xl block group-hover:scale-110 transition-transform duration-300">14+ yrs</span>
+                      <span className="text-green-400 font-bold text-xl md:text-2xl block group-hover:scale-110 transition-transform duration-300">10 yrs</span>
                       <span className="text-blue-200 text-xs">Warranty-backed service</span>
                     </div>
                   </div>
@@ -458,7 +458,7 @@ const Painters = () => {
                         <div className="space-y-3 mb-6">
                           <div className="flex justify-between items-center border-b border-gray-700 pb-2">
                             <span className="text-gray-300">Average Cost per sq.ft</span>
-                            <span className="text-green-300 font-medium">$15.00</span>
+                            <span className="text-green-300 font-medium">$4.50</span>
                           </div>
                           <div className="flex justify-between items-center border-b border-gray-700 pb-2">
                             <span className="text-gray-300">Materials Cost per sq.ft</span>
@@ -470,7 +470,7 @@ const Painters = () => {
                           </div>
                           <div className="flex justify-between items-center pb-2">
                             <span className="text-gray-300 font-semibold">Profit per sq.ft</span>
-                            <span className="text-green-400 font-bold">$12.00</span>
+                            <span className="text-green-400 font-bold">$1.50</span>
                           </div>
                         </div>
                         
