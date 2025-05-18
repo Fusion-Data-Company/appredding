@@ -58,7 +58,13 @@ function Router() {
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/crm" component={CRM} />
-      <Route path="/painter-network" component={PainterNetwork} />
+      {/* Redirect /painter-network to /painters */}
+      <Route path="/painter-network">
+        {() => {
+          window.location.href = "/painters";
+          return null;
+        }}
+      </Route>
       <Route path="/marinas" component={Marinas} />
       <Route path="/fire-prevention" component={FirePrevention} />
       <Route path="/painters" component={Painters} />
