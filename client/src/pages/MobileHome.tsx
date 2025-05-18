@@ -640,33 +640,38 @@ const MobileHome = () => {
                 </div>
                 
                 {/* SANDLER STAGE 4: FUNNEL CLOSE + REGISTRATION */}
-                <div className="mt-8 p-6 relative bg-gradient-to-br from-black/60 to-gray-900/60 border-2 border-green-600/40 rounded-xl transition-all duration-300 mb-8">
-                  <div className="absolute -inset-px bg-gradient-to-r from-green-600/10 via-transparent to-green-600/10 rounded-xl opacity-70 blur-sm"></div>
+                <div className="mt-8 p-6 relative bg-gradient-to-br from-black/80 to-gray-900/80 border-2 border-green-600/50 rounded-xl transition-all duration-300 mb-8 shadow-[0_6px_20px_rgba(74,222,128,0.15)]">
+                  {/* Enhanced layered ambient green glows */}
+                  <div className="absolute -inset-2 bg-green-500/20 rounded-xl blur-2xl opacity-70 z-0"></div>
+                  <div className="absolute -inset-4 bg-green-500/15 rounded-xl blur-3xl opacity-60 z-0 animate-pulse-slow"></div>
+                  <div className="absolute -inset-px bg-gradient-to-r from-green-600/20 via-transparent to-green-600/20 rounded-xl opacity-80 blur-sm"></div>
                   
-                  <h3 className="text-2xl font-bold text-white mb-4 text-center">Transform Your Mobile Home Today</h3>
+                  <h3 className="relative z-10 text-2xl font-bold text-white mb-4 text-center drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">Transform Your Mobile Home Today</h3>
                   
-                  <p className="text-lg text-gray-100 mb-6 text-center">
+                  <p className="relative z-10 text-lg text-gray-100 mb-6 text-center">
                     Stop throwing money away on skyrocketing energy bills and endless repairs. Praetorian Smart-Coat gives you a more comfortable, valuable, and protected home while saving you thousands of dollars over time.
                   </p>
                   
-                  <div className="flex justify-center mb-4">
-                    {/* Ambient blue-to-orange gradient glow wrapper around the button without affecting the button itself */}
+                  <div className="flex justify-center mb-4 relative z-10">
+                    {/* Ambient purple registration button glow */}
                     <div className="relative">
-                      <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-orange-600 rounded-lg blur opacity-70 group-hover:opacity-100 transition duration-200"></div>
+                      <div className="absolute -inset-1 bg-gradient-to-r from-purple-600/50 to-purple-400/50 rounded-lg blur-md opacity-80 group-hover:opacity-100 transition duration-300"></div>
+                      <div className="absolute -inset-3 bg-purple-500/20 rounded-xl blur-xl opacity-70 animate-pulse-slow"></div>
                       <div className="relative">
                         <PremiumActionButton
                           onClick={() => document.getElementById('mobileHomeForm')?.scrollIntoView({ behavior: 'smooth' })}
                           size="lg"
-                          className="text-lg font-bold px-8 transform transition-all duration-300 hover:scale-105"
+                          className="text-lg font-bold px-8 transform transition-all duration-300 hover:scale-105 bg-gradient-to-r from-purple-800 to-purple-600 border border-purple-400/30 text-white"
                           glowEffect={true}
+                          glowColor="purple"
                         >
-                          Get Your Mobile Home Certified Today
+                          Register For Certification
                         </PremiumActionButton>
                       </div>
                     </div>
                   </div>
                   
-                  <p className="text-sm text-gray-300 text-center">
+                  <p className="relative z-10 text-sm text-gray-300 text-center">
                     Our mobile home specialists will assess your needs, provide a detailed cost analysis showing your expected ROI, and schedule your installation – all at no obligation.
                   </p>
                 </div>
