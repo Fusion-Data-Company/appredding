@@ -193,7 +193,7 @@ const MobileHome = () => {
         <section className="py-16 md:py-24 relative z-10">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto text-center mb-16 relative">
-              <div className="absolute -inset-1 bg-gradient-to-r from-orange-500/20 via-blue-500/20 to-orange-500/20 rounded-xl blur-xl opacity-70"></div>
+              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/30 via-blue-500/20 to-blue-600/30 rounded-xl blur-xl opacity-70"></div>
               
               {/* Ultra-premium enterprise header with layered effects */}
               <div className="relative bg-gradient-to-br from-gray-900/90 via-gray-950/90 to-black/90 py-10 px-12 rounded-xl border border-blue-600/50 shadow-[0_10px_50px_rgba(59,130,246,0.3)]">
@@ -838,30 +838,71 @@ const MobileHome = () => {
                       </div>
                     </div>
                     
-                    {/* ROI Results Preview */}
-                    <div className="mt-6 pt-6 border-t border-gray-700">
-                      <h4 className="text-lg font-semibold mb-3 text-white">Projected 5-Year Returns</h4>
+                    {/* ROI Results Preview with Enhanced Green Glow */}
+                    <div className="mt-6 pt-6 border-t border-gray-700 relative">
+                      {/* Prominent ambient green glow for ROI section */}
+                      <div className="absolute -inset-3 bg-green-500/30 rounded-xl blur-xl opacity-70 z-0"></div>
+                      <div className="absolute -inset-6 bg-green-500/20 rounded-xl blur-2xl opacity-60 z-0 animate-pulse-slow"></div>
+                      <div className="absolute -inset-10 bg-green-600/10 rounded-xl blur-3xl opacity-40 z-0"></div>
                       
-                      <div className="grid grid-cols-2 gap-4">
-                        <div className="relative bg-gray-900/60 border-2 border-green-500/50 rounded-lg p-3">
-                          <div className="absolute -inset-0.5 bg-green-500/20 rounded-lg blur-sm opacity-70 -z-10"></div>
-                          <div className="text-lg font-bold text-green-400" style={{ textShadow: "0 2px 4px rgba(0, 0, 0, 0.3)" }}>$14,830</div>
-                          <div className="text-sm text-gray-300" style={{ textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)" }}>Total Savings</div>
-                        </div>
-                        <div className="relative bg-gray-900/60 border-2 border-green-500/50 rounded-lg p-3">
-                          <div className="absolute -inset-0.5 bg-green-500/20 rounded-lg blur-sm opacity-70 -z-10"></div>
-                          <div className="text-lg font-bold text-green-400" style={{ textShadow: "0 2px 4px rgba(0, 0, 0, 0.3)" }}>37%</div>
-                          <div className="text-sm text-gray-300" style={{ textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)" }}>ROI</div>
-                        </div>
-                        <div className="relative bg-gray-900/60 border-2 border-green-500/50 rounded-lg p-3">
-                          <div className="absolute -inset-0.5 bg-green-500/20 rounded-lg blur-sm opacity-70 -z-10"></div>
-                          <div className="text-lg font-bold text-green-400" style={{ textShadow: "0 2px 4px rgba(0, 0, 0, 0.3)" }}>1.7 years</div>
-                          <div className="text-sm text-gray-300" style={{ textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)" }}>Payback Period</div>
-                        </div>
-                        <div className="relative bg-gray-900/60 border-2 border-green-500/50 rounded-lg p-3">
-                          <div className="absolute -inset-0.5 bg-green-500/20 rounded-lg blur-sm opacity-70 -z-10"></div>
-                          <div className="text-lg font-bold text-green-400" style={{ textShadow: "0 2px 4px rgba(0, 0, 0, 0.3)" }}>$8,600</div>
-                          <div className="text-sm text-gray-300" style={{ textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)" }}>Value Increase</div>
+                      <div className="relative z-10">
+                        <h4 className="text-xl font-bold mb-4 text-white bg-gradient-to-r from-green-200 to-green-400 bg-clip-text text-transparent drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
+                          Projected 5-Year Returns
+                        </h4>
+                        
+                        <div className="grid grid-cols-2 gap-4">
+                          <div className="relative bg-gray-900/80 border-2 border-green-500/60 rounded-lg p-4 overflow-hidden group hover:bg-gray-900/90 transition-all duration-300">
+                            {/* Enhanced glowing effect */}
+                            <div className="absolute -inset-1 bg-green-500/30 rounded-lg blur-md opacity-70 -z-10 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            <div className="absolute -inset-0.5 bg-gradient-to-br from-green-400/20 to-green-600/20 rounded-lg opacity-70 -z-10"></div>
+                            
+                            {/* Subtle glass shimmer */}
+                            <div className="absolute inset-0 overflow-hidden rounded-lg -z-10">
+                              <div className="h-full w-2/3 bg-gradient-to-r from-transparent via-green-400/10 to-transparent skew-x-[-20deg] animate-shimmer-slow"></div>
+                            </div>
+                            
+                            <div className="text-xl font-bold text-green-400" style={{ textShadow: "0 2px 4px rgba(0, 0, 0, 0.4)" }}>$14,830</div>
+                            <div className="text-sm text-gray-300" style={{ textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)" }}>Total Savings</div>
+                          </div>
+                          <div className="relative bg-gray-900/80 border-2 border-green-500/60 rounded-lg p-4 overflow-hidden group hover:bg-gray-900/90 transition-all duration-300">
+                            {/* Enhanced glowing effect */}
+                            <div className="absolute -inset-1 bg-green-500/30 rounded-lg blur-md opacity-70 -z-10 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            <div className="absolute -inset-0.5 bg-gradient-to-br from-green-400/20 to-green-600/20 rounded-lg opacity-70 -z-10"></div>
+                            
+                            {/* Subtle glass shimmer */}
+                            <div className="absolute inset-0 overflow-hidden rounded-lg -z-10">
+                              <div className="h-full w-2/3 bg-gradient-to-r from-transparent via-green-400/10 to-transparent skew-x-[-20deg] animate-shimmer-slow" style={{ animationDelay: '0.2s' }}></div>
+                            </div>
+                            
+                            <div className="text-xl font-bold text-green-400" style={{ textShadow: "0 2px 4px rgba(0, 0, 0, 0.4)" }}>37%</div>
+                            <div className="text-sm text-gray-300" style={{ textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)" }}>ROI</div>
+                          </div>
+                          <div className="relative bg-gray-900/80 border-2 border-green-500/60 rounded-lg p-4 overflow-hidden group hover:bg-gray-900/90 transition-all duration-300">
+                            {/* Enhanced glowing effect */}
+                            <div className="absolute -inset-1 bg-green-500/30 rounded-lg blur-md opacity-70 -z-10 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            <div className="absolute -inset-0.5 bg-gradient-to-br from-green-400/20 to-green-600/20 rounded-lg opacity-70 -z-10"></div>
+                            
+                            {/* Subtle glass shimmer */}
+                            <div className="absolute inset-0 overflow-hidden rounded-lg -z-10">
+                              <div className="h-full w-2/3 bg-gradient-to-r from-transparent via-green-400/10 to-transparent skew-x-[-20deg] animate-shimmer-slow" style={{ animationDelay: '0.4s' }}></div>
+                            </div>
+                            
+                            <div className="text-xl font-bold text-green-400" style={{ textShadow: "0 2px 4px rgba(0, 0, 0, 0.4)" }}>1.7 years</div>
+                            <div className="text-sm text-gray-300" style={{ textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)" }}>Payback Period</div>
+                          </div>
+                          <div className="relative bg-gray-900/80 border-2 border-green-500/60 rounded-lg p-4 overflow-hidden group hover:bg-gray-900/90 transition-all duration-300">
+                            {/* Enhanced glowing effect */}
+                            <div className="absolute -inset-1 bg-green-500/30 rounded-lg blur-md opacity-70 -z-10 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            <div className="absolute -inset-0.5 bg-gradient-to-br from-green-400/20 to-green-600/20 rounded-lg opacity-70 -z-10"></div>
+                            
+                            {/* Subtle glass shimmer */}
+                            <div className="absolute inset-0 overflow-hidden rounded-lg -z-10">
+                              <div className="h-full w-2/3 bg-gradient-to-r from-transparent via-green-400/10 to-transparent skew-x-[-20deg] animate-shimmer-slow" style={{ animationDelay: '0.6s' }}></div>
+                            </div>
+                            
+                            <div className="text-xl font-bold text-green-400" style={{ textShadow: "0 2px 4px rgba(0, 0, 0, 0.4)" }}>$8,600</div>
+                            <div className="text-sm text-gray-300" style={{ textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)" }}>Value Increase</div>
+                          </div>
                         </div>
                       </div>
                       
