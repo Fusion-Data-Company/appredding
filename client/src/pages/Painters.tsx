@@ -217,7 +217,7 @@ const Painters = () => {
                 </motion.div>
               
                 <div className="bg-black/30 border border-red-600/20 rounded-lg p-3 mb-6">
-                  <p className="text-sm text-gray-300 italic">The average painting contractor loses <span className="text-red-400 font-semibold">$2,500 annually</span> in potential profit and wastes 20+ hours on preventable callbacks</p>
+                  <p className="text-sm text-gray-300 italic">The average painting contractor loses <span className="text-red-400 font-semibold">$1,250 annually</span> in potential profit and wastes 15+ hours on preventable callbacks</p>
                 </div>
                 
                 <motion.div
@@ -266,7 +266,7 @@ const Painters = () => {
                   transition={{ duration: 0.7 }}
                   className="text-3xl sm:text-4xl md:text-5xl mb-4 md:mb-6 text-white drop-shadow-[0_1px_3px_rgba(59,130,246,0.6)]"
                 >
-                  25-40% Increased Painting Profit Margin
+                  15-25% Increased Painting Profit Margin
                 </motion.h1>
                 
                 {/* Enhanced ROI-focused stats in enterprise grid format */}
@@ -283,7 +283,7 @@ const Painters = () => {
                           <CircleDollarSign className="w-4 h-4 text-green-100" />
                         </div>
                       </div>
-                      <span className="text-green-400 font-bold text-xl md:text-2xl block group-hover:scale-110 transition-transform duration-300">$0.75</span>
+                      <span className="text-green-400 font-bold text-xl md:text-2xl block group-hover:scale-110 transition-transform duration-300">$0.35</span>
                       <span className="text-blue-200 text-xs">Extra profit per sq.ft</span>
                     </div>
                     <div className="bg-gray-900/60 p-3 rounded-lg border-2 border-green-500/30 shadow-[0_0_20px_rgba(74,222,128,0.2)] text-center group">
@@ -398,7 +398,7 @@ const Painters = () => {
                     </h2>
                     <p className="text-gray-300 max-w-2xl mx-auto">
                       See how Praetorian's ceramic coating technology creates 
-                      <span className="text-green-400 font-semibold"> 543% higher margins</span> compared to traditional painting methods.
+                      <span className="text-green-400 font-semibold"> 43% higher margins</span> compared to traditional painting methods.
                     </p>
                   </div>
                   

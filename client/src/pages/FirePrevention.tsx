@@ -609,7 +609,7 @@ const FirePrevention = () => {
                       >
                         <div className="flex items-center justify-center">
                           <BarChart3 className="mr-2 h-5 w-5" />
-                          <span>Calculate Your Personal 1,390% ROI</span>
+                          <span>Calculate Your Personal 39% ROI</span>
                         </div>
                       </PremiumCartButton>
                     </div>
