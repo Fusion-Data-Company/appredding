@@ -201,7 +201,7 @@ const Marinas = () => {
                 <div className="relative mb-6">
                   <div className="absolute -inset-2 bg-gradient-to-r from-blue-500/10 via-blue-500/20 to-blue-500/10 rounded-lg blur-md"></div>
                   <h1 className="text-4xl md:text-5xl font-bold text-white relative z-10 drop-shadow-[0_1px_3px_rgba(59,130,246,0.6)]">
-                    Marine ROI Certification
+                    Marine Coating Solutions
                   </h1>
                   <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent"></div>
                 </div>
@@ -297,7 +297,7 @@ const Marinas = () => {
                       </div>
                       <div>
                         <h4 className="text-blue-200 font-semibold">Marine-Grade Certified</h4>
-                        <p className="text-white text-sm mt-1">Our coatings meet or exceed all marine certification requirements for marine applications, including salt spray resistance testing (ASTM B117, 2,000+ hours), adhesion, and impact resistance.</p>
+                        <p className="text-white text-sm mt-1">Our coatings meet marine-grade standards for maritime applications, including salt spray resistance testing (ASTM B117), adhesion, and impact resistance.</p>
                       </div>
                     </div>
                   </div>

@@ -423,7 +423,7 @@ const FirePrevention = () => {
                       </span>
                       <div>
                         <h3 className="text-lg md:text-xl font-semibold mb-2 text-white">Advanced Triple-Component Thermal Barrier System</h3>
-                        <p className="text-sm md:text-base text-gray-100">Our ceramic microsphere coating technology creates thermal breaks with lower thermal conductivity (0.05-0.07 W/m·K) throughout the coating film. The principle works by using the air spaces inside each microsphere to reduce heat transfer, similar to how other insulating materials function.</p>
+                        <p className="text-sm md:text-base text-gray-100">Our ceramic microsphere coating technology creates thermal breaks that help reduce thermal conductivity throughout the coating film. The principle works by using the air spaces inside each microsphere to reduce heat transfer, similar to how other insulating materials function.</p>
                       </div>
                     </div>
 
@@ -460,7 +460,7 @@ const FirePrevention = () => {
                       <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600/20 to-blue-500/20 rounded-lg blur-sm opacity-60 group-hover:opacity-90 transition-opacity"></div>
                       <div className="relative bg-black/40 border border-blue-500/30 rounded-lg p-3 flex flex-col items-center text-center">
                         <div className="text-blue-300 font-semibold text-sm mb-1">Thermal Differential</div>
-                        <div className="text-white text-lg font-bold">1,400°F</div>
+                        <div className="text-white text-lg font-bold">Class A rated</div>
                       </div>
                     </div>
                     <div className="relative group">

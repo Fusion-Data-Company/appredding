@@ -70,7 +70,7 @@ const TechnicalFAQ: React.FC = () => {
           answer={
             <div className="space-y-3">
               <p>
-                Praetorian's exceptional thermal insulation (0.00543 W/cm²/K conductivity) stems from its specialized ceramic microsphere technology. These hollow ceramic spheres:
+                Praetorian's thermal insulation properties stem from its specialized ceramic microsphere technology. These hollow ceramic spheres:
               </p>
               <ul className="list-disc pl-5 space-y-2">
                 <li>Create billions of microscopic air pockets that dramatically slow heat transfer</li>
