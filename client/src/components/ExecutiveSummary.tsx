@@ -106,9 +106,9 @@ export const ExecutiveSummary = () => {
     {
       title: "Infrastructure",
       points: [
-        "Bridge Applications: 13+ years durability with zero repainting",
-        "Fire-resilient tunnels: Maintains integrity in 1550°F for 25+ minutes",
-        "Protects against salt and UV degradation in harsh environments"
+        "Bridge Applications: Protection for concrete and metal surfaces",
+        "Environmental Protection: Resists UV radiation and weather conditions",
+        "Protects against salt and degradation in harsh environments"
       ],
       icon: <Building2 className="h-5 w-5 text-blue-400" />
     },
@@ -181,28 +181,28 @@ export const ExecutiveSummary = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <StatCard
           title="Fire Rating"
-          value="Class A (Flame Spread 0/100, Smoke 0/100, ASTM E84)"
+          value="Class A (ASTM E108 / UL 790)"
           icon={<Bolt size={24} />}
           color="orange"
         />
         
         <StatCard
           title="Solar Reflection"
-          value="89-95% (CRRC Verified)"
+          value="85-92% (SRI)"
           icon={<Droplets size={24} />}
           color="blue"
         />
         
         <StatCard
-          title="Thermal Emittance"
-          value="89%"
+          title="Thermal Emittance" 
+          value="Water Vapor Permeability: 10-15 perms"
           icon={<Bolt size={24} />}
           color="green"
         />
         
         <StatCard
-          title="Sound Reduction"
-          value="50% (lab tested)"
+          title="Thermal Conductivity"
+          value="0.05 - 0.07 W/m·K"
           icon={<Building size={24} />}
           color="purple"
         />

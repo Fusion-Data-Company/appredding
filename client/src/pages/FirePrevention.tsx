@@ -326,27 +326,27 @@ const FirePrevention = () => {
                         
                         <div className="grid grid-cols-2 gap-4 mb-4">
                           <div className="bg-gray-900/50 rounded p-3">
-                            <h5 className="text-orange-400 text-sm font-medium mb-1">Protected Homes</h5>
-                            <p className="text-2xl font-bold text-white">96.6%</p>
-                            <p className="text-xs text-gray-400">Survival rate</p>
+                            <h5 className="text-orange-400 text-sm font-medium mb-1">Surface Temperature</h5>
+                            <p className="text-2xl font-bold text-white">30°F</p>
+                            <p className="text-xs text-gray-400">Average reduction</p>
                           </div>
                           <div className="bg-gray-900/50 rounded p-3">
-                            <h5 className="text-red-400 text-sm font-medium mb-1">Untreated Homes</h5>
-                            <p className="text-2xl font-bold text-white">17%</p>
-                            <p className="text-xs text-gray-400">Survival rate</p>
+                            <h5 className="text-blue-400 text-sm font-medium mb-1">Protection</h5>
+                            <p className="text-xl font-bold text-white">Class A</p>
+                            <p className="text-xs text-gray-400">Fire rating</p>
                           </div>
                         </div>
                         
                         <div className="grid grid-cols-2 gap-4">
                           <div className="bg-gray-900/50 rounded p-3">
-                            <h5 className="text-blue-400 text-sm font-medium mb-1">Insurance Impact</h5>
-                            <p className="text-xl font-bold text-white">-27%</p>
-                            <p className="text-xs text-gray-400">Premium reduction</p>
+                            <h5 className="text-blue-400 text-sm font-medium mb-1">Water Resistance</h5>
+                            <p className="text-xl font-bold text-white">&lt; 0.5%</p>
+                            <p className="text-xs text-gray-400">Water absorption</p>
                           </div>
                           <div className="bg-gray-900/50 rounded p-3">
-                            <h5 className="text-green-400 text-sm font-medium mb-1">Property Value</h5>
-                            <p className="text-xl font-bold text-white">+22%</p>
-                            <p className="text-xs text-gray-400">Value increase</p>
+                            <h5 className="text-green-400 text-sm font-medium mb-1">Property Protection</h5>
+                            <p className="text-xl font-bold text-white">Improved</p>
+                            <p className="text-xs text-gray-400">Building envelope</p>
                           </div>
                         </div>
                         
