@@ -235,7 +235,7 @@ export default function Municipality() {
                   <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-tight
                     bg-clip-text text-transparent bg-gradient-to-b from-white via-gray-200 to-gray-300
                     drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
-                    Municipal Infrastructure Protection
+                    Are Your Municipal Assets At Risk?
                   </h1>
                   
                   {/* Multiple shimmer animations */}
@@ -253,8 +253,8 @@ export default function Municipality() {
                 {/* Description with premium styling */}
                 <p className="text-lg md:text-xl mb-2 max-w-3xl mx-auto">
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-100 to-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">
-                    Specialized ceramic coating solutions for extending the life of critical municipal infrastructure 
-                    while reducing maintenance costs and environmental impact.
+                    Is your municipal infrastructure suffering from escalating deterioration, budget-draining maintenance, 
+                    and increasing safety risks that traditional approaches are failing to address?
                   </span>
                 </p>
                 
@@ -354,12 +354,12 @@ export default function Municipality() {
           </div>
         </section>
 
-        {/* Progressive Sales Funnel - Key Problem Solution Section */}
+        {/* SANDLER STAGE 2: SOLUTION PRESENTATION */}
         <section className="py-16 relative z-10 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-b from-gray-900/50 to-black/80 z-0"></div>
           
-          {/* Large ambient glow for section */}
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-blue-600/10 rounded-full blur-[120px] z-0 opacity-60"></div>
+          {/* Large ambient glow for section - GREEN for solution presentation */}
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-green-600/15 rounded-full blur-[120px] z-0 opacity-70"></div>
           
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-5xl mx-auto">
