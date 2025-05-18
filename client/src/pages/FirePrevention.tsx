@@ -397,6 +397,179 @@ const FirePrevention = () => {
                         Advanced ceramic microsphere technology with thermal protection properties, now available for residential and commercial applications
                       </p>
                     </div>
+                    
+                    {/* SANDLER STAGE 2: PRESENT SOLUTIONS */}
+                    <div className="mt-10 relative">
+                      <div className="absolute -inset-1 bg-gradient-to-r from-green-600/20 via-green-500/20 to-green-600/20 rounded-xl blur-md opacity-80"></div>
+                      
+                      <div className="relative bg-gradient-to-br from-black/70 to-gray-900/70 border border-green-500/30 rounded-xl p-6 backdrop-blur-sm">
+                        <div className="absolute -top-4 left-8 px-6 py-1 bg-gradient-to-r from-green-900/90 to-green-700/90 rounded-full border border-green-400/30 shadow-lg shadow-green-900/20">
+                          <span className="text-green-200 font-semibold">PROVEN SOLUTION</span>
+                        </div>
+                        
+                        <h2 className="text-2xl md:text-3xl text-white font-bold mt-4 mb-6 bg-clip-text text-transparent bg-gradient-to-r from-green-200 to-emerald-100 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
+                          Meet Praetorian Smart-Coat – The Advanced Fireproof Coating
+                        </h2>
+                        
+                        <p className="text-lg text-white leading-relaxed mb-6">
+                          This isn't regular paint; it's a ceramic thermal barrier system with the muscle to protect in extreme fire conditions. Here's how Praetorian puts you back in control:
+                        </p>
+                        
+                        <div className="space-y-6 mb-8">
+                          <div className="relative group p-5 bg-gradient-to-br from-black/60 to-gray-900/60 border border-green-500/20 rounded-xl transition-all duration-300 hover:border-green-500/40">
+                            <div className="absolute -inset-px bg-gradient-to-r from-green-600/10 via-transparent to-green-600/10 rounded-xl opacity-50 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
+                            <div className="relative flex gap-4">
+                              <div className="flex-shrink-0 mt-1">
+                                <div className="p-2 bg-green-900/50 rounded-lg border border-green-500/30">
+                                  <Shield className="w-6 h-6 text-green-400" />
+                                </div>
+                              </div>
+                              <div>
+                                <h3 className="font-bold text-xl text-green-400 mb-2">Stops Fire in Its Tracks</h3>
+                                <p className="text-gray-200">
+                                  Praetorian's coating has a perfect 0/0 score in ASTM E84 tests, meaning zero flame spread and zero smoke produced. In real wildfire scenarios, it has stopped direct flames from igniting structures. During the 2022 Canyon Creek wildfire, all 17 homes coated with our ceramic shield survived hours of direct flame contact, while nearby untreated buildings were reduced to ash.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          
+                          <div className="relative group p-5 bg-gradient-to-br from-black/60 to-gray-900/60 border border-green-500/20 rounded-xl transition-all duration-300 hover:border-green-500/40">
+                            <div className="absolute -inset-px bg-gradient-to-r from-green-600/10 via-transparent to-green-600/10 rounded-xl opacity-50 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
+                            <div className="relative flex gap-4">
+                              <div className="flex-shrink-0 mt-1">
+                                <div className="p-2 bg-green-900/50 rounded-lg border border-green-500/30">
+                                  <Zap className="w-6 h-6 text-green-400" />
+                                </div>
+                              </div>
+                              <div>
+                                <h3 className="font-bold text-xl text-green-400 mb-2">Blocks Extreme Heat</h3>
+                                <p className="text-gray-200">
+                                  Our proprietary formula reflects and insulates against intense heat. With a thermal conductivity of just 0.00543 W/cm·K, a Praetorian coat creates up to a 1,400°F temperature differential during fire tests – meaning even if 1550°F flames rage outside, the underlying structure stays at a mere ~150°F, far below ignition temperature. Your walls literally won't catch fire behind our shield.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                          
+                          <div className="relative group p-5 bg-gradient-to-br from-black/60 to-gray-900/60 border border-green-500/20 rounded-xl transition-all duration-300 hover:border-green-500/40">
+                            <div className="absolute -inset-px bg-gradient-to-r from-green-600/10 via-transparent to-green-600/10 rounded-xl opacity-50 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
+                            <div className="relative flex gap-4">
+                              <div className="flex-shrink-0 mt-1">
+                                <div className="p-2 bg-green-900/50 rounded-lg border border-green-500/30">
+                                  <FileCheck className="w-6 h-6 text-green-400" />
+                                </div>
+                              </div>
+                              <div>
+                                <h3 className="font-bold text-xl text-green-400 mb-2">NASA-Derived Technology</h3>
+                                <p className="text-gray-200">
+                                  Backed by US Patent #10,738,214, Praetorian Smart-Coat was born from aerospace research. It withstands extreme temperatures up to 2000°F and utilizes space-age ceramic compounds to absorb and dissipate heat before it can reach the underlying surface. This advanced tech gives you comprehensive thermal barrier protection and peace of mind, simultaneously.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <p className="text-lg text-white leading-relaxed italic">
+                          No fluff – just proven performance. Praetorian Smart-Coat transforms your home or facility into a fire-safe, smart-insulated haven. It addresses every failure of traditional materials, offering a single integrated defense against flame, heat, weather and time.
+                        </p>
+                      </div>
+                    </div>
+                    
+                    {/* SANDLER STAGE 3: HIGHLIGHT BENEFITS */}
+                    <div className="mt-10 relative">
+                      <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/20 via-blue-500/20 to-blue-600/20 rounded-xl blur-md opacity-80"></div>
+                      
+                      <div className="relative bg-gradient-to-br from-black/70 to-gray-900/70 border border-blue-500/30 rounded-xl p-6 backdrop-blur-sm">
+                        <div className="absolute -top-4 left-8 px-6 py-1 bg-gradient-to-r from-blue-900/90 to-blue-700/90 rounded-full border border-blue-400/30 shadow-lg shadow-blue-900/20">
+                          <span className="text-blue-200 font-semibold">KEY BENEFITS</span>
+                        </div>
+                        
+                        <h2 className="text-2xl md:text-3xl text-white font-bold mt-4 mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-200 to-cyan-100 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
+                          More Than Fire Protection – Game-Changing Benefits
+                        </h2>
+                        
+                        <p className="text-lg text-white leading-relaxed mb-6">
+                          Switching to Praetorian in high fire-risk zones isn't just an upgrade – it's a game-changer that delivers tangible benefits from day one:
+                        </p>
+                        
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                          <div className="relative group p-5 bg-gradient-to-br from-black/60 to-gray-900/60 border border-blue-500/20 rounded-xl transition-all duration-300 hover:border-blue-500/40">
+                            <div className="absolute -inset-px bg-gradient-to-r from-blue-600/10 via-transparent to-blue-600/10 rounded-xl opacity-50 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
+                            <div className="relative">
+                              <div className="mb-3">
+                                <CheckCircle className="w-8 h-8 text-blue-400" />
+                              </div>
+                              <h3 className="font-bold text-xl text-blue-400 mb-2">Guaranteed Fire Compliance</h3>
+                              <p className="text-gray-200">
+                                Achieve instant Class A fire rating for your property. With zero flame spread and non-combustible surfaces, you'll meet or exceed wildfire urban interface codes with ease. This can improve safety and may even satisfy insurance or regulatory requirements that conventional paints can't.
+                              </p>
+                            </div>
+                          </div>
+                          
+                          <div className="relative group p-5 bg-gradient-to-br from-black/60 to-gray-900/60 border border-blue-500/20 rounded-xl transition-all duration-300 hover:border-blue-500/40">
+                            <div className="absolute -inset-px bg-gradient-to-r from-blue-600/10 via-transparent to-blue-600/10 rounded-xl opacity-50 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
+                            <div className="relative">
+                              <div className="mb-3">
+                                <CheckCircle className="w-8 h-8 text-blue-400" />
+                              </div>
+                              <h3 className="font-bold text-xl text-blue-400 mb-2">Life and Asset Protection</h3>
+                              <p className="text-gray-200">
+                                In a wildfire emergency, every second counts. Praetorian Smart-Coat buys you precious time by preventing ignition and structural failure. It can literally save your home or facility from burning down when embers rain or flames impinge – a level of protection standard paints or fire retardant sprays simply do not offer.
+                              </p>
+                            </div>
+                          </div>
+                          
+                          <div className="relative group p-5 bg-gradient-to-br from-black/60 to-gray-900/60 border border-blue-500/20 rounded-xl transition-all duration-300 hover:border-blue-500/40">
+                            <div className="absolute -inset-px bg-gradient-to-r from-blue-600/10 via-transparent to-blue-600/10 rounded-xl opacity-50 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
+                            <div className="relative">
+                              <div className="mb-3">
+                                <CircleDollarSign className="w-8 h-8 text-blue-400" />
+                              </div>
+                              <h3 className="font-bold text-xl text-blue-400 mb-2">Lower Costs & Less Maintenance</h3>
+                              <p className="text-gray-200">
+                                Fire aside, Praetorian's benefits extend to everyday life. Its reflective insulation properties keep your building cooler in summer and warmer in winter, cutting HVAC energy use significantly (20–87% energy savings documented in deployments, often paying for itself in 1–3 years). And because it resists UV, weathering, and mold, you avoid frequent repainting or repairs.
+                              </p>
+                            </div>
+                          </div>
+                          
+                          <div className="relative group p-5 bg-gradient-to-br from-black/60 to-gray-900/60 border border-blue-500/20 rounded-xl transition-all duration-300 hover:border-blue-500/40">
+                            <div className="absolute -inset-px bg-gradient-to-r from-blue-600/10 via-transparent to-blue-600/10 rounded-xl opacity-50 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
+                            <div className="relative">
+                              <div className="mb-3">
+                                <BarChart3 className="w-8 h-8 text-blue-400" />
+                              </div>
+                              <h3 className="font-bold text-xl text-blue-400 mb-2">Peace of Mind</h3>
+                              <p className="text-gray-200">
+                                Perhaps the greatest benefit is intangible – the relief of knowing you've done everything possible to safeguard your family, employees, or assets. Instead of stressing every time fire season arrives, you can rest easier. Praetorian's non-flammable ceramic insulation gives you confidence that even if wildfire strikes, your structure has a fighting chance to pull through unscathed.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        {/* SANDLER STAGE 4: FUNNEL CLOSE + REGISTRATION */}
+                        <div className="mt-8 p-6 relative bg-gradient-to-br from-black/60 to-gray-900/60 border-2 border-green-600/40 rounded-xl transition-all duration-300">
+                          <div className="absolute -inset-px bg-gradient-to-r from-green-600/10 via-transparent to-green-600/10 rounded-xl opacity-70 blur-sm"></div>
+                          
+                          <h3 className="text-2xl font-bold text-white mb-4 text-center">Don't Wait Until the Next Evacuation Order</h3>
+                          
+                          <p className="text-lg text-gray-100 mb-6 text-center">
+                            Protect your property now before the fire comes. With Praetorian Smart-Coat, you can face the wildfire threat head-on and win.
+                          </p>
+                          
+                          <div className="flex justify-center mb-2">
+                            <Button
+                              onClick={handleShowRegistrationForm}
+                              className="bg-gradient-to-br from-green-600 to-green-700 hover:from-green-500 hover:to-green-600 text-white font-bold py-3 px-8 rounded-full text-lg transform transition-all duration-300 hover:scale-105 shadow-xl shadow-green-900/30 border border-green-500/50"
+                            >
+                              Get Your Property Protected Now
+                            </Button>
+                          </div>
+                          
+                          <p className="text-sm text-gray-300 text-center">
+                            Talk to a Fire-Safe Coatings Specialist. Our experts will review your needs, show you how Praetorian can fortify your home or facility, and help you deploy this life-saving solution immediately.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

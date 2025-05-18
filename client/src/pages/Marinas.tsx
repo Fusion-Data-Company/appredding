@@ -201,9 +201,52 @@ const Marinas = () => {
                 <div className="relative mb-6">
                   <div className="absolute -inset-2 bg-gradient-to-r from-blue-500/10 via-blue-500/20 to-blue-500/10 rounded-lg blur-md"></div>
                   <h1 className="text-4xl md:text-5xl font-bold text-white relative z-10 drop-shadow-[0_1px_3px_rgba(59,130,246,0.6)]">
-                    Marine Coating Solutions
+                    Defend Your Marina – Conquer Salt, Sun & Sparks
                   </h1>
+                  <p className="text-lg text-blue-200 mt-4 relative z-10">
+                    Harsh marine environments corrode metal, fade surfaces, and pose hidden fire dangers on docks. Praetorian Smart-Coat's advanced marine-grade system is your all-in-one shield.
+                  </p>
                   <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent"></div>
+                </div>
+                
+                {/* SANDLER STAGE 1: IDENTIFY THE PAINS */}
+                <div className="relative mb-10 bg-gradient-to-br from-gray-900/60 to-gray-800/60 border border-blue-600/30 rounded-xl p-6">
+                  <div className="absolute -inset-1 bg-gradient-to-r from-red-600/10 via-blue-500/10 to-red-600/10 rounded-xl blur-md opacity-80"></div>
+                  
+                  <h2 className="text-2xl font-bold text-white mb-4">
+                    The Relentless Battle Against Marine Elements
+                  </h2>
+                  
+                  <p className="text-lg text-white leading-relaxed mb-6">
+                    Owning or managing a marina or shipyard means battling the elements daily. The environment is relentless – is your infrastructure holding up or costing you a fortune?
+                  </p>
+                  
+                  <div className="space-y-4 mb-6">
+                    <div className="flex items-start">
+                      <div className="h-6 w-1 bg-gradient-to-b from-blue-600 to-blue-400 rounded-full mr-3 mt-1.5"></div>
+                      <p className="text-base text-gray-200">
+                        <span className="text-white font-medium">Ever had to sand down rust and repaint your docks or hulls every couple of years?</span> Salt spray and constant humidity eat away steel and paint, forcing costly maintenance cycles. It's a never-ending fight against corrosion that drains budgets and disrupts operations.
+                      </p>
+                    </div>
+                    
+                    <div className="flex items-start">
+                      <div className="h-6 w-1 bg-gradient-to-b from-blue-600 to-blue-400 rounded-full mr-3 mt-1.5"></div>
+                      <p className="text-base text-gray-200">
+                        <span className="text-white font-medium">What happens when the summer sun turns your deck surfaces and handrails scorching hot?</span> Visitors and staff risk burns from touching metal in peak sun. Meanwhile, UV radiation is silently degrading your coatings, causing fading, chalking, and cracks that let moisture in.
+                      </p>
+                    </div>
+                    
+                    <div className="flex items-start">
+                      <div className="h-6 w-1 bg-gradient-to-b from-blue-600 to-blue-400 rounded-full mr-3 mt-1.5"></div>
+                      <p className="text-base text-gray-200">
+                        <span className="text-white font-medium">Why do you still struggle with coatings that can't handle marine abuse?</span> Hairline cracks let water infiltrate, leading to hidden rot or rust. Fuel spills or electrical sparks on a dock can ignite a fire, yet many "marine" paints aren't truly fireproof. Regulatory pressures demand more, and traditional paints just aren't cutting it.
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <p className="text-base text-red-200 font-medium mb-4">
+                    The risk and cost here are huge: unchecked corrosion compromises structural integrity (endangering boats and people), while a single dock fire could devastate an entire marina. Yet maintenance and liability costs keep rising as conventional solutions fail to provide lasting protection.
+                  </p>
                 </div>
                 
                 {/* Enhanced ROI-focused stats with premium green styling */}
