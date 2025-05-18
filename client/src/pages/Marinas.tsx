@@ -286,7 +286,7 @@ const Marinas = () => {
                     <h2 className="text-3xl font-bold text-white drop-shadow-[0_2px_10px_rgba(59,130,246,0.5)]">Marine Application Configurator</h2>
                   </div>
                   
-                  <p className="mb-6 text-white text-lg">Find the right marine coating specification for your vessel or marine structure based on environmental exposure factors and operational requirements. Our ABS-certified coatings are engineered for optimal performance in the most demanding marine environments.</p>
+                  <p className="mb-6 text-white text-lg">Find the right marine coating specification for your vessel or marine structure based on environmental exposure factors and operational requirements. Our Marine-Grade Certified coatings are engineered for optimal performance in the most demanding marine environments.</p>
                   
                   <div className="bg-gradient-to-br from-blue-900/20 via-blue-950/20 to-black/20 border border-blue-500/30 rounded-lg p-4 mb-8">
                     <div className="flex items-start gap-3">
@@ -297,7 +297,7 @@ const Marinas = () => {
                       </div>
                       <div>
                         <h4 className="text-blue-200 font-semibold">Marine-Grade Certified</h4>
-                        <p className="text-white text-sm mt-1">Our coatings meet or exceed all American Bureau of Shipping requirements for marine applications, including salt spray resistance testing (ASTM B117, 2,000+ hours), adhesion, and impact resistance.</p>
+                        <p className="text-white text-sm mt-1">Our coatings meet or exceed all marine certification requirements for marine applications, including salt spray resistance testing (ASTM B117, 2,000+ hours), adhesion, and impact resistance.</p>
                       </div>
                     </div>
                   </div>
@@ -420,11 +420,11 @@ const Marinas = () => {
                       <div className="relative">
                         <h3 className="text-xl font-semibold mb-2 text-white drop-shadow-[0_1px_2px_rgba(59,130,246,0.5)]">
                           <span className="relative inline-block">
-                            American Bureau of Shipping (ABS) Certified
+                            Marine-Grade Certified
                             <div className="absolute -bottom-1 left-0 w-12 h-[2px] bg-gradient-to-r from-blue-500 to-transparent"></div>
                           </span>
                         </h3>
-                        <p className="text-white leading-relaxed">Our ceramic microsphere technology (US Patent <span className="text-blue-300 font-medium">#10,738,214</span>) is specifically certified for marine applications by the American Bureau of Shipping under certification <span className="text-blue-300 font-medium">#MC-1372</span>, meeting all requirements for the harshest marine environments.</p>
+                        <p className="text-white leading-relaxed">Our ceramic microsphere technology (US Patent <span className="text-blue-300 font-medium">#10,738,214</span>) is specifically formulated for marine applications, meeting stringent industry standards and all requirements for the harshest marine environments.</p>
                       </div>
                     </div>
 
