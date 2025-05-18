@@ -167,7 +167,7 @@ export default function AdminDashboardContent() {
                   </div>
                 </div>
                 <div className="mt-2 flex items-center justify-between text-xs text-muted-foreground">
-                  <span>Due Apr 20, 2025</span>
+                  <span>Due Apr 20, 2023</span>
                   <span>Assigned to you</span>
                 </div>
               </div>
@@ -182,7 +182,7 @@ export default function AdminDashboardContent() {
                   </div>
                 </div>
                 <div className="mt-2 flex items-center justify-between text-xs text-muted-foreground">
-                  <span>Due Apr 22, 2025</span>
+                  <span>Due Apr 22, 2023</span>
                   <span>Assigned to Robert</span>
                 </div>
               </div>
@@ -197,7 +197,7 @@ export default function AdminDashboardContent() {
                   </div>
                 </div>
                 <div className="mt-2 flex items-center justify-between text-xs text-muted-foreground">
-                  <span>Due Apr 25, 2025</span>
+                  <span>Due Apr 25, 2023</span>
                   <span>Assigned to you</span>
                 </div>
               </div>

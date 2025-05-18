@@ -15,14 +15,14 @@ import {
 // Mock calendar data
 const calendarData = {
   month: "April",
-  year: 2025,
+  year: 2023,
   days: Array.from({ length: 30 }, (_, i) => i + 1),
   events: [
     {
       id: 1,
       title: "Client Meeting",
       description: "Discuss pool coating project",
-      date: "2025-04-24",
+      date: "2023-04-24",
       time: "10:00 AM",
       type: "meeting",
       relatedTo: "City Recreation Department"

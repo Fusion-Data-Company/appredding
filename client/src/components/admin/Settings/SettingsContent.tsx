@@ -117,7 +117,7 @@ export default function SettingsContent() {
             </CardContent>
             <CardFooter className="justify-between border-t px-6 py-4">
               <p className="text-sm text-muted-foreground">
-                Last updated: Apr 15, 2025
+                Last updated: Apr 15, 2023
               </p>
               <Button>Save Company Info</Button>
             </CardFooter>

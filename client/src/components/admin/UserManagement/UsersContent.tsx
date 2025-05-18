@@ -66,7 +66,7 @@ const usersData = [
     phone: "(555) 456-7890",
     role: "sales",
     status: "active",
-    lastLogin: "Apr 20, 2025 at 11:15 AM",
+    lastLogin: "Apr 20, 2023 at 11:15 AM",
     dateCreated: "Jun 5, 2023"
   },
   {
@@ -76,7 +76,7 @@ const usersData = [
     phone: "(555) 234-5678",
     role: "sales",
     status: "inactive",
-    lastLogin: "Apr 10, 2025 at 2:20 PM",
+    lastLogin: "Apr 10, 2023 at 2:20 PM",
     dateCreated: "Aug 22, 2023"
   },
   {
