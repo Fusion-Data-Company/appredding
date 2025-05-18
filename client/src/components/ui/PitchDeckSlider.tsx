@@ -109,8 +109,8 @@ const PitchDeckSlider = () => {
           >
             {/* Premium styled button with layered effects */}
             <div className="group relative inline-block">
-              {/* Ambient blue-to-orange gradient glow effect positioned behind button */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-orange-600 rounded-full blur-md opacity-70 group-hover:opacity-100 transition duration-300"></div>
+              {/* Ambient blue gradient glow effect positioned behind button */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-blue-400 rounded-full blur-md opacity-70 group-hover:opacity-100 transition duration-300"></div>
               
               {/* Button with premium black styling */}
               <GradientButton 
@@ -301,8 +301,8 @@ const PitchDeckSlider = () => {
                           </Select>
                           
                           <div className="group relative inline-block">
-                            {/* Ambient blue-to-orange gradient glow effect positioned behind button */}
-                            <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-orange-600 rounded-full blur-md opacity-70 group-hover:opacity-100 transition duration-300"></div>
+                            {/* Ambient blue gradient glow effect positioned behind button */}
+                            <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-blue-400 rounded-full blur-md opacity-70 group-hover:opacity-100 transition duration-300"></div>
                             <GradientButton 
                               onClick={() => selectedIndustry && handleIndustrySelect(selectedIndustry)}
                               disabled={!selectedIndustry}
