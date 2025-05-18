@@ -250,7 +250,7 @@ const FirePrevention = () => {
                   <div className="relative bg-gradient-to-br from-black/70 to-gray-900/70 border border-orange-500/30 rounded-xl p-6 backdrop-blur-sm">
                     {/* Pain point with enhanced typography and visual hierarchy */}
                     <p className="text-xl md:text-2xl text-white leading-relaxed font-medium mb-6">
-                      <span className="text-orange-300 font-bold">2025 Los Angeles wildfire insurance denials up 3,150%</span> – with property values dropping 35% in high-risk zones and <span className="text-red-400">traditional fire treatments failing in 80% of incidents</span>. Our ceramic microsphere technology delivers documented financial impact:
+                      <span className="text-orange-300 font-bold">California wildfire insurance denials continue to increase</span> – with property values affected in high-risk zones and <span className="text-red-400">traditional fire protection methods showing limitations</span>. Our ceramic microsphere technology offers documented protection benefits:
                     </p>
                     
                     <div className="flex items-center mb-6">
@@ -314,13 +314,13 @@ const FirePrevention = () => {
                         <div className="flex items-center mb-5">
                           <div className="bg-gradient-to-r from-orange-600 to-orange-400 h-8 w-1 rounded-full mr-3"></div>
                           <h3 className="text-2xl font-semibold text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">
-                            Case Study: Los Angeles 2025 Wildfire Zone
+                            Case Study: California Wildfire Protection
                           </h3>
                         </div>
                         
                         <div className="mb-6">
                           <p className="text-gray-300 text-sm leading-relaxed">
-                            From January to August 2025, a series of destructive wildfires affected the Los Angeles metropolitan area, destroying 436 homes and damaging over 1,200 structures. However, a development of 58 homes in the Santa Monica Mountains that had been treated with our ceramic coating system in 2023 demonstrated remarkable resistance to these events.
+                            California has experienced a growing number of destructive wildfires in recent years, causing significant property damage in vulnerable areas. Buildings treated with ceramic coating systems have shown increased resistance to heat and fire exposure compared to untreated structures. Our coating technology is designed to help provide an additional layer of protection for homes in high-risk zones.
                           </p>
                         </div>
                         

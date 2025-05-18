@@ -30,15 +30,15 @@ export const faqData = [
       },
       {
         question: "How do your coatings perform in extreme heat?",
-        answer: "Our coatings are designed to provide excellent thermal protection under extreme conditions. When tested according to ASTM E119 standards, 5-6 coats (approximately 30 mils thick) applied to 1/4 inch steel provide significant thermal protection for extended periods, helping to maintain structural integrity during fire events."
+        answer: "Our coatings are designed to provide thermal protection under high-temperature conditions. The ceramic components in the coating help slow flame spread and reduce heat transfer. Testing according to ASTM D2485-18 for high-temperature service has shown good performance. This thermal resistance helps protect the underlying structure during high-heat events."
       },
       {
-        question: "What thickness is required for effective fire protection?",
-        answer: "For standard thermal insulation and energy efficiency, our coatings are typically applied at 17 mils wet / 10 mils dry thickness. For specific fire protection applications, we recommend 30 mils dry thickness (5-6 coats) to achieve maximum fire resistance properties, which is still significantly thinner than conventional fireproofing systems."
+        question: "What thickness is required for effective coating performance?",
+        answer: "Our coatings are typically applied at a dry film thickness of 20-40 mils (500-1000 microns), depending on the specific application and performance requirements. This thickness range provides an optimal balance of thermal insulation, waterproofing, and fire resistance properties. The coating can be applied using conventional methods such as airless spray (preferred for large surfaces), roller, or brush for detail work."
       },
       {
         question: "Are these coatings suitable for wildfire protection?",
-        answer: "Yes, our coatings provide excellent protection in wildfire-prone areas. The Class A fire rating combined with the extreme temperature resistance makes them ideal for protecting structures in high-risk zones. The ceramic microsphere technology creates an effective thermal barrier that helps prevent ignition of the underlying structure during wildfire exposure."
+        answer: "Yes, our coatings can provide protection in wildfire-prone areas. The Class A fire rating combined with the thermal resistance properties makes them suitable for structures in high-risk zones. The ceramic microsphere technology creates a thermal barrier that can help reduce heat transfer to the underlying structure during fire exposure. When properly applied, the coating provides an additional layer of protection as part of a comprehensive wildfire mitigation strategy."
       },
     ]
   },
@@ -47,19 +47,19 @@ export const faqData = [
     questions: [
       {
         question: "What surfaces can Praetorian SmartCoat be applied to?",
-        answer: "Our coatings can be applied to virtually any substrate including metal, wood, concrete, masonry, and various roofing materials. The water-based acrylic elastomeric resin provides exceptional adhesion while maintaining flexibility during thermal expansion/contraction cycles with 156% elongation capability (exceeding the standard 100% requirement)."
+        answer: "Our coatings can be applied to a variety of substrates including metal, concrete, wood, and various roofing materials. Adhesion testing (ASTM D4541) has demonstrated strong adhesion to these materials. The coating cures into a seamless, flexible membrane that resists water penetration, UV radiation, and temperature extremes, helping to extend the service life of the surfaces it protects."
       },
       {
         question: "How are the coatings applied?",
-        answer: "Application methods include airless sprayer (recommended for large areas), roller (suitable for most surfaces), or brush (for detail work). The coverage rate is approximately 80-100 sq ft per gallon depending on surface texture. Drying time is 1-2 hours to touch, 2-4 hours minimum before recoating, with full cure in 5-7 days."
+        answer: "Application methods include airless spray (preferred for uniform coverage on large surfaces), roller (suitable for smaller areas and touch-ups), or brush (used for edges and detailed work). Surfaces must be clean, dry, and free of contaminants before application. Drying time is typically 1-2 hours touch dry, with full cure achieved in 24-48 hours under normal conditions."
       },
       {
         question: "What certifications do your products have?",
-        answer: "Our products comply with ASTM E84 (fire testing), ASTM D6083 (waterproofing), ASTM E1269 (thermal properties), and ASTM E1461-92 (thermal diffusivity). They are verified by the Cool Roof Rating Council (CRRC) with 89% reflection and 89% emittance, and hold Energy Star certification, Factory Mutual Class A fire rating, and American Bureau of Shipping (ABS) certification for marine applications."
+        answer: "Our products have been tested according to ASTM E84-23 (surface burning characteristics), ASTM D2485-18 (high temperature service), ASTM D2794-93(2019) (impact resistance), and ASTM E119-22 (fire resistance) protocols. The coating meets Wildland-Urban Interface (WUI) requirements and has been tested for water resistance (ASTM D2247) showing no blistering or loss of adhesion after extended humidity exposure."
       },
       {
-        question: "What is the ROI and payback period?",
-        answer: "Typical payback periods range from 1-3 years depending on application. For example, the Sony Koda facility achieved remarkable energy consumption reduction of 87% in May (from 3,767 KW to 519 KW) with a payback period of just 1.06 years. Beyond energy savings, our coatings provide additional value through reduced maintenance costs, extended asset life, and multi-functional benefits."
+        question: "What benefits does Praetorian Smart-Coat provide?",
+        answer: "Praetorian Smart-Coat offers multiple benefits including superior thermal insulation that can reduce cooling costs, waterproofing properties that prevent leaks and moisture damage, fire resistance that enhances building occupant safety, and durability that resists environmental stresses such as UV exposure and thermal cycling. These combined features help protect your investment and can contribute to reduced maintenance costs over time."
       },
     ]
   }
