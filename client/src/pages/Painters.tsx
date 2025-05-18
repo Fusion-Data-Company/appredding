@@ -217,7 +217,7 @@ const Painters = () => {
                 </motion.div>
               
                 <div className="bg-black/30 border border-red-600/20 rounded-lg p-3 mb-6">
-                  <p className="text-sm text-gray-300 italic">The average painting contractor loses <span className="text-red-400 font-semibold">$27,500 annually</span> in potential profit and wastes 120+ hours on preventable callbacks</p>
+                  <p className="text-sm text-gray-300 italic">The average painting contractor loses <span className="text-red-400 font-semibold">$7,500 annually</span> in potential profit and wastes 40+ hours on preventable callbacks</p>
                 </div>
                 
                 <motion.div
@@ -315,7 +315,7 @@ const Painters = () => {
                   transition={{ duration: 0.7, delay: 0.2 }}
                   className="text-base sm:text-lg md:text-xl text-white mb-6 leading-relaxed"
                 >
-                  <span className="text-blue-300 font-semibold">Ceramic technology unlocks premium project opportunities</span> with 25-40% higher profit margins. Our exclusive formula allows you to charge more while delivering superior value clients can't get elsewhere.
+                  <span className="text-blue-300 font-semibold">Ceramic technology unlocks premium project opportunities</span> with improved profit margins. Our formula allows you to deliver superior value clients can appreciate.
                 </motion.p>
                 
                 <div className="bg-black/30 border border-blue-600/20 rounded-lg p-3 mb-6">
@@ -481,7 +481,7 @@ const Painters = () => {
                           </div>
                           <div className="flex justify-between items-center mt-2">
                             <span className="text-gray-200 font-semibold">Total Profit</span>
-                            <span className="text-green-400 font-bold">$30,000</span>
+                            <span className="text-green-400 font-bold">$3,750</span>
                           </div>
                         </div>
                       </div>
@@ -501,7 +501,7 @@ const Painters = () => {
                               <CircleDollarSign className="h-8 w-8 text-white" />
                             </div>
                             <div className="ml-4 text-left">
-                              <span className="block text-white text-xl font-bold">543% ROI</span>
+                              <span className="block text-white text-xl font-bold">35% ROI</span>
                               <span className="text-green-400 text-sm">Additional Profit Margin</span>
                             </div>
                           </div>
@@ -565,7 +565,7 @@ const Painters = () => {
                       </div>
                       <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">Become a Certified Painter Partner</h2>
                       <p className="text-gray-300 max-w-2xl mx-auto">
-                        Gain exclusive access to ceramic coating technology previously only available to government agencies. Increase your profit margins by up to 543% on every project.
+                        Gain access to ceramic coating technology with enhanced durability. Increase your profit margins by up to 35% on every project.
                       </p>
                     </div>
                     

@@ -76,10 +76,10 @@ const TechnicalFAQ: React.FC = () => {
                 <li>Create billions of microscopic air pockets that dramatically slow heat transfer</li>
                 <li>Reflect 89% of solar radiation due to their high-albedo ceramic composition</li>
                 <li>Emit 89% of absorbed heat back to the environment rather than conducting it inward</li>
-                <li>Create a temperature differential of up to 40°F between coated and uncoated surfaces</li>
+                <li>Create a temperature differential of up to 30°F between coated and uncoated surfaces</li>
               </ul>
               <p>
-                The thermal performance actually improves as the ambient temperature rises. Field testing has documented installations maintaining internal temperatures below 85°F even when exterior temperatures exceeded 110°F without air conditioning, demonstrating the coating's real-world effectiveness as a thermal barrier.
+                The thermal performance is effective in high ambient temperatures. Field testing has shown installations helping maintain lower internal temperatures compared to uncoated surfaces in hot weather, demonstrating the coating's practical effectiveness as a thermal barrier.
               </p>
             </div>
           }
@@ -175,7 +175,7 @@ const TechnicalFAQ: React.FC = () => {
                 <li>Creates a more uniform thermal profile that blends with environmental background temperatures</li>
               </ul>
               <p>
-                U.S. military testing confirmed that properly coated equipment showed thermal signature reductions of up to 93% at distances beyond 800 meters when viewed through standard FLIR systems. This significant reduction in detectability provides tactical advantages for sensitive installations and equipment, enhancing operational security without affecting performance.
+                Testing has shown that properly coated equipment can show meaningful thermal signature reductions when viewed through standard FLIR systems. This reduction in detectability provides advantages for sensitive installations and equipment, enhancing operational security without affecting performance.
               </p>
             </div>
           }
