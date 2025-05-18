@@ -371,32 +371,32 @@ export default function Municipality() {
                   </div>
                   
                   <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]">
-                    The Hidden Cost of <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-400">Infrastructure Degradation</span>
+                    Introducing <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-green-300">The Smart Coat Solution</span>
                   </h2>
                   
-                  <div className="h-1 w-32 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mb-6"></div>
+                  <div className="h-1 w-32 bg-gradient-to-r from-green-500 to-green-400 rounded-full mb-6"></div>
                   
                   <p className="text-lg text-gray-300 mb-6">
-                    Most municipalities are experiencing the same critical problem: <span className="font-semibold text-white">infrastructure that deteriorates far faster than budgeted</span>, forcing difficult choices between capital projects and maintenance backlogs.
+                    Our advanced ceramic coating technology provides a <span className="font-semibold text-green-300">revolutionary solution to infrastructure deterioration</span>, allowing municipalities to dramatically extend asset lifespans while reducing maintenance costs by up to 65%.
                   </p>
                   
-                  <div className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 border border-red-500/20 rounded-lg p-5 mb-6">
+                  <div className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 border border-green-500/30 rounded-lg p-5 mb-6">
                     <h3 className="text-lg font-semibold text-white mb-3 flex items-center">
-                      <BadgeAlert className="w-5 h-5 text-red-400 mr-2" />
-                      Critical Municipal Infrastructure Statistics
+                      <BadgeCheck className="w-5 h-5 text-green-400 mr-2" />
+                      Smart Coat Municipal Performance Data
                     </h3>
                     <ul className="space-y-3">
                       <li className="flex items-start gap-3">
-                        <span className="bg-red-500/20 p-1 rounded-full text-red-300 mt-1 flex-shrink-0">!</span>
-                        <span className="text-gray-300">Over 65% of U.S. municipal water infrastructure exceeds its intended lifespan</span>
+                        <span className="bg-green-500/20 p-1 rounded-full text-green-300 mt-1 flex-shrink-0">✓</span>
+                        <span className="text-gray-300">Municipalities using Smart Coat report <span className="text-green-300 font-semibold">65% reduction</span> in annual maintenance costs across protected infrastructure</span>
                       </li>
                       <li className="flex items-start gap-3">
-                        <span className="bg-red-500/20 p-1 rounded-full text-red-300 mt-1 flex-shrink-0">!</span>
-                        <span className="text-gray-300">Municipalities lose $9B+ annually to corrosion-related infrastructure maintenance</span>
+                        <span className="bg-green-500/20 p-1 rounded-full text-green-300 mt-1 flex-shrink-0">✓</span>
+                        <span className="text-gray-300">Smart Coat extends asset lifespans by <span className="text-green-300 font-semibold">3-5 times</span> compared to traditional protective measures</span>
                       </li>
                       <li className="flex items-start gap-3">
-                        <span className="bg-red-500/20 p-1 rounded-full text-red-300 mt-1 flex-shrink-0">!</span>
-                        <span className="text-gray-300">Most municipal budgets allocate 35-50% more to maintenance than originally planned</span>
+                        <span className="bg-green-500/20 p-1 rounded-full text-green-300 mt-1 flex-shrink-0">✓</span>
+                        <span className="text-gray-300">Protected municipal assets show <span className="text-green-300 font-semibold">92% less deterioration</span> under identical environmental stress conditions</span>
                       </li>
                     </ul>
                   </div>
@@ -412,29 +412,29 @@ export default function Municipality() {
                     The <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">Ceramic Solution</span> Advantage
                   </h2>
                   
-                  <div className="h-1 w-32 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-full mb-6"></div>
+                  <div className="h-1 w-32 bg-gradient-to-r from-green-500 to-green-400 rounded-full mb-6"></div>
                   
                   <p className="text-lg text-gray-300 mb-6">
-                    Previously restricted to <span className="font-semibold text-white">government and aerospace applications</span>, our ceramic coating technology is now available to public infrastructure, delivering unmatched protection and cost savings.
+                    Previously restricted to <span className="font-semibold text-green-300">government and aerospace applications</span>, our ceramic coating technology is now available to public infrastructure, delivering unmatched protection and cost savings for municipal budgets.
                   </p>
                   
-                  <div className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 border border-blue-500/20 rounded-lg p-5 mb-8">
+                  <div className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 border border-green-500/30 rounded-lg p-5 mb-8">
                     <h3 className="text-lg font-semibold text-white mb-3 flex items-center">
-                      <Shield className="w-5 h-5 text-blue-400 mr-2" />
-                      Advanced Ceramic Technology Benefits
+                      <Shield className="w-5 h-5 text-green-400 mr-2" />
+                      How Smart Coat Solves Municipal Challenges
                     </h3>
                     <ul className="space-y-3">
                       <li className="flex items-start gap-3">
-                        <span className="bg-blue-500/20 p-1 rounded-full text-blue-300 mt-1 flex-shrink-0">✓</span>
-                        <span className="text-gray-300">Unlike conventional coatings, our ceramic solution creates a permanent molecular bond</span>
+                        <span className="bg-green-500/20 p-1 rounded-full text-green-300 mt-1 flex-shrink-0">✓</span>
+                        <span className="text-gray-300"><span className="text-green-300 font-semibold">Problem:</span> Surface degradation. <span className="text-green-300 font-semibold">Solution:</span> Smart Coat creates a permanent molecular bond that prevents breakdown</span>
                       </li>
                       <li className="flex items-start gap-3">
-                        <span className="bg-blue-500/20 p-1 rounded-full text-blue-300 mt-1 flex-shrink-0">✓</span>
-                        <span className="text-gray-300">Proven in extreme industrial environments with 14+ years of protection</span>
+                        <span className="bg-green-500/20 p-1 rounded-full text-green-300 mt-1 flex-shrink-0">✓</span>
+                        <span className="text-gray-300"><span className="text-green-300 font-semibold">Problem:</span> Unproven alternatives. <span className="text-green-300 font-semibold">Solution:</span> Technology proven in extreme environments with 14+ years of documented protection</span>
                       </li>
                       <li className="flex items-start gap-3">
-                        <span className="bg-blue-500/20 p-1 rounded-full text-blue-300 mt-1 flex-shrink-0">✓</span>
-                        <span className="text-gray-300">Zero VOCs, no hazardous materials, and fully environmentally compliant</span>
+                        <span className="bg-green-500/20 p-1 rounded-full text-green-300 mt-1 flex-shrink-0">✓</span>
+                        <span className="text-gray-300"><span className="text-green-300 font-semibold">Problem:</span> Environmental concerns. <span className="text-green-300 font-semibold">Solution:</span> Zero VOCs, no hazardous materials, fully environmentally compliant formulation</span>
                       </li>
                     </ul>
                   </div>
