@@ -133,28 +133,31 @@ const PitchDeckSlider = () => {
                   {/* Enhanced tech pattern overlay */}
                   <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoNTksMTMwLDI0NiwwLjEpIiBkPSJNMCAwaDJ2Mkgwem0yIDJoMnYySDJ6Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCBmaWxsPSJ1cmwoI2EpIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIi8+PC9zdmc+')] opacity-40"></div>
                   
-                  {/* Premium glass shimmer effects on button face */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-blue-400/5 to-white/5 opacity-50"></div>
+                  {/* Premium glass shimmer effects on button face with enhanced brightness */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-blue-400/8 to-white/10 opacity-70"></div>
                   <div className="absolute inset-0 overflow-hidden">
-                    <div className="absolute top-0 left-0 right-0 h-[70%] bg-gradient-to-br from-white/10 to-transparent rounded-t-full"></div>
-                    <div className="absolute bottom-0 left-0 right-0 h-[30%] bg-gradient-to-t from-blue-900/20 to-transparent rounded-b-full"></div>
+                    <div className="absolute top-0 left-0 right-0 h-[70%] bg-gradient-to-br from-white/20 to-transparent rounded-t-full"></div>
+                    <div className="absolute bottom-0 left-0 right-0 h-[30%] bg-gradient-to-t from-blue-900/30 to-transparent rounded-b-full"></div>
                   </div>
                   
-                  {/* Diagonal premium glass shimmer lines */}
+                  {/* Enhanced diagonal premium glass shimmer lines with increased brightness */}
                   <div className="absolute inset-0 overflow-hidden">
-                    <div className="h-full w-1/3 bg-gradient-to-r from-transparent via-white/15 to-transparent skew-x-[-20deg] animate-shimmer-slow"></div>
+                    <div className="h-full w-1/3 bg-gradient-to-r from-transparent via-white/25 to-transparent skew-x-[-20deg] animate-shimmer-slow"></div>
                   </div>
                   <div className="absolute inset-0 overflow-hidden">
-                    <div className="h-full w-1/4 bg-gradient-to-r from-transparent via-blue-400/10 to-transparent skew-x-[-15deg] animate-ultra-shimmer"></div>
+                    <div className="h-full w-1/4 bg-gradient-to-r from-transparent via-blue-400/20 to-transparent skew-x-[-15deg] animate-ultra-shimmer"></div>
                   </div>
                   <div className="absolute inset-0 overflow-hidden">
-                    <div className="h-full w-1/5 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-[-10deg] animate-ultra-shimmer" style={{ animationDelay: '1s' }}></div>
+                    <div className="h-full w-1/5 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[-10deg] animate-ultra-shimmer" style={{ animationDelay: '1s' }}></div>
+                  </div>
+                  <div className="absolute inset-0 overflow-hidden">
+                    <div className="h-full w-1/6 bg-gradient-to-r from-transparent via-blue-300/20 to-transparent skew-x-[-5deg] animate-ultra-shimmer" style={{ animationDelay: '1.5s' }}></div>
                   </div>
                   
-                  {/* Subtle glass edge highlights */}
-                  <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
-                  <div className="absolute inset-y-0 left-0 w-[1px] bg-gradient-to-b from-white/20 via-blue-400/10 to-transparent"></div>
-                  <div className="absolute inset-y-0 right-0 w-[1px] bg-gradient-to-b from-white/20 via-blue-400/10 to-transparent"></div>
+                  {/* Enhanced glass edge highlights with increased brightness */}
+                  <div className="absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-white/50 to-transparent"></div>
+                  <div className="absolute inset-y-0 left-0 w-[1.5px] bg-gradient-to-b from-white/40 via-blue-400/20 to-transparent"></div>
+                  <div className="absolute inset-y-0 right-0 w-[1.5px] bg-gradient-to-b from-white/40 via-blue-400/20 to-transparent"></div>
                   
                   {/* Enhanced grain texture for premium glass look */}
                   <div className="absolute inset-0 opacity-60 mix-blend-overlay bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxwYXRoIGQ9Ik0wIDBoMjAwdjIwMEgweiIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIuMDUiLz48L3N2Zz4=')]"></div>
@@ -229,18 +232,19 @@ const PitchDeckSlider = () => {
                   </div>
                 </div>
                 
-                {/* Ultra-premium text with advanced styling and animation effects */}
+                {/* Ultra-premium text with elite enterprise styling and animation effects */}
                 <span className="relative z-10 group/text">
-                  <span className="bg-gradient-to-r from-blue-100 via-white to-blue-100 bg-clip-text animate-text-shimmer text-transparent text-lg font-bold tracking-wider drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                  <span className="bg-gradient-to-r from-blue-200 via-white to-blue-200 bg-clip-text animate-text-shimmer text-transparent text-lg font-extrabold tracking-[0.15em] uppercase drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]" style={{ fontFamily: "'Cinzel', serif" }}>
                     INTRODUCTION
                   </span>
                   
-                  {/* Enhanced animated underline effect with shimmer */}
-                  <span className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-blue-500/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 animate-shimmer-slow"></span>
+                  {/* Enhanced animated underline effect with brighter shimmer */}
+                  <span className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-blue-500/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 animate-shimmer-slow"></span>
                   
-                  {/* Advanced text hover effect with multi-layer animations */}
-                  <span className="absolute inset-0 bg-gradient-to-r from-blue-400/0 via-blue-400/20 to-blue-400/0 opacity-0 group-hover/text:opacity-100 transition-opacity duration-700 blur-sm"></span>
-                  <span className="absolute inset-0 bg-gradient-to-tr from-transparent via-blue-300/10 to-transparent opacity-0 group-hover/text:opacity-100 transition-opacity duration-1000 delay-200 blur-sm"></span>
+                  {/* Advanced text hover effect with multi-layer animations and enhanced brightness */}
+                  <span className="absolute inset-0 bg-gradient-to-r from-blue-400/0 via-blue-400/30 to-blue-400/0 opacity-0 group-hover/text:opacity-100 transition-opacity duration-700 blur-sm"></span>
+                  <span className="absolute inset-0 bg-gradient-to-tr from-transparent via-blue-300/20 to-transparent opacity-0 group-hover/text:opacity-100 transition-opacity duration-1000 delay-200 blur-sm"></span>
+                  <span className="absolute -inset-2 bg-gradient-to-r from-transparent via-blue-500/10 to-transparent opacity-0 group-hover/text:opacity-80 transition-all duration-1000 blur-lg"></span>
                 </span>
                 
                 {/* State-of-the-art animated arrow with premium lighting effects */}
