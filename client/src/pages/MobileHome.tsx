@@ -1,5 +1,6 @@
 import React, { useState, ChangeEvent } from "react";
 import MainLayout from "@/components/layout/MainLayout";
+import { Link } from "wouter";
 import { GradientButton } from "@/components/ui/gradient-button";
 import { GradientHeading } from "@/components/ui/gradient-heading";
 import { Button } from "@/components/ui/button";
@@ -1508,11 +1509,11 @@ const MobileHome = () => {
             ) : registrationSuccess ? (
               <div className="max-w-2xl mx-auto">
                 <div className="relative">
-                  <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/20 via-green-500/20 to-blue-500/20 rounded-xl blur-xl opacity-70"></div>
-                  <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black p-8 rounded-xl border border-green-500/30 shadow-[0_0_60px_rgba(34,197,94,0.2)]">
+                  <div className="absolute -inset-1 bg-gradient-to-r from-purple-500/20 via-violet-500/20 to-purple-500/20 rounded-xl blur-xl opacity-70"></div>
+                  <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black p-8 rounded-xl border border-purple-500/30 shadow-[0_0_60px_rgba(147,51,234,0.2)]">
                     <div className="text-center">
-                      <div className="w-16 h-16 bg-green-500/20 rounded-full mx-auto flex items-center justify-center mb-4">
-                        <CheckCircle className="h-8 w-8 text-green-400" />
+                      <div className="w-16 h-16 bg-purple-500/20 rounded-full mx-auto flex items-center justify-center mb-4">
+                        <CheckCircle className="h-8 w-8 text-purple-400" />
                       </div>
                       <h2 className="text-2xl font-bold mb-4 text-white">Registration Successful!</h2>
                       <p className="text-lg text-gray-300 mb-6">
@@ -1521,11 +1522,20 @@ const MobileHome = () => {
                       <p className="text-gray-400 text-sm mb-6">
                         You'll receive a confirmation email with additional information and next steps.
                       </p>
-                      <div className="relative inline-flex items-center group">
-                        <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-orange-600 rounded-lg blur opacity-70 group-hover:opacity-100 transition duration-200"></div>
-                        <a href="/" className="relative bg-black rounded-lg group-hover:bg-gradient-to-br from-gray-900 to-black transition-all duration-200 py-3 px-8 border border-blue-500/30 text-white font-semibold text-center">
-                          Return to Home
-                        </a>
+                      {/* Purple ambient glow around the return button */}
+                      <div className="relative inline-block">
+                        <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-violet-600 rounded-lg blur opacity-70 group-hover:opacity-100 transition duration-200"></div>
+                        <div className="relative">
+                          <Link to="/">
+                            <PremiumFireButton
+                              size="lg"
+                              className="px-8 transform hover:scale-105 transition-transform duration-300"
+                              glowEffect={true}
+                            >
+                              Return to Home
+                            </PremiumFireButton>
+                          </Link>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -1533,15 +1543,20 @@ const MobileHome = () => {
               </div>
             ) : (
               <div className="text-center">
-                <button
-                  onClick={handleShowRegistrationForm}
-                  className="relative group inline-flex items-center"
-                >
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-orange-600 rounded-lg blur opacity-70 group-hover:opacity-100 transition duration-200"></div>
-                  <div className="relative bg-black rounded-lg group-hover:bg-gradient-to-br from-gray-900 to-black transition-all duration-200 py-3 px-8 border border-blue-500/30 text-white font-semibold text-center">
-                    Register for Mobile Home Services
+                {/* Purple ambient glow around the registration button (matches submit button) */}
+                <div className="relative inline-block">
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-violet-600 rounded-lg blur opacity-70 group-hover:opacity-100 transition duration-200"></div>
+                  <div className="relative">
+                    <PremiumFireButton
+                      onClick={handleShowRegistrationForm}
+                      size="lg"
+                      className="px-8 transform hover:scale-105 transition-transform duration-300"
+                      glowEffect={true}
+                    >
+                      Register for Mobile Home Services
+                    </PremiumFireButton>
                   </div>
-                </button>
+                </div>
               </div>
             )}
           </div>
