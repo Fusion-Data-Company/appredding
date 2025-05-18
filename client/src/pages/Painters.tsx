@@ -501,7 +501,7 @@ const Painters = () => {
                               <CircleDollarSign className="h-8 w-8 text-white" />
                             </div>
                             <div className="ml-4 text-left">
-                              <span className="block text-white text-xl font-bold">35% ROI</span>
+                              <span className="block text-white text-xl font-bold">20% ROI</span>
                               <span className="text-green-400 text-sm">Additional Profit Margin</span>
                             </div>
                           </div>

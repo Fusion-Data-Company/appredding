@@ -74,9 +74,9 @@ const TechnicalFAQ: React.FC = () => {
               </p>
               <ul className="list-disc pl-5 space-y-2">
                 <li>Create billions of microscopic air pockets that dramatically slow heat transfer</li>
-                <li>Reflect 89% of solar radiation due to their high-albedo ceramic composition</li>
-                <li>Emit 89% of absorbed heat back to the environment rather than conducting it inward</li>
-                <li>Create a temperature differential of up to 30°F between coated and uncoated surfaces</li>
+                <li>Reflect solar radiation due to their ceramic composition</li>
+                <li>Help emit absorbed heat back to the environment rather than conducting it inward</li>
+                <li>Can create a temperature differential of up to 20°F between coated and uncoated surfaces in optimal conditions</li>
               </ul>
               <p>
                 The thermal performance is effective in high ambient temperatures. Field testing has shown installations helping maintain lower internal temperatures compared to uncoated surfaces in hot weather, demonstrating the coating's practical effectiveness as a thermal barrier.

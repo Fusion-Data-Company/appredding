@@ -240,7 +240,7 @@ const MobileHome = () => {
                   <ul className="text-left space-y-2 text-gray-300">
                     <li className="flex items-start">
                       <span className="text-emerald-400 mr-2">✓</span> 
-                      <span>Ceramic microsphere technology <span className="font-semibold">blocks 87% of thermal transfer</span></span>
+                      <span>Ceramic microsphere technology <span className="font-semibold">reduces thermal transfer</span></span>
                     </li>
                     <li className="flex items-start">
                       <span className="text-emerald-400 mr-2">✓</span> 
@@ -248,11 +248,11 @@ const MobileHome = () => {
                     </li>
                     <li className="flex items-start">
                       <span className="text-emerald-400 mr-2">✓</span> 
-                      <span>UV-resistant formula <span className="font-semibold">extends exterior life by 15+ years</span></span>
+                      <span>UV-resistant formula <span className="font-semibold">helps extend exterior durability</span></span>
                     </li>
                     <li className="flex items-start">
                       <span className="text-emerald-400 mr-2">✓</span> 
-                      <span>One-time application with <span className="font-semibold">certified 20-year performance guarantee</span></span>
+                      <span>One-time application with <span className="font-semibold">10-year performance guarantee</span></span>
                     </li>
                   </ul>
                 </div>
