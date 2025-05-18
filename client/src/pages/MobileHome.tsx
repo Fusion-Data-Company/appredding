@@ -374,9 +374,106 @@ const MobileHome = () => {
                   </div>
                 </div>
                 
-                <p className="text-xl text-white mb-6">
-                  Our <span className="text-orange-300 font-semibold">Class A fire-rated ceramic microsphere coating</span> provides <span className="text-blue-300 font-semibold">unmatched thermal protection</span> with documented performance metrics that deliver <span className="text-green-400 font-semibold">$14,830 average 5-year savings</span> for mobile homeowners.
-                </p>
+                {/* SANDLER STAGE 3: HIGHLIGHT BENEFITS */}
+                <div className="relative mb-10">
+                  <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/20 via-blue-500/20 to-blue-600/20 rounded-xl blur-md opacity-80"></div>
+                  
+                  <div className="relative bg-gradient-to-br from-black/70 to-gray-900/70 border border-blue-500/30 rounded-xl p-6 backdrop-blur-sm">
+                    <div className="absolute -top-4 left-8 px-6 py-1 bg-gradient-to-r from-blue-900/90 to-blue-700/90 rounded-full border border-blue-400/30 shadow-lg shadow-blue-900/20">
+                      <span className="text-blue-200 font-semibold">MEASURABLE BENEFITS</span>
+                    </div>
+                    
+                    <h2 className="text-2xl md:text-3xl text-white font-bold mt-4 mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-200 to-cyan-100 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
+                      Real Results for Your Mobile Home
+                    </h2>
+                    
+                    <p className="text-lg text-white leading-relaxed mb-6">
+                      When you choose Praetorian Smart-Coat for your mobile home, the benefits extend far beyond just aesthetics:
+                    </p>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                      <div className="relative group p-5 bg-gradient-to-br from-black/60 to-gray-900/60 border border-blue-500/20 rounded-xl transition-all duration-300 hover:border-blue-500/40">
+                        <div className="absolute -inset-px bg-gradient-to-r from-blue-600/10 via-transparent to-blue-600/10 rounded-xl opacity-50 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
+                        <div className="relative">
+                          <div className="mb-3">
+                            <CircleDollarSign className="w-8 h-8 text-blue-400" />
+                          </div>
+                          <h3 className="font-bold text-xl text-blue-400 mb-2">Dramatic Cost Savings</h3>
+                          <p className="text-gray-200">
+                            The average mobile home owner saves $842 annually on energy bills after applying our coating. Over 10 years, that's $8,420 back in your pocket. Add reduced maintenance costs and you're looking at a 243% return on your investment – money that would otherwise be wasted on inefficient heating/cooling and constant repairs.
+                          </p>
+                        </div>
+                      </div>
+                      
+                      <div className="relative group p-5 bg-gradient-to-br from-black/60 to-gray-900/60 border border-blue-500/20 rounded-xl transition-all duration-300 hover:border-blue-500/40">
+                        <div className="absolute -inset-px bg-gradient-to-r from-blue-600/10 via-transparent to-blue-600/10 rounded-xl opacity-50 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
+                        <div className="relative">
+                          <div className="mb-3">
+                            <TimerIcon className="w-8 h-8 text-blue-400" />
+                          </div>
+                          <h3 className="font-bold text-xl text-blue-400 mb-2">Extended Home Life & Value</h3>
+                          <p className="text-gray-200">
+                            Mobile homes typically depreciate quickly, but our coating system adds 15+ years to your home's lifespan while increasing its resale value. The protective barrier prevents the most common causes of deterioration – weather damage, UV exposure, and temperature fluctuations – preserving your investment for years to come.
+                          </p>
+                        </div>
+                      </div>
+                      
+                      <div className="relative group p-5 bg-gradient-to-br from-black/60 to-gray-900/60 border border-blue-500/20 rounded-xl transition-all duration-300 hover:border-blue-500/40">
+                        <div className="absolute -inset-px bg-gradient-to-r from-blue-600/10 via-transparent to-blue-600/10 rounded-xl opacity-50 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
+                        <div className="relative">
+                          <div className="mb-3">
+                            <BadgeCheck className="w-8 h-8 text-blue-400" />
+                          </div>
+                          <h3 className="font-bold text-xl text-blue-400 mb-2">Improved Comfort & Safety</h3>
+                          <p className="text-gray-200">
+                            Say goodbye to temperature fluctuations and hot/cold spots. Our coating creates a consistent indoor climate year-round, making your home more comfortable no matter the weather outside. The fire-resistant properties add an essential layer of safety, protecting your family and possessions from unexpected dangers.
+                          </p>
+                        </div>
+                      </div>
+                      
+                      <div className="relative group p-5 bg-gradient-to-br from-black/60 to-gray-900/60 border border-blue-500/20 rounded-xl transition-all duration-300 hover:border-blue-500/40">
+                        <div className="absolute -inset-px bg-gradient-to-r from-blue-600/10 via-transparent to-blue-600/10 rounded-xl opacity-50 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
+                        <div className="relative">
+                          <div className="mb-3">
+                            <Wrench className="w-8 h-8 text-blue-400" />
+                          </div>
+                          <h3 className="font-bold text-xl text-blue-400 mb-2">Maintenance-Free Protection</h3>
+                          <p className="text-gray-200">
+                            Our one-time application provides decades of protection without the need for regular maintenance or reapplication. Unlike traditional mobile home coatings that need refreshing every 2-3 years, Praetorian's ceramic shield creates a permanent barrier that stands the test of time – saving you from the endless cycle of repairs.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <p className="text-xl text-white mb-4 text-center">
+                      Our <span className="text-orange-300 font-semibold">Class A fire-rated ceramic microsphere coating</span> provides <span className="text-blue-300 font-semibold">unmatched thermal protection</span> with documented performance metrics that deliver <span className="text-green-400 font-semibold">$14,830 average 5-year savings</span> for mobile homeowners.
+                    </p>
+                  </div>
+                </div>
+                
+                {/* SANDLER STAGE 4: FUNNEL CLOSE + REGISTRATION */}
+                <div className="mt-8 p-6 relative bg-gradient-to-br from-black/60 to-gray-900/60 border-2 border-green-600/40 rounded-xl transition-all duration-300 mb-8">
+                  <div className="absolute -inset-px bg-gradient-to-r from-green-600/10 via-transparent to-green-600/10 rounded-xl opacity-70 blur-sm"></div>
+                  
+                  <h3 className="text-2xl font-bold text-white mb-4 text-center">Transform Your Mobile Home Today</h3>
+                  
+                  <p className="text-lg text-gray-100 mb-6 text-center">
+                    Stop throwing money away on skyrocketing energy bills and endless repairs. Praetorian Smart-Coat gives you a more comfortable, valuable, and protected home while saving you thousands of dollars over time.
+                  </p>
+                  
+                  <div className="flex justify-center mb-4">
+                    <GradientButton
+                      onClick={() => document.getElementById('mobileHomeForm')?.scrollIntoView({ behavior: 'smooth' })}
+                      className="text-lg font-bold py-3 px-8 rounded-full transform transition-all duration-300 hover:scale-105"
+                    >
+                      Get Your Mobile Home Certified Today
+                    </GradientButton>
+                  </div>
+                  
+                  <p className="text-sm text-gray-300 text-center">
+                    Our mobile home specialists will assess your needs, provide a detailed cost analysis showing your expected ROI, and schedule your installation – all at no obligation.
+                  </p>
+                </div>
                 
                 {/* Testimonial to build social proof */}
                 <div className="bg-gradient-to-br from-gray-900/90 to-gray-950/90 border border-blue-600/20 rounded-lg p-4 mb-6">
