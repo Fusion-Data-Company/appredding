@@ -435,7 +435,7 @@ const slides: Slide[] = [
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="flex items-start">
-            <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-amber-500 to-red-600 flex items-center justify-center mr-4">
+            <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-red-600 flex items-center justify-center mr-4">
               <span className="text-white font-bold text-xl">B</span>
             </div>
             <div>
@@ -445,7 +445,7 @@ const slides: Slide[] = [
           </div>
           
           <div className="flex items-start">
-            <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-amber-500 to-red-600 flex items-center justify-center mr-4">
+            <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-red-600 flex items-center justify-center mr-4">
               <span className="text-white font-bold text-xl">M</span>
             </div>
             <div>
