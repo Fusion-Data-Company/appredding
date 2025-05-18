@@ -261,7 +261,6 @@ const MobileHome = () => {
         <section className="py-16 md:py-24 relative z-10">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto text-center mb-16 relative">
-              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/30 via-blue-500/20 to-blue-600/30 rounded-xl blur-xl opacity-70"></div>
               
               {/* Ultra-premium enterprise header with layered effects */}
               <div className="relative bg-gradient-to-br from-gray-900/90 via-gray-950/90 to-black/90 py-10 px-12 rounded-xl border border-blue-600/50 shadow-[0_10px_50px_rgba(59,130,246,0.3)]">
