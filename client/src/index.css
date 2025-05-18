@@ -47,6 +47,34 @@ section + section {
     100% { transform: translateX(500%); }
   }
   
+  /* Elite enterprise button animation keyframes */
+  @keyframes spin-very-slow {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  @keyframes reverse-spin-very-slow {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(-360deg); }
+  }
+  
+  @keyframes shimmer-slow {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(200%); }
+  }
+  
+  .animate-spin-very-slow {
+    animation: spin-very-slow 20s linear infinite;
+  }
+  
+  .animate-reverse-spin-very-slow {
+    animation: reverse-spin-very-slow 15s linear infinite;
+  }
+  
+  .animate-shimmer-slow {
+    animation: shimmer-slow 5s ease-in-out infinite;
+  }
+  
   @keyframes slideUp {
     0% { transform: translateY(100%); }
     100% { transform: translateY(-100%); }
