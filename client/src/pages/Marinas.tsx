@@ -247,7 +247,7 @@ const Marinas = () => {
                 </div>
                 
                 <p className="text-xl text-white mb-4">
-                  Our <span className="text-orange-300 font-semibold">ABS-certified ceramic coating systems</span> (certification #MC-1372) provide <span className="text-blue-300 font-semibold">unmatched protection</span> in harsh saltwater environments with documented <span className="text-green-400 font-semibold">ASTM B117 salt spray resistance exceeding 2,000 hours</span>.
+                  Our <span className="text-orange-300 font-semibold">high-performance ceramic coating systems</span> provide <span className="text-blue-300 font-semibold">excellent protection</span> in harsh saltwater environments with documented <span className="text-green-400 font-semibold">ASTM B117 salt spray resistance exceeding 2,000 hours</span>.
                 </p>
                 
                 <div className="bg-black/30 border border-blue-600/20 rounded-lg p-3 mb-4">
@@ -296,7 +296,7 @@ const Marinas = () => {
                         </svg>
                       </div>
                       <div>
-                        <h4 className="text-blue-200 font-semibold">ABS Certification #MC-1372</h4>
+                        <h4 className="text-blue-200 font-semibold">Marine-Grade Certified</h4>
                         <p className="text-white text-sm mt-1">Our coatings meet or exceed all American Bureau of Shipping requirements for marine applications, including salt spray resistance testing (ASTM B117, 2,000+ hours), adhesion, and impact resistance.</p>
                       </div>
                     </div>

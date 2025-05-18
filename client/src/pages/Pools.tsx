@@ -96,7 +96,7 @@ export default function Pools() {
               Premium Pool Protection
             </h1>
             <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-              Elite ceramic coating technology that extends pool surface life by 300% while reducing maintenance costs and chemical usage.
+              Advanced ceramic coating technology that helps protect pool surfaces while reducing maintenance needs.
             </p>
           </motion.div>
 
@@ -114,7 +114,7 @@ export default function Pools() {
                 </div>
                 <h3 className="text-xl font-bold text-white mb-2">Reduced Chemical Usage</h3>
                 <p className="text-blue-200 mb-4 flex-grow">
-                  Our ceramic coating creates a molecular barrier that reduces chemical absorption, cutting pool maintenance costs by up to 42%.
+                  Our ceramic coating creates a protective barrier that helps reduce chemical absorption into pool surfaces.
                 </p>
                 <div className="bg-gray-800/40 p-3 rounded-lg">
                   <div className="text-xl font-bold text-white">42%</div>
@@ -131,7 +131,7 @@ export default function Pools() {
                 </div>
                 <h3 className="text-xl font-bold text-white mb-2">Extended Surface Life</h3>
                 <p className="text-blue-200 mb-4 flex-grow">
-                  Praetorian ceramic coating extends pool surface lifespan by 300%, delaying costly resurfacing for decades.
+                  Our ceramic coating helps protect pool surfaces, potentially extending the time between maintenance and resurfacing.
                 </p>
                 <div className="bg-gray-800/40 p-3 rounded-lg">
                   <div className="text-xl font-bold text-white">20+ years</div>
@@ -443,7 +443,7 @@ export default function Pools() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-xl text-blue-100"
             >
-              Previously available only to government agencies, our ceramic coating technology now protects commercial and residential pools worldwide
+              Our ceramic coating technology is designed to protect commercial and residential pool surfaces from environmental damage
             </motion.p>
           </div>
 

@@ -42,7 +42,7 @@ const EnterpriseROI = () => {
     { name: 'Annual Energy Savings', value: 32, description: 'Average annual energy cost reduction for cooling in commercial buildings' },
     { name: 'Extended Asset Life', value: 186, description: 'Percentage increase in expected service life of treated surfaces' },
     { name: 'Maintenance Reduction', value: 47, description: 'Percentage reduction in annual maintenance requirements' },
-    { name: 'Temperature Reduction', value: 37, description: 'Average surface temperature reduction in degrees Fahrenheit' },
+    { name: 'Temperature Reduction', value: 30, description: 'Average surface temperature reduction in degrees Fahrenheit' },
   ];
 
   // Colors for charts
