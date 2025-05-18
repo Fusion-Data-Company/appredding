@@ -192,7 +192,7 @@ const MobileMenu = ({ isOpen, onClose, isHomePage = true }: MobileMenuProps) => 
             {/* Painter Network */}
             <li>
               <Link
-                href="/painter-network"
+                href="/painters"
                 className="mobile-menu-link flex items-center space-x-3 py-3 px-4 w-full rounded-md 
                 text-amber-900 dark:text-amber-300 hover:bg-amber-100/50 dark:hover:bg-amber-900/40
                 transition-colors duration-150"
