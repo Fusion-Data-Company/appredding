@@ -1097,32 +1097,32 @@ export default function Municipality() {
                     </div>
                     
                     {/* Card ambient glow */}
-                    <div className="absolute inset-0 bg-blue-500/5 rounded-xl z-0"></div>
+                    <div className="absolute inset-0 bg-green-500/10 rounded-xl z-0"></div>
                     
                     <div className="relative z-10">
                       <h3 className="text-2xl font-semibold mb-4 text-white text-center flex items-center justify-center">
-                        <Calculator className="w-6 h-6 mr-2 text-blue-400" />
-                        <span className="drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">Municipal Infrastructure Protection ROI Calculator</span>
+                        <Calculator className="w-6 h-6 mr-2 text-green-400" />
+                        <span className="drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">Smart Coat Municipal <span className="text-green-300">Savings Calculator</span></span>
                       </h3>
                       
-                      <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 border border-blue-500/10 rounded-lg p-4 mb-8 max-w-3xl mx-auto">
-                        <p className="text-white font-semibold mb-2">Why Ceramic Coating Protection Makes Financial Sense</p>
+                      <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 border border-green-500/20 rounded-lg p-4 mb-8 max-w-3xl mx-auto">
+                        <p className="text-white font-semibold mb-2">See Your Municipality's Financial Benefits</p>
                         <p className="text-gray-300 text-sm mb-2">
-                          Municipal infrastructure protection with ceramic technology isn't just about superior protection – it's about transforming your maintenance economics. Most municipalities see a complete return on investment within 24-36 months, followed by years of ongoing savings.
+                          Smart Coat's ceramic technology doesn't just protect infrastructure – it <span className="text-green-300 font-medium">transforms your budget economics</span>. Most municipalities see complete return on investment within 24-36 months, followed by <span className="text-green-300 font-medium">decades of ongoing savings</span> and extended asset life.
                         </p>
                         <div className="flex items-center gap-3 mt-4">
-                          <div className="bg-blue-900/30 rounded-lg p-3 flex-1">
-                            <p className="text-center text-xs text-gray-400">TRADITIONAL PROTECTION</p>
+                          <div className="bg-gray-900/60 rounded-lg p-3 flex-1 border border-red-500/20">
+                            <p className="text-center text-xs text-gray-400">CURRENT APPROACH</p>
                             <p className="text-center text-white font-bold">3-5 Year Lifecycle</p>
                             <div className="h-1 w-full bg-gray-700 my-2">
-                              <div className="h-full w-[45%] bg-orange-500"></div>
+                              <div className="h-full w-[45%] bg-red-500/70"></div>
                             </div>
                             <p className="text-center text-xs text-gray-400">Continuous maintenance</p>
                           </div>
-                          <ArrowRight className="w-5 h-5 text-blue-400" />
-                          <div className="bg-blue-900/30 rounded-lg p-3 flex-1">
-                            <p className="text-center text-xs text-gray-400">CERAMIC PROTECTION</p>
-                            <p className="text-center text-white font-bold">15+ Year Lifecycle</p>
+                          <ArrowRight className="w-5 h-5 text-green-400" />
+                          <div className="bg-gray-900/60 rounded-lg p-3 flex-1 border border-green-500/30">
+                            <p className="text-center text-xs text-gray-400">SMART COAT SOLUTION</p>
+                            <p className="text-center text-green-300 font-bold">15+ Year Lifecycle</p>
                             <div className="h-1 w-full bg-gray-700 my-2">
                               <div className="h-full w-[95%] bg-blue-500"></div>
                             </div>
@@ -1407,8 +1407,13 @@ export default function Municipality() {
                           className="flex items-center"
                         >
                           <LineChart className="w-4 h-4 mr-2" />
-                          Calculate Total Infrastructure ROI
+                          Show My Municipality's Savings
                         </GradientButton>
+                      </div>
+                      
+                      <div className="bg-gradient-to-br from-gray-900/60 to-gray-950/60 border border-green-500/20 p-4 rounded-lg mb-6">
+                        <h3 className="text-xl font-semibold text-green-300 mb-3 text-center">Your Smart Coat Value Analysis</h3>
+                        <p className="text-gray-300 text-center mb-4">Based on your inputs, here's how Smart Coat transforms your infrastructure economics:</p>
                       </div>
                       
                       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
@@ -1418,9 +1423,9 @@ export default function Municipality() {
                           <div className="absolute -inset-4 bg-green-500/5 rounded-xl blur-2xl opacity-60 z-0 animate-pulse-slow"></div>
                           
                           <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-green-500/10 rounded-full"></div>
-                          <h4 className="text-lg font-medium mb-2 text-white relative z-10">15-Year Savings</h4>
+                          <h4 className="text-lg font-medium mb-2 text-white relative z-10">Total Fiscal Benefit</h4>
                           <p className="text-3xl font-bold text-green-300 mb-1 relative z-10">${calculatedROI.tenYearSavings}</p>
-                          <p className="text-gray-400 text-sm relative z-10">Total projected savings</p>
+                          <p className="text-gray-400 text-sm relative z-10">15-year budget impact</p>
                         </div>
                         
                         <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 border border-green-500/30 rounded-lg p-5 text-center relative overflow-hidden">
@@ -1429,9 +1434,9 @@ export default function Municipality() {
                           <div className="absolute -inset-4 bg-green-500/5 rounded-xl blur-2xl opacity-60 z-0 animate-pulse-slow"></div>
                           
                           <div className="absolute -top-4 -left-4 w-32 h-32 bg-green-500/10 rounded-full"></div>
-                          <h4 className="text-lg font-medium mb-2 text-white relative z-10">Asset Life Extension</h4>
+                          <h4 className="text-lg font-medium mb-2 text-white relative z-10">Infrastructure Lifespan</h4>
                           <p className="text-3xl font-bold text-green-300 mb-1 relative z-10">{calculatedROI.lifespanIncrease}</p>
-                          <p className="text-gray-400 text-sm relative z-10">Extended infrastructure longevity</p>
+                          <p className="text-gray-400 text-sm relative z-10">Increased service life</p>
                         </div>
                         
                         <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 border border-green-500/30 rounded-lg p-5 text-center relative overflow-hidden">
@@ -1440,9 +1445,9 @@ export default function Municipality() {
                           <div className="absolute -inset-4 bg-green-500/5 rounded-xl blur-2xl opacity-60 z-0 animate-pulse-slow"></div>
                           
                           <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-green-500/10 rounded-full"></div>
-                          <h4 className="text-lg font-medium mb-2 text-white relative z-10">ROI Breakeven</h4>
+                          <h4 className="text-lg font-medium mb-2 text-white relative z-10">Fast Financial Return</h4>
                           <p className="text-3xl font-bold text-green-300 mb-1 relative z-10">{calculatedROI.paybackPeriod}</p>
-                          <p className="text-gray-400 text-sm relative z-10">Investment recovery timeline</p>
+                          <p className="text-gray-400 text-sm relative z-10">Until Smart Coat pays for itself</p>
                         </div>
                       </div>
                       
@@ -1454,9 +1459,9 @@ export default function Municipality() {
                           <div className="absolute -inset-2 bg-green-400/30 rounded-xl blur-md opacity-70 z-0"></div>
                           
                           <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-green-500/20 rounded-full"></div>
-                          <h4 className="text-lg font-medium mb-2 text-white relative z-10">Annual Labor Savings</h4>
+                          <h4 className="text-lg font-medium mb-2 text-white relative z-10">Workforce Efficiency</h4>
                           <p className="text-3xl font-bold text-green-300 mb-1 relative z-10">{calculatedROI.laborSavings || "1,020 hours/year"}</p>
-                          <p className="text-gray-400 text-sm relative z-10">Maintenance staff time reclaimed</p>
+                          <p className="text-gray-400 text-sm relative z-10">Staffing hours redirected to critical work</p>
                         </div>
                         
                         <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 border border-green-500/40 rounded-lg p-5 text-center relative overflow-hidden">
@@ -1466,9 +1471,9 @@ export default function Municipality() {
                           <div className="absolute -inset-2 bg-green-400/30 rounded-xl blur-md opacity-70 z-0"></div>
                           
                           <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-green-500/20 rounded-full"></div>
-                          <h4 className="text-lg font-medium mb-2 text-white relative z-10">Asset Value Increase</h4>
+                          <h4 className="text-lg font-medium mb-2 text-white relative z-10">Capital Preservation</h4>
                           <p className="text-3xl font-bold text-green-300 mb-1 relative z-10">{calculatedROI.assetValueIncrease || "$375,000"}</p>
-                          <p className="text-gray-400 text-sm relative z-10">Infrastructure replacement deferral value</p>
+                          <p className="text-gray-400 text-sm relative z-10">Deferred replacement value</p>
                         </div>
                       </div>
                       
@@ -2267,13 +2272,34 @@ export default function Municipality() {
                     </div>
                     
                     <div className="mb-6">
-                      <label className="block text-gray-400 mb-2">Message</label>
-                      <textarea className="w-full bg-gray-900/50 border border-gray-700 rounded-lg p-3 text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500 h-32" placeholder="Tell us about your infrastructure protection needs..."></textarea>
+                      <label className="block text-gray-400 mb-2">Your Infrastructure Challenges</label>
+                      <textarea className="w-full bg-gray-900/50 border border-gray-700 rounded-lg p-3 text-white focus:border-green-500 focus:ring-1 focus:ring-green-500 h-32" placeholder="Tell us about your current infrastructure challenges and protection goals..."></textarea>
+                    </div>
+                    
+                    <div className="bg-gradient-to-br from-gray-900/80 to-gray-950/80 border border-green-500/30 p-4 rounded-lg mb-6">
+                      <h4 className="text-lg font-semibold text-green-300 mb-2">Why Schedule a Consultation?</h4>
+                      <ul className="space-y-2 text-gray-300">
+                        <li className="flex items-start gap-2">
+                          <span className="text-green-400 mt-1">✓</span>
+                          <span>Get a personalized infrastructure assessment and protection plan</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-green-400 mt-1">✓</span>
+                          <span>Receive a customized ROI analysis for your specific municipal assets</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-green-400 mt-1">✓</span>
+                          <span>Learn how other municipalities have reduced maintenance costs by up to 65%</span>
+                        </li>
+                      </ul>
                     </div>
                     
                     <div className="flex justify-center">
-                      <GradientButton onClick={() => setShowRegistrationForm(true)}>
-                        Schedule Consultation
+                      <GradientButton 
+                        onClick={() => setShowRegistrationForm(true)}
+                        className="text-lg px-8 py-3 font-semibold"
+                      >
+                        Start Your Infrastructure Transformation
                       </GradientButton>
                     </div>
                   </div>
