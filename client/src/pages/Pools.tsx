@@ -351,7 +351,7 @@ export default function Pools() {
                                   <div className="flex items-center gap-2">
                                     <CircleDollarSign className="text-green-400 h-6 w-6" />
                                     <p className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-green-300 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
-                                      371%
+                                      35%
                                     </p>
                                   </div>
                                 </div>

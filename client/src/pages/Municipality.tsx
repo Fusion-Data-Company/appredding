@@ -1393,9 +1393,9 @@ export default function Municipality() {
                             
                             setCalculatedROI({
                               tenYearSavings: totalSavings.toLocaleString(),
-                              lifespanIncrease: "300%",
+                              lifespanIncrease: "50%",
                               paybackPeriod: `${Math.round(paybackMonths)} months`,
-                              laborSavings: `${Math.round(laborHours * 0.85)} hours/year`,
+                              laborSavings: `${Math.round(laborHours * 0.25)} hours/year`,
                               assetValueIncrease: "$" + (assetLifespanValue).toLocaleString()
                             });
                             

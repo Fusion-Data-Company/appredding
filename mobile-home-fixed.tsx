@@ -187,7 +187,7 @@ const MobileHome = () => {
                 </div>
                 
                 <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white drop-shadow-[0_1px_3px_rgba(59,130,246,0.6)]">
-                  287% Mobile Home ROI Certification
+                  Mobile Home ROI Certification
                 </h1>
                 
                 {/* Enhanced ROI-focused stats in enterprise grid format */}
