@@ -206,31 +206,171 @@ const Header = () => {
                 </div>
               </MenuItem>
               
-              <MenuItem setActive={setActiveItem} active={activeItem} item="Access">
-                <div className="flex flex-col space-y-1 p-4 w-[280px]">
-                  <div className="mb-2 pb-2 border-b border-gray-700/30">
-                    <h3 className="text-sm font-semibold text-orange-400 uppercase tracking-wider">Secure Dashboards</h3>
+              <MenuItem setActive={setActiveItem} active={activeItem} item="Solutions">
+                <div className="flex gap-6 p-4 w-[550px]">
+                  <div className="w-1/2">
+                    <div className="mb-3 pb-2 border-b border-gray-700/30">
+                      <h3 className="text-sm font-semibold text-orange-400 uppercase tracking-wider">Enterprise Solutions</h3>
+                    </div>
+                    
+                    {/* Professional Solutions Section */}
+                    <div className="grid gap-3">
+                      <div className="relative overflow-hidden rounded-lg border border-orange-900/30 group">
+                        <div className="absolute inset-0 bg-gradient-to-br from-orange-900/20 to-blue-900/20 opacity-70 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <img 
+                          src="/src/assets_dir/images/optimized/fire-prevention.jpg" 
+                          alt="Fire Prevention"
+                          className="w-full h-28 object-cover transition-transform duration-500 group-hover:scale-110"
+                        />
+                        <div className="absolute inset-0 flex flex-col justify-end p-3 bg-gradient-to-t from-black/90 to-transparent">
+                          <h4 className="text-white font-bold text-sm">Fire Prevention</h4>
+                          <p className="text-gray-300 text-xs">Advanced thermal barrier protection</p>
+                          <Link href="/fire-prevention" className="absolute inset-0">
+                            <span className="sr-only">Fire Prevention</span>
+                          </Link>
+                        </div>
+                      </div>
+                      
+                      <div className="relative overflow-hidden rounded-lg border border-blue-900/30 group">
+                        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-orange-900/20 opacity-70 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <img 
+                          src="/src/assets_dir/images/optimized/marine-application.jpg" 
+                          alt="Marine Solutions"
+                          className="w-full h-28 object-cover transition-transform duration-500 group-hover:scale-110"
+                        />
+                        <div className="absolute inset-0 flex flex-col justify-end p-3 bg-gradient-to-t from-black/90 to-transparent">
+                          <h4 className="text-white font-bold text-sm">Marine Protection</h4>
+                          <p className="text-gray-300 text-xs">Superior coating for marine environments</p>
+                          <Link href="/marinas" className="absolute inset-0">
+                            <span className="sr-only">Marine Solutions</span>
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                   
-                  <div className="flex items-center gap-3 hover:bg-blue-900/20 p-2 rounded-lg transition-colors">
-                    <div className="p-2 rounded-full bg-blue-900/30 text-blue-400">
-                      <BarChart4 size={18} />
+                  <div className="w-1/2">
+                    <div className="mb-3 pb-2 border-b border-gray-700/30">
+                      <h3 className="text-sm font-semibold text-blue-400 uppercase tracking-wider">Specific Applications</h3>
                     </div>
-                    <HoveredLink href="/client-dashboard" className="text-left">Client Dashboard</HoveredLink>
+                    
+                    <div className="space-y-2.5">
+                      <div className="flex items-center gap-3 hover:bg-blue-900/20 p-2 rounded-lg transition-colors">
+                        <div className="relative flex-shrink-0 w-12 h-12 overflow-hidden rounded-md">
+                          <img 
+                            src="/src/assets_dir/images/optimized/pools-category.jpg" 
+                            alt="Pool Applications" 
+                            className="w-full h-full object-cover"
+                          />
+                          <div className="absolute inset-0 border border-blue-900/30 rounded-md"></div>
+                        </div>
+                        <HoveredLink href="/pools" className="text-left">Pool Applications</HoveredLink>
+                      </div>
+                      
+                      <div className="flex items-center gap-3 hover:bg-blue-900/20 p-2 rounded-lg transition-colors">
+                        <div className="relative flex-shrink-0 w-12 h-12 overflow-hidden rounded-md">
+                          <img 
+                            src="/src/assets_dir/images/optimized/construction-hero.jpg"  
+                            alt="Construction" 
+                            className="w-full h-full object-cover"
+                          />
+                          <div className="absolute inset-0 border border-orange-900/30 rounded-md"></div>
+                        </div>
+                        <HoveredLink href="/construction" className="text-left">Construction</HoveredLink>
+                      </div>
+                      
+                      <div className="flex items-center gap-3 hover:bg-blue-900/20 p-2 rounded-lg transition-colors">
+                        <div className="relative flex-shrink-0 w-12 h-12 overflow-hidden rounded-md">
+                          <img 
+                            src="/src/assets_dir/images/optimized/mobile-home-bg.jpg" 
+                            alt="Mobile Home" 
+                            className="w-full h-full object-cover"
+                          />
+                          <div className="absolute inset-0 border border-blue-900/30 rounded-md"></div>
+                        </div>
+                        <HoveredLink href="/mobile-home" className="text-left">Mobile Home</HoveredLink>
+                      </div>
+                      
+                      <div className="flex items-center gap-3 hover:bg-blue-900/20 p-2 rounded-lg transition-colors">
+                        <div className="relative flex-shrink-0 w-12 h-12 overflow-hidden rounded-md">
+                          <img 
+                            src="/src/assets_dir/images/optimized/municipality-bg.jpg" 
+                            alt="Municipality" 
+                            className="w-full h-full object-cover"
+                          />
+                          <div className="absolute inset-0 border border-blue-900/30 rounded-md"></div>
+                        </div>
+                        <HoveredLink href="/municipality" className="text-left">Municipality</HoveredLink>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </MenuItem>
+              
+              <MenuItem setActive={setActiveItem} active={activeItem} item="Professionals">
+                <div className="grid grid-cols-2 gap-5 p-4 w-[550px]">
+                  <div className="col-span-2 mb-2">
+                    <div className="relative overflow-hidden rounded-lg border border-blue-900/30 group h-28">
+                      <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-orange-900/20 opacity-70 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      <img 
+                        src="/src/assets_dir/images/optimized/painter-bg.jpg" 
+                        alt="Professional Programs"
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 flex flex-col justify-center items-center bg-gradient-to-r from-black/80 via-black/70 to-black/80">
+                        <h4 className="text-white font-bold text-lg text-center">Professional Programs</h4>
+                        <p className="text-gray-300 text-sm text-center max-w-xs">
+                          Industry-leading solutions for licensed professionals
+                        </p>
+                      </div>
+                    </div>
                   </div>
                   
-                  <div className="flex items-center gap-3 hover:bg-blue-900/20 p-2 rounded-lg transition-colors">
-                    <div className="p-2 rounded-full bg-blue-900/30 text-blue-400">
-                      <ShieldCheck size={18} />
+                  <div>
+                    <div className="mb-3 pb-2 border-b border-gray-700/30">
+                      <h3 className="text-sm font-semibold text-orange-400 uppercase tracking-wider">Program Benefits</h3>
                     </div>
-                    <HoveredLink href="/admin-dashboard" className="text-left">Admin Dashboard</HoveredLink>
+                    
+                    <ul className="space-y-2">
+                      <li className="flex items-center gap-2 text-sm text-gray-300">
+                        <div className="h-1.5 w-1.5 rounded-full bg-orange-500"></div>
+                        <span>Exclusive training & certification</span>
+                      </li>
+                      <li className="flex items-center gap-2 text-sm text-gray-300">
+                        <div className="h-1.5 w-1.5 rounded-full bg-orange-500"></div>
+                        <span>Preferred pricing structure</span>
+                      </li>
+                      <li className="flex items-center gap-2 text-sm text-gray-300">
+                        <div className="h-1.5 w-1.5 rounded-full bg-orange-500"></div>
+                        <span>Technical support access</span>
+                      </li>
+                      <li className="flex items-center gap-2 text-sm text-gray-300">
+                        <div className="h-1.5 w-1.5 rounded-full bg-orange-500"></div>
+                        <span>Marketing & promotional tools</span>
+                      </li>
+                    </ul>
                   </div>
                   
-                  <div className="flex items-center gap-3 hover:bg-orange-900/20 p-2 rounded-lg transition-colors">
-                    <div className="p-2 rounded-full bg-orange-900/30 text-orange-400">
-                      <BriefcaseBusiness size={18} />
+                  <div>
+                    <div className="mb-3 pb-2 border-b border-gray-700/30">
+                      <h3 className="text-sm font-semibold text-blue-400 uppercase tracking-wider">Professional Sign-up</h3>
                     </div>
-                    <HoveredLink href="/crm" className="text-left">Team CRM</HoveredLink>
+                    
+                    <div className="space-y-3">
+                      <Link href="/painters" className="flex items-center gap-3 hover:bg-orange-900/20 p-2 rounded-lg transition-colors">
+                        <div className="p-2 rounded-full bg-orange-900/30 text-orange-400">
+                          <BriefcaseBusiness size={18} />
+                        </div>
+                        <span className="text-white hover:text-orange-400 transition-colors">Professional Painters</span>
+                      </Link>
+                      
+                      <div className="flex flex-col gap-1.5 p-3 bg-gradient-to-br from-blue-900/20 to-orange-900/10 rounded-lg border border-blue-900/30">
+                        <span className="text-sm text-gray-300">Ready to become certified?</span>
+                        <Link href="/contact" className="text-sm font-bold text-blue-400 hover:text-blue-300 transition-colors">
+                          Contact our team →
+                        </Link>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </MenuItem>
