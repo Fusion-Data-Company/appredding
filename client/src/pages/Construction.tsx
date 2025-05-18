@@ -164,7 +164,7 @@ const ConstructionPage = () => {
                     tracking-tight leading-tight drop-shadow-[0_2px_10px_rgba(59,130,246,0.5)]
                     [text-shadow:0_1px_2px_rgba(0,0,0,0.8),0_2px_15px_rgba(59,130,246,0.3),0_-1px_35px_rgba(59,130,246,0.2)]">
                     <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-50 to-white">
-                      642% Construction ROI System
+                      Enhanced Construction ROI System
                     </span>
                   </h1>
                   

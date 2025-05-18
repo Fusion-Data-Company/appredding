@@ -201,7 +201,7 @@ const Marinas = () => {
                 <div className="relative mb-6">
                   <div className="absolute -inset-2 bg-gradient-to-r from-blue-500/10 via-blue-500/20 to-blue-500/10 rounded-lg blur-md"></div>
                   <h1 className="text-4xl md:text-5xl font-bold text-white relative z-10 drop-shadow-[0_1px_3px_rgba(59,130,246,0.6)]">
-                    411% Marine ROI Certification
+                    Marine ROI Certification
                   </h1>
                   <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent"></div>
                 </div>

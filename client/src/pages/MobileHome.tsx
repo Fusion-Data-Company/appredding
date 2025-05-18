@@ -244,7 +244,7 @@ const MobileHome = () => {
                     </li>
                     <li className="flex items-start">
                       <span className="text-emerald-400 mr-2">✓</span> 
-                      <span>Class A fire rating <span className="font-semibold">reduces insurance premiums by 43%</span> on average</span>
+                      <span>Fire-resistant coating <span className="font-semibold">may help reduce insurance premiums</span> in certain cases</span>
                     </li>
                     <li className="flex items-start">
                       <span className="text-emerald-400 mr-2">✓</span> 
