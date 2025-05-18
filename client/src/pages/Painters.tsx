@@ -243,7 +243,7 @@ const Painters = () => {
                   transition={{ duration: 0.7, delay: 0.4 }}
                 >
                   <PremiumArrowButton 
-                    href="#solution"
+                    onClick={() => document.getElementById('solution')?.scrollIntoView({ behavior: 'smooth' })}
                     variant="fire"
                     size="lg"
                     iconPosition="right"
@@ -392,7 +392,7 @@ const Painters = () => {
                   <div className="space-y-3 text-left">
                     <div className="flex items-start gap-3">
                       <div className="bg-green-500/20 p-1 rounded-full mt-1">
-                        <CheckCircle2 className="h-5 w-5 text-green-400" />
+                        <CheckCheck className="h-5 w-5 text-green-400" />
                       </div>
                       <div>
                         <p className="text-white"><span className="text-green-300 font-medium">Access to premium customers</span> searching for energy-efficient, long-lasting painting services</p>
@@ -401,7 +401,7 @@ const Painters = () => {
                     
                     <div className="flex items-start gap-3">
                       <div className="bg-green-500/20 p-1 rounded-full mt-1">
-                        <CheckCircle2 className="h-5 w-5 text-green-400" />
+                        <CheckCheck className="h-5 w-5 text-green-400" />
                       </div>
                       <div>
                         <p className="text-white"><span className="text-green-300 font-medium">Technical certification and training</span> to properly apply Smart Coat's patented ceramic technology</p>
@@ -410,7 +410,7 @@ const Painters = () => {
                     
                     <div className="flex items-start gap-3">
                       <div className="bg-green-500/20 p-1 rounded-full mt-1">
-                        <CheckCircle2 className="h-5 w-5 text-green-400" />
+                        <CheckCheck className="h-5 w-5 text-green-400" />
                       </div>
                       <div>
                         <p className="text-white"><span className="text-green-300 font-medium">Exclusive marketing materials</span> demonstrating the energy savings and ROI to justify premium pricing</p>
@@ -419,7 +419,7 @@ const Painters = () => {
                     
                     <div className="flex items-start gap-3">
                       <div className="bg-green-500/20 p-1 rounded-full mt-1">
-                        <CheckCircle2 className="h-5 w-5 text-green-400" />
+                        <CheckCheck className="h-5 w-5 text-green-400" />
                       </div>
                       <div>
                         <p className="text-white"><span className="text-green-300 font-medium">Comprehensive 10-year warranty support</span> backed by our industry-leading quality assurance program</p>
