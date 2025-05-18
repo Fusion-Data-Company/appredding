@@ -14,12 +14,12 @@ import {
   FormMessage
 } from "@/components/ui/form";
 import { CheckCircle, CheckCheck, PaintBucket, Brush, Clock, Palette, User, Building, ChevronRight, FileCheck, Zap, CircleDollarSign } from "lucide-react";
+import { PremiumArrowButton, PremiumActionButton, PremiumFireButton, PremiumCartButton } from "@/utils/premium-buttons";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
-import { PremiumCartButton } from "@/utils/premium-buttons";
 import { motion } from "framer-motion";
 import { z } from "zod";
 
@@ -242,13 +242,15 @@ const Painters = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.7, delay: 0.4 }}
                 >
-                  <a 
+                  <PremiumArrowButton 
                     href="#solution"
-                    className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-red-700 to-orange-600 text-white font-medium rounded-lg shadow-lg shadow-red-600/20 hover:shadow-red-600/40 transition duration-300"
+                    variant="fire"
+                    size="lg"
+                    iconPosition="right"
+                    className="transform hover:scale-105 transition-transform duration-300"
                   >
-                    <span className="mr-2">Discover the Solution</span>
-                    <ChevronRight className="h-5 w-5" />
-                  </a>
+                    Discover the Solution
+                  </PremiumArrowButton>
                 </motion.div>
               </div>
             </div>
