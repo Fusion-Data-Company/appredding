@@ -297,51 +297,55 @@ const MobileHome = () => {
                 </GradientHeading>
                 
                 {/* SANDLER STAGE 1: IDENTIFY THE PAINS */}
-                <div className="mb-10 relative bg-gradient-to-br from-black/70 to-gray-900/70 border border-red-500/40 rounded-xl p-6 backdrop-blur-sm z-10">
-                  <div className="absolute -inset-4 bg-gradient-to-r from-red-600/30 via-red-500/20 to-red-600/30 rounded-xl blur-xl opacity-80 -z-10"></div>
-                  <div className="absolute -inset-6 bg-red-600/20 rounded-xl blur-2xl opacity-50 animate-pulse-slow -z-10"></div>
+                <div className="mb-10 relative">
+                  {/* Red ambient glow effects positioned behind the card */}
+                  <div className="absolute -inset-4 bg-gradient-to-r from-red-600/30 via-red-500/20 to-red-600/30 rounded-xl blur-xl opacity-80 z-0"></div>
+                  <div className="absolute -inset-6 bg-red-600/20 rounded-xl blur-2xl opacity-50 animate-pulse-slow z-0"></div>
                   
-                  <h2 className="text-2xl font-bold text-white mb-4">
-                    Are These Mobile Home Problems Costing You Money?
-                  </h2>
-                  
-                  <p className="text-lg text-white leading-relaxed mb-6">
-                    Mobile homes present unique challenges in energy efficiency, comfort, and longevity. Every day, owners face frustrating issues that drain their wallets and decrease quality of life.
-                  </p>
-                  
-                  <div className="space-y-4 mb-6">
-                    <div className="flex items-start">
-                      <div className="h-6 w-1 bg-gradient-to-b from-red-600 to-red-400 rounded-full mr-3 mt-1.5"></div>
-                      <p className="text-base text-gray-200">
-                        <span className="text-white font-medium">Have you ever dreaded opening your utility bill</span> during extreme weather? The average mobile home loses <span className="font-semibold text-red-300">42% of its heating and cooling</span> through poor insulation, making your HVAC system work overtime and sending your bills skyrocketing to <span className="font-semibold text-red-300">3.4x higher than necessary</span>.
-                      </p>
+                  {/* Main card content with higher z-index */}
+                  <div className="relative bg-gradient-to-br from-black/90 to-gray-900/90 border border-red-500/40 rounded-xl p-6 backdrop-blur-sm z-10">
+                    <h2 className="text-2xl font-bold text-white mb-4">
+                      Are These Mobile Home Problems Costing You Money?
+                    </h2>
+                    
+                    <p className="text-lg text-white leading-relaxed mb-6">
+                      Mobile homes present unique challenges in energy efficiency, comfort, and longevity. Every day, owners face frustrating issues that drain their wallets and decrease quality of life.
+                    </p>
+                    
+                    <div className="space-y-4 mb-6">
+                      <div className="flex items-start">
+                        <div className="h-6 w-1 bg-gradient-to-b from-red-600 to-red-400 rounded-full mr-3 mt-1.5"></div>
+                        <p className="text-base text-gray-200">
+                          <span className="text-white font-medium">Have you ever dreaded opening your utility bill</span> during extreme weather? The average mobile home loses <span className="font-semibold text-red-300">42% of its heating and cooling</span> through poor insulation, making your HVAC system work overtime and sending your bills skyrocketing to <span className="font-semibold text-red-300">3.4x higher than necessary</span>.
+                        </p>
+                      </div>
+                      
+                      <div className="flex items-start">
+                        <div className="h-6 w-1 bg-gradient-to-b from-red-600 to-red-400 rounded-full mr-3 mt-1.5"></div>
+                        <p className="text-base text-gray-200">
+                          <span className="text-white font-medium">What happens to your home's exterior</span> year after year? UV damage causes deterioration at <span className="font-semibold text-red-300">2.8x the normal rate</span>, leading to costly repairs and decreased property value. And without fire-rated materials, insurance companies are raising rates by <span className="font-semibold text-red-300">26% annually</span> - eating away at your budget.
+                        </p>
+                      </div>
+                      
+                      <div className="flex items-start">
+                        <div className="h-6 w-1 bg-gradient-to-b from-red-600 to-red-400 rounded-full mr-3 mt-1.5"></div>
+                        <p className="text-base text-gray-200">
+                          <span className="text-white font-medium">Do you find yourself constantly adjusting the thermostat</span> because some rooms are too hot while others are too cold? Temperature fluctuations make consistent comfort impossible, leading to both discomfort and wasted energy as you try to compensate.
+                        </p>
+                      </div>
+                      
+                      <div className="flex items-start">
+                        <div className="h-6 w-1 bg-gradient-to-b from-red-600 to-red-400 rounded-full mr-3 mt-1.5"></div>
+                        <p className="text-base text-gray-200">
+                          <span className="text-white font-medium">Have you calculated how much money you're losing</span> to these inefficiencies? The average mobile home owner wastes <span className="font-semibold text-red-300">$1,870 annually</span> in unnecessary energy costs and premature maintenance – that's over $18,700 in a decade that could be going toward other priorities.
+                        </p>
+                      </div>
                     </div>
                     
-                    <div className="flex items-start">
-                      <div className="h-6 w-1 bg-gradient-to-b from-red-600 to-red-400 rounded-full mr-3 mt-1.5"></div>
-                      <p className="text-base text-gray-200">
-                        <span className="text-white font-medium">What happens to your home's exterior</span> year after year? UV damage causes deterioration at <span className="font-semibold text-red-300">2.8x the normal rate</span>, leading to costly repairs and decreased property value. And without fire-rated materials, insurance companies are raising rates by <span className="font-semibold text-red-300">26% annually</span> - eating away at your budget.
-                      </p>
-                    </div>
-                    
-                    <div className="flex items-start">
-                      <div className="h-6 w-1 bg-gradient-to-b from-red-600 to-red-400 rounded-full mr-3 mt-1.5"></div>
-                      <p className="text-base text-gray-200">
-                        <span className="text-white font-medium">Do you find yourself constantly adjusting the thermostat</span> because some rooms are too hot while others are too cold? Temperature fluctuations make consistent comfort impossible, leading to both discomfort and wasted energy as you try to compensate.
-                      </p>
-                    </div>
-                    
-                    <div className="flex items-start">
-                      <div className="h-6 w-1 bg-gradient-to-b from-red-600 to-red-400 rounded-full mr-3 mt-1.5"></div>
-                      <p className="text-base text-gray-200">
-                        <span className="text-white font-medium">Have you calculated how much money you're losing</span> to these inefficiencies? The average mobile home owner wastes <span className="font-semibold text-red-300">$1,870 annually</span> in unnecessary energy costs and premature maintenance – that's over $18,700 in a decade that could be going toward other priorities.
-                      </p>
-                    </div>
+                    <p className="text-base text-red-200 font-medium">
+                      These problems affect virtually every mobile home in America, draining owners' finances while making daily living less comfortable. The traditional approach of patching with conventional materials simply isn't working – it's a costly cycle with diminishing returns.
+                    </p>
                   </div>
-                  
-                  <p className="text-base text-red-200 font-medium">
-                    These problems affect virtually every mobile home in America, draining owners' finances while making daily living less comfortable. The traditional approach of patching with conventional materials simply isn't working – it's a costly cycle with diminishing returns.
-                  </p>
                 </div>
                 
                 {/* SANDLER STAGE 2: PRESENT SOLUTIONS */}
