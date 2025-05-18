@@ -189,7 +189,70 @@ const MobileHome = () => {
           }}
         />
         
-        {/* Hero Section */}
+        {/* New Main Header Section */}
+        <section className="relative z-10 py-10 overflow-hidden">
+          <div className="container mx-auto mb-12">
+            <div className="relative">
+              {/* Advanced ambient blue glow effects for header */}
+              <div className="absolute -inset-10 bg-blue-800/10 rounded-full blur-[100px] opacity-80 z-0"></div>
+              <div className="absolute -inset-20 bg-blue-900/5 rounded-full blur-[150px] opacity-70 z-0 animate-pulse-slow"></div>
+              
+              {/* Premium Header Container */}
+              <div className="relative rounded-2xl overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-900/90 via-gray-900/95 to-blue-900/90 z-10"></div>
+                
+                {/* Header background with subtle pattern and animated gradient overlay */}
+                <div className="absolute inset-0 opacity-40 z-0" 
+                  style={{backgroundImage: "url('data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231e3a8a' fill-opacity='0.1'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E')"
+                }}></div>
+                
+                {/* Animated blue light sweep effect */}
+                <div className="absolute inset-0 opacity-30 z-0 overflow-hidden">
+                  <div className="absolute -inset-full w-[400px] h-full bg-gradient-to-r from-transparent via-blue-400/20 to-transparent skew-x-[-20deg] animate-light-sweep"></div>
+                </div>
+                
+                {/* Header content with premium styling */}
+                <div className="relative z-20 px-8 py-20 flex flex-col items-center text-center">
+                  {/* Premium Badge */}
+                  <div className="inline-flex items-center px-4 py-1.5 bg-blue-900/80 border border-blue-400/30 rounded-full mb-6 backdrop-blur-sm shadow-lg">
+                    <div className="w-2 h-2 rounded-full bg-blue-400 mr-2 animate-pulse"></div>
+                    <span className="text-blue-100 font-medium text-sm tracking-wide">NASA-Derived Technology</span>
+                  </div>
+                  
+                  {/* Main Header with premium gradient styling */}
+                  <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-200 via-white to-blue-200 leading-tight max-w-5xl mx-auto tracking-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
+                    Mobile Home ROI Analysis Calculator
+                  </h1>
+                  
+                  {/* Premium styled subheader */}
+                  <p className="text-lg md:text-xl text-blue-100/90 max-w-3xl mx-auto mb-8 leading-relaxed">
+                    Discover how Praetorian Smart-Coat technology can transform your mobile home's efficiency, 
+                    reduce utility costs, and increase property value with our advanced ROI calculator.
+                  </p>
+                  
+                  {/* Accented bottom area */}
+                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-blue-500/70 to-transparent"></div>
+                  
+                  {/* Corner decorations */}
+                  <div className="absolute top-0 left-0 w-20 h-20">
+                    <div className="absolute top-0 left-0 w-10 h-10 border-t-2 border-l-2 border-blue-400/40 rounded-tl-lg"></div>
+                  </div>
+                  <div className="absolute top-0 right-0 w-20 h-20">
+                    <div className="absolute top-0 right-0 w-10 h-10 border-t-2 border-r-2 border-blue-400/40 rounded-tr-lg"></div>
+                  </div>
+                  <div className="absolute bottom-0 right-0 w-20 h-20">
+                    <div className="absolute bottom-0 right-0 w-10 h-10 border-b-2 border-r-2 border-blue-400/40 rounded-br-lg"></div>
+                  </div>
+                  <div className="absolute bottom-0 left-0 w-20 h-20">
+                    <div className="absolute bottom-0 left-0 w-10 h-10 border-b-2 border-l-2 border-blue-400/40 rounded-bl-lg"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        {/* Existing Hero Section */}
         <section className="py-16 md:py-24 relative z-10">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto text-center mb-16 relative">
@@ -664,12 +727,42 @@ const MobileHome = () => {
           </div>
         </section>
 
-        {/* Mobile Home ROI Analysis Section */}
+        {/* Mobile Home ROI Analysis Section with Green Styling */}
         <section className="py-16 relative z-10">
           <div className="container mx-auto">
             <div className="relative max-w-6xl mx-auto">
-              <div className="absolute -inset-2 bg-gradient-to-r from-blue-600/30 via-orange-600/30 to-blue-600/30 rounded-xl blur-xl opacity-70"></div>
-              <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 rounded-xl p-6 md:p-8 shadow-lg border border-blue-500/30 overflow-hidden">
+              {/* Enhanced green ambient glow for ROI section */}
+              <div className="absolute -inset-2 bg-gradient-to-r from-green-600/30 via-blue-600/10 to-green-600/30 rounded-xl blur-xl opacity-70"></div>
+              <div className="absolute -inset-6 bg-green-600/20 rounded-xl blur-2xl opacity-50 animate-pulse-slow"></div>
+              <div className="absolute -inset-10 bg-green-600/10 rounded-xl blur-3xl opacity-30"></div>
+              
+              {/* Premium glass container with green accents */}
+              <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 rounded-xl p-6 md:p-8 shadow-lg border border-green-500/30 overflow-hidden">
+                {/* Glass shimmer effect */}
+                <div className="absolute inset-0 overflow-hidden">
+                  <div className="absolute top-0 left-0 right-0 h-[40%] bg-gradient-to-br from-green-600/10 to-transparent rounded-t-xl opacity-50"></div>
+                  <div className="h-full w-1/3 bg-gradient-to-r from-transparent via-green-400/10 to-transparent skew-x-[-20deg] animate-shimmer-slow absolute"></div>
+                </div>
+                
+                {/* Green header bar with premium styling */}
+                <div className="relative -mt-6 -mx-6 md:-mx-8 mb-8 py-4 px-6 md:px-8 bg-gradient-to-r from-green-900/80 via-green-800/80 to-green-900/80 border-b border-green-500/30">
+                  <div className="absolute inset-0 opacity-30">
+                    <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%2322c55e\' fill-opacity=\'0.1\' fill-rule=\'evenodd\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
+                  </div>
+                  
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center">
+                      <div className="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center mr-4 border border-green-400/30">
+                        <CircleDollarSign className="w-5 h-5 text-green-300" />
+                      </div>
+                      <h2 className="text-2xl font-bold text-green-50">ROI Analysis Calculator</h2>
+                    </div>
+                    <div className="hidden md:flex items-center space-x-1 text-green-300 text-sm">
+                      <CheckCircle className="w-4 h-4 mr-1" />
+                      <span>NASA-Certified Technology</span>
+                    </div>
+                  </div>
+                </div>
                 {/* Corner accent elements */}
                 <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none">
                   <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-blue-500/70 rounded-tl-lg"></div>
