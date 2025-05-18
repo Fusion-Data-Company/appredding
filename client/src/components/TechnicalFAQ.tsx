@@ -123,7 +123,7 @@ const TechnicalFAQ: React.FC = () => {
                 <li>Works well with specialized primers to form a comprehensive protection system</li>
               </ul>
               <p>
-                The coating has Marine-Grade Certification for maritime applications. Field installations on bridges, ships, and coastal structures have shown good performance in saltwater environments when properly applied and maintained.
+                The coating meets marine-grade standards for maritime applications. Field installations on bridges, ships, and coastal structures have demonstrated satisfactory performance in saltwater environments when properly applied and maintained according to manufacturer specifications.
               </p>
             </div>
           }
@@ -169,13 +169,13 @@ const TechnicalFAQ: React.FC = () => {
                 The coating's ability to reduce thermal signatures for defense applications stems from its multiple thermal management properties:
               </p>
               <ul className="list-disc pl-5 space-y-2">
-                <li>Ceramic microspheres reflect and scatter infrared radiation in the 8-12μm wavelength range used by most thermal imaging systems</li>
-                <li>High emissivity (89%) rapidly dissipates heat to match ambient temperatures, reducing thermal contrast</li>
+                <li>Ceramic microspheres help reduce infrared radiation detection in wavelength ranges used by thermal imaging systems</li>
+                <li>Effective emissivity properties help dissipate heat to better match ambient temperatures, reducing thermal contrast</li>
                 <li>Low thermal conductivity prevents heat from equipment interiors from transferring to outer surfaces</li>
                 <li>Creates a more uniform thermal profile that blends with environmental background temperatures</li>
               </ul>
               <p>
-                Testing has shown that properly coated equipment can show meaningful thermal signature reductions when viewed through standard FLIR systems. This reduction in detectability provides advantages for sensitive installations and equipment, enhancing operational security without affecting performance.
+                Testing indicates that properly coated equipment may show thermal signature differences when viewed through infrared systems under controlled conditions. These potential reductions can provide advantages for specialized applications, helping to manage thermal profiles in certain environments.
               </p>
             </div>
           }
@@ -221,7 +221,7 @@ const TechnicalFAQ: React.FC = () => {
                 <li><strong>NSF/ANSI 61:</strong> Evaluated for water contact safety</li>
               </ul>
               <p>
-                The coating holds Marine-Grade Certification for maritime applications. The product also meets environmental safety requirements with low VOC content, making it suitable for use in occupied spaces and environmentally conscious applications.
+                The coating is formulated for maritime applications. The product meets environmental safety requirements with low VOC content, making it suitable for use in occupied spaces and environmentally conscious applications.
               </p>
             </div>
           }
