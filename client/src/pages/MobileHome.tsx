@@ -160,10 +160,9 @@ const MobileHome = () => {
           <div className="absolute bottom-[10%] right-[15%] w-[40rem] h-[40rem] bg-orange-500/10 rounded-full blur-[150px] animate-pulse-slow"></div>
         </div>
         
-        {/* Main content section */}
+        {/* Hero Section */}
         <section className="py-16 md:py-24 relative z-10">
           <div className="container mx-auto">
-            {/* Hero section */}
             <div className="max-w-4xl mx-auto text-center mb-16 relative">
               <div className="absolute -inset-1 bg-gradient-to-r from-orange-500/20 via-blue-500/20 to-orange-500/20 rounded-xl blur-xl opacity-70"></div>
               
@@ -215,7 +214,7 @@ const MobileHome = () => {
                 </div>
               </div>
             </div>
-
+            
             {/* Benefits and Application Process grid */}
             <div className="grid md:grid-cols-2 gap-12 mb-16">
               {/* Benefits Card */}
@@ -423,52 +422,53 @@ const MobileHome = () => {
                           <span className="bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent">Praetorian Mobile Home Solutions</span>
                         </h4>
                       
-                      <ul className="space-y-4">
-                        <li className="flex items-start group">
-                          <div className="relative flex-shrink-0 mr-3">
-                            <div className="absolute -inset-1 bg-blue-500/30 rounded-full blur-sm opacity-70 group-hover:opacity-100 transition duration-300"></div>
-                            <div className="relative w-7 h-7 bg-gradient-to-br from-blue-700 to-blue-500 rounded-full flex items-center justify-center shadow-[0_0_10px_rgba(59,130,246,0.3)]">
-                              <span className="text-white text-xs font-bold">1</span>
+                        <ul className="space-y-4">
+                          <li className="flex items-start group">
+                            <div className="relative flex-shrink-0 mr-3">
+                              <div className="absolute -inset-1 bg-blue-500/30 rounded-full blur-sm opacity-70 group-hover:opacity-100 transition duration-300"></div>
+                              <div className="relative w-7 h-7 bg-gradient-to-br from-blue-700 to-blue-500 rounded-full flex items-center justify-center shadow-[0_0_10px_rgba(59,130,246,0.3)]">
+                                <span className="text-white text-xs font-bold">1</span>
+                              </div>
                             </div>
-                          </div>
-                          <span className="text-gray-200 pt-0.5">
-                            <span className="font-semibold text-white">Reduces internal temperature by 15-28°F</span> - Creates immediate comfort improvements and energy savings
-                          </span>
-                        </li>
-                        <li className="flex items-start group">
-                          <div className="relative flex-shrink-0 mr-3">
-                            <div className="absolute -inset-1 bg-blue-500/30 rounded-full blur-sm opacity-70 group-hover:opacity-100 transition duration-300"></div>
-                            <div className="relative w-7 h-7 bg-gradient-to-br from-blue-700 to-blue-500 rounded-full flex items-center justify-center shadow-[0_0_10px_rgba(59,130,246,0.3)]">
-                              <span className="text-white text-xs font-bold">2</span>
+                            <span className="text-gray-200 pt-0.5">
+                              <span className="font-semibold text-white">Reduces internal temperature by 15-28°F</span> - Creates immediate comfort improvements and energy savings
+                            </span>
+                          </li>
+                          <li className="flex items-start group">
+                            <div className="relative flex-shrink-0 mr-3">
+                              <div className="absolute -inset-1 bg-blue-500/30 rounded-full blur-sm opacity-70 group-hover:opacity-100 transition duration-300"></div>
+                              <div className="relative w-7 h-7 bg-gradient-to-br from-blue-700 to-blue-500 rounded-full flex items-center justify-center shadow-[0_0_10px_rgba(59,130,246,0.3)]">
+                                <span className="text-white text-xs font-bold">2</span>
+                              </div>
                             </div>
-                          </div>
-                          <span className="text-gray-200 pt-0.5">
-                            <span className="font-semibold text-white">25+ year roof protection</span> - One application extends roof life by 2-3× with documented performance
-                          </span>
-                        </li>
-                        <li className="flex items-start group">
-                          <div className="relative flex-shrink-0 mr-3">
-                            <div className="absolute -inset-1 bg-blue-500/30 rounded-full blur-sm opacity-70 group-hover:opacity-100 transition duration-300"></div>
-                            <div className="relative w-7 h-7 bg-gradient-to-br from-blue-700 to-blue-500 rounded-full flex items-center justify-center shadow-[0_0_10px_rgba(59,130,246,0.3)]">
-                              <span className="text-white text-xs font-bold">3</span>
+                            <span className="text-gray-200 pt-0.5">
+                              <span className="font-semibold text-white">25+ year roof protection</span> - One application extends roof life by 2-3× with documented performance
+                            </span>
+                          </li>
+                          <li className="flex items-start group">
+                            <div className="relative flex-shrink-0 mr-3">
+                              <div className="absolute -inset-1 bg-blue-500/30 rounded-full blur-sm opacity-70 group-hover:opacity-100 transition duration-300"></div>
+                              <div className="relative w-7 h-7 bg-gradient-to-br from-blue-700 to-blue-500 rounded-full flex items-center justify-center shadow-[0_0_10px_rgba(59,130,246,0.3)]">
+                                <span className="text-white text-xs font-bold">3</span>
+                              </div>
                             </div>
-                          </div>
-                          <span className="text-gray-200 pt-0.5">
-                            <span className="font-semibold text-white">Utility reduction of 20-45%</span> - Average monthly savings of $85-140 on cooling/heating expenses
-                          </span>
-                        </li>
-                        <li className="flex items-start group">
-                          <div className="relative flex-shrink-0 mr-3">
-                            <div className="absolute -inset-1 bg-blue-500/30 rounded-full blur-sm opacity-70 group-hover:opacity-100 transition duration-300"></div>
-                            <div className="relative w-7 h-7 bg-gradient-to-br from-blue-700 to-blue-500 rounded-full flex items-center justify-center shadow-[0_0_10px_rgba(59,130,246,0.3)]">
-                              <span className="text-white text-xs font-bold">4</span>
+                            <span className="text-gray-200 pt-0.5">
+                              <span className="font-semibold text-white">Utility reduction of 20-45%</span> - Average monthly savings of $85-140 on cooling/heating expenses
+                            </span>
+                          </li>
+                          <li className="flex items-start group">
+                            <div className="relative flex-shrink-0 mr-3">
+                              <div className="absolute -inset-1 bg-blue-500/30 rounded-full blur-sm opacity-70 group-hover:opacity-100 transition duration-300"></div>
+                              <div className="relative w-7 h-7 bg-gradient-to-br from-blue-700 to-blue-500 rounded-full flex items-center justify-center shadow-[0_0_10px_rgba(59,130,246,0.3)]">
+                                <span className="text-white text-xs font-bold">4</span>
+                              </div>
                             </div>
-                          </div>
-                          <span className="text-gray-200 pt-0.5">
-                            <span className="font-semibold text-white">Increases property value by 5-12%</span> - Documented value retention improvement with professional certification
-                          </span>
-                        </li>
-                      </ul>
+                            <span className="text-gray-200 pt-0.5">
+                              <span className="font-semibold text-white">Increases property value by 5-12%</span> - Documented value retention improvement with professional certification
+                            </span>
+                          </li>
+                        </ul>
+                      </div>
                     </div>
                   </div>
                   
