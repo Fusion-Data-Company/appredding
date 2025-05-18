@@ -202,7 +202,7 @@ export function PremiumNavbar() {
           <div className="grid grid-cols-1 gap-3">
             <ImageCard
               title="Painters"
-              description="Join our elite network of certified painters"
+              description="Premium painting profit solutions"
               imageSrc={professionalImages.painters}
               href="/painters"
             />

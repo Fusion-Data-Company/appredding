@@ -189,7 +189,7 @@ const MobileMenu = ({ isOpen, onClose, isHomePage = true }: MobileMenuProps) => 
               )}
             </li>
 
-            {/* Painter Network */}
+            {/* Painters */}
             <li>
               <Link
                 href="/painters"
@@ -198,7 +198,7 @@ const MobileMenu = ({ isOpen, onClose, isHomePage = true }: MobileMenuProps) => 
                 transition-colors duration-150"
               >
                 <Users className="h-5 w-5" />
-                <span className="font-medium">Painter Network</span>
+                <span className="font-medium">Painters</span>
               </Link>
             </li>
 

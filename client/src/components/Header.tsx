@@ -82,7 +82,7 @@ const Header = () => {
                 <HoveredLink href="/construction">Construction</HoveredLink>
                 <HoveredLink href="/mobile-home">Mobile Home</HoveredLink>
                 <HoveredLink href="/municipality">Municipality</HoveredLink>
-                <HoveredLink href="/painters">Painter Network</HoveredLink>
+                <HoveredLink href="/painters">Painters</HoveredLink>
               </div>
             </MenuItem>
             
