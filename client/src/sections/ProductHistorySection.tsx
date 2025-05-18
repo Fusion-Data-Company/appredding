@@ -166,7 +166,7 @@ const ProductHistorySection = () => {
                     "Developed from NASA space shuttle ceramic technology utilizing millions of vacuum-filled ceramic microspheres with thermal conductivity of just 0.00543 W/cm²/K",
                     "Original applications from 1989 still performing perfectly with only 1% reflectivity degradation when inspected in 2019, outperforming competing products that lose 10-20% reflectivity in just 3 years",
                     "US Air Force tests in Arizona demonstrated metal buildings maintaining 85°F interior temperature while ambient temperatures reached 111-113°F, with coatings demonstrating solar reflectivity of 89% and thermal emissivity of 89%, effectively blocking 95% of solar radiation",
-                    "Multi-certified with Class A fire ratings (0/100 flame spread, 0/100 smoke development), Cool Roof Rating Council verification (89% reflection, 89% emittance), and American Bureau of Shipping (ABS) approval"
+                    "Multi-certified with Class A fire ratings (0/100 flame spread, 0/100 smoke development), Cool Roof Rating Council verification (89% reflection, 89% emittance), and Marine-Grade Certification"
                   ].map((item, index) => (
                     <li key={index} className="group/item relative transform transition-all duration-500 hover:-translate-y-1 hover:scale-[1.01]">
                       {/* Premium backdrop for the entire item */}
@@ -353,7 +353,7 @@ const ProductHistorySection = () => {
                   <div className="flex justify-between items-start">
                     <div className="flex-1">
                       <h4 className="text-xl font-bold text-white mb-1">Marine Grade Certification</h4>
-                      <p className="text-gray-200">Achieved American Bureau of Shipping certification for marine applications after extensive salt spray testing.</p>
+                      <p className="text-gray-200">Achieved Marine-Grade Certification for marine applications after extensive salt spray testing.</p>
                     </div>
                     <div className="ml-4 bg-gradient-to-br from-gray-800 to-gray-900 px-3 py-1 rounded-md border border-blue-500/30">
                       <span className="text-blue-400 font-bold">2009</span>

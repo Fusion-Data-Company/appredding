@@ -1452,7 +1452,7 @@ const Marinas = () => {
                     <Factory className="h-8 w-8 text-white" />
                   </div>
                   <h3 className="text-xl font-bold mb-3 text-white">Commercial Marine Applications</h3>
-                  <p className="text-gray-300 mb-6 flex-grow">Engineered for commercial vessels and marine structures with heavy use patterns. Our ABS-certified coatings extend maintenance cycles and reduce downtime while cutting operational costs.</p>
+                  <p className="text-gray-300 mb-6 flex-grow">Engineered for commercial vessels and marine structures with heavy use patterns. Our Marine-Grade Certified coatings extend maintenance cycles and reduce downtime while cutting operational costs.</p>
                   <div className="relative">
                     <div className="absolute -inset-1 bg-blue-500/30 rounded-lg blur-md opacity-70 group-hover:opacity-100 transition-opacity duration-500"></div>
                     <div className="relative">

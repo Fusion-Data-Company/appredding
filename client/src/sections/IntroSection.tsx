@@ -210,7 +210,7 @@ const IntroSection = () => {
                       {/* Left accent - animated pulse - orange */}
                       <span className="absolute -left-6 top-1/2 transform -translate-y-1/2 w-1.5 h-24 bg-gradient-to-b from-orange-500/0 via-orange-500/70 to-orange-500/0 rounded-full animate-pulse-slow z-20"></span>
                       
-                      Perfect 0/100 scores in ASTM E84 fire testing with documented 87% energy savings. Used by US Air Force, NASA, Factory Mutual, UL, and American Bureau of Shipping for critical applications.
+                      Perfect 0/100 scores in ASTM E84 fire testing with documented 87% energy savings. Used by US Air Force, NASA, Factory Mutual, UL, and Marine-Grade Certified for critical applications.
                       
                       {/* Right accent - animated pulse with delay - blue to match NASA card */}
                       <span className="absolute -right-6 top-1/2 transform -translate-y-1/2 w-1.5 h-24 bg-gradient-to-b from-blue-500/0 via-blue-500/70 to-blue-500/0 rounded-full animate-pulse-slow-delayed z-20"></span>

@@ -49,8 +49,8 @@ const TechnicalSpecsTable = () => {
     },
     {
       property: "Certifications",
-      value: "ABS #MC-1372",
-      explanation: "American Bureau of Shipping certification for marine applications.",
+      value: "Marine-Grade Certified",
+      explanation: "Marine-Grade Certification for marine applications.",
       icon: <Award className="h-4 w-4" />
     },
     {
