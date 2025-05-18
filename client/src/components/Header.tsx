@@ -3,7 +3,7 @@ import { Link, useLocation } from "wouter";
 import MobileMenu from "./MobileMenu";
 import { Menu, MenuItem, HoveredLink } from "@/components/ui/navbar-menu";
 import { LightPullThemeSwitcher } from "@/components/ui/light-pull-theme-switcher";
-import { Sun, Moon, ChevronDown, Shield, ShieldCheck, Flame, LifeBuoy, Building2, Home, BriefcaseBusiness, BarChart4 } from "lucide-react";
+import { Sun, Moon, ChevronDown, Shield, ShieldCheck, Flame, LifeBuoy, Building2, Home, BriefcaseBusiness, BarChart4, PaintBucket, HardHat } from "lucide-react";
 import praetorianShield from "@assets/Untitled design (6).png";
 
 const Header = () => {
@@ -232,7 +232,7 @@ const Header = () => {
                       <div className="relative overflow-hidden rounded-lg border border-blue-900/30 group">
                         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-orange-900/20 opacity-70 group-hover:opacity-100 transition-opacity duration-300"></div>
                         <div className="bg-gradient-to-r from-blue-900/40 to-blue-800/40 w-full h-28 flex items-center justify-center overflow-hidden">
-                          <Ship size={36} className="text-blue-500" />
+                          <LifeBuoy size={36} className="text-blue-500" />
                         </div>
                         <div className="absolute inset-0 flex flex-col justify-end p-3 bg-gradient-to-t from-black/90 to-transparent">
                           <h4 className="text-white font-bold text-sm">Marine Protection</h4>
@@ -260,36 +260,24 @@ const Header = () => {
                       </div>
                       
                       <div className="flex items-center gap-3 hover:bg-blue-900/20 p-2 rounded-lg transition-colors">
-                        <div className="relative flex-shrink-0 w-12 h-12 overflow-hidden rounded-md">
-                          <img 
-                            src="/src/assets_dir/images/optimized/construction-hero.jpg"  
-                            alt="Construction" 
-                            className="w-full h-full object-cover"
-                          />
+                        <div className="relative flex-shrink-0 w-12 h-12 overflow-hidden rounded-md bg-orange-900/20 flex items-center justify-center">
+                          <Building2 className="text-orange-500 w-6 h-6" />
                           <div className="absolute inset-0 border border-orange-900/30 rounded-md"></div>
                         </div>
                         <HoveredLink href="/construction" className="text-left">Construction</HoveredLink>
                       </div>
                       
                       <div className="flex items-center gap-3 hover:bg-blue-900/20 p-2 rounded-lg transition-colors">
-                        <div className="relative flex-shrink-0 w-12 h-12 overflow-hidden rounded-md">
-                          <img 
-                            src="/src/assets_dir/images/optimized/mobile-home-bg.jpg" 
-                            alt="Mobile Home" 
-                            className="w-full h-full object-cover"
-                          />
+                        <div className="relative flex-shrink-0 w-12 h-12 overflow-hidden rounded-md bg-blue-900/20 flex items-center justify-center">
+                          <Home className="text-blue-500 w-6 h-6" />
                           <div className="absolute inset-0 border border-blue-900/30 rounded-md"></div>
                         </div>
                         <HoveredLink href="/mobile-home" className="text-left">Mobile Home</HoveredLink>
                       </div>
                       
                       <div className="flex items-center gap-3 hover:bg-blue-900/20 p-2 rounded-lg transition-colors">
-                        <div className="relative flex-shrink-0 w-12 h-12 overflow-hidden rounded-md">
-                          <img 
-                            src="/src/assets_dir/images/optimized/municipality-bg.jpg" 
-                            alt="Municipality" 
-                            className="w-full h-full object-cover"
-                          />
+                        <div className="relative flex-shrink-0 w-12 h-12 overflow-hidden rounded-md bg-blue-900/20 flex items-center justify-center">
+                          <ShieldCheck className="text-blue-500 w-6 h-6" />
                           <div className="absolute inset-0 border border-blue-900/30 rounded-md"></div>
                         </div>
                         <HoveredLink href="/municipality" className="text-left">Municipality</HoveredLink>
@@ -304,11 +292,9 @@ const Header = () => {
                   <div className="col-span-2 mb-2">
                     <div className="relative overflow-hidden rounded-lg border border-blue-900/30 group h-28">
                       <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-orange-900/20 opacity-70 group-hover:opacity-100 transition-opacity duration-300"></div>
-                      <img 
-                        src="/src/assets_dir/images/optimized/painter-bg.jpg" 
-                        alt="Professional Programs"
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                      />
+                      <div className="w-full h-full bg-gradient-to-br from-blue-900/40 to-orange-900/30 flex items-center justify-center">
+                        <BriefcaseBusiness size={42} className="text-orange-400" />
+                      </div>
                       <div className="absolute inset-0 flex flex-col justify-center items-center bg-gradient-to-r from-black/80 via-black/70 to-black/80">
                         <h4 className="text-white font-bold text-lg text-center">Professional Programs</h4>
                         <p className="text-gray-300 text-sm text-center max-w-xs">
