@@ -473,14 +473,20 @@ const MobileHome = () => {
                   </p>
                   
                   <div className="flex justify-center mb-4">
-                    <PremiumActionButton
-                      onClick={() => document.getElementById('mobileHomeForm')?.scrollIntoView({ behavior: 'smooth' })}
-                      size="lg"
-                      className="text-lg font-bold px-8 transform transition-all duration-300 hover:scale-105"
-                      glowEffect={true}
-                    >
-                      Get Your Mobile Home Certified Today
-                    </PremiumActionButton>
+                    {/* Ambient blue glow wrapper around the button without affecting the button itself */}
+                    <div className="relative">
+                      <div className="absolute -inset-4 bg-blue-600/30 blur-xl rounded-3xl opacity-80 transition-opacity duration-500"></div>
+                      <div className="relative">
+                        <PremiumActionButton
+                          onClick={() => document.getElementById('mobileHomeForm')?.scrollIntoView({ behavior: 'smooth' })}
+                          size="lg"
+                          className="text-lg font-bold px-8 transform transition-all duration-300 hover:scale-105"
+                          glowEffect={true}
+                        >
+                          Get Your Mobile Home Certified Today
+                        </PremiumActionButton>
+                      </div>
+                    </div>
                   </div>
                   
                   <p className="text-sm text-gray-300 text-center">
@@ -804,14 +810,20 @@ const MobileHome = () => {
                         </select>
                       </div>
                       
-                      <PremiumFireButton 
-                        className="w-full mt-4 transform hover:scale-105 transition-transform duration-300"
-                        size="lg"
-                        glowEffect={true}
-                        onClick={() => calculateROI()}
-                      >
-                        Calculate My ROI
-                      </PremiumFireButton>
+                      {/* Ambient blue glow wrapped around the button without affecting the button itself */}
+                      <div className="relative mt-4">
+                        <div className="absolute -inset-3 bg-blue-600/30 blur-xl rounded-xl opacity-80 transition-opacity duration-500"></div>
+                        <div className="relative">
+                          <PremiumFireButton 
+                            className="w-full transform hover:scale-105 transition-transform duration-300"
+                            size="lg"
+                            glowEffect={true}
+                            onClick={() => calculateROI()}
+                          >
+                            Calculate My ROI
+                          </PremiumFireButton>
+                        </div>
+                      </div>
                     </div>
                     
                     {/* ROI Results Preview */}
@@ -1260,15 +1272,21 @@ const MobileHome = () => {
                         </div>
                         
                         <div className="text-center mt-4">
-                          <PremiumFireButton
-                            type="submit"
-                            size="lg"
-                            className="px-8 transform hover:scale-105 transition-transform duration-300"
-                            glowEffect={true}
-                            disabled={registerMutation.isPending}
-                          >
-                            {registerMutation.isPending ? "Submitting..." : "Submit Registration"}
-                          </PremiumFireButton>
+                          {/* Ambient blue glow wrapper around submit button without affecting the button itself */}
+                          <div className="relative inline-block">
+                            <div className="absolute -inset-4 bg-blue-600/30 blur-xl rounded-xl opacity-80 transition-opacity duration-500"></div>
+                            <div className="relative">
+                              <PremiumFireButton
+                                type="submit"
+                                size="lg"
+                                className="px-8 transform hover:scale-105 transition-transform duration-300"
+                                glowEffect={true}
+                                disabled={registerMutation.isPending}
+                              >
+                                {registerMutation.isPending ? "Submitting..." : "Submit Registration"}
+                              </PremiumFireButton>
+                            </div>
+                          </div>
                         </div>
                       </form>
                     </Form>
