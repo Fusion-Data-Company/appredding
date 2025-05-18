@@ -308,8 +308,8 @@ const ProductHistorySection = () => {
                   {/* 2025 */}
                   <div className="flex justify-between items-start">
                     <div className="flex-1">
-                      <h4 className="text-xl font-bold text-white mb-1">SON-SHIELD Brand Update</h4>
-                      <p className="text-gray-200">SON-SHIELD Coating received a comprehensive branding upgrade for direct public presentation, making advanced industrial coating technology accessible to consumers.</p>
+                      <h4 className="text-xl font-bold text-white mb-1">Praetorian Brand Launch</h4>
+                      <p className="text-gray-200">Son-Shield technology rebranded as Praetorian SmartCoat, bringing advanced industrial ceramic coating technology to the commercial market with enhanced consumer-focused presentation.</p>
                     </div>
                     <div className="ml-4 bg-gradient-to-br from-gray-800 to-gray-900 px-3 py-1 rounded-md border border-blue-500/30">
                       <span className="text-blue-400 font-bold">2025</span>

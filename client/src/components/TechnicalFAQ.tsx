@@ -123,7 +123,7 @@ const TechnicalFAQ: React.FC = () => {
                 <li>Combines with specialized primers to form a comprehensive system that blocks electrolytic corrosion</li>
               </ul>
               <p>
-                The coating has earned ABS Certification #MC-1372 for marine applications after rigorous testing. Field installations on bridges, ships, and coastal structures have demonstrated superior performance compared to traditional marine coatings, with documented cases showing no corrosion or degradation after decades of exposure to harsh saltwater environments.
+                The coating has earned Marine-Grade Certification for maritime applications after rigorous testing. Field installations on bridges, ships, and coastal structures have demonstrated superior performance compared to traditional marine coatings, with documented cases showing excellent corrosion resistance in harsh saltwater environments.
               </p>
             </div>
           }
@@ -223,7 +223,7 @@ const TechnicalFAQ: React.FC = () => {
                 <li><strong>ISO 14116:</strong> Flame spread resistance for textiles</li>
               </ul>
               <p>
-                Additionally, the coating holds ABS Certification #MC-1372 for maritime applications and is compliant with multiple federal and military specifications including certain MIL-PRF standards. The coating also complies with environmental regulations, containing near-zero VOCs and no toxic substances, making it safe for use in occupied spaces and environmentally sensitive areas.
+                Additionally, the coating holds Marine-Grade Certification for maritime applications and is compliant with multiple federal and military specifications including certain MIL-PRF standards. The coating also complies with environmental regulations, containing near-zero VOCs and no toxic substances, making it safe for use in occupied spaces and environmentally sensitive areas.
               </p>
             </div>
           }
