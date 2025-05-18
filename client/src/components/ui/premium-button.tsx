@@ -232,14 +232,17 @@ const PremiumButton = forwardRef<HTMLButtonElement, PremiumButtonProps>(
                    }}>
               </div>
                 
-              {/* Balanced ambient glow effect - equal on all sides, matching card glow */}
-              <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-[100%] h-10 bg-gradient-to-t from-orange-500/40 to-transparent blur-2xl opacity-70 transition-opacity duration-500 rounded-full">
+              {/* Ambient blue glow effect - similar to green in ROI sections */}
+              <div className="absolute -inset-6 bg-blue-600/20 blur-xl rounded-3xl opacity-80 transition-opacity duration-500 group-hover:opacity-100"></div>
+              
+              {/* Additional directional blue glows for enhanced effect */}
+              <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-[100%] h-10 bg-gradient-to-t from-blue-600/40 to-transparent blur-2xl opacity-70 transition-opacity duration-500 rounded-full">
               </div>
-              <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-[100%] h-10 bg-gradient-to-b from-blue-500/40 to-transparent blur-2xl opacity-70 transition-opacity duration-500 rounded-full">
+              <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-[100%] h-10 bg-gradient-to-b from-blue-600/40 to-transparent blur-2xl opacity-70 transition-opacity duration-500 rounded-full">
               </div>
-              <div className="absolute -left-8 top-1/2 -translate-y-1/2 h-[100%] w-10 bg-gradient-to-l from-orange-500/40 to-transparent blur-2xl opacity-70 transition-opacity duration-500 rounded-full">
+              <div className="absolute -left-8 top-1/2 -translate-y-1/2 h-[100%] w-10 bg-gradient-to-l from-blue-600/40 to-transparent blur-2xl opacity-70 transition-opacity duration-500 rounded-full">
               </div>
-              <div className="absolute -right-8 top-1/2 -translate-y-1/2 h-[100%] w-10 bg-gradient-to-r from-blue-500/40 to-transparent blur-2xl opacity-70 transition-opacity duration-500 rounded-full">
+              <div className="absolute -right-8 top-1/2 -translate-y-1/2 h-[100%] w-10 bg-gradient-to-r from-blue-600/40 to-transparent blur-2xl opacity-70 transition-opacity duration-500 rounded-full">
               </div>
             </>
           )}
@@ -249,10 +252,10 @@ const PremiumButton = forwardRef<HTMLButtonElement, PremiumButtonProps>(
         {isFire && (
           <>
             {/* Secondary wider reflection - visible on hover */}
-            <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-5/6 h-[1px] bg-gradient-to-r from-transparent via-orange-500/20 to-transparent rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-5/6 h-[1px] bg-gradient-to-r from-transparent via-blue-500/20 to-transparent rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             
             {/* Subtle colored drop shadow - visible on hover */}
-            <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-4/5 h-[2px] bg-orange-600/10 blur-sm rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-4/5 h-[2px] bg-blue-600/10 blur-sm rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           </>
         )}
       </div>
