@@ -3,7 +3,7 @@ import { Link, useLocation } from "wouter";
 import MobileMenu from "./MobileMenu";
 import { Menu, MenuItem, HoveredLink } from "@/components/ui/navbar-menu";
 import { LightPullThemeSwitcher } from "@/components/ui/light-pull-theme-switcher";
-import { Sun, Moon, ChevronDown } from "lucide-react";
+import { Sun, Moon, ChevronDown, Shield, ShieldCheck, Flame, LifeBuoy, Building2, Home, BriefcaseBusiness, BarChart4 } from "lucide-react";
 import praetorianShield from "@assets/Untitled design (6).png";
 
 const Header = () => {
@@ -36,23 +36,38 @@ const Header = () => {
 
   return (
     <header 
-      className={`dark:bg-[#121212]/90 backdrop-blur-md border-b dark:border-[#ff6a00]/20 border-gray-300 sticky top-0 z-50 transition-all duration-300 ${
-        scrolled ? "dark:shadow-[0_4px_20px_rgba(255,106,0,0.1)] shadow-[0_4px_20px_rgba(0,0,0,0.1)] py-3" : "py-5"
+      className={`relative dark:bg-[#080c14]/95 backdrop-blur-xl border-b dark:border-[#ff6a00]/20 border-gray-300 sticky top-0 z-50 transition-all duration-300 ${
+        scrolled ? "dark:shadow-[0_4px_20px_rgba(255,106,0,0.15)] shadow-[0_4px_20px_rgba(0,0,0,0.1)] py-3" : "py-5"
       } h-24 flex items-center`}
     >
-      <div className="w-[95%] mx-auto px-4 flex justify-between items-center">
+      {/* Premium header ambient glows */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute -left-20 -top-20 w-64 h-64 bg-blue-600/10 rounded-full filter blur-3xl opacity-70"></div>
+        <div className="absolute -right-20 -top-20 w-64 h-64 bg-orange-600/10 rounded-full filter blur-3xl opacity-70"></div>
+      </div>
+      
+      {/* Animated accent lines */}
+      <div className="absolute left-0 right-0 bottom-0 h-px bg-gradient-to-r from-transparent via-blue-500/40 to-transparent"></div>
+      <div className="absolute left-0 top-0 h-px w-[40%] bg-gradient-to-r from-transparent to-orange-500/30"></div>
+      <div className="absolute right-0 top-0 h-px w-[40%] bg-gradient-to-l from-transparent to-blue-500/30"></div>
+      
+      <div className="w-[95%] mx-auto px-4 flex justify-between items-center relative z-10">
         <Link href="/" className="text-4xl font-heading font-bold flex items-center gap-3 group z-10">
           <div className="relative group">
-            <div className="absolute inset-0 bg-gradient-to-r from-orange-500/20 to-blue-500/20 filter blur-md rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            {/* Enhanced glow effects for logo */}
+            <div className="absolute inset-0 bg-gradient-to-r from-orange-500/30 to-blue-500/30 filter blur-md rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-orange-500/10 to-blue-500/10 filter blur-lg rounded-full"></div>
             <img 
               src={praetorianShield} 
               alt="Praetorian Shield" 
-              className="h-11 w-auto relative z-10 transition-all duration-300 hover:scale-105 filter drop-shadow-lg"
+              className="h-12 w-auto relative z-10 transition-all duration-300 hover:scale-105 filter drop-shadow-lg"
             />
           </div>
           <div className="tracking-tight flex items-center">
-            <div className="text-[1.2rem] sm:text-[1.35rem] md:text-[1.5rem] leading-none whitespace-nowrap">
-              <span className="gradient-text-combined">Praetorian SmartCoat Solutions</span>
+            <div className="text-[1.2rem] sm:text-[1.35rem] md:text-[1.6rem] leading-none whitespace-nowrap">
+              <span className="gradient-text-combined font-bold">Praetorian</span>
+              <span className="text-white/90 mx-1 font-light">|</span>
+              <span className="gradient-text-blue font-medium">SmartCoat</span>
             </div>
           </div>
         </Link>
@@ -61,80 +76,183 @@ const Header = () => {
         <div className="hidden md:flex items-center justify-end ml-auto pr-10">
           <div className="flex items-center mr-10">
             <div className="relative pl-3 mr-3">
-              <Sun size={24} className="absolute -left-8 bottom-2 text-yellow-500 dark:text-yellow-400" />
+              <Sun size={22} className="absolute -left-8 bottom-2 text-yellow-500 dark:text-yellow-400" />
               <div className="relative">
-                <div className="bg-gray-100/80 dark:bg-gray-800/80 rounded-lg shadow-md backdrop-blur-sm px-1">
+                <div className="bg-gradient-to-br from-gray-900/90 to-gray-800/90 rounded-lg shadow-[0_2px_10px_rgba(0,0,0,0.3)] backdrop-blur-sm px-1 border border-gray-700/40">
                   <LightPullThemeSwitcher />
                 </div>
                 <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center">
-                  <ChevronDown size={18} className="text-black dark:text-white animate-bounce" />
+                  <ChevronDown size={16} className="text-orange-400 animate-bounce" />
                 </div>
               </div>
-              <Moon size={24} className="absolute -right-8 bottom-2 text-blue-600 dark:text-blue-400" />
+              <Moon size={22} className="absolute -right-8 bottom-2 text-blue-500 dark:text-blue-400" />
             </div>
           </div>
-          <Menu setActive={setActiveItem}>
-            <MenuItem setActive={setActiveItem} active={activeItem} item="Applications">
-              <div className="grid grid-cols-2 gap-4 p-2 w-[420px] text-center">
-                <HoveredLink href="/pools">Pools</HoveredLink>
-                <HoveredLink href="/marinas">Marinas</HoveredLink>
-                <HoveredLink href="/fire-prevention">Fire Prevention</HoveredLink>
-                <HoveredLink href="/construction">Construction</HoveredLink>
-                <HoveredLink href="/mobile-home">Mobile Home</HoveredLink>
-                <HoveredLink href="/municipality">Municipality</HoveredLink>
-                <HoveredLink href="/painters">Painters</HoveredLink>
-              </div>
-            </MenuItem>
-            
-            <MenuItem setActive={setActiveItem} active={activeItem} item="About">
-              <div className="flex flex-col space-y-2 p-2 w-[200px] text-center">
-                <HoveredLink href="/about">Company</HoveredLink>
-                <HoveredLink href="/team">Team</HoveredLink>
-                {isHomePage ? (
-                  <a 
-                    href="#contact" 
-                    className="gradient-text-blue hover:gradient-text-fire font-bold text-base uppercase tracking-wide transition-all px-2 py-1.5 block rounded-md relative font-heading text-center"
-                  >
-                    Contact Us
-                  </a>
-                ) : (
-                  <Link
-                    href="/#contact"
-                    className="gradient-text-blue hover:gradient-text-fire font-bold text-base uppercase tracking-wide transition-all px-2 py-1.5 block rounded-md relative font-heading text-center"
-                  >
-                    Contact Us
-                  </Link>
-                )}
-                <div className="pt-2 mt-2 border-t border-gray-700/50">
-                  <Link
-                    href="/style-showcase"
-                    className="gradient-text-combined font-bold text-base tracking-wide transition-all px-2 py-1.5 block rounded-md relative font-heading text-center"
-                  >
-                    Style Showcase
-                  </Link>
+          
+          {/* Premium menu styling */}
+          <div className="relative">
+            <div className="absolute -inset-1 bg-gradient-to-r from-orange-500/5 via-blue-500/5 to-orange-500/5 rounded-lg blur-sm"></div>
+            <Menu setActive={setActiveItem}>
+              <MenuItem setActive={setActiveItem} active={activeItem} item="Applications">
+                <div className="grid grid-cols-2 gap-4 p-4 w-[500px]">
+                  <div className="col-span-2 mb-2 pb-2 border-b border-gray-700/30">
+                    <h3 className="text-sm font-semibold text-orange-400 uppercase tracking-wider">Enterprise Solutions</h3>
+                  </div>
+                  
+                  <div className="flex items-center gap-3 hover:bg-blue-900/20 p-2 rounded-lg transition-colors">
+                    <div className="p-2 rounded-full bg-blue-900/30 text-blue-400">
+                      <LifeBuoy size={18} />
+                    </div>
+                    <HoveredLink href="/pools" className="text-left">Pools</HoveredLink>
+                  </div>
+                  
+                  <div className="flex items-center gap-3 hover:bg-blue-900/20 p-2 rounded-lg transition-colors">
+                    <div className="p-2 rounded-full bg-blue-900/30 text-blue-400">
+                      <Shield size={18} />
+                    </div>
+                    <HoveredLink href="/marinas" className="text-left">Marinas</HoveredLink>
+                  </div>
+                  
+                  <div className="flex items-center gap-3 hover:bg-orange-900/20 p-2 rounded-lg transition-colors">
+                    <div className="p-2 rounded-full bg-orange-900/30 text-orange-400">
+                      <Flame size={18} />
+                    </div>
+                    <HoveredLink href="/fire-prevention" className="text-left">Fire Prevention</HoveredLink>
+                  </div>
+                  
+                  <div className="flex items-center gap-3 hover:bg-orange-900/20 p-2 rounded-lg transition-colors">
+                    <div className="p-2 rounded-full bg-orange-900/30 text-orange-400">
+                      <Building2 size={18} />
+                    </div>
+                    <HoveredLink href="/construction" className="text-left">Construction</HoveredLink>
+                  </div>
+                  
+                  <div className="flex items-center gap-3 hover:bg-blue-900/20 p-2 rounded-lg transition-colors">
+                    <div className="p-2 rounded-full bg-blue-900/30 text-blue-400">
+                      <Home size={18} />
+                    </div>
+                    <HoveredLink href="/mobile-home" className="text-left">Mobile Home</HoveredLink>
+                  </div>
+                  
+                  <div className="flex items-center gap-3 hover:bg-blue-900/20 p-2 rounded-lg transition-colors">
+                    <div className="p-2 rounded-full bg-blue-900/30 text-blue-400">
+                      <ShieldCheck size={18} />
+                    </div>
+                    <HoveredLink href="/municipality" className="text-left">Municipality</HoveredLink>
+                  </div>
+                  
+                  <div className="flex items-center gap-3 hover:bg-orange-900/20 p-2 rounded-lg transition-colors">
+                    <div className="p-2 rounded-full bg-orange-900/30 text-orange-400">
+                      <BriefcaseBusiness size={18} />
+                    </div>
+                    <HoveredLink href="/painters" className="text-left">Painters</HoveredLink>
+                  </div>
                 </div>
-              </div>
-            </MenuItem>
-            
-            <MenuItem setActive={setActiveItem} active={activeItem} item="Access">
-              <div className="flex flex-col space-y-2 p-2 w-[200px] text-center">
-                <HoveredLink href="/client-dashboard">Client Dashboard</HoveredLink>
-                <HoveredLink href="/admin-dashboard">Admin Dashboard</HoveredLink>
-                <HoveredLink href="/crm">Team CRM</HoveredLink>
-              </div>
-            </MenuItem>
-          </Menu>
+              </MenuItem>
+              
+              <MenuItem setActive={setActiveItem} active={activeItem} item="About">
+                <div className="flex flex-col space-y-1 p-4 w-[280px]">
+                  <div className="mb-2 pb-2 border-b border-gray-700/30">
+                    <h3 className="text-sm font-semibold text-orange-400 uppercase tracking-wider">Company Information</h3>
+                  </div>
+                  
+                  <div className="flex items-center gap-3 hover:bg-blue-900/20 p-2 rounded-lg transition-colors">
+                    <div className="p-2 rounded-full bg-blue-900/30 text-blue-400">
+                      <Building2 size={18} />
+                    </div>
+                    <HoveredLink href="/about" className="text-left">Company</HoveredLink>
+                  </div>
+                  
+                  <div className="flex items-center gap-3 hover:bg-blue-900/20 p-2 rounded-lg transition-colors">
+                    <div className="p-2 rounded-full bg-blue-900/30 text-blue-400">
+                      <BriefcaseBusiness size={18} />
+                    </div>
+                    <HoveredLink href="/team" className="text-left">Team</HoveredLink>
+                  </div>
+                  
+                  {isHomePage ? (
+                    <a 
+                      href="#contact" 
+                      className="flex items-center gap-3 hover:bg-orange-900/20 p-2 rounded-lg transition-colors"
+                    >
+                      <div className="p-2 rounded-full bg-orange-900/30 text-orange-400">
+                        <LifeBuoy size={18} />
+                      </div>
+                      <span className="gradient-text-fire font-medium text-base">Contact Us</span>
+                    </a>
+                  ) : (
+                    <Link
+                      href="/#contact"
+                      className="flex items-center gap-3 hover:bg-orange-900/20 p-2 rounded-lg transition-colors"
+                    >
+                      <div className="p-2 rounded-full bg-orange-900/30 text-orange-400">
+                        <LifeBuoy size={18} />
+                      </div>
+                      <span className="gradient-text-fire font-medium text-base">Contact Us</span>
+                    </Link>
+                  )}
+                  
+                  <div className="pt-2 mt-2 border-t border-gray-700/30">
+                    <Link
+                      href="/style-showcase"
+                      className="flex items-center gap-3 hover:bg-blue-900/20 p-2 rounded-lg transition-colors"
+                    >
+                      <div className="p-2 rounded-full bg-gradient-to-r from-orange-900/30 to-blue-900/30 text-white">
+                        <Shield size={18} />
+                      </div>
+                      <span className="gradient-text-combined font-medium text-base">Style Showcase</span>
+                    </Link>
+                  </div>
+                </div>
+              </MenuItem>
+              
+              <MenuItem setActive={setActiveItem} active={activeItem} item="Access">
+                <div className="flex flex-col space-y-1 p-4 w-[280px]">
+                  <div className="mb-2 pb-2 border-b border-gray-700/30">
+                    <h3 className="text-sm font-semibold text-orange-400 uppercase tracking-wider">Secure Dashboards</h3>
+                  </div>
+                  
+                  <div className="flex items-center gap-3 hover:bg-blue-900/20 p-2 rounded-lg transition-colors">
+                    <div className="p-2 rounded-full bg-blue-900/30 text-blue-400">
+                      <BarChart4 size={18} />
+                    </div>
+                    <HoveredLink href="/client-dashboard" className="text-left">Client Dashboard</HoveredLink>
+                  </div>
+                  
+                  <div className="flex items-center gap-3 hover:bg-blue-900/20 p-2 rounded-lg transition-colors">
+                    <div className="p-2 rounded-full bg-blue-900/30 text-blue-400">
+                      <ShieldCheck size={18} />
+                    </div>
+                    <HoveredLink href="/admin-dashboard" className="text-left">Admin Dashboard</HoveredLink>
+                  </div>
+                  
+                  <div className="flex items-center gap-3 hover:bg-orange-900/20 p-2 rounded-lg transition-colors">
+                    <div className="p-2 rounded-full bg-orange-900/30 text-orange-400">
+                      <BriefcaseBusiness size={18} />
+                    </div>
+                    <HoveredLink href="/crm" className="text-left">Team CRM</HoveredLink>
+                  </div>
+                </div>
+              </MenuItem>
+            </Menu>
+          </div>
         </div>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Menu Button - Enhanced styling */}
         <button
           onClick={toggleMobileMenu}
-          className="md:hidden p-2 rounded-md transition-all duration-300 z-10 relative bg-gradient-to-r from-orange-600/10 to-blue-600/10 hover:from-orange-600/20 hover:to-blue-600/20 border border-transparent hover:border-orange-500/30 shadow-md"
+          className="md:hidden p-2.5 rounded-lg transition-all duration-300 z-10 relative 
+                   bg-gradient-to-br from-gray-900/90 to-gray-800/90 
+                   hover:from-orange-950/30 hover:to-blue-950/30 
+                   border border-gray-700/40 hover:border-orange-500/40
+                   shadow-[0_4px_10px_rgba(0,0,0,0.25)] hover:shadow-[0_4px_15px_rgba(255,106,0,0.2)]"
           aria-label="Toggle mobile menu"
         >
-          <span className={`block ${mobileMenuOpen ? 'rotate-45 translate-y-1.5' : ''} h-0.5 w-6 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full transform transition-all duration-300 mb-1.5`}></span>
-          <span className={`block ${mobileMenuOpen ? 'opacity-0' : 'opacity-100'} h-0.5 w-6 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full transform transition-all duration-300 mb-1.5`}></span>
-          <span className={`block ${mobileMenuOpen ? '-rotate-45 -translate-y-1.5' : ''} h-0.5 w-6 bg-gradient-to-r from-orange-500 to-blue-500 rounded-full transform transition-all duration-300`}></span>
+          <div className="relative">
+            <span className={`block ${mobileMenuOpen ? 'rotate-45 translate-y-1.5' : ''} h-0.5 w-6 bg-gradient-to-r from-orange-500 to-orange-400 rounded-full transform transition-all duration-300 mb-1.5`}></span>
+            <span className={`block ${mobileMenuOpen ? 'opacity-0' : 'opacity-100'} h-0.5 w-6 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full transform transition-all duration-300 mb-1.5`}></span>
+            <span className={`block ${mobileMenuOpen ? '-rotate-45 -translate-y-1.5' : ''} h-0.5 w-6 bg-gradient-to-r from-orange-500 to-blue-500 rounded-full transform transition-all duration-300`}></span>
+          </div>
         </button>
       </div>
 
