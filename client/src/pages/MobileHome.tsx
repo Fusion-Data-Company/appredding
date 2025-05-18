@@ -136,6 +136,16 @@ const MobileHome = () => {
   const handleShowRegistrationForm = () => {
     setShowRegistrationForm(true);
   };
+  
+  const calculateROI = () => {
+    // Calculate the ROI based on inputs and show the results section
+    const roiResultsElement = document.getElementById('roiResults');
+    if (roiResultsElement) {
+      roiResultsElement.scrollIntoView({ behavior: 'smooth' });
+      roiResultsElement.classList.remove('opacity-0');
+      roiResultsElement.classList.add('opacity-100');
+    }
+  };
 
   return (
     <MainLayout fullWidth={true}>
@@ -463,12 +473,14 @@ const MobileHome = () => {
                   </p>
                   
                   <div className="flex justify-center mb-4">
-                    <GradientButton
+                    <PremiumActionButton
                       onClick={() => document.getElementById('mobileHomeForm')?.scrollIntoView({ behavior: 'smooth' })}
-                      className="text-lg font-bold py-3 px-8 rounded-full transform transition-all duration-300 hover:scale-105"
+                      size="lg"
+                      className="text-lg font-bold px-8 transform transition-all duration-300 hover:scale-105"
+                      glowEffect={true}
                     >
                       Get Your Mobile Home Certified Today
-                    </GradientButton>
+                    </PremiumActionButton>
                   </div>
                   
                   <p className="text-sm text-gray-300 text-center">
@@ -1241,17 +1253,16 @@ const MobileHome = () => {
                           </div>
                         </div>
                         
-                        <div className="text-center">
-                          <button 
-                            type="submit" 
-                            className="relative group inline-flex items-center"
+                        <div className="text-center mt-4">
+                          <PremiumFireButton
+                            type="submit"
+                            size="lg"
+                            className="px-8 transform hover:scale-105 transition-transform duration-300"
+                            glowEffect={true}
                             disabled={registerMutation.isPending}
                           >
-                            <div className="absolute -inset-0.5 bg-gradient-to-r from-green-600 to-emerald-500 rounded-lg blur opacity-70 group-hover:opacity-100 transition duration-200"></div>
-                            <div className="relative bg-black rounded-lg group-hover:bg-gradient-to-br from-gray-900 to-black transition-all duration-200 py-3 px-8 border border-green-500/30 text-white font-semibold text-center">
-                              {registerMutation.isPending ? "Submitting..." : "Submit Registration"}
-                            </div>
-                          </button>
+                            {registerMutation.isPending ? "Submitting..." : "Submit Registration"}
+                          </PremiumFireButton>
                         </div>
                       </form>
                     </Form>
