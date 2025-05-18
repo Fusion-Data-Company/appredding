@@ -581,7 +581,7 @@ const Marinas = () => {
                               </h4>
                             </div>
                             
-                            <p className="text-blue-100 mb-4">Calculate your 411% ROI potential with our government-grade marine protection system</p>
+                            <p className="text-blue-100 mb-4">Calculate your ROI potential with our marine-grade protection system</p>
                             
                             <div className="grid grid-cols-1 gap-5 mb-6">
                               <div className="relative group">
@@ -642,7 +642,7 @@ const Marinas = () => {
                                 </div>
                                 <div className="mt-3 flex justify-center items-center">
                                   <div className="bg-gradient-to-r from-green-600 to-green-500 px-4 py-2 rounded-lg shadow-[0_0_15px_rgba(74,222,128,0.5)] border border-green-400/40">
-                                    <span className="text-2xl font-bold text-white" style={{ textShadow: "0 2px 4px rgba(0, 0, 0, 0.3)" }}>411% ROI</span>
+                                    <span className="text-2xl font-bold text-white" style={{ textShadow: "0 2px 4px rgba(0, 0, 0, 0.3)" }}>38% ROI</span>
                                   </div>
                                 </div>
                               </div>
@@ -661,7 +661,7 @@ const Marinas = () => {
                             >
                               <div className="flex items-center justify-center gap-2">
                                 <BarChart3 className="h-5 w-5" />
-                                <span>Calculate 411% ROI For Your Marina</span>
+                                <span>Calculate ROI For Your Marina</span>
                               </div>
                             </PremiumCartButton>
                           </div>
@@ -884,7 +884,7 @@ const Marinas = () => {
                           >
                             <div className="flex items-center justify-center gap-2">
                               <CircleDollarSign className="h-5 w-5" />
-                              <span>{registerMutation.isPending ? "Submitting..." : "Get Your 411% ROI Analysis"}</span>
+                              <span>{registerMutation.isPending ? "Submitting..." : "Get Your Marina ROI Analysis"}</span>
                             </div>
                           </PremiumCartButton>
                         </div>
@@ -1127,7 +1127,7 @@ const Marinas = () => {
                         </div>
                         
                         <div className="mt-3 text-center text-blue-300 text-sm">
-                          <span className="font-semibold">Annualized ROI: 307%</span> | Payback period: 3.1 years
+                          <span className="font-semibold">Annualized ROI: 38%</span> | Payback period: 4.2 years
                         </div>
                       </div>
                       
