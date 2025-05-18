@@ -428,7 +428,7 @@ const slides: Slide[] = [
   {
     id: 3,
     title: "The Legacy — 20+ Years of Silent Service",
-    icon: <Shield className="w-6 h-6 text-amber-500 mr-2" />,
+    icon: <Shield className="w-6 h-6 text-blue-500 mr-2" />,
     content: (
       <>
         <p className="text-gray-300 mb-6">This coating has protected bridges in Korea, facilities in Japan, homes in wildfire zones, and military assets in the American Southwest.</p>
@@ -490,7 +490,7 @@ const slides: Slide[] = [
   {
     id: 4,
     title: "Why You've Never Heard of It",
-    icon: <Shield className="w-6 h-6 text-amber-500 mr-2" />,
+    icon: <Shield className="w-6 h-6 text-blue-500 mr-2" />,
     content: (
       <>
         <ul className="space-y-4 list-none pl-0">
@@ -545,13 +545,13 @@ const slides: Slide[] = [
   {
     id: 5,
     title: "Performance Specs",
-    icon: <Shield className="w-6 h-6 text-amber-500 mr-2" />,
+    icon: <Shield className="w-6 h-6 text-blue-500 mr-2" />,
     content: (
       <>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="bg-gradient-to-br from-gray-900 to-black p-5 rounded-lg border border-gray-800 shadow-lg">
             <div className="flex items-center mb-3">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-r from-red-600 to-amber-500 flex items-center justify-center mr-3">
+              <div className="w-10 h-10 rounded-full bg-gradient-to-r from-red-600 to-blue-500 flex items-center justify-center mr-3">
                 <Flame className="w-5 h-5 text-white" />
               </div>
               <h4 className="text-blue-400 font-bold">Class A Fire Rated</h4>
@@ -661,7 +661,7 @@ const slides: Slide[] = [
   {
     id: 7,
     title: "What Makes This Different",
-    icon: <Shield className="w-6 h-6 text-amber-500 mr-2" />,
+    icon: <Shield className="w-6 h-6 text-blue-500 mr-2" />,
     content: (
       <>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
