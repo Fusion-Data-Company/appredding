@@ -612,26 +612,17 @@ const Painters = () => {
                           </div>
                         </div>
                         
-                        <div className="relative">
-                          <div className="absolute -inset-1 bg-gradient-to-r from-green-600/40 via-green-500/30 to-green-600/40 rounded-lg blur-md opacity-80"></div>
-                          <button
-                            onClick={handleShowContactForm}
-                            className="relative px-8 py-3 bg-gradient-to-br from-gray-800 to-gray-900 text-white text-lg font-medium rounded-lg border-2 border-green-500/50 hover:border-green-400/70 transition-all duration-300 overflow-hidden"
-                          >
-                            {/* Light shimmer animation effect */}
-                            <span className="absolute inset-0 overflow-hidden">
-                              <span className="absolute top-0 -left-3/4 w-1/2 h-full bg-gradient-to-r from-transparent via-green-100/20 to-transparent transform -skew-x-30 animate-shimmer"></span>
-                            </span>
-                            <div className="flex items-center justify-center">
-                              <CircleDollarSign className="h-5 w-5 mr-2 text-green-400" />
-                              <span className="relative">
-                                <span className="text-white">Get Your Custom Profit Analysis</span>
-                                {/* Add subtle text glow */}
-                                <span className="absolute inset-0 text-green-300 blur-[0.5px] opacity-70">Get Your Custom Profit Analysis</span>
-                              </span>
-                            </div>
-                          </button>
-                        </div>
+                        <PremiumCartButton
+                          onClick={handleShowContactForm}
+                          size="lg"
+                          className="transform hover:scale-105 transition-transform duration-300"
+                          glowEffect={true}
+                        >
+                          <span className="flex items-center justify-center">
+                            <CircleDollarSign className="h-6 w-6 mr-3 text-amber-300" />
+                            <span>Get Your Custom Profit Analysis</span>
+                          </span>
+                        </PremiumCartButton>
                       </div>
                     </div>
                   </div>
