@@ -327,20 +327,47 @@ const MobileHome = () => {
                   <div className="absolute bottom-1 left-1 w-10 h-10 border-b border-l border-gray-600 rounded-bl-md"></div>
                 </div>
                 
+                {/* Premium header with styled corner accents like homepage */}
                 <div className="relative mb-8">
-                  {/* Green glow positioned behind the header card */}
-                  <div className="absolute -inset-2 bg-green-500/20 rounded-xl blur-2xl opacity-50 z-0"></div>
-                  <div className="absolute -inset-4 bg-green-500/15 rounded-xl blur-3xl opacity-40 z-0 animate-pulse-slow"></div>
+                  {/* Blue ambient glow behind the header */}
+                  <div className="absolute -inset-6 bg-blue-600/20 rounded-xl blur-3xl opacity-50 z-0"></div>
+                  <div className="absolute -inset-10 bg-blue-500/15 rounded-xl blur-2xl opacity-60 z-0 animate-pulse-slow"></div>
                   
-                  {/* Main header card with clean styling */}
-                  <div className="relative p-6 bg-gradient-to-br from-black/80 to-gray-900/80 border border-green-500/30 rounded-xl transition-all duration-300 shadow-lg z-10">
-                    <h2 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-green-200 mb-3" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.8)" }}>
-                      Previously Government-Exclusive Technology
-                    </h2>
+                  {/* Main header with premium corner accents and styling */}
+                  <div className="relative p-8 bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 border border-gray-800/80 rounded-xl shadow-[0_10px_25px_rgba(0,0,0,0.3)] z-10">
+                    {/* Corner decorations exactly like homepage */}
+                    <div className="absolute top-0 left-0 w-14 h-14 z-10 pointer-events-none">
+                      <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-blue-700/70 rounded-tl-md"></div>
+                      <div className="absolute top-1 left-1 w-10 h-10 border-t border-l border-blue-600/50 rounded-tl-md"></div>
+                    </div>
+                    <div className="absolute top-0 right-0 w-14 h-14 z-10 pointer-events-none">
+                      <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-blue-700/70 rounded-tr-md"></div>
+                      <div className="absolute top-1 right-1 w-10 h-10 border-t border-r border-blue-600/50 rounded-tr-md"></div>
+                    </div>
+                    <div className="absolute bottom-0 right-0 w-14 h-14 z-10 pointer-events-none">
+                      <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-blue-700/70 rounded-br-md"></div>
+                      <div className="absolute bottom-1 right-1 w-10 h-10 border-b border-r border-blue-600/50 rounded-br-md"></div>
+                    </div>
+                    <div className="absolute bottom-0 left-0 w-14 h-14 z-10 pointer-events-none">
+                      <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-blue-700/70 rounded-bl-md"></div>
+                      <div className="absolute bottom-1 left-1 w-10 h-10 border-b border-l border-blue-600/50 rounded-bl-md"></div>
+                    </div>
                     
-                    <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
-                      Transform Your Mobile Home, Cut Costs & Extend Life
-                    </h1>
+                    {/* Glass shimmer effect */}
+                    <div className="absolute inset-0 overflow-hidden rounded-xl">
+                      <div className="h-full w-1/3 bg-gradient-to-r from-transparent via-white/5 to-transparent skew-x-[-20deg] animate-shimmer-slow absolute"></div>
+                    </div>
+                    
+                    {/* Header content */}
+                    <div className="relative z-10">
+                      <h2 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-blue-200 mb-3" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.8)" }}>
+                        Previously Government-Exclusive Technology
+                      </h2>
+                      
+                      <h1 className="text-4xl md:text-5xl font-bold mb-2 text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
+                        Transform Your Mobile Home, Cut Costs & Extend Life
+                      </h1>
+                    </div>
                   </div>
                 </div>
                 
