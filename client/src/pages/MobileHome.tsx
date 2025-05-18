@@ -216,27 +216,66 @@ const MobileHome = () => {
                   <div className="absolute -inset-full w-[400px] h-full bg-gradient-to-r from-transparent via-blue-400/20 to-transparent skew-x-[-20deg] animate-light-sweep"></div>
                 </div>
                 
-                {/* Header content with premium styling */}
+                {/* Enhanced Header content with elite styling */}
                 <div className="relative z-20 px-8 py-20 flex flex-col items-center text-center">
-                  {/* Premium Badge */}
-                  <div className="inline-flex items-center px-4 py-1.5 bg-blue-900/80 border border-blue-400/30 rounded-full mb-6 backdrop-blur-sm shadow-lg">
-                    <div className="w-2 h-2 rounded-full bg-blue-400 mr-2 animate-pulse"></div>
-                    <span className="text-blue-100 font-medium text-sm tracking-wide">NASA-Derived Technology</span>
+                  {/* Premium Advanced Badge with animated elements */}
+                  <div className="relative">
+                    {/* Ambient glow behind the badge */}
+                    <div className="absolute -inset-2 bg-blue-500/30 rounded-full blur-md"></div>
+                    <div className="inline-flex items-center px-5 py-2 bg-gradient-to-r from-blue-900/90 via-blue-800/90 to-blue-900/90 border border-blue-400/50 rounded-full mb-6 backdrop-blur-sm shadow-[0_0_15px_rgba(59,130,246,0.5)]">
+                      <div className="w-2.5 h-2.5 rounded-full bg-gradient-to-r from-blue-400 to-blue-300 mr-2.5 animate-pulse"></div>
+                      <div className="flex items-center space-x-1">
+                        <Calculator className="w-4 h-4 text-blue-300 mr-1" />
+                        <span className="text-blue-100 font-semibold text-sm tracking-wide uppercase">Advanced ROI Technology</span>
+                      </div>
+                    </div>
                   </div>
                   
-                  {/* Main Header with premium gradient styling */}
-                  <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-200 via-white to-blue-200 leading-tight max-w-5xl mx-auto tracking-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
-                    Mobile Home ROI Analysis Calculator
-                  </h1>
+                  {/* Enhanced Main Header with premium 3D gradient styling and animated elements */}
+                  <div className="relative">
+                    {/* Ambient glow behind text */}
+                    <div className="absolute -inset-10 bg-blue-500/20 rounded-full blur-3xl opacity-70"></div>
+                    {/* Text with enhanced gradients and effects */}
+                    <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-200 via-white to-blue-200 leading-tight max-w-5xl mx-auto tracking-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.8), 0 8px 24px rgba(59,130,246,0.2)" }}>
+                      Mobile Home ROI Analysis Calculator
+                    </h1>
+                  </div>
                   
-                  {/* Premium styled subheader */}
-                  <p className="text-lg md:text-xl text-blue-100/90 max-w-3xl mx-auto mb-8 leading-relaxed">
-                    Discover how Praetorian Smart-Coat technology can transform your mobile home's efficiency, 
-                    reduce utility costs, and increase property value with our advanced ROI calculator.
-                  </p>
+                  {/* Enhanced subheader with premium styling */}
+                  <div className="relative">
+                    <p className="text-lg md:text-xl text-blue-100/90 max-w-3xl mx-auto mb-8 leading-relaxed">
+                      Discover how Praetorian Smart-Coat technology can <span className="text-white font-medium">transform your mobile home's efficiency</span>, 
+                      reduce utility costs, and <span className="text-white font-medium">increase property value</span> with our advanced ROI calculator.
+                    </p>
+                    
+                    {/* Added floating icon indicators */}
+                    <div className="flex justify-center space-x-8 mt-4 mb-8">
+                      <div className="flex flex-col items-center">
+                        <div className="p-2 bg-blue-900/50 rounded-full border border-blue-500/40 shadow-[0_0_10px_rgba(59,130,246,0.3)] mb-2">
+                          <DollarSign className="w-6 h-6 text-blue-300" />
+                        </div>
+                        <span className="text-blue-200 text-sm font-medium">Maximize Savings</span>
+                      </div>
+                      <div className="flex flex-col items-center">
+                        <div className="p-2 bg-blue-900/50 rounded-full border border-blue-500/40 shadow-[0_0_10px_rgba(59,130,246,0.3)] mb-2">
+                          <CalendarDays className="w-6 h-6 text-blue-300" />
+                        </div>
+                        <span className="text-blue-200 text-sm font-medium">Extend Lifespan</span>
+                      </div>
+                      <div className="flex flex-col items-center">
+                        <div className="p-2 bg-blue-900/50 rounded-full border border-blue-500/40 shadow-[0_0_10px_rgba(59,130,246,0.3)] mb-2">
+                          <TrendingUp className="w-6 h-6 text-blue-300" />
+                        </div>
+                        <span className="text-blue-200 text-sm font-medium">Increase Value</span>
+                      </div>
+                    </div>
+                  </div>
                   
-                  {/* Accented bottom area */}
-                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-blue-500/70 to-transparent"></div>
+                  {/* Enhanced accented bottom area */}
+                  <div className="absolute bottom-0 left-0 right-0 flex flex-col items-center">
+                    <div className="h-1 w-full bg-gradient-to-r from-transparent via-blue-500/70 to-transparent"></div>
+                    <div className="h-0.5 w-3/4 mt-0.5 bg-gradient-to-r from-transparent via-blue-400/50 to-transparent"></div>
+                  </div>
                   
                   {/* Corner decorations */}
                   <div className="absolute top-0 left-0 w-20 h-20">
@@ -314,28 +353,52 @@ const MobileHome = () => {
                     
                     <div className="space-y-4 mb-6">
                       <div className="flex items-start">
-                        <div className="h-6 w-1 bg-gradient-to-b from-red-600 to-red-400 rounded-full mr-3 mt-1.5"></div>
+                        <div className="relative mr-4 mt-1">
+                          <div className="absolute -inset-1 bg-red-500/30 rounded-full blur-md"></div>
+                          <div className="relative h-6 w-6 flex items-center justify-center">
+                            <div className="absolute inset-0 bg-gradient-to-b from-red-600/80 to-red-800/80 rounded-full shadow-[0_0_8px_rgba(239,68,68,0.6)]"></div>
+                            <CircleDollarSign className="w-3.5 h-3.5 text-red-100 relative z-10" />
+                          </div>
+                        </div>
                         <p className="text-base text-gray-200">
                           <span className="text-white font-medium">Have you ever dreaded opening your utility bill</span> during extreme weather? The average mobile home loses <span className="font-semibold text-red-300">42% of its heating and cooling</span> through poor insulation, making your HVAC system work overtime and sending your bills skyrocketing to <span className="font-semibold text-red-300">3.4x higher than necessary</span>.
                         </p>
                       </div>
                       
                       <div className="flex items-start">
-                        <div className="h-6 w-1 bg-gradient-to-b from-red-600 to-red-400 rounded-full mr-3 mt-1.5"></div>
+                        <div className="relative mr-4 mt-1">
+                          <div className="absolute -inset-1 bg-red-500/30 rounded-full blur-md"></div>
+                          <div className="relative h-6 w-6 flex items-center justify-center">
+                            <div className="absolute inset-0 bg-gradient-to-b from-red-600/80 to-red-800/80 rounded-full shadow-[0_0_8px_rgba(239,68,68,0.6)]"></div>
+                            <Home className="w-3.5 h-3.5 text-red-100 relative z-10" />
+                          </div>
+                        </div>
                         <p className="text-base text-gray-200">
                           <span className="text-white font-medium">What happens to your home's exterior</span> year after year? UV damage causes deterioration at <span className="font-semibold text-red-300">2.8x the normal rate</span>, leading to costly repairs and decreased property value. And without fire-rated materials, insurance companies are raising rates by <span className="font-semibold text-red-300">26% annually</span> - eating away at your budget.
                         </p>
                       </div>
                       
                       <div className="flex items-start">
-                        <div className="h-6 w-1 bg-gradient-to-b from-red-600 to-red-400 rounded-full mr-3 mt-1.5"></div>
+                        <div className="relative mr-4 mt-1">
+                          <div className="absolute -inset-1 bg-red-500/30 rounded-full blur-md"></div>
+                          <div className="relative h-6 w-6 flex items-center justify-center">
+                            <div className="absolute inset-0 bg-gradient-to-b from-red-600/80 to-red-800/80 rounded-full shadow-[0_0_8px_rgba(239,68,68,0.6)]"></div>
+                            <ThermometerIcon className="w-3.5 h-3.5 text-red-100 relative z-10" />
+                          </div>
+                        </div>
                         <p className="text-base text-gray-200">
                           <span className="text-white font-medium">Do you find yourself constantly adjusting the thermostat</span> because some rooms are too hot while others are too cold? Temperature fluctuations make consistent comfort impossible, leading to both discomfort and wasted energy as you try to compensate.
                         </p>
                       </div>
                       
                       <div className="flex items-start">
-                        <div className="h-6 w-1 bg-gradient-to-b from-red-600 to-red-400 rounded-full mr-3 mt-1.5"></div>
+                        <div className="relative mr-4 mt-1">
+                          <div className="absolute -inset-1 bg-red-500/30 rounded-full blur-md"></div>
+                          <div className="relative h-6 w-6 flex items-center justify-center">
+                            <div className="absolute inset-0 bg-gradient-to-b from-red-600/80 to-red-800/80 rounded-full shadow-[0_0_8px_rgba(239,68,68,0.6)]"></div>
+                            <BarChart2 className="w-3.5 h-3.5 text-red-100 relative z-10" />
+                          </div>
+                        </div>
                         <p className="text-base text-gray-200">
                           <span className="text-white font-medium">Have you calculated how much money you're losing</span> to these inefficiencies? The average mobile home owner wastes <span className="font-semibold text-red-300">$1,870 annually</span> in unnecessary energy costs and premature maintenance – that's over $18,700 in a decade that could be going toward other priorities.
                         </p>
@@ -350,14 +413,22 @@ const MobileHome = () => {
                 
                 {/* SANDLER STAGE 2: PRESENT SOLUTIONS */}
                 <div className="relative mb-10">
-                  <div className="absolute -inset-1 bg-gradient-to-r from-green-600/20 via-green-500/20 to-green-600/20 rounded-xl blur-md opacity-80"></div>
+                  {/* Enhanced multi-layered green glow */}
+                  <div className="absolute -inset-1 bg-gradient-to-r from-green-600/30 via-green-500/30 to-green-600/30 rounded-xl blur-md opacity-90"></div>
+                  <div className="absolute -inset-3 bg-gradient-to-r from-green-700/20 via-green-600/10 to-green-700/20 rounded-xl blur-xl opacity-70"></div>
+                  <div className="absolute -inset-6 bg-green-600/10 rounded-xl blur-2xl opacity-50 animate-pulse-slow"></div>
                   
-                  <div className="relative bg-gradient-to-br from-black/70 to-gray-900/70 border border-green-500/30 rounded-xl p-6 backdrop-blur-sm">
-                    <div className="absolute -top-4 left-8 px-6 py-1 bg-gradient-to-r from-green-900/90 to-green-700/90 rounded-full border border-green-400/30 shadow-lg shadow-green-900/20">
-                      <span className="text-green-200 font-semibold">PROVEN SOLUTION</span>
+                  <div className="relative bg-gradient-to-br from-black/80 to-gray-900/80 border border-green-500/40 rounded-xl p-6 backdrop-blur-sm shadow-lg">
+                    {/* Enhanced elite enterprise badge */}
+                    <div className="absolute -top-5 left-1/2 transform -translate-x-1/2 flex items-center justify-center">
+                      <div className="absolute -inset-1 bg-green-500/40 rounded-full blur-md opacity-90"></div>
+                      <div className="px-7 py-2 bg-gradient-to-r from-green-900/95 via-green-800/95 to-green-900/95 rounded-full border border-green-400/50 shadow-[0_0_15px_rgba(74,222,128,0.4)] flex items-center space-x-2">
+                        <CheckCircle className="w-4 h-4 text-green-300 mr-1.5" />
+                        <span className="text-green-100 font-bold text-sm tracking-wide uppercase">PROVEN SOLUTION</span>
+                      </div>
                     </div>
                     
-                    <h2 className="text-2xl md:text-3xl text-white font-bold mt-4 mb-6 bg-clip-text text-transparent bg-gradient-to-r from-green-200 to-emerald-100 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
+                    <h2 className="text-2xl md:text-3xl text-white font-bold mt-6 mb-6 bg-clip-text text-transparent bg-gradient-to-r from-green-200 to-emerald-100 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.8), 0 8px 24px rgba(74,222,128,0.2)" }}>
                       Praetorian Smart-Coat – Advanced Mobile Home Protection
                     </h2>
                     
