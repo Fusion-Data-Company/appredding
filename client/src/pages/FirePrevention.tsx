@@ -208,7 +208,7 @@ const FirePrevention = () => {
                         <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-tight
                           bg-clip-text text-transparent bg-gradient-to-b from-white via-gray-200 to-gray-300
                           drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
-                          Advanced Ceramic Wildfire Defense System
+                          Advanced Ceramic Fire-Resistant Coating System
                         </h1>
                         
                         {/* Multiple shimmer animations */}
@@ -320,7 +320,7 @@ const FirePrevention = () => {
                         
                         <div className="mb-6">
                           <p className="text-gray-300 text-sm leading-relaxed">
-                            California has experienced a growing number of destructive wildfires in recent years, causing significant property damage in vulnerable areas. Buildings treated with ceramic coating systems have shown increased resistance to heat and fire exposure compared to untreated structures. Our coating technology is designed to help provide an additional layer of protection for homes in high-risk zones.
+                            California has experienced numerous destructive wildfires in recent history, causing property damage in vulnerable areas. Our coating technology is designed to provide a layer of protection by meeting Class A fire rating standards (ASTM E108/UL 790) for exterior building surfaces in high-risk zones.
                           </p>
                         </div>
                         
@@ -356,7 +356,7 @@ const FirePrevention = () => {
                             <Shield className="w-4 h-4" />
                           </div>
                           <p className="text-xs text-gray-300">
-                            Properties with our ceramic coating qualified for Federal Insurance Exemption status, allowing homeowners to maintain insurance coverage despite being in designated high-risk zones where most policies were canceled or not renewed.
+                            Properties with additional fire-resistant features may qualify for consideration by some insurance providers when assessing properties in higher-risk zones.
                           </p>
                         </div>
                       </div>
@@ -366,7 +366,7 @@ const FirePrevention = () => {
                     <div className="mt-4 bg-gradient-to-br from-blue-900/20 to-gray-900/20 border border-blue-600/20 rounded-lg p-3">
                       <p className="text-blue-100 text-sm italic font-medium flex items-center">
                         <span className="text-blue-300 mr-2">※</span>
-                        Previously classified ceramic microsphere technology, originally developed for government and military applications, now available to civilian properties through FDA and EPA regulatory clearance (permit #US-73281-A)
+                        Advanced ceramic microsphere technology with thermal protection properties, now available for residential and commercial applications
                       </p>
                     </div>
                   </div>
@@ -423,7 +423,7 @@ const FirePrevention = () => {
                       </span>
                       <div>
                         <h3 className="text-lg md:text-xl font-semibold mb-2 text-white">Advanced Triple-Component Thermal Barrier System</h3>
-                        <p className="text-sm md:text-base text-gray-100">Our 80-160 micron ceramic microsphere technology (US Patent #10,738,214) creates millions of thermal breaks with thermal conductivity of just 0.00543 W/cm²/K (ASTM C177-19) throughout the coating film. The fundamental principle exploits the physical impossibility of heat transfer through vacuum spaces inside each microsphere (vacuum level 10⁻⁶ torr), creating a "space blanket" effect using the same principles as NASA shuttle thermal protection.</p>
+                        <p className="text-sm md:text-base text-gray-100">Our ceramic microsphere coating technology creates thermal breaks with lower thermal conductivity (0.05-0.07 W/m·K) throughout the coating film. The principle works by using the air spaces inside each microsphere to reduce heat transfer, similar to how other insulating materials function.</p>
                       </div>
                     </div>
 
@@ -1156,9 +1156,9 @@ const FirePrevention = () => {
                     {/* Content wrapper with padding */}
                     <div className="p-6 md:p-8 relative z-10">
                       <div className="text-center mb-8">
-                        <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 drop-shadow-[0_1px_2px_rgba(234,88,12,0.4)]">Protect Your Investment with NASA-Derived Technology</h2>
+                        <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 drop-shadow-[0_1px_2px_rgba(234,88,12,0.4)]">Protect Your Investment with Advanced Ceramic Technology</h2>
                         <p className="text-gray-300 text-lg md:w-4/5 mx-auto">
-                          Our ceramic microsphere technology creates a thermal barrier that prevents rapid heat transfer to safeguard your property from destructive wildfires.
+                          Our ceramic coating creates a Class A fire-rated barrier (ASTM E108/UL 790) that helps reduce heat transfer to provide additional protection for your property against fire exposure.
                         </p>
                       </div>
                       
