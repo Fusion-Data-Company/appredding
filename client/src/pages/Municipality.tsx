@@ -150,7 +150,7 @@ export default function Municipality() {
   return (
     <MainLayout>
       <div className="bg-black min-h-screen text-white">
-        {/* Hero Section with enhanced infrastructure-themed background */}
+        {/* SANDLER STAGE 1: PAIN IDENTIFICATION */}
         <section className="relative py-20 overflow-hidden">
           {/* Advanced premium gradient background with layered effects */}
           <div className="absolute inset-0 z-0" style={{ 
