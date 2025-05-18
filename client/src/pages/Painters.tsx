@@ -501,7 +501,7 @@ const Painters = () => {
                               <CircleDollarSign className="h-8 w-8 text-white" />
                             </div>
                             <div className="ml-4 text-left">
-                              <span className="block text-white text-xl font-bold">20% ROI</span>
+                              <span className="block text-white text-xl font-bold">15% ROI</span>
                               <span className="text-green-400 text-sm">Additional Profit Margin</span>
                             </div>
                           </div>
@@ -565,7 +565,7 @@ const Painters = () => {
                       </div>
                       <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">Become a Certified Painter Partner</h2>
                       <p className="text-gray-300 max-w-2xl mx-auto">
-                        Gain access to ceramic coating technology with enhanced durability. Increase your profit margins by up to 35% on every project.
+                        Gain access to ceramic coating technology with enhanced durability. Increase your profit margins by up to 20% on every project.
                       </p>
                     </div>
                     

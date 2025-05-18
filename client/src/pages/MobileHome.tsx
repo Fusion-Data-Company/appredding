@@ -208,7 +208,7 @@ const MobileHome = () => {
                 </div>
                 
                 <GradientHeading className="text-4xl md:text-5xl font-bold mb-6 drop-shadow-[0_2px_4px_rgba(59,130,246,0.7)]">
-                  287% Mobile Home ROI Certification
+                  37% Mobile Home ROI Certification
                 </GradientHeading>
                 
                 {/* Pain Points Section - Highlighting Customer Problems */}
@@ -637,7 +637,7 @@ const MobileHome = () => {
                         </div>
                         <div className="relative bg-gray-900/60 border-2 border-green-500/50 rounded-lg p-3">
                           <div className="absolute -inset-0.5 bg-green-500/20 rounded-lg blur-sm opacity-70 -z-10"></div>
-                          <div className="text-lg font-bold text-green-400" style={{ textShadow: "0 2px 4px rgba(0, 0, 0, 0.3)" }}>287%</div>
+                          <div className="text-lg font-bold text-green-400" style={{ textShadow: "0 2px 4px rgba(0, 0, 0, 0.3)" }}>37%</div>
                           <div className="text-sm text-gray-300" style={{ textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)" }}>ROI</div>
                         </div>
                         <div className="relative bg-gray-900/60 border-2 border-green-500/50 rounded-lg p-3">
