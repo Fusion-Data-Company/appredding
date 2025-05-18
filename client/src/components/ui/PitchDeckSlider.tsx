@@ -364,7 +364,7 @@ const slides: Slide[] = [
   {
     id: 1,
     title: "Opening the Gates",
-    icon: <Shield className="w-6 h-6 text-amber-500 mr-2" />,
+    icon: <Shield className="w-6 h-6 text-blue-500 mr-2" />,
     content: (
       <>
         <div className="text-xl font-bold text-white mb-6 border-l-4 border-blue-500 pl-4 py-1">
@@ -724,9 +724,9 @@ const slides: Slide[] = [
       <>
         <p className="text-gray-300 mb-6">Join the revolution in protective coatings and secure your early market advantage.</p>
         
-        <div className="bg-gradient-to-r from-gray-800/60 to-gray-900/60 rounded-lg p-6 border border-amber-600/30 shadow-[0_0_15px_rgba(251,113,36,0.25)]">
+        <div className="bg-gradient-to-r from-gray-800/60 to-gray-900/60 rounded-lg p-6 border border-blue-600/30 shadow-[0_0_15px_rgba(59,130,246,0.25)]">
           <div className="flex items-center mb-4">
-            <Shield className="w-8 h-8 text-amber-500 mr-3" />
+            <Shield className="w-8 h-8 text-blue-500 mr-3" />
             <h4 className="text-white font-bold text-xl">Be First to Market</h4>
           </div>
           
@@ -745,7 +745,7 @@ const slides: Slide[] = [
         
         <div className="mt-6 text-center">
           <p className="text-white font-bold text-xl mb-2">Welcome to Praetorian</p>
-          <p className="text-amber-500 text-lg">No recoat. No nonsense. Just results.</p>
+          <p className="text-blue-500 text-lg">No recoat. No nonsense. Just results.</p>
         </div>
       </>
     ),
