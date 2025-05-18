@@ -115,45 +115,45 @@ export const ExecutiveSummary = () => {
     {
       title: "Commercial Roofing",
       points: [
-        "Energy savings between 30% and 87%",
-        "Maintains full performance even after 10 years under desert UV",
-        "Reduces HVAC costs with significant ROI within 3 years"
+        "Surface temperature reduction of up to 30°F",
+        "Reflective properties help maintain cooler roof surfaces",
+        "Provides waterproofing and weather-resistant barrier"
       ],
       icon: <Building className="h-5 w-5 text-blue-400" />
     },
     {
       title: "Military & Government",
       points: [
-        "Thermal IR suppression: Renders heat signature invisible to drones",
-        "Radar scattering: Reduces detectability by aerial systems",
-        "Graphene-enhanced fire wraps for bridges, batteries, and vehicles"
+        "Thermal protection for government facilities",
+        "Durable protection in various climate conditions",
+        "Fire protection for critical infrastructure"
       ],
       icon: <Shield className="h-5 w-5 text-blue-400" />
     },
     {
       title: "Agriculture",
       points: [
-        "Poultry mortality reduced by 75%",
-        "30°F attic temperature reduction",
-        "Lifespan of insulation extended by 4X"
+        "Temperature reduction for agricultural buildings",
+        "Improved thermal comfort for livestock facilities",
+        "Weather protection for barns and storage areas"
       ],
       icon: <Lightbulb className="h-5 w-5 text-blue-400" />
     },
     {
       title: "Marine",
       points: [
-        "ABS Certified for maritime applications",
-        "Applied to offshore platforms, hulls, and railings",
-        "Protects against intense salt corrosion and UV exposure"
+        "Provides corrosion resistance for marine applications",
+        "Protection against saltwater exposure",
+        "Weather protection for marine structures"
       ],
       icon: <Droplets className="h-5 w-5 text-blue-400" />
     },
     {
       title: "Residential Protection",
       points: [
-        "Wildfire resilience proven in field burns",
-        "Applied to siding, decks, and eaves for comprehensive protection",
-        "Can be pigmented to match home palettes while maintaining performance"
+        "Class A fire rating for exterior building surfaces",
+        "Helps protect siding, decks, and eaves from ignition",
+        "Can be pigmented to match home palettes"
       ],
       icon: <Scale className="h-5 w-5 text-blue-400" />
     }
@@ -233,10 +233,10 @@ export const ExecutiveSummary = () => {
               <div>
                 <div className="flex justify-between mb-1">
                   <span className="text-gray-300">Energy Savings:</span>
-                  <span className="text-white font-mono">$100k-$300k</span>
+                  <span className="text-white font-mono">$25k-$75k</span>
                 </div>
                 <div className="h-1 w-full bg-blue-900/50 rounded-full">
-                  <div className="h-1 w-[80%] bg-green-500 rounded-full"></div>
+                  <div className="h-1 w-[60%] bg-green-500 rounded-full"></div>
                 </div>
               </div>
               
@@ -254,7 +254,7 @@ export const ExecutiveSummary = () => {
               <div className="pt-4 border-t border-blue-900/50">
                 <div className="flex justify-between">
                   <span className="text-blue-300 font-semibold">Net ROI:</span>
-                  <span className="text-green-300 font-mono font-bold">Up to $250k+</span>
+                  <span className="text-green-300 font-mono font-bold">Up to $65k</span>
                 </div>
               </div>
             </div>
@@ -269,10 +269,10 @@ export const ExecutiveSummary = () => {
               <div>
                 <div className="flex justify-between mb-2">
                   <span className="text-white">Agriculture:</span>
-                  <span className="text-green-300 font-mono">1-2 seasons</span>
+                  <span className="text-green-300 font-mono">2-3 seasons</span>
                 </div>
                 <div className="h-2 w-full bg-blue-900/50 rounded-full">
-                  <div className="h-2 rounded-full bg-gradient-to-r from-green-500 to-green-300" style={{width: "20%"}}></div>
+                  <div className="h-2 rounded-full bg-gradient-to-r from-green-500 to-green-300" style={{width: "30%"}}></div>
                 </div>
               </div>
               
