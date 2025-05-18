@@ -336,18 +336,101 @@ const Painters = () => {
                   transition={{ duration: 0.7, delay: 0.2 }}
                   className="text-base sm:text-lg md:text-xl text-white mb-6 leading-relaxed"
                 >
-                  <span className="text-blue-300 font-semibold">Ceramic technology unlocks premium project opportunities</span> with improved profit margins. Our formula allows you to deliver superior value clients can appreciate.
+                  <span className="text-green-400 font-semibold">Smart Coat's advanced ceramic technology</span> transforms your painting business by unlocking premium high-margin projects and eliminating callbacks that damage your reputation and profits.
                 </motion.p>
                 
-                <div className="bg-black/30 border border-blue-600/20 rounded-lg p-3 mb-6">
-                  <p className="text-sm text-blue-100 italic">Previously classified ceramic microsphere technology, now available exclusively through certified painting partners</p>
+                <div className="bg-gradient-to-br from-gray-900/80 to-gray-950/80 border border-green-500/30 p-4 rounded-lg mb-6 text-left">
+                  <h3 className="text-lg font-semibold text-green-300 mb-3">How Smart Coat Solves Your Painting Challenges:</h3>
+                  <ul className="space-y-3">
+                    <li className="flex items-start gap-3">
+                      <span className="bg-green-500/20 p-1 rounded-full text-green-300 mt-1 flex-shrink-0">✓</span>
+                      <span className="text-gray-300"><span className="text-green-300 font-semibold">Problem:</span> Razor-thin margins. <span className="text-green-300 font-semibold">Solution:</span> Charge premium rates ($0.35+ more per sq ft) for a truly differentiated coating</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="bg-green-500/20 p-1 rounded-full text-green-300 mt-1 flex-shrink-0">✓</span>
+                      <span className="text-gray-300"><span className="text-green-300 font-semibold">Problem:</span> Constant callbacks. <span className="text-green-300 font-semibold">Solution:</span> 35% fewer callbacks with our ultra-durable ceramic coating technology</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <span className="bg-green-500/20 p-1 rounded-full text-green-300 mt-1 flex-shrink-0">✓</span>
+                      <span className="text-gray-300"><span className="text-green-300 font-semibold">Problem:</span> Market differentiation. <span className="text-green-300 font-semibold">Solution:</span> Exclusive access to military-grade coatings your competitors can't offer</span>
+                    </li>
+                  </ul>
                 </div>
                 
+                <div className="bg-black/30 border border-green-600/20 rounded-lg p-3 mb-6">
+                  <p className="text-sm text-green-100 italic">The average painting contractor using Smart Coat increases their annual profit by <span className="text-green-400 font-semibold">$12,500+</span> within the first year of certification</p>
+                </div>
+                
+                <div className="bg-gradient-to-br from-gray-900/80 to-gray-950/80 border border-green-500/30 p-4 rounded-lg mb-6">
+                  <h3 className="text-lg font-semibold text-green-300 mb-3 text-left">What Makes Smart Coat Different:</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="bg-black/30 p-3 rounded-lg border border-green-500/20 text-left">
+                      <h4 className="text-green-400 text-sm font-semibold mb-1">Military-Grade Technology</h4>
+                      <p className="text-gray-300 text-xs">Previously classified ceramic microsphere technology now exclusively available to certified painting partners</p>
+                    </div>
+                    <div className="bg-black/30 p-3 rounded-lg border border-green-500/20 text-left">
+                      <h4 className="text-green-400 text-sm font-semibold mb-1">10-Year Warranty Backing</h4>
+                      <p className="text-gray-300 text-xs">Stand behind your work with confidence thanks to our industry-leading warranty protection</p>
+                    </div>
+                    <div className="bg-black/30 p-3 rounded-lg border border-green-500/20 text-left">
+                      <h4 className="text-green-400 text-sm font-semibold mb-1">Premium Pricing Power</h4>
+                      <p className="text-gray-300 text-xs">Command higher rates with documented proof of energy savings and extended protection</p>
+                    </div>
+                    <div className="bg-black/30 p-3 rounded-lg border border-green-500/20 text-left">
+                      <h4 className="text-green-400 text-sm font-semibold mb-1">Certified Partner Status</h4>
+                      <p className="text-gray-300 text-xs">Join an exclusive network of high-performing painting professionals with specialized training</p>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Benefits Summary Section - Bottom of Funnel */}
+                <div className="mb-8">
+                  <h3 className="text-xl font-semibold text-green-300 mb-4 text-left">With Smart Coat Certification, You'll Get:</h3>
+                  
+                  <div className="space-y-3 text-left">
+                    <div className="flex items-start gap-3">
+                      <div className="bg-green-500/20 p-1 rounded-full mt-1">
+                        <CheckCircle2 className="h-5 w-5 text-green-400" />
+                      </div>
+                      <div>
+                        <p className="text-white"><span className="text-green-300 font-medium">Access to premium customers</span> searching for energy-efficient, long-lasting painting services</p>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-start gap-3">
+                      <div className="bg-green-500/20 p-1 rounded-full mt-1">
+                        <CheckCircle2 className="h-5 w-5 text-green-400" />
+                      </div>
+                      <div>
+                        <p className="text-white"><span className="text-green-300 font-medium">Technical certification and training</span> to properly apply Smart Coat's patented ceramic technology</p>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-start gap-3">
+                      <div className="bg-green-500/20 p-1 rounded-full mt-1">
+                        <CheckCircle2 className="h-5 w-5 text-green-400" />
+                      </div>
+                      <div>
+                        <p className="text-white"><span className="text-green-300 font-medium">Exclusive marketing materials</span> demonstrating the energy savings and ROI to justify premium pricing</p>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-start gap-3">
+                      <div className="bg-green-500/20 p-1 rounded-full mt-1">
+                        <CheckCircle2 className="h-5 w-5 text-green-400" />
+                      </div>
+                      <div>
+                        <p className="text-white"><span className="text-green-300 font-medium">Comprehensive 10-year warranty support</span> backed by our industry-leading quality assurance program</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
                 {/* Badge for government technology */}
-                <div className="mb-6 bg-gradient-to-r from-blue-900/40 to-blue-800/40 rounded-lg p-3 border border-blue-500/30">
+                <div className="mb-6 bg-gradient-to-r from-green-900/40 to-green-800/40 rounded-lg p-3 border border-green-500/30">
                   <p className="text-sm text-white">
-                    <span className="bg-blue-500/20 px-2 py-1 rounded text-xs font-semibold text-blue-300 mr-2">PREVIOUSLY A GOVERNMENT RESOURCE</span> 
-                    This ceramic technology was exclusively available to municipal and government agencies until now
+                    <span className="bg-green-500/20 px-2 py-1 rounded text-xs font-semibold text-green-300 mr-2">LIMITED AVAILABILITY</span> 
+                    We approve only a limited number of painting contractors per region to ensure exclusive market access
                   </p>
                 </div>
 
@@ -361,11 +444,11 @@ const Painters = () => {
                     <div className="absolute -inset-0.5 bg-green-600 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-200"></div>
                     <button 
                       onClick={handleShowContactForm}
-                      className="relative px-6 py-3 bg-black text-white font-medium rounded-lg border border-green-500/50 hover:border-green-400 transition duration-200"
+                      className="relative px-8 py-4 bg-black text-white font-medium rounded-lg border border-green-500/50 hover:border-green-400 transition duration-200"
                     >
                       <span className="flex items-center">
                         <CircleDollarSign className="mr-2 h-5 w-5 text-green-400" />
-                        <span>Become a Certified Partner</span>
+                        <span>Become a Certified Partner Today</span>
                       </span>
                     </button>
                   </div>
