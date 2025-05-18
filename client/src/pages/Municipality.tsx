@@ -1385,15 +1385,15 @@ export default function Municipality() {
                             // Simple ROI calculation - would be more complex in production
                             const tenYearTraditional = annualCost * 10 + (laborHours * laborRate * 10);
                             const ceramicInitialCost = surfaceArea * 3.5; // Assumed cost per sq ft
-                            const ceramicMaintenance = (annualCost * 0.15) * 10; // 85% reduction
-                            const assetLifespanValue = assetValue * 0.25; // 25% asset life extension value
+                            const ceramicMaintenance = (annualCost * 0.7) * 10; // 30% reduction
+                            const assetLifespanValue = assetValue * 0.15; // 15% asset life extension value
                             
                             const totalSavings = tenYearTraditional - (ceramicInitialCost + ceramicMaintenance) + assetLifespanValue;
                             const paybackMonths = (ceramicInitialCost / (annualCost + (laborHours * laborRate))) * 12;
                             
                             setCalculatedROI({
                               tenYearSavings: totalSavings.toLocaleString(),
-                              lifespanIncrease: "50%",
+                              lifespanIncrease: "25%",
                               paybackPeriod: `${Math.round(paybackMonths)} months`,
                               laborSavings: `${Math.round(laborHours * 0.25)} hours/year`,
                               assetValueIncrease: "$" + (assetLifespanValue).toLocaleString()

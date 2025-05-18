@@ -437,7 +437,7 @@ const ConstructionPage = () => {
                         <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-blue-600/10 to-blue-500/10 flex items-center justify-center border border-blue-500/30">
                           <span className="text-blue-400 text-xl font-bold">✓</span>
                         </div>
-                        <span className="text-gray-200">Concrete thermal protection: <span className="text-green-400 font-semibold drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">42% energy cost reduction</span> (89% reflection, 47°F cooler)</span>
+                        <span className="text-gray-200">Concrete thermal protection: <span className="text-green-400 font-semibold drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">25% energy cost reduction</span> (75% reflection, 15°F cooler)</span>
                       </div>
                     </div>
                     
