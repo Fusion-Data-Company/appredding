@@ -793,7 +793,7 @@ export default function Municipality() {
                                 </li>
                                 <li className="flex items-start gap-2 text-sm">
                                   <span className="text-orange-400 text-xs mt-1">•</span>
-                                  <span className="text-gray-200">Documented 96.6% survival rate in 2025 LA wildfire zone</span>
+                                  <span className="text-gray-200">Enhanced structure protection in wildfire-prone regions</span>
                                 </li>
                               </ul>
                             </div>

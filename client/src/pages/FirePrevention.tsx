@@ -295,7 +295,7 @@ const FirePrevention = () => {
                       </div>
                     </div>
                     
-                    {/* LA 2025 Wildfire Case Study */}
+                    {/* Wildfire Case Study */}
                     <div className="mt-6 bg-gradient-to-br from-gray-850/80 to-gray-900/80 border border-orange-500/30 rounded-lg p-6 relative overflow-hidden">
                       {/* Premium corner accents */}
                       <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none">

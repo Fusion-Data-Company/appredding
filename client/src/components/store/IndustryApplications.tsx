@@ -157,7 +157,7 @@ const applications: ApplicationData[] = [
       {
         icon: <Wrench className="h-6 w-6 text-yellow-500" />,
         title: "Easy Application",
-        description: "Engineered for efficient application across large areas with standard equipment, reducing labor costs."
+        description: "Engineered for efficient application across large areas with standard equipment, using common application methods."
       }
     ],
     caseStudy: {
