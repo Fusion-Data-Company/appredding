@@ -482,7 +482,7 @@ const FirePrevention = () => {
                 
                 {/* Advanced layered background effects */}
                 <div className="absolute inset-0 bg-gradient-to-b from-gray-900/95 via-gray-950/98 to-black rounded-xl border border-green-500/30 shadow-[0_5px_30px_rgba(74,222,128,0.15)] z-10"></div>
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-green-600/20 via-green-400/5 to-green-600/20 rounded-xl blur-lg opacity-60 z-5"></div>
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-green-600/20 via-green-400/5 to-green-600/20 rounded-xl blur-lg opacity-60 z-10"></div>
                 
                 {/* Corner accents - enterprise-elite style */}
                 <div className="absolute top-0 left-0 w-16 h-16 z-20 pointer-events-none">
