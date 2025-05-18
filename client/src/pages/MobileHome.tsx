@@ -1237,12 +1237,15 @@ const MobileHome = () => {
               </div>
             </div>
             
-            {/* Registration Form */}
+            {/* Registration Form with Purple Ambient Glow */}
             {showRegistrationForm && !registrationSuccess ? (
               <div className="max-w-4xl mx-auto">
                 <div className="relative">
-                  <div className="absolute -inset-1 bg-gradient-to-r from-orange-500/20 via-blue-500/20 to-orange-500/20 rounded-xl blur-xl opacity-70"></div>
-                  <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black p-8 rounded-xl border border-gray-800 shadow-[0_0_60px_rgba(59,130,246,0.2)]">
+                  {/* Enhanced purple ambient glow for registration form */}
+                  <div className="absolute -inset-1 bg-gradient-to-r from-purple-600/40 via-violet-600/30 to-purple-600/40 rounded-xl blur-xl opacity-80"></div>
+                  <div className="absolute -inset-2 bg-purple-800/20 blur-lg rounded-xl opacity-70 animate-pulse-slow"></div>
+                  <div className="absolute -inset-4 bg-purple-500/10 blur-2xl rounded-xl opacity-60"></div>
+                  <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black p-8 rounded-xl border border-purple-500/30 shadow-[0_0_60px_rgba(147,51,234,0.3)]">
                     <h2 className="text-2xl font-bold mb-6 text-white">Register for Professional Mobile Home Services</h2>
                     
                     <Form {...form}>
