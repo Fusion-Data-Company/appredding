@@ -5,19 +5,19 @@ export const faqData = [
     questions: [
       {
         question: "What makes Praetorian SmartCoat different from other protective coatings?",
-        answer: "Praetorian SmartCoat utilizes a triple-component system derived from NASA space shuttle thermal protection technology. Our coatings use vacuum-filled ceramic microspheres suspended in a specialized elastomeric matrix that addresses all three heat transfer mechanisms simultaneously (conduction, convection, and radiation) while providing Class A fire protection—a feat unmatched by traditional insulation materials."
+        answer: "Praetorian SmartCoat is a cutting-edge ceramic insulating coating that combines a proprietary ceramic microsphere technology with durable acrylic polymers to create a high-performance protective membrane. The coating provides superior thermal insulation, waterproofing, and fire resistance for a wide range of building and infrastructure applications."
       },
       {
         question: "How does the ceramic technology actually work?",
-        answer: "Our ceramic microsphere technology creates multiple thermal breaks throughout the coating film. The fundamental principle exploits the physical impossibility of heat traversing vacuum spaces—heat cannot travel through vacuum. The ceramics themselves withstand temperatures up to 1300°C without heat transfer, effectively disrupting conductive pathways while our TiO₂ reflective technology achieves 89% solar reflection and 89% thermal emittance."
+        answer: "Our ceramic microsphere technology contains millions of hollow ceramic microspheres embedded within an acrylic polymer matrix. These microspheres trap air, a natural insulator, reducing heat transfer through roofs and walls. The coating also has reflective properties with light colors and ceramic particles that reflect solar radiation, minimizing heat absorption. According to testing, our coating has a Solar Reflectance Index (SRI) of 85-92%."
       },
       {
         question: "What kind of temperature reduction can I expect?",
-        answer: "Our coatings typically reduce surface temperatures by 30-40°F compared to uncoated surfaces. In documented field tests, coated metal buildings maintained interior temperatures of 85°F while ambient temperatures reached 111-113°F, and uncoated buildings reached 180°F+ surface temperatures. Energy efficiency results range from 20-87% depending on the application type."
+        answer: "Thermal imaging studies have shown roofs treated with Praetorian Smart-Coat typically show up to 30°F (17°C) lower surface temperatures compared to untreated controls under peak summer conditions. This temperature reduction helps decrease cooling costs and improves comfort inside buildings. The actual energy efficiency improvements will vary depending on the specific application and environmental conditions."
       },
       {
         question: "How long do Praetorian SmartCoat products last?",
-        answer: "Our coatings demonstrate exceptional longevity with minimal performance degradation. With only 1% reflectivity loss over 3 years (compared to 10-20% for competing products), original applications from 1989 showed no deterioration or performance loss when inspected 30 years later in 2019. The typical service life is 20-30+ years with minimal maintenance."
+        answer: "Our coatings have a typical shelf life of 12 months when unopened and stored properly between 5°C and 30°C. Once applied, the service life depends on the application environment and maintenance. The durability of the coating is one of its strengths, resisting cracking, peeling, and degradation from environmental stresses such as UV exposure, thermal cycling, and chemical pollutants. This durability reduces maintenance frequency and costs over time."
       },
     ]
   },
@@ -26,7 +26,7 @@ export const faqData = [
     questions: [
       {
         question: "What fire ratings do your coatings have?",
-        answer: "Our coatings achieve a Class A fire rating (the highest possible classification) with perfect scores of 0/100 for both Flame Spread Index and Smoke Development Index in ASTM E84 testing. This has been verified by NASA, UL, and Factory Mutual, making our products suitable for the most demanding fire protection applications."
+        answer: "Our coatings achieve a Class A fire rating per ASTM E108 / UL 790. When tested according to ASTM E84 standards for surface burning characteristics, the coating demonstrated excellent fire retardancy. The coating's fire resistance properties have been validated through extensive laboratory testing and real-world applications, making it suitable for fire protection applications."
       },
       {
         question: "How do your coatings perform in extreme heat?",
