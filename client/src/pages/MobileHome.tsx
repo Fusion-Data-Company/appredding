@@ -257,19 +257,43 @@ const MobileHome = () => {
                   </ul>
                 </div>
                 
-                {/* Enhanced ROI-focused stats in enterprise grid format */}
-                <div className="grid grid-cols-3 gap-3 mb-8">
-                  <div className="bg-gradient-to-br from-gray-900/90 to-gray-950/90 border border-orange-600/30 rounded-lg p-3 text-center group hover:border-orange-500/70 transition-all duration-300">
-                    <span className="text-green-400 font-bold text-2xl md:text-3xl block group-hover:scale-110 transition-transform duration-300">87%</span>
-                    <span className="text-blue-200 text-xs">Energy Cost Reduction</span>
-                  </div>
-                  <div className="bg-gradient-to-br from-gray-900/90 to-gray-950/90 border border-blue-600/30 rounded-lg p-3 text-center group hover:border-blue-500/70 transition-all duration-300">
-                    <span className="text-green-400 font-bold text-2xl md:text-3xl block group-hover:scale-110 transition-transform duration-300">15+</span>
-                    <span className="text-blue-200 text-xs">Years Extended Life</span>
-                  </div>
-                  <div className="bg-gradient-to-br from-gray-900/90 to-gray-950/90 border border-orange-600/30 rounded-lg p-3 text-center group hover:border-orange-500/70 transition-all duration-300">
-                    <span className="text-green-400 font-bold text-2xl md:text-3xl block group-hover:scale-110 transition-transform duration-300">43%</span>
-                    <span className="text-blue-200 text-xs">Insurance Savings</span>
+                {/* Enhanced ROI-focused stats with premium green styling */}
+                <div className="relative mb-8">
+                  {/* Enhanced green ambient glow for ROI section */}
+                  <div className="absolute -inset-4 bg-green-500/30 rounded-xl blur-3xl opacity-70 z-0"></div>
+                  <div className="absolute -inset-8 bg-green-500/20 rounded-xl blur-2xl opacity-60 z-0 animate-pulse-slow"></div>
+                  
+                  <div className="grid grid-cols-3 gap-3 relative z-10">
+                    <div className="bg-gray-900/60 p-3 rounded-lg border-2 border-green-500/30 shadow-[0_0_20px_rgba(74,222,128,0.2)] text-center group">
+                      <div className="flex items-center justify-center mb-2">
+                        <div className="bg-gradient-to-br from-green-600 to-green-700 rounded-full p-1 
+                          border border-green-400/40 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_0_4px_rgba(74,222,128,0.4)]">
+                          <SunIcon className="w-4 h-4 text-green-100" />
+                        </div>
+                      </div>
+                      <span className="text-green-400 font-bold text-2xl md:text-3xl block group-hover:scale-110 transition-transform duration-300">87%</span>
+                      <span className="text-blue-200 text-xs">Energy Cost Reduction</span>
+                    </div>
+                    <div className="bg-gray-900/60 p-3 rounded-lg border-2 border-green-500/30 shadow-[0_0_20px_rgba(74,222,128,0.2)] text-center group">
+                      <div className="flex items-center justify-center mb-2">
+                        <div className="bg-gradient-to-br from-green-600 to-green-700 rounded-full p-1 
+                          border border-green-400/40 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_0_4px_rgba(74,222,128,0.4)]">
+                          <Clock className="w-4 h-4 text-green-100" />
+                        </div>
+                      </div>
+                      <span className="text-green-400 font-bold text-2xl md:text-3xl block group-hover:scale-110 transition-transform duration-300">15+</span>
+                      <span className="text-blue-200 text-xs">Years Extended Life</span>
+                    </div>
+                    <div className="bg-gray-900/60 p-3 rounded-lg border-2 border-green-500/30 shadow-[0_0_20px_rgba(74,222,128,0.2)] text-center group">
+                      <div className="flex items-center justify-center mb-2">
+                        <div className="bg-gradient-to-br from-green-600 to-green-700 rounded-full p-1 
+                          border border-green-400/40 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_0_4px_rgba(74,222,128,0.4)]">
+                          <Shield className="w-4 h-4 text-green-100" />
+                        </div>
+                      </div>
+                      <span className="text-green-400 font-bold text-2xl md:text-3xl block group-hover:scale-110 transition-transform duration-300">43%</span>
+                      <span className="text-blue-200 text-xs">Insurance Savings</span>
+                    </div>
                   </div>
                 </div>
                 
@@ -900,6 +924,7 @@ const MobileHome = () => {
                                   <Input 
                                     placeholder="(555) 123-4567" 
                                     {...field} 
+                                    value={field.value || ''}
                                     className="bg-gray-900/60 border-2 border-green-500/50 rounded-lg text-white focus:border-green-500 focus:ring-2 focus:ring-green-500/40 shadow-[0_0_10px_rgba(74,222,128,0.15)] placeholder:text-gray-500"
                                     style={{
                                       textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)",
@@ -922,6 +947,7 @@ const MobileHome = () => {
                                   <Input 
                                     placeholder="https://your-website.com" 
                                     {...field} 
+                                    value={field.value || ''}
                                     className="bg-gray-900/60 border-2 border-green-500/50 rounded-lg text-white focus:border-green-500 focus:ring-2 focus:ring-green-500/40 shadow-[0_0_10px_rgba(74,222,128,0.15)] placeholder:text-gray-500"
                                     style={{
                                       textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)",
@@ -944,6 +970,7 @@ const MobileHome = () => {
                                   <Input 
                                     placeholder="License number" 
                                     {...field} 
+                                    value={field.value || ''}
                                     className="bg-gray-900/60 border-2 border-green-500/50 rounded-lg text-white focus:border-green-500 focus:ring-2 focus:ring-green-500/40 shadow-[0_0_10px_rgba(74,222,128,0.15)] placeholder:text-gray-500"
                                     style={{
                                       textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)",
@@ -967,6 +994,7 @@ const MobileHome = () => {
                                     type="number" 
                                     placeholder="Years of experience" 
                                     {...field} 
+                                    value={field.value || ''}
                                     className="bg-gray-900/60 border-2 border-green-500/50 rounded-lg text-white focus:border-green-500 focus:ring-2 focus:ring-green-500/40 shadow-[0_0_10px_rgba(74,222,128,0.15)] placeholder:text-gray-500"
                                     style={{
                                       textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)",
