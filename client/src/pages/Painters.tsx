@@ -149,8 +149,8 @@ const Painters = () => {
                 </div>
                 
                 <div className="relative mb-6">
-                  <div className="inline-block mb-3 bg-red-500/20 px-3 py-1 rounded-full">
-                    <span className="text-xs font-semibold text-red-300 uppercase tracking-wider">PREVIOUSLY A GOVERNMENT RESOURCE</span>
+                  <div className="inline-block mb-3 bg-gradient-to-r from-red-600 to-red-500 text-white text-xs py-1 px-2 rounded-md transform rotate-3 shadow-lg border border-red-400/40">
+                    PREVIOUSLY A GOVERNMENT RESOURCE
                   </div>
                   <motion.h1 
                     initial={{ opacity: 0, y: 20 }}
@@ -449,8 +449,8 @@ const Painters = () => {
                       
                       <div className="bg-gradient-to-br from-gray-900/70 to-black/80 rounded-xl p-6 border-2 border-green-500/40 shadow-[0_5px_15px_rgba(0,0,0,0.2),inset_0_1px_1px_rgba(255,255,255,0.1),0_0_20px_rgba(74,222,128,0.15)] relative z-10">
                         <h3 className="text-xl font-semibold text-white mb-4 text-center relative">
-                          <div className="absolute -top-10 -right-3 bg-green-500/20 px-3 py-1 rounded-full">
-                            <span className="text-xs font-semibold text-green-300 uppercase tracking-wider">PREVIOUSLY A GOVERNMENT RESOURCE</span>
+                          <div className="absolute -top-10 -right-3 bg-gradient-to-r from-green-600 to-green-500 text-white text-xs py-1 px-2 rounded-md transform rotate-3 shadow-lg border border-green-400/40">
+                            PREVIOUSLY A GOVERNMENT RESOURCE
                           </div>
                           Praetorian Ceramic Coating
                         </h3>
@@ -494,8 +494,8 @@ const Painters = () => {
                     <div className="absolute -inset-8 bg-green-500/10 rounded-xl blur-xl opacity-70 z-0 animate-pulse-slow"></div>
                     
                     <div className="p-4 bg-gray-900/60 rounded-lg border-2 border-green-500/30 shadow-[0_0_15px_rgba(74,222,128,0.2)] relative z-10">
-                      <div className="absolute -top-4 -right-3 bg-green-500/20 px-3 py-1 rounded-full">
-                        <span className="text-xs font-semibold text-green-300 uppercase tracking-wider">PREVIOUSLY A GOVERNMENT RESOURCE</span>
+                      <div className="absolute -top-4 -right-3 bg-gradient-to-r from-green-600 to-green-500 text-white text-xs py-1 px-2 rounded-md transform rotate-3 shadow-lg border border-green-400/40">
+                        PREVIOUSLY A GOVERNMENT RESOURCE
                       </div>
                       <div className="flex flex-col md:flex-row justify-between items-center">
                         <div className="mb-4 md:mb-0 md:mr-4">
@@ -563,8 +563,8 @@ const Painters = () => {
                   
                   <div className="px-6 py-8 md:p-10">
                     <div className="text-center mb-8">
-                      <div className="inline-block mb-3 bg-blue-500/20 px-3 py-1 rounded-full">
-                        <span className="text-xs font-semibold text-blue-300 uppercase tracking-wider">PREVIOUSLY A GOVERNMENT RESOURCE</span>
+                      <div className="inline-block mb-3 bg-gradient-to-r from-blue-600 to-blue-500 text-white text-xs py-1 px-2 rounded-md transform rotate-3 shadow-lg border border-blue-400/40">
+                        PREVIOUSLY A GOVERNMENT RESOURCE
                       </div>
                       <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">Become a Certified Painter Partner</h2>
                       <p className="text-gray-300 max-w-2xl mx-auto">
