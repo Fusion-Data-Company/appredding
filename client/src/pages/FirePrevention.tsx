@@ -248,17 +248,45 @@ const FirePrevention = () => {
                   <div className="absolute -inset-1 bg-gradient-to-r from-red-600/20 via-orange-500/20 to-red-600/20 rounded-xl blur-md opacity-80"></div>
                   
                   <div className="relative bg-gradient-to-br from-black/70 to-gray-900/70 border border-orange-500/30 rounded-xl p-6 backdrop-blur-sm">
-                    {/* Pain point with enhanced typography and visual hierarchy */}
+                    {/* SANDLER STAGE 1: IDENTIFY THE PAINS */}
+                    <h2 className="text-2xl md:text-3xl text-white font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-red-200 to-orange-100 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
+                      Wildfires Will Happen – Will Your Property Survive?
+                    </h2>
+                    
                     <p className="text-xl md:text-2xl text-white leading-relaxed font-medium mb-6">
-                      <span className="text-orange-300 font-bold">California wildfire insurance challenges continue to increase</span> – with property values affected in high-risk zones and <span className="text-red-400">traditional fire protection methods requiring supplementation</span>. Our ceramic-based coating offers documented protection benefits:
+                      In the fire-prone regions of the West, a single ember can wipe out an entire neighborhood in minutes. Wildfire seasons are <span className="text-orange-300 font-bold">longer and more intense than ever</span> – homeowners and facility managers face constant dread each summer and fall.
                     </p>
                     
-                    <div className="flex items-center mb-6">
-                      <div className="h-6 w-1 bg-gradient-to-b from-orange-600 to-red-600 rounded-full mr-3"></div>
-                      <p className="text-base text-gray-300">
-                        The ceramic-based coating system has been used in <span className="text-blue-300">various industrial applications and infrastructure projects</span>. This advanced thermal protection technology is now available for residential and commercial property owners.
-                      </p>
+                    <div className="mb-8">
+                      <h3 className="text-xl text-orange-300 font-semibold mb-4">Do any of these scenarios sound familiar?</h3>
+                      
+                      <div className="space-y-4">
+                        <div className="flex items-start">
+                          <div className="h-6 w-1 bg-gradient-to-b from-orange-600 to-red-600 rounded-full mr-3 mt-1.5"></div>
+                          <p className="text-base text-gray-200">
+                            <span className="text-white font-medium">Ever had to evacuate at a moment's notice</span>, unsure if your home or facility will still be standing when you return? The emotional toll and financial risk are overwhelming.
+                          </p>
+                        </div>
+                        
+                        <div className="flex items-start">
+                          <div className="h-6 w-1 bg-gradient-to-b from-orange-600 to-red-600 rounded-full mr-3 mt-1.5"></div>
+                          <p className="text-base text-gray-200">
+                            <span className="text-white font-medium">What happens when wind-driven embers turn your roof and siding into kindling?</span> Traditional paints and wood finishes offer little resistance – one spark and the entire structure is engulfed.
+                          </p>
+                        </div>
+                        
+                        <div className="flex items-start">
+                          <div className="h-6 w-1 bg-gradient-to-b from-orange-600 to-red-600 rounded-full mr-3 mt-1.5"></div>
+                          <p className="text-base text-gray-200">
+                            <span className="text-white font-medium">Why do you still struggle with fire "resistant" building materials</span> that can't withstand direct flame exposure? Between regulatory pressures for Class A fire ratings and skyrocketing insurance costs, the status quo is failure-prone and expensive.
+                          </p>
+                        </div>
+                      </div>
                     </div>
+                    
+                    <p className="text-base md:text-lg text-red-200 font-medium mb-6">
+                      Wildfires destroy thousands of structures annually, often because conventional construction can't handle the heat. The cost of doing nothing (or doing the bare minimum) is catastrophic – lives, investments, and peace of mind are at stake.
+                    </p>
                     
                     {/* Enterprise-grade 4-column metrics with advanced styling */}
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
