@@ -993,8 +993,11 @@ const MobileHome = () => {
                                   <Input 
                                     type="number" 
                                     placeholder="Years of experience" 
-                                    {...field} 
-                                    value={field.value || ''}
+                                    onChange={field.onChange}
+                                    onBlur={field.onBlur}
+                                    name={field.name}
+                                    ref={field.ref}
+                                    value={field.value?.toString() || ''}
                                     className="bg-gray-900/60 border-2 border-green-500/50 rounded-lg text-white focus:border-green-500 focus:ring-2 focus:ring-green-500/40 shadow-[0_0_10px_rgba(74,222,128,0.15)] placeholder:text-gray-500"
                                     style={{
                                       textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)",
@@ -1017,7 +1020,11 @@ const MobileHome = () => {
                                   <FormControl>
                                     <Textarea 
                                       placeholder="Tell us about your business, services, or specific interests in mobile home products..." 
-                                      {...field} 
+                                      onChange={field.onChange}
+                                      onBlur={field.onBlur}
+                                      name={field.name}
+                                      ref={field.ref}
+                                      value={field.value || ''}
                                       className="bg-gray-900/60 border-2 border-green-500/50 rounded-lg text-white focus:border-green-500 focus:ring-2 focus:ring-green-500/40 shadow-[0_0_10px_rgba(74,222,128,0.15)] placeholder:text-gray-500 min-h-[120px]"
                                       style={{
                                         textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)",
