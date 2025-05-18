@@ -529,6 +529,333 @@ const Painters = () => {
               </div>
             </div>
 
+            {/* Registration Form Section - Bottom of Funnel */}
+            {showContactForm && (
+              <div className="max-w-4xl mx-auto my-20 relative">
+                <div className="absolute -inset-10 bg-blue-500/10 rounded-3xl blur-[60px] opacity-70"></div>
+                
+                <div className="relative z-10 bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 rounded-2xl overflow-hidden border border-blue-500/30 shadow-[0_0_30px_rgba(59,130,246,0.15)]">
+                  {/* Corner accents */}
+                  <div className="absolute top-0 left-0 w-16 h-16 z-10 pointer-events-none">
+                    <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-blue-500/70 rounded-tl-md"></div>
+                    <div className="absolute top-1 left-1 w-10 h-10 border-t border-l border-blue-400/30 rounded-tl-md"></div>
+                  </div>
+                  <div className="absolute top-0 right-0 w-16 h-16 pointer-events-none">
+                    <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-blue-500/70 rounded-tr-md"></div>
+                    <div className="absolute top-1 right-1 w-10 h-10 border-t border-r border-blue-400/30 rounded-tr-md"></div>
+                  </div>
+                  <div className="absolute bottom-0 left-0 w-16 h-16 pointer-events-none">
+                    <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-blue-500/70 rounded-bl-md"></div>
+                    <div className="absolute bottom-1 left-1 w-10 h-10 border-b border-l border-blue-400/30 rounded-bl-md"></div>
+                  </div>
+                  <div className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none">
+                    <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-blue-500/70 rounded-br-md"></div>
+                    <div className="absolute bottom-1 right-1 w-10 h-10 border-b border-r border-blue-400/30 rounded-br-md"></div>
+                  </div>
+                  
+                  <div className="px-6 py-8 md:p-10">
+                    <div className="text-center mb-8">
+                      <div className="inline-block mb-3 bg-blue-500/20 px-3 py-1 rounded-full">
+                        <span className="text-xs font-semibold text-blue-300 uppercase tracking-wider">PREVIOUSLY A GOVERNMENT RESOURCE</span>
+                      </div>
+                      <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">Become a Certified Painter Partner</h2>
+                      <p className="text-gray-300 max-w-2xl mx-auto">
+                        Gain exclusive access to ceramic coating technology previously only available to government agencies. Increase your profit margins by up to 543% on every project.
+                      </p>
+                    </div>
+                    
+                    {contactSuccess ? (
+                      <div className="bg-green-900/30 border border-green-500/30 rounded-lg p-8 text-center">
+                        <CheckCircle className="h-16 w-16 text-green-500 mx-auto mb-4" />
+                        <h3 className="text-2xl font-bold text-white mb-2">Application Received!</h3>
+                        <p className="text-gray-300 mb-6">
+                          Thank you for your interest in joining our exclusive network of certified painters. Our team will contact you within 24 hours to discuss the next steps and your custom profit analysis.
+                        </p>
+                        <div className="inline-block bg-gradient-to-r from-gray-800 to-gray-900 p-4 rounded-lg border border-green-500/30">
+                          <p className="text-sm text-green-400 font-medium">
+                            While you wait, prepare the following information:
+                          </p>
+                          <ul className="text-left text-sm text-gray-300 mt-2 space-y-1">
+                            <li className="flex items-start">
+                              <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5" />
+                              <span>Current project sizes and pricing structure</span>
+                            </li>
+                            <li className="flex items-start">
+                              <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5" />
+                              <span>Customer demographic and target markets</span>
+                            </li>
+                            <li className="flex items-start">
+                              <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5" />
+                              <span>Current coating products and application methods</span>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    ) : (
+                      <Form {...form}>
+                        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <FormField
+                              control={form.control}
+                              name="firstName"
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormLabel className="text-gray-300">First Name</FormLabel>
+                                  <FormControl>
+                                    <Input 
+                                      placeholder="John" 
+                                      {...field} 
+                                      className="bg-gray-800/50 border border-blue-500/30 text-white focus:border-blue-400 focus:ring-1 focus:ring-blue-400/50"
+                                    />
+                                  </FormControl>
+                                  <FormMessage className="text-red-400" />
+                                </FormItem>
+                              )}
+                            />
+                            
+                            <FormField
+                              control={form.control}
+                              name="lastName"
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormLabel className="text-gray-300">Last Name</FormLabel>
+                                  <FormControl>
+                                    <Input 
+                                      placeholder="Doe" 
+                                      {...field} 
+                                      className="bg-gray-800/50 border border-blue-500/30 text-white focus:border-blue-400 focus:ring-1 focus:ring-blue-400/50"
+                                    />
+                                  </FormControl>
+                                  <FormMessage className="text-red-400" />
+                                </FormItem>
+                              )}
+                            />
+                          </div>
+                          
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <FormField
+                              control={form.control}
+                              name="email"
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormLabel className="text-gray-300">Email</FormLabel>
+                                  <FormControl>
+                                    <Input 
+                                      type="email" 
+                                      placeholder="john@example.com" 
+                                      {...field} 
+                                      className="bg-gray-800/50 border border-blue-500/30 text-white focus:border-blue-400 focus:ring-1 focus:ring-blue-400/50"
+                                    />
+                                  </FormControl>
+                                  <FormMessage className="text-red-400" />
+                                </FormItem>
+                              )}
+                            />
+                            
+                            <FormField
+                              control={form.control}
+                              name="phone"
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormLabel className="text-gray-300">Phone</FormLabel>
+                                  <FormControl>
+                                    <Input 
+                                      placeholder="(555) 123-4567" 
+                                      {...field} 
+                                      className="bg-gray-800/50 border border-blue-500/30 text-white focus:border-blue-400 focus:ring-1 focus:ring-blue-400/50"
+                                    />
+                                  </FormControl>
+                                  <FormMessage className="text-red-400" />
+                                </FormItem>
+                              )}
+                            />
+                          </div>
+                          
+                          <FormField
+                            control={form.control}
+                            name="companyName"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel className="text-gray-300">Company Name</FormLabel>
+                                <FormControl>
+                                  <Input 
+                                    placeholder="Your Painting Company" 
+                                    {...field} 
+                                    className="bg-gray-800/50 border border-blue-500/30 text-white focus:border-blue-400 focus:ring-1 focus:ring-blue-400/50"
+                                  />
+                                </FormControl>
+                                <FormMessage className="text-red-400" />
+                              </FormItem>
+                            )}
+                          />
+                          
+                          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <FormField
+                              control={form.control}
+                              name="city"
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormLabel className="text-gray-300">City</FormLabel>
+                                  <FormControl>
+                                    <Input 
+                                      placeholder="New York" 
+                                      {...field} 
+                                      className="bg-gray-800/50 border border-blue-500/30 text-white focus:border-blue-400 focus:ring-1 focus:ring-blue-400/50"
+                                    />
+                                  </FormControl>
+                                  <FormMessage className="text-red-400" />
+                                </FormItem>
+                              )}
+                            />
+                            
+                            <FormField
+                              control={form.control}
+                              name="state"
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormLabel className="text-gray-300">State</FormLabel>
+                                  <FormControl>
+                                    <Input 
+                                      placeholder="NY" 
+                                      {...field} 
+                                      className="bg-gray-800/50 border border-blue-500/30 text-white focus:border-blue-400 focus:ring-1 focus:ring-blue-400/50"
+                                    />
+                                  </FormControl>
+                                  <FormMessage className="text-red-400" />
+                                </FormItem>
+                              )}
+                            />
+                            
+                            <FormField
+                              control={form.control}
+                              name="zipCode"
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormLabel className="text-gray-300">Zip Code</FormLabel>
+                                  <FormControl>
+                                    <Input 
+                                      placeholder="10001" 
+                                      {...field} 
+                                      className="bg-gray-800/50 border border-blue-500/30 text-white focus:border-blue-400 focus:ring-1 focus:ring-blue-400/50"
+                                    />
+                                  </FormControl>
+                                  <FormMessage className="text-red-400" />
+                                </FormItem>
+                              )}
+                            />
+                          </div>
+                          
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <FormField
+                              control={form.control}
+                              name="projectType"
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormLabel className="text-gray-300">Primary Project Type</FormLabel>
+                                  <Select 
+                                    onValueChange={field.onChange} 
+                                    defaultValue={field.value}
+                                  >
+                                    <FormControl>
+                                      <SelectTrigger className="bg-gray-800/50 border border-blue-500/30 text-white focus:border-blue-400 focus:ring-1 focus:ring-blue-400/50">
+                                        <SelectValue placeholder="Select project type" />
+                                      </SelectTrigger>
+                                    </FormControl>
+                                    <SelectContent className="bg-gray-800 border border-blue-500/30 text-white">
+                                      <SelectItem value="residential">Residential</SelectItem>
+                                      <SelectItem value="commercial">Commercial</SelectItem>
+                                      <SelectItem value="industrial">Industrial</SelectItem>
+                                      <SelectItem value="other">Other</SelectItem>
+                                    </SelectContent>
+                                  </Select>
+                                  <FormMessage className="text-red-400" />
+                                </FormItem>
+                              )}
+                            />
+                            
+                            <FormField
+                              control={form.control}
+                              name="coatingNeeds"
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormLabel className="text-gray-300">Coating Needs</FormLabel>
+                                  <Select 
+                                    onValueChange={field.onChange} 
+                                    defaultValue={field.value}
+                                  >
+                                    <FormControl>
+                                      <SelectTrigger className="bg-gray-800/50 border border-blue-500/30 text-white focus:border-blue-400 focus:ring-1 focus:ring-blue-400/50">
+                                        <SelectValue placeholder="Select primary need" />
+                                      </SelectTrigger>
+                                    </FormControl>
+                                    <SelectContent className="bg-gray-800 border border-blue-500/30 text-white">
+                                      <SelectItem value="exterior">Exterior</SelectItem>
+                                      <SelectItem value="interior">Interior</SelectItem>
+                                      <SelectItem value="both">Both Interior & Exterior</SelectItem>
+                                      <SelectItem value="specialized">Specialized Application</SelectItem>
+                                    </SelectContent>
+                                  </Select>
+                                  <FormMessage className="text-red-400" />
+                                </FormItem>
+                              )}
+                            />
+                          </div>
+                          
+                          <FormField
+                            control={form.control}
+                            name="agreesToTerms"
+                            render={({ field }) => (
+                              <FormItem className="flex flex-row items-start space-x-3 space-y-0 mt-6">
+                                <FormControl>
+                                  <Checkbox
+                                    checked={field.value}
+                                    onCheckedChange={field.onChange}
+                                    className="data-[state=checked]:bg-blue-500 data-[state=checked]:border-blue-500"
+                                  />
+                                </FormControl>
+                                <div className="space-y-1 leading-none">
+                                  <FormLabel className="text-gray-300">
+                                    I agree to receive information about becoming a certified partner with Praetorian SmartCoat.
+                                  </FormLabel>
+                                  <FormMessage className="text-red-400" />
+                                </div>
+                              </FormItem>
+                            )}
+                          />
+                          
+                          <div className="pt-4 text-center">
+                            <div className="relative inline-block">
+                              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-green-600 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-200"></div>
+                              <button 
+                                type="submit"
+                                disabled={contactMutation.isPending}
+                                className="relative px-8 py-4 bg-gradient-to-r from-gray-900 to-gray-800 text-white text-lg font-medium rounded-lg border border-blue-500/50 hover:border-green-400 transition duration-300 disabled:opacity-70"
+                              >
+                                {contactMutation.isPending ? (
+                                  <span className="flex items-center">
+                                    <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                    </svg>
+                                    Processing...
+                                  </span>
+                                ) : (
+                                  <span className="flex items-center">
+                                    <CircleDollarSign className="mr-2 h-5 w-5 text-green-400" />
+                                    <span>Submit Application</span>
+                                  </span>
+                                )}
+                              </button>
+                            </div>
+                          </div>
+                        </form>
+                      </Form>
+                    )}
+                  </div>
+                </div>
+              </div>
+            )}
+
             {/* Contact Info Section */}
             <div className="mt-8 text-center text-gray-400 text-sm max-w-3xl mx-auto">
               <p>For immediate assistance, please contact us directly at <a href="tel:9168096619" className="text-blue-400 hover:text-blue-300">(916) 809-6619</a> or email <a href="mailto:rob@praetoriansmartcoat.com" className="text-blue-400 hover:text-blue-300">rob@praetoriansmartcoat.com</a></p>
