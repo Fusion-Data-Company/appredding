@@ -367,7 +367,7 @@ const slides: Slide[] = [
     icon: <Shield className="w-6 h-6 text-amber-500 mr-2" />,
     content: (
       <>
-        <div className="text-xl font-bold text-white mb-6 border-l-4 border-amber-500 pl-4 py-1">
+        <div className="text-xl font-bold text-white mb-6 border-l-4 border-blue-500 pl-4 py-1">
           "For decades, this elite ceramic paint formula has been used in government, military, and infrastructure projects. It was never built for shelves. Until now."
         </div>
         
@@ -614,7 +614,7 @@ const slides: Slide[] = [
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
                 </svg>
               </div>
-              <h4 className="text-amber-400 font-bold">Resistance</h4>
+              <h4 className="text-blue-400 font-bold">Resistance</h4>
             </div>
             <p className="text-gray-300">Resists salt, UV, corrosion, mold, and cracking</p>
           </div>
