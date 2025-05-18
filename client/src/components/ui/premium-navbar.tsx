@@ -204,7 +204,7 @@ export function PremiumNavbar() {
               title="Painters"
               description="Join our elite network of certified painters"
               imageSrc={professionalImages.painters}
-              href="/painter-network"
+              href="/painters"
             />
             
             <ImageCard
