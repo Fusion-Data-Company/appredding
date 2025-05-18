@@ -97,7 +97,7 @@ const getEventTypeColor = (type: string) => {
 const getDayEvents = (day: number) => {
   // Format the day to match the date format in events
   const formattedDay = day.toString().padStart(2, "0");
-  const dateStr = `2025-04-${formattedDay}`;
+  const dateStr = `2023-04-${formattedDay}`;
   
   return calendarData.events.filter(event => event.date === dateStr);
 };
