@@ -202,8 +202,8 @@ const PitchDeckSlider = () => {
               {/* Header */}
               <div className="flex justify-between items-center p-4 bg-gradient-to-r from-gray-800/80 to-gray-900/80 border-b border-gray-700/50">
                 <div className="flex items-center">
-                  <Shield className="w-6 h-6 text-amber-500 mr-3" />
-                  <GradientHeading level={3} className="text-xl" variant="fire">
+                  <Shield className="w-6 h-6 text-blue-500 mr-3" />
+                  <GradientHeading level={3} className="text-xl" variant="blue">
                     PRAETORIAN SMART-COAT
                   </GradientHeading>
                 </div>
@@ -231,8 +231,8 @@ const PitchDeckSlider = () => {
                     {/* Slide indicator */}
                     <div className="flex items-center justify-between mb-6">
                       <div className="flex items-center">
-                        {slides[currentSlide].icon || <Shield className="w-6 h-6 text-amber-500 mr-2" />}
-                        <h3 className="text-amber-500 font-bold text-lg">
+                        {slides[currentSlide].icon || <Shield className="w-6 h-6 text-blue-500 mr-2" />}
+                        <h3 className="text-blue-500 font-bold text-lg">
                           {slides[currentSlide].title}
                         </h3>
                       </div>
@@ -261,39 +261,39 @@ const PitchDeckSlider = () => {
                               <SelectValue placeholder="Select your industry" />
                             </SelectTrigger>
                             <SelectContent className="bg-gray-900 border-gray-700 text-white">
-                              <SelectItem value="fire-prevention" className="focus:bg-gray-800 focus:text-amber-400">
+                              <SelectItem value="fire-prevention" className="focus:bg-gray-800 focus:text-blue-400">
                                 <div className="flex items-center">
-                                  <Flame className="w-4 h-4 mr-2 text-red-500" />
+                                  <Flame className="w-4 h-4 mr-2 text-blue-500" />
                                   Fire Prevention
                                 </div>
                               </SelectItem>
-                              <SelectItem value="marinas" className="focus:bg-gray-800 focus:text-amber-400">
+                              <SelectItem value="marinas" className="focus:bg-gray-800 focus:text-blue-400">
                                 <div className="flex items-center">
                                   <Ship className="w-4 h-4 mr-2 text-blue-500" />
                                   Marinas
                                 </div>
                               </SelectItem>
-                              <SelectItem value="pools" className="focus:bg-gray-800 focus:text-amber-400">
+                              <SelectItem value="pools" className="focus:bg-gray-800 focus:text-blue-400">
                                 <div className="flex items-center">
                                   <Droplets className="w-4 h-4 mr-2 text-blue-400" />
                                   Pools
                                 </div>
                               </SelectItem>
-                              <SelectItem value="construction" className="focus:bg-gray-800 focus:text-amber-400">
+                              <SelectItem value="construction" className="focus:bg-gray-800 focus:text-blue-400">
                                 <div className="flex items-center">
-                                  <Building className="w-4 h-4 mr-2 text-yellow-500" />
+                                  <Building className="w-4 h-4 mr-2 text-blue-500" />
                                   Construction
                                 </div>
                               </SelectItem>
-                              <SelectItem value="mobile-home" className="focus:bg-gray-800 focus:text-amber-400">
+                              <SelectItem value="mobile-home" className="focus:bg-gray-800 focus:text-blue-400">
                                 <div className="flex items-center">
-                                  <Home className="w-4 h-4 mr-2 text-green-500" />
+                                  <Home className="w-4 h-4 mr-2 text-blue-500" />
                                   Mobile Home
                                 </div>
                               </SelectItem>
-                              <SelectItem value="municipality" className="focus:bg-gray-800 focus:text-amber-400">
+                              <SelectItem value="municipality" className="focus:bg-gray-800 focus:text-blue-400">
                                 <div className="flex items-center">
-                                  <Landmark className="w-4 h-4 mr-2 text-amber-500" />
+                                  <Landmark className="w-4 h-4 mr-2 text-blue-500" />
                                   Municipality
                                 </div>
                               </SelectItem>
@@ -344,7 +344,7 @@ const PitchDeckSlider = () => {
                 {/* Progress bar */}
                 <div className="absolute bottom-0 left-0 w-full h-1 bg-gray-800">
                   <motion.div
-                    className="h-full bg-gradient-to-r from-amber-600 to-red-600"
+                    className="h-full bg-gradient-to-r from-blue-600 to-gray-600"
                     initial={{ width: `${(currentSlide / (totalSlides - 1)) * 100}%` }}
                     animate={{ width: `${(currentSlide / (totalSlides - 1)) * 100}%` }}
                     transition={{ duration: 0.3 }}
