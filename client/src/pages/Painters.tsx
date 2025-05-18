@@ -149,7 +149,7 @@ const Painters = () => {
                 </div>
                 
                 <div className="relative mb-6">
-                  <div className="inline-block mb-3 bg-gradient-to-r from-red-600 to-red-500 text-white text-xs py-1 px-2 rounded-md transform rotate-3 shadow-lg border border-red-400/40">
+                  <div className="inline-block mb-2 bg-gradient-to-r from-red-600 to-red-500 text-white text-xs py-1 px-2 rounded-md transform rotate-3 shadow-lg border border-red-400/40">
                     PREVIOUSLY A GOVERNMENT RESOURCE
                   </div>
                   <motion.h1 
