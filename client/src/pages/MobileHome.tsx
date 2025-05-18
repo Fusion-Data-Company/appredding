@@ -437,52 +437,79 @@ const MobileHome = () => {
                     </p>
                     
                     <div className="space-y-6 mb-8">
-                      <div className="relative group p-5 bg-gradient-to-br from-black/60 to-gray-900/60 border border-green-500/20 rounded-xl transition-all duration-300 hover:border-green-500/40">
-                        <div className="absolute -inset-px bg-gradient-to-r from-green-600/10 via-transparent to-green-600/10 rounded-xl opacity-50 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
-                        <div className="relative flex gap-4">
-                          <div className="flex-shrink-0 mt-1">
-                            <div className="p-2 bg-green-900/50 rounded-lg border border-green-500/30">
-                              <SunIcon className="w-6 h-6 text-green-400" />
+                      <div className="relative group p-6 bg-gradient-to-br from-black/80 to-gray-900/80 border border-green-500/30 rounded-xl transition-all duration-300 hover:border-green-500/50 shadow-[0_4px_15px_rgba(0,0,0,0.3)]">
+                        {/* Enhanced layered glows and effects */}
+                        <div className="absolute -inset-px bg-gradient-to-r from-green-600/20 via-transparent to-green-600/20 rounded-xl opacity-70 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
+                        <div className="absolute -inset-0.5 bg-gradient-to-br from-green-500/5 to-green-700/5 rounded-xl opacity-50 group-hover:opacity-80 transition-opacity duration-300"></div>
+                        
+                        <div className="relative flex gap-5">
+                          <div className="flex-shrink-0">
+                            {/* Elite enterprise icon styling */}
+                            <div className="relative">
+                              <div className="absolute -inset-2 bg-green-500/20 rounded-full blur-md opacity-80"></div>
+                              <div className="relative h-14 w-14 flex items-center justify-center bg-gradient-to-br from-green-800 to-green-900 rounded-xl border border-green-400/30 shadow-[0_0_15px_rgba(74,222,128,0.3)]">
+                                <div className="absolute inset-0.5 bg-gradient-to-br from-green-700 to-green-800 rounded-[0.65rem] opacity-50"></div>
+                                <div className="absolute h-full w-1/2 bg-gradient-to-r from-transparent via-green-400/20 to-transparent skew-x-[-20deg] animate-shimmer-slow"></div>
+                                <SunIcon className="w-7 h-7 text-green-300 relative z-10 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]" />
+                              </div>
                             </div>
                           </div>
                           <div>
-                            <h3 className="font-bold text-xl text-green-400 mb-2">Thermal Barrier Technology</h3>
-                            <p className="text-gray-200">
-                              Our ceramic microsphere coating creates a powerful thermal barrier that reduces heat transfer by up to 92%. Unlike conventional insulation that degrades quickly in mobile homes, our coating maintains its effectiveness for decades, providing consistent temperature control throughout your home while dramatically cutting energy consumption.
+                            <h3 className="font-bold text-xl text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-green-200 mb-3" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.8)" }}>Thermal Barrier Technology</h3>
+                            <p className="text-gray-200 leading-relaxed">
+                              Our ceramic microsphere coating creates a powerful thermal barrier that reduces heat transfer by up to <span className="text-green-300 font-medium">92%</span>. Unlike conventional insulation that degrades quickly in mobile homes, our coating maintains its effectiveness for decades, providing consistent temperature control throughout your home while dramatically cutting energy consumption.
                             </p>
                           </div>
                         </div>
                       </div>
                       
-                      <div className="relative group p-5 bg-gradient-to-br from-black/60 to-gray-900/60 border border-green-500/20 rounded-xl transition-all duration-300 hover:border-green-500/40">
-                        <div className="absolute -inset-px bg-gradient-to-r from-green-600/10 via-transparent to-green-600/10 rounded-xl opacity-50 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
-                        <div className="relative flex gap-4">
-                          <div className="flex-shrink-0 mt-1">
-                            <div className="p-2 bg-green-900/50 rounded-lg border border-green-500/30">
-                              <Shield className="w-6 h-6 text-green-400" />
+                      <div className="relative group p-6 bg-gradient-to-br from-black/80 to-gray-900/80 border border-green-500/30 rounded-xl transition-all duration-300 hover:border-green-500/50 shadow-[0_4px_15px_rgba(0,0,0,0.3)]">
+                        {/* Enhanced layered glows and effects */}
+                        <div className="absolute -inset-px bg-gradient-to-r from-green-600/20 via-transparent to-green-600/20 rounded-xl opacity-70 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
+                        <div className="absolute -inset-0.5 bg-gradient-to-br from-green-500/5 to-green-700/5 rounded-xl opacity-50 group-hover:opacity-80 transition-opacity duration-300"></div>
+                        
+                        <div className="relative flex gap-5">
+                          <div className="flex-shrink-0">
+                            {/* Elite enterprise icon styling */}
+                            <div className="relative">
+                              <div className="absolute -inset-2 bg-green-500/20 rounded-full blur-md opacity-80"></div>
+                              <div className="relative h-14 w-14 flex items-center justify-center bg-gradient-to-br from-green-800 to-green-900 rounded-xl border border-green-400/30 shadow-[0_0_15px_rgba(74,222,128,0.3)]">
+                                <div className="absolute inset-0.5 bg-gradient-to-br from-green-700 to-green-800 rounded-[0.65rem] opacity-50"></div>
+                                <div className="absolute h-full w-1/2 bg-gradient-to-r from-transparent via-green-400/20 to-transparent skew-x-[-20deg] animate-shimmer-slow" style={{ animationDelay: '0.3s' }}></div>
+                                <Shield className="w-7 h-7 text-green-300 relative z-10 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]" />
+                              </div>
                             </div>
                           </div>
                           <div>
-                            <h3 className="font-bold text-xl text-green-400 mb-2">Fire-Rated Protection</h3>
-                            <p className="text-gray-200">
-                              Praetorian Smart-Coat is certified Class A fire resistant (ASTM E84), creating a non-combustible barrier that protects your home from fire hazards. This certification not only improves safety but can reduce insurance premiums by up to 17% annually. In mobile home parks where fire can spread rapidly, this protection is invaluable.
+                            <h3 className="font-bold text-xl text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-green-200 mb-3" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.8)" }}>Fire-Rated Protection</h3>
+                            <p className="text-gray-200 leading-relaxed">
+                              Praetorian Smart-Coat is certified Class A fire resistant (ASTM E84), creating a non-combustible barrier that protects your home from fire hazards. This certification not only improves safety but can reduce insurance premiums by up to <span className="text-green-300 font-medium">17% annually</span>. In mobile home parks where fire can spread rapidly, this protection is invaluable.
                             </p>
                           </div>
                         </div>
                       </div>
                       
-                      <div className="relative group p-5 bg-gradient-to-br from-black/60 to-gray-900/60 border border-green-500/20 rounded-xl transition-all duration-300 hover:border-green-500/40">
-                        <div className="absolute -inset-px bg-gradient-to-r from-green-600/10 via-transparent to-green-600/10 rounded-xl opacity-50 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
-                        <div className="relative flex gap-4">
-                          <div className="flex-shrink-0 mt-1">
-                            <div className="p-2 bg-green-900/50 rounded-lg border border-green-500/30">
-                              <DropletIcon className="w-6 h-6 text-green-400" />
+                      <div className="relative group p-6 bg-gradient-to-br from-black/80 to-gray-900/80 border border-green-500/30 rounded-xl transition-all duration-300 hover:border-green-500/50 shadow-[0_4px_15px_rgba(0,0,0,0.3)]">
+                        {/* Enhanced layered glows and effects */}
+                        <div className="absolute -inset-px bg-gradient-to-r from-green-600/20 via-transparent to-green-600/20 rounded-xl opacity-70 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
+                        <div className="absolute -inset-0.5 bg-gradient-to-br from-green-500/5 to-green-700/5 rounded-xl opacity-50 group-hover:opacity-80 transition-opacity duration-300"></div>
+                        
+                        <div className="relative flex gap-5">
+                          <div className="flex-shrink-0">
+                            {/* Elite enterprise icon styling */}
+                            <div className="relative">
+                              <div className="absolute -inset-2 bg-green-500/20 rounded-full blur-md opacity-80"></div>
+                              <div className="relative h-14 w-14 flex items-center justify-center bg-gradient-to-br from-green-800 to-green-900 rounded-xl border border-green-400/30 shadow-[0_0_15px_rgba(74,222,128,0.3)]">
+                                <div className="absolute inset-0.5 bg-gradient-to-br from-green-700 to-green-800 rounded-[0.65rem] opacity-50"></div>
+                                <div className="absolute h-full w-1/2 bg-gradient-to-r from-transparent via-green-400/20 to-transparent skew-x-[-20deg] animate-shimmer-slow" style={{ animationDelay: '0.6s' }}></div>
+                                <DropletIcon className="w-7 h-7 text-green-300 relative z-10 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]" />
+                              </div>
                             </div>
                           </div>
                           <div>
-                            <h3 className="font-bold text-xl text-green-400 mb-2">Advanced UV & Weather Protection</h3>
-                            <p className="text-gray-200">
-                              Our coating includes advanced UV inhibitors that shield your mobile home's exterior from sun damage, preventing the accelerated deterioration that plagues most mobile homes. The waterproof, flexible barrier also protects against moisture intrusion and mold growth, extending your home's exterior life by 15+ years while maintaining its appearance.
+                            <h3 className="font-bold text-xl text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-green-200 mb-3" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.8)" }}>Advanced UV & Weather Protection</h3>
+                            <p className="text-gray-200 leading-relaxed">
+                              Our coating includes advanced UV inhibitors that shield your mobile home's exterior from sun damage, preventing the accelerated deterioration that plagues most mobile homes. The waterproof, flexible barrier also protects against moisture intrusion and mold growth, extending your home's exterior life by <span className="text-green-300 font-medium">15+ years</span> while maintaining its appearance.
                             </p>
                           </div>
                         </div>
