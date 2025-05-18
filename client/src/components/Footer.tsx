@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'wouter';
 import { Shield, Flame, Ship, LifeBuoy, Building2, Home, ShieldCheck, Mail, Users, Phone, FileText, BarChart3, HeartPulse } from 'lucide-react';
 import praetorianShield from "@assets/Untitled design (6).png";
 
