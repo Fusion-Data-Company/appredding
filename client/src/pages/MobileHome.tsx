@@ -845,17 +845,23 @@ const MobileHome = () => {
                         Results based on average data for similar mobile homes in your climate zone. Contact us for a precise custom assessment.
                       </div>
                       
-                      <PremiumCartButton
-                        onClick={handleShowRegistrationForm}
-                        size="lg"
-                        className="w-full mt-4 transform hover:scale-105 transition-transform duration-300"
-                        glowEffect={true}
-                      >
-                        <div className="flex items-center justify-center">
-                          <CircleDollarSign className="w-6 h-6 mr-3 text-amber-300" />
-                          Get Detailed ROI Report
+                      {/* Ambient glow wrapped around the button without affecting the button itself */}
+                      <div className="relative mt-4">
+                        <div className="absolute -inset-3 bg-blue-600/30 blur-xl rounded-xl opacity-80 transition-opacity duration-500"></div>
+                        <div className="relative">
+                          <PremiumCartButton
+                            onClick={handleShowRegistrationForm}
+                            size="lg"
+                            className="w-full transform hover:scale-105 transition-transform duration-300"
+                            glowEffect={true}
+                          >
+                            <div className="flex items-center justify-center">
+                              <CircleDollarSign className="w-6 h-6 mr-3 text-amber-300" />
+                              Get Detailed ROI Report
+                            </div>
+                          </PremiumCartButton>
                         </div>
-                      </PremiumCartButton>
+                      </div>
                     </div>
                   </div>
                 </div>
