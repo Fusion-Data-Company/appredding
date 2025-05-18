@@ -362,7 +362,7 @@ const MobileHome = () => {
                         </div>
                         <div>
                           <h3 className="text-xl font-semibold mb-2 text-white drop-shadow-[0_1px_2px_rgba(249,115,22,0.5)]">Final Inspection & Documentation</h3>
-                          <p className="text-orange-100">Comprehensive inspection with thermal imaging verification and warranty documentation including 20-year performance guarantee</p>
+                          <p className="text-orange-100">Comprehensive inspection with thermal imaging verification and warranty documentation including 10-year performance guarantee</p>
                         </div>
                       </div>
                     </div>

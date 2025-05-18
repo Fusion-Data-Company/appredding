@@ -585,7 +585,7 @@ const Pools = () => {
                       </li>
                       <li className="flex items-start gap-2">
                         <CheckIcon className="h-5 w-5 text-blue-500 mt-0.5 flex-shrink-0" />
-                        <span><span className="font-bold text-white">Lifespan:</span> <span className="text-gray-300">12-15 years with proper maintenance</span></span>
+                        <span><span className="font-bold text-white">Lifespan:</span> <span className="text-gray-300">8-10 years with proper maintenance</span></span>
                       </li>
                     </ul>
                     <div className="relative">
