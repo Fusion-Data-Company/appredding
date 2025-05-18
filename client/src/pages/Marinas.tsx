@@ -250,7 +250,84 @@ const Marinas = () => {
                 </div>
                 
                 {/* Enhanced ROI-focused stats with premium green styling */}
-                <div className="relative mb-6">
+                <div className="relative mb-10">
+                  {/* SANDLER STAGE 2: PRESENT SOLUTIONS */}
+                  <div className="relative bg-gradient-to-br from-black/70 to-gray-900/70 border border-green-500/30 rounded-xl p-6 backdrop-blur-sm mb-10">
+                    <div className="absolute -top-4 left-8 px-6 py-1 bg-gradient-to-r from-green-900/90 to-green-700/90 rounded-full border border-green-400/30 shadow-lg shadow-green-900/20">
+                      <span className="text-green-200 font-semibold">PROVEN SOLUTION</span>
+                    </div>
+                    
+                    <h2 className="text-2xl md:text-3xl text-white font-bold mt-4 mb-6 bg-clip-text text-transparent bg-gradient-to-r from-green-200 to-emerald-100 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
+                      Praetorian Smart-Coat (Marine Grade) – Advanced Protection System
+                    </h2>
+                    
+                    <p className="text-lg text-white leading-relaxed mb-6">
+                      This isn't an off-the-shelf paint – it's a military-grade, ABS-certified coating system that delivers on all fronts:
+                    </p>
+                    
+                    <div className="space-y-6 mb-8">
+                      <div className="relative group p-5 bg-gradient-to-br from-black/60 to-gray-900/60 border border-green-500/20 rounded-xl transition-all duration-300 hover:border-green-500/40">
+                        <div className="absolute -inset-px bg-gradient-to-r from-green-600/10 via-transparent to-green-600/10 rounded-xl opacity-50 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
+                        <div className="relative flex gap-4">
+                          <div className="flex-shrink-0 mt-1">
+                            <div className="p-2 bg-green-900/50 rounded-lg border border-green-500/30">
+                              <Anchor className="w-6 h-6 text-green-400" />
+                            </div>
+                          </div>
+                          <div>
+                            <h3 className="font-bold text-xl text-green-400 mb-2">Unmatched Corrosion Resistance</h3>
+                            <p className="text-gray-200">
+                              Praetorian forms an impermeable ceramic seal over metal, concrete, and wood. It meets or exceeds American Bureau of Shipping requirements (ABS Certification #MC-1372) for salt spray, weathering, and adhesion. That means no more rapid rusting on your steel beams or fittings – our coating blocks salt and moisture intrusion to halt corrosion in its tracks.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div className="relative group p-5 bg-gradient-to-br from-black/60 to-gray-900/60 border border-green-500/20 rounded-xl transition-all duration-300 hover:border-green-500/40">
+                        <div className="absolute -inset-px bg-gradient-to-r from-green-600/10 via-transparent to-green-600/10 rounded-xl opacity-50 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
+                        <div className="relative flex gap-4">
+                          <div className="flex-shrink-0 mt-1">
+                            <div className="p-2 bg-green-900/50 rounded-lg border border-green-500/30">
+                              <Sun className="w-6 h-6 text-green-400" />
+                            </div>
+                          </div>
+                          <div>
+                            <h3 className="font-bold text-xl text-green-400 mb-2">Solar Reflective & Cool to the Touch</h3>
+                            <p className="text-gray-200">
+                              Our thermal reflective coating keeps surfaces dramatically cooler. Tests show Praetorian-coated panels stay up to 52°F (29°C) cooler in peak summer sun thanks to 89% solar reflectance. Metals and decks that once seared skin are now safe to touch, even under a blazing sky. This improves comfort and safety while reducing thermal expansion stress on your structures.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div className="relative group p-5 bg-gradient-to-br from-black/60 to-gray-900/60 border border-green-500/20 rounded-xl transition-all duration-300 hover:border-green-500/40">
+                        <div className="absolute -inset-px bg-gradient-to-r from-green-600/10 via-transparent to-green-600/10 rounded-xl opacity-50 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
+                        <div className="relative flex gap-4">
+                          <div className="flex-shrink-0 mt-1">
+                            <div className="p-2 bg-green-900/50 rounded-lg border border-green-500/30">
+                              <ShieldCheck className="w-6 h-6 text-green-400" />
+                            </div>
+                          </div>
+                          <div>
+                            <h3 className="font-bold text-xl text-green-400 mb-2">Fire and Spark Safe</h3>
+                            <p className="text-gray-200">
+                              Unlikely as it may seem, fire is a real threat around marinas (think fuel docks, welding work, or electrical shorts on boats). Praetorian Smart-Coat brings a Class A (0/0) fire rating and even SOLAS-compliance for maritime fire safety. Our ceramic layer simply will not ignite or spread flames. If an accident sparks a dock fire, Praetorian provides a critical non-flammable barrier.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <p className="text-lg text-white leading-relaxed italic">
+                      From busy marinas to remote oil platforms, Praetorian Smart-Coat creates a 360° shield around your assets: fighting corrosion, deflecting sun damage, and guarding against fire, all at once.
+                    </p>
+                  </div>
+                  
+                  {/* SANDLER STAGE 3: HIGHLIGHT BENEFITS WITH STATS */}
+                  <h2 className="text-2xl md:text-3xl text-white font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-200 to-cyan-100 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
+                    Measurable Returns On Your Investment
+                  </h2>
+                  
                   {/* Enhanced green ambient glow for ROI section */}
                   <div className="absolute -inset-4 bg-green-500/30 rounded-xl blur-3xl opacity-70 z-0"></div>
                   <div className="absolute -inset-8 bg-green-500/20 rounded-xl blur-2xl opacity-60 z-0 animate-pulse-slow"></div>
@@ -287,6 +364,59 @@ const Marinas = () => {
                       <span className="text-blue-200 text-xs">Years Protection</span>
                     </div>
                   </div>
+                </div>
+                
+                {/* Additional benefits section */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                  <div className="relative group p-5 bg-gradient-to-br from-black/60 to-gray-900/60 border border-blue-500/20 rounded-xl transition-all duration-300 hover:border-blue-500/40">
+                    <div className="absolute -inset-px bg-gradient-to-r from-blue-600/10 via-transparent to-blue-600/10 rounded-xl opacity-50 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
+                    <div className="relative">
+                      <div className="mb-3">
+                        <TrendingUp className="w-8 h-8 text-blue-400" />
+                      </div>
+                      <h3 className="font-bold text-xl text-blue-400 mb-2">Structural Longevity & Safety</h3>
+                      <p className="text-gray-200">
+                        By stopping rust and rot, Praetorian Smart-Coat extends the usable life of docks, pilings, ships, and storage tanks. Your structures stay stronger for longer, reducing the risk of costly failures or accidents. This is not just about looks – it's about avoiding dangerous infrastructure collapses.
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="relative group p-5 bg-gradient-to-br from-black/60 to-gray-900/60 border border-blue-500/20 rounded-xl transition-all duration-300 hover:border-blue-500/40">
+                    <div className="absolute -inset-px bg-gradient-to-r from-blue-600/10 via-transparent to-blue-600/10 rounded-xl opacity-50 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
+                    <div className="relative">
+                      <div className="mb-3">
+                        <Waves className="w-8 h-8 text-blue-400" />
+                      </div>
+                      <h3 className="font-bold text-xl text-blue-400 mb-2">Improved User Experience</h3>
+                      <p className="text-gray-200">
+                        Cooler decks and rails mean a more enjoyable environment for boat owners, guests, and workers. No more "hot foot" problem on deck surfaces – even on 100°F days, a Praetorian-coated deck stays comfortable to walk on. And the coating's clean, high-end finish keeps your marina looking pristine.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* SANDLER STAGE 4: FUNNEL CLOSE + REGISTRATION */}
+                <div className="mt-8 p-6 relative bg-gradient-to-br from-black/60 to-gray-900/60 border-2 border-green-600/40 rounded-xl transition-all duration-300 mb-8">
+                  <div className="absolute -inset-px bg-gradient-to-r from-green-600/10 via-transparent to-green-600/10 rounded-xl opacity-70 blur-sm"></div>
+                  
+                  <h3 className="text-2xl font-bold text-white mb-4 text-center">Protect Your Marina Investment</h3>
+                  
+                  <p className="text-lg text-gray-100 mb-6 text-center">
+                    Don't let corrosion and harsh elements degrade your valuable marine infrastructure. With Praetorian Smart-Coat, you can dramatically extend the life of your assets while reducing maintenance costs.
+                  </p>
+                  
+                  <div className="flex justify-center mb-4">
+                    <Button
+                      onClick={() => document.getElementById('marineProfileForm')?.scrollIntoView({ behavior: 'smooth' })}
+                      className="bg-gradient-to-br from-green-600 to-green-700 hover:from-green-500 hover:to-green-600 text-white font-bold py-3 px-8 rounded-full text-lg transform transition-all duration-300 hover:scale-105 shadow-xl shadow-green-900/30 border border-green-500/50"
+                    >
+                      Get Your Marine Protection Plan
+                    </Button>
+                  </div>
+                  
+                  <p className="text-sm text-gray-300 text-center">
+                    Our marine coating specialists will assess your facility's needs, recommend the optimal protection system, and provide a comprehensive quote for your specific application.
+                  </p>
                 </div>
                 
                 <p className="text-xl text-white mb-4">
