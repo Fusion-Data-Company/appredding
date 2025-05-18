@@ -489,20 +489,20 @@ const ConstructionPage = () => {
               </div>
             </div>
             
-            {/* Financial Impact Section */}
+            {/* SANDLER STAGE 3: HIGHLIGHT BENEFITS */}
             <div className="max-w-5xl mx-auto mb-16">
               <div className="relative rounded-xl overflow-hidden">
-                {/* Advanced enterprise-grade backdrop with layered effects */}
+                <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/20 via-blue-500/20 to-blue-600/20 rounded-xl blur-md opacity-80"></div>
                 <div className="absolute inset-0 bg-gradient-to-b from-gray-900/90 via-gray-950/95 to-black/95 rounded-xl border border-blue-500/30 shadow-[0_0_30px_rgba(59,130,246,0.15)]"></div>
                 
                 <div className="relative p-8 lg:p-10">
-                  {/* Enhanced section header with enterprise-grade styling */}
+                  <div className="absolute -top-4 left-8 px-6 py-1 bg-gradient-to-r from-blue-900/90 to-blue-700/90 rounded-full border border-blue-400/30 shadow-lg shadow-blue-900/20">
+                    <span className="text-blue-200 font-semibold">MEASURABLE BENEFITS</span>
+                  </div>
+                  
                   <div className="mb-8 text-center">
-                    <h2 className="text-3xl font-bold text-white mb-4 relative">
-                      <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-orange-100 to-white
-                        [text-shadow:0_1px_2px_rgba(0,0,0,0.8),0_0_15px_rgba(234,88,12,0.3)]">
-                        Financial Impact: Premium Construction Solutions
-                      </span>
+                    <h2 className="text-2xl md:text-3xl text-white font-bold mt-4 mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-200 to-cyan-100 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
+                      Real-World ROI for Construction Projects
                     </h2>
                   </div>
                   
@@ -708,8 +708,58 @@ const ConstructionPage = () => {
                     </div>
                   </div>
                   
-                  {/* Enhanced CTA */}
-                  <div className="text-center mt-10">
+                  {/* SANDLER STAGE 4: FUNNEL CLOSE + REGISTRATION */}
+                  <div className="mt-10 p-6 relative bg-gradient-to-br from-black/60 to-gray-900/60 border-2 border-green-600/40 rounded-xl transition-all duration-300 mb-6">
+                    <div className="absolute -inset-px bg-gradient-to-r from-green-600/10 via-transparent to-green-600/10 rounded-xl opacity-70 blur-sm"></div>
+                    
+                    <h3 className="text-2xl font-bold text-white mb-4 text-center">Transform Your Construction Results Today</h3>
+                    
+                    <p className="text-lg text-gray-100 mb-6 text-center">
+                      Stop watching your construction projects' performance deteriorate while maintenance costs skyrocket. Praetorian SmartCoat gives you superior, long-lasting protection while delivering measurable ROI that will transform your construction firm's profitability and reputation.
+                    </p>
+                    
+                    <div className="grid md:grid-cols-3 gap-4 mb-6">
+                      <div className="bg-black/50 p-4 rounded-lg border border-green-500/30">
+                        <div className="flex items-center justify-center mb-2">
+                          <CircleDollarSign className="h-8 w-8 text-green-400" />
+                        </div>
+                        <h4 className="font-bold text-white text-center">Superior ROI</h4>
+                        <p className="text-sm text-gray-300 text-center">Documented 242% return over 3 years</p>
+                      </div>
+                      
+                      <div className="bg-black/50 p-4 rounded-lg border border-green-500/30">
+                        <div className="flex items-center justify-center mb-2">
+                          <CheckCircle className="h-8 w-8 text-green-400" />
+                        </div>
+                        <h4 className="font-bold text-white text-center">Proven Results</h4>
+                        <p className="text-sm text-gray-300 text-center">23.7% fewer warranty claims</p>
+                      </div>
+                      
+                      <div className="bg-black/50 p-4 rounded-lg border border-green-500/30">
+                        <div className="flex items-center justify-center mb-2">
+                          <Building className="h-8 w-8 text-green-400" />
+                        </div>
+                        <h4 className="font-bold text-white text-center">Long-Term Protection</h4>
+                        <p className="text-sm text-gray-300 text-center">68.7% lifespan extension</p>
+                      </div>
+                    </div>
+                    
+                    <div className="flex justify-center mb-4">
+                      <GradientButton
+                        onClick={handleShowRegistrationForm}
+                        className="text-lg font-bold py-3 px-8 rounded-full transform transition-all duration-300 hover:scale-105"
+                      >
+                        Get Your Custom ROI Analysis
+                      </GradientButton>
+                    </div>
+                    
+                    <p className="text-sm text-gray-300 text-center">
+                      Our construction specialists will assess your specific needs, provide a detailed cost analysis showing your expected ROI, and schedule a product demonstration – all at no obligation.
+                    </p>
+                  </div>
+                  
+                  {/* Original CTA as backup */}
+                  <div className="text-center mt-6 hidden">
                     <div className="relative inline-block">
                       <div className="absolute -inset-2 bg-gradient-to-r from-blue-600/20 via-blue-600/30 to-blue-600/20 rounded-full blur-xl opacity-70"></div>
                       <GradientButton 
