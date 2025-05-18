@@ -170,8 +170,25 @@ const Painters = () => {
                   className="mb-8"
                 >
                   <p className="text-white text-xl mb-6">
-                    <span className="text-red-400 font-semibold">Your painting business is leaving money on the table</span> with every job while facing mounting challenges:
+                    <span className="text-red-400 font-semibold">Have YOU been struggling with these painting business challenges?</span>
                   </p>
+                  
+                  <div className="bg-black/30 border border-red-600/20 rounded-lg p-4 mb-6 text-left">
+                    <ul className="space-y-3">
+                      <li className="flex items-start gap-3">
+                        <span className="text-red-400 font-bold text-lg mt-0.5">?</span>
+                        <p className="text-gray-300">Have you ever lost a bid because you couldn't justify charging premium rates with standard paint products?</p>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <span className="text-red-400 font-bold text-lg mt-0.5">?</span>
+                        <p className="text-gray-300">Do you find yourself making constant callbacks for touch-ups that eat into your profits?</p>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <span className="text-red-400 font-bold text-lg mt-0.5">?</span>
+                        <p className="text-gray-300">Are you struggling to differentiate your painting services in a crowded market?</p>
+                      </li>
+                    </ul>
+                  </div>
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left mt-8">
                     <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-4 rounded-lg border border-red-500/30 flex items-start space-x-3">
@@ -238,35 +255,39 @@ const Painters = () => {
             
             {/* Solution Section (Relief) - Middle of Funnel */}
             <div id="solution" className="max-w-4xl mx-auto text-center mb-10 md:mb-16 pt-8 relative">
-              <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/40 via-blue-600/40 to-orange-600/40 rounded-xl blur-xl opacity-70 animate-pulse-slow"></div>
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/80 via-blue-500/80 to-orange-500/80 rounded-xl blur-md opacity-90"></div>
+              <div className="absolute -inset-1 bg-gradient-to-r from-green-600/40 via-green-600/40 to-green-600/40 rounded-xl blur-xl opacity-70 animate-pulse-slow"></div>
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-green-500/80 via-green-500/80 to-green-500/80 rounded-xl blur-md opacity-90"></div>
               
-              <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 p-8 rounded-xl z-10 border border-orange-500/30 overflow-hidden hover:shadow-[0_0_25px_rgba(249,115,22,0.3)] transition-shadow duration-500">
+              <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 p-8 rounded-xl z-10 border border-green-500/30 overflow-hidden hover:shadow-[0_0_25px_rgba(34,197,94,0.3)] transition-shadow duration-500">
                 {/* Corner accent elements */}
                 <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none">
-                  <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-orange-500/70 rounded-tl-lg"></div>
-                  <div className="absolute top-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+                  <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-green-500/70 rounded-tl-lg"></div>
+                  <div className="absolute top-0 left-0 w-3 h-3 bg-green-500/50 rounded-full blur-[2px]"></div>
                 </div>
                 <div className="absolute top-0 right-0 w-16 h-16 pointer-events-none">
-                  <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-blue-500/70 rounded-tr-lg"></div>
-                  <div className="absolute top-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
+                  <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-green-500/70 rounded-tr-lg"></div>
+                  <div className="absolute top-0 right-0 w-3 h-3 bg-green-500/50 rounded-full blur-[2px]"></div>
                 </div>
                 <div className="absolute bottom-0 left-0 w-16 h-16 pointer-events-none">
-                  <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-blue-500/70 rounded-bl-lg"></div>
-                  <div className="absolute bottom-0 left-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
+                  <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-green-500/70 rounded-bl-lg"></div>
+                  <div className="absolute bottom-0 left-0 w-3 h-3 bg-green-500/50 rounded-full blur-[2px]"></div>
                 </div>
                 <div className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none">
-                  <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-orange-500/70 rounded-br-lg"></div>
-                  <div className="absolute bottom-0 right-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+                  <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-green-500/70 rounded-br-lg"></div>
+                  <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-500/50 rounded-full blur-[2px]"></div>
+                </div>
+                
+                <div className="inline-block mb-4 bg-gradient-to-r from-green-600 to-green-500 text-white text-xs py-1 px-2 rounded-md transform rotate-1 shadow-lg border border-green-400/40">
+                  THE SOLUTION YOU'VE BEEN LOOKING FOR
                 </div>
                 
                 <motion.h1 
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.7 }}
-                  className="text-3xl sm:text-4xl md:text-5xl mb-4 md:mb-6 text-white drop-shadow-[0_1px_3px_rgba(59,130,246,0.6)]"
+                  className="text-3xl sm:text-4xl md:text-5xl mb-4 md:mb-6 text-white drop-shadow-[0_1px_3px_rgba(34,197,94,0.6)]"
                 >
-                  15-25% Increased Painting Profit Margin
+                  <span className="text-green-400">Boost Your Painting Profit</span> by 15-25%
                 </motion.h1>
                 
                 {/* Enhanced ROI-focused stats in enterprise grid format */}
