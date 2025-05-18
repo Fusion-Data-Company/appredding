@@ -279,20 +279,20 @@ export const ExecutiveSummary = () => {
               <div>
                 <div className="flex justify-between mb-2">
                   <span className="text-white">Industrial:</span>
-                  <span className="text-green-300 font-mono">1.2 years</span>
+                  <span className="text-green-300 font-mono">2.5 years</span>
                 </div>
                 <div className="h-2 w-full bg-blue-900/50 rounded-full">
-                  <div className="h-2 rounded-full bg-gradient-to-r from-green-500 to-green-300" style={{width: "25%"}}></div>
+                  <div className="h-2 rounded-full bg-gradient-to-r from-green-500 to-green-300" style={{width: "40%"}}></div>
                 </div>
               </div>
               
               <div>
                 <div className="flex justify-between mb-2">
                   <span className="text-white">Commercial:</span>
-                  <span className="text-green-300 font-mono">&lt;3 years</span>
+                  <span className="text-green-300 font-mono">3-4 years</span>
                 </div>
                 <div className="h-2 w-full bg-blue-900/50 rounded-full">
-                  <div className="h-2 rounded-full bg-gradient-to-r from-green-500 to-green-300" style={{width: "60%"}}></div>
+                  <div className="h-2 rounded-full bg-gradient-to-r from-green-500 to-green-300" style={{width: "50%"}}></div>
                 </div>
               </div>
             </div>
@@ -306,11 +306,11 @@ export const ExecutiveSummary = () => {
             <ul className="space-y-3">
               <li className="flex items-center gap-2">
                 <div className="w-2 h-2 rounded-full bg-blue-400"></div>
-                <span className="text-white">UL, ASTM, ISO, KSF</span>
+                <span className="text-white">ASTM E108 / UL 790 Class A</span>
               </li>
               <li className="flex items-center gap-2">
                 <div className="w-2 h-2 rounded-full bg-gradient-to-r from-orange-400 to-blue-400"></div>
-                <span className="bg-gradient-to-r from-orange-300 to-blue-300 bg-clip-text text-transparent font-semibold">NASA flame tests</span>
+                <span className="bg-gradient-to-r from-orange-300 to-blue-300 bg-clip-text text-transparent font-semibold">Laboratory tested for thermal performance</span>
               </li>
               <li className="flex items-center gap-2">
                 <div className="w-2 h-2 rounded-full bg-green-400"></div>
@@ -318,11 +318,11 @@ export const ExecutiveSummary = () => {
               </li>
               <li className="flex items-center gap-2">
                 <div className="w-2 h-2 rounded-full bg-blue-400"></div>
-                <span className="text-white">ABS Marine Approved</span>
+                <span className="text-white">Waterproof Rating: 10-15 perms</span>
               </li>
               <li className="flex items-center gap-2">
                 <div className="w-2 h-2 rounded-full bg-green-400"></div>
-                <span className="text-white">Cool Roof Rating Council</span>
+                <span className="text-white">Solar Reflectance Index (SRI) Rated</span>
               </li>
             </ul>
             

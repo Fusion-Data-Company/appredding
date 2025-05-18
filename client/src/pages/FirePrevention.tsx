@@ -250,13 +250,13 @@ const FirePrevention = () => {
                   <div className="relative bg-gradient-to-br from-black/70 to-gray-900/70 border border-orange-500/30 rounded-xl p-6 backdrop-blur-sm">
                     {/* Pain point with enhanced typography and visual hierarchy */}
                     <p className="text-xl md:text-2xl text-white leading-relaxed font-medium mb-6">
-                      <span className="text-orange-300 font-bold">California wildfire insurance denials continue to increase</span> – with property values affected in high-risk zones and <span className="text-red-400">traditional fire protection methods showing limitations</span>. Our ceramic microsphere technology offers documented protection benefits:
+                      <span className="text-orange-300 font-bold">California wildfire insurance challenges continue to increase</span> – with property values affected in high-risk zones and <span className="text-red-400">traditional fire protection methods requiring supplementation</span>. Our ceramic-based coating offers documented protection benefits:
                     </p>
                     
                     <div className="flex items-center mb-6">
                       <div className="h-6 w-1 bg-gradient-to-b from-orange-600 to-red-600 rounded-full mr-3"></div>
                       <p className="text-base text-gray-300">
-                        The ceramic-based coating system was previously available only to <span className="text-blue-300">government facilities, military buildings, and critical infrastructure</span>. This advanced wildfire protection technology is now available for residential and commercial property owners.
+                        The ceramic-based coating system has been used in <span className="text-blue-300">various industrial applications and infrastructure projects</span>. This advanced thermal protection technology is now available for residential and commercial property owners.
                       </p>
                     </div>
                     
