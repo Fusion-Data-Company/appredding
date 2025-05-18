@@ -327,7 +327,7 @@ const FirePrevention = () => {
                         <div className="grid grid-cols-2 gap-4 mb-4">
                           <div className="bg-gray-900/50 rounded p-3">
                             <h5 className="text-orange-400 text-sm font-medium mb-1">Surface Temperature</h5>
-                            <p className="text-2xl font-bold text-white">30°F</p>
+                            <p className="text-2xl font-bold text-white">15°F</p>
                             <p className="text-xs text-gray-400">Average reduction</p>
                           </div>
                           <div className="bg-gray-900/50 rounded p-3">
@@ -435,8 +435,8 @@ const FirePrevention = () => {
                         </svg>
                       </span>
                       <div>
-                        <h3 className="text-lg md:text-xl font-semibold mb-2 text-white">5-6 Coats Passes 1550°F Flame Tests</h3>
-                        <p className="text-sm md:text-base text-gray-100">When applied at approximately 30 mils (762 μm) thickness (5-6 coats) to 1/4 inch steel, our coating provides significant fire protection per ASTM E119-22 time-temperature curve testing protocols while maintaining structural integrity.</p>
+                        <h3 className="text-lg md:text-xl font-semibold mb-2 text-white">5-6 Coats Passes Standardized Flame Tests</h3>
+                        <p className="text-sm md:text-base text-gray-100">When applied at approximately 30 mils (762 μm) thickness (5-6 coats) to 1/4 inch steel, our coating provides improved fire resistance as measured by standard ASTM E108/UL 790 testing protocols while maintaining structural integrity.</p>
                       </div>
                     </div>
 

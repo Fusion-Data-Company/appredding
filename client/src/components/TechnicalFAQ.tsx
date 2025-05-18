@@ -76,7 +76,7 @@ const TechnicalFAQ: React.FC = () => {
                 <li>Create billions of microscopic air pockets that dramatically slow heat transfer</li>
                 <li>Reflect solar radiation due to their ceramic composition</li>
                 <li>Help emit absorbed heat back to the environment rather than conducting it inward</li>
-                <li>Can create a temperature differential of up to 20°F between coated and uncoated surfaces in optimal conditions</li>
+                <li>Can create a temperature differential of up to 10-15°F between coated and uncoated surfaces in optimal conditions</li>
               </ul>
               <p>
                 The thermal performance is effective in high ambient temperatures. Field testing has shown installations helping maintain lower internal temperatures compared to uncoated surfaces in hot weather, demonstrating the coating's practical effectiveness as a thermal barrier.
