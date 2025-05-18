@@ -203,7 +203,7 @@ const ConstructionPage = () => {
                             <Building className="w-4 h-4 text-green-100" />
                           </div>
                         </div>
-                        <p className="text-2xl font-bold text-green-400 mb-1 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">27.8%</p>
+                        <p className="text-2xl font-bold text-green-400 mb-1 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">17.8%</p>
                         <p className="text-blue-300 text-sm">Lifecycle Cost Reduction</p>
                       </div>
                     </div>
@@ -217,7 +217,7 @@ const ConstructionPage = () => {
                             <Wrench className="w-4 h-4 text-green-100" />
                           </div>
                         </div>
-                        <p className="text-2xl font-bold text-green-400 mb-1 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">76.4%</p>
+                        <p className="text-2xl font-bold text-green-400 mb-1 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">25.4%</p>
                         <p className="text-blue-300 text-sm">Maintenance Cost Savings</p>
                       </div>
                     </div>
@@ -231,7 +231,7 @@ const ConstructionPage = () => {
                             <Award className="w-4 h-4 text-green-100" />
                           </div>
                         </div>
-                        <p className="text-2xl font-bold text-green-400 mb-1 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">642%</p>
+                        <p className="text-2xl font-bold text-green-400 mb-1 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">42%</p>
                         <p className="text-green-300 text-sm">Total Cost ROI</p>
                       </div>
                     </div>
