@@ -15,14 +15,15 @@ const transition = {
 
 import { DropdownPortal } from './dropdown-portal';
 
-// Default category images for menu items
+// Default category images using relative paths
 const categoryImages = {
-  "pools": "/src/assets_dir/images/optimized/pools-category.jpg", 
-  "marinas": "/src/assets_dir/images/optimized/marine-application.jpg",
-  "fire": "/src/assets_dir/images/optimized/fire-prevention.jpg",
-  "construction": "/src/assets_dir/images/optimized/construction-hero.jpg",
-  "mobile": "/src/assets_dir/images/optimized/mobile-home-bg.jpg",
-  "municipality": "/src/assets_dir/images/optimized/municipality-bg.jpg",
+  "pools": "/images/pools-bg.jpg", 
+  "marinas": "/images/marine-bg.jpg",
+  "fire": "/images/fire-prevention.jpg",
+  "construction": "/images/construction-bg.jpg",
+  "mobile": "/images/mobile-home-bg.jpg",
+  "municipality": "/images/municipality-bg.jpg",
+  "painters": "/images/painters-bg.jpg"
 };
 
 export const MenuItem = ({

@@ -217,11 +217,9 @@ const Header = () => {
                     <div className="grid gap-3">
                       <div className="relative overflow-hidden rounded-lg border border-orange-900/30 group">
                         <div className="absolute inset-0 bg-gradient-to-br from-orange-900/20 to-blue-900/20 opacity-70 group-hover:opacity-100 transition-opacity duration-300"></div>
-                        <img 
-                          src="/src/assets_dir/images/optimized/fire-prevention.jpg" 
-                          alt="Fire Prevention"
-                          className="w-full h-28 object-cover transition-transform duration-500 group-hover:scale-110"
-                        />
+                        <div className="bg-gradient-to-r from-orange-900/40 to-orange-800/40 w-full h-28 flex items-center justify-center overflow-hidden">
+                          <Flame size={36} className="text-orange-500" />
+                        </div>
                         <div className="absolute inset-0 flex flex-col justify-end p-3 bg-gradient-to-t from-black/90 to-transparent">
                           <h4 className="text-white font-bold text-sm">Fire Prevention</h4>
                           <p className="text-gray-300 text-xs">Advanced thermal barrier protection</p>
@@ -233,11 +231,9 @@ const Header = () => {
                       
                       <div className="relative overflow-hidden rounded-lg border border-blue-900/30 group">
                         <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-orange-900/20 opacity-70 group-hover:opacity-100 transition-opacity duration-300"></div>
-                        <img 
-                          src="/src/assets_dir/images/optimized/marine-application.jpg" 
-                          alt="Marine Solutions"
-                          className="w-full h-28 object-cover transition-transform duration-500 group-hover:scale-110"
-                        />
+                        <div className="bg-gradient-to-r from-blue-900/40 to-blue-800/40 w-full h-28 flex items-center justify-center overflow-hidden">
+                          <Ship size={36} className="text-blue-500" />
+                        </div>
                         <div className="absolute inset-0 flex flex-col justify-end p-3 bg-gradient-to-t from-black/90 to-transparent">
                           <h4 className="text-white font-bold text-sm">Marine Protection</h4>
                           <p className="text-gray-300 text-xs">Superior coating for marine environments</p>
@@ -256,12 +252,8 @@ const Header = () => {
                     
                     <div className="space-y-2.5">
                       <div className="flex items-center gap-3 hover:bg-blue-900/20 p-2 rounded-lg transition-colors">
-                        <div className="relative flex-shrink-0 w-12 h-12 overflow-hidden rounded-md">
-                          <img 
-                            src="/src/assets_dir/images/optimized/pools-category.jpg" 
-                            alt="Pool Applications" 
-                            className="w-full h-full object-cover"
-                          />
+                        <div className="relative flex-shrink-0 w-12 h-12 overflow-hidden rounded-md bg-blue-900/20 flex items-center justify-center">
+                          <LifeBuoy className="text-blue-500 w-6 h-6" />
                           <div className="absolute inset-0 border border-blue-900/30 rounded-md"></div>
                         </div>
                         <HoveredLink href="/pools" className="text-left">Pool Applications</HoveredLink>
