@@ -123,33 +123,52 @@ const PitchDeckSlider = () => {
                 <div className="absolute inset-0 rounded-full bg-blue-300/5 animate-radial-pulse" style={{ animationDelay: '1s' }}></div>
               </div>
               
-              {/* Ultimate black glass button with 3D effect and animations */}
+              {/* Ultimate black glass button with 3D effect, glass shimmer and animations */}
               <button
                 onClick={togglePitchDeck}
-                className="relative bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white rounded-full py-4 px-8 z-10 border border-blue-900/40 shadow-[inset_0_1px_2px_rgba(255,255,255,0.15),0_0_8px_rgba(0,0,0,0.3)] overflow-hidden group-hover:shadow-[0_0_35px_rgba(59,130,246,0.6)] transition-all duration-700 flex items-center gap-4 transform group-hover:scale-[1.06] animate-border-glow"
+                className="relative bg-gradient-to-br from-gray-900/95 via-black/95 to-gray-900/95 text-white rounded-full py-4 px-8 z-10 border border-blue-900/40 shadow-[inset_0_1px_2px_rgba(255,255,255,0.15),0_0_8px_rgba(0,0,0,0.3)] overflow-hidden group-hover:shadow-[0_0_35px_rgba(59,130,246,0.6)] transition-all duration-700 flex items-center gap-4 transform group-hover:scale-[1.06] animate-border-glow backdrop-blur-sm before:absolute before:inset-0 before:rounded-full before:bg-gradient-to-br before:from-blue-900/5 before:via-transparent before:to-blue-900/5 before:z-0"
               >
                 {/* Advanced high-tech animated background effects */}
                 <div className="absolute inset-0 z-0">
                   {/* Enhanced tech pattern overlay */}
                   <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoNTksMTMwLDI0NiwwLjEpIiBkPSJNMCAwaDJ2Mkgwem0yIDJoMnYySDJ6Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCBmaWxsPSJ1cmwoI2EpIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIi8+PC9zdmc+')] opacity-40"></div>
                   
-                  {/* Multiple layered shimmer effects */}
+                  {/* Premium glass shimmer effects on button face */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-blue-400/5 to-white/5 opacity-50"></div>
                   <div className="absolute inset-0 overflow-hidden">
-                    <div className="h-full w-1/3 bg-gradient-to-r from-transparent via-blue-400/15 to-transparent skew-x-[-20deg] animate-shimmer-slow"></div>
+                    <div className="absolute top-0 left-0 right-0 h-[70%] bg-gradient-to-br from-white/10 to-transparent rounded-t-full"></div>
+                    <div className="absolute bottom-0 left-0 right-0 h-[30%] bg-gradient-to-t from-blue-900/20 to-transparent rounded-b-full"></div>
                   </div>
-                  <div className="absolute inset-0 overflow-hidden opacity-50">
-                    <div className="h-full w-1/4 bg-gradient-to-r from-transparent via-blue-500/10 to-transparent skew-x-[-15deg] animate-ultra-shimmer"></div>
+                  
+                  {/* Diagonal premium glass shimmer lines */}
+                  <div className="absolute inset-0 overflow-hidden">
+                    <div className="h-full w-1/3 bg-gradient-to-r from-transparent via-white/15 to-transparent skew-x-[-20deg] animate-shimmer-slow"></div>
                   </div>
-                  <div className="absolute inset-0 overflow-hidden opacity-30">
+                  <div className="absolute inset-0 overflow-hidden">
+                    <div className="h-full w-1/4 bg-gradient-to-r from-transparent via-blue-400/10 to-transparent skew-x-[-15deg] animate-ultra-shimmer"></div>
+                  </div>
+                  <div className="absolute inset-0 overflow-hidden">
                     <div className="h-full w-1/5 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-[-10deg] animate-ultra-shimmer" style={{ animationDelay: '1s' }}></div>
                   </div>
                   
-                  {/* Enhanced grain texture with animation */}
+                  {/* Subtle glass edge highlights */}
+                  <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+                  <div className="absolute inset-y-0 left-0 w-[1px] bg-gradient-to-b from-white/20 via-blue-400/10 to-transparent"></div>
+                  <div className="absolute inset-y-0 right-0 w-[1px] bg-gradient-to-b from-white/20 via-blue-400/10 to-transparent"></div>
+                  
+                  {/* Enhanced grain texture for premium glass look */}
                   <div className="absolute inset-0 opacity-60 mix-blend-overlay bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxwYXRoIGQ9Ik0wIDBoMjAwdjIwMEgweiIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIuMDUiLz48L3N2Zz4=')]"></div>
                   
-                  {/* Sophisticated light reflection effects */}
+                  {/* Premium light reflection effects for glass appearance */}
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-transparent to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
                   <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-blue-400/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1500 delay-100"></div>
+                </div>
+                
+                {/* Glass highlight reflections */}
+                <div className="absolute inset-0 z-[1] opacity-0 group-hover:opacity-100 transition-all duration-1000">
+                  <div className="absolute inset-0 overflow-hidden rounded-full">
+                    <div className="absolute -inset-full top-0 right-1/2 bg-gradient-to-r from-transparent via-white/5 to-transparent rotate-[30deg] transform-gpu animate-[shine_3s_ease_infinite]"></div>
+                  </div>
                 </div>
                 
                 {/* Enhanced 3D edge effect with animation */}
