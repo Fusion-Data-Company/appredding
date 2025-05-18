@@ -640,40 +640,45 @@ const MobileHome = () => {
                 </div>
                 
                 {/* SANDLER STAGE 4: FUNNEL CLOSE + REGISTRATION */}
-                <div className="mt-8 p-6 relative bg-gradient-to-br from-black/80 to-gray-900/80 border-2 border-green-600/50 rounded-xl transition-all duration-300 mb-8 shadow-[0_6px_20px_rgba(74,222,128,0.15)] z-30">
-                  {/* Enhanced layered ambient green glows with very deep negative z-index */}
-                  <div className="absolute -inset-2 bg-green-500/20 rounded-xl blur-2xl opacity-70 -z-50"></div>
-                  <div className="absolute -inset-4 bg-green-500/15 rounded-xl blur-3xl opacity-60 -z-50 animate-pulse-slow"></div>
-                  <div className="absolute -inset-px bg-gradient-to-r from-green-600/20 via-transparent to-green-600/20 rounded-xl opacity-80 blur-sm -z-50"></div>
+                <div className="relative mt-8 mb-8">
+                  {/* Completely separate ambient green glow elements positioned behind the card */}
+                  <div className="absolute -inset-2 bg-green-500/20 rounded-xl blur-2xl opacity-70 z-0"></div>
+                  <div className="absolute -inset-4 bg-green-500/15 rounded-xl blur-3xl opacity-60 z-0 animate-pulse-slow"></div>
+                  <div className="absolute -inset-px bg-gradient-to-r from-green-600/20 via-transparent to-green-600/20 rounded-xl opacity-80 blur-sm z-0"></div>
                   
-                  <h3 className="text-2xl font-bold text-white mb-4 text-center drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)] z-50">Transform Your Mobile Home Today</h3>
-                  
-                  <p className="text-lg text-gray-100 mb-6 text-center z-50">
-                    Stop throwing money away on skyrocketing energy bills and endless repairs. Praetorian Smart-Coat gives you a more comfortable, valuable, and protected home while saving you thousands of dollars over time.
-                  </p>
-                  
-                  <div className="flex justify-center mb-4 z-50">
-                    {/* Button with extreme z-index to ensure it's always on top */}
-                    <div className="relative z-50">
-                      {/* Ambient purple glow with deep negative z-index */}
-                      <div className="absolute -inset-1 bg-gradient-to-r from-purple-600/50 to-purple-400/50 rounded-lg blur-md opacity-80 -z-50"></div>
-                      <div className="absolute -inset-3 bg-purple-500/20 rounded-xl blur-xl opacity-70 animate-pulse-slow -z-50"></div>
-                      <div className="relative z-50">
-                        <PremiumActionButton
-                          onClick={() => document.getElementById('mobileHomeForm')?.scrollIntoView({ behavior: 'smooth' })}
-                          size="lg"
-                          className="text-lg font-bold px-8 transform transition-all duration-300 hover:scale-105 bg-gradient-to-r from-purple-800 to-purple-600 border border-purple-400/30 text-white z-50"
-                          glowEffect={true}
-                        >
-                          Register For Certification
-                        </PremiumActionButton>
+                  {/* Actual card with clean styling - no green glows attached */}
+                  <div className="relative p-6 bg-gradient-to-br from-black/80 to-gray-900/80 border-2 border-green-600/50 rounded-xl transition-all duration-300 shadow-lg z-10">
+                    <h3 className="text-2xl font-bold text-white mb-4 text-center drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">Transform Your Mobile Home Today</h3>
+                    
+                    <p className="text-lg text-gray-100 mb-6 text-center">
+                      Stop throwing money away on skyrocketing energy bills and endless repairs. Praetorian Smart-Coat gives you a more comfortable, valuable, and protected home while saving you thousands of dollars over time.
+                    </p>
+                    
+                    <div className="flex justify-center mb-4">
+                      {/* Button container with purple glow */}
+                      <div className="relative">
+                        {/* Separate purple glow behind button */}
+                        <div className="absolute -inset-1 bg-gradient-to-r from-purple-600/50 to-purple-400/50 rounded-lg blur-md opacity-80 z-0"></div>
+                        <div className="absolute -inset-3 bg-purple-500/20 rounded-xl blur-xl opacity-70 animate-pulse-slow z-0"></div>
+                        
+                        {/* Button itself */}
+                        <div className="relative z-10">
+                          <PremiumActionButton
+                            onClick={() => document.getElementById('mobileHomeForm')?.scrollIntoView({ behavior: 'smooth' })}
+                            size="lg"
+                            className="text-lg font-bold px-8 transform transition-all duration-300 hover:scale-105 bg-gradient-to-r from-purple-800 to-purple-600 border border-purple-400/30 text-white"
+                            glowEffect={true}
+                          >
+                            Register For Certification
+                          </PremiumActionButton>
+                        </div>
                       </div>
                     </div>
+                    
+                    <p className="text-sm text-gray-300 text-center">
+                      Our mobile home specialists will assess your needs, provide a detailed cost analysis showing your expected ROI, and schedule your installation – all at no obligation.
+                    </p>
                   </div>
-                  
-                  <p className="text-sm text-gray-300 text-center z-50">
-                    Our mobile home specialists will assess your needs, provide a detailed cost analysis showing your expected ROI, and schedule your installation – all at no obligation.
-                  </p>
                 </div>
                 
                 {/* Testimonial to build social proof */}
