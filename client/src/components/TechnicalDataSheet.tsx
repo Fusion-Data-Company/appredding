@@ -175,10 +175,10 @@ export const TechnicalDataSheet = () => {
           {/* Content */}
           <div className="relative z-10">
             <h2 className="text-2xl md:text-3xl font-bold text-center mb-2 bg-gradient-to-r from-orange-300 via-white to-blue-300 bg-clip-text text-transparent">
-              NASA Ceramic Technology Specifications
+              Ceramic Technology Specifications
             </h2>
             <p className="text-gray-400 text-center mb-2 max-w-3xl mx-auto">
-              Documented performance metrics from independent laboratory testing of Praetorian Smart-Coat's NASA-derived ceramic coating technology (Patent #10,738,214)
+              Documented performance metrics from independent laboratory testing of Praetorian Smart-Coat's advanced ceramic coating technology
             </p>
           </div>
         </div>
@@ -303,7 +303,7 @@ export const TechnicalDataSheet = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-white group-hover/item:text-blue-300 transition-colors duration-300">
-                      ABS Certification #MC-1372
+                      Marine-Grade Certified
                     </h4>
                     <p className="text-sm text-gray-300">
                       Certified for maritime and marine applications with verified corrosion protection
