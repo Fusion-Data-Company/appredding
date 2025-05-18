@@ -257,7 +257,7 @@ const PitchDeckSlider = () => {
                         <h4 className="text-white font-semibold mb-4 text-center">What industry are you interested in?</h4>
                         <div className="flex flex-col md:flex-row gap-4 items-center justify-center">
                           <Select value={selectedIndustry} onValueChange={handleIndustrySelect}>
-                            <SelectTrigger className="w-full md:w-[300px] bg-gradient-to-r from-gray-800 to-gray-900 border-gray-700 text-white focus:ring-amber-500 h-12">
+                            <SelectTrigger className="w-full md:w-[300px] bg-gradient-to-r from-gray-800 to-gray-900 border-gray-700 text-white focus:ring-blue-500 h-12">
                               <SelectValue placeholder="Select your industry" />
                             </SelectTrigger>
                             <SelectContent className="bg-gray-900 border-gray-700 text-white">
@@ -377,7 +377,7 @@ const slides: Slide[] = [
           <li>It's not sold in hardware chains. They won't stock it. As a national distributor told us:</li>
         </ul>
         
-        <div className="mt-4 p-4 bg-black/40 border-l-4 border-red-600 italic text-amber-100">
+        <div className="mt-4 p-4 bg-black/40 border-l-4 border-blue-600 italic text-blue-100">
           "Paints that never fail? That's bad for business."
         </div>
       </>
@@ -386,14 +386,14 @@ const slides: Slide[] = [
   {
     id: 2,
     title: "Meet the Team",
-    icon: <Building className="w-6 h-6 text-amber-500 mr-2" />,
+    icon: <Building className="w-6 h-6 text-blue-500 mr-2" />,
     content: (
       <>
         <p className="text-gray-300 mb-6">You're not dealing with layers of corporate tape. You're getting product from the lab to the loading dock.</p>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-black/30 p-4 rounded-lg border border-gray-800 hover:border-amber-600 transition-all flex flex-col">
-            <h4 className="text-amber-500 font-bold">Joe Raver</h4>
+          <div className="bg-black/30 p-4 rounded-lg border border-gray-800 hover:border-blue-600 transition-all flex flex-col">
+            <h4 className="text-blue-500 font-bold">Joe Raver</h4>
             <p className="text-white mb-2">Inventor & Owner of the Formula</p>
             <p className="text-gray-400 mt-auto">
               <a href="mailto:Joe@praetoriansmartcoat.com" className="text-blue-400 hover:underline">
@@ -402,8 +402,8 @@ const slides: Slide[] = [
             </p>
           </div>
           
-          <div className="bg-black/30 p-4 rounded-lg border border-gray-800 hover:border-amber-600 transition-all flex flex-col">
-            <h4 className="text-amber-500 font-bold">Greg Tomsik</h4>
+          <div className="bg-black/30 p-4 rounded-lg border border-gray-800 hover:border-blue-600 transition-all flex flex-col">
+            <h4 className="text-blue-500 font-bold">Greg Tomsik</h4>
             <p className="text-white mb-2">Inventory & Fulfillment Manager</p>
             <p className="text-gray-400 mt-auto">
               <a href="mailto:Greg@praetoriansmartcoat.com" className="text-blue-400 hover:underline">
@@ -412,8 +412,8 @@ const slides: Slide[] = [
             </p>
           </div>
           
-          <div className="bg-black/30 p-4 rounded-lg border border-gray-800 hover:border-amber-600 transition-all flex flex-col">
-            <h4 className="text-amber-500 font-bold">Rob Yeager</h4>
+          <div className="bg-black/30 p-4 rounded-lg border border-gray-800 hover:border-blue-600 transition-all flex flex-col">
+            <h4 className="text-blue-500 font-bold">Rob Yeager</h4>
             <p className="text-white mb-2">Chief of Marketing, Sales & Distribution</p>
             <p className="text-gray-400 mt-auto">
               <a href="mailto:Rob@praetoriansmartcoat.com" className="text-blue-400 hover:underline">
@@ -455,7 +455,7 @@ const slides: Slide[] = [
           </div>
           
           <div className="flex items-start">
-            <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-amber-500 to-red-600 flex items-center justify-center mr-4">
+            <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center mr-4">
               <span className="text-white font-bold text-xl">P</span>
             </div>
             <div>
@@ -465,7 +465,7 @@ const slides: Slide[] = [
           </div>
           
           <div className="flex items-start">
-            <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-amber-500 to-red-600 flex items-center justify-center mr-4">
+            <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center mr-4">
               <span className="text-white font-bold text-xl">D</span>
             </div>
             <div>
