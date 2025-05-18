@@ -17,7 +17,8 @@ import {
   Flame,
   Building,
   Home,
-  PanelLeft
+  PanelLeft,
+  Paintbrush
 } from "lucide-react";
 import { RomanDivider } from "@/components/ui/roman-header";
 import { Separator } from "@/components/ui/separator";
@@ -59,6 +60,7 @@ const ProfessionalMobileMenu = ({ isOpen, onClose, isHomePage = true }: Professi
     { label: "Construction", href: "/construction", icon: <Building className="h-4 w-4" /> },
     { label: "Mobile Home", href: "/mobile-home", icon: <Home className="h-4 w-4" /> },
     { label: "Municipality", href: "/municipality", icon: <Building className="h-4 w-4" /> },
+    { label: "Painters", href: "/painters", icon: <User className="h-4 w-4" /> },
     { label: "Painter Network", href: "/painter-network", icon: <Users className="h-4 w-4" /> },
   ];
 

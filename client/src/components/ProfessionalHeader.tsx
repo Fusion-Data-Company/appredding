@@ -56,6 +56,7 @@ const ProfessionalHeader = () => {
     { label: "Construction", href: "/construction", description: "Structural protective coatings" },
     { label: "Mobile Home", href: "/mobile-home", description: "Mobile home protective systems" },
     { label: "Municipality", href: "/municipality", description: "Municipal infrastructure protection" },
+    { label: "Painters", href: "/painters", description: "Premium painting profit solutions" },
     { label: "Painter Network", href: "/painter-network", description: "Professional painter network" },
   ];
 
