@@ -554,7 +554,7 @@ const slides: Slide[] = [
               <div className="w-10 h-10 rounded-full bg-gradient-to-r from-red-600 to-amber-500 flex items-center justify-center mr-3">
                 <Flame className="w-5 h-5 text-white" />
               </div>
-              <h4 className="text-amber-400 font-bold">Class A Fire Rated</h4>
+              <h4 className="text-blue-400 font-bold">Class A Fire Rated</h4>
             </div>
             <p className="text-gray-300">ASTM E84 – 0/0 spread & smoke</p>
           </div>
@@ -566,7 +566,7 @@ const slides: Slide[] = [
                   <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z" />
                 </svg>
               </div>
-              <h4 className="text-amber-400 font-bold">Solar Reflection</h4>
+              <h4 className="text-blue-400 font-bold">Solar Reflection</h4>
             </div>
             <p className="text-gray-300">Reflects 89-95% solar radiation – CRRC verified</p>
           </div>
@@ -630,7 +630,7 @@ const slides: Slide[] = [
       <>
         <div className="flex flex-col md:flex-row gap-8">
           <div className="flex-1">
-            <h4 className="text-amber-400 font-bold mb-4">Product Lines</h4>
+            <h4 className="text-blue-400 font-bold mb-4">Product Lines</h4>
             <ul className="space-y-3 list-disc pl-5 text-gray-300">
               <li>5-gallon professional-grade pails</li>
               <li>1-gallon consumer touch-up kits</li>
@@ -646,7 +646,7 @@ const slides: Slide[] = [
           </div>
           
           <div className="flex-1">
-            <h4 className="text-amber-400 font-bold mb-4">Sales Channels</h4>
+            <h4 className="text-blue-400 font-bold mb-4">Sales Channels</h4>
             <ul className="space-y-3 list-disc pl-5 text-gray-300">
               <li>Direct-to-contractor</li>
               <li>National wildfire and preparedness networks</li>
@@ -737,7 +737,7 @@ const slides: Slide[] = [
           </ul>
           
           <div className="mt-6 pt-4 border-t border-gray-700">
-            <p className="text-amber-400 font-semibold text-center italic">
+            <p className="text-blue-400 font-semibold text-center italic">
               "The paint industry doesn't want you to know coatings like this exist. So we're bringing it to the people ourselves."
             </p>
           </div>
