@@ -1272,9 +1272,9 @@ const MobileHome = () => {
                         </div>
                         
                         <div className="text-center mt-4">
-                          {/* Ambient blue glow wrapper around submit button without affecting the button itself */}
+                          {/* Ambient blue-to-orange gradient glow wrapper around submit button without affecting the button itself */}
                           <div className="relative inline-block">
-                            <div className="absolute -inset-4 bg-blue-600/30 blur-xl rounded-xl opacity-80 transition-opacity duration-500"></div>
+                            <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-orange-600 rounded-lg blur opacity-70 group-hover:opacity-100 transition duration-200"></div>
                             <div className="relative">
                               <PremiumFireButton
                                 type="submit"
@@ -1310,8 +1310,8 @@ const MobileHome = () => {
                         You'll receive a confirmation email with additional information and next steps.
                       </p>
                       <div className="relative inline-flex items-center group">
-                        <div className="absolute -inset-0.5 bg-gradient-to-r from-green-600 to-blue-600 rounded-lg blur opacity-70 group-hover:opacity-100 transition duration-200"></div>
-                        <a href="/" className="relative bg-black rounded-lg group-hover:bg-gradient-to-br from-gray-900 to-black transition-all duration-200 py-3 px-8 border border-green-500/30 text-white font-semibold text-center">
+                        <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-orange-600 rounded-lg blur opacity-70 group-hover:opacity-100 transition duration-200"></div>
+                        <a href="/" className="relative bg-black rounded-lg group-hover:bg-gradient-to-br from-gray-900 to-black transition-all duration-200 py-3 px-8 border border-blue-500/30 text-white font-semibold text-center">
                           Return to Home
                         </a>
                       </div>
