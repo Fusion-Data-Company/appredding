@@ -1465,15 +1465,15 @@ const MobileHome = () => {
                                     <Checkbox
                                       checked={field.value}
                                       onCheckedChange={field.onChange}
-                                      className="border-2 border-green-500/50 data-[state=checked]:bg-green-500 data-[state=checked]:border-green-500"
+                                      className="border-2 border-purple-500/50 data-[state=checked]:bg-purple-500 data-[state=checked]:border-purple-500"
                                       style={{
-                                        boxShadow: "0 0 10px rgba(74, 222, 128, 0.2)"
+                                        boxShadow: "0 0 10px rgba(147, 51, 234, 0.2)"
                                       }}
                                     />
                                   </FormControl>
                                   <div className="space-y-1 leading-none">
                                     <FormLabel className="text-white">
-                                      I agree to the <a href="#" className="text-green-400 underline hover:text-green-300 transition-colors">terms of service</a> and <a href="#" className="text-green-400 underline hover:text-green-300 transition-colors">privacy policy</a>
+                                      I agree to the <a href="#" className="text-purple-400 underline hover:text-purple-300 transition-colors">terms of service</a> and <a href="#" className="text-purple-400 underline hover:text-purple-300 transition-colors">privacy policy</a>
                                     </FormLabel>
                                     <FormMessage />
                                   </div>
@@ -1484,9 +1484,9 @@ const MobileHome = () => {
                         </div>
                         
                         <div className="text-center mt-4">
-                          {/* Ambient blue-to-orange gradient glow wrapper around submit button without affecting the button itself */}
+                          {/* Purple ambient glow wrapper around submit button without affecting the button itself */}
                           <div className="relative inline-block">
-                            <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-orange-600 rounded-lg blur opacity-70 group-hover:opacity-100 transition duration-200"></div>
+                            <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-violet-600 rounded-lg blur opacity-70 group-hover:opacity-100 transition duration-200"></div>
                             <div className="relative">
                               <PremiumFireButton
                                 type="submit"
