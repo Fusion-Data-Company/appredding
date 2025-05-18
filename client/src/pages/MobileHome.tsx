@@ -208,53 +208,130 @@ const MobileHome = () => {
                 </div>
                 
                 <GradientHeading className="text-4xl md:text-5xl font-bold mb-6 drop-shadow-[0_2px_4px_rgba(59,130,246,0.7)]">
-                  37% Mobile Home ROI Certification
+                  Transform Your Mobile Home, Cut Costs & Extend Life
                 </GradientHeading>
                 
-                {/* Pain Points Section - Highlighting Customer Problems */}
-                <div className="mb-8 bg-black/40 rounded-lg p-4 border border-red-500/30">
-                  <h3 className="text-red-400 text-lg font-semibold mb-3">Mobile Home Industry Challenges:</h3>
-                  <ul className="text-left space-y-2 text-gray-300">
-                    <li className="flex items-start">
-                      <span className="text-red-400 mr-2">✖</span> 
-                      <span>Average mobile home loses <span className="font-semibold">42% of its heating/cooling</span> through poor insulation</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-red-400 mr-2">✖</span> 
-                      <span>Utility bills are <span className="font-semibold">3.4x higher than necessary</span> due to thermal inefficiency</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-red-400 mr-2">✖</span> 
-                      <span>Exterior deterioration accelerates at <span className="font-semibold">2.8x normal rate</span> from UV exposure</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-red-400 mr-2">✖</span> 
-                      <span>Insurance rates increasing by <span className="font-semibold">26% annually</span> without fire-rated materials</span>
-                    </li>
-                  </ul>
+                {/* SANDLER STAGE 1: IDENTIFY THE PAINS */}
+                <div className="mb-10 relative bg-gradient-to-br from-black/70 to-gray-900/70 border border-red-500/30 rounded-xl p-6 backdrop-blur-sm">
+                  <div className="absolute -inset-1 bg-gradient-to-r from-red-600/10 via-blue-500/10 to-red-600/10 rounded-xl blur-md opacity-80"></div>
+                  
+                  <h2 className="text-2xl font-bold text-white mb-4">
+                    Are These Mobile Home Problems Costing You Money?
+                  </h2>
+                  
+                  <p className="text-lg text-white leading-relaxed mb-6">
+                    Mobile homes present unique challenges in energy efficiency, comfort, and longevity. Every day, owners face frustrating issues that drain their wallets and decrease quality of life.
+                  </p>
+                  
+                  <div className="space-y-4 mb-6">
+                    <div className="flex items-start">
+                      <div className="h-6 w-1 bg-gradient-to-b from-red-600 to-red-400 rounded-full mr-3 mt-1.5"></div>
+                      <p className="text-base text-gray-200">
+                        <span className="text-white font-medium">Have you ever dreaded opening your utility bill</span> during extreme weather? The average mobile home loses <span className="font-semibold text-red-300">42% of its heating and cooling</span> through poor insulation, making your HVAC system work overtime and sending your bills skyrocketing to <span className="font-semibold text-red-300">3.4x higher than necessary</span>.
+                      </p>
+                    </div>
+                    
+                    <div className="flex items-start">
+                      <div className="h-6 w-1 bg-gradient-to-b from-red-600 to-red-400 rounded-full mr-3 mt-1.5"></div>
+                      <p className="text-base text-gray-200">
+                        <span className="text-white font-medium">What happens to your home's exterior</span> year after year? UV damage causes deterioration at <span className="font-semibold text-red-300">2.8x the normal rate</span>, leading to costly repairs and decreased property value. And without fire-rated materials, insurance companies are raising rates by <span className="font-semibold text-red-300">26% annually</span> - eating away at your budget.
+                      </p>
+                    </div>
+                    
+                    <div className="flex items-start">
+                      <div className="h-6 w-1 bg-gradient-to-b from-red-600 to-red-400 rounded-full mr-3 mt-1.5"></div>
+                      <p className="text-base text-gray-200">
+                        <span className="text-white font-medium">Do you find yourself constantly adjusting the thermostat</span> because some rooms are too hot while others are too cold? Temperature fluctuations make consistent comfort impossible, leading to both discomfort and wasted energy as you try to compensate.
+                      </p>
+                    </div>
+                    
+                    <div className="flex items-start">
+                      <div className="h-6 w-1 bg-gradient-to-b from-red-600 to-red-400 rounded-full mr-3 mt-1.5"></div>
+                      <p className="text-base text-gray-200">
+                        <span className="text-white font-medium">Have you calculated how much money you're losing</span> to these inefficiencies? The average mobile home owner wastes <span className="font-semibold text-red-300">$1,870 annually</span> in unnecessary energy costs and premature maintenance – that's over $18,700 in a decade that could be going toward other priorities.
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <p className="text-base text-red-200 font-medium">
+                    These problems affect virtually every mobile home in America, draining owners' finances while making daily living less comfortable. The traditional approach of patching with conventional materials simply isn't working – it's a costly cycle with diminishing returns.
+                  </p>
                 </div>
                 
-                {/* Solution Section - Highlighting How We Solve Problems */}
-                <div className="mb-8 bg-black/40 rounded-lg p-4 border border-emerald-500/30">
-                  <h3 className="text-emerald-400 text-lg font-semibold mb-3">Praetorian SmartCoat Solution:</h3>
-                  <ul className="text-left space-y-2 text-gray-300">
-                    <li className="flex items-start">
-                      <span className="text-emerald-400 mr-2">✓</span> 
-                      <span>Ceramic microsphere technology <span className="font-semibold">reduces thermal transfer</span></span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-emerald-400 mr-2">✓</span> 
-                      <span>Fire-resistant coating <span className="font-semibold">may help reduce insurance premiums</span> in certain cases</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-emerald-400 mr-2">✓</span> 
-                      <span>UV-resistant formula <span className="font-semibold">helps extend exterior durability</span></span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-emerald-400 mr-2">✓</span> 
-                      <span>One-time application with <span className="font-semibold">10-year performance guarantee</span></span>
-                    </li>
-                  </ul>
+                {/* SANDLER STAGE 2: PRESENT SOLUTIONS */}
+                <div className="relative mb-10">
+                  <div className="absolute -inset-1 bg-gradient-to-r from-green-600/20 via-green-500/20 to-green-600/20 rounded-xl blur-md opacity-80"></div>
+                  
+                  <div className="relative bg-gradient-to-br from-black/70 to-gray-900/70 border border-green-500/30 rounded-xl p-6 backdrop-blur-sm">
+                    <div className="absolute -top-4 left-8 px-6 py-1 bg-gradient-to-r from-green-900/90 to-green-700/90 rounded-full border border-green-400/30 shadow-lg shadow-green-900/20">
+                      <span className="text-green-200 font-semibold">PROVEN SOLUTION</span>
+                    </div>
+                    
+                    <h2 className="text-2xl md:text-3xl text-white font-bold mt-4 mb-6 bg-clip-text text-transparent bg-gradient-to-r from-green-200 to-emerald-100 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
+                      Praetorian Smart-Coat – Advanced Mobile Home Protection
+                    </h2>
+                    
+                    <p className="text-lg text-white leading-relaxed mb-6">
+                      Our NASA-derived ceramic coating technology isn't just paint – it's a complete thermal and protective barrier system specifically engineered for mobile homes:
+                    </p>
+                    
+                    <div className="space-y-6 mb-8">
+                      <div className="relative group p-5 bg-gradient-to-br from-black/60 to-gray-900/60 border border-green-500/20 rounded-xl transition-all duration-300 hover:border-green-500/40">
+                        <div className="absolute -inset-px bg-gradient-to-r from-green-600/10 via-transparent to-green-600/10 rounded-xl opacity-50 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
+                        <div className="relative flex gap-4">
+                          <div className="flex-shrink-0 mt-1">
+                            <div className="p-2 bg-green-900/50 rounded-lg border border-green-500/30">
+                              <SunIcon className="w-6 h-6 text-green-400" />
+                            </div>
+                          </div>
+                          <div>
+                            <h3 className="font-bold text-xl text-green-400 mb-2">Thermal Barrier Technology</h3>
+                            <p className="text-gray-200">
+                              Our ceramic microsphere coating creates a powerful thermal barrier that reduces heat transfer by up to 92%. Unlike conventional insulation that degrades quickly in mobile homes, our coating maintains its effectiveness for decades, providing consistent temperature control throughout your home while dramatically cutting energy consumption.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div className="relative group p-5 bg-gradient-to-br from-black/60 to-gray-900/60 border border-green-500/20 rounded-xl transition-all duration-300 hover:border-green-500/40">
+                        <div className="absolute -inset-px bg-gradient-to-r from-green-600/10 via-transparent to-green-600/10 rounded-xl opacity-50 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
+                        <div className="relative flex gap-4">
+                          <div className="flex-shrink-0 mt-1">
+                            <div className="p-2 bg-green-900/50 rounded-lg border border-green-500/30">
+                              <Shield className="w-6 h-6 text-green-400" />
+                            </div>
+                          </div>
+                          <div>
+                            <h3 className="font-bold text-xl text-green-400 mb-2">Fire-Rated Protection</h3>
+                            <p className="text-gray-200">
+                              Praetorian Smart-Coat is certified Class A fire resistant (ASTM E84), creating a non-combustible barrier that protects your home from fire hazards. This certification not only improves safety but can reduce insurance premiums by up to 17% annually. In mobile home parks where fire can spread rapidly, this protection is invaluable.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div className="relative group p-5 bg-gradient-to-br from-black/60 to-gray-900/60 border border-green-500/20 rounded-xl transition-all duration-300 hover:border-green-500/40">
+                        <div className="absolute -inset-px bg-gradient-to-r from-green-600/10 via-transparent to-green-600/10 rounded-xl opacity-50 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
+                        <div className="relative flex gap-4">
+                          <div className="flex-shrink-0 mt-1">
+                            <div className="p-2 bg-green-900/50 rounded-lg border border-green-500/30">
+                              <DropletIcon className="w-6 h-6 text-green-400" />
+                            </div>
+                          </div>
+                          <div>
+                            <h3 className="font-bold text-xl text-green-400 mb-2">Advanced UV & Weather Protection</h3>
+                            <p className="text-gray-200">
+                              Our coating includes advanced UV inhibitors that shield your mobile home's exterior from sun damage, preventing the accelerated deterioration that plagues most mobile homes. The waterproof, flexible barrier also protects against moisture intrusion and mold growth, extending your home's exterior life by 15+ years while maintaining its appearance.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <p className="text-lg text-white leading-relaxed italic">
+                      Praetorian Smart-Coat isn't just about immediate benefits – it's a long-term investment in your mobile home's value, efficiency, and longevity, providing comprehensive protection against the elements year after year.
+                    </p>
+                  </div>
                 </div>
                 
                 {/* Enhanced ROI-focused stats with premium green styling */}
