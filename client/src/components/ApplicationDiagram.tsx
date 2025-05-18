@@ -69,7 +69,7 @@ const ApplicationDiagram = () => {
       title: "Maritime Applications",
       icon: <Waves className="h-5 w-5 text-blue-400" />,
       benefits: [
-        "ABS Certification #MC-1372",
+        "Marine-Grade Certified",
         "10,000+ hours salt spray resistance",
         "Protects against harsh marine environments",
         "NSF/ANSI 61 certified for water contact"
