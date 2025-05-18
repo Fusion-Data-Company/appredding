@@ -232,17 +232,17 @@ const PremiumButton = forwardRef<HTMLButtonElement, PremiumButtonProps>(
                    }}>
               </div>
                 
-              {/* Ambient blue glow effect - similar to green in ROI sections */}
-              <div className="absolute -inset-6 bg-blue-600/20 blur-xl rounded-3xl opacity-80 transition-opacity duration-500 group-hover:opacity-100"></div>
+              {/* Blue-to-orange gradient glow effect - matches the "Register for Mobile Home Services" button */}
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-orange-600 rounded-lg blur opacity-70 group-hover:opacity-100 transition duration-200"></div>
               
-              {/* Additional directional blue glows for enhanced effect */}
-              <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-[100%] h-10 bg-gradient-to-t from-blue-600/40 to-transparent blur-2xl opacity-70 transition-opacity duration-500 rounded-full">
+              {/* Additional directional glows for enhanced effect */}
+              <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-[100%] h-10 bg-gradient-to-t from-blue-600/30 to-transparent blur-2xl opacity-70 transition-opacity duration-500 rounded-full">
               </div>
-              <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-[100%] h-10 bg-gradient-to-b from-blue-600/40 to-transparent blur-2xl opacity-70 transition-opacity duration-500 rounded-full">
+              <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-[100%] h-10 bg-gradient-to-b from-orange-600/30 to-transparent blur-2xl opacity-70 transition-opacity duration-500 rounded-full">
               </div>
-              <div className="absolute -left-8 top-1/2 -translate-y-1/2 h-[100%] w-10 bg-gradient-to-l from-blue-600/40 to-transparent blur-2xl opacity-70 transition-opacity duration-500 rounded-full">
+              <div className="absolute -left-8 top-1/2 -translate-y-1/2 h-[100%] w-10 bg-gradient-to-l from-blue-600/30 to-transparent blur-2xl opacity-70 transition-opacity duration-500 rounded-full">
               </div>
-              <div className="absolute -right-8 top-1/2 -translate-y-1/2 h-[100%] w-10 bg-gradient-to-r from-blue-600/40 to-transparent blur-2xl opacity-70 transition-opacity duration-500 rounded-full">
+              <div className="absolute -right-8 top-1/2 -translate-y-1/2 h-[100%] w-10 bg-gradient-to-r from-orange-600/30 to-transparent blur-2xl opacity-70 transition-opacity duration-500 rounded-full">
               </div>
             </>
           )}
