@@ -36,7 +36,7 @@ const reviews: Review[] = [
     location: "Miami, FL",
     rating: 5,
     text: "Our marina dock buildings were constantly overheating. After applying Praetorian Smart-Coat, we measured a 24°F temperature drop inside. Amazing product!",
-    date: "April 28, 2025"
+    date: "April 28, 2023"
   },
   {
     id: 4,
@@ -44,7 +44,7 @@ const reviews: Review[] = [
     location: "Las Vegas, NV",
     rating: 4,
     text: "The stucco formula works beautifully with our desert architecture. Installation was easy and the temperature difference is noticeable.",
-    date: "March 22, 2025"
+    date: "March 22, 2023"
   },
   {
     id: 5,
@@ -52,7 +52,7 @@ const reviews: Review[] = [
     location: "Orlando, FL",
     rating: 5,
     text: "We've tried several reflective coatings before, but nothing compares to this. Our energy bills are down 32% since application.",
-    date: "April 11, 2025"
+    date: "April 11, 2023"
   },
   {
     id: 6,
@@ -60,7 +60,7 @@ const reviews: Review[] = [
     location: "Austin, TX",
     rating: 5,
     text: "As a professional contractor, I've used most products on the market. Praetorian Smart-Coat's elastomeric quality and durability puts it in a class of its own.",
-    date: "May 1, 2025"
+    date: "May 1, 2023"
   },
   {
     id: 7,
@@ -68,7 +68,7 @@ const reviews: Review[] = [
     location: "San Diego, CA",
     rating: 5,
     text: "Applied to our pool area and the surface temperature dropped by 39°F in direct sunlight. The kids can finally play outside in summer!",
-    date: "April 23, 2025"
+    date: "April 23, 2023"
   },
   {
     id: 8,
@@ -76,7 +76,7 @@ const reviews: Review[] = [
     location: "Atlanta, GA",
     rating: 4,
     text: "The application was a bit more involved than expected, but the results are worth it. The ceramic formula definitely delivers on its promises.",
-    date: "March 30, 2025"
+    date: "March 30, 2023"
   }
 ];
 
