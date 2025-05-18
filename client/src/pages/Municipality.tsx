@@ -708,7 +708,7 @@ export default function Municipality() {
                                   </li>
                                   <li className="flex items-start gap-2">
                                     <span className="text-orange-400 text-xs mt-0.5">•</span>
-                                    <span>15 years of continuous protection with no repainting</span>
+                                    <span>10 years of continuous protection with minimal repainting</span>
                                   </li>
                                 </ul>
                               </div>
@@ -733,7 +733,7 @@ export default function Municipality() {
                             </div>
                             
                             <p className="text-gray-300 mb-4 text-sm">
-                              The iconic Incheon Bridge has maintained perfect structural integrity for 15 years without repainting after ceramic coating application, demonstrating unprecedented durability in one of the world's most corrosive marine environments.
+                              The iconic Incheon Bridge has maintained excellent structural integrity for 10 years with minimal maintenance after ceramic coating application, demonstrating superior durability in one of the world's most corrosive marine environments.
                             </p>
                             
                             <div className="flex justify-end">
@@ -1022,7 +1022,7 @@ export default function Municipality() {
                                 <ul className="space-y-3 mb-4">
                                   <li className="flex items-start gap-3">
                                     <span className="bg-green-500/20 p-1 rounded-full text-green-300 mt-1 flex-shrink-0">✓</span>
-                                    <span className="text-white">15 years of continuous protection with zero repainting requirements</span>
+                                    <span className="text-white">10 years of continuous protection with minimal maintenance requirements</span>
                                   </li>
                                   <li className="flex items-start gap-3">
                                     <span className="bg-green-500/20 p-1 rounded-full text-green-300 mt-1 flex-shrink-0">✓</span>
@@ -1043,18 +1043,18 @@ export default function Municipality() {
                             <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 border border-blue-500/10 p-4 rounded-lg">
                               <h4 className="text-white font-medium mb-2">Technology Transfer to Municipal Infrastructure</h4>
                               <p className="text-gray-300 text-sm">
-                                The same ceramic technology that has protected the Incheon Bridge for 15 years is now available for municipal infrastructure protection. The molecular-level ceramic bond creates a permanent protective barrier that outperforms traditional coatings by 300-500% in lifespan while delivering superior protection against corrosion, UV degradation, and chemical exposure.
+                                The same ceramic technology that has protected the Incheon Bridge for 10 years is now available for municipal infrastructure protection. The molecular-level ceramic bond creates a protective barrier that outperforms traditional coatings by 60-80% in lifespan while delivering superior protection against corrosion, UV degradation, and chemical exposure.
                               </p>
                               
                               <div className="grid grid-cols-3 gap-3 mt-4">
                                 <div className="bg-gray-900/50 rounded p-3 text-center">
                                   <h5 className="text-blue-400 text-xs font-medium mb-1">Cost Reduction</h5>
                                   <p className="text-xl font-bold text-white">65-85%</p>
-                                  <p className="text-xs text-gray-400">15-year lifecycle</p>
+                                  <p className="text-xs text-gray-400">10-year lifecycle</p>
                                 </div>
                                 <div className="bg-gray-900/50 rounded p-3 text-center">
                                   <h5 className="text-blue-400 text-xs font-medium mb-1">Protection Period</h5>
-                                  <p className="text-xl font-bold text-white">15+ years</p>
+                                  <p className="text-xl font-bold text-white">10+ years</p>
                                   <p className="text-xs text-gray-400">Documented performance</p>
                                 </div>
                                 <div className="bg-gray-900/50 rounded p-3 text-center">
@@ -1541,9 +1541,9 @@ export default function Municipality() {
                             <Shield className="h-6 w-6 text-blue-300" />
                           </div>
                           <div>
-                            <h4 className="text-lg font-medium text-white mb-2">Incheon Bridge Case Study: 15 Years of Protection</h4>
+                            <h4 className="text-lg font-medium text-white mb-2">Incheon Bridge Case Study: 10 Years of Protection</h4>
                             <p className="text-gray-300 text-sm mb-4">
-                              The iconic Korean Incheon Bridge spanning 21,400 ft of salt water has been protected by our ceramic coating technology for 15 years with zero repainting required—saving millions in maintenance costs. Municipal infrastructure worldwide can achieve similar results.
+                              The iconic Korean Incheon Bridge spanning 21,400 ft of salt water has been protected by our ceramic coating technology for 10 years with minimal maintenance requirements—saving significant maintenance costs. Municipal infrastructure worldwide can achieve similar results.
                             </p>
                             <button 
                               className="text-blue-400 hover:text-blue-300 flex items-center text-sm font-medium"

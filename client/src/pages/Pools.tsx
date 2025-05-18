@@ -636,7 +636,7 @@ export default function Pools() {
                   </li>
                   <li className="flex items-start">
                     <div className="mt-1 mr-2 text-green-400"><CheckCircle className="h-4 w-4" /></div>
-                    <span className="text-blue-100">20-year manufacturer warranty</span>
+                    <span className="text-blue-100">10-year manufacturer warranty</span>
                   </li>
                   <li className="flex items-start">
                     <div className="mt-1 mr-2 text-green-400"><CheckCircle className="h-4 w-4" /></div>
