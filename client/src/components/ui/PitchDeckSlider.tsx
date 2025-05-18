@@ -107,106 +107,128 @@ const PitchDeckSlider = () => {
             exit={{ opacity: 0, y: 100 }}
             transition={{ duration: 0.5 }}
           >
-            {/* Ultra-premium enterprise-level introduction button */}
-            <div className="group relative inline-block">
-              {/* Enhanced multi-layered ambient glow effect with pulsing animation */}
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-700 via-blue-500 to-blue-700 rounded-full blur-[6px] opacity-60 group-hover:opacity-85 group-hover:scale-110 transition-all duration-700 animate-pulse-slow"></div>
-              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/50 to-blue-400/50 rounded-full blur-[12px] opacity-50 group-hover:opacity-75 group-hover:scale-110 animate-pulse-slow-delayed"></div>
-              <div className="absolute -inset-2 bg-gradient-to-r from-blue-900/25 to-blue-500/25 rounded-full blur-[20px] opacity-40 group-hover:opacity-60 group-hover:scale-125 transition-all duration-1000"></div>
-              <div className="absolute -inset-3 bg-gradient-to-r from-blue-800/15 to-blue-600/15 rounded-full blur-[25px] opacity-30 group-hover:opacity-50 group-hover:scale-125 transition-all duration-1500"></div>
+            {/* Ultra-premium enterprise-level introduction button with advanced animations */}
+            <div className="group relative inline-block animate-floating">
+              {/* Enhanced multi-layered ambient glow effect with advanced animations */}
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-700 via-blue-500 to-blue-700 rounded-full blur-[6px] opacity-60 group-hover:opacity-90 group-hover:scale-110 transition-all duration-700 animate-glow-pulse"></div>
+              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/50 to-blue-400/50 rounded-full blur-[12px] opacity-50 group-hover:opacity-80 group-hover:scale-115 animate-pulse-slow-delayed"></div>
+              <div className="absolute -inset-2 bg-gradient-to-r from-blue-900/25 to-blue-500/25 rounded-full blur-[20px] opacity-40 group-hover:opacity-70 group-hover:scale-125 transition-all duration-1000"></div>
+              <div className="absolute -inset-3 bg-gradient-to-r from-blue-800/15 to-blue-600/15 rounded-full blur-[25px] opacity-30 group-hover:opacity-60 group-hover:scale-125 transition-all duration-1500"></div>
+              <div className="absolute -inset-4 bg-gradient-to-r from-blue-900/10 to-blue-700/10 rounded-full blur-[30px] opacity-0 group-hover:opacity-40 group-hover:scale-150 transition-all duration-2000"></div>
               
-              {/* Premium black glass button with 3D effect */}
+              {/* Animated radial pulse effect */}
+              <div className="absolute -inset-6 rounded-full opacity-0 group-hover:opacity-100">
+                <div className="absolute inset-0 rounded-full bg-blue-500/5 animate-radial-pulse"></div>
+                <div className="absolute inset-0 rounded-full bg-blue-400/5 animate-radial-pulse" style={{ animationDelay: '0.5s' }}></div>
+                <div className="absolute inset-0 rounded-full bg-blue-300/5 animate-radial-pulse" style={{ animationDelay: '1s' }}></div>
+              </div>
+              
+              {/* Ultimate black glass button with 3D effect and animations */}
               <button
                 onClick={togglePitchDeck}
-                className="relative bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white rounded-full py-4 px-8 z-10 border border-blue-900/40 shadow-[inset_0_1px_2px_rgba(255,255,255,0.15),0_0_8px_rgba(0,0,0,0.3)] overflow-hidden group-hover:shadow-[0_0_35px_rgba(59,130,246,0.5)] transition-all duration-700 flex items-center gap-4 transform group-hover:scale-[1.05]"
+                className="relative bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white rounded-full py-4 px-8 z-10 border border-blue-900/40 shadow-[inset_0_1px_2px_rgba(255,255,255,0.15),0_0_8px_rgba(0,0,0,0.3)] overflow-hidden group-hover:shadow-[0_0_35px_rgba(59,130,246,0.6)] transition-all duration-700 flex items-center gap-4 transform group-hover:scale-[1.06] animate-border-glow"
               >
-                {/* Sophisticated high-tech animated background effects */}
+                {/* Advanced high-tech animated background effects */}
                 <div className="absolute inset-0 z-0">
-                  {/* Tech pattern overlay */}
+                  {/* Enhanced tech pattern overlay */}
                   <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoNTksMTMwLDI0NiwwLjEpIiBkPSJNMCAwaDJ2Mkgwem0yIDJoMnYySDJ6Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCBmaWxsPSJ1cmwoI2EpIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIi8+PC9zdmc+')] opacity-40"></div>
                   
-                  {/* Dynamic shimmer effect with improved animation */}
-                  <div className="absolute inset-0 opacity-30">
+                  {/* Multiple layered shimmer effects */}
+                  <div className="absolute inset-0 overflow-hidden">
                     <div className="h-full w-1/3 bg-gradient-to-r from-transparent via-blue-400/15 to-transparent skew-x-[-20deg] animate-shimmer-slow"></div>
                   </div>
+                  <div className="absolute inset-0 overflow-hidden opacity-50">
+                    <div className="h-full w-1/4 bg-gradient-to-r from-transparent via-blue-500/10 to-transparent skew-x-[-15deg] animate-ultra-shimmer"></div>
+                  </div>
+                  <div className="absolute inset-0 overflow-hidden opacity-30">
+                    <div className="h-full w-1/5 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-[-10deg] animate-ultra-shimmer" style={{ animationDelay: '1s' }}></div>
+                  </div>
                   
-                  {/* Enhanced grain texture */}
-                  <div className="absolute inset-0 opacity-50 mix-blend-overlay bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxwYXRoIGQ9Ik0wIDBoMjAwdjIwMEgweiIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIuMDUiLz48L3N2Zz4=')]"></div>
+                  {/* Enhanced grain texture with animation */}
+                  <div className="absolute inset-0 opacity-60 mix-blend-overlay bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxwYXRoIGQ9Ik0wIDBoMjAwdjIwMEgweiIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIuMDUiLz48L3N2Zz4=')]"></div>
                   
-                  {/* Ambient light reflection */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
+                  {/* Sophisticated light reflection effects */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-transparent to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
+                  <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-blue-400/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1500 delay-100"></div>
                 </div>
                 
-                {/* Enhanced 3D edge effect */}
-                <div className="absolute inset-0 rounded-full opacity-70">
-                  <div className="absolute inset-[-1px] rounded-full bg-gradient-to-b from-blue-900/20 via-transparent to-black/30"></div>
+                {/* Enhanced 3D edge effect with animation */}
+                <div className="absolute inset-0 rounded-full opacity-80">
+                  <div className="absolute inset-[-1px] rounded-full bg-gradient-to-b from-blue-900/30 via-transparent to-black/40 animate-pulse-slow-delayed"></div>
                 </div>
                 
-                {/* Premium corner accent lines with animated light effect */}
+                {/* Premium corner accent lines with advanced animated light effects */}
                 <div className="absolute top-0 left-0 w-8 h-8 pointer-events-none z-10">
-                  <div className="absolute top-0 left-0 w-6 h-6 border-t-[2px] border-l-[2px] border-blue-500/50 rounded-tl-xl"></div>
-                  <div className="absolute top-[2px] left-[2px] w-2.5 h-2.5 bg-blue-400/40 rounded-full blur-[3px] animate-pulse-slow"></div>
+                  <div className="absolute top-0 left-0 w-6 h-6 border-t-[2px] border-l-[2px] border-blue-500/60 rounded-tl-xl"></div>
+                  <div className="absolute top-[2px] left-[2px] w-2.5 h-2.5 bg-blue-400/60 rounded-full blur-[4px] animate-pulse-slow"></div>
                 </div>
                 <div className="absolute top-0 right-0 w-8 h-8 pointer-events-none z-10">
-                  <div className="absolute top-0 right-0 w-6 h-6 border-t-[2px] border-r-[2px] border-blue-500/50 rounded-tr-xl"></div>
-                  <div className="absolute top-[2px] right-[2px] w-2.5 h-2.5 bg-blue-400/40 rounded-full blur-[3px] animate-pulse-slow"></div>
+                  <div className="absolute top-0 right-0 w-6 h-6 border-t-[2px] border-r-[2px] border-blue-500/60 rounded-tr-xl"></div>
+                  <div className="absolute top-[2px] right-[2px] w-2.5 h-2.5 bg-blue-400/60 rounded-full blur-[4px] animate-pulse-slow" style={{ animationDelay: '0.5s' }}></div>
                 </div>
                 <div className="absolute bottom-0 left-0 w-8 h-8 pointer-events-none z-10">
-                  <div className="absolute bottom-0 left-0 w-6 h-6 border-b-[2px] border-l-[2px] border-blue-500/50 rounded-bl-xl"></div>
-                  <div className="absolute bottom-[2px] left-[2px] w-2.5 h-2.5 bg-blue-400/40 rounded-full blur-[3px] animate-pulse-slow"></div>
+                  <div className="absolute bottom-0 left-0 w-6 h-6 border-b-[2px] border-l-[2px] border-blue-500/60 rounded-bl-xl"></div>
+                  <div className="absolute bottom-[2px] left-[2px] w-2.5 h-2.5 bg-blue-400/60 rounded-full blur-[4px] animate-pulse-slow" style={{ animationDelay: '1s' }}></div>
                 </div>
                 <div className="absolute bottom-0 right-0 w-8 h-8 pointer-events-none z-10">
-                  <div className="absolute bottom-0 right-0 w-6 h-6 border-b-[2px] border-r-[2px] border-blue-500/50 rounded-br-xl"></div>
-                  <div className="absolute bottom-[2px] right-[2px] w-2.5 h-2.5 bg-blue-400/40 rounded-full blur-[3px] animate-pulse-slow"></div>
+                  <div className="absolute bottom-0 right-0 w-6 h-6 border-b-[2px] border-r-[2px] border-blue-500/60 rounded-br-xl"></div>
+                  <div className="absolute bottom-[2px] right-[2px] w-2.5 h-2.5 bg-blue-400/60 rounded-full blur-[4px] animate-pulse-slow" style={{ animationDelay: '1.5s' }}></div>
                 </div>
                 
-                {/* Ultra-premium shield icon with advanced holographic effects */}
+                {/* State-of-the-art shield icon with advanced holographic effects */}
                 <div className="relative mr-3 z-10 group/icon">
-                  <div className="w-12 h-12 rounded-full flex items-center justify-center relative overflow-hidden">
-                    {/* Futuristic layered holographic background */}
+                  <div className="w-12 h-12 rounded-full flex items-center justify-center relative overflow-hidden transform group-hover:scale-110 transition-transform duration-700">
+                    {/* Futuristic layered holographic background with advanced animations */}
                     <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 opacity-90"></div>
                     <div className="absolute inset-[2px] rounded-full bg-gradient-to-br from-black to-gray-900"></div>
-                    <div className="absolute inset-0 rounded-full bg-blue-500/15 animate-pulse-slow-delayed"></div>
+                    <div className="absolute inset-0 rounded-full bg-blue-500/20 animate-pulse-slow-delayed"></div>
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-400/10 to-blue-600/10 animate-glow-pulse"></div>
                     
-                    {/* Multiple orbital ring animations */}
-                    <div className="absolute inset-[-3px] rounded-full border-2 border-blue-500/15 animate-spin-very-slow"></div>
-                    <div className="absolute inset-[-2px] rounded-full border border-blue-400/10 animate-reverse-spin-very-slow"></div>
-                    <div className="absolute inset-[-1px] rounded-full border border-blue-300/5 animate-spin-very-slow" style={{ animationDuration: '25s' }}></div>
+                    {/* Multiple orbital ring animations with varied speeds and opacities */}
+                    <div className="absolute inset-[-4px] rounded-full border-2 border-blue-500/20 animate-spin-very-slow"></div>
+                    <div className="absolute inset-[-3px] rounded-full border border-blue-400/15 animate-reverse-spin-very-slow"></div>
+                    <div className="absolute inset-[-2px] rounded-full border border-blue-300/10 animate-spin-very-slow" style={{ animationDuration: '25s' }}></div>
+                    <div className="absolute inset-[-1px] rounded-full border border-blue-200/5 animate-reverse-spin-very-slow" style={{ animationDuration: '30s' }}></div>
                     
-                    {/* Enhanced holographic reflection effect */}
-                    <div className="absolute inset-0 bg-gradient-to-b from-blue-400/30 to-transparent opacity-0 group-hover/icon:opacity-100 transition-opacity duration-700"></div>
+                    {/* Enhanced holographic reflection effect with multi-layer animations */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-blue-400/40 to-transparent opacity-0 group-hover/icon:opacity-100 transition-opacity duration-700"></div>
+                    <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-blue-300/20 to-transparent opacity-0 group-hover/icon:opacity-100 transition-opacity duration-1000"></div>
                     
-                    {/* Luxury shield icon with reactive glow effect */}
-                    <div className="relative">
-                      <div className="absolute -inset-4 bg-blue-500/30 rounded-full blur-md opacity-0 group-hover/icon:opacity-100 transition-opacity duration-500 animate-pulse-slow"></div>
-                      <Shield className="w-7 h-7 text-blue-300 group-hover/icon:text-blue-100 transition-colors duration-500 relative z-10 drop-shadow-[0_0_4px_rgba(59,130,246,0.7)]" />
+                    {/* Luxury shield icon with reactive glow and pulse effects */}
+                    <div className="relative animate-floating" style={{ animationDuration: '2s' }}>
+                      <div className="absolute -inset-5 bg-blue-500/40 rounded-full blur-md opacity-0 group-hover/icon:opacity-100 transition-opacity duration-500 animate-pulse-slow"></div>
+                      <div className="absolute -inset-4 bg-blue-400/30 rounded-full blur-lg opacity-0 group-hover/icon:opacity-80 transition-opacity duration-700 animate-pulse-slow" style={{ animationDelay: '0.5s' }}></div>
+                      <Shield className="w-7 h-7 text-blue-300 group-hover/icon:text-blue-100 transition-colors duration-500 relative z-10 drop-shadow-[0_0_5px_rgba(59,130,246,0.8)]" />
                     </div>
                     
-                    {/* High-end multi-layered ripple effect */}
-                    <div className="absolute inset-0 rounded-full border border-blue-500/15 scale-0 group-hover/icon:scale-[1.2] opacity-0 group-hover/icon:opacity-100 transition-all duration-1000"></div>
-                    <div className="absolute inset-0 rounded-full border border-blue-400/10 scale-0 group-hover/icon:scale-[1.5] opacity-0 group-hover/icon:opacity-80 transition-all duration-1500 delay-100"></div>
-                    <div className="absolute inset-0 rounded-full border border-blue-300/5 scale-0 group-hover/icon:scale-[1.8] opacity-0 group-hover/icon:opacity-60 transition-all duration-2000 delay-200"></div>
+                    {/* High-end multi-layered ripple effects with advanced timing */}
+                    <div className="absolute inset-0 rounded-full border border-blue-500/20 scale-0 group-hover/icon:scale-[1.2] opacity-0 group-hover/icon:opacity-100 transition-all duration-1000"></div>
+                    <div className="absolute inset-0 rounded-full border border-blue-400/15 scale-0 group-hover/icon:scale-[1.5] opacity-0 group-hover/icon:opacity-80 transition-all duration-1500 delay-100"></div>
+                    <div className="absolute inset-0 rounded-full border border-blue-300/10 scale-0 group-hover/icon:scale-[1.8] opacity-0 group-hover/icon:opacity-60 transition-all duration-2000 delay-200"></div>
                     <div className="absolute inset-0 rounded-full border border-blue-200/5 scale-0 group-hover/icon:scale-[2.1] opacity-0 group-hover/icon:opacity-40 transition-all duration-2500 delay-300"></div>
+                    <div className="absolute inset-0 rounded-full border border-blue-100/5 scale-0 group-hover/icon:scale-[2.4] opacity-0 group-hover/icon:opacity-20 transition-all duration-3000 delay-400"></div>
                   </div>
                 </div>
                 
-                {/* Premium text with advanced styling and gradient effects */}
+                {/* Ultra-premium text with advanced styling and animation effects */}
                 <span className="relative z-10 group/text">
-                  <span className="bg-gradient-to-r from-blue-100 via-white to-blue-100 bg-clip-text text-transparent text-lg font-bold tracking-wider drop-shadow-[0_2px_4px_rgba(0,0,0,0.7)]">
+                  <span className="bg-gradient-to-r from-blue-100 via-white to-blue-100 bg-clip-text animate-text-shimmer text-transparent text-lg font-bold tracking-wider drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
                     INTRODUCTION
                   </span>
                   
-                  {/* Enhanced animated underline effect */}
-                  <span className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-blue-500/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></span>
+                  {/* Enhanced animated underline effect with shimmer */}
+                  <span className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-blue-500/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 animate-shimmer-slow"></span>
                   
-                  {/* Advanced text hover effect */}
-                  <span className="absolute inset-0 bg-gradient-to-r from-blue-400/0 via-blue-400/15 to-blue-400/0 opacity-0 group-hover/text:opacity-100 transition-opacity duration-700 blur-sm"></span>
+                  {/* Advanced text hover effect with multi-layer animations */}
+                  <span className="absolute inset-0 bg-gradient-to-r from-blue-400/0 via-blue-400/20 to-blue-400/0 opacity-0 group-hover/text:opacity-100 transition-opacity duration-700 blur-sm"></span>
+                  <span className="absolute inset-0 bg-gradient-to-tr from-transparent via-blue-300/10 to-transparent opacity-0 group-hover/text:opacity-100 transition-opacity duration-1000 delay-200 blur-sm"></span>
                 </span>
                 
-                {/* Premium animated arrow with advanced lighting effects */}
-                <div className="relative ml-2 z-10 group/arrow">
-                  <div className="absolute -inset-3 bg-blue-500/15 rounded-full opacity-0 group-hover/arrow:opacity-100 group-hover:scale-75 blur-md transition-all duration-500"></div>
-                  <ArrowRight className="w-7 h-7 text-blue-200 relative z-10 group-hover:translate-x-2 transition-all duration-700 group-hover:text-white drop-shadow-[0_0_3px_rgba(59,130,246,0.7)]" />
+                {/* State-of-the-art animated arrow with premium lighting effects */}
+                <div className="relative ml-2 z-10 group/arrow animate-floating" style={{ animationDuration: '2.5s' }}>
+                  <div className="absolute -inset-3 bg-blue-500/20 rounded-full opacity-0 group-hover/arrow:opacity-100 group-hover:scale-75 blur-md transition-all duration-500 animate-pulse-slow"></div>
+                  <div className="absolute -inset-2 bg-blue-400/15 rounded-full opacity-0 group-hover/arrow:opacity-80 group-hover:scale-85 blur-sm transition-all duration-700 delay-100 animate-pulse-slow-delayed"></div>
+                  <ArrowRight className="w-7 h-7 text-blue-200 relative z-10 group-hover:translate-x-2.5 transition-all duration-700 group-hover:text-white drop-shadow-[0_0_4px_rgba(59,130,246,0.8)]" />
                 </div>
               </button>
             </div>
