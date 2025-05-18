@@ -1258,7 +1258,11 @@ const MobileHome = () => {
                               <FormItem>
                                 <FormLabel className="text-white">Business Name</FormLabel>
                                 <FormControl>
-                                  <Input placeholder="Your company name" {...field} className="bg-gray-900 border-gray-700 text-white" />
+                                  <Input 
+                                    placeholder="Your company name" 
+                                    {...field} 
+                                    className="bg-gray-900/60 border-2 border-purple-500/40 rounded-lg text-white focus:border-purple-500 focus:ring-2 focus:ring-purple-500/40 shadow-[0_0_10px_rgba(147,51,234,0.15)] placeholder:text-gray-500" 
+                                  />
                                 </FormControl>
                                 <FormMessage />
                               </FormItem>
@@ -1272,7 +1276,11 @@ const MobileHome = () => {
                               <FormItem>
                                 <FormLabel className="text-white">Contact Name</FormLabel>
                                 <FormControl>
-                                  <Input placeholder="Your name" {...field} className="bg-gray-900 border-gray-700 text-white" />
+                                  <Input 
+                                    placeholder="Your name" 
+                                    {...field} 
+                                    className="bg-gray-900/60 border-2 border-purple-500/40 rounded-lg text-white focus:border-purple-500 focus:ring-2 focus:ring-purple-500/40 shadow-[0_0_10px_rgba(147,51,234,0.15)] placeholder:text-gray-500" 
+                                  />
                                 </FormControl>
                                 <FormMessage />
                               </FormItem>
@@ -1289,10 +1297,10 @@ const MobileHome = () => {
                                   <Input 
                                     placeholder="your@email.com" 
                                     {...field} 
-                                    className="bg-gray-900/60 border-2 border-green-500/50 rounded-lg text-white focus:border-green-500 focus:ring-2 focus:ring-green-500/40 shadow-[0_0_10px_rgba(74,222,128,0.15)] placeholder:text-gray-500"
+                                    className="bg-gray-900/60 border-2 border-purple-500/50 rounded-lg text-white focus:border-purple-500 focus:ring-2 focus:ring-purple-500/40 shadow-[0_0_10px_rgba(147,51,234,0.15)] placeholder:text-gray-500"
                                     style={{
-                                      textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)",
-                                      boxShadow: "0 0 15px rgba(74, 222, 128, 0.15), inset 0 0 10px rgba(0, 0, 0, 0.3)"
+                                      textShadow: "0 1px 2px rgba(147, 51, 234, 0.2)",
+                                      boxShadow: "0 0 15px rgba(147, 51, 234, 0.15), inset 0 0 10px rgba(0, 0, 0, 0.3)"
                                     }}
                                   />
                                 </FormControl>
@@ -1311,10 +1319,10 @@ const MobileHome = () => {
                                   <Input 
                                     placeholder="Confirm your email" 
                                     {...field} 
-                                    className="bg-gray-900/60 border-2 border-green-500/50 rounded-lg text-white focus:border-green-500 focus:ring-2 focus:ring-green-500/40 shadow-[0_0_10px_rgba(74,222,128,0.15)] placeholder:text-gray-500"
+                                    className="bg-gray-900/60 border-2 border-purple-500/40 rounded-lg text-white focus:border-purple-500 focus:ring-2 focus:ring-purple-500/40 shadow-[0_0_10px_rgba(147,51,234,0.15)] placeholder:text-gray-500"
                                     style={{
-                                      textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)",
-                                      boxShadow: "0 0 15px rgba(74, 222, 128, 0.15), inset 0 0 10px rgba(0, 0, 0, 0.3)"
+                                      textShadow: "0 1px 2px rgba(147, 51, 234, 0.2)",
+                                      boxShadow: "0 0 15px rgba(147, 51, 234, 0.15), inset 0 0 10px rgba(0, 0, 0, 0.3)"
                                     }}
                                   />
                                 </FormControl>
