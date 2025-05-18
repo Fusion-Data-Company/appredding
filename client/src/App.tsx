@@ -8,7 +8,7 @@ import { preloadCriticalImages } from "@/utils/image-preloader";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import CRM from "@/pages/CRM";
-import PainterNetwork from "@/pages/PainterNetwork";
+// PainterNetwork page has been removed
 import Marinas from "@/pages/Marinas";
 import FirePrevention from "@/pages/FirePrevention";
 import Painters from "@/pages/Painters";
@@ -58,13 +58,7 @@ function Router() {
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/crm" component={CRM} />
-      {/* Redirect /painter-network to /painters */}
-      <Route path="/painter-network">
-        {() => {
-          window.location.href = "/painters";
-          return null;
-        }}
-      </Route>
+      {/* Remove painter-network route to avoid redirects */}
       <Route path="/marinas" component={Marinas} />
       <Route path="/fire-prevention" component={FirePrevention} />
       <Route path="/painters" component={Painters} />
