@@ -157,18 +157,42 @@ const Painters = () => {
                 </motion.h1>
                 
                 {/* Enhanced ROI-focused stats in enterprise grid format */}
-                <div className="grid grid-cols-3 gap-3 mb-6">
-                  <div className="bg-gradient-to-br from-black/40 to-black/20 border border-orange-600/30 rounded-lg p-3 text-center">
-                    <span className="text-green-400 font-bold text-xl md:text-2xl block">$37.50</span>
-                    <span className="text-blue-200 text-xs">Extra profit per sq.ft</span>
-                  </div>
-                  <div className="bg-gradient-to-br from-black/40 to-black/20 border border-blue-600/30 rounded-lg p-3 text-center">
-                    <span className="text-green-400 font-bold text-xl md:text-2xl block">87.3%</span>
-                    <span className="text-blue-200 text-xs">Callback reduction</span>
-                  </div>
-                  <div className="bg-gradient-to-br from-black/40 to-black/20 border border-orange-600/30 rounded-lg p-3 text-center">
-                    <span className="text-green-400 font-bold text-xl md:text-2xl block">14+ yrs</span>
-                    <span className="text-blue-200 text-xs">Warranty-backed service</span>
+                <div className="relative mb-6">
+                  {/* Enhanced green ambient glow for ROI section */}
+                  <div className="absolute -inset-4 bg-green-500/30 rounded-xl blur-3xl opacity-70 z-0"></div>
+                  <div className="absolute -inset-8 bg-green-500/20 rounded-xl blur-2xl opacity-60 z-0 animate-pulse-slow"></div>
+                  
+                  <div className="grid grid-cols-3 gap-3 relative z-10">
+                    <div className="bg-gray-900/60 p-3 rounded-lg border-2 border-green-500/30 shadow-[0_0_20px_rgba(74,222,128,0.2)] text-center group">
+                      <div className="flex items-center justify-center mb-2">
+                        <div className="bg-gradient-to-br from-green-600 to-green-700 rounded-full p-1 
+                          border border-green-400/40 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_0_4px_rgba(74,222,128,0.4)]">
+                          <CircleDollarSign className="w-4 h-4 text-green-100" />
+                        </div>
+                      </div>
+                      <span className="text-green-400 font-bold text-xl md:text-2xl block group-hover:scale-110 transition-transform duration-300">$37.50</span>
+                      <span className="text-blue-200 text-xs">Extra profit per sq.ft</span>
+                    </div>
+                    <div className="bg-gray-900/60 p-3 rounded-lg border-2 border-green-500/30 shadow-[0_0_20px_rgba(74,222,128,0.2)] text-center group">
+                      <div className="flex items-center justify-center mb-2">
+                        <div className="bg-gradient-to-br from-green-600 to-green-700 rounded-full p-1 
+                          border border-green-400/40 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_0_4px_rgba(74,222,128,0.4)]">
+                          <CheckCircle className="w-4 h-4 text-green-100" />
+                        </div>
+                      </div>
+                      <span className="text-green-400 font-bold text-xl md:text-2xl block group-hover:scale-110 transition-transform duration-300">87.3%</span>
+                      <span className="text-blue-200 text-xs">Callback reduction</span>
+                    </div>
+                    <div className="bg-gray-900/60 p-3 rounded-lg border-2 border-green-500/30 shadow-[0_0_20px_rgba(74,222,128,0.2)] text-center group">
+                      <div className="flex items-center justify-center mb-2">
+                        <div className="bg-gradient-to-br from-green-600 to-green-700 rounded-full p-1 
+                          border border-green-400/40 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_0_4px_rgba(74,222,128,0.4)]">
+                          <Clock className="w-4 h-4 text-green-100" />
+                        </div>
+                      </div>
+                      <span className="text-green-400 font-bold text-xl md:text-2xl block group-hover:scale-110 transition-transform duration-300">14+ yrs</span>
+                      <span className="text-blue-200 text-xs">Warranty-backed service</span>
+                    </div>
                   </div>
                 </div>
                 
