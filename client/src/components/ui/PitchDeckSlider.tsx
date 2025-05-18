@@ -107,19 +107,17 @@ const PitchDeckSlider = () => {
             exit={{ opacity: 0, y: 100 }}
             transition={{ duration: 0.5 }}
           >
-            {/* Premium styled button with layered effects */}
+            {/* Completely rebuilt premium styled button with blue gradient only */}
             <div className="group relative inline-block">
-              {/* Ambient blue gradient glow effect positioned behind button */}
+              {/* Blue-only ambient glow effect behind the button */}
               <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-blue-400 rounded-full blur-md opacity-70 group-hover:opacity-100 transition duration-300"></div>
               
-              {/* Button with premium black styling */}
-              <GradientButton 
+              {/* Black button with blue glow */}
+              <button
                 onClick={togglePitchDeck}
-                className="relative bg-black rounded-full py-3 px-6 z-10 border border-gray-800 overflow-hidden group-hover:shadow-[0_0_25px_rgba(0,0,0,0.4)] transition-all duration-500 flex items-center gap-3 intro-button-shimmer transform group-hover:scale-105"
-                variant="default"
-                size="lg"
+                className="relative bg-black text-white rounded-full py-3 px-6 z-10 border border-gray-800 overflow-hidden group-hover:shadow-[0_0_25px_rgba(0,0,0,0.4)] transition-all duration-500 flex items-center gap-3 transform group-hover:scale-105"
               >
-                {/* Inner subtle animated glow */}
+                {/* Inner subtle pattern */}
                 <div className="absolute inset-0 opacity-30 z-0">
                   <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoNTksMTMwLDI0NiwwLjI1KSIgZD0iTTAgMGgydjJIMHptMiAyaDJ2MkgyeiIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgZmlsbD0idXJsKCNhKSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPjwvc3ZnPg==')]"></div>
                 </div>
@@ -142,22 +140,22 @@ const PitchDeckSlider = () => {
                   <div className="absolute bottom-0 right-0 w-1.5 h-1.5 bg-gray-500/50 rounded-full blur-[1px]"></div>
                 </div>
                 
-                {/* Icon with premium styling */}
+                {/* Blue/dark icon container */}
                 <div className="relative mr-1 z-10 group/icon">
                   <div className="w-9 h-9 rounded-full flex items-center justify-center relative overflow-hidden">
-                    {/* Icon background with gradient */}
-                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-gray-600/30 via-gray-600/30 to-gray-600/30 opacity-80"></div>
+                    {/* Blue icon background */}
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-700/30 via-blue-600/30 to-blue-700/30 opacity-80"></div>
                     <div className="absolute inset-2 rounded-full bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black"></div>
                     
-                    {/* Subtle gradient overlays */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-gray-500/10 to-gray-400/10 rounded-full opacity-0 group-hover/icon:opacity-100 transition-opacity duration-700"></div>
+                    {/* Subtle blue gradient overlays */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-blue-400/10 rounded-full opacity-0 group-hover/icon:opacity-100 transition-opacity duration-700"></div>
                     
-                    {/* Icon with premium styling */}
-                    <Shield className="w-5 h-5 text-gray-300 group-hover:text-white transition-colors duration-1000 animate-pulse-slow-delayed relative z-10" />
+                    {/* Icon with blue styling */}
+                    <Shield className="w-5 h-5 text-blue-100 group-hover:text-white transition-colors duration-500 relative z-10" />
                     
-                    {/* Add subtle animated ripple effect */}
-                    <div className="absolute inset-0 rounded-full border border-gray-500/20 scale-0 group-hover:scale-[1.2] opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
-                    <div className="absolute -inset-1 rounded-full border border-gray-500/20 scale-0 group-hover:scale-[1.4] opacity-0 group-hover:opacity-70 transition-all duration-1000 delay-100"></div>
+                    {/* Blue ripple effect */}
+                    <div className="absolute inset-0 rounded-full border border-blue-500/20 scale-0 group-hover:scale-[1.2] opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
+                    <div className="absolute -inset-1 rounded-full border border-blue-500/20 scale-0 group-hover:scale-[1.4] opacity-0 group-hover:opacity-70 transition-all duration-1000 delay-100"></div>
                   </div>
                 </div>
                 
@@ -166,12 +164,12 @@ const PitchDeckSlider = () => {
                   <span className="bg-gradient-to-r from-gray-300 via-white to-gray-300 bg-clip-text text-transparent text-lg font-medium drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)]">
                     Introduction
                   </span>
-                  <span className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-gray-400/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></span>
+                  <span className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-blue-400/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></span>
                 </span>
                 
                 {/* Animated arrow with enhanced styling */}
                 <ArrowRight className="w-5 h-5 ml-1 text-gray-300 relative z-10 group-hover:translate-x-1 transition-all duration-500 group-hover:text-white" />
-              </GradientButton>
+              </button>
             </div>
           </motion.div>
         )}
