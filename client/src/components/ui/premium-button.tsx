@@ -232,8 +232,7 @@ const PremiumButton = forwardRef<HTMLButtonElement, PremiumButtonProps>(
                    }}>
               </div>
                 
-              {/* Blue-to-orange gradient glow effect - matches the "Register for Mobile Home Services" button */}
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-orange-600 rounded-lg blur opacity-70 group-hover:opacity-100 transition duration-200"></div>
+              {/* Position this outside the button component */}
               
               {/* Additional directional glows for enhanced effect */}
               <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-[100%] h-10 bg-gradient-to-t from-blue-600/30 to-transparent blur-2xl opacity-70 transition-opacity duration-500 rounded-full">

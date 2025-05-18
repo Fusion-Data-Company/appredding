@@ -473,9 +473,9 @@ const MobileHome = () => {
                   </p>
                   
                   <div className="flex justify-center mb-4">
-                    {/* Ambient blue glow wrapper around the button without affecting the button itself */}
+                    {/* Ambient blue-to-orange gradient glow wrapper around the button without affecting the button itself */}
                     <div className="relative">
-                      <div className="absolute -inset-4 bg-blue-600/30 blur-xl rounded-3xl opacity-80 transition-opacity duration-500"></div>
+                      <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-orange-600 rounded-lg blur opacity-70 group-hover:opacity-100 transition duration-200"></div>
                       <div className="relative">
                         <PremiumActionButton
                           onClick={() => document.getElementById('mobileHomeForm')?.scrollIntoView({ behavior: 'smooth' })}
@@ -810,9 +810,9 @@ const MobileHome = () => {
                         </select>
                       </div>
                       
-                      {/* Ambient blue glow wrapped around the button without affecting the button itself */}
+                      {/* Ambient blue-to-orange gradient glow wrapper around the button without affecting the button itself */}
                       <div className="relative mt-4">
-                        <div className="absolute -inset-3 bg-blue-600/30 blur-xl rounded-xl opacity-80 transition-opacity duration-500"></div>
+                        <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-orange-600 rounded-lg blur opacity-70 group-hover:opacity-100 transition duration-200"></div>
                         <div className="relative">
                           <PremiumFireButton 
                             className="w-full transform hover:scale-105 transition-transform duration-300"
