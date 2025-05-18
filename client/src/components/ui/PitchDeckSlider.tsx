@@ -109,8 +109,8 @@ const PitchDeckSlider = () => {
           >
             {/* Premium styled button with layered effects */}
             <div className="group relative">
-              {/* Ambient blue glow effect behind button */}
-              <div className="absolute -inset-4 bg-blue-600/30 blur-xl rounded-3xl opacity-80 transition-opacity duration-500"></div>
+              {/* Ambient blue-to-orange gradient glow effect behind button */}
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-orange-600 rounded-lg blur opacity-70 group-hover:opacity-100 transition duration-200"></div>
               
               {/* Button with premium styling */}
               <GradientButton 
@@ -300,15 +300,19 @@ const PitchDeckSlider = () => {
                             </SelectContent>
                           </Select>
                           
-                          <GradientButton 
-                            onClick={() => selectedIndustry && handleIndustrySelect(selectedIndustry)}
-                            disabled={!selectedIndustry}
-                            className="min-w-[150px]"
-                            variant="default"
-                          >
-                            Continue
-                            <ArrowRight className="w-4 h-4 ml-2" />
-                          </GradientButton>
+                          <div className="relative inline-block">
+                            {/* Ambient blue-to-orange gradient glow effect behind button */}
+                            <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-orange-600 rounded-lg blur opacity-70 group-hover:opacity-100 transition duration-200"></div>
+                            <GradientButton 
+                              onClick={() => selectedIndustry && handleIndustrySelect(selectedIndustry)}
+                              disabled={!selectedIndustry}
+                              className="relative min-w-[150px] bg-black border border-gray-700"
+                              variant="default"
+                            >
+                              Continue
+                              <ArrowRight className="w-4 h-4 ml-2" />
+                            </GradientButton>
+                          </div>
                         </div>
                       </motion.div>
                     )}
