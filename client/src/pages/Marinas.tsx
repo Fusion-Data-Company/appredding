@@ -1316,7 +1316,7 @@ const Marinas = () => {
                             </span>
                           </h3>
                           <p className="text-white leading-relaxed">
-                            Our ceramic-based coatings provide dielectric properties with <span className="text-orange-300 font-medium">electrical resistance up to 600V</span>, adding a critical safety layer around marina electrical components and reducing shock hazards. This protective barrier is especially valuable in wet environments where electrical infrastructure is exposed to saltwater and weather.
+                            Our ceramic-based coatings provide protective properties for marina components, offering an additional layer against environmental exposure. This protective barrier is especially valuable in wet environments where infrastructure is exposed to saltwater and harsh weather conditions.
                           </p>
                         </div>
                       </div>

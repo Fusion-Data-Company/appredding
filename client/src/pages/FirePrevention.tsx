@@ -356,7 +356,7 @@ const FirePrevention = () => {
                             <Shield className="w-4 h-4" />
                           </div>
                           <p className="text-xs text-gray-300">
-                            Properties with additional fire-resistant features may qualify for consideration by some insurance providers when assessing properties in higher-risk zones.
+                            Adding fire-resistant features to properties in high-risk zones is a recommended practice for comprehensive property protection and safety.
                           </p>
                         </div>
                       </div>
