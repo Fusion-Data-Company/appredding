@@ -44,20 +44,20 @@ const TechnicalFAQ: React.FC = () => {
       
       <Accordion type="single" collapsible className="w-full">
         <FAQItem
-          question="How does the ceramic coating achieve Class A fire rating with 0/0 flame spread?"
+          question="How does the ceramic coating achieve its fire-resistant properties?"
           answer={
             <div className="space-y-3">
               <p>
-                The Class A fire rating (0/0 flame spread and smoke development) is achieved through Praetorian's patented formulation of vacuum-sealed ceramic microspheres in a specialized binding matrix. These ceramic microspheres:
+                The fire resistance is achieved through Praetorian's formulation of ceramic microspheres in a specialized binding matrix. These ceramic microspheres:
               </p>
               <ul className="list-disc pl-5 space-y-2">
-                <li>Create an inorganic barrier that cannot burn or contribute fuel</li>
-                <li>Contain trapped air that acts as an exceptional thermal insulator</li>
-                <li>Form a continuous membrane that blocks oxygen access to the substrate</li>
-                <li>Dissipate heat laterally rather than allowing penetration</li>
+                <li>Create a mineral-based barrier with fire-resistant properties</li>
+                <li>Contain trapped air that acts as a thermal insulator</li>
+                <li>Form a continuous membrane that helps protect the substrate</li>
+                <li>Help dissipate heat rather than allowing direct penetration</li>
               </ul>
               <p>
-                In ASTM E84 testing, the coating received the perfect score of 0 for flame spread (no flame propagation) and 0 for smoke development (no measurable smoke produced). This makes it one of the few liquid-applied coatings to achieve this highest possible safety rating.
+                In ASTM E108/UL 790 testing, the coating has demonstrated good performance in standard fire resistance tests. This makes it an effective option for improving the fire resistance of various substrates when used as part of a complete fire protection system.
               </p>
             </div>
           }
@@ -88,20 +88,20 @@ const TechnicalFAQ: React.FC = () => {
         />
         
         <FAQItem
-          question="How does the coating maintain 156% elastomeric flexibility while providing fire protection?"
+          question="How does the coating maintain flexibility while providing protection?"
           answer={
             <div className="space-y-3">
               <p>
-                The 156% elastomeric flexibility is achieved through Praetorian's proprietary latex acrylic polymer matrix that encapsulates the ceramic microspheres. This carefully engineered matrix:
+                The coating's flexibility is achieved through Praetorian's latex acrylic polymer matrix that encapsulates the ceramic microspheres. This engineered matrix:
               </p>
               <ul className="list-disc pl-5 space-y-2">
-                <li>Creates molecular cross-linking that allows substantial expansion without breaking</li>
-                <li>Maintains flexibility across extreme temperature ranges (-40°F to 300°F+)</li>
+                <li>Creates a polymer structure that allows expansion without breaking</li>
+                <li>Maintains flexibility across a range of temperatures</li>
                 <li>Allows the coating to expand and contract with the substrate during thermal cycling</li>
-                <li>Bridges and seals hairline cracks that would otherwise allow moisture penetration</li>
+                <li>Helps bridge small cracks that would otherwise allow moisture penetration</li>
               </ul>
               <p>
-                During ASTM D2370 testing, the coating demonstrated the ability to stretch to 156% of its original dimension without tearing or losing adhesion. This elastomeric property is critical for maintaining a continuous protective membrane over substrates that expand and contract with temperature changes or structural movement, preventing the cracking that would compromise both the waterproofing and fire-resistant properties.
+                During standard flexibility testing, the coating demonstrates good elastomeric properties without tearing or losing adhesion. This flexibility is important for maintaining a continuous protective membrane over substrates that expand and contract with temperature changes or structural movement, helping to prevent cracking that would compromise both the waterproofing and protective properties.
               </p>
             </div>
           }
@@ -114,16 +114,16 @@ const TechnicalFAQ: React.FC = () => {
           answer={
             <div className="space-y-3">
               <p>
-                Praetorian's superior corrosion resistance in marine environments is achieved through multiple protection mechanisms:
+                Praetorian's corrosion resistance in marine environments is achieved through several protection mechanisms:
               </p>
               <ul className="list-disc pl-5 space-y-2">
-                <li>Forms an impermeable barrier that prevents oxygen and moisture contact with metal surfaces</li>
-                <li>Creates a continuous, pinhole-free membrane that seals the substrate completely</li>
-                <li>Maintains its integrity even when subjected to 10,000+ hours of salt spray testing (ASTM B117)</li>
-                <li>Combines with specialized primers to form a comprehensive system that blocks electrolytic corrosion</li>
+                <li>Forms a protective barrier that helps prevent oxygen and moisture contact with metal surfaces</li>
+                <li>Creates a durable membrane that helps seal the substrate</li>
+                <li>Performs well in salt spray testing (ASTM B117)</li>
+                <li>Works well with specialized primers to form a comprehensive protection system</li>
               </ul>
               <p>
-                The coating has earned Marine-Grade Certification for maritime applications after rigorous testing. Field installations on bridges, ships, and coastal structures have demonstrated superior performance compared to traditional marine coatings, with documented cases showing excellent corrosion resistance in harsh saltwater environments.
+                The coating has Marine-Grade Certification for maritime applications. Field installations on bridges, ships, and coastal structures have shown good performance in saltwater environments when properly applied and maintained.
               </p>
             </div>
           }
@@ -188,16 +188,16 @@ const TechnicalFAQ: React.FC = () => {
           answer={
             <div className="space-y-3">
               <p>
-                The proprietary ceramic microspheres in Praetorian's coating are engineered at the microscopic level:
+                The ceramic microspheres in Praetorian's coating have these key characteristics:
               </p>
               <ul className="list-disc pl-5 space-y-2">
-                <li>Hollow, vacuum-sealed spheres ranging from 10-100 microns in diameter</li>
-                <li>Composed primarily of specially formulated ceramic oxides derived from <span className="bg-gradient-to-r from-orange-300 to-blue-300 bg-clip-text text-transparent font-semibold">NASA thermal protection research</span></li>
-                <li>Manufactured through a proprietary high-temperature process that creates perfectly spherical particles</li>
-                <li>Uniquely structured with a hard ceramic shell surrounding a vacuum or gas-filled core</li>
+                <li>Hollow spheres in the microscopic size range</li>
+                <li>Composed of ceramic materials influenced by <span className="bg-gradient-to-r from-orange-300 to-blue-300 bg-clip-text text-transparent font-semibold">NASA thermal protection research</span></li>
+                <li>Manufactured through a specialized process to create uniform particles</li>
+                <li>Structured with a ceramic shell surrounding a low-density core</li>
               </ul>
               <p>
-                These microspheres are distributed throughout the coating at densities exceeding thousands per square inch, creating a continuous thermal barrier. The vacuum or gas inside each sphere provides exceptional insulating properties, while the ceramic shell offers fire resistance and durability. The spherical shape ensures maximum packing efficiency and omnidirectional heat reflection, regardless of the incident angle of thermal energy.
+                These microspheres are distributed throughout the coating, creating an effective thermal barrier. The low-density core provides good insulating properties, while the ceramic shell contributes to heat resistance. The spherical shape helps with distribution within the coating and provides multidirectional thermal performance.
               </p>
             </div>
           }
@@ -206,24 +206,22 @@ const TechnicalFAQ: React.FC = () => {
         />
         
         <FAQItem
-          question="What testing standards has the coating been certified against?"
+          question="What testing standards has the coating been evaluated against?"
           answer={
             <div className="space-y-3">
               <p>
-                Praetorian's ceramic coating has been certified against numerous industry standards:
+                Praetorian's ceramic coating has been tested against several industry standards:
               </p>
               <ul className="list-disc pl-5 space-y-2">
-                <li><strong>ASTM E84:</strong> Class A fire rating with 0/0 flame spread/smoke development</li>
-                <li><strong>ASTM D6695:</strong> 89% UV reflection performance</li>
-                <li><strong>ASTM C1371:</strong> 89% thermal emittance</li>
-                <li><strong>ASTM D2370:</strong> 156% elastomeric flexibility</li>
-                <li><strong>ASTM B117:</strong> 10,000+ hours salt spray resistance</li>
-                <li><strong>UL 94 V-0 and 5VA:</strong> Self-extinguishing with no burn-through in composite systems</li>
-                <li><strong>NSF/ANSI 61:</strong> Safe for potable water contact</li>
-                <li><strong>ISO 14116:</strong> Flame spread resistance for textiles</li>
+                <li><strong>ASTM E108/UL 790:</strong> Fire resistance testing for roofing materials</li>
+                <li><strong>ASTM D6695:</strong> Solar reflectance performance</li>
+                <li><strong>ASTM C1371:</strong> Thermal emittance measurement</li>
+                <li><strong>ASTM D2370:</strong> Elastomeric properties evaluation</li>
+                <li><strong>ASTM B117:</strong> Salt spray resistance testing</li>
+                <li><strong>NSF/ANSI 61:</strong> Evaluated for water contact safety</li>
               </ul>
               <p>
-                Additionally, the coating holds Marine-Grade Certification for maritime applications and is compliant with multiple federal and military specifications including certain MIL-PRF standards. The coating also complies with environmental regulations, containing near-zero VOCs and no toxic substances, making it safe for use in occupied spaces and environmentally sensitive areas.
+                The coating holds Marine-Grade Certification for maritime applications. The product also meets environmental safety requirements with low VOC content, making it suitable for use in occupied spaces and environmentally conscious applications.
               </p>
             </div>
           }
