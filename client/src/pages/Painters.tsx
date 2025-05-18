@@ -121,10 +121,118 @@ const Painters = () => {
           <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoMjQ5LDExNSwyMiwwLjIpIiBkPSJNMCAwaDJ2Mkgwem0yIDJoMnYySDJ6Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCBmaWxsPSJ1cmwoI2EpIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIi8+PC9zdmc+')]"></div>
         </div>
         
-        <section className="py-10 md:py-24 relative z-10">
+        {/* Pain Points Section - Top of Funnel */}
+        <section className="py-10 pt-20 md:py-24 relative z-10">
           <div className="container mx-auto px-4 sm:px-6">
-            {/* Hero Section */}
+            {/* Elite Header - Pain Points */}
             <div className="max-w-4xl mx-auto text-center mb-10 md:mb-16 relative">
+              <div className="absolute -inset-1 bg-gradient-to-r from-red-600/40 via-orange-600/40 to-red-600/40 rounded-xl blur-xl opacity-70 animate-pulse-slow"></div>
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-red-500/80 via-orange-500/80 to-red-500/80 rounded-xl blur-md opacity-90"></div>
+              
+              <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 p-8 rounded-xl z-10 border border-red-500/30 overflow-hidden hover:shadow-[0_0_25px_rgba(239,68,68,0.3)] transition-shadow duration-500">
+                {/* Corner accent elements */}
+                <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none">
+                  <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-red-500/70 rounded-tl-lg"></div>
+                  <div className="absolute top-0 left-0 w-3 h-3 bg-red-500/50 rounded-full blur-[2px]"></div>
+                </div>
+                <div className="absolute top-0 right-0 w-16 h-16 pointer-events-none">
+                  <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-orange-500/70 rounded-tr-lg"></div>
+                  <div className="absolute top-0 right-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+                </div>
+                <div className="absolute bottom-0 left-0 w-16 h-16 pointer-events-none">
+                  <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-orange-500/70 rounded-bl-lg"></div>
+                  <div className="absolute bottom-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+                </div>
+                <div className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none">
+                  <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-red-500/70 rounded-br-lg"></div>
+                  <div className="absolute bottom-0 right-0 w-3 h-3 bg-red-500/50 rounded-full blur-[2px]"></div>
+                </div>
+                
+                <motion.h1 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.7 }}
+                  className="text-3xl sm:text-4xl md:text-5xl mb-4 md:mb-6 text-white drop-shadow-[0_1px_3px_rgba(239,68,68,0.6)]"
+                >
+                  The Painter's Profit Crisis
+                </motion.h1>
+                
+                {/* Pain Points Content */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.7, delay: 0.2 }}
+                  className="mb-8"
+                >
+                  <p className="text-white text-xl mb-6">
+                    <span className="text-red-400 font-semibold">Your painting business is leaving money on the table</span> with every job while facing mounting challenges:
+                  </p>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left mt-8">
+                    <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-4 rounded-lg border border-red-500/30 flex items-start space-x-3">
+                      <div className="bg-red-500/20 p-2 rounded-full mt-1">
+                        <PaintBucket className="h-5 w-5 text-red-400" />
+                      </div>
+                      <div>
+                        <h3 className="text-red-300 font-semibold mb-1">Razor-Thin Margins</h3>
+                        <p className="text-gray-300 text-sm">Constantly competing on price with commodity paints slashes profits to unsustainable levels</p>
+                      </div>
+                    </div>
+                    
+                    <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-4 rounded-lg border border-red-500/30 flex items-start space-x-3">
+                      <div className="bg-red-500/20 p-2 rounded-full mt-1">
+                        <Clock className="h-5 w-5 text-red-400" />
+                      </div>
+                      <div>
+                        <h3 className="text-red-300 font-semibold mb-1">Constant Callbacks</h3>
+                        <p className="text-gray-300 text-sm">Standard coatings fail prematurely, forcing costly touchups that destroy profitability</p>
+                      </div>
+                    </div>
+                    
+                    <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-4 rounded-lg border border-red-500/30 flex items-start space-x-3">
+                      <div className="bg-red-500/20 p-2 rounded-full mt-1">
+                        <Building className="h-5 w-5 text-red-400" />
+                      </div>
+                      <div>
+                        <h3 className="text-red-300 font-semibold mb-1">Premium Market Lockout</h3>
+                        <p className="text-gray-300 text-sm">Without differentiated technology, you can't access high-margin clients willing to pay premium rates</p>
+                      </div>
+                    </div>
+                    
+                    <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 p-4 rounded-lg border border-red-500/30 flex items-start space-x-3">
+                      <div className="bg-red-500/20 p-2 rounded-full mt-1">
+                        <User className="h-5 w-5 text-red-400" />
+                      </div>
+                      <div>
+                        <h3 className="text-red-300 font-semibold mb-1">Customer Acquisition Struggle</h3>
+                        <p className="text-gray-300 text-sm">Without a unique selling proposition, you're forced to compete on price alone</p>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              
+                <div className="bg-black/30 border border-red-600/20 rounded-lg p-3 mb-6">
+                  <p className="text-sm text-gray-300 italic">The average painting contractor loses <span className="text-red-400 font-semibold">$27,500 annually</span> in potential profit and wastes 120+ hours on preventable callbacks</p>
+                </div>
+                
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.7, delay: 0.4 }}
+                >
+                  <a 
+                    href="#solution"
+                    className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-red-700 to-orange-600 text-white font-medium rounded-lg shadow-lg shadow-red-600/20 hover:shadow-red-600/40 transition duration-300"
+                  >
+                    <span className="mr-2">Discover the Solution</span>
+                    <ChevronRight className="h-5 w-5" />
+                  </a>
+                </motion.div>
+              </div>
+            </div>
+            
+            {/* Solution Section (Relief) - Middle of Funnel */}
+            <div id="solution" className="max-w-4xl mx-auto text-center mb-10 md:mb-16 pt-8 relative">
               <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/40 via-blue-600/40 to-orange-600/40 rounded-xl blur-xl opacity-70 animate-pulse-slow"></div>
               <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/80 via-blue-500/80 to-orange-500/80 rounded-xl blur-md opacity-90"></div>
               
@@ -209,6 +317,14 @@ const Painters = () => {
                   <p className="text-sm text-blue-100 italic">Previously classified ceramic microsphere technology, now available exclusively through certified painting partners</p>
                 </div>
                 
+                {/* Badge for government technology */}
+                <div className="mb-6 bg-gradient-to-r from-blue-900/40 to-blue-800/40 rounded-lg p-3 border border-blue-500/30">
+                  <p className="text-sm text-white">
+                    <span className="bg-blue-500/20 px-2 py-1 rounded text-xs font-semibold text-blue-300 mr-2">PREVIOUSLY A GOVERNMENT RESOURCE</span> 
+                    This ceramic technology was exclusively available to municipal and government agencies until now
+                  </p>
+                </div>
+
                 <motion.div
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
@@ -216,14 +332,14 @@ const Painters = () => {
                   className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-6"
                 >
                   <div className="relative group">
-                    <div className="absolute -inset-0.5 bg-blue-600 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-200"></div>
+                    <div className="absolute -inset-0.5 bg-green-600 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-200"></div>
                     <button 
                       onClick={handleShowContactForm}
-                      className="relative px-6 py-3 bg-black text-white font-medium rounded-lg border border-blue-500/50 hover:border-blue-400 transition duration-200"
+                      className="relative px-6 py-3 bg-black text-white font-medium rounded-lg border border-green-500/50 hover:border-green-400 transition duration-200"
                     >
                       <span className="flex items-center">
                         <CircleDollarSign className="mr-2 h-5 w-5 text-green-400" />
-                        <span>Increase Your Profit Margin</span>
+                        <span>Become a Certified Partner</span>
                       </span>
                     </button>
                   </div>
