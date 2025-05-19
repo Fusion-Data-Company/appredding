@@ -24,6 +24,10 @@ import { PremiumCartButton } from "@/utils/premium-buttons";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import SEOHead from "@/components/SEOHead";
+import AccessibleImage from "@/components/ui/accessible-image";
+import { preloadCriticalImages, createIndustryImageSource } from "@/lib/image-helper";
+import { generateStructuredData, getIndustryKeywords } from "@/lib/seo-helper";
 import { 
   Form,
   FormControl,

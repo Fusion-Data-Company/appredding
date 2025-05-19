@@ -164,25 +164,17 @@ const Marinas = () => {
 
   return (
     <MainLayout fullWidth={true}>
-      <Helmet>
-        <title>Praetorian Smart-Coat – Marinas</title>
-        <meta name="description" content="Advanced marine-grade coatings for marina infrastructure. Resist saltwater corrosion, UV damage, and fire hazards with our ceramic barrier system." />
-        
-        {/* Open Graph / Facebook */}
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="Praetorian Smart-Coat – Marinas" />
-        <meta property="og:description" content="Fireproof, insulating ceramic paint for marinas. Guard what matters." />
-        <meta property="og:image" content="/images/og-marinas.jpg" />
-        
-        {/* Twitter */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Praetorian Smart-Coat – Marinas" />
-        <meta name="twitter:description" content="Fireproof, insulating ceramic paint for marinas. Guard what matters." />
-        <meta name="twitter:image" content="/images/og-marinas.jpg" />
-        
-        {/* Preload critical hero image */}
-        <link rel="preload" as="image" href={heroImagePath} />
-      </Helmet>
+      {/* SEO Metadata with enhanced tags and structured data */}
+      <SEOHead
+        title={pageTitle}
+        description={pageDescription}
+        industry={industry}
+        slug={slug}
+        imagePath={heroImagePath}
+        keywords={keywords}
+        structuredData={structuredData}
+      />
+      {/* Enhanced SEO metadata is now handled by the SEOHead component above */}
       
       <div className="relative">
         {/* Restored water background with premium enterprise overlay */}
