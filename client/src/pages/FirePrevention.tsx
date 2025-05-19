@@ -406,6 +406,23 @@ const FirePrevention = () => {
                     
                     {/* Premium content with enhanced typography */}
                     <div className="relative z-10 p-6">
+                      <div className="text-4xl font-bold bg-gradient-to-br from-red-300 to-red-500 bg-clip-text text-transparent mb-2">72,400+</div>
+                      <div className="text-gray-300 group-hover:text-gray-200 transition-colors duration-300">Structures destroyed by wildfires in the last decade, including the Paradise Fire that wiped out nearly an entire town in minutes</div>
+                    </div>
+                  </div>
+                  
+                  <div className="relative group overflow-hidden rounded-xl transform transition-all duration-500 hover:scale-[1.02]">
+                    {/* Premium layered backgrounds with enhanced depth */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-black/90 via-red-950/20 to-black/90 border border-red-800/30 rounded-xl"></div>
+                    
+                    {/* Enhanced 3D border effects */}
+                    <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-red-500/40 to-transparent"></div>
+                    <div className="absolute inset-y-0 right-0 w-[1px] bg-gradient-to-b from-transparent via-red-500/30 to-transparent"></div>
+                    <div className="absolute inset-x-0 bottom-0 h-[1px] bg-gradient-to-r from-transparent via-red-500/40 to-transparent"></div>
+                    <div className="absolute inset-y-0 left-0 w-[1px] bg-gradient-to-b from-transparent via-red-500/30 to-transparent"></div>
+                    
+                    {/* Premium content with enhanced typography */}
+                    <div className="relative z-10 p-6">
                       <div className="text-4xl font-bold bg-gradient-to-br from-red-300 to-red-500 bg-clip-text text-transparent mb-2">18,805</div>
                       <div className="text-gray-300 group-hover:text-gray-200 transition-colors duration-300">Structures destroyed by the 2018 Camp Fire in Paradise, CA — the most destructive wildfire in California history, destroying 95% of structures in just hours</div>
                     </div>
