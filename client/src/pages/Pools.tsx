@@ -504,6 +504,189 @@ export default function Pools() {
             </div>
           </div>
         </section>
+
+        {/* Ceramic Pool Technology Information Section */}
+        <section className="relative z-10 py-14 overflow-hidden bg-gradient-to-b from-gray-950 to-gray-900">
+          <div className="container mx-auto">
+            <div className="text-center mb-10">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
+                Advanced Ceramic Pool Technology
+              </h2>
+              <p className="text-lg text-gray-300 max-w-3xl mx-auto">
+                The science behind Praetorian's revolutionary pool deck and surface protection system
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+              {/* Column 1: Safety Features */}
+              <div className="bg-gradient-to-br from-gray-900/90 to-black/90 rounded-xl border border-cyan-700/30 p-6 shadow-lg relative group overflow-hidden">
+                {/* Ambient glow effect */}
+                <div className="absolute -inset-1 bg-gradient-to-r from-cyan-600/20 via-blue-500/10 to-cyan-600/20 rounded-xl blur-xl opacity-70 group-hover:opacity-90 transition-opacity duration-500"></div>
+                
+                <div className="relative z-10">
+                  <div className="flex items-center mb-6">
+                    <div className="h-12 w-12 rounded-full bg-gradient-to-br from-cyan-800 to-cyan-900 flex items-center justify-center mr-4 shadow-lg border border-cyan-700/50">
+                      <Shield className="h-6 w-6 text-cyan-300" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-cyan-300">Safety Features</h3>
+                  </div>
+                  
+                  <div className="space-y-5">
+                    <div className="bg-black/40 rounded-lg p-4 border border-cyan-800/30">
+                      <h4 className="text-lg font-semibold text-cyan-200 mb-2">Anti-Slip Technology</h4>
+                      <p className="text-gray-300">
+                        Microscopic texture creates a surface that exceeds ADA slip resistance standards with a coefficient of friction rating of 0.68 even when wet – 42% higher than required safety minimums.
+                      </p>
+                    </div>
+                    
+                    <div className="bg-black/40 rounded-lg p-4 border border-cyan-800/30">
+                      <h4 className="text-lg font-semibold text-cyan-200 mb-2">Heat Reduction</h4>
+                      <p className="text-gray-300">
+                        Ceramic microspheres reflect solar radiation, keeping surfaces up to 35°F cooler than standard concrete or pavers – preventing burns on bare feet even on the hottest summer days.
+                      </p>
+                    </div>
+                    
+                    <div className="bg-black/40 rounded-lg p-4 border border-cyan-800/30">
+                      <h4 className="text-lg font-semibold text-cyan-200 mb-2">Chemical Resistance</h4>
+                      <p className="text-gray-300">
+                        Impervious to pool chemicals including chlorine, bromine, and salt systems – preventing dangerous chemical interactions and protecting against deck deterioration.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Column 2: Durability Benefits */}
+              <div className="bg-gradient-to-br from-gray-900/90 to-black/90 rounded-xl border border-amber-700/30 p-6 shadow-lg relative group overflow-hidden">
+                {/* Ambient glow effect */}
+                <div className="absolute -inset-1 bg-gradient-to-r from-amber-600/20 via-yellow-500/10 to-amber-600/20 rounded-xl blur-xl opacity-70 group-hover:opacity-90 transition-opacity duration-500"></div>
+                
+                <div className="relative z-10">
+                  <div className="flex items-center mb-6">
+                    <div className="h-12 w-12 rounded-full bg-gradient-to-br from-amber-800 to-amber-900 flex items-center justify-center mr-4 shadow-lg border border-amber-700/50">
+                      <Clock className="h-6 w-6 text-amber-300" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-amber-300">Durability Benefits</h3>
+                  </div>
+                  
+                  <div className="space-y-5">
+                    <div className="bg-black/40 rounded-lg p-4 border border-amber-800/30">
+                      <h4 className="text-lg font-semibold text-amber-200 mb-2">Extreme Weather Protection</h4>
+                      <p className="text-gray-300">
+                        Withstands temperatures from -40°F to 300°F without cracking, peeling or delaminating – perfect for outdoor pool areas in any climate zone, from desert heat to winter freezes.
+                      </p>
+                    </div>
+                    
+                    <div className="bg-black/40 rounded-lg p-4 border border-amber-800/30">
+                      <h4 className="text-lg font-semibold text-amber-200 mb-2">UV Stability</h4>
+                      <p className="text-gray-300">
+                        Proprietary ceramic UV blockers prevent degradation and color fading for 15+ years, even in high-sun environments that would destroy conventional deck coatings in 2-3 years.
+                      </p>
+                    </div>
+                    
+                    <div className="bg-black/40 rounded-lg p-4 border border-amber-800/30">
+                      <h4 className="text-lg font-semibold text-amber-200 mb-2">Impact Resistance</h4>
+                      <p className="text-gray-300">
+                        Flexible ceramic matrix absorbs impacts and prevents cracking – withstanding pool furniture, equipment, and dropped objects without chipping or surface damage.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Column 3: Application Process */}
+              <div className="bg-gradient-to-br from-gray-900/90 to-black/90 rounded-xl border border-green-700/30 p-6 shadow-lg relative group overflow-hidden">
+                {/* Ambient glow effect */}
+                <div className="absolute -inset-1 bg-gradient-to-r from-green-600/20 via-emerald-500/10 to-green-600/20 rounded-xl blur-xl opacity-70 group-hover:opacity-90 transition-opacity duration-500"></div>
+                
+                <div className="relative z-10">
+                  <div className="flex items-center mb-6">
+                    <div className="h-12 w-12 rounded-full bg-gradient-to-br from-green-800 to-green-900 flex items-center justify-center mr-4 shadow-lg border border-green-700/50">
+                      <PaintBucket className="h-6 w-6 text-green-300" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-green-300">Application Process</h3>
+                  </div>
+                  
+                  <div className="space-y-5">
+                    <div className="bg-black/40 rounded-lg p-4 border border-green-800/30">
+                      <h4 className="text-lg font-semibold text-green-200 mb-2">Surface Preparation</h4>
+                      <p className="text-gray-300">
+                        Diamond grinding technology provides mechanical adhesion by opening concrete pores while removing existing coatings, creating the perfect surface profile for ceramic bonding.
+                      </p>
+                    </div>
+                    
+                    <div className="bg-black/40 rounded-lg p-4 border border-green-800/30">
+                      <h4 className="text-lg font-semibold text-green-200 mb-2">Seamless Application</h4>
+                      <p className="text-gray-300">
+                        Multi-layer system applied in 4 stages over 3 days, creating complete waterproofing with no joints, seams, or weak points – eliminating common failure points in traditional pool decks.
+                      </p>
+                    </div>
+                    
+                    <div className="bg-black/40 rounded-lg p-4 border border-green-800/30">
+                      <h4 className="text-lg font-semibold text-green-200 mb-2">Custom Finishes</h4>
+                      <p className="text-gray-300">
+                        Available in multiple texture levels and color options that maintain their appearance for 15+ years – complementing any pool design while providing consistent slip resistance.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Bottom section - Case Study */}
+            <div className="bg-gradient-to-br from-gray-900/90 to-black/90 rounded-xl border border-blue-700/30 p-6 shadow-lg relative overflow-hidden">
+              {/* Ambient glow effect */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/20 via-indigo-500/10 to-blue-600/20 rounded-xl blur-xl opacity-70"></div>
+              
+              <div className="relative z-10">
+                <div className="flex items-center justify-center mb-6">
+                  <div className="h-12 w-12 rounded-full bg-gradient-to-br from-blue-800 to-blue-900 flex items-center justify-center mr-4 shadow-lg border border-blue-700/50">
+                    <FileText className="h-6 w-6 text-blue-300" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-blue-300">Case Study: Bayview Community Pool</h3>
+                </div>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <p className="text-gray-300 mb-4">
+                      The Bayview Community Pool in Florida installed Praetorian's ceramic pool deck system in 2021 after facing multiple slip-and-fall lawsuits and extreme maintenance costs from their previous concrete deck.
+                    </p>
+                    
+                    <ul className="space-y-2 text-gray-300">
+                      <li className="flex items-start">
+                        <ArrowRight className="h-5 w-5 text-blue-500 mr-2 flex-shrink-0 mt-0.5" />
+                        <span><strong>Before:</strong> Annual maintenance costs of $21,500 with complete resurfacing required every 4-5 years at $68,000+</span>
+                      </li>
+                      <li className="flex items-start">
+                        <ArrowRight className="h-5 w-5 text-blue-500 mr-2 flex-shrink-0 mt-0.5" />
+                        <span><strong>After:</strong> Annual maintenance reduced to simple cleaning, with 15+ year service life projection from independent engineering assessment</span>
+                      </li>
+                    </ul>
+                  </div>
+                  
+                  <div>
+                    <h4 className="text-lg font-semibold text-blue-200 mb-3">Results After 2 Years:</h4>
+                    
+                    <ul className="space-y-4">
+                      <li className="flex items-center justify-between p-3 bg-black/40 rounded-lg">
+                        <span className="text-gray-300">Slip-and-Fall Incidents</span>
+                        <span className="text-blue-400 font-medium">Reduced 100%</span>
+                      </li>
+                      <li className="flex items-center justify-between p-3 bg-black/40 rounded-lg">
+                        <span className="text-gray-300">Insurance Premium Reduction</span>
+                        <span className="text-blue-400 font-medium">18.5%</span>
+                      </li>
+                      <li className="flex items-center justify-between p-3 bg-black/40 rounded-lg">
+                        <span className="text-gray-300">Projected Lifetime ROI</span>
+                        <span className="text-blue-400 font-medium">834%</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
         
         {/* SANDLER STAGE 3: BUDGET - GREEN GLOW SECTION */}
         <section className="relative z-10 py-12 overflow-hidden">
