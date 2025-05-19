@@ -372,28 +372,79 @@ const MobileHome = () => {
                 
                 {/* Premium header with styled corner accents like homepage */}
                 <div className="relative mb-8">
-                  {/* Blue ambient glow behind the header */}
-                  <div className="absolute -inset-6 bg-blue-600/20 rounded-xl blur-3xl opacity-50 z-0"></div>
-                  <div className="absolute -inset-10 bg-blue-500/15 rounded-xl blur-2xl opacity-60 z-0 animate-pulse-slow"></div>
+                  {/* Ultra-premium Blue ambient glow effects with dynamic animation */}
+                  <div className="absolute -inset-6 bg-gradient-to-br from-blue-600/30 via-blue-500/25 to-blue-600/30 rounded-xl blur-3xl opacity-60 z-0"></div>
+                  <div className="absolute -inset-10 bg-gradient-to-r from-blue-500/15 via-blue-400/20 to-blue-500/15 rounded-xl blur-2xl opacity-70 z-0 animate-pulse-slow"></div>
+                  <div className="absolute -inset-14 bg-blue-500/10 rounded-full blur-3xl opacity-50 z-0 animate-pulse-very-slow"></div>
                   
-                  {/* Main header with premium corner accents and styling */}
-                  <div className="relative p-8 bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 border border-gray-800/80 rounded-xl shadow-[0_10px_25px_rgba(0,0,0,0.3)] z-10">
-                    {/* Corner decorations exactly like homepage */}
-                    <div className="absolute top-0 left-0 w-14 h-14 z-10 pointer-events-none">
-                      <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-blue-700/70 rounded-tl-md"></div>
-                      <div className="absolute top-1 left-1 w-10 h-10 border-t border-l border-blue-600/50 rounded-tl-md"></div>
+                  {/* Dynamic light rays */}
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200%] h-32 rotate-45 overflow-hidden z-0 opacity-20">
+                    <div className="absolute h-full w-24 bg-gradient-to-r from-transparent via-blue-400 to-transparent -translate-x-full animate-beam-slow"></div>
+                    <div className="absolute h-full w-16 bg-gradient-to-r from-transparent via-blue-300 to-transparent -translate-x-full animate-beam-slow" style={{ animationDelay: '2s' }}></div>
+                  </div>
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200%] h-24 -rotate-45 overflow-hidden z-0 opacity-20">
+                    <div className="absolute h-full w-20 bg-gradient-to-r from-transparent via-blue-400 to-transparent -translate-x-full animate-beam-slow" style={{ animationDelay: '1s' }}></div>
+                  </div>
+                  
+                  {/* Ultra-premium main header with enterprise 3D styling */}
+                  <div className="relative p-8 bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 border border-blue-600/30 rounded-xl shadow-[0_10px_40px_rgba(0,0,0,0.5),0_0_60px_rgba(59,130,246,0.2)_inset] z-10 transform transition-all duration-300 group hover:shadow-[0_15px_60px_rgba(0,0,0,0.6),0_0_80px_rgba(59,130,246,0.3)_inset] hover:scale-[1.005]">
+                    {/* Ultra-premium corner decorations with 3D effects and glowing accents */}
+                    <div className="absolute top-0 left-0 w-16 h-16 z-10 pointer-events-none">
+                      {/* Multi-layered glowing corner effect */}
+                      <div className="absolute top-0 left-0 w-10 h-10 bg-gradient-to-br from-blue-500/10 to-transparent rounded-tl-md"></div>
+                      <div className="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-blue-400/60 rounded-tl-md shadow-[0_0_10px_rgba(59,130,246,0.5)]"></div>
+                      <div className="absolute top-1 left-1 w-14 h-14 border-t border-l border-blue-600/40 rounded-tl-md"></div>
+                      {/* Animated corner accent */}
+                      <div className="absolute top-0 left-0 w-6 h-6 overflow-hidden rounded-tl-md">
+                        <div className="absolute top-0 left-0 w-[200%] h-[1px] bg-gradient-to-r from-transparent via-blue-400/80 to-transparent -translate-x-full animate-shimmer-slow"></div>
+                        <div className="absolute top-0 left-0 h-[200%] w-[1px] bg-gradient-to-b from-transparent via-blue-400/80 to-transparent -translate-y-full animate-shimmer-slow"></div>
+                      </div>
                     </div>
-                    <div className="absolute top-0 right-0 w-14 h-14 z-10 pointer-events-none">
-                      <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-blue-700/70 rounded-tr-md"></div>
-                      <div className="absolute top-1 right-1 w-10 h-10 border-t border-r border-blue-600/50 rounded-tr-md"></div>
+                    
+                    <div className="absolute top-0 right-0 w-16 h-16 z-10 pointer-events-none">
+                      {/* Multi-layered glowing corner effect */}
+                      <div className="absolute top-0 right-0 w-10 h-10 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-tr-md"></div>
+                      <div className="absolute top-0 right-0 w-12 h-12 border-t-2 border-r-2 border-blue-400/60 rounded-tr-md shadow-[0_0_10px_rgba(59,130,246,0.5)]"></div>
+                      <div className="absolute top-1 right-1 w-14 h-14 border-t border-r border-blue-600/40 rounded-tr-md"></div>
+                      {/* Animated corner accent */}
+                      <div className="absolute top-0 right-0 w-6 h-6 overflow-hidden rounded-tr-md">
+                        <div className="absolute top-0 right-0 w-[200%] h-[1px] bg-gradient-to-l from-transparent via-blue-400/80 to-transparent translate-x-full animate-shimmer-slow"></div>
+                        <div className="absolute top-0 right-0 h-[200%] w-[1px] bg-gradient-to-b from-transparent via-blue-400/80 to-transparent -translate-y-full animate-shimmer-slow" style={{ animationDelay: '0.5s' }}></div>
+                      </div>
                     </div>
-                    <div className="absolute bottom-0 right-0 w-14 h-14 z-10 pointer-events-none">
-                      <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-blue-700/70 rounded-br-md"></div>
-                      <div className="absolute bottom-1 right-1 w-10 h-10 border-b border-r border-blue-600/50 rounded-br-md"></div>
+                    
+                    <div className="absolute bottom-0 right-0 w-16 h-16 z-10 pointer-events-none">
+                      {/* Multi-layered glowing corner effect */}
+                      <div className="absolute bottom-0 right-0 w-10 h-10 bg-gradient-to-tl from-blue-500/10 to-transparent rounded-br-md"></div>
+                      <div className="absolute bottom-0 right-0 w-12 h-12 border-b-2 border-r-2 border-blue-400/60 rounded-br-md shadow-[0_0_10px_rgba(59,130,246,0.5)]"></div>
+                      <div className="absolute bottom-1 right-1 w-14 h-14 border-b border-r border-blue-600/40 rounded-br-md"></div>
+                      {/* Animated corner accent */}
+                      <div className="absolute bottom-0 right-0 w-6 h-6 overflow-hidden rounded-br-md">
+                        <div className="absolute bottom-0 right-0 w-[200%] h-[1px] bg-gradient-to-l from-transparent via-blue-400/80 to-transparent translate-x-full animate-shimmer-slow" style={{ animationDelay: '1s' }}></div>
+                        <div className="absolute bottom-0 right-0 h-[200%] w-[1px] bg-gradient-to-t from-transparent via-blue-400/80 to-transparent translate-y-full animate-shimmer-slow" style={{ animationDelay: '1.5s' }}></div>
+                      </div>
                     </div>
-                    <div className="absolute bottom-0 left-0 w-14 h-14 z-10 pointer-events-none">
-                      <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-blue-700/70 rounded-bl-md"></div>
-                      <div className="absolute bottom-1 left-1 w-10 h-10 border-b border-l border-blue-600/50 rounded-bl-md"></div>
+                    
+                    <div className="absolute bottom-0 left-0 w-16 h-16 z-10 pointer-events-none">
+                      {/* Multi-layered glowing corner effect */}
+                      <div className="absolute bottom-0 left-0 w-10 h-10 bg-gradient-to-tr from-blue-500/10 to-transparent rounded-bl-md"></div>
+                      <div className="absolute bottom-0 left-0 w-12 h-12 border-b-2 border-l-2 border-blue-400/60 rounded-bl-md shadow-[0_0_10px_rgba(59,130,246,0.5)]"></div>
+                      <div className="absolute bottom-1 left-1 w-14 h-14 border-b border-l border-blue-600/40 rounded-bl-md"></div>
+                      {/* Animated corner accent */}
+                      <div className="absolute bottom-0 left-0 w-6 h-6 overflow-hidden rounded-bl-md">
+                        <div className="absolute bottom-0 left-0 w-[200%] h-[1px] bg-gradient-to-r from-transparent via-blue-400/80 to-transparent -translate-x-full animate-shimmer-slow" style={{ animationDelay: '2s' }}></div>
+                        <div className="absolute bottom-0 left-0 h-[200%] w-[1px] bg-gradient-to-t from-transparent via-blue-400/80 to-transparent translate-y-full animate-shimmer-slow" style={{ animationDelay: '2.5s' }}></div>
+                      </div>
+                    </div>
+                    
+                    {/* Premium accent divider lines */}
+                    <div className="absolute top-[15%] inset-x-0 h-[1px] overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-400/30 to-transparent"></div>
+                      <div className="absolute inset-0 w-1/2 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full animate-shimmer-slow"></div>
+                    </div>
+                    <div className="absolute bottom-[15%] inset-x-0 h-[1px] overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-400/30 to-transparent"></div>
+                      <div className="absolute inset-0 w-1/2 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full animate-shimmer-slow" style={{ animationDelay: '1.5s' }}></div>
                     </div>
                     
                     {/* Elite Enterprise Multi-layered Glass Shimmer Effects */}
