@@ -518,7 +518,7 @@ const Marinas = () => {
                 <div className="space-y-6">
                   <div className="flex items-start space-x-4">
                     <div className="min-w-12 h-12 flex items-center justify-center rounded-full bg-cyan-900/30 border border-cyan-700/30">
-                      <Droplet className="h-6 w-6 text-cyan-400" />
+                      <Waves className="h-6 w-6 text-cyan-400" />
                     </div>
                     <div>
                       <h3 className="text-xl font-bold text-cyan-300 mb-2">Salt Water Impermeability</h3>
@@ -530,7 +530,7 @@ const Marinas = () => {
                   
                   <div className="flex items-start space-x-4">
                     <div className="min-w-12 h-12 flex items-center justify-center rounded-full bg-cyan-900/30 border border-cyan-700/30">
-                      <Shield className="h-6 w-6 text-cyan-400" />
+                      <ShieldCheck className="h-6 w-6 text-cyan-400" />
                     </div>
                     <div>
                       <h3 className="text-xl font-bold text-cyan-300 mb-2">Anti-Fouling Properties</h3>
@@ -575,7 +575,7 @@ const Marinas = () => {
                   
                   <div className="flex items-start space-x-4">
                     <div className="min-w-12 h-12 flex items-center justify-center rounded-full bg-blue-900/30 border border-blue-700/30">
-                      <Workflow className="h-6 w-6 text-blue-400" />
+                      <Settings className="h-6 w-6 text-blue-400" />
                     </div>
                     <div>
                       <h3 className="text-xl font-bold text-blue-300 mb-2">Three-Stage Process</h3>
