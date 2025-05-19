@@ -321,6 +321,132 @@ const Construction = () => {
             </div>
           </div>
         </section>
+
+        {/* INFORMATIONAL SECTION: ADVANCED CONSTRUCTION COATING TECHNOLOGY */}
+        <section className="relative z-10 py-10 overflow-hidden">
+          <div className="container mx-auto mb-12">
+            <div className="relative">
+              <div className="relative z-20 rounded-2xl overflow-hidden p-8 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-gray-700/30 shadow-lg">
+                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-gray-200 to-gray-300">
+                  Advanced Construction Coating Technology
+                </h2>
+                
+                <div className="mb-8 p-5 rounded-xl bg-black/40 border border-gray-700/50">
+                  <div className="flex flex-col md:flex-row gap-6 items-center">
+                    <div className="w-full md:w-1/3 flex justify-center">
+                      <div className="p-3 rounded-xl border border-gray-700/70 bg-gradient-to-b from-gray-800/50 to-black/70 shadow-lg">
+                        <div className="relative h-48 w-48 flex items-center justify-center">
+                          <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-700/30 to-green-700/30 animate-pulse-slow blur-md"></div>
+                          <div className="relative z-10 flex flex-col items-center justify-center text-center">
+                            <HardHat className="w-16 h-16 text-gray-300 mb-3" />
+                            <span className="text-xl font-semibold text-gray-200">Construction-Grade</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="w-full md:w-2/3">
+                      <h3 className="text-2xl font-semibold text-gray-100 mb-3">Ceramic Microsphere Construction Technology</h3>
+                      <p className="text-gray-300 mb-4">
+                        Praetorian Smart-Coat employs a proprietary blend of ceramic microspheres suspended in an advanced acrylic elastomeric base. 
+                        This unique formulation creates a thermally reflective barrier that significantly reduces heat transfer through building materials.
+                      </p>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div className="flex items-start gap-2">
+                          <div className="mt-1 flex-shrink-0">
+                            <CheckCircle className="h-5 w-5 text-green-500" />
+                          </div>
+                          <div>
+                            <p className="text-gray-300">99.5% UV-A/UV-B protection prevents substrate degradation</p>
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-2">
+                          <div className="mt-1 flex-shrink-0">
+                            <CheckCircle className="h-5 w-5 text-green-500" />
+                          </div>
+                          <div>
+                            <p className="text-gray-300">Waterproof barrier with flexibility up to 600% after curing</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                  <div className="p-5 rounded-xl bg-black/40 border border-gray-700/50">
+                    <h3 className="text-xl font-semibold text-gray-100 mb-4 flex items-center gap-2">
+                      <Building className="h-6 w-6 text-blue-400" />
+                      <span>Commercial Building Applications</span>
+                    </h3>
+                    <p className="text-gray-300 mb-4">
+                      Praetorian Smart-Coat enhances commercial buildings with a robust, thermally efficient coating system that reduces energy costs while prolonging the life of building materials.
+                    </p>
+                    <ul className="space-y-2">
+                      <li className="flex items-start gap-2">
+                        <div className="mt-0.5 flex-shrink-0">
+                          <div className="h-5 w-5 rounded-full bg-blue-900 flex items-center justify-center">
+                            <span className="text-blue-300 text-xs">✓</span>
+                          </div>
+                        </div>
+                        <span className="text-gray-300">ASTM E84 Class A fire rating for structural protection</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <div className="mt-0.5 flex-shrink-0">
+                          <div className="h-5 w-5 rounded-full bg-blue-900 flex items-center justify-center">
+                            <span className="text-blue-300 text-xs">✓</span>
+                          </div>
+                        </div>
+                        <span className="text-gray-300">Reduces cooling loads by up to 40% for commercial buildings</span>
+                      </li>
+                    </ul>
+                  </div>
+                  
+                  <div className="p-5 rounded-xl bg-black/40 border border-gray-700/50">
+                    <h3 className="text-xl font-semibold text-gray-100 mb-4 flex items-center gap-2">
+                      <Hammer className="h-6 w-6 text-blue-400" />
+                      <span>Construction Specifications</span>
+                    </h3>
+                    <p className="text-gray-300 mb-4">
+                      Engineered to meet rigorous construction requirements while providing exceptional performance across diverse building materials and environmental conditions.
+                    </p>
+                    <ul className="space-y-2">
+                      <li className="flex items-start gap-2">
+                        <div className="mt-0.5 flex-shrink-0">
+                          <div className="h-5 w-5 rounded-full bg-blue-900 flex items-center justify-center">
+                            <span className="text-blue-300 text-xs">✓</span>
+                          </div>
+                        </div>
+                        <span className="text-gray-300">VOC content less than 50 g/L, exceeding environmental regulations</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <div className="mt-0.5 flex-shrink-0">
+                          <div className="h-5 w-5 rounded-full bg-blue-900 flex items-center justify-center">
+                            <span className="text-blue-300 text-xs">✓</span>
+                          </div>
+                        </div>
+                        <span className="text-gray-300">Single-component system with 10-15 year warranty depending on application</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                
+                <div className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 p-5 rounded-xl border border-gray-700/50">
+                  <div className="flex flex-col sm:flex-row gap-4 items-center justify-between">
+                    <div className="flex-1">
+                      <h3 className="text-lg font-semibold text-gray-100 mb-2">Case Study: Summit Tower Commercial Project</h3>
+                      <p className="text-gray-300 mb-1">Reduced cooling costs by 38% after applying Praetorian Smart-Coat to a 28-story commercial building in Phoenix, AZ.</p>
+                      <p className="text-sm text-gray-400">Complete ROI achieved in 2.5 years through energy savings and reduced maintenance costs.</p>
+                    </div>
+                    <div className="flex-shrink-0">
+                      <CircleDollarSign className="h-14 w-14 text-green-400" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
         
         {/* SANDLER STAGE 2: PAIN - RED GLOW SECTION */}
         <section className="relative z-10 py-12 overflow-hidden">
