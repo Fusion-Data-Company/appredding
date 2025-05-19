@@ -216,34 +216,96 @@ export default function Pools() {
                         border-b-2 border-cyan-500/60 border-t border-t-cyan-400/30 rounded-lg mb-4
                         shadow-[0_10px_50px_rgba(6,182,212,0.15),inset_0_1px_20px_rgba(6,182,212,0.05)]">
                         
-                        {/* Metallic corner accents */}
-                        <div className="absolute top-0 left-0 w-20 h-20 pointer-events-none">
-                          <div className="absolute top-0 left-0 w-12 h-1 bg-gradient-to-r from-cyan-500 to-transparent rounded-full"></div>
-                          <div className="absolute top-0 left-0 h-12 w-1 bg-gradient-to-b from-cyan-500 to-transparent rounded-full"></div>
-                        </div>
-                        <div className="absolute top-0 right-0 w-20 h-20 pointer-events-none">
-                          <div className="absolute top-0 right-0 w-12 h-1 bg-gradient-to-l from-cyan-500 to-transparent rounded-full"></div>
-                          <div className="absolute top-0 right-0 h-12 w-1 bg-gradient-to-b from-cyan-500 to-transparent rounded-full"></div>
-                        </div>
-                        <div className="absolute bottom-0 left-0 w-20 h-20 pointer-events-none">
-                          <div className="absolute bottom-0 left-0 w-12 h-1 bg-gradient-to-r from-cyan-500 to-transparent rounded-full"></div>
-                          <div className="absolute bottom-0 left-0 h-12 w-1 bg-gradient-to-t from-cyan-500 to-transparent rounded-full"></div>
-                        </div>
-                        <div className="absolute bottom-0 right-0 w-20 h-20 pointer-events-none">
-                          <div className="absolute bottom-0 right-0 w-12 h-1 bg-gradient-to-l from-cyan-500 to-transparent rounded-full"></div>
-                          <div className="absolute bottom-0 right-0 h-12 w-1 bg-gradient-to-t from-cyan-500 to-transparent rounded-full"></div>
+                        {/* Ultra-premium Elite Corner Accents with dynamic lighting effects */}
+                        <div className="absolute top-0 left-0 w-20 h-20 z-20 pointer-events-none">
+                          {/* Multi-layered glowing corner effect */}
+                          <div className="absolute top-0 left-0 w-12 h-12 bg-gradient-to-br from-cyan-500/10 to-transparent rounded-tl-md"></div>
+                          <div className="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-cyan-400/70 rounded-tl-lg shadow-[0_0_10px_rgba(6,182,212,0.5)]"></div>
+                          <div className="absolute top-1 left-1 w-18 h-18 border-t border-l border-cyan-600/40 rounded-tl-lg"></div>
+                          
+                          {/* Animated corner accent with pulsing glow */}
+                          <div className="absolute top-0 left-0 w-3 h-3 bg-cyan-400/60 rounded-full blur-[2px] animate-pulse" style={{ animationDuration: '3s' }}></div>
+                          
+                          {/* Animated light ray accent */}
+                          <div className="absolute top-0 left-0 w-8 h-8 overflow-hidden rounded-tl-lg">
+                            <div className="absolute top-0 left-0 w-[200%] h-[1px] bg-gradient-to-r from-transparent via-cyan-400/80 to-transparent -translate-x-full animate-shimmer-slow"></div>
+                            <div className="absolute top-0 left-0 h-[200%] w-[1px] bg-gradient-to-b from-transparent via-cyan-400/80 to-transparent -translate-y-full animate-shimmer-slow"></div>
+                          </div>
                         </div>
                         
-                        {/* Premium subtle glow effects */}
-                        <div className="absolute top-1/4 right-1/4 w-32 h-32 bg-cyan-500/5 rounded-full blur-xl"></div>
-                        <div className="absolute bottom-1/4 left-1/4 w-32 h-32 bg-blue-500/5 rounded-full blur-xl"></div>
+                        <div className="absolute top-0 right-0 w-20 h-20 z-20 pointer-events-none">
+                          {/* Multi-layered glowing corner effect */}
+                          <div className="absolute top-0 right-0 w-12 h-12 bg-gradient-to-bl from-cyan-500/10 to-transparent rounded-tr-md"></div>
+                          <div className="absolute top-0 right-0 w-16 h-16 border-t-2 border-r-2 border-cyan-400/70 rounded-tr-lg shadow-[0_0_10px_rgba(6,182,212,0.5)]"></div>
+                          <div className="absolute top-1 right-1 w-18 h-18 border-t border-r border-cyan-600/40 rounded-tr-lg"></div>
+                          
+                          {/* Animated corner accent with pulsing glow */}
+                          <div className="absolute top-0 right-0 w-3 h-3 bg-cyan-400/60 rounded-full blur-[2px] animate-pulse" style={{ animationDuration: '3.5s' }}></div>
+                          
+                          {/* Animated light ray accent */}
+                          <div className="absolute top-0 right-0 w-8 h-8 overflow-hidden rounded-tr-lg">
+                            <div className="absolute top-0 right-0 w-[200%] h-[1px] bg-gradient-to-l from-transparent via-cyan-400/80 to-transparent translate-x-full animate-shimmer-slow"></div>
+                            <div className="absolute top-0 right-0 h-[200%] w-[1px] bg-gradient-to-b from-transparent via-cyan-400/80 to-transparent -translate-y-full animate-shimmer-slow" style={{ animationDelay: '0.5s' }}></div>
+                          </div>
+                        </div>
+                        
+                        <div className="absolute bottom-0 right-0 w-20 h-20 z-20 pointer-events-none">
+                          {/* Multi-layered glowing corner effect */}
+                          <div className="absolute bottom-0 right-0 w-12 h-12 bg-gradient-to-tl from-cyan-500/10 to-transparent rounded-br-md"></div>
+                          <div className="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-cyan-400/70 rounded-br-lg shadow-[0_0_10px_rgba(6,182,212,0.5)]"></div>
+                          <div className="absolute bottom-1 right-1 w-18 h-18 border-b border-r border-cyan-600/40 rounded-br-lg"></div>
+                          
+                          {/* Animated corner accent with pulsing glow */}
+                          <div className="absolute bottom-0 right-0 w-3 h-3 bg-cyan-400/60 rounded-full blur-[2px] animate-pulse" style={{ animationDuration: '4s' }}></div>
+                          
+                          {/* Animated light ray accent */}
+                          <div className="absolute bottom-0 right-0 w-8 h-8 overflow-hidden rounded-br-lg">
+                            <div className="absolute bottom-0 right-0 w-[200%] h-[1px] bg-gradient-to-l from-transparent via-cyan-400/80 to-transparent translate-x-full animate-shimmer-slow"></div>
+                            <div className="absolute bottom-0 right-0 h-[200%] w-[1px] bg-gradient-to-t from-transparent via-cyan-400/80 to-transparent translate-y-full animate-shimmer-slow" style={{ animationDelay: '1s' }}></div>
+                          </div>
+                        </div>
+                        
+                        <div className="absolute bottom-0 left-0 w-20 h-20 z-20 pointer-events-none">
+                          {/* Multi-layered glowing corner effect */}
+                          <div className="absolute bottom-0 left-0 w-12 h-12 bg-gradient-to-tr from-cyan-500/10 to-transparent rounded-bl-md"></div>
+                          <div className="absolute bottom-0 left-0 w-16 h-16 border-b-2 border-l-2 border-cyan-400/70 rounded-bl-lg shadow-[0_0_10px_rgba(6,182,212,0.5)]"></div>
+                          <div className="absolute bottom-1 left-1 w-18 h-18 border-b border-l border-cyan-600/40 rounded-bl-lg"></div>
+                          
+                          {/* Animated corner accent with pulsing glow */}
+                          <div className="absolute bottom-0 left-0 w-3 h-3 bg-cyan-400/60 rounded-full blur-[2px] animate-pulse" style={{ animationDuration: '3.2s' }}></div>
+                          
+                          {/* Animated light ray accent */}
+                          <div className="absolute bottom-0 left-0 w-8 h-8 overflow-hidden rounded-bl-lg">
+                            <div className="absolute bottom-0 left-0 w-[200%] h-[1px] bg-gradient-to-r from-transparent via-cyan-400/80 to-transparent -translate-x-full animate-shimmer-slow"></div>
+                            <div className="absolute bottom-0 left-0 h-[200%] w-[1px] bg-gradient-to-t from-transparent via-cyan-400/80 to-transparent translate-y-full animate-shimmer-slow" style={{ animationDelay: '0.7s' }}></div>
+                          </div>
+                        </div>
+                        
+                        {/* Advanced glass shimmer effects for ultra-premium look */}
+                        <div className="absolute inset-0 overflow-hidden rounded-lg">
+                          {/* Multiple layered shimmer effects with varying speeds and angles */}
+                          <div className="h-full w-1/3 bg-gradient-to-r from-transparent via-white/15 to-transparent skew-x-[-20deg] animate-shimmer-slow absolute" style={{ animationDuration: '3s' }}></div>
+                          <div className="h-full w-1/4 bg-gradient-to-r from-transparent via-cyan-300/10 to-transparent skew-x-[-15deg] animate-shimmer-slow absolute" style={{ animationDuration: '4s', animationDelay: '1s' }}></div>
+                          <div className="h-full w-1/5 bg-gradient-to-r from-transparent via-cyan-400/5 to-transparent skew-x-[-25deg] animate-shimmer-slow absolute" style={{ animationDuration: '3.5s', animationDelay: '2s' }}></div>
+                        </div>
                         
                         {/* Cinematic metallic header with layered elements */}
                         <div className="relative z-10">
-                          {/* Top badge */}
-                          <div className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-gradient-to-r from-cyan-500/20 via-cyan-600/20 to-cyan-500/20 border border-cyan-500/30 shadow-lg mb-4 backdrop-blur-sm">
-                            <Droplets className="h-5 w-5 mr-2 text-cyan-400" />
-                            <span className="text-cyan-100 font-medium text-sm">Advanced Pool Protection Technology</span>
+                          {/* Premium badge with icon in homepage style */}
+                          <div className="relative mb-6">
+                            <div className="flex items-start justify-center">
+                              <div className="relative mr-2">
+                                <div className="absolute -inset-1 bg-cyan-500/30 rounded-full blur-md"></div>
+                                <div className="relative h-6 w-6 flex items-center justify-center">
+                                  <div className="absolute inset-0 bg-gradient-to-b from-cyan-600/80 to-cyan-800/80 rounded-full shadow-[0_0_8px_rgba(6,182,212,0.6)]"></div>
+                                  <div className="absolute inset-0.5 bg-gradient-to-br from-cyan-500/30 to-cyan-700/30 rounded-full"></div>
+                                  <Droplets className="w-3.5 h-3.5 text-cyan-100 relative z-10" />
+                                </div>
+                              </div>
+                              <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-cyan-200" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.8)" }}>
+                                ADVANCED POOL PROTECTION TECHNOLOGY
+                              </h3>
+                            </div>
                           </div>
                           
                           {/* Enterprise-grade headline with gradient accent */}
