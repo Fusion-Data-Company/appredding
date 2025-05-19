@@ -597,6 +597,145 @@ const MobileHome = () => {
             </div>
           </div>
         </section>
+
+        {/* Ceramic Microsphere Technology Informational Section */}
+        <section className="py-14 relative z-10 overflow-hidden">
+          <div className="container mx-auto">
+            <div className="text-center mb-10">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
+                Ceramic Microsphere Technology
+              </h2>
+              <p className="text-lg text-gray-300 max-w-3xl mx-auto">
+                The science behind Praetorian Smart-Coat's revolutionary performance for mobile homes
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+              {/* Left column - How It Works */}
+              <div className="bg-gradient-to-br from-gray-900/90 to-black/90 rounded-xl border border-blue-700/30 p-6 shadow-lg relative group overflow-hidden">
+                {/* Ambient glow effect */}
+                <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/20 via-cyan-500/10 to-blue-600/20 rounded-xl blur-xl opacity-70 group-hover:opacity-90 transition-opacity duration-500"></div>
+                
+                <div className="relative z-10">
+                  <div className="flex items-center mb-6">
+                    <div className="h-12 w-12 rounded-full bg-gradient-to-br from-blue-800 to-blue-900 flex items-center justify-center mr-4 shadow-lg border border-blue-700/50">
+                      <Microscope className="h-6 w-6 text-blue-300" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-blue-300">How It Works</h3>
+                  </div>
+                  
+                  <div className="space-y-5">
+                    <div className="bg-black/40 rounded-lg p-4 border border-blue-800/30">
+                      <h4 className="text-lg font-semibold text-blue-200 mb-2">Vacuum-Filled Ceramic Spheres</h4>
+                      <p className="text-gray-300">
+                        Microscopic ceramic spheres (2-5 microns) containing vacuum chambers are suspended in an advanced polymer matrix, creating millions of thermal barriers per square inch.
+                      </p>
+                    </div>
+                    
+                    <div className="bg-black/40 rounded-lg p-4 border border-blue-800/30">
+                      <h4 className="text-lg font-semibold text-blue-200 mb-2">Multi-Layer Protection</h4>
+                      <p className="text-gray-300">
+                        Each application creates 3-5 distinct protective layers that work together: a waterproof membrane, a thermal barrier, a UV reflector, and a sound dampening system.
+                      </p>
+                    </div>
+                    
+                    <div className="bg-black/40 rounded-lg p-4 border border-blue-800/30">
+                      <h4 className="text-lg font-semibold text-blue-200 mb-2">Radiant Heat Reflection</h4>
+                      <p className="text-gray-300">
+                        The ceramic composition reflects 95% of radiant heat that strikes the surface, preventing exterior heat from entering in summer and interior heat from escaping in winter.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Right column - Benefits for Mobile Homes */}
+              <div className="bg-gradient-to-br from-gray-900/90 to-black/90 rounded-xl border border-green-700/30 p-6 shadow-lg relative group overflow-hidden">
+                {/* Ambient glow effect */}
+                <div className="absolute -inset-1 bg-gradient-to-r from-green-600/20 via-emerald-500/10 to-green-600/20 rounded-xl blur-xl opacity-70 group-hover:opacity-90 transition-opacity duration-500"></div>
+                
+                <div className="relative z-10">
+                  <div className="flex items-center mb-6">
+                    <div className="h-12 w-12 rounded-full bg-gradient-to-br from-green-800 to-green-900 flex items-center justify-center mr-4 shadow-lg border border-green-700/50">
+                      <Home className="h-6 w-6 text-green-300" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-green-300">Mobile Home Benefits</h3>
+                  </div>
+                  
+                  <div className="space-y-5">
+                    <div className="bg-black/40 rounded-lg p-4 border border-green-800/30">
+                      <h4 className="text-lg font-semibold text-green-200 mb-2">Temperature Stabilization</h4>
+                      <p className="text-gray-300">
+                        Tests on mobile homes in Arizona showed interior temperature reductions of 18-22°F during peak summer heat without increased HVAC usage, and winter heat retention improved by 35%.
+                      </p>
+                    </div>
+                    
+                    <div className="bg-black/40 rounded-lg p-4 border border-green-800/30">
+                      <h4 className="text-lg font-semibold text-green-200 mb-2">Metal Roof & Wall Protection</h4>
+                      <p className="text-gray-300">
+                        Prevents corrosion and rust on metal surfaces by sealing out moisture and oxygen, extending roof life by 15+ years while eliminating the expansion/contraction noises common in metal mobile home structures.
+                      </p>
+                    </div>
+                    
+                    <div className="bg-black/40 rounded-lg p-4 border border-green-800/30">
+                      <h4 className="text-lg font-semibold text-green-200 mb-2">Waterproofing & Mold Prevention</h4>
+                      <p className="text-gray-300">
+                        Creates a seamless waterproof membrane that eliminates common mobile home leak points while the stable interior humidity prevents mold growth – a critical health benefit for mobile home residents.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Bottom section - Comparison Metrics */}
+            <div className="bg-gradient-to-br from-gray-900/90 to-black/90 rounded-xl border border-amber-700/30 p-6 shadow-lg relative overflow-hidden">
+              {/* Ambient glow effect */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-amber-600/20 via-yellow-500/10 to-amber-600/20 rounded-xl blur-xl opacity-70"></div>
+              
+              <div className="relative z-10">
+                <div className="flex items-center justify-center mb-6">
+                  <div className="h-12 w-12 rounded-full bg-gradient-to-br from-amber-800 to-amber-900 flex items-center justify-center mr-4 shadow-lg border border-amber-700/50">
+                    <BarChart3 className="h-6 w-6 text-amber-300" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-amber-300">Performance Metrics</h3>
+                </div>
+                
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div className="bg-black/40 rounded-lg p-4 border border-amber-800/30">
+                    <div className="flex justify-between items-center mb-2">
+                      <h4 className="text-lg font-semibold text-amber-200">Energy Savings</h4>
+                      <span className="text-2xl font-bold text-amber-400">32%</span>
+                    </div>
+                    <p className="text-gray-300 text-sm">
+                      Average utility cost reduction in mobile homes across multiple climate zones, as verified by independent laboratory testing.
+                    </p>
+                  </div>
+                  
+                  <div className="bg-black/40 rounded-lg p-4 border border-amber-800/30">
+                    <div className="flex justify-between items-center mb-2">
+                      <h4 className="text-lg font-semibold text-amber-200">Durability Increase</h4>
+                      <span className="text-2xl font-bold text-amber-400">15+ yrs</span>
+                    </div>
+                    <p className="text-gray-300 text-sm">
+                      Extended lifespan for mobile home exterior surfaces when compared to standard paint or coating systems.
+                    </p>
+                  </div>
+                  
+                  <div className="bg-black/40 rounded-lg p-4 border border-amber-800/30">
+                    <div className="flex justify-between items-center mb-2">
+                      <h4 className="text-lg font-semibold text-amber-200">ROI Timeline</h4>
+                      <span className="text-2xl font-bold text-amber-400">3.5 yrs</span>
+                    </div>
+                    <p className="text-gray-300 text-sm">
+                      Average time for mobile home owners to recoup their investment through energy savings, maintenance reduction, and insurance discounts.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
         
         {/* Existing Hero Section */}
         <section className="py-16 md:py-24 relative z-10">
