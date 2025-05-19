@@ -25,6 +25,7 @@ import {
   LineChart,
   ChevronRight,
   Check,
+  CheckCircle,
   BarChart3,
   PieChart,
   Award,
