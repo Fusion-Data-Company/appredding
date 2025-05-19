@@ -47,7 +47,7 @@ interface CalculationResult {
   coatCount: number;
 }
 
-export default function Pools() {
+export default function Painters() {
   // State for calculator
   const [poolSurfaceArea, setPoolSurfaceArea] = useState<number>(500);
   const [selectedProduct, setSelectedProduct] = useState<string>("premium");
