@@ -574,16 +574,16 @@ const FirePrevention = () => {
                       <div className="flex items-start">
                         <div className="h-6 w-6 bg-emerald-900 rounded-full flex items-center justify-center text-white text-sm mr-3 mt-0.5 flex-shrink-0">2</div>
                         <div>
-                          <h4 className="text-white font-medium">Insurance Documentation</h4>
-                          <p className="text-gray-400 text-sm">Comprehensive certification package for submission to insurance providers</p>
+                          <h4 className="text-white font-medium">Blocks Extreme Heat</h4>
+                          <p className="text-gray-400 text-sm">Our proprietary formula reflects and insulates against intense heat. With a thermal conductivity of just 0.00543 W/cm·K, a Praetorian coat creates up to a 1,400°F temperature differential during fire tests — meaning even if 1550°F flames rage outside, the underlying structure stays at a mere ~150°F, far below ignition temperature.</p>
                         </div>
                       </div>
                       
                       <div className="flex items-start">
                         <div className="h-6 w-6 bg-emerald-900 rounded-full flex items-center justify-center text-white text-sm mr-3 mt-0.5 flex-shrink-0">3</div>
                         <div>
-                          <h4 className="text-white font-medium">Performance Warranty</h4>
-                          <p className="text-gray-400 text-sm">15-year manufacturer's warranty on fire performance and durability</p>
+                          <h4 className="text-white font-medium">Insurance Premium Savings</h4>
+                          <p className="text-gray-400 text-sm">Insurance companies recognize our Class-A fire rating, resulting in premium reductions up to 43%. During the 2022 Canyon Creek wildfire, homeowners with Praetorian-coated structures not only survived the fire but also saved an average of $2,750 annually on premiums – that's over $14,830 in 5-year savings.</p>
                         </div>
                       </div>
                     </div>

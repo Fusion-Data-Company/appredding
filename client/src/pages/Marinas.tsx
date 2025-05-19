@@ -360,10 +360,10 @@ const Marinas = () => {
                 <div className="relative mb-6">
                   <div className="absolute -inset-2 bg-gradient-to-r from-blue-500/10 via-blue-500/20 to-blue-500/10 rounded-lg blur-md"></div>
                   <h1 className="text-4xl md:text-5xl font-bold text-white relative z-10 drop-shadow-[0_1px_3px_rgba(59,130,246,0.6)]">
-                    Defend Your Marina – Conquer Salt, Sun & Sparks
+                    Defend Your Marina – Against Corrosion, UV Damage & Fire
                   </h1>
                   <p className="text-lg text-blue-200 mt-4 relative z-10">
-                    Harsh marine environments corrode metal, fade surfaces, and pose hidden fire dangers on docks. Praetorian Smart-Coat's advanced marine-grade system is your all-in-one shield.
+                    Marine environments present the most challenging protection demands in the industry. Salt water corrosion attacks metal structures, brutal UV exposure deteriorates surfaces, and electrical/fuel hazards create constant fire risks. Praetorian Smart-Coat's specialized marine formula creates a powerful multi-threat defense system that protects your valuable waterfront investment for decades.
                   </p>
                   <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent"></div>
                 </div>
@@ -424,8 +424,17 @@ const Marinas = () => {
               <div className="relative z-20 rounded-2xl overflow-hidden p-8 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-red-700/30 shadow-[0_10px_50px_-12px_rgba(0,0,0,0.4)]">
                 {/* Section Title with premium styling */}
                 <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-red-300 via-orange-200 to-red-300">
-                  Marine Environment Solutions
+                  The Brutal Triple Threat to Marinas
                 </h2>
+                
+                <div className="max-w-4xl mx-auto mb-8">
+                  <p className="text-white text-lg mb-4">
+                    Marina managers and owners face an unrelenting assault from nature's most destructive forces. The combination of salt water, intense UV radiation, and fuel/electrical hazards creates a perfect storm that devastates traditional coatings within 2-3 years.
+                  </p>
+                  <p className="text-white text-lg">
+                    How many times have you had to completely replace docks, pilings or support structures due to corrosion? What's the true cost of your current endless cycle of maintenance and repairs? And what would happen if an electrical spark ignited fuel vapors on your docks?
+                  </p>
+                </div>
 
                 {/* Solution details */}
                 <div className="relative bg-gradient-to-br from-black/70 to-gray-900/70 border border-red-500/30 rounded-xl p-6 backdrop-blur-sm mb-10">
