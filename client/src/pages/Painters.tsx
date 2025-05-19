@@ -22,8 +22,10 @@ import { useToast } from "@/hooks/use-toast";
 import { PremiumCartButton } from "@/utils/premium-buttons";
 import { motion } from "framer-motion";
 import { z } from "zod";
-import { Helmet } from "react-helmet";
-import { preloadCriticalImage, getAccessibleAltText } from "@/lib/seo-helper";
+import SEOHead from "@/components/SEOHead";
+import AccessibleImage from "@/components/ui/accessible-image";
+import { preloadCriticalImage } from "@/lib/seo-helper";
+import { generateStructuredData, getIndustryKeywords } from "@/lib/seo-helper";
 
 // Define form schema for painters
 const insertPainterContactSchema = z.object({
@@ -55,8 +57,23 @@ const Painters = () => {
   const [contactSuccess, setContactSuccess] = useState(false);
   const { toast } = useToast();
   
-  // Hero image path for preloading
+  // Define SEO metadata
+  const title = "Praetorian Smart-Coat – Painters";
+  const description = "Advanced ceramic coatings for professional painters. Extend your service offerings with our premium fireproof and insulating paint technology.";
+  const slug = "painters";
   const heroImagePath = "/src/assets_dir/images/painters-hero.png";
+  const keywords = getIndustryKeywords('painters', [
+    'professional painter supplies', 'specialty coatings', 'painting contractors', 
+    'commercial painting materials', 'industrial coatings'
+  ]);
+  
+  // Generate structured data for SEO
+  const structuredData = generateStructuredData(
+    'Painters',
+    'Advanced ceramic coating solutions for professional painters and contractors',
+    slug,
+    ['Fire resistant', 'Insulating', 'Premium finishes', 'Extended service offerings']
+  );
   
   // Preload critical hero image
   useEffect(() => {
