@@ -18,8 +18,7 @@ import {
   ThermometerSun,
   Shield,
   Sun,
-  Paintbrush as PaintBucket,
-  ArrowRight
+  Paintbrush
 } from "lucide-react";
 import { GradientHeading } from "@/components/ui/gradient-heading";
 import { PremiumCartButton } from "@/utils/premium-buttons";
@@ -604,7 +603,7 @@ export default function Pools() {
                 <div className="relative z-10">
                   <div className="flex items-center mb-6">
                     <div className="h-12 w-12 rounded-full bg-gradient-to-br from-green-800 to-green-900 flex items-center justify-center mr-4 shadow-lg border border-green-700/50">
-                      <PaintBucket className="h-6 w-6 text-green-300" />
+                      <Paintbrush className="h-6 w-6 text-green-300" />
                     </div>
                     <h3 className="text-2xl font-bold text-green-300">Application Process</h3>
                   </div>
@@ -656,11 +655,11 @@ export default function Pools() {
                     
                     <ul className="space-y-2 text-gray-300">
                       <li className="flex items-start">
-                        <ArrowRight className="h-5 w-5 text-blue-500 mr-2 flex-shrink-0 mt-0.5" />
+                        <ChevronRight className="h-5 w-5 text-blue-500 mr-2 flex-shrink-0 mt-0.5" />
                         <span><strong>Before:</strong> Annual maintenance costs of $21,500 with complete resurfacing required every 4-5 years at $68,000+</span>
                       </li>
                       <li className="flex items-start">
-                        <ArrowRight className="h-5 w-5 text-blue-500 mr-2 flex-shrink-0 mt-0.5" />
+                        <ChevronRight className="h-5 w-5 text-blue-500 mr-2 flex-shrink-0 mt-0.5" />
                         <span><strong>After:</strong> Annual maintenance reduced to simple cleaning, with 15+ year service life projection from independent engineering assessment</span>
                       </li>
                     </ul>
