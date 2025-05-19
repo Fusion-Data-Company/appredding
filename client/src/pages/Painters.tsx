@@ -55,6 +55,14 @@ const Painters = () => {
   const [contactSuccess, setContactSuccess] = useState(false);
   const { toast } = useToast();
   
+  // Hero image path for preloading
+  const heroImagePath = "/src/assets_dir/images/painters-hero.png";
+  
+  // Preload critical hero image
+  useEffect(() => {
+    preloadCriticalImage(heroImagePath);
+  }, []);
+  
   // Setup form for painter contact
   const form = useForm<PainterContactForm>({
     resolver: zodResolver(insertPainterContactSchema),
@@ -116,6 +124,25 @@ const Painters = () => {
   
   return (
     <MainLayout fullWidth={true}>
+      <Helmet>
+        <title>Praetorian Smart-Coat – Painters</title>
+        <meta name="description" content="Join our premium painting contractor network. Gain access to revolutionary ceramic coating technology and grow your business with high-margin specialized projects." />
+        
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Praetorian Smart-Coat – Painters" />
+        <meta property="og:description" content="Fireproof, insulating ceramic paint for professional contractors. Guard what matters." />
+        <meta property="og:image" content="/images/og-painters.jpg" />
+        
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Praetorian Smart-Coat – Painters" />
+        <meta name="twitter:description" content="Fireproof, insulating ceramic paint for professional contractors. Guard what matters." />
+        <meta name="twitter:image" content="/images/og-painters.jpg" />
+        
+        {/* Preload critical hero image */}
+        <link rel="preload" as="image" href={heroImagePath} />
+      </Helmet>
       <div className="relative">
         {/* Premium background with layered gradient effects */}
         <div className="fixed inset-0 z-[-5]" style={{ 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import MainLayout from "@/components/layout/MainLayout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -21,6 +21,8 @@ import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 import { PremiumCartButton } from "@/utils/premium-buttons";
 import { z } from "zod";
+import { Helmet } from "react-helmet";
+import { preloadCriticalImage, getAccessibleAltText } from "@/lib/seo-helper";
 
 type ConstructionDistributorFormValues = z.infer<typeof insertConstructionDistributorSchema>;
 
@@ -28,6 +30,14 @@ const Construction = () => {
   const [showRegistrationForm, setShowRegistrationForm] = useState(false);
   const [registrationSuccess, setRegistrationSuccess] = useState(false);
   const { toast } = useToast();
+  
+  // Hero image path for preloading
+  const heroImagePath = "/src/assets_dir/images/construction-hero.png";
+  
+  // Preload critical hero image
+  useEffect(() => {
+    preloadCriticalImage(heroImagePath);
+  }, []);
   
   // Form setup for construction distributor registration
   const form = useForm({
