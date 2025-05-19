@@ -21,8 +21,10 @@ import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 import { PremiumCartButton } from "@/utils/premium-buttons";
 import { z } from "zod";
-import { Helmet } from "react-helmet";
-import { preloadCriticalImage, getAccessibleAltText } from "@/lib/seo-helper";
+import SEOHead from "@/components/SEOHead";
+import AccessibleImage from "@/components/ui/accessible-image";
+import { preloadCriticalImage } from "@/lib/seo-helper";
+import { generateStructuredData, getIndustryKeywords } from "@/lib/seo-helper";
 
 type ConstructionDistributorFormValues = z.infer<typeof insertConstructionDistributorSchema>;
 
@@ -31,8 +33,23 @@ const Construction = () => {
   const [registrationSuccess, setRegistrationSuccess] = useState(false);
   const { toast } = useToast();
   
-  // Hero image path for preloading
+  // Define SEO metadata
+  const title = "Praetorian Smart-Coat – Construction";
+  const description = "Premium protective coatings for construction projects. Extend building lifespans, improve energy efficiency, and reduce maintenance costs with our ceramic barrier technology.";
+  const slug = "construction";
   const heroImagePath = "/src/assets_dir/images/construction-hero.png";
+  const keywords = getIndustryKeywords('construction', [
+    'building protection', 'construction materials', 'contractor supplies', 
+    'energy efficient building', 'construction fireproofing'
+  ]);
+  
+  // Generate structured data for SEO
+  const structuredData = generateStructuredData(
+    'Construction',
+    'Premium ceramic coating solutions for construction projects and building protection',
+    slug,
+    ['Fire resistant', 'Energy efficient', 'Extends building lifespan', 'Reduces maintenance costs']
+  );
   
   // Preload critical hero image
   useEffect(() => {
@@ -100,25 +117,15 @@ const Construction = () => {
 
   return (
     <MainLayout fullWidth={true}>
-      <Helmet>
-        <title>Praetorian Smart-Coat – Construction</title>
-        <meta name="description" content="Premium protective coatings for construction projects. Extend building lifespans, improve energy efficiency, and reduce maintenance costs with our ceramic barrier technology." />
-        
-        {/* Open Graph / Facebook */}
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="Praetorian Smart-Coat – Construction" />
-        <meta property="og:description" content="Fireproof, insulating ceramic paint for construction projects. Guard what matters." />
-        <meta property="og:image" content="/images/og-construction.jpg" />
-        
-        {/* Twitter */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Praetorian Smart-Coat – Construction" />
-        <meta name="twitter:description" content="Fireproof, insulating ceramic paint for construction projects. Guard what matters." />
-        <meta name="twitter:image" content="/images/og-construction.jpg" />
-        
-        {/* Preload critical hero image */}
-        <link rel="preload" as="image" href={heroImagePath} />
-      </Helmet>
+      <SEOHead 
+        title={title}
+        description={description}
+        industry="Construction"
+        slug={slug}
+        imagePath={heroImagePath}
+        keywords={keywords}
+        structuredData={structuredData}
+      />
       <div className="relative">
         {/* Premium background */}
         <div className="fixed inset-0 z-[-5]" style={{ 

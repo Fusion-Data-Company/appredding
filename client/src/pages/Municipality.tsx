@@ -95,7 +95,7 @@ export default function Municipality() {
   
   // Preload critical hero image
   useEffect(() => {
-    preloadCriticalImages([heroImagePath]);
+    preloadCriticalImage(heroImagePath);
   }, []);
   
   useEffect(() => {
