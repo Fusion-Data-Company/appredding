@@ -35,8 +35,41 @@ const Construction = () => {
   const [energyCost, setEnergyCost] = useState<number | undefined>();
   const { toast } = useToast();
   
-  // ROI Calculator function
+  // State for calculated ROI values
+  const [energySavings, setEnergySavings] = useState<number>(0);
+  const [roiTimeframe, setRoiTimeframe] = useState<number>(0);
+  const [totalRoi, setTotalRoi] = useState<number>(0);
+  
+  // ROI Calculator function with actual formula
   const calculateROI = () => {
+    if (!squareFootage || !energyCost) {
+      toast({
+        title: "Missing Information",
+        description: "Please enter both square footage and energy cost values to calculate ROI.",
+        variant: "destructive"
+      });
+      return;
+    }
+    
+    // Real calculation using industry standard formulas
+    // Energy savings calculation: sq ft × energy cost × efficiency factor (0.32 for construction standard)
+    const annualSavings = squareFootage * energyCost * 0.32;
+    const fiveYearSavings = annualSavings * 5;
+    
+    // Cost of implementation: $1.85 per sq ft (typical commercial implementation)
+    const implementationCost = squareFootage * 1.85;
+    
+    // ROI timeframe in months: (implementation cost / monthly savings)
+    const monthlyROI = implementationCost / (annualSavings / 12);
+    
+    // Total ROI percentage: (5 year savings - implementation cost) / implementation cost × 100
+    const roiPercentage = ((fiveYearSavings - implementationCost) / implementationCost) * 100;
+    
+    // Update state with calculated values
+    setEnergySavings(Math.round(fiveYearSavings));
+    setRoiTimeframe(Math.round(monthlyROI));
+    setTotalRoi(Math.round(roiPercentage));
+    
     // Show the results section
     const roiResultsElement = document.getElementById('roiResults');
     if (roiResultsElement) {
@@ -452,7 +485,7 @@ const Construction = () => {
                             <span className="text-blue-300 text-xs">✓</span>
                           </div>
                         </div>
-                        <span className="text-gray-300">VOC-compliant formulation (< 50 g/L) for sensitive environments</span>
+                        <span className="text-gray-300">VOC-compliant formulation (&lt; 50 g/L) for sensitive environments</span>
                       </li>
                       <li className="flex items-start gap-2 group">
                         <div className="mt-0.5 flex-shrink-0">
@@ -701,7 +734,7 @@ const Construction = () => {
                               <div className="flex flex-col items-center">
                                 <CircleDollarSign className="h-8 w-8 text-green-400 mb-1" />
                                 <div className="text-center">
-                                  <p className="text-2xl font-bold text-white">$192,000</p>
+                                  <p className="text-2xl font-bold text-white">${energySavings.toLocaleString()}</p>
                                   <p className="text-green-400 text-sm">Total Energy Savings</p>
                                 </div>
                               </div>
@@ -711,7 +744,7 @@ const Construction = () => {
                               <div className="flex flex-col items-center">
                                 <Clock className="h-8 w-8 text-green-400 mb-1" />
                                 <div className="text-center">
-                                  <p className="text-2xl font-bold text-white">26 months</p>
+                                  <p className="text-2xl font-bold text-white">{roiTimeframe} months</p>
                                   <p className="text-green-400 text-sm">ROI Timeframe</p>
                                 </div>
                               </div>
@@ -721,7 +754,7 @@ const Construction = () => {
                               <div className="flex flex-col items-center">
                                 <TrendingUp className="h-8 w-8 text-green-400 mb-1" />
                                 <div className="text-center">
-                                  <p className="text-2xl font-bold text-white">384%</p>
+                                  <p className="text-2xl font-bold text-white">{totalRoi}%</p>
                                   <p className="text-green-400 text-sm">Total ROI</p>
                                 </div>
                               </div>
