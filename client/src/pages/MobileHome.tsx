@@ -216,18 +216,44 @@ const MobileHome = () => {
                   <div className="absolute -inset-full w-[400px] h-full bg-gradient-to-r from-transparent via-blue-400/20 to-transparent skew-x-[-20deg] animate-light-sweep"></div>
                 </div>
                 
-                {/* Enhanced Header content with elite styling */}
-                <div className="relative z-20 px-8 py-20 flex flex-col items-center text-center">
-                  {/* Premium Advanced Badge with animated elements */}
-                  <div className="relative">
-                    {/* Ambient glow behind the badge */}
-                    <div className="absolute -inset-2 bg-blue-500/30 rounded-full blur-md"></div>
-                    <div className="inline-flex items-center px-5 py-2 bg-gradient-to-r from-blue-900/90 via-blue-800/90 to-blue-900/90 border border-blue-400/50 rounded-full mb-6 backdrop-blur-sm shadow-[0_0_15px_rgba(59,130,246,0.5)]">
-                      <div className="w-2.5 h-2.5 rounded-full bg-gradient-to-r from-blue-400 to-blue-300 mr-2.5 animate-pulse"></div>
-                      <div className="flex items-center space-x-1">
-                        <Calculator className="w-4 h-4 text-blue-300 mr-1" />
-                        <span className="text-blue-100 font-semibold text-sm tracking-wide uppercase">Advanced ROI Technology</span>
+                {/* Enhanced Header content with homepage-style corner accents */}
+                <div className="relative z-20 p-10 flex flex-col items-center text-center">
+                  {/* Premium Corner Accents matching the homepage style exactly */}
+                  <div className="absolute top-0 left-0 w-14 h-14 z-10 pointer-events-none">
+                    <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-blue-700/70 rounded-tl-md"></div>
+                    <div className="absolute top-1 left-1 w-10 h-10 border-t border-l border-blue-600/50 rounded-tl-md"></div>
+                  </div>
+                  <div className="absolute top-0 right-0 w-14 h-14 z-10 pointer-events-none">
+                    <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-blue-700/70 rounded-tr-md"></div>
+                    <div className="absolute top-1 right-1 w-10 h-10 border-t border-r border-blue-600/50 rounded-tr-md"></div>
+                  </div>
+                  <div className="absolute bottom-0 right-0 w-14 h-14 z-10 pointer-events-none">
+                    <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-blue-700/70 rounded-br-md"></div>
+                    <div className="absolute bottom-1 right-1 w-10 h-10 border-b border-r border-blue-600/50 rounded-br-md"></div>
+                  </div>
+                  <div className="absolute bottom-0 left-0 w-14 h-14 z-10 pointer-events-none">
+                    <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-blue-700/70 rounded-bl-md"></div>
+                    <div className="absolute bottom-1 left-1 w-10 h-10 border-b border-l border-blue-600/50 rounded-bl-md"></div>
+                  </div>
+                  
+                  {/* Glass shimmer effect matching the homepage style */}
+                  <div className="absolute inset-0 overflow-hidden rounded-xl">
+                    <div className="h-full w-1/3 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-[-20deg] animate-shimmer-slow absolute"></div>
+                  </div>
+                  
+                  {/* Badge with icon in homepage style */}
+                  <div className="relative mb-6">
+                    <div className="flex items-start justify-center">
+                      <div className="relative mr-2">
+                        <div className="absolute -inset-1 bg-blue-500/30 rounded-full blur-md"></div>
+                        <div className="relative h-6 w-6 flex items-center justify-center">
+                          <div className="absolute inset-0 bg-gradient-to-b from-blue-600/80 to-blue-800/80 rounded-full shadow-[0_0_8px_rgba(59,130,246,0.6)]"></div>
+                          <Calculator className="w-3.5 h-3.5 text-blue-100 relative z-10" />
+                        </div>
                       </div>
+                      <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-blue-200" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.8)" }}>
+                        ADVANCED ROI TECHNOLOGY
+                      </h3>
                     </div>
                   </div>
                   
@@ -236,7 +262,7 @@ const MobileHome = () => {
                     {/* Ambient glow behind text */}
                     <div className="absolute -inset-10 bg-blue-500/20 rounded-full blur-3xl opacity-70"></div>
                     {/* Text with enhanced gradients and effects */}
-                    <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-200 via-white to-blue-200 leading-tight max-w-5xl mx-auto tracking-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.8), 0 8px 24px rgba(59,130,246,0.2)" }}>
+                    <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6 text-white leading-tight max-w-5xl mx-auto tracking-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.8), 0 8px 24px rgba(59,130,246,0.2)" }}>
                       Mobile Home ROI Analysis Calculator
                     </h1>
                   </div>
@@ -275,20 +301,6 @@ const MobileHome = () => {
                   <div className="absolute bottom-0 left-0 right-0 flex flex-col items-center">
                     <div className="h-1 w-full bg-gradient-to-r from-transparent via-blue-500/70 to-transparent"></div>
                     <div className="h-0.5 w-3/4 mt-0.5 bg-gradient-to-r from-transparent via-blue-400/50 to-transparent"></div>
-                  </div>
-                  
-                  {/* Corner decorations */}
-                  <div className="absolute top-0 left-0 w-20 h-20">
-                    <div className="absolute top-0 left-0 w-10 h-10 border-t-2 border-l-2 border-blue-400/40 rounded-tl-lg"></div>
-                  </div>
-                  <div className="absolute top-0 right-0 w-20 h-20">
-                    <div className="absolute top-0 right-0 w-10 h-10 border-t-2 border-r-2 border-blue-400/40 rounded-tr-lg"></div>
-                  </div>
-                  <div className="absolute bottom-0 right-0 w-20 h-20">
-                    <div className="absolute bottom-0 right-0 w-10 h-10 border-b-2 border-r-2 border-blue-400/40 rounded-br-lg"></div>
-                  </div>
-                  <div className="absolute bottom-0 left-0 w-20 h-20">
-                    <div className="absolute bottom-0 left-0 w-10 h-10 border-b-2 border-l-2 border-blue-400/40 rounded-bl-lg"></div>
                   </div>
                 </div>
               </div>
