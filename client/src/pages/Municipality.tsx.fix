@@ -39,8 +39,7 @@ import {
   BookOpen,
   Zap,
   Badge,
-  Flame,
-  CheckCheck
+  Flame
 } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -101,8 +100,10 @@ const Municipality = () => {
 
   const { mutate, isPending } = useMutation({
     mutationFn: async (data: MunicipalityProfessionalFormValues) => {
-      const response = await apiRequest("POST", "/api/municipality/register", data);
-      return response;
+      return await apiRequest("/api/municipality/register", {
+        method: "POST",
+        data
+      });
     },
     onSuccess: () => {
       toast({
@@ -248,7 +249,7 @@ const Municipality = () => {
                       Get Municipal ROI Analysis
                     </GradientButton>
                     
-                    <PremiumButton size="lg" className="px-8 py-4 text-lg">
+                    <PremiumButton variant="ghost" size="lg" className="px-8 py-4 text-lg">
                       <PlayCircle className="mr-2 h-5 w-5" />
                       Watch Case Study
                     </PremiumButton>
@@ -282,7 +283,8 @@ const Municipality = () => {
                     <GradientHeading 
                       as="h2" 
                       size="3xl" 
-                      className="mb-6 from-orange-500 via-red-400 to-red-600"
+                      className="mb-6"
+                      gradient="from-orange-500 via-red-400 to-red-600"
                     >
                       The Hidden Cost of Aging Infrastructure
                     </GradientHeading>
@@ -470,7 +472,8 @@ const Municipality = () => {
               
               <GradientHeading 
                 size="4xl" 
-                className="mb-6 from-green-400 via-emerald-300 to-green-400"
+                className="mb-6"
+                gradient="from-green-400 via-emerald-300 to-green-400"
               >
                 Infrastructure ROI Calculator
               </GradientHeading>
@@ -913,7 +916,7 @@ const Municipality = () => {
                       </div>
                       
                       <div className="flex justify-end">
-                        <GradientButton className="text-sm px-4 py-2">
+                        <GradientButton className="text-sm px-4 py-2" gradient="from-emerald-600 to-emerald-700">
                           <Zap className="h-4 w-4 mr-1" /> Schedule Consultation
                         </GradientButton>
                       </div>
@@ -940,7 +943,8 @@ const Municipality = () => {
                 
                 <GradientHeading 
                   size="4xl" 
-                  className="mb-6 from-purple-400 via-violet-300 to-purple-400"
+                  className="mb-6"
+                  gradient="from-purple-400 via-violet-300 to-purple-400"
                 >
                   Protect Your Municipal Infrastructure
                 </GradientHeading>
@@ -1054,6 +1058,7 @@ const Municipality = () => {
                     
                     <GradientButton 
                       size="lg" 
+                      variant="outline"
                       className="px-8 py-4"
                     >
                       <Download className="mr-2 h-5 w-5" />
