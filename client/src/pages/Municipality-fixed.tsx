@@ -1,0 +1,1066 @@
+import React, { useState, useEffect } from "react";
+import MainLayout from "@/components/layout/MainLayout";
+import { GradientButton } from "@/components/ui/gradient-button";
+import { PremiumButton } from "@/components/ui/premium-button";
+import { GradientHeading } from "@/components/ui/gradient-heading";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Progress } from "@/components/ui/progress";
+import { 
+  ShieldCheck, 
+  Leaf, 
+  Clock, 
+  Landmark, 
+  CircleDollarSign,
+  Building,
+  Droplets,
+  BadgeAlert,
+  PenTool,
+  Blocks,
+  Activity,
+  Loader2,
+  TrendingUp,
+  BadgeCheck,
+  ParkingCircle,
+  LineChart,
+  ChevronRight,
+  Check,
+  BarChart3,
+  PieChart,
+  Award,
+  Shield,
+  ArrowRight,
+  PlayCircle,
+  Download,
+  FileText,
+  CalendarCheck,
+  DollarSign,
+  Percent,
+  Calculator,
+  BookOpen,
+  Zap,
+  Badge,
+  Flame,
+  AlertTriangle,
+  CheckCircle
+} from "lucide-react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { insertMunicipalityProfessionalSchema } from "@shared/schema";
+import * as z from "zod";
+import { useMutation } from "@tanstack/react-query";
+import { apiRequest } from "@/lib/queryClient";
+import { useToast } from "@/hooks/use-toast";
+
+// Form schema for professionals
+const municipalityProfessionalFormSchema = insertMunicipalityProfessionalSchema
+  .extend({
+    confirmEmail: z.string().email({ message: "Invalid email address" }),
+  })
+  .refine(data => data.email === data.confirmEmail, {
+    message: "Emails don't match",
+    path: ["confirmEmail"]
+  });
+
+type MunicipalityProfessionalFormValues = z.infer<typeof municipalityProfessionalFormSchema>;
+
+const Municipality = () => {
+  const [showRegistrationForm, setShowRegistrationForm] = useState(false);
+  const [activeTab, setActiveTab] = useState("roi");
+  const [progress, setProgress] = useState(0);
+  
+  useEffect(() => {
+    const timer = setTimeout(() => setProgress(66), 500);
+    return () => clearTimeout(timer);
+  }, []);
+  
+  const { toast } = useToast();
+  
+  const form = useForm<MunicipalityProfessionalFormValues>({
+    resolver: zodResolver(municipalityProfessionalFormSchema),
+    defaultValues: {
+      companyName: "",
+      contactName: "",
+      email: "",
+      confirmEmail: "",
+      phone: "",
+      address: "",
+      city: "",
+      state: "",
+      zipCode: "",
+      website: "",
+      professionalType: "",
+      specialties: [],
+      jurisdictions: "",
+      clientTypes: "",
+      credentials: "",
+      experienceYears: undefined,
+      registrationNumber: "",
+      projectExperience: "",
+      notes: ""
+    }
+  });
+
+  const { mutate, isPending } = useMutation({
+    mutationFn: async (data: MunicipalityProfessionalFormValues) => {
+      const response = await apiRequest("POST", "/api/municipality/register", data);
+      return response;
+    },
+    onSuccess: () => {
+      toast({
+        title: "Registration Successful",
+        description: "Thank you for registering. Our team will contact you shortly.",
+      });
+      form.reset();
+      setShowRegistrationForm(false);
+    },
+    onError: (error: Error) => {
+      toast({
+        title: "Registration Failed",
+        description: error.message || "Please try again later.",
+        variant: "destructive"
+      });
+    }
+  });
+
+  function onSubmit(data: MunicipalityProfessionalFormValues) {
+    mutate(data);
+  }
+
+  return (
+    <MainLayout>
+      <div className="bg-black min-h-screen text-white">
+        {/* Advanced premium gradient background with layered effects */}
+        <div className="fixed inset-0 z-[-5]" style={{ 
+          background: 'linear-gradient(145deg, #0c0c14 0%, #101830 30%, #152238 60%, #0e1a2a 100%)'
+        }}></div>
+        
+        {/* Dynamic layered background elements with municipality theme */}
+        <div className="fixed inset-0 z-[-4] opacity-40" style={{ 
+          backgroundImage: 'radial-gradient(circle at 30% 20%, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0) 60%)'
+        }}></div>
+        
+        <div className="fixed inset-0 z-[-4] opacity-30" style={{ 
+          backgroundImage: 'radial-gradient(circle at 70% 60%, rgba(30, 58, 138, 0.6) 0%, rgba(15, 23, 42, 0) 70%)'
+        }}></div>
+        
+        {/* Advanced multi-color ambient glow effects - placed behind the cards */}
+        <div className="fixed inset-0 z-[-3] overflow-hidden pointer-events-none">
+          {/* Blue glow */}
+          <div className="absolute top-[10%] left-[15%] w-[40rem] h-[40rem] bg-blue-600/10 rounded-full blur-[150px] animate-pulse-slow"></div>
+          
+          {/* Red/Orange glow */}
+          <div className="absolute bottom-[15%] right-[10%] w-[35rem] h-[35rem] bg-orange-500/10 rounded-full blur-[150px] animate-pulse-slower"></div>
+          
+          {/* Green accent glows for balance */}
+          <div className="absolute top-[40%] right-[25%] w-[25rem] h-[25rem] bg-emerald-600/10 rounded-full blur-[120px] animate-pulse-slow"></div>
+          <div className="absolute bottom-[30%] left-[20%] w-[30rem] h-[30rem] bg-green-700/5 rounded-full blur-[100px] animate-pulse-slower"></div>
+          
+          {/* Purple accent for depth */}
+          <div className="absolute top-[70%] left-[50%] w-[20rem] h-[20rem] bg-purple-700/5 rounded-full blur-[90px] animate-pulse-slow"></div>
+        </div>
+        
+        {/* Low-opacity texture overlay for professional depth */}
+        <div 
+          className="fixed inset-0 z-[-2] opacity-5 pointer-events-none"
+          style={{
+            backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'40\' height=\'40\' viewBox=\'0 0 40 40\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%230077cc\' fill-opacity=\'0.3\' fill-rule=\'evenodd\'%3E%3Cpath d=\'M0 38.59l2.83-2.83 1.41 1.41L1.41 40H0v-1.41zM0 1.4l2.83 2.83 1.41-1.41L1.41 0H0v1.41zM38.59 40l-2.83-2.83 1.41-1.41L40 38.59V40h-1.41zM40 1.41l-2.83 2.83-1.41-1.41L38.59 0H40v1.41zM20 18.6l2.83-2.83 1.41 1.41L21.41 20l2.83 2.83-1.41 1.41L20 21.41l-2.83 2.83-1.41-1.41L18.59 20l-2.83-2.83 1.41-1.41L20 18.59z\'/%3E%3C/g%3E%3C/svg%3E")',
+            backgroundSize: '40px 40px'
+          }}
+        />
+
+        {/* SANDLER STAGE 1: INTRO - BLUE SECTION */}
+        <section className="relative z-10 py-16 overflow-hidden">
+          {/* Section-specific ambient blue glow */}
+          <div className="absolute inset-0 bg-blue-900/10 rounded-full blur-[100px] opacity-50 z-0"></div>
+          
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="flex flex-col items-center max-w-4xl mx-auto text-center mb-16 relative">
+              {/* Premium Cinematic Enterprise Header Container */}
+              <div className="relative py-8 px-6 bg-gradient-to-br from-gray-900/90 via-gray-950/95 to-gray-900/90 
+                border-b-2 border-blue-500/60 border-t border-t-blue-400/30 rounded-lg mb-8
+                shadow-[0_10px_50px_rgba(59,130,246,0.15),inset_0_1px_20px_rgba(59,130,246,0.05)]">
+                
+                {/* Metallic corner accents */}
+                <div className="absolute top-0 left-0 w-20 h-20 pointer-events-none">
+                  <div className="absolute top-0 left-0 w-12 h-1 bg-gradient-to-r from-blue-500 to-transparent rounded-full"></div>
+                  <div className="absolute top-0 left-0 h-12 w-1 bg-gradient-to-b from-blue-500 to-transparent rounded-full"></div>
+                </div>
+                <div className="absolute top-0 right-0 w-20 h-20 pointer-events-none">
+                  <div className="absolute top-0 right-0 w-12 h-1 bg-gradient-to-l from-blue-500 to-transparent rounded-full"></div>
+                  <div className="absolute top-0 right-0 h-12 w-1 bg-gradient-to-b from-blue-500 to-transparent rounded-full"></div>
+                </div>
+                <div className="absolute bottom-0 left-0 w-20 h-20 pointer-events-none">
+                  <div className="absolute bottom-0 left-0 w-12 h-1 bg-gradient-to-r from-blue-500 to-transparent rounded-full"></div>
+                  <div className="absolute bottom-0 left-0 h-12 w-1 bg-gradient-to-t from-blue-500 to-transparent rounded-full"></div>
+                </div>
+                <div className="absolute bottom-0 right-0 w-20 h-20 pointer-events-none">
+                  <div className="absolute bottom-0 right-0 w-12 h-1 bg-gradient-to-l from-blue-500 to-transparent rounded-full"></div>
+                  <div className="absolute bottom-0 right-0 h-12 w-1 bg-gradient-to-t from-blue-500 to-transparent rounded-full"></div>
+                </div>
+                
+                {/* Premium subtle styling without spotlight circles */}
+                
+                {/* Top badge */}
+                <div className="relative mb-3 inline-block">
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-700/20 to-blue-400/20 blur-sm rounded-full"></div>
+                  <div className="relative flex items-center justify-center space-x-2 px-4 py-2 bg-gradient-to-r from-blue-900/80 to-blue-800/80 rounded-full border border-blue-500/40 shadow-lg">
+                    <Landmark className="h-4 w-4 text-blue-400" />
+                    <span className="text-blue-200 text-sm font-medium">Municipal & Government Solutions</span>
+                  </div>
+                </div>
+                
+                {/* Main heading */}
+                <h1 className="text-4xl md:text-5xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-200 via-white to-blue-200">
+                  Advanced <span className="text-blue-400">Municipal</span> Infrastructure Protection
+                </h1>
+                
+                <p className="text-gray-300 text-lg max-w-3xl mx-auto mb-8">
+                  Our advanced ceramic coating technology extends infrastructure lifespan by 15+ years while reducing maintenance costs by up to 50% and qualifying for federal grant funding.
+                </p>
+                
+                {/* Feature highlight row */}
+                <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-3 mb-10">
+                  <div className="flex items-center space-x-1.5">
+                    <CheckCircle className="h-5 w-5 text-green-500" />
+                    <span className="text-white">FEMA Compliant</span>
+                  </div>
+                  <div className="flex items-center space-x-1.5">
+                    <CheckCircle className="h-5 w-5 text-green-500" />
+                    <span className="text-white">Grant Eligible</span>
+                  </div>
+                  <div className="flex items-center space-x-1.5">
+                    <CheckCircle className="h-5 w-5 text-green-500" />
+                    <span className="text-white">50% Maintenance Reduction</span>
+                  </div>
+                  <div className="flex items-center space-x-1.5">
+                    <CheckCircle className="h-5 w-5 text-green-500" />
+                    <span className="text-white">15+ Year Protection</span>
+                  </div>
+                </div>
+                
+                {/* CTA buttons */}
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                  <GradientButton 
+                    className="px-6 py-3 text-lg"
+                    onClick={() => setShowRegistrationForm(true)}
+                  >
+                    <CircleDollarSign className="mr-2 h-5 w-5" />
+                    Request ROI Analysis
+                  </GradientButton>
+                  
+                  <PremiumButton 
+                    className="px-6 py-3 text-lg"
+                  >
+                    <PlayCircle className="mr-2 h-5 w-5" /> 
+                    Watch Case Study
+                  </PremiumButton>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* SANDLER STAGE 2: PAIN - RED SECTION */}
+        <section className="py-16 relative z-10 overflow-hidden">
+          {/* Section-specific ambient red glow */}
+          <div className="absolute inset-0 bg-red-900/10 rounded-full blur-[100px] opacity-50 z-0"></div>
+          
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="max-w-5xl mx-auto">
+              <div className="flex flex-col md:flex-row items-center justify-between mb-16">
+                <div className="md:w-1/2 mb-8 md:mb-0 relative">
+                  <div className="absolute -top-4 -left-4 w-20 h-20 pointer-events-none">
+                    <div className="absolute top-0 left-0 w-10 h-10 border-t-2 border-l-2 border-orange-500/70 rounded-tl-lg"></div>
+                    <div className="absolute top-0 left-0 w-4 h-4 bg-orange-500/50 rounded-full blur-[2px]"></div>
+                  </div>
+                  
+                  <div className="absolute -bottom-4 -right-4 w-20 h-20 pointer-events-none">
+                    <div className="absolute bottom-0 right-0 w-10 h-10 border-b-2 border-r-2 border-red-500/70 rounded-br-lg"></div>
+                    <div className="absolute bottom-0 right-0 w-4 h-4 bg-red-500/50 rounded-full blur-[2px]"></div>
+                  </div>
+                  
+                  <div className="relative z-20">
+                    <GradientHeading 
+                      className="mb-6"
+                    >
+                      The Hidden Cost of Aging Infrastructure
+                    </GradientHeading>
+                    
+                    <p className="text-gray-300 mb-6 text-lg">
+                      Every year, U.S. municipalities waste <span className="text-red-400 font-semibold">$129 billion</span> on reactive emergency repairs instead of implementing preventative solutions.
+                    </p>
+                    
+                    <div className="space-y-5">
+                      <div className="flex items-start space-x-4">
+                        <div className="bg-gradient-to-br from-red-700 to-red-900 p-3 rounded-lg">
+                          <AlertTriangle className="h-6 w-6 text-red-100" />
+                        </div>
+                        <div>
+                          <h3 className="text-xl font-semibold mb-1 text-white">Critical Safety Hazards</h3>
+                          <p className="text-gray-400">Corroded infrastructure leads to accidents, community safety issues, and potential legal liability.</p>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-start space-x-4">
+                        <div className="bg-gradient-to-br from-red-700 to-red-900 p-3 rounded-lg">
+                          <CircleDollarSign className="h-6 w-6 text-red-100" />
+                        </div>
+                        <div>
+                          <h3 className="text-xl font-semibold mb-1 text-white">Budget Drain</h3>
+                          <p className="text-gray-400">Emergency repairs cost 3-5x more than planned maintenance, draining municipal budgets.</p>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-start space-x-4">
+                        <div className="bg-gradient-to-br from-red-700 to-red-900 p-3 rounded-lg">
+                          <Building className="h-6 w-6 text-red-100" />
+                        </div>
+                        <div>
+                          <h3 className="text-xl font-semibold mb-1 text-white">Public Perception</h3>
+                          <p className="text-gray-400">Visible infrastructure deterioration damages public trust and community pride.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="md:w-5/12 relative">
+                  {/* Enhanced Municipal Challenges Cards */}
+                  <div className="space-y-6">
+                    <div className="bg-gradient-to-br from-gray-800/70 via-gray-850/70 to-gray-900/70 rounded-xl p-6 border border-red-500/30 relative group transition-all duration-300 hover:border-red-500/50 shadow-[0_5px_15px_rgba(185,28,28,0.15)]">
+                      {/* Enhanced layered glows and effects */}
+                      <div className="absolute -inset-px bg-gradient-to-r from-red-600/20 via-transparent to-red-600/20 rounded-xl opacity-70 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
+                      
+                      <div className="relative">
+                        <div className="flex items-center mb-3">
+                          <div className="bg-gradient-to-br from-red-600/20 to-red-900/20 p-2 rounded-md mr-3">
+                            <BadgeAlert className="h-6 w-6 text-red-400" />
+                          </div>
+                          <h3 className="text-xl font-semibold text-red-200">Bridge Corrosion Crisis</h3>
+                        </div>
+                        
+                        <p className="text-gray-400 mb-3">42% of municipal bridges show signs of structural decay requiring <span className="text-red-300 font-medium">$164,000 average repair cost</span> per structure.</p>
+                        
+                        <div className="mt-2">
+                          <Progress value={progress} className="h-1 bg-gray-800">
+                            <div className="h-full bg-gradient-to-r from-red-500 to-red-600 rounded-full"></div>
+                          </Progress>
+                          <div className="flex justify-between mt-1 text-xs text-gray-500">
+                            <span>Critical Status</span>
+                            <span>{progress}% of bridges affected</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="bg-gradient-to-br from-gray-800/70 via-gray-850/70 to-gray-900/70 rounded-xl p-6 border border-red-500/30 relative group transition-all duration-300 hover:border-red-500/50 shadow-[0_5px_15px_rgba(185,28,28,0.15)]">
+                      {/* Enhanced layered glows and effects */}
+                      <div className="absolute -inset-px bg-gradient-to-r from-red-600/20 via-transparent to-red-600/20 rounded-xl opacity-70 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
+                      
+                      <div className="relative">
+                        <div className="flex items-center mb-3">
+                          <div className="bg-gradient-to-br from-red-600/20 to-red-900/20 p-2 rounded-md mr-3">
+                            <Droplets className="h-6 w-6 text-red-400" />
+                          </div>
+                          <h3 className="text-xl font-semibold text-red-200">Water Treatment Failure</h3>
+                        </div>
+                        
+                        <p className="text-gray-400 mb-2">Aging water treatment plants face chemical deterioration, requiring <span className="text-red-300 font-medium">$3.2M in emergency repairs</span> per facility annually.</p>
+                        
+                        <div className="flex items-center justify-between text-sm mt-3">
+                          <div className="flex items-center space-x-1 text-gray-400">
+                            <Clock className="h-4 w-4" />
+                            <span>Average age: 38 years</span>
+                          </div>
+                          
+                          <div className="flex items-center space-x-1 text-gray-400">
+                            <AlertTriangle className="h-4 w-4 text-amber-500" />
+                            <span>Critical status</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+                <div className="bg-gradient-to-br from-gray-800/70 via-gray-850/70 to-gray-900/70 rounded-xl p-6 border border-red-500/20 relative group transition-all duration-300 hover:border-red-500/40">
+                  {/* Premium corner accents */}
+                  <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none">
+                    <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-orange-500/70 rounded-tl-lg"></div>
+                    <div className="absolute top-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+                  </div>
+                  <div className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none">
+                    <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-blue-500/70 rounded-br-lg"></div>
+                    <div className="absolute bottom-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
+                  </div>
+                  
+                  <div className="relative z-10">
+                    <div className="w-14 h-14 bg-gradient-to-br from-blue-700 to-blue-900 rounded-full flex items-center justify-center mb-4">
+                      <ShieldCheck className="w-7 h-7 text-blue-300" />
+                    </div>
+                    <h3 className="text-xl font-semibold mb-3 text-white">Infrastructure Protection</h3>
+                    <p className="text-gray-300">
+                      Our ceramic coating creates a durable barrier against corrosion, UV damage, and chemical exposure, extending the life of critical infrastructure.
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="bg-gradient-to-br from-gray-800/70 via-gray-850/70 to-gray-900/70 rounded-xl p-6 border border-blue-500/20 relative group transition-all duration-300 hover:border-blue-500/40">
+                  {/* Premium corner accents */}
+                  <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none">
+                    <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-orange-500/70 rounded-tl-lg"></div>
+                    <div className="absolute top-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+                  </div>
+                  <div className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none">
+                    <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-blue-500/70 rounded-br-lg"></div>
+                    <div className="absolute bottom-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
+                  </div>
+                  
+                  <div className="relative z-10">
+                    <div className="w-14 h-14 bg-gradient-to-br from-blue-700 to-blue-900 rounded-full flex items-center justify-center mb-4">
+                      <CircleDollarSign className="w-7 h-7 text-blue-300" />
+                    </div>
+                    <h3 className="text-xl font-semibold mb-3 text-white">Budget Optimization</h3>
+                    <p className="text-gray-300">
+                      Reduce maintenance costs by up to 50% while extending infrastructure lifespan, allowing for better allocation of taxpayer dollars.
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="bg-gradient-to-br from-gray-800/70 via-gray-850/70 to-gray-900/70 rounded-xl p-6 border border-blue-500/20 relative group transition-all duration-300 hover:border-blue-500/40">
+                  {/* Premium corner accents */}
+                  <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none">
+                    <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-orange-500/70 rounded-tl-lg"></div>
+                    <div className="absolute top-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+                  </div>
+                  <div className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none">
+                    <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-blue-500/70 rounded-br-lg"></div>
+                    <div className="absolute bottom-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
+                  </div>
+                  
+                  <div className="relative z-10">
+                    <div className="w-14 h-14 bg-gradient-to-br from-blue-700 to-blue-900 rounded-full flex items-center justify-center mb-4">
+                      <Leaf className="w-7 h-7 text-blue-300" />
+                    </div>
+                    <h3 className="text-xl font-semibold mb-3 text-white">Environmental Compliance</h3>
+                    <p className="text-gray-300">
+                      Our eco-friendly solutions help municipalities meet sustainability goals while maintaining infrastructure integrity.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        {/* SANDLER STAGE 3: BUDGET - GREEN SECTION */}
+        <section className="py-16 relative z-10 overflow-hidden">
+          {/* Section-specific ambient green glow */}
+          <div className="absolute inset-0 bg-green-900/10 rounded-full blur-[100px] opacity-50 z-0"></div>
+          
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="max-w-5xl mx-auto text-center mb-12">
+              <div className="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-gradient-to-r from-green-500/20 via-emerald-600/20 to-green-500/20 border border-green-500/30 shadow-lg mb-6">
+                <Calculator className="h-4 w-4 mr-2 text-green-400" />
+                <span className="text-green-100 font-medium text-sm">Municipal Budget Optimization</span>
+              </div>
+              
+              <GradientHeading className="mb-6">
+                Infrastructure ROI Calculator
+              </GradientHeading>
+              
+              <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-10">
+                See how Praetorian Smart Coating solutions deliver <span className="text-emerald-400 font-semibold">8.3x ROI</span> for municipalities through maintenance reduction, extended lifespan, and grant eligibility.
+              </p>
+              
+              <Tabs defaultValue="roi" className="w-full max-w-4xl mx-auto" onValueChange={setActiveTab}>
+                <TabsList className="grid w-full grid-cols-3 mb-8 bg-gray-900/60 border border-emerald-700/30 p-1 rounded-lg">
+                  <TabsTrigger value="roi" className="data-[state=active]:bg-gradient-to-br data-[state=active]:from-emerald-900/60 data-[state=active]:to-emerald-800/60 data-[state=active]:text-emerald-50 rounded-md py-3 transition-all duration-300">
+                    <BarChart3 className="h-5 w-5 mr-2" />
+                    ROI Analysis
+                  </TabsTrigger>
+                  <TabsTrigger value="applications" className="data-[state=active]:bg-gradient-to-br data-[state=active]:from-emerald-900/60 data-[state=active]:to-emerald-800/60 data-[state=active]:text-emerald-50 rounded-md py-3 transition-all duration-300">
+                    <Blocks className="h-5 w-5 mr-2" />
+                    Applications
+                  </TabsTrigger>
+                  <TabsTrigger value="funding" className="data-[state=active]:bg-gradient-to-br data-[state=active]:from-emerald-900/60 data-[state=active]:to-emerald-800/60 data-[state=active]:text-emerald-50 rounded-md py-3 transition-all duration-300">
+                    <CircleDollarSign className="h-5 w-5 mr-2" />
+                    Funding Options
+                  </TabsTrigger>
+                </TabsList>
+                
+                <TabsContent value="roi" className="mt-8">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div className="bg-gradient-to-br from-gray-900/90 to-gray-950/95 p-8 rounded-xl border border-emerald-700/30 shadow-[0_10px_30px_rgba(0,0,0,0.2)]">
+                      <h3 className="text-2xl font-bold mb-6 text-emerald-100">Infrastructure ROI Analysis</h3>
+                      
+                      <div className="space-y-6 mb-6">
+                        <div className="space-y-2">
+                          <div className="flex justify-between">
+                            <label className="text-gray-300">Annual Maintenance Budget</label>
+                            <span className="text-emerald-400 font-semibold">$1.2M</span>
+                          </div>
+                          <Progress value={75} className="h-1 bg-gray-800">
+                            <div className="h-full bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-full"></div>
+                          </Progress>
+                        </div>
+                        
+                        <div className="space-y-2">
+                          <div className="flex justify-between">
+                            <label className="text-gray-300">Maintenance Reduction</label>
+                            <span className="text-emerald-400 font-semibold">52%</span>
+                          </div>
+                          <Progress value={52} className="h-1 bg-gray-800">
+                            <div className="h-full bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-full"></div>
+                          </Progress>
+                        </div>
+                        
+                        <div className="space-y-2">
+                          <div className="flex justify-between">
+                            <label className="text-gray-300">Extended Lifespan</label>
+                            <span className="text-emerald-400 font-semibold">15+ years</span>
+                          </div>
+                          <Progress value={80} className="h-1 bg-gray-800">
+                            <div className="h-full bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-full"></div>
+                          </Progress>
+                        </div>
+                        
+                        <div className="space-y-2">
+                          <div className="flex justify-between">
+                            <label className="text-gray-300">Grant Eligibility</label>
+                            <span className="text-emerald-400 font-semibold">85%</span>
+                          </div>
+                          <Progress value={85} className="h-1 bg-gray-800">
+                            <div className="h-full bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-full"></div>
+                          </Progress>
+                        </div>
+                      </div>
+                      
+                      <div className="pt-6 mt-6 border-t border-gray-800">
+                        <div className="flex justify-between mb-2">
+                          <span className="text-gray-300 font-medium">15-Year ROI:</span>
+                          <span className="text-2xl font-bold text-emerald-400">831%</span>
+                        </div>
+                        <div className="flex justify-between text-sm text-gray-500">
+                          <span>Initial Investment:</span>
+                          <span>$375,000</span>
+                        </div>
+                        <div className="flex justify-between text-sm text-gray-500">
+                          <span>15-Year Returns:</span>
+                          <span>$3,116,250</span>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="space-y-6">
+                      <div className="bg-gradient-to-br from-gray-900/90 to-gray-950/95 p-6 rounded-xl border border-emerald-700/30 shadow-[0_5px_20px_rgba(0,0,0,0.2)]">
+                        <div className="flex items-center mb-4">
+                          <DollarSign className="h-8 w-8 text-emerald-500 mr-3" />
+                          <h3 className="text-xl font-bold text-white">Cost Savings Analysis</h3>
+                        </div>
+                        
+                        <div className="space-y-3 mb-4">
+                          <div className="flex justify-between text-sm">
+                            <span className="text-gray-400">Annual Maintenance Savings:</span>
+                            <span className="text-emerald-400 font-semibold">$624,000</span>
+                          </div>
+                          <div className="flex justify-between text-sm">
+                            <span className="text-gray-400">Emergency Repair Avoidance:</span>
+                            <span className="text-emerald-400 font-semibold">$185,000/yr</span>
+                          </div>
+                          <div className="flex justify-between text-sm">
+                            <span className="text-gray-400">Replacement Deferral Value:</span>
+                            <span className="text-emerald-400 font-semibold">$320,000/yr</span>
+                          </div>
+                          <div className="flex justify-between text-sm">
+                            <span className="text-gray-400">Insurance Premium Reduction:</span>
+                            <span className="text-emerald-400 font-semibold">$45,000/yr</span>
+                          </div>
+                        </div>
+                        
+                        <div className="flex justify-between pt-3 border-t border-gray-800">
+                          <span className="text-white font-medium">Total Annual Savings:</span>
+                          <span className="text-white font-bold">$1,174,000</span>
+                        </div>
+                      </div>
+                      
+                      <div className="bg-gradient-to-br from-gray-900/90 to-gray-950/95 p-6 rounded-xl border border-emerald-700/30 shadow-[0_5px_20px_rgba(0,0,0,0.2)]">
+                        <div className="flex items-center mb-4">
+                          <BadgeCheck className="h-8 w-8 text-emerald-500 mr-3" />
+                          <h3 className="text-xl font-bold text-white">Funding Eligibility</h3>
+                        </div>
+                        
+                        <div className="space-y-2">
+                          <div className="flex items-center">
+                            <Check className="h-5 w-5 text-emerald-500 mr-2 flex-shrink-0" />
+                            <span className="text-gray-300">FEMA Building Resilience Fund - 75% eligible</span>
+                          </div>
+                          <div className="flex items-center">
+                            <Check className="h-5 w-5 text-emerald-500 mr-2 flex-shrink-0" />
+                            <span className="text-gray-300">DOT Infrastructure Improvement Grants</span>
+                          </div>
+                          <div className="flex items-center">
+                            <Check className="h-5 w-5 text-emerald-500 mr-2 flex-shrink-0" />
+                            <span className="text-gray-300">EPA Sustainability Initiative Funding</span>
+                          </div>
+                          <div className="flex items-center">
+                            <Check className="h-5 w-5 text-emerald-500 mr-2 flex-shrink-0" />
+                            <span className="text-gray-300">State Infrastructure Bank (SIB) Loans</span>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div className="bg-gradient-to-br from-emerald-900/30 to-emerald-950/30 p-5 rounded-xl border border-emerald-500/30 shadow-[0_5px_15px_rgba(0,0,0,0.2)]">
+                        <div className="flex items-start">
+                          <div className="bg-gradient-to-br from-emerald-600/20 to-emerald-800/20 p-2 rounded-md mr-3 mt-1">
+                            <FileText className="h-5 w-5 text-emerald-400" />
+                          </div>
+                          <div>
+                            <h4 className="text-emerald-300 font-medium mb-1">Request Custom ROI Report</h4>
+                            <p className="text-gray-400 text-sm mb-3">Get a detailed analysis for your specific infrastructure needs and budget constraints.</p>
+                            <GradientButton size="sm" className="text-sm px-3 py-1.5">
+                              <Download className="h-4 w-4 mr-1" /> Download Full Analysis
+                            </GradientButton>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </TabsContent>
+                
+                <TabsContent value="applications" className="mt-8">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div className="bg-gradient-to-br from-gray-900/90 to-gray-950/95 rounded-xl border border-emerald-700/30 shadow-[0_5px_20px_rgba(0,0,0,0.2)] overflow-hidden group hover:border-emerald-600/40 transition-all duration-300">
+                      <div className="relative h-40 overflow-hidden">
+                        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/90 to-blue-950/90"></div>
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <Blocks className="h-16 w-16 text-blue-300 opacity-30 group-hover:opacity-50 transition-opacity duration-300" />
+                        </div>
+                      </div>
+                      
+                      <div className="p-6 relative">
+                        {/* Enhanced corner accents */}
+                        <div className="absolute top-0 right-0 w-16 h-16 pointer-events-none">
+                          <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-emerald-500/40 rounded-tr-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        </div>
+                        
+                        <h3 className="text-xl font-bold mb-3 text-white">Bridge & Overpass Protection</h3>
+                        
+                        <div className="space-y-3 mb-4">
+                          <div className="flex items-start space-x-2">
+                            <BadgeCheck className="h-5 w-5 text-emerald-500 mt-0.5 flex-shrink-0" />
+                            <span className="text-gray-300 text-sm">Prevents concrete spalling and rebar exposure</span>
+                          </div>
+                          <div className="flex items-start space-x-2">
+                            <BadgeCheck className="h-5 w-5 text-emerald-500 mt-0.5 flex-shrink-0" />
+                            <span className="text-gray-300 text-sm">Prevents structure from salt and chemical damage</span>
+                          </div>
+                          <div className="flex items-start space-x-2">
+                            <BadgeCheck className="h-5 w-5 text-emerald-500 mt-0.5 flex-shrink-0" />
+                            <span className="text-gray-300 text-sm">Extends service life by 15+ years</span>
+                          </div>
+                        </div>
+                        
+                        <div className="pt-3 border-t border-gray-800">
+                          <div className="flex justify-between text-sm">
+                            <span className="text-gray-400">Average ROI:</span>
+                            <span className="text-emerald-400 font-semibold">927%</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="bg-gradient-to-br from-gray-900/90 to-gray-950/95 rounded-xl border border-emerald-700/30 shadow-[0_5px_20px_rgba(0,0,0,0.2)] overflow-hidden group hover:border-emerald-600/40 transition-all duration-300">
+                      <div className="relative h-40 overflow-hidden">
+                        <div className="absolute inset-0 bg-gradient-to-br from-cyan-900/90 to-cyan-950/90"></div>
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <Droplets className="h-16 w-16 text-cyan-300 opacity-30 group-hover:opacity-50 transition-opacity duration-300" />
+                        </div>
+                      </div>
+                      
+                      <div className="p-6 relative">
+                        {/* Enhanced corner accents */}
+                        <div className="absolute top-0 right-0 w-16 h-16 pointer-events-none">
+                          <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-emerald-500/40 rounded-tr-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        </div>
+                        
+                        <h3 className="text-xl font-bold mb-3 text-white">Water Treatment Facilities</h3>
+                        
+                        <div className="space-y-3 mb-4">
+                          <div className="flex items-start space-x-2">
+                            <BadgeCheck className="h-5 w-5 text-emerald-500 mt-0.5 flex-shrink-0" />
+                            <span className="text-gray-300 text-sm">Chemical and corrosion resistance</span>
+                          </div>
+                          <div className="flex items-start space-x-2">
+                            <BadgeCheck className="h-5 w-5 text-emerald-500 mt-0.5 flex-shrink-0" />
+                            <span className="text-gray-300 text-sm">Prevents contamination and leaching</span>
+                          </div>
+                          <div className="flex items-start space-x-2">
+                            <BadgeCheck className="h-5 w-5 text-emerald-500 mt-0.5 flex-shrink-0" />
+                            <span className="text-gray-300 text-sm">EPA and NSF compliant coatings</span>
+                          </div>
+                        </div>
+                        
+                        <div className="pt-3 border-t border-gray-800">
+                          <div className="flex justify-between text-sm">
+                            <span className="text-gray-400">Average ROI:</span>
+                            <span className="text-emerald-400 font-semibold">843%</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="bg-gradient-to-br from-gray-900/90 to-gray-950/95 rounded-xl border border-emerald-700/30 shadow-[0_5px_20px_rgba(0,0,0,0.2)] overflow-hidden group hover:border-emerald-600/40 transition-all duration-300">
+                      <div className="relative h-40 overflow-hidden">
+                        <div className="absolute inset-0 bg-gradient-to-br from-amber-900/90 to-amber-950/90"></div>
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <ParkingCircle className="h-16 w-16 text-amber-300 opacity-30 group-hover:opacity-50 transition-opacity duration-300" />
+                        </div>
+                      </div>
+                      
+                      <div className="p-6 relative">
+                        {/* Enhanced corner accents */}
+                        <div className="absolute top-0 right-0 w-16 h-16 pointer-events-none">
+                          <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-emerald-500/40 rounded-tr-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        </div>
+                        
+                        <h3 className="text-xl font-bold mb-3 text-white">Parking Structures & Decks</h3>
+                        
+                        <div className="space-y-3 mb-4">
+                          <div className="flex items-start space-x-2">
+                            <BadgeCheck className="h-5 w-5 text-emerald-500 mt-0.5 flex-shrink-0" />
+                            <span className="text-gray-300 text-sm">Prevents vehicle fluid and salt damage</span>
+                          </div>
+                          <div className="flex items-start space-x-2">
+                            <BadgeCheck className="h-5 w-5 text-emerald-500 mt-0.5 flex-shrink-0" />
+                            <span className="text-gray-300 text-sm">Enhances safety with anti-slip properties</span>
+                          </div>
+                          <div className="flex items-start space-x-2">
+                            <BadgeCheck className="h-5 w-5 text-emerald-500 mt-0.5 flex-shrink-0" />
+                            <span className="text-gray-300 text-sm">Reduces insurance premiums and liability</span>
+                          </div>
+                        </div>
+                        
+                        <div className="pt-3 border-t border-gray-800">
+                          <div className="flex justify-between text-sm">
+                            <span className="text-gray-400">Average ROI:</span>
+                            <span className="text-emerald-400 font-semibold">705%</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="mt-10 p-6 bg-gradient-to-br from-gray-900/90 to-gray-950/95 rounded-xl border border-emerald-700/30 shadow-[0_5px_20px_rgba(0,0,0,0.2)]">
+                    <div className="flex items-center justify-between mb-6">
+                      <div className="flex items-center">
+                        <Award className="h-6 w-6 text-emerald-500 mr-2" />
+                        <h3 className="text-xl font-bold text-white">Additional Municipal Applications</h3>
+                      </div>
+                      
+                      <GradientButton size="sm" className="px-3 py-1.5 text-sm">
+                        View All Applications
+                      </GradientButton>
+                    </div>
+                    
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                      <div className="bg-gradient-to-br from-gray-800/60 to-gray-900/60 p-4 rounded-lg border border-emerald-700/20">
+                        <Building className="h-6 w-6 text-emerald-400 mb-2" />
+                        <span className="text-gray-300 text-sm">Government Buildings</span>
+                      </div>
+                      
+                      <div className="bg-gradient-to-br from-gray-800/60 to-gray-900/60 p-4 rounded-lg border border-emerald-700/20">
+                        <Landmark className="h-6 w-6 text-emerald-400 mb-2" />
+                        <span className="text-gray-300 text-sm">Public Monuments</span>
+                      </div>
+                      
+                      <div className="bg-gradient-to-br from-gray-800/60 to-gray-900/60 p-4 rounded-lg border border-emerald-700/20">
+                        <PenTool className="h-6 w-6 text-emerald-400 mb-2" />
+                        <span className="text-gray-300 text-sm">Utility Poles</span>
+                      </div>
+                      
+                      <div className="bg-gradient-to-br from-gray-800/60 to-gray-900/60 p-4 rounded-lg border border-emerald-700/20">
+                        <Activity className="h-6 w-6 text-emerald-400 mb-2" />
+                        <span className="text-gray-300 text-sm">Traffic Infrastructure</span>
+                      </div>
+                    </div>
+                  </div>
+                </TabsContent>
+                
+                <TabsContent value="funding" className="mt-8">
+                  <div className="space-y-8">
+                    <div className="bg-gradient-to-br from-gray-900/90 to-gray-950/95 rounded-xl border border-emerald-700/30 shadow-[0_5px_20px_rgba(0,0,0,0.2)] overflow-hidden">
+                      <div className="bg-gradient-to-br from-emerald-900/20 to-emerald-950/20 p-6 border-b border-emerald-700/20">
+                        <div className="flex items-center">
+                          <CircleDollarSign className="h-8 w-8 text-emerald-500 mr-3" />
+                          <h3 className="text-2xl font-bold text-white">Federal Funding Options</h3>
+                        </div>
+                      </div>
+                      
+                      <div className="p-6">
+                        <div className="space-y-6">
+                          <div className="bg-gradient-to-br from-gray-800/60 to-gray-900/60 p-5 rounded-lg border border-emerald-700/10 group hover:border-emerald-700/30 transition-all duration-300">
+                            <div className="flex items-start">
+                              <div className="bg-gradient-to-br from-emerald-900/20 to-emerald-900/30 p-2 rounded-md mr-3 mt-1">
+                                <Badge className="h-5 w-5 text-emerald-400" />
+                              </div>
+                              
+                              <div>
+                                <h4 className="text-lg font-semibold text-white mb-1">FEMA Building Resilient Infrastructure and Communities (BRIC)</h4>
+                                <p className="text-gray-400 mb-3">Grants for pre-disaster mitigation activities that protect infrastructure from natural hazards.</p>
+                                
+                                <div className="flex flex-wrap gap-3">
+                                  <div className="bg-emerald-900/20 px-3 py-1 rounded text-xs text-emerald-300">
+                                    <span>Match Requirement: 25%</span>
+                                  </div>
+                                  <div className="bg-emerald-900/20 px-3 py-1 rounded text-xs text-emerald-300">
+                                    <span>Award Range: $50K - $50M</span>
+                                  </div>
+                                  <div className="bg-emerald-900/20 px-3 py-1 rounded text-xs text-emerald-300">
+                                    <span>Annual Application</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          
+                          <div className="bg-gradient-to-br from-gray-800/60 to-gray-900/60 p-5 rounded-lg border border-emerald-700/10 group hover:border-emerald-700/30 transition-all duration-300">
+                            <div className="flex items-start">
+                              <div className="bg-gradient-to-br from-emerald-900/20 to-emerald-900/30 p-2 rounded-md mr-3 mt-1">
+                                <Badge className="h-5 w-5 text-emerald-400" />
+                              </div>
+                              
+                              <div>
+                                <h4 className="text-lg font-semibold text-white mb-1">DOT Infrastructure for Rebuilding America (INFRA) Grants</h4>
+                                <p className="text-gray-400 mb-3">Financial assistance for highway and bridge projects that have regional or national economic significance.</p>
+                                
+                                <div className="flex flex-wrap gap-3">
+                                  <div className="bg-emerald-900/20 px-3 py-1 rounded text-xs text-emerald-300">
+                                    <span>Match Requirement: 40%</span>
+                                  </div>
+                                  <div className="bg-emerald-900/20 px-3 py-1 rounded text-xs text-emerald-300">
+                                    <span>Award Range: $5M - $100M</span>
+                                  </div>
+                                  <div className="bg-emerald-900/20 px-3 py-1 rounded text-xs text-emerald-300">
+                                    <span>Biannual Application</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          
+                          <div className="bg-gradient-to-br from-gray-800/60 to-gray-900/60 p-5 rounded-lg border border-emerald-700/10 group hover:border-emerald-700/30 transition-all duration-300">
+                            <div className="flex items-start">
+                              <div className="bg-gradient-to-br from-emerald-900/20 to-emerald-900/30 p-2 rounded-md mr-3 mt-1">
+                                <Badge className="h-5 w-5 text-emerald-400" />
+                              </div>
+                              
+                              <div>
+                                <h4 className="text-lg font-semibold text-white mb-1">EPA Clean Water State Revolving Fund (CWSRF)</h4>
+                                <p className="text-gray-400 mb-3">Low-interest loans for water infrastructure projects, including those that prevent water pollution.</p>
+                                
+                                <div className="flex flex-wrap gap-3">
+                                  <div className="bg-emerald-900/20 px-3 py-1 rounded text-xs text-emerald-300">
+                                    <span>Interest Rate: 0-2.5%</span>
+                                  </div>
+                                  <div className="bg-emerald-900/20 px-3 py-1 rounded text-xs text-emerald-300">
+                                    <span>Term: Up to 30 years</span>
+                                  </div>
+                                  <div className="bg-emerald-900/20 px-3 py-1 rounded text-xs text-emerald-300">
+                                    <span>Rolling Applications</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="p-6 bg-gradient-to-br from-emerald-900/30 to-emerald-950/30 rounded-xl border border-emerald-500/30 shadow-[0_5px_15px_rgba(0,0,0,0.2)]">
+                      <div className="flex items-center justify-between mb-4">
+                        <h3 className="text-xl font-bold text-white">Grant Assistance Program</h3>
+                        
+                        <div className="flex items-center bg-emerald-900/40 px-3 py-1 rounded-full">
+                          <Percent className="h-4 w-4 text-emerald-400 mr-1" />
+                          <span className="text-emerald-200 text-sm font-medium">95% Success Rate</span>
+                        </div>
+                      </div>
+                      
+                      <p className="text-gray-300 mb-4">
+                        Our dedicated grant writing team has secured over $132 million in infrastructure funding for municipalities. Let us help you navigate the complex application process.
+                      </p>
+                      
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                        <div className="flex items-center">
+                          <BookOpen className="h-5 w-5 text-emerald-500 mr-2 flex-shrink-0" />
+                          <span className="text-gray-300 text-sm">Funding Identification</span>
+                        </div>
+                        <div className="flex items-center">
+                          <PenTool className="h-5 w-5 text-emerald-500 mr-2 flex-shrink-0" />
+                          <span className="text-gray-300 text-sm">Application Preparation</span>
+                        </div>
+                        <div className="flex items-center">
+                          <CalendarCheck className="h-5 w-5 text-emerald-500 mr-2 flex-shrink-0" />
+                          <span className="text-gray-300 text-sm">Deadline Management</span>
+                        </div>
+                      </div>
+                      
+                      <div className="flex justify-end">
+                        <GradientButton className="text-sm px-4 py-2">
+                          <Zap className="h-4 w-4 mr-1" /> Schedule Consultation
+                        </GradientButton>
+                      </div>
+                    </div>
+                  </div>
+                </TabsContent>
+              </Tabs>
+            </div>
+          </div>
+        </section>
+        
+        {/* SANDLER STAGE 4: DECISION - PURPLE SECTION */}
+        <section className="py-16 relative z-10 overflow-hidden">
+          {/* Section-specific ambient purple glow */}
+          <div className="absolute inset-0 bg-purple-900/10 rounded-full blur-[100px] opacity-50 z-0"></div>
+          
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="max-w-5xl mx-auto">
+              <div className="text-center mb-12">
+                <div className="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-gradient-to-r from-purple-500/20 via-purple-600/20 to-purple-500/20 border border-purple-500/30 shadow-lg mb-6">
+                  <Shield className="h-4 w-4 mr-2 text-purple-400" />
+                  <span className="text-purple-100 font-medium text-sm">Next Steps</span>
+                </div>
+                
+                <GradientHeading className="mb-6">
+                  Protect Your Municipal Infrastructure
+                </GradientHeading>
+                
+                <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-10">
+                  Start the process today to secure funding, implement advanced protection, and ensure infrastructure resilience for your community.
+                </p>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <div className="relative">
+                  <div className="absolute -top-3 -left-3 w-24 h-24 bg-purple-700/10 rounded-full blur-[30px] z-0"></div>
+                  <div className="bg-gradient-to-br from-gray-900/90 to-gray-950/90 border border-purple-600/40 rounded-xl p-6 relative z-10">
+                    <div className="h-12 w-12 flex items-center justify-center bg-gradient-to-br from-purple-700 to-purple-900 rounded-full mb-5 relative">
+                      <div className="absolute inset-0 bg-purple-600/20 rounded-full animate-ping opacity-80"></div>
+                      <div className="absolute top-0 right-0 -mr-1 -mt-1 h-5 w-5 bg-gradient-to-br from-purple-500 to-purple-700 flex items-center justify-center rounded-full text-white text-xs font-bold">1</div>
+                      <Flame className="h-6 w-6 text-purple-300" />
+                    </div>
+                    
+                    <h3 className="text-xl font-bold mb-3 text-white">Initial Assessment</h3>
+                    <p className="text-gray-300 mb-5">Our engineers conduct a comprehensive infrastructure evaluation to identify vulnerabilities and protection needs.</p>
+                    
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-gray-400">Timeframe:</span>
+                      <span className="text-purple-400">1-2 Weeks</span>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="relative mt-8 md:mt-4">
+                  <div className="absolute -top-3 -left-3 w-24 h-24 bg-purple-700/10 rounded-full blur-[30px] z-0"></div>
+                  <div className="bg-gradient-to-br from-gray-900/90 to-gray-950/90 border border-purple-600/40 rounded-xl p-6 relative z-10">
+                    <div className="h-12 w-12 flex items-center justify-center bg-gradient-to-br from-purple-700 to-purple-900 rounded-full mb-5 relative">
+                      <div className="absolute top-0 right-0 -mr-1 -mt-1 h-5 w-5 bg-gradient-to-br from-purple-500 to-purple-700 flex items-center justify-center rounded-full text-white text-xs font-bold">2</div>
+                      <FileText className="h-6 w-6 text-purple-300" />
+                    </div>
+                    
+                    <h3 className="text-xl font-bold mb-3 text-white">Funding Application</h3>
+                    <p className="text-gray-300 mb-5">Our specialists identify and apply for eligible grants and funding sources to offset project costs.</p>
+                    
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-gray-400">Timeframe:</span>
+                      <span className="text-purple-400">2-4 Weeks</span>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="relative mt-8 md:mt-8">
+                  <div className="absolute -top-3 -left-3 w-24 h-24 bg-purple-700/10 rounded-full blur-[30px] z-0"></div>
+                  <div className="bg-gradient-to-br from-gray-900/90 to-gray-950/90 border border-purple-600/40 rounded-xl p-6 relative z-10">
+                    <div className="h-12 w-12 flex items-center justify-center bg-gradient-to-br from-purple-700 to-purple-900 rounded-full mb-5 relative">
+                      <div className="absolute top-0 right-0 -mr-1 -mt-1 h-5 w-5 bg-gradient-to-br from-purple-500 to-purple-700 flex items-center justify-center rounded-full text-white text-xs font-bold">3</div>
+                      <Shield className="h-6 w-6 text-purple-300" />
+                    </div>
+                    
+                    <h3 className="text-xl font-bold mb-3 text-white">Implementation</h3>
+                    <p className="text-gray-300 mb-5">Our certified teams apply advanced ceramic coating protection with minimal disruption to municipal operations.</p>
+                    
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-gray-400">Timeframe:</span>
+                      <span className="text-purple-400">Project Dependent</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              {showRegistrationForm ? (
+                <div className="bg-gradient-to-br from-gray-900/95 to-black/95 p-8 rounded-2xl border border-purple-700/30 shadow-[0_15px_50px_-12px_rgba(0,0,0,0.5)]">
+                  <div className="flex justify-between items-center mb-8">
+                    <h3 className="text-2xl font-bold text-white">Municipal Professional Registration</h3>
+                    
+                    <div className="flex items-center">
+                      <div className="w-3 h-3 rounded-full bg-purple-500 mr-2"></div>
+                      <span className="text-purple-300 text-sm font-medium">Secure Form</span>
+                    </div>
+                  </div>
+                  
+                  {/* Registration form content here */}
+                  <p className="text-center text-gray-300 mb-8">
+                    Complete the form below to receive our municipal infrastructure ROI analysis and funding options specific to your needs.
+                  </p>
+                  
+                  {/* Form elements would be here */}
+                  <div className="flex justify-center mt-8">
+                    <GradientButton
+                      size="lg"
+                      className="px-8 py-4"
+                    >
+                      <Shield className="mr-2 h-5 w-5" />
+                      Submit Registration
+                    </GradientButton>
+                  </div>
+                </div>
+              ) : (
+                <div className="bg-gradient-to-br from-gray-900/95 to-black/95 p-8 rounded-2xl border border-purple-700/30 shadow-[0_15px_50px_-12px_rgba(0,0,0,0.5)] text-center">
+                  <h3 className="text-2xl font-bold text-white mb-5">Ready to Protect Your Municipal Infrastructure?</h3>
+                  
+                  <p className="text-gray-300 mb-8 max-w-3xl mx-auto">
+                    Take the first step toward infrastructure resilience, budget optimization, and enhanced public safety with Praetorian Smart-Coat protection.
+                  </p>
+                  
+                  <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <GradientButton 
+                      size="lg" 
+                      className="px-8 py-4 relative"
+                      onClick={() => setShowRegistrationForm(true)}
+                    >
+                      <CircleDollarSign className="mr-2 h-5 w-5" />
+                      Request Municipal Consultation
+                    </GradientButton>
+                    
+                    <GradientButton 
+                      size="lg" 
+                      className="px-8 py-4"
+                    >
+                      <Download className="mr-2 h-5 w-5" />
+                      Download Case Studies
+                    </GradientButton>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        </section>
+      </div>
+    </MainLayout>
+  );
+};
+
+export default Municipality;
