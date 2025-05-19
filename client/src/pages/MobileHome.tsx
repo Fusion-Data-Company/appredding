@@ -804,26 +804,7 @@ const MobileHome = () => {
                       Stop throwing money away on skyrocketing energy bills and endless repairs. Praetorian Smart-Coat gives you a more comfortable, valuable, and protected home while saving you thousands of dollars over time.
                     </p>
                     
-                    <div className="flex justify-center mb-4">
-                      {/* Button container with purple glow */}
-                      <div className="relative">
-                        {/* Separate purple glow behind button */}
-                        <div className="absolute -inset-1 bg-gradient-to-r from-purple-600/50 to-purple-400/50 rounded-lg blur-md opacity-80 z-0"></div>
-                        <div className="absolute -inset-3 bg-purple-500/20 rounded-xl blur-xl opacity-70 animate-pulse-slow z-0"></div>
-                        
-                        {/* Button itself */}
-                        <div className="relative z-10">
-                          <PremiumActionButton
-                            onClick={() => document.getElementById('mobileHomeForm')?.scrollIntoView({ behavior: 'smooth' })}
-                            size="lg"
-                            className="text-lg font-bold px-8 transform transition-all duration-300 hover:scale-105 bg-gradient-to-r from-purple-800 to-purple-600 border border-purple-400/30 text-white"
-                            glowEffect={true}
-                          >
-                            Register For Certification
-                          </PremiumActionButton>
-                        </div>
-                      </div>
-                    </div>
+
                     
                     <p className="text-sm text-gray-300 text-center">
                       Our mobile home specialists will assess your needs, provide a detailed cost analysis showing your expected ROI, and schedule your installation – all at no obligation.
