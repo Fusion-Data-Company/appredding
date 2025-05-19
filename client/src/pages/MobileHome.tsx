@@ -423,15 +423,60 @@ const MobileHome = () => {
                       <div className="absolute inset-x-[5%] top-0 h-[15%] w-[90%] bg-gradient-to-b from-white/10 to-transparent rounded-full opacity-60"></div>
                     </div>
                     
-                    {/* Header content */}
+                    {/* Premium Enterprise Header Content with Advanced Effects */}
                     <div className="relative z-10">
-                      <h2 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-blue-200 mb-3" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.8)" }}>
-                        Previously Government-Exclusive Technology
-                      </h2>
+                      {/* Elite Subheader with Multi-layered Effects */}
+                      <div className="relative mb-4 inline-block">
+                        {/* Subtle glow effect */}
+                        <div className="absolute -inset-1 bg-blue-500/20 rounded-lg blur-md opacity-0 group-hover:opacity-80 transition-opacity duration-500"></div>
+                        
+                        {/* Badge-style container */}
+                        <div className="relative px-4 py-1 rounded-md">
+                          {/* Animated shimmer line */}
+                          <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-blue-400/60 to-transparent"></div>
+                          
+                          {/* Enhanced gradient text */}
+                          <h2 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-blue-100 to-blue-300 tracking-wide" style={{ textShadow: "0 2px 4px rgba(0,0,0,0.8)" }}>
+                            <span className="relative inline-flex items-center">
+                              {/* Accent dot */}
+                              <span className="absolute -left-3 w-1.5 h-1.5 bg-blue-400 rounded-full shadow-[0_0_5px_rgba(59,130,246,0.7)]"></span>
+                              Previously Government-Exclusive Technology
+                              {/* Accent dot */}
+                              <span className="absolute -right-3 w-1.5 h-1.5 bg-blue-400 rounded-full shadow-[0_0_5px_rgba(59,130,246,0.7)]"></span>
+                            </span>
+                          </h2>
+                        </div>
+                      </div>
                       
-                      <h1 className="text-4xl md:text-5xl font-bold mb-2 text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
-                        Transform Your Mobile Home, Cut Costs & Extend Life
-                      </h1>
+                      {/* Premium Main Heading with Advanced Multi-layered Effects */}
+                      <div className="relative">
+                        {/* Multi-layered text glow */}
+                        <div className="absolute -inset-1 bg-blue-500/10 rounded-lg blur-lg opacity-0 group-hover:opacity-70 transition-opacity duration-700"></div>
+                        <div className="absolute -inset-2 bg-blue-600/5 rounded-xl blur-xl opacity-0 group-hover:opacity-60 transition-opacity duration-500"></div>
+                        
+                        {/* Premium main heading with enhanced styling */}
+                        <h1 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-white via-blue-50 to-white leading-tight tracking-tight" style={{ textShadow: "0 3px 6px rgba(0,0,0,0.5)" }}>
+                          Transform Your Mobile Home,
+                          <span className="block mt-1 relative">
+                            <span className="relative">
+                              {/* Word highlight effect */}
+                              <span className="absolute -inset-1 bg-blue-500/10 rounded-md blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                              <span className="relative">Cut Costs</span>
+                            </span> & 
+                            <span className="relative ml-2">
+                              {/* Word highlight effect */}
+                              <span className="absolute -inset-1 bg-blue-500/10 rounded-md blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                              <span className="relative">Extend Life</span>
+                            </span>
+                          </span>
+                        </h1>
+                        
+                        {/* Animated bottom line */}
+                        <div className="relative h-[2px] w-3/4 mx-auto mt-4 overflow-hidden">
+                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-400/40 to-transparent"></div>
+                          <div className="absolute inset-0 w-1/2 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full animate-shimmer-slow"></div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
