@@ -114,30 +114,74 @@ const Painters = () => {
   return (
     <MainLayout fullWidth={true}>
       <div className="relative">
-        <div className="fixed inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-blue-950 to-black"></div>
-          <div className="absolute top-0 right-0 w-2/3 h-1/2 bg-blue-600/10 rounded-full filter blur-[150px] animate-pulse-slow"></div>
-          <div className="absolute bottom-0 left-0 w-2/3 h-1/2 bg-orange-600/10 rounded-full filter blur-[150px] animate-pulse-slow-delayed"></div>
-          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoMjQ5LDExNSwyMiwwLjIpIiBkPSJNMCAwaDJ2Mkgwem0yIDJoMnYySDJ6Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCBmaWxsPSJ1cmwoI2EpIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIi8+PC9zdmc+')]"></div>
+        {/* Advanced premium gradient background with layered effects */}
+        <div className="fixed inset-0 z-[-5]" style={{ 
+          background: 'linear-gradient(145deg, #0c0c14 0%, #101630 30%, #14162c 60%, #0c0e1f 100%)'
+        }}></div>
+        
+        {/* Dynamic layered background elements */}
+        <div className="fixed inset-0 z-[-4] opacity-40" style={{ 
+          backgroundImage: 'radial-gradient(circle at 30% 20%, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0) 60%)'
+        }}></div>
+        
+        <div className="fixed inset-0 z-[-4] opacity-30" style={{ 
+          backgroundImage: 'radial-gradient(circle at 70% 60%, rgba(30, 58, 138, 0.6) 0%, rgba(15, 23, 42, 0) 70%)'
+        }}></div>
+        
+        {/* Advanced multi-color ambient glow effects - enhanced for elite enterprise appearance */}
+        <div className="fixed inset-0 z-[-3] overflow-hidden pointer-events-none">
+          {/* Blue glow */}
+          <div className="absolute top-[10%] left-[15%] w-[40rem] h-[40rem] bg-blue-600/10 rounded-full blur-[150px] animate-pulse-slow"></div>
+          
+          {/* Red glow */}
+          <div className="absolute bottom-[15%] right-[10%] w-[35rem] h-[35rem] bg-red-500/10 rounded-full blur-[150px] animate-pulse-slower"></div>
+          
+          {/* Green accent glows for balance */}
+          <div className="absolute top-[40%] right-[25%] w-[25rem] h-[25rem] bg-emerald-600/10 rounded-full blur-[120px] animate-pulse-slow"></div>
+          <div className="absolute bottom-[30%] left-[20%] w-[30rem] h-[30rem] bg-green-700/5 rounded-full blur-[100px] animate-pulse-slower"></div>
+          
+          {/* Purple accent for depth */}
+          <div className="absolute top-[70%] left-[50%] w-[20rem] h-[20rem] bg-purple-700/5 rounded-full blur-[90px] animate-pulse-slow"></div>
         </div>
         
-        {/* Pain Points Section - Top of Funnel */}
-        <section className="py-10 pt-20 md:py-24 relative z-10">
-          <div className="container mx-auto px-4 sm:px-6">
-            {/* Elite Header - Pain Points */}
-            <div className="max-w-4xl mx-auto text-center mb-10 md:mb-16 relative">
-              <div className="absolute -inset-1 bg-gradient-to-r from-red-600/40 via-orange-600/40 to-red-600/40 rounded-xl blur-xl opacity-70 animate-pulse-slow"></div>
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-red-500/80 via-orange-500/80 to-red-500/80 rounded-xl blur-md opacity-90"></div>
+        {/* Low-opacity subtle pattern overlay for texture */}
+        <div 
+          className="fixed inset-0 z-[-2] opacity-5 pointer-events-none"
+          style={{
+            backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%235d9bec\' fill-opacity=\'0.3\' fill-rule=\'evenodd\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/svg%3E")',
+            backgroundSize: '60px 60px'
+          }}
+        />
+        
+        {/* SANDLER STAGE 1: INTRO - BLUE GLOW SECTION */}
+        <section className="relative z-10 py-16 overflow-hidden">
+          <div className="container mx-auto">
+            {/* Section-specific ambient blue glow in background (z-index lower than content) */}
+            <div className="absolute -inset-10 bg-blue-800/10 rounded-full blur-[100px] opacity-80 z-0"></div>
+            <div className="absolute -inset-20 bg-blue-900/5 rounded-full blur-[150px] opacity-70 z-0 animate-pulse-slow"></div>
+            
+            {/* Ultra-premium Elite Enterprise Header Container - front layer with high z-index */}
+            <div className="relative z-20 rounded-2xl overflow-hidden transform transition-all duration-700 group hover:scale-[1.005] shadow-[0_25px_60px_-12px_rgba(0,0,0,0.4)] border border-blue-700/30">
+              {/* Premium multi-layered background with depth effect */}
+              <div className="absolute inset-0 bg-gradient-to-b from-gray-900/95 via-gray-950/98 to-black/95"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-transparent via-blue-950/30 to-transparent opacity-70"></div>
               
-              <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 p-8 rounded-xl z-10 border border-red-500/30 overflow-hidden hover:shadow-[0_0_25px_rgba(239,68,68,0.3)] transition-shadow duration-500">
+              {/* Edge lighting effects with gradient borders */}
+              <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-blue-500/50 to-transparent"></div>
+              <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-blue-500/40 to-transparent"></div>
+              <div className="absolute top-0 bottom-0 left-0 w-[1px] bg-gradient-to-b from-transparent via-blue-500/50 to-transparent"></div>
+              <div className="absolute top-0 bottom-0 right-0 w-[1px] bg-gradient-to-b from-transparent via-blue-500/50 to-transparent"></div>
+              
+              {/* Header content container with padding */}
+              <div className="relative p-8 rounded-xl z-10">
                 {/* Corner accent elements */}
                 <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none">
-                  <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-red-500/70 rounded-tl-lg"></div>
-                  <div className="absolute top-0 left-0 w-3 h-3 bg-red-500/50 rounded-full blur-[2px]"></div>
+                  <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-blue-500/70 rounded-tl-lg"></div>
+                  <div className="absolute top-0 left-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
                 </div>
                 <div className="absolute top-0 right-0 w-16 h-16 pointer-events-none">
-                  <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-orange-500/70 rounded-tr-lg"></div>
-                  <div className="absolute top-0 right-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+                  <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-blue-500/70 rounded-tr-lg"></div>
+                  <div className="absolute top-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
                 </div>
                 <div className="absolute bottom-0 left-0 w-16 h-16 pointer-events-none">
                   <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-orange-500/70 rounded-bl-lg"></div>
