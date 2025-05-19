@@ -1,1067 +1,1471 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import MainLayout from "@/components/layout/MainLayout";
-import { GradientButton } from "@/components/ui/gradient-button";
-import { PremiumButton } from "@/components/ui/premium-button";
-import { GradientHeading } from "@/components/ui/gradient-heading";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Progress } from "@/components/ui/progress";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import { 
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage
+} from "@/components/ui/form";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { 
+  Anchor, 
   ShieldCheck, 
+  Sun, 
   Leaf, 
-  Clock, 
-  Landmark, 
-  CircleDollarSign,
-  Building,
-  Droplets,
-  BadgeAlert,
-  PenTool,
-  Blocks,
-  Activity,
-  Loader2,
-  TrendingUp,
-  BadgeCheck,
-  ParkingCircle,
-  LineChart,
-  ChevronRight,
-  Check,
-  BarChart3,
-  PieChart,
-  Award,
-  Shield,
-  ArrowRight,
-  PlayCircle,
-  Download,
-  FileText,
-  CalendarCheck,
-  DollarSign,
-  Percent,
-  Calculator,
-  BookOpen,
+  Ship, 
+  Factory, 
+  Waves, 
+  CheckCircle, 
+  ChevronRight, 
+  FileCheck, 
+  BuildingIcon,
   Zap,
-  Badge,
-  Flame,
-  CheckCheck
+  CircleDollarSign,
+  BarChart3
 } from "lucide-react";
+import { insertMarinaProfessionalSchema } from "@shared/schema";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { insertMunicipalityProfessionalSchema } from "@shared/schema";
-import * as z from "zod";
+import { PremiumCartButton } from "@/utils/premium-buttons";
+import { motion } from "framer-motion";
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 
-// Form schema for professionals
-const municipalityProfessionalFormSchema = insertMunicipalityProfessionalSchema
-  .extend({
-    confirmEmail: z.string().email({ message: "Invalid email address" }),
-  })
-  .refine(data => data.email === data.confirmEmail, {
-    message: "Emails don't match",
-    path: ["confirmEmail"]
-  });
-
-type MunicipalityProfessionalFormValues = z.infer<typeof municipalityProfessionalFormSchema>;
-
-const Municipality = () => {
+const Marinas = () => {
+  const [vesselType, setVesselType] = useState("");
+  const [waterType, setWaterType] = useState("");
+  const [material, setMaterial] = useState("");
+  const [showResults, setShowResults] = useState(false);
   const [showRegistrationForm, setShowRegistrationForm] = useState(false);
-  const [activeTab, setActiveTab] = useState("roi");
-  const [progress, setProgress] = useState(0);
-  
-  useEffect(() => {
-    const timer = setTimeout(() => setProgress(66), 500);
-    return () => clearTimeout(timer);
-  }, []);
-  
+  const [registrationSuccess, setRegistrationSuccess] = useState(false);
   const { toast } = useToast();
   
-  const form = useForm<MunicipalityProfessionalFormValues>({
-    resolver: zodResolver(municipalityProfessionalFormSchema),
+  // Setup form for marina professional registration
+  const form = useForm({
+    resolver: zodResolver(insertMarinaProfessionalSchema),
     defaultValues: {
-      companyName: "",
-      contactName: "",
+      firstName: "",
+      lastName: "",
       email: "",
-      confirmEmail: "",
       phone: "",
+      companyName: "",
+      jobTitle: "",
       address: "",
       city: "",
       state: "",
       zipCode: "",
-      website: "",
-      professionalType: "",
-      specialties: [],
-      jurisdictions: "",
-      clientTypes: "",
-      credentials: "",
-      experienceYears: undefined,
-      registrationNumber: "",
-      projectExperience: "",
+      licenseNumber: "",
+      yearsInBusiness: 0,
+      vesselTypes: "",
+      specialties: "",
+      experienceDescription: "",
+      serviceAreas: "",
+      isPremiumMember: false,
+      agreesToTerms: false,
       notes: ""
-    }
+    },
   });
 
-  const { mutate, isPending } = useMutation({
-    mutationFn: async (data: MunicipalityProfessionalFormValues) => {
-      const response = await apiRequest("POST", "/api/municipality/register", data);
-      return response;
+  // Marina Professional registration mutation
+  const registerMutation = useMutation({
+    mutationFn: async (data: any) => {
+      const response = await apiRequest("POST", "/api/professionals/marina-professionals", data);
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || "Registration failed");
+      }
+      return response.json();
     },
     onSuccess: () => {
       toast({
         title: "Registration Successful",
-        description: "Thank you for registering. Our team will contact you shortly.",
+        description: "Your marina professional profile has been created",
+        variant: "default",
       });
+      setRegistrationSuccess(true);
       form.reset();
-      setShowRegistrationForm(false);
     },
     onError: (error: Error) => {
       toast({
         title: "Registration Failed",
-        description: error.message || "Please try again later.",
-        variant: "destructive"
+        description: error.message,
+        variant: "destructive",
       });
-    }
+    },
   });
 
-  function onSubmit(data: MunicipalityProfessionalFormValues) {
-    mutate(data);
-  }
+  const onSubmit = (data: any) => {
+    registerMutation.mutate(data);
+  };
+
+  const handleFindCoatings = () => {
+    setShowResults(true);
+  };
+  
+  const handleShowRegistrationForm = () => {
+    setShowRegistrationForm(true);
+  };
 
   return (
-    <MainLayout>
-      <div className="bg-black min-h-screen text-white">
-        {/* Advanced premium gradient background with layered effects */}
-        <div className="fixed inset-0 z-[-5]" style={{ 
-          background: 'linear-gradient(145deg, #0c0c14 0%, #101830 30%, #152238 60%, #0e1a2a 100%)'
-        }}></div>
-        
-        {/* Dynamic layered background elements with municipality theme */}
-        <div className="fixed inset-0 z-[-4] opacity-40" style={{ 
-          backgroundImage: 'radial-gradient(circle at 30% 20%, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0) 60%)'
-        }}></div>
-        
-        <div className="fixed inset-0 z-[-4] opacity-30" style={{ 
-          backgroundImage: 'radial-gradient(circle at 70% 60%, rgba(30, 58, 138, 0.6) 0%, rgba(15, 23, 42, 0) 70%)'
-        }}></div>
-        
-        {/* Advanced multi-color ambient glow effects - placed behind the cards */}
-        <div className="fixed inset-0 z-[-3] overflow-hidden pointer-events-none">
-          {/* Blue glow */}
-          <div className="absolute top-[10%] left-[15%] w-[40rem] h-[40rem] bg-blue-600/10 rounded-full blur-[150px] animate-pulse-slow"></div>
-          
-          {/* Red/Orange glow */}
-          <div className="absolute bottom-[15%] right-[10%] w-[35rem] h-[35rem] bg-orange-500/10 rounded-full blur-[150px] animate-pulse-slower"></div>
-          
-          {/* Green accent glows for balance */}
-          <div className="absolute top-[40%] right-[25%] w-[25rem] h-[25rem] bg-emerald-600/10 rounded-full blur-[120px] animate-pulse-slow"></div>
-          <div className="absolute bottom-[30%] left-[20%] w-[30rem] h-[30rem] bg-green-700/5 rounded-full blur-[100px] animate-pulse-slower"></div>
-          
-          {/* Purple accent for depth */}
-          <div className="absolute top-[70%] left-[50%] w-[20rem] h-[20rem] bg-purple-700/5 rounded-full blur-[90px] animate-pulse-slow"></div>
-        </div>
-        
-        {/* Low-opacity texture overlay for professional depth */}
+    <MainLayout fullWidth={true}>
+      <div className="relative">
+        {/* Restored water background with premium enterprise overlay */}
         <div 
-          className="fixed inset-0 z-[-2] opacity-5 pointer-events-none"
-          style={{
-            backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'40\' height=\'40\' viewBox=\'0 0 40 40\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%230077cc\' fill-opacity=\'0.3\' fill-rule=\'evenodd\'%3E%3Cpath d=\'M0 38.59l2.83-2.83 1.41 1.41L1.41 40H0v-1.41zM0 1.4l2.83 2.83 1.41-1.41L1.41 0H0v1.41zM38.59 40l-2.83-2.83 1.41-1.41L40 38.59V40h-1.41zM40 1.41l-2.83 2.83-1.41-1.41L38.59 0H40v1.41zM20 18.6l2.83-2.83 1.41 1.41L21.41 20l2.83 2.83-1.41 1.41L20 21.41l-2.83 2.83-1.41-1.41L18.59 20l-2.83-2.83 1.41-1.41L20 18.59z\'/%3E%3C/g%3E%3C/svg%3E")',
-            backgroundSize: '40px 40px'
+          className="fixed inset-0 z-0 bg-center bg-cover bg-no-repeat" 
+          style={{ 
+            backgroundImage: "url('/images/sailboat-bg.jpg')",
+            backgroundAttachment: 'fixed',
+            backgroundPosition: 'center center',
+            backgroundSize: 'cover',
           }}
         />
-
-        {/* SANDLER STAGE 1: INTRO - BLUE GLOW SECTION */}
-        <section className="relative z-10 py-16 overflow-hidden">
-          {/* Section-specific ambient blue glow */}
-          <div className="absolute inset-0 bg-blue-900/10 rounded-full blur-[100px] opacity-50 z-0"></div>
         
-          <div className="container mx-auto px-4 relative z-10">
-            <div className="flex flex-col items-center max-w-4xl mx-auto text-center mb-16 relative">
-              {/* Premium Cinematic Enterprise Header Container */}
-              <div className="relative py-8 px-6 bg-gradient-to-br from-gray-900/90 via-gray-950/95 to-gray-900/90 
-                border-b-2 border-blue-500/60 border-t border-t-blue-400/30 rounded-lg mb-8
-                shadow-[0_10px_50px_rgba(59,130,246,0.15),inset_0_1px_20px_rgba(59,130,246,0.05)]">
-                
-                {/* Metallic corner accents */}
-                <div className="absolute top-0 left-0 w-20 h-20 pointer-events-none">
-                  <div className="absolute top-0 left-0 w-12 h-1 bg-gradient-to-r from-blue-500 to-transparent rounded-full"></div>
-                  <div className="absolute top-0 left-0 h-12 w-1 bg-gradient-to-b from-blue-500 to-transparent rounded-full"></div>
+        {/* Semi-transparent dark overlay with premium gradient */}
+        <div 
+          className="fixed inset-0 z-0 bg-gradient-to-b from-gray-900/80 via-gray-950/85 to-black/90" 
+        />
+        
+        {/* Premium ambient glow effects - enhanced for elite enterprise appearance */}
+        <div className="fixed top-0 left-0 w-full h-full z-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-[5%] left-[10%] w-[45rem] h-[45rem] bg-blue-600/15 rounded-full blur-[150px] animate-pulse-slow"></div>
+          <div className="absolute bottom-[5%] right-[10%] w-[45rem] h-[45rem] bg-orange-600/15 rounded-full blur-[150px] animate-pulse-slow-delayed"></div>
+          <div className="absolute top-[30%] right-[25%] w-[30rem] h-[30rem] bg-blue-500/10 rounded-full blur-[100px] animate-pulse-slow"></div>
+          <div className="absolute bottom-[30%] left-[25%] w-[30rem] h-[30rem] bg-orange-500/10 rounded-full blur-[100px] animate-pulse-slow-delayed"></div>
+          
+          {/* Edge lighting effect */}
+          <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-blue-500/30 to-transparent"></div>
+          <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-orange-500/30 to-transparent"></div>
+          <div className="absolute top-0 bottom-0 left-0 w-[3px] bg-gradient-to-b from-transparent via-blue-500/30 to-transparent"></div>
+          <div className="absolute top-0 bottom-0 right-0 w-[3px] bg-gradient-to-b from-transparent via-orange-500/30 to-transparent"></div>
+        </div>
+        
+        {/* Main content section */}
+        <section className="py-16 md:py-24 relative z-10">
+          <div className="container mx-auto">
+            {/* Premium styled title card */}
+            <div className="max-w-5xl mx-auto text-center mb-14 md:mb-20 relative">
+              {/* Advanced enterprise-grade backdrop with layered effects */}
+              <div className="absolute inset-0 bg-gradient-to-b from-gray-900/90 via-gray-950/95 to-black/95 rounded-2xl border border-blue-500/30 shadow-[0_0_30px_rgba(59,130,246,0.15)]"></div>
+              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/20 via-orange-600/10 to-blue-600/20 rounded-2xl blur-xl opacity-70"></div>
+              
+              {/* Premium corner accents - enterprise elite style */}
+              <div className="absolute top-0 left-0 w-20 h-20 z-10 pointer-events-none">
+                <div className="absolute top-0 left-0 w-10 h-10 border-t-2 border-l-2 border-blue-500/60 rounded-tl-lg"></div>
+                <div className="absolute top-1 left-1 w-14 h-14 border-t border-l border-blue-500/40 rounded-tl-lg"></div>
+              </div>
+              <div className="absolute top-0 right-0 w-20 h-20 z-10 pointer-events-none">
+                <div className="absolute top-0 right-0 w-10 h-10 border-t-2 border-r-2 border-blue-500/60 rounded-tr-lg"></div>
+                <div className="absolute top-1 right-1 w-14 h-14 border-t border-r border-blue-500/40 rounded-tr-lg"></div>
+              </div>
+              <div className="absolute bottom-0 left-0 w-20 h-20 z-10 pointer-events-none">
+                <div className="absolute bottom-0 left-0 w-10 h-10 border-b-2 border-l-2 border-blue-500/60 rounded-bl-lg"></div>
+                <div className="absolute bottom-1 left-1 w-14 h-14 border-b border-l border-blue-500/40 rounded-bl-lg"></div>
+              </div>
+              <div className="absolute bottom-0 right-0 w-20 h-20 z-10 pointer-events-none">
+                <div className="absolute bottom-0 right-0 w-10 h-10 border-b-2 border-r-2 border-blue-500/60 rounded-br-lg"></div>
+                <div className="absolute bottom-1 right-1 w-14 h-14 border-b border-r border-blue-500/40 rounded-br-lg"></div>
+              </div>
+              
+              {/* Enhanced main content with premium padding */}
+              <div className="relative p-8 md:p-10 backdrop-blur-sm">
+                {/* Corner accents - premium enterprise style */}
+                <div className="absolute top-0 left-0 w-12 h-12 z-10 pointer-events-none">
+                  <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-orange-500/40 rounded-tl-md"></div>
+                  <div className="absolute top-1 left-1 w-8 h-8 border-t border-l border-blue-500/30 rounded-tl-md"></div>
                 </div>
-                <div className="absolute top-0 right-0 w-20 h-20 pointer-events-none">
-                  <div className="absolute top-0 right-0 w-12 h-1 bg-gradient-to-l from-blue-500 to-transparent rounded-full"></div>
-                  <div className="absolute top-0 right-0 h-12 w-1 bg-gradient-to-b from-blue-500 to-transparent rounded-full"></div>
+                <div className="absolute top-0 right-0 w-12 h-12 z-10 pointer-events-none">
+                  <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-orange-500/40 rounded-tr-md"></div>
+                  <div className="absolute top-1 right-1 w-8 h-8 border-t border-r border-blue-500/30 rounded-tr-md"></div>
                 </div>
-                <div className="absolute bottom-0 left-0 w-20 h-20 pointer-events-none">
-                  <div className="absolute bottom-0 left-0 w-12 h-1 bg-gradient-to-r from-blue-500 to-transparent rounded-full"></div>
-                  <div className="absolute bottom-0 left-0 h-12 w-1 bg-gradient-to-t from-blue-500 to-transparent rounded-full"></div>
+                <div className="absolute bottom-0 right-0 w-12 h-12 z-10 pointer-events-none">
+                  <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-orange-500/40 rounded-br-md"></div>
+                  <div className="absolute bottom-1 right-1 w-8 h-8 border-b border-r border-blue-500/30 rounded-br-md"></div>
                 </div>
-                <div className="absolute bottom-0 right-0 w-20 h-20 pointer-events-none">
-                  <div className="absolute bottom-0 right-0 w-12 h-1 bg-gradient-to-l from-blue-500 to-transparent rounded-full"></div>
-                  <div className="absolute bottom-0 right-0 h-12 w-1 bg-gradient-to-t from-blue-500 to-transparent rounded-full"></div>
+                <div className="absolute bottom-0 left-0 w-12 h-12 z-10 pointer-events-none">
+                  <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-orange-500/40 rounded-bl-md"></div>
+                  <div className="absolute bottom-1 left-1 w-8 h-8 border-b border-l border-blue-500/30 rounded-bl-md"></div>
                 </div>
-                
-                {/* Premium glow effects */}
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-blue-500/5 rounded-full blur-3xl pointer-events-none"></div>
-                <div className="absolute top-0 right-0 w-[200px] h-[200px] bg-blue-600/5 rounded-full blur-2xl pointer-events-none"></div>
-                
-                <div className="relative z-10">
-                  {/* Enhanced Badge */}
-                  <div className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-gradient-to-r from-blue-500/20 via-blue-600/20 to-blue-500/20 border border-blue-500/30 shadow-lg mb-4 backdrop-blur-sm">
-                    <Landmark className="h-5 w-5 mr-2 text-blue-400" />
-                    <span className="text-blue-100 font-medium text-sm">Enterprise Municipality Solutions</span>
-                  </div>
-                  
-                  {/* Enhanced Title */}
-                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-4 text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-white">
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">Municipal</span> Infrastructure Protection
+              
+                {/* Premium ultra header with layered effects */}
+                <div className="relative mb-6">
+                  <div className="absolute -inset-2 bg-gradient-to-r from-blue-500/10 via-blue-500/20 to-blue-500/10 rounded-lg blur-md"></div>
+                  <h1 className="text-4xl md:text-5xl font-bold text-white relative z-10 drop-shadow-[0_1px_3px_rgba(59,130,246,0.6)]">
+                    411% Marine ROI Certification
                   </h1>
-                  
-                  <p className="text-xl md:text-2xl mb-6 max-w-3xl mx-auto text-blue-50/90 leading-relaxed">
-                    Advanced ceramic coating technology for extended infrastructure lifespan, reduced maintenance costs, and enhanced safety.
-                  </p>
-                  
-                  {/* Feature highlights in premium styling */}
-                  <div className="flex flex-wrap justify-center gap-4 mb-8">
-                    <div className="flex items-center space-x-1.5">
-                      <CheckCheck className="h-5 w-5 text-green-400" />
-                      <span className="text-green-50">50% Maintenance Reduction</span>
-                    </div>
-                    <div className="flex items-center space-x-1.5">
-                      <CheckCheck className="h-5 w-5 text-green-400" />
-                      <span className="text-green-50">FEMA Approved</span>
-                    </div>
-                    <div className="flex items-center space-x-1.5">
-                      <CheckCheck className="h-5 w-5 text-green-400" />
-                      <span className="text-green-50">15+ Year Protection</span>
-                    </div>
-                    <div className="flex items-center space-x-1.5">
-                      <CheckCheck className="h-5 w-5 text-green-400" />
-                      <span className="text-green-50">Federal Funding Eligible</span>
-                    </div>
+                  <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent"></div>
+                </div>
+                
+                {/* Enhanced ROI-focused stats in enterprise grid format */}
+                <div className="grid grid-cols-3 gap-3 mb-6">
+                  <div className="bg-gradient-to-br from-black/40 to-black/20 border border-orange-600/30 rounded-lg p-3 text-center">
+                    <span className="text-green-400 font-bold text-xl md:text-2xl block">$1.84M</span>
+                    <span className="text-blue-200 text-xs">Lifecycle Savings</span>
                   </div>
-                  
-                  {/* CTA */}
-                  <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <GradientButton 
-                      size="lg" 
-                      className="relative px-8 py-4 text-lg"
-                      onClick={() => setShowRegistrationForm(true)}
-                    >
-                      <CircleDollarSign className="mr-2 h-5 w-5" />
-                      Get Municipal ROI Analysis
-                    </GradientButton>
-                    
-                    <PremiumButton size="lg" className="px-8 py-4 text-lg">
-                      <PlayCircle className="mr-2 h-5 w-5" />
-                      Watch Case Study
-                    </PremiumButton>
+                  <div className="bg-gradient-to-br from-black/40 to-black/20 border border-blue-600/30 rounded-lg p-3 text-center">
+                    <span className="text-green-400 font-bold text-xl md:text-2xl block">74%</span>
+                    <span className="text-blue-200 text-xs">Maintenance Reduction</span>
                   </div>
+                  <div className="bg-gradient-to-br from-black/40 to-black/20 border border-orange-600/30 rounded-lg p-3 text-center">
+                    <span className="text-green-400 font-bold text-xl md:text-2xl block">30+</span>
+                    <span className="text-blue-200 text-xs">Years Protection</span>
+                  </div>
+                </div>
+                
+                <p className="text-xl text-white mb-4">
+                  Our <span className="text-orange-300 font-semibold">ABS-certified ceramic coating systems</span> (certification #MC-1372) provide <span className="text-blue-300 font-semibold">unmatched protection</span> in harsh saltwater environments with documented <span className="text-green-400 font-semibold">ASTM B117 salt spray resistance exceeding 2,000 hours</span>.
+                </p>
+                
+                <div className="bg-black/30 border border-blue-600/20 rounded-lg p-3 mb-4">
+                  <p className="text-sm text-blue-100 italic">Previously classified ceramic microsphere technology, formerly exclusive to military and government vessels, now available to commercial marine applications</p>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
 
-        {/* SANDLER STAGE 2: PAIN - RED GLOW SECTION */}
-        <section className="py-16 relative z-10 overflow-hidden">
-          {/* Section-specific ambient red glow */}
-          <div className="absolute inset-0 bg-red-900/10 rounded-full blur-[100px] opacity-50 z-0"></div>
-          
-          <div className="container mx-auto px-4 relative z-10">
-            <div className="max-w-5xl mx-auto">
-              <div className="flex flex-col md:flex-row items-center justify-between mb-16">
-                <div className="md:w-1/2 mb-8 md:mb-0 relative">
-                  <div className="absolute -top-4 -left-4 w-20 h-20 pointer-events-none">
-                    <div className="absolute top-0 left-0 w-10 h-10 border-t-2 border-l-2 border-orange-500/70 rounded-tl-lg"></div>
-                    <div className="absolute top-0 left-0 w-4 h-4 bg-orange-500/50 rounded-full blur-[2px]"></div>
-                  </div>
-                  
-                  <div className="absolute -bottom-4 -right-4 w-20 h-20 pointer-events-none">
-                    <div className="absolute bottom-0 right-0 w-10 h-10 border-b-2 border-r-2 border-red-500/70 rounded-br-lg"></div>
-                    <div className="absolute bottom-0 right-0 w-4 h-4 bg-red-500/50 rounded-full blur-[2px]"></div>
-                  </div>
-                  
-                  <div className="relative z-20">
-                    <GradientHeading 
-                      as="h2" 
-                      size="3xl" 
-                      className="mb-6 from-orange-500 via-red-400 to-red-600"
-                    >
-                      The Hidden Cost of Aging Infrastructure
-                    </GradientHeading>
-                    
-                    <p className="text-gray-300 mb-6 text-lg">
-                      Every year, U.S. municipalities waste <span className="text-red-400 font-semibold">$129 billion</span> on reactive emergency repairs instead of implementing preventative solutions.
-                    </p>
-                    
-                    <div className="space-y-5">
-                      <div className="flex items-start space-x-4">
-                        <div className="bg-gradient-to-br from-red-700 to-red-900 p-3 rounded-lg">
-                          <AlertTriangle className="h-6 w-6 text-red-100" />
-                        </div>
-                        <div>
-                          <h3 className="text-xl font-semibold mb-1 text-white">Critical Safety Hazards</h3>
-                          <p className="text-gray-400">Corroded infrastructure leads to accidents, community safety issues, and potential legal liability.</p>
-                        </div>
-                      </div>
-                      
-                      <div className="flex items-start space-x-4">
-                        <div className="bg-gradient-to-br from-red-700 to-red-900 p-3 rounded-lg">
-                          <CircleDollarSign className="h-6 w-6 text-red-100" />
-                        </div>
-                        <div>
-                          <h3 className="text-xl font-semibold mb-1 text-white">Budget Drain</h3>
-                          <p className="text-gray-400">Emergency repairs cost 3-5x more than planned maintenance, draining municipal budgets.</p>
-                        </div>
-                      </div>
-                      
-                      <div className="flex items-start space-x-4">
-                        <div className="bg-gradient-to-br from-red-700 to-red-900 p-3 rounded-lg">
-                          <Building className="h-6 w-6 text-red-100" />
-                        </div>
-                        <div>
-                          <h3 className="text-xl font-semibold mb-1 text-white">Public Perception</h3>
-                          <p className="text-gray-400">Visible infrastructure deterioration damages public trust and community pride.</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+            <div className="grid md:grid-cols-2 gap-12 mb-16">
+              {/* Left Column: Marine Application Configurator */}
+              <div className="relative">
+                {/* Premium ambient glow behind card */}
+                <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/20 via-orange-500/20 to-blue-500/20 rounded-xl blur-xl opacity-70"></div>
                 
-                <div className="md:w-5/12 relative">
-                  {/* Enhanced Municipal Challenges Cards */}
-                  <div className="space-y-6">
-                    <div className="bg-gradient-to-br from-gray-800/70 via-gray-850/70 to-gray-900/70 rounded-xl p-6 border border-red-500/30 relative group transition-all duration-300 hover:border-red-500/50 shadow-[0_5px_15px_rgba(185,28,28,0.15)]">
-                      {/* Enhanced layered glows and effects */}
-                      <div className="absolute -inset-px bg-gradient-to-r from-red-600/20 via-transparent to-red-600/20 rounded-xl opacity-70 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
-                      
-                      <div className="relative">
-                        <div className="flex items-center mb-3">
-                          <div className="bg-gradient-to-br from-red-600/20 to-red-900/20 p-2 rounded-md mr-3">
-                            <BadgeAlert className="h-6 w-6 text-red-400" />
-                          </div>
-                          <h3 className="text-xl font-semibold text-red-200">Bridge Corrosion Crisis</h3>
-                        </div>
-                        
-                        <p className="text-gray-400 mb-3">42% of municipal bridges show signs of structural decay requiring <span className="text-red-300 font-medium">$164,000 average repair cost</span> per structure.</p>
-                        
-                        <div className="mt-2">
-                          <Progress value={progress} className="h-1 bg-gray-800">
-                            <div className="h-full bg-gradient-to-r from-red-500 to-red-600 rounded-full"></div>
-                          </Progress>
-                          <div className="flex justify-between mt-1 text-xs text-gray-500">
-                            <span>Critical Status</span>
-                            <span>{progress}% of bridges affected</span>
-                          </div>
-                        </div>
+                <div className="relative bg-gradient-to-br from-gray-900/90 via-gray-950/90 to-black/90 p-8 rounded-xl border border-blue-500/40 shadow-[0_10px_50px_rgba(59,130,246,0.2)]">
+                  {/* Corner accents - premium enterprise style */}
+                  <div className="absolute top-0 left-0 w-12 h-12 z-10 pointer-events-none">
+                    <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-orange-500/40 rounded-tl-md"></div>
+                    <div className="absolute top-1 left-1 w-8 h-8 border-t border-l border-blue-500/30 rounded-tl-md"></div>
+                  </div>
+                  <div className="absolute top-0 right-0 w-12 h-12 z-10 pointer-events-none">
+                    <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-orange-500/40 rounded-tr-md"></div>
+                    <div className="absolute top-1 right-1 w-8 h-8 border-t border-r border-blue-500/30 rounded-tr-md"></div>
+                  </div>
+                  <div className="absolute bottom-0 right-0 w-12 h-12 z-10 pointer-events-none">
+                    <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-orange-500/40 rounded-br-md"></div>
+                    <div className="absolute bottom-1 right-1 w-8 h-8 border-b border-r border-blue-500/30 rounded-br-md"></div>
+                  </div>
+                  <div className="absolute bottom-0 left-0 w-12 h-12 z-10 pointer-events-none">
+                    <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-orange-500/40 rounded-bl-md"></div>
+                    <div className="absolute bottom-1 left-1 w-8 h-8 border-b border-l border-blue-500/30 rounded-bl-md"></div>
+                  </div>
+                
+                  <div className="flex items-center mb-6">
+                    <div className="w-1 h-10 bg-gradient-to-b from-blue-400 to-blue-700 rounded-full mr-4"></div>
+                    <h2 className="text-3xl font-bold text-white drop-shadow-[0_2px_10px_rgba(59,130,246,0.5)]">Marine Application Configurator</h2>
+                  </div>
+                  
+                  <p className="mb-6 text-white text-lg">Find the right marine coating specification for your vessel or marine structure based on environmental exposure factors and operational requirements. Our ABS-certified coatings are engineered for optimal performance in the most demanding marine environments.</p>
+                  
+                  <div className="bg-gradient-to-br from-blue-900/20 via-blue-950/20 to-black/20 border border-blue-500/30 rounded-lg p-4 mb-8">
+                    <div className="flex items-start gap-3">
+                      <div className="bg-blue-700/50 rounded-full p-2 mt-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-200" viewBox="0 0 20 20" fill="currentColor">
+                          <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+                        </svg>
+                      </div>
+                      <div>
+                        <h4 className="text-blue-200 font-semibold">ABS Certification #MC-1372</h4>
+                        <p className="text-white text-sm mt-1">Our coatings meet or exceed all American Bureau of Shipping requirements for marine applications, including salt spray resistance testing (ASTM B117, 2,000+ hours), adhesion, and impact resistance.</p>
                       </div>
                     </div>
+                  </div>
+                  
+                  <div className="space-y-6">
+                    <div>
+                      <label className="block text-sm font-medium mb-2 text-blue-300" htmlFor="vessel-type">
+                        Vessel Type
+                      </label>
+                      <Select onValueChange={(value) => setVesselType(value)}>
+                        <SelectTrigger id="vessel-type" className="w-full bg-gray-900/80 border-blue-500/30">
+                          <SelectValue placeholder="Select vessel type" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="pleasure-craft">Pleasure Craft</SelectItem>
+                          <SelectItem value="commercial">Commercial Vessel</SelectItem>
+                          <SelectItem value="sailboat">Sailboat</SelectItem>
+                          <SelectItem value="dock">Dock/Marina Structure</SelectItem>
+                          <SelectItem value="offshore">Offshore Platform</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
                     
-                    <div className="bg-gradient-to-br from-gray-800/70 via-gray-850/70 to-gray-900/70 rounded-xl p-6 border border-red-500/30 relative group transition-all duration-300 hover:border-red-500/50 shadow-[0_5px_15px_rgba(185,28,28,0.15)]">
-                      {/* Enhanced layered glows and effects */}
-                      <div className="absolute -inset-px bg-gradient-to-r from-red-600/20 via-transparent to-red-600/20 rounded-xl opacity-70 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
-                      
+                    <div>
+                      <label className="block text-sm font-medium mb-2 text-blue-300" htmlFor="water-type">
+                        Water Type
+                      </label>
+                      <Select onValueChange={(value) => setWaterType(value)}>
+                        <SelectTrigger id="water-type" className="w-full bg-gray-900/80 border-blue-500/30">
+                          <SelectValue placeholder="Select water type" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="saltwater">Saltwater</SelectItem>
+                          <SelectItem value="freshwater">Freshwater</SelectItem>
+                          <SelectItem value="brackish">Brackish</SelectItem>
+                          <SelectItem value="tropical">Tropical Waters</SelectItem>
+                          <SelectItem value="arctic">Arctic Waters</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    
+                    <div>
+                      <label className="block text-sm font-medium mb-2 text-blue-300" htmlFor="surface-material">
+                        Surface Material
+                      </label>
+                      <Select onValueChange={(value) => setMaterial(value)}>
+                        <SelectTrigger id="surface-material" className="w-full bg-gray-900/80 border-blue-500/30">
+                          <SelectValue placeholder="Select material" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="fiberglass">Fiberglass</SelectItem>
+                          <SelectItem value="aluminum">Aluminum</SelectItem>
+                          <SelectItem value="steel">Steel</SelectItem>
+                          <SelectItem value="wood">Wood</SelectItem>
+                          <SelectItem value="concrete">Concrete</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    
+                    {/* Enterprise premium button with ambient glow */}
+                    <div className="relative">
+                      <div className="absolute -inset-1 bg-blue-500/30 rounded-lg blur-md opacity-70"></div>
                       <div className="relative">
-                        <div className="flex items-center mb-3">
-                          <div className="bg-gradient-to-br from-red-600/20 to-red-900/20 p-2 rounded-md mr-3">
-                            <Droplets className="h-6 w-6 text-red-400" />
-                          </div>
-                          <h3 className="text-xl font-semibold text-red-200">Water Treatment Failure</h3>
-                        </div>
-                        
-                        <p className="text-gray-400 mb-2">Aging water treatment plants face chemical deterioration, requiring <span className="text-red-300 font-medium">$3.2M in emergency repairs</span> per facility annually.</p>
-                        
-                        <div className="flex items-center justify-between text-sm mt-3">
-                          <div className="flex items-center space-x-1 text-gray-400">
-                            <Clock className="h-4 w-4" />
-                            <span>Average age: 38 years</span>
-                          </div>
-                          
-                          <div className="flex items-center space-x-1 text-gray-400">
-                            <AlertTriangle className="h-4 w-4 text-amber-500" />
-                            <span>Critical status</span>
-                          </div>
-                        </div>
+                        <PremiumCartButton 
+                          onClick={handleFindCoatings}
+                          size="lg"
+                          className="w-full"
+                        >
+                          Find Recommended Coatings
+                        </PremiumCartButton>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-                <div className="bg-gradient-to-br from-gray-800/70 via-gray-850/70 to-gray-900/70 rounded-xl p-6 border border-red-500/20 relative group transition-all duration-300 hover:border-red-500/40">
-                  {/* Premium corner accents */}
-                  <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none">
-                    <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-orange-500/70 rounded-tl-lg"></div>
-                    <div className="absolute top-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
-                  </div>
-                  <div className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none">
-                    <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-blue-500/70 rounded-br-lg"></div>
-                    <div className="absolute bottom-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
-                  </div>
-                  
-                  <div className="relative z-10">
-                    <div className="w-14 h-14 bg-gradient-to-br from-blue-700 to-blue-900 rounded-full flex items-center justify-center mb-4">
-                      <ShieldCheck className="w-7 h-7 text-blue-300" />
-                    </div>
-                    <h3 className="text-xl font-semibold mb-3 text-white">Infrastructure Protection</h3>
-                    <p className="text-gray-300">
-                      Our ceramic coating creates a durable barrier against corrosion, UV damage, and chemical exposure, extending the life of critical infrastructure.
-                    </p>
-                  </div>
-                </div>
+
+              {/* Right Column: NASA-Derived Marine Benefits */}
+              <div className="relative">
+                {/* Premium ambient glow behind card */}
+                <div className="absolute -inset-1 bg-gradient-to-r from-orange-500/20 via-blue-500/20 to-orange-500/20 rounded-xl blur-xl opacity-70"></div>
                 
-                <div className="bg-gradient-to-br from-gray-800/70 via-gray-850/70 to-gray-900/70 rounded-xl p-6 border border-blue-500/20 relative group transition-all duration-300 hover:border-blue-500/40">
-                  {/* Premium corner accents */}
-                  <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none">
-                    <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-orange-500/70 rounded-tl-lg"></div>
-                    <div className="absolute top-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+                <div className="relative bg-gradient-to-br from-gray-900/90 via-gray-950/90 to-black/90 p-8 rounded-xl border border-orange-500/40 shadow-[0_10px_50px_rgba(59,130,246,0.2)] h-full">
+                  {/* Corner accents - premium enterprise style */}
+                  <div className="absolute top-0 left-0 w-12 h-12 z-10 pointer-events-none">
+                    <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-orange-500/40 rounded-tl-md"></div>
+                    <div className="absolute top-1 left-1 w-8 h-8 border-t border-l border-blue-500/30 rounded-tl-md"></div>
                   </div>
-                  <div className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none">
-                    <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-blue-500/70 rounded-br-lg"></div>
-                    <div className="absolute bottom-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
+                  <div className="absolute top-0 right-0 w-12 h-12 z-10 pointer-events-none">
+                    <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-orange-500/40 rounded-tr-md"></div>
+                    <div className="absolute top-1 right-1 w-8 h-8 border-t border-r border-blue-500/30 rounded-tr-md"></div>
                   </div>
-                  
-                  <div className="relative z-10">
-                    <div className="w-14 h-14 bg-gradient-to-br from-blue-700 to-blue-900 rounded-full flex items-center justify-center mb-4">
-                      <CircleDollarSign className="w-7 h-7 text-blue-300" />
-                    </div>
-                    <h3 className="text-xl font-semibold mb-3 text-white">Budget Optimization</h3>
-                    <p className="text-gray-300">
-                      Reduce maintenance costs by up to 50% while extending infrastructure lifespan, allowing for better allocation of taxpayer dollars.
-                    </p>
+                  <div className="absolute bottom-0 right-0 w-12 h-12 z-10 pointer-events-none">
+                    <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-orange-500/40 rounded-br-md"></div>
+                    <div className="absolute bottom-1 right-1 w-8 h-8 border-b border-r border-blue-500/30 rounded-br-md"></div>
                   </div>
-                </div>
+                  <div className="absolute bottom-0 left-0 w-12 h-12 z-10 pointer-events-none">
+                    <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-orange-500/40 rounded-bl-md"></div>
+                    <div className="absolute bottom-1 left-1 w-8 h-8 border-b border-l border-blue-500/30 rounded-bl-md"></div>
+                  </div>
                 
-                <div className="bg-gradient-to-br from-gray-800/70 via-gray-850/70 to-gray-900/70 rounded-xl p-6 border border-blue-500/20 relative group transition-all duration-300 hover:border-blue-500/40">
-                  {/* Premium corner accents */}
-                  <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none">
-                    <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-orange-500/70 rounded-tl-lg"></div>
-                    <div className="absolute top-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
-                  </div>
-                  <div className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none">
-                    <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-blue-500/70 rounded-br-lg"></div>
-                    <div className="absolute bottom-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
+                  {/* Enhanced title with advanced styling */}
+                  <div className="relative mb-6">
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-orange-500/5 rounded-lg blur-sm"></div>
+                    <h2 className="text-3xl font-bold text-white relative drop-shadow-[0_2px_10px_rgba(59,130,246,0.5)]">
+                      <span className="inline-block relative">
+                        NASA-Derived Marine Benefits
+                        <div className="absolute -bottom-1 left-0 right-0 h-[2px] bg-gradient-to-r from-blue-500/50 via-blue-400/30 to-transparent"></div>
+                      </span>
+                    </h2>
                   </div>
                   
-                  <div className="relative z-10">
-                    <div className="w-14 h-14 bg-gradient-to-br from-blue-700 to-blue-900 rounded-full flex items-center justify-center mb-4">
-                      <Leaf className="w-7 h-7 text-blue-300" />
+                  <div className="space-y-4 flex-grow">
+                    <div className="flex items-start gap-4">
+                      <div className="relative">
+                        <div className="absolute -inset-1 bg-blue-600/20 rounded-full blur-md"></div>
+                        <span className="bg-gradient-to-br from-blue-600 to-blue-800 rounded-full p-2 mt-1 relative border border-blue-400/30 shadow-lg shadow-blue-900/20">
+                          <Anchor className="h-5 w-5 text-white" />
+                        </span>
+                      </div>
+                      <div className="relative">
+                        <h3 className="text-xl font-semibold mb-2 text-white drop-shadow-[0_1px_2px_rgba(59,130,246,0.5)]">
+                          <span className="relative inline-block">
+                            American Bureau of Shipping (ABS) Certified
+                            <div className="absolute -bottom-1 left-0 w-12 h-[2px] bg-gradient-to-r from-blue-500 to-transparent"></div>
+                          </span>
+                        </h3>
+                        <p className="text-white leading-relaxed">Our ceramic microsphere technology (US Patent <span className="text-blue-300 font-medium">#10,738,214</span>) is specifically certified for marine applications by the American Bureau of Shipping under certification <span className="text-blue-300 font-medium">#MC-1372</span>, meeting all requirements for the harshest marine environments.</p>
+                      </div>
                     </div>
-                    <h3 className="text-xl font-semibold mb-3 text-white">Environmental Compliance</h3>
-                    <p className="text-gray-300">
-                      Our eco-friendly solutions help municipalities meet sustainability goals while maintaining infrastructure integrity.
-                    </p>
+
+                    <div className="flex items-start gap-4">
+                      <span className="bg-blue-600 rounded-full p-2 mt-1">
+                        <ShieldCheck className="h-5 w-5 text-white" />
+                      </span>
+                      <div>
+                        <h3 className="text-xl font-semibold mb-1 text-blue-300">Class A (0/0) Fire Rating & SOLAS Compliance</h3>
+                        <p className="text-white">Perfect 0/0 scores in ASTM E84-23 testing for both Flame Spread Index and Smoke-Developed Index, exceeding SOLAS requirements and providing superior fire protection.</p>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-start gap-4">
+                      <span className="bg-blue-600 rounded-full p-2 mt-1">
+                        <Ship className="h-5 w-5 text-white" />
+                      </span>
+                      <div>
+                        <h3 className="text-xl font-semibold mb-1 text-blue-300">Proven Long-Term Saltwater Resistance</h3>
+                        <p className="text-white">Our ceramic coating technology has demonstrated exceptional longevity in extreme marine environments, as evidenced by the landmark Korean coastal bridge project with 30+ years of protection.</p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-4">
+                      <span className="bg-blue-600 rounded-full p-2 mt-1">
+                        <Sun className="h-5 w-5 text-white" />
+                      </span>
+                      <div>
+                        <h3 className="text-xl font-semibold mb-1 text-blue-300">89% Solar Reflection & 89% Thermal Emittance</h3>
+                        <p className="text-white">Verified by the Cool Roof Rating Council, our coatings deliver a Solar Reflectance Index (SRI) of 113, reducing hull/cabin temperatures by 15-20°F and improving energy efficiency.</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
-        
-        {/* SANDLER STAGE 3: BUDGET - GREEN GLOW SECTION */}
-        <section className="py-16 relative z-10 overflow-hidden">
-          {/* Section-specific ambient green glow */}
-          <div className="absolute inset-0 bg-green-900/10 rounded-full blur-[100px] opacity-50 z-0"></div>
-          
-          <div className="container mx-auto px-4 relative z-10">
-            <div className="max-w-5xl mx-auto text-center mb-12">
-              <div className="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-gradient-to-r from-green-500/20 via-emerald-600/20 to-green-500/20 border border-green-500/30 shadow-lg mb-6">
-                <Calculator className="h-4 w-4 mr-2 text-green-400" />
-                <span className="text-green-100 font-medium text-sm">Municipal Budget Optimization</span>
-              </div>
-              
-              <GradientHeading 
-                size="4xl" 
-                className="mb-6 from-green-400 via-emerald-300 to-green-400"
-              >
-                Infrastructure ROI Calculator
-              </GradientHeading>
-              
-              <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-10">
-                See how Praetorian Smart Coating solutions deliver <span className="text-emerald-400 font-semibold">8.3x ROI</span> for municipalities through maintenance reduction, extended lifespan, and grant eligibility.
-              </p>
-              
-              <Tabs defaultValue="roi" className="w-full max-w-4xl mx-auto" onValueChange={setActiveTab}>
-                <TabsList className="grid w-full grid-cols-3 mb-8 bg-gray-900/60 border border-emerald-700/30 p-1 rounded-lg">
-                  <TabsTrigger value="roi" className="data-[state=active]:bg-gradient-to-br data-[state=active]:from-emerald-900/60 data-[state=active]:to-emerald-800/60 data-[state=active]:text-emerald-50 rounded-md py-3 transition-all duration-300">
-                    <BarChart3 className="h-5 w-5 mr-2" />
-                    ROI Analysis
-                  </TabsTrigger>
-                  <TabsTrigger value="applications" className="data-[state=active]:bg-gradient-to-br data-[state=active]:from-emerald-900/60 data-[state=active]:to-emerald-800/60 data-[state=active]:text-emerald-50 rounded-md py-3 transition-all duration-300">
-                    <Blocks className="h-5 w-5 mr-2" />
-                    Applications
-                  </TabsTrigger>
-                  <TabsTrigger value="funding" className="data-[state=active]:bg-gradient-to-br data-[state=active]:from-emerald-900/60 data-[state=active]:to-emerald-800/60 data-[state=active]:text-emerald-50 rounded-md py-3 transition-all duration-300">
-                    <CircleDollarSign className="h-5 w-5 mr-2" />
-                    Funding Options
-                  </TabsTrigger>
-                </TabsList>
+            
+            {/* Results Section (Conditional Render) */}
+            {showResults && (
+              <div className="relative">
+                <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/20 via-orange-500/20 to-blue-500/20 rounded-xl blur-xl opacity-70"></div>
                 
-                <TabsContent value="roi" className="mt-8">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div className="bg-gradient-to-br from-gray-900/90 to-gray-950/95 p-8 rounded-xl border border-emerald-700/30 shadow-[0_10px_30px_rgba(0,0,0,0.2)]">
-                      <h3 className="text-2xl font-bold mb-6 text-emerald-100">Infrastructure ROI Analysis</h3>
+                <div className="relative bg-gradient-to-br from-gray-900/90 via-gray-950/90 to-black/90 p-8 rounded-xl border border-orange-500/40 shadow-[0_10px_50px_rgba(59,130,246,0.2)] mb-16">
+                  {/* Corner accents */}
+                  <div className="absolute top-0 left-0 w-12 h-12 z-10 pointer-events-none">
+                    <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-orange-500/40 rounded-tl-md"></div>
+                    <div className="absolute top-1 left-1 w-8 h-8 border-t border-l border-blue-500/30 rounded-tl-md"></div>
+                  </div>
+                  <div className="absolute top-0 right-0 w-12 h-12 z-10 pointer-events-none">
+                    <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-orange-500/40 rounded-tr-md"></div>
+                    <div className="absolute top-1 right-1 w-8 h-8 border-t border-r border-blue-500/30 rounded-tr-md"></div>
+                  </div>
+                  <div className="absolute bottom-0 right-0 w-12 h-12 z-10 pointer-events-none">
+                    <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-orange-500/40 rounded-br-md"></div>
+                    <div className="absolute bottom-1 right-1 w-8 h-8 border-b border-r border-blue-500/30 rounded-br-md"></div>
+                  </div>
+                  <div className="absolute bottom-0 left-0 w-12 h-12 z-10 pointer-events-none">
+                    <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-orange-500/40 rounded-bl-md"></div>
+                    <div className="absolute bottom-1 left-1 w-8 h-8 border-b border-l border-blue-500/30 rounded-bl-md"></div>
+                  </div>
+                
+                  <h2 className="text-3xl font-bold mb-8 text-white drop-shadow-[0_2px_10px_rgba(59,130,246,0.5)]">Recommended Coating System</h2>
+                  
+                  <div className="grid md:grid-cols-2 gap-8">
+                    <div className="space-y-4">
+                      <h3 className="text-2xl font-semibold text-white mb-4">SmartCoat MarineSeal System</h3>
                       
-                      <div className="space-y-6 mb-6">
-                        <div className="space-y-2">
-                          <div className="flex justify-between">
-                            <label className="text-gray-300">Annual Maintenance Budget</label>
-                            <span className="text-emerald-400 font-semibold">$1.2M</span>
-                          </div>
-                          <Progress value={75} className="h-1 bg-gray-800">
-                            <div className="h-full bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-full"></div>
-                          </Progress>
+                      <div className="space-y-2">
+                        <div className="flex items-center gap-2">
+                          <div className="w-1 h-6 bg-blue-500 rounded-full"></div>
+                          <p className="text-white font-medium">Base Coat: SmartCoat MarineBase (2 coats)</p>
                         </div>
-                        
-                        <div className="space-y-2">
-                          <div className="flex justify-between">
-                            <label className="text-gray-300">Maintenance Reduction</label>
-                            <span className="text-emerald-400 font-semibold">52%</span>
-                          </div>
-                          <Progress value={52} className="h-1 bg-gray-800">
-                            <div className="h-full bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-full"></div>
-                          </Progress>
-                        </div>
-                        
-                        <div className="space-y-2">
-                          <div className="flex justify-between">
-                            <label className="text-gray-300">Extended Lifespan</label>
-                            <span className="text-emerald-400 font-semibold">15+ years</span>
-                          </div>
-                          <Progress value={80} className="h-1 bg-gray-800">
-                            <div className="h-full bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-full"></div>
-                          </Progress>
-                        </div>
-                        
-                        <div className="space-y-2">
-                          <div className="flex justify-between">
-                            <label className="text-gray-300">Grant Eligibility</label>
-                            <span className="text-emerald-400 font-semibold">85%</span>
-                          </div>
-                          <Progress value={85} className="h-1 bg-gray-800">
-                            <div className="h-full bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-full"></div>
-                          </Progress>
-                        </div>
+                        <p className="text-gray-300 ml-7">Provides foundational adhesion and initial corrosion barrier</p>
                       </div>
                       
-                      <div className="pt-6 mt-6 border-t border-gray-800">
-                        <div className="flex justify-between mb-2">
-                          <span className="text-gray-300 font-medium">15-Year ROI:</span>
-                          <span className="text-2xl font-bold text-emerald-400">831%</span>
+                      <div className="space-y-2">
+                        <div className="flex items-center gap-2">
+                          <div className="w-1 h-6 bg-blue-500 rounded-full"></div>
+                          <p className="text-white font-medium">Middle Coat: SmartCoat CeramicGuard (1 coat)</p>
                         </div>
-                        <div className="flex justify-between text-sm text-gray-500">
-                          <span>Initial Investment:</span>
-                          <span>$375,000</span>
+                        <p className="text-gray-300 ml-7">Core thermal and UV protection layer with ceramic microspheres</p>
+                      </div>
+                      
+                      <div className="space-y-2">
+                        <div className="flex items-center gap-2">
+                          <div className="w-1 h-6 bg-blue-500 rounded-full"></div>
+                          <p className="text-white font-medium">Top Coat: SmartCoat MarineFinish (2 coats)</p>
                         </div>
-                        <div className="flex justify-between text-sm text-gray-500">
-                          <span>15-Year Returns:</span>
-                          <span>$3,116,250</span>
+                        <p className="text-gray-300 ml-7">Final UV and chemical resistant layer with non-slip texture</p>
+                      </div>
+                      
+                      <div className="mt-6 relative">
+                        <div className="absolute -inset-1 bg-blue-500/30 rounded-lg blur-md opacity-70"></div>
+                        <div className="relative">
+                          <PremiumCartButton size="lg" className="w-full font-medium">
+                            Request Quote
+                          </PremiumCartButton>
                         </div>
                       </div>
                     </div>
                     
-                    <div className="space-y-6">
-                      <div className="bg-gradient-to-br from-gray-900/90 to-gray-950/95 p-6 rounded-xl border border-emerald-700/30 shadow-[0_5px_20px_rgba(0,0,0,0.2)]">
-                        <div className="flex items-center mb-4">
-                          <DollarSign className="h-8 w-8 text-emerald-500 mr-3" />
-                          <h3 className="text-xl font-bold text-white">Cost Savings Analysis</h3>
-                        </div>
-                        
-                        <div className="space-y-3 mb-4">
-                          <div className="flex justify-between text-sm">
-                            <span className="text-gray-400">Annual Maintenance Savings:</span>
-                            <span className="text-emerald-400 font-semibold">$624,000</span>
-                          </div>
-                          <div className="flex justify-between text-sm">
-                            <span className="text-gray-400">Emergency Repair Avoidance:</span>
-                            <span className="text-emerald-400 font-semibold">$185,000/yr</span>
-                          </div>
-                          <div className="flex justify-between text-sm">
-                            <span className="text-gray-400">Replacement Deferral Value:</span>
-                            <span className="text-emerald-400 font-semibold">$320,000/yr</span>
-                          </div>
-                          <div className="flex justify-between text-sm">
-                            <span className="text-gray-400">Insurance Premium Reduction:</span>
-                            <span className="text-emerald-400 font-semibold">$45,000/yr</span>
-                          </div>
-                        </div>
-                        
-                        <div className="flex justify-between pt-3 border-t border-gray-800">
-                          <span className="text-white font-medium">Total Annual Savings:</span>
-                          <span className="text-white font-bold">$1,174,000</span>
-                        </div>
-                      </div>
+                    <div className="space-y-4">
+                      <h3 className="text-2xl font-semibold text-white mb-4">System Specifications</h3>
                       
-                      <div className="bg-gradient-to-br from-gray-900/90 to-gray-950/95 p-6 rounded-xl border border-emerald-700/30 shadow-[0_5px_20px_rgba(0,0,0,0.2)]">
-                        <div className="flex items-center mb-4">
-                          <BadgeCheck className="h-8 w-8 text-emerald-500 mr-3" />
-                          <h3 className="text-xl font-bold text-white">Funding Eligibility</h3>
-                        </div>
-                        
-                        <div className="space-y-2">
-                          <div className="flex items-center">
-                            <Check className="h-5 w-5 text-emerald-500 mr-2 flex-shrink-0" />
-                            <span className="text-gray-300">FEMA Building Resilience Fund - 75% eligible</span>
-                          </div>
-                          <div className="flex items-center">
-                            <Check className="h-5 w-5 text-emerald-500 mr-2 flex-shrink-0" />
-                            <span className="text-gray-300">DOT Infrastructure Improvement Grants</span>
-                          </div>
-                          <div className="flex items-center">
-                            <Check className="h-5 w-5 text-emerald-500 mr-2 flex-shrink-0" />
-                            <span className="text-gray-300">EPA Sustainability Initiative Funding</span>
-                          </div>
-                          <div className="flex items-center">
-                            <Check className="h-5 w-5 text-emerald-500 mr-2 flex-shrink-0" />
-                            <span className="text-gray-300">State Infrastructure Bank (SIB) Loans</span>
-                          </div>
-                        </div>
-                      </div>
-                      
-                      <div className="bg-gradient-to-br from-emerald-900/30 to-emerald-950/30 p-5 rounded-xl border border-emerald-500/30 shadow-[0_5px_15px_rgba(0,0,0,0.2)]">
-                        <div className="flex items-start">
-                          <div className="bg-gradient-to-br from-emerald-600/20 to-emerald-800/20 p-2 rounded-md mr-3 mt-1">
-                            <FileText className="h-5 w-5 text-emerald-400" />
+                      <div className="space-y-3">
+                        <div className="flex items-start gap-3">
+                          <div className="bg-blue-600 rounded-full p-2 mt-1">
+                            <Waves className="h-5 w-5 text-white" />
                           </div>
                           <div>
-                            <h4 className="text-emerald-300 font-medium mb-1">Request Custom ROI Report</h4>
-                            <p className="text-gray-400 text-sm mb-3">Get a detailed analysis for your specific infrastructure needs and budget constraints.</p>
-                            <GradientButton size="sm" className="text-sm px-3 py-1.5">
-                              <Download className="h-4 w-4 mr-1" /> Download Full Analysis
-                            </GradientButton>
+                            <p className="text-white font-medium">Salt Spray Resistance: 3,500+ hours (ASTM B117)</p>
+                            <p className="text-gray-300 text-sm">Exceeds commercial marine standards by 75%</p>
+                          </div>
+                        </div>
+                        
+                        <div className="flex items-start gap-3">
+                          <div className="bg-blue-600 rounded-full p-2 mt-1">
+                            <Sun className="h-5 w-5 text-white" />
+                          </div>
+                          <div>
+                            <p className="text-white font-medium">UV Protection: 89% reflection rate</p>
+                            <p className="text-gray-300 text-sm">Prevents color fading and material degradation</p>
+                          </div>
+                        </div>
+                        
+                        <div className="flex items-start gap-3">
+                          <div className="bg-blue-600 rounded-full p-2 mt-1">
+                            <FileCheck className="h-5 w-5 text-white" />
+                          </div>
+                          <div>
+                            <p className="text-white font-medium">Warranty: 15 Year Performance Guarantee</p>
+                            <p className="text-gray-300 text-sm">Transferable warranty with annual inspection</p>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div className="mt-6 pt-4 border-t border-blue-900/50">
+                        <div className="relative group mb-6">
+                          {/* Advanced layered glow effects */}
+                          <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600/30 to-blue-400/20 rounded-lg blur-sm opacity-70 group-hover:opacity-100 transition-opacity duration-300"></div>
+                          
+                          <div className="relative bg-gradient-to-br from-gray-900/90 to-black/90 border border-blue-600/40 rounded-lg p-5 backdrop-blur-sm">
+                            <div className="flex items-center gap-3 mb-3">
+                              <CircleDollarSign className="h-6 w-6 text-green-400" />
+                              <h4 className="text-xl font-semibold text-white">Advanced Marine ROI Calculator</h4>
+                            </div>
+                            
+                            <p className="text-blue-100 mb-4">Calculate your 411% ROI potential with our government-grade marine protection system</p>
+                            
+                            <div className="grid grid-cols-1 gap-5 mb-6">
+                              <div className="relative group">
+                                <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600/30 to-blue-400/20 rounded-lg blur-sm opacity-70 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                <div className="relative bg-gradient-to-br from-black/80 to-gray-900/80 border border-blue-600/40 rounded-lg p-4">
+                                  <div className="flex justify-between items-center mb-2">
+                                    <span className="text-blue-300 font-semibold">Annual Maintenance Cost</span>
+                                    <span className="text-green-400 font-semibold">$376,000</span>
+                                  </div>
+                                  <div className="flex justify-between items-center mb-2">
+                                    <span className="text-blue-300 font-semibold">Cost After Coating</span>
+                                    <span className="text-green-400 font-semibold">$98,000</span>
+                                  </div>
+                                  <div className="flex justify-between items-center mb-2">
+                                    <span className="text-blue-300 font-semibold">Annual Savings</span>
+                                    <span className="text-green-400 font-semibold">$278,000</span>
+                                  </div>
+                                  <div className="flex justify-between items-center">
+                                    <span className="text-blue-300 font-semibold">5-Year Savings</span>
+                                    <span className="text-green-400 font-semibold">$1.39M</span>
+                                  </div>
+                                </div>
+                              </div>
+                              
+                              <div className="relative group">
+                                <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-600/30 to-orange-400/20 rounded-lg blur-sm opacity-70 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                <div className="relative bg-gradient-to-br from-black/80 to-gray-900/80 border border-orange-600/40 rounded-lg p-4">
+                                  <div className="flex justify-between items-center mb-2">
+                                    <span className="text-orange-300 font-semibold">Original Asset Lifespan</span>
+                                    <span className="text-green-400 font-semibold">14 Years</span>
+                                  </div>
+                                  <div className="flex justify-between items-center mb-2">
+                                    <span className="text-orange-300 font-semibold">Extended Lifespan</span>
+                                    <span className="text-green-400 font-semibold">26.4 Years</span>
+                                  </div>
+                                  <div className="flex justify-between items-center mb-2">
+                                    <span className="text-orange-300 font-semibold">Additional Service Life</span>
+                                    <span className="text-green-400 font-semibold">+12.4 Years</span>
+                                  </div>
+                                  <div className="flex justify-between items-center">
+                                    <span className="text-orange-300 font-semibold">Lifecycle Savings</span>
+                                    <span className="text-green-400 font-semibold">$1.84M</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            
+                            <div className="relative group">
+                              <div className="absolute -inset-0.5 bg-gradient-to-r from-green-600/30 to-green-400/20 rounded-lg blur-sm opacity-70 group-hover:opacity-100 transition-opacity duration-300"></div>
+                              <div className="relative bg-gradient-to-br from-black/80 to-gray-900/80 border border-green-600/40 rounded-lg p-4">
+                                <div className="flex justify-between items-center mb-1">
+                                  <span className="text-white font-semibold">Total Investment</span>
+                                  <span className="text-white font-semibold">$450,000</span>
+                                </div>
+                                <div className="flex justify-between items-center">
+                                  <span className="text-white font-semibold">Total 5-Year Return</span>
+                                  <span className="text-white font-semibold">$1.84M</span>
+                                </div>
+                                <div className="mt-3 flex justify-center items-center">
+                                  <div className="bg-gradient-to-r from-green-600 to-green-400 px-4 py-2 rounded-lg">
+                                    <span className="text-2xl font-bold text-white">411% ROI</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div className="relative">
+                          <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/40 via-blue-500/30 to-blue-600/40 rounded-lg blur-md opacity-80"></div>
+                          <div className="relative">
+                            <PremiumCartButton 
+                              onClick={handleShowRegistrationForm} 
+                              size="lg" 
+                              className="w-full relative group"
+                              variant="blue"
+                            >
+                              <div className="flex items-center justify-center gap-2">
+                                <BarChart3 className="h-5 w-5" />
+                                <span>Calculate 411% ROI For Your Marina</span>
+                              </div>
+                            </PremiumCartButton>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </TabsContent>
+                </div>
+              </div>
+            )}
+            
+            {/* Registration Form (Conditional Render) */}
+            {showRegistrationForm && !registrationSuccess && (
+              <div className="relative">
+                <div className="absolute -inset-1 bg-gradient-to-r from-orange-500/20 via-blue-500/20 to-orange-500/20 rounded-xl blur-xl opacity-70"></div>
                 
-                <TabsContent value="applications" className="mt-8">
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div className="bg-gradient-to-br from-gray-900/90 to-gray-950/95 rounded-xl border border-emerald-700/30 shadow-[0_5px_20px_rgba(0,0,0,0.2)] overflow-hidden group hover:border-emerald-600/40 transition-all duration-300">
-                      <div className="relative h-40 overflow-hidden">
-                        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/90 to-blue-950/90"></div>
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <Blocks className="h-16 w-16 text-blue-300 opacity-30 group-hover:opacity-50 transition-opacity duration-300" />
-                        </div>
-                      </div>
-                      
-                      <div className="p-6 relative">
-                        {/* Enhanced corner accents */}
-                        <div className="absolute top-0 right-0 w-16 h-16 pointer-events-none">
-                          <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-emerald-500/40 rounded-tr-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        </div>
-                        
-                        <h3 className="text-xl font-bold mb-3 text-white">Bridge & Overpass Protection</h3>
-                        
-                        <div className="space-y-3 mb-4">
-                          <div className="flex items-start space-x-2">
-                            <BadgeCheck className="h-5 w-5 text-emerald-500 mt-0.5 flex-shrink-0" />
-                            <span className="text-gray-300 text-sm">Prevents concrete spalling and rebar exposure</span>
-                          </div>
-                          <div className="flex items-start space-x-2">
-                            <BadgeCheck className="h-5 w-5 text-emerald-500 mt-0.5 flex-shrink-0" />
-                            <span className="text-gray-300 text-sm">Prevents structure from salt and chemical damage</span>
-                          </div>
-                          <div className="flex items-start space-x-2">
-                            <BadgeCheck className="h-5 w-5 text-emerald-500 mt-0.5 flex-shrink-0" />
-                            <span className="text-gray-300 text-sm">Extends service life by 15+ years</span>
-                          </div>
-                        </div>
-                        
-                        <div className="pt-3 border-t border-gray-800">
-                          <div className="flex justify-between text-sm">
-                            <span className="text-gray-400">Average ROI:</span>
-                            <span className="text-emerald-400 font-semibold">927%</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <div className="bg-gradient-to-br from-gray-900/90 to-gray-950/95 rounded-xl border border-emerald-700/30 shadow-[0_5px_20px_rgba(0,0,0,0.2)] overflow-hidden group hover:border-emerald-600/40 transition-all duration-300">
-                      <div className="relative h-40 overflow-hidden">
-                        <div className="absolute inset-0 bg-gradient-to-br from-cyan-900/90 to-cyan-950/90"></div>
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <Droplets className="h-16 w-16 text-cyan-300 opacity-30 group-hover:opacity-50 transition-opacity duration-300" />
-                        </div>
-                      </div>
-                      
-                      <div className="p-6 relative">
-                        {/* Enhanced corner accents */}
-                        <div className="absolute top-0 right-0 w-16 h-16 pointer-events-none">
-                          <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-emerald-500/40 rounded-tr-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        </div>
-                        
-                        <h3 className="text-xl font-bold mb-3 text-white">Water Treatment Facilities</h3>
-                        
-                        <div className="space-y-3 mb-4">
-                          <div className="flex items-start space-x-2">
-                            <BadgeCheck className="h-5 w-5 text-emerald-500 mt-0.5 flex-shrink-0" />
-                            <span className="text-gray-300 text-sm">Chemical and corrosion resistance</span>
-                          </div>
-                          <div className="flex items-start space-x-2">
-                            <BadgeCheck className="h-5 w-5 text-emerald-500 mt-0.5 flex-shrink-0" />
-                            <span className="text-gray-300 text-sm">Prevents contamination and leaching</span>
-                          </div>
-                          <div className="flex items-start space-x-2">
-                            <BadgeCheck className="h-5 w-5 text-emerald-500 mt-0.5 flex-shrink-0" />
-                            <span className="text-gray-300 text-sm">EPA and NSF compliant coatings</span>
-                          </div>
-                        </div>
-                        
-                        <div className="pt-3 border-t border-gray-800">
-                          <div className="flex justify-between text-sm">
-                            <span className="text-gray-400">Average ROI:</span>
-                            <span className="text-emerald-400 font-semibold">843%</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <div className="bg-gradient-to-br from-gray-900/90 to-gray-950/95 rounded-xl border border-emerald-700/30 shadow-[0_5px_20px_rgba(0,0,0,0.2)] overflow-hidden group hover:border-emerald-600/40 transition-all duration-300">
-                      <div className="relative h-40 overflow-hidden">
-                        <div className="absolute inset-0 bg-gradient-to-br from-amber-900/90 to-amber-950/90"></div>
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <ParkingCircle className="h-16 w-16 text-amber-300 opacity-30 group-hover:opacity-50 transition-opacity duration-300" />
-                        </div>
-                      </div>
-                      
-                      <div className="p-6 relative">
-                        {/* Enhanced corner accents */}
-                        <div className="absolute top-0 right-0 w-16 h-16 pointer-events-none">
-                          <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-emerald-500/40 rounded-tr-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        </div>
-                        
-                        <h3 className="text-xl font-bold mb-3 text-white">Parking Structures & Decks</h3>
-                        
-                        <div className="space-y-3 mb-4">
-                          <div className="flex items-start space-x-2">
-                            <BadgeCheck className="h-5 w-5 text-emerald-500 mt-0.5 flex-shrink-0" />
-                            <span className="text-gray-300 text-sm">Prevents vehicle fluid and salt damage</span>
-                          </div>
-                          <div className="flex items-start space-x-2">
-                            <BadgeCheck className="h-5 w-5 text-emerald-500 mt-0.5 flex-shrink-0" />
-                            <span className="text-gray-300 text-sm">Enhances safety with anti-slip properties</span>
-                          </div>
-                          <div className="flex items-start space-x-2">
-                            <BadgeCheck className="h-5 w-5 text-emerald-500 mt-0.5 flex-shrink-0" />
-                            <span className="text-gray-300 text-sm">Reduces insurance premiums and liability</span>
-                          </div>
-                        </div>
-                        
-                        <div className="pt-3 border-t border-gray-800">
-                          <div className="flex justify-between text-sm">
-                            <span className="text-gray-400">Average ROI:</span>
-                            <span className="text-emerald-400 font-semibold">705%</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                <div className="relative bg-gradient-to-br from-gray-900/90 via-gray-950/90 to-black/90 p-8 rounded-xl border border-orange-500/40 shadow-[0_10px_50px_rgba(59,130,246,0.2)] mb-16">
+                  {/* Corner accents */}
+                  <div className="absolute top-0 left-0 w-12 h-12 z-10 pointer-events-none">
+                    <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-orange-500/40 rounded-tl-md"></div>
+                    <div className="absolute top-1 left-1 w-8 h-8 border-t border-l border-blue-500/30 rounded-tl-md"></div>
                   </div>
+                  <div className="absolute top-0 right-0 w-12 h-12 z-10 pointer-events-none">
+                    <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-orange-500/40 rounded-tr-md"></div>
+                    <div className="absolute top-1 right-1 w-8 h-8 border-t border-r border-blue-500/30 rounded-tr-md"></div>
+                  </div>
+                  <div className="absolute bottom-0 right-0 w-12 h-12 z-10 pointer-events-none">
+                    <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-orange-500/40 rounded-br-md"></div>
+                    <div className="absolute bottom-1 right-1 w-8 h-8 border-b border-r border-blue-500/30 rounded-br-md"></div>
+                  </div>
+                  <div className="absolute bottom-0 left-0 w-12 h-12 z-10 pointer-events-none">
+                    <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-orange-500/40 rounded-bl-md"></div>
+                    <div className="absolute bottom-1 left-1 w-8 h-8 border-b border-l border-blue-500/30 rounded-bl-md"></div>
+                  </div>
+
+                  <h2 className="text-3xl font-bold mb-6 text-white drop-shadow-[0_2px_10px_rgba(59,130,246,0.5)]">Marina Professional Registration</h2>
+                  <p className="text-white mb-8">Join our network of certified marine application professionals. Complete the form below to register for training and certification.</p>
                   
-                  <div className="mt-10 p-6 bg-gradient-to-br from-gray-900/90 to-gray-950/95 rounded-xl border border-emerald-700/30 shadow-[0_5px_20px_rgba(0,0,0,0.2)]">
-                    <div className="flex items-center justify-between mb-6">
-                      <div className="flex items-center">
-                        <Award className="h-6 w-6 text-emerald-500 mr-2" />
-                        <h3 className="text-xl font-bold text-white">Additional Municipal Applications</h3>
-                      </div>
-                      
-                      <GradientButton size="sm" className="px-3 py-1.5 text-sm">
-                        View All Applications
-                      </GradientButton>
-                    </div>
-                    
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                      <div className="bg-gradient-to-br from-gray-800/60 to-gray-900/60 p-4 rounded-lg border border-emerald-700/20">
-                        <Building className="h-6 w-6 text-emerald-400 mb-2" />
-                        <span className="text-gray-300 text-sm">Government Buildings</span>
-                      </div>
-                      
-                      <div className="bg-gradient-to-br from-gray-800/60 to-gray-900/60 p-4 rounded-lg border border-emerald-700/20">
-                        <Landmark className="h-6 w-6 text-emerald-400 mb-2" />
-                        <span className="text-gray-300 text-sm">Public Monuments</span>
-                      </div>
-                      
-                      <div className="bg-gradient-to-br from-gray-800/60 to-gray-900/60 p-4 rounded-lg border border-emerald-700/20">
-                        <PenTool className="h-6 w-6 text-emerald-400 mb-2" />
-                        <span className="text-gray-300 text-sm">Utility Poles</span>
-                      </div>
-                      
-                      <div className="bg-gradient-to-br from-gray-800/60 to-gray-900/60 p-4 rounded-lg border border-emerald-700/20">
-                        <Activity className="h-6 w-6 text-emerald-400 mb-2" />
-                        <span className="text-gray-300 text-sm">Traffic Infrastructure</span>
-                      </div>
-                    </div>
-                  </div>
-                </TabsContent>
-                
-                <TabsContent value="funding" className="mt-8">
-                  <div className="space-y-8">
-                    <div className="bg-gradient-to-br from-gray-900/90 to-gray-950/95 rounded-xl border border-emerald-700/30 shadow-[0_5px_20px_rgba(0,0,0,0.2)] overflow-hidden">
-                      <div className="bg-gradient-to-br from-emerald-900/20 to-emerald-950/20 p-6 border-b border-emerald-700/20">
-                        <div className="flex items-center">
-                          <CircleDollarSign className="h-8 w-8 text-emerald-500 mr-3" />
-                          <h3 className="text-2xl font-bold text-white">Federal Funding Options</h3>
-                        </div>
-                      </div>
-                      
-                      <div className="p-6">
-                        <div className="space-y-6">
-                          <div className="bg-gradient-to-br from-gray-800/60 to-gray-900/60 p-5 rounded-lg border border-emerald-700/10 group hover:border-emerald-700/30 transition-all duration-300">
-                            <div className="flex items-start">
-                              <div className="bg-gradient-to-br from-emerald-900/20 to-emerald-900/30 p-2 rounded-md mr-3 mt-1">
-                                <Badge className="h-5 w-5 text-emerald-400" />
-                              </div>
-                              
-                              <div>
-                                <h4 className="text-lg font-semibold text-white mb-1">FEMA Building Resilient Infrastructure and Communities (BRIC)</h4>
-                                <p className="text-gray-400 mb-3">Grants for pre-disaster mitigation activities that protect infrastructure from natural hazards.</p>
-                                
-                                <div className="flex flex-wrap gap-3">
-                                  <div className="bg-emerald-900/20 px-3 py-1 rounded text-xs text-emerald-300">
-                                    <span>Match Requirement: 25%</span>
-                                  </div>
-                                  <div className="bg-emerald-900/20 px-3 py-1 rounded text-xs text-emerald-300">
-                                    <span>Award Range: $50K - $50M</span>
-                                  </div>
-                                  <div className="bg-emerald-900/20 px-3 py-1 rounded text-xs text-emerald-300">
-                                    <span>Annual Application</span>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          
-                          <div className="bg-gradient-to-br from-gray-800/60 to-gray-900/60 p-5 rounded-lg border border-emerald-700/10 group hover:border-emerald-700/30 transition-all duration-300">
-                            <div className="flex items-start">
-                              <div className="bg-gradient-to-br from-emerald-900/20 to-emerald-900/30 p-2 rounded-md mr-3 mt-1">
-                                <Badge className="h-5 w-5 text-emerald-400" />
-                              </div>
-                              
-                              <div>
-                                <h4 className="text-lg font-semibold text-white mb-1">DOT Infrastructure for Rebuilding America (INFRA) Grants</h4>
-                                <p className="text-gray-400 mb-3">Financial assistance for highway and bridge projects that have regional or national economic significance.</p>
-                                
-                                <div className="flex flex-wrap gap-3">
-                                  <div className="bg-emerald-900/20 px-3 py-1 rounded text-xs text-emerald-300">
-                                    <span>Match Requirement: 40%</span>
-                                  </div>
-                                  <div className="bg-emerald-900/20 px-3 py-1 rounded text-xs text-emerald-300">
-                                    <span>Award Range: $5M - $100M</span>
-                                  </div>
-                                  <div className="bg-emerald-900/20 px-3 py-1 rounded text-xs text-emerald-300">
-                                    <span>Biannual Application</span>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          
-                          <div className="bg-gradient-to-br from-gray-800/60 to-gray-900/60 p-5 rounded-lg border border-emerald-700/10 group hover:border-emerald-700/30 transition-all duration-300">
-                            <div className="flex items-start">
-                              <div className="bg-gradient-to-br from-emerald-900/20 to-emerald-900/30 p-2 rounded-md mr-3 mt-1">
-                                <Badge className="h-5 w-5 text-emerald-400" />
-                              </div>
-                              
-                              <div>
-                                <h4 className="text-lg font-semibold text-white mb-1">EPA Clean Water State Revolving Fund (CWSRF)</h4>
-                                <p className="text-gray-400 mb-3">Low-interest loans for water infrastructure projects, including those that prevent water pollution.</p>
-                                
-                                <div className="flex flex-wrap gap-3">
-                                  <div className="bg-emerald-900/20 px-3 py-1 rounded text-xs text-emerald-300">
-                                    <span>Interest Rate: 0-2.5%</span>
-                                  </div>
-                                  <div className="bg-emerald-900/20 px-3 py-1 rounded text-xs text-emerald-300">
-                                    <span>Term: Up to 30 years</span>
-                                  </div>
-                                  <div className="bg-emerald-900/20 px-3 py-1 rounded text-xs text-emerald-300">
-                                    <span>Rolling Applications</span>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <div className="p-6 bg-gradient-to-br from-emerald-900/30 to-emerald-950/30 rounded-xl border border-emerald-500/30 shadow-[0_5px_15px_rgba(0,0,0,0.2)]">
-                      <div className="flex items-center justify-between mb-4">
-                        <h3 className="text-xl font-bold text-white">Grant Assistance Program</h3>
+                  <Form {...form}>
+                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                      <div className="grid md:grid-cols-2 gap-6">
+                        <FormField
+                          control={form.control}
+                          name="firstName"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="text-blue-300">First Name*</FormLabel>
+                              <FormControl>
+                                <Input placeholder="First name" {...field} className="bg-gray-900/80 border-blue-500/30" />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
                         
-                        <div className="flex items-center bg-emerald-900/40 px-3 py-1 rounded-full">
-                          <Percent className="h-4 w-4 text-emerald-400 mr-1" />
-                          <span className="text-emerald-200 text-sm font-medium">95% Success Rate</span>
-                        </div>
+                        <FormField
+                          control={form.control}
+                          name="lastName"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="text-blue-300">Last Name*</FormLabel>
+                              <FormControl>
+                                <Input placeholder="Last name" {...field} className="bg-gray-900/80 border-blue-500/30" />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
                       </div>
                       
-                      <p className="text-gray-300 mb-4">
-                        Our dedicated grant writing team has secured over $132 million in infrastructure funding for municipalities. Let us help you navigate the complex application process.
-                      </p>
-                      
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-                        <div className="flex items-center">
-                          <BookOpen className="h-5 w-5 text-emerald-500 mr-2 flex-shrink-0" />
-                          <span className="text-gray-300 text-sm">Funding Identification</span>
-                        </div>
-                        <div className="flex items-center">
-                          <PenTool className="h-5 w-5 text-emerald-500 mr-2 flex-shrink-0" />
-                          <span className="text-gray-300 text-sm">Application Preparation</span>
-                        </div>
-                        <div className="flex items-center">
-                          <CalendarCheck className="h-5 w-5 text-emerald-500 mr-2 flex-shrink-0" />
-                          <span className="text-gray-300 text-sm">Deadline Management</span>
-                        </div>
+                      <div className="grid md:grid-cols-2 gap-6">
+                        <FormField
+                          control={form.control}
+                          name="email"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="text-blue-300">Email*</FormLabel>
+                              <FormControl>
+                                <Input type="email" placeholder="Your email" {...field} className="bg-gray-900/80 border-blue-500/30" />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                        
+                        <FormField
+                          control={form.control}
+                          name="phone"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="text-blue-300">Phone*</FormLabel>
+                              <FormControl>
+                                <Input placeholder="Phone number" {...field} className="bg-gray-900/80 border-blue-500/30" />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
                       </div>
                       
-                      <div className="flex justify-end">
-                        <GradientButton className="text-sm px-4 py-2">
-                          <Zap className="h-4 w-4 mr-1" /> Schedule Consultation
-                        </GradientButton>
+                      <FormField
+                        control={form.control}
+                        name="companyName"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-blue-300">Company Name*</FormLabel>
+                            <FormControl>
+                              <Input placeholder="Company name" {...field} className="bg-gray-900/80 border-blue-500/30" />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      
+                      <div className="grid md:grid-cols-2 gap-6">
+                        <FormField
+                          control={form.control}
+                          name="licenseNumber"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="text-blue-300">License Number</FormLabel>
+                              <FormControl>
+                                <Input placeholder="License number" {...field} className="bg-gray-900/80 border-blue-500/30" />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                        
+                        <FormField
+                          control={form.control}
+                          name="yearsInBusiness"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="text-blue-300">Years in Business*</FormLabel>
+                              <FormControl>
+                                <Input 
+                                  type="number" 
+                                  placeholder="Years" 
+                                  className="bg-gray-900/80 border-blue-500/30"
+                                  {...field} 
+                                  onChange={(e) => field.onChange(e.target.value ? parseInt(e.target.value) : undefined)}
+                                />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
                       </div>
+                      
+                      <FormField
+                        control={form.control}
+                        name="specialties"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-blue-300">Specialties*</FormLabel>
+                            <FormControl>
+                              <Textarea 
+                                placeholder="Describe your marine service specialties"
+                                className="bg-gray-900/80 border-blue-500/30 min-h-[100px]"
+                                {...field}
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      
+                      <FormField
+                        control={form.control}
+                        name="vesselTypes"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-blue-300">Vessel Types Experience</FormLabel>
+                            <FormControl>
+                              <Textarea
+                                placeholder="Types of vessels you work with"
+                                className="bg-gray-900/80 border-blue-500/30"
+                                {...field}
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      
+                      <FormField
+                        control={form.control}
+                        name="agreesToTerms"
+                        render={({ field }) => (
+                          <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md p-4 bg-gradient-to-br from-blue-900/20 via-blue-950/20 to-black/20 border border-blue-500/20">
+                            <FormControl>
+                              <Checkbox
+                                checked={field.value}
+                                onCheckedChange={field.onChange}
+                                className="data-[state=checked]:bg-blue-500"
+                              />
+                            </FormControl>
+                            <div className="space-y-1 leading-none">
+                              <FormLabel className="text-blue-200 font-medium">
+                                I agree to the terms and conditions*
+                              </FormLabel>
+                              <p className="text-gray-400 text-sm">
+                                By submitting this form, you agree to our terms of service and privacy policy.
+                              </p>
+                            </div>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      
+                      <div className="pt-4 relative">
+                        <div className="absolute -inset-1 bg-blue-500/30 rounded-lg blur-md opacity-70"></div>
+                        <div className="relative">
+                          <PremiumCartButton 
+                            type="submit"
+                            size="lg"
+                            className="w-full"
+                            disabled={registerMutation.isPending}
+                          >
+                            <div className="flex items-center justify-center gap-2">
+                              <CircleDollarSign className="h-5 w-5" />
+                              <span>{registerMutation.isPending ? "Submitting..." : "Get Your 411% ROI Analysis"}</span>
+                            </div>
+                          </PremiumCartButton>
+                        </div>
+                      </div>
+                    </form>
+                  </Form>
+                </div>
+              </div>
+            )}
+            
+            {/* Registration Success Message */}
+            {registrationSuccess && (
+              <div className="relative">
+                <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/20 via-orange-500/20 to-blue-500/20 rounded-xl blur-xl opacity-70"></div>
+                
+                <div className="relative bg-gradient-to-br from-gray-900/90 via-gray-950/90 to-black/90 p-8 rounded-xl border border-blue-500/40 shadow-[0_10px_50px_rgba(59,130,246,0.2)] mt-12 text-center">
+                  {/* Corner accents */}
+                  <div className="absolute top-0 left-0 w-12 h-12 z-10 pointer-events-none">
+                    <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-orange-500/40 rounded-tl-md"></div>
+                    <div className="absolute top-1 left-1 w-8 h-8 border-t border-l border-blue-500/30 rounded-tl-md"></div>
+                  </div>
+                  <div className="absolute top-0 right-0 w-12 h-12 z-10 pointer-events-none">
+                    <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-orange-500/40 rounded-tr-md"></div>
+                    <div className="absolute top-1 right-1 w-8 h-8 border-t border-r border-blue-500/30 rounded-tr-md"></div>
+                  </div>
+                  <div className="absolute bottom-0 right-0 w-12 h-12 z-10 pointer-events-none">
+                    <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-orange-500/40 rounded-br-md"></div>
+                    <div className="absolute bottom-1 right-1 w-8 h-8 border-b border-r border-blue-500/30 rounded-br-md"></div>
+                  </div>
+                  <div className="absolute bottom-0 left-0 w-12 h-12 z-10 pointer-events-none">
+                    <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-orange-500/40 rounded-bl-md"></div>
+                    <div className="absolute bottom-1 left-1 w-8 h-8 border-b border-l border-blue-500/30 rounded-bl-md"></div>
+                  </div>
+
+                  <div className="inline-flex items-center justify-center bg-blue-600 rounded-full p-3 mb-4 relative z-50">
+                    <CheckCircle className="h-10 w-10 text-white" />
+                  </div>
+                  <h2 className="text-3xl font-bold mb-4 text-white drop-shadow-[0_2px_10px_rgba(59,130,246,0.5)]">
+                    Registration Successful!
+                  </h2>
+                  <p className="text-white text-lg mb-6">
+                    Thank you for registering as a Marina Professional with Praetorian SmartCoat Solutions. Our team will review your information and contact you shortly.
+                  </p>
+                  <div className="relative">
+                    <div className="absolute -inset-1 bg-blue-500/30 rounded-lg blur-md opacity-70"></div>
+                    <div className="relative">
+                      <PremiumCartButton 
+                        onClick={() => setRegistrationSuccess(false)} 
+                        size="lg"
+                        className="bg-blue-600/40 hover:bg-blue-600/60 text-white"
+                      >
+                        Return to Marina Page
+                      </PremiumCartButton>
                     </div>
                   </div>
-                </TabsContent>
-              </Tabs>
-            </div>
+                </div>
+              </div>
+            )}
           </div>
         </section>
         
-        {/* SANDLER STAGE 4: DECISION - PURPLE GLOW SECTION */}
-        <section className="py-16 relative z-10 overflow-hidden">
-          {/* Section-specific ambient purple glow */}
-          <div className="absolute inset-0 bg-purple-900/10 rounded-full blur-[100px] opacity-50 z-0"></div>
-          
-          <div className="container mx-auto px-4 relative z-10">
-            <div className="max-w-5xl mx-auto">
-              <div className="text-center mb-12">
-                <div className="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-gradient-to-r from-purple-500/20 via-purple-600/20 to-purple-500/20 border border-purple-500/30 shadow-lg mb-6">
-                  <Shield className="h-4 w-4 mr-2 text-purple-400" />
-                  <span className="text-purple-100 font-medium text-sm">Next Steps</span>
+        {/* Marina Business ROI Analysis Section */}
+        <section className="py-16 relative z-10">
+          <div className="container mx-auto">
+            <div className="relative max-w-6xl mx-auto">
+              <div className="absolute -inset-2 bg-gradient-to-r from-blue-600/30 via-orange-600/30 to-blue-600/30 rounded-xl blur-xl opacity-70"></div>
+              <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 rounded-xl p-6 md:p-8 shadow-lg border border-blue-500/30 overflow-hidden">
+                {/* Corner accent elements */}
+                <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none">
+                  <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-blue-500/70 rounded-tl-lg"></div>
+                  <div className="absolute top-0 left-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
+                </div>
+                <div className="absolute top-0 right-0 w-16 h-16 pointer-events-none">
+                  <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-orange-500/70 rounded-tr-lg"></div>
+                  <div className="absolute top-0 right-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+                </div>
+                <div className="absolute bottom-0 left-0 w-16 h-16 pointer-events-none">
+                  <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-orange-500/70 rounded-bl-lg"></div>
+                  <div className="absolute bottom-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
+                </div>
+                <div className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none">
+                  <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-blue-500/70 rounded-br-lg"></div>
+                  <div className="absolute bottom-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
                 </div>
                 
-                <GradientHeading 
-                  size="4xl" 
-                  className="mb-6 from-purple-400 via-violet-300 to-purple-400"
-                >
-                  Protect Your Municipal Infrastructure
-                </GradientHeading>
+                <h2 className="text-3xl font-bold mb-8 text-center text-white drop-shadow-[0_0px_1px_rgba(59,130,246,0.2)] [text-shadow:0_1px_1px_rgba(0,0,0,0.15),0_1px_5px_rgba(59,130,246,0.3)]">
+                  Marina Business Investment Analysis
+                </h2>
                 
-                <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-10">
-                  Start the process today to secure funding, implement advanced protection, and ensure infrastructure resilience for your community.
-                </p>
+                <div className="grid md:grid-cols-2 gap-8 mb-8">
+                  <div>
+                    <h3 className="text-xl font-semibold mb-4 text-white">Marina Industry Challenges</h3>
+                    
+                    <div className="bg-gradient-to-br from-gray-800/70 via-gray-850/70 to-gray-900/70 p-6 rounded-lg border border-red-500/20 mb-6">
+                      <h4 className="text-lg font-semibold text-white mb-3 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-red-400 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                          <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                        </svg>
+                        Critical Business Issues
+                      </h4>
+                      
+                      <ul className="space-y-3">
+                        <li className="flex items-start">
+                          <div className="min-w-6 h-6 bg-red-900/40 rounded-full flex items-center justify-center mt-0.5 mr-2">
+                            <span className="text-red-400 text-xs font-bold">1</span>
+                          </div>
+                          <span className="text-gray-200">
+                            <span className="font-semibold text-white">Constant environmental exposure</span> - Marina structures face extreme UV, salt water corrosion, and moisture 24/7/365
+                          </span>
+                        </li>
+                        <li className="flex items-start">
+                          <div className="min-w-6 h-6 bg-red-900/40 rounded-full flex items-center justify-center mt-0.5 mr-2">
+                            <span className="text-red-400 text-xs font-bold">2</span>
+                          </div>
+                          <span className="text-gray-200">
+                            <span className="font-semibold text-white">Frequent repainting cycles</span> - Traditional marine coatings require full reapplication every 2-5 years
+                          </span>
+                        </li>
+                        <li className="flex items-start">
+                          <div className="min-w-6 h-6 bg-red-900/40 rounded-full flex items-center justify-center mt-0.5 mr-2">
+                            <span className="text-red-400 text-xs font-bold">3</span>
+                          </div>
+                          <span className="text-gray-200">
+                            <span className="font-semibold text-white">Operational disruption</span> - Each maintenance cycle requires dock closures, lost slip revenue, and customer inconvenience
+                          </span>
+                        </li>
+                        <li className="flex items-start">
+                          <div className="min-w-6 h-6 bg-red-900/40 rounded-full flex items-center justify-center mt-0.5 mr-2">
+                            <span className="text-red-400 text-xs font-bold">4</span>
+                          </div>
+                          <span className="text-gray-200">
+                            <span className="font-semibold text-white">Environmental compliance costs</span> - Traditional marine paints have high VOC levels requiring special handling and disposal
+                          </span>
+                        </li>
+                      </ul>
+                    </div>
+                    
+                    <div className="bg-blue-950/30 rounded-lg border border-blue-500/30 p-6">
+                      <h4 className="text-lg font-semibold text-white mb-3 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-400 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                        </svg>
+                        Praetorian Marina Solutions
+                      </h4>
+                      
+                      <ul className="space-y-3">
+                        <li className="flex items-start">
+                          <div className="min-w-6 h-6 bg-blue-900/40 rounded-full flex items-center justify-center mt-0.5 mr-2">
+                            <span className="text-blue-400 text-xs font-bold">1</span>
+                          </div>
+                          <span className="text-gray-200">
+                            <span className="font-semibold text-white">20+ year performance longevity</span> - Verified resistance to salt spray for 10,000+ hours with 156% elastomeric flexibility
+                          </span>
+                        </li>
+                        <li className="flex items-start">
+                          <div className="min-w-6 h-6 bg-blue-900/40 rounded-full flex items-center justify-center mt-0.5 mr-2">
+                            <span className="text-blue-400 text-xs font-bold">2</span>
+                          </div>
+                          <span className="text-gray-200">
+                            <span className="font-semibold text-white">Lower total application cost</span> - Single application system replaces multiple primer/marine paint layers
+                          </span>
+                        </li>
+                        <li className="flex items-start">
+                          <div className="min-w-6 h-6 bg-blue-900/40 rounded-full flex items-center justify-center mt-0.5 mr-2">
+                            <span className="text-blue-400 text-xs font-bold">3</span>
+                          </div>
+                          <span className="text-gray-200">
+                            <span className="font-semibold text-white">Reduced operational downtime</span> - Up to 75% less maintenance-related closure days over 20-year lifecycle
+                          </span>
+                        </li>
+                        <li className="flex items-start">
+                          <div className="min-w-6 h-6 bg-blue-900/40 rounded-full flex items-center justify-center mt-0.5 mr-2">
+                            <span className="text-blue-400 text-xs font-bold">4</span>
+                          </div>
+                          <span className="text-gray-200">
+                            <span className="font-semibold text-white">Zero VOC environmental compliance</span> - Qualifies for green marina certifications with water-based formulation
+                          </span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-gradient-to-br from-gray-800/80 via-gray-900/80 to-black/80 rounded-lg p-6 border border-blue-500/20">
+                    <h3 className="text-xl font-semibold mb-4 text-white flex items-center">
+                      <Ship className="h-5 w-5 text-blue-400 mr-2" />
+                      Marina Operation Profitability Analysis
+                    </h3>
+                    
+                    <div className="relative mb-6">
+                      <div className="absolute top-0 left-0 w-12 h-12 pointer-events-none">
+                        <div className="absolute top-0 left-0 w-4 h-4 border-t border-l border-blue-500/30 rounded-tl-sm"></div>
+                      </div>
+                      <div className="absolute bottom-0 right-0 w-12 h-12 pointer-events-none">
+                        <div className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-blue-500/30 rounded-br-sm"></div>
+                      </div>
+                      
+                      <div className="bg-blue-950/40 rounded-lg border border-blue-700/30 p-4 mb-4">
+                        <h4 className="text-lg font-medium text-white mb-2">Medium Size Marina <span className="text-sm text-blue-300">(100 slips, 15,000 sq ft of structures)</span></h4>
+                        
+                        <div className="grid grid-cols-2 gap-x-4 gap-y-2 mb-4">
+                          <div className="col-span-2">
+                            <div className="flex justify-between border-b border-gray-700/50 pb-1 mb-1">
+                              <span className="text-sm text-gray-400">20-Year Lifecycle Comparison</span>
+                              <span></span>
+                            </div>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-gray-300">Traditional coating lifecycle cost:</span>
+                            <span className="text-white font-medium">$783,500</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-gray-300">Praetorian system lifecycle cost:</span>
+                            <span className="text-white font-medium">$185,200</span>
+                          </div>
+                          <div className="flex justify-between pt-1 border-t border-gray-700/50">
+                            <span className="text-gray-200 font-medium">Direct maintenance savings:</span>
+                            <span className="text-green-400 font-semibold">$598,300</span>
+                          </div>
+                        </div>
+                        
+                        <div className="grid grid-cols-2 gap-x-4 gap-y-2">
+                          <div className="col-span-2">
+                            <div className="flex justify-between border-b border-gray-700/50 pb-1 mb-1">
+                              <span className="text-sm text-gray-400">Operational Revenue Impact</span>
+                              <span></span>
+                            </div>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-gray-300">Reduced downtime revenue gain:</span>
+                            <span className="text-white font-medium">$412,000</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-gray-300">Customer satisfaction premium:</span>
+                            <span className="text-white font-medium">$128,000</span>
+                          </div>
+                          <div className="flex justify-between pt-1 border-t border-gray-700/50">
+                            <span className="text-gray-200 font-medium">Total 20-Year Business Impact:</span>
+                            <span className="text-green-400 font-semibold">$1,138,300</span>
+                          </div>
+                        </div>
+                        
+                        <div className="mt-3 text-center text-blue-300 text-sm">
+                          <span className="font-semibold">Annualized ROI: 307%</span> | Payback period: 3.1 years
+                        </div>
+                      </div>
+                      
+                      <div className="bg-blue-950/40 rounded-lg border border-blue-700/30 p-4">
+                        <h4 className="text-lg font-medium text-white mb-2">Competitive Advantages <span className="text-sm text-blue-300">(Business Impact)</span></h4>
+                        
+                        <div className="flex justify-between items-center mb-2">
+                          <span className="text-gray-300">Maintenance staff allocation reduction:</span>
+                          <span className="text-white font-semibold">62.5%</span>
+                        </div>
+                        <div className="w-full h-3 bg-gray-700/50 rounded-full mb-4 overflow-hidden">
+                          <div className="h-full bg-gradient-to-r from-blue-500 to-green-500 rounded-full" style={{ width: "62.5%" }}></div>
+                        </div>
+                        
+                        <div className="flex justify-between items-center mb-2">
+                          <span className="text-gray-300">Slip availability rate increase:</span>
+                          <span className="text-white font-semibold">8.3%</span>
+                        </div>
+                        <div className="w-full h-3 bg-gray-700/50 rounded-full mb-4 overflow-hidden">
+                          <div className="h-full bg-gradient-to-r from-blue-500 to-green-500 rounded-full" style={{ width: "8.3%" }}></div>
+                        </div>
+                        
+                        <div className="flex justify-between items-center mb-2">
+                          <span className="text-gray-300">Environmental certification impact:</span>
+                          <div className="flex space-x-1">
+                            <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                            <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                            <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                            <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                            <div className="w-2 h-2 bg-gray-500 rounded-full"></div>
+                          </div>
+                        </div>
+                        
+                        <div className="mt-4 p-3 bg-blue-900/20 rounded border border-blue-700/20">
+                          <div className="flex items-center">
+                            <Anchor className="h-5 w-5 text-blue-400 mr-2 flex-shrink-0" />
+                            <span className="text-sm text-gray-200">
+                              <span className="font-semibold text-white">Premium positioning:</span> Marinas with Praetorian systems command 12-15% higher slip rates and maintain higher occupancy
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="text-center mt-6">
+                      <button 
+                        onClick={() => setShowRegistrationForm(true)}
+                        className="relative inline-flex items-center justify-center px-8 py-4 overflow-hidden font-medium text-blue-600 transition duration-300 ease-out border-2 border-blue-500 rounded-lg shadow-md group"
+                      >
+                        <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-blue-600 group-hover:translate-x-0 ease">
+                          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                          </svg>
+                        </span>
+                        <span className="absolute flex items-center justify-center w-full h-full text-blue-500 transition-all duration-300 transform group-hover:translate-x-full ease">Request Marina Business Analysis</span>
+                        <span className="relative invisible">Request Marina Business Analysis</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="text-center text-gray-300 text-sm max-w-3xl mx-auto">
+                  <p>
+                    Our marina coating systems are engineered to withstand all marine environments from tropical to northern waters. Schedule a free consultation to receive a customized business impact report for your specific facility.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-16 relative z-10">
+          <div className="container mx-auto">
+            {/* NEW SECTION: Marina-Specific Comfort Benefits */}
+            <div className="relative mb-20">
+              <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/15 via-orange-500/10 to-blue-500/15 rounded-2xl blur-xl opacity-70"></div>
+              
+              <div className="relative bg-gradient-to-br from-gray-900/90 via-gray-950/90 to-black/90 p-8 rounded-xl border border-blue-500/40 shadow-[0_10px_50px_rgba(59,130,246,0.2)]">
+                {/* Corner accents */}
+                <div className="absolute top-0 left-0 w-12 h-12 z-10 pointer-events-none">
+                  <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-orange-500/40 rounded-tl-md"></div>
+                  <div className="absolute top-1 left-1 w-8 h-8 border-t border-l border-blue-500/30 rounded-tl-md"></div>
+                </div>
+                <div className="absolute top-0 right-0 w-12 h-12 z-10 pointer-events-none">
+                  <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-orange-500/40 rounded-tr-md"></div>
+                  <div className="absolute top-1 right-1 w-8 h-8 border-t border-r border-blue-500/30 rounded-tr-md"></div>
+                </div>
+                <div className="absolute bottom-0 right-0 w-12 h-12 z-10 pointer-events-none">
+                  <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-orange-500/40 rounded-br-md"></div>
+                  <div className="absolute bottom-1 right-1 w-8 h-8 border-b border-r border-blue-500/30 rounded-br-md"></div>
+                </div>
+                <div className="absolute bottom-0 left-0 w-12 h-12 z-10 pointer-events-none">
+                  <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-orange-500/40 rounded-bl-md"></div>
+                  <div className="absolute bottom-1 left-1 w-8 h-8 border-b border-l border-blue-500/30 rounded-bl-md"></div>
+                </div>
+              
+                <div className="relative mb-6">
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-orange-500/5 rounded-lg blur-sm"></div>
+                  <h2 className="text-3xl font-bold text-white relative drop-shadow-[0_2px_10px_rgba(59,130,246,0.5)]">
+                    <span className="inline-block relative">
+                      Superior Marina Comfort & Performance
+                      <div className="absolute -bottom-1 left-0 right-0 h-[2px] bg-gradient-to-r from-blue-500/50 via-blue-400/30 to-transparent"></div>
+                    </span>
+                  </h2>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-8">
+                  <div>
+                    <div className="mb-6">
+                      <div className="flex items-start gap-4 mb-4">
+                        <div className="relative">
+                          <div className="absolute -inset-1 bg-blue-600/20 rounded-full blur-md"></div>
+                          <span className="bg-gradient-to-br from-blue-600 to-blue-800 rounded-full p-2 mt-1 relative border border-blue-400/30 shadow-lg shadow-blue-900/20">
+                            <Sun className="h-5 w-5 text-white" />
+                          </span>
+                        </div>
+                        <div>
+                          <h3 className="text-xl font-semibold mb-2 text-white drop-shadow-[0_1px_2px_rgba(59,130,246,0.5)]">
+                            <span className="relative inline-block">
+                              Cool-to-Touch Technology
+                              <div className="absolute -bottom-1 left-0 w-12 h-[2px] bg-gradient-to-r from-blue-500 to-transparent"></div>
+                            </span>
+                          </h3>
+                          <p className="text-white leading-relaxed">
+                            Our coatings reduce surface temperatures by <span className="text-blue-300 font-medium">up to 40°F</span> compared to untreated surfaces, preventing the scorching heat that can burn bare feet on docks and marina surfaces. This revolutionary thermal regulation creates comfortable walking surfaces even in the most intense direct sunlight.
+                          </p>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-start gap-4">
+                        <div className="relative">
+                          <div className="absolute -inset-1 bg-blue-600/20 rounded-full blur-md"></div>
+                          <span className="bg-gradient-to-br from-blue-600 to-blue-800 rounded-full p-2 mt-1 relative border border-blue-400/30 shadow-lg shadow-blue-900/20">
+                            <Waves className="h-5 w-5 text-white" />
+                          </span>
+                        </div>
+                        <div>
+                          <h3 className="text-xl font-semibold mb-2 text-white drop-shadow-[0_1px_2px_rgba(59,130,246,0.5)]">
+                            <span className="relative inline-block">
+                              Anti-Slip Surface Technology
+                              <div className="absolute -bottom-1 left-0 w-12 h-[2px] bg-gradient-to-r from-blue-500 to-transparent"></div>
+                            </span>
+                          </h3>
+                          <p className="text-white leading-relaxed">
+                            Our specialized formula creates a textured, non-slip surface with a <span className="text-blue-300 font-medium">coefficient of friction exceeding 0.6</span> even when wet, significantly reducing slip-and-fall accidents while maintaining comfort for bare feet. The proprietary ceramic microtexture provides maximum grip without the rough, abrasive feeling of traditional non-slip coatings.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <div className="mb-6">
+                      <div className="flex items-start gap-4 mb-4">
+                        <div className="relative">
+                          <div className="absolute -inset-1 bg-orange-600/20 rounded-full blur-md"></div>
+                          <span className="bg-gradient-to-br from-orange-600 to-orange-800 rounded-full p-2 mt-1 relative border border-orange-400/30 shadow-lg shadow-orange-900/20">
+                            <ShieldCheck className="h-5 w-5 text-white" />
+                          </span>
+                        </div>
+                        <div>
+                          <h3 className="text-xl font-semibold mb-2 text-white drop-shadow-[0_1px_2px_rgba(59,130,246,0.5)]">
+                            <span className="relative inline-block">
+                              Prevents Splinter Formation
+                              <div className="absolute -bottom-1 left-0 w-12 h-[2px] bg-gradient-to-r from-orange-500 to-transparent"></div>
+                            </span>
+                          </h3>
+                          <p className="text-white leading-relaxed">
+                            Our coating creates a durable membrane that seals wooden dock surfaces, preventing splinter formation while preserving the natural wood texture. This protective barrier <span className="text-orange-300 font-medium">extends the lifespan of wooden docks by 300%</span> while providing a smooth, comfortable walking surface for marina visitors.
+                          </p>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-start gap-4">
+                        <div className="relative">
+                          <div className="absolute -inset-1 bg-orange-600/20 rounded-full blur-md"></div>
+                          <span className="bg-gradient-to-br from-orange-600 to-orange-800 rounded-full p-2 mt-1 relative border border-orange-400/30 shadow-lg shadow-orange-900/20">
+                            <Zap className="h-5 w-5 text-white" />
+                          </span>
+                        </div>
+                        <div>
+                          <h3 className="text-xl font-semibold mb-2 text-white drop-shadow-[0_1px_2px_rgba(59,130,246,0.5)]">
+                            <span className="relative inline-block">
+                              Marina Electrical Safety
+                              <div className="absolute -bottom-1 left-0 w-12 h-[2px] bg-gradient-to-r from-orange-500 to-transparent"></div>
+                            </span>
+                          </h3>
+                          <p className="text-white leading-relaxed">
+                            Our ceramic-based coatings provide dielectric properties with <span className="text-orange-300 font-medium">electrical resistance up to 600V</span>, adding a critical safety layer around marina electrical components and reducing shock hazards. This protective barrier is especially valuable in wet environments where electrical infrastructure is exposed to saltwater and weather.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="mt-8 border-t border-blue-800/30 pt-8">
+                  <p className="text-white text-center">
+                    Our specialized marina coatings have been independently tested and verified by the <span className="text-blue-300 font-medium">Marine Safety Institute</span> to provide unmatched comfort and safety in commercial and recreational marine environments.
+                  </p>
+                  <div className="mt-6 flex justify-center">
+                    <div className="relative">
+                      <div className="absolute -inset-1 bg-blue-500/30 rounded-lg blur-md opacity-70"></div>
+                      <div className="relative">
+                        <PremiumCartButton 
+                          size="lg"
+                          className="px-10 py-6 text-lg"
+                        >
+                          Request Marina-Specific Consultation
+                        </PremiumCartButton>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Marina Solutions Section Title */}
+            <div className="text-center mb-12">
+              <div className="relative">
+                <div className="absolute -inset-1 bg-gradient-to-r from-orange-500/20 via-blue-500/20 to-orange-500/20 rounded-xl blur-xl opacity-70"></div>
+                
+                <div className="relative bg-gradient-to-br from-gray-900/90 via-gray-950/90 to-black/90 py-8 px-6 md:px-10 rounded-xl border border-orange-500/40 shadow-[0_10px_50px_rgba(59,130,246,0.2)] mx-auto max-w-3xl mb-8 inline-block">
+                  {/* Corner accents */}
+                  <div className="absolute top-0 left-0 w-12 h-12 z-10 pointer-events-none">
+                    <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-orange-500/40 rounded-tl-md"></div>
+                    <div className="absolute top-1 left-1 w-8 h-8 border-t border-l border-blue-500/30 rounded-tl-md"></div>
+                  </div>
+                  <div className="absolute top-0 right-0 w-12 h-12 z-10 pointer-events-none">
+                    <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-orange-500/40 rounded-tr-md"></div>
+                    <div className="absolute top-1 right-1 w-8 h-8 border-t border-r border-blue-500/30 rounded-tr-md"></div>
+                  </div>
+                  <div className="absolute bottom-0 right-0 w-12 h-12 z-10 pointer-events-none">
+                    <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-orange-500/40 rounded-br-md"></div>
+                    <div className="absolute bottom-1 right-1 w-8 h-8 border-b border-r border-blue-500/30 rounded-br-md"></div>
+                  </div>
+                  <div className="absolute bottom-0 left-0 w-12 h-12 z-10 pointer-events-none">
+                    <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-orange-500/40 rounded-bl-md"></div>
+                    <div className="absolute bottom-1 left-1 w-8 h-8 border-b border-l border-blue-500/30 rounded-bl-md"></div>
+                  </div>
+
+                  <div className="relative mb-4">
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-orange-500/5 rounded-lg blur-sm"></div>
+                    <h2 className="text-3xl md:text-4xl font-bold text-white relative drop-shadow-[0_2px_10px_rgba(59,130,246,0.5)]">
+                      <span className="inline-block relative">
+                        Marine Application Solutions
+                        <div className="absolute -bottom-1 left-0 right-0 h-[2px] bg-gradient-to-r from-blue-500/50 via-blue-400/30 to-transparent"></div>
+                      </span>
+                    </h2>
+                  </div>
+                  <p className="text-white max-w-2xl mx-auto">
+                    Specialized coatings for every marine application, from personal watercraft to commercial vessels
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {/* Card 1 */}
+              <div className="relative group">
+                <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/20 via-orange-500/20 to-blue-500/20 rounded-xl blur-xl opacity-70 group-hover:opacity-100 transition-opacity duration-500"></div>
+                
+                <div className="relative bg-gradient-to-br from-gray-900/90 via-gray-950/90 to-black/90 p-6 rounded-xl border border-blue-500/40 shadow-[0_10px_50px_rgba(59,130,246,0.2)] h-full flex flex-col transform transition-all duration-300 group-hover:translate-y-[-5px]">
+                  {/* Corner accents */}
+                  <div className="absolute top-0 left-0 w-12 h-12 z-10 pointer-events-none">
+                    <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-orange-500/40 rounded-tl-md"></div>
+                    <div className="absolute top-1 left-1 w-8 h-8 border-t border-l border-blue-500/30 rounded-tl-md"></div>
+                  </div>
+                  <div className="absolute top-0 right-0 w-12 h-12 z-10 pointer-events-none">
+                    <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-orange-500/40 rounded-tr-md"></div>
+                    <div className="absolute top-1 right-1 w-8 h-8 border-t border-r border-blue-500/30 rounded-tr-md"></div>
+                  </div>
+                  <div className="absolute bottom-0 right-0 w-12 h-12 z-10 pointer-events-none">
+                    <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-orange-500/40 rounded-br-md"></div>
+                    <div className="absolute bottom-1 right-1 w-8 h-8 border-b border-r border-blue-500/30 rounded-br-md"></div>
+                  </div>
+                  <div className="absolute bottom-0 left-0 w-12 h-12 z-10 pointer-events-none">
+                    <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-orange-500/40 rounded-bl-md"></div>
+                    <div className="absolute bottom-1 left-1 w-8 h-8 border-b border-l border-blue-500/30 rounded-bl-md"></div>
+                  </div>
+
+                  <div className="inline-flex items-center justify-center bg-blue-600 rounded-full p-3 mb-4 w-16 h-16">
+                    <Ship className="h-8 w-8 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-3 text-white">Pleasure Craft Protection</h3>
+                  <p className="text-gray-300 mb-6 flex-grow">Our marine-grade ceramic coating provides superior protection against UV damage, salt water corrosion, and temperature fluctuations - extending the life of your vessel while reducing maintenance costs.</p>
+                  <div className="relative">
+                    <div className="absolute -inset-1 bg-blue-500/30 rounded-lg blur-md opacity-70 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div className="relative">
+                      <PremiumCartButton size="sm" className="w-full">
+                        Learn More
+                      </PremiumCartButton>
+                    </div>
+                  </div>
+                </div>
               </div>
               
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-                <div className="relative">
-                  <div className="absolute -top-3 -left-3 w-24 h-24 bg-purple-700/10 rounded-full blur-[30px] z-0"></div>
-                  <div className="bg-gradient-to-br from-gray-900/90 to-gray-950/90 border border-purple-600/40 rounded-xl p-6 relative z-10">
-                    <div className="h-12 w-12 flex items-center justify-center bg-gradient-to-br from-purple-700 to-purple-900 rounded-full mb-5 relative">
-                      <div className="absolute inset-0 bg-purple-600/20 rounded-full animate-ping opacity-80"></div>
-                      <div className="absolute top-0 right-0 -mr-1 -mt-1 h-5 w-5 bg-gradient-to-br from-purple-500 to-purple-700 flex items-center justify-center rounded-full text-white text-xs font-bold">1</div>
-                      <Flame className="h-6 w-6 text-purple-300" />
-                    </div>
-                    
-                    <h3 className="text-xl font-bold mb-3 text-white">Initial Assessment</h3>
-                    <p className="text-gray-300 mb-5">Our engineers conduct a comprehensive infrastructure evaluation to identify vulnerabilities and protection needs.</p>
-                    
-                    <div className="flex items-center justify-between text-sm">
-                      <span className="text-gray-400">Timeframe:</span>
-                      <span className="text-purple-400">1-2 Weeks</span>
-                    </div>
-                  </div>
-                </div>
+              {/* Card 2 */}
+              <div className="relative group">
+                <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/20 via-orange-500/20 to-blue-500/20 rounded-xl blur-xl opacity-70 group-hover:opacity-100 transition-opacity duration-500"></div>
                 
-                <div className="relative mt-8 md:mt-4">
-                  <div className="absolute -top-3 -left-3 w-24 h-24 bg-purple-700/10 rounded-full blur-[30px] z-0"></div>
-                  <div className="bg-gradient-to-br from-gray-900/90 to-gray-950/90 border border-purple-600/40 rounded-xl p-6 relative z-10">
-                    <div className="h-12 w-12 flex items-center justify-center bg-gradient-to-br from-purple-700 to-purple-900 rounded-full mb-5 relative">
-                      <div className="absolute top-0 right-0 -mr-1 -mt-1 h-5 w-5 bg-gradient-to-br from-purple-500 to-purple-700 flex items-center justify-center rounded-full text-white text-xs font-bold">2</div>
-                      <FileText className="h-6 w-6 text-purple-300" />
-                    </div>
-                    
-                    <h3 className="text-xl font-bold mb-3 text-white">Funding Application</h3>
-                    <p className="text-gray-300 mb-5">Our specialists identify and apply for eligible grants and funding sources to offset project costs.</p>
-                    
-                    <div className="flex items-center justify-between text-sm">
-                      <span className="text-gray-400">Timeframe:</span>
-                      <span className="text-purple-400">2-4 Weeks</span>
-                    </div>
+                <div className="relative bg-gradient-to-br from-gray-900/90 via-gray-950/90 to-black/90 p-6 rounded-xl border border-blue-500/40 shadow-[0_10px_50px_rgba(59,130,246,0.2)] h-full flex flex-col transform transition-all duration-300 group-hover:translate-y-[-5px]">
+                  {/* Corner accents */}
+                  <div className="absolute top-0 left-0 w-12 h-12 z-10 pointer-events-none">
+                    <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-orange-500/40 rounded-tl-md"></div>
+                    <div className="absolute top-1 left-1 w-8 h-8 border-t border-l border-blue-500/30 rounded-tl-md"></div>
                   </div>
-                </div>
-                
-                <div className="relative mt-8 md:mt-8">
-                  <div className="absolute -top-3 -left-3 w-24 h-24 bg-purple-700/10 rounded-full blur-[30px] z-0"></div>
-                  <div className="bg-gradient-to-br from-gray-900/90 to-gray-950/90 border border-purple-600/40 rounded-xl p-6 relative z-10">
-                    <div className="h-12 w-12 flex items-center justify-center bg-gradient-to-br from-purple-700 to-purple-900 rounded-full mb-5 relative">
-                      <div className="absolute top-0 right-0 -mr-1 -mt-1 h-5 w-5 bg-gradient-to-br from-purple-500 to-purple-700 flex items-center justify-center rounded-full text-white text-xs font-bold">3</div>
-                      <Shield className="h-6 w-6 text-purple-300" />
-                    </div>
-                    
-                    <h3 className="text-xl font-bold mb-3 text-white">Implementation</h3>
-                    <p className="text-gray-300 mb-5">Our certified teams apply advanced ceramic coating protection with minimal disruption to municipal operations.</p>
-                    
-                    <div className="flex items-center justify-between text-sm">
-                      <span className="text-gray-400">Timeframe:</span>
-                      <span className="text-purple-400">Project Dependent</span>
+                  <div className="absolute top-0 right-0 w-12 h-12 z-10 pointer-events-none">
+                    <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-orange-500/40 rounded-tr-md"></div>
+                    <div className="absolute top-1 right-1 w-8 h-8 border-t border-r border-blue-500/30 rounded-tr-md"></div>
+                  </div>
+                  <div className="absolute bottom-0 right-0 w-12 h-12 z-10 pointer-events-none">
+                    <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-orange-500/40 rounded-br-md"></div>
+                    <div className="absolute bottom-1 right-1 w-8 h-8 border-b border-r border-blue-500/30 rounded-br-md"></div>
+                  </div>
+                  <div className="absolute bottom-0 left-0 w-12 h-12 z-10 pointer-events-none">
+                    <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-orange-500/40 rounded-bl-md"></div>
+                    <div className="absolute bottom-1 left-1 w-8 h-8 border-b border-l border-blue-500/30 rounded-bl-md"></div>
+                  </div>
+
+                  <div className="inline-flex items-center justify-center bg-blue-600 rounded-full p-3 mb-4 w-16 h-16">
+                    <Factory className="h-8 w-8 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-3 text-white">Commercial Marine Applications</h3>
+                  <p className="text-gray-300 mb-6 flex-grow">Engineered for commercial vessels and marine structures with heavy use patterns. Our ABS-certified coatings extend maintenance cycles and reduce downtime while cutting operational costs.</p>
+                  <div className="relative">
+                    <div className="absolute -inset-1 bg-blue-500/30 rounded-lg blur-md opacity-70 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div className="relative">
+                      <PremiumCartButton size="sm" className="w-full">
+                        Learn More
+                      </PremiumCartButton>
                     </div>
                   </div>
                 </div>
               </div>
               
-              {showRegistrationForm ? (
-                <div className="bg-gradient-to-br from-gray-900/95 to-black/95 p-8 rounded-2xl border border-purple-700/30 shadow-[0_15px_50px_-12px_rgba(0,0,0,0.5)]">
-                  <div className="flex justify-between items-center mb-8">
-                    <h3 className="text-2xl font-bold text-white">Municipal Professional Registration</h3>
-                    
-                    <div className="flex items-center">
-                      <div className="w-3 h-3 rounded-full bg-purple-500 mr-2"></div>
-                      <span className="text-purple-300 text-sm font-medium">Secure Form</span>
+              {/* Card 3 */}
+              <div className="relative group">
+                <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/20 via-orange-500/20 to-blue-500/20 rounded-xl blur-xl opacity-70 group-hover:opacity-100 transition-opacity duration-500"></div>
+                
+                <div className="relative bg-gradient-to-br from-gray-900/90 via-gray-950/90 to-black/90 p-6 rounded-xl border border-blue-500/40 shadow-[0_10px_50px_rgba(59,130,246,0.2)] h-full flex flex-col transform transition-all duration-300 group-hover:translate-y-[-5px]">
+                  {/* Corner accents */}
+                  <div className="absolute top-0 left-0 w-12 h-12 z-10 pointer-events-none">
+                    <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-orange-500/40 rounded-tl-md"></div>
+                    <div className="absolute top-1 left-1 w-8 h-8 border-t border-l border-blue-500/30 rounded-tl-md"></div>
+                  </div>
+                  <div className="absolute top-0 right-0 w-12 h-12 z-10 pointer-events-none">
+                    <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-orange-500/40 rounded-tr-md"></div>
+                    <div className="absolute top-1 right-1 w-8 h-8 border-t border-r border-blue-500/30 rounded-tr-md"></div>
+                  </div>
+                  <div className="absolute bottom-0 right-0 w-12 h-12 z-10 pointer-events-none">
+                    <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-orange-500/40 rounded-br-md"></div>
+                    <div className="absolute bottom-1 right-1 w-8 h-8 border-b border-r border-blue-500/30 rounded-br-md"></div>
+                  </div>
+                  <div className="absolute bottom-0 left-0 w-12 h-12 z-10 pointer-events-none">
+                    <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-orange-500/40 rounded-bl-md"></div>
+                    <div className="absolute bottom-1 left-1 w-8 h-8 border-b border-l border-blue-500/30 rounded-bl-md"></div>
+                  </div>
+
+                  <div className="inline-flex items-center justify-center bg-blue-600 rounded-full p-3 mb-4 w-16 h-16">
+                    <BuildingIcon className="h-8 w-8 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-3 text-white">Marina Infrastructure</h3>
+                  <p className="text-gray-300 mb-6 flex-grow">Protect docks, piers, and marina facilities from the harsh marine environment. Our coatings create a durable barrier against saltwater, UV, and microbial growth while extending infrastructure lifespan.</p>
+                  <div className="relative">
+                    <div className="absolute -inset-1 bg-blue-500/30 rounded-lg blur-md opacity-70 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div className="relative">
+                      <PremiumCartButton size="sm" className="w-full">
+                        Learn More
+                      </PremiumCartButton>
                     </div>
                   </div>
-                  
-                  {/* Registration form content here */}
-                  <p className="text-center text-gray-300 mb-8">
-                    Complete the form below to receive our municipal infrastructure ROI analysis and funding options specific to your needs.
-                  </p>
-                  
-                  {/* Form elements would be here */}
-                  <div className="flex justify-center mt-8">
-                    <GradientButton
-                      size="lg"
-                      className="px-8 py-4"
-                    >
-                      <Shield className="mr-2 h-5 w-5" />
-                      Submit Registration
-                    </GradientButton>
-                  </div>
                 </div>
-              ) : (
-                <div className="bg-gradient-to-br from-gray-900/95 to-black/95 p-8 rounded-2xl border border-purple-700/30 shadow-[0_15px_50px_-12px_rgba(0,0,0,0.5)] text-center">
-                  <h3 className="text-2xl font-bold text-white mb-5">Ready to Protect Your Municipal Infrastructure?</h3>
-                  
-                  <p className="text-gray-300 mb-8 max-w-3xl mx-auto">
-                    Take the first step toward infrastructure resilience, budget optimization, and enhanced public safety with Praetorian Smart-Coat protection.
-                  </p>
-                  
-                  <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <GradientButton 
-                      size="lg" 
-                      className="px-8 py-4 relative"
-                      onClick={() => setShowRegistrationForm(true)}
-                    >
-                      <CircleDollarSign className="mr-2 h-5 w-5" />
-                      Request Municipal Consultation
-                    </GradientButton>
-                    
-                    <GradientButton 
-                      size="lg" 
-                      className="px-8 py-4"
-                    >
-                      <Download className="mr-2 h-5 w-5" />
-                      Download Case Studies
-                    </GradientButton>
-                  </div>
-                </div>
-              )}
+              </div>
             </div>
           </div>
         </section>
@@ -1070,4 +1474,4 @@ const Municipality = () => {
   );
 };
 
-export default Municipality;
+export default Marinas;
