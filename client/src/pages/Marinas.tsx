@@ -254,11 +254,32 @@ const Marinas = () => {
                 
                 {/* Enhanced ROI-focused stats with premium green styling */}
                 <div className="relative mb-10">
-                  {/* SANDLER STAGE 2: PRESENT SOLUTIONS */}
-                  <div className="relative bg-gradient-to-br from-black/70 to-gray-900/70 border border-green-500/30 rounded-xl p-6 backdrop-blur-sm mb-10">
-                    <div className="absolute -top-4 left-8 px-6 py-1 bg-gradient-to-r from-green-900/90 to-green-700/90 rounded-full border border-green-400/30 shadow-lg shadow-green-900/20">
-                      <span className="text-green-200 font-semibold">PROVEN SOLUTION</span>
-                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* SANDLER STAGE 2: PAIN - RED GLOW SECTION */}
+        <section className="relative z-10 py-12 overflow-hidden">
+          <div className="container mx-auto mb-16">
+            <div className="relative">
+              {/* Section-specific ambient red glow in background (z-index lower than content) */}
+              <div className="absolute -inset-10 bg-red-900/10 rounded-full blur-[100px] opacity-80 z-0"></div>
+              <div className="absolute -inset-20 bg-red-800/5 rounded-full blur-[150px] opacity-70 z-0 animate-pulse-slow"></div>
+              
+              {/* Content card with high z-index to appear over the glow */}
+              <div className="relative z-20 rounded-2xl overflow-hidden p-8 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-red-700/30 shadow-[0_10px_50px_-12px_rgba(0,0,0,0.4)]">
+                {/* Section Title with premium styling */}
+                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-red-300 via-orange-200 to-red-300">
+                  Marine Environment Challenges
+                </h2>
+
+                {/* SANDLER STAGE 2: PRESENT SOLUTIONS */}
+                <div className="relative bg-gradient-to-br from-black/70 to-gray-900/70 border border-red-500/30 rounded-xl p-6 backdrop-blur-sm mb-10">
+                  <div className="absolute -top-4 left-8 px-6 py-1 bg-gradient-to-r from-red-900/90 to-red-700/90 rounded-full border border-red-400/30 shadow-lg shadow-red-900/20">
+                    <span className="text-red-200 font-semibold">CRITICAL CHALLENGES</span>
+                  </div>
                     
                     <h2 className="text-2xl md:text-3xl text-white font-bold mt-4 mb-6 bg-clip-text text-transparent bg-gradient-to-r from-green-200 to-emerald-100 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
                       Praetorian Smart-Coat (Marine Grade) – Advanced Protection System
