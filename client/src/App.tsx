@@ -14,7 +14,7 @@ import FirePrevention from "@/pages/FirePrevention";
 import Painters from "@/pages/Painters";
 import Pools from "@/pages/Pools";
 const Construction = lazy(() => import('./pages/Construction'));
-import MobileHome from "@/pages/MobileHome";
+import MobileHome from "@/pages/MobileHomeFix";
 import Municipality from "@/pages/Municipality";
 const Applications = lazy(() => import('./pages/Applications')); 
 import ProductComparison from "@/pages/ProductComparison";

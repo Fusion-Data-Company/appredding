@@ -196,7 +196,7 @@ const MobileHome = () => {
           }}
         />
         
-        {/* New Main Header Section */}
+        {/* Mobile Home ROI Analysis Section - Ultra-Premium Enterprise Styling */}
         <section className="relative z-10 py-10 overflow-hidden">
           <div className="container mx-auto mb-12">
             <div className="relative">
@@ -540,7 +540,7 @@ const MobileHome = () => {
                       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-500/70 to-transparent"></div>
                       <div className="absolute inset-0 w-1/2 bg-gradient-to-r from-transparent via-white/70 to-transparent -translate-x-full group-hover:animate-shimmer-slow"></div>
                     </div>
-                  
+                  </div>
                   
                   {/* Ultra-premium 3D icons with advanced lighting effects */}
                   <div className="flex justify-center space-x-10 mt-6 mb-10">
@@ -677,7 +677,7 @@ const MobileHome = () => {
           </div>
         </section>
         
-        {/* Existing Hero Section */}
+        {/* Next Section */}
         <section className="py-16 md:py-24 relative z-10">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto text-center mb-16 relative">
