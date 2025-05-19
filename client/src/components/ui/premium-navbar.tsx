@@ -211,7 +211,7 @@ export function PremiumNavbar() {
               title="Pool Professionals"
               description="Certified pool coating specialists"
               imageSrc={professionalImages.poolPros}
-              href="/pool-professionals"
+              href="/pools"
             />
           </div>
         </div>
