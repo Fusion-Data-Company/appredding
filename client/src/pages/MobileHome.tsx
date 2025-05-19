@@ -269,61 +269,197 @@ const MobileHome = () => {
                     </div>
                   </div>
                   
-                  {/* Enhanced Main Header with premium 3D gradient styling and animated elements */}
-                  <div className="relative">
-                    {/* Ambient glow behind text */}
-                    <div className="absolute -inset-10 bg-blue-500/20 rounded-full blur-3xl opacity-70"></div>
-                    <div className="absolute -inset-14 bg-blue-600/10 rounded-full blur-2xl opacity-50 animate-pulse-slow" style={{ animationDuration: '6s' }}></div>
+                  {/* Ultra-premium Enterprise Header with Dynamic 3D Effects */}
+                  <div className="relative group">
+                    {/* Advanced multi-layered ambient glow system */}
+                    <div className="absolute -inset-10 bg-gradient-to-br from-blue-600/30 via-blue-500/25 to-blue-600/30 rounded-3xl blur-3xl opacity-70 z-0 group-hover:opacity-80 transition-opacity duration-700"></div>
+                    <div className="absolute -inset-16 bg-gradient-to-r from-blue-700/15 via-blue-400/20 to-blue-700/15 rounded-full blur-3xl opacity-60 z-0 animate-pulse-slow" style={{ animationDuration: '8s' }}></div>
+                    <div className="absolute -inset-20 bg-blue-500/10 rounded-full blur-3xl opacity-50 z-0 animate-pulse-very-slow" style={{ animationDuration: '15s' }}></div>
                     
-                    {/* Heading with enhanced 3D text effect */}
-                    <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-br from-white via-blue-100 to-white leading-tight max-w-5xl mx-auto tracking-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]" style={{ textShadow: "0 1px 1px rgba(0,0,0,0.8), 0 8px 24px rgba(59,130,246,0.2)" }}>
-                      Mobile Home ROI Analysis Calculator
-                    </h1>
+                    {/* Dynamic animated light rays effect */}
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200%] h-40 rotate-45 overflow-hidden z-0 opacity-30">
+                      <div className="absolute h-full w-32 bg-gradient-to-r from-transparent via-blue-400 to-transparent -translate-x-full animate-beam-slow"></div>
+                      <div className="absolute h-full w-24 bg-gradient-to-r from-transparent via-blue-300 to-transparent -translate-x-full animate-beam-slow" style={{ animationDelay: '2.5s' }}></div>
+                    </div>
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200%] h-32 -rotate-45 overflow-hidden z-0 opacity-30">
+                      <div className="absolute h-full w-28 bg-gradient-to-r from-transparent via-blue-400 to-transparent -translate-x-full animate-beam-slow" style={{ animationDelay: '1.2s' }}></div>
+                    </div>
+                    
+                    {/* Particulate effect layer */}
+                    <div className="absolute inset-0 mix-blend-overlay opacity-10" 
+                      style={{
+                        backgroundImage: "radial-gradient(circle at center, rgba(255,255,255,0.8) 0%, transparent 0.5%)",
+                        backgroundSize: "5px 5px"
+                      }}>
+                    </div>
+                    
+                    {/* Ultra-premium 3D title with advanced lighting effects */}
+                    <div className="relative">
+                      {/* Text shadow effect base */}
+                      <div className="absolute -inset-1 blur-md opacity-50 bg-blue-500/20 rounded-full"></div>
+                      
+                      {/* Premium 3D heading with realistic lighting and reflections */}
+                      <h1 className="relative text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold mb-8 bg-clip-text text-transparent bg-gradient-to-br from-white via-blue-100 to-white leading-tight max-w-6xl mx-auto tracking-tight transform transition-all duration-700 group-hover:scale-[1.02]" 
+                        style={{ 
+                          textShadow: "0 1px 1px rgba(0,0,0,0.8), 0 8px 24px rgba(59,130,246,0.3)", 
+                          WebkitTextStroke: "1px rgba(255,255,255,0.1)"
+                        }}>
+                        Mobile Home ROI Analysis Calculator
+                        
+                        {/* Realistic light reflection */}
+                        <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+                        
+                        {/* Animated bottom line with shimmer effect */}
+                        <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-4/5 h-[2px] overflow-hidden">
+                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-500/80 to-transparent"></div>
+                          <div className="absolute inset-0 w-1/2 bg-gradient-to-r from-transparent via-white/70 to-transparent -translate-x-full animate-shimmer-slow"></div>
+                        </div>
+                      </h1>
+                    </div>
                   </div>
                   
-                  {/* Enhanced subheader with premium styling and subtle animation */}
-                  <div className="relative">
-                    <p className="text-lg md:text-xl text-blue-100/90 max-w-3xl mx-auto mb-8 leading-relaxed">
-                      Discover how Praetorian Smart-Coat technology can <span className="text-white font-medium">transform your mobile home's efficiency</span>, 
-                      reduce utility costs, and <span className="text-white font-medium">increase property value</span> with our advanced ROI calculator.
+                  {/* Ultra-premium subheader with interactive hover effects */}
+                  <div className="relative group">
+                    {/* Subtle background glow that intensifies on hover */}
+                    <div className="absolute -inset-4 bg-blue-500/10 rounded-2xl blur-xl opacity-0 group-hover:opacity-70 transition-opacity duration-700"></div>
+                    
+                    {/* Enhanced paragraph with interactive hover effects on key phrases */}
+                    <p className="relative text-lg md:text-xl text-blue-100/90 max-w-3xl mx-auto mb-8 leading-relaxed">
+                      Discover how Praetorian Smart-Coat technology can 
+                      <span className="relative inline-block mx-1 group/item">
+                        <span className="absolute -inset-1 bg-blue-500/20 rounded-md blur-sm opacity-0 group-hover/item:opacity-100 transition-opacity duration-300"></span>
+                        <span className="relative text-white font-semibold">transform your mobile home's efficiency</span>
+                      </span>, 
+                      <span className="relative inline-block mx-1 group/item">
+                        <span className="absolute -inset-1 bg-blue-500/20 rounded-md blur-sm opacity-0 group-hover/item:opacity-100 transition-opacity duration-300"></span>
+                        <span className="relative text-white font-semibold">reduce utility costs</span>
+                      </span>, and 
+                      <span className="relative inline-block mx-1 group/item">
+                        <span className="absolute -inset-1 bg-blue-500/20 rounded-md blur-sm opacity-0 group-hover/item:opacity-100 transition-opacity duration-300"></span>
+                        <span className="relative text-white font-semibold">increase property value</span>
+                      </span> with our advanced ROI calculator.
                     </p>
                     
-                    {/* Enhanced floating icon indicators with homepage-style styling */}
+                    {/* Ultra-premium 3D icons with advanced lighting effects */}
                     <div className="flex justify-center space-x-10 mt-6 mb-10">
                       <div className="flex flex-col items-center group">
-                        <div className="relative p-3 mb-3">
-                          <div className="absolute -inset-1 bg-blue-500/20 rounded-full blur-md opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
-                          <div className="relative h-12 w-12 flex items-center justify-center bg-gradient-to-br from-blue-800 to-blue-900 rounded-full border border-blue-400/30 shadow-[0_0_15px_rgba(59,130,246,0.3)]">
-                            <div className="absolute inset-0.5 bg-gradient-to-br from-blue-700 to-blue-800 rounded-full opacity-50"></div>
-                            <div className="absolute h-full w-1/2 bg-gradient-to-r from-transparent via-blue-400/20 to-transparent skew-x-[-20deg] animate-shimmer-slow"></div>
-                            <DollarSign className="w-6 h-6 text-blue-300 relative z-10 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]" />
+                        <div className="relative p-3 mb-3 transform transition-all duration-300 group-hover:scale-110">
+                          {/* Multi-layered glow effects */}
+                          <div className="absolute -inset-3 bg-blue-500/20 rounded-full blur-xl opacity-60 group-hover:bg-blue-400/30 group-hover:opacity-80 transition-all duration-500"></div>
+                          <div className="absolute -inset-1 bg-gradient-to-br from-blue-500/30 via-blue-400/20 to-blue-500/30 rounded-full blur-md opacity-70 group-hover:opacity-90 transition-opacity duration-300"></div>
+                          
+                          {/* Premium 3D icon container with realistic glass effects */}
+                          <div className="relative h-14 w-14 flex items-center justify-center bg-gradient-to-br from-blue-700/90 to-blue-900/95 rounded-full border border-blue-400/40 shadow-[0_0_20px_rgba(59,130,246,0.4),0_0_10px_rgba(255,255,255,0.1)_inset] group-hover:shadow-[0_0_30px_rgba(59,130,246,0.6),0_0_15px_rgba(255,255,255,0.2)_inset] transition-all duration-500">
+                            {/* Inner glass shine effect */}
+                            <div className="absolute inset-0.5 bg-gradient-to-br from-blue-600/30 to-blue-800/30 rounded-full"></div>
+                            
+                            {/* Multiple animated shimmer effects */}
+                            <div className="absolute inset-0 rounded-full overflow-hidden">
+                              <div className="absolute top-0 left-[-100%] h-full w-[300%] bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer-slow transform rotate-[-35deg] group-hover:via-white/30 transition-all duration-300"></div>
+                              <div className="absolute bottom-0 right-[-100%] h-full w-[300%] bg-gradient-to-r from-transparent via-blue-400/20 to-transparent animate-shimmer-slow transform rotate-[45deg]" style={{ animationDelay: '0.7s', animationDuration: '2.5s' }}></div>
+                            </div>
+                            
+                            {/* Icon with enhanced glow */}
+                            <div className="relative flex items-center justify-center">
+                              <div className="absolute -inset-3 bg-blue-400/30 rounded-full blur-sm opacity-70 group-hover:opacity-100 transition-opacity duration-300"></div>
+                              <DollarSign className="w-7 h-7 text-blue-100 relative z-10 drop-shadow-[0_2px_3px_rgba(0,0,0,0.5)]" />
+                            </div>
+                            
+                            {/* Realistic light reflection */}
+                            <div className="absolute top-[15%] left-[20%] w-[60%] h-[20%] bg-white/30 rounded-full blur-[1px] opacity-70"></div>
                           </div>
                         </div>
-                        <span className="text-blue-200 text-sm font-medium">Maximize Savings</span>
+                        
+                        {/* Enhanced label with hover animation */}
+                        <div className="relative overflow-hidden">
+                          <span className="block text-blue-100 text-sm font-semibold tracking-wide py-1 px-3 rounded-full bg-gradient-to-r from-blue-900/60 via-blue-800/60 to-blue-900/60 border border-blue-700/30 shadow-[0_2px_10px_rgba(0,0,0,0.2),0_0_5px_rgba(59,130,246,0.3)_inset] group-hover:shadow-[0_2px_15px_rgba(0,0,0,0.3),0_0_8px_rgba(59,130,246,0.4)_inset] transition-all duration-500">
+                            Maximize Savings
+                            
+                            {/* Animated bottom shimmer */}
+                            <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-blue-400/50"></div>
+                            <div className="absolute bottom-0 left-[-100%] right-0 h-[1px] w-[200%] bg-gradient-to-r from-transparent via-blue-300/80 to-transparent group-hover:animate-shimmer-slow"></div>
+                          </span>
+                        </div>
                       </div>
                       
                       <div className="flex flex-col items-center group">
-                        <div className="relative p-3 mb-3">
-                          <div className="absolute -inset-1 bg-blue-500/20 rounded-full blur-md opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
-                          <div className="relative h-12 w-12 flex items-center justify-center bg-gradient-to-br from-blue-800 to-blue-900 rounded-full border border-blue-400/30 shadow-[0_0_15px_rgba(59,130,246,0.3)]">
-                            <div className="absolute inset-0.5 bg-gradient-to-br from-blue-700 to-blue-800 rounded-full opacity-50"></div>
-                            <div className="absolute h-full w-1/2 bg-gradient-to-r from-transparent via-blue-400/20 to-transparent skew-x-[-20deg] animate-shimmer-slow" style={{ animationDelay: '0.3s' }}></div>
-                            <CalendarDays className="w-6 h-6 text-blue-300 relative z-10 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]" />
+                        <div className="relative p-3 mb-3 transform transition-all duration-300 group-hover:scale-110">
+                          {/* Multi-layered glow effects */}
+                          <div className="absolute -inset-3 bg-blue-500/20 rounded-full blur-xl opacity-60 group-hover:bg-blue-400/30 group-hover:opacity-80 transition-all duration-500"></div>
+                          <div className="absolute -inset-1 bg-gradient-to-br from-blue-500/30 via-blue-400/20 to-blue-500/30 rounded-full blur-md opacity-70 group-hover:opacity-90 transition-opacity duration-300"></div>
+                          
+                          {/* Premium 3D icon container with realistic glass effects */}
+                          <div className="relative h-14 w-14 flex items-center justify-center bg-gradient-to-br from-blue-700/90 to-blue-900/95 rounded-full border border-blue-400/40 shadow-[0_0_20px_rgba(59,130,246,0.4),0_0_10px_rgba(255,255,255,0.1)_inset] group-hover:shadow-[0_0_30px_rgba(59,130,246,0.6),0_0_15px_rgba(255,255,255,0.2)_inset] transition-all duration-500">
+                            {/* Inner glass shine effect */}
+                            <div className="absolute inset-0.5 bg-gradient-to-br from-blue-600/30 to-blue-800/30 rounded-full"></div>
+                            
+                            {/* Multiple animated shimmer effects */}
+                            <div className="absolute inset-0 rounded-full overflow-hidden">
+                              <div className="absolute top-0 left-[-100%] h-full w-[300%] bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer-slow transform rotate-[-35deg] group-hover:via-white/30 transition-all duration-300" style={{ animationDelay: '0.3s' }}></div>
+                              <div className="absolute bottom-0 right-[-100%] h-full w-[300%] bg-gradient-to-r from-transparent via-blue-400/20 to-transparent animate-shimmer-slow transform rotate-[45deg]" style={{ animationDelay: '1s', animationDuration: '2.5s' }}></div>
+                            </div>
+                            
+                            {/* Icon with enhanced glow */}
+                            <div className="relative flex items-center justify-center">
+                              <div className="absolute -inset-3 bg-blue-400/30 rounded-full blur-sm opacity-70 group-hover:opacity-100 transition-opacity duration-300"></div>
+                              <CalendarDays className="w-7 h-7 text-blue-100 relative z-10 drop-shadow-[0_2px_3px_rgba(0,0,0,0.5)]" />
+                            </div>
+                            
+                            {/* Realistic light reflection */}
+                            <div className="absolute top-[15%] left-[20%] w-[60%] h-[20%] bg-white/30 rounded-full blur-[1px] opacity-70"></div>
                           </div>
                         </div>
-                        <span className="text-blue-200 text-sm font-medium">Extend Lifespan</span>
+                        
+                        {/* Enhanced label with hover animation */}
+                        <div className="relative overflow-hidden">
+                          <span className="block text-blue-100 text-sm font-semibold tracking-wide py-1 px-3 rounded-full bg-gradient-to-r from-blue-900/60 via-blue-800/60 to-blue-900/60 border border-blue-700/30 shadow-[0_2px_10px_rgba(0,0,0,0.2),0_0_5px_rgba(59,130,246,0.3)_inset] group-hover:shadow-[0_2px_15px_rgba(0,0,0,0.3),0_0_8px_rgba(59,130,246,0.4)_inset] transition-all duration-500">
+                            Extend Lifespan
+                            
+                            {/* Animated bottom shimmer */}
+                            <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-blue-400/50"></div>
+                            <div className="absolute bottom-0 left-[-100%] right-0 h-[1px] w-[200%] bg-gradient-to-r from-transparent via-blue-300/80 to-transparent group-hover:animate-shimmer-slow"></div>
+                          </span>
+                        </div>
                       </div>
                       
                       <div className="flex flex-col items-center group">
-                        <div className="relative p-3 mb-3">
-                          <div className="absolute -inset-1 bg-blue-500/20 rounded-full blur-md opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
-                          <div className="relative h-12 w-12 flex items-center justify-center bg-gradient-to-br from-blue-800 to-blue-900 rounded-full border border-blue-400/30 shadow-[0_0_15px_rgba(59,130,246,0.3)]">
-                            <div className="absolute inset-0.5 bg-gradient-to-br from-blue-700 to-blue-800 rounded-full opacity-50"></div>
-                            <div className="absolute h-full w-1/2 bg-gradient-to-r from-transparent via-blue-400/20 to-transparent skew-x-[-20deg] animate-shimmer-slow" style={{ animationDelay: '0.6s' }}></div>
-                            <TrendingUp className="w-6 h-6 text-blue-300 relative z-10 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]" />
+                        <div className="relative p-3 mb-3 transform transition-all duration-300 group-hover:scale-110">
+                          {/* Multi-layered glow effects */}
+                          <div className="absolute -inset-3 bg-blue-500/20 rounded-full blur-xl opacity-60 group-hover:bg-blue-400/30 group-hover:opacity-80 transition-all duration-500"></div>
+                          <div className="absolute -inset-1 bg-gradient-to-br from-blue-500/30 via-blue-400/20 to-blue-500/30 rounded-full blur-md opacity-70 group-hover:opacity-90 transition-opacity duration-300"></div>
+                          
+                          {/* Premium 3D icon container with realistic glass effects */}
+                          <div className="relative h-14 w-14 flex items-center justify-center bg-gradient-to-br from-blue-700/90 to-blue-900/95 rounded-full border border-blue-400/40 shadow-[0_0_20px_rgba(59,130,246,0.4),0_0_10px_rgba(255,255,255,0.1)_inset] group-hover:shadow-[0_0_30px_rgba(59,130,246,0.6),0_0_15px_rgba(255,255,255,0.2)_inset] transition-all duration-500">
+                            {/* Inner glass shine effect */}
+                            <div className="absolute inset-0.5 bg-gradient-to-br from-blue-600/30 to-blue-800/30 rounded-full"></div>
+                            
+                            {/* Multiple animated shimmer effects */}
+                            <div className="absolute inset-0 rounded-full overflow-hidden">
+                              <div className="absolute top-0 left-[-100%] h-full w-[300%] bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer-slow transform rotate-[-35deg] group-hover:via-white/30 transition-all duration-300" style={{ animationDelay: '0.6s' }}></div>
+                              <div className="absolute bottom-0 right-[-100%] h-full w-[300%] bg-gradient-to-r from-transparent via-blue-400/20 to-transparent animate-shimmer-slow transform rotate-[45deg]" style={{ animationDelay: '1.3s', animationDuration: '2.5s' }}></div>
+                            </div>
+                            
+                            {/* Icon with enhanced glow */}
+                            <div className="relative flex items-center justify-center">
+                              <div className="absolute -inset-3 bg-blue-400/30 rounded-full blur-sm opacity-70 group-hover:opacity-100 transition-opacity duration-300"></div>
+                              <TrendingUp className="w-7 h-7 text-blue-100 relative z-10 drop-shadow-[0_2px_3px_rgba(0,0,0,0.5)]" />
+                            </div>
+                            
+                            {/* Realistic light reflection */}
+                            <div className="absolute top-[15%] left-[20%] w-[60%] h-[20%] bg-white/30 rounded-full blur-[1px] opacity-70"></div>
                           </div>
                         </div>
-                        <span className="text-blue-200 text-sm font-medium">Increase Value</span>
+                        
+                        {/* Enhanced label with hover animation */}
+                        <div className="relative overflow-hidden">
+                          <span className="block text-blue-100 text-sm font-semibold tracking-wide py-1 px-3 rounded-full bg-gradient-to-r from-blue-900/60 via-blue-800/60 to-blue-900/60 border border-blue-700/30 shadow-[0_2px_10px_rgba(0,0,0,0.2),0_0_5px_rgba(59,130,246,0.3)_inset] group-hover:shadow-[0_2px_15px_rgba(0,0,0,0.3),0_0_8px_rgba(59,130,246,0.4)_inset] transition-all duration-500">
+                            Increase Value
+                            
+                            {/* Animated bottom shimmer */}
+                            <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-blue-400/50"></div>
+                            <div className="absolute bottom-0 left-[-100%] right-0 h-[1px] w-[200%] bg-gradient-to-r from-transparent via-blue-300/80 to-transparent group-hover:animate-shimmer-slow"></div>
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </div>
