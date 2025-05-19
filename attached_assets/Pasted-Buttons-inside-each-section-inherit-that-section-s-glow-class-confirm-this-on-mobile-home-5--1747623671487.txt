@@ -1,0 +1,62 @@
+Buttons inside each section inherit that section’s glow class — confirm this on /mobile-home.
+
+⸻
+
+5. “BIG ENGAGING HEADER” RULE
+	•	Each page must start with a full-width .glow-blue hero card (same height, gradient headline, sub-headline as /mobile-home).
+	•	If a target page’s first element is not that hero card, insert a brand-new hero card (copied from /mobile-home) at the very top.
+
+⸻
+
+6. SEO & JSON-LD (copy /mobile-home pattern)
+	•	Update <title> → Praetorian Smart-Coat | {Industry} | Fireproof Ceramic Paint
+	•	Update <meta name="description"> with 150-160-char summary using keyword Praetorian + industry term.
+	•	Duplicate /mobile-home’s Product JSON-LD block → change industry, name fields. Leave aggregateRating blank.
+
+⸻
+
+7. FORM TEST & CRM CHECK
+	•	Keep the existing <form action="/api/lead"> markup.
+	•	Ensure hidden <input name="industry" value="{slug}"> matches each page slug.
+	•	After updates, perform an automated POST with dummy data and confirm HTTP 200 response + CRM entry (mock console.info("[crm-ok] {slug}")).
+	•	Auto-repair if submission fails, then retest.
+
+⸻
+
+8. VALIDATION SCRIPT (RUN PER PAGE, LOOP UNTIL PASS)
+	1.	Exactly one .glow-blue hero card exists first.
+	2.	At least one .glow-red, .glow-green, .glow-purple in proper order.
+	3.	No DOM elements of any other color between .glow-purple and page end.
+	4.	No TS/Next compile warnings.
+	5.	All CTA buttons animate & route identical to /mobile-home.
+	6.	Form submission OK.
+
+If any test fails, fix automatically and re-run validation before moving to next page.
+
+⸻
+
+9. CONTINUOUS EXECUTION & CHECKPOINTS
+	•	Tag checkpoints with console.info("[checkpoint] {slug} done").
+	•	If Replit UI times out, user will type continue; resume at last checkpoint automatically.
+	•	No human prompts mid-process.
+
+⸻
+
+10. FINAL MICROSCOPE PASS
+	•	Diff every target page’s HTML/CSS/JS against /mobile-home for class parity, spacing, hover timing, and glow intensity.
+	•	Auto-sync any deviations.
+	•	When all six pages pass validation and diff checks, log:
+✅ All Pages Updated, Verified, Forms OK — Commit Complete.
+
+Commit with message:
+feat: sync six industry pages to mobile-home elite template & Sandler funnel.
+
+⸻
+
+11. NO CHATTER, NO CLARIFICATION REQUESTS
+	•	You have the template. Use it.
+	•	Finish everything before reporting success.
+
+⸻
+
+EXECUTE NOW — UNINTERRUPTED UNTIL ALL SIX PAGES ARE FINISHED AND VERIFIED.
