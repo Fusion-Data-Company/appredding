@@ -396,9 +396,31 @@ const MobileHome = () => {
                       <div className="absolute bottom-1 left-1 w-10 h-10 border-b border-l border-blue-600/50 rounded-bl-md"></div>
                     </div>
                     
-                    {/* Glass shimmer effect */}
-                    <div className="absolute inset-0 overflow-hidden rounded-xl">
-                      <div className="h-full w-1/3 bg-gradient-to-r from-transparent via-white/5 to-transparent skew-x-[-20deg] animate-shimmer-slow absolute"></div>
+                    {/* Elite Enterprise Multi-layered Glass Shimmer Effects */}
+                    <div className="absolute inset-0 overflow-hidden rounded-xl backdrop-blur-[1px]">
+                      {/* Primary elegant shimmer wave */}
+                      <div className="h-full w-1/3 bg-gradient-to-r from-transparent via-white/8 to-transparent skew-x-[-20deg] animate-shimmer-slow absolute"></div>
+                      
+                      {/* Secondary pulsing shimmer for depth */}
+                      <div className="h-full w-2/5 bg-gradient-to-r from-transparent via-blue-400/5 to-transparent skew-x-[-15deg] animate-shimmer-very-slow absolute" style={{ animationDelay: '0.7s', left: '20%' }}></div>
+                      
+                      {/* Quick flash accent */}
+                      <div className="h-full w-1/4 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-[-10deg] animate-shimmer-fast absolute opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ animationDelay: '0.3s', left: '10%' }}></div>
+                      
+                      {/* Horizontal sweep effect */}
+                      <div className="absolute inset-y-0 w-[120%] h-full">
+                        <div className="absolute top-[30%] h-[1px] w-full bg-gradient-to-r from-transparent via-blue-400/30 to-transparent -translate-x-full animate-shimmer-slow"></div>
+                        <div className="absolute top-[70%] h-[1px] w-full bg-gradient-to-r from-transparent via-blue-300/20 to-transparent -translate-x-full animate-shimmer-slow" style={{ animationDelay: '1.2s' }}></div>
+                      </div>
+                      
+                      {/* Premium moving glass light reflection */}
+                      <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
+                        <div className="absolute w-[30%] h-[200%] bg-gradient-to-b from-white/0 via-white/8 to-white/0 -rotate-45 transform -translate-y-[200%] animate-sweep-down transition-transform duration-5000 ease-in-out"></div>
+                        <div className="absolute w-[20%] h-[200%] bg-gradient-to-b from-white/0 via-blue-300/5 to-white/0 -rotate-45 transform -translate-y-[200%] animate-sweep-down transition-transform duration-5000 ease-in-out" style={{ left: '40%', animationDelay: '2.5s' }}></div>
+                      </div>
+                      
+                      {/* Top edge light reflection */}
+                      <div className="absolute inset-x-[5%] top-0 h-[15%] w-[90%] bg-gradient-to-b from-white/10 to-transparent rounded-full opacity-60"></div>
                     </div>
                     
                     {/* Header content */}
