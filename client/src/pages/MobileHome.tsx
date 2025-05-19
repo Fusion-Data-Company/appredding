@@ -42,7 +42,26 @@ import {
   FileText,
   Download,
   TrendingUp,
-  AlertTriangle
+  AlertTriangle,
+  Medal,
+  Activity,
+  ArrowUpRight,
+  BadgeDollarSign,
+  Sparkles,
+  Flame,
+  Zap,
+  Crown,
+  Lightbulb,
+  BarChart3,
+  LineChart,
+  PieChart,
+  Star,
+  Radiation,
+  ShieldCheck,
+  Gem,
+  Rocket,
+  Landmark,
+  Layers
 } from "lucide-react";
 import { insertMobileHomeProfessionalSchema } from "@shared/schema";
 import { z } from "zod";
@@ -439,10 +458,11 @@ const MobileHome = () => {
                               <div className="absolute bottom-0 right-[-100%] h-full w-[300%] bg-gradient-to-r from-transparent via-blue-400/20 to-transparent animate-shimmer-slow transform rotate-[45deg]" style={{ animationDelay: '0.7s', animationDuration: '2.5s' }}></div>
                             </div>
                             
-                            {/* Icon with enhanced glow */}
+                            {/* Icon with ultra-premium enhanced glow */}
                             <div className="relative flex items-center justify-center">
-                              <div className="absolute -inset-3 bg-blue-400/30 rounded-full blur-sm opacity-70 group-hover:opacity-100 transition-opacity duration-300"></div>
-                              <DollarSign className="w-7 h-7 text-blue-100 relative z-10 drop-shadow-[0_2px_3px_rgba(0,0,0,0.5)]" />
+                              <div className="absolute -inset-3 bg-gradient-to-r from-blue-400/40 via-blue-300/30 to-blue-400/40 rounded-full blur-sm opacity-70 group-hover:opacity-100 transition-opacity duration-300 animate-pulse-slower"></div>
+                              <div className="absolute -inset-1 bg-blue-400/30 rounded-full blur-[2px] opacity-80 group-hover:opacity-100 transition-opacity duration-300"></div>
+                              <BadgeDollarSign className="w-7 h-7 text-blue-100 relative z-10 drop-shadow-[0_2px_3px_rgba(0,0,0,0.5)] group-hover:text-white transition-colors duration-300" />
                             </div>
                             
                             {/* Realistic light reflection */}
@@ -479,10 +499,11 @@ const MobileHome = () => {
                               <div className="absolute bottom-0 right-[-100%] h-full w-[300%] bg-gradient-to-r from-transparent via-blue-400/20 to-transparent animate-shimmer-slow transform rotate-[45deg]" style={{ animationDelay: '1s', animationDuration: '2.5s' }}></div>
                             </div>
                             
-                            {/* Icon with enhanced glow */}
+                            {/* Icon with ultra-premium enhanced glow */}
                             <div className="relative flex items-center justify-center">
-                              <div className="absolute -inset-3 bg-blue-400/30 rounded-full blur-sm opacity-70 group-hover:opacity-100 transition-opacity duration-300"></div>
-                              <CalendarDays className="w-7 h-7 text-blue-100 relative z-10 drop-shadow-[0_2px_3px_rgba(0,0,0,0.5)]" />
+                              <div className="absolute -inset-3 bg-gradient-to-r from-blue-400/40 via-blue-300/30 to-blue-400/40 rounded-full blur-sm opacity-70 group-hover:opacity-100 transition-opacity duration-300 animate-pulse-slower"></div>
+                              <div className="absolute -inset-1 bg-blue-400/30 rounded-full blur-[2px] opacity-80 group-hover:opacity-100 transition-opacity duration-300"></div>
+                              <Landmark className="w-7 h-7 text-blue-100 relative z-10 drop-shadow-[0_2px_3px_rgba(0,0,0,0.5)] group-hover:text-white transition-colors duration-300" />
                             </div>
                             
                             {/* Realistic light reflection */}
@@ -519,10 +540,11 @@ const MobileHome = () => {
                               <div className="absolute bottom-0 right-[-100%] h-full w-[300%] bg-gradient-to-r from-transparent via-blue-400/20 to-transparent animate-shimmer-slow transform rotate-[45deg]" style={{ animationDelay: '1.3s', animationDuration: '2.5s' }}></div>
                             </div>
                             
-                            {/* Icon with enhanced glow */}
+                            {/* Icon with ultra-premium enhanced glow */}
                             <div className="relative flex items-center justify-center">
-                              <div className="absolute -inset-3 bg-blue-400/30 rounded-full blur-sm opacity-70 group-hover:opacity-100 transition-opacity duration-300"></div>
-                              <TrendingUp className="w-7 h-7 text-blue-100 relative z-10 drop-shadow-[0_2px_3px_rgba(0,0,0,0.5)]" />
+                              <div className="absolute -inset-3 bg-gradient-to-r from-blue-400/40 via-blue-300/30 to-blue-400/40 rounded-full blur-sm opacity-70 group-hover:opacity-100 transition-opacity duration-300 animate-pulse-slower"></div>
+                              <div className="absolute -inset-1 bg-blue-400/30 rounded-full blur-[2px] opacity-80 group-hover:opacity-100 transition-opacity duration-300"></div>
+                              <Rocket className="w-7 h-7 text-blue-100 relative z-10 drop-shadow-[0_2px_3px_rgba(0,0,0,0.5)] group-hover:text-white transition-colors duration-300" />
                             </div>
                             
                             {/* Realistic light reflection */}
