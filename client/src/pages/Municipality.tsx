@@ -6,6 +6,8 @@ import { PremiumCartButton } from "@/utils/premium-buttons";
 import { GradientHeading } from "@/components/ui/gradient-heading";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Progress } from "@/components/ui/progress";
+import { Helmet } from "react-helmet";
+import { preloadCriticalImage, getAccessibleAltText } from "@/lib/seo-helper";
 import { 
   ShieldCheck, 
   Leaf, 
