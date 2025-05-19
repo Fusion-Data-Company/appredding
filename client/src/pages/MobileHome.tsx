@@ -877,10 +877,7 @@ const MobileHome = () => {
                     <div className="absolute bottom-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
                   </div>
                   
-                  {/* Premium label badge */}
-                  <div className="absolute -top-4 left-8 px-6 py-1 bg-gradient-to-r from-blue-900/90 to-blue-700/90 rounded-full border border-blue-400/30 shadow-lg shadow-blue-900/20 z-20">
-                    <span className="text-blue-200 font-semibold">ENTERPRISE PREMIUM</span>
-                  </div>
+
                   
                   <h2 className="text-3xl font-bold mb-8 text-white drop-shadow-[0_1px_3px_rgba(59,130,246,0.6)] relative z-10 mt-4">
                     <span className="relative inline-block">
@@ -998,10 +995,7 @@ const MobileHome = () => {
                     <div className="absolute bottom-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
                   </div>
                   
-                  {/* Premium label badge */}
-                  <div className="absolute -top-4 left-8 px-6 py-1 bg-gradient-to-r from-orange-900/90 to-orange-700/90 rounded-full border border-orange-400/30 shadow-lg shadow-orange-900/20 z-20">
-                    <span className="text-orange-200 font-semibold">ENTERPRISE ELITE</span>
-                  </div>
+
                   
                   <h2 className="text-3xl font-bold mb-8 text-white drop-shadow-[0_1px_3px_rgba(249,115,22,0.6)] relative z-10 mt-4">
                     <span className="relative inline-block">
