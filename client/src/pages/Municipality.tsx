@@ -105,10 +105,7 @@ export default function Municipality() {
 
   const { mutate, isPending } = useMutation({
     mutationFn: async (data: MunicipalityProfessionalFormValues) => {
-      return await apiRequest("/api/municipality/register", {
-        method: "POST",
-        data
-      });
+      return await apiRequest("/api/municipality/register", "POST", data);
     },
     onSuccess: () => {
       toast({
@@ -695,7 +692,7 @@ export default function Municipality() {
                         <PremiumButton 
                           onClick={() => setShowRegistrationForm(true)}
                           className="w-full"
-                          variant="emerald"
+                          variant="default"
                         >
                           <Calculator className="mr-2 h-4 w-4" />
                           Calculate Your Custom ROI
