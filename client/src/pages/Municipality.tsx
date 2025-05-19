@@ -8,7 +8,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Progress } from "@/components/ui/progress";
 import SEOHead from "@/components/SEOHead";
 import AccessibleImage from "@/components/ui/accessible-image";
-import { preloadCriticalImages, createIndustryImageSource } from "@/lib/image-helper";
+import { preloadCriticalImage } from "@/lib/seo-helper";
 import { generateStructuredData, getIndustryKeywords } from "@/lib/seo-helper";
 import { 
   ShieldCheck, 
@@ -86,19 +86,16 @@ export default function Municipality() {
   ]);
   
   // Generate structured data for SEO
-  const structuredData = generateStructuredData({
-    type: 'Product',
-    name: 'Praetorian Smart-Coat for Municipalities',
-    description: 'Advanced ceramic coating for municipal buildings and infrastructure',
-    image: heroImagePath,
-    url: `https://praetoriansmartcoat.com/${slug}`,
-    manufacturer: 'Praetorian Protective Coatings',
-    category: 'Municipal Infrastructure Protection'
-  });
+  const structuredData = generateStructuredData(
+    'Municipalities',
+    'Advanced ceramic coating for municipal buildings and infrastructure protection',
+    slug,
+    ['Energy efficient', 'Weather resistant', 'Reduces maintenance costs', 'Extends infrastructure lifespan']
+  );
   
   // Preload critical hero image
   useEffect(() => {
-    preloadCriticalImages([createIndustryImageSource(heroImagePath, 'municipality')]);
+    preloadCriticalImages([heroImagePath]);
   }, []);
   
   useEffect(() => {
@@ -160,25 +157,15 @@ export default function Municipality() {
 
   return (
     <MainLayout fullWidth={true}>
-      <Helmet>
-        <title>Praetorian Smart-Coat – Municipal Infrastructure</title>
-        <meta name="description" content="Advanced protective coatings for municipal infrastructure. Extend asset lifespan, reduce maintenance costs, and improve energy efficiency with our ceramic barrier technology." />
-        
-        {/* Open Graph / Facebook */}
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="Praetorian Smart-Coat – Municipality" />
-        <meta property="og:description" content="Fireproof, insulating ceramic paint for municipal infrastructure. Guard what matters." />
-        <meta property="og:image" content="/images/og-municipality.jpg" />
-        
-        {/* Twitter */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Praetorian Smart-Coat – Municipality" />
-        <meta name="twitter:description" content="Fireproof, insulating ceramic paint for municipal infrastructure. Guard what matters." />
-        <meta name="twitter:image" content="/images/og-municipality.jpg" />
-        
-        {/* Preload critical hero image */}
-        <link rel="preload" as="image" href={heroImagePath} />
-      </Helmet>
+      <SEOHead 
+        title={title}
+        description={description}
+        industry="Municipalities"
+        slug={slug}
+        imagePath={heroImagePath}
+        keywords={keywords}
+        structuredData={structuredData}
+      />
       <div className="relative">
         {/* Advanced premium gradient background with layered effects */}
         <div className="fixed inset-0 z-[-5]" style={{ 
