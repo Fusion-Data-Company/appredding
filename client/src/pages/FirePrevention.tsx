@@ -21,8 +21,10 @@ import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 import { PremiumCartButton } from "@/utils/premium-buttons";
 import { z } from "zod";
-import { Helmet } from "react-helmet";
-import { preloadCriticalImage, getAccessibleAltText } from "@/lib/seo-helper";
+import SEOHead from "@/components/SEOHead";
+import AccessibleImage from "@/components/ui/accessible-image";
+import { preloadCriticalImages, createIndustryImageSource } from "@/lib/image-helper";
+import { generateStructuredData, getIndustryKeywords } from "@/lib/seo-helper";
 
 type FirePreventionHomeownerFormValues = z.infer<typeof insertFirePreventionHomeownerSchema>;
 
