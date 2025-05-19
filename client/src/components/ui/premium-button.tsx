@@ -181,20 +181,32 @@ const PremiumButton = forwardRef<HTMLButtonElement, PremiumButtonProps>(
           {/* Enhanced Shimmer effect animation for fire variant - always active */}
           {isFire && (
             <>
-              {/* Base shimmer effect on the black background - always active but subtle */}
-              <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-20 -translate-x-full animate-shimmer-slow transform rounded-lg"></div>
+              {/* Elite Enterprise Shimmer - dynamic multi-layer effect */}
+              <div className="absolute inset-0 w-full h-full overflow-hidden rounded-lg">
+                {/* Primary diagonal shimmer with blue tint */}
+                <div className="absolute inset-0 w-[120%] h-[200%] bg-gradient-to-r from-transparent via-blue-400/20 to-transparent opacity-70 -translate-x-full animate-shimmer-slow transform skew-x-[-20deg]"></div>
+                
+                {/* Secondary diagonal shimmer with white highlight */}
+                <div className="absolute inset-0 w-[70%] h-[200%] bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-50 -translate-x-full animate-shimmer-medium transform skew-x-[-20deg]" style={{ animationDelay: '0.3s' }}></div>
+                
+                {/* Tertiary thinner shimmer with blue highlight */}
+                <div className="absolute inset-0 w-[40%] h-[200%] bg-gradient-to-r from-transparent via-blue-300/40 to-transparent opacity-80 -translate-x-full animate-shimmer-fast transform skew-x-[-20deg]" style={{ animationDelay: '0.7s' }}></div>
+                
+                {/* Crystal edge highlight - top edge */}
+                <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/60 to-transparent"></div>
+                
+                {/* Crystal edge highlight - bottom edge */}
+                <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+              </div>
               
-              {/* Additional hover shimmer effect on black surface */}
-              <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 -translate-x-full group-hover:translate-x-full transform transition-transform duration-1000 rounded-lg"></div>
+              {/* Additional hover shimmer effect - more pronounced on hover */}
+              <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/15 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 -translate-x-full group-hover:translate-x-full transform transition-transform duration-1000 rounded-lg"></div>
               
-              {/* Extra shimmer effect with different timing */}
-              <div className="absolute inset-0 w-2/3 h-full bg-gradient-to-r from-transparent via-white/8 to-transparent opacity-10 -translate-x-full animate-shimmer-medium transform rounded-lg"></div>
-              
-              {/* Corner accent points - premium touch with black theme */}
-              <div className="absolute top-0 left-0 w-2 h-2 bg-gray-300/90 rounded-full blur-[1px] opacity-100 transition-opacity duration-300"></div>
-              <div className="absolute top-0 right-0 w-2 h-2 bg-gray-300/90 rounded-full blur-[1px] opacity-100 transition-opacity duration-300"></div>
-              <div className="absolute bottom-0 left-0 w-2 h-2 bg-gray-300/90 rounded-full blur-[1px] opacity-100 transition-opacity duration-300"></div>
-              <div className="absolute bottom-0 right-0 w-2 h-2 bg-gray-300/90 rounded-full blur-[1px] opacity-100 transition-opacity duration-300"></div>
+              {/* Corner accent points - premium touch with subtle blue glow */}
+              <div className="absolute top-0 left-0 w-2 h-2 bg-blue-300/80 rounded-full blur-[1px] opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute top-0 right-0 w-2 h-2 bg-blue-300/80 rounded-full blur-[1px] opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute bottom-0 left-0 w-2 h-2 bg-blue-300/80 rounded-full blur-[1px] opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute bottom-0 right-0 w-2 h-2 bg-blue-300/80 rounded-full blur-[1px] opacity-100 transition-opacity duration-300"></div>
             </>
           )}
         </button>

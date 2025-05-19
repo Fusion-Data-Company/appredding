@@ -170,6 +170,14 @@ section + section {
     animation: shimmerSlow 4s infinite 1.5s linear;
   }
   
+  .animate-shimmer-fast {
+    animation: shimmerSlow 3s infinite linear;
+  }
+  
+  .animate-shimmer-medium {
+    animation: shimmerSlow 4s infinite linear;
+  }
+  
   .animate-pulse-slow-delayed {
     animation: pulseSlow 3s infinite 1.5s ease-in-out;
   }
