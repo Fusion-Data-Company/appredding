@@ -169,6 +169,43 @@ const Marinas = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-blue-800/20 to-blue-900/20 backdrop-blur-sm rounded-2xl z-5"></div>
               <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900/5 via-transparent to-transparent blur-md z-5"></div>
               
+              {/* Ultra-premium marina-themed background elements with enhanced patterns */}
+              <div className="absolute inset-0 opacity-40 z-0 mix-blend-overlay rounded-2xl" 
+                style={{
+                  backgroundImage: "url('data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231e3a8a' fill-opacity='0.2'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E')",
+                  backgroundSize: '80px 80px'
+                }}
+              ></div>
+              
+              {/* Advanced data matrix/blueprint pattern */}
+              <div className="absolute inset-0 opacity-10 z-0 mix-blend-overlay rounded-2xl"
+                style={{
+                  backgroundImage: "url('data:image/svg+xml,%3Csvg width=\"20\" height=\"20\" viewBox=\"0 0 20 20\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.6\" fill-rule=\"evenodd\"%3E%3Ccircle cx=\"3\" cy=\"3\" r=\"1.5\"%2F%3E%3Ccircle cx=\"3\" cy=\"17\" r=\"1.5\"%2F%3E%3Ccircle cx=\"17\" cy=\"3\" r=\"1.5\"%2F%3E%3Ccircle cx=\"17\" cy=\"17\" r=\"1.5\"%2F%3E%3Ccircle cx=\"10\" cy=\"10\" r=\"0.5\"%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E')",
+                  backgroundSize: '20px 20px'
+                }}
+              ></div>
+              
+              {/* Enhanced water-themed shimmer effect with larger light points */}
+              <div className="absolute inset-0 mix-blend-overlay opacity-10 z-0 rounded-2xl" 
+                style={{
+                  backgroundImage: "radial-gradient(circle at center, rgba(255,255,255,0.9) 0%, transparent 0.6%)",
+                  backgroundSize: "10px 10px"
+                }}>
+              </div>
+              
+              {/* Marina/Ocean-themed wave pattern overlay */}
+              <div className="absolute inset-0 opacity-5 z-0 rounded-2xl"
+                style={{
+                  backgroundImage: "url('data:image/svg+xml,%3Csvg width=\"40\" height=\"40\" viewBox=\"0 0 40 40\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cpath d=\"M0 20c5-10 10-10 20-10s15 0 20 10c-5 10-10 10-20 10s-15 0-20-10z\" fill=\"%2359a5fc\" fill-opacity=\"0.3\"%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E')",
+                  backgroundSize: '40px 40px'
+                }}
+              ></div>
+              
+              {/* Advanced animated light sweep effect */}
+              <div className="absolute inset-0 opacity-20 z-0 overflow-hidden rounded-2xl">
+                <div className="absolute -inset-full w-[300px] h-full bg-gradient-to-r from-transparent via-blue-400/30 to-transparent skew-x-[-20deg] animate-light-sweep" style={{ animationDuration: '6s' }}></div>
+              </div>
+              
               {/* Premium corner accents with enhanced effects */}
               <div className="absolute top-0 left-0 w-20 h-20 z-10 pointer-events-none">
                 {/* Multi-layered glowing corner effect */}
