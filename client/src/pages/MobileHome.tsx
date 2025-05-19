@@ -725,9 +725,16 @@ const MobileHome = () => {
                       <div className="absolute bottom-0 right-0 w-32 h-32 border-b-4 border-r-4 border-orange-500/40 rounded-br-lg"></div>
                     </div>
                     
-                    {/* Premium Badge/Label */}
-                    <div className="absolute -top-4 left-8 px-6 py-1 bg-gradient-to-r from-blue-900/90 to-blue-700/90 rounded-full border border-blue-400/30 shadow-lg shadow-blue-900/20">
-                      <span className="text-blue-200 font-semibold">MEASURABLE BENEFITS</span>
+                    {/* Premium Badge/Label - Centered with Enhanced Styling */}
+                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 px-6 py-1.5 bg-gradient-to-r from-blue-900/90 via-blue-800/90 to-blue-700/90 rounded-full border border-blue-400/40 shadow-[0_0_20px_rgba(59,130,246,0.5)] z-20">
+                      <div className="absolute inset-0 rounded-full opacity-70 overflow-hidden">
+                        <div className="h-full w-full bg-gradient-to-r from-transparent via-blue-300/10 to-transparent skew-x-[-20deg] animate-shimmer-slow"></div>
+                      </div>
+                      <span className="text-blue-100 font-bold tracking-wider text-sm relative z-10 flex items-center">
+                        <span className="mr-1.5 bg-blue-500/70 h-1.5 w-1.5 rounded-full shadow-[0_0_5px_rgba(59,130,246,0.7)]"></span>
+                        MEASURABLE BENEFITS
+                        <span className="ml-1.5 bg-blue-500/70 h-1.5 w-1.5 rounded-full shadow-[0_0_5px_rgba(59,130,246,0.7)]"></span>
+                      </span>
                     </div>
                     
                     <h2 className="text-3xl font-bold mb-8 text-white drop-shadow-[0_1px_3px_rgba(59,130,246,0.6)] relative z-10 mt-4">
