@@ -282,7 +282,7 @@ export default function Pools() {
                               size="lg" 
                               onClick={() => setShowROICalculator(true)}
                               className="px-8 py-4 text-lg relative group"
-                              variant="premium"
+                              variant="gold"
                             >
                               <div className="flex items-center justify-center">
                                 <BarChart3 className="mr-2 h-5 w-5" />
@@ -720,7 +720,7 @@ export default function Pools() {
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                       <PremiumCartButton 
                         size="lg" 
-                        variant="premium"
+                        variant="gold"
                         className="relative group px-6 py-3"
                       >
                         <div className="flex items-center">

@@ -575,7 +575,7 @@ const FirePrevention = () => {
                       <PremiumCartButton 
                         size="lg" 
                         onClick={handleShowRegistrationForm}
-                        variant="premium"
+                        variant="gold"
                         className="relative group px-6 py-3"
                       >
                         <div className="flex items-center">
