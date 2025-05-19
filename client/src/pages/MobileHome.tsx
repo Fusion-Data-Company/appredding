@@ -742,55 +742,63 @@ const MobileHome = () => {
                     </p>
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 relative z-10">
-                      <div className="relative group p-5 bg-gradient-to-br from-black/60 to-gray-900/60 border border-blue-500/20 rounded-xl transition-all duration-300 hover:border-blue-500/40">
-                        <div className="absolute -inset-px bg-gradient-to-r from-blue-600/10 via-transparent to-blue-600/10 rounded-xl opacity-50 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
-                        <div className="relative">
-                          <div className="mb-3">
-                            <CircleDollarSign className="w-8 h-8 text-blue-400" />
+                      <div className="relative bg-gradient-to-br from-gray-900 to-black rounded-lg p-4 border border-gray-800 group">
+                        <div className="absolute -inset-0.5 bg-blue-600/20 rounded-lg blur opacity-60 group-hover:opacity-100 transition-all duration-300"></div>
+                        <div className="relative z-10 flex items-start gap-4">
+                          <span className="bg-gradient-to-r from-blue-700 to-blue-500 rounded-full p-2 mt-1 shadow-[0_0_15px_rgba(59,130,246,0.4)] flex-shrink-0">
+                            <CircleDollarSign className="w-6 h-6 text-white" />
+                          </span>
+                          <div>
+                            <h3 className="text-xl font-semibold mb-2 text-white drop-shadow-[0_1px_2px_rgba(59,130,246,0.5)]">Dramatic Cost Savings</h3>
+                            <p className="text-blue-100">
+                              The average mobile home owner saves $842 annually on energy bills after applying our coating. Over 10 years, that's $8,420 back in your pocket. Add reduced maintenance costs and you're looking at a 243% return on your investment – money that would otherwise be wasted on inefficient heating/cooling and constant repairs.
+                            </p>
                           </div>
-                          <h3 className="font-bold text-xl text-blue-400 mb-2">Dramatic Cost Savings</h3>
-                          <p className="text-gray-200">
-                            The average mobile home owner saves $842 annually on energy bills after applying our coating. Over 10 years, that's $8,420 back in your pocket. Add reduced maintenance costs and you're looking at a 243% return on your investment – money that would otherwise be wasted on inefficient heating/cooling and constant repairs.
-                          </p>
                         </div>
                       </div>
                       
-                      <div className="relative group p-5 bg-gradient-to-br from-black/60 to-gray-900/60 border border-blue-500/20 rounded-xl transition-all duration-300 hover:border-blue-500/40">
-                        <div className="absolute -inset-px bg-gradient-to-r from-blue-600/10 via-transparent to-blue-600/10 rounded-xl opacity-50 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
-                        <div className="relative">
-                          <div className="mb-3">
-                            <TimerIcon className="w-8 h-8 text-blue-400" />
+                      <div className="relative bg-gradient-to-br from-gray-900 to-black rounded-lg p-4 border border-gray-800 group">
+                        <div className="absolute -inset-0.5 bg-orange-600/20 rounded-lg blur opacity-60 group-hover:opacity-100 transition-all duration-300"></div>
+                        <div className="relative z-10 flex items-start gap-4">
+                          <span className="bg-gradient-to-r from-orange-700 to-orange-500 rounded-full p-2 mt-1 shadow-[0_0_15px_rgba(249,115,22,0.4)] flex-shrink-0">
+                            <TimerIcon className="w-6 h-6 text-white" />
+                          </span>
+                          <div>
+                            <h3 className="text-xl font-semibold mb-2 text-white drop-shadow-[0_1px_2px_rgba(249,115,22,0.5)]">Extended Home Life & Value</h3>
+                            <p className="text-orange-100">
+                              Mobile homes typically depreciate quickly, but our coating system adds 15+ years to your home's lifespan while increasing its resale value. The protective barrier prevents the most common causes of deterioration – weather damage, UV exposure, and temperature fluctuations – preserving your investment for years to come.
+                            </p>
                           </div>
-                          <h3 className="font-bold text-xl text-blue-400 mb-2">Extended Home Life & Value</h3>
-                          <p className="text-gray-200">
-                            Mobile homes typically depreciate quickly, but our coating system adds 15+ years to your home's lifespan while increasing its resale value. The protective barrier prevents the most common causes of deterioration – weather damage, UV exposure, and temperature fluctuations – preserving your investment for years to come.
-                          </p>
                         </div>
                       </div>
                       
-                      <div className="relative group p-5 bg-gradient-to-br from-black/60 to-gray-900/60 border border-blue-500/20 rounded-xl transition-all duration-300 hover:border-blue-500/40">
-                        <div className="absolute -inset-px bg-gradient-to-r from-blue-600/10 via-transparent to-blue-600/10 rounded-xl opacity-50 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
-                        <div className="relative">
-                          <div className="mb-3">
-                            <BadgeCheck className="w-8 h-8 text-blue-400" />
+                      <div className="relative bg-gradient-to-br from-gray-900 to-black rounded-lg p-4 border border-gray-800 group">
+                        <div className="absolute -inset-0.5 bg-blue-600/20 rounded-lg blur opacity-60 group-hover:opacity-100 transition-all duration-300"></div>
+                        <div className="relative z-10 flex items-start gap-4">
+                          <span className="bg-gradient-to-r from-blue-700 to-blue-500 rounded-full p-2 mt-1 shadow-[0_0_15px_rgba(59,130,246,0.4)] flex-shrink-0">
+                            <BadgeCheck className="w-6 h-6 text-white" />
+                          </span>
+                          <div>
+                            <h3 className="text-xl font-semibold mb-2 text-white drop-shadow-[0_1px_2px_rgba(59,130,246,0.5)]">Improved Comfort & Safety</h3>
+                            <p className="text-blue-100">
+                              Say goodbye to temperature fluctuations and hot/cold spots. Our coating creates a consistent indoor climate year-round, making your home more comfortable no matter the weather outside. The fire-resistant properties add an essential layer of safety, protecting your family and possessions from unexpected dangers.
+                            </p>
                           </div>
-                          <h3 className="font-bold text-xl text-blue-400 mb-2">Improved Comfort & Safety</h3>
-                          <p className="text-gray-200">
-                            Say goodbye to temperature fluctuations and hot/cold spots. Our coating creates a consistent indoor climate year-round, making your home more comfortable no matter the weather outside. The fire-resistant properties add an essential layer of safety, protecting your family and possessions from unexpected dangers.
-                          </p>
                         </div>
                       </div>
                       
-                      <div className="relative group p-5 bg-gradient-to-br from-black/60 to-gray-900/60 border border-blue-500/20 rounded-xl transition-all duration-300 hover:border-blue-500/40">
-                        <div className="absolute -inset-px bg-gradient-to-r from-blue-600/10 via-transparent to-blue-600/10 rounded-xl opacity-50 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
-                        <div className="relative">
-                          <div className="mb-3">
-                            <Wrench className="w-8 h-8 text-blue-400" />
+                      <div className="relative bg-gradient-to-br from-gray-900 to-black rounded-lg p-4 border border-gray-800 group">
+                        <div className="absolute -inset-0.5 bg-orange-600/20 rounded-lg blur opacity-60 group-hover:opacity-100 transition-all duration-300"></div>
+                        <div className="relative z-10 flex items-start gap-4">
+                          <span className="bg-gradient-to-r from-orange-700 to-orange-500 rounded-full p-2 mt-1 shadow-[0_0_15px_rgba(249,115,22,0.4)] flex-shrink-0">
+                            <Wrench className="w-6 h-6 text-white" />
+                          </span>
+                          <div>
+                            <h3 className="text-xl font-semibold mb-2 text-white drop-shadow-[0_1px_2px_rgba(249,115,22,0.5)]">Maintenance-Free Protection</h3>
+                            <p className="text-orange-100">
+                              Our one-time application provides decades of protection without the need for regular maintenance or reapplication. Unlike traditional mobile home coatings that need refreshing every 2-3 years, Praetorian's ceramic shield creates a permanent barrier that stands the test of time – saving you from the endless cycle of repairs.
+                            </p>
                           </div>
-                          <h3 className="font-bold text-xl text-blue-400 mb-2">Maintenance-Free Protection</h3>
-                          <p className="text-gray-200">
-                            Our one-time application provides decades of protection without the need for regular maintenance or reapplication. Unlike traditional mobile home coatings that need refreshing every 2-3 years, Praetorian's ceramic shield creates a permanent barrier that stands the test of time – saving you from the endless cycle of repairs.
-                          </p>
                         </div>
                       </div>
                     </div>
