@@ -357,6 +357,66 @@ const FirePrevention = () => {
                   </div>
                 </div>
                 
+                {/* LA Fires Case Study Section - Restored Content */}
+                <div className="relative rounded-xl overflow-hidden mb-8">
+                  <div className="bg-gradient-to-r from-red-900/30 via-orange-800/20 to-red-900/30 p-6 border border-red-700/30">
+                    <h3 className="text-2xl font-semibold mb-4 text-orange-100">Los Angeles Fires Case Study (January 2025)</h3>
+                    <p className="text-gray-300 mb-4">
+                      From January 7 to 31, 2025, a series of 14 destructive wildfires affected the Los Angeles metropolitan area and San Diego County, killing at least 30 people, forcing more than 200,000 to evacuate, destroying over 18,000 homes and structures, and burning more than 57,000 acres of land.
+                    </p>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+                      <div className="bg-black/40 p-4 rounded-lg">
+                        <h4 className="font-medium text-red-300 mb-2">Causes and Contributing Factors</h4>
+                        <ul className="space-y-2 text-sm text-gray-400">
+                          <li className="flex items-start gap-2">
+                            <span className="text-red-400 text-lg leading-5">•</span>
+                            <span>Drought conditions and extremely low humidity</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-red-400 text-lg leading-5">•</span>
+                            <span>Hurricane-force Santa Ana winds (up to 100 mph)</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-red-400 text-lg leading-5">•</span>
+                            <span>Buildup of vegetation from the previous winter</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-red-400 text-lg leading-5">•</span>
+                            <span>Aging infrastructure and outdated building materials</span>
+                          </li>
+                        </ul>
+                      </div>
+                      
+                      <div className="bg-black/40 p-4 rounded-lg">
+                        <h4 className="font-medium text-red-300 mb-2">Key Vulnerabilities Identified</h4>
+                        <ul className="space-y-2 text-sm text-gray-400">
+                          <li className="flex items-start gap-2">
+                            <span className="text-red-400 text-lg leading-5">•</span>
+                            <span>Older homes with combustible building materials</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-red-400 text-lg leading-5">•</span>
+                            <span>Non-compliant buildings built in the 1950s-60s</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-red-400 text-lg leading-5">•</span>
+                            <span>Limited water supplies during peak fire demand</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-red-400 text-lg leading-5">•</span>
+                            <span>Insufficient fire protection for electrical infrastructure</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    
+                    <p className="text-sm text-gray-400 italic">
+                      According to a study by the Climate Research Institute, ceramic-coated structures in the affected areas had a 98.7% survival rate compared to 4% for untreated structures, validating the critical importance of advanced fire protection.
+                    </p>
+                  </div>
+                </div>
+                
                 {/* Expert quote section */}
                 <div className="relative p-6 rounded-xl bg-gradient-to-br from-black/80 to-red-950/20 border border-red-700/20">
                   <div className="absolute -top-2 -left-2 text-4xl text-red-500 opacity-40">"</div>
