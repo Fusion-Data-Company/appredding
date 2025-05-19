@@ -2172,23 +2172,43 @@ const MobileHome = () => {
                       <div className="absolute -inset-10 bg-green-600/10 rounded-xl blur-3xl opacity-40 z-0"></div>
                       
                       <div className="relative z-10">
-                        <h4 className="text-xl font-bold mb-4 text-white bg-gradient-to-r from-green-200 to-green-400 bg-clip-text text-transparent drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
+                        <h4 className="relative text-xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-br from-green-100 via-green-200 to-green-100 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)] flex items-center">
+                          <div className="relative mr-2.5 flex-shrink-0">
+                            {/* Multi-layer glow effect */}
+                            <div className="absolute -inset-1 bg-gradient-to-r from-green-500/30 via-green-400/40 to-green-500/30 rounded-full blur-md opacity-90 animate-pulse-slow"></div>
+                            <div className="absolute -inset-0.5 bg-green-400/50 rounded-full blur-sm"></div>
+                            
+                            {/* Icon with shimmer effect */}
+                            <div className="relative rounded-full p-1 bg-gradient-to-br from-green-600/90 to-green-800/90 border border-green-300/30 overflow-hidden">
+                              <div className="absolute -inset-full w-[200%] h-[200%] bg-gradient-to-r from-transparent via-white/20 to-transparent -rotate-45 animate-shimmer-slow"></div>
+                              <LineChart className="w-5 h-5 relative text-green-200" />
+                            </div>
+                          </div>
                           Projected 5-Year Returns
                         </h4>
                         
                         <div className="grid grid-cols-2 gap-4">
-                          <div className="relative bg-gray-900/80 border-2 border-green-500/60 rounded-lg p-4 overflow-hidden group hover:bg-gray-900/90 transition-all duration-300">
-                            {/* Enhanced glowing effect */}
-                            <div className="absolute -inset-1 bg-green-500/30 rounded-lg blur-md opacity-70 -z-10 group-hover:opacity-100 transition-opacity duration-300"></div>
-                            <div className="absolute -inset-0.5 bg-gradient-to-br from-green-400/20 to-green-600/20 rounded-lg opacity-70 -z-10"></div>
+                          <div className="relative group overflow-hidden">
+                            {/* Enhanced multi-layered glow effects */}
+                            <div className="absolute -inset-0.5 bg-gradient-to-r from-green-500/40 via-green-600/30 to-green-500/40 rounded-lg blur-[2px] opacity-80 group-hover:opacity-100 transition-all duration-300"></div>
+                            <div className="absolute -inset-2 bg-green-600/20 rounded-lg blur-xl opacity-70 animate-pulse-slow"></div>
                             
-                            {/* Subtle glass shimmer */}
-                            <div className="absolute inset-0 overflow-hidden rounded-lg -z-10">
-                              <div className="h-full w-2/3 bg-gradient-to-r from-transparent via-green-400/10 to-transparent skew-x-[-20deg] animate-shimmer-slow"></div>
-                            </div>
-                            
-                            <div className="text-xl font-bold text-green-400" style={{ textShadow: "0 2px 4px rgba(0, 0, 0, 0.4)" }}>$14,830</div>
-                            <div className="text-sm text-gray-300" style={{ textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)" }}>Total Savings</div>
+                            {/* Premium glass card with subtle animations */}
+                            <div className="relative bg-gradient-to-br from-gray-900/95 via-black/95 to-gray-900/95 rounded-lg p-4 border border-green-500/40 shadow-[0_10px_40px_-15px_rgba(74,222,128,0.3)] h-full overflow-hidden group-hover:shadow-[0_10px_50px_-12px_rgba(74,222,128,0.4)] transition-all duration-300">
+                              {/* Enhanced glowing effect */}
+                              <div className="absolute -inset-1 bg-green-500/30 rounded-lg blur-md opacity-70 -z-10 group-hover:opacity-100 transition-opacity duration-300"></div>
+                              <div className="absolute -inset-0.5 bg-gradient-to-br from-green-400/20 to-green-600/20 rounded-lg opacity-70 -z-10"></div>
+                              
+                              {/* Subtle glass shimmer */}
+                              <div className="absolute inset-0 overflow-hidden rounded-lg -z-10">
+                                <div className="h-full w-2/3 bg-gradient-to-r from-transparent via-green-400/10 to-transparent skew-x-[-20deg] animate-shimmer-slow"></div>
+                              </div>
+                              
+                              {/* Enhanced premium value display */}
+                              <div className="relative z-10">
+                                <div className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-green-100 drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]">$14,830</div>
+                                <div className="text-sm text-gray-300 opacity-90">Total Savings</div>
+                              </div>
                           </div>
                           <div className="relative bg-gray-900/80 border-2 border-green-500/60 rounded-lg p-4 overflow-hidden group hover:bg-gray-900/90 transition-all duration-300">
                             {/* Enhanced glowing effect */}
