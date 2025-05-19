@@ -109,19 +109,23 @@ const FirePrevention = () => {
         <section className="relative z-10 py-10 overflow-hidden">
           <div className="container mx-auto mb-12">
             <div className="relative">
-              {/* Section-specific ambient blue glow in background */}
-              <div className="absolute -inset-10 bg-blue-800/10 rounded-full blur-[100px] opacity-80 z-0"></div>
-              <div className="absolute -inset-20 bg-blue-900/5 rounded-full blur-[150px] opacity-70 z-0 animate-pulse-slow"></div>
+              {/* Enhanced ultra-premium ambient blue glow in background with multiple layers */}
+              <div className="absolute -inset-10 bg-blue-800/15 rounded-full blur-[100px] opacity-90 z-0"></div>
+              <div className="absolute -inset-20 bg-blue-900/10 rounded-full blur-[150px] opacity-80 z-0 animate-pulse-slow"></div>
+              <div className="absolute -inset-30 bg-blue-600/5 rounded-full blur-[200px] opacity-70 z-0 animate-pulse-slow" style={{ animationDuration: '8s' }}></div>
               
-              {/* Premium header container */}
-              <div className="relative z-20 rounded-2xl overflow-hidden shadow-[0_25px_60px_-12px_rgba(0,0,0,0.4)] border border-blue-700/30">
+              {/* Ultra-premium header container with enhanced 3D depth */}
+              <div className="relative z-20 rounded-2xl overflow-hidden shadow-[0_25px_60px_-12px_rgba(0,0,0,0.6)] border border-blue-600/40">
+                {/* Enhanced multi-layered background with premium depth effect */}
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-900/95 via-gray-900/98 to-blue-900/95 z-10"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-800/20 to-blue-900/20 backdrop-blur-sm z-5"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/50 z-5"></div>
                 
-                {/* 3D edge highlight effect for depth */}
-                <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-blue-400/70 to-transparent"></div>
-                <div className="absolute inset-y-0 right-0 w-[2px] bg-gradient-to-b from-transparent via-blue-400/50 to-transparent"></div>
-                <div className="absolute inset-x-0 bottom-0 h-[2px] bg-gradient-to-r from-transparent via-blue-400/70 to-transparent"></div>
-                <div className="absolute inset-y-0 left-0 w-[2px] bg-gradient-to-b from-transparent via-blue-400/50 to-transparent"></div>
+                {/* Enhanced 3D edge highlight effect for superior depth */}
+                <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-blue-400/80 to-transparent"></div>
+                <div className="absolute inset-y-0 right-0 w-[2px] bg-gradient-to-b from-transparent via-blue-400/60 to-transparent"></div>
+                <div className="absolute inset-x-0 bottom-0 h-[2px] bg-gradient-to-r from-transparent via-blue-400/80 to-transparent"></div>
+                <div className="absolute inset-y-0 left-0 w-[2px] bg-gradient-to-b from-transparent via-blue-400/60 to-transparent"></div>
                 
                 {/* Premium corner accents with enhanced effects */}
                 <div className="absolute top-0 left-0 w-20 h-20 z-20 pointer-events-none">

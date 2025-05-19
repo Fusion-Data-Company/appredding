@@ -153,15 +153,18 @@ const Marinas = () => {
         {/* SANDLER STAGE 1: INTRO - BLUE GLOW SECTION */}
         <section className="relative z-10 py-16 md:py-24 overflow-hidden">
           <div className="container mx-auto">
-            {/* Section-specific ambient blue glow in background (z-index lower than content) */}
-            <div className="absolute -inset-10 bg-blue-800/10 rounded-full blur-[100px] opacity-80 z-0"></div>
-            <div className="absolute -inset-20 bg-blue-900/5 rounded-full blur-[150px] opacity-70 z-0 animate-pulse-slow"></div>
+            {/* Enhanced ultra-premium ambient blue glow in background with multiple layers */}
+            <div className="absolute -inset-10 bg-blue-800/15 rounded-full blur-[100px] opacity-90 z-0"></div>
+            <div className="absolute -inset-20 bg-blue-900/10 rounded-full blur-[150px] opacity-80 z-0 animate-pulse-slow"></div>
+            <div className="absolute -inset-30 bg-blue-600/5 rounded-full blur-[200px] opacity-70 z-0 animate-pulse-slow" style={{ animationDuration: '8s' }}></div>
 
-            {/* Premium styled title card */}
+            {/* Premium styled title card with enhanced effects */}
             <div className="max-w-5xl mx-auto text-center mb-14 md:mb-20 relative">
-              {/* Advanced enterprise-grade backdrop with layered effects */}
-              <div className="absolute inset-0 bg-gradient-to-b from-gray-900/90 via-gray-950/95 to-black/95 rounded-2xl border border-blue-500/30 shadow-[0_0_30px_rgba(59,130,246,0.15)]"></div>
-              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/20 via-orange-600/10 to-blue-600/20 rounded-2xl blur-xl opacity-70"></div>
+              {/* Enhanced ultra-premium enterprise-grade backdrop with layered effects */}
+              <div className="absolute inset-0 bg-gradient-to-b from-blue-900/80 via-gray-950/95 to-blue-950/90 rounded-2xl border border-blue-500/40 shadow-[0_0_40px_rgba(59,130,246,0.2)]"></div>
+              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/30 via-blue-800/10 to-blue-600/30 rounded-2xl blur-xl opacity-80"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-800/20 to-blue-900/20 backdrop-blur-sm rounded-2xl z-5"></div>
+              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900/5 via-transparent to-transparent blur-md z-5"></div>
               
               {/* Premium corner accents with enhanced effects */}
               <div className="absolute top-0 left-0 w-20 h-20 z-10 pointer-events-none">
