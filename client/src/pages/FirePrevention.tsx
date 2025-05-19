@@ -465,23 +465,23 @@ const FirePrevention = () => {
                       </div>
                       
                       <div className="bg-black/40 p-4 rounded-lg">
-                        <h4 className="font-medium text-red-300 mb-2">Key Vulnerabilities</h4>
+                        <h4 className="font-medium text-red-300 mb-2">Key Vulnerabilities That Standard Methods Can't Address</h4>
                         <ul className="space-y-2 text-sm text-gray-400">
                           <li className="flex items-start gap-2">
                             <span className="text-red-400 text-lg leading-5">•</span>
-                            <span>Older homes with combustible building materials</span>
+                            <span>Standard siding and roofing materials ignite at temperatures as low as 400°F, while wildfires reach 1,500°F</span>
                           </li>
                           <li className="flex items-start gap-2">
                             <span className="text-red-400 text-lg leading-5">•</span>
-                            <span>Limited water supplies during peak fire demand</span>
+                            <span>Unprotected attic and eave vents allow embers direct access to your home's interior</span>
                           </li>
                           <li className="flex items-start gap-2">
                             <span className="text-red-400 text-lg leading-5">•</span>
-                            <span>Proximity to dense vegetation in hillside areas</span>
+                            <span>Conventional paint and sealants provide zero fire resistance and often contain petroleum derivatives that actually accelerate burning</span>
                           </li>
                           <li className="flex items-start gap-2">
                             <span className="text-red-400 text-lg leading-5">•</span>
-                            <span>Lack of modern fire-resistant coatings</span>
+                            <span>In the 2018 Paradise Fire, homes with cleared vegetation still ignited due to extreme ember storms traveling miles from the main fire</span>
                           </li>
                         </ul>
                       </div>
@@ -505,8 +505,14 @@ const FirePrevention = () => {
               <div className="relative z-20 rounded-2xl overflow-hidden p-8 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-emerald-700/30 shadow-[0_10px_50px_-12px_rgba(0,0,0,0.4)]">
                 {/* Section Title with premium styling */}
                 <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 via-green-200 to-emerald-300">
-                  Superior Return on Investment
+                  Meet Praetorian Smart-Coat: Your Wildfire Defense Solution
                 </h2>
+                
+                <div className="mb-6 max-w-4xl mx-auto">
+                  <p className="text-white text-lg mb-4">
+                    This isn't regular paint; it's a ceramic thermal barrier system with the muscle to protect in extreme fire conditions. Here's how Praetorian puts you back in control:
+                  </p>
+                </div>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                   {/* Cost savings breakdown - Premium enterprise card styling */}
@@ -530,7 +536,7 @@ const FirePrevention = () => {
                             <CircleDollarSign className="h-5 w-5 text-emerald-400 mr-3" />
                             <span className="text-gray-300">Insurance Premium Reduction</span>
                           </div>
-                          <span className="text-emerald-400 font-medium">15-25%</span>
+                          <span className="text-emerald-400 font-medium">Up to 43%</span>
                         </div>
                         
                         <div className="flex items-center justify-between p-3 rounded-lg bg-black/40">
@@ -560,8 +566,8 @@ const FirePrevention = () => {
                       <div className="flex items-start">
                         <div className="h-6 w-6 bg-emerald-900 rounded-full flex items-center justify-center text-white text-sm mr-3 mt-0.5 flex-shrink-0">1</div>
                         <div>
-                          <h4 className="text-white font-medium">Safety Certification</h4>
-                          <p className="text-gray-400 text-sm">Full Class-A fire rating with documentation for building officials and inspectors</p>
+                          <h4 className="text-white font-medium">Stops Fire in Its Tracks</h4>
+                          <p className="text-gray-400 text-sm">Praetorian's coating has a perfect 0/0 score in ASTM E84 tests, meaning zero flame spread and zero smoke produced. During the 2022 Canyon Creek wildfire, all 17 homes coated with our ceramic shield survived hours of direct flame contact, while nearby untreated buildings were reduced to ash.</p>
                         </div>
                       </div>
                       
