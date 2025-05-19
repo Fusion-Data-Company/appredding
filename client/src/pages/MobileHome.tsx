@@ -1563,16 +1563,42 @@ const MobileHome = () => {
                     </div>
                   </div>
                   
-                  <div className="mt-8 relative">
-                    <div className="absolute -inset-1 bg-orange-600/10 rounded-lg blur-sm opacity-70"></div>
-                    <div className="relative p-4 bg-gradient-to-br from-gray-900/90 to-black/90 rounded-lg border border-orange-500/20">
-                      <div className="flex items-center gap-2 text-orange-300 text-sm font-semibold mb-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <path d="M9 12h6"></path><path d="M12 9v6"></path><circle cx="12" cy="12" r="9"></circle>
-                        </svg>
-                        EXPERT TIP
+                  <div className="mt-8 relative transform transition-all duration-500 hover:scale-[1.01]">
+                    {/* Enhanced multi-layered glow effects */}
+                    <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/20 via-orange-500/15 to-orange-600/20 rounded-lg blur-md opacity-80"></div>
+                    <div className="absolute -inset-2 bg-orange-500/10 rounded-lg blur-xl opacity-70 animate-pulse-slow"></div>
+                    <div className="absolute -inset-3 bg-gradient-to-br from-orange-700/5 via-orange-600/5 to-orange-700/5 rounded-xl blur-2xl opacity-60 animate-pulse-slower"></div>
+                    
+                    {/* Premium card with glass effect and subtle light rays */}
+                    <div className="relative p-5 bg-gradient-to-br from-gray-900/95 via-black/95 to-gray-900/95 rounded-lg border border-orange-500/30 shadow-[0_10px_40px_-15px_rgba(249,115,22,0.3)]">
+                      {/* Light sweep effect */}
+                      <div className="absolute inset-0 overflow-hidden rounded-lg">
+                        <div className="absolute -inset-full w-[150px] h-full bg-gradient-to-r from-transparent via-orange-400/10 to-transparent skew-x-[-20deg] animate-light-sweep"></div>
                       </div>
-                      <p className="text-sm text-orange-100 italic">
+                      
+                      {/* Corner accents */}
+                      <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none">
+                        <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-orange-500/40 rounded-tl-md"></div>
+                      </div>
+                      <div className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none">
+                        <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-orange-500/40 rounded-br-md"></div>
+                      </div>
+                      
+                      {/* Elite premium header with icon */}
+                      <div className="flex items-center gap-3 mb-3">
+                        <div className="relative">
+                          <div className="absolute -inset-1 rounded-full bg-orange-500/20 blur-sm animate-pulse-slow"></div>
+                          <div className="relative bg-gradient-to-br from-orange-500/80 to-orange-700/80 p-2 rounded-full flex items-center justify-center shadow-[0_0_10px_rgba(249,115,22,0.4)]">
+                            <Sparkles className="w-4 h-4 text-white" />
+                          </div>
+                        </div>
+                        <h4 className="text-transparent bg-clip-text bg-gradient-to-r from-orange-300 to-orange-100 font-bold tracking-wider text-sm drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
+                          EXPERT TIP
+                        </h4>
+                      </div>
+                      
+                      {/* Enhanced content */}
+                      <p className="text-sm text-orange-100 italic ml-2 border-l-2 border-orange-500/30 pl-3">
                         Praetorian's mobile home coating systems are eligible for energy efficiency incentives through various state and federal programs. Our specialists will help you navigate available rebates and incentives in your area, potentially saving you thousands on your installation.
                       </p>
                     </div>
@@ -1638,22 +1664,42 @@ const MobileHome = () => {
                         </div>
                       </div>
                       
-                      {/* Enhanced heading with gradient text */}
-                      <div>
-                        <h2 className="text-2xl font-bold bg-gradient-to-r from-green-50 via-green-100 to-green-50 bg-clip-text text-transparent drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">
+                      {/* Ultra-premium heading with enhanced gradient text and effects */}
+                      <div className="relative">
+                        {/* Subtle glow behind heading */}
+                        <div className="absolute -inset-2 bg-gradient-to-r from-green-600/10 via-green-400/20 to-green-600/10 rounded-lg blur-xl opacity-80"></div>
+                        
+                        <h2 className="relative text-2xl font-bold bg-gradient-to-r from-green-50 via-green-100 to-green-50 bg-clip-text text-transparent drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)] tracking-wide">
+                          <Gem className="w-5 h-5 inline-block mr-1.5 text-green-300 drop-shadow-[0_2px_3px_rgba(0,0,0,0.8)]" />
                           ROI Analysis Calculator
                         </h2>
-                        <div className="h-0.5 w-3/4 mt-1 bg-gradient-to-r from-transparent via-green-400/60 to-transparent rounded-full"></div>
+                        
+                        {/* Premium animated underline with multi-layer effects */}
+                        <div className="relative h-1 w-full mt-2">
+                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-green-400/80 to-transparent rounded-full"></div>
+                          <div className="absolute inset-0 w-2/3 left-[15%] bg-gradient-to-r from-transparent via-green-300/90 to-transparent rounded-full blur-[1px]"></div>
+                          <div className="absolute h-[2px] w-1/2 left-[25%] top-[30%] bg-white/50 rounded-full"></div>
+                          
+                          {/* Animated shimmer effect */}
+                          <div className="absolute inset-0 w-[200%] left-[-50%] bg-gradient-to-r from-transparent via-white/30 to-transparent rounded-full animate-shimmer-slow"></div>
+                        </div>
                       </div>
                     </div>
                     
-                    {/* Enhanced certification badge */}
-                    <div className="hidden md:flex items-center px-3 py-1 bg-green-800/60 rounded-full border border-green-400/30 shadow-inner text-green-100 text-sm">
-                      <div className="relative mr-2 flex-shrink-0">
-                        <div className="absolute -inset-0.5 bg-green-400/40 rounded-full blur-sm"></div>
-                        <CheckCircle className="w-4 h-4 relative text-green-300" />
+                    {/* Elite certification badge with premium effects */}
+                    <div className="hidden md:flex items-center px-4 py-1.5 bg-gradient-to-r from-green-900/80 via-green-800/80 to-green-900/80 rounded-full border border-green-400/40 shadow-[0_2px_10px_rgba(0,0,0,0.3),inset_0_1px_4px_rgba(74,222,128,0.3)] text-green-100 text-sm transform transition-all duration-300 hover:scale-105 hover:shadow-[0_3px_15px_rgba(0,0,0,0.4),inset_0_1px_5px_rgba(74,222,128,0.4)]">
+                      <div className="relative mr-2.5 flex-shrink-0">
+                        {/* Multi-layer glow effect */}
+                        <div className="absolute -inset-1 bg-gradient-to-r from-green-500/30 via-green-400/40 to-green-500/30 rounded-full blur-md opacity-90 animate-pulse-slow"></div>
+                        <div className="absolute -inset-0.5 bg-green-400/50 rounded-full blur-sm"></div>
+                        
+                        {/* Badge with shimmer effect */}
+                        <div className="relative rounded-full p-1 bg-gradient-to-br from-green-600/90 to-green-800/90 border border-green-300/30 overflow-hidden">
+                          <div className="absolute -inset-full w-[200%] h-[200%] bg-gradient-to-r from-transparent via-white/20 to-transparent -rotate-45 animate-shimmer-slow"></div>
+                          <ShieldCheck className="w-4 h-4 relative text-green-200" />
+                        </div>
                       </div>
-                      <span className="font-medium tracking-wide">NASA-Certified Technology</span>
+                      <span className="font-semibold tracking-wide text-green-50">NASA-Certified Technology</span>
                     </div>
                   </div>
                 </div>
@@ -1780,35 +1826,83 @@ const MobileHome = () => {
                           </li>
                           <li className="flex items-start group">
                             <div className="relative flex-shrink-0 mr-3">
-                              <div className="absolute -inset-1 bg-green-500/30 rounded-full blur-sm opacity-70 group-hover:opacity-100 transition duration-300"></div>
-                              <div className="relative w-7 h-7 bg-gradient-to-br from-green-700 to-green-500 rounded-full flex items-center justify-center shadow-[0_0_10px_rgba(74,222,128,0.4)]">
-                                <span className="text-white text-xs font-bold">3</span>
+                              {/* Enhanced premium multi-layer glow effect */}
+                              <div className="absolute -inset-1.5 bg-gradient-to-r from-green-500/40 via-green-400/50 to-green-500/40 rounded-full blur-md opacity-70 group-hover:opacity-100 transition duration-300 animate-pulse-slow"></div>
+                              <div className="absolute -inset-0.5 bg-green-400/40 rounded-full blur-[2px] opacity-80"></div>
+                              
+                              {/* Ultra-premium 3D glass icon container */}
+                              <div className="relative w-8 h-8 bg-gradient-to-br from-green-600 to-green-800 rounded-full flex items-center justify-center shadow-[0_0_15px_rgba(74,222,128,0.5),inset_0_1px_3px_rgba(255,255,255,0.3)] border border-green-400/40 group-hover:shadow-[0_0_20px_rgba(74,222,128,0.7),inset_0_1px_5px_rgba(255,255,255,0.4)] transition-all duration-300">
+                                {/* Inner glass shine */}
+                                <div className="absolute top-[15%] left-[20%] w-[40%] h-[15%] bg-white/50 rounded-full blur-[0.5px]"></div>
+                                
+                                {/* Light shimmer effect */}
+                                <div className="absolute inset-0 rounded-full overflow-hidden">
+                                  <div className="absolute top-0 left-[-100%] h-full w-[300%] bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer-slow transform rotate-[-35deg]"></div>
+                                </div>
+                                
+                                {/* Icon with number */}
+                                <div className="flex items-center justify-center">
+                                  <BadgeDollarSign className="w-3.5 h-3.5 text-white absolute opacity-30 group-hover:opacity-0 transition-opacity duration-300" />
+                                  <span className="text-white text-xs font-bold relative z-10 group-hover:scale-110 transition-transform duration-300">3</span>
+                                </div>
                               </div>
                             </div>
-                            <span className="text-gray-200 pt-0.5">
-                              <span className="font-semibold text-white">Utility reduction of 20-45%</span> - Average monthly savings of $85-140 on cooling/heating expenses with documented performance across all climate zones
+                            <span className="text-gray-200 pt-1">
+                              <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-green-200 to-green-100 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">Utility reduction of 20-45%</span> - Average monthly savings of $85-140 on cooling/heating expenses with documented performance across all climate zones
                             </span>
                           </li>
                           <li className="flex items-start group">
                             <div className="relative flex-shrink-0 mr-3">
-                              <div className="absolute -inset-1 bg-green-500/30 rounded-full blur-sm opacity-70 group-hover:opacity-100 transition duration-300"></div>
-                              <div className="relative w-7 h-7 bg-gradient-to-br from-green-700 to-green-500 rounded-full flex items-center justify-center shadow-[0_0_10px_rgba(74,222,128,0.4)]">
-                                <span className="text-white text-xs font-bold">4</span>
+                              {/* Enhanced premium multi-layer glow effect */}
+                              <div className="absolute -inset-1.5 bg-gradient-to-r from-green-500/40 via-green-400/50 to-green-500/40 rounded-full blur-md opacity-70 group-hover:opacity-100 transition duration-300 animate-pulse-slow"></div>
+                              <div className="absolute -inset-0.5 bg-green-400/40 rounded-full blur-[2px] opacity-80"></div>
+                              
+                              {/* Ultra-premium 3D glass icon container */}
+                              <div className="relative w-8 h-8 bg-gradient-to-br from-green-600 to-green-800 rounded-full flex items-center justify-center shadow-[0_0_15px_rgba(74,222,128,0.5),inset_0_1px_3px_rgba(255,255,255,0.3)] border border-green-400/40 group-hover:shadow-[0_0_20px_rgba(74,222,128,0.7),inset_0_1px_5px_rgba(255,255,255,0.4)] transition-all duration-300">
+                                {/* Inner glass shine */}
+                                <div className="absolute top-[15%] left-[20%] w-[40%] h-[15%] bg-white/50 rounded-full blur-[0.5px]"></div>
+                                
+                                {/* Light shimmer effect */}
+                                <div className="absolute inset-0 rounded-full overflow-hidden">
+                                  <div className="absolute top-0 left-[-100%] h-full w-[300%] bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer-slow transform rotate-[-35deg]"></div>
+                                </div>
+                                
+                                {/* Icon with number */}
+                                <div className="flex items-center justify-center">
+                                  <TrendingUp className="w-3.5 h-3.5 text-white absolute opacity-30 group-hover:opacity-0 transition-opacity duration-300" />
+                                  <span className="text-white text-xs font-bold relative z-10 group-hover:scale-110 transition-transform duration-300">4</span>
+                                </div>
                               </div>
                             </div>
-                            <span className="text-gray-200 pt-0.5">
-                              <span className="font-semibold text-white">Increases property value by 5-12%</span> - Documented value retention improvement with professional certification and enhanced resale potential
+                            <span className="text-gray-200 pt-1">
+                              <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-green-200 to-green-100 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">Increases property value by 5-12%</span> - Documented value retention improvement with professional certification and enhanced resale potential
                             </span>
                           </li>
                           <li className="flex items-start group">
                             <div className="relative flex-shrink-0 mr-3">
-                              <div className="absolute -inset-1 bg-green-500/30 rounded-full blur-sm opacity-70 group-hover:opacity-100 transition duration-300"></div>
-                              <div className="relative w-7 h-7 bg-gradient-to-br from-green-700 to-green-500 rounded-full flex items-center justify-center shadow-[0_0_10px_rgba(74,222,128,0.4)]">
-                                <span className="text-white text-xs font-bold">5</span>
+                              {/* Enhanced premium multi-layer glow effect */}
+                              <div className="absolute -inset-1.5 bg-gradient-to-r from-green-500/40 via-green-400/50 to-green-500/40 rounded-full blur-md opacity-70 group-hover:opacity-100 transition duration-300 animate-pulse-slow"></div>
+                              <div className="absolute -inset-0.5 bg-green-400/40 rounded-full blur-[2px] opacity-80"></div>
+                              
+                              {/* Ultra-premium 3D glass icon container */}
+                              <div className="relative w-8 h-8 bg-gradient-to-br from-green-600 to-green-800 rounded-full flex items-center justify-center shadow-[0_0_15px_rgba(74,222,128,0.5),inset_0_1px_3px_rgba(255,255,255,0.3)] border border-green-400/40 group-hover:shadow-[0_0_20px_rgba(74,222,128,0.7),inset_0_1px_5px_rgba(255,255,255,0.4)] transition-all duration-300">
+                                {/* Inner glass shine */}
+                                <div className="absolute top-[15%] left-[20%] w-[40%] h-[15%] bg-white/50 rounded-full blur-[0.5px]"></div>
+                                
+                                {/* Light shimmer effect */}
+                                <div className="absolute inset-0 rounded-full overflow-hidden">
+                                  <div className="absolute top-0 left-[-100%] h-full w-[300%] bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer-slow transform rotate-[-35deg]"></div>
+                                </div>
+                                
+                                {/* Icon with number */}
+                                <div className="flex items-center justify-center">
+                                  <Flame className="w-3.5 h-3.5 text-white absolute opacity-30 group-hover:opacity-0 transition-opacity duration-300" />
+                                  <span className="text-white text-xs font-bold relative z-10 group-hover:scale-110 transition-transform duration-300">5</span>
+                                </div>
                               </div>
                             </div>
-                            <span className="text-gray-200 pt-0.5">
-                              <span className="font-semibold text-white">Class A fire-rating protection</span> - Enhances safety with industry-leading fire resistance while creating an additional thermal barrier
+                            <span className="text-gray-200 pt-1">
+                              <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-green-200 to-green-100 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">Class A fire-rating protection</span> - Enhances safety with industry-leading fire resistance while creating an additional thermal barrier
                             </span>
                           </li>
                           <li className="flex items-start group">
