@@ -151,8 +151,21 @@ export default function Pools() {
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-900/95 via-gray-900/98 to-blue-900/95 z-10"></div>
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-800/30 to-blue-900/30 backdrop-blur-sm z-5"></div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/50 z-5"></div>
+
+                {/* Advanced animated light sweep effects with multiple layers */}
+                <div className="absolute inset-0 opacity-30 z-0 overflow-hidden">
+                  <div className="absolute -inset-full w-[600px] h-full bg-gradient-to-r from-transparent via-blue-400/30 to-transparent skew-x-[-20deg] animate-light-sweep"></div>
+                  <div className="absolute -inset-full w-[400px] h-full bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[-15deg] animate-light-sweep" style={{ animationDelay: '2s' }}></div>
+                  <div className="absolute -inset-full w-[300px] h-full bg-gradient-to-r from-transparent via-blue-300/25 to-transparent skew-x-[-25deg] animate-light-sweep" style={{ animationDelay: '4s' }}></div>
+                </div>
                 
-                {/* Premium pool-themed background elements */}
+                {/* 3D edge highlight effect for depth */}
+                <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-blue-400/70 to-transparent"></div>
+                <div className="absolute inset-y-0 right-0 w-[2px] bg-gradient-to-b from-transparent via-blue-400/50 to-transparent"></div>
+                <div className="absolute inset-x-0 bottom-0 h-[2px] bg-gradient-to-r from-transparent via-blue-400/70 to-transparent"></div>
+                <div className="absolute inset-y-0 left-0 w-[2px] bg-gradient-to-b from-transparent via-blue-400/50 to-transparent"></div>
+                
+                {/* Premium themed background elements */}
                 <div className="absolute inset-0 opacity-40 z-0 mix-blend-overlay" 
                   style={{
                     backgroundImage: "url('data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231e3a8a' fill-opacity='0.15'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E')",
@@ -160,12 +173,39 @@ export default function Pools() {
                   }}
                 ></div>
                 
-                {/* Water ripple effect in header */}
+                {/* Premium particle effect in header */}
                 <div className="absolute inset-0 mix-blend-overlay opacity-10 z-0" 
                   style={{
                     backgroundImage: "radial-gradient(circle at center, rgba(255,255,255,0.8) 0%, transparent 0.5%)",
                     backgroundSize: "8px 8px"
                   }}>
+                </div>
+                
+                {/* Ultra-premium Elite Corner Accents with dynamic lighting effects */}
+                <div className="absolute top-0 left-0 w-20 h-20 z-20 pointer-events-none">
+                  {/* Multi-layered glowing corner effect */}
+                  <div className="absolute top-0 left-0 w-16 h-16 border-t-[3px] border-l-[3px] border-blue-400/50 rounded-tl-lg"></div>
+                  <div className="absolute top-1 left-1 w-12 h-12 border-t-2 border-l-2 border-blue-500/40 rounded-tl-md"></div>
+                  <div className="absolute top-2 left-2 w-8 h-8 border-t border-l border-blue-600/30 rounded-tl-sm"></div>
+                  <div className="absolute top-0 left-0 w-3 h-3 bg-blue-400/30 rounded-full blur-[2px]"></div>
+                </div>
+                <div className="absolute top-0 right-0 w-20 h-20 z-20 pointer-events-none">
+                  <div className="absolute top-0 right-0 w-16 h-16 border-t-[3px] border-r-[3px] border-blue-400/50 rounded-tr-lg"></div>
+                  <div className="absolute top-1 right-1 w-12 h-12 border-t-2 border-r-2 border-blue-500/40 rounded-tr-md"></div>
+                  <div className="absolute top-2 right-2 w-8 h-8 border-t border-r border-blue-600/30 rounded-tr-sm"></div>
+                  <div className="absolute top-0 right-0 w-3 h-3 bg-blue-400/30 rounded-full blur-[2px]"></div>
+                </div>
+                <div className="absolute bottom-0 left-0 w-20 h-20 z-20 pointer-events-none">
+                  <div className="absolute bottom-0 left-0 w-16 h-16 border-b-[3px] border-l-[3px] border-blue-400/50 rounded-bl-lg"></div>
+                  <div className="absolute bottom-1 left-1 w-12 h-12 border-b-2 border-l-2 border-blue-500/40 rounded-bl-md"></div>
+                  <div className="absolute bottom-2 left-2 w-8 h-8 border-b border-l border-blue-600/30 rounded-bl-sm"></div>
+                  <div className="absolute bottom-0 left-0 w-3 h-3 bg-blue-400/30 rounded-full blur-[2px]"></div>
+                </div>
+                <div className="absolute bottom-0 right-0 w-20 h-20 z-20 pointer-events-none">
+                  <div className="absolute bottom-0 right-0 w-16 h-16 border-b-[3px] border-r-[3px] border-blue-400/50 rounded-br-lg"></div>
+                  <div className="absolute bottom-1 right-1 w-12 h-12 border-b-2 border-r-2 border-blue-500/40 rounded-br-md"></div>
+                  <div className="absolute bottom-2 right-2 w-8 h-8 border-b border-r border-blue-600/30 rounded-br-sm"></div>
+                  <div className="absolute bottom-0 right-0 w-3 h-3 bg-blue-400/30 rounded-full blur-[2px]"></div>
                 </div>
                 
                 {/* Advanced animated light sweep effects with multiple layers */}
