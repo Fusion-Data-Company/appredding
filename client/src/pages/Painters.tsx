@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import MainLayout from "@/components/layout/MainLayout";
 import { GradientHeading } from "@/components/ui/gradient-heading";
 import { Input } from "@/components/ui/input";
@@ -22,6 +22,8 @@ import { useToast } from "@/hooks/use-toast";
 import { PremiumCartButton } from "@/utils/premium-buttons";
 import { motion } from "framer-motion";
 import { z } from "zod";
+import { Helmet } from "react-helmet";
+import { preloadCriticalImage, getAccessibleAltText } from "@/lib/seo-helper";
 
 // Define form schema for painters
 const insertPainterContactSchema = z.object({

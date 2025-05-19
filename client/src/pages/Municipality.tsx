@@ -73,6 +73,14 @@ export default function Municipality() {
   const [activeTab, setActiveTab] = useState("infrastructure");
   const [progress, setProgress] = useState(33);
   
+  // Hero image path for preloading
+  const heroImagePath = "/src/assets_dir/images/municipality-hero.png";
+  
+  // Preload critical hero image
+  useEffect(() => {
+    preloadCriticalImage(heroImagePath);
+  }, []);
+  
   useEffect(() => {
     const timer = setTimeout(() => setProgress(66), 500);
     return () => clearTimeout(timer);
@@ -132,6 +140,25 @@ export default function Municipality() {
 
   return (
     <MainLayout fullWidth={true}>
+      <Helmet>
+        <title>Praetorian Smart-Coat – Municipal Infrastructure</title>
+        <meta name="description" content="Advanced protective coatings for municipal infrastructure. Extend asset lifespan, reduce maintenance costs, and improve energy efficiency with our ceramic barrier technology." />
+        
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Praetorian Smart-Coat – Municipality" />
+        <meta property="og:description" content="Fireproof, insulating ceramic paint for municipal infrastructure. Guard what matters." />
+        <meta property="og:image" content="/images/og-municipality.jpg" />
+        
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Praetorian Smart-Coat – Municipality" />
+        <meta name="twitter:description" content="Fireproof, insulating ceramic paint for municipal infrastructure. Guard what matters." />
+        <meta name="twitter:image" content="/images/og-municipality.jpg" />
+        
+        {/* Preload critical hero image */}
+        <link rel="preload" as="image" href={heroImagePath} />
+      </Helmet>
       <div className="relative">
         {/* Advanced premium gradient background with layered effects */}
         <div className="fixed inset-0 z-[-5]" style={{ 
