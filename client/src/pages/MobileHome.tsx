@@ -1196,7 +1196,62 @@ const MobileHome = () => {
                           <div className="h-full w-1/3 bg-gradient-to-r from-transparent via-green-400/10 to-transparent skew-x-[-20deg] animate-shimmer-slow"></div>
                         </div>
                         
-                        {/* Form inputs */}
+                        <h4 className="text-lg font-semibold mb-3 flex items-center relative z-10">
+                          <span className="relative mr-3 flex-shrink-0">
+                            <span className="absolute -inset-1 bg-green-500/30 rounded-full blur-sm"></span>
+                            <div className="relative h-6 w-6 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center shadow-[0_0_10px_rgba(74,222,128,0.5)]">
+                              <CheckCircle className="h-4 w-4 text-white" />
+                            </div>
+                          </span>
+                          <span className="bg-gradient-to-r from-white via-green-100 to-white bg-clip-text text-transparent">Praetorian Mobile Home Solutions</span>
+                        </h4>
+                      
+                        <ul className="space-y-4 relative z-10">
+                          <li className="flex items-start group">
+                            <div className="relative flex-shrink-0 mr-3">
+                              <div className="absolute -inset-1 bg-green-500/30 rounded-full blur-sm opacity-70 group-hover:opacity-100 transition duration-300"></div>
+                              <div className="relative w-7 h-7 bg-gradient-to-br from-green-700 to-green-500 rounded-full flex items-center justify-center shadow-[0_0_10px_rgba(74,222,128,0.4)]">
+                                <span className="text-white text-xs font-bold">1</span>
+                              </div>
+                            </div>
+                            <span className="text-gray-200 pt-0.5">
+                              <span className="font-semibold text-white">Reduces internal temperature by 15-28°F</span> - Creates immediate comfort improvements and energy savings
+                            </span>
+                          </li>
+                          <li className="flex items-start group">
+                            <div className="relative flex-shrink-0 mr-3">
+                              <div className="absolute -inset-1 bg-green-500/30 rounded-full blur-sm opacity-70 group-hover:opacity-100 transition duration-300"></div>
+                              <div className="relative w-7 h-7 bg-gradient-to-br from-green-700 to-green-500 rounded-full flex items-center justify-center shadow-[0_0_10px_rgba(74,222,128,0.4)]">
+                                <span className="text-white text-xs font-bold">2</span>
+                              </div>
+                            </div>
+                            <span className="text-gray-200 pt-0.5">
+                              <span className="font-semibold text-white">25+ year roof protection</span> - One application extends roof life by 2-3× with documented performance
+                            </span>
+                          </li>
+                          <li className="flex items-start group">
+                            <div className="relative flex-shrink-0 mr-3">
+                              <div className="absolute -inset-1 bg-green-500/30 rounded-full blur-sm opacity-70 group-hover:opacity-100 transition duration-300"></div>
+                              <div className="relative w-7 h-7 bg-gradient-to-br from-green-700 to-green-500 rounded-full flex items-center justify-center shadow-[0_0_10px_rgba(74,222,128,0.4)]">
+                                <span className="text-white text-xs font-bold">3</span>
+                              </div>
+                            </div>
+                            <span className="text-gray-200 pt-0.5">
+                              <span className="font-semibold text-white">Utility reduction of 20-45%</span> - Average monthly savings of $85-140 on cooling/heating expenses
+                            </span>
+                          </li>
+                          <li className="flex items-start group">
+                            <div className="relative flex-shrink-0 mr-3">
+                              <div className="absolute -inset-1 bg-green-500/30 rounded-full blur-sm opacity-70 group-hover:opacity-100 transition duration-300"></div>
+                              <div className="relative w-7 h-7 bg-gradient-to-br from-green-700 to-green-500 rounded-full flex items-center justify-center shadow-[0_0_10px_rgba(74,222,128,0.4)]">
+                                <span className="text-white text-xs font-bold">4</span>
+                              </div>
+                            </div>
+                            <span className="text-gray-200 pt-0.5">
+                              <span className="font-semibold text-white">Increases property value by 5-12%</span> - Documented value retention improvement with professional certification
+                            </span>
+                          </li>
+                        </ul>
                       </div>
                     </div>
                   </div>
@@ -1407,114 +1462,6 @@ const MobileHome = () => {
                       
                       <div className="mt-4 text-sm text-gray-400">
                         Results based on average data for similar mobile homes in your climate zone. Contact us for a precise custom assessment.
-                      </div>
-                      
-                      {/* Praetorian Mobile Home Solutions Card */}
-                      <div className="mt-8 relative">
-                        <div className="absolute -inset-3 bg-gradient-to-r from-blue-600/20 via-purple-600/15 to-blue-600/20 rounded-lg blur-lg opacity-70"></div>
-                        <div className="relative p-5 bg-gradient-to-br from-gray-900/90 via-gray-950/95 to-black rounded-lg border border-blue-500/30 shadow-[0_5px_20px_rgba(59,130,246,0.3)]">
-                          {/* Corner Accents */}
-                          <div className="absolute top-0 left-0 w-full h-full rounded-lg overflow-hidden pointer-events-none">
-                            <div className="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-blue-500/40 rounded-tl-lg"></div>
-                            <div className="absolute top-0 right-0 w-16 h-16 border-t-2 border-r-2 border-blue-500/40 rounded-tr-lg"></div>
-                            <div className="absolute bottom-0 left-0 w-16 h-16 border-b-2 border-l-2 border-blue-500/40 rounded-bl-lg"></div>
-                            <div className="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-blue-500/40 rounded-br-lg"></div>
-                          </div>
-                          
-                          {/* Header with logo */}
-                          <div className="flex items-center justify-between mb-4">
-                            <h3 className="text-xl font-bold bg-gradient-to-r from-blue-100 via-blue-300 to-blue-100 bg-clip-text text-transparent drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">
-                              Praetorian Mobile Home Solutions
-                            </h3>
-                            <div className="relative w-16 h-16">
-                              <div className="absolute -inset-1 bg-blue-500/20 rounded-full blur-sm opacity-80"></div>
-                              <img 
-                                src="/images/praetorian-logo.png" 
-                                alt="Praetorian" 
-                                className="w-full h-full object-contain relative z-10 drop-shadow-[0_0_5px_rgba(59,130,246,0.6)]"
-                              />
-                            </div>
-                          </div>
-                          
-                          {/* Benefits grid */}
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div className="relative bg-gradient-to-br from-gray-900/60 to-gray-950/60 rounded-lg p-3 border border-blue-500/20 overflow-hidden group hover:border-blue-500/40 transition-all duration-300">
-                              {/* Ambient glow on hover */}
-                              <div className="absolute -inset-1 bg-blue-500/10 rounded-lg blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
-                              {/* Glass shimmer */}
-                              <div className="absolute inset-0 overflow-hidden rounded-lg -z-10">
-                                <div className="h-full w-1/2 bg-gradient-to-r from-transparent via-blue-400/10 to-transparent skew-x-[-20deg] animate-shimmer-slow"></div>
-                              </div>
-                              
-                              <div className="flex items-start">
-                                <div className="bg-blue-500/20 rounded-full h-7 w-7 flex items-center justify-center flex-shrink-0 mr-3">
-                                  <span className="text-blue-300 font-semibold">1</span>
-                                </div>
-                                <div>
-                                  <p className="text-blue-100 font-medium">Reduces internal temperature by 15-28°F</p>
-                                  <p className="text-sm text-blue-200/70">Creates immediate comfort improvements and energy savings</p>
-                                </div>
-                              </div>
-                            </div>
-                            
-                            <div className="relative bg-gradient-to-br from-gray-900/60 to-gray-950/60 rounded-lg p-3 border border-blue-500/20 overflow-hidden group hover:border-blue-500/40 transition-all duration-300">
-                              {/* Ambient glow on hover */}
-                              <div className="absolute -inset-1 bg-blue-500/10 rounded-lg blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
-                              {/* Glass shimmer */}
-                              <div className="absolute inset-0 overflow-hidden rounded-lg -z-10">
-                                <div className="h-full w-1/2 bg-gradient-to-r from-transparent via-blue-400/10 to-transparent skew-x-[-20deg] animate-shimmer-slow" style={{ animationDelay: '0.2s' }}></div>
-                              </div>
-                              
-                              <div className="flex items-start">
-                                <div className="bg-blue-500/20 rounded-full h-7 w-7 flex items-center justify-center flex-shrink-0 mr-3">
-                                  <span className="text-blue-300 font-semibold">2</span>
-                                </div>
-                                <div>
-                                  <p className="text-blue-100 font-medium">25+ year roof protection</p>
-                                  <p className="text-sm text-blue-200/70">One application extends roof life by 2-3× with documented performance</p>
-                                </div>
-                              </div>
-                            </div>
-                            
-                            <div className="relative bg-gradient-to-br from-gray-900/60 to-gray-950/60 rounded-lg p-3 border border-blue-500/20 overflow-hidden group hover:border-blue-500/40 transition-all duration-300">
-                              {/* Ambient glow on hover */}
-                              <div className="absolute -inset-1 bg-blue-500/10 rounded-lg blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
-                              {/* Glass shimmer */}
-                              <div className="absolute inset-0 overflow-hidden rounded-lg -z-10">
-                                <div className="h-full w-1/2 bg-gradient-to-r from-transparent via-blue-400/10 to-transparent skew-x-[-20deg] animate-shimmer-slow" style={{ animationDelay: '0.4s' }}></div>
-                              </div>
-                              
-                              <div className="flex items-start">
-                                <div className="bg-blue-500/20 rounded-full h-7 w-7 flex items-center justify-center flex-shrink-0 mr-3">
-                                  <span className="text-blue-300 font-semibold">3</span>
-                                </div>
-                                <div>
-                                  <p className="text-blue-100 font-medium">Utility reduction of 20-45%</p>
-                                  <p className="text-sm text-blue-200/70">Average monthly savings of $85-140 on cooling/heating expenses</p>
-                                </div>
-                              </div>
-                            </div>
-                            
-                            <div className="relative bg-gradient-to-br from-gray-900/60 to-gray-950/60 rounded-lg p-3 border border-blue-500/20 overflow-hidden group hover:border-blue-500/40 transition-all duration-300">
-                              {/* Ambient glow on hover */}
-                              <div className="absolute -inset-1 bg-blue-500/10 rounded-lg blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
-                              {/* Glass shimmer */}
-                              <div className="absolute inset-0 overflow-hidden rounded-lg -z-10">
-                                <div className="h-full w-1/2 bg-gradient-to-r from-transparent via-blue-400/10 to-transparent skew-x-[-20deg] animate-shimmer-slow" style={{ animationDelay: '0.6s' }}></div>
-                              </div>
-                              
-                              <div className="flex items-start">
-                                <div className="bg-blue-500/20 rounded-full h-7 w-7 flex items-center justify-center flex-shrink-0 mr-3">
-                                  <span className="text-blue-300 font-semibold">4</span>
-                                </div>
-                                <div>
-                                  <p className="text-blue-100 font-medium">Increases property value by 5-12%</p>
-                                  <p className="text-sm text-blue-200/70">Documented value retention improvement with professional certification</p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
                       </div>
                       
                       {/* Informational note with enhanced styling */}
