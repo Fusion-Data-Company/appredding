@@ -937,6 +937,41 @@ const Construction = () => {
                         </div>
                       </div>
                       
+                      {/* Statistics Section - Moved here from bottom */}
+                      <div className="relative group p-5 bg-gradient-to-br from-black/80 to-gray-900/80 border border-green-700/30 rounded-xl transition-all duration-300 hover:border-green-600/50 shadow-lg mt-6">
+                        <div className="absolute -inset-px bg-gradient-to-r from-green-600/20 via-transparent to-green-600/20 rounded-xl opacity-70 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
+                        
+                        <div className="relative">
+                          <h3 className="font-bold text-xl text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-green-200 mb-4 text-center" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.8)" }}>Distribution Network</h3>
+                          
+                          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div className="flex flex-col items-center p-4 bg-black/40 rounded-lg">
+                              <Warehouse className="h-10 w-10 text-green-400 mb-2" />
+                              <div className="text-center">
+                                <p className="text-2xl font-bold text-white">28+</p>
+                                <p className="text-gray-400 text-sm">Exclusive Distributors <span className="text-xs">(Source: Praetorian Distribution Network Report, Q1 2024)</span></p>
+                              </div>
+                            </div>
+                            
+                            <div className="flex flex-col items-center p-4 bg-black/40 rounded-lg">
+                              <Building className="h-10 w-10 text-green-400 mb-2" />
+                              <div className="text-center">
+                                <p className="text-2xl font-bold text-white">1.2M+</p>
+                                <p className="text-gray-400 text-sm">Square Feet Covered <span className="text-xs">(Source: Praetorian Project Implementation Database, March 2024)</span></p>
+                              </div>
+                            </div>
+                            
+                            <div className="flex flex-col items-center p-4 bg-black/40 rounded-lg">
+                              <TrendingUp className="h-10 w-10 text-green-400 mb-2" />
+                              <div className="text-center">
+                                <p className="text-2xl font-bold text-white">42%</p>
+                                <p className="text-gray-400 text-sm">Annual Growth Rate <span className="text-xs">(Source: Praetorian Annual Financial Report, Q4 2023)</span></p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
                       {/* ROI Results Preview */}
                       <div id="roiResults" className="mt-6 pt-6 border-t border-gray-700 relative opacity-0 transition-opacity duration-500">
                         {/* Green glow for ROI section */}
