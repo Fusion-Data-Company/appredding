@@ -1346,12 +1346,37 @@ const MobileHome = () => {
                         </div>
                       </div>
                       
-                      {/* Ambient blue-to-orange gradient glow wrapper around the button without affecting the button itself */}
+                      {/* Enhanced white ambient glow with elite enterprise styling */}
                       <div className="relative mt-6">
-                        <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-orange-600 rounded-lg blur opacity-70 group-hover:opacity-100 transition duration-200"></div>
-                        <div className="relative">
+                        {/* Layered white ambient glow effect */}
+                        <div className="absolute -inset-1 bg-gradient-to-r from-white/80 via-white/90 to-white/80 rounded-lg blur-md opacity-80 group-hover:opacity-100 transition duration-200"></div>
+                        <div className="absolute -inset-2 bg-white/40 rounded-lg blur-xl opacity-60 group-hover:opacity-80 transition duration-300 animate-pulse-slow"></div>
+                        <div className="absolute -inset-3 bg-white/20 rounded-lg blur-2xl opacity-50 group-hover:opacity-70 transition duration-300"></div>
+                        
+                        {/* Enterprise elite button container with glass effects */}
+                        <div className="relative overflow-hidden rounded-lg">
+                          {/* Glass shimmer animation layers */}
+                          <div className="absolute inset-0 z-10 overflow-hidden pointer-events-none">
+                            <div className="h-full w-1/2 bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-[-20deg] animate-shimmer-slow absolute"></div>
+                            <div className="h-full w-1/3 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[-20deg] animate-shimmer-slow absolute" style={{ animationDelay: '0.5s' }}></div>
+                          </div>
+                          
+                          {/* Crystalline edge highlights */}
+                          <div className="absolute top-0 left-0 w-full h-full rounded-lg overflow-hidden pointer-events-none z-20">
+                            <div className="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-white/60 rounded-tl-lg"></div>
+                            <div className="absolute top-0 right-0 w-12 h-12 border-t-2 border-r-2 border-white/60 rounded-tr-lg"></div>
+                            <div className="absolute bottom-0 left-0 w-12 h-12 border-b-2 border-l-2 border-white/60 rounded-bl-lg"></div>
+                            <div className="absolute bottom-0 right-0 w-12 h-12 border-b-2 border-r-2 border-white/60 rounded-br-lg"></div>
+                            
+                            {/* Corner glow dots */}
+                            <div className="absolute top-0 left-0 w-2 h-2 bg-white/80 rounded-full blur-[1px]"></div>
+                            <div className="absolute top-0 right-0 w-2 h-2 bg-white/80 rounded-full blur-[1px]"></div>
+                            <div className="absolute bottom-0 left-0 w-2 h-2 bg-white/80 rounded-full blur-[1px]"></div>
+                            <div className="absolute bottom-0 right-0 w-2 h-2 bg-white/80 rounded-full blur-[1px]"></div>
+                          </div>
+                          
                           <PremiumFireButton 
-                            className="w-full transform hover:scale-105 transition-transform duration-300"
+                            className="w-full transform hover:scale-105 transition-transform duration-300 relative z-30"
                             size="lg"
                             glowEffect={true}
                             onClick={() => calculateROI()}
