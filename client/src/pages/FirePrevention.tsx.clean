@@ -33,7 +33,7 @@ import {
 import { zodResolver } from "@hookform/resolvers/zod";
 import { PremiumCartButton } from "@/utils/premium-buttons";
 import { motion } from "framer-motion";
-import { insertFirePreventionHomeownerSchema } from "@shared/schema";
+import { insertFireProtectionConsultationSchema } from "@shared/schema";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { useMutation } from "@tanstack/react-query";
@@ -47,7 +47,7 @@ const FirePrevention = () => {
 
   // Setup form for fire protection consultation
   const form = useForm({
-    resolver: zodResolver(insertFirePreventionHomeownerSchema),
+    resolver: zodResolver(insertFireProtectionConsultationSchema),
     defaultValues: {
       firstName: "",
       lastName: "",
@@ -71,13 +71,13 @@ const FirePrevention = () => {
 
   // Fire protection consultation mutation
   const consultationMutation = useMutation({
-    mutationFn: async (data: z.infer<typeof insertFirePreventionHomeownerSchema>) => {
-      const response = await apiRequest("POST", "/api/firepreventionhomeowners", data);
+    mutationFn: async (data) => {
+      const response = await apiRequest("POST", "/api/consultations/fire-protection", data);
       if (!response.ok) {
         const errorData = await response.json();
         throw new Error(errorData.error || "Consultation request failed");
       }
-      return data;
+      return response.json();
     },
     onSuccess: () => {
       toast({
@@ -97,7 +97,7 @@ const FirePrevention = () => {
     },
   });
 
-  const onSubmit = (data: z.infer<typeof insertFirePreventionHomeownerSchema>) => {
+  const onSubmit = (data) => {
     consultationMutation.mutate(data);
   };
 
