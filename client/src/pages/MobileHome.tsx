@@ -1346,6 +1346,16 @@ const MobileHome = () => {
                         </div>
                       </div>
                       
+                      {/* Praetorian Logo in bottom left corner */}
+                      <div className="relative w-24 h-24 mt-6 mb-2">
+                        <div className="absolute -inset-2 rounded-full opacity-70 blur-sm"></div>
+                        <img 
+                          src="/images/praetorian-logo.png" 
+                          alt="Praetorian" 
+                          className="w-full h-full object-contain relative z-10 drop-shadow-[0_0_8px_rgba(59,130,246,0.6)]"
+                        />
+                      </div>
+                      
                       {/* Purple ambient glow button like registration form */}
                       <div className="relative mt-6">
                         {/* Outer ambient glow */}
