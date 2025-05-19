@@ -1102,22 +1102,51 @@ const MobileHome = () => {
                   <div className="h-full w-1/3 bg-gradient-to-r from-transparent via-green-400/10 to-transparent skew-x-[-20deg] animate-shimmer-slow absolute"></div>
                 </div>
                 
-                {/* Green header bar with premium styling */}
-                <div className="relative -mt-6 -mx-6 md:-mx-8 mb-8 py-4 px-6 md:px-8 bg-gradient-to-r from-green-900/80 via-green-800/80 to-green-900/80 border-b border-green-500/30">
-                  <div className="absolute inset-0 opacity-30">
-                    <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%2322c55e\' fill-opacity=\'0.1\' fill-rule=\'evenodd\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
+                {/* Enhanced Green header bar with premium enterprise styling */}
+                <div className="relative -mt-6 -mx-6 md:-mx-8 mb-8 py-5 px-6 md:px-8 bg-gradient-to-r from-green-900/90 via-green-800/95 to-green-900/90 border-b border-green-400/40 shadow-[0_10px_25px_-5px_rgba(34,197,94,0.25)]">
+                  
+                  {/* Enhanced background pattern with shimmer effect */}
+                  <div className="absolute inset-0 overflow-hidden">
+                    <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%2322c55e\' fill-opacity=\'0.1\' fill-rule=\'evenodd\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/svg%3E')] opacity-60"></div>
+                    <div className="h-full w-1/2 bg-gradient-to-r from-transparent via-green-400/15 to-transparent skew-x-[-20deg] animate-shimmer-slow absolute"></div>
                   </div>
                   
-                  <div className="flex items-center justify-between">
+                  {/* Corner accent elements */}
+                  <div className="absolute top-0 left-0 w-12 h-12 pointer-events-none">
+                    <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-green-400/60 rounded-tl-md"></div>
+                    <div className="absolute top-0 left-0 w-2 h-2 bg-green-400/60 rounded-full blur-[1px]"></div>
+                  </div>
+                  <div className="absolute top-0 right-0 w-12 h-12 pointer-events-none">
+                    <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-green-400/60 rounded-tr-md"></div>
+                    <div className="absolute top-0 right-0 w-2 h-2 bg-green-400/60 rounded-full blur-[1px]"></div>
+                  </div>
+                  
+                  <div className="flex items-center justify-between relative">
                     <div className="flex items-center">
-                      <div className="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center mr-4 border border-green-400/30">
-                        <CircleDollarSign className="w-5 h-5 text-green-300" />
+                      {/* Enhanced icon with glow effect */}
+                      <div className="relative flex-shrink-0 mr-5">
+                        <div className="absolute -inset-1 bg-green-500/40 rounded-full blur-md opacity-80"></div>
+                        <div className="relative w-12 h-12 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center shadow-[0_0_15px_rgba(34,197,94,0.6)] border border-green-400/40">
+                          <CircleDollarSign className="w-6 h-6 text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)]" />
+                        </div>
                       </div>
-                      <h2 className="text-2xl font-bold text-green-50">ROI Analysis Calculator</h2>
+                      
+                      {/* Enhanced heading with gradient text */}
+                      <div>
+                        <h2 className="text-2xl font-bold bg-gradient-to-r from-green-50 via-green-100 to-green-50 bg-clip-text text-transparent drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">
+                          ROI Analysis Calculator
+                        </h2>
+                        <div className="h-0.5 w-3/4 mt-1 bg-gradient-to-r from-transparent via-green-400/60 to-transparent rounded-full"></div>
+                      </div>
                     </div>
-                    <div className="hidden md:flex items-center space-x-1 text-green-300 text-sm">
-                      <CheckCircle className="w-4 h-4 mr-1" />
-                      <span>NASA-Certified Technology</span>
+                    
+                    {/* Enhanced certification badge */}
+                    <div className="hidden md:flex items-center px-3 py-1 bg-green-800/60 rounded-full border border-green-400/30 shadow-inner text-green-100 text-sm">
+                      <div className="relative mr-2 flex-shrink-0">
+                        <div className="absolute -inset-0.5 bg-green-400/40 rounded-full blur-sm"></div>
+                        <CheckCircle className="w-4 h-4 relative text-green-300" />
+                      </div>
+                      <span className="font-medium tracking-wide">NASA-Certified Technology</span>
                     </div>
                   </div>
                 </div>
