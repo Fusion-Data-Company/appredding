@@ -33,7 +33,26 @@ import {
   FileText,
   Download,
   CircleDollarSign,
-  TrendingUp
+  TrendingUp,
+  Medal,
+  Activity,
+  ArrowUpRight,
+  BadgeDollarSign,
+  Sparkles,
+  Flame,
+  Zap,
+  Crown,
+  Lightbulb,
+  BarChart3,
+  LineChart,
+  PieChart,
+  Star,
+  Radiation,
+  ShieldCheck,
+  Gem,
+  Rocket,
+  Landmark,
+  Layers
 } from "lucide-react";
 import { insertMobileHomeProfessionalSchema } from "@shared/schema";
 import { z } from "zod";
