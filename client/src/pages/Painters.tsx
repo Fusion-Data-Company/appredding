@@ -141,25 +141,15 @@ const Painters = () => {
   
   return (
     <MainLayout fullWidth={true}>
-      <Helmet>
-        <title>Praetorian Smart-Coat – Painters</title>
-        <meta name="description" content="Join our premium painting contractor network. Gain access to revolutionary ceramic coating technology and grow your business with high-margin specialized projects." />
-        
-        {/* Open Graph / Facebook */}
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="Praetorian Smart-Coat – Painters" />
-        <meta property="og:description" content="Fireproof, insulating ceramic paint for professional contractors. Guard what matters." />
-        <meta property="og:image" content="/images/og-painters.jpg" />
-        
-        {/* Twitter */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Praetorian Smart-Coat – Painters" />
-        <meta name="twitter:description" content="Fireproof, insulating ceramic paint for professional contractors. Guard what matters." />
-        <meta name="twitter:image" content="/images/og-painters.jpg" />
-        
-        {/* Preload critical hero image */}
-        <link rel="preload" as="image" href={heroImagePath} />
-      </Helmet>
+      <SEOHead 
+        title={title}
+        description={description}
+        industry="Painters"
+        slug={slug}
+        imagePath={heroImagePath}
+        keywords={keywords}
+        structuredData={structuredData}
+      />
       <div className="relative">
         {/* Premium background with layered gradient effects */}
         <div className="fixed inset-0 z-[-5]" style={{ 
