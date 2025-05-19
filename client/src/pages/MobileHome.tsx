@@ -196,25 +196,20 @@ const MobileHome = () => {
           }}
         />
         
-        {/* Mobile Home ROI Analysis Section - Ultra-Premium Enterprise Styling */}
+        {/* New Main Header Section */}
         <section className="relative z-10 py-10 overflow-hidden">
           <div className="container mx-auto mb-12">
             <div className="relative">
-              {/* Ultra-premium Industry-Elite Enterprise Ambient Glow System */}
-              <div className="absolute -inset-10 bg-gradient-to-r from-blue-800/15 via-blue-700/20 to-blue-800/15 rounded-full blur-[120px] opacity-90 z-0"></div>
-              <div className="absolute -inset-20 bg-gradient-to-br from-blue-900/10 via-blue-800/10 to-blue-900/10 rounded-full blur-[180px] opacity-80 z-0 animate-pulse-slow"></div>
-              <div className="absolute -inset-30 bg-gradient-to-tr from-blue-700/5 via-blue-600/5 to-blue-700/5 rounded-full blur-[200px] opacity-60 z-0 animate-pulse-very-slow" style={{ animationDuration: '15s' }}></div>
+              {/* Advanced ambient blue glow effects for header */}
+              <div className="absolute -inset-10 bg-blue-800/10 rounded-full blur-[100px] opacity-80 z-0"></div>
+              <div className="absolute -inset-20 bg-blue-900/5 rounded-full blur-[150px] opacity-70 z-0 animate-pulse-slow"></div>
               
-              {/* State-of-the-art Ultra-premium Elite Enterprise Header Container with Photorealistic 3D Effects */}
-              <div className="relative rounded-2xl overflow-hidden transform perspective-[1200px] transition-all duration-700 group hover:scale-[1.005] hover:rotate-y-1 shadow-[0_30px_70px_-15px_rgba(0,0,0,0.5),0_0_40px_rgba(59,130,246,0.1),0_-10px_40px_-5px_rgba(59,130,246,0.1)] border border-blue-700/40">
-                {/* Premium multi-layered background with advanced depth and lighting effects */}
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-950/95 via-gray-950/98 to-blue-950/95 z-10"></div>
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-900/30 to-blue-950/30 backdrop-blur-sm z-5"></div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/60 z-5"></div>
-                
-                {/* Ultra-realistic glass surface depth effect */}
-                <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent opacity-70 mix-blend-overlay z-5"></div>
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-800/10 via-transparent to-blue-800/10 z-5"></div>
+              {/* Ultra-premium Elite Enterprise Header Container with 3D Effects */}
+              <div className="relative rounded-2xl overflow-hidden transform transition-all duration-700 group hover:scale-[1.005] shadow-[0_25px_60px_-12px_rgba(0,0,0,0.4)] border border-blue-700/30">
+                {/* Premium multi-layered background with depth effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-900/95 via-gray-900/98 to-blue-900/95 z-10"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-800/30 to-blue-900/30 backdrop-blur-sm z-5"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/50 z-5"></div>
                 
                 {/* Ultra-premium header background with advanced pattern and dynamic overlay */}
                 <div className="absolute inset-0 opacity-40 z-0 mix-blend-overlay" 
@@ -337,218 +332,101 @@ const MobileHome = () => {
                     <div className="absolute bottom-[20%] right-[15%] w-[120px] h-[120px] bg-blue-300/5 rounded-full blur-lg opacity-50 animate-pulse-very-slow" style={{ animationDelay: '2s' }}></div>
                   </div>
                   
-                  {/* Industry-Elite Ultra-premium Badge with Photorealistic 3D Styling */}
-                  <div className="relative mb-7 flex justify-center">
-                    <div className="relative px-8 py-2 flex items-center justify-center space-x-2">
-                      {/* Background glow and animation effects */}
-                      <div className="absolute -inset-2 bg-gradient-to-r from-blue-600/20 via-blue-500/25 to-blue-600/20 rounded-full blur-lg opacity-80"></div>
-                      <div className="absolute -inset-3 bg-blue-500/10 rounded-full blur-xl opacity-60 animate-pulse-slow"></div>
-                      
-                      {/* Ultra-premium 3D container with realistic lighting effects */}
-                      <div className="relative px-5 py-1.5 bg-gradient-to-br from-blue-900/90 via-blue-950/95 to-blue-900/90 rounded-full border border-blue-400/50 shadow-[0_0_20px_rgba(59,130,246,0.3),0_0_10px_rgba(255,255,255,0.1)_inset] transform perspective-[800px] group-hover:shadow-[0_0_30px_rgba(59,130,246,0.4),0_0_15px_rgba(255,255,255,0.15)_inset] transition-all duration-500">
-                        {/* Multiple dynamic light reflection layers */}
-                        <div className="absolute inset-0 rounded-full overflow-hidden">
-                          <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full animate-shimmer-slow transform skew-x-[-20deg]"></div>
-                          <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-blue-400/5 to-transparent -translate-x-full animate-shimmer-very-slow transform" style={{ animationDelay: '0.7s' }}></div>
-                        </div>
-                        
-                        {/* Top reflection for 3D glass effect */}
-                        <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-blue-400/50 to-transparent"></div>
-                        
-                        {/* Ultra-premium icon with advanced 3D lighting */}
-                        <div className="relative z-10 flex items-center">
-                          <div className="relative mr-3 flex-shrink-0">
-                            {/* Multi-layered ambient glow */}
-                            <div className="absolute -inset-1.5 bg-gradient-to-br from-blue-500/40 via-blue-400/30 to-blue-500/40 rounded-full blur-md opacity-80"></div>
-                            
-                            {/* Photorealistic 3D icon container */}
-                            <div className="relative w-7 h-7 bg-gradient-to-br from-blue-600/90 to-blue-800/95 rounded-full flex items-center justify-center shadow-[0_0_15px_rgba(59,130,246,0.6),0_0_5px_rgba(255,255,255,0.2)_inset] border border-blue-500/40">
-                              {/* Inner glass effect */}
-                              <div className="absolute inset-0.5 bg-gradient-to-br from-blue-500/30 to-blue-700/30 rounded-full"></div>
-                              
-                              {/* Dynamic shine effect */}
-                              <div className="absolute inset-0 rounded-full overflow-hidden">
-                                <div className="absolute top-0 left-[-100%] h-full w-[300%] bg-gradient-to-r from-transparent via-white/40 to-transparent animate-shimmer-slow transform rotate-[-35deg]"></div>
-                              </div>
-                              
-                              {/* Icon with embossed 3D effect */}
-                              <Calculator className="w-3.5 h-3.5 text-blue-50 drop-shadow-[0_1px_1px_rgba(0,0,0,0.5)] relative z-10" />
-                              
-                              {/* Realistic light reflection */}
-                              <div className="absolute top-[15%] left-[20%] w-[40%] h-[15%] bg-white/50 rounded-full blur-[0.5px] opacity-80"></div>
-                            </div>
-                          </div>
-                          
-                          {/* Ultra-premium text styling with holographic effect */}
-                          <h3 className="text-lg font-bold tracking-wide uppercase relative">
-                            {/* Text glow base */}
-                            <span className="absolute inset-0 text-blue-200/50 blur-[0.5px] animate-pulse-slow"></span>
-                            
-                            {/* Main text with gradient and 3D effect */}
-                            <span className="relative text-transparent bg-clip-text bg-gradient-to-r from-blue-200 via-blue-100 to-blue-200" 
-                              style={{ textShadow: "0 1px 2px rgba(0,0,0,0.8), 0 0 5px rgba(59,130,246,0.5)" }}>
-                              ENTERPRISE ROI TECHNOLOGY
-                            </span>
-                            
-                            {/* Subtle accent dots */}
-                            <span className="absolute -left-6 top-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-blue-400 shadow-[0_0_5px_rgba(59,130,246,0.7)]"></span>
-                            <span className="absolute -right-6 top-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-blue-400 shadow-[0_0_5px_rgba(59,130,246,0.7)]"></span>
-                          </h3>
+                  {/* Premium badge with icon in homepage style */}
+                  <div className="relative mb-6">
+                    <div className="flex items-start justify-center">
+                      <div className="relative mr-2">
+                        <div className="absolute -inset-1 bg-blue-500/30 rounded-full blur-md"></div>
+                        <div className="relative h-6 w-6 flex items-center justify-center">
+                          <div className="absolute inset-0 bg-gradient-to-b from-blue-600/80 to-blue-800/80 rounded-full shadow-[0_0_8px_rgba(59,130,246,0.6)]"></div>
+                          <div className="absolute inset-0.5 bg-gradient-to-br from-blue-500/30 to-blue-700/30 rounded-full"></div>
+                          <Calculator className="w-3.5 h-3.5 text-blue-100 relative z-10" />
                         </div>
                       </div>
+                      <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-blue-200" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.8)" }}>
+                        ADVANCED ROI TECHNOLOGY
+                      </h3>
                     </div>
                   </div>
                   
-                  {/* State-of-the-Art Industry-Elite Enterprise Header with Cinematic 3D Effects */}
+                  {/* Ultra-premium Enterprise Header with Dynamic 3D Effects */}
                   <div className="relative group">
-                    {/* Ultra-advanced multi-layered volumetric glow system */}
-                    <div className="absolute -inset-10 bg-gradient-to-br from-blue-600/30 via-blue-500/25 to-blue-600/30 rounded-[50px] blur-[60px] opacity-80 z-0 group-hover:opacity-90 transition-opacity duration-700"></div>
-                    <div className="absolute -inset-16 bg-gradient-to-r from-blue-700/20 via-blue-400/25 to-blue-700/20 rounded-full blur-[80px] opacity-70 z-0 animate-pulse-slow" style={{ animationDuration: '8s' }}></div>
-                    <div className="absolute -inset-24 bg-gradient-to-tr from-blue-800/15 via-blue-500/15 to-blue-800/15 rounded-full blur-[100px] opacity-60 z-0 animate-pulse-very-slow" style={{ animationDuration: '15s' }}></div>
+                    {/* Advanced multi-layered ambient glow system */}
+                    <div className="absolute -inset-10 bg-gradient-to-br from-blue-600/30 via-blue-500/25 to-blue-600/30 rounded-3xl blur-3xl opacity-70 z-0 group-hover:opacity-80 transition-opacity duration-700"></div>
+                    <div className="absolute -inset-16 bg-gradient-to-r from-blue-700/15 via-blue-400/20 to-blue-700/15 rounded-full blur-3xl opacity-60 z-0 animate-pulse-slow" style={{ animationDuration: '8s' }}></div>
+                    <div className="absolute -inset-20 bg-blue-500/10 rounded-full blur-3xl opacity-50 z-0 animate-pulse-very-slow" style={{ animationDuration: '15s' }}></div>
                     
-                    {/* Cinematic volumetric light ray system with advanced dynamics */}
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250%] h-60 rotate-45 overflow-hidden z-0 opacity-40">
-                      <div className="absolute h-full w-40 bg-gradient-to-r from-transparent via-blue-400 to-transparent -translate-x-full animate-beam-slow"></div>
-                      <div className="absolute h-full w-32 bg-gradient-to-r from-transparent via-blue-300/80 to-transparent -translate-x-full animate-beam-slow" style={{ animationDelay: '2.5s' }}></div>
-                      <div className="absolute h-full w-24 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full animate-beam-slow" style={{ animationDelay: '4s' }}></div>
+                    {/* Dynamic animated light rays effect */}
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200%] h-40 rotate-45 overflow-hidden z-0 opacity-30">
+                      <div className="absolute h-full w-32 bg-gradient-to-r from-transparent via-blue-400 to-transparent -translate-x-full animate-beam-slow"></div>
+                      <div className="absolute h-full w-24 bg-gradient-to-r from-transparent via-blue-300 to-transparent -translate-x-full animate-beam-slow" style={{ animationDelay: '2.5s' }}></div>
                     </div>
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250%] h-40 -rotate-45 overflow-hidden z-0 opacity-40">
-                      <div className="absolute h-full w-36 bg-gradient-to-r from-transparent via-blue-400 to-transparent -translate-x-full animate-beam-slow" style={{ animationDelay: '1.2s' }}></div>
-                      <div className="absolute h-full w-28 bg-gradient-to-r from-transparent via-blue-500/60 to-transparent -translate-x-full animate-beam-slow" style={{ animationDelay: '3.7s' }}></div>
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200%] h-32 -rotate-45 overflow-hidden z-0 opacity-30">
+                      <div className="absolute h-full w-28 bg-gradient-to-r from-transparent via-blue-400 to-transparent -translate-x-full animate-beam-slow" style={{ animationDelay: '1.2s' }}></div>
                     </div>
                     
-                    {/* Enhanced atmospheric particulate effect with depth */}
-                    <div className="absolute inset-0 mix-blend-overlay opacity-15" 
+                    {/* Particulate effect layer */}
+                    <div className="absolute inset-0 mix-blend-overlay opacity-10" 
                       style={{
-                        backgroundImage: "radial-gradient(circle at center, rgba(255,255,255,0.9) 0%, transparent 0.6%)",
-                        backgroundSize: "4px 4px"
+                        backgroundImage: "radial-gradient(circle at center, rgba(255,255,255,0.8) 0%, transparent 0.5%)",
+                        backgroundSize: "5px 5px"
                       }}>
                     </div>
                     
-                    {/* Ultra-premium photorealistic 3D title with advanced lighting system */}
-                    <div className="relative transform perspective-[1500px] group-hover:rotate-x-1 transition-transform duration-700">
-                      {/* Advanced volumetric text glow system */}
-                      <div className="absolute -inset-3 bg-gradient-to-br from-blue-600/25 via-blue-400/20 to-blue-600/25 rounded-[40px] blur-[30px] opacity-80 -z-10"></div>
-                      <div className="absolute -inset-5 bg-gradient-to-r from-blue-700/15 via-blue-500/15 to-blue-700/15 rounded-[50px] blur-[40px] opacity-70 -z-10 animate-pulse-slow"></div>
+                    {/* Ultra-premium 3D title with advanced lighting effects */}
+                    <div className="relative">
+                      {/* Text shadow effect base */}
+                      <div className="absolute -inset-1 blur-md opacity-50 bg-blue-500/20 rounded-full"></div>
                       
-                      {/* Ultra-premium industry-elite 3D heading with photorealistic lighting and reflections */}
-                      <h1 className="relative text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold mb-10 bg-clip-text text-transparent bg-gradient-to-br from-white via-blue-50 to-white leading-tight max-w-6xl mx-auto tracking-tight transform transition-all duration-700 group-hover:scale-[1.02]" 
+                      {/* Premium 3D heading with realistic lighting and reflections */}
+                      <h1 className="relative text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold mb-8 bg-clip-text text-transparent bg-gradient-to-br from-white via-blue-100 to-white leading-tight max-w-6xl mx-auto tracking-tight transform transition-all duration-700 group-hover:scale-[1.02]" 
                         style={{ 
-                          textShadow: "0 1px 1px rgba(0,0,0,0.9), 0 10px 30px rgba(59,130,246,0.4)", 
-                          WebkitTextStroke: "1px rgba(255,255,255,0.15)"
+                          textShadow: "0 1px 1px rgba(0,0,0,0.8), 0 8px 24px rgba(59,130,246,0.3)", 
+                          WebkitTextStroke: "1px rgba(255,255,255,0.1)"
                         }}>
-                        <span className="relative inline-block">
-                          {/* Text with inner light effect */}
-                          <span className="absolute -inset-1 blur-[2px] opacity-20 bg-blue-300/30"></span>
-                          
-                          {/* Main text content with 3D depth */}
-                          Mobile Home ROI Analysis Calculator
-                        </span>
+                        Mobile Home ROI Analysis Calculator
                         
-                        {/* Ultra-realistic 3D lighting effects */}
-                        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-white/40 to-transparent opacity-80"></div>
-                        <div className="absolute -bottom-1 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-blue-400/30 to-transparent opacity-70"></div>
+                        {/* Realistic light reflection */}
+                        <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
                         
-                        {/* Premium animated lighting effects */}
-                        <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 w-4/5 h-[3px] overflow-hidden">
-                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-500/90 to-transparent"></div>
-                          <div className="absolute inset-0 w-1/2 bg-gradient-to-r from-transparent via-white/80 to-transparent -translate-x-full animate-shimmer-slow"></div>
-                        </div>
-                        
-                        {/* Secondary reflection line for depth */}
-                        <div className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 w-3/5 h-[1px] overflow-hidden">
-                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-400/60 to-transparent"></div>
-                          <div className="absolute inset-0 w-1/3 bg-gradient-to-r from-transparent via-white/50 to-transparent -translate-x-full animate-shimmer-slow" style={{ animationDelay: '0.5s' }}></div>
+                        {/* Animated bottom line with shimmer effect */}
+                        <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-4/5 h-[2px] overflow-hidden">
+                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-500/80 to-transparent"></div>
+                          <div className="absolute inset-0 w-1/2 bg-gradient-to-r from-transparent via-white/70 to-transparent -translate-x-full animate-shimmer-slow"></div>
                         </div>
                       </h1>
                     </div>
                   </div>
                   
-                  {/* Ultra-premium Industry-Elite Subheader with Cinematic Interactive Effects */}
+                  {/* Ultra-premium subheader with interactive hover effects */}
                   <div className="relative group">
-                    {/* Advanced background glow system with dynamic hover effects */}
-                    <div className="absolute -inset-6 bg-gradient-to-br from-blue-600/15 via-blue-500/10 to-blue-600/15 rounded-[30px] blur-[20px] opacity-0 group-hover:opacity-80 transition-all duration-700"></div>
-                    <div className="absolute -inset-10 bg-blue-500/5 rounded-[40px] blur-[30px] opacity-0 group-hover:opacity-70 transition-all duration-1000 delay-100"></div>
+                    {/* Subtle background glow that intensifies on hover */}
+                    <div className="absolute -inset-4 bg-blue-500/10 rounded-2xl blur-xl opacity-0 group-hover:opacity-70 transition-opacity duration-700"></div>
                     
-                    {/* Enhanced background pattern that reveals on hover */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-500/5 to-transparent opacity-0 group-hover:opacity-60 transition-opacity duration-700 rounded-xl"></div>
-                    
-                    {/* Ultra-premium paragraph with cinematic interactive hover effects */}
-                    <p className="relative text-lg md:text-xl lg:text-2xl text-blue-100/90 max-w-4xl mx-auto mb-12 leading-relaxed tracking-wide">
-                      <span className="relative">
-                        {/* Subtle text glow effect */}
-                        <span className="absolute -inset-1 text-blue-200/10 blur-[1px]"></span>
-                        Discover how Praetorian Smart-Coat technology can 
-                      </span>
-                      
-                      {/* Ultra-premium interactive key phrase with dynamic lighting effects */}
-                      <span className="relative inline-block mx-2 group/item overflow-hidden">
-                        {/* Multi-layered glow system */}
-                        <span className="absolute -inset-1 bg-gradient-to-r from-blue-500/20 via-blue-400/20 to-blue-500/20 rounded-md blur-sm opacity-0 group-hover/item:opacity-100 transition-opacity duration-300"></span>
-                        <span className="absolute -inset-2 bg-blue-500/10 rounded-lg blur-md opacity-0 group-hover/item:opacity-80 transition-opacity duration-500 delay-100"></span>
-                        
-                        {/* Advanced 3D text with lighting effects */}
-                        <span className="relative text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-50 to-white font-semibold px-1 py-0.5 border-b border-blue-400/0 group-hover/item:border-blue-400/40 transition-all duration-300"
-                          style={{ textShadow: "0 1px 2px rgba(0,0,0,0.7), 0 0 10px rgba(59,130,246,0.3)" }}>
-                          transform your mobile home's efficiency
-                          
-                          {/* Animated bottom highlight */}
-                          <span className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-blue-400/80 to-transparent opacity-0 group-hover/item:opacity-100 transition-opacity duration-500"></span>
-                        </span>
+                    {/* Enhanced paragraph with interactive hover effects on key phrases */}
+                    <p className="relative text-lg md:text-xl text-blue-100/90 max-w-3xl mx-auto mb-8 leading-relaxed">
+                      Discover how Praetorian Smart-Coat technology can 
+                      <span className="relative inline-block mx-1 group/item">
+                        <span className="absolute -inset-1 bg-blue-500/20 rounded-md blur-sm opacity-0 group-hover/item:opacity-100 transition-opacity duration-300"></span>
+                        <span className="relative text-white font-semibold">transform your mobile home's efficiency</span>
                       </span>, 
-                      
-                      {/* Ultra-premium interactive key phrase with dynamic lighting effects */}
-                      <span className="relative inline-block mx-2 group/item overflow-hidden">
-                        {/* Multi-layered glow system */}
-                        <span className="absolute -inset-1 bg-gradient-to-r from-blue-500/20 via-blue-400/20 to-blue-500/20 rounded-md blur-sm opacity-0 group-hover/item:opacity-100 transition-opacity duration-300"></span>
-                        <span className="absolute -inset-2 bg-blue-500/10 rounded-lg blur-md opacity-0 group-hover/item:opacity-80 transition-opacity duration-500 delay-100"></span>
-                        
-                        {/* Advanced 3D text with lighting effects */}
-                        <span className="relative text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-50 to-white font-semibold px-1 py-0.5 border-b border-blue-400/0 group-hover/item:border-blue-400/40 transition-all duration-300"
-                          style={{ textShadow: "0 1px 2px rgba(0,0,0,0.7), 0 0 10px rgba(59,130,246,0.3)" }}>
-                          reduce utility costs
-                          
-                          {/* Animated bottom highlight */}
-                          <span className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-blue-400/80 to-transparent opacity-0 group-hover/item:opacity-100 transition-opacity duration-500"></span>
-                        </span>
+                      <span className="relative inline-block mx-1 group/item">
+                        <span className="absolute -inset-1 bg-blue-500/20 rounded-md blur-sm opacity-0 group-hover/item:opacity-100 transition-opacity duration-300"></span>
+                        <span className="relative text-white font-semibold">reduce utility costs</span>
                       </span>, and 
-                      
-                      {/* Ultra-premium interactive key phrase with dynamic lighting effects */}
-                      <span className="relative inline-block mx-2 group/item overflow-hidden">
-                        {/* Multi-layered glow system */}
-                        <span className="absolute -inset-1 bg-gradient-to-r from-blue-500/20 via-blue-400/20 to-blue-500/20 rounded-md blur-sm opacity-0 group-hover/item:opacity-100 transition-opacity duration-300"></span>
-                        <span className="absolute -inset-2 bg-blue-500/10 rounded-lg blur-md opacity-0 group-hover/item:opacity-80 transition-opacity duration-500 delay-100"></span>
-                        
-                        {/* Advanced 3D text with lighting effects */}
-                        <span className="relative text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-50 to-white font-semibold px-1 py-0.5 border-b border-blue-400/0 group-hover/item:border-blue-400/40 transition-all duration-300"
-                          style={{ textShadow: "0 1px 2px rgba(0,0,0,0.7), 0 0 10px rgba(59,130,246,0.3)" }}>
-                          increase property value
-                          
-                          {/* Animated bottom highlight */}
-                          <span className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-blue-400/80 to-transparent opacity-0 group-hover/item:opacity-100 transition-opacity duration-500"></span>
-                        </span>
-                      </span> with our industry-leading ROI analysis system.
-                      
-                      {/* Subtle animated light sweep effect */}
-                      <span className="absolute inset-0 w-full h-full overflow-hidden opacity-30">
-                        <span className="absolute top-0 h-full w-[50%] bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-shimmer-very-slow"></span>
-                      </span>
+                      <span className="relative inline-block mx-1 group/item">
+                        <span className="absolute -inset-1 bg-blue-500/20 rounded-md blur-sm opacity-0 group-hover/item:opacity-100 transition-opacity duration-300"></span>
+                        <span className="relative text-white font-semibold">increase property value</span>
+                      </span> with our advanced ROI calculator.
                     </p>
                     
-                    {/* Ultra-premium divider with animated shimmer effect */}
-                    <div className="relative h-[2px] w-2/3 mx-auto mb-8 overflow-hidden">
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-500/70 to-transparent"></div>
-                      <div className="absolute inset-0 w-1/2 bg-gradient-to-r from-transparent via-white/70 to-transparent -translate-x-full group-hover:animate-shimmer-slow"></div>
-                    </div>
-                  </div>
-                  
-                  {/* Ultra-premium 3D icons with advanced lighting effects */}
-                  <div className="flex justify-center space-x-10 mt-6 mb-10">
-                    <div className="flex flex-col items-center group">
-                      <div className="relative p-3 mb-3 transform transition-all duration-300 group-hover:scale-110">
-                        {/* Multi-layered glow effects */}
-                        <div className="absolute -inset-3 bg-blue-500/20 rounded-full blur-xl opacity-60 group-hover:bg-blue-400/30 group-hover:opacity-80 transition-all duration-500"></div>
-                        <div className="absolute -inset-1 bg-gradient-to-br from-blue-500/30 via-blue-400/20 to-blue-500/30 rounded-full blur-md opacity-70 group-hover:opacity-90 transition-opacity duration-300"></div>
+                    {/* Ultra-premium 3D icons with advanced lighting effects */}
+                    <div className="flex justify-center space-x-10 mt-6 mb-10">
+                      <div className="flex flex-col items-center group">
+                        <div className="relative p-3 mb-3 transform transition-all duration-300 group-hover:scale-110">
+                          {/* Multi-layered glow effects */}
+                          <div className="absolute -inset-3 bg-blue-500/20 rounded-full blur-xl opacity-60 group-hover:bg-blue-400/30 group-hover:opacity-80 transition-all duration-500"></div>
+                          <div className="absolute -inset-1 bg-gradient-to-br from-blue-500/30 via-blue-400/20 to-blue-500/30 rounded-full blur-md opacity-70 group-hover:opacity-90 transition-opacity duration-300"></div>
                           
                           {/* Premium 3D icon container with realistic glass effects */}
                           <div className="relative h-14 w-14 flex items-center justify-center bg-gradient-to-br from-blue-700/90 to-blue-900/95 rounded-full border border-blue-400/40 shadow-[0_0_20px_rgba(59,130,246,0.4),0_0_10px_rgba(255,255,255,0.1)_inset] group-hover:shadow-[0_0_30px_rgba(59,130,246,0.6),0_0_15px_rgba(255,255,255,0.2)_inset] transition-all duration-500">
@@ -677,7 +555,7 @@ const MobileHome = () => {
           </div>
         </section>
         
-        {/* Next Section */}
+        {/* Existing Hero Section */}
         <section className="py-16 md:py-24 relative z-10">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto text-center mb-16 relative">
