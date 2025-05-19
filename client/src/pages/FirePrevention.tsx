@@ -456,6 +456,32 @@ const FirePrevention = () => {
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div className="bg-black/40 p-4 rounded-lg">
+                        <h4 className="font-medium text-red-300 mb-2">Los Angeles Fire Data (January 2025)</h4>
+                        <ul className="space-y-2 text-sm text-gray-400">
+                          <li className="flex items-start gap-2">
+                            <span className="text-red-400 text-lg leading-5">•</span>
+                            <span>14 destructive wildfires affected the Los Angeles metropolitan area</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-red-400 text-lg leading-5">•</span>
+                            <span>72,400+ homes and structures at direct risk during multiple fire events</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-red-400 text-lg leading-5">•</span>
+                            <span>Thousands of residents forced to evacuate with minimal warning</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-red-400 text-lg leading-5">•</span>
+                            <span>Urban-wildland interface zones particularly vulnerable to ember attacks</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-red-400 text-lg leading-5">•</span>
+                            <span>Structural damage primarily caused by embers entering vents and roofs</span>
+                          </li>
+                        </ul>
+                      </div>
+                      
+                      <div className="bg-black/40 p-4 rounded-lg">
                         <h4 className="font-medium text-red-300 mb-2">Paradise Fire: Perfect Storm Conditions</h4>
                         <ul className="space-y-2 text-sm text-gray-400">
                           <li className="flex items-start gap-2">
@@ -476,7 +502,7 @@ const FirePrevention = () => {
                           </li>
                           <li className="flex items-start gap-2">
                             <span className="text-red-400 text-lg leading-5">•</span>
-                            <span>18,804 structures destroyed in just a few hours</span>
+                            <span>18,805 structures destroyed in just a few hours</span>
                           </li>
                         </ul>
                       </div>
