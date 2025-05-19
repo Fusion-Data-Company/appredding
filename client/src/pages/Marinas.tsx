@@ -3,6 +3,10 @@ import MainLayout from "@/components/layout/MainLayout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import SEOHead from "@/components/SEOHead";
+import AccessibleImage from "@/components/ui/accessible-image";
+import { preloadCriticalImages, createIndustryImageSource } from "@/lib/image-helper";
+import { generateStructuredData, getIndustryKeywords } from "@/lib/seo-helper";
 import { 
   Form,
   FormControl,
@@ -53,12 +57,43 @@ const Marinas = () => {
   const [registrationSuccess, setRegistrationSuccess] = useState(false);
   const { toast } = useToast();
   
-  // Hero image path for preloading
+  // Define industry-specific data for SEO
+  const industry = "Marine & Maritime";
+  const slug = "marinas";
+  const pageTitle = "Praetorian Smart-Coat – Marine & Maritime Solutions";
+  const pageDescription = "Advanced protective coatings for marine vessels, docks, and waterfront infrastructure with superior salt water and UV resistance.";
   const heroImagePath = "/images/sailboat-bg.jpg";
   
-  // Preload critical hero image
+  // Generate industry-specific keywords
+  const keywords = [
+    'marine protective coating',
+    'boat protection',
+    'saltwater resistant paint',
+    'marina infrastructure protection',
+    'maritime coatings'
+  ];
+  
+  // Generate structured data for search engines
+  const structuredData = generateStructuredData(
+    industry,
+    pageDescription,
+    slug,
+    [
+      "Superior saltwater corrosion resistance",
+      "UV-resistant formula for extended durability",
+      "Protects vessel hulls, docks, and maritime infrastructure",
+      "Reduces maintenance and dry-dock frequency",
+      "Extends service life of marine assets"
+    ]
+  );
+  
+  // Preload critical images for performance
   useEffect(() => {
-    preloadCriticalImage(heroImagePath);
+    preloadCriticalImages([
+      heroImagePath,
+      "/images/marinas-thumb.webp",
+      "/src/assets_dir/images/optimized/praetorian-products-updated.webp"
+    ]);
   }, []);
   
   // Setup form for marina professional registration
