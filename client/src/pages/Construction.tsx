@@ -12,7 +12,7 @@ import {
   FormLabel,
   FormMessage
 } from "@/components/ui/form";
-import { HardHat, ShieldCheck, Building, Hammer, CheckCircle, Warehouse, CircleDollarSign, TrendingUp, Clock, Medal, Activity, Thermometer, FileText, Download, FlaskConical } from "lucide-react";
+import { HardHat, ShieldCheck, Building, Hammer, CheckCircle, Warehouse, CircleDollarSign, TrendingUp, Clock, Medal, Activity, Thermometer, FileText, Download, FlaskConical, Calculator } from "lucide-react";
 import { insertConstructionDistributorSchema } from "@shared/schema";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -764,7 +764,18 @@ const Construction = () => {
                     <div className="absolute -inset-px bg-gradient-to-r from-green-600/20 via-transparent to-green-600/20 rounded-xl opacity-70 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
                     
                     <div className="relative">
-                      <h3 className="text-xl font-semibold text-white mb-4 text-center">Enterprise ROI Calculator</h3>
+                      <div className="flex items-center mb-4">
+                        {/* Elite enterprise icon styling */}
+                        <div className="relative mr-3">
+                          <div className="absolute -inset-2 bg-green-500/20 rounded-full blur-md opacity-80"></div>
+                          <div className="relative h-14 w-14 flex items-center justify-center bg-gradient-to-br from-green-800 to-green-900 rounded-xl border border-green-400/30 shadow-[0_0_15px_rgba(74,222,128,0.3)]">
+                            <div className="absolute inset-0.5 bg-gradient-to-br from-green-700 to-green-800 rounded-[0.65rem] opacity-50"></div>
+                            <div className="absolute h-full w-1/2 bg-gradient-to-r from-transparent via-green-400/20 to-transparent skew-x-[-20deg] animate-shimmer-slow" style={{ animationDelay: '0.5s' }}></div>
+                            <CircleDollarSign className="w-7 h-7 text-green-300 relative z-10 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]" />
+                          </div>
+                        </div>
+                        <h3 className="font-bold text-xl text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-green-200" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.8)" }}>Enterprise ROI Calculator</h3>
+                      </div>
                       
                       <div className="bg-black/40 rounded-lg p-5 border border-green-800/30 mb-6">
                         <h4 className="text-lg font-semibold text-green-300 mb-3">Calculate Your Construction Project Savings</h4>
@@ -904,7 +915,7 @@ const Construction = () => {
                     <div className="absolute -inset-px bg-gradient-to-r from-green-600/20 via-transparent to-green-600/20 rounded-xl opacity-70 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
                     
                     <div className="relative">
-                      <h3 className="text-xl font-semibold text-white mb-4 text-center">Distribution Network</h3>
+                      <h3 className="font-bold text-xl text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-green-200 mb-4 text-center" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.8)" }}>Distribution Network</h3>
                       
                       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                         <div className="flex flex-col items-center p-4 bg-black/40 rounded-lg">
