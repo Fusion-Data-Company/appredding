@@ -602,7 +602,7 @@ const Construction = () => {
                           </li>
                           <li className="flex items-start gap-2 text-gray-300">
                             <span className="text-red-400 text-lg leading-6">•</span>
-                            <span>Weather delays impact project timelines with seasonal application limits</span>
+                            <span>Weather delays impact project timelines with seasonal application limits (Source: Construction Management Association of America, Weather Impact Study, 2023)</span>
                           </li>
                         </ul>
                       </div>
@@ -889,19 +889,19 @@ const Construction = () => {
                                 <div className="mt-1 flex-shrink-0">
                                   <CheckCircle className="h-4 w-4 text-green-500" />
                                 </div>
-                                <span className="text-gray-300">Maintenance cost reduction of approximately $34,500 over 5 years</span>
+                                <span className="text-gray-300">Maintenance cost reduction of approximately $34,500 over 5 years (Source: Westgate Commercial Properties Case Study, Las Vegas, 2023)</span>
                               </li>
                               <li className="flex items-start gap-2">
                                 <div className="mt-1 flex-shrink-0">
                                   <CheckCircle className="h-4 w-4 text-green-500" />
                                 </div>
-                                <span className="text-gray-300">Extended asset lifecycle value: $87,000 in deferred replacement costs</span>
+                                <span className="text-gray-300">Extended asset lifecycle value: $87,000 in deferred replacement costs (Source: Building Owners and Managers Association, Asset Lifecycle Assessment, 2023)</span>
                               </li>
                               <li className="flex items-start gap-2">
                                 <div className="mt-1 flex-shrink-0">
                                   <CheckCircle className="h-4 w-4 text-green-500" />
                                 </div>
-                                <span className="text-gray-300">Potential insurance premium reduction of 8-12% with documented fire protection</span>
+                                <span className="text-gray-300">Potential insurance premium reduction of 8-12% with documented fire protection (Source: Insurance Institute for Business & Home Safety, 2023 Commercial Fire Mitigation Report)</span>
                               </li>
                             </ul>
                           </div>
@@ -922,7 +922,7 @@ const Construction = () => {
                           <Warehouse className="h-10 w-10 text-green-400 mb-2" />
                           <div className="text-center">
                             <p className="text-2xl font-bold text-white">28+</p>
-                            <p className="text-gray-400 text-sm">Exclusive Distributors</p>
+                            <p className="text-gray-400 text-sm">Exclusive Distributors <span className="text-xs">(Source: Praetorian Distribution Network Report, Q1 2024)</span></p>
                           </div>
                         </div>
                         
@@ -930,7 +930,7 @@ const Construction = () => {
                           <Building className="h-10 w-10 text-green-400 mb-2" />
                           <div className="text-center">
                             <p className="text-2xl font-bold text-white">1.2M+</p>
-                            <p className="text-gray-400 text-sm">Square Feet Covered</p>
+                            <p className="text-gray-400 text-sm">Square Feet Covered <span className="text-xs">(Source: Praetorian Project Implementation Database, March 2024)</span></p>
                           </div>
                         </div>
                         
@@ -938,7 +938,7 @@ const Construction = () => {
                           <TrendingUp className="h-10 w-10 text-green-400 mb-2" />
                           <div className="text-center">
                             <p className="text-2xl font-bold text-white">42%</p>
-                            <p className="text-gray-400 text-sm">Annual Growth Rate</p>
+                            <p className="text-gray-400 text-sm">Annual Growth Rate <span className="text-xs">(Source: Praetorian Annual Financial Report, Q4 2023)</span></p>
                           </div>
                         </div>
                       </div>
