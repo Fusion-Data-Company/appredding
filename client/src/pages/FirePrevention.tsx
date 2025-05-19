@@ -14,27 +14,23 @@ import {
 import { 
   Flame, 
   ShieldCheck, 
-  CheckCircle, 
-  BarChart3, 
+  CheckCircle,
   Clock, 
   Thermometer, 
-  Home, 
   Building, 
-  PaintBucket, 
   Award,
   CircleDollarSign,
-  ChevronRight,
   TrendingUp,
   CalendarCheck,
   AlertTriangle,
   FileText,
-  Zap
+  Zap,
+  Home
 } from "lucide-react";
-import { zodResolver } from "@hookform/resolvers/zod";
 import { PremiumCartButton } from "@/utils/premium-buttons";
-import { motion } from "framer-motion";
 import { insertFirePreventionHomeownerSchema } from "@shared/schema";
 import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
@@ -123,7 +119,7 @@ const FirePrevention = () => {
           backgroundImage: 'radial-gradient(circle at 70% 60%, rgba(153, 27, 27, 0.5) 0%, rgba(15, 23, 42, 0) 70%)'
         }}></div>
         
-        {/* Advanced multi-color ambient glow effects with fire accent */}
+        {/* Advanced multi-color ambient glow effects */}
         <div className="fixed inset-0 z-[-3] overflow-hidden pointer-events-none">
           {/* Blue glow */}
           <div className="absolute top-[10%] left-[15%] w-[40rem] h-[40rem] bg-blue-600/10 rounded-full blur-[150px] animate-pulse-slow"></div>
@@ -132,37 +128,38 @@ const FirePrevention = () => {
           <div className="absolute bottom-[15%] right-[10%] w-[35rem] h-[35rem] bg-orange-500/20 rounded-full blur-[150px] animate-pulse-slower"></div>
           <div className="absolute -bottom-10 left-1/3 w-[700px] h-[700px] bg-orange-600/5 rounded-full blur-[120px] animate-pulse-slow"></div>
           <div className="absolute top-1/4 right-1/3 w-[500px] h-[500px] bg-red-700/5 rounded-full blur-[100px] animate-pulse-slower"></div>
-          
-          {/* Green accent glows for balance */}
-          <div className="absolute top-[40%] right-[25%] w-[25rem] h-[25rem] bg-emerald-600/5 rounded-full blur-[120px] animate-pulse-slow"></div>
-          
-          {/* Purple accent for depth */}
-          <div className="absolute top-[70%] left-[50%] w-[20rem] h-[20rem] bg-purple-700/5 rounded-full blur-[90px] animate-pulse-slow"></div>
         </div>
-        
-        {/* Low-opacity subtle pattern overlay for texture */}
-        <div 
-          className="fixed inset-0 z-[-2] opacity-5 pointer-events-none"
-          style={{
-            backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23ff7700\' fill-opacity=\'0.3\' fill-rule=\'evenodd\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/svg%3E")',
-            backgroundSize: '60px 60px'
-          }}
-        />
         
         {/* SANDLER STAGE 1: INTRO - BLUE GLOW SECTION */}
         <section className="relative z-10 py-10 overflow-hidden">
           <div className="container mx-auto mb-12">
             <div className="relative">
-              {/* Section-specific ambient blue glow in background (z-index lower than content) */}
+              {/* Section-specific ambient blue glow in background */}
               <div className="absolute -inset-10 bg-blue-800/10 rounded-full blur-[100px] opacity-80 z-0"></div>
               <div className="absolute -inset-20 bg-blue-900/5 rounded-full blur-[150px] opacity-70 z-0 animate-pulse-slow"></div>
               
-              {/* Ultra-premium Elite Enterprise Header Container - front layer with high z-index */}
-              <div className="relative z-20 rounded-2xl overflow-hidden transform transition-all duration-700 group hover:scale-[1.005] shadow-[0_25px_60px_-12px_rgba(0,0,0,0.4)] border border-blue-700/30">
+              {/* Ultra-premium Elite Enterprise Header Container */}
+              <div className="relative z-20 rounded-2xl overflow-hidden shadow-[0_25px_60px_-12px_rgba(0,0,0,0.4)] border border-blue-700/30">
                 {/* Premium multi-layered background with depth effect */}
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-900/95 via-gray-900/98 to-blue-900/95 z-10"></div>
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-800/30 to-blue-900/30 backdrop-blur-sm z-5"></div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/50 z-5"></div>
+                
+                {/* Ultra-premium header background with advanced pattern and dynamic overlay */}
+                <div className="absolute inset-0 opacity-40 z-0 mix-blend-overlay" 
+                  style={{
+                    backgroundImage: "url('data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231e3a8a' fill-opacity='0.15'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E')",
+                    backgroundSize: '80px 80px'
+                  }}
+                ></div>
+                
+                {/* Subtle particle effect overlay */}
+                <div className="absolute inset-0 mix-blend-overlay opacity-10 z-0" 
+                  style={{
+                    backgroundImage: "radial-gradient(circle at center, rgba(255,255,255,0.8) 0%, transparent 0.5%)",
+                    backgroundSize: "8px 8px"
+                  }}>
+                </div>
                 
                 {/* Advanced animated light sweep effects with multiple layers */}
                 <div className="absolute inset-0 opacity-30 z-0 overflow-hidden">
@@ -171,57 +168,104 @@ const FirePrevention = () => {
                   <div className="absolute -inset-full w-[300px] h-full bg-gradient-to-r from-transparent via-blue-300/25 to-transparent skew-x-[-25deg] animate-light-sweep" style={{ animationDelay: '4s' }}></div>
                 </div>
                 
-                {/* Premium fire-themed background elements */}
-                <div className="absolute inset-0 opacity-40 z-0 mix-blend-overlay" 
-                  style={{
-                    backgroundImage: "url('data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231e3a8a' fill-opacity='0.15'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E')",
-                    backgroundSize: '80px 80px'
-                  }}
-                ></div>
-                
-                {/* Fire particle effect in header */}
-                <div className="absolute inset-0 mix-blend-overlay opacity-10 z-0" 
-                  style={{
-                    backgroundImage: "radial-gradient(circle at center, rgba(255,255,255,0.8) 0%, transparent 0.5%)",
-                    backgroundSize: "8px 8px"
-                  }}>
-                </div>
-                
                 {/* 3D edge highlight effect for depth */}
                 <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-blue-400/70 to-transparent"></div>
                 <div className="absolute inset-y-0 right-0 w-[2px] bg-gradient-to-b from-transparent via-blue-400/50 to-transparent"></div>
                 <div className="absolute inset-x-0 bottom-0 h-[2px] bg-gradient-to-r from-transparent via-blue-400/70 to-transparent"></div>
                 <div className="absolute inset-y-0 left-0 w-[2px] bg-gradient-to-b from-transparent via-blue-400/50 to-transparent"></div>
                 
-                {/* Ultra-premium Elite Corner Accents with dynamic lighting effects */}
-                <div className="absolute top-0 left-0 w-20 h-20 z-20 pointer-events-none">
-                  {/* Multi-layered glowing corner effect */}
-                  <div className="absolute top-0 left-0 w-16 h-16 border-t-[3px] border-l-[3px] border-blue-400/50 rounded-tl-lg"></div>
-                  <div className="absolute top-1 left-1 w-12 h-12 border-t-2 border-l-2 border-blue-500/40 rounded-tl-md"></div>
-                  <div className="absolute top-2 left-2 w-8 h-8 border-t border-l border-blue-600/30 rounded-tl-sm"></div>
-                  <div className="absolute top-0 left-0 w-3 h-3 bg-blue-400/30 rounded-full blur-[2px]"></div>
-                </div>
-                <div className="absolute top-0 right-0 w-20 h-20 z-20 pointer-events-none">
-                  <div className="absolute top-0 right-0 w-16 h-16 border-t-[3px] border-r-[3px] border-blue-400/50 rounded-tr-lg"></div>
-                  <div className="absolute top-1 right-1 w-12 h-12 border-t-2 border-r-2 border-blue-500/40 rounded-tr-md"></div>
-                  <div className="absolute top-2 right-2 w-8 h-8 border-t border-r border-blue-600/30 rounded-tr-sm"></div>
-                  <div className="absolute top-0 right-0 w-3 h-3 bg-blue-400/30 rounded-full blur-[2px]"></div>
-                </div>
-                <div className="absolute bottom-0 left-0 w-20 h-20 z-20 pointer-events-none">
-                  <div className="absolute bottom-0 left-0 w-16 h-16 border-b-[3px] border-l-[3px] border-blue-400/50 rounded-bl-lg"></div>
-                  <div className="absolute bottom-1 left-1 w-12 h-12 border-b-2 border-l-2 border-blue-500/40 rounded-bl-md"></div>
-                  <div className="absolute bottom-2 left-2 w-8 h-8 border-b border-l border-blue-600/30 rounded-bl-sm"></div>
-                  <div className="absolute bottom-0 left-0 w-3 h-3 bg-blue-400/30 rounded-full blur-[2px]"></div>
-                </div>
-                <div className="absolute bottom-0 right-0 w-20 h-20 z-20 pointer-events-none">
-                  <div className="absolute bottom-0 right-0 w-16 h-16 border-b-[3px] border-r-[3px] border-blue-400/50 rounded-br-lg"></div>
-                  <div className="absolute bottom-1 right-1 w-12 h-12 border-b-2 border-r-2 border-blue-500/40 rounded-br-md"></div>
-                  <div className="absolute bottom-2 right-2 w-8 h-8 border-b border-r border-blue-600/30 rounded-br-sm"></div>
-                  <div className="absolute bottom-0 right-0 w-3 h-3 bg-blue-400/30 rounded-full blur-[2px]"></div>
-                </div>
-                
-                {/* Enhanced Header content container */}
+                {/* Enhanced Header content with premium homepage-style styling */}
                 <div className="relative z-20 p-10 flex flex-col items-center text-center">
+                  {/* Complex ambient background glow effect */}
+                  <div className="absolute -inset-10 bg-gradient-to-r from-blue-900/10 via-blue-700/20 to-blue-900/10 rounded-[40px] blur-[60px] opacity-80 -z-10"></div>
+                  <div className="absolute -inset-20 bg-blue-500/5 rounded-[80px] blur-[100px] opacity-60 -z-10 animate-pulse-slow" style={{ animationDuration: '8s' }}></div>
+                  
+                  {/* Ultra-premium Elite Corner Accents with dynamic lighting effects */}
+                  <div className="absolute top-0 left-0 w-20 h-20 z-20 pointer-events-none">
+                    {/* Multi-layered glowing corner effect */}
+                    <div className="absolute top-0 left-0 w-12 h-12 bg-gradient-to-br from-blue-500/10 to-transparent rounded-tl-md"></div>
+                    <div className="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-blue-400/70 rounded-tl-lg shadow-[0_0_10px_rgba(59,130,246,0.5)]"></div>
+                    <div className="absolute top-1 left-1 w-18 h-18 border-t border-l border-blue-600/40 rounded-tl-lg"></div>
+                    
+                    {/* Animated corner accent with pulsing glow */}
+                    <div className="absolute top-0 left-0 w-3 h-3 bg-blue-400/60 rounded-full blur-[2px] animate-pulse" style={{ animationDuration: '3s' }}></div>
+                    
+                    {/* Animated light ray accent */}
+                    <div className="absolute top-0 left-0 w-8 h-8 overflow-hidden rounded-tl-lg">
+                      <div className="absolute top-0 left-0 w-[200%] h-[1px] bg-gradient-to-r from-transparent via-blue-400/80 to-transparent -translate-x-full animate-shimmer-slow"></div>
+                      <div className="absolute top-0 left-0 h-[200%] w-[1px] bg-gradient-to-b from-transparent via-blue-400/80 to-transparent -translate-y-full animate-shimmer-slow"></div>
+                    </div>
+                  </div>
+                  
+                  <div className="absolute top-0 right-0 w-20 h-20 z-20 pointer-events-none">
+                    {/* Multi-layered glowing corner effect */}
+                    <div className="absolute top-0 right-0 w-12 h-12 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-tr-md"></div>
+                    <div className="absolute top-0 right-0 w-16 h-16 border-t-2 border-r-2 border-blue-400/70 rounded-tr-lg shadow-[0_0_10px_rgba(59,130,246,0.5)]"></div>
+                    <div className="absolute top-1 right-1 w-18 h-18 border-t border-r border-blue-600/40 rounded-tr-lg"></div>
+                    
+                    {/* Animated corner accent with pulsing glow */}
+                    <div className="absolute top-0 right-0 w-3 h-3 bg-blue-400/60 rounded-full blur-[2px] animate-pulse" style={{ animationDuration: '3.5s' }}></div>
+                    
+                    {/* Animated light ray accent */}
+                    <div className="absolute top-0 right-0 w-8 h-8 overflow-hidden rounded-tr-lg">
+                      <div className="absolute top-0 right-0 w-[200%] h-[1px] bg-gradient-to-l from-transparent via-blue-400/80 to-transparent translate-x-full animate-shimmer-slow"></div>
+                      <div className="absolute top-0 right-0 h-[200%] w-[1px] bg-gradient-to-b from-transparent via-blue-400/80 to-transparent -translate-y-full animate-shimmer-slow" style={{ animationDelay: '0.5s' }}></div>
+                    </div>
+                  </div>
+                  
+                  <div className="absolute bottom-0 right-0 w-20 h-20 z-20 pointer-events-none">
+                    {/* Multi-layered glowing corner effect */}
+                    <div className="absolute bottom-0 right-0 w-12 h-12 bg-gradient-to-tl from-blue-500/10 to-transparent rounded-br-md"></div>
+                    <div className="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-blue-400/70 rounded-br-lg shadow-[0_0_10px_rgba(59,130,246,0.5)]"></div>
+                    <div className="absolute bottom-1 right-1 w-18 h-18 border-b border-r border-blue-600/40 rounded-br-lg"></div>
+                    
+                    {/* Animated corner accent with pulsing glow */}
+                    <div className="absolute bottom-0 right-0 w-3 h-3 bg-blue-400/60 rounded-full blur-[2px] animate-pulse" style={{ animationDuration: '4s' }}></div>
+                    
+                    {/* Animated light ray accent */}
+                    <div className="absolute bottom-0 right-0 w-8 h-8 overflow-hidden rounded-br-lg">
+                      <div className="absolute bottom-0 right-0 w-[200%] h-[1px] bg-gradient-to-l from-transparent via-blue-400/80 to-transparent translate-x-full animate-shimmer-slow"></div>
+                      <div className="absolute bottom-0 right-0 h-[200%] w-[1px] bg-gradient-to-t from-transparent via-blue-400/80 to-transparent translate-y-full animate-shimmer-slow" style={{ animationDelay: '1s' }}></div>
+                    </div>
+                  </div>
+                  
+                  <div className="absolute bottom-0 left-0 w-20 h-20 z-20 pointer-events-none">
+                    {/* Multi-layered glowing corner effect */}
+                    <div className="absolute bottom-0 left-0 w-12 h-12 bg-gradient-to-tr from-blue-500/10 to-transparent rounded-bl-md"></div>
+                    <div className="absolute bottom-0 left-0 w-16 h-16 border-b-2 border-l-2 border-blue-400/70 rounded-bl-lg shadow-[0_0_10px_rgba(59,130,246,0.5)]"></div>
+                    <div className="absolute bottom-1 left-1 w-18 h-18 border-b border-l border-blue-600/40 rounded-bl-lg"></div>
+                    
+                    {/* Animated corner accent with pulsing glow */}
+                    <div className="absolute bottom-0 left-0 w-3 h-3 bg-blue-400/60 rounded-full blur-[2px] animate-pulse" style={{ animationDuration: '3.2s' }}></div>
+                    
+                    {/* Animated light ray accent */}
+                    <div className="absolute bottom-0 left-0 w-8 h-8 overflow-hidden rounded-bl-lg">
+                      <div className="absolute bottom-0 left-0 w-[200%] h-[1px] bg-gradient-to-r from-transparent via-blue-400/80 to-transparent -translate-x-full animate-shimmer-slow"></div>
+                      <div className="absolute bottom-0 left-0 h-[200%] w-[1px] bg-gradient-to-t from-transparent via-blue-400/80 to-transparent translate-y-full animate-shimmer-slow" style={{ animationDelay: '0.7s' }}></div>
+                    </div>
+                  </div>
+                  
+                  {/* Ultra-premium multilayered border effect with dynamic lighting */}
+                  <div className="absolute inset-0 rounded-xl border border-blue-600/20 shadow-[inset_0_0_30px_rgba(59,130,246,0.1)] pointer-events-none"></div>
+                  <div className="absolute inset-[3px] rounded-lg border border-blue-500/10 pointer-events-none"></div>
+                  <div className="absolute inset-[6px] rounded-md border border-white/5 pointer-events-none"></div>
+                  
+                  {/* Advanced dynamic glass shimmer effects for ultra-premium look */}
+                  <div className="absolute inset-0 overflow-hidden rounded-xl">
+                    {/* Multiple layered shimmer effects with varying speeds and angles */}
+                    <div className="h-full w-1/3 bg-gradient-to-r from-transparent via-white/15 to-transparent skew-x-[-20deg] animate-shimmer-slow absolute" style={{ animationDuration: '3s' }}></div>
+                    <div className="h-full w-1/4 bg-gradient-to-r from-transparent via-blue-300/10 to-transparent skew-x-[-15deg] animate-shimmer-slow absolute" style={{ animationDuration: '4s', animationDelay: '1s' }}></div>
+                    <div className="h-full w-1/5 bg-gradient-to-r from-transparent via-blue-400/5 to-transparent skew-x-[-25deg] animate-shimmer-slow absolute" style={{ animationDuration: '3.5s', animationDelay: '2s' }}></div>
+                    
+                    {/* Horizontal light beam effects */}
+                    <div className="absolute top-[20%] h-[1px] w-full bg-gradient-to-r from-transparent via-blue-400/50 to-transparent -translate-x-full animate-shimmer-slow"></div>
+                    <div className="absolute bottom-[30%] h-[1px] w-full bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full animate-shimmer-slow" style={{ animationDelay: '1.5s' }}></div>
+                    
+                    {/* Subtle radial highlight effects */}
+                    <div className="absolute top-[10%] left-[20%] w-[150px] h-[150px] bg-blue-400/5 rounded-full blur-xl opacity-60 animate-pulse-very-slow"></div>
+                    <div className="absolute bottom-[20%] right-[15%] w-[120px] h-[120px] bg-blue-300/5 rounded-full blur-lg opacity-50 animate-pulse-very-slow" style={{ animationDelay: '2s' }}></div>
+                  </div>
+                  
                   {/* Premium badge with icon in homepage style */}
                   <div className="relative mb-6">
                     <div className="flex items-start justify-center">
@@ -284,6 +328,20 @@ const FirePrevention = () => {
                       </div>
                     </div>
                   </div>
+                  
+                  {/* Premium CTA Buttons */}
+                  <div className="flex flex-col sm:flex-row items-center gap-4 mt-2">
+                    <PremiumCartButton size="lg" onClick={handleShowConsultationForm}>
+                      Request Fire Assessment
+                    </PremiumCartButton>
+                    <Button 
+                      variant="outline" 
+                      size="lg"
+                      className="border-blue-500/30 text-blue-100 hover:bg-blue-900/20"
+                    >
+                      View Fire Protection Guide
+                    </Button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -294,7 +352,7 @@ const FirePrevention = () => {
         <section className="relative z-10 py-12 overflow-hidden">
           <div className="container mx-auto mb-16">
             <div className="relative">
-              {/* Section-specific ambient red glow in background (z-index lower than content) */}
+              {/* Section-specific ambient red glow in background */}
               <div className="absolute -inset-10 bg-red-900/10 rounded-full blur-[100px] opacity-80 z-0"></div>
               <div className="absolute -inset-20 bg-red-800/5 rounded-full blur-[150px] opacity-70 z-0 animate-pulse-slow"></div>
               
@@ -411,23 +469,15 @@ const FirePrevention = () => {
                             <span className="text-red-400 text-lg leading-5">•</span>
                             <span>Buildup of vegetation from the previous winter</span>
                           </li>
-                          <li className="flex items-start gap-2">
-                            <span className="text-red-400 text-lg leading-5">•</span>
-                            <span>Aging infrastructure and outdated building materials</span>
-                          </li>
                         </ul>
                       </div>
                       
                       <div className="bg-black/40 p-4 rounded-lg">
-                        <h4 className="font-medium text-red-300 mb-2">Key Vulnerabilities Identified</h4>
+                        <h4 className="font-medium text-red-300 mb-2">Key Vulnerabilities</h4>
                         <ul className="space-y-2 text-sm text-gray-400">
                           <li className="flex items-start gap-2">
                             <span className="text-red-400 text-lg leading-5">•</span>
                             <span>Older homes with combustible building materials</span>
-                          </li>
-                          <li className="flex items-start gap-2">
-                            <span className="text-red-400 text-lg leading-5">•</span>
-                            <span>Non-compliant buildings built in the 1950s-60s</span>
                           </li>
                           <li className="flex items-start gap-2">
                             <span className="text-red-400 text-lg leading-5">•</span>
@@ -439,22 +489,9 @@ const FirePrevention = () => {
                           </li>
                           <li className="flex items-start gap-2">
                             <span className="text-red-400 text-lg leading-5">•</span>
-                            <span>Lack of modern fire-resistant coatings and materials</span>
+                            <span>Lack of modern fire-resistant coatings</span>
                           </li>
                         </ul>
-                      </div>
-                    </div>
-                    
-                    <div className="mt-6 p-4 border border-orange-700/30 rounded-lg bg-gradient-to-r from-black/50 to-orange-950/30">
-                      <h4 className="text-lg font-medium text-orange-300 mb-2">Praetorian Assessment Conclusion</h4>
-                      <blockquote className="text-gray-300 italic">
-                        "In our post-incident analysis, structures protected with Praetorian Smart-Coat showed a 98.2% survival rate in the direct fire path, compared to just 4% of traditionally protected structures. The ceramic-based fire barrier was the single most significant factor in preventing structure ignition during ember attacks."
-                      </blockquote>
-                      <div className="flex items-center">
-                        <div className="ml-auto">
-                          <p className="text-orange-200 font-medium">Dr. Michael Reynolds</p>
-                          <p className="text-xs text-gray-400">Director, Fire Safety Research Institute</p>
-                        </div>
                       </div>
                     </div>
                   </div>
@@ -468,7 +505,7 @@ const FirePrevention = () => {
         <section className="relative z-10 py-12 overflow-hidden">
           <div className="container mx-auto mb-16">
             <div className="relative">
-              {/* Section-specific ambient green glow in background (z-index lower than content) */}
+              {/* Section-specific ambient green glow in background */}
               <div className="absolute -inset-10 bg-green-900/10 rounded-full blur-[100px] opacity-80 z-0"></div>
               <div className="absolute -inset-20 bg-emerald-800/5 rounded-full blur-[150px] opacity-70 z-0 animate-pulse-slow"></div>
               
@@ -595,7 +632,7 @@ const FirePrevention = () => {
                       
                       <div className="flex flex-col items-center p-3 rounded-lg bg-black/40">
                         <Home className="h-8 w-8 text-emerald-400 mb-2" />
-                        <span className="text-gray-300 text-sm text-center">Insurance Provider Approved</span>
+                        <span className="text-gray-300 text-sm text-center">Insurance Approved</span>
                       </div>
                     </div>
                   </div>
@@ -609,7 +646,7 @@ const FirePrevention = () => {
         <section className="relative z-10 py-12 overflow-hidden">
           <div className="container mx-auto pb-16">
             <div className="relative">
-              {/* Section-specific ambient purple glow in background (z-index lower than content) */}
+              {/* Section-specific ambient purple glow in background */}
               <div className="absolute -inset-10 bg-purple-900/10 rounded-full blur-[100px] opacity-80 z-0"></div>
               <div className="absolute -inset-20 bg-violet-800/5 rounded-full blur-[150px] opacity-70 z-0 animate-pulse-slow"></div>
               
@@ -879,16 +916,6 @@ const FirePrevention = () => {
                               <p className="text-sm text-gray-400">Dual-purpose ceramic coating that provides both fire protection and thermal insulation benefits</p>
                             </div>
                           </div>
-                          
-                          <div className="flex items-start rounded-lg p-4 bg-black/30 border border-purple-700/20 hover:border-purple-600/30 transition-colors duration-300">
-                            <div className="p-2 bg-purple-900/70 rounded-lg border border-purple-700/40 mr-4 flex-shrink-0">
-                              <FileText className="h-5 w-5 text-purple-400" />
-                            </div>
-                            <div>
-                              <h4 className="font-medium text-purple-300 mb-1">Code Compliance</h4>
-                              <p className="text-sm text-gray-400">Full compliance with all fire codes and building regulations with complete documentation</p>
-                            </div>
-                          </div>
                         </div>
                       </div>
                     </div>
@@ -922,14 +949,6 @@ const FirePrevention = () => {
                             <div>
                               <h4 className="text-white font-medium">Implementation</h4>
                               <p className="text-gray-400 text-sm">Professional application by certified technicians</p>
-                            </div>
-                          </div>
-                          
-                          <div className="flex items-start">
-                            <div className="h-6 w-6 bg-purple-900 rounded-full flex items-center justify-center text-white text-sm mr-3 mt-0.5 flex-shrink-0">4</div>
-                            <div>
-                              <h4 className="text-white font-medium">Certification</h4>
-                              <p className="text-gray-400 text-sm">Complete documentation for insurance and building code compliance</p>
                             </div>
                           </div>
                         </div>
