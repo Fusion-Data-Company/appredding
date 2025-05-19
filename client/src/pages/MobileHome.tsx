@@ -1445,12 +1445,29 @@ const MobileHome = () => {
                     <div className="relative bg-gradient-to-br from-gray-900 to-black rounded-lg p-4 border border-gray-800 group transition-all duration-300 hover:border-blue-500/40">
                       <div className="absolute -inset-0.5 bg-blue-600/20 rounded-lg blur opacity-60 group-hover:opacity-100 group-hover:bg-blue-600/30 transition-all duration-300"></div>
                       <div className="relative z-10 flex items-start gap-4">
-                        <span className="bg-gradient-to-r from-blue-700 to-blue-500 rounded-full p-2 mt-1 shadow-[0_0_15px_rgba(59,130,246,0.4)] flex items-center justify-center w-8 h-8">
-                          <span className="text-white font-bold text-sm">1</span>
-                        </span>
+                        {/* Ultra-premium step indicator with multi-layer effects */}
+                        <div className="relative mt-1">
+                          {/* Animated outer glow */}
+                          <div className="absolute -inset-1.5 bg-gradient-to-r from-blue-600/40 via-blue-400/50 to-blue-600/40 rounded-full blur-md opacity-80 animate-pulse-slow"></div>
+                          {/* Enhanced 3D glass button effect */}
+                          <div className="relative bg-gradient-to-br from-blue-600 to-blue-800 rounded-full p-2 shadow-[0_0_15px_rgba(59,130,246,0.5),inset_0_1px_3px_rgba(255,255,255,0.3)] flex items-center justify-center w-10 h-10 border border-blue-400/30 group-hover:shadow-[0_0_20px_rgba(59,130,246,0.7),inset_0_1px_5px_rgba(255,255,255,0.4)] transition-all duration-300">
+                            {/* Inner glass shine */}
+                            <div className="absolute top-[15%] left-[20%] w-[40%] h-[15%] bg-white/50 rounded-full blur-[0.5px]"></div>
+                            {/* Light shimmer effect */}
+                            <div className="absolute inset-0 rounded-full overflow-hidden">
+                              <div className="absolute top-0 left-[-100%] h-full w-[300%] bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer-slow transform rotate-[-35deg]"></div>
+                            </div>
+                            {/* Icon with number */}
+                            <div className="flex items-center justify-center">
+                              <Calculator className="w-5 h-5 text-white absolute opacity-30 group-hover:opacity-0 transition-opacity duration-300" />
+                              <span className="text-white font-bold text-sm relative z-10 group-hover:scale-110 transition-transform duration-300">1</span>
+                            </div>
+                          </div>
+                        </div>
+                        
                         <div>
-                          <h3 className="text-xl font-semibold mb-2 text-white drop-shadow-[0_1px_2px_rgba(59,130,246,0.5)]">Professional Assessment</h3>
-                          <p className="text-blue-100">Our certified technicians conduct a comprehensive mobile home evaluation, documenting current energy performance and creating a detailed application plan with thermal imaging analysis.</p>
+                          <h3 className="text-xl font-semibold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-blue-100 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">Professional Assessment</h3>
+                          <p className="text-blue-100 text-opacity-90">Our certified technicians conduct a comprehensive mobile home evaluation, documenting current energy performance and creating a detailed application plan with thermal imaging analysis.</p>
                         </div>
                       </div>
                     </div>
@@ -1458,12 +1475,29 @@ const MobileHome = () => {
                     <div className="relative bg-gradient-to-br from-gray-900 to-black rounded-lg p-4 border border-gray-800 group transition-all duration-300 hover:border-orange-500/40">
                       <div className="absolute -inset-0.5 bg-orange-600/20 rounded-lg blur opacity-60 group-hover:opacity-100 group-hover:bg-orange-600/30 transition-all duration-300"></div>
                       <div className="relative z-10 flex items-start gap-4">
-                        <span className="bg-gradient-to-r from-orange-700 to-orange-500 rounded-full p-2 mt-1 shadow-[0_0_15px_rgba(249,115,22,0.4)] flex items-center justify-center w-8 h-8">
-                          <span className="text-white font-bold text-sm">2</span>
-                        </span>
+                        {/* Ultra-premium step indicator with multi-layer effects */}
+                        <div className="relative mt-1">
+                          {/* Animated outer glow */}
+                          <div className="absolute -inset-1.5 bg-gradient-to-r from-orange-600/40 via-orange-400/50 to-orange-600/40 rounded-full blur-md opacity-80 animate-pulse-slow"></div>
+                          {/* Enhanced 3D glass button effect */}
+                          <div className="relative bg-gradient-to-br from-orange-600 to-orange-800 rounded-full p-2 shadow-[0_0_15px_rgba(249,115,22,0.5),inset_0_1px_3px_rgba(255,255,255,0.3)] flex items-center justify-center w-10 h-10 border border-orange-400/30 group-hover:shadow-[0_0_20px_rgba(249,115,22,0.7),inset_0_1px_5px_rgba(255,255,255,0.4)] transition-all duration-300">
+                            {/* Inner glass shine */}
+                            <div className="absolute top-[15%] left-[20%] w-[40%] h-[15%] bg-white/50 rounded-full blur-[0.5px]"></div>
+                            {/* Light shimmer effect */}
+                            <div className="absolute inset-0 rounded-full overflow-hidden">
+                              <div className="absolute top-0 left-[-100%] h-full w-[300%] bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer-slow transform rotate-[-35deg]"></div>
+                            </div>
+                            {/* Icon with number */}
+                            <div className="flex items-center justify-center">
+                              <DropletIcon className="w-5 h-5 text-white absolute opacity-30 group-hover:opacity-0 transition-opacity duration-300" />
+                              <span className="text-white font-bold text-sm relative z-10 group-hover:scale-110 transition-transform duration-300">2</span>
+                            </div>
+                          </div>
+                        </div>
+                        
                         <div>
-                          <h3 className="text-xl font-semibold mb-2 text-white drop-shadow-[0_1px_2px_rgba(249,115,22,0.5)]">Surface Preparation</h3>
-                          <p className="text-orange-100">All surfaces undergo our 6-step preparation process including power washing, crack sealing, and primer application to ensure optimal microsphere adhesion and maximum performance durability.</p>
+                          <h3 className="text-xl font-semibold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-orange-200 to-orange-100 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">Surface Preparation</h3>
+                          <p className="text-orange-100 text-opacity-90">All surfaces undergo our 6-step preparation process including power washing, crack sealing, and primer application to ensure optimal microsphere adhesion and maximum performance durability.</p>
                         </div>
                       </div>
                     </div>
@@ -1471,12 +1505,29 @@ const MobileHome = () => {
                     <div className="relative bg-gradient-to-br from-gray-900 to-black rounded-lg p-4 border border-gray-800 group transition-all duration-300 hover:border-blue-500/40">
                       <div className="absolute -inset-0.5 bg-blue-600/20 rounded-lg blur opacity-60 group-hover:opacity-100 group-hover:bg-blue-600/30 transition-all duration-300"></div>
                       <div className="relative z-10 flex items-start gap-4">
-                        <span className="bg-gradient-to-r from-blue-700 to-blue-500 rounded-full p-2 mt-1 shadow-[0_0_15px_rgba(59,130,246,0.4)] flex items-center justify-center w-8 h-8">
-                          <span className="text-white font-bold text-sm">3</span>
-                        </span>
+                        {/* Ultra-premium step indicator with multi-layer effects */}
+                        <div className="relative mt-1">
+                          {/* Animated outer glow */}
+                          <div className="absolute -inset-1.5 bg-gradient-to-r from-blue-600/40 via-blue-400/50 to-blue-600/40 rounded-full blur-md opacity-80 animate-pulse-slow"></div>
+                          {/* Enhanced 3D glass button effect */}
+                          <div className="relative bg-gradient-to-br from-blue-600 to-blue-800 rounded-full p-2 shadow-[0_0_15px_rgba(59,130,246,0.5),inset_0_1px_3px_rgba(255,255,255,0.3)] flex items-center justify-center w-10 h-10 border border-blue-400/30 group-hover:shadow-[0_0_20px_rgba(59,130,246,0.7),inset_0_1px_5px_rgba(255,255,255,0.4)] transition-all duration-300">
+                            {/* Inner glass shine */}
+                            <div className="absolute top-[15%] left-[20%] w-[40%] h-[15%] bg-white/50 rounded-full blur-[0.5px]"></div>
+                            {/* Light shimmer effect */}
+                            <div className="absolute inset-0 rounded-full overflow-hidden">
+                              <div className="absolute top-0 left-[-100%] h-full w-[300%] bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer-slow transform rotate-[-35deg]"></div>
+                            </div>
+                            {/* Icon with number */}
+                            <div className="flex items-center justify-center">
+                              <Layers className="w-5 h-5 text-white absolute opacity-30 group-hover:opacity-0 transition-opacity duration-300" />
+                              <span className="text-white font-bold text-sm relative z-10 group-hover:scale-110 transition-transform duration-300">3</span>
+                            </div>
+                          </div>
+                        </div>
+                        
                         <div>
-                          <h3 className="text-xl font-semibold mb-2 text-white drop-shadow-[0_1px_2px_rgba(59,130,246,0.5)]">Multi-Layer Application</h3>
-                          <p className="text-blue-100">Our technicians apply 3-4 precision coats of ceramic microsphere material using airless sprayers calibrated to ensure uniform 16-mil thickness with complete documentation of application conditions.</p>
+                          <h3 className="text-xl font-semibold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-blue-100 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">Multi-Layer Application</h3>
+                          <p className="text-blue-100 text-opacity-90">Our technicians apply 3-4 precision coats of ceramic microsphere material using airless sprayers calibrated to ensure uniform 16-mil thickness with complete documentation of application conditions.</p>
                         </div>
                       </div>
                     </div>
@@ -1484,12 +1535,29 @@ const MobileHome = () => {
                     <div className="relative bg-gradient-to-br from-gray-900 to-black rounded-lg p-4 border border-gray-800 group transition-all duration-300 hover:border-orange-500/40">
                       <div className="absolute -inset-0.5 bg-orange-600/20 rounded-lg blur opacity-60 group-hover:opacity-100 group-hover:bg-orange-600/30 transition-all duration-300"></div>
                       <div className="relative z-10 flex items-start gap-4">
-                        <span className="bg-gradient-to-r from-orange-700 to-orange-500 rounded-full p-2 mt-1 shadow-[0_0_15px_rgba(249,115,22,0.4)] flex items-center justify-center w-8 h-8">
-                          <span className="text-white font-bold text-sm">4</span>
-                        </span>
+                        {/* Ultra-premium step indicator with multi-layer effects */}
+                        <div className="relative mt-1">
+                          {/* Animated outer glow */}
+                          <div className="absolute -inset-1.5 bg-gradient-to-r from-orange-600/40 via-orange-400/50 to-orange-600/40 rounded-full blur-md opacity-80 animate-pulse-slow"></div>
+                          {/* Enhanced 3D glass button effect */}
+                          <div className="relative bg-gradient-to-br from-orange-600 to-orange-800 rounded-full p-2 shadow-[0_0_15px_rgba(249,115,22,0.5),inset_0_1px_3px_rgba(255,255,255,0.3)] flex items-center justify-center w-10 h-10 border border-orange-400/30 group-hover:shadow-[0_0_20px_rgba(249,115,22,0.7),inset_0_1px_5px_rgba(255,255,255,0.4)] transition-all duration-300">
+                            {/* Inner glass shine */}
+                            <div className="absolute top-[15%] left-[20%] w-[40%] h-[15%] bg-white/50 rounded-full blur-[0.5px]"></div>
+                            {/* Light shimmer effect */}
+                            <div className="absolute inset-0 rounded-full overflow-hidden">
+                              <div className="absolute top-0 left-[-100%] h-full w-[300%] bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer-slow transform rotate-[-35deg]"></div>
+                            </div>
+                            {/* Icon with number */}
+                            <div className="flex items-center justify-center">
+                              <Award className="w-5 h-5 text-white absolute opacity-30 group-hover:opacity-0 transition-opacity duration-300" />
+                              <span className="text-white font-bold text-sm relative z-10 group-hover:scale-110 transition-transform duration-300">4</span>
+                            </div>
+                          </div>
+                        </div>
+                        
                         <div>
-                          <h3 className="text-xl font-semibold mb-2 text-white drop-shadow-[0_1px_2px_rgba(249,115,22,0.5)]">Certification & Documentation</h3>
-                          <p className="text-orange-100">Upon completion, you receive official ROI certification documentation, thermal performance verification, and a 10-year warranty that can be transferred to future homeowners.</p>
+                          <h3 className="text-xl font-semibold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-orange-200 to-orange-100 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">Certification & Documentation</h3>
+                          <p className="text-orange-100 text-opacity-90">Upon completion, you receive official ROI certification documentation, thermal performance verification, and a 10-year warranty that can be transferred to future homeowners.</p>
                         </div>
                       </div>
                     </div>
