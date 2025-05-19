@@ -552,8 +552,14 @@ const Construction = () => {
                     
                     <div className="relative flex gap-5">
                       <div className="flex-shrink-0">
-                        <div className="w-12 h-12 rounded-full bg-red-900/50 flex items-center justify-center border border-red-600/30">
-                          <TrendingUp className="h-6 w-6 text-red-400" />
+                        {/* Elite enterprise icon styling */}
+                        <div className="relative">
+                          <div className="absolute -inset-2 bg-red-500/20 rounded-full blur-md opacity-80"></div>
+                          <div className="relative h-14 w-14 flex items-center justify-center bg-gradient-to-br from-red-800 to-red-900 rounded-xl border border-red-400/30 shadow-[0_0_15px_rgba(239,68,68,0.3)]">
+                            <div className="absolute inset-0.5 bg-gradient-to-br from-red-700 to-red-800 rounded-[0.65rem] opacity-50"></div>
+                            <div className="absolute h-full w-1/2 bg-gradient-to-r from-transparent via-red-400/20 to-transparent skew-x-[-20deg] animate-shimmer-slow"></div>
+                            <TrendingUp className="w-7 h-7 text-red-300 relative z-10 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]" />
+                          </div>
                         </div>
                       </div>
                       <div>
@@ -594,6 +600,98 @@ const Construction = () => {
                           </li>
                         </ul>
                       </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        {/* Advanced Construction Coating Technology Section */}
+        <section className="py-16 relative z-10">
+          <div className="container mx-auto">
+            <div className="max-w-5xl mx-auto">
+              <div className="relative">
+                {/* Premium amber glow for informational section */}
+                <div className="absolute -inset-10 bg-amber-500/20 rounded-xl blur-xl opacity-70 z-0"></div>
+                <div className="absolute -inset-20 bg-amber-600/10 rounded-xl blur-2xl opacity-50 z-0 animate-pulse-slow"></div>
+                <div className="absolute -inset-30 bg-amber-700/5 rounded-xl blur-3xl opacity-30 z-0"></div>
+                
+                {/* Premium glass container with amber accents */}
+                <div className="relative bg-gradient-to-br from-gray-900/90 via-gray-950/95 to-black/90 rounded-xl p-8 border border-amber-600/30 shadow-lg overflow-hidden">
+                  {/* Glass shimmer effect */}
+                  <div className="absolute inset-0 overflow-hidden z-0">
+                    <div className="absolute top-0 left-0 right-0 h-[30%] bg-gradient-to-br from-amber-500/10 to-transparent rounded-t-xl"></div>
+                    <div className="h-full w-1/3 bg-gradient-to-r from-transparent via-amber-400/10 to-transparent skew-x-[-20deg] animate-shimmer-slow absolute"></div>
+                  </div>
+                  
+                  <div className="relative z-10">
+                    <div className="flex items-center mb-8">
+                      <div className="mr-4 relative">
+                        {/* Enhanced amber glow */}
+                        <div className="absolute -inset-2 bg-amber-500/20 rounded-full blur-md opacity-80"></div>
+                        <div className="relative h-14 w-14 flex items-center justify-center bg-gradient-to-br from-amber-800 to-amber-900 rounded-xl border border-amber-400/30 shadow-[0_0_15px_rgba(245,158,11,0.3)]">
+                          <div className="absolute inset-0.5 bg-gradient-to-br from-amber-700 to-amber-800 rounded-[0.65rem] opacity-50"></div>
+                          <div className="absolute h-full w-1/2 bg-gradient-to-r from-transparent via-amber-400/20 to-transparent skew-x-[-20deg] animate-shimmer-slow"></div>
+                          <Microscope className="w-7 h-7 text-amber-300 relative z-10 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]" />
+                        </div>
+                      </div>
+                      <h3 className="text-2xl font-bold text-amber-300">Advanced Construction Coating Technology</h3>
+                    </div>
+                    
+                    <p className="text-gray-300 mb-8 leading-relaxed">
+                      Praetorian Smart-Coat represents a revolutionary leap in construction protection technology. Unlike conventional paints and sealants, our specialized ceramic composite formulation creates a molecular bond with construction materials that dramatically enhances thermal resistance and structural integrity.
+                    </p>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                      <div className="bg-black/40 rounded-lg p-5 border border-amber-800/30">
+                        <h4 className="text-lg font-semibold text-amber-200 mb-3 flex items-center">
+                          <Medal className="h-5 w-5 mr-2 text-amber-400" />
+                          NASA-Derived Technology
+                        </h4>
+                        <p className="text-gray-300 text-sm">
+                          Our proprietary formula utilizes ceramic microspheres originally developed for space shuttle heat shields. These microscopic vacuum-sealed ceramic particles create an advanced thermal barrier that reflects up to 95% of radiant heat while blocking conductive heat transfer.
+                        </p>
+                      </div>
+                      
+                      <div className="bg-black/40 rounded-lg p-5 border border-amber-800/30">
+                        <h4 className="text-lg font-semibold text-amber-200 mb-3 flex items-center">
+                          <Activity className="h-5 w-5 mr-2 text-amber-400" />
+                          Construction Performance Metrics
+                        </h4>
+                        <p className="text-gray-300 text-sm">
+                          Independent laboratory testing confirms that Praetorian Smart-Coat reduces energy consumption by 32-47% in commercial buildings through advanced thermal management, while extending material lifespans by 15+ years through superior UV, moisture, and chemical protection.
+                        </p>
+                      </div>
+                      
+                      <div className="bg-black/40 rounded-lg p-5 border border-amber-800/30">
+                        <h4 className="text-lg font-semibold text-amber-200 mb-3 flex items-center">
+                          <ThermometerIcon className="h-5 w-5 mr-2 text-amber-400" />
+                          Thermal Dynamics
+                        </h4>
+                        <p className="text-gray-300 text-sm">
+                          The ceramic microsphere matrix creates millions of microscopic thermal barriers per square inch, significantly reducing thermal bridging within construction materials. This results in superior insulation value (R-value equivalent of 19) in a coating just 8-10 mils thick.
+                        </p>
+                      </div>
+                      
+                      <div className="bg-black/40 rounded-lg p-5 border border-amber-800/30">
+                        <h4 className="text-lg font-semibold text-amber-200 mb-3 flex items-center">
+                          <FileText className="h-5 w-5 mr-2 text-amber-400" />
+                          Specification Compliance
+                        </h4>
+                        <p className="text-gray-300 text-sm">
+                          Meets or exceeds ASTM D6695 for solar reflectance, ASTM E1980 for thermal emittance, and ASTM E108 for fire resistance. Rated for 20+ year exterior durability in all climate zones with negligible degradation in performance metrics.
+                        </p>
+                      </div>
+                    </div>
+                    
+                    <div className="flex justify-center">
+                      <a href="#download-specs" className="relative group/download inline-flex items-center bg-gradient-to-br from-amber-900/80 to-amber-950/80 px-5 py-2.5 rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:shadow-amber-700/20 border border-amber-700/30 hover:border-amber-600/50">
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-amber-700/10 to-transparent skew-x-[-20deg] animate-shimmer-slow opacity-0 group-hover/download:opacity-100 transition-opacity duration-500"></div>
+                        <Download className="h-5 w-5 mr-2 text-amber-400" />
+                        <span className="text-amber-100 font-medium">Download Technical Specifications</span>
+                      </a>
                     </div>
                   </div>
                 </div>
