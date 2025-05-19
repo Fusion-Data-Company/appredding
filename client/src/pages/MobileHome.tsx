@@ -1323,25 +1323,19 @@ const MobileHome = () => {
                         Results based on average data for similar mobile homes in your climate zone. Contact us for a precise custom assessment.
                       </div>
                       
-                      {/* Enhanced ambient purple glow wrapped around the button */}
-                      <div className="relative mt-6">
-                        <div className="absolute -inset-4 bg-gradient-to-r from-purple-600/40 via-violet-600/30 to-purple-600/40 blur-xl rounded-xl opacity-80 transition-opacity duration-500"></div>
-                        <div className="absolute -inset-2 bg-purple-800/20 blur-lg rounded-xl opacity-70 transition-opacity duration-500 animate-pulse-slow"></div>
-                        <div className="relative">
-                          <PremiumCartButton
-                            onClick={handleShowRegistrationForm}
-                            size="lg"
-                            className="w-full transform hover:scale-105 transition-transform duration-300"
-                            glowEffect={true}
-                          >
-                            <div className="flex items-center justify-center">
-                              <div className="relative mr-2">
-                                <div className="absolute -inset-1 bg-purple-400/30 rounded-full blur-md"></div>
-                                <CircleDollarSign className="w-6 h-6 relative text-white" />
-                              </div>
-                              Get Detailed ROI Report
+                      {/* Informational note with enhanced styling */}
+                      <div className="mt-6 p-3 relative">
+                        <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/20 via-purple-600/15 to-blue-600/20 rounded-lg blur-sm opacity-70"></div>
+                        <div className="relative p-3 bg-gradient-to-br from-gray-900/90 to-gray-950/90 rounded-lg border border-blue-500/30">
+                          <div className="flex items-start">
+                            <div className="relative mr-3 mt-1 flex-shrink-0">
+                              <div className="absolute -inset-1 bg-blue-500/20 rounded-full blur-sm"></div>
+                              <InfoIcon className="w-5 h-5 text-blue-300 relative" />
                             </div>
-                          </PremiumCartButton>
+                            <p className="text-blue-100 text-sm">
+                              This preliminary calculation shows estimated savings based on average data. For a full detailed ROI analysis including tax incentives and rebates, please contact our team for a personalized assessment.
+                            </p>
+                          </div>
                         </div>
                       </div>
                     </div>
