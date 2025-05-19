@@ -150,9 +150,12 @@ const Marinas = () => {
           <div className="absolute top-0 bottom-0 right-0 w-[3px] bg-gradient-to-b from-transparent via-orange-500/30 to-transparent"></div>
         </div>
         
-        {/* Main content section */}
-        <section className="py-16 md:py-24 relative z-10">
+        {/* SANDLER STAGE 1: INTRO - BLUE GLOW SECTION */}
+        <section className="relative z-10 py-16 md:py-24 overflow-hidden">
           <div className="container mx-auto">
+            {/* Section-specific ambient blue glow in background (z-index lower than content) */}
+            <div className="absolute -inset-10 bg-blue-800/10 rounded-full blur-[100px] opacity-80 z-0"></div>
+            <div className="absolute -inset-20 bg-blue-900/5 rounded-full blur-[150px] opacity-70 z-0 animate-pulse-slow"></div>
             {/* Premium styled title card */}
             <div className="max-w-5xl mx-auto text-center mb-14 md:mb-20 relative">
               {/* Advanced enterprise-grade backdrop with layered effects */}
@@ -211,7 +214,7 @@ const Marinas = () => {
                 
                 {/* SANDLER STAGE 1: IDENTIFY THE PAINS */}
                 <div className="relative mb-10 bg-gradient-to-br from-gray-900/60 to-gray-800/60 border border-blue-600/30 rounded-xl p-6">
-                  <div className="absolute -inset-1 bg-gradient-to-r from-red-600/10 via-blue-500/10 to-red-600/10 rounded-xl blur-md opacity-80"></div>
+                  <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/10 via-blue-500/30 to-blue-600/10 rounded-xl blur-md opacity-80"></div>
                   
                   <h2 className="text-2xl font-bold text-white mb-4">
                     The Relentless Battle Against Marine Elements
