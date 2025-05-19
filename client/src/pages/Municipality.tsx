@@ -6,8 +6,10 @@ import { PremiumCartButton } from "@/utils/premium-buttons";
 import { GradientHeading } from "@/components/ui/gradient-heading";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Progress } from "@/components/ui/progress";
-import { Helmet } from "react-helmet";
-import { preloadCriticalImage, getAccessibleAltText } from "@/lib/seo-helper";
+import SEOHead from "@/components/SEOHead";
+import AccessibleImage from "@/components/ui/accessible-image";
+import { preloadCriticalImages, createIndustryImageSource } from "@/lib/image-helper";
+import { generateStructuredData, getIndustryKeywords } from "@/lib/seo-helper";
 import { 
   ShieldCheck, 
   Leaf, 
@@ -73,12 +75,30 @@ export default function Municipality() {
   const [activeTab, setActiveTab] = useState("infrastructure");
   const [progress, setProgress] = useState(33);
   
-  // Hero image path for preloading
+  // Define SEO metadata
+  const title = "Praetorian Smart-Coat – Municipal Applications";
+  const description = "Energy-efficient ceramic coating solutions for municipal infrastructure. Reduce maintenance costs, improve energy efficiency, and protect public facilities.";
+  const slug = "municipality";
   const heroImagePath = "/src/assets_dir/images/municipality-hero.png";
+  const keywords = getIndustryKeywords('municipality', [
+    'public buildings', 'energy savings', 'infrastructure protection', 
+    'thermal insulation', 'municipal facilities'
+  ]);
+  
+  // Generate structured data for SEO
+  const structuredData = generateStructuredData({
+    type: 'Product',
+    name: 'Praetorian Smart-Coat for Municipalities',
+    description: 'Advanced ceramic coating for municipal buildings and infrastructure',
+    image: heroImagePath,
+    url: `https://praetoriansmartcoat.com/${slug}`,
+    manufacturer: 'Praetorian Protective Coatings',
+    category: 'Municipal Infrastructure Protection'
+  });
   
   // Preload critical hero image
   useEffect(() => {
-    preloadCriticalImage(heroImagePath);
+    preloadCriticalImages([createIndustryImageSource(heroImagePath, 'municipality')]);
   }, []);
   
   useEffect(() => {

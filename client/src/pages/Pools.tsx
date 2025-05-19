@@ -152,25 +152,7 @@ export default function Pools() {
         keywords={keywords}
         structuredData={structuredData}
       />
-      <Helmet>
-        <title>Praetorian Smart-Coat – Pools</title>
-        <meta name="description" content="Revolutionary deck-cooling ceramic coating for pools. Reduce surface temperatures, improve comfort and energy efficiency with our advanced thermal barrier." />
-        
-        {/* Open Graph / Facebook */}
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="Praetorian Smart-Coat – Pools" />
-        <meta property="og:description" content="Fireproof, insulating ceramic paint for pools. Guard what matters." />
-        <meta property="og:image" content="/images/og-pools.jpg" />
-        
-        {/* Twitter */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Praetorian Smart-Coat – Pools" />
-        <meta name="twitter:description" content="Fireproof, insulating ceramic paint for pools. Guard what matters." />
-        <meta name="twitter:image" content="/images/og-pools.jpg" />
-        
-        {/* Preload critical hero image */}
-        <link rel="preload" as="image" href={heroImagePath} />
-      </Helmet>
+      {/* Enhanced SEO metadata is now handled by the SEOHead component above */}
       <div className="relative">
         {/* Advanced premium gradient background with layered effects */}
         <div className="fixed inset-0 z-[-5]" style={{ 
