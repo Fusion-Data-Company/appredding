@@ -61,12 +61,43 @@ export default function Pools() {
   const [calculationResult, setCalculationResult] = useState<CalculationResult | null>(null);
   const [showROICalculator, setShowROICalculator] = useState<boolean>(false);
   
-  // Hero image path for preloading
+  // Define industry-specific data for SEO
+  const industry = "Pool Protection";
+  const slug = "pools";
+  const pageTitle = "Praetorian Smart-Coat – Pool & Deck Protection Solutions";
+  const pageDescription = "Advanced ceramic coatings for swimming pools, decks and water features. Protect surfaces from UV damage, chlorine, and temperature extremes.";
   const heroImagePath = "/src/assets_dir/images/pool-deck-hero.png";
   
-  // Preload critical hero image
+  // Generate industry-specific keywords
+  const keywords = [
+    'pool deck coating',
+    'swimming pool protection',
+    'waterproof ceramic coating',
+    'pool surface treatment',
+    'UV resistant pool paint'
+  ];
+  
+  // Generate structured data for search engines
+  const structuredData = generateStructuredData(
+    industry,
+    pageDescription,
+    slug,
+    [
+      "Superior chlorine and chemical resistance",
+      "UV-resistant protection for long-term durability",
+      "Temperature-regulating properties for cooler pool decks",
+      "Waterproof ceramic barrier coating",
+      "Environmentally friendly formulation"
+    ]
+  );
+  
+  // Preload critical images for performance
   useEffect(() => {
-    preloadCriticalImage(heroImagePath);
+    preloadCriticalImages([
+      heroImagePath,
+      "/images/pools-thumb.webp",
+      "/src/assets_dir/images/optimized/praetorian-products-updated.webp"
+    ]);
   }, []);
 
   // Product data
@@ -111,6 +142,16 @@ export default function Pools() {
 
   return (
     <MainLayout fullWidth={true}>
+      {/* SEO Metadata with enhanced tags and structured data */}
+      <SEOHead
+        title={pageTitle}
+        description={pageDescription}
+        industry={industry}
+        slug={slug}
+        imagePath={heroImagePath}
+        keywords={keywords}
+        structuredData={structuredData}
+      />
       <Helmet>
         <title>Praetorian Smart-Coat – Pools</title>
         <meta name="description" content="Revolutionary deck-cooling ceramic coating for pools. Reduce surface temperatures, improve comfort and energy efficiency with our advanced thermal barrier." />
