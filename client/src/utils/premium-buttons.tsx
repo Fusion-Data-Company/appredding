@@ -71,14 +71,23 @@ export const PremiumActionButton = ({ children, onClick, className, ...props }: 
 
 // Generic premium fire button without icon but with glow effect
 export const PremiumFireButton = ({ children, onClick, className, ...props }: React.ComponentProps<typeof PremiumButton>) => (
-  <PremiumButton 
-    variant="fire" 
-    size="lg" 
-    className={`group ${className || ''}`}
-    onClick={onClick}
-    glowEffect={true}
-    {...props}
-  >
-    {children}
-  </PremiumButton>
+  <div className="relative">
+    {/* Separate ambient blue glow positioned behind the button */}
+    <div className="absolute -inset-[20px] rounded-3xl opacity-80 transition-opacity duration-500 -z-10 group-hover:opacity-100"
+      style={{ 
+        background: 'radial-gradient(circle, rgba(59,130,246,0.2) 0%, rgba(0,0,0,0.1) 70%)',
+        filter: 'blur(20px)'
+      }}>
+    </div>
+    <PremiumButton 
+      variant="fire" 
+      size="lg" 
+      className={`group ${className || ''}`}
+      onClick={onClick}
+      glowEffect={true}
+      {...props}
+    >
+      {children}
+    </PremiumButton>
+  </div>
 );

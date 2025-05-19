@@ -118,15 +118,6 @@ const PremiumButton = forwardRef<HTMLButtonElement, PremiumButtonProps>(
     
     return (
       <div className={isFire ? "relative group" : ""}>
-        {/* Fire variant's ambient glow behind the button */}
-        {isFire && (
-          <div className="absolute -inset-[20px] rounded-3xl opacity-80 transition-opacity duration-500 -z-10"
-              style={{ 
-                background: 'radial-gradient(circle, rgba(59,130,246,0.2) 0%, rgba(0,0,0,0.1) 70%)',
-                filter: 'blur(20px)'
-              }}>
-          </div>
-        )}
 
         <button
           className={cn(
