@@ -514,8 +514,14 @@ const Marinas = () => {
               <div className="relative z-20 rounded-2xl overflow-hidden p-8 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-green-700/30 shadow-[0_10px_50px_-12px_rgba(0,0,0,0.4)]">
                 {/* Section Title with premium styling */}
                 <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-green-300 via-emerald-200 to-green-300">
-                  Marina Business ROI Analysis
+                  The Proven ROI for Marina Owners
                 </h2>
+                
+                <div className="max-w-4xl mx-auto mb-8">
+                  <p className="text-white text-lg mb-4">
+                    Praetorian Smart-Coat transforms your marina's financial outlook by eliminating the endless cycle of maintenance and replacement. Our Gulf Coast Marina case study demonstrates how our specialized marine coating system delivers exceptional returns:
+                  </p>
+                </div>
 
                 {/* Enhanced ROI stats grid */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
@@ -525,7 +531,7 @@ const Marinas = () => {
                       <CircleDollarSign className="h-12 w-12 text-green-400 mb-2" />
                       <h3 className="text-xl font-bold text-green-300">Maintenance Cost Reduction</h3>
                       <div className="text-4xl font-bold text-white">74%</div>
-                      <p className="text-gray-400 text-sm">Average reduction in annual maintenance expenses after Smart-Coat application</p>
+                      <p className="text-gray-400 text-sm">Average reduction in annual maintenance expenses after Smart-Coat application at Gulf Coast Marina, saving over $218,000 annually</p>
                     </div>
                   </div>
                   
@@ -535,7 +541,7 @@ const Marinas = () => {
                       <TrendingUp className="h-12 w-12 text-green-400 mb-2" />
                       <h3 className="text-xl font-bold text-green-300">Asset Lifespan Extension</h3>
                       <div className="text-4xl font-bold text-white">12-20 yrs</div>
-                      <p className="text-gray-400 text-sm">Extended usable lifespan of docks, ramps, and marine infrastructure</p>
+                      <p className="text-gray-400 text-sm">Extended usable lifespan of docks, pilings, and walkways - documented in a Florida marina where treated structures remained pristine after 17 years in saltwater</p>
                     </div>
                   </div>
                   
