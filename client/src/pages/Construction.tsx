@@ -12,7 +12,7 @@ import {
   FormLabel,
   FormMessage
 } from "@/components/ui/form";
-import { HardHat, ShieldCheck, Building, Hammer, CheckCircle, Warehouse, CircleDollarSign, TrendingUp } from "lucide-react";
+import { HardHat, ShieldCheck, Building, Hammer, CheckCircle, Warehouse, CircleDollarSign, TrendingUp, Clock } from "lucide-react";
 import { insertConstructionDistributorSchema } from "@shared/schema";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -31,7 +31,20 @@ type ConstructionDistributorFormValues = z.infer<typeof insertConstructionDistri
 const Construction = () => {
   const [showRegistrationForm, setShowRegistrationForm] = useState(false);
   const [registrationSuccess, setRegistrationSuccess] = useState(false);
+  const [squareFootage, setSquareFootage] = useState<number | undefined>();
+  const [energyCost, setEnergyCost] = useState<number | undefined>();
   const { toast } = useToast();
+  
+  // ROI Calculator function
+  const calculateROI = () => {
+    // Show the results section
+    const roiResultsElement = document.getElementById('roiResults');
+    if (roiResultsElement) {
+      roiResultsElement.scrollIntoView({ behavior: 'smooth' });
+      roiResultsElement.classList.remove('opacity-0');
+      roiResultsElement.classList.add('opacity-100');
+    }
+  };
   
   // Define SEO metadata
   const title = "Praetorian Smart-Coat – Construction";
@@ -603,8 +616,148 @@ const Construction = () => {
                     </div>
                   </div>
                   
-                  {/* Statistics */}
+                  {/* ROI Calculator */}
                   <div className="relative group p-6 bg-gradient-to-br from-black/80 to-gray-900/80 border border-green-700/30 rounded-xl transition-all duration-300 hover:border-green-600/50 shadow-lg">
+                    <div className="absolute -inset-px bg-gradient-to-r from-green-600/20 via-transparent to-green-600/20 rounded-xl opacity-70 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
+                    
+                    <div className="relative">
+                      <h3 className="text-xl font-semibold text-white mb-4 text-center">Enterprise ROI Calculator</h3>
+                      
+                      <div className="bg-black/40 rounded-lg p-5 border border-green-800/30 mb-6">
+                        <h4 className="text-lg font-semibold text-green-300 mb-3">Calculate Your Construction Project Savings</h4>
+                        <p className="text-gray-300 mb-4">See how Praetorian Smart-Coat delivers quantifiable ROI on your next commercial construction project.</p>
+                        
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
+                          <div>
+                            <label className="block text-sm font-medium text-gray-400 mb-1">Project Square Footage</label>
+                            <input 
+                              type="number"
+                              placeholder="e.g. 25000"
+                              value={squareFootage || ''}
+                              onChange={(e) => setSquareFootage(e.target.value ? Number(e.target.value) : undefined)}
+                              className="w-full px-3 py-2 rounded-md bg-gray-900/70 border border-green-900/50 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500/30"
+                            />
+                          </div>
+                          <div>
+                            <label className="block text-sm font-medium text-gray-400 mb-1">Current Energy Cost ($/sqft/year)</label>
+                            <input 
+                              type="number" 
+                              placeholder="e.g. 2.40"
+                              value={energyCost || ''}
+                              onChange={(e) => setEnergyCost(e.target.value ? Number(e.target.value) : undefined)}
+                              className="w-full px-3 py-2 rounded-md bg-gray-900/70 border border-green-900/50 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500/30"
+                            />
+                          </div>
+                        </div>
+                        
+                        <div className="flex justify-center group/roi-button relative">
+                          {/* Multi-layered glow effects */}
+                          <div className="absolute -inset-3 bg-green-500/10 rounded-2xl blur-2xl opacity-0 group-hover/roi-button:opacity-100 transition-opacity duration-700"></div>
+                          <div className="absolute -inset-2 bg-gradient-to-r from-green-600/20 via-blue-600/30 to-green-600/20 rounded-xl blur-xl opacity-70 group-hover/roi-button:opacity-90 transition-opacity duration-500"></div>
+                          
+                          <button 
+                            onClick={() => calculateROI()}
+                            className="relative px-8 py-3 rounded-xl text-white font-semibold text-lg transition-all duration-300 hover:scale-105 group z-10 overflow-hidden"
+                          >
+                            {/* Enhanced translucent background with realistic glass effect */}
+                            <div className="absolute inset-0 bg-gradient-to-br from-gray-900/90 via-black/90 to-gray-900/90 rounded-xl -z-[1] backdrop-blur-md border border-green-500/50"></div>
+                            
+                            {/* Premium glass overlay with subtle transparency */}
+                            <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 to-green-700/10 rounded-xl opacity-100 group-hover:opacity-0 transition-opacity duration-300 -z-[1]"></div>
+                            
+                            {/* Animated hover effect with sliding gradient */}
+                            <div className="absolute inset-0 bg-gradient-to-r from-green-500/40 to-green-600/40 rounded-xl -z-[1] translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+                            
+                            <span className="relative z-10 flex items-center justify-center gap-2">
+                              <span className="relative inline-block overflow-hidden group-hover:text-white transition-colors duration-300">
+                                <span className="relative inline-block group-hover:translate-y-full transition-transform duration-300">
+                                  Calculate Construction ROI
+                                </span>
+                                <span className="absolute inset-0 flex items-center justify-center -translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                                  <span className="relative">
+                                    Calculate Construction ROI
+                                    <span className="absolute inset-x-0 bottom-0 h-[1px] bg-gradient-to-r from-transparent via-green-300/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
+                                  </span>
+                                </span>
+                              </span>
+                            </span>
+                          </button>
+                        </div>
+                      </div>
+                      
+                      {/* ROI Results Preview */}
+                      <div id="roiResults" className="mt-6 pt-6 border-t border-gray-700 relative opacity-0 transition-opacity duration-500">
+                        {/* Green glow for ROI section */}
+                        <div className="absolute -inset-3 bg-green-500/30 rounded-xl blur-xl opacity-70 z-0"></div>
+                        <div className="absolute -inset-6 bg-green-500/20 rounded-xl blur-2xl opacity-60 z-0 animate-pulse-slow"></div>
+                        
+                        <div className="relative z-10">
+                          <h4 className="text-xl font-bold mb-4 text-white bg-gradient-to-r from-green-200 to-green-400 bg-clip-text text-transparent drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
+                            Projected 5-Year Return on Investment
+                          </h4>
+                          
+                          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                            <div className="bg-black/50 p-4 rounded-lg border border-green-800/30">
+                              <div className="flex flex-col items-center">
+                                <CircleDollarSign className="h-8 w-8 text-green-400 mb-1" />
+                                <div className="text-center">
+                                  <p className="text-2xl font-bold text-white">$192,000</p>
+                                  <p className="text-green-400 text-sm">Total Energy Savings</p>
+                                </div>
+                              </div>
+                            </div>
+                            
+                            <div className="bg-black/50 p-4 rounded-lg border border-green-800/30">
+                              <div className="flex flex-col items-center">
+                                <Clock className="h-8 w-8 text-green-400 mb-1" />
+                                <div className="text-center">
+                                  <p className="text-2xl font-bold text-white">26 months</p>
+                                  <p className="text-green-400 text-sm">ROI Timeframe</p>
+                                </div>
+                              </div>
+                            </div>
+                            
+                            <div className="bg-black/50 p-4 rounded-lg border border-green-800/30">
+                              <div className="flex flex-col items-center">
+                                <TrendingUp className="h-8 w-8 text-green-400 mb-1" />
+                                <div className="text-center">
+                                  <p className="text-2xl font-bold text-white">384%</p>
+                                  <p className="text-green-400 text-sm">Total ROI</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          
+                          <div className="bg-gradient-to-br from-gray-900 to-black rounded-lg p-4 border border-green-800/30">
+                            <h5 className="text-lg font-semibold text-green-300 mb-2">Additional Value Benefits</h5>
+                            <ul className="space-y-2">
+                              <li className="flex items-start gap-2">
+                                <div className="mt-1 flex-shrink-0">
+                                  <CheckCircle className="h-4 w-4 text-green-500" />
+                                </div>
+                                <span className="text-gray-300">Maintenance cost reduction of approximately $34,500 over 5 years</span>
+                              </li>
+                              <li className="flex items-start gap-2">
+                                <div className="mt-1 flex-shrink-0">
+                                  <CheckCircle className="h-4 w-4 text-green-500" />
+                                </div>
+                                <span className="text-gray-300">Extended asset lifecycle value: $87,000 in deferred replacement costs</span>
+                              </li>
+                              <li className="flex items-start gap-2">
+                                <div className="mt-1 flex-shrink-0">
+                                  <CheckCircle className="h-4 w-4 text-green-500" />
+                                </div>
+                                <span className="text-gray-300">Potential insurance premium reduction of 8-12% with documented fire protection</span>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Statistics */}
+                  <div className="relative group p-6 bg-gradient-to-br from-black/80 to-gray-900/80 border border-green-700/30 rounded-xl transition-all duration-300 hover:border-green-600/50 shadow-lg mt-8">
                     <div className="absolute -inset-px bg-gradient-to-r from-green-600/20 via-transparent to-green-600/20 rounded-xl opacity-70 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
                     
                     <div className="relative">
