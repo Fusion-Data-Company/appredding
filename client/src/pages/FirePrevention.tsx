@@ -98,475 +98,199 @@ const FirePrevention = () => {
   return (
     <MainLayout fullWidth={true}>
       <div className="relative">
-        {/* Full-page fire background with advanced styling */}
-        <div 
-          className="fixed inset-0 z-0 bg-center bg-cover bg-no-repeat" 
-          style={{ 
-            backgroundImage: `url(${fireBgImage})`,
-            backgroundAttachment: 'fixed',
-            backgroundPosition: 'center center',
-            backgroundSize: 'cover',
-            opacity: 0.95
-          }}
-        />
-        
-        {/* Premium enterprise-elite gradient overlay with enhanced depth */}
-        <div className="fixed inset-0 z-0 opacity-90" style={{ 
-          background: 'linear-gradient(130deg, rgba(0,0,0,0.85) 0%, rgba(20,5,0,0.95) 45%, rgba(30,10,0,0.92) 70%, rgba(50,20,2,0.85) 100%)',
-          mixBlendMode: 'multiply'
+        {/* Advanced premium gradient background with layered effects */}
+        <div className="fixed inset-0 z-[-5]" style={{ 
+          background: 'linear-gradient(145deg, #0c0c14 0%, #101830 30%, #152238 60%, #0e1a2a 100%)'
         }}></div>
         
-        {/* Dynamic ember particle effect - subtle fire particles */}
-        <div className="fixed inset-0 z-0 pointer-events-none">
+        {/* Dynamic layered background elements with fire theme */}
+        <div className="fixed inset-0 z-[-4] opacity-40" style={{ 
+          backgroundImage: 'radial-gradient(circle at 30% 20%, rgba(154, 52, 18, 0.6) 0%, rgba(15, 23, 42, 0) 60%)'
+        }}></div>
+        
+        <div className="fixed inset-0 z-[-4] opacity-30" style={{ 
+          backgroundImage: 'radial-gradient(circle at 70% 60%, rgba(153, 27, 27, 0.5) 0%, rgba(15, 23, 42, 0) 70%)'
+        }}></div>
+        
+        {/* Advanced multi-color ambient glow effects with fire accent */}
+        <div className="fixed inset-0 z-[-3] overflow-hidden pointer-events-none">
+          {/* Blue glow */}
+          <div className="absolute top-[10%] left-[15%] w-[40rem] h-[40rem] bg-blue-600/10 rounded-full blur-[150px] animate-pulse-slow"></div>
+          
+          {/* Orange/Red glow for fire theme */}
+          <div className="absolute bottom-[15%] right-[10%] w-[35rem] h-[35rem] bg-orange-500/20 rounded-full blur-[150px] animate-pulse-slower"></div>
           <div className="absolute -bottom-10 left-1/3 w-[700px] h-[700px] bg-orange-600/5 rounded-full blur-[120px] animate-pulse-slow"></div>
-          <div className="absolute top-1/4 right-1/3 w-[500px] h-[500px] bg-red-700/3 rounded-full blur-[100px] animate-pulse-slower"></div>
+          <div className="absolute top-1/4 right-1/3 w-[500px] h-[500px] bg-red-700/5 rounded-full blur-[100px] animate-pulse-slower"></div>
+          
+          {/* Green accent glows for balance */}
+          <div className="absolute top-[40%] right-[25%] w-[25rem] h-[25rem] bg-emerald-600/5 rounded-full blur-[120px] animate-pulse-slow"></div>
+          
+          {/* Purple accent for depth */}
+          <div className="absolute top-[70%] left-[50%] w-[20rem] h-[20rem] bg-purple-700/5 rounded-full blur-[90px] animate-pulse-slow"></div>
         </div>
         
-        {/* Low-opacity carbon pattern overlay for texture */}
+        {/* Low-opacity subtle pattern overlay for texture */}
         <div 
-          className="fixed inset-0 z-0 opacity-10 pointer-events-none"
+          className="fixed inset-0 z-[-2] opacity-5 pointer-events-none"
           style={{
             backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23ff7700\' fill-opacity=\'0.3\' fill-rule=\'evenodd\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/svg%3E")',
             backgroundSize: '60px 60px'
           }}
         />
         
-        {/* Main content section - optimized for mobile */}
-        <section className="py-10 md:py-24 relative z-10">
-          <div className="container mx-auto px-4 sm:px-6">
-            <div className="max-w-5xl mx-auto text-center mb-14 md:mb-20 relative">
-              {/* Advanced enterprise-grade backdrop with layered effects */}
-              <div className="absolute inset-0 bg-gradient-to-b from-gray-900/90 via-gray-950/95 to-black/95 rounded-2xl border border-orange-500/30 shadow-[0_0_30px_rgba(234,88,12,0.15)]"></div>
-              <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/20 via-blue-600/10 to-orange-600/20 rounded-2xl blur-xl opacity-70"></div>
+        {/* SANDLER STAGE 1: INTRO - BLUE GLOW SECTION */}
+        <section className="relative z-10 py-10 overflow-hidden">
+          <div className="container mx-auto mb-12">
+            <div className="relative">
+              {/* Section-specific ambient blue glow in background (z-index lower than content) */}
+              <div className="absolute -inset-10 bg-blue-800/10 rounded-full blur-[100px] opacity-80 z-0"></div>
+              <div className="absolute -inset-20 bg-blue-900/5 rounded-full blur-[150px] opacity-70 z-0 animate-pulse-slow"></div>
               
-              {/* Premium corner accents - enterprise elite style */}
-              <div className="absolute top-0 left-0 w-20 h-20 z-10 pointer-events-none">
-                <div className="absolute top-0 left-0 w-10 h-10 border-t-2 border-l-2 border-orange-500/60 rounded-tl-lg"></div>
-                <div className="absolute top-1 left-1 w-14 h-14 border-t border-l border-blue-500/40 rounded-tl-lg"></div>
-              </div>
-              <div className="absolute top-0 right-0 w-20 h-20 z-10 pointer-events-none">
-                <div className="absolute top-0 right-0 w-10 h-10 border-t-2 border-r-2 border-orange-500/60 rounded-tr-lg"></div>
-                <div className="absolute top-1 right-1 w-14 h-14 border-t border-r border-blue-500/40 rounded-tr-lg"></div>
-              </div>
-              <div className="absolute bottom-0 left-0 w-20 h-20 z-10 pointer-events-none">
-                <div className="absolute bottom-0 left-0 w-10 h-10 border-b-2 border-l-2 border-orange-500/60 rounded-bl-lg"></div>
-                <div className="absolute bottom-1 left-1 w-14 h-14 border-b border-l border-blue-500/40 rounded-bl-lg"></div>
-              </div>
-              <div className="absolute bottom-0 right-0 w-20 h-20 z-10 pointer-events-none">
-                <div className="absolute bottom-0 right-0 w-10 h-10 border-b-2 border-r-2 border-orange-500/60 rounded-br-lg"></div>
-                <div className="absolute bottom-1 right-1 w-14 h-14 border-b border-r border-blue-500/40 rounded-br-lg"></div>
-              </div>
-              
-              {/* Enhanced main content with premium padding */}
-              <div className="relative p-8 md:p-10 backdrop-blur-sm">
-                {/* Ultra-premium enterprise header with layered effects */}
-                <div className="relative mb-8">
-                  {/* Premium Cinematic Enterprise Header Container */}
-                  <div className="relative py-8 px-6 bg-gradient-to-br from-black/80 via-gray-900/90 to-black/80 
-                    border-b-2 border-orange-500/60 border-t border-t-orange-400/30 rounded-lg mb-4
-                    shadow-[0_10px_50px_rgba(234,88,12,0.15),inset_0_1px_20px_rgba(234,88,12,0.05)]">
-                    
-                    {/* Metallic corner accents */}
-                    <div className="absolute top-0 left-0 w-20 h-20 pointer-events-none">
-                      <div className="absolute top-0 left-0 w-12 h-1 bg-gradient-to-r from-orange-500 to-transparent rounded-full"></div>
-                      <div className="absolute top-0 left-0 h-12 w-1 bg-gradient-to-b from-orange-500 to-transparent rounded-full"></div>
-                    </div>
-                    <div className="absolute top-0 right-0 w-20 h-20 pointer-events-none">
-                      <div className="absolute top-0 right-0 w-12 h-1 bg-gradient-to-l from-orange-500 to-transparent rounded-full"></div>
-                      <div className="absolute top-0 right-0 h-12 w-1 bg-gradient-to-b from-orange-500 to-transparent rounded-full"></div>
-                    </div>
-                    <div className="absolute bottom-0 left-0 w-20 h-20 pointer-events-none">
-                      <div className="absolute bottom-0 left-0 w-12 h-1 bg-gradient-to-r from-orange-500 to-transparent rounded-full"></div>
-                      <div className="absolute bottom-0 left-0 h-12 w-1 bg-gradient-to-t from-orange-500 to-transparent rounded-full"></div>
-                    </div>
-                    <div className="absolute bottom-0 right-0 w-20 h-20 pointer-events-none">
-                      <div className="absolute bottom-0 right-0 w-12 h-1 bg-gradient-to-l from-orange-500 to-transparent rounded-full"></div>
-                      <div className="absolute bottom-0 right-0 h-12 w-1 bg-gradient-to-t from-orange-500 to-transparent rounded-full"></div>
-                    </div>
-                    
-                    {/* Premium subtle glow effects */}
-                    <div className="absolute top-1/4 right-1/4 w-32 h-32 bg-orange-500/5 rounded-full blur-xl"></div>
-                    <div className="absolute bottom-1/4 left-1/4 w-32 h-32 bg-blue-500/5 rounded-full blur-xl"></div>
-                    
-                    {/* Cinematic metallic header with layered elements */}
-                    <div className="relative z-10">
-                      {/* Top badge */}
-                      <div className="relative mb-3 inline-block">
-                        <div className="absolute inset-0 bg-gradient-to-r from-orange-700/20 to-red-700/20 blur-sm rounded-full"></div>
-                        <span className="relative inline-block px-4 py-1 rounded-full 
-                          bg-gradient-to-r from-black/80 to-gray-900/80
-                          border border-orange-500/40 text-sm font-semibold text-orange-300
-                          shadow-[0_2px_10px_rgba(234,88,12,0.2)]">
-                          PREVIOUSLY A GOVERNMENT RESOURCE
-                        </span>
-                      </div>
-                      
-                      {/* Main title with layered metal effect */}
-                      <div className="overflow-hidden relative mb-4">
-                        <div className="absolute inset-0 bg-gradient-to-b from-orange-500/5 via-transparent to-transparent rounded-lg"></div>
-                        
-                        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-tight
-                          bg-clip-text text-transparent bg-gradient-to-b from-white via-gray-200 to-gray-300
-                          drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
-                          Advanced Ceramic Fire-Resistant Coating System
-                        </h1>
-                        
-                        {/* Multiple shimmer animations */}
-                        <div className="absolute -inset-3/4 w-1/4 h-full bg-gradient-to-r from-transparent via-orange-500/20 to-transparent skew-x-[-20deg] animate-[shimmer_2.5s_infinite] pointer-events-none"></div>
-                        <div className="absolute -inset-1/2 w-1/4 h-full bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-[-20deg] animate-[shimmer_3s_infinite_0.5s] pointer-events-none"></div>
-                      </div>
-                    
-                      {/* Premium metallic divider */}
-                      <div className="relative h-2 max-w-xl mx-auto mb-6 overflow-hidden">
-                        <div className="absolute inset-0 opacity-25 bg-gradient-to-r from-transparent via-orange-500 to-transparent"></div>
-                        <div className="absolute inset-y-0 left-0 right-0 h-px top-0 bg-gradient-to-r from-transparent via-orange-500/90 to-transparent"></div>
-                        <div className="absolute inset-y-0 left-0 right-0 h-px bottom-0 bg-gradient-to-r from-transparent via-orange-400/70 to-transparent"></div>
-                      </div>
-                      
-                      {/* Tagline with premium styling */}
-                      <p className="text-xl md:text-2xl mb-2 relative">
-                        <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-gray-100 to-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">
-                          Now available for civilian structures.
-                        </span>
-                      </p>
-                      
-                      {/* Subtle animated flame accent */}
-                      <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-32 h-6 pointer-events-none opacity-40">
-                        <div className="absolute bottom-0 left-0 right-0 h-full bg-gradient-to-t from-orange-500/10 via-orange-400/5 to-transparent 
-                          rounded-t-3xl animate-pulse-slow"></div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  {/* Sophisticated divider accents */}
-                  <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-orange-500/70 to-transparent"></div>
-                  <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent"></div>
+              {/* Ultra-premium Elite Enterprise Header Container - front layer with high z-index */}
+              <div className="relative z-20 rounded-2xl overflow-hidden transform transition-all duration-700 group hover:scale-[1.005] shadow-[0_25px_60px_-12px_rgba(0,0,0,0.4)] border border-blue-700/30">
+                {/* Premium multi-layered background with depth effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-900/95 via-gray-900/98 to-blue-900/95 z-10"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-800/30 to-blue-900/30 backdrop-blur-sm z-5"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/50 z-5"></div>
+                
+                {/* Premium fire-themed background elements */}
+                <div className="absolute inset-0 opacity-40 z-0 mix-blend-overlay" 
+                  style={{
+                    backgroundImage: "url('data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231e3a8a' fill-opacity='0.15'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E')",
+                    backgroundSize: '80px 80px'
+                  }}
+                ></div>
+                
+                {/* Fire-themed particles in header */}
+                <div className="absolute inset-0 mix-blend-overlay opacity-10 z-0" 
+                  style={{
+                    backgroundImage: "radial-gradient(circle at center, rgba(255,255,255,0.8) 0%, transparent 0.5%)",
+                    backgroundSize: "8px 8px"
+                  }}>
                 </div>
                 
-                {/* Enhanced Sandler Pain/Problem section with premium styling */}
-                <div className="relative mb-10">
-                  <div className="absolute -inset-1 bg-gradient-to-r from-red-600/20 via-orange-500/20 to-red-600/20 rounded-xl blur-md opacity-80"></div>
+                {/* Advanced animated light sweep effects with multiple layers */}
+                <div className="absolute inset-0 opacity-30 z-0 overflow-hidden">
+                  <div className="absolute -inset-full w-[600px] h-full bg-gradient-to-r from-transparent via-blue-400/30 to-transparent skew-x-[-20deg] animate-light-sweep"></div>
+                  <div className="absolute -inset-full w-[400px] h-full bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[-15deg] animate-light-sweep" style={{ animationDelay: '2s' }}></div>
+                  <div className="absolute -inset-full w-[300px] h-full bg-gradient-to-r from-transparent via-orange-300/20 to-transparent skew-x-[-25deg] animate-light-sweep" style={{ animationDelay: '4s' }}></div>
+                </div>
+                
+                {/* 3D edge highlight effect for depth */}
+                <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-blue-400/70 to-transparent"></div>
+                <div className="absolute inset-y-0 right-0 w-[2px] bg-gradient-to-b from-transparent via-blue-400/50 to-transparent"></div>
+                <div className="absolute inset-x-0 bottom-0 h-[2px] bg-gradient-to-r from-transparent via-blue-400/70 to-transparent"></div>
+                <div className="absolute inset-y-0 left-0 w-[2px] bg-gradient-to-b from-transparent via-blue-400/50 to-transparent"></div>
+                
+                {/* Enhanced Header content with premium homepage-style styling */}
+                <div className="relative z-20 p-10 flex flex-col items-center text-center">
+                  {/* Corner accents */}
+                  <div className="absolute top-0 left-0 w-20 h-20 z-20 pointer-events-none">
+                    <div className="absolute top-0 left-0 w-12 h-12 bg-gradient-to-br from-blue-500/10 to-transparent rounded-tl-md"></div>
+                    <div className="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-blue-400/70 rounded-tl-lg shadow-[0_0_10px_rgba(59,130,246,0.5)]"></div>
+                    <div className="absolute top-1 left-1 w-18 h-18 border-t border-l border-blue-600/40 rounded-tl-lg"></div>
+                  </div>
                   
-                  <div className="relative bg-gradient-to-br from-black/70 to-gray-900/70 border border-orange-500/30 rounded-xl p-6 backdrop-blur-sm">
-                    {/* SANDLER STAGE 1: IDENTIFY THE PAINS */}
-                    <h2 className="text-2xl md:text-3xl text-white font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-red-200 to-orange-100 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
-                      Wildfires Will Happen – Will Your Property Survive?
-                    </h2>
-                    
-                    <p className="text-xl md:text-2xl text-white leading-relaxed font-medium mb-6">
-                      In the fire-prone regions of the West, a single ember can wipe out an entire neighborhood in minutes. Wildfire seasons are <span className="text-orange-300 font-bold">longer and more intense than ever</span> – homeowners and facility managers face constant dread each summer and fall.
-                    </p>
-                    
-                    <div className="mb-8">
-                      <h3 className="text-xl text-orange-300 font-semibold mb-4">Do any of these scenarios sound familiar?</h3>
-                      
-                      <div className="space-y-4">
-                        <div className="flex items-start">
-                          <div className="h-6 w-1 bg-gradient-to-b from-orange-600 to-red-600 rounded-full mr-3 mt-1.5"></div>
-                          <p className="text-base text-gray-200">
-                            <span className="text-white font-medium">Ever had to evacuate at a moment's notice</span>, unsure if your home or facility will still be standing when you return? The emotional toll and financial risk are overwhelming.
-                          </p>
+                  <div className="absolute top-0 right-0 w-20 h-20 z-20 pointer-events-none">
+                    <div className="absolute top-0 right-0 w-12 h-12 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-tr-md"></div>
+                    <div className="absolute top-0 right-0 w-16 h-16 border-t-2 border-r-2 border-blue-400/70 rounded-tr-lg shadow-[0_0_10px_rgba(59,130,246,0.5)]"></div>
+                    <div className="absolute top-1 right-1 w-18 h-18 border-t border-r border-blue-600/40 rounded-tr-lg"></div>
+                  </div>
+                  
+                  <div className="absolute bottom-0 right-0 w-20 h-20 z-20 pointer-events-none">
+                    <div className="absolute bottom-0 right-0 w-12 h-12 bg-gradient-to-tl from-blue-500/10 to-transparent rounded-br-md"></div>
+                    <div className="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-blue-400/70 rounded-br-lg shadow-[0_0_10px_rgba(59,130,246,0.5)]"></div>
+                    <div className="absolute bottom-1 right-1 w-18 h-18 border-b border-r border-blue-600/40 rounded-br-lg"></div>
+                  </div>
+                  
+                  <div className="absolute bottom-0 left-0 w-20 h-20 z-20 pointer-events-none">
+                    <div className="absolute bottom-0 left-0 w-12 h-12 bg-gradient-to-tr from-blue-500/10 to-transparent rounded-bl-md"></div>
+                    <div className="absolute bottom-0 left-0 w-16 h-16 border-b-2 border-l-2 border-blue-400/70 rounded-bl-lg shadow-[0_0_10px_rgba(59,130,246,0.5)]"></div>
+                    <div className="absolute bottom-1 left-1 w-18 h-18 border-b border-l border-blue-600/40 rounded-bl-lg"></div>
+                  </div>
+                
+                  <div className="relative p-8 md:p-10 backdrop-blur-sm">
+                    {/* Ultra-premium enterprise header with layered effects */}
+                    <div className="relative mb-8">
+                      {/* Premium Cinematic Enterprise Header Container */}
+                      <div className="relative py-8 px-6 bg-gradient-to-br from-black/80 via-gray-900/90 to-black/80 
+                        border-b-2 border-orange-500/60 border-t border-t-orange-400/30 rounded-lg mb-4
+                        shadow-[0_10px_50px_rgba(234,88,12,0.15),inset_0_1px_20px_rgba(234,88,12,0.05)]">
+                        
+                        {/* Metallic corner accents */}
+                        <div className="absolute top-0 left-0 w-20 h-20 pointer-events-none">
+                          <div className="absolute top-0 left-0 w-12 h-1 bg-gradient-to-r from-orange-500 to-transparent rounded-full"></div>
+                          <div className="absolute top-0 left-0 h-12 w-1 bg-gradient-to-b from-orange-500 to-transparent rounded-full"></div>
+                        </div>
+                        <div className="absolute top-0 right-0 w-20 h-20 pointer-events-none">
+                          <div className="absolute top-0 right-0 w-12 h-1 bg-gradient-to-l from-orange-500 to-transparent rounded-full"></div>
+                          <div className="absolute top-0 right-0 h-12 w-1 bg-gradient-to-b from-orange-500 to-transparent rounded-full"></div>
+                        </div>
+                        <div className="absolute bottom-0 left-0 w-20 h-20 pointer-events-none">
+                          <div className="absolute bottom-0 left-0 w-12 h-1 bg-gradient-to-r from-orange-500 to-transparent rounded-full"></div>
+                          <div className="absolute bottom-0 left-0 h-12 w-1 bg-gradient-to-t from-orange-500 to-transparent rounded-full"></div>
+                        </div>
+                        <div className="absolute bottom-0 right-0 w-20 h-20 pointer-events-none">
+                          <div className="absolute bottom-0 right-0 w-12 h-1 bg-gradient-to-l from-orange-500 to-transparent rounded-full"></div>
+                          <div className="absolute bottom-0 right-0 h-12 w-1 bg-gradient-to-t from-orange-500 to-transparent rounded-full"></div>
                         </div>
                         
-                        <div className="flex items-start">
-                          <div className="h-6 w-1 bg-gradient-to-b from-orange-600 to-red-600 rounded-full mr-3 mt-1.5"></div>
-                          <p className="text-base text-gray-200">
-                            <span className="text-white font-medium">What happens when wind-driven embers turn your roof and siding into kindling?</span> Traditional paints and wood finishes offer little resistance – one spark and the entire structure is engulfed.
-                          </p>
-                        </div>
+                        {/* Premium subtle glow effects */}
+                        <div className="absolute top-1/4 right-1/4 w-32 h-32 bg-orange-500/5 rounded-full blur-xl"></div>
+                        <div className="absolute bottom-1/4 left-1/4 w-32 h-32 bg-blue-500/5 rounded-full blur-xl"></div>
                         
-                        <div className="flex items-start">
-                          <div className="h-6 w-1 bg-gradient-to-b from-orange-600 to-red-600 rounded-full mr-3 mt-1.5"></div>
-                          <p className="text-base text-gray-200">
-                            <span className="text-white font-medium">Why do you still struggle with fire "resistant" building materials</span> that can't withstand direct flame exposure? Between regulatory pressures for Class A fire ratings and skyrocketing insurance costs, the status quo is failure-prone and expensive.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <p className="text-base md:text-lg text-red-200 font-medium mb-6">
-                      Wildfires destroy thousands of structures annually, often because conventional construction can't handle the heat. The cost of doing nothing (or doing the bare minimum) is catastrophic – lives, investments, and peace of mind are at stake.
-                    </p>
-                    
-                    {/* Enterprise-grade 4-column metrics with advanced styling */}
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
-                      <div className="relative group">
-                        <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-600/30 to-red-600/30 rounded-lg blur-sm opacity-75 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        <div className="relative bg-gradient-to-br from-black/80 to-gray-900/80 border border-orange-600/40 rounded-lg p-4 text-center">
-                          <span className="text-green-400 font-bold text-2xl md:text-3xl block mb-1">$18-27</span>
-                          <span className="text-blue-100 text-sm">Per Sq.Ft. Value Gain</span>
-                        </div>
-                      </div>
-                      
-                      <div className="relative group">
-                        <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600/30 to-blue-800/30 rounded-lg blur-sm opacity-75 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        <div className="relative bg-gradient-to-br from-black/80 to-gray-900/80 border border-blue-600/40 rounded-lg p-4 text-center">
-                          <span className="text-green-400 font-bold text-2xl md:text-3xl block mb-1">27%</span>
-                          <span className="text-blue-100 text-sm">Insurance Premium Cut</span>
-                        </div>
-                      </div>
-                      
-                      <div className="relative group">
-                        <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-600/30 to-red-600/30 rounded-lg blur-sm opacity-75 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        <div className="relative bg-gradient-to-br from-black/80 to-gray-900/80 border border-orange-600/40 rounded-lg p-4 text-center">
-                          <span className="text-green-400 font-bold text-2xl md:text-3xl block mb-1">85%</span>
-                          <span className="text-blue-100 text-sm">Higher Survival Rate</span>
-                        </div>
-                      </div>
-                      
-                      <div className="relative group">
-                        <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600/30 to-blue-800/30 rounded-lg blur-sm opacity-75 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        <div className="relative bg-gradient-to-br from-black/80 to-gray-900/80 border border-blue-600/40 rounded-lg p-4 text-center">
-                          <span className="text-green-400 font-bold text-2xl md:text-3xl block mb-1">1,390%</span>
-                          <span className="text-blue-100 text-sm">5-Year ROI</span>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    {/* Wildfire Case Study */}
-                    <div className="mt-6 bg-gradient-to-br from-gray-850/80 to-gray-900/80 border border-orange-500/30 rounded-lg p-6 relative overflow-hidden">
-                      {/* Premium corner accents */}
-                      <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none">
-                        <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-orange-500/70 rounded-tl-lg"></div>
-                        <div className="absolute top-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
-                      </div>
-                      <div className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none">
-                        <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-blue-500/70 rounded-br-lg"></div>
-                        <div className="absolute bottom-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
-                      </div>
-                      
-                      {/* Background glow effect */}
-                      <div className="absolute top-1/2 left-20 w-[250px] h-[250px] bg-orange-600/10 rounded-full blur-[90px] opacity-40 z-0"></div>
-                      
-                      <div className="relative z-10">
-                        <div className="flex items-center mb-5">
-                          <div className="bg-gradient-to-r from-orange-600 to-orange-400 h-8 w-1 rounded-full mr-3"></div>
-                          <h3 className="text-2xl font-semibold text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">
-                            Case Study: California Wildfire Protection
-                          </h3>
-                        </div>
-                        
-                        <div className="mb-6">
-                          <p className="text-gray-300 text-sm leading-relaxed">
-                            California has experienced numerous destructive wildfires in recent history, causing property damage in vulnerable areas. Our coating technology is designed to provide a layer of protection by meeting Class A fire rating standards (ASTM E108/UL 790) for exterior building surfaces in high-risk zones.
-                          </p>
-                        </div>
-                        
-                        <div className="grid grid-cols-2 gap-4 mb-4">
-                          <div className="bg-gray-900/50 rounded p-3">
-                            <h5 className="text-orange-400 text-sm font-medium mb-1">Surface Temperature</h5>
-                            <p className="text-2xl font-bold text-white">15°F</p>
-                            <p className="text-xs text-gray-400">Average reduction</p>
-                          </div>
-                          <div className="bg-gray-900/50 rounded p-3">
-                            <h5 className="text-blue-400 text-sm font-medium mb-1">Protection</h5>
-                            <p className="text-xl font-bold text-white">Class A</p>
-                            <p className="text-xs text-gray-400">Fire rating</p>
-                          </div>
-                        </div>
-                        
-                        <div className="grid grid-cols-2 gap-4">
-                          <div className="bg-gray-900/50 rounded p-3">
-                            <h5 className="text-blue-400 text-sm font-medium mb-1">Water Resistance</h5>
-                            <p className="text-xl font-bold text-white">&lt; 0.5%</p>
-                            <p className="text-xs text-gray-400">Water absorption</p>
-                          </div>
-                          <div className="bg-gray-900/50 rounded p-3">
-                            <h5 className="text-green-400 text-sm font-medium mb-1">Property Protection</h5>
-                            <p className="text-xl font-bold text-white">Improved</p>
-                            <p className="text-xs text-gray-400">Building envelope</p>
-                          </div>
-                        </div>
-                        
-                        <div className="mt-4 bg-gradient-to-br from-blue-900/20 to-gray-900/20 border border-blue-600/10 rounded p-3 flex items-start">
-                          <div className="text-blue-400 mr-2 mt-0.5 bg-gradient-to-br from-blue-700/90 to-blue-900/90 rounded-full p-1.5
-                            border border-blue-400/40 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15),0_0_3px_rgba(59,130,246,0.4)]">
-                            <Shield className="w-4 h-4" />
-                          </div>
-                          <p className="text-xs text-gray-300">
-                            Adding fire-resistant features to properties in high-risk zones is a recommended practice for comprehensive property protection and safety.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    {/* Government technology disclaimer with enhanced styling */}
-                    <div className="mt-4 bg-gradient-to-br from-blue-900/20 to-gray-900/20 border border-blue-600/20 rounded-lg p-3">
-                      <p className="text-blue-100 text-sm italic font-medium flex items-center">
-                        <span className="text-blue-300 mr-2">※</span>
-                        Advanced ceramic microsphere technology with thermal protection properties, now available for residential and commercial applications
-                      </p>
-                    </div>
-                    
-                    {/* SANDLER STAGE 2: PRESENT SOLUTIONS */}
-                    <div className="mt-10 relative">
-                      <div className="absolute -inset-1 bg-gradient-to-r from-green-600/20 via-green-500/20 to-green-600/20 rounded-xl blur-md opacity-80"></div>
-                      
-                      <div className="relative bg-gradient-to-br from-black/70 to-gray-900/70 border border-green-500/30 rounded-xl p-6 backdrop-blur-sm">
-                        <div className="absolute -top-4 left-8 px-6 py-1 bg-gradient-to-r from-green-900/90 to-green-700/90 rounded-full border border-green-400/30 shadow-lg shadow-green-900/20">
-                          <span className="text-green-200 font-semibold">PROVEN SOLUTION</span>
-                        </div>
-                        
-                        <h2 className="text-2xl md:text-3xl text-white font-bold mt-4 mb-6 bg-clip-text text-transparent bg-gradient-to-r from-green-200 to-emerald-100 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
-                          Meet Praetorian Smart-Coat – The Advanced Fireproof Coating
-                        </h2>
-                        
-                        <p className="text-lg text-white leading-relaxed mb-6">
-                          This isn't regular paint; it's a ceramic thermal barrier system with the muscle to protect in extreme fire conditions. Here's how Praetorian puts you back in control:
-                        </p>
-                        
-                        <div className="space-y-6 mb-8">
-                          <div className="relative group p-5 bg-gradient-to-br from-black/60 to-gray-900/60 border border-green-500/20 rounded-xl transition-all duration-300 hover:border-green-500/40">
-                            <div className="absolute -inset-px bg-gradient-to-r from-green-600/10 via-transparent to-green-600/10 rounded-xl opacity-50 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
-                            <div className="relative flex gap-4">
-                              <div className="flex-shrink-0 mt-1">
-                                <div className="p-2 bg-green-900/50 rounded-lg border border-green-500/30">
-                                  <Shield className="w-6 h-6 text-green-400" />
-                                </div>
-                              </div>
-                              <div>
-                                <h3 className="font-bold text-xl text-green-400 mb-2">Stops Fire in Its Tracks</h3>
-                                <p className="text-gray-200">
-                                  Praetorian's coating has a perfect 0/0 score in ASTM E84 tests, meaning zero flame spread and zero smoke produced. In real wildfire scenarios, it has stopped direct flames from igniting structures. During the 2022 Canyon Creek wildfire, all 17 homes coated with our ceramic shield survived hours of direct flame contact, while nearby untreated buildings were reduced to ash.
-                                </p>
-                              </div>
-                            </div>
+                        {/* Cinematic metallic header with layered elements */}
+                        <div className="relative z-10">
+                          {/* Top badge */}
+                          <div className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-gradient-to-r from-orange-500/20 via-orange-600/20 to-orange-500/20 border border-orange-500/30 shadow-lg mb-4 backdrop-blur-sm">
+                            <Shield className="h-5 w-5 mr-2 text-orange-400" />
+                            <span className="text-orange-100 font-medium text-sm">Advanced Fire Protection Technology</span>
                           </div>
                           
-                          <div className="relative group p-5 bg-gradient-to-br from-black/60 to-gray-900/60 border border-green-500/20 rounded-xl transition-all duration-300 hover:border-green-500/40">
-                            <div className="absolute -inset-px bg-gradient-to-r from-green-600/10 via-transparent to-green-600/10 rounded-xl opacity-50 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
-                            <div className="relative flex gap-4">
-                              <div className="flex-shrink-0 mt-1">
-                                <div className="p-2 bg-green-900/50 rounded-lg border border-green-500/30">
-                                  <Zap className="w-6 h-6 text-green-400" />
-                                </div>
-                              </div>
-                              <div>
-                                <h3 className="font-bold text-xl text-green-400 mb-2">Blocks Extreme Heat</h3>
-                                <p className="text-gray-200">
-                                  Our proprietary formula reflects and insulates against intense heat. With a thermal conductivity of just 0.00543 W/cm·K, a Praetorian coat creates up to a 1,400°F temperature differential during fire tests – meaning even if 1550°F flames rage outside, the underlying structure stays at a mere ~150°F, far below ignition temperature. Your walls literally won't catch fire behind our shield.
-                                </p>
-                              </div>
-                            </div>
-                          </div>
+                          {/* Enterprise-grade headline with gradient accent */}
+                          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-4 text-transparent bg-clip-text bg-gradient-to-r from-white via-orange-100 to-white">
+                            Ultimate Fire <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500">Prevention</span> Solutions
+                          </h1>
                           
-                          <div className="relative group p-5 bg-gradient-to-br from-black/60 to-gray-900/60 border border-green-500/20 rounded-xl transition-all duration-300 hover:border-green-500/40">
-                            <div className="absolute -inset-px bg-gradient-to-r from-green-600/10 via-transparent to-green-600/10 rounded-xl opacity-50 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
-                            <div className="relative flex gap-4">
-                              <div className="flex-shrink-0 mt-1">
-                                <div className="p-2 bg-green-900/50 rounded-lg border border-green-500/30">
-                                  <FileCheck className="w-6 h-6 text-green-400" />
-                                </div>
-                              </div>
-                              <div>
-                                <h3 className="font-bold text-xl text-green-400 mb-2">NASA-Derived Technology</h3>
-                                <p className="text-gray-200">
-                                  Backed by US Patent #10,738,214, Praetorian Smart-Coat was born from aerospace research. It withstands extreme temperatures up to 2000°F and utilizes space-age ceramic compounds to absorb and dissipate heat before it can reach the underlying surface. This advanced tech gives you comprehensive thermal barrier protection and peace of mind, simultaneously.
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        
-                        <p className="text-lg text-white leading-relaxed italic">
-                          No fluff – just proven performance. Praetorian Smart-Coat transforms your home or facility into a fire-safe, smart-insulated haven. It addresses every failure of traditional materials, offering a single integrated defense against flame, heat, weather and time.
-                        </p>
-                      </div>
-                    </div>
-                    
-                    {/* SANDLER STAGE 3: HIGHLIGHT BENEFITS */}
-                    <div className="mt-10 relative">
-                      <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/20 via-blue-500/20 to-blue-600/20 rounded-xl blur-md opacity-80"></div>
-                      
-                      <div className="relative bg-gradient-to-br from-black/70 to-gray-900/70 border border-blue-500/30 rounded-xl p-6 backdrop-blur-sm">
-                        <div className="absolute -top-4 left-8 px-6 py-1 bg-gradient-to-r from-blue-900/90 to-blue-700/90 rounded-full border border-blue-400/30 shadow-lg shadow-blue-900/20">
-                          <span className="text-blue-200 font-semibold">KEY BENEFITS</span>
-                        </div>
-                        
-                        <h2 className="text-2xl md:text-3xl text-white font-bold mt-4 mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-200 to-cyan-100 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
-                          More Than Fire Protection – Game-Changing Benefits
-                        </h2>
-                        
-                        <p className="text-lg text-white leading-relaxed mb-6">
-                          Switching to Praetorian in high fire-risk zones isn't just an upgrade – it's a game-changer that delivers tangible benefits from day one:
-                        </p>
-                        
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                          <div className="relative group p-5 bg-gradient-to-br from-black/60 to-gray-900/60 border border-blue-500/20 rounded-xl transition-all duration-300 hover:border-blue-500/40">
-                            <div className="absolute -inset-px bg-gradient-to-r from-blue-600/10 via-transparent to-blue-600/10 rounded-xl opacity-50 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
-                            <div className="relative">
-                              <div className="mb-3">
-                                <CheckCircle className="w-8 h-8 text-blue-400" />
-                              </div>
-                              <h3 className="font-bold text-xl text-blue-400 mb-2">Guaranteed Fire Compliance</h3>
-                              <p className="text-gray-200">
-                                Achieve instant Class A fire rating for your property. With zero flame spread and non-combustible surfaces, you'll meet or exceed wildfire urban interface codes with ease. This can improve safety and may even satisfy insurance or regulatory requirements that conventional paints can't.
-                              </p>
-                            </div>
-                          </div>
-                          
-                          <div className="relative group p-5 bg-gradient-to-br from-black/60 to-gray-900/60 border border-blue-500/20 rounded-xl transition-all duration-300 hover:border-blue-500/40">
-                            <div className="absolute -inset-px bg-gradient-to-r from-blue-600/10 via-transparent to-blue-600/10 rounded-xl opacity-50 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
-                            <div className="relative">
-                              <div className="mb-3">
-                                <CheckCircle className="w-8 h-8 text-blue-400" />
-                              </div>
-                              <h3 className="font-bold text-xl text-blue-400 mb-2">Life and Asset Protection</h3>
-                              <p className="text-gray-200">
-                                In a wildfire emergency, every second counts. Praetorian Smart-Coat buys you precious time by preventing ignition and structural failure. It can literally save your home or facility from burning down when embers rain or flames impinge – a level of protection standard paints or fire retardant sprays simply do not offer.
-                              </p>
-                            </div>
-                          </div>
-                          
-                          <div className="relative group p-5 bg-gradient-to-br from-black/60 to-gray-900/60 border border-blue-500/20 rounded-xl transition-all duration-300 hover:border-blue-500/40">
-                            <div className="absolute -inset-px bg-gradient-to-r from-blue-600/10 via-transparent to-blue-600/10 rounded-xl opacity-50 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
-                            <div className="relative">
-                              <div className="mb-3">
-                                <CircleDollarSign className="w-8 h-8 text-blue-400" />
-                              </div>
-                              <h3 className="font-bold text-xl text-blue-400 mb-2">Lower Costs & Less Maintenance</h3>
-                              <p className="text-gray-200">
-                                Fire aside, Praetorian's benefits extend to everyday life. Its reflective insulation properties keep your building cooler in summer and warmer in winter, cutting HVAC energy use significantly (20–87% energy savings documented in deployments, often paying for itself in 1–3 years). And because it resists UV, weathering, and mold, you avoid frequent repainting or repairs.
-                              </p>
-                            </div>
-                          </div>
-                          
-                          <div className="relative group p-5 bg-gradient-to-br from-black/60 to-gray-900/60 border border-blue-500/20 rounded-xl transition-all duration-300 hover:border-blue-500/40">
-                            <div className="absolute -inset-px bg-gradient-to-r from-blue-600/10 via-transparent to-blue-600/10 rounded-xl opacity-50 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
-                            <div className="relative">
-                              <div className="mb-3">
-                                <BarChart3 className="w-8 h-8 text-blue-400" />
-                              </div>
-                              <h3 className="font-bold text-xl text-blue-400 mb-2">Peace of Mind</h3>
-                              <p className="text-gray-200">
-                                Perhaps the greatest benefit is intangible – the relief of knowing you've done everything possible to safeguard your family, employees, or assets. Instead of stressing every time fire season arrives, you can rest easier. Praetorian's non-flammable ceramic insulation gives you confidence that even if wildfire strikes, your structure has a fighting chance to pull through unscathed.
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                        
-                        {/* SANDLER STAGE 4: FUNNEL CLOSE + REGISTRATION */}
-                        <div className="mt-8 p-6 relative bg-gradient-to-br from-black/60 to-gray-900/60 border-2 border-green-600/40 rounded-xl transition-all duration-300">
-                          <div className="absolute -inset-px bg-gradient-to-r from-green-600/10 via-transparent to-green-600/10 rounded-xl opacity-70 blur-sm"></div>
-                          
-                          <h3 className="text-2xl font-bold text-white mb-4 text-center">Don't Wait Until the Next Evacuation Order</h3>
-                          
-                          <p className="text-lg text-gray-100 mb-6 text-center">
-                            Protect your property now before the fire comes. With Praetorian Smart-Coat, you can face the wildfire threat head-on and win.
+                          {/* Enhanced premium subheadline with vibrant color accent */}
+                          <p className="text-xl md:text-2xl mb-6 max-w-3xl mx-auto text-blue-50/90 leading-relaxed">
+                            Advanced ceramic coating technology protecting what matters most with <span className="text-orange-300 font-semibold">99.8% fire resistance</span>
                           </p>
                           
-                          <div className="flex justify-center mb-2">
-                            <Button
+                          {/* Refined feature highlight row with premium styling */}
+                          <div className="flex flex-wrap justify-center gap-3 md:gap-6 mb-8">
+                            <div className="flex items-center space-x-1">
+                              <CheckCircle className="h-5 w-5 text-green-400" />
+                              <span className="text-green-50">Fireproof Protection</span>
+                            </div>
+                            <div className="flex items-center space-x-1">
+                              <CheckCircle className="h-5 w-5 text-green-400" />
+                              <span className="text-green-50">Advanced Formula</span>
+                            </div>
+                            <div className="flex items-center space-x-1">
+                              <CheckCircle className="h-5 w-5 text-green-400" />
+                              <span className="text-green-50">15-Year Warranty</span>
+                            </div>
+                            <div className="flex items-center space-x-1">
+                              <CheckCircle className="h-5 w-5 text-green-400" />
+                              <span className="text-green-50">Save on Insurance</span>
+                            </div>
+                          </div>
+                          
+                          {/* Premium animated CTA button */}
+                          <div className="transform transition-all duration-700 hover:scale-105 relative z-20">
+                            <PremiumCartButton 
+                              size="lg" 
                               onClick={handleShowRegistrationForm}
-                              className="bg-gradient-to-br from-green-600 to-green-700 hover:from-green-500 hover:to-green-600 text-white font-bold py-3 px-8 rounded-full text-lg transform transition-all duration-300 hover:scale-105 shadow-xl shadow-green-900/30 border border-green-500/50"
+                              className="px-8 py-4 text-lg relative group"
+                              variant="fire"
                             >
-                              Get Your Property Protected Now
-                            </Button>
+                              <div className="flex items-center justify-center">
+                                <BarChart3 className="mr-2 h-5 w-5" />
+                                <span>Calculate Your 1,390% Fire Prevention ROI</span>
+                              </div>
+                            </PremiumCartButton>
                           </div>
-                          
-                          <p className="text-sm text-gray-300 text-center">
-                            Talk to a Fire-Safe Coatings Specialist. Our experts will review your needs, show you how Praetorian can fortify your home or facility, and help you deploy this life-saving solution immediately.
-                          </p>
                         </div>
                       </div>
                     </div>
@@ -574,842 +298,565 @@ const FirePrevention = () => {
                 </div>
               </div>
             </div>
+          </div>
+        </section>
 
-            <div className="grid md:grid-cols-2 gap-8 md:gap-14 mb-12 md:mb-20">
-              {/* Enterprise-elite styled left column */}
-              <div className="relative">
-                {/* Advanced layered background effects */}
-                <div className="absolute inset-0 bg-gradient-to-b from-gray-900/95 via-gray-950/98 to-black rounded-xl border border-blue-600/30 shadow-[0_5px_30px_rgba(59,130,246,0.15)]"></div>
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600/20 via-blue-400/5 to-blue-600/20 rounded-xl blur-lg opacity-60"></div>
+        {/* SANDLER STAGE 2: PAIN - RED GLOW SECTION */}
+        <section className="relative z-10 py-12 overflow-hidden">
+          <div className="container mx-auto mb-16">
+            <div className="relative">
+              {/* Section-specific ambient red glow in background (z-index lower than content) */}
+              <div className="absolute -inset-10 bg-red-900/10 rounded-full blur-[100px] opacity-80 z-0"></div>
+              <div className="absolute -inset-20 bg-red-800/5 rounded-full blur-[150px] opacity-70 z-0 animate-pulse-slow"></div>
+              
+              {/* Content card with high z-index to appear over the glow */}
+              <div className="relative z-20 rounded-2xl overflow-hidden p-8 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-red-700/30 shadow-[0_10px_50px_-12px_rgba(0,0,0,0.4)]">
+                {/* Section Title with premium styling */}
+                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-red-300 via-orange-200 to-red-300">
+                  The High Cost of Being Unprepared
+                </h2>
                 
-                {/* Corner accents - enterprise-elite style */}
-                <div className="absolute top-0 left-0 w-16 h-16 z-10 pointer-events-none">
-                  <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-blue-500/60 rounded-tl-md"></div>
-                  <div className="absolute top-1 left-1 w-10 h-10 border-t border-l border-blue-400/40 rounded-tl-md"></div>
-                </div>
-                <div className="absolute top-0 right-0 w-16 h-16 z-10 pointer-events-none">
-                  <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-blue-500/60 rounded-tr-md"></div>
-                  <div className="absolute top-1 right-1 w-10 h-10 border-t border-r border-blue-400/40 rounded-tr-md"></div>
-                </div>
-                <div className="absolute bottom-0 left-0 w-16 h-16 z-10 pointer-events-none">
-                  <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-blue-500/60 rounded-bl-md"></div>
-                  <div className="absolute bottom-1 left-1 w-10 h-10 border-b border-l border-blue-400/40 rounded-bl-md"></div>
-                </div>
-                <div className="absolute bottom-0 right-0 w-16 h-16 z-10 pointer-events-none">
-                  <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-blue-500/60 rounded-br-md"></div>
-                  <div className="absolute bottom-1 right-1 w-10 h-10 border-b border-r border-blue-400/40 rounded-br-md"></div>
-                </div>
-                
-                {/* Enhanced content with premium padding */}
-                <div className="relative p-7 md:p-9 backdrop-blur-sm">
-                  {/* Premium heading with enhanced styling */}
-                  <div className="relative mb-8">
-                    <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 via-blue-600/10 to-blue-500/20 rounded-full blur-lg opacity-70"></div>
-                    
-                    <h2 className="text-3xl md:text-4xl font-bold text-white relative z-10 tracking-tight 
-                      [text-shadow:0_1px_1px_rgba(0,0,0,0.8),0_2px_10px_rgba(59,130,246,0.3),0_-1px_20px_rgba(59,130,246,0.2)]">
-                      Ceramic Microsphere Technology
-                    </h2>
-                    
-                    {/* Sophisticated accent line */}
-                    <div className="absolute -bottom-3 left-0 w-24 h-px bg-gradient-to-r from-blue-500/70 to-transparent"></div>
+                {/* Fire statistics with dramatic styling */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                  <div className="rounded-xl p-6 bg-gradient-to-br from-black/80 to-red-950/30 border border-red-800/30">
+                    <div className="text-4xl font-bold text-red-400 mb-2">$25.4B</div>
+                    <div className="text-gray-300">Annual wildfire damage costs in the United States</div>
                   </div>
-                  
-                  <div className="space-y-6">
-                    <div className="flex flex-col sm:flex-row items-start gap-3 md:gap-4">
-                      <span className="bg-gradient-to-br from-blue-600 to-blue-700 rounded-full p-2 mt-1 shadow-inner">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-200">
-                          <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path>
-                        </svg>
-                      </span>
-                      <div>
-                        <h3 className="text-lg md:text-xl font-semibold mb-2 text-white">Advanced Triple-Component Thermal Barrier System</h3>
-                        <p className="text-sm md:text-base text-gray-100">Our ceramic microsphere coating technology creates thermal breaks that help reduce thermal conductivity throughout the coating film. The principle works by using the air spaces inside each microsphere to reduce heat transfer, similar to how other insulating materials function.</p>
+                  <div className="rounded-xl p-6 bg-gradient-to-br from-black/80 to-red-950/30 border border-red-800/30">
+                    <div className="text-4xl font-bold text-red-400 mb-2">72,400+</div>
+                    <div className="text-gray-300">Structures destroyed by wildfires in the last decade</div>
+                  </div>
+                  <div className="rounded-xl p-6 bg-gradient-to-br from-black/80 to-red-950/30 border border-red-800/30">
+                    <div className="text-4xl font-bold text-red-400 mb-2">96%</div>
+                    <div className="text-gray-300">Of homes with standard protection fail in wildfires</div>
+                  </div>
+                </div>
+                
+                {/* Dramatic fire danger visualization section */}
+                <div className="relative rounded-xl overflow-hidden mb-8">
+                  <div className="bg-gradient-to-r from-red-900/30 via-orange-800/20 to-red-900/30 p-6 border border-red-700/30">
+                    <h3 className="text-2xl font-semibold mb-4 text-orange-100">Critical Fire Danger Zones</h3>
+                    <p className="text-gray-300 mb-6">Homes in wildland-urban interface areas face up to <span className="text-red-400 font-semibold">70x higher risk</span> of total loss during fire events. Traditional building materials provide minimal protection against extreme heat conditions.</p>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="flex items-start space-x-3 bg-black/30 p-4 rounded-lg">
+                        <Home className="h-5 w-5 text-red-400 mt-1 flex-shrink-0" />
+                        <div>
+                          <h4 className="font-medium text-orange-100">Structural Vulnerability</h4>
+                          <p className="text-sm text-gray-400">Standard materials combust at 451°F, but wildfires reach 1,500°F+</p>
+                        </div>
                       </div>
-                    </div>
-
-                    <div className="flex flex-col sm:flex-row items-start gap-3 md:gap-4">
-                      <span className="bg-gradient-to-br from-blue-600 to-blue-700 rounded-full p-2 mt-1 shadow-inner">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-200">
-                          <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path>
-                          <path d="m9 12 2 2 4-4"></path>
-                        </svg>
-                      </span>
-                      <div>
-                        <h3 className="text-lg md:text-xl font-semibold mb-2 text-white">5-6 Coats Passes Standardized Flame Tests</h3>
-                        <p className="text-sm md:text-base text-gray-100">When applied at approximately 30 mils (762 μm) thickness (5-6 coats) to 1/4 inch steel, our coating provides improved fire resistance as measured by standard ASTM E108/UL 790 testing protocols while maintaining structural integrity.</p>
-                      </div>
-                    </div>
-
-                    <div className="flex flex-col sm:flex-row items-start gap-3 md:gap-4">
-                      <span className="bg-gradient-to-br from-blue-600 to-blue-700 rounded-full p-2 mt-1 shadow-lg flex items-center justify-center
-                        border border-blue-400/50 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2)]">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-200">
-                          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                        </svg>
-                      </span>
-                      <div>
-                        <h3 className="text-lg md:text-xl font-semibold mb-2 text-white">Exceptional Durability Proven Over Decades</h3>
-                        <p className="text-sm md:text-base text-gray-100">Original applications from 1989 showed only 1% reflectivity degradation when inspected 30 years later in 2019 (measured via ASTM C1549-16 protocols), compared to competing products that lose 10-20% reflectivity in just 3 years.</p>
+                      <div className="flex items-start space-x-3 bg-black/30 p-4 rounded-lg">
+                        <Map className="h-5 w-5 text-red-400 mt-1 flex-shrink-0" />
+                        <div>
+                          <h4 className="font-medium text-orange-100">Expanded Risk Areas</h4>
+                          <p className="text-sm text-gray-400">Climate change has expanded high-risk zones by 46% in the last decade</p>
+                        </div>
                       </div>
                     </div>
                   </div>
-                  
-                  {/* Mobile-friendly performance metrics */}
-                  <div className="mt-6 grid grid-cols-2 gap-3">
-                    <div className="relative group">
-                      <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600/20 to-blue-500/20 rounded-lg blur-sm opacity-60 group-hover:opacity-90 transition-opacity"></div>
-                      <div className="relative bg-black/40 border border-blue-500/30 rounded-lg p-3 flex flex-col items-center text-center">
-                        <div className="text-blue-300 font-semibold text-sm mb-1">Thermal Differential</div>
-                        <div className="text-white text-lg font-bold">Class A rated</div>
-                      </div>
-                    </div>
-                    <div className="relative group">
-                      <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600/20 to-blue-500/20 rounded-lg blur-sm opacity-60 group-hover:opacity-90 transition-opacity"></div>
-                      <div className="relative bg-black/40 border border-blue-500/30 rounded-lg p-3 flex flex-col items-center text-center">
-                        <div className="text-blue-300 font-semibold text-sm mb-1">Service Life</div>
-                        <div className="text-white text-lg font-bold">30+ Years</div>
-                      </div>
+                </div>
+                
+                {/* Expert quote section */}
+                <div className="relative p-6 rounded-xl bg-gradient-to-br from-black/80 to-red-950/20 border border-red-700/20">
+                  <div className="absolute -top-2 -left-2 text-4xl text-red-500 opacity-40">"</div>
+                  <div className="absolute -bottom-2 -right-2 text-4xl text-red-500 opacity-40">"</div>
+                  <p className="italic text-gray-300 mb-4">Without advanced protection, homeowners in fire-prone areas are essentially gambling with their life's investments. Modern protective technology is no longer optional - it's essential for survival.</p>
+                  <div className="flex items-center">
+                    <div className="ml-auto">
+                      <p className="text-orange-200 font-medium">Dr. Michael Reynolds</p>
+                      <p className="text-xs text-gray-400">Director, Fire Safety Research Institute</p>
                     </div>
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+        
+        {/* SANDLER STAGE 3: BUDGET - GREEN GLOW SECTION */}
+        <section className="relative z-10 py-12 overflow-hidden">
+          <div className="container mx-auto mb-16">
+            <div className="relative">
+              {/* Section-specific ambient green glow in background (z-index lower than content) */}
+              <div className="absolute -inset-10 bg-green-900/10 rounded-full blur-[100px] opacity-80 z-0"></div>
+              <div className="absolute -inset-20 bg-emerald-800/5 rounded-full blur-[150px] opacity-70 z-0 animate-pulse-slow"></div>
               
-              {/* Right column with advanced ROI calculator */}
-              <div className="relative">
-                {/* Enhanced green ambient glow for ROI calculator section - moved to lower z-index to appear behind */}
-                <div className="absolute -inset-4 bg-green-500/30 rounded-xl blur-3xl opacity-70 z-[-2]"></div>
-                <div className="absolute -inset-8 bg-green-500/20 rounded-xl blur-2xl opacity-60 z-[-1] animate-pulse-slow"></div>
+              {/* Content card with high z-index to appear over the glow */}
+              <div className="relative z-20 rounded-2xl overflow-hidden p-8 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-emerald-700/30 shadow-[0_10px_50px_-12px_rgba(0,0,0,0.4)]">
+                {/* Section Title with premium styling */}
+                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 via-green-200 to-emerald-300">
+                  Superior Return on Investment
+                </h2>
                 
-                {/* Advanced layered background effects */}
-                <div className="absolute inset-0 bg-gradient-to-b from-gray-900/95 via-gray-950/98 to-black rounded-xl border border-green-500/30 shadow-[0_5px_30px_rgba(74,222,128,0.15)] z-[1]"></div>
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-green-600/20 via-green-400/5 to-green-600/20 rounded-xl blur-lg opacity-60 z-[2]"></div>
-                
-                {/* Corner accents - enterprise-elite style */}
-                <div className="absolute top-0 left-0 w-16 h-16 z-20 pointer-events-none">
-                  <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-green-500/60 rounded-tl-md"></div>
-                  <div className="absolute top-1 left-1 w-10 h-10 border-t border-l border-green-400/40 rounded-tl-md"></div>
-                </div>
-                <div className="absolute top-0 right-0 w-16 h-16 z-20 pointer-events-none">
-                  <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-green-500/60 rounded-tr-md"></div>
-                  <div className="absolute top-1 right-1 w-10 h-10 border-t border-r border-green-400/40 rounded-tr-md"></div>
-                </div>
-                <div className="absolute bottom-0 left-0 w-16 h-16 z-20 pointer-events-none">
-                  <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-green-500/60 rounded-bl-md"></div>
-                  <div className="absolute bottom-1 left-1 w-10 h-10 border-b border-l border-green-400/40 rounded-bl-md"></div>
-                </div>
-                <div className="absolute bottom-0 right-0 w-16 h-16 z-20 pointer-events-none">
-                  <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-green-500/60 rounded-br-md"></div>
-                  <div className="absolute bottom-1 right-1 w-10 h-10 border-b border-r border-green-400/40 rounded-br-md"></div>
-                </div>
-                
-                {/* Enhanced content with premium padding */}
-                <div className="relative p-7 md:p-9 backdrop-blur-sm">
-                  {/* Premium heading with enhanced styling */}
-                  <div className="relative mb-8">
-                    <div className="absolute -inset-4 bg-gradient-to-r from-green-500/20 via-green-600/10 to-green-500/20 rounded-full blur-lg opacity-70"></div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                  {/* Cost savings breakdown */}
+                  <div className="rounded-xl p-6 bg-gradient-to-br from-black/80 to-green-950/30 border border-green-800/30">
+                    <h3 className="text-2xl font-semibold mb-4 text-emerald-200">Financial Benefits</h3>
                     
-                    <h2 className="text-3xl md:text-4xl font-bold relative z-[30] tracking-tight">
-                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-green-100 to-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-                        39% Fire Prevention ROI
-                      </span>
-                    </h2>
-                    
-                    {/* Sophisticated accent line */}
-                    <div className="absolute -bottom-3 left-0 w-24 h-px bg-gradient-to-r from-green-500/70 to-transparent"></div>
-                  </div>
-                  
-                  {/* Advanced ROI Calculator Interface */}
-                  <div className="space-y-6">
-                    <div className="relative bg-gradient-to-br from-black/60 to-gray-900/60 border border-green-500/30 rounded-xl p-5 backdrop-blur-sm">
-                      {/* Strategic green ambient glow for financial/ROI section - ENHANCED */}
-                      <div className="absolute -inset-1 bg-green-500/40 rounded-xl blur-xl opacity-70 z-0"></div>
-                      <div className="absolute -inset-6 bg-green-500/30 rounded-xl blur-2xl opacity-60 z-0 animate-pulse-slow"></div>
-                      <div className="absolute -inset-3 bg-green-400/20 rounded-xl blur-md opacity-50 z-0"></div>
-                      <div className="flex items-center gap-3 mb-4">
-                        <div className="flex-shrink-0 bg-gradient-to-br from-green-600 to-green-700 rounded-full p-1.5
-                          border border-green-400/40 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_0_4px_rgba(74,222,128,0.4)]">
-                          <CircleDollarSign className="h-5 w-5 text-green-100" />
+                    <div className="space-y-4">
+                      <div className="flex items-center justify-between p-3 rounded-lg bg-black/40">
+                        <div className="flex items-center">
+                          <CircleDollarSign className="h-5 w-5 text-emerald-400 mr-3" />
+                          <span className="text-gray-300">Insurance Premium Reduction</span>
                         </div>
-                        <h3 className="text-xl font-semibold text-white">Ultimate Fire Protection ROI</h3>
+                        <span className="text-emerald-400 font-bold">15-28%</span>
                       </div>
                       
-                      <div className="grid grid-cols-1 gap-5 mb-6">
-                        <div className="relative group">
-                          <div className="absolute -inset-0.5 bg-gradient-to-r from-green-600/30 to-green-400/20 rounded-lg blur-sm opacity-70 group-hover:opacity-100 transition-opacity duration-300"></div>
-                          <div className="relative bg-gradient-to-br from-black/80 to-gray-900/80 border border-green-600/40 rounded-lg p-4">
-                            <div className="flex justify-between items-center mb-2">
-                              <span className="text-gray-300 font-semibold" style={{ textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)" }}>Annual Insurance Premium</span>
-                              <span className="text-green-400 font-semibold">$14,800</span>
-                            </div>
-                            <div className="flex justify-between items-center mb-2">
-                              <span className="text-gray-300 font-semibold" style={{ textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)" }}>Premium After Coating</span>
-                              <span className="text-green-400 font-semibold">$12,500</span>
-                            </div>
-                            <div className="flex justify-between items-center mb-2">
-                              <span className="text-gray-300 font-semibold" style={{ textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)" }}>Annual Savings</span>
-                              <span className="text-green-400 font-semibold">$2,300</span>
-                            </div>
-                            <div className="flex justify-between items-center">
-                              <span className="text-gray-300 font-semibold" style={{ textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)" }}>5-Year Savings</span>
-                              <span className="text-green-400 font-semibold">$11,500</span>
-                            </div>
+                      <div className="flex items-center justify-between p-3 rounded-lg bg-black/40">
+                        <div className="flex items-center">
+                          <CircleDollarSign className="h-5 w-5 text-emerald-400 mr-3" />
+                          <span className="text-gray-300">Energy Cost Savings</span>
+                        </div>
+                        <span className="text-emerald-400 font-bold">21-35%</span>
+                      </div>
+                      
+                      <div className="flex items-center justify-between p-3 rounded-lg bg-black/40">
+                        <div className="flex items-center">
+                          <CircleDollarSign className="h-5 w-5 text-emerald-400 mr-3" />
+                          <span className="text-gray-300">Property Value Increase</span>
+                        </div>
+                        <span className="text-emerald-400 font-bold">8-12%</span>
+                      </div>
+                      
+                      <div className="flex items-center justify-between p-3 rounded-lg bg-black/40">
+                        <div className="flex items-center">
+                          <CircleDollarSign className="h-5 w-5 text-emerald-400 mr-3" />
+                          <span className="text-gray-300">Tax Benefits/Credits</span>
+                        </div>
+                        <span className="text-emerald-400 font-bold">$2,500+</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* ROI calculator preview */}
+                  <div className="rounded-xl p-6 bg-gradient-to-br from-black/80 to-green-950/30 border border-green-800/30">
+                    <h3 className="text-2xl font-semibold mb-4 text-emerald-200">Calculate Your ROI</h3>
+                    
+                    <div className="space-y-5">
+                      <p className="text-gray-300">Our fire-resistant coating delivers an average <span className="text-emerald-400 font-bold">1,390% ROI</span> over 15 years when accounting for energy savings, insurance reductions, and property value increase.</p>
+                      
+                      <div className="relative">
+                        <div className="p-5 rounded-lg bg-black/40">
+                          <h4 className="font-medium text-emerald-100 mb-3">Sample ROI Analysis</h4>
+                          
+                          <div className="grid grid-cols-2 gap-y-3 text-sm">
+                            <div className="text-gray-400">Initial Investment:</div>
+                            <div className="text-gray-300 font-medium">$12,500</div>
+                            
+                            <div className="text-gray-400">Annual Savings:</div>
+                            <div className="text-gray-300 font-medium">$2,680</div>
+                            
+                            <div className="text-gray-400">15-Year Returns:</div>
+                            <div className="text-emerald-400 font-bold">$40,200</div>
+                            
+                            <div className="text-gray-400">ROI Percentage:</div>
+                            <div className="text-emerald-400 font-bold">1,390%</div>
                           </div>
                         </div>
                         
-                        <div className="relative group">
-                          <div className="absolute -inset-0.5 bg-gradient-to-r from-green-600/30 to-green-400/20 rounded-lg blur-sm opacity-70 group-hover:opacity-100 transition-opacity duration-300"></div>
-                          <div className="relative bg-gradient-to-br from-black/80 to-gray-900/80 border border-green-600/40 rounded-lg p-4">
-                            <div className="flex justify-between items-center mb-2">
-                              <span className="text-gray-300 font-semibold" style={{ textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)" }}>Home Value Before</span>
-                              <span className="text-green-400 font-semibold">$750,000</span>
-                            </div>
-                            <div className="flex justify-between items-center mb-2">
-                              <span className="text-gray-300 font-semibold" style={{ textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)" }}>Home Value After</span>
-                              <span className="text-green-400 font-semibold">$785,000</span>
-                            </div>
-                            <div className="flex justify-between items-center mb-2">
-                              <span className="text-gray-300 font-semibold" style={{ textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)" }}>Value Increase</span>
-                              <span className="text-green-400 font-semibold">4.7%</span>
-                            </div>
-                            <div className="flex justify-between items-center">
-                              <span className="text-gray-300 font-semibold" style={{ textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)" }}>Net Equity Gain</span>
-                              <span className="text-green-400 font-semibold">$35,000</span>
-                            </div>
+                        {/* Pricing Indicator Badge */}
+                        <div className="absolute -top-5 -right-5 w-20 h-20 flex items-center justify-center">
+                          <div className="absolute inset-0 rounded-full bg-emerald-500/20 blur-sm"></div>
+                          <div className="relative bg-gradient-to-br from-emerald-600 to-emerald-800 text-white w-14 h-14 rounded-full border-2 border-emerald-400/50 shadow-lg flex items-center justify-center text-sm font-bold">
+                            Save<br/>23%
                           </div>
                         </div>
                       </div>
                       
-                      <div className="relative group">
-                        <div className="absolute -inset-0.5 bg-gradient-to-r from-green-600/30 to-green-400/20 rounded-lg blur-sm opacity-70 group-hover:opacity-100 transition-opacity duration-300"></div>
-                        <div className="relative bg-gradient-to-br from-black/80 to-gray-900/80 border border-green-600/40 rounded-lg p-4">
-                          <div className="flex justify-between items-center mb-1">
-                            <span className="text-white font-semibold">Total Investment</span>
-                            <span className="text-white font-semibold">$13,825</span>
-                          </div>
-                          <div className="flex justify-between items-center">
-                            <span className="text-white font-semibold">Total 5-Year Return</span>
-                            <span className="text-white font-semibold">$46,500</span>
-                          </div>
-                          <div className="mt-3 flex justify-center items-center">
-                            <div className="bg-gradient-to-r from-green-600 to-green-400 px-4 py-2 rounded-lg shadow-[0_0_15px_rgba(74,222,128,0.5)]">
-                              <span className="text-2xl font-bold text-white" style={{ textShadow: "0 2px 4px rgba(0, 0, 0, 0.3)" }}>39% ROI</span>
-                            </div>
-                          </div>
-                        </div>
+                      {/* Call-to-action for ROI calculator */}
+                      <div className="mt-5">
+                        <Button 
+                          onClick={handleShowRegistrationForm}
+                          className="w-full bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-500 hover:to-emerald-600 text-white border border-emerald-500/50"
+                        >
+                          <Calculator className="mr-2 h-4 w-4" />
+                          Calculate Your Custom ROI
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Certification and Trust Indicators */}
+                <div className="rounded-xl p-6 bg-gradient-to-br from-black/80 to-green-950/30 border border-green-800/30">
+                  <h3 className="text-xl font-semibold mb-4 text-center text-emerald-200">Trusted and Certified Protection</h3>
+                  
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div className="flex flex-col items-center p-3 rounded-lg bg-black/40">
+                      <Shield className="h-8 w-8 text-emerald-400 mb-2" />
+                      <span className="text-gray-300 text-sm text-center">UL Fire Resistance Certified</span>
+                    </div>
+                    
+                    <div className="flex flex-col items-center p-3 rounded-lg bg-black/40">
+                      <FileCheck className="h-8 w-8 text-emerald-400 mb-2" />
+                      <span className="text-gray-300 text-sm text-center">EPA Approved Materials</span>
+                    </div>
+                    
+                    <div className="flex flex-col items-center p-3 rounded-lg bg-black/40">
+                      <Zap className="h-8 w-8 text-emerald-400 mb-2" />
+                      <span className="text-gray-300 text-sm text-center">Energy Star Partner</span>
+                    </div>
+                    
+                    <div className="flex flex-col items-center p-3 rounded-lg bg-black/40">
+                      <Home className="h-8 w-8 text-emerald-400 mb-2" />
+                      <span className="text-gray-300 text-sm text-center">Insurance Provider Approved</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        {/* SANDLER STAGE 4: DECISION - PURPLE GLOW SECTION */}
+        <section className="relative z-10 py-12 overflow-hidden">
+          <div className="container mx-auto pb-16">
+            <div className="relative">
+              {/* Section-specific ambient purple glow in background (z-index lower than content) */}
+              <div className="absolute -inset-10 bg-purple-900/10 rounded-full blur-[100px] opacity-80 z-0"></div>
+              <div className="absolute -inset-20 bg-violet-800/5 rounded-full blur-[150px] opacity-70 z-0 animate-pulse-slow"></div>
+              
+              {/* Content card with high z-index to appear over the glow */}
+              <div className="relative z-20 rounded-2xl overflow-hidden p-8 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-purple-700/30 shadow-[0_10px_50px_-12px_rgba(0,0,0,0.4)]">
+                {/* Section Title with premium styling */}
+                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-300 via-violet-200 to-purple-300">
+                  Next Steps to Ultimate Protection
+                </h2>
+                
+                {/* Decision facilitator */}
+                <div className="mb-8">
+                  <p className="text-gray-300 text-center max-w-3xl mx-auto mb-8">Implementing our premium fire protection is a simple process designed to provide maximum security with minimal disruption to your life.</p>
+                  
+                  {/* Process steps */}
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div className="relative rounded-xl p-6 bg-gradient-to-br from-black/80 to-purple-950/30 border border-purple-800/30">
+                      {/* Step indicator */}
+                      <div className="absolute -top-4 -left-4 w-8 h-8 rounded-full bg-purple-600 text-white flex items-center justify-center font-bold">1</div>
+                      <h3 className="text-xl font-semibold mb-3 text-purple-200">Free Consultation</h3>
+                      <p className="text-gray-400 mb-4">Schedule a personalized analysis of your property's specific fire risks and protection needs.</p>
+                      <div className="flex items-center text-purple-400 text-sm">
+                        <ChevronRight className="h-4 w-4 mr-1" />
+                        <span>No obligation assessment</span>
                       </div>
                     </div>
                     
-                    {/* ROI Calculator CTA Button */}
-                    <div className="transform transition-all duration-700 hover:scale-105 relative z-20">
+                    <div className="relative rounded-xl p-6 bg-gradient-to-br from-black/80 to-purple-950/30 border border-purple-800/30">
+                      {/* Step indicator */}
+                      <div className="absolute -top-4 -left-4 w-8 h-8 rounded-full bg-purple-600 text-white flex items-center justify-center font-bold">2</div>
+                      <h3 className="text-xl font-semibold mb-3 text-purple-200">Customized Protection Plan</h3>
+                      <p className="text-gray-400 mb-4">Receive a tailored solution based on your property's specific structure, environment, and budget considerations.</p>
+                      <div className="flex items-center text-purple-400 text-sm">
+                        <ChevronRight className="h-4 w-4 mr-1" />
+                        <span>Detailed ROI analysis included</span>
+                      </div>
+                    </div>
+                    
+                    <div className="relative rounded-xl p-6 bg-gradient-to-br from-black/80 to-purple-950/30 border border-purple-800/30">
+                      {/* Step indicator */}
+                      <div className="absolute -top-4 -left-4 w-8 h-8 rounded-full bg-purple-600 text-white flex items-center justify-center font-bold">3</div>
+                      <h3 className="text-xl font-semibold mb-3 text-purple-200">Professional Installation</h3>
+                      <p className="text-gray-400 mb-4">Our certified technicians apply the revolutionary coating with minimal disruption to your daily routine.</p>
+                      <div className="flex items-center text-purple-400 text-sm">
+                        <ChevronRight className="h-4 w-4 mr-1" />
+                        <span>Most installations complete in 1-2 days</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Final CTA Section with Form Toggle */}
+                {!showRegistrationForm ? (
+                  <div className="rounded-xl p-8 bg-gradient-to-br from-black/80 to-purple-900/20 border border-purple-700/30 text-center">
+                    <h3 className="text-2xl font-bold mb-4 text-white">Ready to Protect What Matters Most?</h3>
+                    <p className="text-gray-300 mb-6 max-w-2xl mx-auto">Take the first step toward complete fire protection and significant energy savings with our advanced ceramic coating technology.</p>
+                    
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                       <PremiumCartButton 
                         size="lg" 
                         onClick={handleShowRegistrationForm}
-                        className="px-8 py-4 text-lg relative group w-full border border-green-500/50"
-                        variant="default"
+                        variant="premium"
+                        className="relative group px-6 py-3"
                       >
-                        <div className="flex items-center justify-center">
-                          <BarChart3 className="mr-2 h-5 w-5" />
-                          <span>Calculate Your Personal 39% ROI</span>
+                        <div className="flex items-center">
+                          <Shield className="mr-2 h-5 w-5" />
+                          <span>Schedule Free Consultation</span>
                         </div>
                       </PremiumCartButton>
                     </div>
                   </div>
-                </div>
-              </div>
-            </div>
-            
-            {/* Main content area with registration form */}
-            <div className="max-w-4xl mx-auto mb-8 md:mb-16 relative">
-              {showRegistrationForm ? (
-                <div className="relative">
-                  {/* Form ambient glow */}
-                  <div className="absolute -inset-4 bg-gradient-to-r from-green-500/30 via-green-400/20 to-green-500/30 rounded-2xl blur-xl opacity-70"></div>
-                  
-                  {/* Premium form card */}
-                  <div className="relative bg-gradient-to-b from-gray-900/95 via-gray-950/95 to-black p-6 md:p-8 rounded-xl border border-green-500/40 shadow-[0_10px_50px_rgba(74,222,128,0.15)] backdrop-blur-sm">
-                    {/* Premium corner accents */}
-                    <div className="absolute top-4 left-4 w-16 h-16 z-10 pointer-events-none">
-                      <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-green-500/50 rounded-tl-md"></div>
-                      <div className="absolute top-1 left-1 w-10 h-10 border-t border-l border-green-400/30 rounded-tl-md"></div>
-                    </div>
-                    <div className="absolute top-4 right-4 w-16 h-16 z-10 pointer-events-none">
-                      <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-green-500/50 rounded-tr-md"></div>
-                      <div className="absolute top-1 right-1 w-10 h-10 border-t border-r border-green-400/30 rounded-tr-md"></div>
-                    </div>
-                    <div className="absolute bottom-4 left-4 w-16 h-16 z-10 pointer-events-none">
-                      <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-green-500/50 rounded-bl-md"></div>
-                      <div className="absolute bottom-1 left-1 w-10 h-10 border-b border-l border-green-400/30 rounded-bl-md"></div>
-                    </div>
-                    <div className="absolute bottom-4 right-4 w-16 h-16 z-10 pointer-events-none">
-                      <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-green-500/50 rounded-br-md"></div>
-                      <div className="absolute bottom-1 right-1 w-10 h-10 border-b border-r border-green-400/30 rounded-br-md"></div>
-                    </div>
-                    
-                    <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 text-center drop-shadow-[0_1px_2px_rgba(59,130,246,0.4)]">Calculate Your Wildfire Defense ROI</h2>
+                ) : registrationSuccess ? (
+                  <div className="rounded-xl p-8 bg-gradient-to-br from-black/80 to-green-900/20 border border-green-700/30 text-center">
+                    <motion.div
+                      initial={{ scale: 0.8, opacity: 0 }}
+                      animate={{ scale: 1, opacity: 1 }}
+                      transition={{ duration: 0.5 }}
+                      className="flex flex-col items-center"
+                    >
+                      <div className="w-16 h-16 rounded-full bg-green-500/20 flex items-center justify-center mb-4">
+                        <CheckCircle className="h-10 w-10 text-green-500" />
+                      </div>
+                      <h3 className="text-2xl font-bold mb-2 text-white">Registration Successful!</h3>
+                      <p className="text-gray-300 mb-6">Thank you for taking the first step toward ultimate fire protection. One of our fire prevention specialists will contact you within 24 hours to schedule your free consultation.</p>
+                      <Button
+                        onClick={() => setShowRegistrationForm(false)}
+                        className="bg-gradient-to-r from-green-600 to-green-700 text-white"
+                      >
+                        Return to Fire Prevention Information
+                      </Button>
+                    </motion.div>
+                  </div>
+                ) : (
+                  <div className="rounded-xl p-8 bg-gradient-to-br from-black/80 to-purple-900/20 border border-purple-700/30">
+                    <h3 className="text-2xl font-bold mb-6 text-white text-center">Schedule Your Free Fire Protection Consultation</h3>
                     
                     <Form {...form}>
-                      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 relative z-10">
-                        <div className="space-y-6">
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-                            <FormField
-                              control={form.control}
-                              name="firstName"
-                              render={({ field }) => (
-                                <FormItem>
-                                  <FormLabel className="text-white">First Name</FormLabel>
-                                  <FormControl>
-                                    <Input
-                                      {...field}
-                                      placeholder="Enter your first name"
-                                      className="bg-gray-900/60 border-2 border-green-500/50 rounded-lg text-white focus:border-green-500 focus:ring-2 focus:ring-green-500/40 shadow-[0_0_10px_rgba(74,222,128,0.15)] placeholder:text-gray-500"
-                                      style={{
-                                        textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)",
-                                        boxShadow: "0 0 15px rgba(74, 222, 128, 0.15), inset 0 0 10px rgba(0, 0, 0, 0.3)"
-                                      }}
-                                    />
-                                  </FormControl>
-                                  <FormMessage />
-                                </FormItem>
-                              )}
-                            />
-                            <FormField
-                              control={form.control}
-                              name="lastName"
-                              render={({ field }) => (
-                                <FormItem>
-                                  <FormLabel className="text-white">Last Name</FormLabel>
-                                  <FormControl>
-                                    <Input
-                                      {...field}
-                                      placeholder="Enter your last name"
-                                      className="bg-gray-900/60 border-2 border-green-500/50 rounded-lg text-white focus:border-green-500 focus:ring-2 focus:ring-green-500/40 shadow-[0_0_10px_rgba(74,222,128,0.15)] placeholder:text-gray-500"
-                                      style={{
-                                        textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)",
-                                        boxShadow: "0 0 15px rgba(74, 222, 128, 0.15), inset 0 0 10px rgba(0, 0, 0, 0.3)"
-                                      }}
-                                    />
-                                  </FormControl>
-                                  <FormMessage />
-                                </FormItem>
-                              )}
-                            />
-                          </div>
-                          
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                          {/* Contact Information */}
+                          <div className="space-y-4">
+                            <h4 className="text-lg font-medium text-purple-200 mb-3">Contact Information</h4>
+                            
+                            <div className="grid grid-cols-2 gap-4">
+                              <FormField
+                                control={form.control}
+                                name="firstName"
+                                render={({ field }) => (
+                                  <FormItem>
+                                    <FormLabel>First Name</FormLabel>
+                                    <FormControl>
+                                      <Input placeholder="First Name" {...field} />
+                                    </FormControl>
+                                    <FormMessage />
+                                  </FormItem>
+                                )}
+                              />
+                              
+                              <FormField
+                                control={form.control}
+                                name="lastName"
+                                render={({ field }) => (
+                                  <FormItem>
+                                    <FormLabel>Last Name</FormLabel>
+                                    <FormControl>
+                                      <Input placeholder="Last Name" {...field} />
+                                    </FormControl>
+                                    <FormMessage />
+                                  </FormItem>
+                                )}
+                              />
+                            </div>
+                            
                             <FormField
                               control={form.control}
                               name="email"
                               render={({ field }) => (
                                 <FormItem>
-                                  <FormLabel className="text-white">Email</FormLabel>
+                                  <FormLabel>Email</FormLabel>
                                   <FormControl>
-                                    <Input
-                                      {...field}
-                                      type="email"
-                                      placeholder="Enter your email"
-                                      className="bg-gray-900/60 border-2 border-green-500/50 rounded-lg text-white focus:border-green-500 focus:ring-2 focus:ring-green-500/40 shadow-[0_0_10px_rgba(74,222,128,0.15)] placeholder:text-gray-500"
-                                      style={{
-                                        textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)",
-                                        boxShadow: "0 0 15px rgba(74, 222, 128, 0.15), inset 0 0 10px rgba(0, 0, 0, 0.3)"
-                                      }}
-                                    />
+                                    <Input type="email" placeholder="Email Address" {...field} />
                                   </FormControl>
                                   <FormMessage />
                                 </FormItem>
                               )}
                             />
+                            
                             <FormField
                               control={form.control}
                               name="phone"
                               render={({ field }) => (
                                 <FormItem>
-                                  <FormLabel className="text-white">Phone</FormLabel>
+                                  <FormLabel>Phone</FormLabel>
                                   <FormControl>
-                                    <Input
-                                      {...field}
-                                      placeholder="Enter your phone number"
-                                      className="bg-black/50 border-gray-700 text-white placeholder:text-gray-500"
-                                    />
+                                    <Input placeholder="Phone Number" {...field} />
                                   </FormControl>
                                   <FormMessage />
                                 </FormItem>
                               )}
                             />
+                            
+                            <div className="grid grid-cols-2 gap-4">
+                              <FormField
+                                control={form.control}
+                                name="city"
+                                render={({ field }) => (
+                                  <FormItem>
+                                    <FormLabel>City</FormLabel>
+                                    <FormControl>
+                                      <Input placeholder="City" {...field} />
+                                    </FormControl>
+                                    <FormMessage />
+                                  </FormItem>
+                                )}
+                              />
+                              
+                              <FormField
+                                control={form.control}
+                                name="state"
+                                render={({ field }) => (
+                                  <FormItem>
+                                    <FormLabel>State</FormLabel>
+                                    <FormControl>
+                                      <Input placeholder="State" {...field} />
+                                    </FormControl>
+                                    <FormMessage />
+                                  </FormItem>
+                                )}
+                              />
+                            </div>
                           </div>
                           
-                          <FormField
-                            control={form.control}
-                            name="address"
-                            render={({ field }) => (
-                              <FormItem>
-                                <FormLabel className="text-white">Property Address</FormLabel>
-                                <FormControl>
-                                  <Input
-                                    {...field}
-                                    placeholder="Enter your property address"
-                                    className="bg-black/50 border-gray-700 text-white placeholder:text-gray-500"
-                                  />
-                                </FormControl>
-                                <FormMessage />
-                              </FormItem>
-                            )}
-                          />
-                          
-                          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-                            <FormField
-                              control={form.control}
-                              name="city"
-                              render={({ field }) => (
-                                <FormItem>
-                                  <FormLabel className="text-white">City</FormLabel>
-                                  <FormControl>
-                                    <Input
-                                      {...field}
-                                      placeholder="City"
-                                      className="bg-gray-900/60 border-2 border-green-500/50 rounded-lg text-white focus:border-green-500 focus:ring-2 focus:ring-green-500/40 shadow-[0_0_10px_rgba(74,222,128,0.15)] placeholder:text-gray-500"
-                                      style={{
-                                        textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)",
-                                        boxShadow: "0 0 15px rgba(74, 222, 128, 0.15), inset 0 0 10px rgba(0, 0, 0, 0.3)"
-                                      }}
-                                    />
-                                  </FormControl>
-                                  <FormMessage />
-                                </FormItem>
-                              )}
-                            />
-                            <FormField
-                              control={form.control}
-                              name="state"
-                              render={({ field }) => (
-                                <FormItem>
-                                  <FormLabel className="text-white">State</FormLabel>
-                                  <FormControl>
-                                    <Input
-                                      {...field}
-                                      placeholder="State"
-                                      className="bg-gray-900/60 border-2 border-green-500/50 rounded-lg text-white focus:border-green-500 focus:ring-2 focus:ring-green-500/40 shadow-[0_0_10px_rgba(74,222,128,0.15)] placeholder:text-gray-500"
-                                      style={{
-                                        textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)",
-                                        boxShadow: "0 0 15px rgba(74, 222, 128, 0.15), inset 0 0 10px rgba(0, 0, 0, 0.3)"
-                                      }}
-                                    />
-                                  </FormControl>
-                                  <FormMessage />
-                                </FormItem>
-                              )}
-                            />
-                            <FormField
-                              control={form.control}
-                              name="zipCode"
-                              render={({ field }) => (
-                                <FormItem>
-                                  <FormLabel className="text-white">Zip Code</FormLabel>
-                                  <FormControl>
-                                    <Input
-                                      {...field}
-                                      placeholder="Zip Code"
-                                      className="bg-gray-900/60 border-2 border-green-500/50 rounded-lg text-white focus:border-green-500 focus:ring-2 focus:ring-green-500/40 shadow-[0_0_10px_rgba(74,222,128,0.15)] placeholder:text-gray-500"
-                                      style={{
-                                        textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)",
-                                        boxShadow: "0 0 15px rgba(74, 222, 128, 0.15), inset 0 0 10px rgba(0, 0, 0, 0.3)"
-                                      }}
-                                    />
-                                  </FormControl>
-                                  <FormMessage />
-                                </FormItem>
-                              )}
-                            />
-                          </div>
-                          
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                          {/* Property Information */}
+                          <div className="space-y-4">
+                            <h4 className="text-lg font-medium text-purple-200 mb-3">Property Information</h4>
+                            
                             <FormField
                               control={form.control}
                               name="propertyType"
                               render={({ field }) => (
                                 <FormItem>
-                                  <FormLabel className="text-white">Property Type</FormLabel>
-                                  <Select
+                                  <FormLabel>Property Type</FormLabel>
+                                  <Select 
                                     onValueChange={field.onChange}
                                     defaultValue={field.value}
                                   >
                                     <FormControl>
-                                      <SelectTrigger className="bg-black/50 border-gray-700 text-white">
-                                        <SelectValue placeholder="Select property type" />
+                                      <SelectTrigger>
+                                        <SelectValue placeholder="Select Property Type" />
                                       </SelectTrigger>
                                     </FormControl>
-                                    <SelectContent className="bg-gray-900 border-gray-700 text-white">
+                                    <SelectContent>
                                       <SelectItem value="residential">Residential</SelectItem>
                                       <SelectItem value="commercial">Commercial</SelectItem>
-                                      <SelectItem value="multi-family">Multi-Family</SelectItem>
                                       <SelectItem value="industrial">Industrial</SelectItem>
+                                      <SelectItem value="agricultural">Agricultural</SelectItem>
                                     </SelectContent>
                                   </Select>
                                   <FormMessage />
                                 </FormItem>
                               )}
                             />
+                            
                             <FormField
                               control={form.control}
                               name="propertySize"
                               render={({ field }) => (
                                 <FormItem>
-                                  <FormLabel className="text-white">Property Size (sq ft)</FormLabel>
+                                  <FormLabel>Property Size (sq ft)</FormLabel>
                                   <FormControl>
-                                    <Input
-                                      {...field}
-                                      placeholder="Property size in square feet"
-                                      className="bg-gray-900/60 border-2 border-green-500/50 rounded-lg text-white focus:border-green-500 focus:ring-2 focus:ring-green-500/40 shadow-[0_0_10px_rgba(74,222,128,0.15)] placeholder:text-gray-500"
-                                      style={{
-                                        textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)",
-                                        boxShadow: "0 0 15px rgba(74, 222, 128, 0.15), inset 0 0 10px rgba(0, 0, 0, 0.3)"
-                                      }}
-                                    />
+                                    <Input placeholder="Square Footage" {...field} />
                                   </FormControl>
                                   <FormMessage />
+                                </FormItem>
+                              )}
+                            />
+                            
+                            <FormField
+                              control={form.control}
+                              name="vegetationDensity"
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormLabel>Surrounding Vegetation</FormLabel>
+                                  <Select 
+                                    onValueChange={field.onChange}
+                                    defaultValue={field.value}
+                                  >
+                                    <FormControl>
+                                      <SelectTrigger>
+                                        <SelectValue placeholder="Select Vegetation Density" />
+                                      </SelectTrigger>
+                                    </FormControl>
+                                    <SelectContent>
+                                      <SelectItem value="low">Low (Urban Area)</SelectItem>
+                                      <SelectItem value="medium">Medium (Suburban)</SelectItem>
+                                      <SelectItem value="high">High (Rural/Wooded)</SelectItem>
+                                      <SelectItem value="extreme">Extreme (Wildland Interface)</SelectItem>
+                                    </SelectContent>
+                                  </Select>
+                                  <FormMessage />
+                                </FormItem>
+                              )}
+                            />
+                            
+                            <FormField
+                              control={form.control}
+                              name="previousFireDamage"
+                              render={({ field }) => (
+                                <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4">
+                                  <FormControl>
+                                    <Checkbox
+                                      checked={field.value}
+                                      onCheckedChange={field.onChange}
+                                    />
+                                  </FormControl>
+                                  <div className="space-y-1 leading-none">
+                                    <FormLabel>Previous Fire Damage</FormLabel>
+                                    <p className="text-sm text-gray-400">
+                                      Has your property experienced fire damage previously?
+                                    </p>
+                                  </div>
                                 </FormItem>
                               )}
                             />
                           </div>
-                          
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-                            <FormField
-                              control={form.control}
-                              name="estimatedValue"
-                              render={({ field }) => (
-                                <FormItem>
-                                  <FormLabel className="text-white">Estimated Property Value ($)</FormLabel>
-                                  <FormControl>
-                                    <Input
-                                      {...field}
-                                      type="number"
-                                      placeholder="Estimated value in USD"
-                                      className="bg-gray-900/60 border-2 border-green-500/50 rounded-lg text-white focus:border-green-500 focus:ring-2 focus:ring-green-500/40 shadow-[0_0_10px_rgba(74,222,128,0.15)] placeholder:text-gray-500"
-                                      style={{
-                                        textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)",
-                                        boxShadow: "0 0 15px rgba(74, 222, 128, 0.15), inset 0 0 10px rgba(0, 0, 0, 0.3)"
-                                      }}
-                                    />
-                                  </FormControl>
-                                  <FormMessage />
-                                </FormItem>
-                              )}
-                            />
-                            <FormField
-                              control={form.control}
-                              name="distanceToWildland"
-                              render={({ field }) => (
-                                <FormItem>
-                                  <FormLabel className="text-white">Distance to Wildland (miles)</FormLabel>
-                                  <FormControl>
-                                    <Input
-                                      {...field}
-                                      placeholder="Distance in miles"
-                                      className="bg-gray-900/60 border-2 border-green-500/50 rounded-lg text-white focus:border-green-500 focus:ring-2 focus:ring-green-500/40 shadow-[0_0_10px_rgba(74,222,128,0.15)] placeholder:text-gray-500"
-                                      style={{
-                                        textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)",
-                                        boxShadow: "0 0 15px rgba(74, 222, 128, 0.15), inset 0 0 10px rgba(0, 0, 0, 0.3)"
-                                      }}
-                                    />
-                                  </FormControl>
-                                  <FormMessage />
-                                </FormItem>
-                              )}
-                            />
-                          </div>
-                          
-                          <FormField
-                            control={form.control}
-                            name="insuranceProvider"
-                            render={({ field }) => (
-                              <FormItem>
-                                <FormLabel className="text-white">Current Insurance Provider</FormLabel>
-                                <FormControl>
-                                  <Input
-                                    {...field}
-                                    placeholder="Your current insurance provider"
-                                    className="bg-gray-900/60 border-2 border-green-500/50 rounded-lg text-white focus:border-green-500 focus:ring-2 focus:ring-green-500/40 shadow-[0_0_10px_rgba(74,222,128,0.15)] placeholder:text-gray-500"
-                                    style={{
-                                      textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)",
-                                      boxShadow: "0 0 15px rgba(74, 222, 128, 0.15), inset 0 0 10px rgba(0, 0, 0, 0.3)"
-                                    }}
-                                  />
-                                </FormControl>
-                                <FormMessage />
-                              </FormItem>
-                            )}
-                          />
-                          
-                          <FormField
-                            control={form.control}
-                            name="concernLevel"
-                            render={({ field }) => (
-                              <FormItem>
-                                <FormLabel className="text-white">Fire Risk Concern Level</FormLabel>
-                                <Select
-                                  onValueChange={field.onChange}
-                                  defaultValue={field.value}
-                                >
-                                  <FormControl>
-                                    <SelectTrigger 
-                                      className="bg-gray-900/60 border-2 border-green-500/50 rounded-lg text-white focus:border-green-500 focus:ring-2 focus:ring-green-500/40 shadow-[0_0_10px_rgba(74,222,128,0.15)]"
-                                      style={{
-                                        textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)",
-                                        boxShadow: "0 0 15px rgba(74, 222, 128, 0.15), inset 0 0 10px rgba(0, 0, 0, 0.3)"
-                                      }}
-                                    >
-                                      <SelectValue placeholder="Select your concern level" />
-                                    </SelectTrigger>
-                                  </FormControl>
-                                  <SelectContent className="bg-gray-900 border-2 border-green-500/50 text-white">
-                                    <SelectItem value="low">Low</SelectItem>
-                                    <SelectItem value="medium">Medium</SelectItem>
-                                    <SelectItem value="high">High</SelectItem>
-                                    <SelectItem value="extreme">Extreme</SelectItem>
-                                  </SelectContent>
-                                </Select>
-                                <FormMessage />
-                              </FormItem>
-                            )}
-                          />
-                          
-                          <FormField
-                            control={form.control}
-                            name="additionalDetails"
-                            render={({ field }) => (
-                              <FormItem>
-                                <FormLabel className="text-white">Additional Details</FormLabel>
-                                <FormControl>
-                                  <Textarea
-                                    {...field}
-                                    placeholder="Any additional details about your property or concerns"
-                                    className="bg-gray-900/60 border-2 border-green-500/50 rounded-lg text-white focus:border-green-500 focus:ring-2 focus:ring-green-500/40 shadow-[0_0_10px_rgba(74,222,128,0.15)] placeholder:text-gray-500 min-h-[100px]"
-                                    style={{
-                                      textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)",
-                                      boxShadow: "0 0 15px rgba(74, 222, 128, 0.15), inset 0 0 10px rgba(0, 0, 0, 0.3)"
-                                    }}
-                                  />
-                                </FormControl>
-                                <FormMessage />
-                              </FormItem>
-                            )}
-                          />
-                          
-                          <FormField
-                            control={form.control}
-                            name="agreesToTerms"
-                            render={({ field }) => (
-                              <FormItem className="flex flex-row items-start space-x-3 space-y-0 pt-2">
-                                <FormControl>
-                                  <Checkbox
-                                    checked={field.value}
-                                    onCheckedChange={field.onChange}
-                                    className="data-[state=checked]:bg-green-600 data-[state=checked]:border-green-600 border-2 border-green-500/50"
-                                  />
-                                </FormControl>
-                                <div className="space-y-1 leading-none">
-                                  <FormLabel className="text-white">
-                                    I agree to the terms and conditions and privacy policy
-                                  </FormLabel>
-                                </div>
-                                <FormMessage />
-                              </FormItem>
-                            )}
-                          />
                         </div>
                         
-                        {/* Enhanced form button row with glowing effects */}
-                        <div className="flex justify-center md:justify-end items-center gap-4 pt-4">
-                          {/* Button ambient glow */}
-                          <div className="absolute inset-0 bg-gradient-to-r from-orange-500/10 via-blue-500/10 to-orange-500/10 rounded-xl blur-lg opacity-80"></div>
-                          
-                          {/* Cancel button with premium styling */}
-                          <button
-                            type="button"
-                            onClick={() => setShowRegistrationForm(false)}
-                            className="relative px-6 py-2.5 bg-gray-900 border border-orange-500/30 text-gray-300 rounded-md hover:bg-gray-800 hover:text-white transition-all duration-300 z-10"
-                          >
-                            <span className="flex items-center justify-center">
-                              <ChevronRight className="mr-1 h-4 w-4 rotate-180" />
-                              <span>Go Back</span>
-                            </span>
-                          </button>
-                          
-                          {/* Submit button with premium styling */}
-                          <div className="relative group">
-                            {/* Button glow effect */}
-                            <div className="absolute -inset-1 bg-gradient-to-r from-green-600/50 to-emerald-600/50 rounded-lg blur-md opacity-75 group-hover:opacity-100 transition-opacity duration-500 group-hover:duration-200"></div>
-                            
-                            <button 
-                              type="submit"
-                              className="relative bg-gradient-to-br from-gray-900 to-black hover:from-gray-800 hover:to-gray-900 text-white font-medium py-2.5 px-8 rounded-lg overflow-hidden transition-all duration-300 z-10 border border-green-500/40 group-hover:border-green-500/60"
-                              disabled={registerMutation.isPending}
-                            >
-                              {/* Inner glass effect */}
-                              <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent opacity-20"></div>
-                              
-                              {/* Text content */}
-                              <div className="relative flex items-center justify-center">
-                                {registerMutation.isPending ? (
-                                  <>
-                                    <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                                    </svg>
-                                    <span>Processing...</span>
-                                  </>
-                                ) : (
-                                  <>
-                                    <CircleDollarSign className="mr-2 h-5 w-5 text-green-300 group-hover:text-green-200 transition-colors duration-300" />
-                                    <span>Calculate My 1,390% Fire Prevention ROI</span>
-                                  </>
-                                )}
+                        {/* Additional Information */}
+                        <FormField
+                          control={form.control}
+                          name="additionalDetails"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>Additional Information</FormLabel>
+                              <FormControl>
+                                <Textarea 
+                                  placeholder="Please share any specific concerns or questions about fire protection for your property."
+                                  className="h-24"
+                                  {...field}
+                                />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                        
+                        {/* Terms and Agreement */}
+                        <FormField
+                          control={form.control}
+                          name="agreesToTerms"
+                          render={({ field }) => (
+                            <FormItem className="flex flex-row items-start space-x-3 space-y-0">
+                              <FormControl>
+                                <Checkbox
+                                  checked={field.value}
+                                  onCheckedChange={field.onChange}
+                                />
+                              </FormControl>
+                              <div className="space-y-1 leading-none">
+                                <FormLabel>I agree to the terms and privacy policy</FormLabel>
+                                <p className="text-sm text-gray-400">
+                                  By submitting this form, you agree to be contacted about fire protection solutions.
+                                </p>
                               </div>
-                            </button>
-                          </div>
+                            </FormItem>
+                          )}
+                        />
+                        
+                        {/* Submit Button */}
+                        <div className="flex justify-center">
+                          <Button 
+                            type="submit"
+                            className="bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-500 hover:to-purple-600 text-white px-8 py-2 rounded-lg w-full md:w-auto"
+                            disabled={registerMutation.isPending}
+                          >
+                            {registerMutation.isPending ? "Processing..." : "Schedule Free Consultation"}
+                          </Button>
                         </div>
                       </form>
                     </Form>
                   </div>
-                </div>
-              ) : registrationSuccess ? (
-                <div className="max-w-3xl mx-auto text-center relative">
-                  {/* Success ambient glow - green tint */}
-                  <div className="absolute -inset-4 bg-gradient-to-r from-green-500/30 via-blue-500/30 to-green-500/30 rounded-2xl blur-xl opacity-70 animate-pulse-slow"></div>
-                  
-                  {/* Premium success card */}
-                  <div className="relative bg-gradient-to-b from-gray-900/95 via-gray-950/95 to-black p-8 md:p-10 rounded-xl border border-green-500/40 shadow-[0_10px_50px_rgba(22,163,74,0.2)] backdrop-blur-sm">
-                    {/* Premium corner accents - success style */}
-                    <div className="absolute top-4 left-4 w-16 h-16 z-10 pointer-events-none">
-                      <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-green-500/40 rounded-tl-md"></div>
-                      <div className="absolute top-1 left-1 w-10 h-10 border-t border-l border-blue-500/30 rounded-tl-md"></div>
-                    </div>
-                    <div className="absolute top-4 right-4 w-16 h-16 z-10 pointer-events-none">
-                      <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-green-500/40 rounded-tr-md"></div>
-                      <div className="absolute top-1 right-1 w-10 h-10 border-t border-r border-blue-500/30 rounded-tr-md"></div>
-                    </div>
-                    <div className="absolute bottom-4 left-4 w-16 h-16 z-10 pointer-events-none">
-                      <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-green-500/40 rounded-bl-md"></div>
-                      <div className="absolute bottom-1 left-1 w-10 h-10 border-b border-l border-blue-500/30 rounded-bl-md"></div>
-                    </div>
-                    <div className="absolute bottom-4 right-4 w-16 h-16 z-10 pointer-events-none">
-                      <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-green-500/40 rounded-br-md"></div>
-                      <div className="absolute bottom-1 right-1 w-10 h-10 border-b border-r border-blue-500/30 rounded-br-md"></div>
-                    </div>
-                    
-                    {/* Animated success icon */}
-                    <motion.div 
-                      initial={{ scale: 0 }}
-                      animate={{ scale: 1 }}
-                      transition={{ duration: 0.5, type: "spring" }}
-                      className="w-20 h-20 mx-auto mb-6 bg-green-600/20 rounded-full flex items-center justify-center"
-                    >
-                      <CheckCircle className="h-12 w-12 text-green-500" />
-                    </motion.div>
-                    
-                    <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Registration Successful!</h2>
-                    <p className="text-lg text-gray-300 mb-6">
-                      Thank you for your interest in our wildfire defense system. Our team will calculate your personalized 1,390% ROI and contact you shortly with your custom analysis.
-                    </p>
-                    
-                    <div className="pt-4">
-                      <div className="relative inline-block group">
-                        <div className="absolute -inset-1 bg-gradient-to-r from-green-600/50 to-blue-600/50 rounded-lg blur-md opacity-75 group-hover:opacity-100 transition-opacity"></div>
-                        <button 
-                          onClick={() => setRegistrationSuccess(false)} 
-                          className="relative bg-gradient-to-br from-gray-900 to-black px-8 py-3 rounded-lg text-white font-medium z-10 border border-green-500/40"
-                        >
-                          <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent opacity-20"></div>
-                          <span className="flex items-center">
-                            <Home className="mr-2 h-5 w-5" />
-                            Return to Main Page
-                          </span>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ) : (
-                <div className="relative">
-                  {/* Ambient glow behind the entire card */}
-                  <div className="absolute -inset-4 bg-gradient-to-r from-orange-500/20 via-blue-500/20 to-orange-500/20 rounded-2xl blur-xl opacity-70"></div>
-                  
-                  {/* Main card with premium styling */}
-                  <div className="relative bg-gradient-to-b from-gray-900/95 via-gray-950/95 to-black rounded-xl border border-orange-500/30 shadow-[0_10px_50px_rgba(234,88,12,0.15)] backdrop-blur-sm overflow-hidden">
-                    {/* Corner accents - enterprise-elite style */}
-                    <div className="absolute top-0 left-0 w-16 h-16 z-10 pointer-events-none">
-                      <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-orange-500/40 rounded-tl-md"></div>
-                      <div className="absolute top-1 left-1 w-10 h-10 border-t border-l border-blue-500/30 rounded-tl-md"></div>
-                    </div>
-                    <div className="absolute top-0 right-0 w-16 h-16 z-10 pointer-events-none">
-                      <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-orange-500/40 rounded-tr-md"></div>
-                      <div className="absolute top-1 right-1 w-10 h-10 border-t border-r border-blue-500/30 rounded-tr-md"></div>
-                    </div>
-                    <div className="absolute bottom-0 left-0 w-16 h-16 z-10 pointer-events-none">
-                      <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-orange-500/40 rounded-bl-md"></div>
-                      <div className="absolute bottom-1 left-1 w-10 h-10 border-b border-l border-blue-500/30 rounded-bl-md"></div>
-                    </div>
-                    <div className="absolute bottom-0 right-0 w-16 h-16 z-10 pointer-events-none">
-                      <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-orange-500/40 rounded-br-md"></div>
-                      <div className="absolute bottom-1 right-1 w-10 h-10 border-b border-r border-blue-500/30 rounded-br-md"></div>
-                    </div>
-                    
-                    {/* Content wrapper with padding */}
-                    <div className="p-6 md:p-8 relative z-10">
-                      <div className="text-center mb-8">
-                        <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 drop-shadow-[0_1px_2px_rgba(234,88,12,0.4)]">Protect Your Investment with Advanced Ceramic Technology</h2>
-                        <p className="text-gray-300 text-lg md:w-4/5 mx-auto">
-                          Our ceramic coating creates a Class A fire-rated barrier (ASTM E108/UL 790) that helps reduce heat transfer to provide additional protection for your property against fire exposure.
-                        </p>
-                      </div>
-                      
-                      {/* ROI Calculator Preview Box */}
-                      <div className="bg-gradient-to-br from-black/40 to-gray-900/40 border border-blue-600/30 rounded-xl p-5 my-6 relative">
-                        <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500/20 to-blue-500/20 rounded-xl blur-md opacity-60"></div>
-                        
-                        <div className="relative">
-                          <div className="flex items-center gap-3 mb-3">
-                            <CircleDollarSign className="h-6 w-6 text-green-400" />
-                            <h3 className="text-xl font-semibold text-white">Fire Prevention ROI Calculator</h3>
-                          </div>
-                          
-                          <p className="text-blue-100 mb-4">Calculate your potential 1,390% ROI with our advanced wildfire protection technology</p>
-                          
-                          <div className="grid grid-cols-3 gap-3 mb-6">
-                            <div className="bg-black/50 border border-blue-500/20 rounded p-3 text-center">
-                              <span className="text-green-400 font-bold text-xl md:text-2xl block">$3,800</span>
-                              <span className="text-blue-200 text-xs">Annual Insurance Savings</span>
-                            </div>
-                            <div className="bg-black/50 border border-orange-500/20 rounded p-3 text-center">
-                              <span className="text-green-400 font-bold text-xl md:text-2xl block">23%</span>
-                              <span className="text-blue-200 text-xs">Property Value Increase</span>
-                            </div>
-                            <div className="bg-black/50 border border-blue-500/20 rounded p-3 text-center">
-                              <span className="text-green-400 font-bold text-xl md:text-2xl block">1,390%</span>
-                              <span className="text-blue-200 text-xs">5-Year ROI</span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      
-                      {/* Premium animated CTA button */}
-                      <div className="transform transition-all duration-700 hover:scale-105 relative z-20">
-                        <PremiumCartButton 
-                          size="lg" 
-                          onClick={handleShowRegistrationForm}
-                          className="px-8 py-4 text-lg relative group"
-                          variant="fire"
-                        >
-                          <div className="flex items-center justify-center">
-                            <BarChart3 className="mr-2 h-5 w-5" />
-                            <span>Calculate Your 1,390% Fire Prevention ROI</span>
-                          </div>
-                        </PremiumCartButton>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )}
+                )}
+              </div>
             </div>
           </div>
         </section>
