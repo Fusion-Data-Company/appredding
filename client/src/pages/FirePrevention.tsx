@@ -40,6 +40,8 @@ import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 
+type FirePreventionHomeownerFormValues = z.infer<typeof insertFirePreventionHomeownerSchema>;
+
 const FirePrevention = () => {
   const [showConsultationForm, setShowConsultationForm] = useState(false);
   const [consultationRequestSuccess, setConsultationRequestSuccess] = useState(false);
@@ -53,25 +55,24 @@ const FirePrevention = () => {
       lastName: "",
       email: "",
       phone: "",
-      companyName: "",
-      propertyType: "residential",
-      propertySize: "",
       address: "",
       city: "",
       state: "",
       zipCode: "",
-      buildingAge: 0,
-      currentProtection: "",
-      concerns: "",
+      propertyType: "residential",
+      propertySize: "",
+      vegetationDensity: "medium",
+      distanceToWildland: "",
+      previousFireDamage: false,
+      insuranceProvider: "",
       preferredContactMethod: "email",
-      urgency: "medium",
-      agreesToTerms: false
+      additionalComments: ""
     },
   });
 
   // Fire protection consultation mutation
   const consultationMutation = useMutation({
-    mutationFn: async (data: z.infer<typeof insertFirePreventionHomeownerSchema>) => {
+    mutationFn: async (data: FirePreventionHomeownerFormValues) => {
       const response = await apiRequest("POST", "/api/firepreventionhomeowners", data);
       if (!response.ok) {
         const errorData = await response.json();
@@ -88,7 +89,7 @@ const FirePrevention = () => {
       setConsultationRequestSuccess(true);
       form.reset();
     },
-    onError: (error) => {
+    onError: (error: Error) => {
       toast({
         title: "Consultation Request Failed",
         description: error.message,
@@ -97,7 +98,7 @@ const FirePrevention = () => {
     },
   });
 
-  const onSubmit = (data: z.infer<typeof insertFirePreventionHomeownerSchema>) => {
+  const onSubmit = (data: FirePreventionHomeownerFormValues) => {
     consultationMutation.mutate(data);
   };
 
@@ -170,12 +171,6 @@ const FirePrevention = () => {
                   <div className="absolute -inset-full w-[300px] h-full bg-gradient-to-r from-transparent via-blue-300/25 to-transparent skew-x-[-25deg] animate-light-sweep" style={{ animationDelay: '4s' }}></div>
                 </div>
                 
-                {/* 3D edge highlight effect for depth */}
-                <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-blue-400/70 to-transparent"></div>
-                <div className="absolute inset-y-0 right-0 w-[2px] bg-gradient-to-b from-transparent via-blue-400/50 to-transparent"></div>
-                <div className="absolute inset-x-0 bottom-0 h-[2px] bg-gradient-to-r from-transparent via-blue-400/70 to-transparent"></div>
-                <div className="absolute inset-y-0 left-0 w-[2px] bg-gradient-to-b from-transparent via-blue-400/50 to-transparent"></div>
-                
                 {/* Premium fire-themed background elements */}
                 <div className="absolute inset-0 opacity-40 z-0 mix-blend-overlay" 
                   style={{
@@ -191,6 +186,12 @@ const FirePrevention = () => {
                     backgroundSize: "8px 8px"
                   }}>
                 </div>
+                
+                {/* 3D edge highlight effect for depth */}
+                <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-blue-400/70 to-transparent"></div>
+                <div className="absolute inset-y-0 right-0 w-[2px] bg-gradient-to-b from-transparent via-blue-400/50 to-transparent"></div>
+                <div className="absolute inset-x-0 bottom-0 h-[2px] bg-gradient-to-r from-transparent via-blue-400/70 to-transparent"></div>
+                <div className="absolute inset-y-0 left-0 w-[2px] bg-gradient-to-b from-transparent via-blue-400/50 to-transparent"></div>
                 
                 {/* Ultra-premium Elite Corner Accents with dynamic lighting effects */}
                 <div className="absolute top-0 left-0 w-20 h-20 z-20 pointer-events-none">
@@ -220,51 +221,66 @@ const FirePrevention = () => {
                 </div>
                 
                 {/* Enhanced Header content container */}
-                <div className="relative z-10 p-8 md:p-12">
-                  <div className="max-w-5xl mx-auto text-center">
-                    {/* Premium enterprise title with layered effects */}
-                    <div className="mb-8">
-                      <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-white">
-                        Praetorian Fire Prevention Technology
-                      </h1>
-                      <p className="text-xl text-blue-200/90 max-w-3xl mx-auto">
-                        Class-A fire protection with advanced ceramic coating technology that prevents ignition and slows fire spread by up to 1200%
-                      </p>
+                <div className="relative z-20 p-10 flex flex-col items-center text-center">
+                  {/* Premium badge with icon in homepage style */}
+                  <div className="relative mb-6">
+                    <div className="flex items-start justify-center">
+                      <div className="relative mr-2">
+                        <div className="absolute -inset-1 bg-blue-500/30 rounded-full blur-md"></div>
+                        <div className="relative h-6 w-6 flex items-center justify-center">
+                          <div className="absolute inset-0 bg-gradient-to-b from-blue-600/80 to-blue-800/80 rounded-full shadow-[0_0_8px_rgba(59,130,246,0.6)]"></div>
+                          <div className="absolute inset-0.5 bg-gradient-to-br from-blue-500/30 to-blue-700/30 rounded-full"></div>
+                          <Flame className="w-3.5 h-3.5 text-blue-100 relative z-10" />
+                        </div>
+                      </div>
+                      <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-blue-200" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.8)" }}>
+                        FIRE PREVENTION TECHNOLOGY
+                      </h3>
+                    </div>
+                  </div>
+                  
+                  {/* Premium enterprise title with layered effects */}
+                  <div className="mb-8">
+                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-white">
+                      Praetorian Fire Prevention Technology
+                    </h1>
+                    <p className="text-xl text-blue-200/90 max-w-3xl mx-auto">
+                      Class-A fire protection with advanced ceramic coating technology that prevents ignition and slows fire spread by up to 1200%
+                    </p>
+                  </div>
+                  
+                  {/* Enhanced feature list with premium styling */}
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+                    <div className="relative p-6 bg-gradient-to-br from-gray-900/70 to-gray-800/50 border border-blue-500/30 rounded-xl transition-all duration-300 hover:border-blue-500/50 overflow-hidden group">
+                      <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/0 via-blue-600/10 to-blue-600/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                      <div className="relative z-10 flex flex-col items-center text-center">
+                        <div className="p-3 bg-blue-950/80 rounded-2xl mb-4 border border-blue-700/40">
+                          <Flame className="h-8 w-8 text-blue-400" />
+                        </div>
+                        <h3 className="text-lg font-semibold text-white mb-2">Active Fire Protection</h3>
+                        <p className="text-gray-300">Certified Class-A fire rating with advanced ceramic-based technology that actively prevents flame spread for up to 4 hours in direct fire conditions.</p>
+                      </div>
                     </div>
                     
-                    {/* Enhanced feature list with premium styling */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-                      <div className="relative p-6 bg-gradient-to-br from-gray-900/70 to-gray-800/50 border border-blue-500/30 rounded-xl transition-all duration-300 hover:border-blue-500/50 overflow-hidden group">
-                        <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/0 via-blue-600/10 to-blue-600/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        <div className="relative z-10 flex flex-col items-center text-center">
-                          <div className="p-3 bg-blue-950/80 rounded-2xl mb-4 border border-blue-700/40">
-                            <Flame className="h-8 w-8 text-blue-400" />
-                          </div>
-                          <h3 className="text-lg font-semibold text-white mb-2">Active Fire Protection</h3>
-                          <p className="text-gray-300">Certified Class-A fire rating with advanced ceramic-based technology that actively prevents flame spread for up to 4 hours in direct fire conditions.</p>
+                    <div className="relative p-6 bg-gradient-to-br from-gray-900/70 to-gray-800/50 border border-blue-500/30 rounded-xl transition-all duration-300 hover:border-blue-500/50 overflow-hidden group">
+                      <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/0 via-blue-600/10 to-blue-600/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                      <div className="relative z-10 flex flex-col items-center text-center">
+                        <div className="p-3 bg-blue-950/80 rounded-2xl mb-4 border border-blue-700/40">
+                          <ShieldCheck className="h-8 w-8 text-blue-400" />
                         </div>
+                        <h3 className="text-lg font-semibold text-white mb-2">Complete Coverage</h3>
+                        <p className="text-gray-300">Protects multiple surface types including wood, metal, concrete, and composites in a single application - no need for multiple systems.</p>
                       </div>
-                      
-                      <div className="relative p-6 bg-gradient-to-br from-gray-900/70 to-gray-800/50 border border-blue-500/30 rounded-xl transition-all duration-300 hover:border-blue-500/50 overflow-hidden group">
-                        <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/0 via-blue-600/10 to-blue-600/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        <div className="relative z-10 flex flex-col items-center text-center">
-                          <div className="p-3 bg-blue-950/80 rounded-2xl mb-4 border border-blue-700/40">
-                            <ShieldCheck className="h-8 w-8 text-blue-400" />
-                          </div>
-                          <h3 className="text-lg font-semibold text-white mb-2">Complete Coverage</h3>
-                          <p className="text-gray-300">Protects multiple surface types including wood, metal, concrete, and composites in a single application - no need for multiple systems.</p>
+                    </div>
+                    
+                    <div className="relative p-6 bg-gradient-to-br from-gray-900/70 to-gray-800/50 border border-blue-500/30 rounded-xl transition-all duration-300 hover:border-blue-500/50 overflow-hidden group">
+                      <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/0 via-blue-600/10 to-blue-600/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                      <div className="relative z-10 flex flex-col items-center text-center">
+                        <div className="p-3 bg-blue-950/80 rounded-2xl mb-4 border border-blue-700/40">
+                          <Award className="h-8 w-8 text-blue-400" />
                         </div>
-                      </div>
-                      
-                      <div className="relative p-6 bg-gradient-to-br from-gray-900/70 to-gray-800/50 border border-blue-500/30 rounded-xl transition-all duration-300 hover:border-blue-500/50 overflow-hidden group">
-                        <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/0 via-blue-600/10 to-blue-600/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        <div className="relative z-10 flex flex-col items-center text-center">
-                          <div className="p-3 bg-blue-950/80 rounded-2xl mb-4 border border-blue-700/40">
-                            <Award className="h-8 w-8 text-blue-400" />
-                          </div>
-                          <h3 className="text-lg font-semibold text-white mb-2">Insurance Approved</h3>
-                          <p className="text-gray-300">Certified by major insurance providers for premium reductions in high-risk areas with documented performance in wildfire conditions.</p>
-                        </div>
+                        <h3 className="text-lg font-semibold text-white mb-2">Insurance Approved</h3>
+                        <p className="text-gray-300">Certified by major insurance providers for premium reductions in high-risk areas with documented performance in wildfire conditions.</p>
                       </div>
                     </div>
                   </div>
@@ -719,20 +735,6 @@ const FirePrevention = () => {
                                     </FormItem>
                                   )}
                                 />
-                                
-                                <FormField
-                                  control={form.control}
-                                  name="companyName"
-                                  render={({ field }) => (
-                                    <FormItem>
-                                      <FormLabel className="text-gray-300">Company Name (Optional)</FormLabel>
-                                      <FormControl>
-                                        <Input placeholder="ABC Properties" {...field} className="bg-gray-900/70 border-purple-800/30 focus:border-purple-600/50" />
-                                      </FormControl>
-                                      <FormMessage />
-                                    </FormItem>
-                                  )}
-                                />
                               </div>
                             </div>
                             
@@ -754,7 +756,6 @@ const FirePrevention = () => {
                                           <option value="residential">Residential</option>
                                           <option value="commercial">Commercial</option>
                                           <option value="industrial">Industrial</option>
-                                          <option value="municipal">Municipal</option>
                                           <option value="other">Other</option>
                                         </select>
                                       </FormControl>
@@ -777,112 +778,63 @@ const FirePrevention = () => {
                                   )}
                                 />
                                 
-                                <FormField
-                                  control={form.control}
-                                  name="buildingAge"
-                                  render={({ field }) => (
-                                    <FormItem>
-                                      <FormLabel className="text-gray-300">Building Age (years)</FormLabel>
-                                      <FormControl>
-                                        <Input 
-                                          type="number" 
-                                          placeholder="25" 
-                                          {...field}
-                                          onChange={(e) => field.onChange(parseInt(e.target.value) || 0)}
-                                          className="bg-gray-900/70 border-purple-800/30 focus:border-purple-600/50" 
-                                        />
-                                      </FormControl>
-                                      <FormMessage />
-                                    </FormItem>
-                                  )}
-                                />
-                                
-                                <FormField
-                                  control={form.control}
-                                  name="concerns"
-                                  render={({ field }) => (
-                                    <FormItem>
-                                      <FormLabel className="text-gray-300">Specific Fire Concerns</FormLabel>
-                                      <FormControl>
-                                        <Input 
-                                          placeholder="Wildfire risk, outdated materials, etc." 
-                                          {...field} 
-                                          className="bg-gray-900/70 border-purple-800/30 focus:border-purple-600/50" 
-                                        />
-                                      </FormControl>
-                                      <FormMessage />
-                                    </FormItem>
-                                  )}
-                                />
-                                
-                                <FormField
-                                  control={form.control}
-                                  name="urgency"
-                                  render={({ field }) => (
-                                    <FormItem>
-                                      <FormLabel className="text-gray-300">Urgency Level</FormLabel>
-                                      <FormControl>
-                                        <select 
-                                          {...field}
-                                          className="w-full bg-gray-900/70 border border-purple-800/30 focus:border-purple-600/50 rounded-md px-3 py-2 text-gray-300 focus:outline-none"
-                                        >
-                                          <option value="low">Low - Planning Phase</option>
-                                          <option value="medium">Medium - Within 3 Months</option>
-                                          <option value="high">High - Immediate Need</option>
-                                        </select>
-                                      </FormControl>
-                                      <FormMessage />
-                                    </FormItem>
-                                  )}
-                                />
+                                <div className="grid grid-cols-2 gap-4">
+                                  <FormField
+                                    control={form.control}
+                                    name="city"
+                                    render={({ field }) => (
+                                      <FormItem>
+                                        <FormLabel className="text-gray-300">City</FormLabel>
+                                        <FormControl>
+                                          <Input placeholder="Los Angeles" {...field} className="bg-gray-900/70 border-purple-800/30 focus:border-purple-600/50" />
+                                        </FormControl>
+                                        <FormMessage />
+                                      </FormItem>
+                                    )}
+                                  />
+                                  
+                                  <FormField
+                                    control={form.control}
+                                    name="state"
+                                    render={({ field }) => (
+                                      <FormItem>
+                                        <FormLabel className="text-gray-300">State</FormLabel>
+                                        <FormControl>
+                                          <Input placeholder="CA" {...field} className="bg-gray-900/70 border-purple-800/30 focus:border-purple-600/50" />
+                                        </FormControl>
+                                        <FormMessage />
+                                      </FormItem>
+                                    )}
+                                  />
+                                </div>
                               </div>
                             </div>
                           </div>
                           
-                          <FormField
-                            control={form.control}
-                            name="agreesToTerms"
-                            render={({ field }) => (
-                              <FormItem className="flex flex-row items-start space-x-3 space-y-0 mt-6">
-                                <FormControl>
-                                  <input
-                                    type="checkbox"
-                                    className="rounded border-purple-700/50 text-purple-600 focus:ring-purple-500 h-5 w-5 mt-1"
-                                    checked={field.value}
-                                    onChange={field.onChange}
-                                  />
-                                </FormControl>
-                                <div className="space-y-1 leading-none">
-                                  <FormLabel className="text-gray-300">
-                                    I agree to the terms and conditions and consent to being contacted about Praetorian fire protection solutions
-                                  </FormLabel>
-                                </div>
-                              </FormItem>
-                            )}
-                          />
-                          
-                          <div className="flex flex-col md:flex-row md:justify-between gap-4 items-center pt-4">
-                            <Button
-                              type="button"
-                              onClick={() => setShowConsultationForm(false)}
-                              className="w-full md:w-auto order-2 md:order-1 border border-purple-500/30 hover:bg-purple-900/20 text-purple-200"
-                              variant="outline"
-                            >
-                              Cancel
-                            </Button>
-                            
-                            <PremiumCartButton
-                              type="submit"
-                              className="w-full md:w-auto order-1 md:order-2" 
-                              disabled={consultationMutation.isPending}
-                            >
-                              {consultationMutation.isPending ? (
-                                <>
-                                  <span className="animate-spin mr-2">⟳</span>
-                                  Processing...
-                                </>
-                              ) : "Submit Consultation Request"}
-                            </PremiumCartButton>
+                          <div className="pt-4">
+                            <div className="flex flex-col md:flex-row md:justify-between gap-4 items-center">
+                              <Button
+                                type="button"
+                                onClick={() => setShowConsultationForm(false)}
+                                className="w-full md:w-auto order-2 md:order-1 border border-purple-500/30 hover:bg-purple-900/20 text-purple-200"
+                                variant="outline"
+                              >
+                                Cancel
+                              </Button>
+                              
+                              <PremiumCartButton
+                                type="submit"
+                                className="w-full md:w-auto order-1 md:order-2" 
+                                disabled={consultationMutation.isPending}
+                              >
+                                {consultationMutation.isPending ? (
+                                  <>
+                                    <span className="animate-spin mr-2">⟳</span>
+                                    Processing...
+                                  </>
+                                ) : "Submit Consultation Request"}
+                              </PremiumCartButton>
+                            </div>
                           </div>
                         </form>
                       </Form>
