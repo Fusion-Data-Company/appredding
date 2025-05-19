@@ -492,6 +492,103 @@ const FirePrevention = () => {
             </div>
           </div>
         </section>
+
+        {/* Informational Section: FireShield Technology */}
+        <section className="relative z-10 py-12 overflow-hidden bg-gradient-to-b from-gray-950 to-gray-900">
+          <div className="container mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+              {/* Left Section: FireShield Technology */}
+              <div className="p-6 rounded-2xl border border-blue-800/30 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 shadow-lg">
+                <h2 className="text-3xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-300 to-blue-500">
+                  FireShield Technology
+                </h2>
+                
+                <div className="space-y-6">
+                  <div className="flex items-start space-x-4">
+                    <div className="min-w-12 h-12 flex items-center justify-center rounded-full bg-blue-900/30 border border-blue-700/30">
+                      <Shield className="h-6 w-6 text-blue-400" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-blue-300 mb-2">Fire-Resistant Ceramic Barrier</h3>
+                      <p className="text-gray-300">
+                        Praetorian's proprietary ceramic formula creates a thermal barrier that can withstand temperatures up to 1800°F (982°C), preventing flame spread and structural ignition during wildfire conditions.
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start space-x-4">
+                    <div className="min-w-12 h-12 flex items-center justify-center rounded-full bg-blue-900/30 border border-blue-700/30">
+                      <Zap className="h-6 w-6 text-blue-400" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-blue-300 mb-2">Radiant Heat Deflection</h3>
+                      <p className="text-gray-300">
+                        Tested under ASTM E84 standards, our coating reflects up to 95% of radiant heat, keeping structural temperatures below ignition point even when nearby structures are fully engulfed.
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start space-x-4">
+                    <div className="min-w-12 h-12 flex items-center justify-center rounded-full bg-blue-900/30 border border-blue-700/30">
+                      <DropletIcon className="h-6 w-6 text-blue-400" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-blue-300 mb-2">Ember Penetration Prevention</h3>
+                      <p className="text-gray-300">
+                        The ceramic microsphere technology creates a sealed membrane that blocks ember penetration - the primary cause of structure ignition during wildfires (responsible for 90% of home losses).
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Right Section: Wildfire Defense Application */}
+              <div className="p-6 rounded-2xl border border-orange-800/30 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 shadow-lg">
+                <h2 className="text-3xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-orange-300 to-orange-500">
+                  Wildfire Defense Application
+                </h2>
+                
+                <div className="space-y-6">
+                  <div className="flex items-start space-x-4">
+                    <div className="min-w-12 h-12 flex items-center justify-center rounded-full bg-orange-900/30 border border-orange-700/30">
+                      <ClipboardCheck className="h-6 w-6 text-orange-400" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-orange-300 mb-2">Professional WUI Assessment</h3>
+                      <p className="text-gray-300">
+                        Our certified Wildland-Urban Interface specialists conduct a comprehensive property evaluation, documenting vulnerable areas and creating a customized defense strategy.
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start space-x-4">
+                    <div className="min-w-12 h-12 flex items-center justify-center rounded-full bg-orange-900/30 border border-orange-700/30">
+                      <Layers className="h-6 w-6 text-orange-400" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-orange-300 mb-2">Multi-Layer Application</h3>
+                      <p className="text-gray-300">
+                        Our certified technicians apply 3-4 precision coats using specialized equipment calibrated for optimal thickness (16-mil finished coat) on all vulnerable exterior surfaces.
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start space-x-4">
+                    <div className="min-w-12 h-12 flex items-center justify-center rounded-full bg-orange-900/30 border border-orange-700/30">
+                      <Award className="h-6 w-6 text-orange-400" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-orange-300 mb-2">Certification & Documentation</h3>
+                      <p className="text-gray-300">
+                        Upon completion, property owners receive NWUI (National Wildland Urban Interface) certification documentation for insurance providers, often qualifying for premium reductions.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
         
         {/* SANDLER STAGE 3: BUDGET - GREEN GLOW SECTION */}
         <section className="relative z-10 py-12 overflow-hidden">
