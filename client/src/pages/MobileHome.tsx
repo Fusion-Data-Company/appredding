@@ -1481,31 +1481,103 @@ const MobileHome = () => {
                           }}>
                         </div>
                         
-                        {/* Black button with glass effect */}
-                        <button 
-                          onClick={() => calculateROI()}
-                          className="relative px-8 py-3 rounded-xl text-white font-medium text-lg transition-all duration-300 hover:scale-105 group z-10 w-full"
-                        >
-                          {/* Button background with glass effect */}
-                          <div className="absolute inset-0 bg-gradient-to-r from-gray-950/95 via-black to-gray-950/95 rounded-xl -z-[1] backdrop-blur-sm"></div>
+                        {/* Premium Enterprise Glass ROI Button with Enhanced Effects */}
+                        <div className="relative group/roi-button">
+                          {/* Enhanced multi-layered ambient glow effects */}
+                          <div className="absolute -inset-3 bg-green-500/10 rounded-2xl blur-2xl opacity-0 group-hover/roi-button:opacity-100 transition-opacity duration-700"></div>
+                          <div className="absolute -inset-2 bg-gradient-to-r from-green-600/20 via-blue-600/30 to-green-600/20 rounded-xl blur-xl opacity-70 group-hover/roi-button:opacity-90 transition-opacity duration-500"></div>
+                          <div className="absolute -inset-1 bg-gradient-to-r from-green-600/30 to-blue-600/30 rounded-lg blur-md opacity-60 group-hover/roi-button:opacity-80 transition-opacity duration-300"></div>
                           
-                          {/* Thin border/edge highlight */}
-                          <div className="absolute inset-0 rounded-xl border border-purple-500/50 -z-[1]"></div>
-                          
-                          {/* Top edge highlight */}
-                          <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-purple-300/40 to-transparent rounded-full -z-[1]"></div>
-                          
-                          {/* Diagonal shimmer effect */}
-                          <div className="absolute inset-0 w-full h-full overflow-hidden rounded-xl -z-[1]">
-                            <div className="absolute inset-0 w-[120%] h-[200%] bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-70 -translate-x-full animate-shimmer-slow transform skew-x-[-20deg]"></div>
-                          </div>
-                          
-                          {/* Button text */}
-                          <span className="relative z-10 flex items-center justify-center drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
-                            <Calculator className="w-5 h-5 mr-2" />
-                            Calculate My ROI
-                          </span>
-                        </button>
+                          <button 
+                            onClick={() => calculateROI()}
+                            className="relative px-10 py-4 rounded-xl text-white font-semibold text-lg transition-all duration-300 hover:scale-105 group z-10 overflow-hidden w-full"
+                          >
+                            {/* Enhanced translucent background with realistic glass effect */}
+                            <div className="absolute inset-0 bg-gradient-to-br from-gray-900/90 via-black/90 to-gray-900/90 rounded-xl -z-[1] backdrop-blur-md border border-green-500/50"></div>
+                            
+                            {/* Premium glass overlay with subtle transparency */}
+                            <div className="absolute inset-0 bg-white/5 rounded-xl -z-[1]"></div>
+                            
+                            {/* Realistic glass reflections - top edge highlight with enhanced opacity */}
+                            <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-white/70 to-transparent rounded-full -z-[1] group-hover:via-white/90 transition-colors duration-300"></div>
+                            
+                            {/* Bottom edge highlight */}
+                            <div className="absolute inset-x-0 bottom-0 h-[1px] bg-gradient-to-r from-transparent via-green-400/60 to-transparent rounded-full -z-[1] group-hover:via-green-300/80 transition-colors duration-300"></div>
+                            
+                            {/* Side edge highlights */}
+                            <div className="absolute inset-y-0 left-0 w-[1px] bg-gradient-to-b from-transparent via-green-400/40 to-transparent rounded-full -z-[1]"></div>
+                            <div className="absolute inset-y-0 right-0 w-[1px] bg-gradient-to-b from-transparent via-blue-400/40 to-transparent rounded-full -z-[1]"></div>
+                            
+                            {/* Realistic glass reflective highlight - curved top highlight */}
+                            <div className="absolute inset-x-[10%] top-0 h-[40%] w-[80%] bg-gradient-to-b from-white/20 to-transparent rounded-full opacity-50 -z-[1] group-hover:opacity-70 transition-opacity duration-300"></div>
+                            
+                            {/* Corner accent pieces with enhanced glow */}
+                            <div className="absolute top-0 left-0 w-5 h-5 border-t-2 border-l-2 border-green-500/70 rounded-tl-md -z-[1] group-hover:border-green-400/90 transition-colors duration-300 shadow-[0_0_5px_rgba(74,222,128,0.5)]"></div>
+                            <div className="absolute top-0 right-0 w-5 h-5 border-t-2 border-r-2 border-blue-500/70 rounded-tr-md -z-[1] group-hover:border-blue-400/90 transition-colors duration-300 shadow-[0_0_5px_rgba(59,130,246,0.5)]"></div>
+                            <div className="absolute bottom-0 right-0 w-5 h-5 border-b-2 border-r-2 border-blue-500/70 rounded-br-md -z-[1] group-hover:border-blue-400/90 transition-colors duration-300 shadow-[0_0_5px_rgba(59,130,246,0.5)]"></div>
+                            <div className="absolute bottom-0 left-0 w-5 h-5 border-b-2 border-l-2 border-green-500/70 rounded-bl-md -z-[1] group-hover:border-green-400/90 transition-colors duration-300 shadow-[0_0_5px_rgba(74,222,128,0.5)]"></div>
+                            
+                            {/* Enhanced multi-layered shimmer glass effects */}
+                            <div className="absolute inset-0 w-full h-full overflow-hidden rounded-xl -z-[1]">
+                              {/* Primary diagonal shimmer - large, slow, enhanced brightness */}
+                              <div className="absolute inset-0 w-[200%] h-[200%] bg-gradient-to-r from-transparent via-white/40 to-transparent opacity-0 group-hover:opacity-100 -translate-x-full group-hover:animate-shimmer-slow transform skew-x-[-20deg] transition-opacity duration-300"></div>
+                              
+                              {/* Secondary diagonal shimmer - always visible */}
+                              <div className="absolute inset-0 w-[150%] h-[150%] bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full animate-shimmer-very-slow transform skew-x-[-15deg]"></div>
+                              
+                              {/* Quick flash on hover - narrow band with enhanced brightness */}
+                              <div className="absolute inset-0 w-[100%] h-[100%] bg-gradient-to-r from-transparent via-white/60 to-transparent opacity-0 group-hover:opacity-100 -translate-x-full group-hover:animate-shimmer-fast transform skew-x-[-10deg] transition-opacity duration-300" style={{ animationDelay: '0.2s' }}></div>
+                              
+                              {/* Additional reflective highlights */}
+                              <div className="absolute inset-x-0 top-[10%] h-[1px] w-full bg-white/50 opacity-0 group-hover:opacity-100 animate-pulse-slow -z-[1]"></div>
+                              <div className="absolute inset-x-0 top-[30%] h-[1px] w-full bg-white/30 opacity-0 group-hover:opacity-100 animate-pulse-slow -z-[1]" style={{ animationDelay: '0.5s' }}></div>
+                              
+                              {/* Realistic moving glass light reflections */}
+                              <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
+                                <div className="absolute w-[30%] h-[200%] bg-gradient-to-b from-white/0 via-white/30 to-white/0 -rotate-45 transform -translate-y-[100%] group-hover:translate-y-[100%] transition-transform duration-2000 ease-in-out"></div>
+                                <div className="absolute w-[20%] h-[200%] bg-gradient-to-b from-white/0 via-white/20 to-white/0 -rotate-45 transform -translate-y-[100%] opacity-0 group-hover:opacity-100 group-hover:translate-y-[100%] transition-all duration-2000 ease-in-out" style={{ left: '35%', transitionDelay: '200ms' }}></div>
+                              </div>
+                            </div>
+                            
+                            {/* Enhanced inner content glow */}
+                            <div className="absolute inset-0 bg-gradient-to-br from-green-600/5 to-blue-600/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-[1]"></div>
+                            
+                            {/* Highly Enhanced Button Text with Premium Icon and Text Effects */}
+                            <span className="relative z-10 flex items-center justify-center drop-shadow-[0_2px_3px_rgba(0,0,0,0.9)]">
+                              {/* Premium Icon with Advanced Glow Effects */}
+                              <span className="relative mr-3 transform group-hover:scale-110 transition-transform duration-300">
+                                {/* Multi-layered icon glow effects */}
+                                <span className="absolute -inset-2 bg-green-500/20 rounded-full blur-lg opacity-0 group-hover:opacity-70 transition-opacity duration-500"></span>
+                                <span className="absolute -inset-1.5 bg-gradient-to-r from-green-500/40 to-blue-500/40 rounded-full blur-md opacity-0 group-hover:opacity-90 transition-opacity duration-300"></span>
+                                <span className="absolute -inset-1 bg-gradient-to-r from-green-400/50 to-blue-400/50 rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse-slow"></span>
+                                
+                                {/* Premium Icon with Gradient Fill */}
+                                <span className="relative flex">
+                                  <Calculator className="h-6 w-6 text-transparent bg-clip-text bg-gradient-to-br from-white via-green-200 to-white filter drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]" />
+                                  
+                                  {/* Subtle icon shine effect */}
+                                  <span className="absolute inset-0 flex items-center justify-center">
+                                    <span className="absolute top-0 left-[20%] w-[60%] h-[20%] bg-white/70 rounded-full blur-[1px] opacity-0 group-hover:opacity-70 transition-opacity duration-300"></span>
+                                  </span>
+                                </span>
+                              </span>
+                              
+                              {/* Enhanced premium text with glass-like gradient and animations */}
+                              <span className="relative">
+                                {/* Text glow effect */}
+                                <span className="absolute -inset-1 -z-10 bg-gradient-to-r from-green-500/5 to-blue-500/5 rounded-lg blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
+                                
+                                {/* Premium text with enhanced gradient */}
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-green-100 to-white font-semibold tracking-wide leading-tight relative inline-block transform group-hover:scale-[1.02] transition-transform duration-300">
+                                  {/* Text shine line animation */}
+                                  <span className="absolute inset-x-0 bottom-0 h-[1px] bg-gradient-to-r from-transparent via-green-300/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
+                                  
+                                  Calculate My ROI
+                                </span>
+                              </span>
+                            </span>
+                          </button>
+                        </div>
                       </div>
                     </div>
                     
