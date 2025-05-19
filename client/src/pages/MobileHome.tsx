@@ -216,8 +216,12 @@ const MobileHome = () => {
                   <div className="absolute -inset-full w-[400px] h-full bg-gradient-to-r from-transparent via-blue-400/20 to-transparent skew-x-[-20deg] animate-light-sweep"></div>
                 </div>
                 
-                {/* Enhanced Header content with homepage-style corner accents */}
+                {/* Enhanced Header content with premium homepage-style styling */}
                 <div className="relative z-20 p-10 flex flex-col items-center text-center">
+                  {/* Complex ambient background glow effect */}
+                  <div className="absolute -inset-10 bg-gradient-to-r from-blue-900/10 via-blue-700/20 to-blue-900/10 rounded-[40px] blur-[60px] opacity-80 -z-10"></div>
+                  <div className="absolute -inset-20 bg-blue-500/5 rounded-[80px] blur-[100px] opacity-60 -z-10 animate-pulse-slow" style={{ animationDuration: '8s' }}></div>
+                  
                   {/* Premium Corner Accents matching the homepage style exactly */}
                   <div className="absolute top-0 left-0 w-14 h-14 z-10 pointer-events-none">
                     <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-blue-700/70 rounded-tl-md"></div>
@@ -236,18 +240,24 @@ const MobileHome = () => {
                     <div className="absolute bottom-1 left-1 w-10 h-10 border-b border-l border-blue-600/50 rounded-bl-md"></div>
                   </div>
                   
-                  {/* Glass shimmer effect matching the homepage style */}
+                  {/* Enhanced subtle border effect */}
+                  <div className="absolute inset-0 rounded-xl border border-blue-600/10 pointer-events-none"></div>
+                  <div className="absolute inset-[3px] rounded-lg border border-blue-500/5 pointer-events-none"></div>
+                  
+                  {/* Multiple glass shimmer effects for enhanced premium look */}
                   <div className="absolute inset-0 overflow-hidden rounded-xl">
-                    <div className="h-full w-1/3 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-[-20deg] animate-shimmer-slow absolute"></div>
+                    <div className="h-full w-1/3 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-[-20deg] animate-shimmer-slow absolute" style={{ animationDuration: '3s' }}></div>
+                    <div className="h-full w-1/4 bg-gradient-to-r from-transparent via-blue-300/5 to-transparent skew-x-[-20deg] animate-shimmer-slow absolute" style={{ animationDuration: '4s', animationDelay: '1s' }}></div>
                   </div>
                   
-                  {/* Badge with icon in homepage style */}
+                  {/* Premium badge with icon in homepage style */}
                   <div className="relative mb-6">
                     <div className="flex items-start justify-center">
                       <div className="relative mr-2">
                         <div className="absolute -inset-1 bg-blue-500/30 rounded-full blur-md"></div>
                         <div className="relative h-6 w-6 flex items-center justify-center">
                           <div className="absolute inset-0 bg-gradient-to-b from-blue-600/80 to-blue-800/80 rounded-full shadow-[0_0_8px_rgba(59,130,246,0.6)]"></div>
+                          <div className="absolute inset-0.5 bg-gradient-to-br from-blue-500/30 to-blue-700/30 rounded-full"></div>
                           <Calculator className="w-3.5 h-3.5 text-blue-100 relative z-10" />
                         </div>
                       </div>
@@ -261,43 +271,62 @@ const MobileHome = () => {
                   <div className="relative">
                     {/* Ambient glow behind text */}
                     <div className="absolute -inset-10 bg-blue-500/20 rounded-full blur-3xl opacity-70"></div>
-                    {/* Text with enhanced gradients and effects */}
-                    <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6 text-white leading-tight max-w-5xl mx-auto tracking-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.8), 0 8px 24px rgba(59,130,246,0.2)" }}>
+                    <div className="absolute -inset-14 bg-blue-600/10 rounded-full blur-2xl opacity-50 animate-pulse-slow" style={{ animationDuration: '6s' }}></div>
+                    
+                    {/* Heading with enhanced 3D text effect */}
+                    <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-br from-white via-blue-100 to-white leading-tight max-w-5xl mx-auto tracking-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]" style={{ textShadow: "0 1px 1px rgba(0,0,0,0.8), 0 8px 24px rgba(59,130,246,0.2)" }}>
                       Mobile Home ROI Analysis Calculator
                     </h1>
                   </div>
                   
-                  {/* Enhanced subheader with premium styling */}
+                  {/* Enhanced subheader with premium styling and subtle animation */}
                   <div className="relative">
                     <p className="text-lg md:text-xl text-blue-100/90 max-w-3xl mx-auto mb-8 leading-relaxed">
                       Discover how Praetorian Smart-Coat technology can <span className="text-white font-medium">transform your mobile home's efficiency</span>, 
                       reduce utility costs, and <span className="text-white font-medium">increase property value</span> with our advanced ROI calculator.
                     </p>
                     
-                    {/* Added floating icon indicators */}
-                    <div className="flex justify-center space-x-8 mt-4 mb-8">
-                      <div className="flex flex-col items-center">
-                        <div className="p-2 bg-blue-900/50 rounded-full border border-blue-500/40 shadow-[0_0_10px_rgba(59,130,246,0.3)] mb-2">
-                          <DollarSign className="w-6 h-6 text-blue-300" />
+                    {/* Enhanced floating icon indicators with homepage-style styling */}
+                    <div className="flex justify-center space-x-10 mt-6 mb-10">
+                      <div className="flex flex-col items-center group">
+                        <div className="relative p-3 mb-3">
+                          <div className="absolute -inset-1 bg-blue-500/20 rounded-full blur-md opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
+                          <div className="relative h-12 w-12 flex items-center justify-center bg-gradient-to-br from-blue-800 to-blue-900 rounded-full border border-blue-400/30 shadow-[0_0_15px_rgba(59,130,246,0.3)]">
+                            <div className="absolute inset-0.5 bg-gradient-to-br from-blue-700 to-blue-800 rounded-full opacity-50"></div>
+                            <div className="absolute h-full w-1/2 bg-gradient-to-r from-transparent via-blue-400/20 to-transparent skew-x-[-20deg] animate-shimmer-slow"></div>
+                            <DollarSign className="w-6 h-6 text-blue-300 relative z-10 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]" />
+                          </div>
                         </div>
                         <span className="text-blue-200 text-sm font-medium">Maximize Savings</span>
                       </div>
-                      <div className="flex flex-col items-center">
-                        <div className="p-2 bg-blue-900/50 rounded-full border border-blue-500/40 shadow-[0_0_10px_rgba(59,130,246,0.3)] mb-2">
-                          <CalendarDays className="w-6 h-6 text-blue-300" />
+                      
+                      <div className="flex flex-col items-center group">
+                        <div className="relative p-3 mb-3">
+                          <div className="absolute -inset-1 bg-blue-500/20 rounded-full blur-md opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
+                          <div className="relative h-12 w-12 flex items-center justify-center bg-gradient-to-br from-blue-800 to-blue-900 rounded-full border border-blue-400/30 shadow-[0_0_15px_rgba(59,130,246,0.3)]">
+                            <div className="absolute inset-0.5 bg-gradient-to-br from-blue-700 to-blue-800 rounded-full opacity-50"></div>
+                            <div className="absolute h-full w-1/2 bg-gradient-to-r from-transparent via-blue-400/20 to-transparent skew-x-[-20deg] animate-shimmer-slow" style={{ animationDelay: '0.3s' }}></div>
+                            <CalendarDays className="w-6 h-6 text-blue-300 relative z-10 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]" />
+                          </div>
                         </div>
                         <span className="text-blue-200 text-sm font-medium">Extend Lifespan</span>
                       </div>
-                      <div className="flex flex-col items-center">
-                        <div className="p-2 bg-blue-900/50 rounded-full border border-blue-500/40 shadow-[0_0_10px_rgba(59,130,246,0.3)] mb-2">
-                          <TrendingUp className="w-6 h-6 text-blue-300" />
+                      
+                      <div className="flex flex-col items-center group">
+                        <div className="relative p-3 mb-3">
+                          <div className="absolute -inset-1 bg-blue-500/20 rounded-full blur-md opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
+                          <div className="relative h-12 w-12 flex items-center justify-center bg-gradient-to-br from-blue-800 to-blue-900 rounded-full border border-blue-400/30 shadow-[0_0_15px_rgba(59,130,246,0.3)]">
+                            <div className="absolute inset-0.5 bg-gradient-to-br from-blue-700 to-blue-800 rounded-full opacity-50"></div>
+                            <div className="absolute h-full w-1/2 bg-gradient-to-r from-transparent via-blue-400/20 to-transparent skew-x-[-20deg] animate-shimmer-slow" style={{ animationDelay: '0.6s' }}></div>
+                            <TrendingUp className="w-6 h-6 text-blue-300 relative z-10 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]" />
+                          </div>
                         </div>
                         <span className="text-blue-200 text-sm font-medium">Increase Value</span>
                       </div>
                     </div>
                   </div>
                   
-                  {/* Enhanced accented bottom area */}
+                  {/* Enhanced accented bottom area with more depth */}
                   <div className="absolute bottom-0 left-0 right-0 flex flex-col items-center">
                     <div className="h-1 w-full bg-gradient-to-r from-transparent via-blue-500/70 to-transparent"></div>
                     <div className="h-0.5 w-3/4 mt-0.5 bg-gradient-to-r from-transparent via-blue-400/50 to-transparent"></div>
