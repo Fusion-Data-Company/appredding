@@ -1346,47 +1346,49 @@ const MobileHome = () => {
                         </div>
                       </div>
                       
-                      {/* Enhanced white ambient glow with elite enterprise styling */}
+                      {/* Purple ambient glow button like registration form */}
                       <div className="relative mt-6">
-                        {/* Layered white ambient glow effect */}
-                        <div className="absolute -inset-1 bg-gradient-to-r from-white/80 via-white/90 to-white/80 rounded-lg blur-md opacity-80 group-hover:opacity-100 transition duration-200"></div>
-                        <div className="absolute -inset-2 bg-white/40 rounded-lg blur-xl opacity-60 group-hover:opacity-80 transition duration-300 animate-pulse-slow"></div>
-                        <div className="absolute -inset-3 bg-white/20 rounded-lg blur-2xl opacity-50 group-hover:opacity-70 transition duration-300"></div>
-                        
-                        {/* Enterprise elite button container with glass effects */}
-                        <div className="relative overflow-hidden rounded-lg">
-                          {/* Glass shimmer animation layers */}
-                          <div className="absolute inset-0 z-10 overflow-hidden pointer-events-none">
-                            <div className="h-full w-1/2 bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-[-20deg] animate-shimmer-slow absolute"></div>
-                            <div className="h-full w-1/3 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[-20deg] animate-shimmer-slow absolute" style={{ animationDelay: '0.5s' }}></div>
-                          </div>
-                          
-                          {/* Crystalline edge highlights */}
-                          <div className="absolute top-0 left-0 w-full h-full rounded-lg overflow-hidden pointer-events-none z-20">
-                            <div className="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-white/60 rounded-tl-lg"></div>
-                            <div className="absolute top-0 right-0 w-12 h-12 border-t-2 border-r-2 border-white/60 rounded-tr-lg"></div>
-                            <div className="absolute bottom-0 left-0 w-12 h-12 border-b-2 border-l-2 border-white/60 rounded-bl-lg"></div>
-                            <div className="absolute bottom-0 right-0 w-12 h-12 border-b-2 border-r-2 border-white/60 rounded-br-lg"></div>
-                            
-                            {/* Corner glow dots */}
-                            <div className="absolute top-0 left-0 w-2 h-2 bg-white/80 rounded-full blur-[1px]"></div>
-                            <div className="absolute top-0 right-0 w-2 h-2 bg-white/80 rounded-full blur-[1px]"></div>
-                            <div className="absolute bottom-0 left-0 w-2 h-2 bg-white/80 rounded-full blur-[1px]"></div>
-                            <div className="absolute bottom-0 right-0 w-2 h-2 bg-white/80 rounded-full blur-[1px]"></div>
-                          </div>
-                          
-                          <PremiumFireButton 
-                            className="w-full transform hover:scale-105 transition-transform duration-300 relative z-30"
-                            size="lg"
-                            glowEffect={true}
-                            onClick={() => calculateROI()}
-                          >
-                            <span className="flex items-center justify-center">
-                              <Calculator className="w-5 h-5 mr-2" />
-                              Calculate My ROI
-                            </span>
-                          </PremiumFireButton>
+                        {/* Outer ambient glow */}
+                        <div className="absolute -inset-[25px] rounded-3xl opacity-70 transition-opacity duration-500 -z-10 group-hover:opacity-90"
+                          style={{ 
+                            background: 'radial-gradient(circle, rgba(138,43,226,0.25) 0%, rgba(59,130,246,0.15) 40%, rgba(0,0,0,0.05) 70%)',
+                            filter: 'blur(25px)'
+                          }}>
                         </div>
+                        
+                        {/* Secondary inner glow for depth */}
+                        <div className="absolute -inset-[15px] rounded-2xl opacity-60 transition-opacity duration-500 -z-[5] group-hover:opacity-80"
+                          style={{ 
+                            background: 'radial-gradient(circle, rgba(124,58,237,0.3) 0%, rgba(79,70,229,0.15) 60%, rgba(0,0,0,0) 80%)',
+                            filter: 'blur(15px)'
+                          }}>
+                        </div>
+                        
+                        {/* Black button with glass effect */}
+                        <button 
+                          onClick={() => calculateROI()}
+                          className="relative px-8 py-3 rounded-xl text-white font-medium text-lg transition-all duration-300 hover:scale-105 group z-10 w-full"
+                        >
+                          {/* Button background with glass effect */}
+                          <div className="absolute inset-0 bg-gradient-to-r from-gray-950/95 via-black to-gray-950/95 rounded-xl -z-[1] backdrop-blur-sm"></div>
+                          
+                          {/* Thin border/edge highlight */}
+                          <div className="absolute inset-0 rounded-xl border border-purple-500/50 -z-[1]"></div>
+                          
+                          {/* Top edge highlight */}
+                          <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-purple-300/40 to-transparent rounded-full -z-[1]"></div>
+                          
+                          {/* Diagonal shimmer effect */}
+                          <div className="absolute inset-0 w-full h-full overflow-hidden rounded-xl -z-[1]">
+                            <div className="absolute inset-0 w-[120%] h-[200%] bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-70 -translate-x-full animate-shimmer-slow transform skew-x-[-20deg]"></div>
+                          </div>
+                          
+                          {/* Button text */}
+                          <span className="relative z-10 flex items-center justify-center drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
+                            <Calculator className="w-5 h-5 mr-2" />
+                            Calculate My ROI
+                          </span>
+                        </button>
                       </div>
                     </div>
                     
