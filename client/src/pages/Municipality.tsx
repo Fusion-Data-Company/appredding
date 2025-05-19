@@ -38,6 +38,7 @@ import {
   PlayCircle,
   Download,
   FileText,
+  FileCheck,
   CalendarCheck,
   DollarSign,
   Percent,
@@ -524,7 +525,7 @@ export default function Municipality() {
                   
                   <div className="flex items-start space-x-4">
                     <div className="min-w-12 h-12 flex items-center justify-center rounded-full bg-green-900/30 border border-green-700/30">
-                      <FileCheck className="h-6 w-6 text-green-400" />
+                      <FileText className="h-6 w-6 text-green-400" />
                     </div>
                     <div>
                       <h3 className="text-xl font-bold text-green-300 mb-2">Grant Qualification</h3>

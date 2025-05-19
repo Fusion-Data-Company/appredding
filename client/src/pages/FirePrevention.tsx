@@ -406,8 +406,8 @@ const FirePrevention = () => {
                     
                     {/* Premium content with enhanced typography */}
                     <div className="relative z-10 p-6">
-                      <div className="text-4xl font-bold bg-gradient-to-br from-red-300 to-red-500 bg-clip-text text-transparent mb-2">72,400+</div>
-                      <div className="text-gray-300 group-hover:text-gray-200 transition-colors duration-300">Structures destroyed by wildfires in the last decade, including the Paradise Fire that wiped out nearly an entire town in minutes</div>
+                      <div className="text-4xl font-bold bg-gradient-to-br from-red-300 to-red-500 bg-clip-text text-transparent mb-2">14</div>
+                      <div className="text-gray-300 group-hover:text-gray-200 transition-colors duration-300">Destructive wildfires affected the Los Angeles metropolitan area in January 2025, destroying homes and forcing thousands to evacuate</div>
                     </div>
                   </div>
                   
