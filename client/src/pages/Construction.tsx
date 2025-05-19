@@ -1012,7 +1012,7 @@ const Construction = () => {
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                               {/* Company Information */}
                               <div>
-                                <h3 className="text-lg font-medium text-purple-200 border-b border-purple-800/30 pb-2 mb-4">Company Information</h3>
+                                <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-indigo-300 border-b border-purple-800/30 pb-2 mb-4" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.8)" }}>Company Information</h3>
                                 <div className="space-y-4">
                                   <FormField
                                     control={form.control}
@@ -1132,7 +1132,7 @@ const Construction = () => {
                         <div className="absolute -inset-px bg-gradient-to-r from-purple-600/20 via-transparent to-purple-600/20 rounded-xl opacity-70 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
                         
                         <div className="relative">
-                          <h3 className="text-xl text-center font-semibold text-white mb-6">Join Our Industry-Leading Network</h3>
+                          <h3 className="text-xl text-center font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-indigo-300 mb-6" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.8)" }}>Join Our Industry-Leading Network</h3>
                           
                           <div className="text-center mt-6">
                             <PremiumCartButton 
