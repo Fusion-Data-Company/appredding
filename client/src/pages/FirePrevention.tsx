@@ -12,7 +12,7 @@ import {
   FormLabel,
   FormMessage
 } from "@/components/ui/form";
-import { CheckCircle, Shield, Home, Map, ChevronRight, FileCheck, Zap, CircleDollarSign, BarChart3, Calculator, Flame, ShieldCheck, Award, AlertTriangle, Building, TrendingUp } from "lucide-react";
+import { CheckCircle, Shield, Home, Map, ChevronRight, FileCheck, Zap, CircleDollarSign, BarChart3, Calculator, Flame, ShieldCheck, Award, AlertTriangle, Building, TrendingUp, Droplet, ClipboardList, Layers, Clock } from "lucide-react";
 import { insertFirePreventionHomeownerSchema } from "@shared/schema";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -530,7 +530,7 @@ const FirePrevention = () => {
                   
                   <div className="flex items-start space-x-4">
                     <div className="min-w-12 h-12 flex items-center justify-center rounded-full bg-blue-900/30 border border-blue-700/30">
-                      <DropletIcon className="h-6 w-6 text-blue-400" />
+                      <Shield className="h-6 w-6 text-blue-400" />
                     </div>
                     <div>
                       <h3 className="text-xl font-bold text-blue-300 mb-2">Ember Penetration Prevention</h3>
@@ -551,7 +551,7 @@ const FirePrevention = () => {
                 <div className="space-y-6">
                   <div className="flex items-start space-x-4">
                     <div className="min-w-12 h-12 flex items-center justify-center rounded-full bg-orange-900/30 border border-orange-700/30">
-                      <ClipboardCheck className="h-6 w-6 text-orange-400" />
+                      <FileCheck className="h-6 w-6 text-orange-400" />
                     </div>
                     <div>
                       <h3 className="text-xl font-bold text-orange-300 mb-2">Professional WUI Assessment</h3>
@@ -563,7 +563,7 @@ const FirePrevention = () => {
                   
                   <div className="flex items-start space-x-4">
                     <div className="min-w-12 h-12 flex items-center justify-center rounded-full bg-orange-900/30 border border-orange-700/30">
-                      <Layers className="h-6 w-6 text-orange-400" />
+                      <Flame className="h-6 w-6 text-orange-400" />
                     </div>
                     <div>
                       <h3 className="text-xl font-bold text-orange-300 mb-2">Multi-Layer Application</h3>
@@ -580,7 +580,12 @@ const FirePrevention = () => {
                     <div>
                       <h3 className="text-xl font-bold text-orange-300 mb-2">Certification & Documentation</h3>
                       <p className="text-gray-300">
-                        Upon completion, property owners receive NWUI (National Wildland Urban Interface) certification documentation for insurance providers, often qualifying for premium reductions.
+                        Upon completion, property owners receive detailed application documentation and certification that may be eligible for insurance programs. Check with your specific insurance provider about their wildfire mitigation discount policies.
+                      </p>
+                      <p className="text-sm text-gray-400 mt-2">
+                        <a href="/insurance-resources" className="text-blue-400 hover:text-blue-300 transition-colors">
+                          View state-by-state insurance resource guide →
+                        </a>
                       </p>
                     </div>
                   </div>
