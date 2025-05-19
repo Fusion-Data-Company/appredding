@@ -33,12 +33,43 @@ const FirePrevention = () => {
   const [consultationRequestSuccess, setConsultationRequestSuccess] = useState(false);
   const { toast } = useToast();
   
-  // Hero image path for preloading
-  const heroImagePath = "/src/assets_dir/images/fire-prevention-hero.png";
+  // Define industry-specific data for SEO
+  const industry = "Fire Prevention";
+  const slug = "fire-prevention";
+  const pageTitle = "Praetorian Smart-Coat – Fire Prevention Solutions";
+  const pageDescription = "Advanced fireproof coatings to protect your home and property from wildfires and fire damage.";
+  const heroImagePath = "/src/assets_dir/images/optimized/praetorian-background-new.png";
   
-  // Preload critical hero image
+  // Generate industry-specific keywords
+  const keywords = [
+    'wildfire protection',
+    'fire resistant paint',
+    'property fire protection',
+    'fireproof house coating',
+    'ceramic fire barrier'
+  ];
+  
+  // Generate structured data for search engines
+  const structuredData = generateStructuredData(
+    industry,
+    pageDescription,
+    slug,
+    [
+      "High-performance ceramic-based coating",
+      "Fire-resistant up to 2000°F",
+      "Protects property from wildfire damage",
+      "Extends evacuation time during fires",
+      "UL-rated fire protection"
+    ]
+  );
+  
+  // Preload critical images for performance
   useEffect(() => {
-    preloadCriticalImage(heroImagePath);
+    preloadCriticalImages([
+      heroImagePath,
+      "/images/fire-prevention-thumb.webp",
+      "/src/assets_dir/images/optimized/fire-water-hands-poster.webp"
+    ]);
   }, []);
   
   // Setup form for fire protection consultation
