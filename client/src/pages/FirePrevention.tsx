@@ -311,10 +311,10 @@ const FirePrevention = () => {
                     {/* Premium enterprise title with layered effects */}
                     <div className="mb-8">
                       <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-white">
-                        Praetorian Fire Prevention Technology
+                        Wildfires Will Happen – Will Your Property Survive?
                       </h1>
                       <p className="text-xl text-blue-200/90 max-w-3xl mx-auto">
-                        Class-A fire protection with advanced ceramic coating technology that prevents ignition and slows fire spread by up to 1200%
+                        In the fire-prone regions of the West, a single ember can wipe out an entire neighborhood in minutes. Praetorian Smart-Coat is the fireproof paint and thermal barrier coating engineered to turn homes into wildfire fortresses. This NASA-derived, non-flammable ceramic insulation shields your structure from extreme flames and blistering heat simultaneously.
                       </p>
                     </div>
                     
