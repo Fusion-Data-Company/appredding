@@ -133,25 +133,16 @@ const FirePrevention = () => {
 
   return (
     <MainLayout fullWidth={true}>
-      <Helmet>
-        <title>Praetorian Smart-Coat – Fire Prevention</title>
-        <meta name="description" content="Fireproof, insulating ceramic paint for wildfire defense. Protect your property from extreme heat and direct flame with our NASA-derived thermal barrier." />
-        
-        {/* Open Graph / Facebook */}
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="Praetorian Smart-Coat – Fire Prevention" />
-        <meta property="og:description" content="Fireproof, insulating ceramic paint for wildfire defense. Guard what matters." />
-        <meta property="og:image" content="/images/og-fire-prevention.jpg" />
-        
-        {/* Twitter */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Praetorian Smart-Coat – Fire Prevention" />
-        <meta name="twitter:description" content="Fireproof, insulating ceramic paint for wildfire defense. Guard what matters." />
-        <meta name="twitter:image" content="/images/og-fire-prevention.jpg" />
-        
-        {/* Preload critical hero image */}
-        <link rel="preload" as="image" href={heroImagePath} />
-      </Helmet>
+      {/* Enhanced SEO Head with structured data and improved metadata */}
+      <SEOHead
+        title={pageTitle}
+        description={pageDescription}
+        industry={industry}
+        slug={slug}
+        imagePath={heroImagePath}
+        keywords={keywords}
+        structuredData={structuredData}
+      />
       
       <div className="relative">
         {/* Advanced premium gradient background with layered effects */}
