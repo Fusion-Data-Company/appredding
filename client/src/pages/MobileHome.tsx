@@ -1196,62 +1196,7 @@ const MobileHome = () => {
                           <div className="h-full w-1/3 bg-gradient-to-r from-transparent via-green-400/10 to-transparent skew-x-[-20deg] animate-shimmer-slow"></div>
                         </div>
                         
-                        <h4 className="text-lg font-semibold mb-3 flex items-center relative z-10">
-                          <span className="relative mr-3 flex-shrink-0">
-                            <span className="absolute -inset-1 bg-green-500/30 rounded-full blur-sm"></span>
-                            <div className="relative h-6 w-6 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center shadow-[0_0_10px_rgba(74,222,128,0.5)]">
-                              <CheckCircle className="h-4 w-4 text-white" />
-                            </div>
-                          </span>
-                          <span className="bg-gradient-to-r from-white via-green-100 to-white bg-clip-text text-transparent">Praetorian Mobile Home Solutions</span>
-                        </h4>
-                      
-                        <ul className="space-y-4 relative z-10">
-                          <li className="flex items-start group">
-                            <div className="relative flex-shrink-0 mr-3">
-                              <div className="absolute -inset-1 bg-green-500/30 rounded-full blur-sm opacity-70 group-hover:opacity-100 transition duration-300"></div>
-                              <div className="relative w-7 h-7 bg-gradient-to-br from-green-700 to-green-500 rounded-full flex items-center justify-center shadow-[0_0_10px_rgba(74,222,128,0.4)]">
-                                <span className="text-white text-xs font-bold">1</span>
-                              </div>
-                            </div>
-                            <span className="text-gray-200 pt-0.5">
-                              <span className="font-semibold text-white">Reduces internal temperature by 15-28°F</span> - Creates immediate comfort improvements and energy savings
-                            </span>
-                          </li>
-                          <li className="flex items-start group">
-                            <div className="relative flex-shrink-0 mr-3">
-                              <div className="absolute -inset-1 bg-green-500/30 rounded-full blur-sm opacity-70 group-hover:opacity-100 transition duration-300"></div>
-                              <div className="relative w-7 h-7 bg-gradient-to-br from-green-700 to-green-500 rounded-full flex items-center justify-center shadow-[0_0_10px_rgba(74,222,128,0.4)]">
-                                <span className="text-white text-xs font-bold">2</span>
-                              </div>
-                            </div>
-                            <span className="text-gray-200 pt-0.5">
-                              <span className="font-semibold text-white">25+ year roof protection</span> - One application extends roof life by 2-3× with documented performance
-                            </span>
-                          </li>
-                          <li className="flex items-start group">
-                            <div className="relative flex-shrink-0 mr-3">
-                              <div className="absolute -inset-1 bg-green-500/30 rounded-full blur-sm opacity-70 group-hover:opacity-100 transition duration-300"></div>
-                              <div className="relative w-7 h-7 bg-gradient-to-br from-green-700 to-green-500 rounded-full flex items-center justify-center shadow-[0_0_10px_rgba(74,222,128,0.4)]">
-                                <span className="text-white text-xs font-bold">3</span>
-                              </div>
-                            </div>
-                            <span className="text-gray-200 pt-0.5">
-                              <span className="font-semibold text-white">Utility reduction of 20-45%</span> - Average monthly savings of $85-140 on cooling/heating expenses
-                            </span>
-                          </li>
-                          <li className="flex items-start group">
-                            <div className="relative flex-shrink-0 mr-3">
-                              <div className="absolute -inset-1 bg-green-500/30 rounded-full blur-sm opacity-70 group-hover:opacity-100 transition duration-300"></div>
-                              <div className="relative w-7 h-7 bg-gradient-to-br from-green-700 to-green-500 rounded-full flex items-center justify-center shadow-[0_0_10px_rgba(74,222,128,0.4)]">
-                                <span className="text-white text-xs font-bold">4</span>
-                              </div>
-                            </div>
-                            <span className="text-gray-200 pt-0.5">
-                              <span className="font-semibold text-white">Increases property value by 5-12%</span> - Documented value retention improvement with professional certification
-                            </span>
-                          </li>
-                        </ul>
+                        {/* Form inputs */}
                       </div>
                     </div>
                   </div>
