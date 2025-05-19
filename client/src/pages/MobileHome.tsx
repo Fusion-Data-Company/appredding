@@ -2194,17 +2194,38 @@ const MobileHome = () => {
                     {/* Enhanced inner content glow */}
                     <div className="absolute inset-0 bg-gradient-to-br from-purple-600/5 to-blue-600/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-[1]"></div>
                     
-                    {/* Button text with enhanced styling */}
+                    {/* Highly Enhanced Button Text with Premium Icon and Text Effects */}
                     <span className="relative z-10 flex items-center justify-center drop-shadow-[0_2px_3px_rgba(0,0,0,0.9)]">
-                      {/* Icon with glow effect */}
-                      <span className="relative mr-3">
-                        <span className="absolute -inset-1 bg-gradient-to-r from-purple-500/40 to-blue-500/40 rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                        <FileText className="w-5 h-5 relative" />
+                      {/* Premium Icon with Advanced Glow Effects */}
+                      <span className="relative mr-3 transform group-hover:scale-110 transition-transform duration-300">
+                        {/* Multi-layered icon glow effects */}
+                        <span className="absolute -inset-2 bg-purple-500/20 rounded-full blur-lg opacity-0 group-hover:opacity-70 transition-opacity duration-500"></span>
+                        <span className="absolute -inset-1.5 bg-gradient-to-r from-purple-500/40 to-blue-500/40 rounded-full blur-md opacity-0 group-hover:opacity-90 transition-opacity duration-300"></span>
+                        <span className="absolute -inset-1 bg-gradient-to-r from-purple-400/50 to-blue-400/50 rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse-slow"></span>
+                        
+                        {/* Premium Icon with Gradient Fill */}
+                        <span className="relative flex">
+                          <FileText className="h-6 w-6 text-transparent bg-clip-text bg-gradient-to-br from-white via-blue-200 to-purple-100 filter drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]" />
+                          
+                          {/* Subtle icon shine effect */}
+                          <span className="absolute inset-0 flex items-center justify-center">
+                            <span className="absolute top-0 left-[20%] w-[60%] h-[20%] bg-white/70 rounded-full blur-[1px] opacity-0 group-hover:opacity-70 transition-opacity duration-300"></span>
+                          </span>
+                        </span>
                       </span>
                       
-                      {/* Text with subtle gradient */}
-                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-white font-semibold tracking-wide">
-                        Register for Mobile Home Services
+                      {/* Enhanced premium text with glass-like gradient and animations */}
+                      <span className="relative">
+                        {/* Text glow effect */}
+                        <span className="absolute -inset-1 -z-10 bg-gradient-to-r from-purple-500/5 to-blue-500/5 rounded-lg blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
+                        
+                        {/* Premium text with enhanced gradient */}
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-white font-semibold tracking-wide leading-tight relative inline-block transform group-hover:scale-[1.02] transition-transform duration-300">
+                          {/* Text shine line animation */}
+                          <span className="absolute inset-x-0 bottom-0 h-[1px] bg-gradient-to-r from-transparent via-blue-300/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
+                          
+                          Register for Premium Mobile Home Services
+                        </span>
                       </span>
                     </span>
                   </button>
