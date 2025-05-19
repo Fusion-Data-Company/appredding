@@ -17,7 +17,9 @@ import {
   AlertTriangle,
   ThermometerSun,
   Shield,
-  Sun
+  Sun,
+  Paintbrush as PaintBucket,
+  ArrowRight
 } from "lucide-react";
 import { GradientHeading } from "@/components/ui/gradient-heading";
 import { PremiumCartButton } from "@/utils/premium-buttons";
