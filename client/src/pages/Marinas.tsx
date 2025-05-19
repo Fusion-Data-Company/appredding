@@ -153,10 +153,13 @@ const Marinas = () => {
         {/* SANDLER STAGE 1: INTRO - BLUE GLOW SECTION */}
         <section className="relative z-10 py-16 md:py-24 overflow-hidden">
           <div className="container mx-auto">
-            {/* Enhanced ultra-premium ambient blue glow in background with multiple layers */}
+            {/* Enhanced ultra-premium ambient blue glow in background with multiple layers and advanced effects */}
             <div className="absolute -inset-10 bg-blue-800/15 rounded-full blur-[100px] opacity-90 z-0"></div>
             <div className="absolute -inset-20 bg-blue-900/10 rounded-full blur-[150px] opacity-80 z-0 animate-pulse-slow"></div>
             <div className="absolute -inset-30 bg-blue-600/5 rounded-full blur-[200px] opacity-70 z-0 animate-pulse-slow" style={{ animationDuration: '8s' }}></div>
+            <div className="absolute -inset-20 bg-gradient-to-tr from-blue-700/5 via-blue-600/2 to-blue-500/5 rounded-full blur-[180px] opacity-50 z-0 animate-pulse-slower" style={{ animationDuration: '12s' }}></div>
+            <div className="absolute top-[-20%] left-[-10%] w-[800px] h-[800px] bg-blue-500/3 rounded-full blur-[120px] z-0 animate-float-slow" style={{ animationDuration: '15s' }}></div>
+            <div className="absolute bottom-[-30%] right-[-20%] w-[1000px] h-[1000px] bg-blue-600/2 rounded-full blur-[150px] z-0 animate-float-slow-reverse" style={{ animationDuration: '18s' }}></div>
 
             {/* Premium styled title card with enhanced effects */}
             <div className="max-w-5xl mx-auto text-center mb-14 md:mb-20 relative">
