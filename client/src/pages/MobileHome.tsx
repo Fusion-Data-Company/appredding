@@ -1233,15 +1233,29 @@ const MobileHome = () => {
                   </div>
                 </div>
                 
-                {/* Testimonial with proper heading structure */}
-                <div className="relative mb-6">
-                  {/* Blue glow behind the container */}
-                  <div className="absolute -inset-2 bg-blue-500/10 rounded-xl blur-2xl opacity-50 z-0"></div>
-                  <div className="absolute -inset-4 bg-blue-500/10 rounded-xl blur-3xl opacity-40 z-0 animate-pulse-slow"></div>
+                {/* Military-Grade Technology section with enhanced ambient glow */}
+                <div className="relative mb-6 transform transition-all duration-500 hover:scale-[1.01]">
+                  {/* Enhanced multi-layered ambient glow effects */}
+                  <div className="absolute -inset-2 bg-gradient-to-r from-blue-500/20 via-blue-600/20 to-blue-500/20 rounded-xl blur-2xl opacity-60 z-0"></div>
+                  <div className="absolute -inset-4 bg-blue-500/15 rounded-xl blur-3xl opacity-50 z-0 animate-pulse-slow"></div>
+                  <div className="absolute -inset-6 bg-gradient-to-br from-blue-700/10 via-indigo-600/5 to-blue-700/10 rounded-2xl blur-3xl opacity-40 z-0 animate-pulse-slower"></div>
                   
-                  {/* Content card */}
-                  <div className="relative bg-gradient-to-br from-gray-900/90 to-gray-950/90 border border-blue-600/20 rounded-lg p-4 z-10">
-                    <h4 className="text-lg font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-blue-200 mb-2" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.8)" }}>
+                  {/* Content card with premium styling */}
+                  <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-gray-900/95 border border-blue-600/30 rounded-lg p-5 z-10 shadow-[0_10px_40px_-15px_rgba(59,130,246,0.3)]">
+                    {/* Light sweep effect */}
+                    <div className="absolute inset-0 overflow-hidden rounded-lg">
+                      <div className="absolute -inset-full w-[200px] h-full bg-gradient-to-r from-transparent via-blue-400/20 to-transparent skew-x-[-20deg] animate-light-sweep"></div>
+                    </div>
+                    
+                    {/* Corner accents */}
+                    <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none">
+                      <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-blue-500/50 rounded-tl-md"></div>
+                    </div>
+                    <div className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none">
+                      <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-blue-500/50 rounded-br-md"></div>
+                    </div>
+                    
+                    <h4 className="text-xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-blue-100 mb-2" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.8)" }}>
                       Military-Grade Technology
                     </h4>
                     <p className="text-sm text-blue-100 italic">
