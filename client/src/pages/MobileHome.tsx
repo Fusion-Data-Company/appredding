@@ -1283,10 +1283,19 @@ const MobileHome = () => {
                 {/* Enhanced Green header bar with premium enterprise styling */}
                 <div className="relative -mt-6 -mx-6 md:-mx-8 mb-8 py-5 px-6 md:px-8 bg-gradient-to-r from-green-900/90 via-green-800/95 to-green-900/90 border-b border-green-400/40 shadow-[0_10px_25px_-5px_rgba(34,197,94,0.25)]">
                   
-                  {/* Enhanced background pattern with shimmer effect */}
+                  {/* Ultra-premium background pattern with advanced shimmer effects */}
                   <div className="absolute inset-0 overflow-hidden">
-                    <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%2322c55e\' fill-opacity=\'0.1\' fill-rule=\'evenodd\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/svg%3E')] opacity-60"></div>
-                    <div className="h-full w-1/2 bg-gradient-to-r from-transparent via-green-400/15 to-transparent skew-x-[-20deg] animate-shimmer-slow absolute"></div>
+                    <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%2322c55e\' fill-opacity=\'0.1\' fill-rule=\'evenodd\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/svg%3E')] opacity-70"></div>
+                    
+                    {/* Multi-layered shimmer effects */}
+                    <div className="h-full w-1/3 bg-gradient-to-r from-transparent via-green-400/20 to-transparent skew-x-[-20deg] animate-shimmer-slow absolute"></div>
+                    <div className="h-full w-1/4 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-[-15deg] animate-shimmer-very-slow absolute" style={{ left: '40%', animationDelay: '0.7s' }}></div>
+                    
+                    {/* Horizontal light sweep */}
+                    <div className="absolute inset-y-0 w-full h-full">
+                      <div className="absolute top-[30%] h-[1px] w-full bg-gradient-to-r from-transparent via-green-400/40 to-transparent -translate-x-full animate-shimmer-slow"></div>
+                      <div className="absolute bottom-[30%] h-[1px] w-full bg-gradient-to-r from-transparent via-green-300/30 to-transparent -translate-x-full animate-shimmer-slow" style={{ animationDelay: '1.2s' }}></div>
+                    </div>
                   </div>
                   
                   {/* Corner accent elements */}
@@ -1346,13 +1355,55 @@ const MobileHome = () => {
                   <div className="absolute bottom-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
                 </div>
                 
-                <div className="text-center mb-10">
-                  <h2 className="text-3xl font-bold mb-4 text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]">
+                {/* Ultra-premium Enterprise Heading with Dynamic Effects */}
+                <div className="relative text-center mb-10 z-10">
+                  {/* Advanced multi-layered glows */}
+                  <div className="absolute -inset-6 bg-gradient-to-br from-green-600/20 via-blue-500/15 to-green-600/20 rounded-xl blur-2xl opacity-70 -z-10"></div>
+                  <div className="absolute -inset-10 bg-green-500/10 rounded-full blur-3xl opacity-60 -z-10 animate-pulse-very-slow"></div>
+                  
+                  {/* Premium Enterprise Badge */}
+                  <div className="relative mb-6 mx-auto w-auto inline-flex items-center justify-center">
+                    <div className="absolute inset-0 bg-gradient-to-r from-green-600/70 via-green-500/70 to-green-600/70 rounded-full blur-sm"></div>
+                    <div className="relative px-6 py-1.5 bg-gradient-to-br from-green-900/90 to-green-800/90 rounded-full border border-green-400/50 shadow-[0_0_15px_rgba(74,222,128,0.6)]">
+                      <div className="absolute inset-0 rounded-full overflow-hidden">
+                        <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-green-300/10 to-transparent -translate-x-full animate-shimmer-slow"></div>
+                      </div>
+                      <span className="text-green-100 font-semibold tracking-wider text-sm uppercase flex items-center justify-center">
+                        <span className="mr-1.5 h-1.5 w-1.5 rounded-full bg-green-400 shadow-[0_0_5px_rgba(74,222,128,0.8)]"></span>
+                        ADVANCED ROI TECHNOLOGY
+                        <span className="ml-1.5 h-1.5 w-1.5 rounded-full bg-green-400 shadow-[0_0_5px_rgba(74,222,128,0.8)]"></span>
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Premium 3D Heading with Advanced Effects */}
+                  <h2 className="relative text-4xl sm:text-5xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-br from-white via-green-100 to-white leading-tight tracking-tight" style={{ textShadow: "0 3px 6px rgba(0,0,0,0.5)" }}>
                     Mobile Home ROI Analysis Calculator
+                    {/* Animated bottom line */}
+                    <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-4/5 h-[2px] overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-green-500/70 to-transparent"></div>
+                      <div className="absolute inset-0 w-1/2 bg-gradient-to-r from-transparent via-white/50 to-transparent -translate-x-full animate-shimmer-slow"></div>
+                    </div>
                   </h2>
-                  <p className="text-lg text-blue-100 max-w-3xl mx-auto">
-                    See how our ceramic microsphere technology delivers superior ROI with documented savings for your specific mobile home configuration.
-                  </p>
+                  
+                  {/* Enhanced description with layered effects */}
+                  <div className="relative max-w-3xl mx-auto">
+                    <p className="text-xl text-green-100/90 leading-relaxed">
+                      Discover how Praetorian Smart-Coat technology can 
+                      <span className="relative inline-block mx-1 group">
+                        <span className="absolute -inset-1 bg-green-500/20 rounded-md blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                        <span className="relative text-white font-semibold">transform your mobile home's efficiency</span>
+                      </span>, 
+                      <span className="relative inline-block mx-1 group">
+                        <span className="absolute -inset-1 bg-green-500/20 rounded-md blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                        <span className="relative text-white font-semibold">reduce utility costs</span>
+                      </span>, and 
+                      <span className="relative inline-block mx-1 group">
+                        <span className="absolute -inset-1 bg-green-500/20 rounded-md blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                        <span className="relative text-white font-semibold">increase property value</span>
+                      </span> with our advanced ROI calculator.
+                    </p>
+                  </div>
                 </div>
                 
                 <div className="grid md:grid-cols-2 gap-8">
