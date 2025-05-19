@@ -1558,11 +1558,80 @@ const MobileHome = () => {
                   <div className="absolute bottom-0 right-0 w-32 h-32 border-b-4 border-r-4 border-orange-500/40 rounded-br-lg"></div>
                 </div>
                 
-                <div className="relative z-10 text-center mb-10">
-                  <h2 className="text-3xl font-bold mb-4 text-white">Ceramic Technology Applications</h2>
-                  <p className="text-lg text-blue-100 max-w-3xl mx-auto">
-                    Our ceramic microsphere technology offers specialized solutions for all mobile home components, providing complete protection from extreme elements
-                  </p>
+                {/* Premium Enterprise Header with Advanced Effects */}
+                <div className="relative z-10 text-center mb-12 px-4">
+                  {/* Advanced Text Glow Container */}
+                  <div className="relative inline-block">
+                    {/* Multi-layered header glow effects */}
+                    <div className="absolute -inset-2 bg-blue-500/20 rounded-full blur-xl opacity-80"></div>
+                    <div className="absolute -inset-4 bg-blue-600/10 rounded-full blur-2xl opacity-60 animate-pulse-slow"></div>
+                    <div className="absolute -inset-8 bg-gradient-to-r from-blue-700/10 via-purple-600/5 to-blue-700/10 rounded-full blur-3xl opacity-70"></div>
+                    
+                    {/* Premium Enterprise Badge */}
+                    <div className="relative mb-6 mx-auto w-auto inline-flex items-center justify-center">
+                      <div className="absolute inset-0 bg-gradient-to-r from-blue-600/80 via-blue-500/80 to-blue-600/80 rounded-full blur-sm"></div>
+                      <div className="relative px-6 py-1.5 bg-gradient-to-r from-blue-900/90 to-blue-800/90 rounded-full border border-blue-400/50 shadow-[0_0_15px_rgba(59,130,246,0.6)]">
+                        <div className="absolute inset-0 rounded-full overflow-hidden">
+                          <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-blue-300/10 to-transparent -translate-x-full animate-shimmer-slow"></div>
+                        </div>
+                        <span className="text-blue-100 font-semibold tracking-wider text-sm uppercase flex items-center justify-center">
+                          <span className="mr-1.5 h-1.5 w-1.5 rounded-full bg-blue-400 shadow-[0_0_5px_rgba(96,165,250,0.8)]"></span>
+                          Enterprise Technology
+                          <span className="ml-1.5 h-1.5 w-1.5 rounded-full bg-blue-400 shadow-[0_0_5px_rgba(96,165,250,0.8)]"></span>
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Premium 3D Heading with Advanced Effects */}
+                    <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-br from-white via-blue-100 to-white leading-tight tracking-tight relative">
+                      Ceramic Technology Applications
+                      <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-4/5 h-[2px] bg-gradient-to-r from-transparent via-blue-500 to-transparent"></div>
+                    </h2>
+                  </div>
+                  
+                  {/* Enhanced description with layered effects */}
+                  <div className="relative max-w-4xl mx-auto">
+                    <p className="text-xl text-blue-100/90 leading-relaxed font-light">
+                      Our <span className="text-white font-medium">ceramic microsphere technology</span> offers specialized 
+                      <span className="relative inline-block mx-1 group">
+                        <span className="absolute -inset-1 bg-blue-500/20 rounded-md blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                        <span className="relative text-white font-semibold">enterprise-grade solutions</span>
+                      </span> 
+                      for all mobile home components, providing
+                      <span className="relative inline-block mx-1 group">
+                        <span className="absolute -inset-1 bg-blue-500/20 rounded-md blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                        <span className="relative text-white font-semibold">complete protection</span>
+                      </span> 
+                      from extreme elements with industry-leading performance metrics
+                    </p>
+                    
+                    {/* Visual divider with animation */}
+                    <div className="flex justify-center mt-8 mb-2">
+                      <div className="w-24 h-[2px] bg-gradient-to-r from-transparent via-blue-500 to-transparent relative overflow-hidden">
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-300 to-transparent -translate-x-full animate-shimmer"></div>
+                      </div>
+                    </div>
+                    
+                    {/* Enterprise capability tags */}
+                    <div className="flex flex-wrap justify-center gap-2 mt-4">
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-900/40 text-blue-200 border border-blue-500/30">
+                        <span className="mr-1 bg-blue-500/70 h-1.5 w-1.5 rounded-full"></span>
+                        Military-Grade Protection
+                      </span>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-900/40 text-blue-200 border border-blue-500/30">
+                        <span className="mr-1 bg-blue-500/70 h-1.5 w-1.5 rounded-full"></span>
+                        NASA-Developed Technology
+                      </span>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-900/40 text-blue-200 border border-blue-500/30">
+                        <span className="mr-1 bg-blue-500/70 h-1.5 w-1.5 rounded-full"></span>
+                        Advanced Thermal Barrier
+                      </span>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-900/40 text-blue-200 border border-blue-500/30">
+                        <span className="mr-1 bg-blue-500/70 h-1.5 w-1.5 rounded-full"></span>
+                        25+ Year Performance
+                      </span>
+                    </div>
+                  </div>
                 </div>
                 
                 <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-8">
