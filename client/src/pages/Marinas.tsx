@@ -35,7 +35,10 @@ import {
   BuildingIcon,
   Zap,
   CircleDollarSign,
-  BarChart3
+  BarChart3,
+  Shield,
+  Droplet,
+  LayoutList as Workflow
 } from "lucide-react";
 import { insertMarinaProfessionalSchema } from "@shared/schema";
 import { useForm } from "react-hook-form";
