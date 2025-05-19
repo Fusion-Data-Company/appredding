@@ -390,7 +390,7 @@ const FirePrevention = () => {
                     {/* Premium content with enhanced typography */}
                     <div className="relative z-10 p-6">
                       <div className="text-4xl font-bold bg-gradient-to-br from-red-300 to-red-500 bg-clip-text text-transparent mb-2">$25.4B</div>
-                      <div className="text-gray-300 group-hover:text-gray-200 transition-colors duration-300">Annual wildfire damage costs in the United States</div>
+                      <div className="text-gray-300 group-hover:text-gray-200 transition-colors duration-300">Annual wildfire damage costs in the United States, with billions in property losses that could have been prevented</div>
                     </div>
                   </div>
                   
@@ -407,7 +407,7 @@ const FirePrevention = () => {
                     {/* Premium content with enhanced typography */}
                     <div className="relative z-10 p-6">
                       <div className="text-4xl font-bold bg-gradient-to-br from-red-300 to-red-500 bg-clip-text text-transparent mb-2">72,400+</div>
-                      <div className="text-gray-300 group-hover:text-gray-200 transition-colors duration-300">Structures destroyed by wildfires in the last decade</div>
+                      <div className="text-gray-300 group-hover:text-gray-200 transition-colors duration-300">Structures destroyed by wildfires in the last decade, including the Paradise Fire that wiped out nearly an entire town in minutes</div>
                     </div>
                   </div>
                   
@@ -424,7 +424,7 @@ const FirePrevention = () => {
                     {/* Premium content with enhanced typography */}
                     <div className="relative z-10 p-6">
                       <div className="text-4xl font-bold bg-gradient-to-br from-red-300 to-red-500 bg-clip-text text-transparent mb-2">96%</div>
-                      <div className="text-gray-300 group-hover:text-gray-200 transition-colors duration-300">Of homes with standard protection fail in wildfires</div>
+                      <div className="text-gray-300 group-hover:text-gray-200 transition-colors duration-300">Of homes with standard protection fail in wildfires, leaving families with catastrophic losses and devastating emotional trauma</div>
                     </div>
                   </div>
                 </div>
@@ -439,23 +439,27 @@ const FirePrevention = () => {
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div className="bg-black/40 p-4 rounded-lg">
-                        <h4 className="font-medium text-red-300 mb-2">Perfect Storm Conditions</h4>
+                        <h4 className="font-medium text-red-300 mb-2">Paradise Fire: Perfect Storm Conditions</h4>
                         <ul className="space-y-2 text-sm text-gray-400">
                           <li className="flex items-start gap-2">
                             <span className="text-red-400 text-lg leading-5">•</span>
-                            <span>Record-breaking 109°F temperatures</span>
+                            <span>Record-breaking 109°F temperatures during the deadly 2018 Paradise Fire</span>
                           </li>
                           <li className="flex items-start gap-2">
                             <span className="text-red-400 text-lg leading-5">•</span>
-                            <span>Extreme drought conditions (5-year duration)</span>
+                            <span>Extreme drought conditions (5-year duration) turned vegetation into explosive fuel</span>
                           </li>
                           <li className="flex items-start gap-2">
                             <span className="text-red-400 text-lg leading-5">•</span>
-                            <span>Hurricane-force Santa Ana winds (up to 100 mph)</span>
+                            <span>Hurricane-force winds (up to 100 mph) drove flames at unprecedented speed</span>
                           </li>
                           <li className="flex items-start gap-2">
                             <span className="text-red-400 text-lg leading-5">•</span>
-                            <span>Buildup of vegetation from the previous winter</span>
+                            <span>85 people lost their lives; many died attempting evacuation</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-red-400 text-lg leading-5">•</span>
+                            <span>18,804 structures destroyed in just a few hours</span>
                           </li>
                         </ul>
                       </div>
