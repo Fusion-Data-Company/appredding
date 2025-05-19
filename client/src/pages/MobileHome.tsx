@@ -38,6 +38,7 @@ import {
   BarChart2,
   Thermometer as ThermometerIcon,
   Award,
+  Info as InfoIcon,
   FileText,
   Download,
   TrendingUp,
