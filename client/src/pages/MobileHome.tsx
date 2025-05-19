@@ -854,9 +854,9 @@ const MobileHome = () => {
             {/* Benefits and Application Process grid */}
             <div className="grid md:grid-cols-2 gap-12 mb-16">
               {/* Benefits Card */}
-              <div className="relative">
+              <div className="relative h-full">
                 <div className="absolute -inset-1 bg-gradient-to-r from-orange-500/20 via-blue-500/20 to-orange-500/20 rounded-xl blur-xl opacity-70"></div>
-                <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black rounded-xl border border-gray-800 shadow-[0_0_60px_rgba(59,130,246,0.3)] p-8 overflow-hidden">
+                <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black rounded-xl border border-gray-800 shadow-[0_0_60px_rgba(59,130,246,0.3)] p-8 overflow-hidden h-full flex flex-col">
                   {/* Premium enterprise background effects */}
                   <div className="absolute inset-0 overflow-hidden pointer-events-none">
                     <div className="absolute top-0 left-0 right-0 h-[40%] bg-gradient-to-br from-blue-600/10 to-transparent rounded-t-xl opacity-50"></div>
@@ -972,9 +972,9 @@ const MobileHome = () => {
               </div>
               
               {/* Application Process Card */}
-              <div className="relative">
+              <div className="relative h-full">
                 <div className="absolute -inset-1 bg-gradient-to-r from-orange-500/20 via-blue-500/20 to-orange-500/20 rounded-xl blur-xl opacity-70"></div>
-                <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black rounded-xl border border-gray-800 shadow-[0_0_60px_rgba(59,130,246,0.3)] p-8 overflow-hidden">
+                <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black rounded-xl border border-gray-800 shadow-[0_0_60px_rgba(59,130,246,0.3)] p-8 overflow-hidden h-full flex flex-col">
                   {/* Premium enterprise background effects */}
                   <div className="absolute inset-0 overflow-hidden pointer-events-none">
                     <div className="absolute top-0 left-0 right-0 h-[40%] bg-gradient-to-br from-orange-600/10 to-transparent rounded-t-xl opacity-50"></div>
