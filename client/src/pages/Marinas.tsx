@@ -502,6 +502,103 @@ const Marinas = () => {
           </div>
         </section>
 
+        {/* Informational Section: Marine Protection Technology */}
+        <section className="relative z-10 py-12 overflow-hidden bg-gradient-to-b from-gray-950 to-gray-900">
+          <div className="container mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+              {/* Left Section: Marine Protection Technology */}
+              <div className="p-6 rounded-2xl border border-cyan-800/30 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 shadow-lg">
+                <h2 className="text-3xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-300 to-cyan-500">
+                  Marine-Grade Protection
+                </h2>
+                
+                <div className="space-y-6">
+                  <div className="flex items-start space-x-4">
+                    <div className="min-w-12 h-12 flex items-center justify-center rounded-full bg-cyan-900/30 border border-cyan-700/30">
+                      <Droplet className="h-6 w-6 text-cyan-400" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-cyan-300 mb-2">Salt Water Impermeability</h3>
+                      <p className="text-gray-300">
+                        Our elastomeric ceramic formulation creates a 100% waterproof membrane that blocks salt ion penetration, preventing the electrochemical reaction that causes corrosion in marine environments.
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start space-x-4">
+                    <div className="min-w-12 h-12 flex items-center justify-center rounded-full bg-cyan-900/30 border border-cyan-700/30">
+                      <Shield className="h-6 w-6 text-cyan-400" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-cyan-300 mb-2">Anti-Fouling Properties</h3>
+                      <p className="text-gray-300">
+                        The ceramic microsphere surface creates a non-stick barrier that inhibits marine organism attachment while remaining environmentally safe - unlike traditional toxic anti-fouling paints that leach harmful chemicals.
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start space-x-4">
+                    <div className="min-w-12 h-12 flex items-center justify-center rounded-full bg-cyan-900/30 border border-cyan-700/30">
+                      <Zap className="h-6 w-6 text-cyan-400" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-cyan-300 mb-2">Electrical Safety</h3>
+                      <p className="text-gray-300">
+                        The ceramic coating provides a dielectric barrier that reduces electrical conductivity on metal surfaces, enhancing safety in wet environments and reducing electrolysis damage in saltwater.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Right Section: Application Process */}
+              <div className="p-6 rounded-2xl border border-blue-800/30 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 shadow-lg">
+                <h2 className="text-3xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-300 to-blue-500">
+                  Marine Application Process
+                </h2>
+                
+                <div className="space-y-6">
+                  <div className="flex items-start space-x-4">
+                    <div className="min-w-12 h-12 flex items-center justify-center rounded-full bg-blue-900/30 border border-blue-700/30">
+                      <FileCheck className="h-6 w-6 text-blue-400" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-blue-300 mb-2">Professional Assessment</h3>
+                      <p className="text-gray-300">
+                        Our marine specialists evaluate your facility's specific environmental conditions, traffic patterns, and structural materials to create a customized application strategy.
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start space-x-4">
+                    <div className="min-w-12 h-12 flex items-center justify-center rounded-full bg-blue-900/30 border border-blue-700/30">
+                      <Workflow className="h-6 w-6 text-blue-400" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-blue-300 mb-2">Three-Stage Process</h3>
+                      <p className="text-gray-300">
+                        Our marine application includes specialized surface preparation, a priming layer for maximum adhesion, and multiple coats of our marine-grade ceramic formulation calibrated to 16-mil thickness.
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start space-x-4">
+                    <div className="min-w-12 h-12 flex items-center justify-center rounded-full bg-blue-900/30 border border-blue-700/30">
+                      <CheckCircle className="h-6 w-6 text-blue-400" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-blue-300 mb-2">Documentation & Warranty</h3>
+                      <p className="text-gray-300">
+                        Every installation includes comprehensive application documentation and a 10-year performance warranty - the longest in the industry for marine environments.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* SANDLER STAGE 3: SOLUTION/ROI - GREEN GLOW SECTION */}
         <section className="relative z-10 py-12 overflow-hidden">
           <div className="container mx-auto mb-16">

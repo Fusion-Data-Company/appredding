@@ -406,8 +406,8 @@ const FirePrevention = () => {
                     
                     {/* Premium content with enhanced typography */}
                     <div className="relative z-10 p-6">
-                      <div className="text-4xl font-bold bg-gradient-to-br from-red-300 to-red-500 bg-clip-text text-transparent mb-2">72,400+</div>
-                      <div className="text-gray-300 group-hover:text-gray-200 transition-colors duration-300">Structures destroyed by wildfires in the last decade, including the Paradise Fire that wiped out nearly an entire town in minutes</div>
+                      <div className="text-4xl font-bold bg-gradient-to-br from-red-300 to-red-500 bg-clip-text text-transparent mb-2">18,805</div>
+                      <div className="text-gray-300 group-hover:text-gray-200 transition-colors duration-300">Structures destroyed by the 2018 Camp Fire in Paradise, CA — the most destructive wildfire in California history, destroying 95% of structures in just hours</div>
                     </div>
                   </div>
                   
@@ -482,6 +482,14 @@ const FirePrevention = () => {
                           <li className="flex items-start gap-2">
                             <span className="text-red-400 text-lg leading-5">•</span>
                             <span>In the 2018 Paradise Fire, homes with cleared vegetation still ignited due to extreme ember storms traveling miles from the main fire</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-red-400 text-lg leading-5">•</span>
+                            <span>The Paradise Camp Fire destroyed 18,805 structures in just a few hours, with 85 fatalities - proving traditional defensible space alone is inadequate</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-red-400 text-lg leading-5">•</span>
+                            <span>Studies from the Paradise Fire showed homes with non-combustible exterior surfaces were 3x more likely to survive even when directly surrounded by burning structures</span>
                           </li>
                         </ul>
                       </div>
