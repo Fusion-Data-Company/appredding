@@ -1952,24 +1952,8 @@ const MobileHome = () => {
                     onClick={handleShowRegistrationForm}
                     className="relative px-8 py-3 rounded-xl text-white font-medium text-lg transition-all duration-300 hover:scale-105 group z-10"
                   >
-                    {/* Outer ambient glow */}
-                    <div className="absolute -inset-[25px] rounded-3xl opacity-70 transition-opacity duration-500 -z-10 group-hover:opacity-90"
-                      style={{ 
-                        background: 'radial-gradient(circle, rgba(138,43,226,0.25) 0%, rgba(59,130,246,0.15) 40%, rgba(0,0,0,0.05) 70%)',
-                        filter: 'blur(25px)'
-                      }}>
-                    </div>
-                    
-                    {/* Secondary inner glow for depth */}
-                    <div className="absolute -inset-[15px] rounded-2xl opacity-60 transition-opacity duration-500 -z-[5] group-hover:opacity-80"
-                      style={{ 
-                        background: 'radial-gradient(circle, rgba(124,58,237,0.3) 0%, rgba(79,70,229,0.15) 60%, rgba(0,0,0,0) 80%)',
-                        filter: 'blur(15px)'
-                      }}>
-                    </div>
-                    
                     {/* Button background with glass effect */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-purple-700/90 via-violet-600/90 to-purple-700/90 rounded-xl -z-[1] backdrop-blur-sm"></div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-gray-950/95 via-black to-gray-950/95 rounded-xl -z-[1] backdrop-blur-sm"></div>
                     
                     {/* Thin border/edge highlight */}
                     <div className="absolute inset-0 rounded-xl border border-purple-500/50 -z-[1]"></div>
@@ -1983,7 +1967,8 @@ const MobileHome = () => {
                     </div>
                     
                     {/* Button text */}
-                    <span className="relative z-10 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
+                    <span className="relative z-10 flex items-center justify-center drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
+                      <FileText className="w-5 h-5 mr-2" />
                       Register for Mobile Home Services
                     </span>
                   </button>
