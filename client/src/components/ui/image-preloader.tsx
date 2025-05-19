@@ -10,8 +10,10 @@ interface ImagePreloaderProps {
 /**
  * Component that preloads images before rendering content
  * to prevent visual jumps during page load
+ * 
+ * Enhanced with accessibility support and lazy loading options
  */
-export function ImagePreloader({ imageUrls, children }: ImagePreloaderProps) {
+export function ImagePreloader({ imageUrls, altTexts, lazyLoadBelowFold = false, children }: ImagePreloaderProps) {
   const [imagesLoaded, setImagesLoaded] = useState(false);
   
   useEffect(() => {
@@ -23,23 +25,42 @@ export function ImagePreloader({ imageUrls, children }: ImagePreloaderProps) {
     let loadedCount = 0;
     const totalImages = imageUrls.length;
     
-    // Create image objects to track loading
-    imageUrls.forEach(url => {
+    // Identify critical (above-fold) images that need preloading
+    const criticalImages = lazyLoadBelowFold 
+      ? imageUrls.slice(0, Math.ceil(imageUrls.length * 0.5)) // Preload top 50% if lazy loading enabled
+      : imageUrls;
+    
+    // Preload critical images
+    criticalImages.forEach((url, index) => {
+      // Skip invalid URLs or empty strings
+      if (!url || url.trim() === '') {
+        loadedCount++;
+        if (loadedCount === criticalImages.length) {
+          setImagesLoaded(true);
+        }
+        return;
+      }
+      
       const img = new Image();
+      
+      // Add alt text if available
+      if (altTexts && altTexts[index]) {
+        img.alt = altTexts[index];
+      }
+      
       img.src = url;
       img.onload = () => {
         loadedCount++;
-        console.log(`Successfully preloaded image: ${url}`);
-        if (loadedCount === totalImages) {
+        if (loadedCount === criticalImages.length) {
           console.log('✅ All critical images preloaded successfully');
           setImagesLoaded(true);
         }
       };
       img.onerror = () => {
-        loadedCount++;
         console.warn(`⚠️ Failed to preload image: ${url}`);
-        if (loadedCount === totalImages) {
-          console.warn('⚠️ Some images failed to preload');
+        loadedCount++;
+        if (loadedCount === criticalImages.length) {
+          console.warn('⚠️ Some critical images failed to preload');
           setImagesLoaded(true);
         }
       };
@@ -54,7 +75,7 @@ export function ImagePreloader({ imageUrls, children }: ImagePreloaderProps) {
     }, 3000);
     
     return () => clearTimeout(timeout);
-  }, [imageUrls]);
+  }, [imageUrls, altTexts, lazyLoadBelowFold]);
 
   if (!imagesLoaded) {
     return (

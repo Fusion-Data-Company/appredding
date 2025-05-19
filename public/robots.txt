@@ -1,0 +1,11 @@
+# Robots.txt for Praetorian Smart-Coat
+User-agent: *
+Allow: /
+
+# Allow all crawlers to access most of the site
+Disallow: /admin/
+Disallow: /cart/checkout/
+Disallow: /api/
+
+# Specify sitemap location
+Sitemap: https://praetorian-smart-coat.com/sitemap.xml
