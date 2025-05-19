@@ -1024,9 +1024,9 @@ export default function Municipality() {
                   <div className="rounded-xl p-8 bg-gradient-to-br from-gray-900/90 to-purple-950/10 border border-purple-700/30 max-w-4xl mx-auto">
                     <div className="flex items-center justify-between mb-6">
                       <h3 className="text-2xl font-bold text-purple-100">Municipal Professional Registration</h3>
-                      <Badge variant="outline" className="px-3 py-1 bg-purple-900/30 text-purple-200 border-purple-700/50">
+                      <div className="px-3 py-1 bg-purple-900/30 text-purple-200 border border-purple-700/50 rounded-full text-xs font-medium">
                         Government Priority Access
-                      </Badge>
+                      </div>
                     </div>
                     
                     <Form {...form}>
