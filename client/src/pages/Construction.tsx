@@ -100,6 +100,25 @@ const Construction = () => {
 
   return (
     <MainLayout fullWidth={true}>
+      <Helmet>
+        <title>Praetorian Smart-Coat – Construction</title>
+        <meta name="description" content="Premium protective coatings for construction projects. Extend building lifespans, improve energy efficiency, and reduce maintenance costs with our ceramic barrier technology." />
+        
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Praetorian Smart-Coat – Construction" />
+        <meta property="og:description" content="Fireproof, insulating ceramic paint for construction projects. Guard what matters." />
+        <meta property="og:image" content="/images/og-construction.jpg" />
+        
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Praetorian Smart-Coat – Construction" />
+        <meta name="twitter:description" content="Fireproof, insulating ceramic paint for construction projects. Guard what matters." />
+        <meta name="twitter:image" content="/images/og-construction.jpg" />
+        
+        {/* Preload critical hero image */}
+        <link rel="preload" as="image" href={heroImagePath} />
+      </Helmet>
       <div className="relative">
         {/* Premium background */}
         <div className="fixed inset-0 z-[-5]" style={{ 

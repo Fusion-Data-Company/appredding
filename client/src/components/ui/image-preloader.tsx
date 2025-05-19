@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react';
 interface ImagePreloaderProps {
   imageUrls: string[];
   children: React.ReactNode;
+  altTexts?: string[]; // Optional array of alt texts for accessibility
+  lazyLoadBelowFold?: boolean; // Option to lazy-load non-critical images
 }
 
 /**
