@@ -712,24 +712,36 @@ const MobileHome = () => {
                   </div>
                 </div>
                 
-                {/* SANDLER STAGE 3: HIGHLIGHT BENEFITS */}
+                {/* SANDLER STAGE 3: HIGHLIGHT BENEFITS - Enhanced Premium Styling */}
                 <div className="relative mb-10">
-                  <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/20 via-blue-500/20 to-blue-600/20 rounded-xl blur-md opacity-80"></div>
+                  <div className="absolute -inset-1 bg-gradient-to-r from-orange-500/20 via-blue-500/20 to-orange-500/20 rounded-xl blur-xl opacity-70"></div>
                   
-                  <div className="relative bg-gradient-to-br from-black/70 to-gray-900/70 border border-blue-500/30 rounded-xl p-6 backdrop-blur-sm">
-                    <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-blue-200 mb-3" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.8)" }}>
-                      MEASURABLE BENEFITS
-                    </h3>
+                  <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black rounded-xl border border-gray-800 shadow-[0_0_60px_rgba(59,130,246,0.2)] p-8">
+                    {/* Corner Accents */}
+                    <div className="absolute top-0 left-0 w-full h-full rounded-lg overflow-hidden pointer-events-none">
+                      <div className="absolute top-0 left-0 w-32 h-32 border-t-4 border-l-4 border-orange-500/40 rounded-tl-lg"></div>
+                      <div className="absolute top-0 right-0 w-32 h-32 border-t-4 border-r-4 border-blue-500/30 rounded-tr-lg"></div>
+                      <div className="absolute bottom-0 left-0 w-32 h-32 border-b-4 border-l-4 border-blue-500/30 rounded-bl-lg"></div>
+                      <div className="absolute bottom-0 right-0 w-32 h-32 border-b-4 border-r-4 border-orange-500/40 rounded-br-lg"></div>
+                    </div>
                     
-                    <h2 className="text-2xl md:text-3xl text-white font-bold mb-6 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
-                      Real Results for Your Mobile Home
+                    {/* Premium Badge/Label */}
+                    <div className="absolute -top-4 left-8 px-6 py-1 bg-gradient-to-r from-blue-900/90 to-blue-700/90 rounded-full border border-blue-400/30 shadow-lg shadow-blue-900/20">
+                      <span className="text-blue-200 font-semibold">MEASURABLE BENEFITS</span>
+                    </div>
+                    
+                    <h2 className="text-3xl font-bold mb-8 text-white drop-shadow-[0_1px_3px_rgba(59,130,246,0.6)] relative z-10 mt-4">
+                      <span className="relative inline-block">
+                        Real Results for Your Mobile Home
+                        <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-48 h-[2px] bg-gradient-to-r from-transparent via-blue-500 to-transparent"></div>
+                      </span>
                     </h2>
                     
-                    <p className="text-lg text-white leading-relaxed mb-6">
+                    <p className="text-lg text-blue-100 max-w-3xl mx-auto mb-8 relative z-10">
                       When you choose Praetorian Smart-Coat for your mobile home, the benefits extend far beyond just aesthetics:
                     </p>
                     
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 relative z-10">
                       <div className="relative group p-5 bg-gradient-to-br from-black/60 to-gray-900/60 border border-blue-500/20 rounded-xl transition-all duration-300 hover:border-blue-500/40">
                         <div className="absolute -inset-px bg-gradient-to-r from-blue-600/10 via-transparent to-blue-600/10 rounded-xl opacity-50 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
                         <div className="relative">
