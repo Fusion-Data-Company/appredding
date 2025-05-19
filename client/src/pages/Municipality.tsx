@@ -395,7 +395,7 @@ export default function Municipality() {
                           
                           {/* Enhanced premium subheadline with vibrant color accent */}
                           <p className="text-xl md:text-2xl mb-6 max-w-3xl mx-auto text-blue-50/90 leading-relaxed">
-                            Advanced ceramic coating technology with <span className="text-blue-300 font-semibold">fireproofing, weatherproofing, and energy-efficiency</span> for municipal assets
+                            Innovative ceramic coating technology that transforms municipal infrastructure with <span className="text-blue-300 font-semibold">fireproofing, weatherproofing, and energy-efficiency</span> while extending asset lifespans and reducing maintenance costs
                           </p>
                           
                           {/* Refined feature highlight row with premium styling */}
@@ -434,6 +434,103 @@ export default function Municipality() {
                           </div>
                         </div>
                       </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Informational Section: Municipal Ceramic Protection Technology */}
+        <section className="relative z-10 py-12 overflow-hidden bg-gradient-to-b from-gray-950 to-gray-900">
+          <div className="container mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+              {/* Left Section: Infrastructure Protection */}
+              <div className="p-6 rounded-2xl border border-blue-800/30 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 shadow-lg">
+                <h2 className="text-3xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-300 to-blue-500">
+                  Infrastructure Protection
+                </h2>
+                
+                <div className="space-y-6">
+                  <div className="flex items-start space-x-4">
+                    <div className="min-w-12 h-12 flex items-center justify-center rounded-full bg-blue-900/30 border border-blue-700/30">
+                      <Landmark className="h-6 w-6 text-blue-400" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-blue-300 mb-2">Building Envelope Protection</h3>
+                      <p className="text-gray-300">
+                        Praetorian's advanced ceramic coating creates a seamless protective envelope around municipal buildings, extending structural lifespan by 15-20 years while providing Class-A fire protection that meets or exceeds all NFPA standards.
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start space-x-4">
+                    <div className="min-w-12 h-12 flex items-center justify-center rounded-full bg-blue-900/30 border border-blue-700/30">
+                      <Building className="h-6 w-6 text-blue-400" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-blue-300 mb-2">Critical Infrastructure Security</h3>
+                      <p className="text-gray-300">
+                        Our NASA-derived ceramic technology creates a protective shield for water treatment facilities, power stations, and emergency service buildings – providing thermal barrier protection during emergencies and disasters.
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start space-x-4">
+                    <div className="min-w-12 h-12 flex items-center justify-center rounded-full bg-blue-900/30 border border-blue-700/30">
+                      <Shield className="h-6 w-6 text-blue-400" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-blue-300 mb-2">Safety Compliance</h3>
+                      <p className="text-gray-300">
+                        Meet or exceed all NFPA, ASTM, and local building code requirements with documented certification that ensures regulatory compliance while reducing liability risks for public facilities and infrastructure.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Right Section: Energy & Budget Benefits */}
+              <div className="p-6 rounded-2xl border border-green-800/30 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 shadow-lg">
+                <h2 className="text-3xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-green-300 to-green-500">
+                  Energy & Budget Benefits
+                </h2>
+                
+                <div className="space-y-6">
+                  <div className="flex items-start space-x-4">
+                    <div className="min-w-12 h-12 flex items-center justify-center rounded-full bg-green-900/30 border border-green-700/30">
+                      <CircleDollarSign className="h-6 w-6 text-green-400" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-green-300 mb-2">Long-Term Budget Planning</h3>
+                      <p className="text-gray-300">
+                        Reduce maintenance and replacement cycles by 60-75%, allowing municipalities to allocate resources more efficiently across multiple budget years while satisfying capital improvement planning requirements.
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start space-x-4">
+                    <div className="min-w-12 h-12 flex items-center justify-center rounded-full bg-green-900/30 border border-green-700/30">
+                      <BarChart3 className="h-6 w-6 text-green-400" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-green-300 mb-2">Energy Cost Reduction</h3>
+                      <p className="text-gray-300">
+                        Achieve LEED and Energy Star certification standards with documented 20-35% energy consumption reduction through advanced thermal barrier technology – helping municipalities meet climate action plan goals.
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start space-x-4">
+                    <div className="min-w-12 h-12 flex items-center justify-center rounded-full bg-green-900/30 border border-green-700/30">
+                      <FileCheck className="h-6 w-6 text-green-400" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-green-300 mb-2">Grant Qualification</h3>
+                      <p className="text-gray-300">
+                        Our municipal applications qualify for federal and state infrastructure grants, FEMA mitigation funding, and energy efficiency incentives, making implementation budget-neutral for many public entities.
+                      </p>
                     </div>
                   </div>
                 </div>
