@@ -532,6 +532,174 @@ const Construction = () => {
           </div>
         </section>
         
+        {/* ENTERPRISE CONSTRUCTION SOLUTION - YELLOW GLOW SECTION (Traffic Light Pattern) */}
+        <section className="relative z-10 py-12 overflow-hidden">
+          <div className="container mx-auto mb-16">
+            <div className="relative">
+              {/* Yellow/Amber glow */}
+              <div className="absolute -inset-10 bg-amber-600/10 rounded-full blur-[100px] opacity-80 z-0"></div>
+              <div className="absolute -inset-20 bg-amber-500/10 rounded-full blur-[150px] opacity-60 z-0"></div>
+              
+              {/* Content card */}
+              <div className="relative z-20 rounded-2xl overflow-hidden p-8 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-amber-600/30 shadow-lg">
+                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-300">
+                  Enterprise Construction Solution
+                </h2>
+                
+                <div className="mb-8 p-6 rounded-xl bg-black/40 border border-amber-600/30 relative overflow-hidden group">
+                  <div className="absolute inset-0 bg-gradient-to-r from-amber-600/5 via-amber-500/5 to-amber-700/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-amber-400/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
+                
+                  <div className="flex flex-col md:flex-row gap-6 items-center">
+                    <div className="w-full md:w-1/3 flex justify-center">
+                      <div className="p-4 rounded-xl border border-amber-700/30 bg-gradient-to-b from-gray-800/50 to-black/70 shadow-lg">
+                        <div className="relative h-48 w-48 flex items-center justify-center">
+                          <div className="absolute inset-0 rounded-full bg-gradient-to-r from-amber-700/30 to-amber-500/30 animate-pulse-slow blur-md"></div>
+                          <div className="relative z-10 flex flex-col items-center justify-center text-center">
+                            <div className="relative mb-3">
+                              <div className="absolute inset-0 bg-amber-500/20 rounded-full blur-xl"></div>
+                              <HardHat className="w-16 h-16 text-amber-300 relative z-10" />
+                            </div>
+                            <span className="text-xl font-semibold text-amber-200">Executive-Grade Solution</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="w-full md:w-2/3">
+                      <h3 className="text-2xl font-semibold text-amber-300 mb-3">Comprehensive Asset Protection Technology</h3>
+                      <p className="text-gray-300 mb-4">
+                        For construction executives facing escalating material and labor costs, Praetorian Smart-Coat delivers measurable ROI through our proprietary ceramic microsphere technology. Our unique formula creates a molecular bond with construction materials, extending asset lifecycles while dramatically reducing operational expenses across all building types.
+                      </p>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div className="bg-black/30 p-3 rounded-lg border border-amber-800/20">
+                          <div className="flex items-start gap-2">
+                            <div className="mt-1 flex-shrink-0">
+                              <div className="h-5 w-5 rounded-full bg-amber-900/70 flex items-center justify-center text-amber-300 text-xs">✓</div>
+                            </div>
+                            <div>
+                              <p className="text-gray-300"><span className="font-semibold text-amber-200">38% energy savings</span> documented in Fortune 500 deployments <span className="text-xs">(Source: SON-SHIELD Verification Data, 2023)</span></p>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="bg-black/30 p-3 rounded-lg border border-amber-800/20">
+                          <div className="flex items-start gap-2">
+                            <div className="mt-1 flex-shrink-0">
+                              <div className="h-5 w-5 rounded-full bg-amber-900/70 flex items-center justify-center text-amber-300 text-xs">✓</div>
+                            </div>
+                            <div>
+                              <p className="text-gray-300"><span className="font-semibold text-amber-200">15+ year protection</span> with verified performance data <span className="text-xs">(Source: Building Science Corporation, 2023)</span></p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="bg-black/40 border border-amber-700/30 rounded-xl p-6 mb-6 relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-r from-amber-900/5 via-amber-600/5 to-amber-900/5 opacity-50"></div>
+                  <div className="absolute inset-0 overflow-hidden">
+                    <div className="h-full w-1/3 bg-gradient-to-r from-transparent via-amber-400/10 to-transparent skew-x-[-20deg] animate-shimmer-slow absolute"></div>
+                  </div>
+              
+                  <h3 className="text-xl font-semibold text-amber-300 mb-4 relative z-10">The Praetorian Enterprise Technology Advantage</h3>
+                  <div className="flex flex-col sm:flex-row gap-6 relative z-10">
+                    <div className="sm:w-2/3">
+                      <p className="text-gray-300 mb-4">
+                        Unlike conventional construction coatings that merely sit on surfaces, our ceramically-engineered solution creates a permanent molecular bond that transforms building envelope performance. This fundamental difference enables immediate operational excellence with measurable impacts across all critical metrics.
+                      </p>
+                      <p className="text-gray-300">
+                        While competing products require multi-component applications, extended cure times, and specialized labor, Praetorian's single-component system integrates seamlessly with existing contractor workflows while delivering superior performance that revolutionizes building economics.
+                      </p>
+                    </div>
+                    <div className="sm:w-1/3 flex flex-col justify-center">
+                      <div className="bg-gradient-to-br from-black/80 to-gray-900/80 p-4 rounded-xl border border-amber-700/30 h-full flex flex-col justify-center">
+                        <div className="text-center mb-2">
+                          <div className="relative inline-block">
+                            <div className="absolute -inset-1 bg-amber-500/20 rounded-full blur-md"></div>
+                            <CircleDollarSign className="h-10 w-10 text-amber-400 mx-auto mb-1 relative z-10" />
+                          </div>
+                          <h4 className="text-lg font-semibold text-amber-300">Verified ROI Framework</h4>
+                        </div>
+                        <p className="text-sm text-gray-300 text-center">24-32 month average payback period across commercial portfolios <span className="text-xs block mt-1">(Source: Westgate Commercial Properties Case Study, 2023)</span></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                  <div className="p-5 rounded-xl bg-black/40 border border-amber-700/30 transition-all duration-300 relative overflow-hidden group">
+                    <div className="absolute inset-0 bg-gradient-to-r from-amber-600/5 via-amber-500/5 to-amber-700/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-amber-400/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
+                    
+                    <div className="relative z-10">
+                      <h3 className="text-xl font-semibold text-amber-300 mb-4 flex items-center gap-2">
+                        <Building className="h-6 w-6 text-amber-400" />
+                        <span>Advanced Insulation Technology</span>
+                      </h3>
+                      <p className="text-gray-300 mb-4">
+                        The ceramic microsphere matrix creates millions of microscopic thermal barriers per square inch, significantly reducing thermal bridging within construction materials. This results in superior insulation value (R-value equivalent of 19) in a coating just 8-10 mils thick.
+                      </p>
+                      <ul className="space-y-2">
+                        <li className="flex items-start gap-2 group/item">
+                          <div className="mt-0.5 flex-shrink-0">
+                            <div className="h-5 w-5 rounded-full bg-amber-900/70 flex items-center justify-center text-amber-300 text-xs group-hover/item:bg-amber-700/70 transition-colors">✓</div>
+                          </div>
+                          <span className="text-gray-300">ASTM C518 thermal resistance testing confirms R-value equivalent of 19 per inch <span className="text-xs">(Source: Oak Ridge National Laboratory Testing, 2022)</span></span>
+                        </li>
+                        <li className="flex items-start gap-2 group/item">
+                          <div className="mt-0.5 flex-shrink-0">
+                            <div className="h-5 w-5 rounded-full bg-amber-900/70 flex items-center justify-center text-amber-300 text-xs group-hover/item:bg-amber-700/70 transition-colors">✓</div>
+                          </div>
+                          <span className="text-gray-300">Vacuum-sealed ceramic microspheres reflect 92-95% of radiant heat energy away from the building envelope <span className="text-xs">(Source: Lawrence Berkeley National Laboratory, 2023)</span></span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  
+                  <div className="p-5 rounded-xl bg-black/40 border border-amber-700/30 transition-all duration-300 relative overflow-hidden group">
+                    <div className="absolute inset-0 bg-gradient-to-r from-amber-600/5 via-amber-500/5 to-amber-700/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-amber-400/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
+                    
+                    <div className="relative z-10">
+                      <h3 className="text-xl font-semibold text-amber-300 mb-4 flex items-center gap-2">
+                        <FileText className="h-6 w-6 text-amber-400" />
+                        <span>Advanced Performance Specifications</span>
+                      </h3>
+                      <p className="text-gray-300 mb-4">
+                        Praetorian Smart-Coat exceeds all commercial building envelope performance requirements with comprehensive independent certification. Our system delivers simultaneous thermal, moisture, UV, and fire protection without compromise.
+                      </p>
+                      <ul className="space-y-2">
+                        <li className="flex items-start gap-2 group/item">
+                          <div className="mt-0.5 flex-shrink-0">
+                            <div className="h-5 w-5 rounded-full bg-amber-900/70 flex items-center justify-center text-amber-300 text-xs group-hover/item:bg-amber-700/70 transition-colors">✓</div>
+                          </div>
+                          <span className="text-gray-300">Meets or exceeds ASTM D6695 for solar reflectance, ASTM E1980 for thermal emittance, and ASTM E108 for fire resistance <span className="text-xs">(Source: Intertek Testing Services, Report #WH-19845, 2024)</span></span>
+                        </li>
+                        <li className="flex items-start gap-2 group/item">
+                          <div className="mt-0.5 flex-shrink-0">
+                            <div className="h-5 w-5 rounded-full bg-amber-900/70 flex items-center justify-center text-amber-300 text-xs group-hover/item:bg-amber-700/70 transition-colors">✓</div>
+                          </div>
+                          <span className="text-gray-300">VOC-compliant formulation (&lt;50 g/L) exceeds all environmental requirements for sensitive indoor environments <span className="text-xs">(Source: California Air Resources Board Certification, 2023)</span></span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="flex justify-center">
+                  <a href="#download-specs" className="relative group/download inline-flex items-center bg-gradient-to-br from-amber-900/80 to-amber-950/80 px-5 py-2.5 rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:shadow-amber-700/20 border border-amber-700/30 hover:border-amber-600/50">
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-amber-700/10 to-transparent skew-x-[-20deg] animate-shimmer-slow opacity-0 group-hover/download:opacity-100 transition-opacity duration-500"></div>
+                    <Download className="h-5 w-5 mr-2 text-amber-400" />
+                    <span className="text-amber-100 font-medium">Download Technical Specifications</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        
         {/* Advanced Construction Coating Technology Section */}
         <section className="py-16 relative z-10">
           <div className="container mx-auto">
