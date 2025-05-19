@@ -12,7 +12,7 @@ import {
   FormLabel,
   FormMessage
 } from "@/components/ui/form";
-import { HardHat, ShieldCheck, Building, Hammer, CheckCircle, Warehouse, CircleDollarSign, TrendingUp, Clock } from "lucide-react";
+import { HardHat, ShieldCheck, Building, Hammer, CheckCircle, Warehouse, CircleDollarSign, TrendingUp, Clock, Medal, Activity, Thermometer, FileText, Download, FlaskConical } from "lucide-react";
 import { insertConstructionDistributorSchema } from "@shared/schema";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -563,7 +563,7 @@ const Construction = () => {
                         </div>
                       </div>
                       <div>
-                        <h3 className="text-xl font-semibold text-white mb-3">Rising Material Costs</h3>
+                        <h3 className="font-bold text-xl text-transparent bg-clip-text bg-gradient-to-r from-red-300 to-red-200 mb-3" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.8)" }}>Rising Material Costs</h3>
                         <ul className="space-y-2">
                           <li className="flex items-start gap-2 text-gray-300">
                             <span className="text-red-400 text-lg leading-6">•</span>
@@ -583,12 +583,18 @@ const Construction = () => {
                     
                     <div className="relative flex gap-5">
                       <div className="flex-shrink-0">
-                        <div className="w-12 h-12 rounded-full bg-red-900/50 flex items-center justify-center border border-red-600/30">
-                          <CircleDollarSign className="h-6 w-6 text-red-400" />
+                        {/* Elite enterprise icon styling */}
+                        <div className="relative">
+                          <div className="absolute -inset-2 bg-red-500/20 rounded-full blur-md opacity-80"></div>
+                          <div className="relative h-14 w-14 flex items-center justify-center bg-gradient-to-br from-red-800 to-red-900 rounded-xl border border-red-400/30 shadow-[0_0_15px_rgba(239,68,68,0.3)]">
+                            <div className="absolute inset-0.5 bg-gradient-to-br from-red-700 to-red-800 rounded-[0.65rem] opacity-50"></div>
+                            <div className="absolute h-full w-1/2 bg-gradient-to-r from-transparent via-red-400/20 to-transparent skew-x-[-20deg] animate-shimmer-slow" style={{ animationDelay: '0.3s' }}></div>
+                            <CircleDollarSign className="w-7 h-7 text-red-300 relative z-10 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]" />
+                          </div>
                         </div>
                       </div>
                       <div>
-                        <h3 className="text-xl font-semibold text-white mb-3">Project Timeline Pressure</h3>
+                        <h3 className="font-bold text-xl text-transparent bg-clip-text bg-gradient-to-r from-red-300 to-red-200 mb-3" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.8)" }}>Project Timeline Pressure</h3>
                         <ul className="space-y-2">
                           <li className="flex items-start gap-2 text-gray-300">
                             <span className="text-red-400 text-lg leading-6">•</span>
@@ -634,7 +640,7 @@ const Construction = () => {
                         <div className="relative h-14 w-14 flex items-center justify-center bg-gradient-to-br from-amber-800 to-amber-900 rounded-xl border border-amber-400/30 shadow-[0_0_15px_rgba(245,158,11,0.3)]">
                           <div className="absolute inset-0.5 bg-gradient-to-br from-amber-700 to-amber-800 rounded-[0.65rem] opacity-50"></div>
                           <div className="absolute h-full w-1/2 bg-gradient-to-r from-transparent via-amber-400/20 to-transparent skew-x-[-20deg] animate-shimmer-slow"></div>
-                          <Microscope className="w-7 h-7 text-amber-300 relative z-10 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]" />
+                          <FlaskConical className="w-7 h-7 text-amber-300 relative z-10 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]" />
                         </div>
                       </div>
                       <h3 className="text-2xl font-bold text-amber-300">Advanced Construction Coating Technology</h3>
@@ -667,7 +673,7 @@ const Construction = () => {
                       
                       <div className="bg-black/40 rounded-lg p-5 border border-amber-800/30">
                         <h4 className="text-lg font-semibold text-amber-200 mb-3 flex items-center">
-                          <ThermometerIcon className="h-5 w-5 mr-2 text-amber-400" />
+                          <Thermometer className="h-5 w-5 mr-2 text-amber-400" />
                           Thermal Dynamics
                         </h4>
                         <p className="text-gray-300 text-sm">
@@ -721,10 +727,16 @@ const Construction = () => {
                     
                     <div className="relative">
                       <div className="flex items-center mb-4">
-                        <div className="p-2 bg-green-900/70 rounded-lg border border-green-700/40 mr-3">
-                          <CircleDollarSign className="h-6 w-6 text-green-400" />
+                        {/* Elite enterprise icon styling */}
+                        <div className="relative mr-3">
+                          <div className="absolute -inset-2 bg-green-500/20 rounded-full blur-md opacity-80"></div>
+                          <div className="relative h-14 w-14 flex items-center justify-center bg-gradient-to-br from-green-800 to-green-900 rounded-xl border border-green-400/30 shadow-[0_0_15px_rgba(74,222,128,0.3)]">
+                            <div className="absolute inset-0.5 bg-gradient-to-br from-green-700 to-green-800 rounded-[0.65rem] opacity-50"></div>
+                            <div className="absolute h-full w-1/2 bg-gradient-to-r from-transparent via-green-400/20 to-transparent skew-x-[-20deg] animate-shimmer-slow"></div>
+                            <CircleDollarSign className="w-7 h-7 text-green-300 relative z-10 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]" />
+                          </div>
                         </div>
-                        <h3 className="text-xl font-semibold text-white">Exceptional Profit Margins</h3>
+                        <h3 className="font-bold text-xl text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-green-200 mb-3" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.8)" }}>Exceptional Profit Margins</h3>
                       </div>
                       
                       <ul className="space-y-3">
