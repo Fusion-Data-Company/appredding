@@ -18,13 +18,20 @@ import {
   ThermometerSun,
   Shield,
   Sun,
-  Paintbrush
+  Paintbrush,
+  CalendarIcon
 } from "lucide-react";
 import { GradientHeading } from "@/components/ui/gradient-heading";
 import { PremiumCartButton } from "@/utils/premium-buttons";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Checkbox } from "@/components/ui/checkbox"; 
+import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { Calendar } from "@/components/ui/calendar";
+import { cn } from "@/lib/utils";
+import { format } from "date-fns";
 import SEOHead from "@/components/SEOHead";
 import AccessibleImage from "@/components/ui/accessible-image";
 import { preloadCriticalImages, createIndustryImageSource } from "@/lib/image-helper";
@@ -35,10 +42,17 @@ import {
   FormField,
   FormItem,
   FormLabel,
-  FormMessage
+  FormMessage,
+  FormDescription
 } from "@/components/ui/form";
 import { Helmet } from "react-helmet";
 import { preloadCriticalImage, getAccessibleAltText } from "@/lib/seo-helper";
+import { z } from "zod";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useMutation } from "@tanstack/react-query";
+import { apiRequest } from "@/lib/queryClient";
+import { useToast } from "@/hooks/use-toast";
 
 interface CoatingProduct {
   name: string;
@@ -54,6 +68,29 @@ interface CalculationResult {
   coatCount: number;
 }
 
+// Registration form schema
+const poolDistributorSchema = z.object({
+  companyName: z.string().min(2, { message: "Company name is required" }),
+  contactName: z.string().min(2, { message: "Contact name is required" }),
+  email: z.string().email({ message: "Valid email is required" }),
+  confirmEmail: z.string().email({ message: "Valid email is required" }),
+  phone: z.string().min(10, { message: "Valid phone number is required" }),
+  companyAddress: z.string().min(5, { message: "Company address is required" }),
+  city: z.string().min(2, { message: "City is required" }),
+  state: z.string().min(2, { message: "State is required" }),
+  zipCode: z.string().min(5, { message: "ZIP code is required" }),
+  licenseNumber: z.string().min(1, { message: "License number is required" }),
+  licenseExpiryDate: z.date({ required_error: "License expiry date is required" }),
+  insuranceInfo: z.string().min(1, { message: "Insurance information is required" }),
+  yearsInBusiness: z.number().min(0, { message: "Years in business is required" }).default(0),
+  poolServiceTypes: z.array(z.string()).min(1, { message: "Select at least one pool service type" }).default([]),
+  serviceAreaMiles: z.number().min(0, { message: "Service area is required" }).default(0),
+  employeeCount: z.number().min(1, { message: "Employee count is required" }).default(1),
+  annualRevenue: z.string().min(1, { message: "Annual revenue is required" }),
+  termsAccepted: z.boolean().refine(val => val === true, { message: "You must accept the terms and conditions" }),
+  notes: z.string().optional(),
+});
+
 export default function Pools() {
   // State for calculator
   const [poolSurfaceArea, setPoolSurfaceArea] = useState<number>(500);
@@ -61,6 +98,9 @@ export default function Pools() {
   const [coatCount, setCoatCount] = useState<number>(2);
   const [calculationResult, setCalculationResult] = useState<CalculationResult | null>(null);
   const [showROICalculator, setShowROICalculator] = useState<boolean>(false);
+  const [showRegistrationForm, setShowRegistrationForm] = useState(false);
+  const [registrationSuccess, setRegistrationSuccess] = useState(false);
+  const { toast } = useToast();
   
   // Define industry-specific data for SEO
   const industry = "Pool Protection";
@@ -139,6 +179,47 @@ export default function Pools() {
       productName: product.name,
       coatCount
     });
+  };
+  
+  // Setup registration form
+  const registrationForm = useForm<z.infer<typeof poolDistributorSchema>>({
+    resolver: zodResolver(poolDistributorSchema),
+    defaultValues: {
+      companyName: "",
+      contactName: "",
+      email: "",
+      confirmEmail: "",
+      phone: "",
+      companyAddress: "",
+      city: "",
+      state: "",
+      zipCode: "",
+      licenseNumber: "",
+      insuranceInfo: "",
+      yearsInBusiness: 0,
+      poolServiceTypes: [],
+      serviceAreaMiles: 0,
+      employeeCount: 1,
+      annualRevenue: "",
+      termsAccepted: false,
+      notes: ""
+    },
+  });
+
+  // Handle registration form submission
+  const onRegistrationSubmit = (values: z.infer<typeof poolDistributorSchema>) => {
+    // In a real application, this would submit to an API endpoint
+    console.log("Registration submitted:", values);
+    
+    // Simulate successful submission
+    setTimeout(() => {
+      setRegistrationSuccess(true);
+      toast({
+        title: "Registration Successful",
+        description: "Your distributor application has been received. Our team will contact you shortly.",
+        variant: "default",
+      });
+    }, 1500);
   };
 
   return (
