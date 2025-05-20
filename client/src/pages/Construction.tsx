@@ -89,12 +89,10 @@ const Construction = () => {
 
   return (
     <MainLayout fullWidth={true}>
-      <SEOHead 
+      <SimpleSEO 
         title="Construction Solutions | Praetorian Smart-Coat"
         description="Advanced thermal protection solutions for construction projects. Increase energy efficiency and protect valuable assets with Praetorian Smart-Coat technology."
         keywords={["construction coating", "energy efficiency", "thermal protection", "building envelope", "construction insulation"]}
-        industry="Construction"
-        slug="construction"
       />
       <div className="relative">
         {/* HERO SECTION */}
