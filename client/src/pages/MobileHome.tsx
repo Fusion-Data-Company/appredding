@@ -1519,7 +1519,31 @@ const MobileHome = () => {
                       Advanced Ceramic Microsphere Technology
                     </h2>
                     
+                    {/* Real Results for Your Mobile Home - Moved from blue section to yellow */}
                     <div className="mb-10">
+                      <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-amber-700/20 shadow-md mb-8">
+                        <h3 className="text-xl font-bold mb-4 text-amber-300">Real Results for Your Mobile Home</h3>
+                        <p className="text-gray-300 mb-6">
+                          When you choose Praetorian Smart-Coat for your mobile home, the documented benefits extend far beyond aesthetics — delivering measurable ROI and enterprise-grade protection:
+                        </p>
+                        
+                        {/* Enterprise-level stats display */}
+                        <div className="flex flex-wrap justify-center gap-6 mt-6">
+                          <div className="bg-gradient-to-br from-amber-900/20 to-amber-800/10 border border-amber-500/30 rounded-lg p-3 px-5 flex items-center space-x-2">
+                            <div className="text-lg font-bold text-amber-300">287%</div>
+                            <div className="text-sm text-amber-200">Average ROI</div>
+                          </div>
+                          <div className="bg-gradient-to-br from-amber-900/20 to-amber-800/10 border border-amber-500/30 rounded-lg p-3 px-5 flex items-center space-x-2">
+                            <div className="text-lg font-bold text-amber-300">15-28°F</div>
+                            <div className="text-sm text-amber-200">Temp Reduction</div>
+                          </div>
+                          <div className="bg-gradient-to-br from-amber-900/20 to-amber-800/10 border border-amber-500/30 rounded-lg p-3 px-5 flex items-center space-x-2">
+                            <div className="text-lg font-bold text-amber-300">25+ Yrs</div>
+                            <div className="text-sm text-amber-200">Protection</div>
+                          </div>
+                        </div>
+                      </div>
+                      
                       <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-amber-700/20 shadow-md">
                         <h3 className="text-xl font-bold mb-4 text-amber-300">SON-SHIELD Ceramic Microsphere Technology</h3>
                         <p className="text-gray-300 mb-6">
