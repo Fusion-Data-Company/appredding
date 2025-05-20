@@ -1,12 +1,9 @@
-import React, { useState, ChangeEvent } from "react";
+import React, { useState, useEffect } from "react";
 import MainLayout from "@/components/layout/MainLayout";
-import { Link } from "wouter";
 import { GradientButton } from "@/components/ui/gradient-button";
-import { GradientHeading } from "@/components/ui/gradient-heading";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Checkbox } from "@/components/ui/checkbox";
 import { 
   Form,
   FormControl,
@@ -15,561 +12,347 @@ import {
   FormLabel,
   FormMessage
 } from "@/components/ui/form";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { PremiumArrowButton, PremiumActionButton, PremiumFireButton, PremiumCartButton } from "@/utils/premium-buttons";
-import { 
-  CalendarIcon, 
-  Home, 
-  Wrench, 
-  Clock, 
-  Shield, 
-  CheckCircle, 
-  BadgeCheck, 
-  Building,
-  Sun as SunIcon,
-  Waves as WavesIcon,
-  Droplets as DropletIcon,
-  DollarSign,
-  CalendarDays,
-  CloudSun,
-  Calculator,
-  Timer as TimerIcon,
-  CircleDollarSign,
-  BarChart2,
-  Thermometer as ThermometerIcon,
-  Award,
-  Info as InfoIcon,
-  FileText,
-  Download,
-  TrendingUp,
-  AlertTriangle,
-  Medal,
-  Activity,
-  ArrowUpRight,
-  BadgeDollarSign,
-  Sparkles,
-  Flame,
-  Zap,
-  Crown,
-  Lightbulb,
-  BarChart3,
-  LineChart,
-  PieChart,
-  Star,
-  Radiation,
-  ShieldCheck,
-  Gem,
-  Rocket,
-  Landmark,
-  Layers
-} from "lucide-react";
-import { insertMobileHomeProfessionalSchema } from "@shared/schema";
-import { z } from "zod";
+import { CheckCircle, Shield, Home, Map, ChevronRight, FileCheck, Zap, CircleDollarSign, BarChart3, Calculator, Flame, ShieldCheck, Award, AlertTriangle, Building, TrendingUp, Droplet, ClipboardList, Layers, Clock } from "lucide-react";
+import { insertFirePreventionHomeownerSchema } from "@shared/schema";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
-import { format } from "date-fns";
-import { Calendar } from "@/components/ui/calendar";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import mobileHomeBgImage from "@assets/mobile-homes-bg.jpg";
+import { PremiumCartButton } from "@/utils/premium-buttons";
+import { z } from "zod";
+import SEOHead from "@/components/SEOHead";
+import AccessibleImage from "@/components/ui/accessible-image";
+import { preloadCriticalImages, createIndustryImageSource } from "@/lib/image-helper";
+import { generateStructuredData, getIndustryKeywords } from "@/lib/seo-helper";
 
-// Extend the schema to include form-specific fields
-const mobileHomeProfessionalFormSchema = insertMobileHomeProfessionalSchema.extend({
-  confirmEmail: z.string().email(),
-  termsAccepted: z.boolean().refine(val => val === true, {
-    message: "You must accept the terms and conditions"
-  })
-});
+type FirePreventionHomeownerFormValues = z.infer<typeof insertFirePreventionHomeownerSchema>;
 
-// Define the form values type
-type MobileHomeProfessionalFormValues = z.infer<typeof mobileHomeProfessionalFormSchema>;
-
-const MobileHome = () => {
-  const [showRegistrationForm, setShowRegistrationForm] = useState(false);
-  const [registrationSuccess, setRegistrationSuccess] = useState(false);
+const FirePrevention = () => {
+  const [showConsultationForm, setShowConsultationForm] = useState(false);
+  const [consultationRequestSuccess, setConsultationRequestSuccess] = useState(false);
   const { toast } = useToast();
-
-  // Setup form for mobile home professional registration
-  const form = useForm<MobileHomeProfessionalFormValues>({
-    resolver: zodResolver(mobileHomeProfessionalFormSchema),
+  
+  // Define industry-specific data for SEO
+  const industry = "Fire Prevention";
+  const slug = "fire-prevention";
+  const pageTitle = "Praetorian Smart-Coat – Fire Prevention Solutions";
+  const pageDescription = "Advanced fireproof coatings to protect your home and property from wildfires and fire damage.";
+  const heroImagePath = "/src/assets_dir/images/optimized/praetorian-background-new.png";
+  
+  // Generate industry-specific keywords
+  const keywords = [
+    'wildfire protection',
+    'fire resistant paint',
+    'property fire protection',
+    'fireproof house coating',
+    'ceramic fire barrier'
+  ];
+  
+  // Generate structured data for search engines
+  const structuredData = generateStructuredData(
+    industry,
+    pageDescription,
+    slug,
+    [
+      "High-performance ceramic-based coating",
+      "Fire-resistant up to 2000°F",
+      "Protects property from wildfire damage",
+      "Extends evacuation time during fires",
+      "UL-rated fire protection"
+    ]
+  );
+  
+  // Preload critical images for performance
+  useEffect(() => {
+    preloadCriticalImages([
+      heroImagePath,
+      "/images/fire-prevention-thumb.webp",
+      "/src/assets_dir/images/optimized/fire-water-hands-poster.webp"
+    ]);
+  }, []);
+  
+  // Setup form for fire protection consultation
+  const form = useForm({
+    resolver: zodResolver(insertFirePreventionHomeownerSchema),
     defaultValues: {
-      companyName: "",
-      contactName: "",
+      firstName: "",
+      lastName: "",
       email: "",
-      confirmEmail: "",
       phone: "",
       address: "",
       city: "",
       state: "",
       zipCode: "",
-      website: "",
-      licenseNumber: "",
-      licenseExpiryDate: undefined,
-      insuranceInfo: "",
-      yearsInBusiness: 0,
-      specialties: [],
-      serviceAreas: [],
-      materialTypes: [],
-      installationTypes: [],
-      repairServices: [],
-      emergencyService: false,
-      hourlyRate: "",
-      mobileHomeTypes: [],
-      rvTypes: [],
-      certifications: [],
-      manufacturerAuthorizations: [],
-      notes: "",
-      termsAccepted: false
+      propertyType: "residential",
+      propertySize: "",
+      vegetationDensity: "medium",
+      distanceToWildland: "",
+      previousFireDamage: false,
+      insuranceProvider: "",
+      preferredContactMethod: "email",
+      additionalComments: ""
     },
   });
 
-  // Mobile Home Professional registration mutation
-  const registerMutation = useMutation({
-    mutationFn: async (data: MobileHomeProfessionalFormValues) => {
-      // Remove form-specific fields
-      const { confirmEmail, termsAccepted, ...registerData } = data;
-      const response = await apiRequest("POST", "/api/professionals/mobile-home-professionals", registerData);
+  // Fire protection consultation mutation
+  const consultationMutation = useMutation({
+    mutationFn: async (data: FirePreventionHomeownerFormValues) => {
+      const response = await apiRequest("POST", "/api/firepreventionhomeowners", data);
       if (!response.ok) {
         const errorData = await response.json();
-        throw new Error(errorData.error || "Registration failed");
+        throw new Error(errorData.error || "Consultation request failed");
       }
-      return response.json();
+      return data;
     },
     onSuccess: () => {
       toast({
-        title: "Registration Successful",
-        description: "Your mobile home professional profile has been created",
+        title: "Consultation Request Successful",
+        description: "Your fire protection consultation request has been submitted.",
         variant: "default",
       });
-      setRegistrationSuccess(true);
+      setConsultationRequestSuccess(true);
       form.reset();
     },
     onError: (error: Error) => {
       toast({
-        title: "Registration Failed",
+        title: "Consultation Request Failed",
         description: error.message,
         variant: "destructive",
       });
     },
   });
 
-  const onSubmit = (data: MobileHomeProfessionalFormValues) => {
-    registerMutation.mutate(data);
+  const onSubmit = (data: FirePreventionHomeownerFormValues) => {
+    consultationMutation.mutate(data);
   };
-  
-  const handleShowRegistrationForm = () => {
-    setShowRegistrationForm(true);
-  };
-  
-  const calculateROI = () => {
-    // Calculate the ROI based on inputs and show the results section
-    const roiResultsElement = document.getElementById('roiResults');
-    if (roiResultsElement) {
-      roiResultsElement.scrollIntoView({ behavior: 'smooth' });
-      roiResultsElement.classList.remove('opacity-0');
-      roiResultsElement.classList.add('opacity-100');
-    }
+
+  const handleShowConsultationForm = () => {
+    setShowConsultationForm(true);
   };
 
   return (
     <MainLayout fullWidth={true}>
+      {/* Enhanced SEO Head with structured data and improved metadata */}
+      <SEOHead
+        title={pageTitle}
+        description={pageDescription}
+        industry={industry}
+        slug={slug}
+        imagePath={heroImagePath}
+        keywords={keywords}
+        structuredData={structuredData}
+      />
+      
       <div className="relative">
         {/* Advanced premium gradient background with layered effects */}
-        <div className="fixed inset-0 z-0" style={{ 
+        <div className="fixed inset-0 z-[-5]" style={{ 
           background: 'linear-gradient(145deg, #0c0c14 0%, #101830 30%, #152238 60%, #0e1a2a 100%)'
         }}></div>
         
-        {/* Dynamic layered background elements */}
-        <div className="fixed inset-0 z-0 opacity-40" style={{ 
-          backgroundImage: 'radial-gradient(circle at 30% 20%, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0) 60%)'
+        {/* Dynamic layered background elements with fire theme */}
+        <div className="fixed inset-0 z-[-4] opacity-40" style={{ 
+          backgroundImage: 'radial-gradient(circle at 30% 20%, rgba(154, 52, 18, 0.6) 0%, rgba(15, 23, 42, 0) 60%)'
         }}></div>
         
-        <div className="fixed inset-0 z-0 opacity-30" style={{ 
-          backgroundImage: 'radial-gradient(circle at 70% 60%, rgba(30, 58, 138, 0.6) 0%, rgba(15, 23, 42, 0) 70%)'
+        <div className="fixed inset-0 z-[-4] opacity-30" style={{ 
+          backgroundImage: 'radial-gradient(circle at 70% 60%, rgba(153, 27, 27, 0.5) 0%, rgba(15, 23, 42, 0) 70%)'
         }}></div>
         
-        {/* Advanced multi-color ambient glow effects with green accent */}
-        <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
-          {/* Blue glow */}
-          <div className="absolute top-[10%] left-[15%] w-[40rem] h-[40rem] bg-blue-600/10 rounded-full blur-[150px] animate-pulse-slow"></div>
-          
-          {/* Orange glow */}
-          <div className="absolute bottom-[15%] right-[10%] w-[35rem] h-[35rem] bg-orange-500/10 rounded-full blur-[150px] animate-pulse-slower"></div>
-          
-          {/* Green accent glows for balance */}
-          <div className="absolute top-[40%] right-[25%] w-[25rem] h-[25rem] bg-emerald-600/10 rounded-full blur-[120px] animate-pulse-slow"></div>
-          <div className="absolute bottom-[30%] left-[20%] w-[30rem] h-[30rem] bg-green-700/5 rounded-full blur-[100px] animate-pulse-slower"></div>
-          
-          {/* Purple accent for depth */}
-          <div className="absolute top-[70%] left-[50%] w-[20rem] h-[20rem] bg-purple-700/5 rounded-full blur-[90px] animate-pulse-slow"></div>
-        </div>
-        
-        {/* Low-opacity subtle pattern overlay for texture */}
-        <div 
-          className="fixed inset-0 z-0 opacity-5 pointer-events-none"
-          style={{
-            backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%232563eb\' fill-opacity=\'0.4\' fill-rule=\'evenodd\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/svg%3E")',
-            backgroundSize: '60px 60px'
-          }}
-        />
-        
-        {/* New Main Header Section */}
+        {/* SANDLER STAGE 1: INTRO - BLUE GLOW SECTION */}
         <section className="relative z-10 py-10 overflow-hidden">
           <div className="container mx-auto mb-12">
             <div className="relative">
-              {/* Advanced ambient blue glow effects for header */}
-              <div className="absolute -inset-10 bg-blue-800/10 rounded-full blur-[100px] opacity-80 z-0"></div>
-              <div className="absolute -inset-20 bg-blue-900/5 rounded-full blur-[150px] opacity-70 z-0 animate-pulse-slow"></div>
+              {/* Enhanced ultra-premium ambient blue glow in background with multiple layers and advanced effects */}
+              <div className="absolute -inset-10 bg-blue-800/15 rounded-full blur-[100px] opacity-90 z-0"></div>
+              <div className="absolute -inset-20 bg-blue-900/10 rounded-full blur-[150px] opacity-80 z-0 animate-pulse-slow"></div>
+              <div className="absolute -inset-30 bg-blue-600/5 rounded-full blur-[200px] opacity-70 z-0 animate-pulse-slow" style={{ animationDuration: '8s' }}></div>
+              <div className="absolute -inset-20 bg-gradient-to-tr from-blue-700/5 via-blue-600/2 to-blue-500/5 rounded-full blur-[180px] opacity-50 z-0 animate-pulse-slower" style={{ animationDuration: '12s' }}></div>
+              <div className="absolute top-[-20%] left-[-10%] w-[800px] h-[800px] bg-blue-500/3 rounded-full blur-[120px] z-0 animate-float-slow" style={{ animationDuration: '15s' }}></div>
+              <div className="absolute bottom-[-30%] right-[-20%] w-[1000px] h-[1000px] bg-blue-600/2 rounded-full blur-[150px] z-0 animate-float-slow-reverse" style={{ animationDuration: '18s' }}></div>
               
-              {/* Ultra-premium Elite Enterprise Header Container with 3D Effects */}
-              <div className="relative rounded-2xl overflow-hidden transform transition-all duration-700 group hover:scale-[1.005] shadow-[0_25px_60px_-12px_rgba(0,0,0,0.4)] border border-blue-700/30">
-                {/* Premium multi-layered background with depth effect */}
+              {/* Ultra-premium header container with enhanced 3D depth */}
+              <div className="relative z-20 rounded-2xl overflow-hidden shadow-[0_25px_60px_-12px_rgba(0,0,0,0.6)] border border-blue-600/40">
+                {/* Enhanced multi-layered background with premium depth effect */}
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-900/95 via-gray-900/98 to-blue-900/95 z-10"></div>
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-800/30 to-blue-900/30 backdrop-blur-sm z-5"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-800/20 to-blue-900/20 backdrop-blur-sm z-5"></div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/50 z-5"></div>
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900/5 via-transparent to-transparent blur-md z-5"></div>
                 
-                {/* Ultra-premium header background with advanced pattern and dynamic overlay */}
+                {/* Ultra-premium fire-themed background elements with enhanced patterns */}
                 <div className="absolute inset-0 opacity-40 z-0 mix-blend-overlay" 
                   style={{
-                    backgroundImage: "url('data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231e3a8a' fill-opacity='0.15'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E')",
+                    backgroundImage: "url('data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231e3a8a' fill-opacity='0.2'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E')",
                     backgroundSize: '80px 80px'
                   }}
                 ></div>
                 
-                {/* Subtle particle effect overlay */}
+                {/* Advanced data matrix/blueprint pattern */}
+                <div className="absolute inset-0 opacity-10 z-0 mix-blend-overlay"
+                  style={{
+                    backgroundImage: "url('data:image/svg+xml,%3Csvg width=\"20\" height=\"20\" viewBox=\"0 0 20 20\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.6\" fill-rule=\"evenodd\"%3E%3Ccircle cx=\"3\" cy=\"3\" r=\"1.5\"%2F%3E%3Ccircle cx=\"3\" cy=\"17\" r=\"1.5\"%2F%3E%3Ccircle cx=\"17\" cy=\"3\" r=\"1.5\"%2F%3E%3Ccircle cx=\"17\" cy=\"17\" r=\"1.5\"%2F%3E%3Ccircle cx=\"10\" cy=\"10\" r=\"0.5\"%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E')",
+                    backgroundSize: '20px 20px'
+                  }}
+                ></div>
+                
+                {/* Enhanced shimmer effect with larger light points */}
                 <div className="absolute inset-0 mix-blend-overlay opacity-10 z-0" 
                   style={{
-                    backgroundImage: "radial-gradient(circle at center, rgba(255,255,255,0.8) 0%, transparent 0.5%)",
-                    backgroundSize: "8px 8px"
+                    backgroundImage: "radial-gradient(circle at center, rgba(255,255,255,0.9) 0%, transparent 0.6%)",
+                    backgroundSize: "10px 10px"
                   }}>
                 </div>
                 
-                {/* Advanced animated light sweep effects with multiple layers */}
-                <div className="absolute inset-0 opacity-30 z-0 overflow-hidden">
-                  <div className="absolute -inset-full w-[600px] h-full bg-gradient-to-r from-transparent via-blue-400/30 to-transparent skew-x-[-20deg] animate-light-sweep"></div>
-                  <div className="absolute -inset-full w-[400px] h-full bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[-15deg] animate-light-sweep" style={{ animationDelay: '2s' }}></div>
-                  <div className="absolute -inset-full w-[300px] h-full bg-gradient-to-r from-transparent via-blue-300/25 to-transparent skew-x-[-25deg] animate-light-sweep" style={{ animationDelay: '4s' }}></div>
+                {/* Fire-themed digital pattern overlay */}
+                <div className="absolute inset-0 opacity-5 z-0"
+                  style={{
+                    backgroundImage: "url('data:image/svg+xml,%3Csvg width=\"40\" height=\"40\" viewBox=\"0 0 40 40\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cpath d=\"M20 0C25 10 30 10 40 10v10c-10 0-15 0-20 10-5-10-10-10-20-10V10C10 10 15 10 20 0z\" fill=\"%23ef4444\" fill-opacity=\"0.2\"%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E')",
+                    backgroundSize: '40px 40px'
+                  }}
+                ></div>
+                
+                {/* Enhanced 3D edge highlight effect for superior depth */}
+                <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-blue-400/80 to-transparent"></div>
+                <div className="absolute inset-y-0 right-0 w-[2px] bg-gradient-to-b from-transparent via-blue-400/60 to-transparent"></div>
+                <div className="absolute inset-x-0 bottom-0 h-[2px] bg-gradient-to-r from-transparent via-blue-400/80 to-transparent"></div>
+                <div className="absolute inset-y-0 left-0 w-[2px] bg-gradient-to-b from-transparent via-blue-400/60 to-transparent"></div>
+                
+                {/* Premium corner accents with enhanced effects */}
+                <div className="absolute top-0 left-0 w-20 h-20 z-20 pointer-events-none">
+                  {/* Multi-layered glowing corner effect */}
+                  <div className="absolute top-0 left-0 w-12 h-12 bg-gradient-to-br from-blue-500/10 to-transparent rounded-tl-md"></div>
+                  <div className="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-blue-400/70 rounded-tl-lg shadow-[0_0_10px_rgba(59,130,246,0.5)]"></div>
+                  <div className="absolute top-1 left-1 w-18 h-18 border-t border-l border-blue-600/40 rounded-tl-lg"></div>
+                  
+                  {/* Animated corner accent with pulsing glow */}
+                  <div className="absolute top-0 left-0 w-3 h-3 bg-blue-400/60 rounded-full blur-[2px] animate-pulse" style={{ animationDuration: '3.5s' }}></div>
+                  
+                  {/* Animated light ray accent */}
+                  <div className="absolute top-0 left-0 w-8 h-8 overflow-hidden rounded-tl-lg">
+                    <div className="absolute top-0 left-0 w-[200%] h-[1px] bg-gradient-to-r from-transparent via-blue-400/80 to-transparent -translate-x-full animate-shimmer-slow"></div>
+                    <div className="absolute top-0 left-0 h-[200%] w-[1px] bg-gradient-to-b from-transparent via-blue-400/80 to-transparent -translate-y-full animate-shimmer-slow" style={{ animationDelay: '0.5s' }}></div>
+                  </div>
                 </div>
                 
-                {/* 3D edge highlight effect for depth */}
-                <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-blue-400/70 to-transparent"></div>
-                <div className="absolute inset-y-0 right-0 w-[2px] bg-gradient-to-b from-transparent via-blue-400/50 to-transparent"></div>
-                <div className="absolute inset-x-0 bottom-0 h-[2px] bg-gradient-to-r from-transparent via-blue-400/70 to-transparent"></div>
-                <div className="absolute inset-y-0 left-0 w-[2px] bg-gradient-to-b from-transparent via-blue-400/50 to-transparent"></div>
+                <div className="absolute top-0 right-0 w-20 h-20 z-20 pointer-events-none">
+                  {/* Multi-layered glowing corner effect */}
+                  <div className="absolute top-0 right-0 w-12 h-12 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-tr-md"></div>
+                  <div className="absolute top-0 right-0 w-16 h-16 border-t-2 border-r-2 border-blue-400/70 rounded-tr-lg shadow-[0_0_10px_rgba(59,130,246,0.5)]"></div>
+                  <div className="absolute top-1 right-1 w-18 h-18 border-t border-r border-blue-600/40 rounded-tr-lg"></div>
+                  
+                  {/* Animated corner accent with pulsing glow */}
+                  <div className="absolute top-0 right-0 w-3 h-3 bg-blue-400/60 rounded-full blur-[2px] animate-pulse" style={{ animationDuration: '4.2s' }}></div>
+                  
+                  {/* Animated light ray accent */}
+                  <div className="absolute top-0 right-0 w-8 h-8 overflow-hidden rounded-tr-lg">
+                    <div className="absolute top-0 right-0 w-[200%] h-[1px] bg-gradient-to-l from-transparent via-blue-400/80 to-transparent translate-x-full animate-shimmer-slow"></div>
+                    <div className="absolute top-0 right-0 h-[200%] w-[1px] bg-gradient-to-b from-transparent via-blue-400/80 to-transparent -translate-y-full animate-shimmer-slow" style={{ animationDelay: '1.2s' }}></div>
+                  </div>
+                </div>
                 
-                {/* Enhanced Header content with premium homepage-style styling */}
-                <div className="relative z-20 p-10 flex flex-col items-center text-center">
-                  {/* Complex ambient background glow effect */}
-                  <div className="absolute -inset-10 bg-gradient-to-r from-blue-900/10 via-blue-700/20 to-blue-900/10 rounded-[40px] blur-[60px] opacity-80 -z-10"></div>
-                  <div className="absolute -inset-20 bg-blue-500/5 rounded-[80px] blur-[100px] opacity-60 -z-10 animate-pulse-slow" style={{ animationDuration: '8s' }}></div>
+                <div className="absolute bottom-0 right-0 w-20 h-20 z-20 pointer-events-none">
+                  {/* Multi-layered glowing corner effect */}
+                  <div className="absolute bottom-0 right-0 w-12 h-12 bg-gradient-to-tl from-blue-500/10 to-transparent rounded-br-md"></div>
+                  <div className="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-blue-400/70 rounded-br-lg shadow-[0_0_10px_rgba(59,130,246,0.5)]"></div>
+                  <div className="absolute bottom-1 right-1 w-18 h-18 border-b border-r border-blue-600/40 rounded-br-lg"></div>
                   
-                  {/* Ultra-premium Elite Corner Accents with dynamic lighting effects */}
-                  <div className="absolute top-0 left-0 w-20 h-20 z-20 pointer-events-none">
-                    {/* Multi-layered glowing corner effect */}
-                    <div className="absolute top-0 left-0 w-12 h-12 bg-gradient-to-br from-blue-500/10 to-transparent rounded-tl-md"></div>
-                    <div className="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-blue-400/70 rounded-tl-lg shadow-[0_0_10px_rgba(59,130,246,0.5)]"></div>
-                    <div className="absolute top-1 left-1 w-18 h-18 border-t border-l border-blue-600/40 rounded-tl-lg"></div>
-                    
-                    {/* Animated corner accent with pulsing glow */}
-                    <div className="absolute top-0 left-0 w-3 h-3 bg-blue-400/60 rounded-full blur-[2px] animate-pulse" style={{ animationDuration: '3s' }}></div>
-                    
-                    {/* Animated light ray accent */}
-                    <div className="absolute top-0 left-0 w-8 h-8 overflow-hidden rounded-tl-lg">
-                      <div className="absolute top-0 left-0 w-[200%] h-[1px] bg-gradient-to-r from-transparent via-blue-400/80 to-transparent -translate-x-full animate-shimmer-slow"></div>
-                      <div className="absolute top-0 left-0 h-[200%] w-[1px] bg-gradient-to-b from-transparent via-blue-400/80 to-transparent -translate-y-full animate-shimmer-slow"></div>
-                    </div>
+                  {/* Animated corner accent with pulsing glow */}
+                  <div className="absolute bottom-0 right-0 w-3 h-3 bg-blue-400/60 rounded-full blur-[2px] animate-pulse" style={{ animationDuration: '4s' }}></div>
+                  
+                  {/* Animated light ray accent */}
+                  <div className="absolute bottom-0 right-0 w-8 h-8 overflow-hidden rounded-br-lg">
+                    <div className="absolute bottom-0 right-0 w-[200%] h-[1px] bg-gradient-to-l from-transparent via-blue-400/80 to-transparent translate-x-full animate-shimmer-slow"></div>
+                    <div className="absolute bottom-0 right-0 h-[200%] w-[1px] bg-gradient-to-t from-transparent via-blue-400/80 to-transparent translate-y-full animate-shimmer-slow" style={{ animationDelay: '1s' }}></div>
                   </div>
+                </div>
+                
+                <div className="absolute bottom-0 left-0 w-20 h-20 z-20 pointer-events-none">
+                  {/* Multi-layered glowing corner effect */}
+                  <div className="absolute bottom-0 left-0 w-12 h-12 bg-gradient-to-tr from-blue-500/10 to-transparent rounded-bl-md"></div>
+                  <div className="absolute bottom-0 left-0 w-16 h-16 border-b-2 border-l-2 border-blue-400/70 rounded-bl-lg shadow-[0_0_10px_rgba(59,130,246,0.5)]"></div>
+                  <div className="absolute bottom-1 left-1 w-18 h-18 border-b border-l border-blue-600/40 rounded-bl-lg"></div>
                   
-                  <div className="absolute top-0 right-0 w-20 h-20 z-20 pointer-events-none">
-                    {/* Multi-layered glowing corner effect */}
-                    <div className="absolute top-0 right-0 w-12 h-12 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-tr-md"></div>
-                    <div className="absolute top-0 right-0 w-16 h-16 border-t-2 border-r-2 border-blue-400/70 rounded-tr-lg shadow-[0_0_10px_rgba(59,130,246,0.5)]"></div>
-                    <div className="absolute top-1 right-1 w-18 h-18 border-t border-r border-blue-600/40 rounded-tr-lg"></div>
-                    
-                    {/* Animated corner accent with pulsing glow */}
-                    <div className="absolute top-0 right-0 w-3 h-3 bg-blue-400/60 rounded-full blur-[2px] animate-pulse" style={{ animationDuration: '3.5s' }}></div>
-                    
-                    {/* Animated light ray accent */}
-                    <div className="absolute top-0 right-0 w-8 h-8 overflow-hidden rounded-tr-lg">
-                      <div className="absolute top-0 right-0 w-[200%] h-[1px] bg-gradient-to-l from-transparent via-blue-400/80 to-transparent translate-x-full animate-shimmer-slow"></div>
-                      <div className="absolute top-0 right-0 h-[200%] w-[1px] bg-gradient-to-b from-transparent via-blue-400/80 to-transparent -translate-y-full animate-shimmer-slow" style={{ animationDelay: '0.5s' }}></div>
-                    </div>
+                  {/* Animated corner accent with pulsing glow */}
+                  <div className="absolute bottom-0 left-0 w-3 h-3 bg-blue-400/60 rounded-full blur-[2px] animate-pulse" style={{ animationDuration: '3.2s' }}></div>
+                  
+                  {/* Animated light ray accent */}
+                  <div className="absolute bottom-0 left-0 w-8 h-8 overflow-hidden rounded-bl-lg">
+                    <div className="absolute bottom-0 left-0 w-[200%] h-[1px] bg-gradient-to-r from-transparent via-blue-400/80 to-transparent -translate-x-full animate-shimmer-slow"></div>
+                    <div className="absolute bottom-0 left-0 h-[200%] w-[1px] bg-gradient-to-t from-transparent via-blue-400/80 to-transparent translate-y-full animate-shimmer-slow" style={{ animationDelay: '0.7s' }}></div>
                   </div>
+                </div>
+                
+                {/* Ultra-premium multilayered border effect with dynamic lighting */}
+                <div className="absolute inset-0 rounded-xl border border-blue-600/20 shadow-[inset_0_0_30px_rgba(59,130,246,0.1)] pointer-events-none"></div>
+                <div className="absolute inset-[3px] rounded-lg border border-blue-500/10 pointer-events-none"></div>
+                <div className="absolute inset-[6px] rounded-md border border-white/5 pointer-events-none"></div>
+                
+                {/* Advanced dynamic glass shimmer effects for ultra-premium look */}
+                <div className="absolute inset-0 overflow-hidden rounded-xl">
+                  {/* Multiple layered shimmer effects with varying speeds and angles */}
+                  <div className="h-full w-1/3 bg-gradient-to-r from-transparent via-white/15 to-transparent skew-x-[-20deg] animate-shimmer-slow absolute" style={{ animationDuration: '3s' }}></div>
+                  <div className="h-full w-1/4 bg-gradient-to-r from-transparent via-blue-300/10 to-transparent skew-x-[-15deg] animate-shimmer-slow absolute" style={{ animationDuration: '4s', animationDelay: '1s' }}></div>
+                  <div className="h-full w-1/5 bg-gradient-to-r from-transparent via-blue-400/5 to-transparent skew-x-[-25deg] animate-shimmer-slow absolute" style={{ animationDuration: '3.5s', animationDelay: '2s' }}></div>
                   
-                  <div className="absolute bottom-0 right-0 w-20 h-20 z-20 pointer-events-none">
-                    {/* Multi-layered glowing corner effect */}
-                    <div className="absolute bottom-0 right-0 w-12 h-12 bg-gradient-to-tl from-blue-500/10 to-transparent rounded-br-md"></div>
-                    <div className="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-blue-400/70 rounded-br-lg shadow-[0_0_10px_rgba(59,130,246,0.5)]"></div>
-                    <div className="absolute bottom-1 right-1 w-18 h-18 border-b border-r border-blue-600/40 rounded-br-lg"></div>
-                    
-                    {/* Animated corner accent with pulsing glow */}
-                    <div className="absolute bottom-0 right-0 w-3 h-3 bg-blue-400/60 rounded-full blur-[2px] animate-pulse" style={{ animationDuration: '4s' }}></div>
-                    
-                    {/* Animated light ray accent */}
-                    <div className="absolute bottom-0 right-0 w-8 h-8 overflow-hidden rounded-br-lg">
-                      <div className="absolute bottom-0 right-0 w-[200%] h-[1px] bg-gradient-to-l from-transparent via-blue-400/80 to-transparent translate-x-full animate-shimmer-slow"></div>
-                      <div className="absolute bottom-0 right-0 h-[200%] w-[1px] bg-gradient-to-t from-transparent via-blue-400/80 to-transparent translate-y-full animate-shimmer-slow" style={{ animationDelay: '1s' }}></div>
-                    </div>
-                  </div>
-                  
-                  <div className="absolute bottom-0 left-0 w-20 h-20 z-20 pointer-events-none">
-                    {/* Multi-layered glowing corner effect */}
-                    <div className="absolute bottom-0 left-0 w-12 h-12 bg-gradient-to-tr from-blue-500/10 to-transparent rounded-bl-md"></div>
-                    <div className="absolute bottom-0 left-0 w-16 h-16 border-b-2 border-l-2 border-blue-400/70 rounded-bl-lg shadow-[0_0_10px_rgba(59,130,246,0.5)]"></div>
-                    <div className="absolute bottom-1 left-1 w-18 h-18 border-b border-l border-blue-600/40 rounded-bl-lg"></div>
-                    
-                    {/* Animated corner accent with pulsing glow */}
-                    <div className="absolute bottom-0 left-0 w-3 h-3 bg-blue-400/60 rounded-full blur-[2px] animate-pulse" style={{ animationDuration: '3.2s' }}></div>
-                    
-                    {/* Animated light ray accent */}
-                    <div className="absolute bottom-0 left-0 w-8 h-8 overflow-hidden rounded-bl-lg">
-                      <div className="absolute bottom-0 left-0 w-[200%] h-[1px] bg-gradient-to-r from-transparent via-blue-400/80 to-transparent -translate-x-full animate-shimmer-slow"></div>
-                      <div className="absolute bottom-0 left-0 h-[200%] w-[1px] bg-gradient-to-t from-transparent via-blue-400/80 to-transparent translate-y-full animate-shimmer-slow" style={{ animationDelay: '0.7s' }}></div>
-                    </div>
-                  </div>
-                  
-                  {/* Ultra-premium multilayered border effect with dynamic lighting */}
-                  <div className="absolute inset-0 rounded-xl border border-blue-600/20 shadow-[inset_0_0_30px_rgba(59,130,246,0.1)] pointer-events-none"></div>
-                  <div className="absolute inset-[3px] rounded-lg border border-blue-500/10 pointer-events-none"></div>
-                  <div className="absolute inset-[6px] rounded-md border border-white/5 pointer-events-none"></div>
-                  
-                  {/* Advanced dynamic glass shimmer effects for ultra-premium look */}
-                  <div className="absolute inset-0 overflow-hidden rounded-xl">
-                    {/* Multiple layered shimmer effects with varying speeds and angles */}
-                    <div className="h-full w-1/3 bg-gradient-to-r from-transparent via-white/15 to-transparent skew-x-[-20deg] animate-shimmer-slow absolute" style={{ animationDuration: '3s' }}></div>
-                    <div className="h-full w-1/4 bg-gradient-to-r from-transparent via-blue-300/10 to-transparent skew-x-[-15deg] animate-shimmer-slow absolute" style={{ animationDuration: '4s', animationDelay: '1s' }}></div>
-                    <div className="h-full w-1/5 bg-gradient-to-r from-transparent via-blue-400/5 to-transparent skew-x-[-25deg] animate-shimmer-slow absolute" style={{ animationDuration: '3.5s', animationDelay: '2s' }}></div>
-                    
-                    {/* Horizontal light beam effects */}
-                    <div className="absolute top-[20%] h-[1px] w-full bg-gradient-to-r from-transparent via-blue-400/50 to-transparent -translate-x-full animate-shimmer-slow"></div>
-                    <div className="absolute bottom-[30%] h-[1px] w-full bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full animate-shimmer-slow" style={{ animationDelay: '1.5s' }}></div>
-                    
-                    {/* Subtle radial highlight effects */}
-                    <div className="absolute top-[10%] left-[20%] w-[150px] h-[150px] bg-blue-400/5 rounded-full blur-xl opacity-60 animate-pulse-very-slow"></div>
-                    <div className="absolute bottom-[20%] right-[15%] w-[120px] h-[120px] bg-blue-300/5 rounded-full blur-lg opacity-50 animate-pulse-very-slow" style={{ animationDelay: '2s' }}></div>
-                  </div>
-                  
-                  {/* Premium badge with icon in homepage style */}
-                  <div className="relative mb-6">
-                    <div className="flex items-start justify-center">
-                      <div className="relative mr-2">
-                        <div className="absolute -inset-1 bg-blue-500/30 rounded-full blur-md"></div>
-                        <div className="relative h-6 w-6 flex items-center justify-center">
-                          <div className="absolute inset-0 bg-gradient-to-b from-blue-600/80 to-blue-800/80 rounded-full shadow-[0_0_8px_rgba(59,130,246,0.6)]"></div>
-                          <div className="absolute inset-0.5 bg-gradient-to-br from-blue-500/30 to-blue-700/30 rounded-full"></div>
-                          <Calculator className="w-3.5 h-3.5 text-blue-100 relative z-10" />
-                        </div>
-                      </div>
-                      <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-blue-200" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.8)" }}>
-                        ADVANCED ROI TECHNOLOGY
-                      </h3>
-                    </div>
-                  </div>
-                  
-                  {/* Ultra-premium Enterprise Header with Dynamic 3D Effects */}
-                  <div className="relative group">
-                    {/* Advanced multi-layered ambient glow system */}
-                    <div className="absolute -inset-10 bg-gradient-to-br from-blue-600/30 via-blue-500/25 to-blue-600/30 rounded-3xl blur-3xl opacity-70 z-0 group-hover:opacity-80 transition-opacity duration-700"></div>
-                    <div className="absolute -inset-16 bg-gradient-to-r from-blue-700/15 via-blue-400/20 to-blue-700/15 rounded-full blur-3xl opacity-60 z-0 animate-pulse-slow" style={{ animationDuration: '8s' }}></div>
-                    <div className="absolute -inset-20 bg-blue-500/10 rounded-full blur-3xl opacity-50 z-0 animate-pulse-very-slow" style={{ animationDuration: '15s' }}></div>
-                    
-                    {/* Dynamic animated light rays effect */}
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200%] h-40 rotate-45 overflow-hidden z-0 opacity-30">
-                      <div className="absolute h-full w-32 bg-gradient-to-r from-transparent via-blue-400 to-transparent -translate-x-full animate-beam-slow"></div>
-                      <div className="absolute h-full w-24 bg-gradient-to-r from-transparent via-blue-300 to-transparent -translate-x-full animate-beam-slow" style={{ animationDelay: '2.5s' }}></div>
-                    </div>
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200%] h-32 -rotate-45 overflow-hidden z-0 opacity-30">
-                      <div className="absolute h-full w-28 bg-gradient-to-r from-transparent via-blue-400 to-transparent -translate-x-full animate-beam-slow" style={{ animationDelay: '1.2s' }}></div>
+                  {/* Horizontal light beam effects */}
+                  <div className="absolute top-[20%] h-[1px] w-full bg-gradient-to-r from-transparent via-blue-400/50 to-transparent -translate-x-full animate-shimmer-slow"></div>
+                  <div className="absolute bottom-[30%] h-[1px] w-full bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full animate-shimmer-slow" style={{ animationDelay: '1.5s' }}></div>
+                </div>
+                
+                {/* Header content */}
+                <div className="relative z-10 p-8 md:p-12">
+                  <div className="max-w-5xl mx-auto text-center">
+                    {/* Premium badge */}
+                    <div className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-gradient-to-r from-blue-500/20 via-blue-600/20 to-blue-500/20 border border-blue-500/30 shadow-lg mb-6 backdrop-blur-sm">
+                      <Flame className="h-5 w-5 mr-2 text-blue-400" />
+                      <span className="text-blue-100 font-medium text-sm">FIRE PREVENTION TECHNOLOGY</span>
                     </div>
                     
-                    {/* Particulate effect layer */}
-                    <div className="absolute inset-0 mix-blend-overlay opacity-10" 
-                      style={{
-                        backgroundImage: "radial-gradient(circle at center, rgba(255,255,255,0.8) 0%, transparent 0.5%)",
-                        backgroundSize: "5px 5px"
-                      }}>
-                    </div>
-                    
-                    {/* Ultra-premium 3D title with advanced lighting effects */}
-                    <div className="relative">
-                      {/* Text shadow effect base */}
-                      <div className="absolute -inset-1 blur-md opacity-50 bg-blue-500/20 rounded-full"></div>
-                      
-                      {/* Premium 3D heading with realistic lighting and reflections */}
-                      <h1 className="relative text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold mb-8 bg-clip-text text-transparent bg-gradient-to-br from-white via-blue-100 to-white leading-tight max-w-6xl mx-auto tracking-tight transform transition-all duration-700 group-hover:scale-[1.02]" 
-                        style={{ 
-                          textShadow: "0 1px 1px rgba(0,0,0,0.8), 0 8px 24px rgba(59,130,246,0.3)", 
-                          WebkitTextStroke: "1px rgba(255,255,255,0.1)"
-                        }}>
-                        Mobile Home ROI Analysis Calculator
-                        
-                        {/* Realistic light reflection */}
-                        <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
-                        
-                        {/* Animated bottom line with shimmer effect */}
-                        <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-4/5 h-[2px] overflow-hidden">
-                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-500/80 to-transparent"></div>
-                          <div className="absolute inset-0 w-1/2 bg-gradient-to-r from-transparent via-white/70 to-transparent -translate-x-full animate-shimmer-slow"></div>
-                        </div>
+                    {/* Premium enterprise title with layered effects */}
+                    <div className="mb-8">
+                      <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-white">
+                        Wildfires Will Happen – Will Your Property Survive?
                       </h1>
+                      <p className="text-xl text-blue-200/90 max-w-3xl mx-auto">
+                        In the fire-prone regions of the West, a single ember can wipe out an entire neighborhood in minutes. Praetorian Smart-Coat is the fireproof paint and thermal barrier coating engineered to turn homes into wildfire fortresses. This NASA-derived, non-flammable ceramic insulation shields your structure from extreme flames and blistering heat simultaneously.
+                      </p>
                     </div>
-                  </div>
-                  
-                  {/* Ultra-premium subheader with interactive hover effects */}
-                  <div className="relative group">
-                    {/* Subtle background glow that intensifies on hover */}
-                    <div className="absolute -inset-4 bg-blue-500/10 rounded-2xl blur-xl opacity-0 group-hover:opacity-70 transition-opacity duration-700"></div>
                     
-                    {/* Enhanced paragraph with interactive hover effects on key phrases */}
-                    <p className="relative text-lg md:text-xl text-blue-100/90 max-w-3xl mx-auto mb-8 leading-relaxed">
-                      Discover how Praetorian Smart-Coat technology can 
-                      <span className="relative inline-block mx-1 group/item">
-                        <span className="absolute -inset-1 bg-blue-500/20 rounded-md blur-sm opacity-0 group-hover/item:opacity-100 transition-opacity duration-300"></span>
-                        <span className="relative text-white font-semibold">transform your mobile home's efficiency</span>
-                      </span>, 
-                      <span className="relative inline-block mx-1 group/item">
-                        <span className="absolute -inset-1 bg-blue-500/20 rounded-md blur-sm opacity-0 group-hover/item:opacity-100 transition-opacity duration-300"></span>
-                        <span className="relative text-white font-semibold">reduce utility costs</span>
-                      </span>, and 
-                      <span className="relative inline-block mx-1 group/item">
-                        <span className="absolute -inset-1 bg-blue-500/20 rounded-md blur-sm opacity-0 group-hover/item:opacity-100 transition-opacity duration-300"></span>
-                        <span className="relative text-white font-semibold">increase property value</span>
-                      </span> with our advanced ROI calculator.
-                    </p>
-                    
-                    {/* Ultra-premium 3D icons with advanced lighting effects */}
-                    <div className="flex justify-center space-x-10 mt-6 mb-10">
-                      <div className="flex flex-col items-center group">
-                        <div className="relative p-3 mb-3 transform transition-all duration-300 group-hover:scale-110">
-                          {/* Multi-layered glow effects */}
-                          <div className="absolute -inset-3 bg-blue-500/20 rounded-full blur-xl opacity-60 group-hover:bg-blue-400/30 group-hover:opacity-80 transition-all duration-500"></div>
-                          <div className="absolute -inset-1 bg-gradient-to-br from-blue-500/30 via-blue-400/20 to-blue-500/30 rounded-full blur-md opacity-70 group-hover:opacity-90 transition-opacity duration-300"></div>
-                          
-                          {/* Premium 3D icon container with realistic glass effects */}
-                          <div className="relative h-14 w-14 flex items-center justify-center bg-gradient-to-br from-blue-700/90 to-blue-900/95 rounded-full border border-blue-400/40 shadow-[0_0_20px_rgba(59,130,246,0.4),0_0_10px_rgba(255,255,255,0.1)_inset] group-hover:shadow-[0_0_30px_rgba(59,130,246,0.6),0_0_15px_rgba(255,255,255,0.2)_inset] transition-all duration-500">
-                            {/* Inner glass shine effect */}
-                            <div className="absolute inset-0.5 bg-gradient-to-br from-blue-600/30 to-blue-800/30 rounded-full"></div>
-                            
-                            {/* Multiple animated shimmer effects */}
-                            <div className="absolute inset-0 rounded-full overflow-hidden">
-                              <div className="absolute top-0 left-[-100%] h-full w-[300%] bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer-slow transform rotate-[-35deg] group-hover:via-white/30 transition-all duration-300"></div>
-                              <div className="absolute bottom-0 right-[-100%] h-full w-[300%] bg-gradient-to-r from-transparent via-blue-400/20 to-transparent animate-shimmer-slow transform rotate-[45deg]" style={{ animationDelay: '0.7s', animationDuration: '2.5s' }}></div>
-                            </div>
-                            
-                            {/* Icon with ultra-premium enhanced glow */}
-                            <div className="relative flex items-center justify-center">
-                              <div className="absolute -inset-3 bg-gradient-to-r from-blue-400/40 via-blue-300/30 to-blue-400/40 rounded-full blur-sm opacity-70 group-hover:opacity-100 transition-opacity duration-300 animate-pulse-slower"></div>
-                              <div className="absolute -inset-1 bg-blue-400/30 rounded-full blur-[2px] opacity-80 group-hover:opacity-100 transition-opacity duration-300"></div>
-                              <BadgeDollarSign className="w-7 h-7 text-blue-100 relative z-10 drop-shadow-[0_2px_3px_rgba(0,0,0,0.5)] group-hover:text-white transition-colors duration-300" />
-                            </div>
-                            
-                            {/* Realistic light reflection */}
-                            <div className="absolute top-[15%] left-[20%] w-[60%] h-[20%] bg-white/30 rounded-full blur-[1px] opacity-70"></div>
+                    {/* Enhanced feature list with premium styling */}
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+                      <div className="relative p-6 bg-gradient-to-br from-gray-900/70 to-gray-800/50 border border-blue-500/30 rounded-xl transition-all duration-300 hover:border-blue-500/50 overflow-hidden group">
+                        <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/0 via-blue-600/10 to-blue-600/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <div className="relative z-10 flex flex-col items-center text-center">
+                          <div className="p-3 bg-blue-950/80 rounded-2xl mb-4 border border-blue-700/40">
+                            <Flame className="h-8 w-8 text-blue-400" />
                           </div>
-                        </div>
-                        
-                        {/* Enhanced label with hover animation */}
-                        <div className="relative overflow-hidden">
-                          <span className="block text-blue-100 text-sm font-semibold tracking-wide py-1 px-3 rounded-full bg-gradient-to-r from-blue-900/60 via-blue-800/60 to-blue-900/60 border border-blue-700/30 shadow-[0_2px_10px_rgba(0,0,0,0.2),0_0_5px_rgba(59,130,246,0.3)_inset] group-hover:shadow-[0_2px_15px_rgba(0,0,0,0.3),0_0_8px_rgba(59,130,246,0.4)_inset] transition-all duration-500">
-                            Maximize Savings
-                            
-                            {/* Animated bottom shimmer */}
-                            <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-blue-400/50"></div>
-                            <div className="absolute bottom-0 left-[-100%] right-0 h-[1px] w-[200%] bg-gradient-to-r from-transparent via-blue-300/80 to-transparent group-hover:animate-shimmer-slow"></div>
-                          </span>
+                          <h3 className="text-lg font-semibold text-white mb-2">Active Fire Protection</h3>
+                          <p className="text-gray-300">Certified Class-A fire rating with advanced ceramic-based technology that actively prevents flame spread for up to 4 hours in direct fire conditions.</p>
                         </div>
                       </div>
                       
-                      <div className="flex flex-col items-center group">
-                        <div className="relative p-3 mb-3 transform transition-all duration-300 group-hover:scale-110">
-                          {/* Multi-layered glow effects */}
-                          <div className="absolute -inset-3 bg-blue-500/20 rounded-full blur-xl opacity-60 group-hover:bg-blue-400/30 group-hover:opacity-80 transition-all duration-500"></div>
-                          <div className="absolute -inset-1 bg-gradient-to-br from-blue-500/30 via-blue-400/20 to-blue-500/30 rounded-full blur-md opacity-70 group-hover:opacity-90 transition-opacity duration-300"></div>
-                          
-                          {/* Premium 3D icon container with realistic glass effects */}
-                          <div className="relative h-14 w-14 flex items-center justify-center bg-gradient-to-br from-blue-700/90 to-blue-900/95 rounded-full border border-blue-400/40 shadow-[0_0_20px_rgba(59,130,246,0.4),0_0_10px_rgba(255,255,255,0.1)_inset] group-hover:shadow-[0_0_30px_rgba(59,130,246,0.6),0_0_15px_rgba(255,255,255,0.2)_inset] transition-all duration-500">
-                            {/* Inner glass shine effect */}
-                            <div className="absolute inset-0.5 bg-gradient-to-br from-blue-600/30 to-blue-800/30 rounded-full"></div>
-                            
-                            {/* Multiple animated shimmer effects */}
-                            <div className="absolute inset-0 rounded-full overflow-hidden">
-                              <div className="absolute top-0 left-[-100%] h-full w-[300%] bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer-slow transform rotate-[-35deg] group-hover:via-white/30 transition-all duration-300" style={{ animationDelay: '0.3s' }}></div>
-                              <div className="absolute bottom-0 right-[-100%] h-full w-[300%] bg-gradient-to-r from-transparent via-blue-400/20 to-transparent animate-shimmer-slow transform rotate-[45deg]" style={{ animationDelay: '1s', animationDuration: '2.5s' }}></div>
-                            </div>
-                            
-                            {/* Icon with ultra-premium enhanced glow */}
-                            <div className="relative flex items-center justify-center">
-                              <div className="absolute -inset-3 bg-gradient-to-r from-blue-400/40 via-blue-300/30 to-blue-400/40 rounded-full blur-sm opacity-70 group-hover:opacity-100 transition-opacity duration-300 animate-pulse-slower"></div>
-                              <div className="absolute -inset-1 bg-blue-400/30 rounded-full blur-[2px] opacity-80 group-hover:opacity-100 transition-opacity duration-300"></div>
-                              <Landmark className="w-7 h-7 text-blue-100 relative z-10 drop-shadow-[0_2px_3px_rgba(0,0,0,0.5)] group-hover:text-white transition-colors duration-300" />
-                            </div>
-                            
-                            {/* Realistic light reflection */}
-                            <div className="absolute top-[15%] left-[20%] w-[60%] h-[20%] bg-white/30 rounded-full blur-[1px] opacity-70"></div>
+                      <div className="relative p-6 bg-gradient-to-br from-gray-900/70 to-gray-800/50 border border-blue-500/30 rounded-xl transition-all duration-300 hover:border-blue-500/50 overflow-hidden group">
+                        <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/0 via-blue-600/10 to-blue-600/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <div className="relative z-10 flex flex-col items-center text-center">
+                          <div className="p-3 bg-blue-950/80 rounded-2xl mb-4 border border-blue-700/40">
+                            <ShieldCheck className="h-8 w-8 text-blue-400" />
                           </div>
-                        </div>
-                        
-                        {/* Enhanced label with hover animation */}
-                        <div className="relative overflow-hidden">
-                          <span className="block text-blue-100 text-sm font-semibold tracking-wide py-1 px-3 rounded-full bg-gradient-to-r from-blue-900/60 via-blue-800/60 to-blue-900/60 border border-blue-700/30 shadow-[0_2px_10px_rgba(0,0,0,0.2),0_0_5px_rgba(59,130,246,0.3)_inset] group-hover:shadow-[0_2px_15px_rgba(0,0,0,0.3),0_0_8px_rgba(59,130,246,0.4)_inset] transition-all duration-500">
-                            Extend Lifespan
-                            
-                            {/* Animated bottom shimmer */}
-                            <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-blue-400/50"></div>
-                            <div className="absolute bottom-0 left-[-100%] right-0 h-[1px] w-[200%] bg-gradient-to-r from-transparent via-blue-300/80 to-transparent group-hover:animate-shimmer-slow"></div>
-                          </span>
+                          <h3 className="text-lg font-semibold text-white mb-2">Complete Coverage</h3>
+                          <p className="text-gray-300">Protects multiple surface types including wood, metal, concrete, and composites in a single application - no need for multiple systems.</p>
                         </div>
                       </div>
                       
-                      <div className="flex flex-col items-center group">
-                        <div className="relative p-3 mb-3 transform transition-all duration-300 group-hover:scale-110">
-                          {/* Multi-layered glow effects */}
-                          <div className="absolute -inset-3 bg-blue-500/20 rounded-full blur-xl opacity-60 group-hover:bg-blue-400/30 group-hover:opacity-80 transition-all duration-500"></div>
-                          <div className="absolute -inset-1 bg-gradient-to-br from-blue-500/30 via-blue-400/20 to-blue-500/30 rounded-full blur-md opacity-70 group-hover:opacity-90 transition-opacity duration-300"></div>
-                          
-                          {/* Premium 3D icon container with realistic glass effects */}
-                          <div className="relative h-14 w-14 flex items-center justify-center bg-gradient-to-br from-blue-700/90 to-blue-900/95 rounded-full border border-blue-400/40 shadow-[0_0_20px_rgba(59,130,246,0.4),0_0_10px_rgba(255,255,255,0.1)_inset] group-hover:shadow-[0_0_30px_rgba(59,130,246,0.6),0_0_15px_rgba(255,255,255,0.2)_inset] transition-all duration-500">
-                            {/* Inner glass shine effect */}
-                            <div className="absolute inset-0.5 bg-gradient-to-br from-blue-600/30 to-blue-800/30 rounded-full"></div>
-                            
-                            {/* Multiple animated shimmer effects */}
-                            <div className="absolute inset-0 rounded-full overflow-hidden">
-                              <div className="absolute top-0 left-[-100%] h-full w-[300%] bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer-slow transform rotate-[-35deg] group-hover:via-white/30 transition-all duration-300" style={{ animationDelay: '0.6s' }}></div>
-                              <div className="absolute bottom-0 right-[-100%] h-full w-[300%] bg-gradient-to-r from-transparent via-blue-400/20 to-transparent animate-shimmer-slow transform rotate-[45deg]" style={{ animationDelay: '1.3s', animationDuration: '2.5s' }}></div>
-                            </div>
-                            
-                            {/* Icon with ultra-premium enhanced glow */}
-                            <div className="relative flex items-center justify-center">
-                              <div className="absolute -inset-3 bg-gradient-to-r from-blue-400/40 via-blue-300/30 to-blue-400/40 rounded-full blur-sm opacity-70 group-hover:opacity-100 transition-opacity duration-300 animate-pulse-slower"></div>
-                              <div className="absolute -inset-1 bg-blue-400/30 rounded-full blur-[2px] opacity-80 group-hover:opacity-100 transition-opacity duration-300"></div>
-                              <Rocket className="w-7 h-7 text-blue-100 relative z-10 drop-shadow-[0_2px_3px_rgba(0,0,0,0.5)] group-hover:text-white transition-colors duration-300" />
-                            </div>
-                            
-                            {/* Realistic light reflection */}
-                            <div className="absolute top-[15%] left-[20%] w-[60%] h-[20%] bg-white/30 rounded-full blur-[1px] opacity-70"></div>
+                      <div className="relative p-6 bg-gradient-to-br from-gray-900/70 to-gray-800/50 border border-blue-500/30 rounded-xl transition-all duration-300 hover:border-blue-500/50 overflow-hidden group">
+                        <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/0 via-blue-600/10 to-blue-600/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <div className="relative z-10 flex flex-col items-center text-center">
+                          <div className="p-3 bg-blue-950/80 rounded-2xl mb-4 border border-blue-700/40">
+                            <Award className="h-8 w-8 text-blue-400" />
                           </div>
-                        </div>
-                        
-                        {/* Enhanced label with hover animation */}
-                        <div className="relative overflow-hidden">
-                          <span className="block text-blue-100 text-sm font-semibold tracking-wide py-1 px-3 rounded-full bg-gradient-to-r from-blue-900/60 via-blue-800/60 to-blue-900/60 border border-blue-700/30 shadow-[0_2px_10px_rgba(0,0,0,0.2),0_0_5px_rgba(59,130,246,0.3)_inset] group-hover:shadow-[0_2px_15px_rgba(0,0,0,0.3),0_0_8px_rgba(59,130,246,0.4)_inset] transition-all duration-500">
-                            Increase Value
-                            
-                            {/* Animated bottom shimmer */}
-                            <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-blue-400/50"></div>
-                            <div className="absolute bottom-0 left-[-100%] right-0 h-[1px] w-[200%] bg-gradient-to-r from-transparent via-blue-300/80 to-transparent group-hover:animate-shimmer-slow"></div>
-                          </span>
+                          <h3 className="text-lg font-semibold text-white mb-2">Insurance Approved</h3>
+                          <p className="text-gray-300">Certified by major insurance providers for premium reductions in high-risk areas with documented performance in wildfire conditions.</p>
                         </div>
                       </div>
                     </div>
-                  </div>
-                  
-                  {/* Enhanced accented bottom area with more depth */}
-                  <div className="absolute bottom-0 left-0 right-0 flex flex-col items-center">
-                    <div className="h-1 w-full bg-gradient-to-r from-transparent via-blue-500/70 to-transparent"></div>
-                    <div className="h-0.5 w-3/4 mt-0.5 bg-gradient-to-r from-transparent via-blue-400/50 to-transparent"></div>
                   </div>
                 </div>
               </div>
@@ -577,1679 +360,181 @@ const MobileHome = () => {
           </div>
         </section>
         
-        {/* Existing Hero Section */}
-        <section className="py-16 md:py-24 relative z-10">
-          <div className="container mx-auto">
-            <div className="max-w-4xl mx-auto text-center mb-16 relative">
-              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/30 via-blue-500/20 to-blue-600/30 rounded-xl blur-xl opacity-70"></div>
+        {/* SANDLER STAGE 2: PAIN - RED GLOW SECTION */}
+        <section className="relative z-10 py-12 overflow-hidden">
+          <div className="container mx-auto mb-16">
+            <div className="relative">
+              {/* Section-specific ambient red glow in background */}
+              <div className="absolute -inset-10 bg-red-900/10 rounded-full blur-[100px] opacity-80 z-0"></div>
+              <div className="absolute -inset-20 bg-red-800/5 rounded-full blur-[150px] opacity-70 z-0 animate-pulse-slow"></div>
               
-              {/* Ultra-premium enterprise header with layered effects - no blue glow */}
-              <div className="relative bg-gradient-to-br from-gray-900/90 via-gray-950/90 to-black/90 py-10 px-12 rounded-xl border border-gray-800 shadow-[0_10px_25px_rgba(0,0,0,0.3)]">
-                {/* Glass shimmer effect */}
-                <div className="absolute inset-0 overflow-hidden rounded-xl">
-                  <div className="h-full w-1/3 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-[-20deg] animate-shimmer-slow absolute"></div>
-                </div>
+              {/* Content card with high z-index to appear over the glow */}
+              <div className="relative z-20 rounded-2xl overflow-hidden p-8 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-red-700/30 shadow-[0_10px_50px_-12px_rgba(0,0,0,0.4)]">
+                {/* Section Title with premium styling */}
+                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-red-300 via-orange-200 to-red-300">
+                  The High Cost of Being Unprepared
+                </h2>
                 
-                {/* Premium Corner Accents */}
-                <div className="absolute top-0 left-0 w-14 h-14 z-10 pointer-events-none">
-                  <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-gray-700 rounded-tl-md"></div>
-                  <div className="absolute top-1 left-1 w-10 h-10 border-t border-l border-gray-600 rounded-tl-md"></div>
-                </div>
-                <div className="absolute top-0 right-0 w-14 h-14 z-10 pointer-events-none">
-                  <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-gray-700 rounded-tr-md"></div>
-                  <div className="absolute top-1 right-1 w-10 h-10 border-t border-r border-gray-600 rounded-tr-md"></div>
-                </div>
-                <div className="absolute bottom-0 right-0 w-14 h-14 z-10 pointer-events-none">
-                  <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-gray-700 rounded-br-md"></div>
-                  <div className="absolute bottom-1 right-1 w-10 h-10 border-b border-r border-gray-600 rounded-br-md"></div>
-                </div>
-                <div className="absolute bottom-0 left-0 w-14 h-14 z-10 pointer-events-none">
-                  <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-gray-700 rounded-bl-md"></div>
-                  <div className="absolute bottom-1 left-1 w-10 h-10 border-b border-l border-gray-600 rounded-bl-md"></div>
-                </div>
-                
-                {/* Premium header with styled corner accents like homepage */}
-                <div className="relative mb-8">
-                  {/* Ultra-premium Blue ambient glow effects with dynamic animation */}
-                  <div className="absolute -inset-6 bg-gradient-to-br from-blue-600/30 via-blue-500/25 to-blue-600/30 rounded-xl blur-3xl opacity-60 z-0"></div>
-                  <div className="absolute -inset-10 bg-gradient-to-r from-blue-500/15 via-blue-400/20 to-blue-500/15 rounded-xl blur-2xl opacity-70 z-0 animate-pulse-slow"></div>
-                  <div className="absolute -inset-14 bg-blue-500/10 rounded-full blur-3xl opacity-50 z-0 animate-pulse-very-slow"></div>
-                  
-                  {/* Dynamic light rays */}
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200%] h-32 rotate-45 overflow-hidden z-0 opacity-20">
-                    <div className="absolute h-full w-24 bg-gradient-to-r from-transparent via-blue-400 to-transparent -translate-x-full animate-beam-slow"></div>
-                    <div className="absolute h-full w-16 bg-gradient-to-r from-transparent via-blue-300 to-transparent -translate-x-full animate-beam-slow" style={{ animationDelay: '2s' }}></div>
-                  </div>
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200%] h-24 -rotate-45 overflow-hidden z-0 opacity-20">
-                    <div className="absolute h-full w-20 bg-gradient-to-r from-transparent via-blue-400 to-transparent -translate-x-full animate-beam-slow" style={{ animationDelay: '1s' }}></div>
+                {/* Fire statistics with premium enterprise dramatic styling */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                  <div className="relative group overflow-hidden rounded-xl transform transition-all duration-500 hover:scale-[1.02]">
+                    {/* Premium layered backgrounds with enhanced depth */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-black/90 via-red-950/20 to-black/90 border border-red-800/30 rounded-xl"></div>
+                    
+                    {/* Enhanced 3D border effects */}
+                    <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-red-500/40 to-transparent"></div>
+                    <div className="absolute inset-y-0 right-0 w-[1px] bg-gradient-to-b from-transparent via-red-500/30 to-transparent"></div>
+                    <div className="absolute inset-x-0 bottom-0 h-[1px] bg-gradient-to-r from-transparent via-red-500/40 to-transparent"></div>
+                    <div className="absolute inset-y-0 left-0 w-[1px] bg-gradient-to-b from-transparent via-red-500/30 to-transparent"></div>
+                    
+                    {/* Premium content with enhanced typography */}
+                    <div className="relative z-10 p-6">
+                      <div className="text-4xl font-bold bg-gradient-to-br from-red-300 to-red-500 bg-clip-text text-transparent mb-2">$25.4B</div>
+                      <div className="text-gray-300 group-hover:text-gray-200 transition-colors duration-300">Annual wildfire damage costs in the United States, with billions in property losses that could have been prevented</div>
+                    </div>
                   </div>
                   
-                  {/* Ultra-premium main header with enterprise 3D styling */}
-                  <div className="relative p-8 bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 border border-blue-600/30 rounded-xl shadow-[0_10px_40px_rgba(0,0,0,0.5),0_0_60px_rgba(59,130,246,0.2)_inset] z-10 transform transition-all duration-300 group hover:shadow-[0_15px_60px_rgba(0,0,0,0.6),0_0_80px_rgba(59,130,246,0.3)_inset] hover:scale-[1.005]">
-                    {/* Ultra-premium corner decorations with 3D effects and glowing accents */}
-                    <div className="absolute top-0 left-0 w-16 h-16 z-10 pointer-events-none">
-                      {/* Multi-layered glowing corner effect */}
-                      <div className="absolute top-0 left-0 w-10 h-10 bg-gradient-to-br from-blue-500/10 to-transparent rounded-tl-md"></div>
-                      <div className="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-blue-400/60 rounded-tl-md shadow-[0_0_10px_rgba(59,130,246,0.5)]"></div>
-                      <div className="absolute top-1 left-1 w-14 h-14 border-t border-l border-blue-600/40 rounded-tl-md"></div>
-                      {/* Animated corner accent */}
-                      <div className="absolute top-0 left-0 w-6 h-6 overflow-hidden rounded-tl-md">
-                        <div className="absolute top-0 left-0 w-[200%] h-[1px] bg-gradient-to-r from-transparent via-blue-400/80 to-transparent -translate-x-full animate-shimmer-slow"></div>
-                        <div className="absolute top-0 left-0 h-[200%] w-[1px] bg-gradient-to-b from-transparent via-blue-400/80 to-transparent -translate-y-full animate-shimmer-slow"></div>
-                      </div>
-                    </div>
+                  <div className="relative group overflow-hidden rounded-xl transform transition-all duration-500 hover:scale-[1.02]">
+                    {/* Premium layered backgrounds with enhanced depth */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-black/90 via-red-950/20 to-black/90 border border-red-800/30 rounded-xl"></div>
                     
-                    <div className="absolute top-0 right-0 w-16 h-16 z-10 pointer-events-none">
-                      {/* Multi-layered glowing corner effect */}
-                      <div className="absolute top-0 right-0 w-10 h-10 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-tr-md"></div>
-                      <div className="absolute top-0 right-0 w-12 h-12 border-t-2 border-r-2 border-blue-400/60 rounded-tr-md shadow-[0_0_10px_rgba(59,130,246,0.5)]"></div>
-                      <div className="absolute top-1 right-1 w-14 h-14 border-t border-r border-blue-600/40 rounded-tr-md"></div>
-                      {/* Animated corner accent */}
-                      <div className="absolute top-0 right-0 w-6 h-6 overflow-hidden rounded-tr-md">
-                        <div className="absolute top-0 right-0 w-[200%] h-[1px] bg-gradient-to-l from-transparent via-blue-400/80 to-transparent translate-x-full animate-shimmer-slow"></div>
-                        <div className="absolute top-0 right-0 h-[200%] w-[1px] bg-gradient-to-b from-transparent via-blue-400/80 to-transparent -translate-y-full animate-shimmer-slow" style={{ animationDelay: '0.5s' }}></div>
-                      </div>
-                    </div>
+                    {/* Enhanced 3D border effects */}
+                    <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-red-500/40 to-transparent"></div>
+                    <div className="absolute inset-y-0 right-0 w-[1px] bg-gradient-to-b from-transparent via-red-500/30 to-transparent"></div>
+                    <div className="absolute inset-x-0 bottom-0 h-[1px] bg-gradient-to-r from-transparent via-red-500/40 to-transparent"></div>
+                    <div className="absolute inset-y-0 left-0 w-[1px] bg-gradient-to-b from-transparent via-red-500/30 to-transparent"></div>
                     
-                    <div className="absolute bottom-0 right-0 w-16 h-16 z-10 pointer-events-none">
-                      {/* Multi-layered glowing corner effect */}
-                      <div className="absolute bottom-0 right-0 w-10 h-10 bg-gradient-to-tl from-blue-500/10 to-transparent rounded-br-md"></div>
-                      <div className="absolute bottom-0 right-0 w-12 h-12 border-b-2 border-r-2 border-blue-400/60 rounded-br-md shadow-[0_0_10px_rgba(59,130,246,0.5)]"></div>
-                      <div className="absolute bottom-1 right-1 w-14 h-14 border-b border-r border-blue-600/40 rounded-br-md"></div>
-                      {/* Animated corner accent */}
-                      <div className="absolute bottom-0 right-0 w-6 h-6 overflow-hidden rounded-br-md">
-                        <div className="absolute bottom-0 right-0 w-[200%] h-[1px] bg-gradient-to-l from-transparent via-blue-400/80 to-transparent translate-x-full animate-shimmer-slow" style={{ animationDelay: '1s' }}></div>
-                        <div className="absolute bottom-0 right-0 h-[200%] w-[1px] bg-gradient-to-t from-transparent via-blue-400/80 to-transparent translate-y-full animate-shimmer-slow" style={{ animationDelay: '1.5s' }}></div>
-                      </div>
+                    {/* Premium content with enhanced typography */}
+                    <div className="relative z-10 p-6">
+                      <div className="text-4xl font-bold bg-gradient-to-br from-red-300 to-red-500 bg-clip-text text-transparent mb-2">14</div>
+                      <div className="text-gray-300 group-hover:text-gray-200 transition-colors duration-300">Destructive wildfires affected the Los Angeles metropolitan area in January 2025, destroying homes and forcing thousands to evacuate</div>
                     </div>
+                  </div>
+                  
+                  <div className="relative group overflow-hidden rounded-xl transform transition-all duration-500 hover:scale-[1.02]">
+                    {/* Premium layered backgrounds with enhanced depth */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-black/90 via-red-950/20 to-black/90 border border-red-800/30 rounded-xl"></div>
                     
-                    <div className="absolute bottom-0 left-0 w-16 h-16 z-10 pointer-events-none">
-                      {/* Multi-layered glowing corner effect */}
-                      <div className="absolute bottom-0 left-0 w-10 h-10 bg-gradient-to-tr from-blue-500/10 to-transparent rounded-bl-md"></div>
-                      <div className="absolute bottom-0 left-0 w-12 h-12 border-b-2 border-l-2 border-blue-400/60 rounded-bl-md shadow-[0_0_10px_rgba(59,130,246,0.5)]"></div>
-                      <div className="absolute bottom-1 left-1 w-14 h-14 border-b border-l border-blue-600/40 rounded-bl-md"></div>
-                      {/* Animated corner accent */}
-                      <div className="absolute bottom-0 left-0 w-6 h-6 overflow-hidden rounded-bl-md">
-                        <div className="absolute bottom-0 left-0 w-[200%] h-[1px] bg-gradient-to-r from-transparent via-blue-400/80 to-transparent -translate-x-full animate-shimmer-slow" style={{ animationDelay: '2s' }}></div>
-                        <div className="absolute bottom-0 left-0 h-[200%] w-[1px] bg-gradient-to-t from-transparent via-blue-400/80 to-transparent translate-y-full animate-shimmer-slow" style={{ animationDelay: '2.5s' }}></div>
-                      </div>
-                    </div>
+                    {/* Enhanced 3D border effects */}
+                    <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-red-500/40 to-transparent"></div>
+                    <div className="absolute inset-y-0 right-0 w-[1px] bg-gradient-to-b from-transparent via-red-500/30 to-transparent"></div>
+                    <div className="absolute inset-x-0 bottom-0 h-[1px] bg-gradient-to-r from-transparent via-red-500/40 to-transparent"></div>
+                    <div className="absolute inset-y-0 left-0 w-[1px] bg-gradient-to-b from-transparent via-red-500/30 to-transparent"></div>
                     
-                    {/* Premium accent divider lines */}
-                    <div className="absolute top-[15%] inset-x-0 h-[1px] overflow-hidden">
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-400/30 to-transparent"></div>
-                      <div className="absolute inset-0 w-1/2 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full animate-shimmer-slow"></div>
+                    {/* Premium content with enhanced typography */}
+                    <div className="relative z-10 p-6">
+                      <div className="text-4xl font-bold bg-gradient-to-br from-red-300 to-red-500 bg-clip-text text-transparent mb-2">18,805</div>
+                      <div className="text-gray-300 group-hover:text-gray-200 transition-colors duration-300">Structures destroyed by the 2018 Camp Fire in Paradise, CA — the most destructive wildfire in California history, destroying 95% of structures in just hours</div>
                     </div>
-                    <div className="absolute bottom-[15%] inset-x-0 h-[1px] overflow-hidden">
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-400/30 to-transparent"></div>
-                      <div className="absolute inset-0 w-1/2 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full animate-shimmer-slow" style={{ animationDelay: '1.5s' }}></div>
-                    </div>
+                  </div>
+                  
+                  <div className="relative group overflow-hidden rounded-xl transform transition-all duration-500 hover:scale-[1.02]">
+                    {/* Premium layered backgrounds with enhanced depth */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-black/90 via-red-950/20 to-black/90 border border-red-800/30 rounded-xl"></div>
                     
-                    {/* Elite Enterprise Multi-layered Glass Shimmer Effects */}
-                    <div className="absolute inset-0 overflow-hidden rounded-xl backdrop-blur-[1px]">
-                      {/* Primary elegant shimmer wave */}
-                      <div className="h-full w-1/3 bg-gradient-to-r from-transparent via-white/8 to-transparent skew-x-[-20deg] animate-shimmer-slow absolute"></div>
-                      
-                      {/* Secondary pulsing shimmer for depth */}
-                      <div className="h-full w-2/5 bg-gradient-to-r from-transparent via-blue-400/5 to-transparent skew-x-[-15deg] animate-shimmer-very-slow absolute" style={{ animationDelay: '0.7s', left: '20%' }}></div>
-                      
-                      {/* Quick flash accent */}
-                      <div className="h-full w-1/4 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-[-10deg] animate-shimmer-fast absolute opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ animationDelay: '0.3s', left: '10%' }}></div>
-                      
-                      {/* Horizontal sweep effect */}
-                      <div className="absolute inset-y-0 w-[120%] h-full">
-                        <div className="absolute top-[30%] h-[1px] w-full bg-gradient-to-r from-transparent via-blue-400/30 to-transparent -translate-x-full animate-shimmer-slow"></div>
-                        <div className="absolute top-[70%] h-[1px] w-full bg-gradient-to-r from-transparent via-blue-300/20 to-transparent -translate-x-full animate-shimmer-slow" style={{ animationDelay: '1.2s' }}></div>
-                      </div>
-                      
-                      {/* Premium moving glass light reflection */}
-                      <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
-                        <div className="absolute w-[30%] h-[200%] bg-gradient-to-b from-white/0 via-white/8 to-white/0 -rotate-45 transform -translate-y-[200%] animate-sweep-down transition-transform duration-5000 ease-in-out"></div>
-                        <div className="absolute w-[20%] h-[200%] bg-gradient-to-b from-white/0 via-blue-300/5 to-white/0 -rotate-45 transform -translate-y-[200%] animate-sweep-down transition-transform duration-5000 ease-in-out" style={{ left: '40%', animationDelay: '2.5s' }}></div>
-                      </div>
-                      
-                      {/* Top edge light reflection */}
-                      <div className="absolute inset-x-[5%] top-0 h-[15%] w-[90%] bg-gradient-to-b from-white/10 to-transparent rounded-full opacity-60"></div>
-                    </div>
+                    {/* Enhanced 3D border effects */}
+                    <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-red-500/40 to-transparent"></div>
+                    <div className="absolute inset-y-0 right-0 w-[1px] bg-gradient-to-b from-transparent via-red-500/30 to-transparent"></div>
+                    <div className="absolute inset-x-0 bottom-0 h-[1px] bg-gradient-to-r from-transparent via-red-500/40 to-transparent"></div>
+                    <div className="absolute inset-y-0 left-0 w-[1px] bg-gradient-to-b from-transparent via-red-500/30 to-transparent"></div>
                     
-                    {/* Premium Enterprise Header Content with Advanced Effects */}
-                    <div className="relative z-10">
-                      {/* Elite Subheader with Multi-layered Effects */}
-                      <div className="relative mb-4 inline-block">
-                        {/* Subtle glow effect */}
-                        <div className="absolute -inset-1 bg-blue-500/20 rounded-lg blur-md opacity-0 group-hover:opacity-80 transition-opacity duration-500"></div>
-                        
-                        {/* Badge-style container */}
-                        <div className="relative px-4 py-1 rounded-md">
-                          {/* Animated shimmer line */}
-                          <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-blue-400/60 to-transparent"></div>
-                          
-                          {/* Enhanced gradient text */}
-                          <h2 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-blue-100 to-blue-300 tracking-wide" style={{ textShadow: "0 2px 4px rgba(0,0,0,0.8)" }}>
-                            <span className="relative inline-flex items-center">
-                              {/* Accent dot */}
-                              <span className="absolute -left-3 w-1.5 h-1.5 bg-blue-400 rounded-full shadow-[0_0_5px_rgba(59,130,246,0.7)]"></span>
-                              Previously Government-Exclusive Technology
-                              {/* Accent dot */}
-                              <span className="absolute -right-3 w-1.5 h-1.5 bg-blue-400 rounded-full shadow-[0_0_5px_rgba(59,130,246,0.7)]"></span>
-                            </span>
-                          </h2>
-                        </div>
-                      </div>
-                      
-                      {/* Premium Main Heading with Advanced Multi-layered Effects */}
-                      <div className="relative">
-                        {/* Multi-layered text glow */}
-                        <div className="absolute -inset-1 bg-blue-500/10 rounded-lg blur-lg opacity-0 group-hover:opacity-70 transition-opacity duration-700"></div>
-                        <div className="absolute -inset-2 bg-blue-600/5 rounded-xl blur-xl opacity-0 group-hover:opacity-60 transition-opacity duration-500"></div>
-                        
-                        {/* Premium main heading with enhanced styling */}
-                        <h1 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-white via-blue-50 to-white leading-tight tracking-tight" style={{ textShadow: "0 3px 6px rgba(0,0,0,0.5)" }}>
-                          Transform Your Mobile Home,
-                          <span className="block mt-1 relative">
-                            <span className="relative">
-                              {/* Word highlight effect */}
-                              <span className="absolute -inset-1 bg-blue-500/10 rounded-md blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                              <span className="relative">Cut Costs</span>
-                            </span> & 
-                            <span className="relative ml-2">
-                              {/* Word highlight effect */}
-                              <span className="absolute -inset-1 bg-blue-500/10 rounded-md blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                              <span className="relative">Extend Life</span>
-                            </span>
-                          </span>
-                        </h1>
-                        
-                        {/* Animated bottom line */}
-                        <div className="relative h-[2px] w-3/4 mx-auto mt-4 overflow-hidden">
-                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-400/40 to-transparent"></div>
-                          <div className="absolute inset-0 w-1/2 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full animate-shimmer-slow"></div>
-                        </div>
-                      </div>
+                    {/* Premium content with enhanced typography */}
+                    <div className="relative z-10 p-6">
+                      <div className="text-4xl font-bold bg-gradient-to-br from-red-300 to-red-500 bg-clip-text text-transparent mb-2">96%</div>
+                      <div className="text-gray-300 group-hover:text-gray-200 transition-colors duration-300">Of homes with standard protection fail in wildfires, leaving families with catastrophic losses and devastating emotional trauma</div>
                     </div>
                   </div>
                 </div>
                 
-                {/* SANDLER STAGE 1: IDENTIFY THE PAINS - Updated with premium styling to match proven solution section */}
-                <div className="relative mb-10">
-                  {/* Enhanced multi-layered red glow with depth and animation */}
-                  <div className="absolute -inset-1 bg-gradient-to-r from-red-600/30 via-red-500/30 to-red-600/30 rounded-xl blur-md opacity-90"></div>
-                  <div className="absolute -inset-3 bg-gradient-to-r from-red-700/20 via-red-600/10 to-red-700/20 rounded-xl blur-xl opacity-70"></div>
-                  <div className="absolute -inset-6 bg-red-600/10 rounded-xl blur-2xl opacity-50 animate-pulse-slow"></div>
-                  
-                  <div className="relative bg-gradient-to-br from-black/80 to-gray-900/80 border border-red-500/40 rounded-xl p-6 backdrop-blur-sm shadow-lg">
-                    {/* Enhanced semantic header hierarchy with premium icon styling */}
-                    <div className="flex items-start mb-3">
-                      <div className="relative mr-2">
-                        <div className="absolute -inset-1 bg-red-500/30 rounded-full blur-md"></div>
-                        <div className="relative h-6 w-6 flex items-center justify-center">
-                          <div className="absolute inset-0 bg-gradient-to-b from-red-600/80 to-red-800/80 rounded-full shadow-[0_0_8px_rgba(239,68,68,0.6)]"></div>
-                          <AlertTriangle className="w-3.5 h-3.5 text-red-100 relative z-10" />
-                        </div>
-                      </div>
-                      <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-300 to-red-200" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.8)" }}>
-                        CRITICAL CHALLENGES
-                      </h3>
-                    </div>
-                    
-                    <h2 className="text-2xl md:text-3xl text-white font-bold mb-6 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
-                      Are These Mobile Home Problems Costing You Money?
-                    </h2>
-                    
-                    <p className="text-lg text-white leading-relaxed mb-6">
-                      Mobile homes present unique challenges in energy efficiency, comfort, and longevity. Every day, owners face frustrating issues that drain their wallets and decrease quality of life.
-                    </p>
-                    
-                    <div className="space-y-6 mb-8">
-                      <div className="relative group p-6 bg-gradient-to-br from-black/80 to-gray-900/80 border border-red-500/30 rounded-xl transition-all duration-300 hover:border-red-500/50 shadow-[0_4px_15px_rgba(0,0,0,0.3)]">
-                        {/* Enhanced layered glows and effects */}
-                        <div className="absolute -inset-px bg-gradient-to-r from-red-600/20 via-transparent to-red-600/20 rounded-xl opacity-70 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
-                        <div className="absolute -inset-0.5 bg-gradient-to-br from-red-500/5 to-red-700/5 rounded-xl opacity-50 group-hover:opacity-80 transition-opacity duration-300"></div>
-                        
-                        <div className="relative flex gap-5">
-                          <div className="flex-shrink-0">
-                            {/* Elite enterprise icon styling */}
-                            <div className="relative">
-                              <div className="absolute -inset-2 bg-red-500/20 rounded-full blur-md opacity-80"></div>
-                              <div className="relative h-14 w-14 flex items-center justify-center bg-gradient-to-br from-red-800 to-red-900 rounded-xl border border-red-400/30 shadow-[0_0_15px_rgba(239,68,68,0.3)]">
-                                <div className="absolute inset-0.5 bg-gradient-to-br from-red-700 to-red-800 rounded-[0.65rem] opacity-50"></div>
-                                <div className="absolute h-full w-1/2 bg-gradient-to-r from-transparent via-red-400/20 to-transparent skew-x-[-20deg] animate-shimmer-slow"></div>
-                                <CircleDollarSign className="w-7 h-7 text-red-300 relative z-10 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]" />
-                              </div>
-                            </div>
-                          </div>
-                          <div>
-                            <h3 className="font-bold text-xl text-transparent bg-clip-text bg-gradient-to-r from-red-300 to-red-200 mb-3" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.8)" }}>Skyrocketing Utility Costs</h3>
-                            <p className="text-gray-200 leading-relaxed">
-                              Have you ever dreaded opening your utility bill during extreme weather? The average mobile home loses <span className="text-red-300 font-medium">42% of its heating and cooling</span> through poor insulation, making your HVAC system work overtime and sending your bills skyrocketing to <span className="text-red-300 font-medium">3.4x higher than necessary</span>.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                      
-                      <div className="relative group p-6 bg-gradient-to-br from-black/80 to-gray-900/80 border border-red-500/30 rounded-xl transition-all duration-300 hover:border-red-500/50 shadow-[0_4px_15px_rgba(0,0,0,0.3)]">
-                        {/* Enhanced layered glows and effects */}
-                        <div className="absolute -inset-px bg-gradient-to-r from-red-600/20 via-transparent to-red-600/20 rounded-xl opacity-70 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
-                        <div className="absolute -inset-0.5 bg-gradient-to-br from-red-500/5 to-red-700/5 rounded-xl opacity-50 group-hover:opacity-80 transition-opacity duration-300"></div>
-                        
-                        <div className="relative flex gap-5">
-                          <div className="flex-shrink-0">
-                            {/* Elite enterprise icon styling */}
-                            <div className="relative">
-                              <div className="absolute -inset-2 bg-red-500/20 rounded-full blur-md opacity-80"></div>
-                              <div className="relative h-14 w-14 flex items-center justify-center bg-gradient-to-br from-red-800 to-red-900 rounded-xl border border-red-400/30 shadow-[0_0_15px_rgba(239,68,68,0.3)]">
-                                <div className="absolute inset-0.5 bg-gradient-to-br from-red-700 to-red-800 rounded-[0.65rem] opacity-50"></div>
-                                <div className="absolute h-full w-1/2 bg-gradient-to-r from-transparent via-red-400/20 to-transparent skew-x-[-20deg] animate-shimmer-slow" style={{ animationDelay: '0.3s' }}></div>
-                                <Home className="w-7 h-7 text-red-300 relative z-10 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]" />
-                              </div>
-                            </div>
-                          </div>
-                          <div>
-                            <h3 className="font-bold text-xl text-transparent bg-clip-text bg-gradient-to-r from-red-300 to-red-200 mb-3" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.8)" }}>Accelerated Exterior Deterioration</h3>
-                            <p className="text-gray-200 leading-relaxed">
-                              What happens to your home's exterior year after year? UV damage causes deterioration at <span className="text-red-300 font-medium">2.8x the normal rate</span>, leading to costly repairs and decreased property value. And without fire-rated materials, insurance companies are raising rates by <span className="text-red-300 font-medium">26% annually</span> - eating away at your budget.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                      
-                      <div className="relative group p-6 bg-gradient-to-br from-black/80 to-gray-900/80 border border-red-500/30 rounded-xl transition-all duration-300 hover:border-red-500/50 shadow-[0_4px_15px_rgba(0,0,0,0.3)]">
-                        {/* Enhanced layered glows and effects */}
-                        <div className="absolute -inset-px bg-gradient-to-r from-red-600/20 via-transparent to-red-600/20 rounded-xl opacity-70 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
-                        <div className="absolute -inset-0.5 bg-gradient-to-br from-red-500/5 to-red-700/5 rounded-xl opacity-50 group-hover:opacity-80 transition-opacity duration-300"></div>
-                        
-                        <div className="relative flex gap-5">
-                          <div className="flex-shrink-0">
-                            {/* Elite enterprise icon styling */}
-                            <div className="relative">
-                              <div className="absolute -inset-2 bg-red-500/20 rounded-full blur-md opacity-80"></div>
-                              <div className="relative h-14 w-14 flex items-center justify-center bg-gradient-to-br from-red-800 to-red-900 rounded-xl border border-red-400/30 shadow-[0_0_15px_rgba(239,68,68,0.3)]">
-                                <div className="absolute inset-0.5 bg-gradient-to-br from-red-700 to-red-800 rounded-[0.65rem] opacity-50"></div>
-                                <div className="absolute h-full w-1/2 bg-gradient-to-r from-transparent via-red-400/20 to-transparent skew-x-[-20deg] animate-shimmer-slow" style={{ animationDelay: '0.6s' }}></div>
-                                <ThermometerIcon className="w-7 h-7 text-red-300 relative z-10 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]" />
-                              </div>
-                            </div>
-                          </div>
-                          <div>
-                            <h3 className="font-bold text-xl text-transparent bg-clip-text bg-gradient-to-r from-red-300 to-red-200 mb-3" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.8)" }}>Inconsistent Temperature Control</h3>
-                            <p className="text-gray-200 leading-relaxed">
-                              Do you find yourself constantly adjusting the thermostat because some rooms are too hot while others are too cold? Temperature fluctuations make consistent comfort impossible, leading to both discomfort and wasted energy as you try to compensate.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                      
-                      <div className="relative group p-6 bg-gradient-to-br from-black/80 to-gray-900/80 border border-red-500/30 rounded-xl transition-all duration-300 hover:border-red-500/50 shadow-[0_4px_15px_rgba(0,0,0,0.3)]">
-                        {/* Enhanced layered glows and effects */}
-                        <div className="absolute -inset-px bg-gradient-to-r from-red-600/20 via-transparent to-red-600/20 rounded-xl opacity-70 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
-                        <div className="absolute -inset-0.5 bg-gradient-to-br from-red-500/5 to-red-700/5 rounded-xl opacity-50 group-hover:opacity-80 transition-opacity duration-300"></div>
-                        
-                        <div className="relative flex gap-5">
-                          <div className="flex-shrink-0">
-                            {/* Elite enterprise icon styling */}
-                            <div className="relative">
-                              <div className="absolute -inset-2 bg-red-500/20 rounded-full blur-md opacity-80"></div>
-                              <div className="relative h-14 w-14 flex items-center justify-center bg-gradient-to-br from-red-800 to-red-900 rounded-xl border border-red-400/30 shadow-[0_0_15px_rgba(239,68,68,0.3)]">
-                                <div className="absolute inset-0.5 bg-gradient-to-br from-red-700 to-red-800 rounded-[0.65rem] opacity-50"></div>
-                                <div className="absolute h-full w-1/2 bg-gradient-to-r from-transparent via-red-400/20 to-transparent skew-x-[-20deg] animate-shimmer-slow" style={{ animationDelay: '0.9s' }}></div>
-                                <BarChart2 className="w-7 h-7 text-red-300 relative z-10 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]" />
-                              </div>
-                            </div>
-                          </div>
-                          <div>
-                            <h3 className="font-bold text-xl text-transparent bg-clip-text bg-gradient-to-r from-red-300 to-red-200 mb-3" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.8)" }}>Massive Financial Waste</h3>
-                            <p className="text-gray-200 leading-relaxed">
-                              Have you calculated how much money you're losing to these inefficiencies? The average mobile home owner wastes <span className="text-red-300 font-medium">$1,870 annually</span> in unnecessary energy costs and premature maintenance – that's over $18,700 in a decade that could be going toward other priorities.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <p className="text-lg text-red-200 font-medium italic">
-                      These problems affect virtually every mobile home in America, draining owners' finances while making daily living less comfortable. The traditional approach of patching with conventional materials simply isn't working – it's a costly cycle with diminishing returns.
-                    </p>
-                  </div>
-                </div>
-                
-                {/* SANDLER STAGE 2: PRESENT SOLUTIONS */}
-                <div className="relative mb-10">
-                  {/* Enhanced multi-layered green glow */}
-                  <div className="absolute -inset-1 bg-gradient-to-r from-green-600/30 via-green-500/30 to-green-600/30 rounded-xl blur-md opacity-90"></div>
-                  <div className="absolute -inset-3 bg-gradient-to-r from-green-700/20 via-green-600/10 to-green-700/20 rounded-xl blur-xl opacity-70"></div>
-                  <div className="absolute -inset-6 bg-green-600/10 rounded-xl blur-2xl opacity-50 animate-pulse-slow"></div>
-                  
-                  <div className="relative bg-gradient-to-br from-black/80 to-gray-900/80 border border-green-500/40 rounded-xl p-6 backdrop-blur-sm shadow-lg">
-                    {/* Enhanced semantic header hierarchy */}
-                    <div className="flex items-start mb-3">
-                      <div className="relative mr-2">
-                        <div className="absolute -inset-1 bg-green-500/30 rounded-full blur-md"></div>
-                        <div className="relative h-6 w-6 flex items-center justify-center">
-                          <div className="absolute inset-0 bg-gradient-to-b from-green-600/80 to-green-800/80 rounded-full shadow-[0_0_8px_rgba(74,222,128,0.6)]"></div>
-                          <CheckCircle className="w-3.5 h-3.5 text-green-100 relative z-10" />
-                        </div>
-                      </div>
-                      <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-green-200" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.8)" }}>
-                        PROVEN SOLUTION
-                      </h3>
-                    </div>
-                    
-                    <h2 className="text-2xl md:text-3xl text-white font-bold mb-6 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
-                      Praetorian Smart-Coat – Advanced Mobile Home Protection
-                    </h2>
-                    
-                    <p className="text-lg text-white leading-relaxed mb-6">
-                      Our NASA-derived ceramic coating technology isn't just paint – it's a complete thermal and protective barrier system specifically engineered for mobile homes:
-                    </p>
-                    
-                    <div className="space-y-6 mb-8">
-                      <div className="relative group p-6 bg-gradient-to-br from-black/80 to-gray-900/80 border border-green-500/30 rounded-xl transition-all duration-300 hover:border-green-500/50 shadow-[0_4px_15px_rgba(0,0,0,0.3)]">
-                        {/* Enhanced layered glows and effects */}
-                        <div className="absolute -inset-px bg-gradient-to-r from-green-600/20 via-transparent to-green-600/20 rounded-xl opacity-70 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
-                        <div className="absolute -inset-0.5 bg-gradient-to-br from-green-500/5 to-green-700/5 rounded-xl opacity-50 group-hover:opacity-80 transition-opacity duration-300"></div>
-                        
-                        <div className="relative flex gap-5">
-                          <div className="flex-shrink-0">
-                            {/* Elite enterprise icon styling */}
-                            <div className="relative">
-                              <div className="absolute -inset-2 bg-green-500/20 rounded-full blur-md opacity-80"></div>
-                              <div className="relative h-14 w-14 flex items-center justify-center bg-gradient-to-br from-green-800 to-green-900 rounded-xl border border-green-400/30 shadow-[0_0_15px_rgba(74,222,128,0.3)]">
-                                <div className="absolute inset-0.5 bg-gradient-to-br from-green-700 to-green-800 rounded-[0.65rem] opacity-50"></div>
-                                <div className="absolute h-full w-1/2 bg-gradient-to-r from-transparent via-green-400/20 to-transparent skew-x-[-20deg] animate-shimmer-slow"></div>
-                                <SunIcon className="w-7 h-7 text-green-300 relative z-10 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]" />
-                              </div>
-                            </div>
-                          </div>
-                          <div>
-                            <h3 className="font-bold text-xl text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-green-200 mb-3" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.8)" }}>Thermal Barrier Technology</h3>
-                            <p className="text-gray-200 leading-relaxed">
-                              Our ceramic microsphere coating creates a powerful thermal barrier that reduces heat transfer by up to <span className="text-green-300 font-medium">92%</span>. Unlike conventional insulation that degrades quickly in mobile homes, our coating maintains its effectiveness for decades, providing consistent temperature control throughout your home while dramatically cutting energy consumption.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                      
-                      <div className="relative group p-6 bg-gradient-to-br from-black/80 to-gray-900/80 border border-green-500/30 rounded-xl transition-all duration-300 hover:border-green-500/50 shadow-[0_4px_15px_rgba(0,0,0,0.3)]">
-                        {/* Enhanced layered glows and effects */}
-                        <div className="absolute -inset-px bg-gradient-to-r from-green-600/20 via-transparent to-green-600/20 rounded-xl opacity-70 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
-                        <div className="absolute -inset-0.5 bg-gradient-to-br from-green-500/5 to-green-700/5 rounded-xl opacity-50 group-hover:opacity-80 transition-opacity duration-300"></div>
-                        
-                        <div className="relative flex gap-5">
-                          <div className="flex-shrink-0">
-                            {/* Elite enterprise icon styling */}
-                            <div className="relative">
-                              <div className="absolute -inset-2 bg-green-500/20 rounded-full blur-md opacity-80"></div>
-                              <div className="relative h-14 w-14 flex items-center justify-center bg-gradient-to-br from-green-800 to-green-900 rounded-xl border border-green-400/30 shadow-[0_0_15px_rgba(74,222,128,0.3)]">
-                                <div className="absolute inset-0.5 bg-gradient-to-br from-green-700 to-green-800 rounded-[0.65rem] opacity-50"></div>
-                                <div className="absolute h-full w-1/2 bg-gradient-to-r from-transparent via-green-400/20 to-transparent skew-x-[-20deg] animate-shimmer-slow" style={{ animationDelay: '0.3s' }}></div>
-                                <Shield className="w-7 h-7 text-green-300 relative z-10 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]" />
-                              </div>
-                            </div>
-                          </div>
-                          <div>
-                            <h3 className="font-bold text-xl text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-green-200 mb-3" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.8)" }}>Fire-Rated Protection</h3>
-                            <p className="text-gray-200 leading-relaxed">
-                              Praetorian Smart-Coat is certified Class A fire resistant (ASTM E84), creating a non-combustible barrier that protects your home from fire hazards. This certification not only improves safety but can reduce insurance premiums by up to <span className="text-green-300 font-medium">17% annually</span>. In mobile home parks where fire can spread rapidly, this protection is invaluable.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                      
-                      <div className="relative group p-6 bg-gradient-to-br from-black/80 to-gray-900/80 border border-green-500/30 rounded-xl transition-all duration-300 hover:border-green-500/50 shadow-[0_4px_15px_rgba(0,0,0,0.3)]">
-                        {/* Enhanced layered glows and effects */}
-                        <div className="absolute -inset-px bg-gradient-to-r from-green-600/20 via-transparent to-green-600/20 rounded-xl opacity-70 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
-                        <div className="absolute -inset-0.5 bg-gradient-to-br from-green-500/5 to-green-700/5 rounded-xl opacity-50 group-hover:opacity-80 transition-opacity duration-300"></div>
-                        
-                        <div className="relative flex gap-5">
-                          <div className="flex-shrink-0">
-                            {/* Elite enterprise icon styling */}
-                            <div className="relative">
-                              <div className="absolute -inset-2 bg-green-500/20 rounded-full blur-md opacity-80"></div>
-                              <div className="relative h-14 w-14 flex items-center justify-center bg-gradient-to-br from-green-800 to-green-900 rounded-xl border border-green-400/30 shadow-[0_0_15px_rgba(74,222,128,0.3)]">
-                                <div className="absolute inset-0.5 bg-gradient-to-br from-green-700 to-green-800 rounded-[0.65rem] opacity-50"></div>
-                                <div className="absolute h-full w-1/2 bg-gradient-to-r from-transparent via-green-400/20 to-transparent skew-x-[-20deg] animate-shimmer-slow" style={{ animationDelay: '0.6s' }}></div>
-                                <DropletIcon className="w-7 h-7 text-green-300 relative z-10 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]" />
-                              </div>
-                            </div>
-                          </div>
-                          <div>
-                            <h3 className="font-bold text-xl text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-green-200 mb-3" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.8)" }}>Advanced UV & Weather Protection</h3>
-                            <p className="text-gray-200 leading-relaxed">
-                              Our coating includes advanced UV inhibitors that shield your mobile home's exterior from sun damage, preventing the accelerated deterioration that plagues most mobile homes. The waterproof, flexible barrier also protects against moisture intrusion and mold growth, extending your home's exterior life by <span className="text-green-300 font-medium">15+ years</span> while maintaining its appearance.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <p className="text-lg text-white leading-relaxed italic">
-                      Praetorian Smart-Coat isn't just about immediate benefits – it's a long-term investment in your mobile home's value, efficiency, and longevity, providing comprehensive protection against the elements year after year.
-                    </p>
-                  </div>
-                </div>
-                
-                {/* Enhanced ROI-focused stats with premium green styling */}
-                <div className="relative mb-8">
-                  {/* Enhanced green ambient glow for ROI section */}
-                  <div className="absolute -inset-4 bg-green-500/30 rounded-xl blur-3xl opacity-70 z-0"></div>
-                  <div className="absolute -inset-8 bg-green-500/20 rounded-xl blur-2xl opacity-60 z-0 animate-pulse-slow"></div>
-                  
-                  <div className="grid grid-cols-3 gap-3 relative z-10">
-                    <div className="bg-gray-900/60 p-3 rounded-lg border-2 border-green-500/30 shadow-[0_0_20px_rgba(74,222,128,0.2)] text-center group">
-                      <div className="flex items-center justify-center mb-2">
-                        <div className="bg-gradient-to-br from-green-600 to-green-700 rounded-full p-1 
-                          border border-green-400/40 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_0_4px_rgba(74,222,128,0.4)]">
-                          <SunIcon className="w-4 h-4 text-green-100" />
-                        </div>
-                      </div>
-                      <span className="text-green-400 font-bold text-2xl md:text-3xl block group-hover:scale-110 transition-transform duration-300">87%</span>
-                      <span className="text-blue-200 text-xs">Energy Cost Reduction</span>
-                    </div>
-                    <div className="bg-gray-900/60 p-3 rounded-lg border-2 border-green-500/30 shadow-[0_0_20px_rgba(74,222,128,0.2)] text-center group">
-                      <div className="flex items-center justify-center mb-2">
-                        <div className="bg-gradient-to-br from-green-600 to-green-700 rounded-full p-1 
-                          border border-green-400/40 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_0_4px_rgba(74,222,128,0.4)]">
-                          <Clock className="w-4 h-4 text-green-100" />
-                        </div>
-                      </div>
-                      <span className="text-green-400 font-bold text-2xl md:text-3xl block group-hover:scale-110 transition-transform duration-300">15+</span>
-                      <span className="text-blue-200 text-xs">Years Extended Life</span>
-                    </div>
-                    <div className="bg-gray-900/60 p-3 rounded-lg border-2 border-green-500/30 shadow-[0_0_20px_rgba(74,222,128,0.2)] text-center group">
-                      <div className="flex items-center justify-center mb-2">
-                        <div className="bg-gradient-to-br from-green-600 to-green-700 rounded-full p-1 
-                          border border-green-400/40 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_0_4px_rgba(74,222,128,0.4)]">
-                          <Shield className="w-4 h-4 text-green-100" />
-                        </div>
-                      </div>
-                      <span className="text-green-400 font-bold text-2xl md:text-3xl block group-hover:scale-110 transition-transform duration-300">43%</span>
-                      <span className="text-blue-200 text-xs">Insurance Savings</span>
-                    </div>
-                  </div>
-                </div>
-                
-                {/* SANDLER STAGE 3: HIGHLIGHT BENEFITS - Enhanced Premium Styling */}
-                <div className="relative mb-10">
-                  <div className="absolute -inset-1 bg-gradient-to-r from-orange-500/20 via-blue-500/20 to-orange-500/20 rounded-xl blur-xl opacity-70"></div>
-                  
-                  <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black rounded-xl border border-gray-800 shadow-[0_0_60px_rgba(59,130,246,0.2)] p-8">
-                    {/* Corner Accents */}
-                    <div className="absolute top-0 left-0 w-full h-full rounded-lg overflow-hidden pointer-events-none">
-                      <div className="absolute top-0 left-0 w-32 h-32 border-t-4 border-l-4 border-orange-500/40 rounded-tl-lg"></div>
-                      <div className="absolute top-0 right-0 w-32 h-32 border-t-4 border-r-4 border-blue-500/30 rounded-tr-lg"></div>
-                      <div className="absolute bottom-0 left-0 w-32 h-32 border-b-4 border-l-4 border-blue-500/30 rounded-bl-lg"></div>
-                      <div className="absolute bottom-0 right-0 w-32 h-32 border-b-4 border-r-4 border-orange-500/40 rounded-br-lg"></div>
-                    </div>
-                    
-                    {/* Premium Enterprise Badge with Advanced Effects */}
-                    <div className="absolute -top-5 left-1/2 transform -translate-x-1/2 z-20">
-                      <div className="relative">
-                        {/* Multi-layered badge glow effects */}
-                        <div className="absolute -inset-2 bg-blue-600/30 rounded-full blur-xl opacity-70"></div>
-                        <div className="absolute -inset-3 bg-blue-500/20 rounded-full blur-2xl opacity-60 animate-pulse-slow"></div>
-                        
-                        {/* Premium badge container */}
-                        <div className="relative px-7 py-2 bg-gradient-to-r from-blue-900/90 via-blue-800/90 to-blue-700/90 rounded-full border border-blue-400/50 shadow-[0_0_25px_rgba(59,130,246,0.6)]">
-                          {/* Animated shimmer effect */}
-                          <div className="absolute inset-0 rounded-full overflow-hidden">
-                            <div className="absolute inset-0 w-[200%] h-full bg-gradient-to-r from-transparent via-blue-300/15 to-transparent -translate-x-full animate-shimmer-slow"></div>
-                          </div>
-                          
-                          {/* Badge with enterprise icon and text */}
-                          <div className="flex items-center">
-                            <div className="relative mr-2 flex-shrink-0">
-                              <div className="absolute -inset-1 bg-blue-500/30 rounded-full blur-md"></div>
-                              <div className="relative h-6 w-6 flex items-center justify-center">
-                                <div className="absolute inset-0 bg-gradient-to-b from-blue-600/80 to-blue-800/80 rounded-full shadow-[0_0_8px_rgba(59,130,246,0.6)]"></div>
-                                <div className="absolute inset-0.5 bg-gradient-to-br from-blue-500/30 to-blue-700/30 rounded-full"></div>
-                                <BarChart2 className="w-3.5 h-3.5 text-blue-100 relative z-10" />
-                              </div>
-                            </div>
-                            <span className="text-blue-100 font-bold tracking-wider text-sm uppercase relative z-10 flex items-center">
-                              <span className="mr-1.5 bg-blue-500/70 h-1.5 w-1.5 rounded-full shadow-[0_0_5px_rgba(59,130,246,0.7)]"></span>
-                              Verified Performance Metrics
-                              <span className="ml-1.5 bg-blue-500/70 h-1.5 w-1.5 rounded-full shadow-[0_0_5px_rgba(59,130,246,0.7)]"></span>
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    {/* Premium 3D Enterprise Heading with Advanced Effects */}
-                    <div className="relative z-10 mt-8 mb-8">
-                      {/* Multi-layered heading glow effects */}
-                      <div className="absolute -inset-10 bg-blue-500/10 rounded-full blur-3xl opacity-70"></div>
-                      <div className="absolute -inset-20 bg-blue-600/5 rounded-full blur-3xl opacity-60 animate-pulse-slow"></div>
-                      
-                      <h2 className="text-4xl sm:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-white via-blue-100 to-white leading-tight tracking-tight drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">
-                        <span className="relative inline-block">
-                          Real Results for Your Mobile Home
-                          <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-3/4 h-[2px] bg-gradient-to-r from-transparent via-blue-500 to-transparent"></div>
-                          {/* Subtle animated dot accent */}
-                          <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-blue-400 rounded-full animate-ping"></div>
-                        </span>
-                      </h2>
-                    </div>
-                    
-                    {/* Enhanced description with premium styling */}
-                    <div className="relative z-10 mb-10">
-                      <p className="text-xl text-blue-100/90 leading-relaxed font-light max-w-3xl mx-auto">
-                        When you choose Praetorian Smart-Coat for your mobile home, the 
-                        <span className="relative inline-block mx-1 group">
-                          <span className="absolute -inset-1 bg-blue-500/20 rounded-md blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                          <span className="relative text-white font-medium">documented benefits</span>
-                        </span> 
-                        extend far beyond aesthetics — delivering 
-                        <span className="text-white font-medium">measurable ROI</span> and 
-                        <span className="relative inline-block mx-1 group">
-                          <span className="absolute -inset-1 bg-blue-500/20 rounded-md blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                          <span className="relative text-white font-medium">enterprise-grade protection</span>
-                        </span>:
-                      </p>
-                      
-                      {/* Enterprise-level stats display */}
-                      <div className="flex flex-wrap justify-center gap-6 mt-6">
-                        <div className="bg-gradient-to-br from-blue-900/20 to-blue-800/10 border border-blue-500/30 rounded-lg p-3 px-5 flex items-center space-x-2">
-                          <div className="text-lg font-bold text-blue-300">287%</div>
-                          <div className="text-sm text-blue-200">Average ROI</div>
-                        </div>
-                        <div className="bg-gradient-to-br from-blue-900/20 to-blue-800/10 border border-blue-500/30 rounded-lg p-3 px-5 flex items-center space-x-2">
-                          <div className="text-lg font-bold text-blue-300">15-28°F</div>
-                          <div className="text-sm text-blue-200">Temp Reduction</div>
-                        </div>
-                        <div className="bg-gradient-to-br from-blue-900/20 to-blue-800/10 border border-blue-500/30 rounded-lg p-3 px-5 flex items-center space-x-2">
-                          <div className="text-lg font-bold text-blue-300">25+ Yrs</div>
-                          <div className="text-sm text-blue-200">Protection</div>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 relative z-10">
-                      <div className="relative bg-gradient-to-br from-gray-900 to-black rounded-lg p-4 border border-gray-800 group">
-                        <div className="absolute -inset-0.5 bg-blue-600/20 rounded-lg blur opacity-60 group-hover:opacity-100 transition-all duration-300"></div>
-                        <div className="relative z-10 flex items-start gap-4">
-                          <span className="bg-gradient-to-r from-blue-700 to-blue-500 rounded-full p-2 mt-1 shadow-[0_0_15px_rgba(59,130,246,0.4)] flex-shrink-0">
-                            <CircleDollarSign className="w-6 h-6 text-white" />
-                          </span>
-                          <div>
-                            <h3 className="text-xl font-semibold mb-2 text-white drop-shadow-[0_1px_2px_rgba(59,130,246,0.5)]">Dramatic Cost Savings</h3>
-                            <p className="text-blue-100">
-                              The average mobile home owner saves $842 annually on energy bills after applying our coating. Over 10 years, that's $8,420 back in your pocket. Add reduced maintenance costs and you're looking at a 243% return on your investment – money that would otherwise be wasted on inefficient heating/cooling and constant repairs.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                      
-                      <div className="relative bg-gradient-to-br from-gray-900 to-black rounded-lg p-4 border border-gray-800 group">
-                        <div className="absolute -inset-0.5 bg-orange-600/20 rounded-lg blur opacity-60 group-hover:opacity-100 transition-all duration-300"></div>
-                        <div className="relative z-10 flex items-start gap-4">
-                          <span className="bg-gradient-to-r from-orange-700 to-orange-500 rounded-full p-2 mt-1 shadow-[0_0_15px_rgba(249,115,22,0.4)] flex-shrink-0">
-                            <TimerIcon className="w-6 h-6 text-white" />
-                          </span>
-                          <div>
-                            <h3 className="text-xl font-semibold mb-2 text-white drop-shadow-[0_1px_2px_rgba(249,115,22,0.5)]">Extended Home Life & Value</h3>
-                            <p className="text-orange-100">
-                              Mobile homes typically depreciate quickly, but our coating system adds 15+ years to your home's lifespan while increasing its resale value. The protective barrier prevents the most common causes of deterioration – weather damage, UV exposure, and temperature fluctuations – preserving your investment for years to come.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                      
-                      <div className="relative bg-gradient-to-br from-gray-900 to-black rounded-lg p-4 border border-gray-800 group">
-                        <div className="absolute -inset-0.5 bg-blue-600/20 rounded-lg blur opacity-60 group-hover:opacity-100 transition-all duration-300"></div>
-                        <div className="relative z-10 flex items-start gap-4">
-                          <span className="bg-gradient-to-r from-blue-700 to-blue-500 rounded-full p-2 mt-1 shadow-[0_0_15px_rgba(59,130,246,0.4)] flex-shrink-0">
-                            <BadgeCheck className="w-6 h-6 text-white" />
-                          </span>
-                          <div>
-                            <h3 className="text-xl font-semibold mb-2 text-white drop-shadow-[0_1px_2px_rgba(59,130,246,0.5)]">Improved Comfort & Safety</h3>
-                            <p className="text-blue-100">
-                              Say goodbye to temperature fluctuations and hot/cold spots. Our coating creates a consistent indoor climate year-round, making your home more comfortable no matter the weather outside. The fire-resistant properties add an essential layer of safety, protecting your family and possessions from unexpected dangers.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                      
-                      <div className="relative bg-gradient-to-br from-gray-900 to-black rounded-lg p-4 border border-gray-800 group">
-                        <div className="absolute -inset-0.5 bg-orange-600/20 rounded-lg blur opacity-60 group-hover:opacity-100 transition-all duration-300"></div>
-                        <div className="relative z-10 flex items-start gap-4">
-                          <span className="bg-gradient-to-r from-orange-700 to-orange-500 rounded-full p-2 mt-1 shadow-[0_0_15px_rgba(249,115,22,0.4)] flex-shrink-0">
-                            <Wrench className="w-6 h-6 text-white" />
-                          </span>
-                          <div>
-                            <h3 className="text-xl font-semibold mb-2 text-white drop-shadow-[0_1px_2px_rgba(249,115,22,0.5)]">Maintenance-Free Protection</h3>
-                            <p className="text-orange-100">
-                              Our one-time application provides decades of protection without the need for regular maintenance or reapplication. Unlike traditional mobile home coatings that need refreshing every 2-3 years, Praetorian's ceramic shield creates a permanent barrier that stands the test of time – saving you from the endless cycle of repairs.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <p className="text-xl text-white mb-4 text-center">
-                      Our <span className="text-orange-300 font-semibold">Class A fire-rated ceramic microsphere coating</span> provides <span className="text-blue-300 font-semibold">unmatched thermal protection</span> with documented performance metrics that deliver <span className="text-green-400 font-semibold">$14,830 average 5-year savings</span> for mobile homeowners.
-                    </p>
-                  </div>
-                </div>
-                
-                {/* SANDLER STAGE 4: FUNNEL CLOSE + REGISTRATION */}
-                <div className="relative mt-8 mb-8">
-                  {/* Completely separate ambient green glow elements positioned behind the card */}
-                  <div className="absolute -inset-2 bg-green-500/20 rounded-xl blur-2xl opacity-70 z-0"></div>
-                  <div className="absolute -inset-4 bg-green-500/15 rounded-xl blur-3xl opacity-60 z-0 animate-pulse-slow"></div>
-                  <div className="absolute -inset-px bg-gradient-to-r from-green-600/20 via-transparent to-green-600/20 rounded-xl opacity-80 blur-sm z-0"></div>
-                  
-                  {/* Actual card with clean styling - no green glows attached */}
-                  <div className="relative p-6 bg-gradient-to-br from-black/80 to-gray-900/80 border-2 border-green-600/50 rounded-xl transition-all duration-300 shadow-lg z-10">
-                    <h3 className="text-2xl font-bold text-white mb-4 text-center drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">Transform Your Mobile Home Today</h3>
-                    
-                    <p className="text-lg text-gray-100 mb-6 text-center">
-                      Stop throwing money away on skyrocketing energy bills and endless repairs. Praetorian Smart-Coat gives you a more comfortable, valuable, and protected home while saving you thousands of dollars over time.
-                    </p>
-                    
-
-                    
-                    <p className="text-sm text-gray-300 text-center">
-                      Our mobile home specialists will assess your needs, provide a detailed cost analysis showing your expected ROI, and schedule your installation – all at no obligation.
-                    </p>
-                  </div>
-                </div>
-                
-                {/* Military-Grade Technology section with enhanced ambient glow */}
-                <div className="relative mb-6 transform transition-all duration-500 hover:scale-[1.01]">
-                  {/* Enhanced multi-layered ambient glow effects */}
-                  <div className="absolute -inset-2 bg-gradient-to-r from-blue-500/20 via-blue-600/20 to-blue-500/20 rounded-xl blur-2xl opacity-60 z-0"></div>
-                  <div className="absolute -inset-4 bg-blue-500/15 rounded-xl blur-3xl opacity-50 z-0 animate-pulse-slow"></div>
-                  <div className="absolute -inset-6 bg-gradient-to-br from-blue-700/10 via-indigo-600/5 to-blue-700/10 rounded-2xl blur-3xl opacity-40 z-0 animate-pulse-slower"></div>
-                  
-                  {/* Content card with premium styling */}
-                  <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-gray-900/95 border border-blue-600/30 rounded-lg p-5 z-10 shadow-[0_10px_40px_-15px_rgba(59,130,246,0.3)]">
-                    {/* Light sweep effect */}
-                    <div className="absolute inset-0 overflow-hidden rounded-lg">
-                      <div className="absolute -inset-full w-[200px] h-full bg-gradient-to-r from-transparent via-blue-400/20 to-transparent skew-x-[-20deg] animate-light-sweep"></div>
-                    </div>
-                    
-                    {/* Corner accents */}
-                    <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none">
-                      <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-blue-500/50 rounded-tl-md"></div>
-                    </div>
-                    <div className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none">
-                      <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-blue-500/50 rounded-br-md"></div>
-                    </div>
-                    
-                    <h4 className="text-xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-blue-100 mb-2" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.8)" }}>
-                      Military-Grade Technology
-                    </h4>
-                    <p className="text-sm text-blue-100 italic">
-                      Previously classified ceramic microsphere technology, formerly exclusive to military housing, now available to mobile home communities
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            {/* Benefits and Application Process grid */}
-            <div className="grid md:grid-cols-2 gap-12 mb-16">
-              {/* Benefits Card */}
-              <div className="relative h-full">
-                <div className="absolute -inset-1 bg-gradient-to-r from-orange-500/20 via-blue-500/20 to-orange-500/20 rounded-xl blur-xl opacity-70"></div>
-                <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black rounded-xl border border-gray-800 shadow-[0_0_60px_rgba(59,130,246,0.3)] p-8 overflow-hidden h-full flex flex-col">
-                  {/* Premium enterprise background effects */}
-                  <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                    <div className="absolute top-0 left-0 right-0 h-[40%] bg-gradient-to-br from-blue-600/10 to-transparent rounded-t-xl opacity-50"></div>
-                    <div className="h-full w-1/3 bg-gradient-to-r from-transparent via-blue-400/10 to-transparent skew-x-[-20deg] animate-shimmer-slow absolute"></div>
-                  </div>
-                  
-                  {/* Enhanced corner accents with glowing dots */}
-                  <div className="absolute top-0 left-0 w-full h-full rounded-lg overflow-hidden pointer-events-none">
-                    <div className="absolute top-0 left-0 w-32 h-32 border-t-4 border-l-4 border-orange-500/40 rounded-tl-lg"></div>
-                    <div className="absolute top-0 right-0 w-32 h-32 border-t-4 border-r-4 border-blue-500/30 rounded-tr-lg"></div>
-                    <div className="absolute bottom-0 left-0 w-32 h-32 border-b-4 border-l-4 border-blue-500/30 rounded-bl-lg"></div>
-                    <div className="absolute bottom-0 right-0 w-32 h-32 border-b-4 border-r-4 border-orange-500/40 rounded-br-lg"></div>
-                    
-                    {/* Glowing corner dots */}
-                    <div className="absolute top-0 left-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
-                    <div className="absolute top-0 right-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
-                    <div className="absolute bottom-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
-                    <div className="absolute bottom-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
-                  </div>
-                  
-
-                  
-                  <h2 className="text-3xl font-bold mb-8 text-white drop-shadow-[0_1px_3px_rgba(59,130,246,0.6)] relative z-10 mt-4">
-                    <span className="relative inline-block">
-                      Ceramic Microsphere Benefits
-                      <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-48 h-[2px] bg-gradient-to-r from-transparent via-blue-500 to-transparent"></div>
-                    </span>
-                  </h2>
-                  
-                  <div className="space-y-6 relative z-10">
-                    <div className="relative bg-gradient-to-br from-gray-900 to-black rounded-lg p-4 border border-gray-800 group transition-all duration-300 hover:border-blue-500/40">
-                      <div className="absolute -inset-0.5 bg-blue-600/20 rounded-lg blur opacity-60 group-hover:opacity-100 group-hover:bg-blue-600/30 transition-all duration-300"></div>
-                      <div className="relative z-10 flex items-start gap-4">
-                        <span className="bg-gradient-to-r from-blue-700 to-blue-500 rounded-full p-2 mt-1 shadow-[0_0_15px_rgba(59,130,246,0.4)] flex items-center justify-center">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
-                            <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path>
-                            <path d="M17 4a2 2 0 0 0 2 2a2 2 0 0 0 -2 2a2 2 0 0 0 -2 -2a2 2 0 0 0 2 -2"></path>
-                            <path d="M19 11h2m-1 -1v2"></path>
-                          </svg>
-                        </span>
-                        <div>
-                          <h3 className="text-xl font-semibold mb-2 text-white drop-shadow-[0_1px_2px_rgba(59,130,246,0.5)]">Ceramic UV Shield</h3>
-                          <p className="text-blue-100">Ceramic microspheres provide 89% UV reflection (verified by Cool Roof Rating Council) and resist extreme temperature fluctuations (-40°F to 300°F) with only 1% reflectivity loss after 3 years.</p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="relative bg-gradient-to-br from-gray-900 to-black rounded-lg p-4 border border-gray-800 group transition-all duration-300 hover:border-orange-500/40">
-                      <div className="absolute -inset-0.5 bg-orange-600/20 rounded-lg blur opacity-60 group-hover:opacity-100 group-hover:bg-orange-600/30 transition-all duration-300"></div>
-                      <div className="relative z-10 flex items-start gap-4">
-                        <span className="bg-gradient-to-r from-orange-700 to-orange-500 rounded-full p-2 mt-1 shadow-[0_0_15px_rgba(249,115,22,0.4)] flex items-center justify-center">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
-                            <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572"></path>
-                          </svg>
-                        </span>
-                        <div>
-                          <h3 className="text-xl font-semibold mb-2 text-white drop-shadow-[0_1px_2px_rgba(249,115,22,0.5)]">Verified Energy Efficiency</h3>
-                          <p className="text-orange-100">Ceramic microsphere technology delivers documented 87% energy reduction (verified by independent case study) with thermal barrier properties that reduce cooling costs 30-40% more than standard reflective coatings.</p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="relative bg-gradient-to-br from-gray-900 to-black rounded-lg p-4 border border-gray-800 group transition-all duration-300 hover:border-blue-500/40">
-                      <div className="absolute -inset-0.5 bg-blue-600/20 rounded-lg blur opacity-60 group-hover:opacity-100 group-hover:bg-blue-600/30 transition-all duration-300"></div>
-                      <div className="relative z-10 flex items-start gap-4">
-                        <span className="bg-gradient-to-r from-blue-700 to-blue-500 rounded-full p-2 mt-1 shadow-[0_0_15px_rgba(59,130,246,0.4)] flex items-center justify-center">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
-                            <path d="M3 17h1m16 0h1m-15.4 -6.4l.7 .7m12.1 -.7l-.7 .7m-9.7 5.7a4 4 0 1 1 8 0"></path>
-                            <line x1="3" y1="21" x2="21" y2="21"></line>
-                            <path d="M9.7 8.7a8 8 0 1 1 4.6 0"></path>
-                            <path d="M12 3v5"></path>
-                          </svg>
-                        </span>
-                        <div>
-                          <h3 className="text-xl font-semibold mb-2 text-white drop-shadow-[0_1px_2px_rgba(59,130,246,0.5)]">Elastomeric Waterproofing</h3>
-                          <p className="text-blue-100">Ceramic microspheres create a 156% elastomeric waterproof membrane that bridges hairline cracks and prevents moisture infiltration, ensuring complete waterproofing even in severe weather conditions.</p>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <div className="relative bg-gradient-to-br from-gray-900 to-black rounded-lg p-4 border border-gray-800 group transition-all duration-300 hover:border-green-500/40">
-                      <div className="absolute -inset-0.5 bg-green-600/20 rounded-lg blur opacity-60 group-hover:opacity-100 group-hover:bg-green-600/30 transition-all duration-300"></div>
-                      <div className="relative z-10 flex items-start gap-4">
-                        <span className="bg-gradient-to-r from-green-700 to-green-500 rounded-full p-2 mt-1 shadow-[0_0_15px_rgba(34,197,94,0.4)] flex items-center justify-center">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
-                            <path d="M9.883 2.207a1 1 0 0 1 1.834 0l.883 1.764a1 1 0 0 0 .749.542l1.961.284a1 1 0 0 1 .553 1.705l-1.414 1.377a1 1 0 0 0 -.29.885l.335 1.951a1 1 0 0 1 -1.45 1.054l-1.756 -.918a1 1 0 0 0 -.926 0l-1.756 .918a1 1 0 0 1 -1.45 -1.054l.335 -1.951a1 1 0 0 0 -.29 -.885l-1.414 -1.377a1 1 0 0 1 .553 -1.705l1.961 -.284a1 1 0 0 0 .749 -.542l.883 -1.764z"></path>
-                          </svg>
-                        </span>
-                        <div>
-                          <h3 className="text-xl font-semibold mb-2 text-white drop-shadow-[0_1px_2px_rgba(34,197,94,0.5)]">Military-Grade Durability</h3>
-                          <p className="text-green-100">Originally developed for military applications, our ceramic coating has been field-tested in extreme conditions worldwide with an impressive 99.8% success rate and documented performance in temperatures ranging from -58°F to 347°F.</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div className="mt-8 relative">
-                    <div className="absolute -inset-1 bg-blue-600/10 rounded-lg blur-sm opacity-70"></div>
-                    <div className="relative p-4 bg-gradient-to-br from-gray-900/90 to-black/90 rounded-lg border border-blue-500/20">
-                      <div className="flex items-center gap-2 text-blue-300 text-sm font-semibold mb-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <path d="M12 9v4"></path><path d="M12 17.5v.5"></path><path d="M12 3c-4.2 0-7.9 2.1-10 5.3 2.1 3.2 5.8 5.3 10 5.3s7.9-2.1 10-5.3c-2.1-3.2-5.8-5.3-10-5.3"></path>
-                          <path d="M12 18c-4.2 0-7.9-2.1-10-5.3 2.1-3.2 5.8-5.3 10-5.3"></path>
-                        </svg>
-                        INDUSTRY INSIGHT
-                      </div>
-                      <p className="text-sm text-blue-100 italic">
-                        Ceramic microsphere technology was previously classified as a military compound, exclusively used in high-security infrastructure. Now available to civilian applications, independent testing verifies performance metrics that exceed industry standards by 247%.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Application Process Card */}
-              <div className="relative h-full">
-                <div className="absolute -inset-1 bg-gradient-to-r from-orange-500/20 via-blue-500/20 to-orange-500/20 rounded-xl blur-xl opacity-70"></div>
-                <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black rounded-xl border border-gray-800 shadow-[0_0_60px_rgba(59,130,246,0.3)] p-8 overflow-hidden h-full flex flex-col">
-                  {/* Premium enterprise background effects */}
-                  <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                    <div className="absolute top-0 left-0 right-0 h-[40%] bg-gradient-to-br from-orange-600/10 to-transparent rounded-t-xl opacity-50"></div>
-                    <div className="h-full w-1/3 bg-gradient-to-r from-transparent via-orange-400/10 to-transparent skew-x-[-20deg] animate-shimmer-slow absolute"></div>
-                  </div>
-                  
-                  {/* Enhanced corner accents with glowing dots */}
-                  <div className="absolute top-0 left-0 w-full h-full rounded-lg overflow-hidden pointer-events-none">
-                    <div className="absolute top-0 left-0 w-32 h-32 border-t-4 border-l-4 border-orange-500/40 rounded-tl-lg"></div>
-                    <div className="absolute top-0 right-0 w-32 h-32 border-t-4 border-r-4 border-blue-500/30 rounded-tr-lg"></div>
-                    <div className="absolute bottom-0 left-0 w-32 h-32 border-b-4 border-l-4 border-blue-500/30 rounded-bl-lg"></div>
-                    <div className="absolute bottom-0 right-0 w-32 h-32 border-b-4 border-r-4 border-orange-500/40 rounded-br-lg"></div>
-                    
-                    {/* Glowing corner dots */}
-                    <div className="absolute top-0 left-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
-                    <div className="absolute top-0 right-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
-                    <div className="absolute bottom-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
-                    <div className="absolute bottom-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
-                  </div>
-                  
-
-                  
-                  <h2 className="text-3xl font-bold mb-8 text-white drop-shadow-[0_1px_3px_rgba(249,115,22,0.6)] relative z-10 mt-4">
-                    <span className="relative inline-block">
-                      Application Process
-                      <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-36 h-[2px] bg-gradient-to-r from-transparent via-orange-500 to-transparent"></div>
-                    </span>
-                  </h2>
-                  
-                  <div className="space-y-6 relative z-10">
-                    <div className="relative bg-gradient-to-br from-gray-900 to-black rounded-lg p-4 border border-gray-800 group transition-all duration-300 hover:border-blue-500/40">
-                      <div className="absolute -inset-0.5 bg-blue-600/20 rounded-lg blur opacity-60 group-hover:opacity-100 group-hover:bg-blue-600/30 transition-all duration-300"></div>
-                      <div className="relative z-10 flex items-start gap-4">
-                        {/* Ultra-premium step indicator with multi-layer effects */}
-                        <div className="relative mt-1">
-                          {/* Animated outer glow */}
-                          <div className="absolute -inset-1.5 bg-gradient-to-r from-blue-600/40 via-blue-400/50 to-blue-600/40 rounded-full blur-md opacity-80 animate-pulse-slow"></div>
-                          {/* Enhanced 3D glass button effect */}
-                          <div className="relative bg-gradient-to-br from-blue-600 to-blue-800 rounded-full p-2 shadow-[0_0_15px_rgba(59,130,246,0.5),inset_0_1px_3px_rgba(255,255,255,0.3)] flex items-center justify-center w-10 h-10 border border-blue-400/30 group-hover:shadow-[0_0_20px_rgba(59,130,246,0.7),inset_0_1px_5px_rgba(255,255,255,0.4)] transition-all duration-300">
-                            {/* Inner glass shine */}
-                            <div className="absolute top-[15%] left-[20%] w-[40%] h-[15%] bg-white/50 rounded-full blur-[0.5px]"></div>
-                            {/* Light shimmer effect */}
-                            <div className="absolute inset-0 rounded-full overflow-hidden">
-                              <div className="absolute top-0 left-[-100%] h-full w-[300%] bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer-slow transform rotate-[-35deg]"></div>
-                            </div>
-                            {/* Icon with number */}
-                            <div className="flex items-center justify-center">
-                              <Calculator className="w-5 h-5 text-white absolute opacity-30 group-hover:opacity-0 transition-opacity duration-300" />
-                              <span className="text-white font-bold text-sm relative z-10 group-hover:scale-110 transition-transform duration-300">1</span>
-                            </div>
-                          </div>
-                        </div>
-                        
-                        <div>
-                          <h3 className="text-xl font-semibold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-blue-100 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">Professional Assessment</h3>
-                          <p className="text-blue-100 text-opacity-90">Our certified technicians conduct a comprehensive mobile home evaluation, documenting current energy performance and creating a detailed application plan with thermal imaging analysis.</p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="relative bg-gradient-to-br from-gray-900 to-black rounded-lg p-4 border border-gray-800 group transition-all duration-300 hover:border-orange-500/40">
-                      <div className="absolute -inset-0.5 bg-orange-600/20 rounded-lg blur opacity-60 group-hover:opacity-100 group-hover:bg-orange-600/30 transition-all duration-300"></div>
-                      <div className="relative z-10 flex items-start gap-4">
-                        {/* Ultra-premium step indicator with multi-layer effects */}
-                        <div className="relative mt-1">
-                          {/* Animated outer glow */}
-                          <div className="absolute -inset-1.5 bg-gradient-to-r from-orange-600/40 via-orange-400/50 to-orange-600/40 rounded-full blur-md opacity-80 animate-pulse-slow"></div>
-                          {/* Enhanced 3D glass button effect */}
-                          <div className="relative bg-gradient-to-br from-orange-600 to-orange-800 rounded-full p-2 shadow-[0_0_15px_rgba(249,115,22,0.5),inset_0_1px_3px_rgba(255,255,255,0.3)] flex items-center justify-center w-10 h-10 border border-orange-400/30 group-hover:shadow-[0_0_20px_rgba(249,115,22,0.7),inset_0_1px_5px_rgba(255,255,255,0.4)] transition-all duration-300">
-                            {/* Inner glass shine */}
-                            <div className="absolute top-[15%] left-[20%] w-[40%] h-[15%] bg-white/50 rounded-full blur-[0.5px]"></div>
-                            {/* Light shimmer effect */}
-                            <div className="absolute inset-0 rounded-full overflow-hidden">
-                              <div className="absolute top-0 left-[-100%] h-full w-[300%] bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer-slow transform rotate-[-35deg]"></div>
-                            </div>
-                            {/* Icon with number */}
-                            <div className="flex items-center justify-center">
-                              <DropletIcon className="w-5 h-5 text-white absolute opacity-30 group-hover:opacity-0 transition-opacity duration-300" />
-                              <span className="text-white font-bold text-sm relative z-10 group-hover:scale-110 transition-transform duration-300">2</span>
-                            </div>
-                          </div>
-                        </div>
-                        
-                        <div>
-                          <h3 className="text-xl font-semibold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-orange-200 to-orange-100 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">Surface Preparation</h3>
-                          <p className="text-orange-100 text-opacity-90">All surfaces undergo our 6-step preparation process including power washing, crack sealing, and primer application to ensure optimal microsphere adhesion and maximum performance durability.</p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="relative bg-gradient-to-br from-gray-900 to-black rounded-lg p-4 border border-gray-800 group transition-all duration-300 hover:border-blue-500/40">
-                      <div className="absolute -inset-0.5 bg-blue-600/20 rounded-lg blur opacity-60 group-hover:opacity-100 group-hover:bg-blue-600/30 transition-all duration-300"></div>
-                      <div className="relative z-10 flex items-start gap-4">
-                        {/* Ultra-premium step indicator with multi-layer effects */}
-                        <div className="relative mt-1">
-                          {/* Animated outer glow */}
-                          <div className="absolute -inset-1.5 bg-gradient-to-r from-blue-600/40 via-blue-400/50 to-blue-600/40 rounded-full blur-md opacity-80 animate-pulse-slow"></div>
-                          {/* Enhanced 3D glass button effect */}
-                          <div className="relative bg-gradient-to-br from-blue-600 to-blue-800 rounded-full p-2 shadow-[0_0_15px_rgba(59,130,246,0.5),inset_0_1px_3px_rgba(255,255,255,0.3)] flex items-center justify-center w-10 h-10 border border-blue-400/30 group-hover:shadow-[0_0_20px_rgba(59,130,246,0.7),inset_0_1px_5px_rgba(255,255,255,0.4)] transition-all duration-300">
-                            {/* Inner glass shine */}
-                            <div className="absolute top-[15%] left-[20%] w-[40%] h-[15%] bg-white/50 rounded-full blur-[0.5px]"></div>
-                            {/* Light shimmer effect */}
-                            <div className="absolute inset-0 rounded-full overflow-hidden">
-                              <div className="absolute top-0 left-[-100%] h-full w-[300%] bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer-slow transform rotate-[-35deg]"></div>
-                            </div>
-                            {/* Icon with number */}
-                            <div className="flex items-center justify-center">
-                              <Layers className="w-5 h-5 text-white absolute opacity-30 group-hover:opacity-0 transition-opacity duration-300" />
-                              <span className="text-white font-bold text-sm relative z-10 group-hover:scale-110 transition-transform duration-300">3</span>
-                            </div>
-                          </div>
-                        </div>
-                        
-                        <div>
-                          <h3 className="text-xl font-semibold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-blue-100 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">Multi-Layer Application</h3>
-                          <p className="text-blue-100 text-opacity-90">Our technicians apply 3-4 precision coats of ceramic microsphere material using airless sprayers calibrated to ensure uniform 16-mil thickness with complete documentation of application conditions.</p>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <div className="relative bg-gradient-to-br from-gray-900 to-black rounded-lg p-4 border border-gray-800 group transition-all duration-300 hover:border-orange-500/40">
-                      <div className="absolute -inset-0.5 bg-orange-600/20 rounded-lg blur opacity-60 group-hover:opacity-100 group-hover:bg-orange-600/30 transition-all duration-300"></div>
-                      <div className="relative z-10 flex items-start gap-4">
-                        {/* Ultra-premium step indicator with multi-layer effects */}
-                        <div className="relative mt-1">
-                          {/* Animated outer glow */}
-                          <div className="absolute -inset-1.5 bg-gradient-to-r from-orange-600/40 via-orange-400/50 to-orange-600/40 rounded-full blur-md opacity-80 animate-pulse-slow"></div>
-                          {/* Enhanced 3D glass button effect */}
-                          <div className="relative bg-gradient-to-br from-orange-600 to-orange-800 rounded-full p-2 shadow-[0_0_15px_rgba(249,115,22,0.5),inset_0_1px_3px_rgba(255,255,255,0.3)] flex items-center justify-center w-10 h-10 border border-orange-400/30 group-hover:shadow-[0_0_20px_rgba(249,115,22,0.7),inset_0_1px_5px_rgba(255,255,255,0.4)] transition-all duration-300">
-                            {/* Inner glass shine */}
-                            <div className="absolute top-[15%] left-[20%] w-[40%] h-[15%] bg-white/50 rounded-full blur-[0.5px]"></div>
-                            {/* Light shimmer effect */}
-                            <div className="absolute inset-0 rounded-full overflow-hidden">
-                              <div className="absolute top-0 left-[-100%] h-full w-[300%] bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer-slow transform rotate-[-35deg]"></div>
-                            </div>
-                            {/* Icon with number */}
-                            <div className="flex items-center justify-center">
-                              <Award className="w-5 h-5 text-white absolute opacity-30 group-hover:opacity-0 transition-opacity duration-300" />
-                              <span className="text-white font-bold text-sm relative z-10 group-hover:scale-110 transition-transform duration-300">4</span>
-                            </div>
-                          </div>
-                        </div>
-                        
-                        <div>
-                          <h3 className="text-xl font-semibold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-orange-200 to-orange-100 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">Certification & Documentation</h3>
-                          <p className="text-orange-100 text-opacity-90">Upon completion, you receive official ROI certification documentation, thermal performance verification, and a 10-year warranty that can be transferred to future homeowners.</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div className="mt-8 relative transform transition-all duration-500 hover:scale-[1.01]">
-                    {/* Enhanced multi-layered glow effects */}
-                    <div className="absolute -inset-1 bg-gradient-to-r from-orange-600/20 via-orange-500/15 to-orange-600/20 rounded-lg blur-md opacity-80"></div>
-                    <div className="absolute -inset-2 bg-orange-500/10 rounded-lg blur-xl opacity-70 animate-pulse-slow"></div>
-                    <div className="absolute -inset-3 bg-gradient-to-br from-orange-700/5 via-orange-600/5 to-orange-700/5 rounded-xl blur-2xl opacity-60 animate-pulse-slower"></div>
-                    
-                    {/* Premium card with glass effect and subtle light rays */}
-                    <div className="relative p-5 bg-gradient-to-br from-gray-900/95 via-black/95 to-gray-900/95 rounded-lg border border-orange-500/30 shadow-[0_10px_40px_-15px_rgba(249,115,22,0.3)]">
-                      {/* Light sweep effect */}
-                      <div className="absolute inset-0 overflow-hidden rounded-lg">
-                        <div className="absolute -inset-full w-[150px] h-full bg-gradient-to-r from-transparent via-orange-400/10 to-transparent skew-x-[-20deg] animate-light-sweep"></div>
-                      </div>
-                      
-                      {/* Corner accents */}
-                      <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none">
-                        <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-orange-500/40 rounded-tl-md"></div>
-                      </div>
-                      <div className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none">
-                        <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-orange-500/40 rounded-br-md"></div>
-                      </div>
-                      
-                      {/* Elite premium header with icon */}
-                      <div className="flex items-center gap-3 mb-3">
-                        <div className="relative">
-                          <div className="absolute -inset-1 rounded-full bg-orange-500/20 blur-sm animate-pulse-slow"></div>
-                          <div className="relative bg-gradient-to-br from-orange-500/80 to-orange-700/80 p-2 rounded-full flex items-center justify-center shadow-[0_0_10px_rgba(249,115,22,0.4)]">
-                            <Sparkles className="w-4 h-4 text-white" />
-                          </div>
-                        </div>
-                        <h4 className="text-transparent bg-clip-text bg-gradient-to-r from-orange-300 to-orange-100 font-bold tracking-wider text-sm drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
-                          EXPERT TIP
-                        </h4>
-                      </div>
-                      
-                      {/* Enhanced content */}
-                      <p className="text-sm text-orange-100 italic ml-2 border-l-2 border-orange-500/30 pl-3">
-                        Praetorian's mobile home coating systems are eligible for energy efficiency incentives through various state and federal programs. Our specialists will help you navigate available rebates and incentives in your area, potentially saving you thousands on your installation.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Mobile Home ROI Analysis Section with Green Styling */}
-        <section className="py-16 relative z-10">
-          <div className="container mx-auto">
-            <div className="relative max-w-6xl mx-auto">
-              {/* Enhanced green ambient glow for ROI section */}
-              <div className="absolute -inset-2 bg-gradient-to-r from-green-600/30 via-blue-600/10 to-green-600/30 rounded-xl blur-xl opacity-70"></div>
-              <div className="absolute -inset-6 bg-green-600/20 rounded-xl blur-2xl opacity-50 animate-pulse-slow"></div>
-              <div className="absolute -inset-10 bg-green-600/10 rounded-xl blur-3xl opacity-30"></div>
-              
-              {/* Premium glass container with green accents */}
-              <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 rounded-xl p-6 md:p-8 shadow-lg border border-green-500/30 overflow-hidden">
-                {/* Glass shimmer effect */}
-                <div className="absolute inset-0 overflow-hidden">
-                  <div className="absolute top-0 left-0 right-0 h-[40%] bg-gradient-to-br from-green-600/10 to-transparent rounded-t-xl opacity-50"></div>
-                  <div className="h-full w-1/3 bg-gradient-to-r from-transparent via-green-400/10 to-transparent skew-x-[-20deg] animate-shimmer-slow absolute"></div>
-                </div>
-                
-                {/* Enhanced Green header bar with premium enterprise styling */}
-                <div className="relative -mt-6 -mx-6 md:-mx-8 mb-8 py-5 px-6 md:px-8 bg-gradient-to-r from-green-900/90 via-green-800/95 to-green-900/90 border-b border-green-400/40 shadow-[0_10px_25px_-5px_rgba(34,197,94,0.25)]">
-                  
-                  {/* Ultra-premium background pattern with advanced shimmer effects */}
-                  <div className="absolute inset-0 overflow-hidden">
-                    <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%2322c55e\' fill-opacity=\'0.1\' fill-rule=\'evenodd\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/svg%3E')] opacity-70"></div>
-                    
-                    {/* Multi-layered shimmer effects */}
-                    <div className="h-full w-1/3 bg-gradient-to-r from-transparent via-green-400/20 to-transparent skew-x-[-20deg] animate-shimmer-slow absolute"></div>
-                    <div className="h-full w-1/4 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-[-15deg] animate-shimmer-very-slow absolute" style={{ left: '40%', animationDelay: '0.7s' }}></div>
-                    
-                    {/* Horizontal light sweep */}
-                    <div className="absolute inset-y-0 w-full h-full">
-                      <div className="absolute top-[30%] h-[1px] w-full bg-gradient-to-r from-transparent via-green-400/40 to-transparent -translate-x-full animate-shimmer-slow"></div>
-                      <div className="absolute bottom-[30%] h-[1px] w-full bg-gradient-to-r from-transparent via-green-300/30 to-transparent -translate-x-full animate-shimmer-slow" style={{ animationDelay: '1.2s' }}></div>
-                    </div>
-                  </div>
-                  
-                  {/* Corner accent elements */}
-                  <div className="absolute top-0 left-0 w-12 h-12 pointer-events-none">
-                    <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-green-400/60 rounded-tl-md"></div>
-                    <div className="absolute top-0 left-0 w-2 h-2 bg-green-400/60 rounded-full blur-[1px]"></div>
-                  </div>
-                  <div className="absolute top-0 right-0 w-12 h-12 pointer-events-none">
-                    <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-green-400/60 rounded-tr-md"></div>
-                    <div className="absolute top-0 right-0 w-2 h-2 bg-green-400/60 rounded-full blur-[1px]"></div>
-                  </div>
-                  
-                  <div className="flex items-center justify-between relative">
-                    <div className="flex items-center">
-                      {/* Enhanced icon with glow effect */}
-                      <div className="relative flex-shrink-0 mr-5">
-                        <div className="absolute -inset-1 bg-green-500/40 rounded-full blur-md opacity-80"></div>
-                        <div className="relative w-12 h-12 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center shadow-[0_0_15px_rgba(34,197,94,0.6)] border border-green-400/40">
-                          <CircleDollarSign className="w-6 h-6 text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)]" />
-                        </div>
-                      </div>
-                      
-                      {/* Ultra-premium heading with enhanced gradient text and effects */}
-                      <div className="relative">
-                        {/* Subtle glow behind heading */}
-                        <div className="absolute -inset-2 bg-gradient-to-r from-green-600/10 via-green-400/20 to-green-600/10 rounded-lg blur-xl opacity-80"></div>
-                        
-                        <h2 className="relative text-2xl font-bold bg-gradient-to-r from-green-50 via-green-100 to-green-50 bg-clip-text text-transparent drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)] tracking-wide">
-                          <Gem className="w-5 h-5 inline-block mr-1.5 text-green-300 drop-shadow-[0_2px_3px_rgba(0,0,0,0.8)]" />
-                          ROI Analysis Calculator
-                        </h2>
-                        
-                        {/* Premium animated underline with multi-layer effects */}
-                        <div className="relative h-1 w-full mt-2">
-                          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-green-400/80 to-transparent rounded-full"></div>
-                          <div className="absolute inset-0 w-2/3 left-[15%] bg-gradient-to-r from-transparent via-green-300/90 to-transparent rounded-full blur-[1px]"></div>
-                          <div className="absolute h-[2px] w-1/2 left-[25%] top-[30%] bg-white/50 rounded-full"></div>
-                          
-                          {/* Animated shimmer effect */}
-                          <div className="absolute inset-0 w-[200%] left-[-50%] bg-gradient-to-r from-transparent via-white/30 to-transparent rounded-full animate-shimmer-slow"></div>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    {/* Elite certification badge with premium effects */}
-                    <div className="hidden md:flex items-center px-4 py-1.5 bg-gradient-to-r from-green-900/80 via-green-800/80 to-green-900/80 rounded-full border border-green-400/40 shadow-[0_2px_10px_rgba(0,0,0,0.3),inset_0_1px_4px_rgba(74,222,128,0.3)] text-green-100 text-sm transform transition-all duration-300 hover:scale-105 hover:shadow-[0_3px_15px_rgba(0,0,0,0.4),inset_0_1px_5px_rgba(74,222,128,0.4)]">
-                      <div className="relative mr-2.5 flex-shrink-0">
-                        {/* Multi-layer glow effect */}
-                        <div className="absolute -inset-1 bg-gradient-to-r from-green-500/30 via-green-400/40 to-green-500/30 rounded-full blur-md opacity-90 animate-pulse-slow"></div>
-                        <div className="absolute -inset-0.5 bg-green-400/50 rounded-full blur-sm"></div>
-                        
-                        {/* Badge with shimmer effect */}
-                        <div className="relative rounded-full p-1 bg-gradient-to-br from-green-600/90 to-green-800/90 border border-green-300/30 overflow-hidden">
-                          <div className="absolute -inset-full w-[200%] h-[200%] bg-gradient-to-r from-transparent via-white/20 to-transparent -rotate-45 animate-shimmer-slow"></div>
-                          <ShieldCheck className="w-4 h-4 relative text-green-200" />
-                        </div>
-                      </div>
-                      <span className="font-semibold tracking-wide text-green-50">NASA-Certified Technology</span>
-                    </div>
-                  </div>
-                </div>
-                {/* Corner accent elements */}
-                <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none">
-                  <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-blue-500/70 rounded-tl-lg"></div>
-                  <div className="absolute top-0 left-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
-                </div>
-                <div className="absolute top-0 right-0 w-16 h-16 pointer-events-none">
-                  <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-orange-500/70 rounded-tr-lg"></div>
-                  <div className="absolute top-0 right-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
-                </div>
-                <div className="absolute bottom-0 left-0 w-16 h-16 pointer-events-none">
-                  <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-orange-500/70 rounded-bl-lg"></div>
-                  <div className="absolute bottom-0 left-0 w-3 h-3 bg-orange-500/50 rounded-full blur-[2px]"></div>
-                </div>
-                <div className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none">
-                  <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-blue-500/70 rounded-br-lg"></div>
-                  <div className="absolute bottom-0 right-0 w-3 h-3 bg-blue-500/50 rounded-full blur-[2px]"></div>
-                </div>
-                
-                {/* Ultra-premium Enterprise Heading with Dynamic Effects */}
-                <div className="relative text-center mb-10 z-10">
-                  {/* Advanced multi-layered glows */}
-                  <div className="absolute -inset-6 bg-gradient-to-br from-green-600/20 via-blue-500/15 to-green-600/20 rounded-xl blur-2xl opacity-70 -z-10"></div>
-                  <div className="absolute -inset-10 bg-green-500/10 rounded-full blur-3xl opacity-60 -z-10 animate-pulse-very-slow"></div>
-                  
-                  {/* Premium Enterprise Badge */}
-                  <div className="relative mb-6 mx-auto w-auto inline-flex items-center justify-center">
-                    <div className="absolute inset-0 bg-gradient-to-r from-green-600/70 via-green-500/70 to-green-600/70 rounded-full blur-sm"></div>
-                    <div className="relative px-6 py-1.5 bg-gradient-to-br from-green-900/90 to-green-800/90 rounded-full border border-green-400/50 shadow-[0_0_15px_rgba(74,222,128,0.6)]">
-                      <div className="absolute inset-0 rounded-full overflow-hidden">
-                        <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-green-300/10 to-transparent -translate-x-full animate-shimmer-slow"></div>
-                      </div>
-                      <span className="text-green-100 font-semibold tracking-wider text-sm uppercase flex items-center justify-center">
-                        <span className="mr-1.5 h-1.5 w-1.5 rounded-full bg-green-400 shadow-[0_0_5px_rgba(74,222,128,0.8)]"></span>
-                        ADVANCED ROI TECHNOLOGY
-                        <span className="ml-1.5 h-1.5 w-1.5 rounded-full bg-green-400 shadow-[0_0_5px_rgba(74,222,128,0.8)]"></span>
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Premium 3D Heading with Advanced Effects */}
-                  <h2 className="relative text-4xl sm:text-5xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-br from-white via-green-100 to-white leading-tight tracking-tight" style={{ textShadow: "0 3px 6px rgba(0,0,0,0.5)" }}>
-                    Mobile Home ROI Analysis Calculator
-                    {/* Animated bottom line */}
-                    <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-4/5 h-[2px] overflow-hidden">
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-green-500/70 to-transparent"></div>
-                      <div className="absolute inset-0 w-1/2 bg-gradient-to-r from-transparent via-white/50 to-transparent -translate-x-full animate-shimmer-slow"></div>
-                    </div>
-                  </h2>
-                  
-                  {/* Enhanced description with layered effects */}
-                  <div className="relative max-w-3xl mx-auto">
-                    <p className="text-xl text-green-100/90 leading-relaxed">
-                      Discover how Praetorian Smart-Coat technology can 
-                      <span className="relative inline-block mx-1 group">
-                        <span className="absolute -inset-1 bg-green-500/20 rounded-md blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                        <span className="relative text-white font-semibold">transform your mobile home's efficiency</span>
-                      </span>, 
-                      <span className="relative inline-block mx-1 group">
-                        <span className="absolute -inset-1 bg-green-500/20 rounded-md blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                        <span className="relative text-white font-semibold">reduce utility costs</span>
-                      </span>, and 
-                      <span className="relative inline-block mx-1 group">
-                        <span className="absolute -inset-1 bg-green-500/20 rounded-md blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                        <span className="relative text-white font-semibold">increase property value</span>
-                      </span> with our advanced ROI calculator.
-                    </p>
-                  </div>
-                </div>
-                
-                <div className="grid md:grid-cols-2 gap-8">
-                  <div>
-                    <div className="relative group mb-6">
-                      {/* Premium green outer glow effect - CONVERTED FROM BLUE TO GREEN */}
-                      <div className="absolute -inset-1 bg-gradient-to-r from-green-600/40 to-green-400/30 rounded-lg blur-md opacity-75 group-hover:opacity-100 transition duration-300"></div>
-                      <div className="absolute -inset-4 bg-green-600/20 rounded-lg blur-xl opacity-50 group-hover:opacity-70 transition duration-300"></div>
-                      
-                      <div className="relative bg-gradient-to-br from-gray-900/95 to-black/95 rounded-lg p-6 border border-green-500/30 shadow-lg group-hover:shadow-green-900/20 transition duration-300">
-                        {/* Elite corner accents - GREEN-STYLED */}
-                        <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-green-500/40 rounded-tl-md"></div>
-                        <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-green-500/40 rounded-tr-md"></div>
-                        <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-green-500/40 rounded-br-md"></div>
-                        <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-green-500/40 rounded-bl-md"></div>
-                        
-                        {/* Glass shimmer effect */}
-                        <div className="absolute inset-0 overflow-hidden rounded-lg">
-                          <div className="h-full w-1/3 bg-gradient-to-r from-transparent via-green-400/10 to-transparent skew-x-[-20deg] animate-shimmer-slow"></div>
-                        </div>
-                        
-                        <h4 className="text-lg font-semibold mb-3 flex items-center relative z-10">
-                          <span className="relative mr-3 flex-shrink-0">
-                            <span className="absolute -inset-1 bg-green-500/30 rounded-full blur-sm"></span>
-                            <div className="relative h-6 w-6 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center shadow-[0_0_10px_rgba(74,222,128,0.5)]">
-                              <CheckCircle className="h-4 w-4 text-white" />
-                            </div>
-                          </span>
-                          <span className="bg-gradient-to-r from-white via-green-100 to-white bg-clip-text text-transparent">Praetorian Mobile Home Solutions</span>
-                        </h4>
-                      
-                        <ul className="space-y-4 relative z-10">
-                          <li className="flex items-start group">
-                            <div className="relative flex-shrink-0 mr-3">
-                              <div className="absolute -inset-1 bg-green-500/30 rounded-full blur-sm opacity-70 group-hover:opacity-100 transition duration-300"></div>
-                              <div className="relative w-7 h-7 bg-gradient-to-br from-green-700 to-green-500 rounded-full flex items-center justify-center shadow-[0_0_10px_rgba(74,222,128,0.4)]">
-                                <span className="text-white text-xs font-bold">1</span>
-                              </div>
-                            </div>
-                            <span className="text-gray-200 pt-0.5">
-                              <span className="font-semibold text-white">Reduces internal temperature by 15-28°F</span> - Creates immediate comfort improvements and energy savings with NASA-developed ceramic microsphere technology
-                            </span>
-                          </li>
-                          <li className="flex items-start group">
-                            <div className="relative flex-shrink-0 mr-3">
-                              <div className="absolute -inset-1 bg-green-500/30 rounded-full blur-sm opacity-70 group-hover:opacity-100 transition duration-300"></div>
-                              <div className="relative w-7 h-7 bg-gradient-to-br from-green-700 to-green-500 rounded-full flex items-center justify-center shadow-[0_0_10px_rgba(74,222,128,0.4)]">
-                                <span className="text-white text-xs font-bold">2</span>
-                              </div>
-                            </div>
-                            <span className="text-gray-200 pt-0.5">
-                              <span className="font-semibold text-white">25+ year roof protection</span> - One application extends roof life by 2-3× with documented performance and eliminates 98% of maintenance issues
-                            </span>
-                          </li>
-                          <li className="flex items-start group">
-                            <div className="relative flex-shrink-0 mr-3">
-                              {/* Enhanced premium multi-layer glow effect */}
-                              <div className="absolute -inset-1.5 bg-gradient-to-r from-green-500/40 via-green-400/50 to-green-500/40 rounded-full blur-md opacity-70 group-hover:opacity-100 transition duration-300 animate-pulse-slow"></div>
-                              <div className="absolute -inset-0.5 bg-green-400/40 rounded-full blur-[2px] opacity-80"></div>
-                              
-                              {/* Ultra-premium 3D glass icon container */}
-                              <div className="relative w-8 h-8 bg-gradient-to-br from-green-600 to-green-800 rounded-full flex items-center justify-center shadow-[0_0_15px_rgba(74,222,128,0.5),inset_0_1px_3px_rgba(255,255,255,0.3)] border border-green-400/40 group-hover:shadow-[0_0_20px_rgba(74,222,128,0.7),inset_0_1px_5px_rgba(255,255,255,0.4)] transition-all duration-300">
-                                {/* Inner glass shine */}
-                                <div className="absolute top-[15%] left-[20%] w-[40%] h-[15%] bg-white/50 rounded-full blur-[0.5px]"></div>
-                                
-                                {/* Light shimmer effect */}
-                                <div className="absolute inset-0 rounded-full overflow-hidden">
-                                  <div className="absolute top-0 left-[-100%] h-full w-[300%] bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer-slow transform rotate-[-35deg]"></div>
-                                </div>
-                                
-                                {/* Icon with number */}
-                                <div className="flex items-center justify-center">
-                                  <BadgeDollarSign className="w-3.5 h-3.5 text-white absolute opacity-30 group-hover:opacity-0 transition-opacity duration-300" />
-                                  <span className="text-white text-xs font-bold relative z-10 group-hover:scale-110 transition-transform duration-300">3</span>
-                                </div>
-                              </div>
-                            </div>
-                            <span className="text-gray-200 pt-1">
-                              <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-green-200 to-green-100 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">Utility reduction of 20-45%</span> - Average monthly savings of $85-140 on cooling/heating expenses with documented performance across all climate zones
-                            </span>
-                          </li>
-                          <li className="flex items-start group">
-                            <div className="relative flex-shrink-0 mr-3">
-                              {/* Enhanced premium multi-layer glow effect */}
-                              <div className="absolute -inset-1.5 bg-gradient-to-r from-green-500/40 via-green-400/50 to-green-500/40 rounded-full blur-md opacity-70 group-hover:opacity-100 transition duration-300 animate-pulse-slow"></div>
-                              <div className="absolute -inset-0.5 bg-green-400/40 rounded-full blur-[2px] opacity-80"></div>
-                              
-                              {/* Ultra-premium 3D glass icon container */}
-                              <div className="relative w-8 h-8 bg-gradient-to-br from-green-600 to-green-800 rounded-full flex items-center justify-center shadow-[0_0_15px_rgba(74,222,128,0.5),inset_0_1px_3px_rgba(255,255,255,0.3)] border border-green-400/40 group-hover:shadow-[0_0_20px_rgba(74,222,128,0.7),inset_0_1px_5px_rgba(255,255,255,0.4)] transition-all duration-300">
-                                {/* Inner glass shine */}
-                                <div className="absolute top-[15%] left-[20%] w-[40%] h-[15%] bg-white/50 rounded-full blur-[0.5px]"></div>
-                                
-                                {/* Light shimmer effect */}
-                                <div className="absolute inset-0 rounded-full overflow-hidden">
-                                  <div className="absolute top-0 left-[-100%] h-full w-[300%] bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer-slow transform rotate-[-35deg]"></div>
-                                </div>
-                                
-                                {/* Icon with number */}
-                                <div className="flex items-center justify-center">
-                                  <TrendingUp className="w-3.5 h-3.5 text-white absolute opacity-30 group-hover:opacity-0 transition-opacity duration-300" />
-                                  <span className="text-white text-xs font-bold relative z-10 group-hover:scale-110 transition-transform duration-300">4</span>
-                                </div>
-                              </div>
-                            </div>
-                            <span className="text-gray-200 pt-1">
-                              <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-green-200 to-green-100 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">Increases property value by 5-12%</span> - Documented value retention improvement with professional certification and enhanced resale potential
-                            </span>
-                          </li>
-                          <li className="flex items-start group">
-                            <div className="relative flex-shrink-0 mr-3">
-                              {/* Enhanced premium multi-layer glow effect */}
-                              <div className="absolute -inset-1.5 bg-gradient-to-r from-green-500/40 via-green-400/50 to-green-500/40 rounded-full blur-md opacity-70 group-hover:opacity-100 transition duration-300 animate-pulse-slow"></div>
-                              <div className="absolute -inset-0.5 bg-green-400/40 rounded-full blur-[2px] opacity-80"></div>
-                              
-                              {/* Ultra-premium 3D glass icon container */}
-                              <div className="relative w-8 h-8 bg-gradient-to-br from-green-600 to-green-800 rounded-full flex items-center justify-center shadow-[0_0_15px_rgba(74,222,128,0.5),inset_0_1px_3px_rgba(255,255,255,0.3)] border border-green-400/40 group-hover:shadow-[0_0_20px_rgba(74,222,128,0.7),inset_0_1px_5px_rgba(255,255,255,0.4)] transition-all duration-300">
-                                {/* Inner glass shine */}
-                                <div className="absolute top-[15%] left-[20%] w-[40%] h-[15%] bg-white/50 rounded-full blur-[0.5px]"></div>
-                                
-                                {/* Light shimmer effect */}
-                                <div className="absolute inset-0 rounded-full overflow-hidden">
-                                  <div className="absolute top-0 left-[-100%] h-full w-[300%] bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer-slow transform rotate-[-35deg]"></div>
-                                </div>
-                                
-                                {/* Icon with number */}
-                                <div className="flex items-center justify-center">
-                                  <Flame className="w-3.5 h-3.5 text-white absolute opacity-30 group-hover:opacity-0 transition-opacity duration-300" />
-                                  <span className="text-white text-xs font-bold relative z-10 group-hover:scale-110 transition-transform duration-300">5</span>
-                                </div>
-                              </div>
-                            </div>
-                            <span className="text-gray-200 pt-1">
-                              <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-green-200 to-green-100 drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">Class A fire-rating protection</span> - Enhances safety with industry-leading fire resistance while creating an additional thermal barrier
-                            </span>
-                          </li>
-                          <li className="flex items-start group">
-                            <div className="relative flex-shrink-0 mr-3">
-                              <div className="absolute -inset-1 bg-green-500/30 rounded-full blur-sm opacity-70 group-hover:opacity-100 transition duration-300"></div>
-                              <div className="relative w-7 h-7 bg-gradient-to-br from-green-700 to-green-500 rounded-full flex items-center justify-center shadow-[0_0_10px_rgba(74,222,128,0.4)]">
-                                <span className="text-white text-xs font-bold">6</span>
-                              </div>
-                            </div>
-                            <span className="text-gray-200 pt-0.5">
-                              <span className="font-semibold text-white">100% weatherproof protection</span> - Completely seals against water intrusion, prevents costly leaks and structural damage from moisture
-                            </span>
-                          </li>
-                          <li className="flex items-start group">
-                            <div className="relative flex-shrink-0 mr-3">
-                              <div className="absolute -inset-1 bg-green-500/30 rounded-full blur-sm opacity-70 group-hover:opacity-100 transition duration-300"></div>
-                              <div className="relative w-7 h-7 bg-gradient-to-br from-green-700 to-green-500 rounded-full flex items-center justify-center shadow-[0_0_10px_rgba(74,222,128,0.4)]">
-                                <span className="text-white text-xs font-bold">7</span>
-                              </div>
-                            </div>
-                            <span className="text-gray-200 pt-0.5">
-                              <span className="font-semibold text-white">Pays for itself in under 3 years</span> - Average ROI of 287% over 5 years with compounding benefits and savings that continue for decades
-                            </span>
-                          </li>
-                          <li className="flex items-start group">
-                            <div className="relative flex-shrink-0 mr-3">
-                              <div className="absolute -inset-1 bg-green-500/30 rounded-full blur-sm opacity-70 group-hover:opacity-100 transition duration-300"></div>
-                              <div className="relative w-7 h-7 bg-gradient-to-br from-green-700 to-green-500 rounded-full flex items-center justify-center shadow-[0_0_10px_rgba(74,222,128,0.4)]">
-                                <span className="text-white text-xs font-bold">8</span>
-                              </div>
-                            </div>
-                            <span className="text-gray-200 pt-0.5">
-                              <span className="font-semibold text-white">Environmentally responsible choice</span> - Reduces carbon footprint by 4-6 tons annually through decreased energy consumption
-                            </span>
-                          </li>
-                        </ul>
-                        
-                        {/* Added testimonial highlight for social proof */}
-                        <div className="mt-6 bg-green-900/20 border border-green-500/30 rounded-lg p-4">
-                          <div className="flex items-start">
-                            <span className="text-green-300 mr-2 mt-1">
-                              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M10 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5"></path><path d="M19 11h-4a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h3a1 1 0 0 1 1 1v6c0 2.667 -1.333 4.333 -4 5"></path></svg>
-                            </span>
-                            <div>
-                              <p className="text-gray-200 italic mb-2">Our electricity bills dropped by 43% in the first month after installation. We're now saving over $1,200 annually while enjoying a much more comfortable home environment.</p>
-                              <p className="text-green-300 font-medium">— Robert & Sarah Williams, Mobile Home Owners (Florida)</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div className="bg-gradient-to-br from-gray-800/80 via-gray-900/80 to-black/80 rounded-lg p-6 border border-green-500/20">
-                    {/* Green glass shimmer effect */}
-                    <div className="absolute inset-0 overflow-hidden rounded-lg">
-                      <div className="h-full w-1/2 bg-gradient-to-r from-transparent via-green-400/5 to-transparent skew-x-[-20deg] animate-shimmer-slow"></div>
-                    </div>
-                    
-                    <h3 className="text-xl font-semibold mb-6 text-white flex items-center">
-                      <div className="relative mr-3 flex-shrink-0">
-                        <div className="absolute -inset-1 bg-green-500/40 rounded-full blur-md"></div>
-                        <div className="relative h-10 w-10 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center shadow-[0_0_15px_rgba(74,222,128,0.5)]">
-                          <CircleDollarSign className="h-5 w-5 text-white" />
-                        </div>
-                      </div>
-                      <span className="bg-gradient-to-r from-white via-green-100 to-white bg-clip-text text-transparent">Return on Investment Analysis</span>
+                {/* Dramatic fire danger visualization section */}
+                <div className="relative rounded-xl overflow-hidden mb-8">
+                  <div className="bg-gradient-to-r from-red-900/30 via-orange-800/20 to-red-900/30 p-6 border border-red-700/30">
+                    <h3 className="text-2xl font-semibold text-white mb-4 flex items-center">
+                      <AlertTriangle className="h-6 w-6 text-orange-400 mr-2" />
+                      Los Angeles Fire Case Study: Critical Vulnerabilities
                     </h3>
                     
-                    <div className="space-y-6 relative">
-                      <div className="group">
-                        <label className="text-sm text-gray-300 block mb-2 flex items-center">
-                          <Home className="h-4 w-4 text-green-400 mr-2" />
-                          Mobile Home Size (sq ft)
-                        </label>
-                        <div className="flex items-center relative">
-                          {/* Input glow effect */}
-                          <div className="absolute -inset-0.5 bg-green-500/20 rounded-lg blur-sm opacity-60 group-hover:opacity-100 transition duration-300"></div>
-                          <div className="relative flex items-center w-full">
-                            <input 
-                              type="number" 
-                              className="bg-gray-900/90 text-white border border-green-600/30 rounded-l p-2.5 w-full focus:outline-none focus:ring-2 focus:ring-green-500/50 focus:border-green-500/50 shadow-[0_0_10px_rgba(74,222,128,0.1)] relative z-10" 
-                              placeholder="e.g. 1,200"
-                              defaultValue={1200}
-                            />
-                            <span className="bg-gray-800/90 text-green-100 px-4 py-2.5 border border-green-600/30 border-l-0 rounded-r shadow-inner relative z-10">sq ft</span>
-                          </div>
-                        </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div className="bg-black/40 p-4 rounded-lg">
+                        <h4 className="font-medium text-red-300 mb-2">Los Angeles Fire Data (January 2025)</h4>
+                        <ul className="space-y-2 text-sm text-gray-400">
+                          <li className="flex items-start gap-2">
+                            <span className="text-red-400 text-lg leading-5">•</span>
+                            <span>14 destructive wildfires affected the Los Angeles metropolitan area</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-red-400 text-lg leading-5">•</span>
+                            <span>72,400+ homes and structures at direct risk during multiple fire events</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-red-400 text-lg leading-5">•</span>
+                            <span>Thousands of residents forced to evacuate with minimal warning</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-red-400 text-lg leading-5">•</span>
+                            <span>Urban-wildland interface zones particularly vulnerable to ember attacks</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-red-400 text-lg leading-5">•</span>
+                            <span>Structural damage primarily caused by embers entering vents and roofs</span>
+                          </li>
+                        </ul>
                       </div>
                       
-                      <div className="group">
-                        <label className="text-sm text-gray-300 block mb-2 flex items-center">
-                          <DollarSign className="h-4 w-4 text-green-400 mr-2" />
-                          Monthly Energy Bill
-                        </label>
-                        <div className="flex items-center relative">
-                          {/* Input glow effect */}
-                          <div className="absolute -inset-0.5 bg-green-500/20 rounded-lg blur-sm opacity-60 group-hover:opacity-100 transition duration-300"></div>
-                          <div className="relative flex items-center w-full">
-                            <span className="bg-gray-800/90 text-green-100 px-4 py-2.5 border border-green-600/30 border-r-0 rounded-l shadow-inner relative z-10">$</span>
-                            <input 
-                              type="number" 
-                              className="bg-gray-900/90 text-white border border-green-600/30 rounded-r p-2.5 w-full focus:outline-none focus:ring-2 focus:ring-green-500/50 focus:border-green-500/50 shadow-[0_0_10px_rgba(74,222,128,0.1)] relative z-10" 
-                              placeholder="e.g. 280"
-                              defaultValue={280}
-                            />
-                          </div>
-                        </div>
+                      <div className="bg-black/40 p-4 rounded-lg">
+                        <h4 className="font-medium text-red-300 mb-2">Paradise Fire: Perfect Storm Conditions</h4>
+                        <ul className="space-y-2 text-sm text-gray-400">
+                          <li className="flex items-start gap-2">
+                            <span className="text-red-400 text-lg leading-5">•</span>
+                            <span>Record-breaking 109°F temperatures during the deadly 2018 Paradise Fire</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-red-400 text-lg leading-5">•</span>
+                            <span>Extreme drought conditions (5-year duration) turned vegetation into explosive fuel</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-red-400 text-lg leading-5">•</span>
+                            <span>Hurricane-force winds (up to 100 mph) drove flames at unprecedented speed</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-red-400 text-lg leading-5">•</span>
+                            <span>85 people lost their lives; many died attempting evacuation</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-red-400 text-lg leading-5">•</span>
+                            <span>18,805 structures destroyed in just a few hours</span>
+                          </li>
+                        </ul>
                       </div>
                       
-                      <div className="group">
-                        <label className="text-sm text-gray-300 block mb-2 flex items-center">
-                          <CalendarDays className="h-4 w-4 text-green-400 mr-2" />
-                          Mobile Home Age (years)
-                        </label>
-                        <div className="relative">
-                          {/* Input glow effect */}
-                          <div className="absolute -inset-0.5 bg-green-500/20 rounded-lg blur-sm opacity-60 group-hover:opacity-100 transition duration-300"></div>
-                          <input 
-                            type="number" 
-                            className="bg-gray-900/90 text-white border border-green-600/30 rounded p-2.5 w-full focus:outline-none focus:ring-2 focus:ring-green-500/50 focus:border-green-500/50 shadow-[0_0_10px_rgba(74,222,128,0.1)] relative z-10" 
-                            placeholder="e.g. 15"
-                            defaultValue={15}
-                          />
-                        </div>
-                      </div>
-                      
-                      <div className="group">
-                        <label className="text-sm text-gray-300 block mb-2 flex items-center">
-                          <CloudSun className="h-4 w-4 text-green-400 mr-2" />
-                          Local Climate Zone
-                        </label>
-                        <div className="relative">
-                          {/* Input glow effect */}
-                          <div className="absolute -inset-0.5 bg-green-500/20 rounded-lg blur-sm opacity-60 group-hover:opacity-100 transition duration-300"></div>
-                          <select className="bg-gray-900/90 text-white border border-green-600/30 rounded p-2.5 w-full focus:outline-none focus:ring-2 focus:ring-green-500/50 focus:border-green-500/50 shadow-[0_0_10px_rgba(74,222,128,0.1)] relative z-10">
-                            <option value="hot">Hot (Southern Regions)</option>
-                            <option value="mixed">Mixed/Moderate</option>
-                            <option value="cold">Cold (Northern Regions)</option>
-                          </select>
-                        </div>
-                      </div>
-                      
-                      {/* Purple ambient glow button like registration form */}
-                      <div className="relative mt-6">
-                        {/* Outer ambient glow */}
-                        <div className="absolute -inset-[25px] rounded-3xl opacity-70 transition-opacity duration-500 -z-10 group-hover:opacity-90"
-                          style={{ 
-                            background: 'radial-gradient(circle, rgba(138,43,226,0.25) 0%, rgba(59,130,246,0.15) 40%, rgba(0,0,0,0.05) 70%)',
-                            filter: 'blur(25px)'
-                          }}>
-                        </div>
-                        
-                        {/* Secondary inner glow for depth */}
-                        <div className="absolute -inset-[15px] rounded-2xl opacity-60 transition-opacity duration-500 -z-[5] group-hover:opacity-80"
-                          style={{ 
-                            background: 'radial-gradient(circle, rgba(124,58,237,0.3) 0%, rgba(79,70,229,0.15) 60%, rgba(0,0,0,0) 80%)',
-                            filter: 'blur(15px)'
-                          }}>
-                        </div>
-                        
-                        {/* Premium Enterprise Glass ROI Button with Enhanced Effects */}
-                        <div className="relative group/roi-button">
-                          {/* Enhanced multi-layered ambient glow effects */}
-                          <div className="absolute -inset-3 bg-green-500/10 rounded-2xl blur-2xl opacity-0 group-hover/roi-button:opacity-100 transition-opacity duration-700"></div>
-                          <div className="absolute -inset-2 bg-gradient-to-r from-green-600/20 via-blue-600/30 to-green-600/20 rounded-xl blur-xl opacity-70 group-hover/roi-button:opacity-90 transition-opacity duration-500"></div>
-                          <div className="absolute -inset-1 bg-gradient-to-r from-green-600/30 to-blue-600/30 rounded-lg blur-md opacity-60 group-hover/roi-button:opacity-80 transition-opacity duration-300"></div>
-                          
-                          <button 
-                            onClick={() => calculateROI()}
-                            className="relative px-10 py-4 rounded-xl text-white font-semibold text-lg transition-all duration-300 hover:scale-105 group z-10 overflow-hidden w-full"
-                          >
-                            {/* Enhanced translucent background with realistic glass effect */}
-                            <div className="absolute inset-0 bg-gradient-to-br from-gray-900/90 via-black/90 to-gray-900/90 rounded-xl -z-[1] backdrop-blur-md border border-green-500/50"></div>
-                            
-                            {/* Premium glass overlay with subtle transparency */}
-                            <div className="absolute inset-0 bg-white/5 rounded-xl -z-[1]"></div>
-                            
-                            {/* Realistic glass reflections - top edge highlight with enhanced opacity */}
-                            <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-white/70 to-transparent rounded-full -z-[1] group-hover:via-white/90 transition-colors duration-300"></div>
-                            
-                            {/* Bottom edge highlight */}
-                            <div className="absolute inset-x-0 bottom-0 h-[1px] bg-gradient-to-r from-transparent via-green-400/60 to-transparent rounded-full -z-[1] group-hover:via-green-300/80 transition-colors duration-300"></div>
-                            
-                            {/* Side edge highlights */}
-                            <div className="absolute inset-y-0 left-0 w-[1px] bg-gradient-to-b from-transparent via-green-400/40 to-transparent rounded-full -z-[1]"></div>
-                            <div className="absolute inset-y-0 right-0 w-[1px] bg-gradient-to-b from-transparent via-blue-400/40 to-transparent rounded-full -z-[1]"></div>
-                            
-                            {/* Realistic glass reflective highlight - curved top highlight */}
-                            <div className="absolute inset-x-[10%] top-0 h-[40%] w-[80%] bg-gradient-to-b from-white/20 to-transparent rounded-full opacity-50 -z-[1] group-hover:opacity-70 transition-opacity duration-300"></div>
-                            
-                            {/* Corner accent pieces with enhanced glow */}
-                            <div className="absolute top-0 left-0 w-5 h-5 border-t-2 border-l-2 border-green-500/70 rounded-tl-md -z-[1] group-hover:border-green-400/90 transition-colors duration-300 shadow-[0_0_5px_rgba(74,222,128,0.5)]"></div>
-                            <div className="absolute top-0 right-0 w-5 h-5 border-t-2 border-r-2 border-blue-500/70 rounded-tr-md -z-[1] group-hover:border-blue-400/90 transition-colors duration-300 shadow-[0_0_5px_rgba(59,130,246,0.5)]"></div>
-                            <div className="absolute bottom-0 right-0 w-5 h-5 border-b-2 border-r-2 border-blue-500/70 rounded-br-md -z-[1] group-hover:border-blue-400/90 transition-colors duration-300 shadow-[0_0_5px_rgba(59,130,246,0.5)]"></div>
-                            <div className="absolute bottom-0 left-0 w-5 h-5 border-b-2 border-l-2 border-green-500/70 rounded-bl-md -z-[1] group-hover:border-green-400/90 transition-colors duration-300 shadow-[0_0_5px_rgba(74,222,128,0.5)]"></div>
-                            
-                            {/* Enhanced multi-layered shimmer glass effects */}
-                            <div className="absolute inset-0 w-full h-full overflow-hidden rounded-xl -z-[1]">
-                              {/* Primary diagonal shimmer - large, slow, enhanced brightness */}
-                              <div className="absolute inset-0 w-[200%] h-[200%] bg-gradient-to-r from-transparent via-white/40 to-transparent opacity-0 group-hover:opacity-100 -translate-x-full group-hover:animate-shimmer-slow transform skew-x-[-20deg] transition-opacity duration-300"></div>
-                              
-                              {/* Secondary diagonal shimmer - always visible */}
-                              <div className="absolute inset-0 w-[150%] h-[150%] bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full animate-shimmer-very-slow transform skew-x-[-15deg]"></div>
-                              
-                              {/* Quick flash on hover - narrow band with enhanced brightness */}
-                              <div className="absolute inset-0 w-[100%] h-[100%] bg-gradient-to-r from-transparent via-white/60 to-transparent opacity-0 group-hover:opacity-100 -translate-x-full group-hover:animate-shimmer-fast transform skew-x-[-10deg] transition-opacity duration-300" style={{ animationDelay: '0.2s' }}></div>
-                              
-                              {/* Additional reflective highlights */}
-                              <div className="absolute inset-x-0 top-[10%] h-[1px] w-full bg-white/50 opacity-0 group-hover:opacity-100 animate-pulse-slow -z-[1]"></div>
-                              <div className="absolute inset-x-0 top-[30%] h-[1px] w-full bg-white/30 opacity-0 group-hover:opacity-100 animate-pulse-slow -z-[1]" style={{ animationDelay: '0.5s' }}></div>
-                              
-                              {/* Realistic moving glass light reflections */}
-                              <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
-                                <div className="absolute w-[30%] h-[200%] bg-gradient-to-b from-white/0 via-white/30 to-white/0 -rotate-45 transform -translate-y-[100%] group-hover:translate-y-[100%] transition-transform duration-2000 ease-in-out"></div>
-                                <div className="absolute w-[20%] h-[200%] bg-gradient-to-b from-white/0 via-white/20 to-white/0 -rotate-45 transform -translate-y-[100%] opacity-0 group-hover:opacity-100 group-hover:translate-y-[100%] transition-all duration-2000 ease-in-out" style={{ left: '35%', transitionDelay: '200ms' }}></div>
-                              </div>
-                            </div>
-                            
-                            {/* Enhanced inner content glow */}
-                            <div className="absolute inset-0 bg-gradient-to-br from-green-600/5 to-blue-600/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-[1]"></div>
-                            
-                            {/* Highly Enhanced Button Text with Premium Icon and Text Effects */}
-                            <span className="relative z-10 flex items-center justify-center drop-shadow-[0_2px_3px_rgba(0,0,0,0.9)]">
-                              {/* Premium Icon with Advanced Glow Effects */}
-                              <span className="relative mr-3 transform group-hover:scale-110 transition-transform duration-300">
-                                {/* Multi-layered icon glow effects */}
-                                <span className="absolute -inset-2 bg-green-500/20 rounded-full blur-lg opacity-0 group-hover:opacity-70 transition-opacity duration-500"></span>
-                                <span className="absolute -inset-1.5 bg-gradient-to-r from-green-500/40 to-blue-500/40 rounded-full blur-md opacity-0 group-hover:opacity-90 transition-opacity duration-300"></span>
-                                <span className="absolute -inset-1 bg-gradient-to-r from-green-400/50 to-blue-400/50 rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse-slow"></span>
-                                
-                                {/* Premium Icon with Gradient Fill */}
-                                <span className="relative flex">
-                                  <Calculator className="h-6 w-6 text-transparent bg-clip-text bg-gradient-to-br from-white via-green-200 to-white filter drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]" />
-                                  
-                                  {/* Subtle icon shine effect */}
-                                  <span className="absolute inset-0 flex items-center justify-center">
-                                    <span className="absolute top-0 left-[20%] w-[60%] h-[20%] bg-white/70 rounded-full blur-[1px] opacity-0 group-hover:opacity-70 transition-opacity duration-300"></span>
-                                  </span>
-                                </span>
-                              </span>
-                              
-                              {/* Enhanced premium text with glass-like gradient and animations */}
-                              <span className="relative">
-                                {/* Text glow effect */}
-                                <span className="absolute -inset-1 -z-10 bg-gradient-to-r from-green-500/5 to-blue-500/5 rounded-lg blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
-                                
-                                {/* Premium text with enhanced gradient */}
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-green-100 to-white font-semibold tracking-wide leading-tight relative inline-block transform group-hover:scale-[1.02] transition-transform duration-300">
-                                  {/* Text shine line animation */}
-                                  <span className="absolute inset-x-0 bottom-0 h-[1px] bg-gradient-to-r from-transparent via-green-300/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
-                                  
-                                  Calculate My ROI
-                                </span>
-                              </span>
-                            </span>
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    {/* ROI Results Preview with Enhanced Green Glow */}
-                    <div className="mt-6 pt-6 border-t border-gray-700 relative">
-                      {/* Prominent ambient green glow for ROI section */}
-                      <div className="absolute -inset-3 bg-green-500/30 rounded-xl blur-xl opacity-70 z-0"></div>
-                      <div className="absolute -inset-6 bg-green-500/20 rounded-xl blur-2xl opacity-60 z-0 animate-pulse-slow"></div>
-                      <div className="absolute -inset-10 bg-green-600/10 rounded-xl blur-3xl opacity-40 z-0"></div>
-                      
-                      <div className="relative z-10">
-                        <h4 className="text-xl font-bold mb-4 text-white bg-gradient-to-r from-green-200 to-green-400 bg-clip-text text-transparent drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
-                          Projected 5-Year Returns
-                        </h4>
-                        
-                        <div className="grid grid-cols-2 gap-4">
-                          <div className="relative bg-gray-900/80 border-2 border-green-500/60 rounded-lg p-4 overflow-hidden group hover:bg-gray-900/90 transition-all duration-300">
-                            {/* Enhanced glowing effect */}
-                            <div className="absolute -inset-1 bg-green-500/30 rounded-lg blur-md opacity-70 -z-10 group-hover:opacity-100 transition-opacity duration-300"></div>
-                            <div className="absolute -inset-0.5 bg-gradient-to-br from-green-400/20 to-green-600/20 rounded-lg opacity-70 -z-10"></div>
-                            
-                            {/* Subtle glass shimmer */}
-                            <div className="absolute inset-0 overflow-hidden rounded-lg -z-10">
-                              <div className="h-full w-2/3 bg-gradient-to-r from-transparent via-green-400/10 to-transparent skew-x-[-20deg] animate-shimmer-slow"></div>
-                            </div>
-                            
-                            <div className="text-xl font-bold text-green-400" style={{ textShadow: "0 2px 4px rgba(0, 0, 0, 0.4)" }}>$14,830</div>
-                            <div className="text-sm text-gray-300" style={{ textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)" }}>Total Savings</div>
-                          </div>
-                          <div className="relative bg-gray-900/80 border-2 border-green-500/60 rounded-lg p-4 overflow-hidden group hover:bg-gray-900/90 transition-all duration-300">
-                            {/* Enhanced glowing effect */}
-                            <div className="absolute -inset-1 bg-green-500/30 rounded-lg blur-md opacity-70 -z-10 group-hover:opacity-100 transition-opacity duration-300"></div>
-                            <div className="absolute -inset-0.5 bg-gradient-to-br from-green-400/20 to-green-600/20 rounded-lg opacity-70 -z-10"></div>
-                            
-                            {/* Subtle glass shimmer */}
-                            <div className="absolute inset-0 overflow-hidden rounded-lg -z-10">
-                              <div className="h-full w-2/3 bg-gradient-to-r from-transparent via-green-400/10 to-transparent skew-x-[-20deg] animate-shimmer-slow" style={{ animationDelay: '0.2s' }}></div>
-                            </div>
-                            
-                            <div className="text-xl font-bold text-green-400" style={{ textShadow: "0 2px 4px rgba(0, 0, 0, 0.4)" }}>37%</div>
-                            <div className="text-sm text-gray-300" style={{ textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)" }}>ROI</div>
-                          </div>
-                          <div className="relative bg-gray-900/80 border-2 border-green-500/60 rounded-lg p-4 overflow-hidden group hover:bg-gray-900/90 transition-all duration-300">
-                            {/* Enhanced glowing effect */}
-                            <div className="absolute -inset-1 bg-green-500/30 rounded-lg blur-md opacity-70 -z-10 group-hover:opacity-100 transition-opacity duration-300"></div>
-                            <div className="absolute -inset-0.5 bg-gradient-to-br from-green-400/20 to-green-600/20 rounded-lg opacity-70 -z-10"></div>
-                            
-                            {/* Subtle glass shimmer */}
-                            <div className="absolute inset-0 overflow-hidden rounded-lg -z-10">
-                              <div className="h-full w-2/3 bg-gradient-to-r from-transparent via-green-400/10 to-transparent skew-x-[-20deg] animate-shimmer-slow" style={{ animationDelay: '0.4s' }}></div>
-                            </div>
-                            
-                            <div className="text-xl font-bold text-green-400" style={{ textShadow: "0 2px 4px rgba(0, 0, 0, 0.4)" }}>1.7 years</div>
-                            <div className="text-sm text-gray-300" style={{ textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)" }}>Payback Period</div>
-                          </div>
-                          <div className="relative bg-gray-900/80 border-2 border-green-500/60 rounded-lg p-4 overflow-hidden group hover:bg-gray-900/90 transition-all duration-300">
-                            {/* Enhanced glowing effect */}
-                            <div className="absolute -inset-1 bg-green-500/30 rounded-lg blur-md opacity-70 -z-10 group-hover:opacity-100 transition-opacity duration-300"></div>
-                            <div className="absolute -inset-0.5 bg-gradient-to-br from-green-400/20 to-green-600/20 rounded-lg opacity-70 -z-10"></div>
-                            
-                            {/* Subtle glass shimmer */}
-                            <div className="absolute inset-0 overflow-hidden rounded-lg -z-10">
-                              <div className="h-full w-2/3 bg-gradient-to-r from-transparent via-green-400/10 to-transparent skew-x-[-20deg] animate-shimmer-slow" style={{ animationDelay: '0.6s' }}></div>
-                            </div>
-                            
-                            <div className="text-xl font-bold text-green-400" style={{ textShadow: "0 2px 4px rgba(0, 0, 0, 0.4)" }}>$8,600</div>
-                            <div className="text-sm text-gray-300" style={{ textShadow: "0 1px 2px rgba(74, 222, 128, 0.2)" }}>Value Increase</div>
-                          </div>
-                        </div>
-                      </div>
-                      
-                      <div className="mt-4 text-sm text-gray-400">
-                        Results based on average data for similar mobile homes in your climate zone. Contact us for a precise custom assessment.
-                      </div>
-                      
-                      {/* Informational note with enhanced styling */}
-                      <div className="mt-6 p-3 relative">
-                        <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/20 via-purple-600/15 to-blue-600/20 rounded-lg blur-sm opacity-70"></div>
-                        <div className="relative p-3 bg-gradient-to-br from-gray-900/90 to-gray-950/90 rounded-lg border border-blue-500/30">
-                          <div className="flex items-start">
-                            <div className="relative mr-3 mt-1 flex-shrink-0">
-                              <div className="absolute -inset-1 bg-blue-500/20 rounded-full blur-sm"></div>
-                              <InfoIcon className="w-5 h-5 text-blue-300 relative" />
-                            </div>
-                            <p className="text-blue-100 text-sm">
-                              This preliminary calculation shows estimated savings based on average data. For a full detailed ROI analysis including tax incentives and rebates, please contact our team for a personalized assessment.
-                            </p>
-                          </div>
-                        </div>
+                      <div className="bg-black/40 p-4 rounded-lg">
+                        <h4 className="font-medium text-red-300 mb-2">Key Vulnerabilities That Standard Methods Can't Address</h4>
+                        <ul className="space-y-2 text-sm text-gray-400">
+                          <li className="flex items-start gap-2">
+                            <span className="text-red-400 text-lg leading-5">•</span>
+                            <span>Standard siding and roofing materials ignite at temperatures as low as 400°F, while wildfires reach 1,500°F</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-red-400 text-lg leading-5">•</span>
+                            <span>Unprotected attic and eave vents allow embers direct access to your home's interior</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-red-400 text-lg leading-5">•</span>
+                            <span>Conventional paint and sealants provide zero fire resistance and often contain petroleum derivatives that actually accelerate burning</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-red-400 text-lg leading-5">•</span>
+                            <span>In the 2018 Paradise Fire, homes with cleared vegetation still ignited due to extreme ember storms traveling miles from the main fire</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-red-400 text-lg leading-5">•</span>
+                            <span>The Paradise Camp Fire destroyed 18,805 structures in just a few hours, with 85 fatalities - proving traditional defensible space alone is inadequate</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-red-400 text-lg leading-5">•</span>
+                            <span>Studies from the Paradise Fire showed homes with non-combustible exterior surfaces were 3x more likely to survive even when directly surrounded by burning structures</span>
+                          </li>
+                        </ul>
                       </div>
                     </div>
                   </div>
@@ -2259,634 +544,535 @@ const MobileHome = () => {
           </div>
         </section>
 
-        {/* Technology Applications Section */}
-        <section className="py-16 relative z-10">
+        {/* Informational Section: FireShield Technology */}
+        <section className="relative z-10 py-12 overflow-hidden bg-gradient-to-b from-gray-950 to-gray-900">
           <div className="container mx-auto">
-            <div className="relative mb-12">
-              <div className="absolute -inset-1 bg-gradient-to-r from-orange-500/20 via-blue-500/20 to-orange-500/20 rounded-xl blur-xl opacity-70"></div>
-              <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black p-8 rounded-xl border border-gray-800 shadow-[0_0_60px_rgba(59,130,246,0.2)]">
-                {/* Corner Accents */}
-                <div className="absolute top-0 left-0 w-full h-full rounded-lg overflow-hidden pointer-events-none">
-                  <div className="absolute top-0 left-0 w-32 h-32 border-t-4 border-l-4 border-orange-500/40 rounded-tl-lg"></div>
-                  <div className="absolute top-0 right-0 w-32 h-32 border-t-4 border-r-4 border-blue-500/30 rounded-tr-lg"></div>
-                  <div className="absolute bottom-0 left-0 w-32 h-32 border-b-4 border-l-4 border-blue-500/30 rounded-bl-lg"></div>
-                  <div className="absolute bottom-0 right-0 w-32 h-32 border-b-4 border-r-4 border-orange-500/40 rounded-br-lg"></div>
-                </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+              {/* Left Section: FireShield Technology */}
+              <div className="p-6 rounded-2xl border border-blue-800/30 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 shadow-lg">
+                <h2 className="text-3xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-300 to-blue-500">
+                  FireShield Technology
+                </h2>
                 
-                {/* Premium Enterprise Header with Advanced Effects */}
-                <div className="relative z-10 text-center mb-12 px-4">
-                  {/* Advanced Text Glow Container */}
-                  <div className="relative inline-block">
-                    {/* Multi-layered header glow effects */}
-                    <div className="absolute -inset-2 bg-blue-500/20 rounded-full blur-xl opacity-80"></div>
-                    <div className="absolute -inset-4 bg-blue-600/10 rounded-full blur-2xl opacity-60 animate-pulse-slow"></div>
-                    <div className="absolute -inset-8 bg-gradient-to-r from-blue-700/10 via-purple-600/5 to-blue-700/10 rounded-full blur-3xl opacity-70"></div>
-                    
-                    {/* Premium Enterprise Badge */}
-                    <div className="relative mb-6 mx-auto w-auto inline-flex items-center justify-center">
-                      <div className="absolute inset-0 bg-gradient-to-r from-blue-600/80 via-blue-500/80 to-blue-600/80 rounded-full blur-sm"></div>
-                      <div className="relative px-6 py-1.5 bg-gradient-to-r from-blue-900/90 to-blue-800/90 rounded-full border border-blue-400/50 shadow-[0_0_15px_rgba(59,130,246,0.6)]">
-                        <div className="absolute inset-0 rounded-full overflow-hidden">
-                          <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-blue-300/10 to-transparent -translate-x-full animate-shimmer-slow"></div>
-                        </div>
-                        <span className="text-blue-100 font-semibold tracking-wider text-sm uppercase flex items-center justify-center">
-                          <span className="mr-1.5 h-1.5 w-1.5 rounded-full bg-blue-400 shadow-[0_0_5px_rgba(96,165,250,0.8)]"></span>
-                          Enterprise Technology
-                          <span className="ml-1.5 h-1.5 w-1.5 rounded-full bg-blue-400 shadow-[0_0_5px_rgba(96,165,250,0.8)]"></span>
-                        </span>
-                      </div>
+                <div className="space-y-6">
+                  <div className="flex items-start space-x-4">
+                    <div className="min-w-12 h-12 flex items-center justify-center rounded-full bg-blue-900/30 border border-blue-700/30">
+                      <Shield className="h-6 w-6 text-blue-400" />
                     </div>
-
-                    {/* Premium 3D Heading with Advanced Effects */}
-                    <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-br from-white via-blue-100 to-white leading-tight tracking-tight relative">
-                      Ceramic Technology Applications
-                      <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-4/5 h-[2px] bg-gradient-to-r from-transparent via-blue-500 to-transparent"></div>
-                    </h2>
+                    <div>
+                      <h3 className="text-xl font-bold text-blue-300 mb-2">Fire-Resistant Ceramic Barrier</h3>
+                      <p className="text-gray-300">
+                        Praetorian's proprietary ceramic formula creates a thermal barrier that can withstand temperatures up to 1800°F (982°C), preventing flame spread and structural ignition during wildfire conditions.
+                      </p>
+                    </div>
                   </div>
                   
-                  {/* Enhanced description with layered effects */}
-                  <div className="relative max-w-4xl mx-auto">
-                    <p className="text-xl text-blue-100/90 leading-relaxed font-light">
-                      Our <span className="text-white font-medium">ceramic microsphere technology</span> offers specialized 
-                      <span className="relative inline-block mx-1 group">
-                        <span className="absolute -inset-1 bg-blue-500/20 rounded-md blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                        <span className="relative text-white font-semibold">enterprise-grade solutions</span>
-                      </span> 
-                      for all mobile home components, providing
-                      <span className="relative inline-block mx-1 group">
-                        <span className="absolute -inset-1 bg-blue-500/20 rounded-md blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                        <span className="relative text-white font-semibold">complete protection</span>
-                      </span> 
-                      from extreme elements with industry-leading performance metrics
-                    </p>
-                    
-                    {/* Visual divider with animation */}
-                    <div className="flex justify-center mt-8 mb-2">
-                      <div className="w-24 h-[2px] bg-gradient-to-r from-transparent via-blue-500 to-transparent relative overflow-hidden">
-                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-300 to-transparent -translate-x-full animate-shimmer"></div>
-                      </div>
+                  <div className="flex items-start space-x-4">
+                    <div className="min-w-12 h-12 flex items-center justify-center rounded-full bg-blue-900/30 border border-blue-700/30">
+                      <Zap className="h-6 w-6 text-blue-400" />
                     </div>
-                    
-                    {/* Enterprise capability tags */}
-                    <div className="flex flex-wrap justify-center gap-2 mt-4">
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-900/40 text-blue-200 border border-blue-500/30">
-                        <span className="mr-1 bg-blue-500/70 h-1.5 w-1.5 rounded-full"></span>
-                        Military-Grade Protection
-                      </span>
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-900/40 text-blue-200 border border-blue-500/30">
-                        <span className="mr-1 bg-blue-500/70 h-1.5 w-1.5 rounded-full"></span>
-                        NASA-Developed Technology
-                      </span>
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-900/40 text-blue-200 border border-blue-500/30">
-                        <span className="mr-1 bg-blue-500/70 h-1.5 w-1.5 rounded-full"></span>
-                        Advanced Thermal Barrier
-                      </span>
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-900/40 text-blue-200 border border-blue-500/30">
-                        <span className="mr-1 bg-blue-500/70 h-1.5 w-1.5 rounded-full"></span>
-                        25+ Year Performance
-                      </span>
+                    <div>
+                      <h3 className="text-xl font-bold text-blue-300 mb-2">Radiant Heat Deflection</h3>
+                      <p className="text-gray-300">
+                        Tested under ASTM E84 standards, our coating reflects up to 95% of radiant heat, keeping structural temperatures below ignition point even when nearby structures are fully engulfed.
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start space-x-4">
+                    <div className="min-w-12 h-12 flex items-center justify-center rounded-full bg-blue-900/30 border border-blue-700/30">
+                      <Shield className="h-6 w-6 text-blue-400" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-blue-300 mb-2">Ember Penetration Prevention</h3>
+                      <p className="text-gray-300">
+                        The ceramic microsphere technology creates a sealed membrane that blocks ember penetration - the primary cause of structure ignition during wildfires (responsible for 90% of home losses).
+                      </p>
                     </div>
                   </div>
                 </div>
+              </div>
+              
+              {/* Right Section: Wildfire Defense Application */}
+              <div className="p-6 rounded-2xl border border-orange-800/30 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 shadow-lg">
+                <h2 className="text-3xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-orange-300 to-orange-500">
+                  Wildfire Defense Application
+                </h2>
                 
-                {/* Original card grid instead of enhanced version */}
-                <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-8">
-                  <div className="relative bg-gradient-to-br from-gray-900 to-black rounded-lg overflow-hidden group">
-                    <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-blue-800/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-blue-500/40 rounded-tl-md"></div>
-                    <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-blue-500/40 rounded-tr-md"></div>
-                    <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-blue-500/40 rounded-br-md"></div>
-                    <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-blue-500/40 rounded-bl-md"></div>
-                    <div className="p-6">
-                      <div className="relative w-14 h-14 flex items-center justify-center mx-auto mb-4">
-                        <div className="absolute inset-0 bg-blue-500/20 rounded-full blur-md"></div>
-                        <div className="relative bg-gradient-to-br from-blue-600 to-blue-400 rounded-full p-3">
-                          <Home className="h-8 w-8 text-white" />
-                        </div>
-                      </div>
-                      <h3 className="text-xl font-semibold mb-2 text-white text-center">Roof Systems</h3>
-                      <ul className="space-y-2">
-                        <li className="flex items-center text-blue-100">
-                          <span className="bg-blue-500/30 rounded-full p-1 mr-2">
-                            <CheckCircle className="h-3 w-3 text-blue-200" />
-                          </span>
-                          <span>94% solar heat reflection</span>
-                        </li>
-                        <li className="flex items-center text-blue-100">
-                          <span className="bg-blue-500/30 rounded-full p-1 mr-2">
-                            <CheckCircle className="h-3 w-3 text-blue-200" />
-                          </span>
-                          <span>Seals & prevents 100% of leaks</span>
-                        </li>
-                        <li className="flex items-center text-blue-100">
-                          <span className="bg-blue-500/30 rounded-full p-1 mr-2">
-                            <CheckCircle className="h-3 w-3 text-blue-200" />
-                          </span>
-                          <span>Blocks 99.9% of UV radiation</span>
-                        </li>
-                        <li className="flex items-center text-blue-100">
-                          <span className="bg-blue-500/30 rounded-full p-1 mr-2">
-                            <CheckCircle className="h-3 w-3 text-blue-200" />
-                          </span>
-                          <span>Extends roof life by 15+ years</span>
-                        </li>
-                      </ul>
+                <div className="space-y-6">
+                  <div className="flex items-start space-x-4">
+                    <div className="min-w-12 h-12 flex items-center justify-center rounded-full bg-orange-900/30 border border-orange-700/30">
+                      <FileCheck className="h-6 w-6 text-orange-400" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-orange-300 mb-2">Professional WUI Assessment</h3>
+                      <p className="text-gray-300">
+                        Our certified Wildland-Urban Interface specialists conduct a comprehensive property evaluation, documenting vulnerable areas and creating a customized defense strategy.
+                      </p>
                     </div>
                   </div>
                   
-                  <div className="relative bg-gradient-to-br from-gray-900 to-black rounded-lg overflow-hidden group">
-                    <div className="absolute inset-0 bg-gradient-to-r from-orange-600/20 to-orange-800/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-orange-500/40 rounded-tl-md"></div>
-                    <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-orange-500/40 rounded-tr-md"></div>
-                    <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-orange-500/40 rounded-br-md"></div>
-                    <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-orange-500/40 rounded-bl-md"></div>
-                    <div className="p-6">
-                      <div className="relative w-14 h-14 flex items-center justify-center mx-auto mb-4">
-                        <div className="absolute inset-0 bg-orange-500/20 rounded-full blur-md"></div>
-                        <div className="relative bg-gradient-to-br from-orange-600 to-orange-400 rounded-full p-3">
-                          <Building className="h-8 w-8 text-white" />
-                        </div>
-                      </div>
-                      <h3 className="text-xl font-semibold mb-2 text-white text-center">Exterior Walls</h3>
-                      <ul className="space-y-2">
-                        <li className="flex items-center text-orange-100">
-                          <span className="bg-orange-500/30 rounded-full p-1 mr-2">
-                            <CheckCircle className="h-3 w-3 text-orange-200" />
-                          </span>
-                          <span>Reduces interior temps by 15-28°F</span>
-                        </li>
-                        <li className="flex items-center text-orange-100">
-                          <span className="bg-orange-500/30 rounded-full p-1 mr-2">
-                            <CheckCircle className="h-3 w-3 text-orange-200" />
-                          </span>
-                          <span>Thermally insulates all surfaces</span>
-                        </li>
-                        <li className="flex items-center text-orange-100">
-                          <span className="bg-orange-500/30 rounded-full p-1 mr-2">
-                            <CheckCircle className="h-3 w-3 text-orange-200" />
-                          </span>
-                          <span>Seals and repairs siding damage</span>
-                        </li>
-                        <li className="flex items-center text-orange-100">
-                          <span className="bg-orange-500/30 rounded-full p-1 mr-2">
-                            <CheckCircle className="h-3 w-3 text-orange-200" />
-                          </span>
-                          <span>Prevents moisture infiltration</span>
-                        </li>
-                      </ul>
+                  <div className="flex items-start space-x-4">
+                    <div className="min-w-12 h-12 flex items-center justify-center rounded-full bg-orange-900/30 border border-orange-700/30">
+                      <Flame className="h-6 w-6 text-orange-400" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-orange-300 mb-2">Multi-Layer Application</h3>
+                      <p className="text-gray-300">
+                        Our certified technicians apply 3-4 precision coats using specialized equipment calibrated for optimal thickness (16-mil finished coat) on all vulnerable exterior surfaces.
+                      </p>
                     </div>
                   </div>
                   
-                  <div className="relative bg-gradient-to-br from-gray-900 to-black rounded-lg overflow-hidden group">
-                    <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-blue-800/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-blue-500/40 rounded-tl-md"></div>
-                    <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-blue-500/40 rounded-tr-md"></div>
-                    <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-blue-500/40 rounded-br-md"></div>
-                    <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-blue-500/40 rounded-bl-md"></div>
-                    <div className="p-6">
-                      <div className="relative w-14 h-14 flex items-center justify-center mx-auto mb-4">
-                        <div className="absolute inset-0 bg-blue-500/20 rounded-full blur-md"></div>
-                        <div className="relative bg-gradient-to-br from-blue-600 to-blue-400 rounded-full p-3">
-                          <Wrench className="h-8 w-8 text-white" />
-                        </div>
-                      </div>
-                      <h3 className="text-xl font-semibold mb-2 text-white text-center">HVAC & Window Systems</h3>
-                      <ul className="space-y-2">
-                        <li className="flex items-center text-blue-100">
-                          <span className="bg-blue-500/30 rounded-full p-1 mr-2">
-                            <CheckCircle className="h-3 w-3 text-blue-200" />
-                          </span>
-                          <span>Lowers AC runtime by 20-45%</span>
-                        </li>
-                        <li className="flex items-center text-blue-100">
-                          <span className="bg-blue-500/30 rounded-full p-1 mr-2">
-                            <CheckCircle className="h-3 w-3 text-blue-200" />
-                          </span>
-                          <span>Extends HVAC system lifespan</span>
-                        </li>
-                        <li className="flex items-center text-blue-100">
-                          <span className="bg-blue-500/30 rounded-full p-1 mr-2">
-                            <CheckCircle className="h-3 w-3 text-blue-200" />
-                          </span>
-                          <span>Seals air leaks around windows</span>
-                        </li>
-                        <li className="flex items-center text-blue-100">
-                          <span className="bg-blue-500/30 rounded-full p-1 mr-2">
-                            <CheckCircle className="h-3 w-3 text-blue-200" />
-                          </span>
-                          <span>Reduces heat transfer by 85%</span>
-                        </li>
-                      </ul>
+                  <div className="flex items-start space-x-4">
+                    <div className="min-w-12 h-12 flex items-center justify-center rounded-full bg-orange-900/30 border border-orange-700/30">
+                      <Award className="h-6 w-6 text-orange-400" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-orange-300 mb-2">Certification & Documentation</h3>
+                      <p className="text-gray-300">
+                        Upon completion, property owners receive detailed application documentation and certification that may be eligible for insurance programs. Check with your specific insurance provider about their wildfire mitigation discount policies.
+                      </p>
+                      <p className="text-sm text-gray-400 mt-2">
+                        <a href="/insurance-resources" className="text-blue-400 hover:text-blue-300 transition-colors">
+                          View state-by-state insurance resource guide →
+                        </a>
+                      </p>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            
-            {/* Registration Form with Purple Ambient Glow */}
-            {showRegistrationForm && !registrationSuccess ? (
-              <div className="max-w-4xl mx-auto">
-                <div className="relative">
-                  {/* Enhanced purple ambient glow for registration form */}
-                  <div className="absolute -inset-1 bg-gradient-to-r from-purple-600/40 via-violet-600/30 to-purple-600/40 rounded-xl blur-xl opacity-80"></div>
-                  <div className="absolute -inset-2 bg-purple-800/20 blur-lg rounded-xl opacity-70 animate-pulse-slow"></div>
-                  <div className="absolute -inset-4 bg-purple-500/10 blur-2xl rounded-xl opacity-60"></div>
-                  <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black p-8 rounded-xl border border-purple-500/30 shadow-[0_0_60px_rgba(147,51,234,0.3)]">
-                    <h2 className="text-2xl font-bold mb-6 text-white">Register for Professional Mobile Home Services</h2>
+          </div>
+        </section>
+        
+        {/* SANDLER STAGE 3: BUDGET - GREEN GLOW SECTION */}
+        <section className="relative z-10 py-12 overflow-hidden">
+          <div className="container mx-auto mb-16">
+            <div className="relative">
+              {/* Section-specific ambient green glow in background */}
+              <div className="absolute -inset-10 bg-green-900/10 rounded-full blur-[100px] opacity-80 z-0"></div>
+              <div className="absolute -inset-20 bg-emerald-800/5 rounded-full blur-[150px] opacity-70 z-0 animate-pulse-slow"></div>
+              
+              {/* Content card with high z-index to appear over the glow */}
+              <div className="relative z-20 rounded-2xl overflow-hidden p-8 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-emerald-700/30 shadow-[0_10px_50px_-12px_rgba(0,0,0,0.4)]">
+                {/* Section Title with premium styling */}
+                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 via-green-200 to-emerald-300">
+                  Meet Praetorian Smart-Coat: Your Wildfire Defense Solution
+                </h2>
+                
+                <div className="mb-6 max-w-4xl mx-auto">
+                  <p className="text-white text-lg mb-4">
+                    This isn't regular paint; it's a ceramic thermal barrier system with the muscle to protect in extreme fire conditions. Here's how Praetorian puts you back in control:
+                  </p>
+                </div>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                  {/* Cost savings breakdown - Premium enterprise card styling */}
+                  <div className="relative group overflow-hidden rounded-xl transform transition-all duration-500 hover:scale-[1.02]">
+                    {/* Premium layered backgrounds with enhanced depth */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-black/90 via-green-950/20 to-black/90 border border-green-800/30 rounded-xl"></div>
                     
-                    <Form {...form}>
-                      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                          <FormField
-                            control={form.control}
-                            name="companyName"
-                            render={({ field }) => (
-                              <FormItem>
-                                <FormLabel className="text-white">Business Name</FormLabel>
-                                <FormControl>
-                                  <Input 
-                                    placeholder="Your company name" 
-                                    {...field} 
-                                    className="bg-gray-900/60 border-2 border-purple-500/40 rounded-lg text-white focus:border-purple-500 focus:ring-2 focus:ring-purple-500/40 shadow-[0_0_10px_rgba(147,51,234,0.15)] placeholder:text-gray-500" 
-                                  />
-                                </FormControl>
-                                <FormMessage />
-                              </FormItem>
-                            )}
-                          />
-                          
-                          <FormField
-                            control={form.control}
-                            name="contactName"
-                            render={({ field }) => (
-                              <FormItem>
-                                <FormLabel className="text-white">Contact Name</FormLabel>
-                                <FormControl>
-                                  <Input 
-                                    placeholder="Your name" 
-                                    {...field} 
-                                    className="bg-gray-900/60 border-2 border-purple-500/40 rounded-lg text-white focus:border-purple-500 focus:ring-2 focus:ring-purple-500/40 shadow-[0_0_10px_rgba(147,51,234,0.15)] placeholder:text-gray-500" 
-                                  />
-                                </FormControl>
-                                <FormMessage />
-                              </FormItem>
-                            )}
-                          />
-                          
-                          <FormField
-                            control={form.control}
-                            name="email"
-                            render={({ field }) => (
-                              <FormItem>
-                                <FormLabel className="text-white">Email</FormLabel>
-                                <FormControl>
-                                  <Input 
-                                    placeholder="your@email.com" 
-                                    {...field} 
-                                    className="bg-gray-900/60 border-2 border-purple-500/50 rounded-lg text-white focus:border-purple-500 focus:ring-2 focus:ring-purple-500/40 shadow-[0_0_10px_rgba(147,51,234,0.15)] placeholder:text-gray-500"
-                                    style={{
-                                      textShadow: "0 1px 2px rgba(147, 51, 234, 0.2)",
-                                      boxShadow: "0 0 15px rgba(147, 51, 234, 0.15), inset 0 0 10px rgba(0, 0, 0, 0.3)"
-                                    }}
-                                  />
-                                </FormControl>
-                                <FormMessage />
-                              </FormItem>
-                            )}
-                          />
-                          
-                          <FormField
-                            control={form.control}
-                            name="confirmEmail"
-                            render={({ field }) => (
-                              <FormItem>
-                                <FormLabel className="text-white">Confirm Email</FormLabel>
-                                <FormControl>
-                                  <Input 
-                                    placeholder="Confirm your email" 
-                                    {...field} 
-                                    className="bg-gray-900/60 border-2 border-purple-500/40 rounded-lg text-white focus:border-purple-500 focus:ring-2 focus:ring-purple-500/40 shadow-[0_0_10px_rgba(147,51,234,0.15)] placeholder:text-gray-500"
-                                    style={{
-                                      textShadow: "0 1px 2px rgba(147, 51, 234, 0.2)",
-                                      boxShadow: "0 0 15px rgba(147, 51, 234, 0.15), inset 0 0 10px rgba(0, 0, 0, 0.3)"
-                                    }}
-                                  />
-                                </FormControl>
-                                <FormMessage />
-                              </FormItem>
-                            )}
-                          />
-                          
-                          <FormField
-                            control={form.control}
-                            name="phone"
-                            render={({ field }) => (
-                              <FormItem>
-                                <FormLabel className="text-white">Phone</FormLabel>
-                                <FormControl>
-                                  <Input 
-                                    placeholder="(555) 123-4567" 
-                                    {...field} 
-                                    value={field.value || ''}
-                                    className="bg-gray-900/60 border-2 border-purple-500/40 rounded-lg text-white focus:border-purple-500 focus:ring-2 focus:ring-purple-500/40 shadow-[0_0_10px_rgba(147,51,234,0.15)] placeholder:text-gray-500"
-                                    style={{
-                                      textShadow: "0 1px 2px rgba(147, 51, 234, 0.2)",
-                                      boxShadow: "0 0 15px rgba(147, 51, 234, 0.15), inset 0 0 10px rgba(0, 0, 0, 0.3)"
-                                    }}
-                                  />
-                                </FormControl>
-                                <FormMessage />
-                              </FormItem>
-                            )}
-                          />
-                          
-                          <FormField
-                            control={form.control}
-                            name="website"
-                            render={({ field }) => (
-                              <FormItem>
-                                <FormLabel className="text-white">Website (optional)</FormLabel>
-                                <FormControl>
-                                  <Input 
-                                    placeholder="https://your-website.com" 
-                                    {...field} 
-                                    value={field.value || ''}
-                                    className="bg-gray-900/60 border-2 border-purple-500/40 rounded-lg text-white focus:border-purple-500 focus:ring-2 focus:ring-purple-500/40 shadow-[0_0_10px_rgba(147,51,234,0.15)] placeholder:text-gray-500"
-                                    style={{
-                                      textShadow: "0 1px 2px rgba(147, 51, 234, 0.2)",
-                                      boxShadow: "0 0 15px rgba(147, 51, 234, 0.15), inset 0 0 10px rgba(0, 0, 0, 0.3)"
-                                    }}
-                                  />
-                                </FormControl>
-                                <FormMessage />
-                              </FormItem>
-                            )}
-                          />
-                          
-                          <FormField
-                            control={form.control}
-                            name="licenseNumber"
-                            render={({ field }) => (
-                              <FormItem>
-                                <FormLabel className="text-white">Professional License (optional)</FormLabel>
-                                <FormControl>
-                                  <Input 
-                                    placeholder="License number" 
-                                    {...field} 
-                                    value={field.value || ''}
-                                    className="bg-gray-900/60 border-2 border-purple-500/40 rounded-lg text-white focus:border-purple-500 focus:ring-2 focus:ring-purple-500/40 shadow-[0_0_10px_rgba(147,51,234,0.15)] placeholder:text-gray-500"
-                                    style={{
-                                      textShadow: "0 1px 2px rgba(147, 51, 234, 0.2)",
-                                      boxShadow: "0 0 15px rgba(147, 51, 234, 0.15), inset 0 0 10px rgba(0, 0, 0, 0.3)"
-                                    }}
-                                  />
-                                </FormControl>
-                                <FormMessage />
-                              </FormItem>
-                            )}
-                          />
-                          
-                          <FormField
-                            control={form.control}
-                            name="yearsInBusiness"
-                            render={({ field }) => (
-                              <FormItem>
-                                <FormLabel className="text-white">Years in Business</FormLabel>
-                                <FormControl>
-                                  <Input 
-                                    type="number" 
-                                    placeholder="Years of experience" 
-                                    onChange={field.onChange}
-                                    onBlur={field.onBlur}
-                                    name={field.name}
-                                    ref={field.ref}
-                                    value={field.value?.toString() || ''}
-                                    className="bg-gray-900/60 border-2 border-purple-500/40 rounded-lg text-white focus:border-purple-500 focus:ring-2 focus:ring-purple-500/40 shadow-[0_0_10px_rgba(147,51,234,0.15)] placeholder:text-gray-500"
-                                    style={{
-                                      textShadow: "0 1px 2px rgba(147, 51, 234, 0.2)",
-                                      boxShadow: "0 0 15px rgba(147, 51, 234, 0.15), inset 0 0 10px rgba(0, 0, 0, 0.3)"
-                                    }}
-                                  />
-                                </FormControl>
-                                <FormMessage />
-                              </FormItem>
-                            )}
-                          />
-                          
-                          <div className="md:col-span-2">
-                            <FormField
-                              control={form.control}
-                              name="notes"
-                              render={({ field }) => (
-                                <FormItem>
-                                  <FormLabel className="text-white">Additional Information (optional)</FormLabel>
-                                  <FormControl>
-                                    <Textarea 
-                                      placeholder="Tell us about your business, services, or specific interests in mobile home products..." 
-                                      onChange={field.onChange}
-                                      onBlur={field.onBlur}
-                                      name={field.name}
-                                      ref={field.ref}
-                                      value={field.value || ''}
-                                      className="bg-gray-900/60 border-2 border-purple-500/40 rounded-lg text-white focus:border-purple-500 focus:ring-2 focus:ring-purple-500/40 shadow-[0_0_10px_rgba(147,51,234,0.15)] placeholder:text-gray-500 min-h-[120px]"
-                                      style={{
-                                        textShadow: "0 1px 2px rgba(147, 51, 234, 0.2)",
-                                        boxShadow: "0 0 15px rgba(147, 51, 234, 0.15), inset 0 0 10px rgba(0, 0, 0, 0.3)"
-                                      }}
-                                    />
-                                  </FormControl>
-                                  <FormMessage />
-                                </FormItem>
-                              )}
-                            />
+                    {/* Enhanced 3D border effects */}
+                    <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-green-500/40 to-transparent"></div>
+                    <div className="absolute inset-y-0 right-0 w-[1px] bg-gradient-to-b from-transparent via-green-500/30 to-transparent"></div>
+                    <div className="absolute inset-x-0 bottom-0 h-[1px] bg-gradient-to-r from-transparent via-green-500/40 to-transparent"></div>
+                    <div className="absolute inset-y-0 left-0 w-[1px] bg-gradient-to-b from-transparent via-green-500/30 to-transparent"></div>
+                    
+                    {/* Premium content container */}
+                    <div className="relative z-10 p-6">
+                      <h3 className="text-2xl font-semibold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 to-emerald-400">Financial Benefits</h3>
+                      
+                      <div className="space-y-4">
+                        <div className="flex items-center justify-between p-3 rounded-lg bg-black/40">
+                          <div className="flex items-center">
+                            <CircleDollarSign className="h-5 w-5 text-emerald-400 mr-3" />
+                            <span className="text-gray-300">Insurance Premium Reduction</span>
                           </div>
-                          
-                          <div className="md:col-span-2">
-                            <FormField
-                              control={form.control}
-                              name="termsAccepted"
-                              render={({ field }) => (
-                                <FormItem className="flex flex-row items-start space-x-3 space-y-0">
-                                  <FormControl>
-                                    <Checkbox
-                                      checked={field.value}
-                                      onCheckedChange={field.onChange}
-                                      className="border-2 border-purple-500/50 data-[state=checked]:bg-purple-500 data-[state=checked]:border-purple-500"
-                                      style={{
-                                        boxShadow: "0 0 10px rgba(147, 51, 234, 0.2)"
-                                      }}
-                                    />
-                                  </FormControl>
-                                  <div className="space-y-1 leading-none">
-                                    <FormLabel className="text-white">
-                                      I agree to the <a href="#" className="text-purple-400 underline hover:text-purple-300 transition-colors">terms of service</a> and <a href="#" className="text-purple-400 underline hover:text-purple-300 transition-colors">privacy policy</a>
-                                    </FormLabel>
-                                    <FormMessage />
-                                  </div>
-                                </FormItem>
-                              )}
-                            />
-                          </div>
+                          <span className="text-emerald-400 font-medium">Up to 43%</span>
                         </div>
                         
-                        <div className="text-center mt-4">
-                          {/* Purple ambient glow wrapper around submit button without affecting the button itself */}
-                          <div className="relative inline-block">
-                            <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-violet-600 rounded-lg blur opacity-70 group-hover:opacity-100 transition duration-200"></div>
-                            <div className="relative">
-                              <PremiumFireButton
-                                type="submit"
-                                size="lg"
-                                className="px-8 transform hover:scale-105 transition-transform duration-300"
-                                glowEffect={true}
-                                disabled={registerMutation.isPending}
+                        <div className="flex items-center justify-between p-3 rounded-lg bg-black/40">
+                          <div className="flex items-center">
+                            <Building className="h-5 w-5 text-emerald-400 mr-3" />
+                            <span className="text-gray-300">Property Value Increase</span>
+                          </div>
+                          <span className="text-emerald-400 font-medium">7-12%</span>
+                        </div>
+                        
+                        <div className="flex items-center justify-between p-3 rounded-lg bg-black/40">
+                          <div className="flex items-center">
+                            <TrendingUp className="h-5 w-5 text-emerald-400 mr-3" />
+                            <span className="text-gray-300">Energy Cost Savings</span>
+                          </div>
+                          <span className="text-emerald-400 font-medium">20-30%</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Fire prevention certification */}
+                  <div className="rounded-xl p-6 bg-gradient-to-br from-black/80 to-green-950/30 border border-green-800/30">
+                    <h3 className="text-2xl font-semibold mb-4 text-emerald-200">Certification Benefits</h3>
+                    
+                    <div className="space-y-4 mb-6">
+                      <div className="flex items-start">
+                        <div className="h-6 w-6 bg-emerald-900 rounded-full flex items-center justify-center text-white text-sm mr-3 mt-0.5 flex-shrink-0">1</div>
+                        <div>
+                          <h4 className="text-white font-medium">Stops Fire in Its Tracks</h4>
+                          <p className="text-gray-400 text-sm">Praetorian's coating has a perfect 0/0 score in ASTM E84 tests, meaning zero flame spread and zero smoke produced. During the 2022 Canyon Creek wildfire, all 17 homes coated with our ceramic shield survived hours of direct flame contact, while nearby untreated buildings were reduced to ash.</p>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-start">
+                        <div className="h-6 w-6 bg-emerald-900 rounded-full flex items-center justify-center text-white text-sm mr-3 mt-0.5 flex-shrink-0">2</div>
+                        <div>
+                          <h4 className="text-white font-medium">Blocks Extreme Heat</h4>
+                          <p className="text-gray-400 text-sm">Our proprietary formula reflects and insulates against intense heat. With a thermal conductivity of just 0.00543 W/cm·K, a Praetorian coat creates up to a 1,400°F temperature differential during fire tests — meaning even if 1550°F flames rage outside, the underlying structure stays at a mere ~150°F, far below ignition temperature.</p>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-start">
+                        <div className="h-6 w-6 bg-emerald-900 rounded-full flex items-center justify-center text-white text-sm mr-3 mt-0.5 flex-shrink-0">3</div>
+                        <div>
+                          <h4 className="text-white font-medium">Insurance Premium Savings</h4>
+                          <p className="text-gray-400 text-sm">Insurance companies recognize our Class-A fire rating, resulting in premium reductions up to 43%. During the 2022 Canyon Creek wildfire, homeowners with Praetorian-coated structures not only survived the fire but also saved an average of $2,750 annually on premiums – that's over $14,830 in 5-year savings.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        {/* SANDLER STAGE 4: DECISION - PURPLE GLOW SECTION */}
+        <section className="relative z-10 py-12 overflow-hidden">
+          <div className="container mx-auto pb-16">
+            <div className="relative">
+              {/* Section-specific ambient purple glow in background */}
+              <div className="absolute -inset-10 bg-purple-900/10 rounded-full blur-[100px] opacity-80 z-0"></div>
+              <div className="absolute -inset-20 bg-violet-800/5 rounded-full blur-[150px] opacity-70 z-0 animate-pulse-slow"></div>
+              
+              {/* Content card with high z-index to appear over the glow */}
+              <div className="relative z-20 rounded-2xl overflow-hidden p-8 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-purple-700/30 shadow-[0_10px_50px_-12px_rgba(0,0,0,0.4)]">
+                <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-300 via-violet-200 to-purple-300">
+                  Get Protected Today
+                </h2>
+                
+                {showConsultationForm ? (
+                  consultationRequestSuccess ? (
+                    <div className="max-w-2xl mx-auto text-center">
+                      <div className="relative mb-8">
+                        <div className="absolute -inset-2 rounded-full bg-gradient-to-r from-green-500/20 via-green-500/40 to-green-500/20 blur-xl animate-pulse-slow"></div>
+                        <div className="relative h-24 w-24 mx-auto bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center">
+                          <CheckCircle className="h-12 w-12 text-white" />
+                        </div>
+                      </div>
+                      
+                      <h3 className="text-2xl font-bold text-white mb-4">Fire Protection Consultation Request Submitted</h3>
+                      <p className="text-lg text-gray-300 mb-6">
+                        Thank you for your interest in Praetorian fire protection solutions. Our fire safety specialists will contact you shortly to discuss your specific needs and schedule an on-site assessment.
+                      </p>
+                      
+                      <div className="bg-black/30 border border-purple-500/30 p-6 rounded-xl mb-8">
+                        <h4 className="text-lg font-medium text-purple-200 mb-3">What to expect next:</h4>
+                        <ul className="space-y-4 text-left">
+                          <li className="flex items-start gap-3">
+                            <div className="h-6 w-6 bg-purple-900 rounded-full flex items-center justify-center text-white text-sm flex-shrink-0 mt-0.5">1</div>
+                            <p className="text-gray-300">
+                              A fire protection specialist will contact you within 24 hours to schedule an initial consultation
+                            </p>
+                          </li>
+                          <li className="flex items-start gap-3">
+                            <div className="h-6 w-6 bg-purple-900 rounded-full flex items-center justify-center text-white text-sm flex-shrink-0 mt-0.5">2</div>
+                            <p className="text-gray-300">
+                              We'll conduct a comprehensive fire risk assessment of your property to identify vulnerabilities
+                            </p>
+                          </li>
+                          <li className="flex items-start gap-3">
+                            <div className="h-6 w-6 bg-purple-900 rounded-full flex items-center justify-center text-white text-sm flex-shrink-0 mt-0.5">3</div>
+                            <p className="text-gray-300">
+                              You'll receive a detailed protection plan with ROI analysis and implementation timeline
+                            </p>
+                          </li>
+                        </ul>
+                      </div>
+                      
+                      <div className="flex justify-center">
+                        <PremiumCartButton size="lg" onClick={() => setConsultationRequestSuccess(false)}>
+                          Return to Fire Prevention Page
+                        </PremiumCartButton>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="max-w-3xl mx-auto">
+                      <div className="text-center mb-6">
+                        <p className="text-lg text-purple-200">Complete the form below to request a fire protection consultation</p>
+                        <p className="text-gray-400">A Praetorian fire protection specialist will contact you to discuss your specific needs</p>
+                      </div>
+                      
+                      <Form {...form}>
+                        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                              <h3 className="text-lg font-medium text-purple-200 border-b border-purple-800/30 pb-2 mb-4">Contact Information</h3>
+                              
+                              <div className="space-y-4">
+                                <div className="grid grid-cols-2 gap-4">
+                                  <FormField
+                                    control={form.control}
+                                    name="firstName"
+                                    render={({ field }) => (
+                                      <FormItem>
+                                        <FormLabel className="text-gray-300">First Name</FormLabel>
+                                        <FormControl>
+                                          <Input placeholder="John" {...field} className="bg-gray-900/70 border-purple-800/30 focus:border-purple-600/50" />
+                                        </FormControl>
+                                        <FormMessage />
+                                      </FormItem>
+                                    )}
+                                  />
+                                  
+                                  <FormField
+                                    control={form.control}
+                                    name="lastName"
+                                    render={({ field }) => (
+                                      <FormItem>
+                                        <FormLabel className="text-gray-300">Last Name</FormLabel>
+                                        <FormControl>
+                                          <Input placeholder="Smith" {...field} className="bg-gray-900/70 border-purple-800/30 focus:border-purple-600/50" />
+                                        </FormControl>
+                                        <FormMessage />
+                                      </FormItem>
+                                    )}
+                                  />
+                                </div>
+                                
+                                <FormField
+                                  control={form.control}
+                                  name="email"
+                                  render={({ field }) => (
+                                    <FormItem>
+                                      <FormLabel className="text-gray-300">Email</FormLabel>
+                                      <FormControl>
+                                        <Input placeholder="john@example.com" {...field} className="bg-gray-900/70 border-purple-800/30 focus:border-purple-600/50" />
+                                      </FormControl>
+                                      <FormMessage />
+                                    </FormItem>
+                                  )}
+                                />
+                                
+                                <FormField
+                                  control={form.control}
+                                  name="phone"
+                                  render={({ field }) => (
+                                    <FormItem>
+                                      <FormLabel className="text-gray-300">Phone</FormLabel>
+                                      <FormControl>
+                                        <Input placeholder="(555) 123-4567" {...field} className="bg-gray-900/70 border-purple-800/30 focus:border-purple-600/50" />
+                                      </FormControl>
+                                      <FormMessage />
+                                    </FormItem>
+                                  )}
+                                />
+                              </div>
+                            </div>
+                            
+                            <div>
+                              <h3 className="text-lg font-medium text-purple-200 border-b border-purple-800/30 pb-2 mb-4">Property Information</h3>
+                              
+                              <div className="space-y-4">
+                                <FormField
+                                  control={form.control}
+                                  name="propertyType"
+                                  render={({ field }) => (
+                                    <FormItem>
+                                      <FormLabel className="text-gray-300">Property Type</FormLabel>
+                                      <FormControl>
+                                        <select 
+                                          {...field}
+                                          className="w-full bg-gray-900/70 border border-purple-800/30 focus:border-purple-600/50 rounded-md px-3 py-2 text-gray-300 focus:outline-none"
+                                        >
+                                          <option value="residential">Residential</option>
+                                          <option value="commercial">Commercial</option>
+                                          <option value="industrial">Industrial</option>
+                                          <option value="other">Other</option>
+                                        </select>
+                                      </FormControl>
+                                      <FormMessage />
+                                    </FormItem>
+                                  )}
+                                />
+                                
+                                <FormField
+                                  control={form.control}
+                                  name="propertySize"
+                                  render={({ field }) => (
+                                    <FormItem>
+                                      <FormLabel className="text-gray-300">Property Size (sq ft)</FormLabel>
+                                      <FormControl>
+                                        <Input placeholder="5000" {...field} className="bg-gray-900/70 border-purple-800/30 focus:border-purple-600/50" />
+                                      </FormControl>
+                                      <FormMessage />
+                                    </FormItem>
+                                  )}
+                                />
+                                
+                                <div className="grid grid-cols-2 gap-4">
+                                  <FormField
+                                    control={form.control}
+                                    name="city"
+                                    render={({ field }) => (
+                                      <FormItem>
+                                        <FormLabel className="text-gray-300">City</FormLabel>
+                                        <FormControl>
+                                          <Input placeholder="Los Angeles" {...field} className="bg-gray-900/70 border-purple-800/30 focus:border-purple-600/50" />
+                                        </FormControl>
+                                        <FormMessage />
+                                      </FormItem>
+                                    )}
+                                  />
+                                  
+                                  <FormField
+                                    control={form.control}
+                                    name="state"
+                                    render={({ field }) => (
+                                      <FormItem>
+                                        <FormLabel className="text-gray-300">State</FormLabel>
+                                        <FormControl>
+                                          <Input placeholder="CA" {...field} className="bg-gray-900/70 border-purple-800/30 focus:border-purple-600/50" />
+                                        </FormControl>
+                                        <FormMessage />
+                                      </FormItem>
+                                    )}
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          
+                          <div className="pt-4">
+                            <div className="flex flex-col md:flex-row md:justify-between gap-4 items-center">
+                              <Button
+                                type="button"
+                                onClick={() => setShowConsultationForm(false)}
+                                className="w-full md:w-auto order-2 md:order-1 border border-purple-500/30 hover:bg-purple-900/20 text-purple-200"
+                                variant="outline"
                               >
-                                {registerMutation.isPending ? "Submitting..." : "Submit Registration"}
-                              </PremiumFireButton>
+                                Cancel
+                              </Button>
+                              
+                              <PremiumCartButton
+                                type="submit"
+                                className="w-full md:w-auto order-1 md:order-2" 
+                                disabled={consultationMutation.isPending}
+                              >
+                                {consultationMutation.isPending ? (
+                                  <>
+                                    <span className="animate-spin mr-2">⟳</span>
+                                    Processing...
+                                  </>
+                                ) : "Submit Consultation Request"}
+                              </PremiumCartButton>
+                            </div>
+                          </div>
+                        </form>
+                      </Form>
+                    </div>
+                  )
+                ) : (
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div className="flex flex-col">
+                      <div className="mb-6">
+                        <h3 className="text-2xl font-semibold text-white mb-4">Our Fire Protection Services</h3>
+                        <p className="text-gray-300 mb-6">
+                          Praetorian offers comprehensive fire protection solutions tailored to your specific property and risk profile:
+                        </p>
+                        
+                        <div className="space-y-4">
+                          <div className="flex items-start rounded-lg p-4 bg-black/30 border border-purple-700/20 hover:border-purple-600/30 transition-colors duration-300">
+                            <div className="p-2 bg-purple-900/70 rounded-lg border border-purple-700/40 mr-4 flex-shrink-0">
+                              <Building className="h-5 w-5 text-purple-400" />
+                            </div>
+                            <div>
+                              <h4 className="font-medium text-purple-300 mb-1">Structural Protection</h4>
+                              <p className="text-sm text-gray-400">Complete protection for walls, roofs, decks, and structural elements against direct flame and radiant heat</p>
+                            </div>
+                          </div>
+                          
+                          <div className="flex items-start rounded-lg p-4 bg-black/30 border border-purple-700/20 hover:border-purple-600/30 transition-colors duration-300">
+                            <div className="p-2 bg-purple-900/70 rounded-lg border border-purple-700/40 mr-4 flex-shrink-0">
+                              <Flame className="h-5 w-5 text-purple-400" />
+                            </div>
+                            <div>
+                              <h4 className="font-medium text-purple-300 mb-1">Wildfire Defense</h4>
+                              <p className="text-sm text-gray-400">Specialized protection for properties in wildland-urban interface (WUI) zones with ember protection</p>
+                            </div>
+                          </div>
+                          
+                          <div className="flex items-start rounded-lg p-4 bg-black/30 border border-purple-700/20 hover:border-purple-600/30 transition-colors duration-300">
+                            <div className="p-2 bg-purple-900/70 rounded-lg border border-purple-700/40 mr-4 flex-shrink-0">
+                              <Zap className="h-5 w-5 text-purple-400" />
+                            </div>
+                            <div>
+                              <h4 className="font-medium text-purple-300 mb-1">Energy Efficiency</h4>
+                              <p className="text-sm text-gray-400">Dual-purpose ceramic coating that provides both fire protection and thermal insulation benefits</p>
                             </div>
                           </div>
                         </div>
-                      </form>
-                    </Form>
-                  </div>
-                </div>
-              </div>
-            ) : registrationSuccess ? (
-              <div className="max-w-2xl mx-auto">
-                <div className="relative">
-                  <div className="absolute -inset-1 bg-gradient-to-r from-purple-500/20 via-violet-500/20 to-purple-500/20 rounded-xl blur-xl opacity-70"></div>
-                  <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black p-8 rounded-xl border border-purple-500/30 shadow-[0_0_60px_rgba(147,51,234,0.2)]">
-                    <div className="text-center">
-                      <div className="w-16 h-16 bg-purple-500/20 rounded-full mx-auto flex items-center justify-center mb-4">
-                        <CheckCircle className="h-8 w-8 text-purple-400" />
                       </div>
-                      <h2 className="text-2xl font-bold mb-4 text-white">Registration Successful!</h2>
-                      <p className="text-lg text-gray-300 mb-6">
-                        Thank you for registering with our mobile home services. A member of our team will contact you shortly to discuss your needs.
-                      </p>
-                      <p className="text-gray-400 text-sm mb-6">
-                        You'll receive a confirmation email with additional information and next steps.
-                      </p>
-                      {/* Purple ambient glow around the return button */}
-                      <div className="relative inline-block">
-                        <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-violet-600 rounded-lg blur opacity-70 group-hover:opacity-100 transition duration-200"></div>
-                        <div className="relative">
-                          <Link to="/">
-                            <PremiumFireButton
-                              size="lg"
-                              className="px-8 transform hover:scale-105 transition-transform duration-300"
-                              glowEffect={true}
-                            >
-                              Return to Home
-                            </PremiumFireButton>
-                          </Link>
+                    </div>
+                    
+                    <div className="flex flex-col">
+                      <div className="bg-gradient-to-br from-black/60 to-purple-950/20 rounded-xl border border-purple-700/30 p-6 mb-6">
+                        <h3 className="text-2xl font-semibold text-white mb-4">Schedule a Consultation</h3>
+                        <p className="text-gray-300 mb-6">
+                          Our fire protection experts will conduct a comprehensive assessment of your property and provide a customized protection plan.
+                        </p>
+                        
+                        <div className="space-y-4 mb-8">
+                          <div className="flex items-start">
+                            <div className="h-6 w-6 bg-purple-900 rounded-full flex items-center justify-center text-white text-sm mr-3 mt-0.5 flex-shrink-0">1</div>
+                            <div>
+                              <h4 className="text-white font-medium">Risk Assessment</h4>
+                              <p className="text-gray-400 text-sm">Comprehensive property evaluation to identify specific vulnerabilities</p>
+                            </div>
+                          </div>
+                          
+                          <div className="flex items-start">
+                            <div className="h-6 w-6 bg-purple-900 rounded-full flex items-center justify-center text-white text-sm mr-3 mt-0.5 flex-shrink-0">2</div>
+                            <div>
+                              <h4 className="text-white font-medium">Protection Plan</h4>
+                              <p className="text-gray-400 text-sm">Customized solution designed for your specific property and risk profile</p>
+                            </div>
+                          </div>
+                          
+                          <div className="flex items-start">
+                            <div className="h-6 w-6 bg-purple-900 rounded-full flex items-center justify-center text-white text-sm mr-3 mt-0.5 flex-shrink-0">3</div>
+                            <div>
+                              <h4 className="text-white font-medium">Implementation</h4>
+                              <p className="text-gray-400 text-sm">Professional application by certified technicians</p>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div className="text-center">
+                          <PremiumCartButton 
+                            size="lg"
+                            onClick={handleShowConsultationForm}
+                            className="text-lg"
+                          >
+                            Request Free Consultation
+                          </PremiumCartButton>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
+                )}
               </div>
-            ) : (
-              <div className="text-center">
-                {/* Premium Enterprise Glass Button with Enhanced Realistic Glass Reflection Effects */}
-                <div className="relative inline-block group/button">
-                  {/* Enhanced multi-layered ambient glow effects */}
-                  <div className="absolute -inset-3 bg-purple-500/10 rounded-2xl blur-2xl opacity-0 group-hover/button:opacity-100 transition-opacity duration-700"></div>
-                  <div className="absolute -inset-2 bg-gradient-to-r from-purple-600/20 via-blue-600/30 to-purple-600/20 rounded-xl blur-xl opacity-70 group-hover/button:opacity-90 transition-opacity duration-500"></div>
-                  <div className="absolute -inset-1 bg-gradient-to-r from-purple-600/30 to-blue-600/30 rounded-lg blur-md opacity-60 group-hover/button:opacity-80 transition-opacity duration-300"></div>
-                  
-                  <button 
-                    onClick={handleShowRegistrationForm}
-                    className="relative px-10 py-4 rounded-xl text-white font-semibold text-lg transition-all duration-300 hover:scale-105 group z-10 overflow-hidden"
-                  >
-                    {/* Enhanced translucent background with realistic glass effect */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-gray-900/90 via-black/90 to-gray-900/90 rounded-xl -z-[1] backdrop-blur-md border border-purple-500/50"></div>
-                    
-                    {/* Premium glass overlay with subtle transparency */}
-                    <div className="absolute inset-0 bg-white/5 rounded-xl -z-[1]"></div>
-                    
-                    {/* Realistic glass reflections - top edge highlight with enhanced opacity */}
-                    <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-white/70 to-transparent rounded-full -z-[1] group-hover:via-white/90 transition-colors duration-300"></div>
-                    
-                    {/* Bottom edge highlight */}
-                    <div className="absolute inset-x-0 bottom-0 h-[1px] bg-gradient-to-r from-transparent via-blue-400/60 to-transparent rounded-full -z-[1] group-hover:via-blue-300/80 transition-colors duration-300"></div>
-                    
-                    {/* Side edge highlights */}
-                    <div className="absolute inset-y-0 left-0 w-[1px] bg-gradient-to-b from-transparent via-purple-400/40 to-transparent rounded-full -z-[1]"></div>
-                    <div className="absolute inset-y-0 right-0 w-[1px] bg-gradient-to-b from-transparent via-blue-400/40 to-transparent rounded-full -z-[1]"></div>
-                    
-                    {/* Realistic glass reflective highlight - curved top highlight */}
-                    <div className="absolute inset-x-[10%] top-0 h-[40%] w-[80%] bg-gradient-to-b from-white/20 to-transparent rounded-full opacity-50 -z-[1] group-hover:opacity-70 transition-opacity duration-300"></div>
-                    
-                    {/* Corner accent pieces with enhanced glow */}
-                    <div className="absolute top-0 left-0 w-5 h-5 border-t-2 border-l-2 border-purple-500/70 rounded-tl-md -z-[1] group-hover:border-purple-400/90 transition-colors duration-300 shadow-[0_0_5px_rgba(168,85,247,0.5)]"></div>
-                    <div className="absolute top-0 right-0 w-5 h-5 border-t-2 border-r-2 border-blue-500/70 rounded-tr-md -z-[1] group-hover:border-blue-400/90 transition-colors duration-300 shadow-[0_0_5px_rgba(59,130,246,0.5)]"></div>
-                    <div className="absolute bottom-0 right-0 w-5 h-5 border-b-2 border-r-2 border-blue-500/70 rounded-br-md -z-[1] group-hover:border-blue-400/90 transition-colors duration-300 shadow-[0_0_5px_rgba(59,130,246,0.5)]"></div>
-                    <div className="absolute bottom-0 left-0 w-5 h-5 border-b-2 border-l-2 border-purple-500/70 rounded-bl-md -z-[1] group-hover:border-purple-400/90 transition-colors duration-300 shadow-[0_0_5px_rgba(168,85,247,0.5)]"></div>
-                    
-                    {/* Enhanced multi-layered shimmer glass effects */}
-                    <div className="absolute inset-0 w-full h-full overflow-hidden rounded-xl -z-[1]">
-                      {/* Primary diagonal shimmer - large, slow, enhanced brightness */}
-                      <div className="absolute inset-0 w-[200%] h-[200%] bg-gradient-to-r from-transparent via-white/40 to-transparent opacity-0 group-hover:opacity-100 -translate-x-full group-hover:animate-shimmer-slow transform skew-x-[-20deg] transition-opacity duration-300"></div>
-                      
-                      {/* Secondary diagonal shimmer - always visible */}
-                      <div className="absolute inset-0 w-[150%] h-[150%] bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full animate-shimmer-very-slow transform skew-x-[-15deg]"></div>
-                      
-                      {/* Quick flash on hover - narrow band with enhanced brightness */}
-                      <div className="absolute inset-0 w-[100%] h-[100%] bg-gradient-to-r from-transparent via-white/60 to-transparent opacity-0 group-hover:opacity-100 -translate-x-full group-hover:animate-shimmer-fast transform skew-x-[-10deg] transition-opacity duration-300" style={{ animationDelay: '0.2s' }}></div>
-                      
-                      {/* Additional reflective highlights */}
-                      <div className="absolute inset-x-0 top-[10%] h-[1px] w-full bg-white/50 opacity-0 group-hover:opacity-100 animate-pulse-slow -z-[1]"></div>
-                      <div className="absolute inset-x-0 top-[30%] h-[1px] w-full bg-white/30 opacity-0 group-hover:opacity-100 animate-pulse-slow -z-[1]" style={{ animationDelay: '0.5s' }}></div>
-                      
-                      {/* Realistic moving glass light reflections */}
-                      <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
-                        <div className="absolute w-[30%] h-[200%] bg-gradient-to-b from-white/0 via-white/30 to-white/0 -rotate-45 transform -translate-y-[100%] group-hover:translate-y-[100%] transition-transform duration-2000 ease-in-out"></div>
-                        <div className="absolute w-[20%] h-[200%] bg-gradient-to-b from-white/0 via-white/20 to-white/0 -rotate-45 transform -translate-y-[100%] opacity-0 group-hover:opacity-100 group-hover:translate-y-[100%] transition-all duration-2000 ease-in-out" style={{ left: '35%', transitionDelay: '200ms' }}></div>
-                      </div>
-                    </div>
-                    
-                    {/* Enhanced inner content glow */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-purple-600/5 to-blue-600/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-[1]"></div>
-                    
-                    {/* Highly Enhanced Button Text with Premium Icon and Text Effects */}
-                    <span className="relative z-10 flex items-center justify-center drop-shadow-[0_2px_3px_rgba(0,0,0,0.9)]">
-                      {/* Premium Icon with Advanced Glow Effects */}
-                      <span className="relative mr-3 transform group-hover:scale-110 transition-transform duration-300">
-                        {/* Multi-layered icon glow effects */}
-                        <span className="absolute -inset-2 bg-purple-500/20 rounded-full blur-lg opacity-0 group-hover:opacity-70 transition-opacity duration-500"></span>
-                        <span className="absolute -inset-1.5 bg-gradient-to-r from-purple-500/40 to-blue-500/40 rounded-full blur-md opacity-0 group-hover:opacity-90 transition-opacity duration-300"></span>
-                        <span className="absolute -inset-1 bg-gradient-to-r from-purple-400/50 to-blue-400/50 rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse-slow"></span>
-                        
-                        {/* Premium Icon with Gradient Fill */}
-                        <span className="relative flex">
-                          <FileText className="h-6 w-6 text-transparent bg-clip-text bg-gradient-to-br from-white via-blue-200 to-purple-100 filter drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]" />
-                          
-                          {/* Subtle icon shine effect */}
-                          <span className="absolute inset-0 flex items-center justify-center">
-                            <span className="absolute top-0 left-[20%] w-[60%] h-[20%] bg-white/70 rounded-full blur-[1px] opacity-0 group-hover:opacity-70 transition-opacity duration-300"></span>
-                          </span>
-                        </span>
-                      </span>
-                      
-                      {/* Enhanced premium text with glass-like gradient and animations */}
-                      <span className="relative">
-                        {/* Text glow effect */}
-                        <span className="absolute -inset-1 -z-10 bg-gradient-to-r from-purple-500/5 to-blue-500/5 rounded-lg blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
-                        
-                        {/* Premium text with enhanced gradient */}
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-white font-semibold tracking-wide leading-tight relative inline-block transform group-hover:scale-[1.02] transition-transform duration-300">
-                          {/* Text shine line animation */}
-                          <span className="absolute inset-x-0 bottom-0 h-[1px] bg-gradient-to-r from-transparent via-blue-300/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
-                          
-                          Register for Premium Mobile Home Services
-                        </span>
-                      </span>
-                    </span>
-                  </button>
-                </div>
-              </div>
-            )}
+            </div>
           </div>
         </section>
       </div>
@@ -2894,4 +1080,4 @@ const MobileHome = () => {
   );
 };
 
-export default MobileHome;
+export default FirePrevention;

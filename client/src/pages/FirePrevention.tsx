@@ -31,6 +31,8 @@ type FirePreventionHomeownerFormValues = z.infer<typeof insertFirePreventionHome
 const FirePrevention = () => {
   const [showConsultationForm, setShowConsultationForm] = useState(false);
   const [consultationRequestSuccess, setConsultationRequestSuccess] = useState(false);
+  const [showRegistrationForm, setShowRegistrationForm] = useState(false);
+  const [registrationSuccess, setRegistrationSuccess] = useState(false);
   const { toast } = useToast();
   
   // Define industry-specific data for SEO
