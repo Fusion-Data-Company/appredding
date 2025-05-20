@@ -205,10 +205,33 @@ const Construction = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-center max-w-4xl mx-auto"
             >
-              {/* Elite Badge */}
-              <div className="inline-flex items-center mb-4 px-4 py-1.5 bg-gradient-to-r from-blue-900/70 via-blue-800/70 to-blue-900/70 rounded-full border border-blue-700/50 shadow-[0_0_15px_rgba(59,130,246,0.3)]">
-                <div className="w-2 h-2 rounded-full bg-blue-400 mr-2 animate-pulse"></div>
-                <span className="text-blue-300 font-semibold tracking-wide text-sm">ELITE ENTERPRISE SOLUTION</span>
+              {/* Elite Premium Badge */}
+              <div className="relative group inline-block mb-4">
+                {/* Multi-layered glows for premium effect */}
+                <div className="absolute -inset-3 bg-blue-500/10 rounded-full blur-2xl opacity-50 group-hover:opacity-70 transition-opacity duration-700"></div>
+                <div className="absolute -inset-2 bg-gradient-to-r from-blue-600/15 via-blue-400/20 to-blue-600/15 rounded-full blur-xl opacity-60 group-hover:opacity-80 transition-opacity duration-500"></div>
+                
+                <div className="relative inline-flex items-center px-5 py-2 bg-gradient-to-r from-gray-900/90 via-blue-950/95 to-gray-900/90 rounded-full border border-blue-500/50 shadow-[0_0_15px_rgba(59,130,246,0.35)]">
+                  {/* Corner diamond accents */}
+                  <div className="absolute -top-0.5 -left-0.5 w-2 h-2 bg-blue-200/90 transform rotate-45"></div>
+                  <div className="absolute -top-0.5 -right-0.5 w-2 h-2 bg-blue-200/90 transform rotate-45"></div>
+                  <div className="absolute -bottom-0.5 -left-0.5 w-2 h-2 bg-blue-200/90 transform rotate-45"></div>
+                  <div className="absolute -bottom-0.5 -right-0.5 w-2 h-2 bg-blue-200/90 transform rotate-45"></div>
+                  
+                  {/* Animated pulse dot */}
+                  <div className="relative w-3 h-3 mr-3 flex-shrink-0">
+                    <div className="absolute inset-0 rounded-full bg-blue-400 animate-ping opacity-75"></div>
+                    <div className="relative w-3 h-3 rounded-full bg-blue-500 flex items-center justify-center">
+                      <div className="w-1.5 h-1.5 rounded-full bg-blue-200"></div>
+                    </div>
+                  </div>
+                  
+                  {/* Text with subtle shimmer effect */}
+                  <div className="relative overflow-hidden">
+                    <span className="text-blue-100 font-bold tracking-wider text-sm bg-clip-text">ELITE ENTERPRISE SOLUTION</span>
+                    <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-blue-300/30 to-transparent -translate-x-full animate-shimmer-slow transform skew-x-[-20deg]"></div>
+                  </div>
+                </div>
               </div>
             
               {/* Premium Title with Enhanced Styling */}
@@ -230,32 +253,74 @@ const Construction = () => {
                 </p>
               </div>
               
-              {/* Premium action buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button 
-                  size="lg" 
-                  className="bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 text-white border border-blue-400/30 shadow-lg shadow-blue-900/20 px-6 py-6"
-                >
-                  <span className="flex items-center">
-                    <span className="mr-2 w-6 h-6 rounded-full bg-blue-400/30 flex items-center justify-center">
-                      <span className="w-4 h-4 rounded-full bg-blue-300"></span>
+              {/* Premium Elite Action Buttons with glass effect and animations */}
+              <div className="flex flex-col sm:flex-row gap-6 justify-center">
+                {/* First Premium Button - Enterprise Consultation */}
+                <div className="relative group/button1">
+                  {/* Multi-layer blue glow effect */}
+                  <div className="absolute -inset-2 bg-blue-500/10 rounded-xl blur-2xl opacity-70 group-hover/button1:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/20 to-blue-400/20 rounded-lg blur-md opacity-60 group-hover/button1:opacity-80 transition-opacity duration-500"></div>
+                  
+                  <button 
+                    className="relative z-10 px-8 py-4 bg-gradient-to-br from-gray-900/95 via-blue-950/90 to-gray-900/95 rounded-lg border border-blue-500/40 shadow-lg flex items-center justify-center overflow-hidden"
+                  >
+                    {/* Corner diamond accents */}
+                    <div className="absolute top-0 left-0 w-1.5 h-1.5 bg-blue-300/90 transform rotate-45"></div>
+                    <div className="absolute top-0 right-0 w-1.5 h-1.5 bg-blue-300/90 transform rotate-45"></div>
+                    <div className="absolute bottom-0 left-0 w-1.5 h-1.5 bg-blue-300/90 transform rotate-45"></div>
+                    <div className="absolute bottom-0 right-0 w-1.5 h-1.5 bg-blue-300/90 transform rotate-45"></div>
+                    
+                    {/* Animated shine effect - slide across on hover */}
+                    <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-blue-300/10 to-transparent -translate-x-full group-hover/button1:translate-x-full transition-transform duration-1000 rounded-lg"></div>
+                    
+                    {/* Glass overlay with subtle transparency */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-400/5 to-blue-500/10 rounded-xl opacity-100 group-hover/button1:opacity-0 transition-opacity duration-300"></div>
+                    
+                    {/* Button content */}
+                    <span className="flex items-center space-x-3 text-blue-100 font-semibold">
+                      <span className="relative flex-shrink-0 w-7 h-7 rounded-full bg-blue-800/80 flex items-center justify-center shadow-inner">
+                        <span className="w-3.5 h-3.5 rounded-full bg-blue-300"></span>
+                        {/* Subtle pulse around icon */}
+                        <span className="absolute inset-0 rounded-full border border-blue-400/30 animate-pulse"></span>
+                      </span>
+                      <span className="text-lg">Request Enterprise Consultation</span>
                     </span>
-                    Request Enterprise Consultation
-                  </span>
-                </Button>
-                <Button 
-                  size="lg" 
-                  variant="outline" 
-                  className="border-amber-500 text-amber-500 hover:bg-amber-500/10 shadow-lg shadow-amber-900/10 px-6 py-6"
-                  onClick={() => setDisplayLearnMore(true)}
-                >
-                  <span className="flex items-center">
-                    <span className="mr-2 w-6 h-6 rounded-full bg-amber-500/20 flex items-center justify-center">
-                      <span className="w-4 h-4 rounded-full bg-amber-400/40"></span>
+                  </button>
+                </div>
+
+                {/* Second Premium Button - Learn More */}
+                <div className="relative group/button2">
+                  {/* Multi-layer amber glow effect */}
+                  <div className="absolute -inset-2 bg-amber-500/10 rounded-xl blur-2xl opacity-70 group-hover/button2:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute -inset-1 bg-gradient-to-r from-amber-600/20 to-amber-400/20 rounded-lg blur-md opacity-60 group-hover/button2:opacity-80 transition-opacity duration-500"></div>
+                  
+                  <button 
+                    onClick={() => setDisplayLearnMore(true)}
+                    className="relative z-10 px-8 py-4 bg-gradient-to-br from-gray-900/95 via-amber-950/90 to-gray-900/95 rounded-lg border border-amber-500/40 shadow-lg flex items-center justify-center overflow-hidden"
+                  >
+                    {/* Corner diamond accents */}
+                    <div className="absolute top-0 left-0 w-1.5 h-1.5 bg-amber-300/90 transform rotate-45"></div>
+                    <div className="absolute top-0 right-0 w-1.5 h-1.5 bg-amber-300/90 transform rotate-45"></div>
+                    <div className="absolute bottom-0 left-0 w-1.5 h-1.5 bg-amber-300/90 transform rotate-45"></div>
+                    <div className="absolute bottom-0 right-0 w-1.5 h-1.5 bg-amber-300/90 transform rotate-45"></div>
+                    
+                    {/* Animated shine effect - slide across on hover */}
+                    <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-amber-300/10 to-transparent -translate-x-full group-hover/button2:translate-x-full transition-transform duration-1000 rounded-lg"></div>
+                    
+                    {/* Glass overlay with subtle transparency */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-amber-400/5 to-amber-500/10 rounded-xl opacity-100 group-hover/button2:opacity-0 transition-opacity duration-300"></div>
+                    
+                    {/* Button content */}
+                    <span className="flex items-center space-x-3 text-amber-100 font-semibold">
+                      <span className="relative flex-shrink-0 w-7 h-7 rounded-full bg-amber-800/80 flex items-center justify-center shadow-inner">
+                        <span className="w-3.5 h-3.5 rounded-full bg-amber-300"></span>
+                        {/* Subtle pulse around icon */}
+                        <span className="absolute inset-0 rounded-full border border-amber-400/30 animate-pulse"></span>
+                      </span>
+                      <span className="text-lg">Learn More</span>
                     </span>
-                    Learn More
-                  </span>
-                </Button>
+                  </button>
+                </div>
               </div>
               
               {/* Enhanced Premium Enterprise Corner Accents */}
@@ -879,13 +944,31 @@ const Construction = () => {
                     Become an authorized Praetorian Smart-Coat™ distributor and position your business at the forefront of construction innovation with unmatched profit potential.
                   </p>
                   <div>
-                    <PremiumCartButton 
-                      className="px-10 py-5 text-xl font-bold"
-                      variant="fire"
-                      onClick={() => setShowRegistrationForm(true)}
-                    >
-                      Apply to Become a Distributor
-                    </PremiumCartButton>
+                    <div className="relative group">
+                      {/* Separate purple glow component positioned behind the button */}
+                      <div className="absolute -inset-4 bg-purple-600/10 rounded-2xl blur-2xl opacity-70 group-hover:opacity-100 transition-opacity duration-700 z-[-1]"></div>
+                      <div className="absolute -inset-2 bg-gradient-to-r from-purple-700/20 via-purple-500/25 to-purple-700/20 rounded-xl blur-xl opacity-60 group-hover:opacity-80 transition-opacity duration-500 z-[-1]"></div>
+                      
+                      {/* Black button with glass face and animations */}
+                      <button 
+                        onClick={() => setShowRegistrationForm(true)}
+                        className="relative z-10 px-10 py-5 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-purple-500/50 rounded-lg font-bold shadow-lg text-purple-100 hover:text-white transition-all transform hover:scale-105 overflow-hidden"
+                      >
+                        {/* Corner accents */}
+                        <div className="absolute top-0 left-0 w-1.5 h-1.5 bg-purple-300/90 transform rotate-45"></div>
+                        <div className="absolute top-0 right-0 w-1.5 h-1.5 bg-purple-300/90 transform rotate-45"></div>
+                        <div className="absolute bottom-0 left-0 w-1.5 h-1.5 bg-purple-300/90 transform rotate-45"></div>
+                        <div className="absolute bottom-0 right-0 w-1.5 h-1.5 bg-purple-300/90 transform rotate-45"></div>
+                        
+                        {/* Glass overlay with subtle transparency */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-purple-700/10 rounded-xl opacity-100 group-hover:opacity-0 transition-opacity duration-300 -z-[1]"></div>
+                        
+                        {/* Animated hover gradient */}
+                        <div className="absolute inset-0 bg-gradient-to-r from-purple-500/30 to-blue-600/30 rounded-xl -z-[1] translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+                        
+                        <span className="relative text-xl font-bold">Apply to Become a Distributor</span>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
