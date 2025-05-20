@@ -96,11 +96,12 @@ const Construction = () => {
         keywords={["construction coating", "energy efficiency", "thermal protection", "building envelope", "construction insulation"]}
       />
       <div className="relative">
-        {/* HERO SECTION */}
+        {/* HERO SECTION - Elite Enterprise Styling */}
         <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
-          {/* Video background with overlay */}
+          {/* Video background with enhanced overlay gradients */}
           <div className="absolute inset-0 z-0">
-            <div className="absolute inset-0 bg-black/70 z-10"></div>
+            <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/75 to-black/90 z-10"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-900/20 via-transparent to-amber-900/20 z-10"></div>
             <video 
               className="w-full h-full object-cover"
               autoPlay 
@@ -113,8 +114,14 @@ const Construction = () => {
               Your browser does not support the video tag.
             </video>
           </div>
+          
+          {/* Premium Enterprise Visual Elements */}
+          <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-blue-400/70 to-transparent"></div>
+          <div className="absolute inset-x-0 bottom-0 h-[1px] bg-gradient-to-r from-transparent via-amber-500/50 to-transparent"></div>
+          <div className="absolute inset-y-[10%] left-0 w-[1px] h-[80%] bg-gradient-to-b from-transparent via-blue-500/30 to-transparent"></div>
+          <div className="absolute inset-y-[10%] right-0 w-[1px] h-[80%] bg-gradient-to-b from-transparent via-amber-500/30 to-transparent"></div>
 
-          {/* Content */}
+          {/* Enhanced Enterprise Content */}
           <div className="container mx-auto px-6 relative z-20 py-16">
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
@@ -122,40 +129,79 @@ const Construction = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-center max-w-4xl mx-auto"
             >
+              {/* Elite Badge */}
+              <div className="inline-flex items-center mb-4 px-4 py-1.5 bg-gradient-to-r from-blue-900/70 via-blue-800/70 to-blue-900/70 rounded-full border border-blue-700/50 shadow-[0_0_15px_rgba(59,130,246,0.3)]">
+                <div className="w-2 h-2 rounded-full bg-blue-400 mr-2 animate-pulse"></div>
+                <span className="text-blue-300 font-semibold tracking-wide text-sm">ELITE ENTERPRISE SOLUTION</span>
+              </div>
+            
+              {/* Premium Title with Enhanced Styling */}
               <div className="relative inline-block mb-2">
                 <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/30 via-amber-500/30 to-blue-500/30 rounded-lg blur-md opacity-70"></div>
                 <h1 className="relative text-4xl md:text-6xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-300 to-amber-400 px-2">
                   Advanced Protection for Commercial Construction
                 </h1>
               </div>
-              <p className="text-xl md:text-2xl text-gray-200 mb-8 max-w-4xl mx-auto">
-                <span className="text-blue-300 font-semibold">Premium Enterprise Solution</span> to enhance building performance, reduce operational costs, and protect assets with Praetorian Smart-Coat™
-              </p>
+              
+              {/* Animated highlight line */}
+              <div className="w-32 h-[2px] mx-auto mb-6 bg-gradient-to-r from-blue-500/50 via-amber-500/80 to-blue-500/50 rounded-full"></div>
+              
+              {/* Enhanced description */}
+              <div className="relative">
+                <div className="absolute -inset-4 bg-blue-500/5 rounded-2xl blur-xl opacity-50"></div>
+                <p className="relative text-xl md:text-2xl text-gray-200 mb-8 max-w-4xl mx-auto leading-relaxed">
+                  <span className="text-blue-300 font-semibold">Premium Enterprise Solution</span> to enhance building performance, reduce operational costs, and protect assets with Praetorian Smart-Coat™ advanced technology
+                </p>
+              </div>
+              
+              {/* Premium action buttons */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button 
                   size="lg" 
-                  className="bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 text-white border border-blue-400/30 shadow-lg shadow-blue-900/20"
+                  className="bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 text-white border border-blue-400/30 shadow-lg shadow-blue-900/20 px-6 py-6"
                 >
-                  Request a Consultation
+                  <span className="flex items-center">
+                    <span className="mr-2 w-6 h-6 rounded-full bg-blue-400/30 flex items-center justify-center">
+                      <span className="w-4 h-4 rounded-full bg-blue-300"></span>
+                    </span>
+                    Request Enterprise Consultation
+                  </span>
                 </Button>
                 <Button 
                   size="lg" 
                   variant="outline" 
-                  className="border-amber-500 text-amber-500 hover:bg-amber-500/10 shadow-lg shadow-amber-900/10"
+                  className="border-amber-500 text-amber-500 hover:bg-amber-500/10 shadow-lg shadow-amber-900/10 px-6 py-6"
                   onClick={() => setDisplayLearnMore(true)}
                 >
-                  Learn More
+                  <span className="flex items-center">
+                    <span className="mr-2 w-6 h-6 rounded-full bg-amber-500/20 flex items-center justify-center">
+                      <span className="w-4 h-4 rounded-full bg-amber-400/40"></span>
+                    </span>
+                    Learn More
+                  </span>
                 </Button>
               </div>
               
-              {/* Premium Enterprise Corner Accents */}
-              <div className="absolute top-4 left-4 md:top-8 md:left-8 w-16 h-16 z-10 opacity-70">
-                <div className="absolute top-0 left-0 w-10 h-10 border-t-2 border-l-2 border-blue-500/50 rounded-tl-md"></div>
-                <div className="absolute top-1 left-1 w-12 h-12 border-t border-l border-amber-500/40 rounded-tl-md"></div>
+              {/* Enhanced Premium Enterprise Corner Accents */}
+              <div className="absolute top-4 left-4 md:top-8 md:left-8 w-20 h-20 z-10 opacity-70">
+                <div className="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-blue-500/50 rounded-tl-md"></div>
+                <div className="absolute top-1 left-1 w-14 h-14 border-t border-l border-amber-500/40 rounded-tl-md"></div>
+                <div className="absolute top-2 left-2 w-16 h-16 border-t border-l border-blue-500/20 rounded-tl-md"></div>
               </div>
-              <div className="absolute top-4 right-4 md:top-8 md:right-8 w-16 h-16 z-10 opacity-70">
-                <div className="absolute top-0 right-0 w-10 h-10 border-t-2 border-r-2 border-blue-500/50 rounded-tr-md"></div>
-                <div className="absolute top-1 right-1 w-12 h-12 border-t border-r border-amber-500/40 rounded-tr-md"></div>
+              <div className="absolute top-4 right-4 md:top-8 md:right-8 w-20 h-20 z-10 opacity-70">
+                <div className="absolute top-0 right-0 w-12 h-12 border-t-2 border-r-2 border-blue-500/50 rounded-tr-md"></div>
+                <div className="absolute top-1 right-1 w-14 h-14 border-t border-r border-amber-500/40 rounded-tr-md"></div>
+                <div className="absolute top-2 right-2 w-16 h-16 border-t border-r border-blue-500/20 rounded-tr-md"></div>
+              </div>
+              
+              {/* Bottom corner accents */}
+              <div className="absolute bottom-4 left-4 md:bottom-8 md:left-8 w-16 h-16 z-10 opacity-50 transform rotate-180">
+                <div className="absolute top-0 left-0 w-10 h-10 border-t-2 border-l-2 border-blue-500/40 rounded-tl-md"></div>
+                <div className="absolute top-1 left-1 w-12 h-12 border-t border-l border-amber-500/30 rounded-tl-md"></div>
+              </div>
+              <div className="absolute bottom-4 right-4 md:bottom-8 md:right-8 w-16 h-16 z-10 opacity-50 transform rotate-180">
+                <div className="absolute top-0 right-0 w-10 h-10 border-t-2 border-r-2 border-blue-500/40 rounded-tr-md"></div>
+                <div className="absolute top-1 right-1 w-12 h-12 border-t border-r border-amber-500/30 rounded-tr-md"></div>
               </div>
             </motion.div>
           </div>
