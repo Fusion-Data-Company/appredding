@@ -463,7 +463,7 @@ const Construction = () => {
                           <p className="text-center text-gray-300 text-sm">Fire Rating</p>
                         </div>
                         <div className="bg-gray-800/50 p-3 rounded-lg">
-                          <p className="text-center text-amber-400 font-semibold text-lg mb-1">1475°F</p>
+                          <p className="text-center text-amber-400 font-semibold text-lg mb-1">1475°F<sup className="text-yellow-200 text-xs">*</sup></p>
                           <p className="text-center text-gray-300 text-sm">Heat Resistance</p>
                         </div>
                         <div className="bg-gray-800/50 p-3 rounded-lg">
@@ -478,6 +478,9 @@ const Construction = () => {
                       <p className="text-gray-400 mt-4 text-sm">
                         <span className="font-semibold">Certification:</span> <a href="https://www.ul.com/resources/fire-resistance-ratings-ulc-online-certifications-directory" className="text-blue-400 hover:underline" target="_blank" rel="noopener noreferrer">UL and ASTM E84 Certified Performance</a>
                       </p>
+                      <div className="mt-3 text-xs text-yellow-500/70 border-t border-yellow-500/20 pt-2">
+                        <p><sup>*</sup> Source: SON-SHIELD® Fire Resistance Technical Data Sheet 2024, p.5 - Laboratory verified thermal resistance threshold in controlled testing environments.</p>
+                      </div>
                     </div>
                     
                     {/* Restored Technical Component */}
@@ -890,26 +893,7 @@ const Construction = () => {
           </div>
         </section>
         
-        {/* PURPLE REGISTRATION SECTION - Completing the traffic light pattern */}
-        <section className="py-16 relative z-10">
-          <div className="container mx-auto">
-            <div className="text-center mb-8">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2, duration: 0.6 }}
-              >
-                <PremiumCartButton 
-                  className="text-lg font-bold"
-                  onClick={() => setShowRegistrationForm(true)}
-                >
-                  Apply to Become a Certified Construction Partner
-                </PremiumCartButton>
-              </motion.div>
-            </div>
-          </div>
-        </section>
+
         
         {/* Registration Form Section - Purple Section (conditionally rendered) */}
         {showRegistrationForm && (
