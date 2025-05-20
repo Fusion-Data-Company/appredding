@@ -944,31 +944,24 @@ const Construction = () => {
                     Become an authorized Praetorian Smart-Coat™ distributor and position your business at the forefront of construction innovation with unmatched profit potential.
                   </p>
                   <div>
-                    <div className="relative group">
-                      {/* Separate purple glow component positioned behind the button */}
-                      <div className="absolute -inset-4 bg-purple-600/10 rounded-2xl blur-2xl opacity-70 group-hover:opacity-100 transition-opacity duration-700 z-[-1]"></div>
-                      <div className="absolute -inset-2 bg-gradient-to-r from-purple-700/20 via-purple-500/25 to-purple-700/20 rounded-xl blur-xl opacity-60 group-hover:opacity-80 transition-opacity duration-500 z-[-1]"></div>
+                    <button 
+                      onClick={() => setShowRegistrationForm(true)}
+                      className="relative z-10 px-10 py-5 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-purple-500/50 rounded-lg font-bold shadow-lg text-purple-100 hover:text-white transition-all transform hover:scale-105 overflow-hidden"
+                    >
+                      {/* Corner accents */}
+                      <div className="absolute top-0 left-0 w-1.5 h-1.5 bg-purple-300/90 transform rotate-45"></div>
+                      <div className="absolute top-0 right-0 w-1.5 h-1.5 bg-purple-300/90 transform rotate-45"></div>
+                      <div className="absolute bottom-0 left-0 w-1.5 h-1.5 bg-purple-300/90 transform rotate-45"></div>
+                      <div className="absolute bottom-0 right-0 w-1.5 h-1.5 bg-purple-300/90 transform rotate-45"></div>
                       
-                      {/* Black button with glass face and animations */}
-                      <button 
-                        onClick={() => setShowRegistrationForm(true)}
-                        className="relative z-10 px-10 py-5 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-purple-500/50 rounded-lg font-bold shadow-lg text-purple-100 hover:text-white transition-all transform hover:scale-105 overflow-hidden"
-                      >
-                        {/* Corner accents */}
-                        <div className="absolute top-0 left-0 w-1.5 h-1.5 bg-purple-300/90 transform rotate-45"></div>
-                        <div className="absolute top-0 right-0 w-1.5 h-1.5 bg-purple-300/90 transform rotate-45"></div>
-                        <div className="absolute bottom-0 left-0 w-1.5 h-1.5 bg-purple-300/90 transform rotate-45"></div>
-                        <div className="absolute bottom-0 right-0 w-1.5 h-1.5 bg-purple-300/90 transform rotate-45"></div>
-                        
-                        {/* Glass overlay with subtle transparency */}
-                        <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-purple-700/10 rounded-xl opacity-100 group-hover:opacity-0 transition-opacity duration-300 -z-[1]"></div>
-                        
-                        {/* Animated hover gradient */}
-                        <div className="absolute inset-0 bg-gradient-to-r from-purple-500/30 to-blue-600/30 rounded-xl -z-[1] translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
-                        
-                        <span className="relative text-xl font-bold">Apply to Become a Distributor</span>
-                      </button>
-                    </div>
+                      {/* Glass overlay with subtle transparency */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-purple-700/10 rounded-xl opacity-100 hover:opacity-0 transition-opacity duration-300 -z-[1]"></div>
+                      
+                      {/* Animated hover gradient */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-purple-500/30 to-blue-600/30 rounded-xl -z-[1] translate-y-full hover:translate-y-0 transition-transform duration-300"></div>
+                      
+                      <span className="relative text-xl font-bold">Apply to Become a Distributor</span>
+                    </button>
                   </div>
                 </div>
               </div>
