@@ -33,7 +33,8 @@ import {
   Shield,
   Droplet,
   ArrowRight,
-  AlertTriangle
+  AlertTriangle,
+  Calculator
 } from "lucide-react";
 import { insertMarinaProfessionalSchema } from "@shared/schema";
 import { useForm } from "react-hook-form";
