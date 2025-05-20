@@ -122,11 +122,14 @@ const Construction = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-center max-w-4xl mx-auto"
             >
-              <h1 className="text-4xl md:text-6xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-300 to-amber-400">
-                Advanced Protection for Commercial Construction
-              </h1>
-              <p className="text-xl md:text-2xl text-gray-200 mb-8">
-                Enhance building performance, reduce operational costs, and protect assets with Praetorian Smart-Coat™
+              <div className="relative inline-block mb-2">
+                <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/30 via-amber-500/30 to-blue-500/30 rounded-lg blur-md opacity-70"></div>
+                <h1 className="relative text-4xl md:text-6xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-300 to-amber-400 px-2">
+                  Advanced Protection for Commercial Construction
+                </h1>
+              </div>
+              <p className="text-xl md:text-2xl text-gray-200 mb-8 max-w-4xl mx-auto">
+                <span className="text-blue-300 font-semibold">Premium Enterprise Solution</span> to enhance building performance, reduce operational costs, and protect assets with Praetorian Smart-Coat™
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button 

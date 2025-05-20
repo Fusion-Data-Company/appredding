@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 const ConstructionROICalculator = () => {
   const [squareFootage, setSquareFootage] = useState<number>(10000);
   const [energyCostPerSqFt, setEnergyCostPerSqFt] = useState<number>(2.15);
-  const [showDetails, setShowDetails] = useState(false);
+  const [showDetails, setShowDetails] = useState(true); // Always show details
   const [showResults, setShowResults] = useState(false);
   
   // Calculate results
