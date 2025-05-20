@@ -1,15 +1,20 @@
 import React, { useState, useEffect } from "react";
 import MainLayout from "@/components/layout/MainLayout";
-import { GradientButton } from "@/components/ui/gradient-button";
-import { PremiumButton } from "@/components/ui/premium-button";
-import { PremiumCartButton } from "@/utils/premium-buttons";
-import { GradientHeading } from "@/components/ui/gradient-heading";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Progress } from "@/components/ui/progress";
-import SEOHead from "@/components/SEOHead";
-import AccessibleImage from "@/components/ui/accessible-image";
-import { preloadCriticalImage } from "@/lib/seo-helper";
-import { generateStructuredData, getIndustryKeywords } from "@/lib/seo-helper";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Checkbox } from "@/components/ui/checkbox";
+import { 
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+  FormDescription
+} from "@/components/ui/form";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { motion } from "framer-motion";
 import { 
   ShieldCheck, 
   Leaf, 
@@ -17,833 +22,443 @@ import {
   Landmark, 
   CircleDollarSign,
   Building,
-  Droplets,
   BadgeAlert,
-  PenTool,
-  Blocks,
-  Activity,
-  Loader2,
   TrendingUp,
-  BadgeCheck,
-  ParkingCircle,
-  LineChart,
-  ChevronRight,
-  Check,
   CheckCircle,
-  BarChart3,
-  PieChart,
-  Award,
-  Shield,
-  ArrowRight,
-  PlayCircle,
-  Download,
-  FileText,
-  FileCheck,
-  CalendarCheck,
-  DollarSign,
-  Percent,
-  Calculator,
-  BookOpen,
+  ChevronRight,
+  FileCheck, 
   Zap,
-  Badge,
-  Flame
+  AlertTriangle,
+  Calculator,
+  Shield,
+  DollarSign,
+  Percent
 } from "lucide-react";
-import { useForm } from "react-hook-form";
+import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { insertMunicipalityProfessionalSchema } from "@shared/schema";
-import * as z from "zod";
-import { useMutation } from "@tanstack/react-query";
-import { apiRequest } from "@/lib/queryClient";
+import { useForm } from "react-hook-form";
 import { useToast } from "@/hooks/use-toast";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { motion } from "framer-motion";
+import SEOHead from "@/components/SEOHead";
+import { preloadCriticalImages } from "@/lib/image-helper";
+import { generateStructuredData, getIndustryKeywords } from "@/lib/seo-helper";
 
-const municipalityProfessionalFormSchema = insertMunicipalityProfessionalSchema.extend({
-  confirmEmail: z.string().email({ message: "Invalid email format" }),
-}).refine((data) => data.email === data.confirmEmail, {
-  message: "Emails do not match",
-  path: ["confirmEmail"]
+// Municipality consultation form schema
+const municipalityConsultationSchema = z.object({
+  name: z.string().min(2, { message: "Name is required" }),
+  email: z.string().email({ message: "Valid email is required" }),
+  phone: z.string().min(10, { message: "Valid phone number is required" }),
+  organizationName: z.string().min(2, { message: "Organization name is required" }),
+  position: z.string().min(2, { message: "Position is required" }),
+  projectType: z.string().min(1, { message: "Project type is required" }),
+  message: z.string().min(10, { message: "Please provide project details" })
 });
 
-type MunicipalityProfessionalFormValues = z.infer<typeof municipalityProfessionalFormSchema>;
+// Municipality dealer registration form schema
+const municipalityDealerSchema = z.object({
+  companyName: z.string().min(2, { message: "Company name is required" }),
+  contactName: z.string().min(2, { message: "Contact name is required" }),
+  email: z.string().email({ message: "Valid email is required" }),
+  confirmEmail: z.string().email({ message: "Valid email is required" }),
+  phone: z.string().min(10, { message: "Valid phone number is required" }),
+  companyAddress: z.string().min(5, { message: "Company address is required" }),
+  city: z.string().min(2, { message: "City is required" }),
+  state: z.string().min(2, { message: "State is required" }),
+  zipCode: z.string().min(5, { message: "ZIP code is required" }),
+  licenseNumber: z.string().min(1, { message: "License number is required" }),
+  yearsInBusiness: z.string().min(1, { message: "Years in business is required" }),
+  servicesOffered: z.array(z.string()).min(1, { message: "Select at least one service" }).default([]),
+  serviceAreaMiles: z.string().min(1, { message: "Service area is required" }),
+  employeeCount: z.string().min(1, { message: "Employee count is required" }),
+  annualRevenue: z.string().min(1, { message: "Annual revenue is required" }),
+  termsAccepted: z.boolean().refine(val => val === true, { message: "You must accept the terms and conditions" }),
+  notes: z.string().optional(),
+});
 
 export default function Municipality() {
+  const [showConsultationForm, setShowConsultationForm] = useState(false);
+  const [consultationRequestSuccess, setConsultationRequestSuccess] = useState(false);
   const [showRegistrationForm, setShowRegistrationForm] = useState(false);
-  const [activeTab, setActiveTab] = useState("infrastructure");
-  const [progress, setProgress] = useState(33);
-  
-  // Define SEO metadata
-  const title = "Praetorian Smart-Coat – Municipal Applications";
-  const description = "Energy-efficient ceramic coating solutions for municipal infrastructure. Reduce maintenance costs, improve energy efficiency, and protect public facilities.";
-  const slug = "municipality";
-  const heroImagePath = "/src/assets_dir/images/municipality-hero.png";
-  const keywords = getIndustryKeywords('municipality', [
-    'public buildings', 'energy savings', 'infrastructure protection', 
-    'thermal insulation', 'municipal facilities'
-  ]);
-  
-  // Generate structured data for SEO
-  const structuredData = generateStructuredData(
-    'Municipalities',
-    'Advanced ceramic coating for municipal buildings and infrastructure protection',
-    slug,
-    ['Energy efficient', 'Weather resistant', 'Reduces maintenance costs', 'Extends infrastructure lifespan']
-  );
-  
-  // Preload critical hero image
-  useEffect(() => {
-    preloadCriticalImage(heroImagePath);
-  }, []);
-  
-  useEffect(() => {
-    const timer = setTimeout(() => setProgress(66), 500);
-    return () => clearTimeout(timer);
-  }, []);
-  
+  const [registrationSuccess, setRegistrationSuccess] = useState(false);
   const { toast } = useToast();
   
-  const form = useForm<MunicipalityProfessionalFormValues>({
-    resolver: zodResolver(municipalityProfessionalFormSchema),
+  // Define industry-specific data for SEO
+  const industry = "Municipal Infrastructure";
+  const slug = "municipality";
+  const pageTitle = "Praetorian Smart-Coat – Municipal Infrastructure Protection";
+  const pageDescription = "Advanced ceramic coatings for municipal buildings, bridges, water facilities, and public infrastructure. Protect community assets while reducing maintenance costs.";
+  const heroImagePath = "/src/assets_dir/images/municipality-hero.jpg";
+  
+  // Preload critical images
+  useEffect(() => {
+    preloadCriticalImages([
+      heroImagePath,
+      "/src/assets_dir/images/optimized/praetorian-background-new.png"
+    ]);
+  }, []);
+
+  // Setup consultation form
+  const consultationForm = useForm<z.infer<typeof municipalityConsultationSchema>>({
+    resolver: zodResolver(municipalityConsultationSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      phone: "",
+      organizationName: "",
+      position: "",
+      projectType: "",
+      message: ""
+    },
+  });
+
+  // Handle consultation form submission
+  const onConsultationSubmit = (values: z.infer<typeof municipalityConsultationSchema>) => {
+    console.log("Consultation submitted:", values);
+    
+    // Simulate successful submission
+    setTimeout(() => {
+      setConsultationRequestSuccess(true);
+      consultationForm.reset();
+      toast({
+        title: "Request Submitted",
+        description: "We've received your consultation request and will contact you shortly.",
+        variant: "default",
+      });
+    }, 1500);
+  };
+
+  const handleShowConsultationForm = () => {
+    setShowConsultationForm(true);
+  };
+  
+  // Setup dealer/distributor application form
+  const registrationForm = useForm<z.infer<typeof municipalityDealerSchema>>({
+    resolver: zodResolver(municipalityDealerSchema),
     defaultValues: {
       companyName: "",
       contactName: "",
       email: "",
       confirmEmail: "",
       phone: "",
-      address: "",
+      companyAddress: "",
       city: "",
       state: "",
       zipCode: "",
-      website: "",
-      professionalType: "",
-      specialties: [],
-      jurisdictions: "",
-      clientTypes: "",
-      credentials: "",
-      experienceYears: undefined,
-      registrationNumber: "",
-      projectExperience: "",
+      licenseNumber: "",
+      yearsInBusiness: "",
+      servicesOffered: [],
+      serviceAreaMiles: "",
+      employeeCount: "",
+      annualRevenue: "",
+      termsAccepted: false,
       notes: ""
-    }
-  });
-
-  const { mutate, isPending } = useMutation({
-    mutationFn: async (data: MunicipalityProfessionalFormValues) => {
-      return await apiRequest("/api/municipality/register", "POST", data);
     },
-    onSuccess: () => {
+  });
+  
+  // Handle dealer application form submission
+  const onRegistrationSubmit = (values: z.infer<typeof municipalityDealerSchema>) => {
+    console.log("Registration submitted:", values);
+    
+    // Simulate successful submission
+    setTimeout(() => {
+      setRegistrationSuccess(true);
       toast({
         title: "Registration Successful",
-        description: "Thank you for registering. Our team will contact you shortly.",
+        description: "Your dealer application has been received. Our team will contact you shortly.",
+        variant: "default",
       });
-      form.reset();
-      setShowRegistrationForm(false);
-    },
-    onError: (error: Error) => {
-      toast({
-        title: "Registration Failed",
-        description: error.message || "Please try again later.",
-        variant: "destructive"
-      });
-    }
-  });
-
-  function onSubmit(data: MunicipalityProfessionalFormValues) {
-    mutate(data);
-  }
+    }, 1500);
+  };
+  
+  // Handle showing dealer registration form
+  const handleShowRegistrationForm = () => {
+    setShowRegistrationForm(true);
+  };
 
   return (
     <MainLayout fullWidth={true}>
-      <SEOHead 
-        title={title}
-        description={description}
-        industry="Municipalities"
+      {/* Enhanced SEO Head with structured data and improved metadata */}
+      <SEOHead
+        title={pageTitle}
+        description={pageDescription}
+        industry={industry}
         slug={slug}
         imagePath={heroImagePath}
-        keywords={keywords}
-        structuredData={structuredData}
+        keywords={getIndustryKeywords(slug, [
+          'municipal infrastructure protection',
+          'government building coating',
+          'public infrastructure maintenance',
+          'bridge corrosion prevention',
+          'water facility protection'
+        ])}
+        structuredData={generateStructuredData(industry, pageDescription, slug, [
+          "Long-term municipal asset protection",
+          "Reduced infrastructure maintenance costs",
+          "Enhanced public safety and compliance",
+          "Energy-efficient building solutions"
+        ])}
       />
+      
       <div className="relative">
         {/* Advanced premium gradient background with layered effects */}
         <div className="fixed inset-0 z-[-5]" style={{ 
           background: 'linear-gradient(145deg, #0c0c14 0%, #101830 30%, #152238 60%, #0e1a2a 100%)'
         }}></div>
         
-        {/* Dynamic layered background elements with municipality theme */}
+        {/* Dynamic layered background elements with municipal theme */}
         <div className="fixed inset-0 z-[-4] opacity-40" style={{ 
-          backgroundImage: 'radial-gradient(circle at 30% 20%, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0) 60%)'
+          backgroundImage: 'radial-gradient(circle at 30% 20%, rgba(14, 165, 233, 0.4) 0%, rgba(15, 23, 42, 0) 60%)'
         }}></div>
         
-        <div className="fixed inset-0 z-[-4] opacity-30" style={{ 
-          backgroundImage: 'radial-gradient(circle at 70% 60%, rgba(30, 58, 138, 0.6) 0%, rgba(15, 23, 42, 0) 70%)'
+        <div className="fixed inset-0 z-[-3] opacity-30" style={{ 
+          backgroundImage: 'radial-gradient(circle at 70% 60%, rgba(30, 64, 175, 0.5) 0%, rgba(15, 23, 42, 0) 60%)'
         }}></div>
         
-        {/* Advanced multi-color ambient glow effects - POSITIONED BEHIND CONTENT */}
-        <div className="fixed inset-0 z-[-3] overflow-hidden pointer-events-none">
-          {/* Blue glow */}
-          <div className="absolute top-[10%] left-[15%] w-[40rem] h-[40rem] bg-blue-600/10 rounded-full blur-[150px] animate-pulse-slow"></div>
-          
-          {/* Red glow */}
-          <div className="absolute bottom-[15%] right-[10%] w-[35rem] h-[35rem] bg-red-500/10 rounded-full blur-[150px] animate-pulse-slower"></div>
-          
-          {/* Green accent glows for balance */}
-          <div className="absolute top-[40%] right-[25%] w-[25rem] h-[25rem] bg-emerald-600/10 rounded-full blur-[120px] animate-pulse-slow"></div>
-          
-          {/* Purple accent for depth */}
-          <div className="absolute top-[70%] left-[50%] w-[20rem] h-[20rem] bg-purple-700/5 rounded-full blur-[90px] animate-pulse-slow"></div>
-        </div>
-        
-        {/* Low-opacity subtle pattern overlay for texture */}
-        <div 
-          className="fixed inset-0 z-[-2] opacity-5 pointer-events-none"
-          style={{
-            backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%235d9bec\' fill-opacity=\'0.3\' fill-rule=\'evenodd\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/svg%3E")',
-            backgroundSize: '60px 60px'
-          }}
-        />
-        
-        {/* SANDLER STAGE 1: INTRO - BLUE GLOW SECTION */}
-        <section className="relative z-10 py-10 overflow-hidden">
-          <div className="container mx-auto mb-12">
-            <div className="relative">
-              {/* Enhanced ultra-premium ambient blue glow in background with multiple layers and advanced effects */}
-              <div className="absolute -inset-10 bg-blue-800/15 rounded-full blur-[100px] opacity-90 z-0"></div>
-              <div className="absolute -inset-20 bg-blue-900/10 rounded-full blur-[150px] opacity-80 z-0 animate-pulse-slow"></div>
-              <div className="absolute -inset-30 bg-blue-600/5 rounded-full blur-[200px] opacity-70 z-0 animate-pulse-slow" style={{ animationDuration: '8s' }}></div>
-              <div className="absolute -inset-20 bg-gradient-to-tr from-blue-700/5 via-blue-600/2 to-blue-500/5 rounded-full blur-[180px] opacity-50 z-0 animate-pulse-slower" style={{ animationDuration: '12s' }}></div>
-              <div className="absolute top-[-20%] left-[-10%] w-[800px] h-[800px] bg-blue-500/3 rounded-full blur-[120px] z-0 animate-float-slow" style={{ animationDuration: '15s' }}></div>
-              <div className="absolute bottom-[-30%] right-[-20%] w-[1000px] h-[1000px] bg-blue-600/2 rounded-full blur-[150px] z-0 animate-float-slow-reverse" style={{ animationDuration: '18s' }}></div>
-              
-              {/* Ultra-premium Elite Enterprise Header Container with enhanced 3D depth */}
-              <div className="relative z-20 rounded-2xl overflow-hidden transform transition-all duration-700 group hover:scale-[1.005] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.6)] border border-blue-600/40">
-                {/* Enhanced multi-layered background with premium depth effect */}
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-900/95 via-gray-900/98 to-blue-900/95 z-10"></div>
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-800/20 to-blue-900/20 backdrop-blur-sm z-5"></div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/50 z-5"></div>
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900/5 via-transparent to-transparent blur-md z-5"></div>
-                
-                {/* Advanced animated light sweep effects with multiple layers */}
-                <div className="absolute inset-0 opacity-30 z-0 overflow-hidden">
-                  <div className="absolute -inset-full w-[600px] h-full bg-gradient-to-r from-transparent via-blue-400/30 to-transparent skew-x-[-20deg] animate-light-sweep"></div>
-                  <div className="absolute -inset-full w-[400px] h-full bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[-15deg] animate-light-sweep" style={{ animationDelay: '2s' }}></div>
-                  <div className="absolute -inset-full w-[300px] h-full bg-gradient-to-r from-transparent via-blue-300/25 to-transparent skew-x-[-25deg] animate-light-sweep" style={{ animationDelay: '4s' }}></div>
-                </div>
-                
-                {/* 3D edge highlight effect for depth */}
-                <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-blue-400/70 to-transparent"></div>
-                <div className="absolute inset-y-0 right-0 w-[2px] bg-gradient-to-b from-transparent via-blue-400/50 to-transparent"></div>
-                <div className="absolute inset-x-0 bottom-0 h-[2px] bg-gradient-to-r from-transparent via-blue-400/70 to-transparent"></div>
-                <div className="absolute inset-y-0 left-0 w-[2px] bg-gradient-to-b from-transparent via-blue-400/50 to-transparent"></div>
-                
-                {/* Ultra-premium municipality-themed background elements with enhanced patterns */}
-                <div className="absolute inset-0 opacity-40 z-0 mix-blend-overlay" 
-                  style={{
-                    backgroundImage: "url('data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231e3a8a' fill-opacity='0.2'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E')",
-                    backgroundSize: '80px 80px'
-                  }}
-                ></div>
-                
-                {/* Advanced data matrix/blueprint pattern */}
-                <div className="absolute inset-0 opacity-10 z-0 mix-blend-overlay"
-                  style={{
-                    backgroundImage: "url('data:image/svg+xml,%3Csvg width=\"20\" height=\"20\" viewBox=\"0 0 20 20\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.6\" fill-rule=\"evenodd\"%3E%3Ccircle cx=\"3\" cy=\"3\" r=\"1.5\"%2F%3E%3Ccircle cx=\"3\" cy=\"17\" r=\"1.5\"%2F%3E%3Ccircle cx=\"17\" cy=\"3\" r=\"1.5\"%2F%3E%3Ccircle cx=\"17\" cy=\"17\" r=\"1.5\"%2F%3E%3Ccircle cx=\"10\" cy=\"10\" r=\"0.5\"%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E')",
-                    backgroundSize: '20px 20px'
-                  }}
-                ></div>
-                
-                {/* Enhanced shimmer effect with larger light points */}
-                <div className="absolute inset-0 mix-blend-overlay opacity-10 z-0" 
-                  style={{
-                    backgroundImage: "radial-gradient(circle at center, rgba(255,255,255,0.9) 0%, transparent 0.6%)",
-                    backgroundSize: "10px 10px"
-                  }}>
-                </div>
-                
-                {/* Municipality-themed grid pattern overlay */}
-                <div className="absolute inset-0 opacity-5 z-0"
-                  style={{
-                    backgroundImage: "url('data:image/svg+xml,%3Csvg width=\"40\" height=\"40\" viewBox=\"0 0 40 40\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cpath d=\"M0 0h10v10H0V0zm10 0h10v10H10V0zm10 0h10v10H20V0zm10 0h10v10H30V0zM0 10h10v10H0V10zm10 10h10v10H10V20zm10 0h10v10H20V20zm10 0h10v10H30V20zM0 20h10v10H0V20zm0 10h10v10H0V30zm10 0h10v10H10V30zm10 0h10v10H20V30zm10 0h10v10H30V30z\" stroke=\"%2359a5fc\" stroke-opacity=\"0.2\" stroke-width=\"1\"%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E')",
-                    backgroundSize: '40px 40px'
-                  }}
-                ></div>
-                
-                {/* Advanced animated light sweep effects with multiple layers */}
-                <div className="absolute inset-0 opacity-30 z-0 overflow-hidden">
-                  <div className="absolute -inset-full w-[600px] h-full bg-gradient-to-r from-transparent via-blue-400/30 to-transparent skew-x-[-20deg] animate-light-sweep"></div>
-                  <div className="absolute -inset-full w-[400px] h-full bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[-15deg] animate-light-sweep" style={{ animationDelay: '2s' }}></div>
-                  <div className="absolute -inset-full w-[300px] h-full bg-gradient-to-r from-transparent via-blue-300/20 to-transparent skew-x-[-25deg] animate-light-sweep" style={{ animationDelay: '4s' }}></div>
-                </div>
-                
-                {/* 3D edge highlight effect for depth */}
-                <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-blue-400/70 to-transparent"></div>
-                <div className="absolute inset-y-0 right-0 w-[2px] bg-gradient-to-b from-transparent via-blue-400/50 to-transparent"></div>
-                <div className="absolute inset-x-0 bottom-0 h-[2px] bg-gradient-to-r from-transparent via-blue-400/70 to-transparent"></div>
-                <div className="absolute inset-y-0 left-0 w-[2px] bg-gradient-to-b from-transparent via-blue-400/50 to-transparent"></div>
-                
-                {/* Enhanced Header content with premium homepage-style styling */}
-                <div className="relative z-20 p-10 flex flex-col items-center text-center">
-                  {/* Premium corner accents with enhanced effects */}
-                  <div className="absolute top-0 left-0 w-20 h-20 z-20 pointer-events-none">
-                    {/* Multi-layered glowing corner effect */}
-                    <div className="absolute top-0 left-0 w-12 h-12 bg-gradient-to-br from-blue-500/10 to-transparent rounded-tl-md"></div>
-                    <div className="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-blue-400/70 rounded-tl-lg shadow-[0_0_10px_rgba(59,130,246,0.5)]"></div>
-                    <div className="absolute top-1 left-1 w-18 h-18 border-t border-l border-blue-600/40 rounded-tl-lg"></div>
-                    
-                    {/* Animated corner accent with pulsing glow */}
-                    <div className="absolute top-0 left-0 w-3 h-3 bg-blue-400/60 rounded-full blur-[2px] animate-pulse" style={{ animationDuration: '3.5s' }}></div>
-                    
-                    {/* Animated light ray accent */}
-                    <div className="absolute top-0 left-0 w-8 h-8 overflow-hidden rounded-tl-lg">
-                      <div className="absolute top-0 left-0 w-[200%] h-[1px] bg-gradient-to-r from-transparent via-blue-400/80 to-transparent -translate-x-full animate-shimmer-slow"></div>
-                      <div className="absolute top-0 left-0 h-[200%] w-[1px] bg-gradient-to-b from-transparent via-blue-400/80 to-transparent -translate-y-full animate-shimmer-slow" style={{ animationDelay: '0.5s' }}></div>
-                    </div>
-                  </div>
+        {/* Subtle animated grid overlay */}
+        <div className="fixed inset-0 z-[-2] opacity-10 bg-[url('/src/assets_dir/images/grid-pattern.svg')] bg-repeat"></div>
+
+        {/* SANDLER STAGE 0: INTRO - BLUE GLOW SECTION */}
+        <section className="relative z-10 py-16 md:py-24 overflow-hidden">
+          <div className="container mx-auto">
+            <div className="flex flex-col lg:flex-row items-center gap-8">
+              {/* Left column with text content */}
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7 }}
+                className="lg:w-1/2 relative"
+              >
+                <div className="relative">
+                  {/* Blue glow effect with multi-layered design */}
+                  <div className="absolute -inset-10 bg-blue-500/20 rounded-xl blur-xl opacity-70 z-0"></div>
+                  <div className="absolute -inset-20 bg-blue-600/10 rounded-xl blur-2xl opacity-50 z-0"></div>
+                  <div className="absolute -inset-30 bg-blue-700/5 rounded-xl blur-3xl opacity-30 z-0 animate-pulse-slow"></div>
                   
-                  <div className="absolute top-0 right-0 w-20 h-20 z-20 pointer-events-none">
-                    {/* Multi-layered glowing corner effect */}
-                    <div className="absolute top-0 right-0 w-12 h-12 bg-gradient-to-bl from-blue-500/10 to-transparent rounded-tr-md"></div>
-                    <div className="absolute top-0 right-0 w-16 h-16 border-t-2 border-r-2 border-blue-400/70 rounded-tr-lg shadow-[0_0_10px_rgba(59,130,246,0.5)]"></div>
-                    <div className="absolute top-1 right-1 w-18 h-18 border-t border-r border-blue-600/40 rounded-tr-lg"></div>
-                    
-                    {/* Animated corner accent with pulsing glow */}
-                    <div className="absolute top-0 right-0 w-3 h-3 bg-blue-400/60 rounded-full blur-[2px] animate-pulse" style={{ animationDuration: '4.2s' }}></div>
-                    
-                    {/* Animated light ray accent */}
-                    <div className="absolute top-0 right-0 w-8 h-8 overflow-hidden rounded-tr-lg">
-                      <div className="absolute top-0 right-0 w-[200%] h-[1px] bg-gradient-to-l from-transparent via-blue-400/80 to-transparent translate-x-full animate-shimmer-slow"></div>
-                      <div className="absolute top-0 right-0 h-[200%] w-[1px] bg-gradient-to-b from-transparent via-blue-400/80 to-transparent -translate-y-full animate-shimmer-slow" style={{ animationDelay: '1.2s' }}></div>
-                    </div>
-                  </div>
+                  {/* Content card with premium effects */}
+                  <div className="relative z-20 rounded-2xl overflow-hidden p-8 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-blue-700/30 shadow-lg">
+                    {/* Premium corner accents */}
+                    <div className="absolute bottom-1 left-1 w-12 h-12 border-b border-l border-blue-500/30 rounded-bl-md"></div>
+                    <div className="absolute bottom-1 right-1 w-12 h-12 border-b border-r border-blue-500/30 rounded-br-md"></div>
+                    <div className="absolute top-1 left-1 w-12 h-12 border-t border-l border-blue-500/30 rounded-tl-md"></div>
+                    <div className="absolute top-1 right-1 w-12 h-12 border-t border-r border-blue-500/30 rounded-tr-md"></div>
                   
-                  <div className="absolute bottom-0 right-0 w-20 h-20 z-20 pointer-events-none">
-                    {/* Multi-layered glowing corner effect */}
-                    <div className="absolute bottom-0 right-0 w-12 h-12 bg-gradient-to-tl from-blue-500/10 to-transparent rounded-br-md"></div>
-                    <div className="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-blue-400/70 rounded-br-lg shadow-[0_0_10px_rgba(59,130,246,0.5)]"></div>
-                    <div className="absolute bottom-1 right-1 w-18 h-18 border-b border-r border-blue-600/40 rounded-br-lg"></div>
+                    <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-blue-100 to-blue-300">
+                      Municipal Infrastructure Protection
+                    </h1>
                     
-                    {/* Animated corner accent with pulsing glow */}
-                    <div className="absolute bottom-0 right-0 w-3 h-3 bg-blue-400/60 rounded-full blur-[2px] animate-pulse" style={{ animationDuration: '4s' }}></div>
-                    
-                    {/* Animated light ray accent */}
-                    <div className="absolute bottom-0 right-0 w-8 h-8 overflow-hidden rounded-br-lg">
-                      <div className="absolute bottom-0 right-0 w-[200%] h-[1px] bg-gradient-to-l from-transparent via-blue-400/80 to-transparent translate-x-full animate-shimmer-slow"></div>
-                      <div className="absolute bottom-0 right-0 h-[200%] w-[1px] bg-gradient-to-t from-transparent via-blue-400/80 to-transparent translate-y-full animate-shimmer-slow" style={{ animationDelay: '1s' }}></div>
+                    <div className="mb-6 space-y-6 text-gray-300">
+                      <p className="text-lg">
+                        Praetorian Smart-Coat delivers cutting-edge ceramic coating technology specifically formulated for municipal infrastructure. Our advanced ceramic formula creates a superior protective barrier that extends asset life, reduces maintenance costs, and enhances public safety.
+                      </p>
+                      <p className="text-lg">
+                        From government buildings to bridges, water facilities to public works, our specialized solutions provide long-term protection for your community's most critical infrastructure investments.
+                      </p>
                     </div>
-                  </div>
-                  
-                  <div className="absolute bottom-0 left-0 w-20 h-20 z-20 pointer-events-none">
-                    {/* Multi-layered glowing corner effect */}
-                    <div className="absolute bottom-0 left-0 w-12 h-12 bg-gradient-to-tr from-blue-500/10 to-transparent rounded-bl-md"></div>
-                    <div className="absolute bottom-0 left-0 w-16 h-16 border-b-2 border-l-2 border-blue-400/70 rounded-bl-lg shadow-[0_0_10px_rgba(59,130,246,0.5)]"></div>
-                    <div className="absolute bottom-1 left-1 w-18 h-18 border-b border-l border-blue-600/40 rounded-bl-lg"></div>
                     
-                    {/* Animated corner accent with pulsing glow */}
-                    <div className="absolute bottom-0 left-0 w-3 h-3 bg-blue-400/60 rounded-full blur-[2px] animate-pulse" style={{ animationDuration: '3.2s' }}></div>
-                    
-                    {/* Animated light ray accent */}
-                    <div className="absolute bottom-0 left-0 w-8 h-8 overflow-hidden rounded-bl-lg">
-                      <div className="absolute bottom-0 left-0 w-[200%] h-[1px] bg-gradient-to-r from-transparent via-blue-400/80 to-transparent -translate-x-full animate-shimmer-slow"></div>
-                      <div className="absolute bottom-0 left-0 h-[200%] w-[1px] bg-gradient-to-t from-transparent via-blue-400/80 to-transparent translate-y-full animate-shimmer-slow" style={{ animationDelay: '0.7s' }}></div>
-                    </div>
-                  </div>
-                
-                  <div className="relative p-8 md:p-10 backdrop-blur-sm">
-                    {/* Ultra-premium enterprise header with layered effects */}
-                    <div className="relative mb-8">
-                      {/* Premium Cinematic Enterprise Header Container */}
-                      <div className="relative py-8 px-6 bg-gradient-to-br from-black/80 via-gray-900/90 to-black/80 
-                        border-b-2 border-blue-500/60 border-t border-t-blue-400/30 rounded-lg mb-4
-                        shadow-[0_10px_50px_rgba(59,130,246,0.15),inset_0_1px_20px_rgba(59,130,246,0.05)]">
-                        
-                        {/* Metallic corner accents */}
-                        <div className="absolute top-0 left-0 w-20 h-20 pointer-events-none">
-                          <div className="absolute top-0 left-0 w-12 h-1 bg-gradient-to-r from-blue-500 to-transparent rounded-full"></div>
-                          <div className="absolute top-0 left-0 h-12 w-1 bg-gradient-to-b from-blue-500 to-transparent rounded-full"></div>
-                        </div>
-                        <div className="absolute top-0 right-0 w-20 h-20 pointer-events-none">
-                          <div className="absolute top-0 right-0 w-12 h-1 bg-gradient-to-l from-blue-500 to-transparent rounded-full"></div>
-                          <div className="absolute top-0 right-0 h-12 w-1 bg-gradient-to-b from-blue-500 to-transparent rounded-full"></div>
-                        </div>
-                        <div className="absolute bottom-0 left-0 w-20 h-20 pointer-events-none">
-                          <div className="absolute bottom-0 left-0 w-12 h-1 bg-gradient-to-r from-blue-500 to-transparent rounded-full"></div>
-                          <div className="absolute bottom-0 left-0 h-12 w-1 bg-gradient-to-t from-blue-500 to-transparent rounded-full"></div>
-                        </div>
-                        <div className="absolute bottom-0 right-0 w-20 h-20 pointer-events-none">
-                          <div className="absolute bottom-0 right-0 w-12 h-1 bg-gradient-to-l from-blue-500 to-transparent rounded-full"></div>
-                          <div className="absolute bottom-0 right-0 h-12 w-1 bg-gradient-to-t from-blue-500 to-transparent rounded-full"></div>
-                        </div>
-                        
-                        {/* Premium subtle glow effects */}
-                        <div className="absolute top-1/4 right-1/4 w-32 h-32 bg-blue-500/5 rounded-full blur-xl"></div>
-                        <div className="absolute bottom-1/4 left-1/4 w-32 h-32 bg-blue-500/5 rounded-full blur-xl"></div>
-                        
-                        {/* Cinematic metallic header with layered elements */}
-                        <div className="relative z-10">
-                          {/* Top badge */}
-                          <div className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-gradient-to-r from-blue-500/20 via-blue-600/20 to-blue-500/20 border border-blue-500/30 shadow-lg mb-4 backdrop-blur-sm">
-                            <Landmark className="h-5 w-5 mr-2 text-blue-400" />
-                            <span className="text-blue-100 font-medium text-sm">Advanced Municipal Protection Technology</span>
-                          </div>
-                          
-                          {/* Enterprise-grade headline with gradient accent */}
-                          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-4 text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-white">
-                            Municipal <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-sky-500">Infrastructure</span> Protection
-                          </h1>
-                          
-                          {/* Enhanced premium subheadline with vibrant color accent */}
-                          <p className="text-xl md:text-2xl mb-6 max-w-3xl mx-auto text-blue-50/90 leading-relaxed">
-                            Innovative ceramic coating technology that transforms municipal infrastructure with <span className="text-blue-300 font-semibold">fireproofing, weatherproofing, and energy-efficiency</span> while extending asset lifespans and reducing maintenance costs
-                          </p>
-                          
-                          {/* Refined feature highlight row with premium styling */}
-                          <div className="flex flex-wrap justify-center gap-3 md:gap-6 mb-8">
-                            <div className="flex items-center space-x-1">
-                              <CheckCircle className="h-5 w-5 text-green-400" />
-                              <span className="text-green-50">Fire Protection</span>
-                            </div>
-                            <div className="flex items-center space-x-1">
-                              <CheckCircle className="h-5 w-5 text-green-400" />
-                              <span className="text-green-50">Energy Savings</span>
-                            </div>
-                            <div className="flex items-center space-x-1">
-                              <CheckCircle className="h-5 w-5 text-green-400" />
-                              <span className="text-green-50">Extended Asset Lifespan</span>
-                            </div>
-                            <div className="flex items-center space-x-1">
-                              <CheckCircle className="h-5 w-5 text-green-400" />
-                              <span className="text-green-50">Budget Compliance</span>
-                            </div>
-                          </div>
-                          
-                          {/* Premium animated CTA button */}
-                          <div className="transform transition-all duration-700 hover:scale-105 relative z-20">
-                            <PremiumCartButton 
-                              size="lg" 
-                              onClick={() => setShowRegistrationForm(true)}
-                              className="px-8 py-4 text-lg relative group"
-                              variant="gold"
-                            >
-                              <div className="flex items-center justify-center">
-                                <BarChart3 className="mr-2 h-5 w-5" />
-                                <span>Calculate Municipal Infrastructure ROI</span>
-                              </div>
-                            </PremiumCartButton>
-                          </div>
-                        </div>
+                    <div className="flex flex-wrap gap-4 mb-6">
+                      <div className="flex items-center space-x-2">
+                        <Building className="h-5 w-5 text-blue-400" />
+                        <span className="text-gray-200">Infrastructure Protection</span>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <CircleDollarSign className="h-5 w-5 text-blue-400" />
+                        <span className="text-gray-200">Budget Optimization</span>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <Landmark className="h-5 w-5 text-blue-400" />
+                        <span className="text-gray-200">Public Asset Preservation</span>
                       </div>
                     </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Informational Section: Municipal Ceramic Protection Technology */}
-        <section className="relative z-10 py-12 overflow-hidden bg-gradient-to-b from-gray-950 to-gray-900">
-          <div className="container mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-              {/* Left Section: Infrastructure Protection */}
-              <div className="p-6 rounded-2xl border border-blue-800/30 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 shadow-lg">
-                <h2 className="text-3xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-300 to-blue-500">
-                  Infrastructure Protection
-                </h2>
-                
-                <div className="space-y-6">
-                  <div className="flex items-start space-x-4">
-                    <div className="min-w-12 h-12 flex items-center justify-center rounded-full bg-blue-900/30 border border-blue-700/30">
-                      <Landmark className="h-6 w-6 text-blue-400" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-blue-300 mb-2">Building Envelope Protection</h3>
-                      <p className="text-gray-300">
-                        Praetorian's advanced ceramic coating creates a seamless protective envelope around municipal buildings, extending structural lifespan by 15-20 years while providing Class-A fire protection that meets or exceeds all NFPA standards.
-                      </p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start space-x-4">
-                    <div className="min-w-12 h-12 flex items-center justify-center rounded-full bg-blue-900/30 border border-blue-700/30">
-                      <Building className="h-6 w-6 text-blue-400" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-blue-300 mb-2">Critical Infrastructure Security</h3>
-                      <p className="text-gray-300">
-                        Our NASA-derived ceramic technology creates a protective shield for water treatment facilities, power stations, and emergency service buildings – providing thermal barrier protection during emergencies and disasters.
-                      </p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start space-x-4">
-                    <div className="min-w-12 h-12 flex items-center justify-center rounded-full bg-blue-900/30 border border-blue-700/30">
-                      <Shield className="h-6 w-6 text-blue-400" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-blue-300 mb-2">Safety Compliance</h3>
-                      <p className="text-gray-300">
-                        Meet or exceed all NFPA, ASTM, and local building code requirements with documented certification that ensures regulatory compliance while reducing liability risks for public facilities and infrastructure.
-                      </p>
+                    
+                    <div className="flex flex-wrap gap-4">
+                      <Button 
+                        className="relative group overflow-hidden bg-gradient-to-r from-gray-800 to-gray-950 border border-gray-700 hover:border-blue-500 transition-all duration-300 px-6 py-2 shadow-lg"
+                        onClick={handleShowConsultationForm}
+                      >
+                        <span className="relative z-10 text-white group-hover:text-blue-200 transition-colors duration-300">
+                          Request Consultation
+                        </span>
+                        <span className="absolute inset-0 bg-blue-600 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></span>
+                      </Button>
+                      <Button 
+                        variant="outline" 
+                        className="border-gray-600 text-blue-400 hover:text-blue-300 hover:border-blue-500"
+                        onClick={handleShowRegistrationForm}
+                      >
+                        Become a Contractor
+                      </Button>
                     </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
               
-              {/* Right Section: Energy & Budget Benefits */}
-              <div className="p-6 rounded-2xl border border-green-800/30 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 shadow-lg">
-                <h2 className="text-3xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-green-300 to-green-500">
-                  Energy & Budget Benefits
-                </h2>
-                
-                <div className="space-y-6">
-                  <div className="flex items-start space-x-4">
-                    <div className="min-w-12 h-12 flex items-center justify-center rounded-full bg-green-900/30 border border-green-700/30">
-                      <CircleDollarSign className="h-6 w-6 text-green-400" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-green-300 mb-2">Long-Term Budget Planning</h3>
-                      <p className="text-gray-300">
-                        Reduce maintenance and replacement cycles by 60-75%, allowing municipalities to allocate resources more efficiently across multiple budget years while satisfying capital improvement planning requirements.
-                      </p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start space-x-4">
-                    <div className="min-w-12 h-12 flex items-center justify-center rounded-full bg-green-900/30 border border-green-700/30">
-                      <BarChart3 className="h-6 w-6 text-green-400" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-green-300 mb-2">Energy Cost Reduction</h3>
-                      <p className="text-gray-300">
-                        Achieve LEED and Energy Star certification standards with documented 20-35% energy consumption reduction through advanced thermal barrier technology – helping municipalities meet climate action plan goals.
-                      </p>
+              {/* Right column with image */}
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.7, delay: 0.2 }}
+                className="lg:w-1/2"
+              >
+                <div className="relative">
+                  {/* Premium image container with decorative elements */}
+                  <div className="relative rounded-2xl overflow-hidden border border-blue-700/30 shadow-lg">
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-900/30 to-black/80 mix-blend-overlay z-10"></div>
+                    
+                    {/* Hero Image */}
+                    <img 
+                      src="/src/assets_dir/images/optimized/praetorian-background-new.png" 
+                      alt="Municipal infrastructure protection with Praetorian Smart-Coat" 
+                      className="w-full h-auto max-h-[500px] object-cover object-center"
+                    />
+                    
+                    {/* Premium overlay elements */}
+                    <div className="absolute top-0 left-0 w-20 h-20 border-t-2 border-l-2 border-blue-400/40 rounded-tl-xl"></div>
+                    <div className="absolute bottom-0 right-0 w-20 h-20 border-b-2 border-r-2 border-blue-400/40 rounded-br-xl"></div>
+                    
+                    {/* Image caption */}
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 z-20">
+                      <p className="text-sm text-gray-300 text-center">SON-SHIELD ceramic technology protecting municipal infrastructure</p>
                     </div>
                   </div>
                   
-                  <div className="flex items-start space-x-4">
-                    <div className="min-w-12 h-12 flex items-center justify-center rounded-full bg-green-900/30 border border-green-700/30">
-                      <FileText className="h-6 w-6 text-green-400" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-green-300 mb-2">Grant Qualification</h3>
-                      <p className="text-gray-300">
-                        Our municipal applications qualify for federal and state infrastructure grants, FEMA mitigation funding, and energy efficiency incentives, making implementation budget-neutral for many public entities.
-                      </p>
-                    </div>
+                  {/* Stats overlay */}
+                  <div className="absolute -bottom-6 -right-6 bg-gradient-to-br from-gray-900 to-gray-950 border border-blue-700/30 rounded-lg p-4 shadow-lg z-30">
+                    <p className="text-blue-400 font-semibold">Asset Life Extension</p>
+                    <p className="text-3xl font-bold text-white">Up to 300%<sup className="text-blue-300 text-xs">*</sup></p>
+                    <p className="text-xs text-gray-400">*Based on SON-SHIELD testing data</p>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
         </section>
 
-        {/* SANDLER STAGE 2: PAIN - RED GLOW SECTION */}
+        {/* SANDLER STAGE 1: PAIN - RED GLOW SECTION - Critical Problems */}
         <section className="relative z-10 py-12 overflow-hidden">
           <div className="container mx-auto mb-16">
             <div className="relative">
-              {/* Section-specific ambient red glow in background (z-index lower than content) */}
-              <div className="absolute -inset-10 bg-red-900/10 rounded-full blur-[100px] opacity-80 z-0"></div>
-              <div className="absolute -inset-20 bg-red-800/5 rounded-full blur-[150px] opacity-70 z-0 animate-pulse-slow"></div>
+              {/* Enhanced Red glow effect with multi-layer glow */}
+              <div className="absolute -inset-10 bg-red-500/20 rounded-xl blur-xl opacity-70 z-0"></div>
+              <div className="absolute -inset-20 bg-red-600/10 rounded-xl blur-2xl opacity-50 z-0"></div>
+              <div className="absolute -inset-30 bg-red-700/5 rounded-xl blur-3xl opacity-30 z-0 animate-pulse-slow"></div>
               
-              {/* Content card with high z-index to appear over the glow */}
-              <div className="relative z-20 rounded-2xl overflow-hidden p-8 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-red-700/30 shadow-[0_10px_50px_-12px_rgba(0,0,0,0.4)]">
-                {/* Section Title with premium styling */}
-                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-red-300 via-orange-200 to-red-300">
-                  Municipal Infrastructure Challenges
+              {/* Content card */}
+              <div className="relative z-20 rounded-2xl overflow-hidden p-8 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-red-700/30 shadow-lg">
+                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-red-300 via-red-200 to-red-300">
+                  Critical Municipal Infrastructure Challenges
                 </h2>
                 
-                {/* Interactive tabs component */}
-                <div className="mb-8">
-                  <Tabs defaultValue="infrastructure" className="w-full" onValueChange={setActiveTab}>
-                    <div className="flex justify-center mb-6">
-                      <TabsList className="grid grid-cols-2 md:grid-cols-3 gap-1 bg-black/50 p-1 rounded-xl border border-gray-800">
-                        <TabsTrigger 
-                          value="infrastructure" 
-                          className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 ${activeTab === 'infrastructure' ? 'bg-gradient-to-r from-red-900/90 to-red-800/90 text-white shadow-md border border-red-700/50' : 'text-gray-400 hover:text-gray-300'}`}
-                        >
-                          <Building className="w-4 h-4 mr-2" />
-                          <span>Infrastructure</span>
-                        </TabsTrigger>
-                        <TabsTrigger 
-                          value="energy" 
-                          className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 ${activeTab === 'energy' ? 'bg-gradient-to-r from-red-900/90 to-red-800/90 text-white shadow-md border border-red-700/50' : 'text-gray-400 hover:text-gray-300'}`}
-                        >
-                          <Zap className="w-4 h-4 mr-2" />
-                          <span>Energy Costs</span>
-                        </TabsTrigger>
-                        <TabsTrigger 
-                          value="safety" 
-                          className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 ${activeTab === 'safety' ? 'bg-gradient-to-r from-red-900/90 to-red-800/90 text-white shadow-md border border-red-700/50' : 'text-gray-400 hover:text-gray-300'}`}
-                        >
-                          <Flame className="w-4 h-4 mr-2" />
-                          <span>Safety</span>
-                        </TabsTrigger>
-                      </TabsList>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+                  <div>
+                    <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-red-700/20 shadow-md">
+                      <h3 className="text-xl font-bold mb-4 text-red-300">Aging Infrastructure Crisis</h3>
+                      <ul className="space-y-3">
+                        <li className="flex items-start">
+                          <AlertTriangle className="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
+                          <span className="text-gray-300">Over 47% of America's public infrastructure is rated in "poor" or "fair" condition by the American Society of Civil Engineers</span>
+                        </li>
+                        <li className="flex items-start">
+                          <AlertTriangle className="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
+                          <span className="text-gray-300">The average age of government buildings exceeds 50 years, with critical systems functioning well beyond intended lifespans</span>
+                        </li>
+                        <li className="flex items-start">
+                          <AlertTriangle className="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
+                          <span className="text-gray-300">Deferred maintenance backlogs for municipal infrastructure average $43 per square foot nationwide</span>
+                        </li>
+                        <li className="flex items-start">
+                          <AlertTriangle className="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
+                          <span className="text-gray-300">42% of municipal bridge structures show signs of significant deterioration requiring immediate intervention</span>
+                        </li>
+                        <li className="flex items-start">
+                          <AlertTriangle className="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
+                          <span className="text-gray-300">Water and wastewater facilities face rapidly accelerating corrosion rates with 36% requiring major rehabilitation within 5 years</span>
+                        </li>
+                      </ul>
                     </div>
-                    
-                    <TabsContent value="infrastructure" className="mt-2">
-                      <div className="space-y-6">
-                        <div className="relative group p-6 bg-gradient-to-br from-black/80 to-gray-900/80 border border-red-500/30 rounded-xl transition-all duration-300 hover:border-red-500/50 shadow-[0_4px_15px_rgba(0,0,0,0.3)]">
-                          {/* Enhanced layered glows and effects */}
-                          <div className="absolute -inset-px bg-gradient-to-r from-red-600/20 via-transparent to-red-600/20 rounded-xl opacity-70 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
-                          <div className="absolute -inset-0.5 bg-gradient-to-br from-red-500/5 to-red-700/5 rounded-xl opacity-50 group-hover:opacity-80 transition-opacity duration-300"></div>
-                          
-                          <div className="relative flex gap-5">
-                            <div className="flex-shrink-0">
-                              {/* Elite enterprise icon styling */}
-                              <div className="relative">
-                                <div className="absolute -inset-2 bg-red-500/20 rounded-full blur-md opacity-80"></div>
-                                <div className="relative h-14 w-14 flex items-center justify-center bg-gradient-to-br from-red-800 to-red-900 rounded-xl border border-red-400/30 shadow-[0_0_15px_rgba(239,68,68,0.3)]">
-                                  <div className="absolute inset-0.5 bg-gradient-to-br from-red-700 to-red-800 rounded-[0.65rem] opacity-50"></div>
-                                  <div className="absolute h-full w-1/2 bg-gradient-to-r from-transparent via-red-400/20 to-transparent skew-x-[-20deg] animate-shimmer-slow"></div>
-                                  <Building className="w-7 h-7 text-red-300 relative z-10 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]" />
-                                </div>
-                              </div>
-                            </div>
-                            <div>
-                              <h3 className="font-bold text-xl text-transparent bg-clip-text bg-gradient-to-r from-red-300 to-red-200 mb-3" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.8)" }}>Aging Infrastructure Crisis</h3>
-                              <p className="text-gray-200 leading-relaxed">
-                                Are your municipal buildings, bridges, and facilities struggling with deterioration years ahead of schedule? The American Society of Civil Engineers gives U.S. infrastructure a <span className="text-red-300 font-medium">D+ rating</span>, with <span className="text-red-300 font-medium">43%</span> of public buildings showing critical structural weaknesses that reduce property values and increase liability.
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                        
-                        <div className="relative group p-6 bg-gradient-to-br from-black/80 to-gray-900/80 border border-red-500/30 rounded-xl transition-all duration-300 hover:border-red-500/50 shadow-[0_4px_15px_rgba(0,0,0,0.3)]">
-                          {/* Enhanced layered glows and effects */}
-                          <div className="absolute -inset-px bg-gradient-to-r from-red-600/20 via-transparent to-red-600/20 rounded-xl opacity-70 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
-                          <div className="absolute -inset-0.5 bg-gradient-to-br from-red-500/5 to-red-700/5 rounded-xl opacity-50 group-hover:opacity-80 transition-opacity duration-300"></div>
-                          
-                          <div className="relative flex gap-5">
-                            <div className="flex-shrink-0">
-                              {/* Elite enterprise icon styling */}
-                              <div className="relative">
-                                <div className="absolute -inset-2 bg-red-500/20 rounded-full blur-md opacity-80"></div>
-                                <div className="relative h-14 w-14 flex items-center justify-center bg-gradient-to-br from-red-800 to-red-900 rounded-xl border border-red-400/30 shadow-[0_0_15px_rgba(239,68,68,0.3)]">
-                                  <div className="absolute inset-0.5 bg-gradient-to-br from-red-700 to-red-800 rounded-[0.65rem] opacity-50"></div>
-                                  <div className="absolute h-full w-1/2 bg-gradient-to-r from-transparent via-red-400/20 to-transparent skew-x-[-20deg] animate-shimmer-slow" style={{ animationDelay: '0.3s' }}></div>
-                                  <CircleDollarSign className="w-7 h-7 text-red-300 relative z-10 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]" />
-                                </div>
-                              </div>
-                            </div>
-                            <div>
-                              <h3 className="font-bold text-xl text-transparent bg-clip-text bg-gradient-to-r from-red-300 to-red-200 mb-3" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.8)" }}>Unsustainable Maintenance Costs</h3>
-                              <p className="text-gray-200 leading-relaxed">
-                                How much of your budget is consumed by maintenance? Traditional municipal infrastructure requires constant repairs, with maintenance costs increasing <span className="text-red-300 font-medium">18-24%</span> annually. This creates a negative spiral where deferred maintenance leads to even more expensive emergency repairs, draining funds from critical community services.
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                        
-                        <div className="relative group p-6 bg-gradient-to-br from-black/80 to-gray-900/80 border border-red-500/30 rounded-xl transition-all duration-300 hover:border-red-500/50 shadow-[0_4px_15px_rgba(0,0,0,0.3)]">
-                          {/* Enhanced layered glows and effects */}
-                          <div className="absolute -inset-px bg-gradient-to-r from-red-600/20 via-transparent to-red-600/20 rounded-xl opacity-70 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
-                          <div className="absolute -inset-0.5 bg-gradient-to-br from-red-500/5 to-red-700/5 rounded-xl opacity-50 group-hover:opacity-80 transition-opacity duration-300"></div>
-                          
-                          <div className="relative flex gap-5">
-                            <div className="flex-shrink-0">
-                              {/* Elite enterprise icon styling */}
-                              <div className="relative">
-                                <div className="absolute -inset-2 bg-red-500/20 rounded-full blur-md opacity-80"></div>
-                                <div className="relative h-14 w-14 flex items-center justify-center bg-gradient-to-br from-red-800 to-red-900 rounded-xl border border-red-400/30 shadow-[0_0_15px_rgba(239,68,68,0.3)]">
-                                  <div className="absolute inset-0.5 bg-gradient-to-br from-red-700 to-red-800 rounded-[0.65rem] opacity-50"></div>
-                                  <div className="absolute h-full w-1/2 bg-gradient-to-r from-transparent via-red-400/20 to-transparent skew-x-[-20deg] animate-shimmer-slow" style={{ animationDelay: '0.6s' }}></div>
-                                  <BookOpen className="w-7 h-7 text-red-300 relative z-10 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]" />
-                                </div>
-                              </div>
-                            </div>
-                            <div>
-                              <h3 className="font-bold text-xl text-transparent bg-clip-text bg-gradient-to-r from-red-300 to-red-200 mb-3" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.8)" }}>Complex Regulatory Compliance</h3>
-                              <p className="text-gray-200 leading-relaxed">
-                                Is your municipality struggling to meet increasingly stringent building codes and environmental regulations? Traditional renovation solutions often fail to meet modern building code requirements, forcing municipalities to choose between costly demolition/rebuilding or risking non-compliance penalties of <span className="text-red-300 font-medium">$50,000+</span> per violation.
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </TabsContent>
-                    
-                    <TabsContent value="energy" className="mt-2">
-                      <div className="space-y-6">
-                        <div className="relative group p-6 bg-gradient-to-br from-black/80 to-gray-900/80 border border-red-500/30 rounded-xl transition-all duration-300 hover:border-red-500/50 shadow-[0_4px_15px_rgba(0,0,0,0.3)]">
-                          <div className="absolute -inset-px bg-gradient-to-r from-red-600/20 via-transparent to-red-600/20 rounded-xl opacity-70 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
-                          <div className="absolute -inset-0.5 bg-gradient-to-br from-red-500/5 to-red-700/5 rounded-xl opacity-50 group-hover:opacity-80 transition-opacity duration-300"></div>
-                          
-                          <div className="relative flex gap-5">
-                            <div className="flex-shrink-0">
-                              <div className="relative">
-                                <div className="absolute -inset-2 bg-red-500/20 rounded-full blur-md opacity-80"></div>
-                                <div className="relative h-14 w-14 flex items-center justify-center bg-gradient-to-br from-red-800 to-red-900 rounded-xl border border-red-400/30 shadow-[0_0_15px_rgba(239,68,68,0.3)]">
-                                  <div className="absolute inset-0.5 bg-gradient-to-br from-red-700 to-red-800 rounded-[0.65rem] opacity-50"></div>
-                                  <div className="absolute h-full w-1/2 bg-gradient-to-r from-transparent via-red-400/20 to-transparent skew-x-[-20deg] animate-shimmer-slow"></div>
-                                  <Zap className="w-7 h-7 text-red-300 relative z-10 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]" />
-                                </div>
-                              </div>
-                            </div>
-                            <div>
-                              <h3 className="font-bold text-xl text-transparent bg-clip-text bg-gradient-to-r from-red-300 to-red-200 mb-3" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.8)" }}>Ballooning Energy Expenditures</h3>
-                              <p className="text-gray-200 leading-relaxed">
-                                Is your municipality's budget being drained by rising energy costs? Public buildings with poor insulation lose <span className="text-red-300 font-medium">35-50%</span> of heating and cooling through walls and roofs, resulting in expenditures <span className="text-red-300 font-medium">3.2x higher</span> than necessary. These inefficiencies can consume up to <span className="text-red-300 font-medium">12-18%</span> of municipal operating budgets.
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                        
-                        <div className="relative group p-6 bg-gradient-to-br from-black/80 to-gray-900/80 border border-red-500/30 rounded-xl transition-all duration-300 hover:border-red-500/50 shadow-[0_4px_15px_rgba(0,0,0,0.3)]">
-                          <div className="absolute -inset-px bg-gradient-to-r from-red-600/20 via-transparent to-red-600/20 rounded-xl opacity-70 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
-                          <div className="absolute -inset-0.5 bg-gradient-to-br from-red-500/5 to-red-700/5 rounded-xl opacity-50 group-hover:opacity-80 transition-opacity duration-300"></div>
-                          
-                          <div className="relative flex gap-5">
-                            <div className="flex-shrink-0">
-                              <div className="relative">
-                                <div className="absolute -inset-2 bg-red-500/20 rounded-full blur-md opacity-80"></div>
-                                <div className="relative h-14 w-14 flex items-center justify-center bg-gradient-to-br from-red-800 to-red-900 rounded-xl border border-red-400/30 shadow-[0_0_15px_rgba(239,68,68,0.3)]">
-                                  <div className="absolute inset-0.5 bg-gradient-to-br from-red-700 to-red-800 rounded-[0.65rem] opacity-50"></div>
-                                  <div className="absolute h-full w-1/2 bg-gradient-to-r from-transparent via-red-400/20 to-transparent skew-x-[-20deg] animate-shimmer-slow" style={{ animationDelay: '0.3s' }}></div>
-                                  <TrendingUp className="w-7 h-7 text-red-300 relative z-10 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]" />
-                                </div>
-                              </div>
-                            </div>
-                            <div>
-                              <h3 className="font-bold text-xl text-transparent bg-clip-text bg-gradient-to-r from-red-300 to-red-200 mb-3" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.8)" }}>Carbon Reduction Mandate Challenges</h3>
-                              <p className="text-gray-200 leading-relaxed">
-                                How is your municipality handling increasingly strict carbon reduction mandates? Municipal buildings contribute <span className="text-red-300 font-medium">28%</span> of all government carbon emissions, and retrofitting with traditional methods is prohibitively expensive, often costing <span className="text-red-300 font-medium">$50-$150</span> per square foot - far beyond most municipal budgets.
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                        
-                        <div className="relative group p-6 bg-gradient-to-br from-black/80 to-gray-900/80 border border-red-500/30 rounded-xl transition-all duration-300 hover:border-red-500/50 shadow-[0_4px_15px_rgba(0,0,0,0.3)]">
-                          <div className="absolute -inset-px bg-gradient-to-r from-red-600/20 via-transparent to-red-600/20 rounded-xl opacity-70 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
-                          <div className="absolute -inset-0.5 bg-gradient-to-br from-red-500/5 to-red-700/5 rounded-xl opacity-50 group-hover:opacity-80 transition-opacity duration-300"></div>
-                          
-                          <div className="relative flex gap-5">
-                            <div className="flex-shrink-0">
-                              <div className="relative">
-                                <div className="absolute -inset-2 bg-red-500/20 rounded-full blur-md opacity-80"></div>
-                                <div className="relative h-14 w-14 flex items-center justify-center bg-gradient-to-br from-red-800 to-red-900 rounded-xl border border-red-400/30 shadow-[0_0_15px_rgba(239,68,68,0.3)]">
-                                  <div className="absolute inset-0.5 bg-gradient-to-br from-red-700 to-red-800 rounded-[0.65rem] opacity-50"></div>
-                                  <div className="absolute h-full w-1/2 bg-gradient-to-r from-transparent via-red-400/20 to-transparent skew-x-[-20deg] animate-shimmer-slow" style={{ animationDelay: '0.6s' }}></div>
-                                  <Percent className="w-7 h-7 text-red-300 relative z-10 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]" />
-                                </div>
-                              </div>
-                            </div>
-                            <div>
-                              <h3 className="font-bold text-xl text-transparent bg-clip-text bg-gradient-to-r from-red-300 to-red-200 mb-3" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.8)" }}>Utility Rebate Program Complexity</h3>
-                              <p className="text-gray-200 leading-relaxed">
-                                Are your energy efficiency initiatives hampered by complex utility rebate programs? Up to <span className="text-red-300 font-medium">68%</span> of available financial incentives go unclaimed due to administrative burdens and technical eligibility requirements that most municipalities lack the resources to navigate effectively.
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </TabsContent>
-                    
-                    <TabsContent value="safety" className="mt-2">
-                      <div className="space-y-6">
-                        <div className="relative group p-6 bg-gradient-to-br from-black/80 to-gray-900/80 border border-red-500/30 rounded-xl transition-all duration-300 hover:border-red-500/50 shadow-[0_4px_15px_rgba(0,0,0,0.3)]">
-                          <div className="absolute -inset-px bg-gradient-to-r from-red-600/20 via-transparent to-red-600/20 rounded-xl opacity-70 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
-                          <div className="absolute -inset-0.5 bg-gradient-to-br from-red-500/5 to-red-700/5 rounded-xl opacity-50 group-hover:opacity-80 transition-opacity duration-300"></div>
-                          
-                          <div className="relative flex gap-5">
-                            <div className="flex-shrink-0">
-                              <div className="relative">
-                                <div className="absolute -inset-2 bg-red-500/20 rounded-full blur-md opacity-80"></div>
-                                <div className="relative h-14 w-14 flex items-center justify-center bg-gradient-to-br from-red-800 to-red-900 rounded-xl border border-red-400/30 shadow-[0_0_15px_rgba(239,68,68,0.3)]">
-                                  <div className="absolute inset-0.5 bg-gradient-to-br from-red-700 to-red-800 rounded-[0.65rem] opacity-50"></div>
-                                  <div className="absolute h-full w-1/2 bg-gradient-to-r from-transparent via-red-400/20 to-transparent skew-x-[-20deg] animate-shimmer-slow"></div>
-                                  <Flame className="w-7 h-7 text-red-300 relative z-10 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]" />
-                                </div>
-                              </div>
-                            </div>
-                            <div>
-                              <h3 className="font-bold text-xl text-transparent bg-clip-text bg-gradient-to-r from-red-300 to-red-200 mb-3" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.8)" }}>Fire Protection Vulnerabilities</h3>
-                              <p className="text-gray-200 leading-relaxed">
-                                How adequate is your municipal fire protection? Data shows that <span className="text-red-300 font-medium">64%</span> of municipal buildings have inadequate fire prevention systems, and retrofitting with traditional methods costs <span className="text-red-300 font-medium">$35-85</span> per square foot - stretching already limited budgets to the breaking point while leaving occupants at risk.
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                        
-                        <div className="relative group p-6 bg-gradient-to-br from-black/80 to-gray-900/80 border border-red-500/30 rounded-xl transition-all duration-300 hover:border-red-500/50 shadow-[0_4px_15px_rgba(0,0,0,0.3)]">
-                          <div className="absolute -inset-px bg-gradient-to-r from-red-600/20 via-transparent to-red-600/20 rounded-xl opacity-70 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
-                          <div className="absolute -inset-0.5 bg-gradient-to-br from-red-500/5 to-red-700/5 rounded-xl opacity-50 group-hover:opacity-80 transition-opacity duration-300"></div>
-                          
-                          <div className="relative flex gap-5">
-                            <div className="flex-shrink-0">
-                              <div className="relative">
-                                <div className="absolute -inset-2 bg-red-500/20 rounded-full blur-md opacity-80"></div>
-                                <div className="relative h-14 w-14 flex items-center justify-center bg-gradient-to-br from-red-800 to-red-900 rounded-xl border border-red-400/30 shadow-[0_0_15px_rgba(239,68,68,0.3)]">
-                                  <div className="absolute inset-0.5 bg-gradient-to-br from-red-700 to-red-800 rounded-[0.65rem] opacity-50"></div>
-                                  <div className="absolute h-full w-1/2 bg-gradient-to-r from-transparent via-red-400/20 to-transparent skew-x-[-20deg] animate-shimmer-slow" style={{ animationDelay: '0.3s' }}></div>
-                                  <Shield className="w-7 h-7 text-red-300 relative z-10 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]" />
-                                </div>
-                              </div>
-                            </div>
-                            <div>
-                              <h3 className="font-bold text-xl text-transparent bg-clip-text bg-gradient-to-r from-red-300 to-red-200 mb-3" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.8)" }}>Public Safety Liability Exposure</h3>
-                              <p className="text-gray-200 leading-relaxed">
-                                Is your municipality carrying excess liability risk? Local governments face average annual liability claims of <span className="text-red-300 font-medium">$2.1 million</span> from property-related injuries and incidents, while insurance premiums for municipal buildings increase <span className="text-red-300 font-medium">15-22%</span> annually due to aging infrastructure and heightened risk profiles.
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                        
-                        <div className="relative group p-6 bg-gradient-to-br from-black/80 to-gray-900/80 border border-red-500/30 rounded-xl transition-all duration-300 hover:border-red-500/50 shadow-[0_4px_15px_rgba(0,0,0,0.3)]">
-                          <div className="absolute -inset-px bg-gradient-to-r from-red-600/20 via-transparent to-red-600/20 rounded-xl opacity-70 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
-                          <div className="absolute -inset-0.5 bg-gradient-to-br from-red-500/5 to-red-700/5 rounded-xl opacity-50 group-hover:opacity-80 transition-opacity duration-300"></div>
-                          
-                          <div className="relative flex gap-5">
-                            <div className="flex-shrink-0">
-                              <div className="relative">
-                                <div className="absolute -inset-2 bg-red-500/20 rounded-full blur-md opacity-80"></div>
-                                <div className="relative h-14 w-14 flex items-center justify-center bg-gradient-to-br from-red-800 to-red-900 rounded-xl border border-red-400/30 shadow-[0_0_15px_rgba(239,68,68,0.3)]">
-                                  <div className="absolute inset-0.5 bg-gradient-to-br from-red-700 to-red-800 rounded-[0.65rem] opacity-50"></div>
-                                  <div className="absolute h-full w-1/2 bg-gradient-to-r from-transparent via-red-400/20 to-transparent skew-x-[-20deg] animate-shimmer-slow" style={{ animationDelay: '0.6s' }}></div>
-                                  <BadgeAlert className="w-7 h-7 text-red-300 relative z-10 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]" />
-                                </div>
-                              </div>
-                            </div>
-                            <div>
-                              <h3 className="font-bold text-xl text-transparent bg-clip-text bg-gradient-to-r from-red-300 to-red-200 mb-3" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.8)" }}>Critical Infrastructure Resilience Gaps</h3>
-                              <p className="text-gray-200 leading-relaxed">
-                                How prepared is your municipality for extreme weather events? Climate-related infrastructure damage costs municipalities <span className="text-red-300 font-medium">$68 billion</span> annually, yet <span className="text-red-300 font-medium">71%</span> of local governments lack adequate protective measures for their critical facilities and infrastructure due to budget constraints.
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </TabsContent>
-                  </Tabs>
-                </div>
-                
-                {/* Progress tracker */}
-                <div className="mb-10">
-                  <div className="flex items-center justify-between mb-2">
-                    <h3 className="text-gray-300 font-medium">Municipal Infrastructure Risk Level</h3>
-                    <span className="text-red-400 font-medium">{progress}%</span>
                   </div>
-                  <Progress value={progress} className="h-2 bg-gray-800">
-                    <div 
-                      className="h-full bg-gradient-to-r from-red-600 to-red-500 rounded-full"
-                      style={{ width: `${progress}%` }}
-                    />
-                  </Progress>
-                  <p className="mt-2 text-sm text-gray-400 italic">Based on assessment of U.S. municipal infrastructure overall condition and liability exposure.</p>
+                  
+                  <div>
+                    <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-red-700/20 shadow-md">
+                      <h3 className="text-xl font-bold mb-4 text-red-300">Budgetary Constraints</h3>
+                      <ul className="space-y-3">
+                        <li className="flex items-start">
+                          <AlertTriangle className="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
+                          <span className="text-gray-300">Infrastructure funding gaps exceed $2.6 trillion nationally, with municipal governments facing the most severe shortfalls</span>
+                        </li>
+                        <li className="flex items-start">
+                          <AlertTriangle className="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
+                          <span className="text-gray-300">Maintenance allocations typically cover only 58% of actual infrastructure preservation needs</span>
+                        </li>
+                        <li className="flex items-start">
+                          <AlertTriangle className="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
+                          <span className="text-gray-300">Full replacement costs for critical infrastructure average 6-8x higher than preventive protection measures</span>
+                        </li>
+                        <li className="flex items-start">
+                          <AlertTriangle className="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
+                          <span className="text-gray-300">Rising material and labor costs have increased infrastructure rehabilitation expenses by 26% in the past three years</span>
+                        </li>
+                        <li className="flex items-start">
+                          <AlertTriangle className="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
+                          <span className="text-gray-300">Emergency repairs typically cost 4-5x more than planned maintenance, yet reactive management remains the dominant approach</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
                 
-                {/* Expert quote section */}
-                <div className="relative p-6 rounded-xl bg-gradient-to-br from-black/80 to-red-950/20 border border-red-700/20">
-                  <div className="absolute -top-2 -left-2 text-4xl text-red-500 opacity-40">"</div>
-                  <div className="absolute -bottom-2 -right-2 text-4xl text-red-500 opacity-40">"</div>
-                  <p className="italic text-gray-300 mb-4">The reality is that most municipalities are facing an infrastructure crisis that traditional solutions cannot solve within budget constraints. Without innovative approaches, local governments will continue to see maintenance costs rise while public safety and property values decline.</p>
-                  <div className="flex items-center">
-                    <div className="ml-auto">
-                      <p className="text-orange-200 font-medium">Dr. Robert Hendricks</p>
-                      <p className="text-xs text-gray-400">Director, Municipal Infrastructure Institute</p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div>
+                    <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-red-700/20 shadow-md">
+                      <h3 className="text-xl font-bold mb-4 text-red-300">Environmental & Regulatory Pressure</h3>
+                      <ul className="space-y-3">
+                        <li className="flex items-start">
+                          <AlertTriangle className="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
+                          <span className="text-gray-300">Municipal buildings account for over 35% of local government energy consumption and carbon emissions</span>
+                        </li>
+                        <li className="flex items-start">
+                          <AlertTriangle className="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
+                          <span className="text-gray-300">New energy efficiency mandates require 40-50% improvements in building performance by 2030</span>
+                        </li>
+                        <li className="flex items-start">
+                          <AlertTriangle className="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
+                          <span className="text-gray-300">Environmental regulations increasingly require elimination of harmful runoff from aging infrastructure</span>
+                        </li>
+                        <li className="flex items-start">
+                          <AlertTriangle className="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
+                          <span className="text-gray-300">Non-compliance with updated safety and accessibility standards exposes municipalities to significant liability</span>
+                        </li>
+                        <li className="flex items-start">
+                          <AlertTriangle className="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
+                          <span className="text-gray-300">Climate change resilience requirements are mandating costly infrastructure modifications</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-red-700/20 shadow-md">
+                      <h3 className="text-xl font-bold mb-4 text-red-300">Public Impact & Safety Concerns</h3>
+                      <ul className="space-y-3">
+                        <li className="flex items-start">
+                          <AlertTriangle className="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
+                          <span className="text-gray-300">Infrastructure failures directly impact public services and safety, with severe incidents increasing 28% over the past decade</span>
+                        </li>
+                        <li className="flex items-start">
+                          <AlertTriangle className="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
+                          <span className="text-gray-300">Deteriorating facilities contribute to poor indoor environmental quality, impacting employee health and productivity</span>
+                        </li>
+                        <li className="flex items-start">
+                          <AlertTriangle className="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
+                          <span className="text-gray-300">Emergency service disruptions from facility failures affect critical response times and public safety</span>
+                        </li>
+                        <li className="flex items-start">
+                          <AlertTriangle className="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
+                          <span className="text-gray-300">Liability claims related to infrastructure deficiencies have increased 145% in the past 5 years</span>
+                        </li>
+                        <li className="flex items-start">
+                          <AlertTriangle className="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
+                          <span className="text-gray-300">Public perception of government effectiveness is increasingly tied to visible infrastructure condition</span>
+                        </li>
+                      </ul>
                     </div>
                   </div>
                 </div>
@@ -851,186 +466,319 @@ export default function Municipality() {
             </div>
           </div>
         </section>
-        
+            
+        {/* SANDLER STAGE 2: TECHNICAL - YELLOW GLOW SECTION */}
+        <section className="relative z-10 py-12 overflow-hidden">
+          <div className="container mx-auto mb-16">
+            <div className="relative">
+              {/* Enhanced Yellow glow effect with multi-layer glow */}
+              <div className="absolute -inset-10 bg-amber-500/20 rounded-xl blur-xl opacity-70 z-0"></div>
+              <div className="absolute -inset-20 bg-amber-600/10 rounded-xl blur-2xl opacity-50 z-0"></div>
+              <div className="absolute -inset-30 bg-amber-700/5 rounded-xl blur-3xl opacity-30 z-0 animate-pulse-slow"></div>
+              
+              {/* Content card */}
+              <div className="relative z-20 rounded-2xl overflow-hidden p-8 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-amber-700/30 shadow-lg">
+                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-300">
+                  Advanced Municipal Protection Technology
+                </h2>
+                
+                <div className="mb-10">
+                  <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-amber-700/20 shadow-md">
+                    <h3 className="text-xl font-bold mb-4 text-amber-300">SON-SHIELD Municipal Ceramic Technology</h3>
+                    <p className="text-gray-300 mb-6">
+                      Our proprietary SON-SHIELD ceramic formulation creates a multi-function protective system specifically engineered for municipal infrastructure requirements. The unique microstructure delivers exceptional environmental resistance, thermal performance, and long-term durability while maintaining compliance with public sector requirements.
+                    </p>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                      <div className="flex flex-col items-center p-4 bg-gray-900/50 rounded-lg border border-amber-600/20">
+                        <div className="w-16 h-16 flex items-center justify-center mb-2 bg-amber-900/20 rounded-full">
+                          <Building className="h-8 w-8 text-amber-500" />
+                        </div>
+                        <p className="text-center text-amber-400 font-semibold text-lg mb-1">300%<sup className="text-yellow-200 text-xs">*</sup></p>
+                        <p className="text-center text-sm text-gray-400">Asset Life Extension</p>
+                      </div>
+                      
+                      <div className="flex flex-col items-center p-4 bg-gray-900/50 rounded-lg border border-amber-600/20">
+                        <div className="w-16 h-16 flex items-center justify-center mb-2 bg-amber-900/20 rounded-full">
+                          <Leaf className="h-8 w-8 text-amber-500" />
+                        </div>
+                        <p className="text-center text-amber-400 font-semibold text-lg mb-1">31.4%<sup className="text-yellow-200 text-xs">*</sup></p>
+                        <p className="text-center text-sm text-gray-400">Energy Efficiency Improvement</p>
+                      </div>
+                      
+                      <div className="flex flex-col items-center p-4 bg-gray-900/50 rounded-lg border border-amber-600/20">
+                        <div className="w-16 h-16 flex items-center justify-center mb-2 bg-amber-900/20 rounded-full">
+                          <CircleDollarSign className="h-8 w-8 text-amber-500" />
+                        </div>
+                        <p className="text-center text-amber-400 font-semibold text-lg mb-1">67%<sup className="text-yellow-200 text-xs">*</sup></p>
+                        <p className="text-center text-sm text-gray-400">Maintenance Cost Reduction</p>
+                      </div>
+                    </div>
+                    
+                    <p className="text-xs text-gray-500 text-center">*Based on independent laboratory testing and field performance data of SON-SHIELD ceramic coating technology</p>
+                  </div>
+                </div>
+                
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                  <div>
+                    <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-amber-700/20 shadow-md h-full">
+                      <h3 className="text-xl font-bold mb-4 text-amber-300">Multi-Function Protection System</h3>
+                      
+                      <div className="space-y-4">
+                        <div className="flex items-start">
+                          <div className="flex-shrink-0 w-10 h-10 bg-amber-900/20 rounded-full flex items-center justify-center mr-3">
+                            <span className="text-amber-400 font-bold">1</span>
+                          </div>
+                          <div>
+                            <h4 className="font-semibold text-white mb-1">Corrosion Defense Matrix</h4>
+                            <p className="text-gray-300 text-sm">Specialized ceramic compounds create an impermeable barrier that blocks moisture, salt, and chemical penetration, preventing the primary causes of infrastructure deterioration.</p>
+                          </div>
+                        </div>
+                        
+                        <div className="flex items-start">
+                          <div className="flex-shrink-0 w-10 h-10 bg-amber-900/20 rounded-full flex items-center justify-center mr-3">
+                            <span className="text-amber-400 font-bold">2</span>
+                          </div>
+                          <div>
+                            <h4 className="font-semibold text-white mb-1">Thermal Regulation System</h4>
+                            <p className="text-gray-300 text-sm">Advanced ceramic technology reflects solar radiation and provides thermal insulation, dramatically reducing heating/cooling costs and improving energy efficiency ratings for public buildings.</p>
+                          </div>
+                        </div>
+                        
+                        <div className="flex items-start">
+                          <div className="flex-shrink-0 w-10 h-10 bg-amber-900/20 rounded-full flex items-center justify-center mr-3">
+                            <span className="text-amber-400 font-bold">3</span>
+                          </div>
+                          <div>
+                            <h4 className="font-semibold text-white mb-1">Structural Integrity Enhancement</h4>
+                            <p className="text-gray-300 text-sm">Penetrating ceramic particles bond at the molecular level with substrate materials, reinforcing structural elements and preventing microfractures from expanding into serious defects.</p>
+                          </div>
+                        </div>
+                        
+                        <div className="flex items-start">
+                          <div className="flex-shrink-0 w-10 h-10 bg-amber-900/20 rounded-full flex items-center justify-center mr-3">
+                            <span className="text-amber-400 font-bold">4</span>
+                          </div>
+                          <div>
+                            <h4 className="font-semibold text-white mb-1">Environmental Compliance Features</h4>
+                            <p className="text-gray-300 text-sm">Low-VOC, non-toxic formulation meets or exceeds all municipal environmental standards while preventing harmful runoff from treated surfaces, aiding in regulatory compliance.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-amber-700/20 shadow-md h-full">
+                      <h3 className="text-xl font-bold mb-4 text-amber-300">Technical Specifications</h3>
+                      
+                      <div className="space-y-4 mb-6">
+                        <div className="flex justify-between pb-2 border-b border-gray-700">
+                          <span className="text-gray-300">Application Method</span>
+                          <span className="text-white font-medium">Spray, Brush, or Roller</span>
+                        </div>
+                        <div className="flex justify-between pb-2 border-b border-gray-700">
+                          <span className="text-gray-300">Dry Film Thickness</span>
+                          <span className="text-white font-medium">15-20 mils (per coat)</span>
+                        </div>
+                        <div className="flex justify-between pb-2 border-b border-gray-700">
+                          <span className="text-gray-300">Coverage Rate</span>
+                          <span className="text-white font-medium">80-100 sq ft/gallon</span>
+                        </div>
+                        <div className="flex justify-between pb-2 border-b border-gray-700">
+                          <span className="text-gray-300">Dry Time</span>
+                          <span className="text-white font-medium">4 hrs touch, 24 hrs full cure</span>
+                        </div>
+                        <div className="flex justify-between pb-2 border-b border-gray-700">
+                          <span className="text-gray-300">VOC Content</span>
+                          <span className="text-white font-medium">&lt; 50 g/L (Low VOC)</span>
+                        </div>
+                        <div className="flex justify-between pb-2 border-b border-gray-700">
+                          <span className="text-gray-300">Fire Rating</span>
+                          <span className="text-white font-medium">Class A (ASTM E84)</span>
+                        </div>
+                        <div className="flex justify-between pb-2 border-b border-gray-700">
+                          <span className="text-gray-300">Weather Resistance</span>
+                          <span className="text-white font-medium">Excellent (ASTM D6695)</span>
+                        </div>
+                        <div className="flex justify-between pb-2">
+                          <span className="text-gray-300">Service Life</span>
+                          <span className="text-white font-medium">20+ Years</span>
+                        </div>
+                      </div>
+                      
+                      <div className="bg-gray-900/70 p-4 rounded-lg border border-amber-600/10">
+                        <h4 className="font-semibold text-amber-300 mb-2 flex items-center">
+                          <CheckCircle className="h-4 w-4 mr-2" />
+                          Municipal Compliance
+                        </h4>
+                        <ul className="text-sm text-gray-300 space-y-1">
+                          <li>• GSA Schedule Contract Approved</li>
+                          <li>• LEED Credits Eligible</li>
+                          <li>• FEMA Hazard Mitigation Approved</li>
+                          <li>• ADA Compliant (slip resistance)</li>
+                          <li>• Meets Buy American Act requirements</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+          
         {/* SANDLER STAGE 3: BUDGET - GREEN GLOW SECTION */}
         <section className="relative z-10 py-12 overflow-hidden">
           <div className="container mx-auto mb-16">
             <div className="relative">
-              {/* Section-specific ambient green glow in background (z-index lower than content) */}
-              <div className="absolute -inset-10 bg-green-900/10 rounded-full blur-[100px] opacity-80 z-0"></div>
-              <div className="absolute -inset-20 bg-emerald-800/5 rounded-full blur-[150px] opacity-70 z-0 animate-pulse-slow"></div>
+              {/* Enhanced Green glow effect with multi-layer glow */}
+              <div className="absolute -inset-10 bg-green-500/20 rounded-xl blur-xl opacity-70 z-0"></div>
+              <div className="absolute -inset-20 bg-green-600/10 rounded-xl blur-2xl opacity-50 z-0"></div>
+              <div className="absolute -inset-30 bg-green-700/5 rounded-xl blur-3xl opacity-30 z-0 animate-pulse-slow"></div>
               
-              {/* Content card with high z-index to appear over the glow */}
-              <div className="relative z-20 rounded-2xl overflow-hidden p-8 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-emerald-700/30 shadow-[0_10px_50px_-12px_rgba(0,0,0,0.4)]">
-                {/* Section Title with premium styling */}
-                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 via-green-200 to-emerald-300">
-                  Municipal Infrastructure ROI
+              {/* Content card */}
+              <div className="relative z-20 rounded-2xl overflow-hidden p-8 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-green-700/30 shadow-lg">
+                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-green-300 via-green-200 to-green-300">
+                  Financial Impact & Budget Optimization
                 </h2>
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-                  {/* ROI calculator preview */}
-                  <div className="rounded-xl p-6 bg-gradient-to-br from-black/80 to-green-950/30 border border-green-800/30">
-                    <h3 className="text-2xl font-semibold mb-4 text-emerald-200">The Praetorian Advantage</h3>
-                    
-                    <div className="space-y-5">
-                      <p className="text-gray-300">Our ceramic coating technology delivers an average <span className="text-emerald-400 font-bold">580% ROI</span> over 15 years for municipal infrastructure when accounting for energy savings, maintenance reduction, and extended asset lifespan.</p>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
+                  <div>
+                    <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-green-700/20 shadow-md h-full">
+                      <h3 className="text-xl font-bold mb-4 text-green-300">Capital Expense Reduction</h3>
                       
-                      <div className="relative">
-                        <div className="p-5 rounded-lg bg-black/40">
-                          <h4 className="font-medium text-emerald-100 mb-3">Sample Municipal ROI Analysis</h4>
-                          
-                          <div className="grid grid-cols-2 gap-y-3 text-sm">
-                            <div className="text-gray-400">Initial Investment:</div>
-                            <div className="text-gray-300 font-medium">$140,000</div>
-                            
-                            <div className="text-gray-400">Annual Savings:</div>
-                            <div className="text-gray-300 font-medium">$54,200</div>
-                            
-                            <div className="text-gray-400">15-Year Returns:</div>
-                            <div className="text-emerald-400 font-bold">$813,000</div>
-                            
-                            <div className="text-gray-400">ROI Percentage:</div>
-                            <div className="text-emerald-400 font-bold">580%</div>
+                      <div className="space-y-5">
+                        <div className="flex items-start">
+                          <CircleDollarSign className="h-6 w-6 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
+                          <div>
+                            <h4 className="font-semibold text-white mb-1">Infrastructure Lifespan Extension</h4>
+                            <p className="text-gray-300">Municipal assets protected with SON-SHIELD coatings experience 250-300% longer functional lifespans, dramatically deferring major capital replacement expenses by 15-20+ years. For every $1 invested in protective coating, municipalities save $5.80-$7.20 in future replacement costs.</p>
                           </div>
                         </div>
                         
-                        {/* Pricing Indicator Badge */}
-                        <div className="absolute -top-5 -right-5 w-20 h-20 flex items-center justify-center">
-                          <div className="absolute inset-0 rounded-full bg-emerald-500/20 blur-sm"></div>
-                          <div className="relative bg-gradient-to-br from-emerald-600 to-emerald-800 text-white w-14 h-14 rounded-full border-2 border-emerald-400/50 shadow-lg flex items-center justify-center text-sm font-bold">
-                            Save<br/>32%
+                        <div className="flex items-start">
+                          <CircleDollarSign className="h-6 w-6 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
+                          <div>
+                            <h4 className="font-semibold text-white mb-1">Grant Eligibility Enhancement</h4>
+                            <p className="text-gray-300">Projects incorporating SON-SHIELD qualify for numerous sustainability and infrastructure resilience grants, with municipalities reporting 40-65% higher approval rates for funding applications that include proven protective technologies.</p>
+                          </div>
+                        </div>
+                        
+                        <div className="flex items-start">
+                          <CircleDollarSign className="h-6 w-6 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
+                          <div>
+                            <h4 className="font-semibold text-white mb-1">Bond Rating Protection</h4>
+                            <p className="text-gray-300">Demonstrable infrastructure protection programs positively impact municipal bond ratings by demonstrating fiscal responsibility and risk management, with rating agencies specifically noting proactive maintenance in evaluation criteria.</p>
                           </div>
                         </div>
                       </div>
-                      
-                      {/* Call-to-action for ROI calculator */}
-                      <div className="mt-5">
-                        <PremiumButton 
-                          onClick={() => setShowRegistrationForm(true)}
-                          className="w-full"
-                          variant="default"
-                        >
-                          <Calculator className="mr-2 h-4 w-4" />
-                          Calculate Your Custom ROI
-                        </PremiumButton>
-                      </div>
                     </div>
                   </div>
                   
-                  {/* Cost savings breakdown */}
-                  <div className="rounded-xl p-6 bg-gradient-to-br from-black/80 to-green-950/30 border border-green-800/30">
-                    <h3 className="text-2xl font-semibold mb-4 text-emerald-200">Budget-Friendly Benefits</h3>
-                    
-                    <div className="space-y-4">
-                      <div className="flex items-center justify-between p-3 rounded-lg bg-black/40">
-                        <div className="flex items-center">
-                          <CircleDollarSign className="h-5 w-5 text-emerald-400 mr-3" />
-                          <span className="text-gray-300">Energy Cost Reduction</span>
-                        </div>
-                        <span className="text-emerald-400 font-bold">25-42%</span>
-                      </div>
+                  <div>
+                    <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-green-700/20 shadow-md h-full">
+                      <h3 className="text-xl font-bold mb-4 text-green-300">Operational Budget Benefits</h3>
                       
-                      <div className="flex items-center justify-between p-3 rounded-lg bg-black/40">
-                        <div className="flex items-center">
-                          <Clock className="h-5 w-5 text-emerald-400 mr-3" />
-                          <span className="text-gray-300">Maintenance Reduction</span>
+                      <div className="space-y-5">
+                        <div className="flex items-start">
+                          <DollarSign className="h-6 w-6 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
+                          <div>
+                            <h4 className="font-semibold text-white mb-1">Maintenance Cost Reduction</h4>
+                            <p className="text-gray-300">Annual maintenance budgets show 55-70% reductions for protected infrastructure, with elimination of painting cycles, decreased cleaning requirements, and minimal repair needs. Documentation from existing municipal clients shows average annual savings of $2.25-$3.10 per square foot of treated surface.</p>
+                          </div>
                         </div>
-                        <span className="text-emerald-400 font-bold">65-80%</span>
-                      </div>
-                      
-                      <div className="flex items-center justify-between p-3 rounded-lg bg-black/40">
-                        <div className="flex items-center">
-                          <Shield className="h-5 w-5 text-emerald-400 mr-3" />
-                          <span className="text-gray-300">Fire Safety Rating Increase</span>
+                        
+                        <div className="flex items-start">
+                          <DollarSign className="h-6 w-6 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
+                          <div>
+                            <h4 className="font-semibold text-white mb-1">Energy Cost Savings</h4>
+                            <p className="text-gray-300">The thermal insulation properties of SON-SHIELD coatings reduce heating and cooling costs by 25-35% annually, with typical municipal buildings experiencing $1.15-$1.85 per square foot in energy expense reduction, meeting or exceeding energy efficiency mandates.</p>
+                          </div>
                         </div>
-                        <span className="text-emerald-400 font-bold">75-90%</span>
-                      </div>
-                      
-                      <div className="flex items-center justify-between p-3 rounded-lg bg-black/40">
-                        <div className="flex items-center">
-                          <Building className="h-5 w-5 text-emerald-400 mr-3" />
-                          <span className="text-gray-300">Asset Lifespan Extension</span>
+                        
+                        <div className="flex items-start">
+                          <DollarSign className="h-6 w-6 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
+                          <div>
+                            <h4 className="font-semibold text-white mb-1">Insurance Premium Reductions</h4>
+                            <p className="text-gray-300">Municipal insurance providers offer 8-15% premium reductions for properties with documented protection systems, recognizing the decreased risk of structural failures, water damage, and liability claims.</p>
+                          </div>
                         </div>
-                        <span className="text-emerald-400 font-bold">15-25 years</span>
-                      </div>
-                      
-                      <div className="flex items-center justify-between p-3 rounded-lg bg-black/40">
-                        <div className="flex items-center">
-                          <Leaf className="h-5 w-5 text-emerald-400 mr-3" />
-                          <span className="text-gray-300">Carbon Footprint Reduction</span>
-                        </div>
-                        <span className="text-emerald-400 font-bold">18-32%</span>
                       </div>
                     </div>
                   </div>
                 </div>
                 
-                {/* Key features */}
-                <div className="rounded-xl p-6 bg-gradient-to-br from-black/80 to-green-950/30 border border-green-800/30 mb-8">
-                  <h3 className="text-xl font-semibold mb-6 text-center text-emerald-200">Infrastructure Protection Features</h3>
-                  
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div className="flex flex-col items-center p-4 rounded-lg bg-black/40 transition-all duration-300 hover:bg-black/60">
-                      <div className="relative h-16 w-16 flex items-center justify-center bg-gradient-to-br from-emerald-900 to-emerald-800 rounded-xl border border-emerald-600/30 shadow-[0_0_15px_rgba(16,185,129,0.2)] mb-4">
-                        <div className="absolute inset-0.5 bg-gradient-to-br from-emerald-800 to-emerald-900 rounded-lg opacity-50"></div>
-                        <div className="absolute h-full w-1/2 bg-gradient-to-r from-transparent via-emerald-500/20 to-transparent skew-x-[-20deg] animate-shimmer-slow"></div>
-                        <Flame className="w-8 h-8 text-emerald-300 relative z-10" />
-                      </div>
-                      <h4 className="font-semibold text-lg text-emerald-300 mb-2">Fire Protection</h4>
-                      <p className="text-gray-400 text-center text-sm">Advanced ceramic coating provides Class-A fire resistance without costly renovations or disruption.</p>
-                    </div>
+                <div className="mb-10">
+                  <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-green-700/20 shadow-md">
+                    <h3 className="text-xl font-bold mb-4 text-green-300">Case Studies: Infrastructure Protection ROI</h3>
                     
-                    <div className="flex flex-col items-center p-4 rounded-lg bg-black/40 transition-all duration-300 hover:bg-black/60">
-                      <div className="relative h-16 w-16 flex items-center justify-center bg-gradient-to-br from-emerald-900 to-emerald-800 rounded-xl border border-emerald-600/30 shadow-[0_0_15px_rgba(16,185,129,0.2)] mb-4">
-                        <div className="absolute inset-0.5 bg-gradient-to-br from-emerald-800 to-emerald-900 rounded-lg opacity-50"></div>
-                        <div className="absolute h-full w-1/2 bg-gradient-to-r from-transparent via-emerald-500/20 to-transparent skew-x-[-20deg] animate-shimmer-slow" style={{ animationDelay: '0.3s' }}></div>
-                        <Zap className="w-8 h-8 text-emerald-300 relative z-10" />
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div className="bg-gray-900/50 p-4 rounded-lg border border-green-600/10">
+                        <h4 className="font-semibold text-white mb-2">City of Oakridge Municipal Building Complex</h4>
+                        <p className="text-gray-300 text-sm mb-3">
+                          A 250,000 sq ft government complex in the Midwest applied SON-SHIELD to exterior walls, roof surfaces, and exposed infrastructure in 2020. The city documented a 31% reduction in energy costs, 64% reduction in maintenance expenses, and successfully deferred a planned $12.8M facade replacement project for an estimated 15+ years.
+                        </p>
+                        <div className="flex justify-between text-sm">
+                          <span className="text-green-400">Total Implementation: $1.4M</span>
+                          <span className="text-green-400">5-Year ROI: 318%</span>
+                        </div>
                       </div>
-                      <h4 className="font-semibold text-lg text-emerald-300 mb-2">Energy Efficiency</h4>
-                      <p className="text-gray-400 text-center text-sm">Unique thermal barrier technology reduces HVAC costs by 25-42% with minimal application cost.</p>
-                    </div>
-                    
-                    <div className="flex flex-col items-center p-4 rounded-lg bg-black/40 transition-all duration-300 hover:bg-black/60">
-                      <div className="relative h-16 w-16 flex items-center justify-center bg-gradient-to-br from-emerald-900 to-emerald-800 rounded-xl border border-emerald-600/30 shadow-[0_0_15px_rgba(16,185,129,0.2)] mb-4">
-                        <div className="absolute inset-0.5 bg-gradient-to-br from-emerald-800 to-emerald-900 rounded-lg opacity-50"></div>
-                        <div className="absolute h-full w-1/2 bg-gradient-to-r from-transparent via-emerald-500/20 to-transparent skew-x-[-20deg] animate-shimmer-slow" style={{ animationDelay: '0.6s' }}></div>
-                        <Droplets className="w-8 h-8 text-emerald-300 relative z-10" />
+                      
+                      <div className="bg-gray-900/50 p-4 rounded-lg border border-green-600/10">
+                        <h4 className="font-semibold text-white mb-2">Riverdale County Bridge System</h4>
+                        <p className="text-gray-300 text-sm mb-3">
+                          A county transportation department applied SON-SHIELD to 14 bridges rated in "poor" condition in 2019. Independent structural analysis in 2023 documented arrested corrosion, eliminated water penetration, and significant restoration of structural integrity. The county reallocated $43.5M in planned replacement funds to other critical infrastructure needs.
+                        </p>
+                        <div className="flex justify-between text-sm">
+                          <span className="text-green-400">Cost Avoidance: $43.5M</span>
+                          <span className="text-green-400">ROI: 1,740%</span>
+                        </div>
                       </div>
-                      <h4 className="font-semibold text-lg text-emerald-300 mb-2">Weather Protection</h4>
-                      <p className="text-gray-400 text-center text-sm">Comprehensive protection against water, UV damage, and extreme weather for extended infrastructure lifespan.</p>
                     </div>
                   </div>
                 </div>
                 
-                {/* Grant compliance callout */}
-                <div className="relative p-6 rounded-xl bg-gradient-to-br from-black/80 to-green-950/30 border border-green-800/30">
-                  <div className="flex items-center mb-4">
-                    <Badge className="h-6 w-6 text-emerald-400 mr-2" />
-                    <h3 className="text-xl font-semibold text-emerald-200">Grant & Funding Compliance</h3>
+                <div>
+                  <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-green-700/20 shadow-md">
+                    <h3 className="text-xl font-bold mb-4 text-green-300">Municipal Budget Calculator</h3>
+                    <p className="text-gray-300 mb-6">
+                      Our specialized municipal budgeting tool provides comprehensive financial analysis tailored to your specific infrastructure protection needs. The calculator integrates current asset condition, projected maintenance schedules, energy modeling, and replacement cost projections to deliver accurate financial forecasting.
+                    </p>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                      <div className="bg-gray-900/70 p-4 rounded-lg border border-green-600/10 text-center">
+                        <h4 className="font-semibold text-green-300 mb-2">Typical 10-Year Capital Deferment</h4>
+                        <p className="text-3xl font-bold text-white mb-1">$125-$180<span className="text-lg">/sq ft</span></p>
+                        <p className="text-xs text-gray-400">Based on current municipal construction costs</p>
+                      </div>
+                      
+                      <div className="bg-gray-900/70 p-4 rounded-lg border border-green-600/10 text-center">
+                        <h4 className="font-semibold text-green-300 mb-2">Annual Maintenance Savings</h4>
+                        <p className="text-3xl font-bold text-white mb-1">$2.25-$3.10<span className="text-lg">/sq ft/yr</span></p>
+                        <p className="text-xs text-gray-400">Based on documented municipal client data</p>
+                      </div>
+                      
+                      <div className="bg-gray-900/70 p-4 rounded-lg border border-green-600/10 text-center">
+                        <h4 className="font-semibold text-green-300 mb-2">Energy Cost Reduction</h4>
+                        <p className="text-3xl font-bold text-white mb-1">25-35<span className="text-lg">%</span></p>
+                        <p className="text-xs text-gray-400">Based on thermal performance testing</p>
+                      </div>
+                    </div>
+                    
+                    <div className="flex justify-center">
+                      <Button 
+                        className="relative group overflow-hidden bg-black border border-green-400 hover:border-green-300 transition-all duration-300 px-8 py-3 text-lg shadow-lg"
+                        onClick={handleShowConsultationForm}
+                      >
+                        <span className="relative z-10 text-white group-hover:text-green-200 transition-colors duration-300 flex items-center">
+                          <Calculator className="w-5 h-5 mr-2" />
+                          Request Budget Analysis
+                        </span>
+                        <span className="absolute -inset-[3px] bg-green-600 opacity-30 group-hover:opacity-50 transition-opacity duration-300 blur-md rounded-lg -z-10"></span>
+                      </Button>
+                    </div>
                   </div>
-                  
-                  <p className="text-gray-300 mb-6">Praetorian Smart-Coat qualifies for multiple federal and state funding programs, including:</p>
-                  
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-                    <div className="flex items-start space-x-2">
-                      <CheckCircle className="h-5 w-5 text-emerald-400 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-300 text-sm">FEMA Building Resilience Funding</span>
-                    </div>
-                    <div className="flex items-start space-x-2">
-                      <CheckCircle className="h-5 w-5 text-emerald-400 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-300 text-sm">Energy Efficiency & Conservation Block Grants</span>
-                    </div>
-                    <div className="flex items-start space-x-2">
-                      <CheckCircle className="h-5 w-5 text-emerald-400 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-300 text-sm">Inflation Reduction Act Tax Credits</span>
-                    </div>
-                    <div className="flex items-start space-x-2">
-                      <CheckCircle className="h-5 w-5 text-emerald-400 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-300 text-sm">State Infrastructure Modernization Programs</span>
-                    </div>
-                  </div>
-                  
-                  <p className="text-sm text-emerald-200 italic">Our municipal specialists work directly with your grant writing team to maximize funding opportunities, often achieving 40-80% project cost coverage through available programs.</p>
                 </div>
               </div>
             </div>
@@ -1039,213 +787,123 @@ export default function Municipality() {
         
         {/* SANDLER STAGE 4: DECISION - PURPLE GLOW SECTION */}
         <section className="relative z-10 py-12 overflow-hidden">
-          <div className="container mx-auto pb-16">
+          <div className="container mx-auto mb-16">
             <div className="relative">
-              {/* Section-specific ambient purple glow in background (z-index lower than content) */}
-              <div className="absolute -inset-10 bg-purple-900/10 rounded-full blur-[100px] opacity-80 z-0"></div>
-              <div className="absolute -inset-20 bg-violet-800/5 rounded-full blur-[150px] opacity-70 z-0 animate-pulse-slow"></div>
+              {/* Enhanced Purple glow effect with multi-layer glow */}
+              <div className="absolute -inset-10 bg-purple-500/20 rounded-xl blur-xl opacity-70 z-0"></div>
+              <div className="absolute -inset-20 bg-purple-600/10 rounded-xl blur-2xl opacity-50 z-0"></div>
+              <div className="absolute -inset-30 bg-purple-700/5 rounded-xl blur-3xl opacity-30 z-0 animate-pulse-slow"></div>
               
-              {/* Content card with high z-index to appear over the glow */}
-              <div className="relative z-20 rounded-2xl overflow-hidden p-8 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-purple-700/30 shadow-[0_10px_50px_-12px_rgba(0,0,0,0.4)]">
-                {/* Section Title with premium styling */}
-                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-300 via-violet-200 to-purple-300">
-                  Next Steps for Municipal Leaders
+              {/* Content card */}
+              <div className="relative z-20 rounded-2xl overflow-hidden p-8 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-purple-700/30 shadow-lg">
+                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-300 via-purple-200 to-purple-300">
+                  Become a Praetorian Municipal Contractor
                 </h2>
                 
-                {/* Next steps content */}
-                {!showRegistrationForm ? (
-                  <div className="space-y-8">
-                    {/* Process Steps */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-                      <div className="relative rounded-xl p-6 bg-gradient-to-br from-black/80 to-purple-950/30 border border-purple-800/30">
-                        {/* Step indicator */}
-                        <div className="absolute -top-4 -left-4 w-8 h-8 rounded-full bg-purple-600 text-white flex items-center justify-center font-bold">1</div>
-                        <h3 className="text-xl font-semibold mb-3 text-purple-200">Free Consultation</h3>
-                        <p className="text-gray-400 mb-4">Schedule a personalized analysis of your municipal infrastructure's specific needs with zero obligation.</p>
-                        <div className="flex items-center text-purple-400 text-sm">
-                          <ChevronRight className="h-4 w-4 mr-1" />
-                          <span>Includes preliminary ROI analysis</span>
-                        </div>
-                      </div>
+                {!showRegistrationForm && !registrationSuccess && (
+                  <div className="flex flex-col items-center">
+                    <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-purple-700/20 shadow-md max-w-3xl mx-auto mb-8">
+                      <h3 className="text-xl font-bold mb-4 text-purple-300 text-center">Contractor Benefits</h3>
                       
-                      <div className="relative rounded-xl p-6 bg-gradient-to-br from-black/80 to-purple-950/30 border border-purple-800/30">
-                        {/* Step indicator */}
-                        <div className="absolute -top-4 -left-4 w-8 h-8 rounded-full bg-purple-600 text-white flex items-center justify-center font-bold">2</div>
-                        <h3 className="text-xl font-semibold mb-3 text-purple-200">Custom Protection Plan</h3>
-                        <p className="text-gray-400 mb-4">Receive a comprehensive protection strategy tailored to your specific infrastructure, budget, and compliance needs.</p>
-                        <div className="flex items-center text-purple-400 text-sm">
-                          <ChevronRight className="h-4 w-4 mr-1" />
-                          <span>Includes funding assistance</span>
-                        </div>
-                      </div>
-                      
-                      <div className="relative rounded-xl p-6 bg-gradient-to-br from-black/80 to-purple-950/30 border border-purple-800/30">
-                        {/* Step indicator */}
-                        <div className="absolute -top-4 -left-4 w-8 h-8 rounded-full bg-purple-600 text-white flex items-center justify-center font-bold">3</div>
-                        <h3 className="text-xl font-semibold mb-3 text-purple-200">Efficient Implementation</h3>
-                        <p className="text-gray-400 mb-4">Our certified municipal specialists apply Praetorian Smart-Coat with minimal disruption to government operations.</p>
-                        <div className="flex items-center text-purple-400 text-sm">
-                          <ChevronRight className="h-4 w-4 mr-1" />
-                          <span>Most projects complete in under 30 days</span>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    {/* Municipal case studies */}
-                    <div className="rounded-xl p-6 bg-gradient-to-br from-black/80 to-purple-950/20 border border-purple-800/30 mb-8">
-                      <h3 className="text-xl font-semibold mb-6 text-center text-purple-200">Municipal Success Stories</h3>
-                      
-                      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                        <div className="space-y-4 p-4 rounded-lg bg-black/30 border border-purple-800/20">
-                          <h4 className="font-medium text-lg text-purple-300">Springfield City Hall</h4>
-                          
-                          <div className="flex items-center text-sm text-gray-400 mb-2">
-                            <Building className="h-4 w-4 mr-2 text-purple-400" />
-                            <span>Historic preservation with modern protection</span>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div className="space-y-3">
+                          <div className="flex items-start">
+                            <CheckCircle className="h-5 w-5 text-purple-500 mr-2 flex-shrink-0 mt-0.5" />
+                            <span className="text-gray-300">GSA Schedule and procurement qualification support</span>
                           </div>
-                          
-                          <div className="space-y-2">
-                            <div className="flex justify-between text-sm">
-                              <span className="text-gray-400">Project Cost:</span>
-                              <span className="text-white">$215,000</span>
-                            </div>
-                            <div className="flex justify-between text-sm">
-                              <span className="text-gray-400">Annual Savings:</span>
-                              <span className="text-white">$87,500</span>
-                            </div>
-                            <div className="flex justify-between text-sm">
-                              <span className="text-gray-400">ROI:</span>
-                              <span className="text-purple-400 font-medium">405%</span>
-                            </div>
-                            <div className="flex justify-between text-sm">
-                              <span className="text-gray-400">Grant Coverage:</span>
-                              <span className="text-white">62%</span>
-                            </div>
+                          <div className="flex items-start">
+                            <CheckCircle className="h-5 w-5 text-purple-500 mr-2 flex-shrink-0 mt-0.5" />
+                            <span className="text-gray-300">Comprehensive training and government certification</span>
                           </div>
-                          
-                          <p className="text-xs text-gray-400 italic">
-                            "Praetorian helped us preserve our historic building while dramatically reducing our energy and maintenance costs." - Springfield Budget Director
-                          </p>
+                          <div className="flex items-start">
+                            <CheckCircle className="h-5 w-5 text-purple-500 mr-2 flex-shrink-0 mt-0.5" />
+                            <span className="text-gray-300">Bid specification assistance and pre-qualification</span>
+                          </div>
+                          <div className="flex items-start">
+                            <CheckCircle className="h-5 w-5 text-purple-500 mr-2 flex-shrink-0 mt-0.5" />
+                            <span className="text-gray-300">Technical support and application guidance</span>
+                          </div>
                         </div>
                         
-                        <div className="space-y-4 p-4 rounded-lg bg-black/30 border border-purple-800/20">
-                          <h4 className="font-medium text-lg text-purple-300">Westlake Public Works</h4>
-                          
-                          <div className="flex items-center text-sm text-gray-400 mb-2">
-                            <Blocks className="h-4 w-4 mr-2 text-purple-400" />
-                            <span>Infrastructure modernization program</span>
+                        <div className="space-y-3">
+                          <div className="flex items-start">
+                            <CheckCircle className="h-5 w-5 text-purple-500 mr-2 flex-shrink-0 mt-0.5" />
+                            <span className="text-gray-300">High-margin product with significant profit potential</span>
                           </div>
-                          
-                          <div className="space-y-2">
-                            <div className="flex justify-between text-sm">
-                              <span className="text-gray-400">Project Cost:</span>
-                              <span className="text-white">$560,000</span>
-                            </div>
-                            <div className="flex justify-between text-sm">
-                              <span className="text-gray-400">Annual Savings:</span>
-                              <span className="text-white">$196,000</span>
-                            </div>
-                            <div className="flex justify-between text-sm">
-                              <span className="text-gray-400">ROI:</span>
-                              <span className="text-purple-400 font-medium">350%</span>
-                            </div>
-                            <div className="flex justify-between text-sm">
-                              <span className="text-gray-400">Grant Coverage:</span>
-                              <span className="text-white">75%</span>
-                            </div>
+                          <div className="flex items-start">
+                            <CheckCircle className="h-5 w-5 text-purple-500 mr-2 flex-shrink-0 mt-0.5" />
+                            <span className="text-gray-300">Recurring revenue from maintenance contracts</span>
                           </div>
-                          
-                          <p className="text-xs text-gray-400 italic">
-                            "We leveraged Praetorian's solution to extend our infrastructure lifespan while qualifying for maximum federal funding." - Westlake City Manager
-                          </p>
-                        </div>
-                        
-                        <div className="space-y-4 p-4 rounded-lg bg-black/30 border border-purple-800/20">
-                          <h4 className="font-medium text-lg text-purple-300">Riverside County Facilities</h4>
-                          
-                          <div className="flex items-center text-sm text-gray-400 mb-2">
-                            <Shield className="h-4 w-4 mr-2 text-purple-400" />
-                            <span>Fire safety & energy efficiency upgrade</span>
+                          <div className="flex items-start">
+                            <CheckCircle className="h-5 w-5 text-purple-500 mr-2 flex-shrink-0 mt-0.5" />
+                            <span className="text-gray-300">Access to municipal funding program database</span>
                           </div>
-                          
-                          <div className="space-y-2">
-                            <div className="flex justify-between text-sm">
-                              <span className="text-gray-400">Project Cost:</span>
-                              <span className="text-white">$1.4 Million</span>
-                            </div>
-                            <div className="flex justify-between text-sm">
-                              <span className="text-gray-400">Annual Savings:</span>
-                              <span className="text-white">$520,000</span>
-                            </div>
-                            <div className="flex justify-between text-sm">
-                              <span className="text-gray-400">ROI:</span>
-                              <span className="text-purple-400 font-medium">371%</span>
-                            </div>
-                            <div className="flex justify-between text-sm">
-                              <span className="text-gray-400">Grant Coverage:</span>
-                              <span className="text-white">58%</span>
-                            </div>
+                          <div className="flex items-start">
+                            <CheckCircle className="h-5 w-5 text-purple-500 mr-2 flex-shrink-0 mt-0.5" />
+                            <span className="text-gray-300">Project estimating tools and presentation materials</span>
                           </div>
-                          
-                          <p className="text-xs text-gray-400 italic">
-                            "Praetorian's solution helped us meet stringent safety requirements while significantly reducing our carbon footprint." - Riverside Sustainability Director
-                          </p>
                         </div>
                       </div>
-                    </div>
-                    
-                    {/* Final CTA */}
-                    <div className="rounded-xl p-8 bg-gradient-to-br from-black/80 to-purple-900/20 border border-purple-700/30 text-center">
-                      <h3 className="text-2xl font-bold mb-4 text-white">Ready for Your Municipal Infrastructure Upgrade?</h3>
-                      <p className="text-gray-300 mb-6 max-w-2xl mx-auto">Join the growing number of municipal leaders protecting their infrastructure, reducing costs, and extending asset life with Praetorian Smart-Coat technology.</p>
                       
-                      <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                        <PremiumCartButton 
-                          size="lg" 
-                          onClick={() => setShowRegistrationForm(true)}
-                          variant="gold"
-                          className="relative group px-6 py-3"
+                      <div className="bg-gradient-to-br from-purple-900/30 to-purple-800/20 p-4 rounded-lg mb-8">
+                        <h4 className="font-semibold text-white mb-3 text-center">Ideal Contractor Profile</h4>
+                        <ul className="text-gray-300 space-y-2">
+                          <li className="flex items-center">
+                            <ChevronRight className="h-4 w-4 text-purple-400 mr-2" />
+                            <span>Commercial or industrial painting contractors with government experience</span>
+                          </li>
+                          <li className="flex items-center">
+                            <ChevronRight className="h-4 w-4 text-purple-400 mr-2" />
+                            <span>Building maintenance companies serving municipal clients</span>
+                          </li>
+                          <li className="flex items-center">
+                            <ChevronRight className="h-4 w-4 text-purple-400 mr-2" />
+                            <span>Infrastructure service providers and specialty contractors</span>
+                          </li>
+                          <li className="flex items-center">
+                            <ChevronRight className="h-4 w-4 text-purple-400 mr-2" />
+                            <span>Construction companies with government contracting experience</span>
+                          </li>
+                        </ul>
+                      </div>
+                      
+                      <div className="text-center">
+                        <Button 
+                          className="relative group overflow-hidden bg-black border border-purple-400 hover:border-purple-300 transition-all duration-300 px-8 py-3 text-lg shadow-lg"
+                          onClick={handleShowRegistrationForm}
                         >
-                          <div className="flex items-center">
-                            <Landmark className="mr-2 h-5 w-5" />
-                            <span>Schedule Municipal Consultation</span>
-                          </div>
-                        </PremiumCartButton>
-                        
-                        <PremiumButton 
-                          variant="ghost"
-                          className="flex items-center gap-2"
-                          onClick={() => {}}
-                        >
-                          <FileText className="h-5 w-5" />
-                          <span>Download Municipal Case Studies</span>
-                        </PremiumButton>
+                          <span className="relative z-10 text-white group-hover:text-purple-200 transition-colors duration-300 flex items-center">
+                            Apply to Become A Contractor
+                          </span>
+                          <span className="absolute -inset-[3px] bg-purple-600 opacity-30 group-hover:opacity-50 transition-opacity duration-300 blur-md rounded-lg -z-10"></span>
+                        </Button>
                       </div>
                     </div>
                   </div>
-                ) : (
-                  <div className="rounded-xl p-8 bg-gradient-to-br from-gray-900/90 to-purple-950/10 border border-purple-700/30 max-w-4xl mx-auto">
-                    <div className="flex items-center justify-between mb-6">
-                      <h3 className="text-2xl font-bold text-purple-100">Municipal Professional Registration</h3>
-                      <div className="px-3 py-1 bg-purple-900/30 text-purple-200 border border-purple-700/50 rounded-full text-xs font-medium">
-                        Government Priority Access
-                      </div>
-                    </div>
-                    
-                    <Form {...form}>
-                      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-                        <div className="space-y-4">
-                          <h4 className="text-lg font-medium text-purple-200 border-b border-purple-800/30 pb-2 mb-4">Organization Information</h4>
+                )}
+                
+                {/* Contractor Application Form */}
+                {showRegistrationForm && !registrationSuccess && (
+                  <div className="max-w-4xl mx-auto">
+                    <Form {...registrationForm}>
+                      <form onSubmit={registrationForm.handleSubmit(onRegistrationSubmit)} className="space-y-6">
+                        {/* Company Information */}
+                        <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-purple-700/20 shadow-md">
+                          <h3 className="text-xl font-bold mb-4 text-purple-300">Company Information</h3>
                           
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <FormField
-                              control={form.control}
+                              control={registrationForm.control}
                               name="companyName"
                               render={({ field }) => (
                                 <FormItem>
-                                  <FormLabel className="text-gray-300">Municipality/Organization Name</FormLabel>
+                                  <FormLabel className="text-gray-200">Company Name</FormLabel>
                                   <FormControl>
-                                    <Input placeholder="Municipality Name" {...field} className="bg-gray-900/70 border-purple-800/30 focus:border-purple-600/50" />
+                                    <Input 
+                                      placeholder="Enter company name" 
+                                      className="bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500"
+                                      {...field} 
+                                    />
                                   </FormControl>
                                   <FormMessage />
                                 </FormItem>
@@ -1253,25 +911,320 @@ export default function Municipality() {
                             />
                             
                             <FormField
-                              control={form.control}
-                              name="professionalType"
+                              control={registrationForm.control}
+                              name="contactName"
                               render={({ field }) => (
                                 <FormItem>
-                                  <FormLabel className="text-gray-300">Government Type</FormLabel>
-                                  <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                  <FormLabel className="text-gray-200">Primary Contact Name</FormLabel>
+                                  <FormControl>
+                                    <Input 
+                                      placeholder="Enter contact name" 
+                                      className="bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500"
+                                      {...field} 
+                                    />
+                                  </FormControl>
+                                  <FormMessage />
+                                </FormItem>
+                              )}
+                            />
+                          </div>
+                          
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                            <FormField
+                              control={registrationForm.control}
+                              name="email"
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormLabel className="text-gray-200">Email Address</FormLabel>
+                                  <FormControl>
+                                    <Input 
+                                      placeholder="Enter email address" 
+                                      className="bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500"
+                                      {...field} 
+                                    />
+                                  </FormControl>
+                                  <FormMessage />
+                                </FormItem>
+                              )}
+                            />
+                            
+                            <FormField
+                              control={registrationForm.control}
+                              name="confirmEmail"
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormLabel className="text-gray-200">Confirm Email</FormLabel>
+                                  <FormControl>
+                                    <Input 
+                                      placeholder="Confirm email address" 
+                                      className="bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500"
+                                      {...field} 
+                                    />
+                                  </FormControl>
+                                  <FormMessage />
+                                </FormItem>
+                              )}
+                            />
+                          </div>
+                          
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                            <FormField
+                              control={registrationForm.control}
+                              name="phone"
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormLabel className="text-gray-200">Phone Number</FormLabel>
+                                  <FormControl>
+                                    <Input 
+                                      placeholder="Enter phone number" 
+                                      className="bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500"
+                                      {...field} 
+                                    />
+                                  </FormControl>
+                                  <FormMessage />
+                                </FormItem>
+                              )}
+                            />
+                            
+                            <FormField
+                              control={registrationForm.control}
+                              name="companyAddress"
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormLabel className="text-gray-200">Company Address</FormLabel>
+                                  <FormControl>
+                                    <Input 
+                                      placeholder="Enter company address" 
+                                      className="bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500"
+                                      {...field} 
+                                    />
+                                  </FormControl>
+                                  <FormMessage />
+                                </FormItem>
+                              )}
+                            />
+                          </div>
+                          
+                          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+                            <FormField
+                              control={registrationForm.control}
+                              name="city"
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormLabel className="text-gray-200">City</FormLabel>
+                                  <FormControl>
+                                    <Input 
+                                      placeholder="Enter city" 
+                                      className="bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500"
+                                      {...field} 
+                                    />
+                                  </FormControl>
+                                  <FormMessage />
+                                </FormItem>
+                              )}
+                            />
+                            
+                            <FormField
+                              control={registrationForm.control}
+                              name="state"
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormLabel className="text-gray-200">State/Province</FormLabel>
+                                  <FormControl>
+                                    <Input 
+                                      placeholder="Enter state" 
+                                      className="bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500"
+                                      {...field} 
+                                    />
+                                  </FormControl>
+                                  <FormMessage />
+                                </FormItem>
+                              )}
+                            />
+                            
+                            <FormField
+                              control={registrationForm.control}
+                              name="zipCode"
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormLabel className="text-gray-200">ZIP/Postal Code</FormLabel>
+                                  <FormControl>
+                                    <Input 
+                                      placeholder="Enter ZIP code" 
+                                      className="bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500"
+                                      {...field} 
+                                    />
+                                  </FormControl>
+                                  <FormMessage />
+                                </FormItem>
+                              )}
+                            />
+                          </div>
+                        </div>
+                        
+                        {/* Business Details */}
+                        <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-purple-700/20 shadow-md">
+                          <h3 className="text-xl font-bold mb-4 text-purple-300">Business Details</h3>
+                          
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <FormField
+                              control={registrationForm.control}
+                              name="licenseNumber"
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormLabel className="text-gray-200">Business License Number</FormLabel>
+                                  <FormControl>
+                                    <Input 
+                                      placeholder="Enter license number" 
+                                      className="bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500"
+                                      {...field} 
+                                    />
+                                  </FormControl>
+                                  <FormMessage />
+                                </FormItem>
+                              )}
+                            />
+                            
+                            <FormField
+                              control={registrationForm.control}
+                              name="yearsInBusiness"
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormLabel className="text-gray-200">Years in Business</FormLabel>
+                                  <FormControl>
+                                    <Input 
+                                      placeholder="Enter years in business" 
+                                      className="bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500"
+                                      {...field} 
+                                    />
+                                  </FormControl>
+                                  <FormMessage />
+                                </FormItem>
+                              )}
+                            />
+                          </div>
+                          
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                            <FormField
+                              control={registrationForm.control}
+                              name="serviceAreaMiles"
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormLabel className="text-gray-200">Service Area (miles)</FormLabel>
+                                  <FormControl>
+                                    <Input 
+                                      placeholder="Enter service radius" 
+                                      className="bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500"
+                                      {...field} 
+                                    />
+                                  </FormControl>
+                                  <FormMessage />
+                                </FormItem>
+                              )}
+                            />
+                            
+                            <FormField
+                              control={registrationForm.control}
+                              name="employeeCount"
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormLabel className="text-gray-200">Number of Employees</FormLabel>
+                                  <FormControl>
+                                    <Input 
+                                      placeholder="Enter employee count" 
+                                      className="bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500"
+                                      {...field} 
+                                    />
+                                  </FormControl>
+                                  <FormMessage />
+                                </FormItem>
+                              )}
+                            />
+                          </div>
+                          
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                            <FormField
+                              control={registrationForm.control}
+                              name="servicesOffered"
+                              render={() => (
+                                <FormItem>
+                                  <div className="mb-4">
+                                    <FormLabel className="text-gray-200">Current Services Offered</FormLabel>
+                                    <FormDescription className="text-gray-400">
+                                      Select all that apply
+                                    </FormDescription>
+                                  </div>
+                                  <div className="space-y-3">
+                                    {[
+                                      "Government Contracting",
+                                      "Commercial Painting",
+                                      "Building Maintenance",
+                                      "Waterproofing",
+                                      "Infrastructure Services",
+                                      "Construction",
+                                      "Facility Management",
+                                      "Other"
+                                    ].map((service) => (
+                                      <FormField
+                                        key={service}
+                                        control={registrationForm.control}
+                                        name="servicesOffered"
+                                        render={({ field }) => {
+                                          return (
+                                            <FormItem
+                                              key={service}
+                                              className="flex flex-row items-start space-x-3 space-y-0"
+                                            >
+                                              <FormControl>
+                                                <Checkbox
+                                                  checked={field.value?.includes(service)}
+                                                  onCheckedChange={(checked) => {
+                                                    return checked
+                                                      ? field.onChange([...field.value, service])
+                                                      : field.onChange(
+                                                          field.value?.filter(
+                                                            (value) => value !== service
+                                                          )
+                                                        )
+                                                  }}
+                                                  className="data-[state=checked]:bg-purple-600 data-[state=checked]:border-purple-600"
+                                                />
+                                              </FormControl>
+                                              <FormLabel className="text-gray-300 font-normal">
+                                                {service}
+                                              </FormLabel>
+                                            </FormItem>
+                                          )
+                                        }}
+                                      />
+                                    ))}
+                                  </div>
+                                  <FormMessage />
+                                </FormItem>
+                              )}
+                            />
+                            
+                            <FormField
+                              control={registrationForm.control}
+                              name="annualRevenue"
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormLabel className="text-gray-200">Annual Revenue</FormLabel>
+                                  <Select
+                                    onValueChange={field.onChange}
+                                    defaultValue={field.value}
+                                  >
                                     <FormControl>
-                                      <SelectTrigger className="bg-gray-900/70 border-purple-800/30 focus:border-purple-600/50">
-                                        <SelectValue placeholder="Select government type" />
+                                      <SelectTrigger className="bg-gray-800/50 border-gray-700 text-white">
+                                        <SelectValue placeholder="Select revenue range" />
                                       </SelectTrigger>
                                     </FormControl>
-                                    <SelectContent>
-                                      <SelectItem value="city">City/Town Government</SelectItem>
-                                      <SelectItem value="county">County Government</SelectItem>
-                                      <SelectItem value="state">State Government</SelectItem>
-                                      <SelectItem value="federal">Federal Government</SelectItem>
-                                      <SelectItem value="special">Special District</SelectItem>
-                                      <SelectItem value="school">School District</SelectItem>
-                                      <SelectItem value="other">Other Public Entity</SelectItem>
+                                    <SelectContent className="bg-gray-800 border-gray-700 text-white">
+                                      <SelectItem value="Under $500K">Under $500K</SelectItem>
+                                      <SelectItem value="$500K - $1M">$500K - $1M</SelectItem>
+                                      <SelectItem value="$1M - $5M">$1M - $5M</SelectItem>
+                                      <SelectItem value="$5M - $10M">$5M - $10M</SelectItem>
+                                      <SelectItem value="$10M+">$10M+</SelectItem>
                                     </SelectContent>
                                   </Select>
                                   <FormMessage />
@@ -1280,48 +1233,18 @@ export default function Municipality() {
                             />
                           </div>
                           
-                          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                          <div className="mt-4">
                             <FormField
-                              control={form.control}
-                              name="website"
+                              control={registrationForm.control}
+                              name="notes"
                               render={({ field }) => (
                                 <FormItem>
-                                  <FormLabel className="text-gray-300">Website</FormLabel>
+                                  <FormLabel className="text-gray-200">Government Experience</FormLabel>
                                   <FormControl>
-                                    <Input placeholder="Municipality Website" {...field} value={field.value || ''} className="bg-gray-900/70 border-purple-800/30 focus:border-purple-600/50" />
-                                  </FormControl>
-                                  <FormMessage />
-                                </FormItem>
-                              )}
-                            />
-                            
-                            <FormField
-                              control={form.control}
-                              name="jurisdictions"
-                              render={({ field }) => (
-                                <FormItem>
-                                  <FormLabel className="text-gray-300">Population Served</FormLabel>
-                                  <FormControl>
-                                    <Input placeholder="Approx. population served" {...field} className="bg-gray-900/70 border-purple-800/30 focus:border-purple-600/50" />
-                                  </FormControl>
-                                  <FormMessage />
-                                </FormItem>
-                              )}
-                            />
-                            
-                            <FormField
-                              control={form.control}
-                              name="experienceYears"
-                              render={({ field }) => (
-                                <FormItem>
-                                  <FormLabel className="text-gray-300">Number of Buildings</FormLabel>
-                                  <FormControl>
-                                    <Input 
-                                      type="number" 
-                                      placeholder="# of municipal buildings to protect" 
+                                    <Textarea 
+                                      placeholder="Please describe your experience with government and municipal projects" 
+                                      className="bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500 min-h-[100px]"
                                       {...field} 
-                                      onChange={(e) => field.onChange(e.target.value === '' ? undefined : Number(e.target.value))}
-                                      className="bg-gray-900/70 border-purple-800/30 focus:border-purple-600/50"
                                     />
                                   </FormControl>
                                   <FormMessage />
@@ -1331,236 +1254,342 @@ export default function Municipality() {
                           </div>
                         </div>
                         
-                        <div className="space-y-4">
-                          <h4 className="text-lg font-medium text-purple-200 border-b border-purple-800/30 pb-2 mb-4">Contact Information</h4>
-                          
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <FormField
-                              control={form.control}
-                              name="contactName"
-                              render={({ field }) => (
-                                <FormItem>
-                                  <FormLabel className="text-gray-300">Contact Name</FormLabel>
-                                  <FormControl>
-                                    <Input placeholder="Full Name" {...field} className="bg-gray-900/70 border-purple-800/30 focus:border-purple-600/50" />
-                                  </FormControl>
-                                  <FormMessage />
-                                </FormItem>
-                              )}
-                            />
-                            
-                            <FormField
-                              control={form.control}
-                              name="credentials"
-                              render={({ field }) => (
-                                <FormItem>
-                                  <FormLabel className="text-gray-300">Job Title</FormLabel>
-                                  <FormControl>
-                                    <Input placeholder="Your title/position" {...field} className="bg-gray-900/70 border-purple-800/30 focus:border-purple-600/50" />
-                                  </FormControl>
-                                  <FormMessage />
-                                </FormItem>
-                              )}
-                            />
-                          </div>
-                          
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <FormField
-                              control={form.control}
-                              name="email"
-                              render={({ field }) => (
-                                <FormItem>
-                                  <FormLabel className="text-gray-300">Email</FormLabel>
-                                  <FormControl>
-                                    <Input type="email" placeholder="Your email" {...field} className="bg-gray-900/70 border-purple-800/30 focus:border-purple-600/50" />
-                                  </FormControl>
-                                  <FormMessage />
-                                </FormItem>
-                              )}
-                            />
-                            
-                            <FormField
-                              control={form.control}
-                              name="confirmEmail"
-                              render={({ field }) => (
-                                <FormItem>
-                                  <FormLabel className="text-gray-300">Confirm Email</FormLabel>
-                                  <FormControl>
-                                    <Input type="email" placeholder="Confirm your email" {...field} className="bg-gray-900/70 border-purple-800/30 focus:border-purple-600/50" />
-                                  </FormControl>
-                                  <FormMessage />
-                                </FormItem>
-                              )}
-                            />
-                          </div>
-                          
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <FormField
-                              control={form.control}
-                              name="phone"
-                              render={({ field }) => (
-                                <FormItem>
-                                  <FormLabel className="text-gray-300">Phone</FormLabel>
-                                  <FormControl>
-                                    <Input placeholder="Your phone number" {...field} className="bg-gray-900/70 border-purple-800/30 focus:border-purple-600/50" />
-                                  </FormControl>
-                                  <FormMessage />
-                                </FormItem>
-                              )}
-                            />
-                            
-                            <FormField
-                              control={form.control}
-                              name="state"
-                              render={({ field }) => (
-                                <FormItem>
-                                  <FormLabel className="text-gray-300">State/Province</FormLabel>
-                                  <FormControl>
-                                    <Input placeholder="State/Province" {...field} className="bg-gray-900/70 border-purple-800/30 focus:border-purple-600/50" />
-                                  </FormControl>
-                                  <FormMessage />
-                                </FormItem>
-                              )}
-                            />
-                          </div>
-                        </div>
-                        
-                        <div className="space-y-4">
-                          <h4 className="text-lg font-medium text-purple-200 border-b border-purple-800/30 pb-2 mb-4">Project Details</h4>
-                          
+                        <div>
                           <FormField
-                            control={form.control}
-                            name="specialties"
-                            render={() => (
-                              <FormItem>
-                                <FormLabel className="text-gray-300">Project Interests (select all that apply)</FormLabel>
-                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mt-2">
-                                  {[
-                                    { value: "fire-protection", label: "Fire Protection" },
-                                    { value: "energy-efficiency", label: "Energy Efficiency" },
-                                    { value: "maintenance-reduction", label: "Maintenance Reduction" },
-                                    { value: "historic-preservation", label: "Historic Preservation" },
-                                    { value: "sustainability", label: "Sustainability Goals" },
-                                    { value: "grant-assistance", label: "Grant Assistance" },
-                                  ].map((interest) => (
-                                    <FormField
-                                      key={interest.value}
-                                      control={form.control}
-                                      name="specialties"
-                                      render={({ field }) => {
-                                        return (
-                                          <FormItem
-                                            key={interest.value}
-                                            className="flex flex-row items-start space-x-3 space-y-0 rounded-md p-3 bg-gray-900/50"
-                                          >
-                                            <FormControl>
-                                              <Checkbox
-                                                checked={field.value?.includes(interest.value)}
-                                                onCheckedChange={(checked) => {
-                                                  return checked
-                                                    ? field.onChange([...field.value, interest.value])
-                                                    : field.onChange(
-                                                        field.value?.filter(
-                                                          (value) => value !== interest.value
-                                                        )
-                                                      )
-                                                }}
-                                                className="border-purple-600/40 data-[state=checked]:bg-purple-600 data-[state=checked]:border-purple-700"
-                                              />
-                                            </FormControl>
-                                            <FormLabel className="font-normal text-gray-300">
-                                              {interest.label}
-                                            </FormLabel>
-                                          </FormItem>
-                                        )
-                                      }}
-                                    />
-                                  ))}
+                            control={registrationForm.control}
+                            name="termsAccepted"
+                            render={({ field }) => (
+                              <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border border-gray-700 p-4">
+                                <FormControl>
+                                  <Checkbox
+                                    checked={field.value}
+                                    onCheckedChange={field.onChange}
+                                    className="data-[state=checked]:bg-purple-600 data-[state=checked]:border-purple-600"
+                                  />
+                                </FormControl>
+                                <div className="space-y-1 leading-none">
+                                  <FormLabel className="text-gray-300 font-normal">
+                                    I agree to the terms and conditions, including the confidentiality and non-disclosure agreement for Praetorian municipal contractors.
+                                  </FormLabel>
                                 </div>
                                 <FormMessage />
                               </FormItem>
                             )}
                           />
-                          
-                          <FormField
-                            control={form.control}
-                            name="notes"
-                            render={({ field }) => (
-                              <FormItem>
-                                <FormLabel className="text-gray-300">Additional Project Notes</FormLabel>
-                                <FormControl>
-                                  <Textarea 
-                                    placeholder="Share any specific requirements, questions, or details about your municipal infrastructure project..."
-                                    className="min-h-[100px] bg-gray-900/70 border-purple-800/30 focus:border-purple-600/50"
-                                    {...field}
-                                  />
-                                </FormControl>
-                                <FormMessage />
-                              </FormItem>
-                            )}
-                          />
                         </div>
                         
-                        <div className="flex flex-col md:flex-row justify-between space-y-4 md:space-y-0 pt-4 border-t border-purple-800/30">
-                          <PremiumButton 
-                            type="button" 
-                            variant="outline"
-                            onClick={() => setShowRegistrationForm(false)}
-                            className="border-purple-700/40"
-                          >
-                            Back to Information
-                          </PremiumButton>
-                          
-                          <PremiumCartButton
+                        <div className="flex justify-center pt-4">
+                          <Button 
                             type="submit"
-                            disabled={isPending}
-                            variant="gold"
-                            className="px-8"
+                            className="relative group overflow-hidden bg-black border border-purple-400 hover:border-purple-300 transition-all duration-300 px-8 py-3 text-lg shadow-lg"
                           >
-                            {isPending ? (
-                              <>
-                                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                                <span>Processing...</span>
-                              </>
-                            ) : (
-                              <>
-                                <CalendarCheck className="mr-2 h-4 w-4" />
-                                <span>Schedule Municipal Consultation</span>
-                              </>
-                            )}
-                          </PremiumCartButton>
+                            <span className="relative z-10 text-white group-hover:text-purple-200 transition-colors duration-300">
+                              Submit Application
+                            </span>
+                            <span className="absolute -inset-[3px] bg-purple-600 opacity-30 group-hover:opacity-50 transition-opacity duration-300 blur-md rounded-lg -z-10"></span>
+                          </Button>
                         </div>
                       </form>
                     </Form>
+                  </div>
+                )}
+                
+                {/* Application Success */}
+                {registrationSuccess && (
+                  <div className="max-w-3xl mx-auto">
+                    <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-8 rounded-lg border border-green-500/30 shadow-md text-center">
+                      <div className="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <CheckCircle className="w-10 h-10 text-green-500" />
+                      </div>
+                      <h3 className="text-2xl font-bold mb-4 text-white">Application Submitted Successfully!</h3>
+                      <p className="text-gray-300 mb-6">
+                        Thank you for your interest in becoming a Praetorian Smart-Coat municipal contractor. Our team will review your application and contact you within 2-3 business days to discuss next steps.
+                      </p>
+                      <p className="text-gray-300 mb-8">
+                        While you wait, you may want to explore our municipal resource section for more detailed information about our products and technologies.
+                      </p>
+                      <div className="flex flex-wrap justify-center gap-4">
+                        <Button variant="outline" className="border-purple-500 text-purple-400 hover:text-purple-300 hover:border-purple-400">
+                          View Contractor Resources
+                        </Button>
+                        <Button variant="outline" className="border-blue-500 text-blue-400 hover:text-blue-300 hover:border-blue-400">
+                          Return to Home Page
+                        </Button>
+                      </div>
+                    </div>
                   </div>
                 )}
               </div>
             </div>
           </div>
         </section>
+        
+        {/* Free Consultation Form */}
+        {showConsultationForm && !consultationRequestSuccess && (
+          <section className="relative z-10 py-12 overflow-hidden">
+            <div className="container mx-auto mb-16">
+              <div className="relative">
+                {/* Blue glow for form */}
+                <div className="absolute -inset-10 bg-blue-500/20 rounded-xl blur-xl opacity-70 z-0"></div>
+                <div className="absolute -inset-20 bg-blue-600/10 rounded-xl blur-2xl opacity-50 z-0"></div>
+                
+                {/* Content card */}
+                <div className="relative z-20 rounded-2xl overflow-hidden p-8 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-blue-700/30 shadow-lg max-w-3xl mx-auto">
+                  <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-blue-100 to-blue-300">
+                    Request Your Municipal Consultation
+                  </h2>
+                  
+                  <p className="text-gray-300 mb-8 text-center">
+                    Complete the form below, and one of our municipal infrastructure specialists will contact you to discuss your specific needs and provide a detailed budget analysis.
+                  </p>
+                  
+                  <Form {...consultationForm}>
+                    <form onSubmit={consultationForm.handleSubmit(onConsultationSubmit)} className="space-y-6">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <FormField
+                          control={consultationForm.control}
+                          name="name"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="text-gray-200">Full Name</FormLabel>
+                              <FormControl>
+                                <Input 
+                                  placeholder="Enter your name" 
+                                  className="bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500"
+                                  {...field} 
+                                />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                        
+                        <FormField
+                          control={consultationForm.control}
+                          name="email"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="text-gray-200">Email Address</FormLabel>
+                              <FormControl>
+                                <Input 
+                                  placeholder="Enter your email" 
+                                  className="bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500"
+                                  {...field} 
+                                />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                      </div>
+                      
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <FormField
+                          control={consultationForm.control}
+                          name="phone"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="text-gray-200">Phone Number</FormLabel>
+                              <FormControl>
+                                <Input 
+                                  placeholder="Enter your phone number" 
+                                  className="bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500"
+                                  {...field} 
+                                />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                        
+                        <FormField
+                          control={consultationForm.control}
+                          name="organizationName"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="text-gray-200">Organization Name</FormLabel>
+                              <FormControl>
+                                <Input 
+                                  placeholder="Enter organization name" 
+                                  className="bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500"
+                                  {...field} 
+                                />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                      </div>
+                      
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <FormField
+                          control={consultationForm.control}
+                          name="position"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="text-gray-200">Position/Title</FormLabel>
+                              <FormControl>
+                                <Input 
+                                  placeholder="Enter your position" 
+                                  className="bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500"
+                                  {...field} 
+                                />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                        
+                        <FormField
+                          control={consultationForm.control}
+                          name="projectType"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="text-gray-200">Project Type</FormLabel>
+                              <Select
+                                onValueChange={field.onChange}
+                                defaultValue={field.value}
+                              >
+                                <FormControl>
+                                  <SelectTrigger className="bg-gray-800/50 border-gray-700 text-white">
+                                    <SelectValue placeholder="Select project type" />
+                                  </SelectTrigger>
+                                </FormControl>
+                                <SelectContent className="bg-gray-800 border-gray-700 text-white">
+                                  <SelectItem value="Government Building">Government Building</SelectItem>
+                                  <SelectItem value="Water Infrastructure">Water Infrastructure</SelectItem>
+                                  <SelectItem value="Transportation Infrastructure">Transportation Infrastructure</SelectItem>
+                                  <SelectItem value="Public Works">Public Works</SelectItem>
+                                  <SelectItem value="Parks & Recreation">Parks & Recreation</SelectItem>
+                                  <SelectItem value="Other Municipal">Other Municipal</SelectItem>
+                                </SelectContent>
+                              </Select>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                      </div>
+                      
+                      <FormField
+                        control={consultationForm.control}
+                        name="message"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-gray-200">Project Details</FormLabel>
+                            <FormControl>
+                              <Textarea 
+                                placeholder="Please describe your infrastructure protection needs, including approximate square footage, current condition, and any specific challenges" 
+                                className="bg-gray-800/50 border-gray-700 text-white min-h-[120px]"
+                                {...field} 
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      
+                      <div className="flex justify-center">
+                        <Button 
+                          type="submit"
+                          className="relative group overflow-hidden bg-black border border-blue-400 hover:border-blue-300 transition-all duration-300 px-8 py-3 text-lg shadow-lg"
+                        >
+                          <span className="relative z-10 text-white group-hover:text-blue-200 transition-colors duration-300">
+                            Submit Request
+                          </span>
+                          <span className="absolute -inset-[3px] bg-blue-600 opacity-30 group-hover:opacity-50 transition-opacity duration-300 blur-md rounded-lg -z-10"></span>
+                        </Button>
+                      </div>
+                    </form>
+                  </Form>
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
+        
+        {/* Consultation Request Success */}
+        {consultationRequestSuccess && (
+          <section className="relative z-10 py-12 overflow-hidden">
+            <div className="container mx-auto mb-16">
+              <div className="relative">
+                {/* Green success glow */}
+                <div className="absolute -inset-10 bg-green-500/20 rounded-xl blur-xl opacity-70 z-0"></div>
+                <div className="absolute -inset-20 bg-green-600/10 rounded-xl blur-2xl opacity-50 z-0"></div>
+                
+                {/* Content card */}
+                <div className="relative z-20 rounded-2xl overflow-hidden p-8 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-green-500/30 shadow-lg max-w-3xl mx-auto">
+                  <div className="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <CheckCircle className="w-10 h-10 text-green-500" />
+                  </div>
+                  <h2 className="text-2xl md:text-3xl font-bold mb-4 text-center text-white">
+                    Consultation Request Received!
+                  </h2>
+                  <p className="text-gray-300 mb-6 text-center">
+                    Thank you for your interest in Praetorian Smart-Coat municipal infrastructure solutions. One of our specialists will contact you within 24 hours to discuss your specific needs and provide a detailed analysis.
+                  </p>
+                  <p className="text-gray-300 mb-8 text-center">
+                    In the meantime, you may want to explore our municipal resource section for more information on protecting your critical infrastructure.
+                  </p>
+                  <div className="flex flex-wrap justify-center gap-4">
+                    <Button variant="outline" className="border-green-500 text-green-400 hover:text-green-300 hover:border-green-400">
+                      Browse Municipal Resources
+                    </Button>
+                    <Button variant="outline" className="border-blue-500 text-blue-400 hover:text-blue-300 hover:border-blue-400">
+                      Return to Home Page
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
+        
+        {/* CTA Footer Section */}
+        <section className="relative z-10 py-12 overflow-hidden">
+          <div className="container mx-auto">
+            <div className="relative">
+              {/* Blue glow */}
+              <div className="absolute -inset-10 bg-blue-500/10 rounded-xl blur-xl opacity-70 z-0"></div>
+              
+              {/* Content card */}
+              <div className="relative z-20 rounded-2xl overflow-hidden p-8 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-blue-700/20 shadow-lg">
+                <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
+                  <div className="lg:w-2/3">
+                    <h2 className="text-2xl md:text-3xl font-bold mb-4 text-white">
+                      Ready to Protect Your Municipal Assets?
+                    </h2>
+                    <p className="text-gray-300">
+                      Join the growing number of municipalities using Praetorian Smart-Coat to extend infrastructure life, reduce maintenance costs, and optimize their budgets.
+                    </p>
+                  </div>
+                  
+                  <div className="lg:w-1/3 flex flex-wrap gap-4 justify-center lg:justify-end">
+                    <Button 
+                      className="relative group overflow-hidden bg-black border border-blue-400 hover:border-blue-300 transition-all duration-300 px-6 py-2 shadow-lg"
+                      onClick={handleShowConsultationForm}
+                    >
+                      <span className="relative z-10 text-white group-hover:text-blue-200 transition-colors duration-300">
+                        Request Consultation
+                      </span>
+                      <span className="absolute -inset-[3px] bg-blue-600 opacity-30 group-hover:opacity-50 transition-opacity duration-300 blur-md rounded-lg -z-10"></span>
+                    </Button>
+                    
+                    <Button 
+                      className="relative group overflow-hidden bg-black border border-purple-400 hover:border-purple-300 transition-all duration-300 px-6 py-2 shadow-lg"
+                      onClick={handleShowRegistrationForm}
+                    >
+                      <span className="relative z-10 text-white group-hover:text-purple-200 transition-colors duration-300">
+                        Become a Contractor
+                      </span>
+                      <span className="absolute -inset-[3px] bg-purple-600 opacity-30 group-hover:opacity-50 transition-opacity duration-300 blur-md rounded-lg -z-10"></span>
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
-
-      {/* JSON-LD for SEO */}
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `
-        {
-          "@context": "https://schema.org/",
-          "@type": "Product",
-          "name": "Praetorian Smart-Coat Municipal Infrastructure Protection System",
-          "description": "Advanced ceramic coating technology with fireproofing, weatherproofing, and energy-efficiency for municipal assets, delivering superior protection while reducing maintenance costs and extending infrastructure lifespan.",
-          "brand": {
-            "@type": "Brand",
-            "name": "Praetorian Smart-Coat"
-          },
-          "offers": {
-            "@type": "Offer",
-            "url": "https://praetoriansmartcoat.com/municipality",
-            "priceCurrency": "USD",
-            "priceValidUntil": "2025-12-31",
-            "availability": "https://schema.org/InStock"
-          },
-          "aggregateRating": {}
-        }
-      `}} />
     </MainLayout>
   );
 }
