@@ -1938,9 +1938,11 @@ const MobileHome = () => {
                 </span>
               </h2>
               
-              <div className="relative h-full">
-                <div className="absolute -inset-1 bg-gradient-to-r from-green-500/20 via-blue-500/20 to-green-500/20 rounded-xl blur-xl opacity-70"></div>
-                <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black rounded-xl border border-gray-800 shadow-[0_0_60px_rgba(34,197,94,0.3)] p-8 overflow-hidden h-full flex flex-col">
+              <div className="grid md:grid-cols-2 gap-8">
+                {/* ROI Card 1 */}
+                <div className="relative h-full">
+                  <div className="absolute -inset-1 bg-gradient-to-r from-green-500/20 via-blue-500/20 to-green-500/20 rounded-xl blur-xl opacity-70"></div>
+                  <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black rounded-xl border border-gray-800 shadow-[0_0_60px_rgba(34,197,94,0.3)] p-8 overflow-hidden h-full flex flex-col">
                   {/* Premium enterprise background effects - Green for ROI section */}
                   <div className="absolute inset-0 overflow-hidden pointer-events-none">
                     <div className="absolute top-0 left-0 right-0 h-[40%] bg-gradient-to-br from-green-600/10 to-transparent rounded-t-xl opacity-50"></div>
@@ -1963,10 +1965,10 @@ const MobileHome = () => {
                   
 
                   
-                  <h2 className="text-3xl font-bold mb-8 text-white drop-shadow-[0_1px_3px_rgba(59,130,246,0.6)] relative z-10 mt-4">
+                  <h2 className="text-3xl font-bold mb-8 text-white drop-shadow-[0_1px_3px_rgba(34,197,94,0.6)] relative z-10 mt-4">
                     <span className="relative inline-block">
-                      Ceramic Microsphere Benefits
-                      <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-48 h-[2px] bg-gradient-to-r from-transparent via-blue-500 to-transparent"></div>
+                      Measurable ROI Benefits
+                      <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-48 h-[2px] bg-gradient-to-r from-transparent via-green-500 to-transparent"></div>
                     </span>
                   </h2>
                   
