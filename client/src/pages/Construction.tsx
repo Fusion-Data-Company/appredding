@@ -43,10 +43,9 @@ import { RiBuilding2Line, RiShieldLine, RiFireLine } from "react-icons/ri";
 import { useToast } from "@/hooks/use-toast";
 import { cn } from "@/lib/utils";
 import { motion, useScroll, useTransform } from "framer-motion";
-import LabelHighlight from "@/components/ui/LabelHighlight";
-import SEOHead from "@/components/SEOHead";
+import SimpleSEO from "@/components/SimpleSEO";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
-import PremiumCartButton from "@/components/ui/PremiumCartButton";
+import { PremiumCartButton } from "@/utils/premium-buttons";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
 // Form schema for contact
@@ -93,7 +92,9 @@ const Construction = () => {
       <SEOHead 
         title="Construction Solutions | Praetorian Smart-Coat"
         description="Advanced thermal protection solutions for construction projects. Increase energy efficiency and protect valuable assets with Praetorian Smart-Coat technology."
-        keywords="construction coating, energy efficiency, thermal protection, building envelope, construction insulation"
+        keywords={["construction coating", "energy efficiency", "thermal protection", "building envelope", "construction insulation"]}
+        industry="Construction"
+        slug="construction"
       />
       <div className="relative">
         {/* HERO SECTION */}
