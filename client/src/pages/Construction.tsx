@@ -3,6 +3,7 @@ import MainLayout from "@/components/layout/MainLayout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { 
   Form,
@@ -10,7 +11,8 @@ import {
   FormField,
   FormItem,
   FormLabel,
-  FormMessage
+  FormMessage,
+  FormDescription
 } from "@/components/ui/form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -48,6 +50,10 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { PremiumCartButton } from "@/utils/premium-buttons";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import ConstructionROICalculator from "@/components/ConstructionROICalculator";
+import { CalendarIcon, CheckCircle, Info } from "lucide-react";
+import { format } from "date-fns";
+import { Calendar } from "@/components/ui/calendar";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 
 // Form schema for contact
 const formSchema = z.object({
@@ -59,14 +65,49 @@ const formSchema = z.object({
   message: z.string().min(10, { message: "Message must be at least 10 characters" })
 });
 
+// Construction Professional Registration Form Schema
+const constructionProfessionalFormSchema = z.object({
+  companyName: z.string().min(2, { message: "Company name is required" }),
+  contactName: z.string().min(2, { message: "Contact name is required" }),
+  email: z.string().email({ message: "Valid email is required" }),
+  confirmEmail: z.string().email({ message: "Emails must match" }),
+  phone: z.string().min(10, { message: "Valid phone number is required" }),
+  companyAddress: z.string().min(5, { message: "Address is required" }),
+  city: z.string().min(2, { message: "City is required" }),
+  state: z.string().min(2, { message: "State is required" }),
+  zipCode: z.string().min(5, { message: "ZIP code is required" }),
+  website: z.string().optional(),
+  licenseNumber: z.string().min(3, { message: "License number is required" }),
+  licenseExpiryDate: z.date({ 
+    required_error: "License expiry date is required" 
+  }),
+  insuranceInfo: z.string().min(5, { message: "Insurance information is required" }),
+  yearsInBusiness: z.number().min(0, { message: "Years in business is required" }),
+  constructionTypes: z.array(z.string()).min(1, { message: "Select at least one construction type" }),
+  serviceAreas: z.array(z.string()).min(1, { message: "Select at least one service area" }),
+  certifications: z.array(z.string()).optional(),
+  notes: z.string().optional(),
+  termsAccepted: z.literal(true, {
+    errorMap: () => ({ message: "You must accept the terms and conditions" }),
+  }),
+}).refine(
+  (data) => data.email === data.confirmEmail,
+  {
+    message: "Emails do not match",
+    path: ["confirmEmail"]
+  }
+);
+
 const Construction = () => {
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [displayLearnMore, setDisplayLearnMore] = useState(false);
+  const [showRegistrationForm, setShowRegistrationForm] = useState(false);
+  const [registrationSuccess, setRegistrationSuccess] = useState(false);
   const { toast } = useToast();
   const { scrollYProgress } = useScroll();
   const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
 
-  // Form setup
+  // Contact form setup
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -78,6 +119,32 @@ const Construction = () => {
       message: ""
     }
   });
+  
+  // Registration form setup for construction professionals
+  const registrationForm = useForm<z.infer<typeof constructionProfessionalFormSchema>>({
+    resolver: zodResolver(constructionProfessionalFormSchema),
+    defaultValues: {
+      companyName: "",
+      contactName: "",
+      email: "",
+      confirmEmail: "",
+      phone: "",
+      companyAddress: "",
+      city: "",
+      state: "",
+      zipCode: "",
+      website: "",
+      licenseNumber: "",
+      licenseExpiryDate: undefined,
+      insuranceInfo: "",
+      yearsInBusiness: 0,
+      constructionTypes: [],
+      serviceAreas: [],
+      certifications: [],
+      notes: "",
+      termsAccepted: false
+    }
+  });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
@@ -86,6 +153,15 @@ const Construction = () => {
       description: "We've received your request and will contact you shortly.",
     });
     form.reset();
+  }
+  
+  function onRegistrationSubmit(values: z.infer<typeof constructionProfessionalFormSchema>) {
+    console.log(values);
+    toast({
+      title: "Registration Received",
+      description: "Your application has been submitted successfully.",
+    });
+    setRegistrationSuccess(true);
   }
 
   return (
@@ -800,17 +876,494 @@ const Construction = () => {
                     Become an authorized Praetorian Smart-Coat™ distributor and position your business at the forefront of construction innovation with unmatched profit potential.
                   </p>
                   <div>
+                    <div className="relative inline-block group/distributor-button">
+                    {/* Enhanced purple ambient glow */}
+                    <div className="absolute -inset-3 bg-purple-500/10 rounded-2xl blur-2xl opacity-0 group-hover/distributor-button:opacity-100 transition-opacity duration-700"></div>
+                    <div className="absolute -inset-2 bg-gradient-to-r from-purple-600/20 via-blue-600/30 to-purple-600/20 rounded-xl blur-xl opacity-70 group-hover/distributor-button:opacity-90 transition-opacity duration-500"></div>
+                    <div className="absolute -inset-1 bg-gradient-to-r from-purple-600/30 to-blue-600/30 rounded-lg blur-md opacity-60 group-hover/distributor-button:opacity-80 transition-opacity duration-300"></div>
+
                     <PremiumCartButton 
-                      className="px-8 py-4 bg-gradient-to-r from-emerald-600 to-green-700 hover:from-emerald-700 hover:to-green-800 text-white rounded-lg font-bold shadow-lg transition-all"
+                      className="relative z-10 px-10 py-5 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-purple-500/50 rounded-lg font-bold shadow-lg text-purple-100 hover:text-white transition-all transform hover:scale-105 overflow-hidden"
                     >
-                      Apply to Become a Distributor
+                      {/* Glass overlay with subtle transparency */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-purple-700/10 rounded-xl opacity-100 group-hover:opacity-0 transition-opacity duration-300 -z-[1]"></div>
+                      
+                      {/* Animated hover gradient */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-purple-500/40 to-blue-600/40 rounded-xl -z-[1] translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+                      
+                      <span className="relative inline-block overflow-hidden">
+                        <span className="relative inline-block group-hover:translate-y-full transition-transform duration-300">
+                          Apply to Become a Distributor
+                        </span>
+                        <span className="absolute inset-0 flex items-center justify-center -translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                          <span className="relative">
+                            Apply to Become a Distributor
+                            <span className="absolute inset-x-0 bottom-0 h-[1px] bg-gradient-to-r from-transparent via-purple-300/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
+                          </span>
+                        </span>
+                      </span>
                     </PremiumCartButton>
+                  </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </section>
+        
+        {/* PURPLE REGISTRATION SECTION - Completing the traffic light pattern */}
+        <section className="py-16 relative z-10">
+          <div className="container mx-auto">
+            <div className="text-center mb-8">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2, duration: 0.6 }}
+              >
+                <PremiumCartButton 
+                  className="text-lg font-bold"
+                  onClick={() => setShowRegistrationForm(true)}
+                >
+                  Apply to Become a Certified Construction Partner
+                </PremiumCartButton>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+        
+        {/* Registration Form Section - Purple Section (conditionally rendered) */}
+        {showRegistrationForm && (
+          <section className="py-16 relative z-10">
+            <div className="container mx-auto">
+              <div className="relative">
+                {/* Purple glow effect */}
+                <div className="absolute -inset-10 bg-purple-700/20 rounded-xl blur-xl opacity-60 z-0"></div>
+                <div className="absolute -inset-20 bg-purple-800/10 rounded-xl blur-2xl opacity-50 z-0"></div>
+                <div className="absolute -inset-30 bg-indigo-700/10 rounded-xl blur-3xl opacity-40 z-0"></div>
+                <div className="absolute -inset-0 bg-gradient-to-r from-blue-900/20 via-purple-900/20 to-blue-900/20 rounded-xl blur-3xl opacity-60 z-0"></div>
+                
+                <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black p-8 md:p-10 rounded-xl border border-purple-500/30 shadow-[0_0_60px_rgba(147,51,234,0.15)] z-10">
+                  {/* Corner Accents */}
+                  <div className="absolute top-0 left-0 w-full h-full rounded-lg overflow-hidden pointer-events-none">
+                    <div className="absolute top-0 left-0 w-32 h-32 border-t-4 border-l-4 border-purple-500/40 rounded-tl-lg"></div>
+                    <div className="absolute top-0 right-0 w-32 h-32 border-t-4 border-r-4 border-blue-500/30 rounded-tr-lg"></div>
+                    <div className="absolute bottom-0 left-0 w-32 h-32 border-b-4 border-l-4 border-blue-500/30 rounded-bl-lg"></div>
+                    <div className="absolute bottom-0 right-0 w-32 h-32 border-b-4 border-r-4 border-purple-500/40 rounded-br-lg"></div>
+                  </div>
+                  
+                  <h2 className="text-3xl font-bold mb-8 text-white drop-shadow-[0_1px_3px_rgba(147,51,234,0.6)] relative z-10 text-center">
+                    <span className="relative inline-block">
+                      Construction Professional Registration
+                      <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-64 h-[2px] bg-gradient-to-r from-transparent via-purple-500 to-transparent"></div>
+                    </span>
+                  </h2>
+                  
+                  {registrationSuccess ? (
+                    <div className="p-8 rounded-lg bg-gradient-to-br from-gray-900 to-black border border-green-500/30 relative z-10">
+                      <CheckCircle className="h-16 w-16 mx-auto mb-6 text-green-500" />
+                      <h3 className="text-2xl font-bold text-white text-center mb-4">Registration Successful!</h3>
+                      <p className="text-purple-100 text-center mb-6">Your application has been received and is now being reviewed by our team.</p>
+                      <p className="text-purple-100 text-center mb-8">We will contact you within 24-48 hours to discuss partnership opportunities and next steps.</p>
+                      <div className="flex justify-center">
+                        <Button 
+                          onClick={() => setShowRegistrationForm(false)}
+                          className="bg-gradient-to-r from-purple-600 to-purple-800 hover:from-purple-700 hover:to-purple-900 text-white"
+                        >
+                          Return to Page
+                        </Button>
+                      </div>
+                    </div>
+                  ) : (
+                    <Form {...registrationForm}>
+                      <form onSubmit={registrationForm.handleSubmit(onRegistrationSubmit)} className="space-y-8 relative z-10">
+                        <div className="grid md:grid-cols-2 gap-8">
+                          {/* Company Information Section */}
+                          <div className="space-y-6">
+                            <h3 className="text-xl font-semibold text-purple-300 mb-4">Company Information</h3>
+                            
+                            <FormField
+                              control={registrationForm.control}
+                              name="companyName"
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormLabel className="text-gray-200">Company Name</FormLabel>
+                                  <FormControl>
+                                    <Input 
+                                      placeholder="Enter your company name" 
+                                      className="bg-gray-900/70 border-gray-700 focus:border-purple-500 text-white" 
+                                      {...field} 
+                                    />
+                                  </FormControl>
+                                  <FormMessage />
+                                </FormItem>
+                              )}
+                            />
+                            
+                            <FormField
+                              control={registrationForm.control}
+                              name="contactName"
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormLabel className="text-gray-200">Contact Name</FormLabel>
+                                  <FormControl>
+                                    <Input 
+                                      placeholder="Full name of primary contact" 
+                                      className="bg-gray-900/70 border-gray-700 focus:border-purple-500 text-white" 
+                                      {...field} 
+                                    />
+                                  </FormControl>
+                                  <FormMessage />
+                                </FormItem>
+                              )}
+                            />
+                            
+                            <div className="grid grid-cols-2 gap-4">
+                              <FormField
+                                control={registrationForm.control}
+                                name="email"
+                                render={({ field }) => (
+                                  <FormItem>
+                                    <FormLabel className="text-gray-200">Email</FormLabel>
+                                    <FormControl>
+                                      <Input 
+                                        placeholder="Email address" 
+                                        className="bg-gray-900/70 border-gray-700 focus:border-purple-500 text-white" 
+                                        {...field} 
+                                      />
+                                    </FormControl>
+                                    <FormMessage />
+                                  </FormItem>
+                                )}
+                              />
+                              
+                              <FormField
+                                control={registrationForm.control}
+                                name="confirmEmail"
+                                render={({ field }) => (
+                                  <FormItem>
+                                    <FormLabel className="text-gray-200">Confirm Email</FormLabel>
+                                    <FormControl>
+                                      <Input 
+                                        placeholder="Confirm email" 
+                                        className="bg-gray-900/70 border-gray-700 focus:border-purple-500 text-white" 
+                                        {...field} 
+                                      />
+                                    </FormControl>
+                                    <FormMessage />
+                                  </FormItem>
+                                )}
+                              />
+                            </div>
+                            
+                            <FormField
+                              control={registrationForm.control}
+                              name="phone"
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormLabel className="text-gray-200">Phone</FormLabel>
+                                  <FormControl>
+                                    <Input 
+                                      placeholder="Business phone number" 
+                                      className="bg-gray-900/70 border-gray-700 focus:border-purple-500 text-white" 
+                                      {...field} 
+                                    />
+                                  </FormControl>
+                                  <FormMessage />
+                                </FormItem>
+                              )}
+                            />
+                            
+                            <FormField
+                              control={registrationForm.control}
+                              name="companyAddress"
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormLabel className="text-gray-200">Business Address</FormLabel>
+                                  <FormControl>
+                                    <Input 
+                                      placeholder="Street address" 
+                                      className="bg-gray-900/70 border-gray-700 focus:border-purple-500 text-white" 
+                                      {...field} 
+                                    />
+                                  </FormControl>
+                                  <FormMessage />
+                                </FormItem>
+                              )}
+                            />
+                            
+                            <div className="grid grid-cols-3 gap-4">
+                              <FormField
+                                control={registrationForm.control}
+                                name="city"
+                                render={({ field }) => (
+                                  <FormItem>
+                                    <FormLabel className="text-gray-200">City</FormLabel>
+                                    <FormControl>
+                                      <Input 
+                                        placeholder="City" 
+                                        className="bg-gray-900/70 border-gray-700 focus:border-purple-500 text-white" 
+                                        {...field} 
+                                      />
+                                    </FormControl>
+                                    <FormMessage />
+                                  </FormItem>
+                                )}
+                              />
+                              
+                              <FormField
+                                control={registrationForm.control}
+                                name="state"
+                                render={({ field }) => (
+                                  <FormItem>
+                                    <FormLabel className="text-gray-200">State</FormLabel>
+                                    <FormControl>
+                                      <Input 
+                                        placeholder="State" 
+                                        className="bg-gray-900/70 border-gray-700 focus:border-purple-500 text-white" 
+                                        {...field} 
+                                      />
+                                    </FormControl>
+                                    <FormMessage />
+                                  </FormItem>
+                                )}
+                              />
+                              
+                              <FormField
+                                control={registrationForm.control}
+                                name="zipCode"
+                                render={({ field }) => (
+                                  <FormItem>
+                                    <FormLabel className="text-gray-200">ZIP Code</FormLabel>
+                                    <FormControl>
+                                      <Input 
+                                        placeholder="ZIP code" 
+                                        className="bg-gray-900/70 border-gray-700 focus:border-purple-500 text-white" 
+                                        {...field} 
+                                      />
+                                    </FormControl>
+                                    <FormMessage />
+                                  </FormItem>
+                                )}
+                              />
+                            </div>
+                          </div>
+                          
+                          {/* Credentials & Experience Section */}
+                          <div className="space-y-6">
+                            <h3 className="text-xl font-semibold text-purple-300 mb-4">Credentials & Experience</h3>
+                            
+                            <FormField
+                              control={registrationForm.control}
+                              name="licenseNumber"
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormLabel className="text-gray-200">Contractor License Number</FormLabel>
+                                  <FormControl>
+                                    <Input 
+                                      placeholder="License number" 
+                                      className="bg-gray-900/70 border-gray-700 focus:border-purple-500 text-white" 
+                                      {...field} 
+                                    />
+                                  </FormControl>
+                                  <FormMessage />
+                                </FormItem>
+                              )}
+                            />
+                            
+                            <FormField
+                              control={registrationForm.control}
+                              name="licenseExpiryDate"
+                              render={({ field }) => (
+                                <FormItem className="flex flex-col">
+                                  <FormLabel className="text-gray-200">License Expiry Date</FormLabel>
+                                  <Popover>
+                                    <PopoverTrigger asChild>
+                                      <FormControl>
+                                        <Button
+                                          variant={"outline"}
+                                          className={cn(
+                                            "w-full pl-3 text-left font-normal bg-gray-900/70 border-gray-700 hover:bg-gray-800 text-white",
+                                            !field.value && "text-gray-500"
+                                          )}
+                                        >
+                                          {field.value ? (
+                                            format(field.value, "PPP")
+                                          ) : (
+                                            <span>Select expiry date</span>
+                                          )}
+                                          <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
+                                        </Button>
+                                      </FormControl>
+                                    </PopoverTrigger>
+                                    <PopoverContent className="w-auto p-0 bg-gray-900 border-gray-700" align="start">
+                                      <Calendar
+                                        mode="single"
+                                        selected={field.value}
+                                        onSelect={field.onChange}
+                                        disabled={(date) =>
+                                          date < new Date()
+                                        }
+                                        initialFocus
+                                        className="bg-gray-900 text-white"
+                                      />
+                                    </PopoverContent>
+                                  </Popover>
+                                  <FormMessage />
+                                </FormItem>
+                              )}
+                            />
+                            
+                            <FormField
+                              control={registrationForm.control}
+                              name="insuranceInfo"
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormLabel className="text-gray-200">Insurance Information</FormLabel>
+                                  <FormControl>
+                                    <Input 
+                                      placeholder="Insurance provider and policy number" 
+                                      className="bg-gray-900/70 border-gray-700 focus:border-purple-500 text-white" 
+                                      {...field} 
+                                    />
+                                  </FormControl>
+                                  <FormMessage />
+                                </FormItem>
+                              )}
+                            />
+                            
+                            <FormField
+                              control={registrationForm.control}
+                              name="yearsInBusiness"
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormLabel className="text-gray-200">Years in Business</FormLabel>
+                                  <FormControl>
+                                    <Input 
+                                      type="number"
+                                      placeholder="Years of industry experience" 
+                                      className="bg-gray-900/70 border-gray-700 focus:border-purple-500 text-white" 
+                                      {...field}
+                                      onChange={(e) => field.onChange(Number(e.target.value))}
+                                    />
+                                  </FormControl>
+                                  <FormMessage />
+                                </FormItem>
+                              )}
+                            />
+                            
+                            <FormField
+                              control={registrationForm.control}
+                              name="constructionTypes"
+                              render={() => (
+                                <FormItem>
+                                  <div className="mb-4">
+                                    <FormLabel className="text-gray-200">Construction Types</FormLabel>
+                                    <FormDescription className="text-gray-400">
+                                      Select all that apply to your business
+                                    </FormDescription>
+                                  </div>
+                                  <div className="grid grid-cols-2 gap-2">
+                                    {[
+                                      "Commercial", 
+                                      "Residential", 
+                                      "Industrial", 
+                                      "Government", 
+                                      "Educational", 
+                                      "Healthcare",
+                                      "Retail",
+                                      "Hospitality"
+                                    ].map((type) => (
+                                      <FormField
+                                        key={type}
+                                        control={registrationForm.control}
+                                        name="constructionTypes"
+                                        render={({ field }) => {
+                                          return (
+                                            <FormItem
+                                              key={type}
+                                              className="flex flex-row items-start space-x-3 space-y-0"
+                                            >
+                                              <FormControl>
+                                                <Checkbox
+                                                  checked={field.value?.includes(type)}
+                                                  onCheckedChange={(checked) => {
+                                                    return checked
+                                                      ? field.onChange([...field.value, type])
+                                                      : field.onChange(
+                                                          field.value?.filter(
+                                                            (value) => value !== type
+                                                          )
+                                                        )
+                                                  }}
+                                                  className="data-[state=checked]:bg-purple-600 data-[state=checked]:border-purple-600"
+                                                />
+                                              </FormControl>
+                                              <FormLabel className="text-gray-300 font-normal">
+                                                {type}
+                                              </FormLabel>
+                                            </FormItem>
+                                          )
+                                        }}
+                                      />
+                                    ))}
+                                  </div>
+                                  <FormMessage />
+                                </FormItem>
+                              )}
+                            />
+                          </div>
+                        </div>
+                        
+                        {/* Terms and submit */}
+                        <div className="space-y-6 pt-4">
+                          <FormField
+                            control={registrationForm.control}
+                            name="termsAccepted"
+                            render={({ field }) => (
+                              <FormItem className="flex flex-row items-start space-x-3 space-y-0">
+                                <FormControl>
+                                  <Checkbox
+                                    checked={field.value}
+                                    onCheckedChange={field.onChange}
+                                    className="data-[state=checked]:bg-purple-600 data-[state=checked]:border-purple-600"
+                                  />
+                                </FormControl>
+                                <div className="space-y-1 leading-none">
+                                  <FormLabel className="text-gray-300 font-normal">
+                                    I accept the <a href="#" className="text-purple-400 hover:underline">terms and conditions</a> and agree to the <a href="#" className="text-purple-400 hover:underline">contractor standards</a>
+                                  </FormLabel>
+                                  <FormMessage />
+                                </div>
+                              </FormItem>
+                            )}
+                          />
+                          
+                          <div className="flex justify-between items-center pt-4">
+                            <Button 
+                              type="button"
+                              variant="outline" 
+                              onClick={() => setShowRegistrationForm(false)}
+                              className="border-gray-600 text-gray-300 hover:bg-gray-800"
+                            >
+                              Cancel
+                            </Button>
+                            <Button 
+                              type="submit"
+                              className="bg-gradient-to-r from-purple-600 to-purple-800 hover:from-purple-700 hover:to-purple-900 text-white px-8"
+                            >
+                              Submit Application
+                            </Button>
+                          </div>
+                        </div>
+                      </form>
+                    </Form>
+                  )}
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
       </div>
     </MainLayout>
   );
