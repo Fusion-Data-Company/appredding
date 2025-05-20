@@ -6,7 +6,6 @@ import { motion } from 'framer-motion';
 const ConstructionROICalculator = () => {
   const [squareFootage, setSquareFootage] = useState<number>(10000);
   const [energyCostPerSqFt, setEnergyCostPerSqFt] = useState<number>(2.15);
-  const [showDetails, setShowDetails] = useState(true); // Always show details
   const [showResults, setShowResults] = useState(false);
   
   // Calculate results
@@ -23,16 +22,11 @@ const ConstructionROICalculator = () => {
   return (
     <div className="w-full rounded-xl overflow-hidden bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-amber-600/30 shadow-lg">
       <div className="p-6">
-        <div className="flex items-center justify-between mb-4">
-          <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-amber-300 to-blue-300">
+        <div className="relative mb-6">
+          <div className="absolute -inset-2 bg-gradient-to-r from-blue-500/20 via-amber-500/20 to-blue-500/20 rounded-lg blur-md opacity-70"></div>
+          <h3 className="relative text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-amber-300 to-blue-300 p-2 text-center">
             Construction Project ROI Calculator
           </h3>
-          <button 
-            onClick={() => setShowDetails(!showDetails)}
-            className="text-amber-400 hover:text-amber-300 transition-colors duration-200"
-          >
-            {showDetails ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
-          </button>
         </div>
         
         {/* Calculator Form */}
@@ -70,64 +64,56 @@ const ConstructionROICalculator = () => {
             </div>
           </div>
           
-          {/* Advanced parameters (shown when details expanded) */}
-          {showDetails && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3 }}
-              className="space-y-4 pt-2"
-            >
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <label className="flex items-center text-sm font-medium text-gray-300 mb-1">
-                    <Zap size={14} className="mr-1 text-amber-500" />
-                    Energy Savings Rate
-                  </label>
-                  <div className="bg-gray-800/40 border border-gray-700 rounded-md p-2 flex items-center justify-between">
-                    <span className="text-gray-400">Default</span>
-                    <span className="text-amber-400 font-semibold">32% (Validated)</span>
-                  </div>
-                </div>
-                
-                <div>
-                  <label className="flex items-center text-sm font-medium text-gray-300 mb-1">
-                    <Calendar size={14} className="mr-1 text-amber-500" />
-                    Building Lifespan Extension
-                  </label>
-                  <div className="bg-gray-800/40 border border-gray-700 rounded-md p-2 flex items-center justify-between">
-                    <span className="text-gray-400">Default</span>
-                    <span className="text-amber-400 font-semibold">45%</span>
-                  </div>
+          {/* Advanced parameters (always shown) */}
+          <div className="space-y-4 pt-2">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label className="flex items-center text-sm font-medium text-gray-300 mb-1">
+                  <Zap size={14} className="mr-1 text-amber-500" />
+                  Energy Savings Rate
+                </label>
+                <div className="bg-gray-800/40 border border-gray-700 rounded-md p-2 flex items-center justify-between">
+                  <span className="text-gray-400">Default</span>
+                  <span className="text-amber-400 font-semibold">32% (Validated)</span>
                 </div>
               </div>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <label className="flex items-center text-sm font-medium text-gray-300 mb-1">
-                    <PercentCircle size={14} className="mr-1 text-amber-500" />
-                    Insurance Premium Reduction
-                  </label>
-                  <div className="bg-gray-800/40 border border-gray-700 rounded-md p-2 flex items-center justify-between">
-                    <span className="text-gray-400">Default</span>
-                    <span className="text-amber-400 font-semibold">18%</span>
-                  </div>
-                </div>
-                
-                <div>
-                  <label className="flex items-center text-sm font-medium text-gray-300 mb-1">
-                    <PieChart size={14} className="mr-1 text-amber-500" />
-                    Application Cost ($/sq ft)
-                  </label>
-                  <div className="bg-gray-800/40 border border-gray-700 rounded-md p-2 flex items-center justify-between">
-                    <span className="text-gray-400">Default</span>
-                    <span className="text-amber-400 font-semibold">$3.85</span>
-                  </div>
+              <div>
+                <label className="flex items-center text-sm font-medium text-gray-300 mb-1">
+                  <Calendar size={14} className="mr-1 text-amber-500" />
+                  Building Lifespan Extension
+                </label>
+                <div className="bg-gray-800/40 border border-gray-700 rounded-md p-2 flex items-center justify-between">
+                  <span className="text-gray-400">Default</span>
+                  <span className="text-amber-400 font-semibold">45%</span>
                 </div>
               </div>
-            </motion.div>
-          )}
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label className="flex items-center text-sm font-medium text-gray-300 mb-1">
+                  <PercentCircle size={14} className="mr-1 text-amber-500" />
+                  Insurance Premium Reduction
+                </label>
+                <div className="bg-gray-800/40 border border-gray-700 rounded-md p-2 flex items-center justify-between">
+                  <span className="text-gray-400">Default</span>
+                  <span className="text-amber-400 font-semibold">18%</span>
+                </div>
+              </div>
+              
+              <div>
+                <label className="flex items-center text-sm font-medium text-gray-300 mb-1">
+                  <PieChart size={14} className="mr-1 text-amber-500" />
+                  Application Cost ($/sq ft)
+                </label>
+                <div className="bg-gray-800/40 border border-gray-700 rounded-md p-2 flex items-center justify-between">
+                  <span className="text-gray-400">Default</span>
+                  <span className="text-amber-400 font-semibold">$3.85</span>
+                </div>
+              </div>
+            </div>
+          </div>
           
           {/* Calculate ROI Button */}
           <div className="flex justify-center pt-2">
