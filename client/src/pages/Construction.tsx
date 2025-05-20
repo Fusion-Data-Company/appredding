@@ -121,7 +121,7 @@ const Construction = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-center max-w-4xl mx-auto"
             >
-              <h1 className="text-4xl md:text-6xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-yellow-500">
+              <h1 className="text-4xl md:text-6xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-300 to-amber-400">
                 Advanced Protection for Commercial Construction
               </h1>
               <p className="text-xl md:text-2xl text-gray-200 mb-8">
@@ -130,18 +130,28 @@ const Construction = () => {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button 
                   size="lg" 
-                  className="bg-gradient-to-r from-amber-500 to-amber-700 hover:from-amber-600 hover:to-amber-800 text-white"
+                  className="bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 text-white border border-blue-400/30 shadow-lg shadow-blue-900/20"
                 >
                   Request a Consultation
                 </Button>
                 <Button 
                   size="lg" 
                   variant="outline" 
-                  className="border-amber-500 text-amber-500 hover:bg-amber-500/10"
+                  className="border-amber-500 text-amber-500 hover:bg-amber-500/10 shadow-lg shadow-amber-900/10"
                   onClick={() => setDisplayLearnMore(true)}
                 >
                   Learn More
                 </Button>
+              </div>
+              
+              {/* Premium Enterprise Corner Accents */}
+              <div className="absolute top-4 left-4 md:top-8 md:left-8 w-16 h-16 z-10 opacity-70">
+                <div className="absolute top-0 left-0 w-10 h-10 border-t-2 border-l-2 border-blue-500/50 rounded-tl-md"></div>
+                <div className="absolute top-1 left-1 w-12 h-12 border-t border-l border-amber-500/40 rounded-tl-md"></div>
+              </div>
+              <div className="absolute top-4 right-4 md:top-8 md:right-8 w-16 h-16 z-10 opacity-70">
+                <div className="absolute top-0 right-0 w-10 h-10 border-t-2 border-r-2 border-blue-500/50 rounded-tr-md"></div>
+                <div className="absolute top-1 right-1 w-12 h-12 border-t border-r border-amber-500/40 rounded-tr-md"></div>
               </div>
             </motion.div>
           </div>
@@ -151,8 +161,10 @@ const Construction = () => {
         <section className="relative z-10 py-12 overflow-hidden">
           <div className="container mx-auto mb-16">
             <div className="relative">
-              {/* Red glow effect */}
-              <div className="absolute -inset-10 bg-red-900/10 rounded-full blur-[100px] opacity-80 z-0"></div>
+              {/* Enhanced Red glow effect with multi-layer glow */}
+              <div className="absolute -inset-10 bg-red-500/20 rounded-xl blur-xl opacity-70 z-0"></div>
+              <div className="absolute -inset-20 bg-red-600/10 rounded-xl blur-2xl opacity-50 z-0"></div>
+              <div className="absolute -inset-30 bg-red-700/5 rounded-xl blur-3xl opacity-30 z-0 animate-pulse-slow"></div>
               
               {/* Content card */}
               <div className="relative z-20 rounded-2xl overflow-hidden p-8 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-red-700/30 shadow-lg">
@@ -274,9 +286,11 @@ const Construction = () => {
         <section className="relative z-10 py-12 overflow-hidden">
           <div className="container mx-auto mb-16">
             <div className="relative">
-              {/* Yellow glow effect */}
+              {/* Premium Enhanced Yellow glow effect with blue accent for enterprise flair */}
               <div className="absolute -inset-10 bg-amber-500/20 rounded-xl blur-xl opacity-70 z-0"></div>
               <div className="absolute -inset-20 bg-amber-600/10 rounded-xl blur-2xl opacity-50 z-0"></div>
+              <div className="absolute -inset-30 bg-amber-700/5 rounded-xl blur-3xl opacity-30 z-0 animate-pulse-slow"></div>
+              <div className="absolute -inset-40 bg-blue-700/5 rounded-xl blur-3xl opacity-20 z-0"></div>
               
               {/* Content card */}
               <div className="relative z-20 rounded-2xl overflow-hidden p-8 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-amber-600/30 shadow-lg">
@@ -437,8 +451,10 @@ const Construction = () => {
         <section className="relative z-10 py-12 overflow-hidden">
           <div className="container mx-auto mb-16">
             <div className="relative">
-              {/* Green glow */}
-              <div className="absolute -inset-10 bg-green-900/10 rounded-full blur-[100px] opacity-80 z-0"></div>
+              {/* Enhanced Premium Green glow with multiple layers */}
+              <div className="absolute -inset-10 bg-emerald-500/20 rounded-xl blur-xl opacity-70 z-0"></div>
+              <div className="absolute -inset-20 bg-emerald-600/10 rounded-xl blur-2xl opacity-50 z-0"></div>
+              <div className="absolute -inset-30 bg-emerald-700/5 rounded-xl blur-3xl opacity-30 z-0 animate-pulse-slow"></div>
               
               {/* Content card */}
               <div className="relative z-20 rounded-2xl overflow-hidden p-8 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-emerald-700/30 shadow-lg">
