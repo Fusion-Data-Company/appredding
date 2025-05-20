@@ -1684,6 +1684,192 @@ const MobileHome = () => {
                         </div>
                       </div>
                     </div>
+                    
+                    {/* Application Process - Added to yellow technical section */}
+                    <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-amber-700/20 shadow-md mt-8 mb-8">
+                      <h3 className="text-xl font-bold mb-4 text-amber-300">Application Process</h3>
+                      
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="bg-gray-900/70 p-4 rounded-lg border border-amber-600/10">
+                          <h4 className="text-amber-300 font-semibold mb-2">Certified Application Protocol</h4>
+                          <p className="text-gray-300 text-sm mb-4">
+                            All applications are performed by certified technicians using proprietary equipment calibrated for optimal ceramic microsphere distribution and consistency.
+                          </p>
+                          
+                          <div className="space-y-3">
+                            <div className="flex items-center">
+                              <div className="flex-shrink-0 h-7 w-7 bg-amber-900/30 rounded-full flex items-center justify-center mr-2">
+                                <span className="text-amber-400 text-xs font-bold">1</span>
+                              </div>
+                              <p className="text-gray-300 text-sm">Professional surface preparation & cleaning</p>
+                            </div>
+                            
+                            <div className="flex items-center">
+                              <div className="flex-shrink-0 h-7 w-7 bg-amber-900/30 rounded-full flex items-center justify-center mr-2">
+                                <span className="text-amber-400 text-xs font-bold">2</span>
+                              </div>
+                              <p className="text-gray-300 text-sm">Application of primer undercoat system</p>
+                            </div>
+                            
+                            <div className="flex items-center">
+                              <div className="flex-shrink-0 h-7 w-7 bg-amber-900/30 rounded-full flex items-center justify-center mr-2">
+                                <span className="text-amber-400 text-xs font-bold">3</span>
+                              </div>
+                              <p className="text-gray-300 text-sm">Precision application of ceramic microsphere formula</p>
+                            </div>
+                            
+                            <div className="flex items-center">
+                              <div className="flex-shrink-0 h-7 w-7 bg-amber-900/30 rounded-full flex items-center justify-center mr-2">
+                                <span className="text-amber-400 text-xs font-bold">4</span>
+                              </div>
+                              <p className="text-gray-300 text-sm">Quality control inspection & thermal imaging verification</p>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div className="bg-gray-900/70 p-4 rounded-lg border border-amber-600/10">
+                          <h4 className="text-amber-300 font-semibold mb-2">Enterprise Technology Benefits</h4>
+                          <p className="text-gray-300 text-sm mb-4">
+                            Our advanced ceramic technology combines seamlessly with mobile home surfaces to create a permanent energy-efficient thermal barrier:
+                          </p>
+                          
+                          <div className="space-y-3">
+                            <div className="flex">
+                              <div className="flex-shrink-0 mr-2">
+                                <div className="h-5 w-5 rounded-full bg-amber-900/30 flex items-center justify-center">
+                                  <CheckCircle className="w-3 h-3 text-amber-400" />
+                                </div>
+                              </div>
+                              <p className="text-gray-300 text-sm">Single-coat application minimizes disruption</p>
+                            </div>
+                            
+                            <div className="flex">
+                              <div className="flex-shrink-0 mr-2">
+                                <div className="h-5 w-5 rounded-full bg-amber-900/30 flex items-center justify-center">
+                                  <CheckCircle className="w-3 h-3 text-amber-400" />
+                                </div>
+                              </div>
+                              <p className="text-gray-300 text-sm">No need for roof removal or reconstruction</p>
+                            </div>
+                            
+                            <div className="flex">
+                              <div className="flex-shrink-0 mr-2">
+                                <div className="h-5 w-5 rounded-full bg-amber-900/30 flex items-center justify-center">
+                                  <CheckCircle className="w-3 h-3 text-amber-400" />
+                                </div>
+                              </div>
+                              <p className="text-gray-300 text-sm">Comprehensive 25-year performance warranty</p>
+                            </div>
+                            
+                            <div className="flex">
+                              <div className="flex-shrink-0 mr-2">
+                                <div className="h-5 w-5 rounded-full bg-amber-900/30 flex items-center justify-center">
+                                  <CheckCircle className="w-3 h-3 text-amber-400" />
+                                </div>
+                              </div>
+                              <p className="text-gray-300 text-sm">Most installations completed in 1-2 days</p>
+                            </div>
+                            
+                            <div className="flex">
+                              <div className="flex-shrink-0 mr-2">
+                                <div className="h-5 w-5 rounded-full bg-amber-900/30 flex items-center justify-center">
+                                  <CheckCircle className="w-3 h-3 text-amber-400" />
+                                </div>
+                              </div>
+                              <p className="text-gray-300 text-sm">Immediate effect on interior comfort & energy usage</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Ceramic Microsphere Benefits - Added to yellow technical section */}
+                    <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-amber-700/20 shadow-md mb-8">
+                      <h3 className="text-xl font-bold mb-4 text-amber-300">Ceramic Microsphere Benefits</h3>
+                      
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="bg-gray-900/70 p-4 rounded-lg border border-amber-600/10">
+                          <h4 className="text-amber-300 font-semibold mb-3">Thermal Performance</h4>
+                          <p className="text-gray-300 text-sm mb-4">
+                            Our ceramic microspheres create millions of microscopic vacuum cells that block thermal transfer:
+                          </p>
+                          
+                          <div className="space-y-3">
+                            <div className="flex items-center">
+                              <div className="flex-shrink-0 mr-2 text-amber-400">
+                                <ArrowUpRight className="w-4 h-4" />
+                              </div>
+                              <p className="text-gray-300 text-sm">Reflects 89% of solar radiation</p>
+                            </div>
+                            
+                            <div className="flex items-center">
+                              <div className="flex-shrink-0 mr-2 text-amber-400">
+                                <ArrowUpRight className="w-4 h-4" />
+                              </div>
+                              <p className="text-gray-300 text-sm">Blocks 87% of heat transfer</p>
+                            </div>
+                            
+                            <div className="flex items-center">
+                              <div className="flex-shrink-0 mr-2 text-amber-400">
+                                <ThermometerIcon className="w-4 h-4" />
+                              </div>
+                              <p className="text-gray-300 text-sm">Reduces surface temperatures by 15-28°F</p>
+                            </div>
+                            
+                            <div className="flex items-center">
+                              <div className="flex-shrink-0 mr-2 text-amber-400">
+                                <TrendingUp className="w-4 h-4" />
+                              </div>
+                              <p className="text-gray-300 text-sm">Lowers cooling costs by 22-43%</p>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div className="bg-gray-900/70 p-4 rounded-lg border border-amber-600/10">
+                          <h4 className="text-amber-300 font-semibold mb-3">Enterprise Technology</h4>
+                          <p className="text-gray-300 text-sm mb-4">
+                            Ceramic Technology Applications extend far beyond simple insulation:
+                          </p>
+                          
+                          <div className="space-y-3">
+                            <div className="flex items-center">
+                              <div className="flex-shrink-0 mr-2 text-amber-400">
+                                <Medal className="w-4 h-4" />
+                              </div>
+                              <p className="text-gray-300 text-sm">Military-grade durability & longevity</p>
+                            </div>
+                            
+                            <div className="flex items-center">
+                              <div className="flex-shrink-0 mr-2 text-amber-400">
+                                <Zap className="w-4 h-4" />
+                              </div>
+                              <p className="text-gray-300 text-sm">Advanced sound insulation properties</p>
+                            </div>
+                            
+                            <div className="flex items-center">
+                              <div className="flex-shrink-0 mr-2 text-amber-400">
+                                <Building className="w-4 h-4" />
+                              </div>
+                              <p className="text-gray-300 text-sm">Structural integrity enhancement</p>
+                            </div>
+                            
+                            <div className="flex items-center">
+                              <div className="flex-shrink-0 mr-2 text-amber-400">
+                                <Shield className="w-4 h-4" />
+                              </div>
+                              <p className="text-gray-300 text-sm">Corrosion and mold prevention</p>
+                            </div>
+                            
+                            <div className="flex items-center">
+                              <div className="flex-shrink-0 mr-2 text-amber-400">
+                                <Flame className="w-4 h-4" />
+                              </div>
+                              <p className="text-gray-300 text-sm">Flame retardant (ASTM E84)</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 
