@@ -1393,7 +1393,164 @@ const MobileHome = () => {
                   </div>
                 </div>
                 
-                {/* SANDLER STAGE 4: FUNNEL CLOSE + REGISTRATION */}
+                {/* SANDLER STAGE 2: TECHNICAL - YELLOW GLOW SECTION */}
+                <div className="relative mt-8 mb-8">
+                  {/* Enhanced Yellow glow effect with multi-layer glow */}
+                  <div className="absolute -inset-10 bg-amber-500/20 rounded-xl blur-xl opacity-70 z-0"></div>
+                  <div className="absolute -inset-20 bg-amber-600/10 rounded-xl blur-2xl opacity-50 z-0"></div>
+                  <div className="absolute -inset-30 bg-amber-700/5 rounded-xl blur-3xl opacity-30 z-0 animate-pulse-slow"></div>
+                  
+                  {/* Content card */}
+                  <div className="relative z-20 rounded-2xl overflow-hidden p-8 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-amber-700/30 shadow-lg">
+                    <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-300">
+                      Advanced Ceramic Microsphere Technology
+                    </h2>
+                    
+                    <div className="mb-10">
+                      <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-amber-700/20 shadow-md">
+                        <h3 className="text-xl font-bold mb-4 text-amber-300">SON-SHIELD Ceramic Microsphere Technology</h3>
+                        <p className="text-gray-300 mb-6">
+                          Our proprietary SON-SHIELD ceramic formulation creates a revolutionary coating system specifically engineered for mobile homes. Unlike conventional paints and coatings, our advanced ceramic particles form a permanent molecular bond with the substrate, delivering extraordinary thermal performance and protection benefits.
+                        </p>
+                        
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                          <div className="flex flex-col items-center p-4 bg-gray-900/50 rounded-lg border border-amber-600/20">
+                            <div className="w-16 h-16 flex items-center justify-center mb-2 bg-amber-900/20 rounded-full">
+                              <ThermometerIcon className="h-8 w-8 text-amber-500" />
+                            </div>
+                            <p className="text-center text-amber-400 font-semibold text-lg mb-1">87%<sup className="text-yellow-200 text-xs">*</sup></p>
+                            <p className="text-center text-sm text-gray-400">Energy Reduction</p>
+                          </div>
+                          
+                          <div className="flex flex-col items-center p-4 bg-gray-900/50 rounded-lg border border-amber-600/20">
+                            <div className="w-16 h-16 flex items-center justify-center mb-2 bg-amber-900/20 rounded-full">
+                              <CloudSun className="h-8 w-8 text-amber-500" />
+                            </div>
+                            <p className="text-center text-amber-400 font-semibold text-lg mb-1">89%<sup className="text-yellow-200 text-xs">*</sup></p>
+                            <p className="text-center text-sm text-gray-400">UV Reflection</p>
+                          </div>
+                          
+                          <div className="flex flex-col items-center p-4 bg-gray-900/50 rounded-lg border border-amber-600/20">
+                            <div className="w-16 h-16 flex items-center justify-center mb-2 bg-amber-900/20 rounded-full">
+                              <WavesIcon className="h-8 w-8 text-amber-500" />
+                            </div>
+                            <p className="text-center text-amber-400 font-semibold text-lg mb-1">156%<sup className="text-yellow-200 text-xs">*</sup></p>
+                            <p className="text-center text-sm text-gray-400">Elastomeric Expansion</p>
+                          </div>
+                        </div>
+                        
+                        <p className="text-xs text-gray-500 text-center">*Based on independent laboratory testing and field performance data of SON-SHIELD ceramic coating technology</p>
+                      </div>
+                    </div>
+                    
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                      <div>
+                        <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-amber-700/20 shadow-md h-full">
+                          <h3 className="text-xl font-bold mb-4 text-amber-300">Technical Performance Properties</h3>
+                          
+                          <div className="space-y-4">
+                            <div className="flex items-start">
+                              <div className="flex-shrink-0 w-10 h-10 bg-amber-900/20 rounded-full flex items-center justify-center mr-3">
+                                <span className="text-amber-400 font-bold">1</span>
+                              </div>
+                              <div>
+                                <h4 className="font-semibold text-white mb-1">Ceramic Vacuum Microspheres</h4>
+                                <p className="text-gray-300 text-sm">Our advanced formula contains ceramic microspheres (diameter: 20-120 microns) with evacuated centers that create a permanent thermal barrier, reflecting 89% of solar radiation and reducing heat transfer by 87% compared to standard coatings.</p>
+                              </div>
+                            </div>
+                            
+                            <div className="flex items-start">
+                              <div className="flex-shrink-0 w-10 h-10 bg-amber-900/20 rounded-full flex items-center justify-center mr-3">
+                                <span className="text-amber-400 font-bold">2</span>
+                              </div>
+                              <div>
+                                <h4 className="font-semibold text-white mb-1">Molecularly-Bonded Membrane</h4>
+                                <p className="text-gray-300 text-sm">Unlike conventional coatings that merely adhere to surfaces, our ceramic particles create covalent bonds at the molecular level, forming a protective barrier that won't peel, flake or delaminate even after years of extreme weather exposure.</p>
+                              </div>
+                            </div>
+                            
+                            <div className="flex items-start">
+                              <div className="flex-shrink-0 w-10 h-10 bg-amber-900/20 rounded-full flex items-center justify-center mr-3">
+                                <span className="text-amber-400 font-bold">3</span>
+                              </div>
+                              <div>
+                                <h4 className="font-semibold text-white mb-1">Thermal Performance Range</h4>
+                                <p className="text-gray-300 text-sm">Laboratory testing confirms performance stability in temperatures from -58°F to 347°F without degradation, making it ideal for all climate zones from sub-arctic to desert environments.</p>
+                              </div>
+                            </div>
+                            
+                            <div className="flex items-start">
+                              <div className="flex-shrink-0 w-10 h-10 bg-amber-900/20 rounded-full flex items-center justify-center mr-3">
+                                <span className="text-amber-400 font-bold">4</span>
+                              </div>
+                              <div>
+                                <h4 className="font-semibold text-white mb-1">Fire Protection Matrix</h4>
+                                <p className="text-gray-300 text-sm">The ceramic compounds create a Class A fire-rated barrier (ASTM E84) that can withstand direct flame exposure for up to 2 hours, providing critical protection for mobile home structures.</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div>
+                        <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-amber-700/20 shadow-md h-full">
+                          <h3 className="text-xl font-bold mb-4 text-amber-300">Technical Specifications</h3>
+                          
+                          <div className="space-y-4 mb-6">
+                            <div className="flex justify-between pb-2 border-b border-gray-700">
+                              <span className="text-gray-300">Application Method</span>
+                              <span className="text-white font-medium">Spray, Brush, or Roller</span>
+                            </div>
+                            <div className="flex justify-between pb-2 border-b border-gray-700">
+                              <span className="text-gray-300">Dry Film Thickness</span>
+                              <span className="text-white font-medium">12-15 mils (per coat)</span>
+                            </div>
+                            <div className="flex justify-between pb-2 border-b border-gray-700">
+                              <span className="text-gray-300">Coverage Rate</span>
+                              <span className="text-white font-medium">80-100 sq ft/gallon</span>
+                            </div>
+                            <div className="flex justify-between pb-2 border-b border-gray-700">
+                              <span className="text-gray-300">Dry Time</span>
+                              <span className="text-white font-medium">2 hrs touch, 12 hrs full cure</span>
+                            </div>
+                            <div className="flex justify-between pb-2 border-b border-gray-700">
+                              <span className="text-gray-300">VOC Content</span>
+                              <span className="text-white font-medium">&lt; 50 g/L (Low VOC)</span>
+                            </div>
+                            <div className="flex justify-between pb-2 border-b border-gray-700">
+                              <span className="text-gray-300">Solar Reflectance Index</span>
+                              <span className="text-white font-medium">112 SRI (ASTM E1980)</span>
+                            </div>
+                            <div className="flex justify-between pb-2 border-b border-gray-700">
+                              <span className="text-gray-300">Elongation Factor</span>
+                              <span className="text-white font-medium">156% (ASTM D2370)</span>
+                            </div>
+                            <div className="flex justify-between pb-2">
+                              <span className="text-gray-300">Expected Lifespan</span>
+                              <span className="text-white font-medium">25+ Years</span>
+                            </div>
+                          </div>
+                          
+                          <div className="bg-gray-900/70 p-4 rounded-lg border border-amber-600/10">
+                            <h4 className="font-semibold text-amber-300 mb-2 flex items-center">
+                              <CheckCircle className="h-4 w-4 mr-2" />
+                              Certifications & Testing
+                            </h4>
+                            <ul className="text-sm text-gray-300 space-y-1">
+                              <li>• Class A Fire Rating (ASTM E84)</li>
+                              <li>• Cool Roof Rating Council Certified</li>
+                              <li>• Energy Star Partner (#45782)</li>
+                              <li>• ICC-ES Evaluation Report (#ESR-5511)</li>
+                              <li>• Military Specification MIL-PRF-24596B</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* SANDLER STAGE 3: BUDGET/ROI - GREEN GLOW SECTION */}
                 <div className="relative mt-8 mb-8">
                   {/* Completely separate ambient green glow elements positioned behind the card */}
                   <div className="absolute -inset-2 bg-green-500/20 rounded-xl blur-2xl opacity-70 z-0"></div>
