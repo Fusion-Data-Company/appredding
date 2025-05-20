@@ -1393,6 +1393,119 @@ const MobileHome = () => {
                   </div>
                 </div>
                 
+                {/* SANDLER STAGE 1: PAIN - RED GLOW SECTION - Critical Problems */}
+                <div className="relative mt-8 mb-8">
+                  {/* Enhanced Red glow effect with multi-layer glow */}
+                  <div className="absolute -inset-10 bg-red-500/20 rounded-xl blur-xl opacity-70 z-0"></div>
+                  <div className="absolute -inset-20 bg-red-600/10 rounded-xl blur-2xl opacity-50 z-0"></div>
+                  <div className="absolute -inset-30 bg-red-700/5 rounded-xl blur-3xl opacity-30 z-0 animate-pulse-slow"></div>
+                  
+                  {/* Content card */}
+                  <div className="relative z-20 rounded-2xl overflow-hidden p-8 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-red-700/30 shadow-lg">
+                    {/* Enhanced semantic header hierarchy with premium icon styling */}
+                    <div className="flex items-start mb-3">
+                      <div className="relative mr-2">
+                        <div className="absolute -inset-1 bg-red-500/30 rounded-full blur-md"></div>
+                        <div className="relative h-6 w-6 flex items-center justify-center">
+                          <div className="absolute inset-0 bg-gradient-to-b from-red-600/80 to-red-800/80 rounded-full shadow-[0_0_8px_rgba(239,68,68,0.6)]"></div>
+                          <AlertTriangle className="w-3.5 h-3.5 text-red-100 relative z-10" />
+                        </div>
+                      </div>
+                      <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-300 to-red-200" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.8)" }}>
+                        CRITICAL CHALLENGES
+                      </h3>
+                    </div>
+                    
+                    <h2 className="text-2xl md:text-3xl text-white font-bold mb-6 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
+                      Are These Mobile Home Problems Costing You Money?
+                    </h2>
+                    
+                    <p className="text-lg text-white leading-relaxed mb-6">
+                      Mobile homes present unique challenges in energy efficiency, comfort, and longevity. Every day, owners face frustrating issues that drain their wallets and decrease quality of life.
+                    </p>
+                    
+                    <div className="space-y-6 mb-8">
+                      <div className="relative group p-6 bg-gradient-to-br from-black/80 to-gray-900/80 border border-red-500/30 rounded-xl transition-all duration-300 hover:border-red-500/50 shadow-[0_4px_15px_rgba(0,0,0,0.3)]">
+                        {/* Enhanced layered glows and effects */}
+                        <div className="absolute -inset-px bg-gradient-to-r from-red-600/20 via-transparent to-red-600/20 rounded-xl opacity-70 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
+                        <div className="absolute -inset-0.5 bg-gradient-to-br from-red-500/5 to-red-700/5 rounded-xl opacity-50 group-hover:opacity-80 transition-opacity duration-300"></div>
+                        
+                        <div className="relative flex gap-5">
+                          <div className="flex-shrink-0">
+                            {/* Elite enterprise icon styling */}
+                            <div className="relative">
+                              <div className="absolute -inset-2 bg-red-500/20 rounded-full blur-md opacity-80"></div>
+                              <div className="relative h-14 w-14 flex items-center justify-center bg-gradient-to-br from-red-800 to-red-900 rounded-xl border border-red-400/30 shadow-[0_0_15px_rgba(239,68,68,0.3)]">
+                                <div className="absolute inset-0.5 bg-gradient-to-br from-red-700 to-red-800 rounded-[0.65rem] opacity-50"></div>
+                                <div className="absolute h-full w-1/2 bg-gradient-to-r from-transparent via-red-400/20 to-transparent skew-x-[-20deg] animate-shimmer-slow"></div>
+                                <CircleDollarSign className="w-7 h-7 text-red-300 relative z-10 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]" />
+                              </div>
+                            </div>
+                          </div>
+                          <div>
+                            <h3 className="font-bold text-xl text-transparent bg-clip-text bg-gradient-to-r from-red-300 to-red-200 mb-3" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.8)" }}>Skyrocketing Utility Costs</h3>
+                            <p className="text-gray-200 leading-relaxed">
+                              Have you ever dreaded opening your utility bill during extreme weather? The average mobile home loses <span className="text-red-300 font-medium">42% of its heating and cooling</span> through poor insulation, making your HVAC system work overtime and sending your bills skyrocketing to <span className="text-red-300 font-medium">3.4x higher than necessary</span>.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div className="relative group p-6 bg-gradient-to-br from-black/80 to-gray-900/80 border border-red-500/30 rounded-xl transition-all duration-300 hover:border-red-500/50 shadow-[0_4px_15px_rgba(0,0,0,0.3)]">
+                        {/* Enhanced layered glows and effects */}
+                        <div className="absolute -inset-px bg-gradient-to-r from-red-600/20 via-transparent to-red-600/20 rounded-xl opacity-70 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
+                        <div className="absolute -inset-0.5 bg-gradient-to-br from-red-500/5 to-red-700/5 rounded-xl opacity-50 group-hover:opacity-80 transition-opacity duration-300"></div>
+                        
+                        <div className="relative flex gap-5">
+                          <div className="flex-shrink-0">
+                            {/* Elite enterprise icon styling */}
+                            <div className="relative">
+                              <div className="absolute -inset-2 bg-red-500/20 rounded-full blur-md opacity-80"></div>
+                              <div className="relative h-14 w-14 flex items-center justify-center bg-gradient-to-br from-red-800 to-red-900 rounded-xl border border-red-400/30 shadow-[0_0_15px_rgba(239,68,68,0.3)]">
+                                <div className="absolute inset-0.5 bg-gradient-to-br from-red-700 to-red-800 rounded-[0.65rem] opacity-50"></div>
+                                <div className="absolute h-full w-1/2 bg-gradient-to-r from-transparent via-red-400/20 to-transparent skew-x-[-20deg] animate-shimmer-slow" style={{ animationDelay: '0.3s' }}></div>
+                                <ThermometerIcon className="w-7 h-7 text-red-300 relative z-10 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]" />
+                              </div>
+                            </div>
+                          </div>
+                          <div>
+                            <h3 className="font-bold text-xl text-transparent bg-clip-text bg-gradient-to-r from-red-300 to-red-200 mb-3" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.8)" }}>Uncomfortable Living Conditions</h3>
+                            <p className="text-gray-200 leading-relaxed">
+                              Does your mobile home feel like an oven in summer and a freezer in winter? Indoor temperatures in standard mobile homes can fluctuate by <span className="text-red-300 font-medium">22°F in a single day</span>, making consistent comfort impossible. Many owners resort to space heaters or window units, creating safety hazards and further increasing energy waste.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div className="relative group p-6 bg-gradient-to-br from-black/80 to-gray-900/80 border border-red-500/30 rounded-xl transition-all duration-300 hover:border-red-500/50 shadow-[0_4px_15px_rgba(0,0,0,0.3)]">
+                        {/* Enhanced layered glows and effects */}
+                        <div className="absolute -inset-px bg-gradient-to-r from-red-600/20 via-transparent to-red-600/20 rounded-xl opacity-70 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
+                        <div className="absolute -inset-0.5 bg-gradient-to-br from-red-500/5 to-red-700/5 rounded-xl opacity-50 group-hover:opacity-80 transition-opacity duration-300"></div>
+                        
+                        <div className="relative flex gap-5">
+                          <div className="flex-shrink-0">
+                            {/* Elite enterprise icon styling */}
+                            <div className="relative">
+                              <div className="absolute -inset-2 bg-red-500/20 rounded-full blur-md opacity-80"></div>
+                              <div className="relative h-14 w-14 flex items-center justify-center bg-gradient-to-br from-red-800 to-red-900 rounded-xl border border-red-400/30 shadow-[0_0_15px_rgba(239,68,68,0.3)]">
+                                <div className="absolute inset-0.5 bg-gradient-to-br from-red-700 to-red-800 rounded-[0.65rem] opacity-50"></div>
+                                <div className="absolute h-full w-1/2 bg-gradient-to-r from-transparent via-red-400/20 to-transparent skew-x-[-20deg] animate-shimmer-slow" style={{ animationDelay: '0.6s' }}></div>
+                                <Building className="w-7 h-7 text-red-300 relative z-10 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]" />
+                              </div>
+                            </div>
+                          </div>
+                          <div>
+                            <h3 className="font-bold text-xl text-transparent bg-clip-text bg-gradient-to-r from-red-300 to-red-200 mb-3" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.8)" }}>Rapid Deterioration & Depreciation</h3>
+                            <p className="text-gray-200 leading-relaxed">
+                              Have you noticed your mobile home aging before your eyes? Without proper protection, mobile homes deteriorate <span className="text-red-300 font-medium">3.2x faster than traditional homes</span>, with roofs lasting only 10-15 years and exterior surfaces requiring repainting every 3-5 years just to maintain basic appearance and weatherproofing.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
                 {/* SANDLER STAGE 2: TECHNICAL - YELLOW GLOW SECTION */}
                 <div className="relative mt-8 mb-8">
                   {/* Enhanced Yellow glow effect with multi-layer glow */}
