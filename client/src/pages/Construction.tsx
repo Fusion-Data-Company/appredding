@@ -47,6 +47,7 @@ import SimpleSEO from "@/components/SimpleSEO";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { PremiumCartButton } from "@/utils/premium-buttons";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import ConstructionROICalculator from "@/components/ConstructionROICalculator";
 
 // Form schema for contact
 const formSchema = z.object({
@@ -353,6 +354,30 @@ const Construction = () => {
                         <span className="font-semibold">Certification:</span> <a href="https://www.ul.com/resources/fire-resistance-ratings-ulc-online-certifications-directory" className="text-blue-400 hover:underline" target="_blank" rel="noopener noreferrer">UL and ASTM E84 Certified Performance</a>
                       </p>
                     </div>
+                    
+                    {/* Restored Technical Component */}
+                    <div className="bg-gray-900/50 p-6 rounded-xl border border-amber-700/20">
+                      <h3 className="text-xl font-semibold text-amber-400 mb-4">Material Science Breakthrough</h3>
+                      <p className="text-gray-300 mb-4">
+                        Leveraging nanoscale material engineering, our coating creates a temperature-responsive barrier that adapts to environmental conditions, providing dynamic thermal regulation for construction assets.
+                      </p>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-4">
+                        <div className="bg-gray-800/50 p-3 rounded-lg flex flex-col items-center">
+                          <div className="w-12 h-12 rounded-full bg-gradient-to-br from-amber-400/30 to-amber-600/30 flex items-center justify-center mb-2">
+                            <FaShieldAlt className="w-6 h-6 text-amber-400" />
+                          </div>
+                          <p className="text-center text-amber-300 font-medium">Anti-Corrosive</p>
+                          <p className="text-center text-gray-400 text-sm">99.7% Protection</p>
+                        </div>
+                        <div className="bg-gray-800/50 p-3 rounded-lg flex flex-col items-center">
+                          <div className="w-12 h-12 rounded-full bg-gradient-to-br from-amber-400/30 to-amber-600/30 flex items-center justify-center mb-2">
+                            <FaSnowflake className="w-6 h-6 text-amber-400" />
+                          </div>
+                          <p className="text-center text-amber-300 font-medium">Thermal Stability</p>
+                          <p className="text-center text-gray-400 text-sm">-40°F to 1475°F</p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                   
                   {/* Application & Performance Column */}
@@ -440,7 +465,32 @@ const Construction = () => {
                         </li>
                       </ul>
                     </div>
+                    
+                    {/* Restored Premium Enterprise Component */}
+                    <div className="bg-gray-900/50 p-6 rounded-xl border border-amber-700/20">
+                      <h3 className="text-xl font-semibold text-amber-400 mb-4">Enterprise Standards Compliance</h3>
+                      <p className="text-gray-300 mb-4">
+                        Praetorian Smart-Coat™ meets or exceeds all major construction industry standards and codes, reducing regulatory compliance costs while providing complete documentation for certification processes.
+                      </p>
+                      <div className="bg-gray-800/50 p-4 rounded-lg border border-amber-700/10">
+                        <div className="flex flex-wrap gap-2">
+                          <div className="px-3 py-1 rounded-full bg-amber-700/20 border border-amber-600/30 text-amber-300 text-xs font-medium">ASHRAE 90.1</div>
+                          <div className="px-3 py-1 rounded-full bg-amber-700/20 border border-amber-600/30 text-amber-300 text-xs font-medium">ICC-ES AC456</div>
+                          <div className="px-3 py-1 rounded-full bg-amber-700/20 border border-amber-600/30 text-amber-300 text-xs font-medium">NFPA 285</div>
+                          <div className="px-3 py-1 rounded-full bg-amber-700/20 border border-amber-600/30 text-amber-300 text-xs font-medium">ASTM E84</div>
+                          <div className="px-3 py-1 rounded-full bg-amber-700/20 border border-amber-600/30 text-amber-300 text-xs font-medium">LEED v4.1</div>
+                          <div className="px-3 py-1 rounded-full bg-amber-700/20 border border-amber-600/30 text-amber-300 text-xs font-medium">BREEAM</div>
+                          <div className="px-3 py-1 rounded-full bg-amber-700/20 border border-amber-600/30 text-amber-300 text-xs font-medium">Title 24</div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
+                </div>
+                
+                {/* ROI Calculator Section - Added to Yellow Section */}
+                <div className="mt-10">
+                  <h3 className="text-2xl font-semibold text-amber-400 mb-6 text-center">Construction Project ROI Analysis</h3>
+                  <ConstructionROICalculator />
                 </div>
               </div>
             </div>
