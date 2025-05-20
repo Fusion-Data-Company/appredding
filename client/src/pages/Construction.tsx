@@ -536,9 +536,11 @@ const Construction = () => {
         <section className="relative z-10 py-12 overflow-hidden">
           <div className="container mx-auto mb-16">
             <div className="relative">
-              {/* Yellow/Amber glow */}
-              <div className="absolute -inset-10 bg-amber-600/10 rounded-full blur-[100px] opacity-80 z-0"></div>
-              <div className="absolute -inset-20 bg-amber-500/10 rounded-full blur-[150px] opacity-60 z-0"></div>
+              {/* Enhanced Yellow/Amber glow with increased intensity */}
+              <div className="absolute -inset-10 bg-amber-500/30 rounded-xl blur-xl opacity-80 z-0"></div>
+              <div className="absolute -inset-20 bg-amber-600/20 rounded-xl blur-2xl opacity-70 z-0 animate-pulse-slow"></div>
+              <div className="absolute -inset-30 bg-amber-700/10 rounded-xl blur-3xl opacity-40 z-0"></div>
+              <div className="absolute -inset-40 bg-amber-800/5 rounded-xl blur-3xl opacity-30 z-0"></div>
               
               {/* Content card */}
               <div className="relative z-20 rounded-2xl overflow-hidden p-8 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-amber-600/30 shadow-lg">
