@@ -806,120 +806,150 @@ const Construction = () => {
                   Distributor Benefits
                 </h2>
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-                  {/* Margin and Revenue benefits */}
-                  <div className="relative group p-6 bg-gradient-to-br from-black/80 to-gray-900/80 border border-green-700/30 rounded-xl transition-all duration-300 hover:border-green-600/50 shadow-lg">
+                {/* Distributor Benefits Cards - Optimized Layout */}
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+                  {/* Premium Revenue Structure */}
+                  <div className="relative group p-5 bg-gradient-to-br from-black/80 to-gray-900/80 border border-green-700/30 rounded-xl transition-all duration-300 hover:border-green-600/50 shadow-lg">
                     <div className="absolute -inset-px bg-gradient-to-r from-green-600/20 via-transparent to-green-600/20 rounded-xl opacity-70 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
                     
                     <div className="relative">
-                      <div className="flex items-center mb-4">
+                      <div className="flex items-center mb-3">
                         {/* Elite enterprise icon styling */}
                         <div className="relative mr-3">
                           <div className="absolute -inset-2 bg-green-500/20 rounded-full blur-md opacity-80"></div>
-                          <div className="relative h-14 w-14 flex items-center justify-center bg-gradient-to-br from-green-800 to-green-900 rounded-xl border border-green-400/30 shadow-[0_0_15px_rgba(74,222,128,0.3)]">
+                          <div className="relative h-12 w-12 flex items-center justify-center bg-gradient-to-br from-green-800 to-green-900 rounded-xl border border-green-400/30 shadow-[0_0_15px_rgba(74,222,128,0.3)]">
                             <div className="absolute inset-0.5 bg-gradient-to-br from-green-700 to-green-800 rounded-[0.65rem] opacity-50"></div>
                             <div className="absolute h-full w-1/2 bg-gradient-to-r from-transparent via-green-400/20 to-transparent skew-x-[-20deg] animate-shimmer-slow"></div>
-                            <CircleDollarSign className="w-7 h-7 text-green-300 relative z-10 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]" />
+                            <CircleDollarSign className="w-6 h-6 text-green-300 relative z-10 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]" />
                           </div>
                         </div>
-                        <h3 className="font-bold text-xl text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-green-200" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.8)" }}>Premium Revenue Structure</h3>
+                        <h3 className="font-bold text-xl text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-green-200" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.8)" }}>Premium Revenue</h3>
                       </div>
                       
-                      <ul className="space-y-3">
-                        <li className="flex items-start gap-3">
-                          <div className="h-6 w-6 bg-green-900/70 rounded-full flex items-center justify-center text-white text-sm mt-0.5 flex-shrink-0">1</div>
+                      <ul className="space-y-2">
+                        <li className="flex items-start gap-2">
+                          <div className="h-5 w-5 bg-green-900/70 rounded-full flex items-center justify-center text-white text-xs mt-0.5 flex-shrink-0">1</div>
                           <div>
-                            <p className="text-green-200 font-medium">40-45% Distribution Margin</p>
-                            <p className="text-gray-400 text-sm">Industry-leading margins compared to 25-30% with traditional coatings <span className="text-xs">(Source: SON-SHIELD Distributor Program Documentation, 2023)</span></p>
+                            <p className="text-green-200 font-medium text-sm">40-45% Distribution Margin</p>
+                            <p className="text-gray-400 text-xs">Industry-leading margins vs 25-30% standard</p>
                           </div>
                         </li>
                         
-                        <li className="flex items-start gap-3">
-                          <div className="h-6 w-6 bg-green-900/70 rounded-full flex items-center justify-center text-white text-sm mt-0.5 flex-shrink-0">2</div>
+                        <li className="flex items-start gap-2">
+                          <div className="h-5 w-5 bg-green-900/70 rounded-full flex items-center justify-center text-white text-xs mt-0.5 flex-shrink-0">2</div>
                           <div>
-                            <p className="text-green-200 font-medium">Exclusive Territory Rights</p>
-                            <p className="text-gray-400 text-sm">Protected geographic exclusivity with first-right-of-refusal on adjacent territories based on performance</p>
+                            <p className="text-green-200 font-medium text-sm">Exclusive Territory Rights</p>
+                            <p className="text-gray-400 text-xs">Protected geographic exclusivity</p>
                           </div>
                         </li>
                         
-                        <li className="flex items-start gap-3">
-                          <div className="h-6 w-6 bg-green-900/70 rounded-full flex items-center justify-center text-white text-sm mt-0.5 flex-shrink-0">3</div>
+                        <li className="flex items-start gap-2">
+                          <div className="h-5 w-5 bg-green-900/70 rounded-full flex items-center justify-center text-white text-xs mt-0.5 flex-shrink-0">3</div>
                           <div>
-                            <p className="text-green-200 font-medium">Advanced Revenue Diversification</p>
-                            <p className="text-gray-400 text-sm">Four revenue streams: product sales (42%), application services (28%), maintenance contracts (18%), and consulting (12%) <span className="text-xs">(Source: SON-SHIELD Revenue Model Analysis, 2023)</span></p>
-                          </div>
-                        </li>
-                        
-                        <li className="flex items-start gap-3">
-                          <div className="h-6 w-6 bg-green-900/70 rounded-full flex items-center justify-center text-white text-sm mt-0.5 flex-shrink-0">4</div>
-                          <div>
-                            <p className="text-green-200 font-medium">Tiered Volume Incentives</p>
-                            <p className="text-gray-400 text-sm">Escalating margin structure reaching 52% at enterprise volume levels, creating predictable growth path</p>
+                            <p className="text-green-200 font-medium text-sm">4 Revenue Streams</p>
+                            <p className="text-gray-400 text-xs">Product, application, maintenance, consulting</p>
                           </div>
                         </li>
                       </ul>
                     </div>
                   </div>
 
-                  {/* Strategic Market Position - New section with dollar icon */}
-                  <div className="relative group p-6 bg-gradient-to-br from-black/80 to-gray-900/80 border border-green-700/30 rounded-xl transition-all duration-300 hover:border-green-600/50 shadow-lg">
+                  {/* Strategic Market Position */}
+                  <div className="relative group p-5 bg-gradient-to-br from-black/80 to-gray-900/80 border border-green-700/30 rounded-xl transition-all duration-300 hover:border-green-600/50 shadow-lg">
                     <div className="absolute -inset-px bg-gradient-to-r from-green-600/20 via-transparent to-green-600/20 rounded-xl opacity-70 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
                     
                     <div className="relative">
-                      <div className="flex items-center mb-4">
-                        {/* Elite enterprise icon styling */}
+                      <div className="flex items-center mb-3">
                         <div className="relative mr-3">
                           <div className="absolute -inset-2 bg-green-500/20 rounded-full blur-md opacity-80"></div>
-                          <div className="relative h-14 w-14 flex items-center justify-center bg-gradient-to-br from-green-800 to-green-900 rounded-xl border border-green-400/30 shadow-[0_0_15px_rgba(74,222,128,0.3)]">
+                          <div className="relative h-12 w-12 flex items-center justify-center bg-gradient-to-br from-green-800 to-green-900 rounded-xl border border-green-400/30 shadow-[0_0_15px_rgba(74,222,128,0.3)]">
                             <div className="absolute inset-0.5 bg-gradient-to-br from-green-700 to-green-800 rounded-[0.65rem] opacity-50"></div>
                             <div className="absolute h-full w-1/2 bg-gradient-to-r from-transparent via-green-400/20 to-transparent skew-x-[-20deg] animate-shimmer-slow" style={{ animationDelay: '0.7s' }}></div>
-                            <DollarSign className="w-7 h-7 text-green-300 relative z-10 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]" />
+                            <DollarSign className="w-6 h-6 text-green-300 relative z-10 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]" />
                           </div>
                         </div>
-                        <h3 className="font-bold text-xl text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-green-200" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.8)" }}>Strategic Market Position</h3>
+                        <h3 className="font-bold text-xl text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-green-200" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.8)" }}>Market Position</h3>
                       </div>
                       
-                      <ul className="space-y-3">
-                        <li className="flex items-start gap-3">
-                          <div className="h-6 w-6 bg-green-900/70 rounded-full flex items-center justify-center text-white text-sm mt-0.5 flex-shrink-0">1</div>
+                      <ul className="space-y-2">
+                        <li className="flex items-start gap-2">
+                          <div className="h-5 w-5 bg-green-900/70 rounded-full flex items-center justify-center text-white text-xs mt-0.5 flex-shrink-0">1</div>
                           <div>
-                            <p className="text-green-200 font-medium">Proprietary Solution Advantage</p>
-                            <p className="text-gray-400 text-sm">82% of industry clients cite proprietary features as primary purchase driver, creating premium pricing capability <span className="text-xs">(<a href="https://www.son-shield.com/materials/market-analysis-2023" className="text-green-400/70 hover:text-green-400">Source: SON-SHIELD Market Analysis Report, 2023</a>)</span></p>
+                            <p className="text-green-200 font-medium text-sm">Solution Advantage</p>
+                            <p className="text-gray-400 text-xs">82% cite proprietary features as primary driver</p>
                           </div>
                         </li>
                         
-                        <li className="flex items-start gap-3">
-                          <div className="h-6 w-6 bg-green-900/70 rounded-full flex items-center justify-center text-white text-sm mt-0.5 flex-shrink-0">2</div>
+                        <li className="flex items-start gap-2">
+                          <div className="h-5 w-5 bg-green-900/70 rounded-full flex items-center justify-center text-white text-xs mt-0.5 flex-shrink-0">2</div>
                           <div>
-                            <p className="text-green-200 font-medium">Rapid Market Entry Timeline</p>
-                            <p className="text-gray-400 text-sm">60-day implementation from distributor agreement to first revenue, with comprehensive onboarding and training program <span className="text-xs">(<a href="https://www.son-shield.com/distributor-success" className="text-green-400/70 hover:text-green-400">Source: SON-SHIELD Distributor Success Metrics, 2024</a>)</span></p>
+                            <p className="text-green-200 font-medium text-sm">Rapid Market Entry</p>
+                            <p className="text-gray-400 text-xs">60-day implementation to first revenue</p>
                           </div>
                         </li>
                         
-                        <li className="flex items-start gap-3">
-                          <div className="h-6 w-6 bg-green-900/70 rounded-full flex items-center justify-center text-white text-sm mt-0.5 flex-shrink-0">3</div>
+                        <li className="flex items-start gap-2">
+                          <div className="h-5 w-5 bg-green-900/70 rounded-full flex items-center justify-center text-white text-xs mt-0.5 flex-shrink-0">3</div>
                           <div>
-                            <p className="text-green-200 font-medium">Enterprise Targeting Strategy</p>
-                            <p className="text-gray-400 text-sm">Proven framework for approaching Fortune 500 facility management and capturing recurring enterprise-level contracts spanning multiple locations</p>
-                          </div>
-                        </li>
-                        
-                        <li className="flex items-start gap-3">
-                          <div className="h-6 w-6 bg-green-900/70 rounded-full flex items-center justify-center text-white text-sm mt-0.5 flex-shrink-0">4</div>
-                          <div>
-                            <p className="text-green-200 font-medium">Multi-Channel Revenue Optimization</p>
-                            <p className="text-gray-400 text-sm">Strategic partnership with national construction consortiums creates 3.2x higher conversion rates than traditional sales approaches <span className="text-xs">(<a href="https://www.son-shield.com/partner-performance" className="text-green-400/70 hover:text-green-400">Source: SON-SHIELD Channel Partner Analysis, 2023</a>)</span></p>
+                            <p className="text-green-200 font-medium text-sm">Enterprise Strategy</p>
+                            <p className="text-gray-400 text-xs">Fortune 500 facility management framework</p>
                           </div>
                         </li>
                       </ul>
                     </div>
                   </div>
                   
-                  {/* ROI Calculator */}
-                  <div className="relative group p-6 bg-gradient-to-br from-black/80 to-gray-900/80 border border-green-700/30 rounded-xl transition-all duration-300 hover:border-green-600/50 shadow-lg">
+                  {/* Growth & Support */}
+                  <div className="relative group p-5 bg-gradient-to-br from-black/80 to-gray-900/80 border border-green-700/30 rounded-xl transition-all duration-300 hover:border-green-600/50 shadow-lg">
                     <div className="absolute -inset-px bg-gradient-to-r from-green-600/20 via-transparent to-green-600/20 rounded-xl opacity-70 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
                     
                     <div className="relative">
+                      <div className="flex items-center mb-3">
+                        <div className="relative mr-3">
+                          <div className="absolute -inset-2 bg-green-500/20 rounded-full blur-md opacity-80"></div>
+                          <div className="relative h-12 w-12 flex items-center justify-center bg-gradient-to-br from-green-800 to-green-900 rounded-xl border border-green-400/30 shadow-[0_0_15px_rgba(74,222,128,0.3)]">
+                            <div className="absolute inset-0.5 bg-gradient-to-br from-green-700 to-green-800 rounded-[0.65rem] opacity-50"></div>
+                            <div className="absolute h-full w-1/2 bg-gradient-to-r from-transparent via-green-400/20 to-transparent skew-x-[-20deg] animate-shimmer-slow" style={{ animationDelay: '0.4s' }}></div>
+                            <TrendingUp className="w-6 h-6 text-green-300 relative z-10 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]" />
+                          </div>
+                        </div>
+                        <h3 className="font-bold text-xl text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-green-200" style={{ textShadow: "0 1px 2px rgba(0,0,0,0.8)" }}>Growth Support</h3>
+                      </div>
+                      
+                      <ul className="space-y-2">
+                        <li className="flex items-start gap-2">
+                          <div className="h-5 w-5 bg-green-900/70 rounded-full flex items-center justify-center text-white text-xs mt-0.5 flex-shrink-0">1</div>
+                          <div>
+                            <p className="text-green-200 font-medium text-sm">Marketing Package</p>
+                            <p className="text-gray-400 text-xs">Full-service lead generation platform</p>
+                          </div>
+                        </li>
+                        
+                        <li className="flex items-start gap-2">
+                          <div className="h-5 w-5 bg-green-900/70 rounded-full flex items-center justify-center text-white text-xs mt-0.5 flex-shrink-0">2</div>
+                          <div>
+                            <p className="text-green-200 font-medium text-sm">Technical Training</p>
+                            <p className="text-gray-400 text-xs">Comprehensive certification program</p>
+                          </div>
+                        </li>
+                        
+                        <li className="flex items-start gap-2">
+                          <div className="h-5 w-5 bg-green-900/70 rounded-full flex items-center justify-center text-white text-xs mt-0.5 flex-shrink-0">3</div>
+                          <div>
+                            <p className="text-green-200 font-medium text-sm">Volume Incentives</p>
+                            <p className="text-gray-400 text-xs">Margins up to 52% at enterprise levels</p>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* ROI Calculator Card - Fixed Layout */}
+                <div className="relative group p-6 bg-gradient-to-br from-black/80 to-gray-900/80 border border-green-700/30 rounded-xl transition-all duration-300 hover:border-green-600/50 shadow-lg mt-6">
+                  <div className="absolute -inset-px bg-gradient-to-r from-green-600/20 via-transparent to-green-600/20 rounded-xl opacity-70 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
+                  
+                  <div className="relative">
                       <div className="flex items-center mb-4">
                         {/* Elite enterprise icon styling */}
                         <div className="relative mr-3">
