@@ -876,34 +876,13 @@ const Construction = () => {
                     Become an authorized Praetorian Smart-Coat™ distributor and position your business at the forefront of construction innovation with unmatched profit potential.
                   </p>
                   <div>
-                    <div className="relative inline-block group/distributor-button">
-                    {/* Enhanced purple ambient glow */}
-                    <div className="absolute -inset-3 bg-purple-500/10 rounded-2xl blur-2xl opacity-0 group-hover/distributor-button:opacity-100 transition-opacity duration-700"></div>
-                    <div className="absolute -inset-2 bg-gradient-to-r from-purple-600/20 via-blue-600/30 to-purple-600/20 rounded-xl blur-xl opacity-70 group-hover/distributor-button:opacity-90 transition-opacity duration-500"></div>
-                    <div className="absolute -inset-1 bg-gradient-to-r from-purple-600/30 to-blue-600/30 rounded-lg blur-md opacity-60 group-hover/distributor-button:opacity-80 transition-opacity duration-300"></div>
-
                     <PremiumCartButton 
-                      className="relative z-10 px-10 py-5 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-purple-500/50 rounded-lg font-bold shadow-lg text-purple-100 hover:text-white transition-all transform hover:scale-105 overflow-hidden"
+                      className="px-10 py-5 text-xl font-bold"
+                      variant="fire"
+                      onClick={() => setShowRegistrationForm(true)}
                     >
-                      {/* Glass overlay with subtle transparency */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-purple-700/10 rounded-xl opacity-100 group-hover:opacity-0 transition-opacity duration-300 -z-[1]"></div>
-                      
-                      {/* Animated hover gradient */}
-                      <div className="absolute inset-0 bg-gradient-to-r from-purple-500/40 to-blue-600/40 rounded-xl -z-[1] translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
-                      
-                      <span className="relative inline-block overflow-hidden">
-                        <span className="relative inline-block group-hover:translate-y-full transition-transform duration-300">
-                          Apply to Become a Distributor
-                        </span>
-                        <span className="absolute inset-0 flex items-center justify-center -translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                          <span className="relative">
-                            Apply to Become a Distributor
-                            <span className="absolute inset-x-0 bottom-0 h-[1px] bg-gradient-to-r from-transparent via-purple-300/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
-                          </span>
-                        </span>
-                      </span>
+                      Apply to Become a Distributor
                     </PremiumCartButton>
-                  </div>
                   </div>
                 </div>
               </div>

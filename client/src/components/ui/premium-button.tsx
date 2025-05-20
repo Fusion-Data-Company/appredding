@@ -172,8 +172,15 @@ const PremiumButton = forwardRef<HTMLButtonElement, PremiumButtonProps>(
           {/* Enhanced Shimmer effect animation for fire variant - always active */}
           {isFire && (
             <>
-              {/* Elite Enterprise Shimmer - dynamic multi-layer effect */}
-              <div className="absolute inset-0 w-full h-full overflow-hidden rounded-lg">
+              {/* Elite Enterprise Shimmer - dynamic multi-layer effect (pulled behind the button) */}
+              <div className="absolute -inset-8 z-[-1]">
+                {/* Purple glow background effect */}
+                <div className="absolute inset-0 bg-purple-600/10 rounded-full blur-xl"></div>
+                <div className="absolute inset-0 bg-purple-500/5 rounded-xl blur-2xl"></div>
+              </div>
+              
+              {/* Button shine effects */}
+              <div className="absolute inset-0 w-full h-full overflow-hidden rounded-lg z-[1]">
                 {/* Primary diagonal shimmer with blue tint */}
                 <div className="absolute inset-0 w-[120%] h-[200%] bg-gradient-to-r from-transparent via-blue-400/20 to-transparent opacity-70 -translate-x-full animate-shimmer-slow transform skew-x-[-20deg]"></div>
                 
