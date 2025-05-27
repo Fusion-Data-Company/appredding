@@ -255,6 +255,80 @@ router.get("/api/crm/dashboard", async (req, res) => {
   }
 });
 
+// CSV contact import
+router.post("/api/crm/contacts/import", upload.single('csvFile'), async (req, res) => {
+  try {
+    if (!req.file) {
+      return res.status(400).json({ success: false, error: "No CSV file uploaded" });
+    }
+
+    const csvContent = req.file.buffer.toString('utf-8');
+    const records = parse(csvContent, {
+      columns: true,
+      skip_empty_lines: true,
+      trim: true
+    });
+
+    let imported = 0;
+    let skipped = 0;
+
+    for (const record of records) {
+      try {
+        // Map CSV columns to contact fields
+        const contactData = {
+          firstName: record.firstName || record['First Name'] || '',
+          lastName: record.lastName || record['Last Name'] || '',
+          email: record.email || record['Email'] || '',
+          phone: record.phone || record['Phone'] || '',
+          address: record.address || record['Address'] || '',
+          city: record.city || record['City'] || '',
+          state: record.state || record['State'] || 'CA',
+          zipCode: record.zipCode || record['ZIP Code'] || record['Zip Code'] || '',
+          jobTitle: record.jobTitle || record['Job Title'] || '',
+          status: record.status || record['Status'] || 'lead',
+          source: record.source || record['Source'] || 'csv_import',
+          interestedInServices: record.interestedInServices 
+            ? record.interestedInServices.split(',').map((s: string) => s.trim())
+            : [],
+          notes: record.notes || record['Notes'] || ''
+        };
+
+        // Validate required fields
+        if (contactData.firstName && contactData.lastName && contactData.email && contactData.phone) {
+          await storage.createContact(contactData);
+          imported++;
+        } else {
+          skipped++;
+        }
+      } catch (error) {
+        console.error("Error importing contact:", error);
+        skipped++;
+      }
+    }
+
+    res.json({ 
+      success: true, 
+      imported, 
+      skipped,
+      message: `Successfully imported ${imported} contacts, skipped ${skipped} invalid records` 
+    });
+  } catch (error) {
+    console.error("CSV import error:", error);
+    res.status(500).json({ success: false, error: "Failed to import CSV file" });
+  }
+});
+
+// Get form submissions
+router.get("/api/crm/form-submissions", async (req, res) => {
+  try {
+    const submissions = await storage.getFormSubmissions();
+    res.json({ success: true, submissions });
+  } catch (error) {
+    console.error("Get form submissions error:", error);
+    res.status(500).json({ success: false, error: "Internal server error" });
+  }
+});
+
 // Create activity
 router.post("/api/crm/activities", async (req, res) => {
   try {
@@ -265,5 +339,9 @@ router.post("/api/crm/activities", async (req, res) => {
     res.status(500).json({ success: false, error: "Internal server error" });
   }
 });
+
+export function registerRoutes(app: any) {
+  app.use(router);
+}
 
 export default router;
