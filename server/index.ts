@@ -2,7 +2,7 @@ import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
 import { setupCompressionMiddleware } from "./middleware/compression-middleware";
-import crmRoutes from "./routes";
+import crmRoutes from "./routes/crmFixed";
 
 const app = express();
 app.use(express.json());
@@ -55,7 +55,7 @@ app.use((req, res, next) => {
 });
 
 // Add CRM routes
-app.use(crmRoutes);
+app.use("/api/crm", crmRoutes);
 
 (async () => {
   const server = await registerRoutes(app);

@@ -33,7 +33,7 @@ const About = lazy(() => import('./pages/About'));
 import Team from "@/pages/Team";
 import CrmLogin from "@/pages/crm-login";
 import CrmDashboard from "@/pages/crm-dashboard";
-import CRMDashboard from "@/pages/CRMDashboard";
+import CRMDashboard from "@/pages/CRMDashboardFixed";
 import EnterpriseCARM from "@/pages/EnterpriseCARM";
 import AnalyticsDashboard from "@/pages/AnalyticsDashboard";
 import InventoryPage from "@/pages/inventory";
