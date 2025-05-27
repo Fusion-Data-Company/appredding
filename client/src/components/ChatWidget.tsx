@@ -228,7 +228,7 @@ const ChatWidget = () => {
               <div className="h-10 w-10 rounded-full bg-gradient-to-r from-blue-600 to-orange-600 flex items-center justify-center shadow-[0_0_15px_rgba(255,130,30,0.3)]">
                 <MessageSquare className="h-5 w-5" />
               </div>
-              {currentSession?.title || 'Solar Energy Assistant'}
+              {currentSession?.title || 'Watson - Solar Energy Assistant'}
             </CardTitle>
             <div className="flex items-center gap-3">
               <Button
@@ -343,10 +343,10 @@ const ChatWidget = () => {
                 </div>
                 <div className="bg-gradient-to-r from-gray-900/80 to-gray-800/80 backdrop-blur-xl p-6 rounded-xl border border-white/10 shadow-lg max-w-sm">
                   <h3 className="text-xl font-semibold text-white mb-3">
-                    Welcome to Advance Power Chat
+                    Hello! I'm Watson 👋
                   </h3>
                   <p className="text-gray-300 max-w-xs leading-relaxed mb-4">
-                    Ask me anything about solar installations, battery storage, financing options, or energy savings. I'm here to help with all your renewable energy needs in Shasta County since 1999.
+                    I'm your Solar Energy Assistant at Advance Power Redding. Ask me anything about solar installations, battery storage, financing options, or energy savings. I'm here to help with all your renewable energy needs in Shasta County since 1999.
                   </p>
                 </div>
               </div>
@@ -387,7 +387,7 @@ const ChatWidget = () => {
                       <span className="w-2 h-2 bg-white rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></span>
                       <span className="w-2 h-2 bg-white rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></span>
                     </div>
-                    <span className="text-sm font-medium">Praetorian Assistant is thinking...</span>
+                    <span className="text-sm font-medium">Watson is thinking...</span>
                   </div>
                 </div>
               </div>

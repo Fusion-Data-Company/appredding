@@ -42,12 +42,12 @@ const EnergyStorageSection = () => {
   ];
 
   return (
-    <section className="relative py-32 bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 overflow-hidden">
+    <section className="relative py-32 bg-gradient-to-br from-amber-50 via-orange-50 to-red-50 overflow-hidden">
       {/* Solar Battery Light Effects */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-r from-green-200/20 via-emerald-200/15 to-teal-200/20"></div>
-        <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-gradient-to-br from-green-300/15 to-emerald-300/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/3 left-1/4 w-80 h-80 bg-gradient-to-br from-emerald-300/15 to-teal-300/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-amber-200/20 via-orange-200/15 to-red-200/20"></div>
+        <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-gradient-to-br from-amber-300/15 to-orange-300/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/3 left-1/4 w-80 h-80 bg-gradient-to-br from-orange-300/15 to-red-300/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
       </div>
 
       {/* Solar Grid Pattern */}

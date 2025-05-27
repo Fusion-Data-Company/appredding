@@ -10,10 +10,10 @@ const SolarHeroSection = () => {
         className="absolute inset-0 bg-cover bg-center bg-fixed"
         style={{
           backgroundImage: `
-            radial-gradient(circle at 20% 30%, rgba(251, 191, 36, 0.15) 0%, transparent 50%),
-            radial-gradient(circle at 80% 70%, rgba(249, 115, 22, 0.12) 0%, transparent 50%),
-            radial-gradient(circle at 40% 80%, rgba(239, 68, 68, 0.08) 0%, transparent 50%),
-            linear-gradient(135deg, rgba(15, 23, 42, 0.97) 0%, rgba(30, 41, 59, 0.95) 25%, rgba(51, 65, 85, 0.92) 50%, rgba(71, 85, 105, 0.88) 75%, rgba(100, 116, 139, 0.85) 100%), 
+            radial-gradient(circle at 20% 30%, rgba(251, 191, 36, 0.25) 0%, transparent 50%),
+            radial-gradient(circle at 80% 70%, rgba(249, 115, 22, 0.20) 0%, transparent 50%),
+            radial-gradient(circle at 40% 80%, rgba(239, 68, 68, 0.15) 0%, transparent 50%),
+            linear-gradient(135deg, rgba(255, 251, 235, 0.95) 0%, rgba(254, 243, 199, 0.92) 25%, rgba(253, 230, 138, 0.88) 50%, rgba(252, 211, 77, 0.85) 75%, rgba(251, 191, 36, 0.80) 100%), 
             url(${SOLAR_HERO_IMAGE})
           `
         }}

@@ -39,12 +39,12 @@ const AboutAdvancePowerSection = () => {
   ];
 
   return (
-    <section className="relative py-32 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 overflow-hidden">
+    <section className="relative py-32 bg-gradient-to-br from-yellow-50 via-orange-50 to-amber-50 overflow-hidden">
       {/* Solar Light Effects */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-200/20 via-indigo-200/15 to-purple-200/20"></div>
-        <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-gradient-to-br from-blue-300/15 to-indigo-300/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/3 w-80 h-80 bg-gradient-to-br from-indigo-300/15 to-purple-300/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-yellow-200/20 via-orange-200/15 to-amber-200/20"></div>
+        <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-gradient-to-br from-yellow-300/15 to-orange-300/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/3 w-80 h-80 bg-gradient-to-br from-orange-300/15 to-amber-300/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
       </div>
 
       {/* Solar Grid Pattern */}
@@ -52,7 +52,7 @@ const AboutAdvancePowerSection = () => {
         <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <pattern id="about-grid" width="80" height="80" patternUnits="userSpaceOnUse">
-              <path d="M 80 0 L 0 0 0 80" fill="none" stroke="rgba(59, 130, 246, 0.4)" strokeWidth="1"/>
+              <path d="M 80 0 L 0 0 0 80" fill="none" stroke="rgba(251, 191, 36, 0.4)" strokeWidth="1"/>
             </pattern>
           </defs>
           <rect width="100%" height="100%" fill="url(#about-grid)" />

@@ -9,7 +9,7 @@ const ContactSection = () => {
       subtitle: "(530) 226-0701",
       description: "Speak directly with our solar experts",
       action: "Call Now",
-      color: "from-green-500 to-blue-500"
+      color: "from-yellow-500 to-orange-500"
     },
     {
       icon: <MessageSquare className="w-8 h-8" />,
@@ -17,7 +17,7 @@ const ContactSection = () => {
       subtitle: "Schedule Online",
       description: "Book your personalized solar assessment",
       action: "Schedule Now",
-      color: "from-blue-500 to-purple-500"
+      color: "from-orange-500 to-red-500"
     },
     {
       icon: <Mail className="w-8 h-8" />,
@@ -25,7 +25,7 @@ const ContactSection = () => {
       subtitle: "info@advancepower.com",
       description: "Get your custom solar proposal via email",
       action: "Email Us",
-      color: "from-purple-500 to-pink-500"
+      color: "from-red-500 to-yellow-500"
     }
   ];
 
