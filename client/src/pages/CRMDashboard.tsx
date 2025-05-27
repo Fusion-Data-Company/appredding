@@ -368,16 +368,7 @@ export default function CRMDashboard() {
     }
   });
 
-  // Form submissions query
-  const { data: formSubmissions, isLoading: isFormSubmissionsLoading } = useQuery({
-    queryKey: ["/api/crm/form-submissions"],
-    queryFn: async () => {
-      const response = await fetch("/api/crm/form-submissions");
-      if (!response.ok) throw new Error("Failed to fetch form submissions");
-      const data = await response.json();
-      return data.submissions as FormSubmission[];
-    }
-  });
+
 
   // Handle CSV file selection
   const handleCsvFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -957,9 +948,24 @@ export default function CRMDashboard() {
                     <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-orange-600 mx-auto"></div>
                     <p className="mt-2 text-gray-600">Loading form submissions...</p>
                   </div>
-                ) : formSubmissions && formSubmissions.length > 0 ? (
+                ) : formSubmissionsError ? (
+                  <div className="text-center py-8">
+                    <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+                      <p className="text-red-600 font-medium">Error loading form submissions</p>
+                      <p className="text-red-500 text-sm mt-1">{formSubmissionsError.message}</p>
+                      <Button 
+                        variant="outline" 
+                        size="sm" 
+                        onClick={() => refetchFormSubmissions()}
+                        className="mt-3"
+                      >
+                        Try Again
+                      </Button>
+                    </div>
+                  </div>
+                ) : formSubmissionsData && formSubmissionsData.length > 0 ? (
                   <div className="space-y-4">
-                    {formSubmissions.map((submission) => (
+                    {formSubmissionsData.map((submission) => (
                       <div key={submission.id} className="border rounded-lg p-4 hover:bg-gray-50 transition-colors">
                         <div className="flex items-center justify-between mb-3">
                           <div className="flex items-center gap-3">
@@ -1015,9 +1021,24 @@ export default function CRMDashboard() {
                     <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-orange-600 mx-auto"></div>
                     <p className="mt-2 text-gray-600">Loading opportunities...</p>
                   </div>
-                ) : (
+                ) : opportunitiesError ? (
+                  <div className="text-center py-8">
+                    <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+                      <p className="text-red-600 font-medium">Error loading opportunities</p>
+                      <p className="text-red-500 text-sm mt-1">{opportunitiesError.message}</p>
+                      <Button 
+                        variant="outline" 
+                        size="sm" 
+                        onClick={() => refetchOpportunities()}
+                        className="mt-3"
+                      >
+                        Try Again
+                      </Button>
+                    </div>
+                  </div>
+                ) : opportunitiesData && opportunitiesData.length > 0 ? (
                   <div className="space-y-4">
-                    {(opportunitiesData || []).map((opportunity) => (
+                    {opportunitiesData.map((opportunity) => (
                       <div key={opportunity.id} className="border rounded-lg p-4 hover:bg-gray-50 transition-colors">
                         <div className="flex items-center justify-between">
                           <div className="flex-1">
@@ -1054,11 +1075,12 @@ export default function CRMDashboard() {
                         </div>
                       </div>
                     ))}
-                    {(opportunitiesData || []).length === 0 && (
-                      <div className="text-center py-8 text-gray-500">
-                        No opportunities found.
-                      </div>
-                    )}
+                  </div>
+                ) : (
+                  <div className="text-center py-8 text-gray-500">
+                    <Briefcase className="h-12 w-12 mx-auto mb-4 opacity-50" />
+                    <p>No solar opportunities yet.</p>
+                    <p className="text-sm mt-2">New opportunities will appear here when forms are submitted.</p>
                   </div>
                 )}
               </CardContent>
