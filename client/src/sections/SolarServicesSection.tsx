@@ -54,23 +54,23 @@ const SolarServicesSection = () => {
   ];
 
   return (
-    <section id="services" className="relative py-32 bg-gradient-to-br from-gray-900 via-black to-gray-800 overflow-hidden">
-      {/* Enterprise Background Effects */}
+    <section id="services" className="relative py-32 bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 overflow-hidden">
+      {/* Solar Light Effects */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/5 via-orange-500/5 to-red-500/5"></div>
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-br from-yellow-500/8 to-orange-500/8 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-br from-orange-500/8 to-red-500/8 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-orange-200/20 via-amber-200/15 to-yellow-200/20"></div>
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-br from-orange-300/15 to-amber-300/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-br from-amber-300/15 to-yellow-300/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
       </div>
 
-      {/* Enterprise Grid Pattern */}
-      <div className="absolute inset-0 opacity-10">
+      {/* Solar Grid Pattern */}
+      <div className="absolute inset-0 opacity-20">
         <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <pattern id="enterprise-grid" width="80" height="80" patternUnits="userSpaceOnUse">
-              <path d="M 80 0 L 0 0 0 80" fill="none" stroke="rgba(249, 115, 22, 0.3)" strokeWidth="1"/>
+            <pattern id="solar-services-grid" width="80" height="80" patternUnits="userSpaceOnUse">
+              <path d="M 80 0 L 0 0 0 80" fill="none" stroke="rgba(249, 115, 22, 0.4)" strokeWidth="1"/>
             </pattern>
           </defs>
-          <rect width="100%" height="100%" fill="url(#enterprise-grid)" />
+          <rect width="100%" height="100%" fill="url(#solar-services-grid)" />
         </svg>
       </div>
 
@@ -83,17 +83,17 @@ const SolarServicesSection = () => {
           viewport={{ once: true }}
           className="text-center mb-24"
         >
-          <h2 className="text-6xl md:text-7xl lg:text-8xl font-black text-white mb-12 leading-tight">
+          <h2 className="text-6xl md:text-7xl lg:text-8xl font-black text-gray-800 mb-12 leading-tight">
             Our{" "}
             <span className="relative inline-block">
-              <span className="bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-orange-600 via-red-600 to-amber-600 bg-clip-text text-transparent">
                 Solar Services
               </span>
-              <div className="absolute -inset-2 bg-gradient-to-r from-yellow-400/20 to-orange-500/20 blur-2xl -z-10 animate-pulse"></div>
+              <div className="absolute -inset-2 bg-gradient-to-r from-orange-300/30 to-amber-300/30 blur-2xl -z-10 animate-pulse"></div>
             </span>
           </h2>
           
-          <p className="text-3xl md:text-4xl text-gray-200 max-w-5xl mx-auto font-light leading-relaxed">
+          <p className="text-3xl md:text-4xl text-gray-700 max-w-5xl mx-auto font-light leading-relaxed">
             Comprehensive solar solutions for homes and businesses throughout Northern California. 
             From installation to maintenance, we've got you covered.
           </p>
