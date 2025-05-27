@@ -48,20 +48,20 @@ const ContactSection = () => {
   ];
 
   return (
-    <section className="relative py-32 bg-gradient-to-br from-black via-gray-900 to-gray-800 overflow-hidden">
-      {/* Enterprise Background Effects */}
+    <section className="relative py-32 bg-gradient-to-br from-red-50 via-orange-50 to-yellow-50 overflow-hidden">
+      {/* Solar Contact Light Effects */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/5 via-purple-500/5 to-pink-500/5"></div>
-        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-gradient-to-br from-indigo-500/8 to-purple-500/8 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 left-1/4 w-80 h-80 bg-gradient-to-br from-purple-500/8 to-pink-500/8 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-red-200/20 via-orange-200/15 to-yellow-200/20"></div>
+        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-gradient-to-br from-red-300/15 to-orange-300/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/4 left-1/4 w-80 h-80 bg-gradient-to-br from-orange-300/15 to-yellow-300/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
       </div>
 
-      {/* Enterprise Grid Pattern */}
-      <div className="absolute inset-0 opacity-10">
+      {/* Solar Grid Pattern */}
+      <div className="absolute inset-0 opacity-20">
         <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <pattern id="contact-grid" width="80" height="80" patternUnits="userSpaceOnUse">
-              <path d="M 80 0 L 0 0 0 80" fill="none" stroke="rgba(147, 51, 234, 0.3)" strokeWidth="1"/>
+              <path d="M 80 0 L 0 0 0 80" fill="none" stroke="rgba(251, 146, 60, 0.4)" strokeWidth="1"/>
             </pattern>
           </defs>
           <rect width="100%" height="100%" fill="url(#contact-grid)" />
@@ -77,17 +77,17 @@ const ContactSection = () => {
           viewport={{ once: true }}
           className="text-center mb-24"
         >
-          <h2 className="text-6xl md:text-7xl lg:text-8xl font-black text-white mb-12 leading-tight">
+          <h2 className="text-6xl md:text-7xl lg:text-8xl font-black text-gray-800 mb-12 leading-tight">
             Ready to{" "}
             <span className="relative inline-block">
-              <span className="bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-red-600 via-orange-600 to-yellow-600 bg-clip-text text-transparent">
                 Go Solar?
               </span>
-              <div className="absolute -inset-2 bg-gradient-to-r from-indigo-400/20 to-purple-500/20 blur-2xl -z-10 animate-pulse"></div>
+              <div className="absolute -inset-2 bg-gradient-to-r from-red-300/30 to-orange-300/30 blur-2xl -z-10 animate-pulse"></div>
             </span>
           </h2>
           
-          <p className="text-3xl md:text-4xl text-gray-200 max-w-5xl mx-auto font-light leading-relaxed">
+          <p className="text-3xl md:text-4xl text-gray-700 max-w-5xl mx-auto font-light leading-relaxed">
             Contact Northern California's most trusted solar experts today. 
             Get your free consultation and start saving with clean energy.
           </p>

@@ -48,23 +48,23 @@ const SolarTestimonialsSection = () => {
   ];
 
   return (
-    <section className="relative py-32 bg-gradient-to-br from-gray-900 via-black to-gray-800 overflow-hidden">
-      {/* Enterprise Background Pattern */}
+    <section className="relative py-32 bg-gradient-to-br from-yellow-50 via-amber-50 to-orange-50 overflow-hidden">
+      {/* Solar Background Pattern */}
       <div className="absolute inset-0 opacity-20">
         <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <pattern id="testimonials-grid" width="100" height="100" patternUnits="userSpaceOnUse">
-              <path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(249, 115, 22, 0.06)" strokeWidth="1"/>
+              <path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(249, 115, 22, 0.4)" strokeWidth="1"/>
             </pattern>
           </defs>
           <rect width="100%" height="100%" fill="url(#testimonials-grid)" />
         </svg>
       </div>
 
-      {/* Premium Floating Elements */}
+      {/* Solar Light Effects */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-48 left-48 w-40 h-40 bg-gradient-to-br from-yellow-400/4 to-orange-500/4 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-48 right-48 w-48 h-48 bg-gradient-to-br from-orange-500/4 to-red-500/4 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-48 left-48 w-40 h-40 bg-gradient-to-br from-yellow-300/15 to-orange-300/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-48 right-48 w-48 h-48 bg-gradient-to-br from-orange-300/15 to-amber-300/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
