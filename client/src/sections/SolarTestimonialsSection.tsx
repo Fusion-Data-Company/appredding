@@ -76,17 +76,17 @@ const SolarTestimonialsSection = () => {
           className="text-center mb-20"
         >
           {/* Enterprise Typography */}
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-gray-900 mb-10 leading-tight">
+          <h2 className="text-6xl md:text-7xl lg:text-8xl font-black text-white mb-12 leading-tight">
             What Our{" "}
             <span className="relative inline-block">
               <span className="bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 bg-clip-text text-transparent">
                 Customers Say
               </span>
-              <div className="absolute -inset-1 bg-gradient-to-r from-yellow-400/20 to-orange-500/20 blur-lg -z-10 animate-pulse"></div>
+              <div className="absolute -inset-2 bg-gradient-to-r from-yellow-400/20 to-orange-500/20 blur-2xl -z-10 animate-pulse"></div>
             </span>
           </h2>
           
-          <p className="text-2xl md:text-3xl text-gray-700 max-w-4xl mx-auto font-light leading-relaxed mb-6">
+          <p className="text-3xl md:text-4xl text-gray-200 max-w-5xl mx-auto font-light leading-relaxed mb-8">
             Over 25 years of satisfied customers throughout Northern California. 
             See why families and businesses trust Advance Power Redding for their solar needs.
           </p>
