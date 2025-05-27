@@ -60,10 +60,10 @@ export const addSocialTags = (
 
 /**
  * Generate proper alt text for images following accessibility best practices
- * Format: "Praetorian Smart-Coat | {industry} | fireproof coating {optional context}"
+ * Format: "Advance Power | {industry} | solar energy solutions {optional context}"
  */
 export const getAccessibleAltText = (industry: string, context: string = '') => {
-  return `Praetorian Smart-Coat | ${industry} | fireproof coating${context ? ` ${context}` : ''}`;
+  return `Advance Power | ${industry} | solar energy solutions${context ? ` ${context}` : ''}`;
 };
 
 /**
@@ -76,18 +76,18 @@ export const generateStructuredData = (
   slug: string,
   features: string[] = []
 ) => {
-  const baseUrl = 'https://praetorian-smart-coat.com';
+  const baseUrl = 'https://advance-power-redding.com';
   
   return {
     "@context": "https://schema.org",
     "@type": "Product",
-    "name": `Praetorian Smart-Coat for ${industry}`,
+    "name": `Advance Power Solar Solutions for ${industry}`,
     "description": description,
     "image": `${baseUrl}/images/og-${slug}.jpg`,
     "brand": {
       "@type": "Brand",
-      "name": "Praetorian Smart-Coat",
-      "logo": `${baseUrl}/images/praetorian-logo.png`
+      "name": "Advance Power",
+      "logo": `${baseUrl}/images/advance-power-logo.png`
     },
     "offers": {
       "@type": "Offer",

@@ -188,59 +188,66 @@ export function PremiumNavbar() {
     </div>
   );
   
-  // Professionals mega menu content
-  const professionalsContent = (
+  // Services mega menu content
+  const servicesContent = (
     <div className="p-4">
       <div className="border-b border-gray-700 pb-2 mb-3">
         <h3 className="text-base font-bold text-center text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">
-          Solar Professionals
+          Solar Services
         </h3>
       </div>
       
-      <div className="grid grid-cols-2 gap-3">
+      <div className="grid grid-cols-2 gap-4">
         <div>
-          <div className="grid grid-cols-1 gap-3">
+          <h4 className="font-bold text-amber-300 mb-3 text-sm border-b border-amber-700/30 pb-1">Solar Installations</h4>
+          <div className="grid grid-cols-1 gap-2">
             <ImageCard
-              title="Painters"
-              description="Premium painting profit solutions"
-              imageSrc={professionalImages.painters}
-              href="/painters"
+              title="Residential Solar"
+              description="Complete home solar systems"
+              imageSrc="/images/residential-solar.jpg"
+              href="/residential-solar"
             />
             
             <ImageCard
-              title="Pool Professionals"
-              description="Certified pool coating specialists"
-              imageSrc={professionalImages.poolPros}
-              href="/pools"
+              title="Commercial Solar"
+              description="Business solar installations"
+              imageSrc="/images/commercial-solar.jpg"
+              href="/commercial-solar"
+            />
+            
+            <ImageCard
+              title="Battery Storage"
+              description="Energy storage solutions"
+              imageSrc="/images/battery-storage.jpg"
+              href="/battery-storage"
             />
           </div>
         </div>
         
         <div className="pl-3 border-l border-gray-700">
-          <h4 className="font-bold text-white mb-2 text-sm">Program Benefits</h4>
-          <ul className="space-y-1 text-xs">
-            <li className="flex items-center text-gray-300">
-              <div className="w-1 h-1 rounded-full bg-amber-500 mr-1"></div>
-              <span>Exclusive training and certification</span>
-            </li>
-            <li className="flex items-center text-gray-300">
-              <div className="w-1 h-1 rounded-full bg-amber-500 mr-1"></div>
-              <span>Marketing and lead generation support</span>
-            </li>
-            <li className="flex items-center text-gray-300">
-              <div className="w-1 h-1 rounded-full bg-amber-500 mr-1"></div>
-              <span>Technical support and resources</span>
-            </li>
-            <li className="flex items-center text-gray-300">
-              <div className="w-1 h-1 rounded-full bg-amber-500 mr-1"></div>
-              <span>Preferred pricing on products</span>
-            </li>
-            <li className="mt-3">
-              <Link href="/professional-registration" className="text-xs text-amber-400 hover:text-amber-300 font-medium">
-                Register as a Professional →
-              </Link>
-            </li>
-          </ul>
+          <h4 className="font-bold text-amber-300 mb-3 text-sm border-b border-amber-700/30 pb-1">Services & Maintenance</h4>
+          <div className="grid grid-cols-1 gap-2">
+            <ImageCard
+              title="System Maintenance"
+              description="Regular solar panel cleaning & inspection"
+              imageSrc="/images/solar-maintenance.jpg"
+              href="/maintenance"
+            />
+            
+            <ImageCard
+              title="Repair Services"
+              description="Solar system repairs & upgrades"
+              imageSrc="/images/solar-repair.jpg"
+              href="/repairs"
+            />
+            
+            <ImageCard
+              title="Energy Audits"
+              description="Efficiency assessments & optimization"
+              imageSrc="/images/energy-audit.jpg"
+              href="/energy-audit"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -446,10 +453,10 @@ export function PremiumNavbar() {
         />
         
         <NavItem
-          label="Professionals"
-          isOpen={activeMenu === 'professionals'}
-          onClick={() => toggleMenu('professionals')}
-          content={professionalsContent}
+          label="Services"
+          isOpen={activeMenu === 'services'}
+          onClick={() => toggleMenu('services')}
+          content={servicesContent}
         />
         
         <NavItem

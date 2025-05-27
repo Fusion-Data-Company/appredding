@@ -184,17 +184,17 @@ export default function Municipality() {
         slug={slug}
         imagePath={heroImagePath}
         keywords={getIndustryKeywords(slug, [
-          'municipal infrastructure protection',
-          'government building coating',
-          'public infrastructure maintenance',
-          'bridge corrosion prevention',
-          'water facility protection'
+          'municipal solar installations',
+          'government building solar',
+          'public facility renewable energy',
+          'municipal energy savings',
+          'community solar projects'
         ])}
         structuredData={generateStructuredData(industry, pageDescription, slug, [
-          "Long-term municipal asset protection",
-          "Reduced infrastructure maintenance costs",
-          "Enhanced public safety and compliance",
-          "Energy-efficient building solutions"
+          "Cost-effective municipal solar installations",
+          "Reduced operational energy costs",
+          "Environmental leadership demonstration",
+          "Community renewable energy solutions"
         ])}
       />
       
@@ -242,30 +242,30 @@ export default function Municipality() {
                     <div className="absolute top-1 right-1 w-12 h-12 border-t border-r border-blue-500/30 rounded-tr-md"></div>
                   
                     <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-blue-100 to-blue-300">
-                      Municipal Infrastructure Protection
+                      Municipal Solar Solutions
                     </h1>
                     
                     <div className="mb-6 space-y-6 text-gray-300">
                       <p className="text-lg">
-                        Praetorian Smart-Coat delivers cutting-edge ceramic coating technology specifically formulated for municipal infrastructure. Our advanced ceramic formula creates a superior protective barrier that extends asset life, reduces maintenance costs, and enhances public safety.
+                        Advance Power delivers comprehensive solar energy solutions specifically designed for municipal infrastructure. Our large-scale installations create significant cost savings, reduce operational expenses, and demonstrate environmental leadership for your community.
                       </p>
                       <p className="text-lg">
-                        From government buildings to bridges, water facilities to public works, our specialized solutions provide long-term protection for your community's most critical infrastructure investments.
+                        From city halls to fire stations, libraries to community centers, our specialized municipal solar programs provide long-term energy independence for your community's most essential public facilities.
                       </p>
                     </div>
                     
                     <div className="flex flex-wrap gap-4 mb-6">
                       <div className="flex items-center space-x-2">
                         <Building className="h-5 w-5 text-blue-400" />
-                        <span className="text-gray-200">Infrastructure Protection</span>
+                        <span className="text-gray-200">Solar Infrastructure</span>
                       </div>
                       <div className="flex items-center space-x-2">
                         <CircleDollarSign className="h-5 w-5 text-blue-400" />
-                        <span className="text-gray-200">Budget Optimization</span>
+                        <span className="text-gray-200">Cost Reduction</span>
                       </div>
                       <div className="flex items-center space-x-2">
                         <Landmark className="h-5 w-5 text-blue-400" />
-                        <span className="text-gray-200">Public Asset Preservation</span>
+                        <span className="text-gray-200">Environmental Leadership</span>
                       </div>
                     </div>
                     
