@@ -193,53 +193,53 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Main Contact */}
+          {/* Company Information */}
           <div className="relative">
             <div className="absolute -left-4 -top-6 w-20 h-20 bg-gradient-to-br from-orange-500/10 to-transparent rounded-full filter blur-xl"></div>
             <h3 className="text-base font-bold mb-5 flex items-center gap-2">
-              <span className="gradient-text-fire">Main Contact</span>
+              <span className="gradient-text-fire">Company Information</span>
               <div className="h-px flex-grow ml-2 bg-gradient-to-r from-orange-500/30 to-transparent"></div>
             </h3>
             <ul className="space-y-4">
               <li className="group">
                 <div className="flex items-center gap-2 mb-1">
                   <div className="p-1 rounded-full bg-orange-900/30 text-orange-400 group-hover:text-orange-300 transition-colors">
-                    <Mail size={12} />
-                  </div>
-                  <p className="text-gray-400 text-xs font-semibold">General Information:</p>
-                </div>
-                <a href="mailto:info@praetoriansmartcoat.com" className="block pl-6 text-white hover:text-orange-400 text-sm transition-colors">
-                  info@praetoriansmartcoat.com
-                </a>
-              </li>
-              <li className="group">
-                <div className="flex items-center gap-2 mb-1">
-                  <div className="p-1 rounded-full bg-orange-900/30 text-orange-400 group-hover:text-orange-300 transition-colors">
                     <Users size={12} />
                   </div>
-                  <p className="text-gray-400 text-xs font-semibold">Management:</p>
+                  <p className="text-gray-400 text-xs font-semibold">Founded:</p>
                 </div>
-                <a href="mailto:rob@praetoriansmartcoat.com" className="block pl-6 text-white hover:text-orange-400 text-sm transition-colors">
-                  rob@praetoriansmartcoat.com
-                </a>
+                <p className="block pl-6 text-white text-sm">
+                  1999 by Greg Tomsik
+                </p>
               </li>
               <li className="group">
                 <div className="flex items-center gap-2 mb-1">
                   <div className="p-1 rounded-full bg-orange-900/30 text-orange-400 group-hover:text-orange-300 transition-colors">
-                    <Phone size={12} />
+                    <BarChart3 size={12} />
                   </div>
-                  <p className="text-gray-400 text-xs font-semibold">Phone:</p>
+                  <p className="text-gray-400 text-xs font-semibold">Experience:</p>
                 </div>
-                <a href="tel:+19168096619" className="block pl-6 text-white hover:text-orange-400 text-sm transition-colors">
-                  (916) 809-6619
-                </a>
+                <p className="block pl-6 text-white text-sm">
+                  25+ Years in Solar
+                </p>
+              </li>
+              <li className="group">
+                <div className="flex items-center gap-2 mb-1">
+                  <div className="p-1 rounded-full bg-orange-900/30 text-orange-400 group-hover:text-orange-300 transition-colors">
+                    <Shield size={12} />
+                  </div>
+                  <p className="text-gray-400 text-xs font-semibold">License:</p>
+                </div>
+                <p className="block pl-6 text-white text-sm">
+                  CA Licensed Contractor
+                </p>
               </li>
               <li className="group">
                 <a href="/contact" className="flex items-center gap-2 text-white hover:text-orange-400 text-sm transition-colors group-hover:bg-orange-900/10 rounded-md px-2 py-1">
                   <div className="p-1 rounded-full bg-orange-900/30 text-orange-400 group-hover:text-orange-300 transition-colors">
                     <Mail size={12} />
                   </div>
-                  Contact Form
+                  Get Free Quote
                 </a>
               </li>
             </ul>
@@ -263,7 +263,7 @@ const Footer = () => {
           </div>
           
           <p className="text-gray-500 text-xs font-medium">
-            &copy; {currentYear} Praetorian SmartCoat Solutions. All rights reserved.
+            &copy; {currentYear} Advance Power Redding. All rights reserved.
           </p>
         </div>
       </div>

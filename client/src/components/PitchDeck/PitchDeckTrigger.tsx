@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Shield, ChevronRight, X } from 'lucide-react';
+import { Sun, ChevronRight, X } from 'lucide-react';
 import PitchDeckModal from './PitchDeckModal';
 
 interface PitchDeckTriggerProps {
@@ -45,15 +45,15 @@ const PitchDeckTrigger: React.FC<PitchDeckTriggerProps> = ({
     <>
       {/* Floating Action Button - Always visible */}
       <motion.button
-        className="fixed bottom-24 right-6 z-40 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white rounded-full p-3 shadow-xl"
+        className="fixed bottom-24 right-6 z-40 bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-500 hover:to-orange-400 text-white rounded-full p-3 shadow-xl"
         style={{
-          boxShadow: "0 0 20px rgba(59, 130, 246, 0.4), 0 4px 10px rgba(0,0,0,0.3)"
+          boxShadow: "0 0 20px rgba(249, 115, 22, 0.4), 0 4px 10px rgba(0,0,0,0.3)"
         }}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         onClick={openModal}
       >
-        <Shield className="h-6 w-6" style={{
+        <Sun className="h-6 w-6" style={{
           filter: "drop-shadow(0 0 3px rgba(255, 255, 255, 0.5))"
         }} />
       </motion.button>
@@ -83,23 +83,23 @@ const PitchDeckTrigger: React.FC<PitchDeckTriggerProps> = ({
                 filter: "drop-shadow(0 0 1px rgba(255, 255, 255, 0.5))"
               }} />
             </button>
-            <h3 className="font-bold text-blue-300 mb-2 flex items-center">
-              <div className="bg-gradient-to-br from-blue-800/70 to-blue-900/50 p-1.5 rounded-full mr-2 shadow-inner" style={{
-                boxShadow: "0 0 10px rgba(59, 130, 246, 0.2) inset",
+            <h3 className="font-bold text-orange-300 mb-2 flex items-center">
+              <div className="bg-gradient-to-br from-orange-800/70 to-orange-900/50 p-1.5 rounded-full mr-2 shadow-inner" style={{
+                boxShadow: "0 0 10px rgba(249, 115, 22, 0.2) inset",
                 transform: "scale(1.1)"
               }}>
-                <Shield className="h-5 w-5 text-blue-300" style={{
-                  filter: "drop-shadow(0 0 2px rgba(59, 130, 246, 0.6))"
+                <Sun className="h-5 w-5 text-orange-300" style={{
+                  filter: "drop-shadow(0 0 2px rgba(249, 115, 22, 0.6))"
                 }} />
               </div>
-              Praetorian Executive Briefing
+              Why Go Solar?
             </h3>
             <p className="text-gray-300 text-sm mb-3">
-              Discover how our NASA-derived ceramic coating can protect your most valuable assets.
+              Discover how solar energy can save you money and reduce your environmental impact.
             </p>
             <div className="flex items-center">
-              <span className="bg-gradient-to-r from-blue-500 to-blue-600 text-white text-sm font-semibold py-1 px-3 rounded-full shadow-md" style={{
-                boxShadow: "0 0 10px rgba(59, 130, 246, 0.3)"
+              <span className="bg-gradient-to-r from-orange-500 to-orange-600 text-white text-sm font-semibold py-1 px-3 rounded-full shadow-md" style={{
+                boxShadow: "0 0 10px rgba(249, 115, 22, 0.3)"
               }}>
                 View Presentation <ChevronRight className="h-4 w-4 ml-1 inline" style={{
                   filter: "drop-shadow(0 0 2px rgba(255, 255, 255, 0.5))"
