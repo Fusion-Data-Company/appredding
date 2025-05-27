@@ -52,7 +52,7 @@ const Footer = () => {
                   <div className="p-1 rounded-full bg-orange-900/30 text-orange-400 group-hover:text-orange-300 transition-colors">
                     <Phone size={12} />
                   </div>
-                  <p className="text-gray-400 text-xs font-semibold">Phone:</p>
+                  <p className="text-gray-700 text-xs font-semibold">Phone:</p>
                 </div>
                 <a href="tel:+15302415297" className="block pl-6 text-gray-800 hover:text-orange-600 text-sm transition-colors font-medium">
                   (530) 241-5297
@@ -63,7 +63,7 @@ const Footer = () => {
                   <div className="p-1 rounded-full bg-orange-900/30 text-orange-400 group-hover:text-orange-300 transition-colors">
                     <Mail size={12} />
                   </div>
-                  <p className="text-gray-400 text-xs font-semibold">Email:</p>
+                  <p className="text-gray-700 text-xs font-semibold">Email:</p>
                 </div>
                 <a href="mailto:info@advancepowerredding.com" className="block pl-6 text-gray-800 hover:text-orange-600 text-sm transition-colors font-medium">
                   info@advancepowerredding.com
@@ -74,7 +74,7 @@ const Footer = () => {
                   <div className="p-1 rounded-full bg-orange-900/30 text-orange-400 group-hover:text-orange-300 transition-colors">
                     <Building2 size={12} />
                   </div>
-                  <p className="text-gray-400 text-xs font-semibold">Service Area:</p>
+                  <p className="text-gray-700 text-xs font-semibold">Service Area:</p>
                 </div>
                 <p className="block pl-6 text-gray-800 text-sm font-medium">
                   Shasta County, California
