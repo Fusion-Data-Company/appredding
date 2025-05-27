@@ -4,28 +4,27 @@ import { SOLAR_HERO_IMAGE } from "@/assets_dir/imageExports";
 
 const SolarHeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-white via-yellow-50 to-orange-100">
-      {/* Clean Professional Background */}
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-gray-50 to-white">
+      {/* Subtle Enterprise Background */}
       <div className="absolute inset-0">
-        {/* Bright Solar Gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-yellow-50/90 via-amber-50/85 to-orange-100/80"></div>
+        {/* Very Subtle Base Gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-amber-50/30 via-orange-50/20 to-yellow-50/30"></div>
         
-        {/* Subtle Pattern Overlay */}
-        <div className="absolute inset-0 opacity-30">
+        {/* Minimal Grid Pattern */}
+        <div className="absolute inset-0 opacity-10">
           <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
             <defs>
-              <pattern id="hero-grid" width="60" height="60" patternUnits="userSpaceOnUse">
-                <path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(251, 191, 36, 0.15)" strokeWidth="1"/>
+              <pattern id="hero-grid" width="80" height="80" patternUnits="userSpaceOnUse">
+                <path d="M 80 0 L 0 0 0 80" fill="none" stroke="rgba(168, 85, 247, 0.1)" strokeWidth="1"/>
               </pattern>
             </defs>
             <rect width="100%" height="100%" fill="url(#hero-grid)" />
           </svg>
         </div>
         
-        {/* Floating Solar Energy Effects */}
-        <div className="absolute top-20 left-20 w-64 h-64 bg-gradient-to-br from-yellow-300/20 to-orange-400/15 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-20 w-80 h-80 bg-gradient-to-br from-orange-400/20 to-red-400/15 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-amber-300/10 to-yellow-400/8 rounded-full blur-3xl animate-pulse delay-500"></div>
+        {/* Subtle Solar Energy Highlights */}
+        <div className="absolute top-32 right-32 w-48 h-48 bg-gradient-to-br from-yellow-200/10 to-orange-200/8 rounded-full blur-2xl"></div>
+        <div className="absolute bottom-32 left-32 w-64 h-64 bg-gradient-to-br from-orange-200/8 to-amber-200/6 rounded-full blur-2xl"></div>
       </div>
       
       {/* Sophisticated Grid Pattern Overlay */}
@@ -115,37 +114,48 @@ const SolarHeroSection = () => {
           transition={{ duration: 0.8 }}
           className="mb-8"
         >
-          {/* Clean, Professional Hero Headline */}
-          <div className="mb-12">
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight tracking-tight">
-              <span className="block text-gray-900 mb-4">
-                Advance Power
-              </span>
-              <span className="block bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 bg-clip-text text-transparent">
-                Solar Solutions
-              </span>
-            </h1>
-            
-            <div className="max-w-4xl mx-auto mb-8">
-              <p className="text-xl md:text-2xl lg:text-3xl text-gray-700 font-light leading-relaxed">
-                Redding's trusted solar experts with over 20 years of experience. 
-                Professional installation, repair, and maintenance services for homes and businesses.
-              </p>
-            </div>
-            
-            {/* Company Credentials */}
-            <div className="flex flex-wrap items-center justify-center gap-6 text-sm md:text-base text-orange-700 font-medium mb-10">
-              <div className="flex items-center gap-2 bg-white/60 backdrop-blur-sm px-4 py-2 rounded-full shadow-sm">
-                <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
-                <span>Licensed & Insured</span>
-              </div>
-              <div className="flex items-center gap-2 bg-white/60 backdrop-blur-sm px-4 py-2 rounded-full shadow-sm">
-                <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
-                <span>1000+ Installations</span>
-              </div>
-              <div className="flex items-center gap-2 bg-white/60 backdrop-blur-sm px-4 py-2 rounded-full shadow-sm">
-                <div className="w-2 h-2 bg-red-500 rounded-full"></div>
-                <span>A+ BBB Rating</span>
+          {/* Enterprise Hero Card with Elite Styling */}
+          <div className="relative mb-12">
+            {/* Main Hero Card */}
+            <div className="relative bg-white/95 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/50 p-12 md:p-16 lg:p-20 max-w-6xl mx-auto">
+              {/* Subtle Card Glow */}
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-violet-200/20 via-purple-200/15 to-indigo-200/20 rounded-3xl blur-xl opacity-60"></div>
+              
+              {/* Card Content */}
+              <div className="relative">
+                {/* Elite Typography */}
+                <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-8 leading-tight tracking-tight">
+                  <span className="block text-gray-900 mb-4 drop-shadow-sm">
+                    Advance Power
+                  </span>
+                  <span className="block bg-gradient-to-r from-amber-600 via-orange-600 to-red-600 bg-clip-text text-transparent drop-shadow-sm">
+                    Solar Solutions
+                  </span>
+                </h1>
+                
+                {/* Professional Description */}
+                <div className="max-w-4xl mx-auto mb-10">
+                  <p className="text-xl md:text-2xl lg:text-3xl text-gray-700 font-light leading-relaxed drop-shadow-sm">
+                    Redding's trusted solar experts with over 20 years of experience. 
+                    Professional installation, repair, and maintenance services for homes and businesses.
+                  </p>
+                </div>
+                
+                {/* Elite Credential Badges */}
+                <div className="flex flex-wrap items-center justify-center gap-6 text-sm md:text-base font-medium mb-12">
+                  <div className="flex items-center gap-3 bg-gradient-to-r from-yellow-50 to-amber-50 border border-yellow-200/50 px-6 py-3 rounded-full shadow-lg">
+                    <div className="w-3 h-3 bg-gradient-to-r from-yellow-500 to-amber-500 rounded-full shadow-sm"></div>
+                    <span className="text-gray-700 font-semibold">Licensed & Insured</span>
+                  </div>
+                  <div className="flex items-center gap-3 bg-gradient-to-r from-orange-50 to-red-50 border border-orange-200/50 px-6 py-3 rounded-full shadow-lg">
+                    <div className="w-3 h-3 bg-gradient-to-r from-orange-500 to-red-500 rounded-full shadow-sm"></div>
+                    <span className="text-gray-700 font-semibold">1000+ Installations</span>
+                  </div>
+                  <div className="flex items-center gap-3 bg-gradient-to-r from-red-50 to-pink-50 border border-red-200/50 px-6 py-3 rounded-full shadow-lg">
+                    <div className="w-3 h-3 bg-gradient-to-r from-red-500 to-pink-500 rounded-full shadow-sm"></div>
+                    <span className="text-gray-700 font-semibold">A+ BBB Rating</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
