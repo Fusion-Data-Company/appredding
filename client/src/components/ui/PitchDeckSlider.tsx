@@ -244,26 +244,26 @@ const PitchDeckSlider = () => {
                   </div>
                 </div>
                 
-                {/* Ultra-premium text with elite enterprise styling and animation effects */}
+                {/* Solar-themed premium text with warm energy styling */}
                 <span className="relative z-10 group/text">
-                  <span className="bg-gradient-to-r from-blue-200 via-white to-blue-200 bg-clip-text animate-text-shimmer text-transparent text-lg font-extrabold tracking-[0.15em] uppercase drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]" style={{ fontFamily: "'Cinzel', serif" }}>
+                  <span className="bg-gradient-to-r from-yellow-200 via-white to-orange-200 bg-clip-text animate-text-shimmer text-transparent text-lg font-extrabold tracking-[0.15em] uppercase drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]" style={{ fontFamily: "'Cinzel', serif" }}>
                     WHY GO SOLAR?
                   </span>
                   
-                  {/* Enhanced animated underline effect with brighter shimmer */}
-                  <span className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-blue-500/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 animate-shimmer-slow"></span>
+                  {/* Solar energy animated underline effect */}
+                  <span className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-orange-500/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 animate-shimmer-slow"></span>
                   
-                  {/* Advanced text hover effect with multi-layer animations and enhanced brightness */}
-                  <span className="absolute inset-0 bg-gradient-to-r from-blue-400/0 via-blue-400/30 to-blue-400/0 opacity-0 group-hover/text:opacity-100 transition-opacity duration-700 blur-sm"></span>
-                  <span className="absolute inset-0 bg-gradient-to-tr from-transparent via-blue-300/20 to-transparent opacity-0 group-hover/text:opacity-100 transition-opacity duration-1000 delay-200 blur-sm"></span>
-                  <span className="absolute -inset-2 bg-gradient-to-r from-transparent via-blue-500/10 to-transparent opacity-0 group-hover/text:opacity-80 transition-all duration-1000 blur-lg"></span>
+                  {/* Solar energy text hover effects */}
+                  <span className="absolute inset-0 bg-gradient-to-r from-orange-400/0 via-orange-400/30 to-orange-400/0 opacity-0 group-hover/text:opacity-100 transition-opacity duration-700 blur-sm"></span>
+                  <span className="absolute inset-0 bg-gradient-to-tr from-transparent via-yellow-300/20 to-transparent opacity-0 group-hover/text:opacity-100 transition-opacity duration-1000 delay-200 blur-sm"></span>
+                  <span className="absolute -inset-2 bg-gradient-to-r from-transparent via-orange-500/10 to-transparent opacity-0 group-hover/text:opacity-80 transition-all duration-1000 blur-lg"></span>
                 </span>
                 
-                {/* State-of-the-art animated arrow with premium lighting effects */}
+                {/* Solar energy animated arrow with warm glow effects */}
                 <div className="relative ml-2 z-10 group/arrow animate-floating" style={{ animationDuration: '2.5s' }}>
-                  <div className="absolute -inset-3 bg-blue-500/20 rounded-full opacity-0 group-hover/arrow:opacity-100 group-hover:scale-75 blur-md transition-all duration-500 animate-pulse-slow"></div>
-                  <div className="absolute -inset-2 bg-blue-400/15 rounded-full opacity-0 group-hover/arrow:opacity-80 group-hover:scale-85 blur-sm transition-all duration-700 delay-100 animate-pulse-slow-delayed"></div>
-                  <ArrowRight className="w-7 h-7 text-blue-200 relative z-10 group-hover:translate-x-2.5 transition-all duration-700 group-hover:text-white drop-shadow-[0_0_4px_rgba(59,130,246,0.8)]" />
+                  <div className="absolute -inset-3 bg-orange-500/30 rounded-full opacity-0 group-hover/arrow:opacity-100 group-hover:scale-75 blur-md transition-all duration-500 animate-pulse-slow"></div>
+                  <div className="absolute -inset-2 bg-yellow-400/25 rounded-full opacity-0 group-hover/arrow:opacity-80 group-hover:scale-85 blur-sm transition-all duration-700 delay-100 animate-pulse-slow-delayed"></div>
+                  <ArrowRight className="w-7 h-7 text-yellow-200 relative z-10 group-hover:translate-x-2.5 transition-all duration-700 group-hover:text-white drop-shadow-[0_0_4px_rgba(251,191,36,0.8)]" />
                 </div>
               </button>
             </div>
