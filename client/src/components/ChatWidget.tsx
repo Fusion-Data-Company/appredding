@@ -228,7 +228,7 @@ const ChatWidget = () => {
               <div className="h-10 w-10 rounded-full bg-gradient-to-r from-blue-600 to-orange-600 flex items-center justify-center shadow-[0_0_15px_rgba(255,130,30,0.3)]">
                 <MessageSquare className="h-5 w-5" />
               </div>
-              {currentSession?.title || 'Praetorian Assistant'}
+              {currentSession?.title || 'Solar Energy Assistant'}
             </CardTitle>
             <div className="flex items-center gap-3">
               <Button

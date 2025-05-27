@@ -1,36 +1,36 @@
 import React from 'react';
 import { Link } from 'wouter';
-import { Shield, Flame, Ship, LifeBuoy, Building2, Home, ShieldCheck, Mail, Users, Phone, FileText, BarChart3, HeartPulse } from 'lucide-react';
-import praetorianShield from "@assets/Untitled design (6).png";
+import { Sun, Zap, Battery, Building2, Home, Shield, Mail, Users, Phone, FileText, BarChart3, HeartPulse } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-gradient-to-b from-black to-[#080c14] py-14 mt-10 border-t border-gray-800/40 z-20">
-      {/* Premium ambient glows */}
+    <footer className="relative bg-gradient-to-b from-orange-50 to-yellow-100 py-14 mt-10 border-t border-orange-200 z-20">
+      {/* Solar ambient glows */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute left-1/3 top-0 w-96 h-96 bg-blue-600/5 rounded-full filter blur-3xl opacity-70"></div>
-        <div className="absolute right-1/3 top-1/2 w-64 h-64 bg-orange-600/5 rounded-full filter blur-3xl opacity-70"></div>
+        <div className="absolute left-1/4 top-0 w-96 h-96 bg-yellow-400/15 rounded-full filter blur-3xl opacity-80"></div>
+        <div className="absolute right-1/4 top-1/2 w-64 h-64 bg-orange-500/15 rounded-full filter blur-3xl opacity-80"></div>
+        <div className="absolute center top-1/3 w-48 h-48 bg-red-400/10 rounded-full filter blur-3xl opacity-60"></div>
       </div>
       
-      {/* Accent lines */}
-      <div className="absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-500/20 to-transparent"></div>
-      <div className="absolute left-[10%] w-[20%] bottom-0 h-px bg-gradient-to-r from-transparent to-orange-500/20"></div>
-      <div className="absolute right-[10%] w-[20%] bottom-0 h-px bg-gradient-to-l from-transparent to-blue-500/20"></div>
+      {/* Solar accent lines */}
+      <div className="absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-yellow-400/40 to-transparent"></div>
+      <div className="absolute left-[15%] w-[25%] bottom-0 h-px bg-gradient-to-r from-transparent to-orange-500/40"></div>
+      <div className="absolute right-[15%] w-[25%] bottom-0 h-px bg-gradient-to-l from-transparent to-red-500/40"></div>
 
       <div className="container mx-auto px-6 relative z-30">
         {/* Logo section */}
         <div className="flex flex-col items-center mb-12">
           <div className="flex items-center gap-3 mb-6">
-            <div className="text-[1.8rem] leading-none whitespace-nowrap">
-              <span className="gradient-text-combined font-bold">Advance Power</span>
-              <span className="text-white/90 mx-1 font-light">|</span>
-              <span className="gradient-text-blue font-medium">Redding</span>
+            <div className="text-[1.8rem] leading-none whitespace-nowrap font-bold">
+              <span className="bg-gradient-to-r from-orange-600 via-red-500 to-yellow-500 bg-clip-text text-transparent">Advance Power</span>
+              <span className="text-orange-700 mx-1 font-light">|</span>
+              <span className="bg-gradient-to-r from-yellow-500 to-orange-500 bg-clip-text text-transparent">Redding</span>
             </div>
           </div>
           <div className="text-center max-w-lg">
-            <p className="text-gray-300 text-sm">
+            <p className="text-orange-800 text-sm font-medium">
               Solar installation and renewable energy solutions serving Shasta County 
               since 1999 with expert design, installation, and service.
             </p>
@@ -41,10 +41,10 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12 mb-12">
           {/* Contact Information */}
           <div className="relative">
-            <div className="absolute -left-4 -top-6 w-20 h-20 bg-gradient-to-br from-orange-500/10 to-transparent rounded-full filter blur-xl"></div>
-            <h3 className="text-base font-bold mb-5 flex items-center gap-2">
-              <span className="gradient-text-fire">Contact Information</span>
-              <div className="h-px flex-grow ml-2 bg-gradient-to-r from-orange-500/30 to-transparent"></div>
+            <div className="absolute -left-4 -top-6 w-20 h-20 bg-gradient-to-br from-yellow-400/20 to-transparent rounded-full filter blur-xl"></div>
+            <h3 className="text-base font-bold mb-5 flex items-center gap-2 font-sans">
+              <span className="bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent">Contact Information</span>
+              <div className="h-px flex-grow ml-2 bg-gradient-to-r from-orange-500/50 to-transparent"></div>
             </h3>
             <ul className="space-y-4">
               <li className="group">
@@ -107,11 +107,11 @@ const Footer = () => {
                   Commercial Solar
                 </a>
               </li>
-              <li className="flex items-center gap-2 group transition-colors hover:bg-blue-900/10 rounded-md px-1 py-0.5">
-                <div className="p-1 rounded-full bg-blue-900/30 text-blue-400 group-hover:text-blue-300 transition-colors">
-                  <LifeBuoy size={12} />
+              <li className="flex items-center gap-2 group transition-colors hover:bg-orange-200/20 rounded-md px-1 py-0.5">
+                <div className="p-1 rounded-full bg-orange-600/30 text-orange-600 group-hover:text-orange-700 transition-colors">
+                  <Battery size={12} />
                 </div>
-                <a href="/battery-storage" className="text-white hover:text-blue-400 text-sm transition-colors">
+                <a href="/battery-storage" className="text-orange-800 hover:text-red-600 text-sm transition-colors font-semibold">
                   Battery Storage
                 </a>
               </li>
