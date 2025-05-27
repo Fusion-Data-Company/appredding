@@ -193,7 +193,7 @@ export function PremiumNavbar() {
     <div className="p-4">
       <div className="border-b border-gray-700 pb-2 mb-3">
         <h3 className="text-base font-bold text-center text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">
-          Professional Network
+          Solar Professionals
         </h3>
       </div>
       
@@ -348,6 +348,59 @@ export function PremiumNavbar() {
     </div>
   );
   
+  // Solar Solutions mega menu content  
+  const solarSolutionsContent = (
+    <div className="p-4">
+      <div className="border-b border-gray-700 pb-2 mb-3">
+        <h3 className="text-base font-bold text-center text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">
+          Solar Resources
+        </h3>
+      </div>
+      
+      <div className="grid grid-cols-2 gap-4">
+        <div>
+          <h4 className="font-bold text-white mb-2 text-sm">Resources</h4>
+          <ul className="space-y-2">
+            <li>
+              <Link href="/solar-calculator" className="text-sm text-gray-300 hover:text-white transition-colors">
+                Solar Calculator
+              </Link>
+            </li>
+            <li>
+              <Link href="/financing" className="text-sm text-gray-300 hover:text-white transition-colors">
+                Financing Options
+              </Link>
+            </li>
+            <li>
+              <Link href="/technology" className="text-sm text-gray-300 hover:text-white transition-colors">
+                Solar Technology
+              </Link>
+            </li>
+            <li>
+              <Link href="/installation-guide" className="text-sm text-gray-300 hover:text-white transition-colors">
+                Installation Process
+              </Link>
+            </li>
+          </ul>
+        </div>
+        
+        <div className="border-l border-gray-700 pl-4">
+          <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-3 rounded-lg border border-gray-700">
+            <h4 className="font-bold text-yellow-400 mb-1 text-sm">Featured Solution</h4>
+            <h5 className="text-white font-bold mb-1 text-xs">Hybrid Solar Systems</h5>
+            <p className="text-xs text-gray-300 mb-2">Solar panels with lithium battery storage for energy independence.</p>
+            <Link 
+              href="/hybrid-systems" 
+              className="text-xs text-yellow-400 hover:text-yellow-300 font-medium"
+            >
+              Learn More →
+            </Link>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+  
   // CRM mega menu content
   const crmContent = (
     <div className="p-4">
@@ -400,10 +453,10 @@ export function PremiumNavbar() {
         />
         
         <NavItem
-          label="Products"
-          isOpen={activeMenu === 'products'}
-          onClick={() => toggleMenu('products')}
-          content={productsContent}
+          label="Energy Storage"
+          isOpen={activeMenu === 'storage'}
+          onClick={() => toggleMenu('storage')}
+          content={solarSolutionsContent}
         />
         
         <NavItem
@@ -411,13 +464,6 @@ export function PremiumNavbar() {
           isOpen={activeMenu === 'about'}
           onClick={() => toggleMenu('about')}
           content={aboutContent}
-        />
-        
-        <NavItem
-          label="CRM"
-          isOpen={activeMenu === 'crm'}
-          onClick={() => toggleMenu('crm')}
-          content={crmContent}
         />
       </nav>
     </div>
