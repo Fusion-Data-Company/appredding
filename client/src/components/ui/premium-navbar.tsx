@@ -131,58 +131,58 @@ export function PremiumNavbar() {
     setActiveMenu(activeMenu === menu ? null : menu);
   };
   
-  // Solutions mega menu content
-  const solutionsContent = (
+  // Solar Services mega menu content
+  const solarServicesContent = (
     <div className="p-4">
       <div className="border-b border-gray-700 pb-2 mb-3">
         <h3 className="text-base font-bold text-center text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">
-          Protection Across Every Industry
+          Solar Energy Solutions
         </h3>
       </div>
       
       <div className="grid grid-cols-3 gap-3">
         <ImageCard
-          title="Fire Prevention"
-          description="Industry-leading fire retardant coatings"
-          imageSrc={solutionImages.firePrevention}
-          href="/fire-prevention"
+          title="Residential Solar"
+          description="Custom solar solutions for homes"
+          imageSrc="/images/residential-solar.jpg"
+          href="/residential-solar"
         />
         
         <ImageCard
-          title="Marinas"
-          description="Advanced coating solutions for marine environments"
-          imageSrc={solutionImages.marinas}
-          href="/marinas"
+          title="Commercial Solar"
+          description="Business solar power systems"
+          imageSrc="/images/commercial-solar.jpg"
+          href="/commercial-solar"
         />
         
         <ImageCard
-          title="Pools"
-          description="Premium pool coating and protection systems"
-          imageSrc={solutionImages.pools}
-          href="/pools"
+          title="Hybrid Systems"
+          description="Solar + battery storage solutions"
+          imageSrc="/images/hybrid-solar.jpg"
+          href="/hybrid-systems"
         />
       </div>
       
       <div className="grid grid-cols-3 gap-3 mt-3">
         <ImageCard
-          title="Construction"
-          description="Durable solutions for construction applications"
-          imageSrc={solutionImages.construction}
-          href="/construction"
+          title="Lithium Batteries"
+          description="Advanced energy storage systems"
+          imageSrc="/images/lithium-batteries.jpg"
+          href="/lithium-batteries"
         />
         
         <ImageCard
-          title="Mobile Home & R.V."
-          description="Specialized coatings for mobile structures"
-          imageSrc={solutionImages.mobileHome}
-          href="/mobile-home"
+          title="Energy Conservation"
+          description="Energy efficiency services"
+          imageSrc="/images/energy-conservation.jpg"
+          href="/energy-conservation"
         />
         
         <ImageCard
-          title="Municipality"
-          description="Infrastructure protection for public services"
-          imageSrc={solutionImages.municipality}
-          href="/municipality"
+          title="Maintenance & Repair"
+          description="Solar system maintenance"
+          imageSrc="/images/solar-maintenance.jpg"
+          href="/maintenance"
         />
       </div>
     </div>
@@ -304,42 +304,42 @@ export function PremiumNavbar() {
     <div className="p-4">
       <div className="border-b border-gray-700 pb-2 mb-3">
         <h3 className="text-base font-bold text-center text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">
-          About Praetorian
+          About Advance Power
         </h3>
       </div>
       
       <div className="grid grid-cols-2 gap-4">
         <div>
           <p className="text-gray-300 text-xs mb-3">
-            Revolutionary protective coatings with ceramic technology derived from NASA research.
+            North State's leader in renewable energy design, installation, service & technical expertise for over 20 years.
           </p>
           
           <div className="grid grid-cols-2 gap-x-4 gap-y-2">
             <Link href="/about" className="text-xs text-gray-300 hover:text-white transition-colors">
               About Us
             </Link>
-            <Link href="/team" className="text-xs text-gray-300 hover:text-white transition-colors">
-              Our Team
+            <Link href="/faq" className="text-xs text-gray-300 hover:text-white transition-colors">
+              FAQ
             </Link>
-            <Link href="/partners" className="text-xs text-gray-300 hover:text-white transition-colors">
-              Partners
+            <Link href="/energy-storage" className="text-xs text-gray-300 hover:text-white transition-colors">
+              Energy Storage
             </Link>
-            <Link href="/careers" className="text-xs text-gray-300 hover:text-white transition-colors">
-              Careers
+            <Link href="/testimonials" className="text-xs text-gray-300 hover:text-white transition-colors">
+              Testimonials
             </Link>
           </div>
         </div>
         
         <div className="border-l border-gray-700 pl-4">
           <h4 className="font-bold text-white text-xs mb-1">Contact Information</h4>
-          <p className="text-gray-300 text-xs mb-1">(916) 809-6619</p>
-          <a href="mailto:info@praetoriansmartcoat.com" className="text-gray-300 text-xs hover:text-white block mb-3">
-            info@praetoriansmartcoat.com
+          <p className="text-gray-300 text-xs mb-1">(530) 226-0701</p>
+          <a href="mailto:info@apredding.net" className="text-gray-300 text-xs hover:text-white block mb-3">
+            info@apredding.net
           </a>
           
           <Link 
-            href="/contact" 
-            className="inline-flex items-center px-3 py-1 bg-gradient-to-r from-blue-500 to-blue-700 rounded-md text-white text-xs font-medium"
+            href="#contact" 
+            className="inline-flex items-center px-3 py-1 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-md text-white text-xs font-medium"
           >
             Contact Us
           </Link>
@@ -386,10 +386,10 @@ export function PremiumNavbar() {
     <div className="flex-grow flex justify-end" ref={navRef}>
       <nav className="flex space-x-1">
         <NavItem
-          label="Solutions"
-          isOpen={activeMenu === 'solutions'}
-          onClick={() => toggleMenu('solutions')}
-          content={solutionsContent}
+          label="Solar Services"
+          isOpen={activeMenu === 'services'}
+          onClick={() => toggleMenu('services')}
+          content={solarServicesContent}
         />
         
         <NavItem

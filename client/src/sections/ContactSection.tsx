@@ -949,16 +949,16 @@ const ContactSection = () => {
           {/* Premium copyright statement */}
           <p className="text-gray-400 text-sm relative group overflow-hidden">
             <span className="relative inline-block transition-transform duration-500 transform translate-y-0 group-hover:-translate-y-full">
-              © {new Date().getFullYear()} Praetorian SmartCoat Solutions. All rights reserved.
+              © {new Date().getFullYear()} Advance Power Redding. All rights reserved.
             </span>
             <span className="absolute top-0 left-0 right-0 inline-block transition-transform duration-500 transform translate-y-full group-hover:translate-y-0 text-gray-300">
-              NASA-derived ceramic technology for maximum protection
+              Solar energy solutions for over 20 years in Redding
             </span>
           </p>
           
           {/* Premium tagline with subtle animation */}
           <p className="text-transparent bg-clip-text bg-gradient-to-r from-gray-500 to-gray-400 text-xs mt-2 tracking-wide relative opacity-90 hover:opacity-100 transition-opacity duration-300">
-            Enterprise-grade coating solutions for professional applications
+            North State's leader in renewable energy design, installation & service
           </p>
         </div>
       </div>
