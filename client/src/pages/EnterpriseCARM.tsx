@@ -342,25 +342,36 @@ const EnterpriseCARM = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-white to-orange-50">
-      <div className="container mx-auto px-4 py-8">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-gray-50">
+      <div className="container mx-auto px-6 py-8">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mb-8"
+          className="mb-12"
         >
-          <div className="flex items-center justify-between">
-            <div>
-              <h1 className="text-4xl font-bold bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-transparent">
-                Enterprise CRM
-              </h1>
-              <p className="text-gray-600 mt-2">Advance Power of Redding - Customer Relationship Management</p>
-            </div>
-            <div className="flex items-center space-x-4">
-              <div className="flex items-center space-x-2 bg-white rounded-lg px-4 py-2 shadow-sm border border-orange-200">
-                <Sun className="w-5 h-5 text-orange-500" />
-                <span className="text-sm font-medium text-gray-700">Solar Business CRM</span>
+          <div className="bg-white rounded-2xl shadow-sm border border-gray-200/50 p-8 mb-8">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center space-x-6">
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center shadow-lg">
+                  <Database className="w-8 h-8 text-white" />
+                </div>
+                <div>
+                  <h1 className="text-4xl font-bold text-gray-900 tracking-tight">
+                    Enterprise CRM
+                  </h1>
+                  <p className="text-gray-500 mt-1 text-lg">Advance Power of Redding • Customer Relationship Management</p>
+                </div>
+              </div>
+              <div className="flex items-center space-x-4">
+                <div className="flex items-center space-x-3 bg-gray-50 rounded-xl px-6 py-3 border border-gray-200">
+                  <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                  <span className="text-sm font-medium text-gray-700">System Online</span>
+                </div>
+                <div className="flex items-center space-x-2 bg-blue-50 rounded-xl px-6 py-3 border border-blue-200">
+                  <Sun className="w-5 h-5 text-blue-600" />
+                  <span className="text-sm font-medium text-blue-700">Solar CRM</span>
+                </div>
               </div>
             </div>
           </div>
@@ -463,24 +474,59 @@ const EnterpriseCARM = () => {
         </motion.div>
 
         {/* Main Content Tabs */}
-        <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
-          <TabsList className="grid w-full grid-cols-6 bg-white border border-orange-200">
-            <TabsTrigger value="dashboard" className="data-[state=active]:bg-orange-100">Dashboard</TabsTrigger>
-            <TabsTrigger value="contacts" className="data-[state=active]:bg-orange-100">Contacts</TabsTrigger>
-            <TabsTrigger value="customers" className="data-[state=active]:bg-orange-100">Customers</TabsTrigger>
-            <TabsTrigger value="submissions" className="data-[state=active]:bg-orange-100">Submissions</TabsTrigger>
-            <TabsTrigger value="opportunities" className="data-[state=active]:bg-orange-100">Opportunities</TabsTrigger>
-            <TabsTrigger value="activities" className="data-[state=active]:bg-orange-100">Activities</TabsTrigger>
-          </TabsList>
+        <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-8">
+          <div className="bg-white rounded-2xl shadow-sm border border-gray-200/50 p-2">
+            <TabsList className="grid w-full grid-cols-6 bg-gray-50 rounded-xl border-0 p-2 gap-2">
+              <TabsTrigger 
+                value="dashboard" 
+                className="data-[state=active]:bg-white data-[state=active]:shadow-sm data-[state=active]:border-0 rounded-lg font-medium transition-all duration-200 text-gray-600 data-[state=active]:text-gray-900"
+              >
+                Dashboard
+              </TabsTrigger>
+              <TabsTrigger 
+                value="contacts" 
+                className="data-[state=active]:bg-white data-[state=active]:shadow-sm data-[state=active]:border-0 rounded-lg font-medium transition-all duration-200 text-gray-600 data-[state=active]:text-gray-900"
+              >
+                Contacts
+              </TabsTrigger>
+              <TabsTrigger 
+                value="customers" 
+                className="data-[state=active]:bg-white data-[state=active]:shadow-sm data-[state=active]:border-0 rounded-lg font-medium transition-all duration-200 text-gray-600 data-[state=active]:text-gray-900"
+              >
+                Customers
+              </TabsTrigger>
+              <TabsTrigger 
+                value="submissions" 
+                className="data-[state=active]:bg-white data-[state=active]:shadow-sm data-[state=active]:border-0 rounded-lg font-medium transition-all duration-200 text-gray-600 data-[state=active]:text-gray-900"
+              >
+                Submissions
+              </TabsTrigger>
+              <TabsTrigger 
+                value="opportunities" 
+                className="data-[state=active]:bg-white data-[state=active]:shadow-sm data-[state=active]:border-0 rounded-lg font-medium transition-all duration-200 text-gray-600 data-[state=active]:text-gray-900"
+              >
+                Opportunities
+              </TabsTrigger>
+              <TabsTrigger 
+                value="activities" 
+                className="data-[state=active]:bg-white data-[state=active]:shadow-sm data-[state=active]:border-0 rounded-lg font-medium transition-all duration-200 text-gray-600 data-[state=active]:text-gray-900"
+              >
+                Activities
+              </TabsTrigger>
+            </TabsList>
+          </div>
 
           {/* Dashboard Tab */}
-          <TabsContent value="dashboard" className="space-y-6">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              <Card className="border-orange-200">
-                <CardHeader>
-                  <CardTitle className="text-orange-700">Recent Activities</CardTitle>
-                </CardHeader>
-                <CardContent>
+          <TabsContent value="dashboard" className="space-y-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <div className="bg-white rounded-2xl shadow-sm border border-gray-200/50 p-8">
+                <div className="flex items-center justify-between mb-6">
+                  <h3 className="text-xl font-semibold text-gray-900">Recent Activities</h3>
+                  <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
+                    <Activity className="w-4 h-4 text-white" />
+                  </div>
+                </div>
+                <div>
                   {activitiesData && activitiesData.length > 0 ? (
                     <div className="space-y-3">
                       {activitiesData.slice(0, 5).map((activity: any) => (
