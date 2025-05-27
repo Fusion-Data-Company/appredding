@@ -343,10 +343,10 @@ const ChatWidget = () => {
                 </div>
                 <div className="bg-gradient-to-r from-gray-900/80 to-gray-800/80 backdrop-blur-xl p-6 rounded-xl border border-white/10 shadow-lg max-w-sm">
                   <h3 className="text-xl font-semibold text-white mb-3">
-                    Welcome to Praetorian Chat
+                    Welcome to Advance Power Chat
                   </h3>
                   <p className="text-gray-300 max-w-xs leading-relaxed mb-4">
-                    Ask me anything about Praetorian SmartCoat products, applications, or services. I'm here to assist with technical specifications, application guides, and product recommendations.
+                    Ask me anything about solar installations, battery storage, financing options, or energy savings. I'm here to help with all your renewable energy needs in Shasta County since 1999.
                   </p>
                 </div>
               </div>

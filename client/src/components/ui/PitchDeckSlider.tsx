@@ -235,7 +235,7 @@ const PitchDeckSlider = () => {
                 {/* Ultra-premium text with elite enterprise styling and animation effects */}
                 <span className="relative z-10 group/text">
                   <span className="bg-gradient-to-r from-blue-200 via-white to-blue-200 bg-clip-text animate-text-shimmer text-transparent text-lg font-extrabold tracking-[0.15em] uppercase drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]" style={{ fontFamily: "'Cinzel', serif" }}>
-                    INTRODUCTION
+                    WHY GO SOLAR?
                   </span>
                   
                   {/* Enhanced animated underline effect with brighter shimmer */}
@@ -286,7 +286,7 @@ const PitchDeckSlider = () => {
                 <div className="flex items-center">
                   <Shield className="w-6 h-6 text-blue-500 mr-3" />
                   <GradientHeading level={3} className="text-xl" variant="blue">
-                    PRAETORIAN SMART-COAT
+                    ADVANCE POWER REDDING
                   </GradientHeading>
                 </div>
                 <Button 
@@ -447,124 +447,117 @@ const PitchDeckSlider = () => {
 const slides: Slide[] = [
   {
     id: 1,
-    title: "Opening the Gates",
+    title: "Solar Energy Benefits in 2025",
     icon: <Shield className="w-6 h-6 text-blue-500 mr-2" />,
     content: (
       <>
         <div className="text-xl font-bold text-white mb-6 border-l-4 border-blue-500 pl-4 py-1">
-          "For decades, this elite ceramic paint formula has been used in government, military, and infrastructure projects. It was never built for shelves. Until now."
+          "Solar energy has never been more affordable, reliable, or profitable. In 2025, the question isn't whether you should go solar — it's how quickly you can start saving."
         </div>
         
         <ul className="space-y-3 list-disc pl-6 text-gray-300">
-          <li>Praetorian Smart-Coat was formerly known as Son-Shield — a private-label ceramic coating tested, evaluated, and fielded in environments where failure isn't an option.</li>
-          <li>After years of exclusive use by engineering and procurement departments from top-tier public institutions and international projects, this classified-grade protection is now available directly to you.</li>
-          <li>It's not sold in hardware chains. They won't stock it. As a national distributor told us:</li>
+          <li>Federal tax credits remain at 30% through 2032, putting thousands back in your pocket</li>
+          <li>California's net metering programs still offer substantial savings on your electric bills</li>
+          <li>Energy costs continue rising while solar technology costs keep dropping</li>
+          <li>Your neighbors are already saving — Redding's solar adoption has grown 400% in the past 5 years</li>
         </ul>
         
         <div className="mt-4 p-4 bg-black/40 border-l-4 border-blue-600 italic text-blue-100">
-          "Paints that never fail? That's bad for business."
+          "The best time to plant a tree was 20 years ago. The second best time is now." — The same applies to solar energy.
         </div>
       </>
     ),
   },
   {
     id: 2,
-    title: "Meet the Team",
+    title: "Meet Your Solar Experts",
     icon: <Building className="w-6 h-6 text-blue-500 mr-2" />,
     content: (
       <>
-        <p className="text-gray-300 mb-6">You're not dealing with layers of corporate tape. You're getting product from the lab to the loading dock.</p>
+        <p className="text-gray-300 mb-6">For over 20 years, Advance Power has been Redding's trusted solar installation and service company. You're working directly with experienced professionals who live and work in your community.</p>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-black/30 p-4 rounded-lg border border-gray-800 hover:border-blue-600 transition-all flex flex-col">
-            <h4 className="text-blue-500 font-bold">Joe Raver</h4>
-            <p className="text-white mb-2">Inventor & Owner of the Formula</p>
-            <p className="text-gray-400 mt-auto">
-              <a href="mailto:Joe@praetoriansmartcoat.com" className="text-blue-400 hover:underline">
-                Joe@praetoriansmartcoat.com
-              </a>
-            </p>
-          </div>
-          
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="bg-black/30 p-4 rounded-lg border border-gray-800 hover:border-blue-600 transition-all flex flex-col">
             <h4 className="text-blue-500 font-bold">Greg Tomsik</h4>
-            <p className="text-white mb-2">Inventory & Fulfillment Manager</p>
+            <p className="text-white mb-2">Founder & Owner (Since 1999)</p>
             <p className="text-gray-400 mt-auto">
-              <a href="mailto:Greg@praetoriansmartcoat.com" className="text-blue-400 hover:underline">
-                Greg@praetoriansmartcoat.com
-              </a>
+              Over two decades of solar expertise in Northern California
             </p>
           </div>
           
           <div className="bg-black/30 p-4 rounded-lg border border-gray-800 hover:border-blue-600 transition-all flex flex-col">
-            <h4 className="text-blue-500 font-bold">Rob Yeager</h4>
-            <p className="text-white mb-2">Chief of Marketing, Sales & Distribution</p>
+            <h4 className="text-blue-500 font-bold">Expert Installation Team</h4>
+            <p className="text-white mb-2">Licensed & Certified Installers</p>
             <p className="text-gray-400 mt-auto">
-              <a href="mailto:Rob@praetoriansmartcoat.com" className="text-blue-400 hover:underline">
-                Rob@praetoriansmartcoat.com
-              </a>
+              NABCEP certified professionals with thousands of successful installations
             </p>
           </div>
+        </div>
+        
+        <div className="mt-6 p-4 bg-gradient-to-r from-blue-900/30 to-blue-800/30 rounded-lg border border-blue-600/30">
+          <h4 className="text-blue-300 font-bold mb-2">Contact Us Today</h4>
+          <p className="text-gray-300">📞 (530) 241-5297 | 📧 info@advancepowerredding.com</p>
+          <p className="text-gray-400 text-sm mt-1">Local Redding company serving Shasta County since 1999</p>
         </div>
       </>
     ),
   },
   {
     id: 3,
-    title: "The Legacy — 20+ Years of Silent Service",
+    title: "Real Savings from Real Customers",
     icon: <Shield className="w-6 h-6 text-blue-500 mr-2" />,
     content: (
       <>
-        <p className="text-gray-300 mb-6">This coating has protected bridges in Korea, facilities in Japan, homes in wildfire zones, and military assets in the American Southwest.</p>
+        <p className="text-gray-300 mb-6">See how Advance Power customers across Shasta County are saving thousands on their electricity bills with solar energy:</p>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="flex items-start">
-            <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-red-600 flex items-center justify-center mr-4">
+            <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-yellow-500 to-orange-600 flex items-center justify-center mr-4">
+              <span className="text-white font-bold text-xl">R</span>
+            </div>
+            <div>
+              <h4 className="text-white font-bold">Residential Homes</h4>
+              <p className="text-gray-300">Average $150-300/month savings on electric bills</p>
+            </div>
+          </div>
+          
+          <div className="flex items-start">
+            <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-cyan-600 flex items-center justify-center mr-4">
+              <span className="text-white font-bold text-xl">C</span>
+            </div>
+            <div>
+              <h4 className="text-white font-bold">Commercial Properties</h4>
+              <p className="text-gray-300">Businesses reducing energy costs by 70-90%</p>
+            </div>
+          </div>
+          
+          <div className="flex items-start">
+            <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center mr-4">
               <span className="text-white font-bold text-xl">B</span>
             </div>
             <div>
-              <h4 className="text-white font-bold">Bridges</h4>
-              <p className="text-gray-300">13+ years no repainting, salt water and vibration tested</p>
+              <h4 className="text-white font-bold">Battery Storage</h4>
+              <p className="text-gray-300">Energy independence during outages and peak rates</p>
             </div>
           </div>
           
           <div className="flex items-start">
-            <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-red-600 flex items-center justify-center mr-4">
-              <span className="text-white font-bold text-xl">M</span>
+            <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-violet-600 flex items-center justify-center mr-4">
+              <span className="text-white font-bold text-xl">S</span>
             </div>
             <div>
-              <h4 className="text-white font-bold">Military</h4>
-              <p className="text-gray-300">Infrared-blocking stealth tests passed</p>
+              <h4 className="text-white font-bold">Service & Maintenance</h4>
+              <p className="text-gray-300">Ongoing support ensuring optimal performance</p>
             </div>
           </div>
           
           <div className="flex items-start">
-            <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center mr-4">
-              <span className="text-white font-bold text-xl">P</span>
+            <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center mr-4">
+              <span className="text-white font-bold text-xl">I</span>
             </div>
             <div>
-              <h4 className="text-white font-bold">Poultry</h4>
-              <p className="text-gray-300">Reduced mortality by 75%, attic heat drop of 30°F</p>
-            </div>
-          </div>
-          
-          <div className="flex items-start">
-            <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center mr-4">
-              <span className="text-white font-bold text-xl">D</span>
-            </div>
-            <div>
-              <h4 className="text-white font-bold">Desert Structures</h4>
-              <p className="text-gray-300">Uncoated metal 180°F+, coated interior 85°F with no A/C</p>
-            </div>
-          </div>
-          
-          <div className="flex items-start">
-            <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-red-600 flex items-center justify-center mr-4">
-              <span className="text-white font-bold text-xl">F</span>
-            </div>
-            <div>
-              <h4 className="text-white font-bold">Fire Events</h4>
-              <p className="text-gray-300">Mobile home coated withstood a wildfire, while homes next door burned</p>
+              <h4 className="text-white font-bold">Increased Home Value</h4>
+              <p className="text-gray-300">Solar systems add significant resale value to properties</p>
             </div>
           </div>
         </div>
