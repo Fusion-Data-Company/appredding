@@ -3,6 +3,7 @@ import { storage } from "./storage";
 import { z } from "zod";
 import multer from "multer";
 import { parse } from "csv-parse/sync";
+import crmRoutes from "./routes/crm";
 
 // Configure multer for file uploads
 const upload = multer({ 
@@ -401,6 +402,7 @@ router.post("/api/crm/activities", async (req, res) => {
 
 export function registerRoutes(app: any) {
   app.use(router);
+  app.use("/api/crm", crmRoutes);
 }
 
 export default router;
