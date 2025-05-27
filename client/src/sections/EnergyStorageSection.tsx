@@ -156,6 +156,45 @@ const EnergyStorageSection = () => {
           ))}
         </div>
 
+        {/* Green Financial Benefits Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="mb-24"
+        >
+          <div className="relative bg-gradient-to-r from-green-600 to-emerald-600 rounded-3xl p-12 border-2 border-green-400 shadow-2xl overflow-hidden">
+            {/* Green glow effect */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-green-500 to-emerald-500 blur-xl opacity-50"></div>
+            
+            <div className="relative z-10 text-center">
+              <div className="text-6xl mb-4">🔋💰</div>
+              <h3 className="text-4xl md:text-5xl font-black text-white mb-6">
+                Battery Storage = Maximum Savings
+              </h3>
+              <p className="text-2xl text-green-100 mb-8 max-w-4xl mx-auto leading-relaxed">
+                Store your solar energy and use it when electricity rates are highest. 
+                Battery storage can increase your solar savings by 30-50% while providing backup power security.
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-white">30-50%</div>
+                  <div className="text-green-200">More Solar Savings</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-white">24/7</div>
+                  <div className="text-green-200">Backup Power</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-white">$0</div>
+                  <div className="text-green-200">Down Payment</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
         {/* Enterprise CTA Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
