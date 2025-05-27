@@ -1,9 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { cn } from "@/lib/utils";
-import praetorianBucketNew from "@/assets_dir/icons/praetorian-bucket-new.png";
-import praetorianLogo from "@/assets_dir/logos/praetorian-logo-shield.png";
-import praetorianHeaderImg from "@/assets_dir/images/praetorian-header-no-bg.png";
+import advancePowerLogo from "/advance-power-logo.jpg";
 import { Button } from "@/components/ui/button";
 import { 
   Moon, 
@@ -48,15 +46,14 @@ const ProfessionalHeader = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
 
-  // Application categories
-  const applicationCategories = [
-    { label: "Pools", href: "/pools", description: "Protective coatings for swimming pools" },
-    { label: "Marinas", href: "/marinas", description: "Marine-grade protection systems" },
-    { label: "Fire Prevention", href: "/fire-prevention", description: "Fire resistant coating solutions" },
-    { label: "Construction", href: "/construction", description: "Structural protective coatings" },
-    { label: "Mobile Home", href: "/mobile-home", description: "Mobile home protective systems" },
-    { label: "Municipality", href: "/municipality", description: "Municipal infrastructure protection" },
-    { label: "Painters", href: "/painters", description: "Premium painting profit solutions" },
+  // Solar services
+  const solarServices = [
+    { label: "Residential Solar", href: "/residential-solar", description: "Custom solar solutions for homes" },
+    { label: "Commercial Solar", href: "/commercial-solar", description: "Business solar power systems" },
+    { label: "Hybrid Systems", href: "/hybrid-systems", description: "Solar + battery storage solutions" },
+    { label: "Lithium Batteries", href: "/lithium-batteries", description: "Advanced energy storage systems" },
+    { label: "Energy Conservation", href: "/energy-conservation", description: "Energy efficiency services" },
+    { label: "Maintenance & Repair", href: "/maintenance", description: "Solar system maintenance" },
   ];
 
   // Resources
@@ -114,9 +111,9 @@ const ProfessionalHeader = () => {
           <div className="relative">
             <div className="relative logo-container">
               <img 
-                src={praetorianLogo} 
-                alt="Praetorian SmartCoat" 
-                className="h-[90px] w-auto relative cursor-pointer logo-3d-effect"
+                src={advancePowerLogo} 
+                alt="Advance Power Redding - Solar Installation & Repair" 
+                className="h-[70px] w-auto relative cursor-pointer logo-3d-effect rounded-lg"
                 style={{ 
                   filter: 'drop-shadow(0 4px 6px rgba(0, 0, 0, 0.6))',
                   transform: 'scale(1.05) perspective(800px) rotateY(5deg)',
