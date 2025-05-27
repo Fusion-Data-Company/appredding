@@ -1,40 +1,20 @@
 import MainLayout from "@/components/layout/MainLayout";
-import HeroSection from "@/sections/HeroSection";
-import IntroSection from "@/sections/IntroSection";
-import FeaturesSection from "@/sections/FeaturesSection";
-import ApplicationsSection from "@/sections/ApplicationsSection";
-import BrandShowcaseSection from "@/sections/BrandShowcaseSection";
-import IndustryApplications from "@/components/store/IndustryApplications";
-import TechnicalSpecsTable from '@/components/store/TechnicalSpecsTable';
-import ProductComparison from '@/components/store/ProductComparison';
-
-import TestimonialsSection from "@/sections/TestimonialsSection";
+import SolarHeroSection from "@/sections/SolarHeroSection";
+import SolarServicesSection from "@/sections/SolarServicesSection";
+import AboutAdvancePowerSection from "@/sections/AboutAdvancePowerSection";
+import EnergyStorageSection from "@/sections/EnergyStorageSection";
+import SolarTestimonialsSection from "@/sections/SolarTestimonialsSection";
 import ContactSection from "@/sections/ContactSection";
-import ProductHistorySection from "@/sections/ProductHistorySection";
-import ProductPerformanceSection from "@/sections/ProductPerformanceSection";
-
-import FAQSection from "@/components/FAQSection";
-import VideoSection from "@/components/VideoSection";
-import { faqData, videoData } from "@/data/content";
 
 const Home = () => {
   return (
     <MainLayout fullWidth>
       <div className="flex-1 flex flex-col">
-        <HeroSection />
-        <IndustryApplications />
-        <ApplicationsSection />
-        <BrandShowcaseSection />
-        <IntroSection />
-        <FeaturesSection />
-        <TechnicalSpecsTable />
-        <ProductComparison />
-        <ProductHistorySection />
-        <ProductPerformanceSection />
-
-        <TestimonialsSection />
-        <VideoSection videos={videoData} />
-        <FAQSection faqs={faqData} />
+        <SolarHeroSection />
+        <SolarServicesSection />
+        <EnergyStorageSection />
+        <AboutAdvancePowerSection />
+        <SolarTestimonialsSection />
         <ContactSection />
       </div>
     </MainLayout>
