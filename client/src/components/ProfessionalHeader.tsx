@@ -102,7 +102,7 @@ const ProfessionalHeader = () => {
       {/* Noise texture overlay */}
       <div className="absolute inset-0 bg-[url('/src/assets_dir/images/noise.svg')] opacity-[0.04] bg-repeat bg-[length:200px_200px] mix-blend-overlay pointer-events-none animate-subtle-pulse"></div>
 
-      {/* Praetorian logo positioned at far left edge */}
+      {/* Advance Power logo positioned at far left edge */}
       <Link href="/" className="absolute left-0 top-0 h-full flex items-center z-50 transition-transform duration-300 hover:scale-[1.03]" style={{ zIndex: 2147483647 }}>
         <div className="relative">
           {/* Minimal tint glow effect behind the logo */}

@@ -3,7 +3,7 @@ import MainLayout from '@/components/layout/MainLayout';
 import PricingCalculator from '@/components/store/PricingCalculator';
 import EnterpriseROI from '@/components/store/EnterpriseROI';
 import { motion } from 'framer-motion';
-import { PRAETORIAN_PRODUCTS_HERO_IMAGE } from '@/assets_dir/imageExports';
+import { SOLAR_PANELS_HERO_IMAGE } from '@/assets_dir/imageExports';
 import { GradientHeading } from '@/components/ui/gradient-heading';
 
 const ROICalculator = () => {
@@ -14,7 +14,7 @@ const ROICalculator = () => {
         <div 
           className="absolute inset-0 z-0" 
           style={{
-            backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 20, 0.9), rgba(0, 0, 20, 0.7)), url(${PRAETORIAN_PRODUCTS_HERO_IMAGE})`,
+            backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 20, 0.9), rgba(0, 0, 20, 0.7)), url(${SOLAR_PANELS_HERO_IMAGE})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center center', // Standardized position
             backgroundAttachment: 'fixed'

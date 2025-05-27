@@ -1,5 +1,6 @@
 import MainLayout from "@/components/layout/MainLayout";
 import SolarHeroSection from "@/sections/SolarHeroSection";
+import SolarSalesFunnelSection from "@/sections/SolarSalesFunnelSection";
 import SolarServicesSection from "@/sections/SolarServicesSection";
 import AboutAdvancePowerSection from "@/sections/AboutAdvancePowerSection";
 import EnergyStorageSection from "@/sections/EnergyStorageSection";
@@ -11,6 +12,7 @@ const Home = () => {
     <MainLayout fullWidth>
       <div className="flex-1 flex flex-col">
         <SolarHeroSection />
+        <SolarSalesFunnelSection />
         <SolarServicesSection />
         <EnergyStorageSection />
         <AboutAdvancePowerSection />
