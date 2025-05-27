@@ -499,7 +499,7 @@ export const insertOpportunitySchema = createInsertSchema(opportunities).pick({
   name: true,
   contactId: true,
   companyId: true,
-  applicationTypes: true,
+  solarServices: true,
   status: true,
   amount: true,
   probability: true,
@@ -527,8 +527,8 @@ export const insertProductSchema = createInsertSchema(products).pick({
   unit: true,
   imageUrl: true,
   isActive: true,
-  applicationTypes: true,
-  coverage: true,
+  solarServices: true,
+  specifications: true,
   createdBy: true
 });
 
@@ -1202,6 +1202,110 @@ export type FirePreventionHomeowner = typeof firePreventionHomeowners.$inferSele
 
 export type InsertProfessionalReview = z.infer<typeof insertProfessionalReviewSchema>;
 export type ProfessionalReview = typeof professionalReviews.$inferSelect;
+
+// Solar Installation Systems for Advance Power Redding
+export const solarInstallations = pgTable("solar_installations", {
+  id: serial("id").primaryKey(),
+  contactId: integer("contact_id").notNull().references(() => contacts.id),
+  opportunityId: integer("opportunity_id").references(() => opportunities.id),
+  systemType: systemTypeEnum("system_type").notNull(),
+  systemSize: decimal("system_size", { precision: 8, scale: 2 }), // kW
+  panelCount: integer("panel_count"),
+  panelWattage: integer("panel_wattage"),
+  inverterType: text("inverter_type"),
+  batteryType: batteryTypeEnum("battery_type"),
+  batteryCapacity: decimal("battery_capacity", { precision: 8, scale: 2 }), // kWh
+  installationStatus: installationStatusEnum("installation_status").default('quoted'),
+  installationDate: date("installation_date"),
+  completionDate: date("completion_date"),
+  warrantyYears: integer("warranty_years").default(25),
+  estimatedAnnualProduction: decimal("estimated_annual_production", { precision: 10, scale: 2 }), // kWh
+  estimatedMonthlySavings: decimal("estimated_monthly_savings", { precision: 8, scale: 2 }),
+  totalSystemCost: decimal("total_system_cost", { precision: 10, scale: 2 }),
+  incentivesApplied: jsonb("incentives_applied"), // Array of incentive types
+  permitsRequired: jsonb("permits_required"), // Array of permit types
+  permitStatus: text("permit_status").default('pending'),
+  inspectionDate: date("inspection_date"),
+  inspectionStatus: text("inspection_status"),
+  notes: text("notes"),
+  createdAt: timestamp("created_at").notNull().defaultNow(),
+  updatedAt: timestamp("updated_at").notNull().defaultNow(),
+  createdBy: integer("created_by").references(() => users.id),
+  assignedTechnician: integer("assigned_technician").references(() => users.id),
+});
+
+// Customer Energy Data
+export const energyReadings = pgTable("energy_readings", {
+  id: serial("id").primaryKey(),
+  installationId: integer("installation_id").notNull().references(() => solarInstallations.id),
+  readingDate: date("reading_date").notNull(),
+  energyProduced: decimal("energy_produced", { precision: 10, scale: 2 }), // kWh
+  energyConsumed: decimal("energy_consumed", { precision: 10, scale: 2 }), // kWh
+  gridImport: decimal("grid_import", { precision: 10, scale: 2 }), // kWh
+  gridExport: decimal("grid_export", { precision: 10, scale: 2 }), // kWh
+  batteryCharge: decimal("battery_charge", { precision: 8, scale: 2 }), // kWh
+  batteryDischarge: decimal("battery_discharge", { precision: 8, scale: 2 }), // kWh
+  costSavings: decimal("cost_savings", { precision: 8, scale: 2 }),
+  createdAt: timestamp("created_at").notNull().defaultNow(),
+});
+
+// Solar Installation Relations
+export const solarInstallationsRelations = relations(solarInstallations, ({ one, many }) => ({
+  contact: one(contacts, { fields: [solarInstallations.contactId], references: [contacts.id] }),
+  opportunity: one(opportunities, { fields: [solarInstallations.opportunityId], references: [opportunities.id] }),
+  energyReadings: many(energyReadings)
+}));
+
+export const energyReadingsRelations = relations(energyReadings, ({ one }) => ({
+  installation: one(solarInstallations, { fields: [energyReadings.installationId], references: [solarInstallations.id] })
+}));
+
+// Insert schemas for solar tables
+export const insertSolarInstallationSchema = createInsertSchema(solarInstallations).pick({
+  contactId: true,
+  opportunityId: true,
+  systemType: true,
+  systemSize: true,
+  panelCount: true,
+  panelWattage: true,
+  inverterType: true,
+  batteryType: true,
+  batteryCapacity: true,
+  installationStatus: true,
+  installationDate: true,
+  completionDate: true,
+  warrantyYears: true,
+  estimatedAnnualProduction: true,
+  estimatedMonthlySavings: true,
+  totalSystemCost: true,
+  incentivesApplied: true,
+  permitsRequired: true,
+  permitStatus: true,
+  inspectionDate: true,
+  inspectionStatus: true,
+  notes: true,
+  createdBy: true,
+  assignedTechnician: true
+});
+
+export const insertEnergyReadingSchema = createInsertSchema(energyReadings).pick({
+  installationId: true,
+  readingDate: true,
+  energyProduced: true,
+  energyConsumed: true,
+  gridImport: true,
+  gridExport: true,
+  batteryCharge: true,
+  batteryDischarge: true,
+  costSavings: true
+});
+
+// Solar-specific types
+export type InsertSolarInstallation = z.infer<typeof insertSolarInstallationSchema>;
+export type SolarInstallation = typeof solarInstallations.$inferSelect;
+
+export type InsertEnergyReading = z.infer<typeof insertEnergyReadingSchema>;
+export type EnergyReading = typeof energyReadings.$inferSelect;
 
 // RAG System Tables for Claude Chatbot
 export const ragDocuments = pgTable("rag_documents", {
