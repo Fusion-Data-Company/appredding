@@ -84,8 +84,8 @@ export default function Municipality() {
   // Define industry-specific data for SEO
   const industry = "Municipal Infrastructure";
   const slug = "municipality";
-  const pageTitle = "Praetorian Smart-Coat – Municipal Infrastructure Protection";
-  const pageDescription = "Advanced ceramic coatings for municipal buildings, bridges, water facilities, and public infrastructure. Protect community assets while reducing maintenance costs.";
+  const pageTitle = "Advance Power – Municipal Solar Solutions";
+  const pageDescription = "Large-scale solar installations for municipal buildings, public facilities, and community infrastructure. Reduce operational costs while demonstrating environmental leadership.";
   const heroImagePath = "/src/assets_dir/images/municipality-hero.jpg";
   
   // Preload critical images

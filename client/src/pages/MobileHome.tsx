@@ -186,10 +186,10 @@ const MobileHome = () => {
                 </div>
                 
                 <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white drop-shadow-[0_2px_4px_rgba(59,130,246,0.4)]">
-                  Mobile Home Protection Technology
+                  Solar Solutions for Mobile Homes
                 </h1>
                 <p className="text-xl text-blue-100 mb-8">
-                  Protect your mobile home with our revolutionary ceramic microsphere coating technology. Our Class A fire-rated system (perfect 0/100 ASTM E84 scores) provides unmatched thermal protection, extending your home's lifespan by 15+ years with documented 87% energy cost reduction.
+                  Transform your mobile home with affordable solar energy systems designed specifically for manufactured housing. Our lightweight panels and specialized mounting systems deliver energy independence with documented 80% utility bill reduction while increasing property value.
                 </p>
               </div>
             </div>
