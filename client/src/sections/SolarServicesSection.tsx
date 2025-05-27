@@ -139,8 +139,8 @@ const SolarServicesSection = () => {
           viewport={{ once: true }}
           className="text-center mb-24"
         >
-          <h2 className="text-6xl md:text-7xl lg:text-8xl font-black text-gray-800 mb-12 leading-tight">
-            Our{" "}
+          <h2 className="text-6xl md:text-7xl lg:text-8xl font-black mb-12 leading-tight">
+            <span className="bg-gradient-to-r from-orange-700 via-red-700 to-amber-700 bg-clip-text text-transparent">Our</span>{" "}
             <span className="relative inline-block">
               <span className="bg-gradient-to-r from-orange-600 via-red-600 to-amber-600 bg-clip-text text-transparent">
                 Solar Services
@@ -167,11 +167,21 @@ const SolarServicesSection = () => {
               whileHover={{ scale: 1.05, y: -10 }}
               className="group relative"
             >
-              {/* Premium Card Background */}
-              <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl p-10 border border-orange-200/50 group-hover:border-orange-500/50 transition-all duration-500 overflow-hidden shadow-xl">
+              {/* Dark Textured Card Background */}
+              <div className="relative bg-gradient-to-br from-orange-900 via-orange-800 to-red-900 backdrop-blur-sm rounded-3xl p-10 border border-orange-600/50 group-hover:border-orange-400/70 transition-all duration-500 overflow-hidden shadow-2xl">
+                
+                {/* Titanium Texture Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-br from-orange-700/20 via-red-800/30 to-orange-900/40 opacity-80"></div>
+                <div className="absolute inset-0" style={{
+                  backgroundImage: `radial-gradient(circle at 25% 25%, rgba(255,255,255,0.1) 1px, transparent 1px),
+                                   radial-gradient(circle at 75% 75%, rgba(255,255,255,0.05) 1px, transparent 1px),
+                                   linear-gradient(45deg, rgba(255,255,255,0.02) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.02) 75%),
+                                   linear-gradient(-45deg, rgba(255,255,255,0.02) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.02) 75%)`,
+                  backgroundSize: '30px 30px, 30px 30px, 15px 15px, 15px 15px'
+                }}></div>
                 
                 {/* Card Glow Effect */}
-                <div className={`absolute -inset-1 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500 rounded-3xl`}></div>
+                <div className={`absolute -inset-1 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-30 blur-xl transition-opacity duration-500 rounded-3xl`}></div>
                 
                 {/* Card Content */}
                 <div className="relative z-10">
@@ -181,18 +191,18 @@ const SolarServicesSection = () => {
                   </div>
 
                   {/* Enhanced Typography */}
-                  <h3 className="text-3xl font-black text-gray-900 mb-6 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-yellow-600 group-hover:to-orange-600 group-hover:bg-clip-text transition-all duration-300">
+                  <h3 className="text-3xl font-black text-white mb-6 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-yellow-300 group-hover:to-orange-300 group-hover:bg-clip-text transition-all duration-300">
                     {service.title}
                   </h3>
                   
-                  <p className="text-xl text-gray-700 mb-8 leading-relaxed">
+                  <p className="text-xl text-gray-200 mb-8 leading-relaxed">
                     {service.description}
                   </p>
 
                   {/* Premium Feature List */}
                   <ul className="space-y-3">
                     {service.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center text-gray-600 text-lg">
+                      <li key={featureIndex} className="flex items-center text-gray-300 text-lg">
                         <div className={`w-2 h-2 bg-gradient-to-r ${service.color} rounded-full mr-4 group-hover:scale-150 transition-transform duration-300`}></div>
                         {feature}
                       </li>
