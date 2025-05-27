@@ -600,11 +600,11 @@ const ContactSection = () => {
                     </div>
                     
                     <div className="flex-grow">
-                      <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-300 to-amber-400 pb-1 group-hover:scale-[1.02] transition-transform duration-500 origin-left">Global Headquarters</h3>
+                      <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-300 to-amber-400 pb-1 group-hover:scale-[1.02] transition-transform duration-500 origin-left">Main Office</h3>
                       <p className="text-gray-300 group-hover:text-gray-200 transition-colors duration-500">
-                        Praetorian SmartCoat Solutions<br />
-                        Redding<br />
-                        California, USA
+                        Advance Power Redding<br />
+                        843 North Market Street<br />
+                        Redding, CA 96003
                       </p>
                       <div className="h-0.5 w-0 group-hover:w-full bg-gradient-to-r from-orange-500/60 via-transparent to-transparent rounded-full transition-all duration-700 mt-2 opacity-60 group-hover:opacity-100"></div>
                     </div>
@@ -656,9 +656,9 @@ const ContactSection = () => {
                     <div className="flex-grow">
                       <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-blue-400 pb-1 group-hover:scale-[1.02] transition-transform duration-500 origin-left">Phone Support</h3>
                       <p className="text-gray-300 group-hover:text-gray-200 transition-colors duration-500">
-                        Main: (916) 809-6619<br />
-                        Hours: 8am-5pm PST Monday-Friday<br />
-                        24/7 Emergency Support Available
+                        Main: (530) 226-0701<br />
+                        Fax: (530) 226-0704<br />
+                        Hours: Monday-Friday, 9am-5pm
                       </p>
                       <div className="h-0.5 w-0 group-hover:w-full bg-gradient-to-r from-blue-500/60 via-transparent to-transparent rounded-full transition-all duration-700 mt-2 opacity-60 group-hover:opacity-100"></div>
                     </div>
@@ -710,9 +710,9 @@ const ContactSection = () => {
                     <div className="flex-grow">
                       <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-300 via-amber-300 to-blue-300 pb-1 group-hover:scale-[1.02] transition-transform duration-500 origin-left">Email</h3>
                       <p className="text-gray-300 group-hover:text-gray-200 transition-colors duration-500">
-                        Management: rob@praetoriansmartcoat.com<br />
-                        General Info: info@praetoriansmartcoat.com<br />
-                        Orders: orders@praetoriansmartcoat.com
+                        General Info: info@apredding.net<br />
+                        Email us for questions or assistance<br />
+                        Response within 24 hours
                       </p>
                       <div className="h-0.5 w-0 group-hover:w-full bg-gradient-to-r from-orange-500/60 via-blue-500/40 to-transparent rounded-full transition-all duration-700 mt-2 opacity-60 group-hover:opacity-100"></div>
                     </div>
@@ -812,9 +812,9 @@ const ContactSection = () => {
                         <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 whitespace-nowrap text-xs text-gray-400 font-medium tracking-wide">X</div>
                       </a>
                       
-                      {/* LinkedIn Icon - Premium Enterprise Styling */}
+                      {/* Facebook Icon - Premium Enterprise Styling */}
                       <a 
-                        href="https://linkedin.com/company/praetorian-smartcoat" 
+                        href="https://facebook.com/apredding.net" 
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="group relative transform transition-all duration-500"
@@ -829,7 +829,7 @@ const ContactSection = () => {
                           
                           {/* Icon itself */}
                           <div className="relative z-10">
-                            <i className="fab fa-linkedin-in text-2xl text-gradient from-blue-500 to-blue-700 w-7 h-7 flex items-center justify-center group-hover:scale-110 transition-transform duration-500"></i>
+                            <i className="fab fa-facebook-f text-2xl text-gradient from-blue-500 to-blue-700 w-7 h-7 flex items-center justify-center group-hover:scale-110 transition-transform duration-500"></i>
                           </div>
                           
                           {/* Subtle glow effect */}
@@ -840,7 +840,7 @@ const ContactSection = () => {
                         <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-3/4 h-[2px] bg-gradient-to-r from-transparent via-blue-700/40 to-transparent rounded-full blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                         
                         {/* Subtle hover tooltip */}
-                        <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 whitespace-nowrap text-xs text-blue-400 font-medium tracking-wide">LinkedIn</div>
+                        <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 whitespace-nowrap text-xs text-blue-400 font-medium tracking-wide">Facebook</div>
                       </a>
                       
                       {/* YouTube Icon - Premium Enterprise Styling */}
@@ -941,7 +941,7 @@ const ContactSection = () => {
               
               {/* Logo text */}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-500 to-blue-500 font-semibold text-base">
-                Praetorian
+                Advance Power
               </span>
             </div>
           </div>
