@@ -1,17 +1,32 @@
 import { motion } from "framer-motion";
 import { Link } from "wouter";
+import { SOLAR_HERO_IMAGE } from "@/assets_dir/imageExports";
 
 const SolarHeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
-      {/* Background with solar theme */}
-      <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/10 via-orange-500/5 to-red-500/10"></div>
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Enterprise Elite Background with Neural Network Pattern */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-fixed"
+        style={{
+          backgroundImage: `linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.92) 25%, rgba(51, 65, 85, 0.88) 50%, rgba(71, 85, 105, 0.85) 75%, rgba(100, 116, 139, 0.82) 100%), url(${SOLAR_HERO_IMAGE})`
+        }}
+      />
       
-      {/* Animated background elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-20 left-20 w-32 h-32 bg-yellow-500/20 rounded-full blur-xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-20 w-48 h-48 bg-orange-500/20 rounded-full blur-xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-yellow-500/10 to-orange-500/10 rounded-full blur-2xl"></div>
+      {/* Elite Grid Pattern Overlay */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/10 via-transparent to-orange-500/10"></div>
+      </div>
+      
+      {/* Animated Premium Particles */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-20 left-20 w-32 h-32 bg-gradient-to-br from-yellow-400/20 via-orange-500/15 to-amber-600/10 rounded-full blur-xl animate-pulse shadow-2xl"></div>
+        <div className="absolute bottom-20 right-20 w-48 h-48 bg-gradient-to-br from-orange-500/20 via-red-500/15 to-yellow-600/10 rounded-full blur-2xl animate-pulse delay-1000 shadow-2xl"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-yellow-500/8 via-orange-500/6 to-amber-500/8 rounded-full blur-3xl animate-pulse delay-500"></div>
+        
+        {/* Elite Floating Elements */}
+        <div className="absolute top-1/4 right-1/4 w-16 h-16 bg-gradient-to-br from-yellow-400/30 to-orange-500/30 rounded-lg rotate-45 animate-bounce shadow-xl backdrop-blur-sm border border-yellow-400/20"></div>
+        <div className="absolute bottom-1/4 left-1/4 w-12 h-12 bg-gradient-to-br from-orange-500/30 to-red-500/30 rounded-full animate-pulse delay-700 shadow-xl backdrop-blur-sm border border-orange-400/20"></div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -21,13 +36,17 @@ const SolarHeroSection = () => {
           transition={{ duration: 0.8 }}
           className="mb-8"
         >
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-            <span className="bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 bg-clip-text text-transparent">
-              Solar Power
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+            <span className="relative inline-block">
+              <span className="bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 bg-clip-text text-transparent drop-shadow-2xl">
+                Solar Power
+              </span>
+              <div className="absolute -inset-1 bg-gradient-to-r from-yellow-400/20 to-orange-500/20 blur-xl -z-10 animate-pulse"></div>
             </span>
             <br />
-            <span className="text-white">
+            <span className="relative inline-block text-white drop-shadow-2xl">
               Solutions
+              <div className="absolute -inset-1 bg-white/10 blur-lg -z-10"></div>
             </span>
           </h1>
           
