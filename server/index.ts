@@ -57,6 +57,14 @@ app.use((req, res, next) => {
 // Add CRM routes
 app.use("/api/crm", crmRoutes);
 
+// Add Financial Operations routes
+import financialRoutes from "./routes/financial";
+app.use("/api/financial", financialRoutes);
+
+// Add Document Management routes
+import documentRoutes from "./routes/documents";
+app.use("/api/documents", documentRoutes);
+
 (async () => {
   const server = await registerRoutes(app);
 
