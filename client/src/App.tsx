@@ -39,6 +39,7 @@ import AnalyticsDashboard from "@/pages/AnalyticsDashboard";
 import InventoryPage from "@/pages/inventory";
 import RAGDocumentsPage from "@/pages/rag-documents";
 import ChatPage from "@/pages/chat";
+import DocumentChatInterface from "@/pages/DocumentChatInterface";
 import { AuthProvider } from "@/hooks/use-auth";
 import { ProtectedRoute } from "@/components/ProtectedRoute";
 import { StoreProvider } from "@/contexts/StoreContext";
@@ -119,6 +120,7 @@ function Router() {
       <Route path="/inventory" component={InventoryPage} />
       <Route path="/rag-documents" component={RAGDocumentsPage} />
       <Route path="/chat" component={ChatPage} />
+      <Route path="/document-chat" component={DocumentChatInterface} />
       <ProtectedRoute path="/client-dashboard" component={ClientDashboard} />
       <ProtectedRoute path="/admin-dashboard" component={AdminDashboard} adminOnly={true} />
       {/* Fallback to 404 */}
