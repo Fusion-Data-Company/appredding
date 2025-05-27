@@ -304,6 +304,104 @@ export const tasksRelations = relations(tasks, ({ one }) => ({
   assignedTo: one(users, { fields: [tasks.assignedTo], references: [users.id] })
 }));
 
+// Customer document categories for solar business
+export const documentCategoryEnum = pgEnum('document_category', [
+  'contract', 'permit', 'inspection', 'invoice', 'quote', 'site_survey', 
+  'electrical_diagram', 'roof_plan', 'warranty', 'maintenance_log', 
+  'correspondence', 'permit_application', 'utility_agreement', 'financing',
+  'insurance', 'other'
+]);
+
+export const documentStatusEnum = pgEnum('document_status', [
+  'pending_processing', 'processing', 'processed', 'failed', 'archived'
+]);
+
+// Master customer database - unique identifier by address first, then name
+export const customers = pgTable("customers", {
+  id: serial("id").primaryKey(),
+  firstName: text("first_name"),
+  lastName: text("last_name"),
+  fullName: text("full_name"), // Combined for search
+  email: text("email"),
+  phone: text("phone"),
+  address: text("address").notNull(), // Primary unique identifier
+  city: text("city"),
+  state: text("state"),
+  zipCode: text("zip_code"),
+  // Solar business specific fields
+  installationYear: integer("installation_year"),
+  systemSize: decimal("system_size", { precision: 8, scale: 2 }), // kW
+  panelCount: integer("panel_count"),
+  inverterType: text("inverter_type"),
+  batterySystem: boolean("battery_system").default(false),
+  // Tracking and meta data
+  totalDocuments: integer("total_documents").default(0),
+  lastDocumentDate: timestamp("last_document_date"),
+  customerSince: date("customer_since"),
+  status: contactStatusEnum("status").default('customer'),
+  notes: text("notes"),
+  createdAt: timestamp("created_at").notNull().defaultNow(),
+  updatedAt: timestamp("updated_at").notNull().defaultNow(),
+});
+
+// Customer documents - all files associated with each customer
+export const customerDocuments = pgTable("customer_documents", {
+  id: serial("id").primaryKey(),
+  customerId: integer("customer_id").notNull().references(() => customers.id),
+  fileName: text("file_name").notNull(),
+  originalFileName: text("original_file_name").notNull(),
+  filePath: text("file_path").notNull(),
+  fileType: text("file_type").notNull(), // pdf, jpg, png, doc, xls, etc.
+  fileSize: integer("file_size"), // bytes
+  documentCategory: documentCategoryEnum("document_category"),
+  documentYear: integer("document_year"),
+  extractedText: text("extracted_text"), // AI extracted text content
+  extractedData: jsonb("extracted_data"), // Structured data extracted by AI
+  processingStatus: documentStatusEnum("processing_status").default('pending_processing'),
+  processingError: text("processing_error"),
+  confidence: decimal("confidence", { precision: 3, scale: 2 }), // AI confidence score 0-1
+  // Metadata for matching and organization
+  customerNameFound: text("customer_name_found"),
+  customerAddressFound: text("customer_address_found"),
+  documentDate: date("document_date"),
+  documentValue: decimal("document_value", { precision: 10, scale: 2 }), // For contracts, invoices
+  tags: jsonb("tags"), // Array of tags for categorization
+  searchableContent: text("searchable_content"), // Combined text for full-text search
+  createdAt: timestamp("created_at").notNull().defaultNow(),
+  updatedAt: timestamp("updated_at").notNull().defaultNow(),
+  processedAt: timestamp("processed_at"),
+  processedBy: text("processed_by"), // AI agent identifier
+});
+
+// Document processing jobs queue
+export const documentProcessingJobs = pgTable("document_processing_jobs", {
+  id: serial("id").primaryKey(),
+  batchId: text("batch_id"), // For grouping related uploads
+  documentId: integer("document_id").references(() => customerDocuments.id),
+  status: documentStatusEnum("status").default('pending_processing'),
+  priority: integer("priority").default(5), // 1-10, higher is more important
+  attempts: integer("attempts").default(0),
+  maxAttempts: integer("max_attempts").default(3),
+  lastError: text("last_error"),
+  processingStartedAt: timestamp("processing_started_at"),
+  processingCompletedAt: timestamp("processing_completed_at"),
+  aiModel: text("ai_model"), // Which AI model was used
+  processingTime: integer("processing_time"), // milliseconds
+  createdAt: timestamp("created_at").notNull().defaultNow(),
+  updatedAt: timestamp("updated_at").notNull().defaultNow(),
+});
+
+// Customer relations
+export const customersRelations = relations(customers, ({ many }) => ({
+  documents: many(customerDocuments),
+  relatedContacts: many(contacts) // Link to CRM contacts
+}));
+
+// Customer document relations
+export const customerDocumentsRelations = relations(customerDocuments, ({ one }) => ({
+  customer: one(customers, { fields: [customerDocuments.customerId], references: [customers.id] })
+}));
+
 // Form submissions from all website pages
 export const formSubmissions = pgTable("form_submissions", {
   id: serial("id").primaryKey(),
@@ -767,6 +865,61 @@ export type ProjectFile = typeof projectFiles.$inferSelect;
 
 export type InsertProjectUpdate = z.infer<typeof insertProjectUpdateSchema>;
 export type ProjectUpdate = typeof projectUpdates.$inferSelect;
+
+// Customer and Document Management schemas
+export const insertCustomerSchema = createInsertSchema(customers).pick({
+  firstName: true,
+  lastName: true,
+  fullName: true,
+  email: true,
+  phone: true,
+  address: true,
+  city: true,
+  state: true,
+  zipCode: true,
+  installationYear: true,
+  systemSize: true,
+  panelCount: true,
+  inverterType: true,
+  batterySystem: true,
+  customerSince: true,
+  notes: true,
+});
+
+export const insertCustomerDocumentSchema = createInsertSchema(customerDocuments).pick({
+  customerId: true,
+  fileName: true,
+  originalFileName: true,
+  filePath: true,
+  fileType: true,
+  fileSize: true,
+  documentCategory: true,
+  documentYear: true,
+  extractedText: true,
+  extractedData: true,
+  customerNameFound: true,
+  customerAddressFound: true,
+  documentDate: true,
+  documentValue: true,
+  tags: true,
+  searchableContent: true,
+});
+
+export const insertDocumentProcessingJobSchema = createInsertSchema(documentProcessingJobs).pick({
+  batchId: true,
+  documentId: true,
+  priority: true,
+  aiModel: true,
+});
+
+export type InsertCustomer = z.infer<typeof insertCustomerSchema>;
+export type Customer = typeof customers.$inferSelect;
+
+export type InsertCustomerDocument = z.infer<typeof insertCustomerDocumentSchema>;
+export type CustomerDocument = typeof customerDocuments.$inferSelect;
+
+export type InsertDocumentProcessingJob = z.infer<typeof insertDocumentProcessingJobSchema>;
+export type DocumentProcessingJob = typeof documentProcessingJobs.$inferSelect;
 
 // Specialized Professionals Tables
 
