@@ -228,7 +228,7 @@ const Construction = () => {
                   
                   {/* Text with subtle shimmer effect */}
                   <div className="relative overflow-hidden">
-                    <span className="text-blue-100 font-bold tracking-wider text-sm bg-clip-text">ELITE ENTERPRISE SOLUTION</span>
+                    <span className="text-blue-100 font-bold tracking-wider text-sm bg-clip-text">COMMERCIAL SOLAR SOLUTIONS</span>
                     <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-blue-300/30 to-transparent -translate-x-full animate-shimmer-slow transform skew-x-[-20deg]"></div>
                   </div>
                 </div>
@@ -238,7 +238,7 @@ const Construction = () => {
               <div className="relative inline-block mb-2">
                 <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/30 via-amber-500/30 to-blue-500/30 rounded-lg blur-md opacity-70"></div>
                 <h1 className="relative text-4xl md:text-6xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-300 to-amber-400 px-2">
-                  Advanced Protection for Commercial Construction
+                  Commercial Solar Solutions for Construction
                 </h1>
               </div>
               

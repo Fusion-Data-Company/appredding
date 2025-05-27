@@ -50,8 +50,8 @@ const FirePrevention = () => {
   // Define industry-specific data for SEO
   const industry = "Fire Prevention";
   const slug = "fire-prevention";
-  const pageTitle = "Praetorian Smart-Coat – Fire Prevention Solutions";
-  const pageDescription = "Advanced fireproof coatings to protect your home and property from wildfires and fire damage with SON-SHIELD technology.";
+  const pageTitle = "Advance Power Redding – Solar Solutions for Fire-Prone Areas";
+  const pageDescription = "Resilient solar energy systems designed for wildfire zones. Underground wiring, fire-resistant components, and emergency power backup solutions.";
   const heroImagePath = "/src/assets_dir/images/optimized/praetorian-background-new.png";
   
   // Preload critical images
@@ -119,17 +119,17 @@ const FirePrevention = () => {
         slug={slug}
         imagePath={heroImagePath}
         keywords={getIndustryKeywords(slug, [
-          'wildfire protection',
-          'fire resistant paint',
-          'property fire protection',
-          'fireproof house coating',
-          'ceramic fire barrier'
+          'wildfire solar systems',
+          'fire resistant solar installation',
+          'emergency power backup',
+          'underground solar wiring',
+          'resilient solar energy'
         ])}
         structuredData={generateStructuredData(industry, pageDescription, slug, [
-          "Fire Prevention Solutions",
-          "Ceramic Fireproof Coating",
-          "Fire Resistant Technology",
-          "Wildfire Protection"
+          "Fire-Resistant Solar Systems",
+          "Emergency Backup Power",
+          "Underground Solar Wiring",
+          "Wildfire-Ready Solar"
         ])}
       />
       
@@ -177,30 +177,30 @@ const FirePrevention = () => {
                     <div className="absolute top-1 right-1 w-12 h-12 border-t border-r border-blue-500/30 rounded-tr-md"></div>
                   
                     <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-blue-100 to-blue-300">
-                      Advanced Fire Prevention Solutions
+                      Fire-Resistant Solar Solutions
                     </h1>
                     
                     <div className="mb-6 space-y-6 text-gray-300">
                       <p className="text-lg">
-                        Praetorian Smart-Coat delivers cutting-edge ceramic insulating coating technology specifically designed to protect structures from fire threats. Our advanced formula creates a powerful thermal barrier that can resist extreme temperatures and save critical evacuation time.
+                        Advance Power specializes in resilient solar energy systems designed for wildfire-prone areas. Our fire-resistant installations feature underground wiring, hardened components, and emergency backup power to keep your home protected and powered even during fire threats.
                       </p>
                       <p className="text-lg">
-                        As wildfire threats increase across the nation, our specialized protection system provides crucial defense for vulnerable communities and structures.
+                        As wildfire risks increase across Northern California, our specialized solar solutions provide energy independence and emergency preparedness for vulnerable communities.
                       </p>
                     </div>
                     
                     <div className="flex flex-wrap gap-4 mb-6">
                       <div className="flex items-center space-x-2">
                         <ShieldCheck className="h-5 w-5 text-blue-400" />
-                        <span className="text-gray-200">Premium Protection</span>
+                        <span className="text-gray-200">Fire-Resistant Design</span>
                       </div>
                       <div className="flex items-center space-x-2">
                         <Flame className="h-5 w-5 text-blue-400" />
-                        <span className="text-gray-200">Advanced Fire Resistance</span>
+                        <span className="text-gray-200">Emergency Backup Power</span>
                       </div>
                       <div className="flex items-center space-x-2">
                         <Award className="h-5 w-5 text-blue-400" />
-                        <span className="text-gray-200">SON-SHIELD Technology</span>
+                        <span className="text-gray-200">Underground Wiring</span>
                       </div>
                     </div>
                     
