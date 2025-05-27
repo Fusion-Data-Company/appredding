@@ -9,6 +9,7 @@ import {
 import { eq, like, or, and, desc, asc, count, sql } from "drizzle-orm";
 import { documentProcessor } from "../services/documentProcessor";
 import { pdfWorkflowEngine } from "../services/pdfWorkflowEngine";
+import { universalDocumentProcessor } from "../services/universalDocumentProcessor";
 import { 
   getYearlyAnalytics, 
   getCustomersByDecade, 
@@ -1103,6 +1104,273 @@ router.get("/search-documents", async (req, res) => {
   } catch (error) {
     console.error("Error searching documents:", error);
     res.status(500).json({ error: "Failed to search documents" });
+  }
+});
+
+// ==========================================
+// UNIVERSAL DOCUMENT & FOLDER PROCESSING
+// ==========================================
+
+// Process any type of document (PDF, Word, Excel, PowerPoint, Images, etc.)
+router.post("/process-any-document", upload.single('document'), async (req, res) => {
+  try {
+    if (!req.file) {
+      return res.status(400).json({ error: "No document file provided" });
+    }
+
+    const { uploadedBy } = req.body;
+    
+    console.log(`Starting universal document processing for: ${req.file.originalname}`);
+    
+    // Process with the universal document processor
+    const processingResult = await universalDocumentProcessor.processAnyDocument(
+      req.file.path, 
+      uploadedBy || 'unknown'
+    );
+    
+    // Clean up the temporary file
+    const fs = require('fs');
+    fs.unlinkSync(req.file.path);
+    
+    res.json({
+      success: true,
+      message: "Document processed successfully with AI analysis",
+      documentType: processingResult.documentType,
+      data: processingResult
+    });
+    
+  } catch (error) {
+    console.error("Universal document processing failed:", error);
+    
+    // Clean up file if it exists
+    if (req.file?.path) {
+      try {
+        const fs = require('fs');
+        fs.unlinkSync(req.file.path);
+      } catch (cleanupError) {
+        console.error("File cleanup failed:", cleanupError);
+      }
+    }
+    
+    res.status(500).json({ 
+      error: "Failed to process document", 
+      details: error.message 
+    });
+  }
+});
+
+// Process entire folder structures recursively (supports ZIP files and nested folders)
+router.post("/process-folder", upload.single('folder'), async (req, res) => {
+  try {
+    if (!req.file) {
+      return res.status(400).json({ error: "No folder/archive file provided" });
+    }
+
+    const { uploadedBy } = req.body;
+    const tempDir = path.join(process.cwd(), 'temp_processing', Date.now().toString());
+    
+    console.log(`Starting recursive folder processing for: ${req.file.originalname}`);
+    
+    try {
+      const fs = require('fs');
+      const path = require('path');
+      
+      // Create temp directory
+      fs.mkdirSync(tempDir, { recursive: true });
+      
+      let processingPath = req.file.path;
+      
+      // If it's a ZIP file, extract it first
+      if (path.extname(req.file.originalname).toLowerCase() === '.zip') {
+        const JSZip = require('jszip');
+        const zipBuffer = fs.readFileSync(req.file.path);
+        const zip = await JSZip.loadAsync(zipBuffer);
+        
+        // Extract all files to temp directory
+        for (const [filename, file] of Object.entries(zip.files)) {
+          if (!file.dir) {
+            const content = await file.async('nodebuffer');
+            const extractedPath = path.join(tempDir, filename);
+            
+            // Create directory structure
+            fs.mkdirSync(path.dirname(extractedPath), { recursive: true });
+            fs.writeFileSync(extractedPath, content);
+          }
+        }
+        
+        processingPath = tempDir;
+      }
+      
+      // Process the folder structure recursively
+      const folderResult = await universalDocumentProcessor.processFolderStructure(
+        processingPath, 
+        uploadedBy || 'folder_upload'
+      );
+      
+      // Clean up
+      fs.unlinkSync(req.file.path);
+      if (fs.existsSync(tempDir)) {
+        fs.rmSync(tempDir, { recursive: true, force: true });
+      }
+      
+      res.json({
+        success: true,
+        message: `Folder processing completed: ${folderResult.successfulFiles} successful, ${folderResult.failedFiles} failed`,
+        data: folderResult
+      });
+      
+    } catch (processingError) {
+      // Clean up on error
+      const fs = require('fs');
+      if (fs.existsSync(tempDir)) {
+        fs.rmSync(tempDir, { recursive: true, force: true });
+      }
+      throw processingError;
+    }
+    
+  } catch (error) {
+    console.error("Folder processing failed:", error);
+    
+    // Clean up file if it exists
+    if (req.file?.path) {
+      try {
+        const fs = require('fs');
+        fs.unlinkSync(req.file.path);
+      } catch (cleanupError) {
+        console.error("File cleanup failed:", cleanupError);
+      }
+    }
+    
+    res.status(500).json({ 
+      error: "Failed to process folder", 
+      details: error.message 
+    });
+  }
+});
+
+// Batch process multiple mixed document types
+router.post("/batch-process-mixed", upload.array('documents', 50), async (req, res) => {
+  try {
+    if (!req.files || req.files.length === 0) {
+      return res.status(400).json({ error: "No document files provided" });
+    }
+
+    const { uploadedBy } = req.body;
+    const results = [];
+    const fs = require('fs');
+    
+    console.log(`Starting batch processing of ${req.files.length} mixed documents`);
+    
+    // Process each file with universal processor
+    for (const file of req.files) {
+      try {
+        const processingResult = await universalDocumentProcessor.processAnyDocument(
+          file.path, 
+          uploadedBy || 'batch_mixed_upload'
+        );
+        
+        results.push({
+          filename: file.originalname,
+          documentType: processingResult.documentType,
+          status: 'success',
+          data: processingResult
+        });
+        
+        // Clean up
+        fs.unlinkSync(file.path);
+        
+      } catch (error) {
+        console.error(`Failed to process ${file.originalname}:`, error);
+        results.push({
+          filename: file.originalname,
+          documentType: 'unknown',
+          status: 'failed',
+          error: error.message
+        });
+        
+        // Clean up failed file
+        try {
+          fs.unlinkSync(file.path);
+        } catch (cleanupError) {
+          console.error("File cleanup failed:", cleanupError);
+        }
+      }
+    }
+    
+    const successful = results.filter(r => r.status === 'success').length;
+    const failed = results.filter(r => r.status === 'failed').length;
+    
+    // Group by document type
+    const byType = results.reduce((acc, result) => {
+      if (result.status === 'success') {
+        acc[result.documentType] = (acc[result.documentType] || 0) + 1;
+      }
+      return acc;
+    }, {});
+    
+    res.json({
+      success: true,
+      message: `Mixed batch processing completed: ${successful} successful, ${failed} failed`,
+      results: results,
+      summary: {
+        total: req.files.length,
+        successful,
+        failed,
+        documentTypes: byType
+      }
+    });
+    
+  } catch (error) {
+    console.error("Mixed batch processing failed:", error);
+    
+    // Clean up all files
+    if (req.files) {
+      const fs = require('fs');
+      req.files.forEach(file => {
+        try {
+          fs.unlinkSync(file.path);
+        } catch (cleanupError) {
+          console.error("File cleanup failed:", cleanupError);
+        }
+      });
+    }
+    
+    res.status(500).json({ 
+      error: "Failed to batch process mixed documents", 
+      details: error.message 
+    });
+  }
+});
+
+// Get document processing capabilities and statistics
+router.get("/processing-capabilities", async (req, res) => {
+  try {
+    const stats = await universalDocumentProcessor.getProcessingStats();
+    
+    res.json({
+      supportedFileTypes: {
+        documents: ['pdf', 'doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx'],
+        text: ['txt', 'rtf', 'csv'],
+        images: ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'tiff', 'webp'],
+        cad: ['dwg', 'dxf', 'step', 'stp'],
+        archives: ['zip', 'rar', '7z', 'tar', 'gz']
+      },
+      features: {
+        folderProcessing: true,
+        recursiveExtraction: true,
+        batchProcessing: true,
+        aiAnalysis: true,
+        multiModelOCR: true,
+        documentClassification: true,
+        dataExtraction: true,
+        businessIntelligence: true
+      },
+      statistics: stats
+    });
+    
+  } catch (error) {
+    console.error("Error getting processing capabilities:", error);
+    res.status(500).json({ error: "Failed to get processing capabilities" });
   }
 });
 
