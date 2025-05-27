@@ -4,20 +4,29 @@ import { SOLAR_HERO_IMAGE } from "@/assets_dir/imageExports";
 
 const SolarHeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Enterprise Elite Background with Multi-Layer Depth */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-fixed"
-        style={{
-          backgroundImage: `
-            radial-gradient(circle at 20% 30%, rgba(251, 191, 36, 0.25) 0%, transparent 50%),
-            radial-gradient(circle at 80% 70%, rgba(249, 115, 22, 0.20) 0%, transparent 50%),
-            radial-gradient(circle at 40% 80%, rgba(239, 68, 68, 0.15) 0%, transparent 50%),
-            linear-gradient(135deg, rgba(255, 251, 235, 0.95) 0%, rgba(254, 243, 199, 0.92) 25%, rgba(253, 230, 138, 0.88) 50%, rgba(252, 211, 77, 0.85) 75%, rgba(251, 191, 36, 0.80) 100%), 
-            url(${SOLAR_HERO_IMAGE})
-          `
-        }}
-      />
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-white via-yellow-50 to-orange-100">
+      {/* Clean Professional Background */}
+      <div className="absolute inset-0">
+        {/* Bright Solar Gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-yellow-50/90 via-amber-50/85 to-orange-100/80"></div>
+        
+        {/* Subtle Pattern Overlay */}
+        <div className="absolute inset-0 opacity-30">
+          <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <pattern id="hero-grid" width="60" height="60" patternUnits="userSpaceOnUse">
+                <path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(251, 191, 36, 0.15)" strokeWidth="1"/>
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#hero-grid)" />
+          </svg>
+        </div>
+        
+        {/* Floating Solar Energy Effects */}
+        <div className="absolute top-20 left-20 w-64 h-64 bg-gradient-to-br from-yellow-300/20 to-orange-400/15 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-20 w-80 h-80 bg-gradient-to-br from-orange-400/20 to-red-400/15 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-amber-300/10 to-yellow-400/8 rounded-full blur-3xl animate-pulse delay-500"></div>
+      </div>
       
       {/* Sophisticated Grid Pattern Overlay */}
       <div className="absolute inset-0 opacity-30">
@@ -106,23 +115,40 @@ const SolarHeroSection = () => {
           transition={{ duration: 0.8 }}
           className="mb-8"
         >
-          {/* Enterprise Typography with Advanced Effects */}
-          <h1 className="text-6xl md:text-8xl lg:text-9xl font-black mb-8 leading-tight tracking-tight">
-            <span className="relative inline-block">
-              <span className="bg-gradient-to-r from-yellow-300 via-orange-400 via-amber-500 to-red-500 bg-clip-text text-transparent drop-shadow-2xl filter brightness-110">
-                Solar Power
+          {/* Clean, Professional Hero Headline */}
+          <div className="mb-12">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight tracking-tight">
+              <span className="block text-gray-900 mb-4">
+                Advance Power
               </span>
-              {/* Multi-layer glow effects */}
-              <div className="absolute -inset-2 bg-gradient-to-r from-yellow-400/30 via-orange-500/25 to-red-500/20 blur-2xl -z-10 animate-pulse"></div>
-              <div className="absolute -inset-1 bg-gradient-to-r from-yellow-400/20 to-orange-500/15 blur-xl -z-10 animate-pulse delay-500"></div>
-            </span>
-            <br />
-            <span className="relative inline-block text-gray-800 drop-shadow-2xl font-light tracking-wide">
-              Solutions
-              <div className="absolute -inset-2 bg-gray-800/15 blur-2xl -z-10 animate-pulse delay-300"></div>
-              <div className="absolute -inset-1 bg-gray-800/10 blur-lg -z-10"></div>
-            </span>
-          </h1>
+              <span className="block bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 bg-clip-text text-transparent">
+                Solar Solutions
+              </span>
+            </h1>
+            
+            <div className="max-w-4xl mx-auto mb-8">
+              <p className="text-xl md:text-2xl lg:text-3xl text-gray-700 font-light leading-relaxed">
+                Redding's trusted solar experts with over 20 years of experience. 
+                Professional installation, repair, and maintenance services for homes and businesses.
+              </p>
+            </div>
+            
+            {/* Company Credentials */}
+            <div className="flex flex-wrap items-center justify-center gap-6 text-sm md:text-base text-orange-700 font-medium mb-10">
+              <div className="flex items-center gap-2 bg-white/60 backdrop-blur-sm px-4 py-2 rounded-full shadow-sm">
+                <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
+                <span>Licensed & Insured</span>
+              </div>
+              <div className="flex items-center gap-2 bg-white/60 backdrop-blur-sm px-4 py-2 rounded-full shadow-sm">
+                <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
+                <span>1000+ Installations</span>
+              </div>
+              <div className="flex items-center gap-2 bg-white/60 backdrop-blur-sm px-4 py-2 rounded-full shadow-sm">
+                <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+                <span>A+ BBB Rating</span>
+              </div>
+            </div>
+          </div>
           
           {/* Premium Subtitle with Enhanced Typography */}
           <div className="relative mb-10">
@@ -142,49 +168,31 @@ const SolarHeroSection = () => {
             </div>
           </div>
           
-          {/* Premium CTA Buttons with Advanced Styling */}
+          {/* Professional Call-to-Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <Link href="#contact">
               <motion.button
-                whileHover={{ scale: 1.06, y: -2 }}
-                whileTap={{ scale: 0.98 }}
-                className="group relative px-10 py-5 bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 text-white font-bold rounded-2xl text-xl shadow-2xl hover:shadow-3xl transition-all duration-500 overflow-hidden"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-12 py-4 bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-400 hover:to-orange-400 text-white font-bold rounded-xl text-lg shadow-xl hover:shadow-2xl transition-all duration-300"
               >
-                {/* Button glow effect */}
-                <div className="absolute -inset-1 bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 rounded-2xl blur-lg opacity-60 group-hover:opacity-80 transition-opacity duration-500"></div>
-                
-                {/* Button content */}
-                <div className="relative flex items-center gap-3">
-                  <span>Get Free Solar Quote</span>
-                  <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center">
-                    <svg className="w-3 h-3 text-white transform group-hover:translate-x-1 transition-transform duration-300" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                    </svg>
-                  </div>
-                </div>
+                Get Free Solar Quote
               </motion.button>
             </Link>
             
             <Link href="#services">
               <motion.button
-                whileHover={{ scale: 1.06, y: -2 }}
-                whileTap={{ scale: 0.98 }}
-                className="group relative px-10 py-5 backdrop-blur-md bg-gray-800/10 border-2 border-gray-800/30 text-gray-800 font-bold rounded-2xl text-xl hover:bg-gray-800/20 hover:border-gray-800/50 transition-all duration-500 shadow-xl hover:shadow-2xl"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-12 py-4 bg-white/80 backdrop-blur-sm border-2 border-orange-300 text-gray-800 font-bold rounded-xl text-lg hover:bg-white hover:border-orange-400 transition-all duration-300 shadow-lg hover:shadow-xl"
               >
-                <div className="relative flex items-center gap-3">
-                  <span>Explore Services</span>
-                  <div className="w-6 h-6 border border-gray-800/40 rounded-full flex items-center justify-center group-hover:border-gray-800/60 transition-colors duration-300">
-                    <svg className="w-3 h-3 text-gray-800 transform group-hover:rotate-45 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                    </svg>
-                  </div>
-                </div>
+                Explore Services
               </motion.button>
             </Link>
           </div>
         </motion.div>
 
-        {/* Enterprise Statistics Cards with Premium Design */}
+        {/* Company Statistics */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -194,10 +202,8 @@ const SolarHeroSection = () => {
           {/* Years Experience Card */}
           <motion.div 
             whileHover={{ scale: 1.02, y: -4 }}
-            className="group relative bg-gradient-to-br from-black/40 via-black/30 to-black/20 backdrop-blur-lg border border-yellow-500/30 rounded-2xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-500"
+            className="group relative bg-white/80 backdrop-blur-sm border border-orange-200 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300"
           >
-            {/* Card glow effect */}
-            <div className="absolute -inset-0.5 bg-gradient-to-br from-yellow-500/20 to-orange-500/10 rounded-2xl blur-lg opacity-60 group-hover:opacity-80 transition-opacity duration-500"></div>
             
             <div className="relative">
               {/* Icon */}
