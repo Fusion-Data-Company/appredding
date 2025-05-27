@@ -48,7 +48,7 @@ const SolarTestimonialsSection = () => {
   ];
 
   return (
-    <section className="relative py-24 bg-gradient-to-br from-white via-gray-50 to-slate-100 overflow-hidden">
+    <section className="relative py-32 bg-gradient-to-br from-gray-900 via-black to-gray-800 overflow-hidden">
       {/* Enterprise Background Pattern */}
       <div className="absolute inset-0 opacity-20">
         <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
