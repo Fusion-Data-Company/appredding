@@ -6,7 +6,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-gradient-to-b from-orange-50 to-yellow-100 py-14 mt-10 border-t border-orange-200 z-20">
+    <footer className="relative bg-gradient-to-b from-orange-50 to-yellow-100 py-14 mt-10 border-t border-orange-200 z-50">
       {/* Solar ambient glows */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute left-1/4 top-0 w-96 h-96 bg-yellow-400/15 rounded-full filter blur-3xl opacity-80"></div>
@@ -19,7 +19,7 @@ const Footer = () => {
       <div className="absolute left-[15%] w-[25%] bottom-0 h-px bg-gradient-to-r from-transparent to-orange-500/40"></div>
       <div className="absolute right-[15%] w-[25%] bottom-0 h-px bg-gradient-to-l from-transparent to-red-500/40"></div>
 
-      <div className="container mx-auto px-6 relative z-30">
+      <div className="container mx-auto px-6 relative z-50">
         {/* Logo section */}
         <div className="flex flex-col items-center mb-12">
           <div className="flex items-center gap-3 mb-6">
@@ -52,9 +52,9 @@ const Footer = () => {
                   <div className="p-1 rounded-full bg-orange-900/30 text-orange-400 group-hover:text-orange-300 transition-colors">
                     <Phone size={12} />
                   </div>
-                  <p className="text-black text-xs font-semibold" style={{color: '#000000 !important'}}>Phone:</p>
+                  <p className="!text-black text-xs font-semibold relative z-50" style={{color: '#000000 !important', textShadow: '0 0 1px rgba(255,255,255,0.8)'}}>Phone:</p>
                 </div>
-                <a href="tel:+15302415297" className="block pl-6 text-black hover:text-orange-600 text-sm transition-colors font-medium" style={{color: '#000000 !important'}}>
+                <a href="tel:+15302415297" className="block pl-6 !text-black hover:text-orange-600 text-sm transition-colors font-medium relative z-50" style={{color: '#000000 !important', textShadow: '0 0 1px rgba(255,255,255,0.8)'}}>
                   (530) 241-5297
                 </a>
               </li>
@@ -63,9 +63,9 @@ const Footer = () => {
                   <div className="p-1 rounded-full bg-orange-900/30 text-orange-400 group-hover:text-orange-300 transition-colors">
                     <Mail size={12} />
                   </div>
-                  <p className="text-black text-xs font-semibold" style={{color: '#000000 !important'}}>Email:</p>
+                  <p className="!text-black text-xs font-semibold relative z-50" style={{color: '#000000 !important', textShadow: '0 0 1px rgba(255,255,255,0.8)'}}>Email:</p>
                 </div>
-                <a href="mailto:info@advancepowerredding.com" className="block pl-6 text-black hover:text-orange-600 text-sm transition-colors font-medium" style={{color: '#000000 !important'}}>
+                <a href="mailto:info@advancepowerredding.com" className="block pl-6 !text-black hover:text-orange-600 text-sm transition-colors font-medium relative z-50" style={{color: '#000000 !important', textShadow: '0 0 1px rgba(255,255,255,0.8)'}}>
                   info@advancepowerredding.com
                 </a>
               </li>
@@ -74,9 +74,9 @@ const Footer = () => {
                   <div className="p-1 rounded-full bg-orange-900/30 text-orange-400 group-hover:text-orange-300 transition-colors">
                     <Building2 size={12} />
                   </div>
-                  <p className="text-black text-xs font-semibold" style={{color: '#000000 !important'}}>Service Area:</p>
+                  <p className="!text-black text-xs font-semibold relative z-50" style={{color: '#000000 !important', textShadow: '0 0 1px rgba(255,255,255,0.8)'}}>Service Area:</p>
                 </div>
-                <p className="block pl-6 text-black text-sm font-medium" style={{color: '#000000 !important'}}>
+                <p className="block pl-6 !text-black text-sm font-medium relative z-50" style={{color: '#000000 !important', textShadow: '0 0 1px rgba(255,255,255,0.8)'}}>
                   Shasta County, California
                 </p>
               </li>
@@ -206,7 +206,7 @@ const Footer = () => {
                   <div className="p-1 rounded-full bg-orange-900/30 text-orange-400 group-hover:text-orange-300 transition-colors">
                     <Users size={12} />
                   </div>
-                  <p className="text-black text-xs font-semibold" style={{color: '#000000 !important'}}>Founded:</p>
+                  <p className="!text-black text-xs font-semibold relative z-50" style={{color: '#000000 !important', textShadow: '0 0 1px rgba(255,255,255,0.8)'}}>Founded:</p>
                 </div>
                 <p className="block pl-6 text-black text-sm font-medium" style={{color: '#000000 !important'}}>
                   1999 by Greg Tomsik
