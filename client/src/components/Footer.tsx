@@ -52,9 +52,9 @@ const Footer = () => {
                   <div className="p-1 rounded-full bg-orange-900/30 text-orange-400 group-hover:text-orange-300 transition-colors">
                     <Phone size={12} />
                   </div>
-                  <p className="text-black text-xs font-semibold">Phone:</p>
+                  <p className="text-black text-xs font-semibold" style={{color: '#000000 !important'}}>Phone:</p>
                 </div>
-                <a href="tel:+15302415297" className="block pl-6 text-black hover:text-orange-600 text-sm transition-colors font-medium">
+                <a href="tel:+15302415297" className="block pl-6 text-black hover:text-orange-600 text-sm transition-colors font-medium" style={{color: '#000000 !important'}}>
                   (530) 241-5297
                 </a>
               </li>
@@ -63,9 +63,9 @@ const Footer = () => {
                   <div className="p-1 rounded-full bg-orange-900/30 text-orange-400 group-hover:text-orange-300 transition-colors">
                     <Mail size={12} />
                   </div>
-                  <p className="text-black text-xs font-semibold">Email:</p>
+                  <p className="text-black text-xs font-semibold" style={{color: '#000000 !important'}}>Email:</p>
                 </div>
-                <a href="mailto:info@advancepowerredding.com" className="block pl-6 text-black hover:text-orange-600 text-sm transition-colors font-medium">
+                <a href="mailto:info@advancepowerredding.com" className="block pl-6 text-black hover:text-orange-600 text-sm transition-colors font-medium" style={{color: '#000000 !important'}}>
                   info@advancepowerredding.com
                 </a>
               </li>
@@ -74,9 +74,9 @@ const Footer = () => {
                   <div className="p-1 rounded-full bg-orange-900/30 text-orange-400 group-hover:text-orange-300 transition-colors">
                     <Building2 size={12} />
                   </div>
-                  <p className="text-black text-xs font-semibold">Service Area:</p>
+                  <p className="text-black text-xs font-semibold" style={{color: '#000000 !important'}}>Service Area:</p>
                 </div>
-                <p className="block pl-6 text-black text-sm font-medium">
+                <p className="block pl-6 text-black text-sm font-medium" style={{color: '#000000 !important'}}>
                   Shasta County, California
                 </p>
               </li>
@@ -206,9 +206,9 @@ const Footer = () => {
                   <div className="p-1 rounded-full bg-orange-900/30 text-orange-400 group-hover:text-orange-300 transition-colors">
                     <Users size={12} />
                   </div>
-                  <p className="text-black text-xs font-semibold">Founded:</p>
+                  <p className="text-black text-xs font-semibold" style={{color: '#000000 !important'}}>Founded:</p>
                 </div>
-                <p className="block pl-6 text-black text-sm font-medium">
+                <p className="block pl-6 text-black text-sm font-medium" style={{color: '#000000 !important'}}>
                   1999 by Greg Tomsik
                 </p>
               </li>
@@ -217,9 +217,9 @@ const Footer = () => {
                   <div className="p-1 rounded-full bg-orange-900/30 text-orange-400 group-hover:text-orange-300 transition-colors">
                     <BarChart3 size={12} />
                   </div>
-                  <p className="text-black text-xs font-semibold">Experience:</p>
+                  <p className="text-black text-xs font-semibold" style={{color: '#000000 !important'}}>Experience:</p>
                 </div>
-                <p className="block pl-6 text-black text-sm font-medium">
+                <p className="block pl-6 text-black text-sm font-medium" style={{color: '#000000 !important'}}>
                   25+ Years in Solar
                 </p>
               </li>
@@ -228,9 +228,9 @@ const Footer = () => {
                   <div className="p-1 rounded-full bg-orange-900/30 text-orange-400 group-hover:text-orange-300 transition-colors">
                     <Shield size={12} />
                   </div>
-                  <p className="text-black text-xs font-semibold">License:</p>
+                  <p className="text-black text-xs font-semibold" style={{color: '#000000 !important'}}>License:</p>
                 </div>
-                <p className="block pl-6 text-black text-sm font-medium">
+                <p className="block pl-6 text-black text-sm font-medium" style={{color: '#000000 !important'}}>
                   CA Licensed Contractor
                 </p>
               </li>
