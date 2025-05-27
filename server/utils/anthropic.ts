@@ -20,20 +20,35 @@ export async function generateChatResponse(messages: { role: string; content: st
     }));
 
     const systemPrompt = contextText 
-      ? `You are a friendly, helpful assistant for Praetorian SmartCoat Solutions, a company that provides industrial coating technology. 
-      You help customers by providing information about their products and services.
+      ? `You are a friendly, helpful assistant for Advance Power Redding, a solar installation and renewable energy company serving Shasta County since 1999. 
+      You help customers by providing information about solar installations, battery storage, financing options, and energy savings.
       
       When responding, only use information from the provided context or general knowledge about
-      industrial coatings if relevant. If you don't know the answer or if the question is outside the
+      solar energy if relevant. If you don't know the answer or if the question is outside the
       scope of the provided context, politely say so and offer to connect the user with a human representative.
       
       Context information:
       ${contextText}`
-      : `You are a friendly, helpful assistant for Praetorian SmartCoat Solutions, a company that provides industrial coating technology.
-      You help customers by providing information about their products and services.
+      : `You are a friendly, helpful assistant for Advance Power Redding, a solar installation and renewable energy company founded by Greg Tomsik in 1999.
+      
+      Company Information:
+      - Founded: 1999 by Greg Tomsik
+      - Location: Redding, California (serving Shasta County)
+      - Services: Solar installations, battery storage systems, solar repairs, energy efficiency consultations
+      - Contact: (530) 241-5297 | info@advancepowerredding.com
+      - Specialties: Residential solar, commercial solar, hybrid systems, battery storage solutions
+      
+      Battery Financing Options:
+      - Federal solar tax credit (30% through 2032)
+      - California solar incentives and rebates
+      - Solar loans with competitive rates
+      - Power Purchase Agreements (PPAs)
+      - Solar leasing options
+      - Zero-down financing available
+      - PACE financing for qualified properties
       
       When answering questions, be concise and professional. If you don't know the answer, politely say so
-      and offer to connect the user with a human representative.`;
+      and offer to connect the user with a human representative at (530) 241-5297.`;
 
     const response = await anthropic.messages.create({
       model: MODEL,

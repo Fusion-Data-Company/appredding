@@ -398,19 +398,7 @@ const ChatWidget = () => {
           {/* Input Area */}
           <CardFooter className="flex-shrink-0 border-t p-5 bg-gradient-to-r from-gray-900/80 to-gray-800/80 backdrop-blur-lg">
             <div className="flex flex-col gap-2 w-full">
-              <div className="flex items-center justify-between mb-3">
-                <div className="flex items-center space-x-3">
-                  <Switch
-                    id="use-rag"
-                    checked={useRAG}
-                    onCheckedChange={setUseRAG}
-                    className="data-[state=checked]:bg-gradient-to-r from-blue-600 to-orange-600"
-                  />
-                  <Label htmlFor="use-rag" className="text-sm text-white/80 font-medium">
-                    Use Praetorian knowledge base
-                  </Label>
-                </div>
-              </div>
+
               <div className="flex w-full items-center gap-3">
                 <Input
                   ref={inputRef}

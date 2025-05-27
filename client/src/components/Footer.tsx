@@ -24,38 +24,49 @@ const Footer = () => {
         <div className="flex flex-col items-center mb-12">
           <div className="flex items-center gap-3 mb-6">
             <div className="text-[1.8rem] leading-none whitespace-nowrap">
-              <span className="gradient-text-combined font-bold">Praetorian</span>
+              <span className="gradient-text-combined font-bold">Advance Power</span>
               <span className="text-white/90 mx-1 font-light">|</span>
-              <span className="gradient-text-blue font-medium">SmartCoat</span>
+              <span className="gradient-text-blue font-medium">Redding</span>
             </div>
           </div>
           <div className="text-center max-w-lg">
             <p className="text-gray-300 text-sm">
-              Advanced ceramic coating technology delivering superior protection 
-              for a wide range of applications with proven performance.
+              Solar installation and renewable energy solutions serving Shasta County 
+              since 1999 with expert design, installation, and service.
             </p>
           </div>
         </div>
 
         {/* Main content grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12 mb-12">
-          {/* Department Contacts */}
+          {/* Contact Information */}
           <div className="relative">
             <div className="absolute -left-4 -top-6 w-20 h-20 bg-gradient-to-br from-orange-500/10 to-transparent rounded-full filter blur-xl"></div>
             <h3 className="text-base font-bold mb-5 flex items-center gap-2">
-              <span className="gradient-text-fire">Department Contacts</span>
+              <span className="gradient-text-fire">Contact Information</span>
               <div className="h-px flex-grow ml-2 bg-gradient-to-r from-orange-500/30 to-transparent"></div>
             </h3>
             <ul className="space-y-4">
               <li className="group">
                 <div className="flex items-center gap-2 mb-1">
                   <div className="p-1 rounded-full bg-orange-900/30 text-orange-400 group-hover:text-orange-300 transition-colors">
+                    <Phone size={12} />
+                  </div>
+                  <p className="text-gray-400 text-xs font-semibold">Phone:</p>
+                </div>
+                <a href="tel:+15302415297" className="block pl-6 text-white hover:text-orange-400 text-sm transition-colors">
+                  (530) 241-5297
+                </a>
+              </li>
+              <li className="group">
+                <div className="flex items-center gap-2 mb-1">
+                  <div className="p-1 rounded-full bg-orange-900/30 text-orange-400 group-hover:text-orange-300 transition-colors">
                     <Mail size={12} />
                   </div>
-                  <p className="text-gray-400 text-xs font-semibold">Orders:</p>
+                  <p className="text-gray-400 text-xs font-semibold">Email:</p>
                 </div>
-                <a href="mailto:orders@praetoriansmartcoat.com" className="block pl-6 text-white hover:text-orange-400 text-sm transition-colors">
-                  orders@praetoriansmartcoat.com
+                <a href="mailto:info@advancepowerredding.com" className="block pl-6 text-white hover:text-orange-400 text-sm transition-colors">
+                  info@advancepowerredding.com
                 </a>
               </li>
               <li className="group">
@@ -63,90 +74,79 @@ const Footer = () => {
                   <div className="p-1 rounded-full bg-orange-900/30 text-orange-400 group-hover:text-orange-300 transition-colors">
                     <Building2 size={12} />
                   </div>
-                  <p className="text-gray-400 text-xs font-semibold">Office:</p>
+                  <p className="text-gray-400 text-xs font-semibold">Service Area:</p>
                 </div>
-                <a href="mailto:office@praetoriansmartcoat.com" className="block pl-6 text-white hover:text-orange-400 text-sm transition-colors">
-                  office@praetoriansmartcoat.com
-                </a>
-              </li>
-              <li className="group">
-                <div className="flex items-center gap-2 mb-1">
-                  <div className="p-1 rounded-full bg-orange-900/30 text-orange-400 group-hover:text-orange-300 transition-colors">
-                    <Users size={12} />
-                  </div>
-                  <p className="text-gray-400 text-xs font-semibold">Distributors:</p>
-                </div>
-                <a href="mailto:distributors@praetoriansmartcoat.com" className="block pl-6 text-white hover:text-orange-400 text-sm transition-colors">
-                  distributors@praetoriansmartcoat.com
-                </a>
+                <p className="block pl-6 text-white text-sm">
+                  Shasta County, California
+                </p>
               </li>
             </ul>
           </div>
 
-          {/* Applications */}
+          {/* Solar Services */}
           <div className="relative">
             <div className="absolute -left-4 -top-6 w-20 h-20 bg-gradient-to-br from-blue-500/10 to-transparent rounded-full filter blur-xl"></div>
             <h3 className="text-base font-bold mb-5 flex items-center gap-2">
-              <span className="gradient-text-blue">Applications</span>
+              <span className="gradient-text-blue">Solar Services</span>
               <div className="h-px flex-grow ml-2 bg-gradient-to-r from-blue-500/30 to-transparent"></div>
             </h3>
             <ul className="space-y-3">
               <li className="flex items-center gap-2 group transition-colors hover:bg-blue-900/10 rounded-md px-1 py-0.5">
                 <div className="p-1 rounded-full bg-orange-900/30 text-orange-400 group-hover:text-orange-300 transition-colors">
-                  <Flame size={12} />
+                  <Home size={12} />
                 </div>
-                <a href="/fire-prevention" className="text-white hover:text-orange-400 text-sm transition-colors">
-                  Wildfire Protection
+                <a href="/residential" className="text-white hover:text-orange-400 text-sm transition-colors">
+                  Residential Solar
                 </a>
               </li>
               <li className="flex items-center gap-2 group transition-colors hover:bg-blue-900/10 rounded-md px-1 py-0.5">
                 <div className="p-1 rounded-full bg-blue-900/30 text-blue-400 group-hover:text-blue-300 transition-colors">
-                  <Ship size={12} />
+                  <Building2 size={12} />
                 </div>
-                <a href="/marinas" className="text-white hover:text-blue-400 text-sm transition-colors">
-                  Marine
+                <a href="/commercial" className="text-white hover:text-blue-400 text-sm transition-colors">
+                  Commercial Solar
                 </a>
               </li>
               <li className="flex items-center gap-2 group transition-colors hover:bg-blue-900/10 rounded-md px-1 py-0.5">
                 <div className="p-1 rounded-full bg-blue-900/30 text-blue-400 group-hover:text-blue-300 transition-colors">
                   <LifeBuoy size={12} />
                 </div>
-                <a href="/pools" className="text-white hover:text-blue-400 text-sm transition-colors">
-                  Pool
+                <a href="/battery-storage" className="text-white hover:text-blue-400 text-sm transition-colors">
+                  Battery Storage
                 </a>
               </li>
               <li className="flex items-center gap-2 group transition-colors hover:bg-orange-900/10 rounded-md px-1 py-0.5">
                 <div className="p-1 rounded-full bg-orange-900/30 text-orange-400 group-hover:text-orange-300 transition-colors">
-                  <Building2 size={12} />
+                  <Shield size={12} />
                 </div>
-                <a href="/construction" className="text-white hover:text-orange-400 text-sm transition-colors">
-                  Construction
+                <a href="/solar-repairs" className="text-white hover:text-orange-400 text-sm transition-colors">
+                  Solar Repairs
                 </a>
               </li>
               <li className="flex items-center gap-2 group transition-colors hover:bg-blue-900/10 rounded-md px-1 py-0.5">
                 <div className="p-1 rounded-full bg-blue-900/30 text-blue-400 group-hover:text-blue-300 transition-colors">
-                  <Home size={12} />
+                  <HeartPulse size={12} />
                 </div>
-                <a href="/mobile-home" className="text-white hover:text-blue-400 text-sm transition-colors">
-                  Mobile Home
+                <a href="/maintenance" className="text-white hover:text-blue-400 text-sm transition-colors">
+                  Maintenance
                 </a>
               </li>
               <li className="flex items-center gap-2 group transition-colors hover:bg-blue-900/10 rounded-md px-1 py-0.5">
                 <div className="p-1 rounded-full bg-blue-900/30 text-blue-400 group-hover:text-blue-300 transition-colors">
-                  <ShieldCheck size={12} />
+                  <BarChart3 size={12} />
                 </div>
-                <a href="/municipality" className="text-white hover:text-blue-400 text-sm transition-colors">
-                  Municipality
+                <a href="/energy-consultation" className="text-white hover:text-blue-400 text-sm transition-colors">
+                  Energy Consultation
                 </a>
               </li>
             </ul>
           </div>
 
-          {/* Our Product */}
+          {/* Financing Options */}
           <div className="relative">
             <div className="absolute -left-4 -top-6 w-20 h-20 bg-gradient-to-br from-blue-500/10 to-transparent rounded-full filter blur-xl"></div>
             <h3 className="text-base font-bold mb-5 flex items-center gap-2">
-              <span className="gradient-text-blue">Our Product</span>
+              <span className="gradient-text-blue">Financing Options</span>
               <div className="h-px flex-grow ml-2 bg-gradient-to-r from-blue-500/30 to-transparent"></div>
             </h3>
             <ul className="space-y-3">
@@ -154,40 +154,40 @@ const Footer = () => {
                 <div className="p-1 rounded-full bg-blue-900/30 text-blue-400 group-hover:text-blue-300 transition-colors">
                   <Shield size={12} />
                 </div>
-                <a href="/products" className="text-white hover:text-blue-400 text-sm transition-colors">
-                  Protective Coating
+                <a href="/financing" className="text-white hover:text-blue-400 text-sm transition-colors">
+                  Federal Tax Credit (30%)
                 </a>
               </li>
               <li className="flex items-center gap-2 group transition-colors hover:bg-blue-900/10 rounded-md px-1 py-0.5">
                 <div className="p-1 rounded-full bg-blue-900/30 text-blue-400 group-hover:text-blue-300 transition-colors">
                   <HeartPulse size={12} />
                 </div>
-                <a href="/products#benefits" className="text-white hover:text-blue-400 text-sm transition-colors">
-                  Product Benefits
+                <a href="/financing#solar-loans" className="text-white hover:text-blue-400 text-sm transition-colors">
+                  Solar Loans
                 </a>
               </li>
               <li className="flex items-center gap-2 group transition-colors hover:bg-blue-900/10 rounded-md px-1 py-0.5">
                 <div className="p-1 rounded-full bg-blue-900/30 text-blue-400 group-hover:text-blue-300 transition-colors">
                   <BarChart3 size={12} />
                 </div>
-                <a href="/technology" className="text-white hover:text-blue-400 text-sm transition-colors">
-                  Performance Data
+                <a href="/financing#ppa" className="text-white hover:text-blue-400 text-sm transition-colors">
+                  Power Purchase Agreements
                 </a>
               </li>
               <li className="flex items-center gap-2 group transition-colors hover:bg-blue-900/10 rounded-md px-1 py-0.5">
                 <div className="p-1 rounded-full bg-blue-900/30 text-blue-400 group-hover:text-blue-300 transition-colors">
                   <FileText size={12} />
                 </div>
-                <a href="/technology#specs" className="text-white hover:text-blue-400 text-sm transition-colors">
-                  Technical Specifications
+                <a href="/financing#leasing" className="text-white hover:text-blue-400 text-sm transition-colors">
+                  Solar Leasing
                 </a>
               </li>
               <li className="flex items-center gap-2 group transition-colors hover:bg-blue-900/10 rounded-md px-1 py-0.5">
                 <div className="p-1 rounded-full bg-blue-900/30 text-blue-400 group-hover:text-blue-300 transition-colors">
                   <FileText size={12} />
                 </div>
-                <a href="/documents/sds" className="text-white hover:text-blue-400 text-sm transition-colors">
-                  Safety Data Sheet
+                <a href="/financing#zero-down" className="text-white hover:text-blue-400 text-sm transition-colors">
+                  Zero-Down Options
                 </a>
               </li>
             </ul>
