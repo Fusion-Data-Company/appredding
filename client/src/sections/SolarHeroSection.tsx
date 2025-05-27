@@ -4,7 +4,7 @@ import { SOLAR_HERO_IMAGE } from "@/assets_dir/imageExports";
 
 const SolarHeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-gray-50 to-white">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50">
       {/* Subtle Enterprise Background */}
       <div className="absolute inset-0">
         {/* Very Subtle Base Gradient */}
@@ -126,7 +126,7 @@ const SolarHeroSection = () => {
                 {/* Elite Typography */}
                 <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-8 leading-tight tracking-tight">
                   <span className="block text-gray-900 mb-4 drop-shadow-sm">
-                    Advance Power
+                    Advance Power of Redding
                   </span>
                   <span className="block bg-gradient-to-r from-amber-600 via-orange-600 to-red-600 bg-clip-text text-transparent drop-shadow-sm">
                     Solar Solutions
@@ -187,7 +187,7 @@ const SolarHeroSection = () => {
           
           {/* Professional Call-to-Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <Link href="#contact">
+            <Link href="/contact">
               <motion.button
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
@@ -197,7 +197,7 @@ const SolarHeroSection = () => {
               </motion.button>
             </Link>
             
-            <Link href="#services">
+            <Link href="/residential-solar">
               <motion.button
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
