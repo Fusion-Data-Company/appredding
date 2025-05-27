@@ -223,23 +223,24 @@ const SolarSalesFunnelSection = () => {
   };
 
   return (
-    <section className="relative py-24 bg-gradient-to-br from-slate-50 via-gray-50 to-white overflow-hidden">
-      {/* Enterprise Background Pattern */}
-      <div className="absolute inset-0 opacity-40">
-        <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <pattern id="enterprise-dots" width="20" height="20" patternUnits="userSpaceOnUse">
-              <circle cx="10" cy="10" r="1" fill="rgba(251, 191, 36, 0.1)"/>
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#enterprise-dots)" />
-        </svg>
+    <section className="relative py-32 bg-gradient-to-br from-gray-900 via-black to-gray-800 overflow-hidden">
+      {/* Enterprise Background Effects */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/5 via-orange-500/5 to-red-500/5"></div>
+        <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-gradient-to-br from-yellow-500/8 to-orange-500/8 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/3 w-80 h-80 bg-gradient-to-br from-orange-500/8 to-red-500/8 rounded-full blur-3xl animate-pulse delay-1000"></div>
       </div>
 
-      {/* Premium Floating Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-20 w-32 h-32 bg-gradient-to-br from-yellow-400/10 to-orange-500/10 rounded-full blur-xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-20 w-40 h-40 bg-gradient-to-br from-orange-500/10 to-red-500/10 rounded-full blur-xl animate-pulse delay-1000"></div>
+      {/* Enterprise Grid Pattern */}
+      <div className="absolute inset-0 opacity-10">
+        <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="funnel-grid" width="80" height="80" patternUnits="userSpaceOnUse">
+              <path d="M 80 0 L 0 0 0 80" fill="none" stroke="rgba(251, 191, 36, 0.3)" strokeWidth="1"/>
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#funnel-grid)" />
+        </svg>
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -251,22 +252,22 @@ const SolarSalesFunnelSection = () => {
           className="text-center mb-20"
         >
           {/* Enterprise Typography */}
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-gray-900 mb-8 leading-tight">
+          <h2 className="text-6xl md:text-7xl lg:text-8xl font-black text-white mb-12 leading-tight">
             Find Your Perfect{" "}
             <span className="relative inline-block">
               <span className="bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 bg-clip-text text-transparent">
                 Solar Solution
               </span>
-              <div className="absolute -inset-1 bg-gradient-to-r from-yellow-400/20 to-orange-500/20 blur-lg -z-10 animate-pulse"></div>
+              <div className="absolute -inset-2 bg-gradient-to-r from-yellow-400/20 to-orange-500/20 blur-2xl -z-10 animate-pulse"></div>
             </span>
           </h2>
           
-          <p className="text-2xl md:text-3xl text-gray-600 max-w-4xl mx-auto font-light leading-relaxed mb-6">
+          <p className="text-3xl md:text-4xl text-gray-200 max-w-5xl mx-auto font-light leading-relaxed mb-8">
             Choose your solar journey below and get a custom quote from Northern California's most trusted solar experts.
           </p>
 
           {/* Trust Indicators */}
-          <div className="flex items-center justify-center gap-8 text-sm font-medium text-gray-500">
+          <div className="flex items-center justify-center gap-8 text-lg font-medium text-gray-300">
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
               <span>Licensed & Insured</span>
