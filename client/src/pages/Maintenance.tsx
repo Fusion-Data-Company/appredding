@@ -3,7 +3,7 @@ import MainLayout from "@/components/layout/MainLayout";
 import { motion } from "framer-motion";
 import { 
   Settings, 
-  CleaningServices, 
+  Sparkles, 
   Shield, 
   CheckCircle, 
   Calendar,
@@ -19,7 +19,7 @@ import SEOHead from "@/components/SEOHead";
 const Maintenance = () => {
   const services = [
     {
-      icon: <CleaningServices className="w-6 h-6" />,
+      icon: <Sparkles className="w-6 h-6" />,
       title: "Panel Cleaning",
       description: "Professional cleaning to maintain peak energy production and system efficiency."
     },

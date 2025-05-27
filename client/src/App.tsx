@@ -75,6 +75,11 @@ function Router() {
       </Route>
       <Route path="/mobile-home" component={MobileHome} />
       <Route path="/municipality" component={Municipality} />
+      <Route path="/residential-solar" component={ResidentialSolar} />
+      <Route path="/commercial-solar" component={CommercialSolar} />
+      <Route path="/battery-storage" component={BatteryStorage} />
+      <Route path="/maintenance" component={Maintenance} />
+      <Route path="/repairs" component={Repairs} />
       <Route path="/applications">
         <Suspense fallback={<div>Loading...</div>}>
           <Applications />
