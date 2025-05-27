@@ -3,7 +3,7 @@ import { Link, useLocation } from "wouter";
 import MobileMenu from "./MobileMenu";
 import { Menu, MenuItem, HoveredLink } from "@/components/ui/navbar-menu";
 import { LightPullThemeSwitcher } from "@/components/ui/light-pull-theme-switcher";
-import { Sun, Moon, ChevronDown, Shield, ShieldCheck, Flame, LifeBuoy, Building2, Home, BriefcaseBusiness, BarChart4, PaintBucket, HardHat } from "lucide-react";
+import { Sun, Moon, ChevronDown, Shield, ShieldCheck, Flame, LifeBuoy, Building2, Home, BriefcaseBusiness, BarChart4, PaintBucket, HardHat, Settings, Wrench } from "lucide-react";
 import praetorianShield from "@assets/Untitled design (6).png";
 
 const Header = () => {
