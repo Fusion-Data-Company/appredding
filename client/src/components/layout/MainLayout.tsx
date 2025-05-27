@@ -1,9 +1,8 @@
 import React, { ReactNode } from 'react';
-import ProfessionalHeader from '@/components/ProfessionalHeader';
+import SolarHeader from '@/components/SolarHeader';
 import Footer from '@/components/Footer';
 import ChatWidget from '@/components/ChatWidget';
 import VoiceChatPopout from '@/components/VoiceChatPopout';
-import PitchDeckSlider from '@/components/ui/PitchDeckSlider';
 import { cn } from '@/lib/utils';
 
 interface MainLayoutProps {
@@ -13,33 +12,15 @@ interface MainLayoutProps {
 }
 
 /**
- * Main layout component with the premium professional header
+ * Main layout component for Advance Power of Redding solar company
  */
 export default function MainLayout({ children, className, fullWidth = false }: MainLayoutProps) {
   return (
-    <div className="min-h-screen flex flex-col bg-black relative">
-      {/* Global shadow overlay - This creates a consistent dark look across all pages */}
-      <div 
-        className="fixed inset-0 z-0 pointer-events-none"
-        style={{
-          background: 'linear-gradient(to bottom, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.75) 50%, rgba(0,0,0,0.85) 100%)',
-          mixBlendMode: 'multiply'
-        }}
-      />
-
-      {/* Subtle texture overlay for depth */}
-      <div 
-        className="fixed inset-0 z-0 opacity-10 pointer-events-none"
-        style={{
-          backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'20\' height=\'20\' viewBox=\'0 0 20 20\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.4\' fill-rule=\'evenodd\'%3E%3Ccircle cx=\'3\' cy=\'3\' r=\'1\'/%3E%3Ccircle cx=\'13\' cy=\'13\' r=\'1\'/%3E%3C/g%3E%3C/svg%3E")',
-          backgroundSize: '20px 20px'
-        }}
-      />
-
-      <ProfessionalHeader />
+    <div className="min-h-screen flex flex-col bg-gradient-to-br from-amber-50 via-white to-orange-50">
+      <SolarHeader />
       
       <main className={cn(
-        "flex-1 pt-24 relative z-10", // z-index ensures content is above overlays
+        "flex-1 pt-32 relative z-10", // Account for the new header height
         className
       )}>
         {fullWidth ? (
@@ -54,7 +35,6 @@ export default function MainLayout({ children, className, fullWidth = false }: M
       <Footer />
       <ChatWidget />
       <VoiceChatPopout />
-      <PitchDeckSlider />
     </div>
   );
 }
