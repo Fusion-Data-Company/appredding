@@ -1,4 +1,4 @@
-import { pgTable, text, serial, integer, boolean, timestamp, pgEnum, date, jsonb, decimal } from "drizzle-orm/pg-core";
+import { pgTable, text, serial, integer, boolean, timestamp, pgEnum, date, jsonb, decimal, index, uniqueIndex } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 import { relations } from "drizzle-orm";
@@ -316,33 +316,84 @@ export const documentStatusEnum = pgEnum('document_status', [
   'pending_processing', 'processing', 'processed', 'failed', 'archived'
 ]);
 
-// Master customer database - unique identifier by address first, then name
+// Master customer database - optimized for 25+ years of solar business data
 export const customers = pgTable("customers", {
   id: serial("id").primaryKey(),
+  // Customer identification
   firstName: text("first_name"),
   lastName: text("last_name"),
-  fullName: text("full_name"), // Combined for search
+  fullName: text("full_name"), // Combined for search - indexed
   email: text("email"),
   phone: text("phone"),
-  address: text("address").notNull(), // Primary unique identifier
+  address: text("address").notNull(), // Primary unique identifier - indexed
   city: text("city"),
-  state: text("state"),
+  state: text("state").default('CA'), // California default for Shasta County
   zipCode: text("zip_code"),
-  // Solar business specific fields
-  installationYear: integer("installation_year"),
-  systemSize: decimal("system_size", { precision: 8, scale: 2 }), // kW
+  county: text("county").default('Shasta'),
+  
+  // Solar installation details - core business data
+  installationYear: integer("installation_year"), // Indexed for year-based queries
+  installationMonth: integer("installation_month"), // For seasonal analysis
+  installationDate: date("installation_date"), // Exact installation date
+  systemSize: decimal("system_size", { precision: 8, scale: 2 }), // kW capacity
   panelCount: integer("panel_count"),
+  panelBrand: text("panel_brand"),
   inverterType: text("inverter_type"),
+  inverterBrand: text("inverter_brand"),
   batterySystem: boolean("battery_system").default(false),
-  // Tracking and meta data
+  batteryCapacity: decimal("battery_capacity", { precision: 8, scale: 2 }), // kWh
+  roofType: text("roof_type"), // tile, shingle, metal, etc.
+  systemType: systemTypeEnum("system_type").default('grid_tied'),
+  
+  // Financial data
+  systemCost: decimal("system_cost", { precision: 10, scale: 2 }),
+  incentivesReceived: decimal("incentives_received", { precision: 10, scale: 2 }),
+  financingType: text("financing_type"), // cash, loan, lease, PPA
+  warrantyExpiration: date("warranty_expiration"),
+  
+  // Service history tracking
+  lastServiceDate: date("last_service_date"),
+  nextMaintenanceDue: date("next_maintenance_due"),
+  serviceCallsCount: integer("service_calls_count").default(0),
+  
+  // Data organization for 25+ years
+  customerSince: date("customer_since"), // Indexed for historical queries
+  accountStatus: text("account_status").default('active'), // active, inactive, moved
+  lifetimeValue: decimal("lifetime_value", { precision: 10, scale: 2 }), // Total revenue
+  
+  // Document and communication tracking
   totalDocuments: integer("total_documents").default(0),
   lastDocumentDate: timestamp("last_document_date"),
-  customerSince: date("customer_since"),
-  status: contactStatusEnum("status").default('customer'),
+  lastContactDate: timestamp("last_contact_date"),
+  communicationPreference: text("communication_preference").default('email'), // email, phone, mail
+  
+  // Search optimization
+  searchVector: text("search_vector"), // Full-text search optimization
+  tags: text("tags").array(), // Flexible tagging for categorization
+  
+  // Metadata
+  dataSource: text("data_source").default('website'), // website, referral, import, etc.
   notes: text("notes"),
   createdAt: timestamp("created_at").notNull().defaultNow(),
   updatedAt: timestamp("updated_at").notNull().defaultNow(),
-});
+  
+  // Legacy system integration
+  legacyCustomerId: text("legacy_customer_id"), // For migrating old systems
+  importedAt: timestamp("imported_at"),
+}, (table) => ({
+  // High-performance indexes for 25+ years of data
+  installationYearIdx: index("customers_installation_year_idx").on(table.installationYear),
+  customerSinceIdx: index("customers_customer_since_idx").on(table.customerSince),
+  addressIdx: uniqueIndex("customers_address_unique_idx").on(table.address),
+  fullNameIdx: index("customers_full_name_idx").on(table.fullName),
+  zipCodeIdx: index("customers_zip_code_idx").on(table.zipCode),
+  accountStatusIdx: index("customers_account_status_idx").on(table.accountStatus),
+  systemSizeIdx: index("customers_system_size_idx").on(table.systemSize),
+  lastServiceDateIdx: index("customers_last_service_date_idx").on(table.lastServiceDate),
+  // Composite indexes for complex queries
+  yearStatusIdx: index("customers_year_status_idx").on(table.installationYear, table.accountStatus),
+  locationServiceIdx: index("customers_location_service_idx").on(table.zipCode, table.lastServiceDate),
+}));
 
 // Customer documents - all files associated with each customer
 export const customerDocuments = pgTable("customer_documents", {

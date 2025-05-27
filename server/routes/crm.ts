@@ -8,6 +8,15 @@ import {
 } from "@shared/schema";
 import { eq, like, or, and, desc, asc, count, sql } from "drizzle-orm";
 import { documentProcessor } from "../services/documentProcessor";
+import { 
+  getYearlyAnalytics, 
+  getCustomersByDecade, 
+  getGeographicAnalysis,
+  getCustomersByYear,
+  searchCustomersAcrossYears,
+  getServiceAnalyticsByYear,
+  getTechnologyTrends 
+} from "../services/historicalAnalytics";
 import multer from "multer";
 import path from "path";
 import { v4 as uuidv4 } from "uuid";
@@ -758,6 +767,115 @@ router.get("/contacts/export", async (req, res) => {
   } catch (error) {
     console.error("Error exporting contacts:", error);
     res.status(500).json({ error: "Failed to export contacts" });
+  }
+});
+
+// =====================
+// HISTORICAL ANALYTICS - 25+ YEARS OF DATA
+// =====================
+
+// Get yearly analytics for business performance analysis
+router.get("/analytics/yearly", async (req, res) => {
+  try {
+    const { startYear, endYear } = req.query;
+    const start = startYear ? parseInt(startYear as string) : undefined;
+    const end = endYear ? parseInt(endYear as string) : undefined;
+    
+    const analytics = await getYearlyAnalytics(start, end);
+    res.json(analytics);
+  } catch (error) {
+    console.error("Error fetching yearly analytics:", error);
+    res.status(500).json({ error: "Failed to fetch yearly analytics" });
+  }
+});
+
+// Get customer distribution by decades
+router.get("/analytics/decades", async (req, res) => {
+  try {
+    const decadeData = await getCustomersByDecade();
+    res.json(decadeData);
+  } catch (error) {
+    console.error("Error fetching decade analysis:", error);
+    res.status(500).json({ error: "Failed to fetch decade analysis" });
+  }
+});
+
+// Get geographic analysis for Shasta County service areas
+router.get("/analytics/geographic", async (req, res) => {
+  try {
+    const geoData = await getGeographicAnalysis();
+    res.json(geoData);
+  } catch (error) {
+    console.error("Error fetching geographic analysis:", error);
+    res.status(500).json({ error: "Failed to fetch geographic analysis" });
+  }
+});
+
+// Get customers by specific year with pagination
+router.get("/analytics/customers-by-year/:year", async (req, res) => {
+  try {
+    const year = parseInt(req.params.year);
+    const { limit = 50, offset = 0 } = req.query;
+    
+    const data = await getCustomersByYear(
+      year, 
+      parseInt(limit as string), 
+      parseInt(offset as string)
+    );
+    
+    res.json(data);
+  } catch (error) {
+    console.error("Error fetching customers by year:", error);
+    res.status(500).json({ error: "Failed to fetch customers by year" });
+  }
+});
+
+// Advanced search across all years of customer data
+router.get("/analytics/search-historical", async (req, res) => {
+  try {
+    const { query, yearFrom, yearTo, limit = 50, offset = 0 } = req.query;
+    
+    if (!query || typeof query !== 'string') {
+      return res.status(400).json({ error: "Search query is required" });
+    }
+    
+    const fromYear = yearFrom ? parseInt(yearFrom as string) : undefined;
+    const toYear = yearTo ? parseInt(yearTo as string) : undefined;
+    
+    const results = await searchCustomersAcrossYears(
+      query,
+      fromYear,
+      toYear,
+      parseInt(limit as string),
+      parseInt(offset as string)
+    );
+    
+    res.json(results);
+  } catch (error) {
+    console.error("Error searching historical data:", error);
+    res.status(500).json({ error: "Failed to search historical data" });
+  }
+});
+
+// Get service and maintenance analytics by year
+router.get("/analytics/service-trends", async (req, res) => {
+  try {
+    const serviceData = await getServiceAnalyticsByYear();
+    res.json(serviceData);
+  } catch (error) {
+    console.error("Error fetching service analytics:", error);
+    res.status(500).json({ error: "Failed to fetch service analytics" });
+  }
+});
+
+// Get technology trends over the years (inverter types, battery adoption, etc.)
+router.get("/analytics/technology-trends", async (req, res) => {
+  try {
+    const techData = await getTechnologyTrends();
+    res.json(techData);
+  } catch (error) {
+    console.error("Error fetching technology trends:", error);
+    res.status(500).json({ error: "Failed to fetch technology trends" });
   }
 });
 
