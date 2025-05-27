@@ -304,6 +304,34 @@ export const tasksRelations = relations(tasks, ({ one }) => ({
   assignedTo: one(users, { fields: [tasks.assignedTo], references: [users.id] })
 }));
 
+// Form submissions from all website pages
+export const formSubmissions = pgTable("form_submissions", {
+  id: serial("id").primaryKey(),
+  formType: text("form_type").notNull(), // contact, solar_quote, fire_prevention, etc.
+  sourcePage: text("source_page").notNull(), // URL where form was submitted
+  contactId: integer("contact_id").references(() => contacts.id), // Links to contact if created
+  firstName: text("first_name").notNull(),
+  lastName: text("last_name").notNull(),
+  email: text("email").notNull(),
+  phone: text("phone"),
+  company: text("company"),
+  address: text("address"),
+  city: text("city"),
+  state: text("state"),
+  zipCode: text("zip_code"),
+  message: text("message"),
+  interestedServices: jsonb("interested_services"), // Array of services
+  propertyType: text("property_type"),
+  propertySize: text("property_size"),
+  energyUsage: text("energy_usage"),
+  budget: text("budget"),
+  timeline: text("timeline"),
+  additionalData: jsonb("additional_data"), // Any extra form fields
+  processed: boolean("processed").default(false), // Whether this has been converted to contact/opportunity
+  createdAt: timestamp("created_at").notNull().defaultNow(),
+  updatedAt: timestamp("updated_at").notNull().defaultNow(),
+});
+
 // Activities and interactions
 export const activities = pgTable("activities", {
   id: serial("id").primaryKey(),
@@ -313,6 +341,7 @@ export const activities = pgTable("activities", {
   contactId: integer("contact_id").references(() => contacts.id),
   companyId: integer("company_id").references(() => companies.id),
   opportunityId: integer("opportunity_id").references(() => opportunities.id),
+  formSubmissionId: integer("form_submission_id").references(() => formSubmissions.id),
   scheduledAt: timestamp("scheduled_at"),
   completedAt: timestamp("completed_at"),
   duration: integer("duration"), // In minutes
@@ -585,6 +614,29 @@ export const insertTaskSchema = createInsertSchema(tasks).pick({
   opportunityId: true,
   assignedBy: true,
   assignedTo: true
+});
+
+// Form submission schema
+export const insertFormSubmissionSchema = createInsertSchema(formSubmissions).pick({
+  formType: true,
+  sourcePage: true,
+  firstName: true,
+  lastName: true,
+  email: true,
+  phone: true,
+  company: true,
+  address: true,
+  city: true,
+  state: true,
+  zipCode: true,
+  message: true,
+  interestedServices: true,
+  propertyType: true,
+  propertySize: true,
+  energyUsage: true,
+  budget: true,
+  timeline: true,
+  additionalData: true
 });
 
 export const insertActivitySchema = createInsertSchema(activities).pick({

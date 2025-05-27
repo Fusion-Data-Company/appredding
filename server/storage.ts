@@ -1,4 +1,4 @@
-import { contacts, companies, opportunities, activities, tasks, orders, orderItems, products, type Contact, type Company, type Opportunity } from "@shared/schema";
+import { contacts, companies, opportunities, activities, tasks, orders, orderItems, products, formSubmissions, type Contact, type Company, type Opportunity, type FormSubmission } from "@shared/schema";
 import { db } from "./db";
 import { eq, desc, and, like, sql } from "drizzle-orm";
 
@@ -23,7 +23,13 @@ export interface IStorage {
   getOpportunityById(id: number): Promise<Opportunity | undefined>;
   updateOpportunity(id: number, data: any): Promise<Opportunity>;
 
-  // Form submissions - these will create contacts and opportunities
+  // Form submissions from all website pages
+  createFormSubmission(formData: any): Promise<FormSubmission>;
+  getFormSubmissions(): Promise<FormSubmission[]>;
+  getFormSubmissionById(id: number): Promise<FormSubmission | undefined>;
+  processFormSubmission(id: number): Promise<{ contact: Contact; opportunity?: Opportunity }>;
+  
+  // Legacy form methods - now use the unified form submission system
   submitContactForm(formData: any): Promise<Contact>;
   submitQuoteForm(formData: any): Promise<{ contact: Contact; opportunity: Opportunity }>;
   submitConsultationForm(formData: any): Promise<{ contact: Contact; opportunity: Opportunity }>;
