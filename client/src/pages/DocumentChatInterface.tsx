@@ -127,14 +127,19 @@ export default function DocumentChatInterface() {
     }
   });
 
-  // Document upload mutation
+  // Document upload mutation with large file support
   const uploadMutation = useMutation({
     mutationFn: async (formData: FormData) => {
       const response = await fetch('/api/crm/process-any-document', {
         method: 'POST',
-        body: formData
+        body: formData,
+        // Remove default timeout for large files
+        signal: AbortSignal.timeout(300000) // 5 minute timeout for large files
       });
-      if (!response.ok) throw new Error('Upload failed');
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.error || `Upload failed with status ${response.status}`);
+      }
       return response.json();
     },
     onSuccess: (data) => {
@@ -220,6 +225,16 @@ export default function DocumentChatInterface() {
     const file = event.target.files?.[0];
     if (!file) return;
 
+    // Check file size (100MB limit)
+    if (file.size > 100 * 1024 * 1024) {
+      toast({
+        title: "File Too Large",
+        description: "Maximum file size is 100MB. Please select a smaller file.",
+        variant: "destructive"
+      });
+      return;
+    }
+
     setIsUploading(true);
     setUploadProgress(0);
 
@@ -227,18 +242,21 @@ export default function DocumentChatInterface() {
     formData.append('document', file);
     formData.append('uploadedBy', 'document_chat_user');
 
-    // Simulate progress
+    // Realistic progress simulation for large files
     const progressInterval = setInterval(() => {
       setUploadProgress(prev => {
-        if (prev >= 90) {
+        if (prev >= 85) {
           clearInterval(progressInterval);
           return prev;
         }
-        return prev + 10;
+        return prev + (file.size > 10 * 1024 * 1024 ? 5 : 15); // Slower for large files
       });
-    }, 200);
+    }, file.size > 10 * 1024 * 1024 ? 500 : 200);
 
     uploadMutation.mutate(formData);
+    
+    // Clear progress interval when mutation completes
+    setTimeout(() => clearInterval(progressInterval), 30000);
   };
 
   const handleFolderUpload = (event: React.ChangeEvent<HTMLInputElement>) => {

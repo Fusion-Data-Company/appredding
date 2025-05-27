@@ -903,20 +903,25 @@ For each customer, provide a confidence score (0.0-1.0) and reasoning:
    */
   async getProcessingStats(): Promise<any> {
     try {
-      const totalDocs = await db.select({ count: sql`count(*)` }).from(customerDocuments);
-      const processedDocs = await db.select({ count: sql`count(*)` })
+      const totalDocs = await db.select({ count: sql<number>`count(*)::int` }).from(customerDocuments);
+      const processedDocs = await db.select({ count: sql<number>`count(*)::int` })
         .from(customerDocuments)
         .where(eq(customerDocuments.isProcessed, true));
       
       return {
-        totalDocuments: totalDocs[0].count,
-        processedDocuments: processedDocs[0].count,
+        totalDocuments: Number(totalDocs[0]?.count || 0),
+        processedDocuments: Number(processedDocs[0]?.count || 0),
         supportedFileTypes: Object.keys(this.supportedExtensions).length,
         processingCapabilities: Object.values(this.supportedExtensions).filter((v, i, a) => a.indexOf(v) === i)
       };
     } catch (error) {
       console.error('Error getting processing stats:', error);
-      return { error: error.message };
+      return { 
+        totalDocuments: 0,
+        processedDocuments: 0,
+        supportedFileTypes: Object.keys(this.supportedExtensions).length,
+        processingCapabilities: Object.values(this.supportedExtensions).filter((v, i, a) => a.indexOf(v) === i)
+      };
     }
   }
 }

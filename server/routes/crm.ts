@@ -1342,10 +1342,16 @@ router.post("/batch-process-mixed", upload.array('documents', 50), async (req, r
   }
 });
 
+// Use document chat routes - moved to end of file after router definition
+
 // Get document processing capabilities and statistics
 router.get("/processing-capabilities", async (req, res) => {
   try {
-    const stats = await universalDocumentProcessor.getProcessingStats();
+    // Get actual document counts from database
+    const totalDocs = await db.select({ count: sql<number>`count(*)::int` }).from(customerDocuments);
+    const processedDocs = await db.select({ count: sql<number>`count(*)::int` })
+      .from(customerDocuments)
+      .where(eq(customerDocuments.isProcessed, true));
     
     res.json({
       supportedFileTypes: {
