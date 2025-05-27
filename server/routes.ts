@@ -18,7 +18,30 @@ const upload = multer({
 
 const router = Router();
 
-// Contact form schema
+// Universal form submission schema - handles ALL website forms
+const universalFormSchema = z.object({
+  formType: z.string().min(1, "Form type is required"),
+  sourcePage: z.string().min(1, "Source page is required"),
+  firstName: z.string().min(1, "First name is required"),
+  lastName: z.string().min(1, "Last name is required"),
+  email: z.string().email("Valid email is required"),
+  phone: z.string().optional(),
+  company: z.string().optional(),
+  address: z.string().optional(),
+  city: z.string().optional(),
+  state: z.string().optional(),
+  zipCode: z.string().optional(),
+  message: z.string().optional(),
+  interestedServices: z.array(z.string()).optional(),
+  propertyType: z.string().optional(),
+  propertySize: z.string().optional(),
+  energyUsage: z.string().optional(),
+  budget: z.string().optional(),
+  timeline: z.string().optional(),
+  additionalData: z.record(z.any()).optional()
+});
+
+// Legacy contact form schema for backward compatibility
 const contactFormSchema = z.object({
   firstName: z.string().min(1, "First name is required"),
   lastName: z.string().min(1, "Last name is required"),
@@ -138,6 +161,42 @@ router.post("/api/consultation", async (req, res) => {
     } else {
       res.status(500).json({ success: false, error: "Internal server error" });
     }
+  }
+});
+
+// UNIVERSAL FORM SUBMISSION ENDPOINT - Handles ALL website forms
+router.post("/api/forms/submit", async (req, res) => {
+  try {
+    console.log("Universal form submission received:", req.body);
+    
+    // Validate the form data
+    const validationResult = universalFormSchema.safeParse(req.body);
+    if (!validationResult.success) {
+      return res.status(400).json({ 
+        success: false, 
+        error: "Validation error", 
+        details: validationResult.error.errors 
+      });
+    }
+
+    const formData = validationResult.data;
+    
+    // Create form submission record and automatically process it
+    const submission = await storage.createFormSubmission(formData);
+    
+    console.log("Form submission created and processed:", submission);
+    
+    res.json({ 
+      success: true, 
+      message: "Form submitted successfully! We'll contact you soon.",
+      submissionId: submission.id 
+    });
+  } catch (error) {
+    console.error("Universal form submission error:", error);
+    res.status(500).json({ 
+      success: false, 
+      error: "Failed to submit form. Please try again." 
+    });
   }
 });
 

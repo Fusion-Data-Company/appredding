@@ -263,6 +263,125 @@ export class DatabaseStorage implements IStorage {
       recentOpportunities
     };
   }
+  // Form submission methods - unified system for all website forms
+  async createFormSubmission(formData: any): Promise<FormSubmission> {
+    const [submission] = await db
+      .insert(formSubmissions)
+      .values({
+        formType: formData.formType,
+        sourcePage: formData.sourcePage,
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        email: formData.email,
+        phone: formData.phone,
+        company: formData.company,
+        address: formData.address,
+        city: formData.city,
+        state: formData.state,
+        zipCode: formData.zipCode,
+        message: formData.message,
+        interestedServices: formData.interestedServices,
+        propertyType: formData.propertyType,
+        propertySize: formData.propertySize,
+        energyUsage: formData.energyUsage,
+        budget: formData.budget,
+        timeline: formData.timeline,
+        additionalData: formData.additionalData || {},
+        processed: false
+      })
+      .returning();
+
+    // Automatically process the form submission to create contact and opportunity
+    if (submission.id) {
+      await this.processFormSubmission(submission.id);
+    }
+
+    return submission;
+  }
+
+  async getFormSubmissions(): Promise<FormSubmission[]> {
+    return await db
+      .select()
+      .from(formSubmissions)
+      .orderBy(desc(formSubmissions.createdAt));
+  }
+
+  async getFormSubmissionById(id: number): Promise<FormSubmission | undefined> {
+    const [submission] = await db
+      .select()
+      .from(formSubmissions)
+      .where(eq(formSubmissions.id, id));
+    return submission;
+  }
+
+  async processFormSubmission(id: number): Promise<{ contact: Contact; opportunity?: Opportunity }> {
+    const submission = await this.getFormSubmissionById(id);
+    if (!submission) {
+      throw new Error('Form submission not found');
+    }
+
+    // Check if contact already exists by email
+    let contact = await this.getContactByEmail(submission.email);
+    
+    if (!contact) {
+      // Create new contact
+      contact = await this.createContact({
+        firstName: submission.firstName,
+        lastName: submission.lastName,
+        email: submission.email,
+        phone: submission.phone,
+        address: submission.address,
+        city: submission.city,
+        state: submission.state,
+        zipCode: submission.zipCode,
+        source: 'website',
+        status: 'lead',
+        interestedInServices: submission.interestedServices,
+        notes: `Form submission from ${submission.sourcePage}: ${submission.message || ''}`
+      });
+    }
+
+    // Create opportunity if this is a service request
+    let opportunity;
+    if (submission.formType !== 'contact' && submission.interestedServices) {
+      opportunity = await this.createOpportunity({
+        name: `${submission.formType.replace('_', ' ').toUpperCase()} - ${contact.firstName} ${contact.lastName}`,
+        contactId: contact.id,
+        solarServices: submission.interestedServices,
+        status: 'pending',
+        description: submission.message,
+        source: 'website',
+        budget: submission.budget,
+        notes: `Generated from ${submission.formType} form submission on ${submission.sourcePage}`
+      });
+    }
+
+    // Create activity record
+    await this.createActivity({
+      type: 'form_submission',
+      subject: `${submission.formType.replace('_', ' ').toUpperCase()} Form Submitted`,
+      details: `Form submitted from ${submission.sourcePage}${submission.message ? ': ' + submission.message : ''}`,
+      contactId: contact.id,
+      opportunityId: opportunity?.id,
+      createdBy: 1 // Default system user
+    });
+
+    // Mark submission as processed
+    await db
+      .update(formSubmissions)
+      .set({ processed: true, contactId: contact.id })
+      .where(eq(formSubmissions.id, id));
+
+    return { contact, opportunity };
+  }
+
+  private async getContactByEmail(email: string): Promise<Contact | undefined> {
+    const [contact] = await db
+      .select()
+      .from(contacts)
+      .where(eq(contacts.email, email));
+    return contact;
+  }
 }
 
 export const storage = new DatabaseStorage();
