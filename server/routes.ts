@@ -1,6 +1,20 @@
 import { Router } from "express";
 import { storage } from "./storage";
 import { z } from "zod";
+import multer from "multer";
+import { parse } from "csv-parse/sync";
+
+// Configure multer for file uploads
+const upload = multer({ 
+  storage: multer.memoryStorage(),
+  fileFilter: (req, file, cb) => {
+    if (file.mimetype === 'text/csv' || file.originalname.endsWith('.csv')) {
+      cb(null, true);
+    } else {
+      cb(new Error('Only CSV files are allowed'));
+    }
+  }
+});
 
 const router = Router();
 

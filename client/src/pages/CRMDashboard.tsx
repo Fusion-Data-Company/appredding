@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -9,9 +9,13 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, Di
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Users, FileText, DollarSign, Phone, Mail, MapPin, Calendar, Search, Eye, Edit2, Trash2 } from "lucide-react";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Users, FileText, DollarSign, Phone, Mail, MapPin, Calendar, Search, Eye, Edit2, Trash2, Plus, Upload, Download, FormInput } from "lucide-react";
 import { format } from "date-fns";
 import { useToast } from "@/hooks/use-toast";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
 
 interface Contact {
   id: number;
@@ -54,13 +58,64 @@ interface DashboardStats {
   recentOpportunities: Opportunity[];
 }
 
+interface FormSubmission {
+  id: number;
+  contactId: number;
+  formType: string;
+  formData: any;
+  submittedAt: string;
+  contact?: Contact;
+}
+
+// Form validation schemas
+const contactFormSchema = z.object({
+  firstName: z.string().min(1, "First name is required"),
+  lastName: z.string().min(1, "Last name is required"),
+  email: z.string().email("Valid email is required"),
+  phone: z.string().min(1, "Phone number is required"),
+  address: z.string().optional(),
+  city: z.string().optional(),
+  state: z.string().optional(),
+  zipCode: z.string().optional(),
+  jobTitle: z.string().optional(),
+  status: z.string().default("lead"),
+  source: z.string().default("manual"),
+  interestedInServices: z.array(z.string()).optional(),
+  notes: z.string().optional()
+});
+
+type ContactFormData = z.infer<typeof contactFormSchema>;
+
 export default function CRMDashboard() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedContact, setSelectedContact] = useState<Contact | null>(null);
   const [isContactDialogOpen, setIsContactDialogOpen] = useState(false);
   const [editingContact, setEditingContact] = useState<Contact | null>(null);
+  const [isAddContactDialogOpen, setIsAddContactDialogOpen] = useState(false);
+  const [csvFile, setCsvFile] = useState<File | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
   const queryClient = useQueryClient();
   const { toast } = useToast();
+
+  // Contact form
+  const contactForm = useForm<ContactFormData>({
+    resolver: zodResolver(contactFormSchema),
+    defaultValues: {
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      address: "",
+      city: "",
+      state: "CA",
+      zipCode: "",
+      jobTitle: "",
+      status: "lead",
+      source: "manual",
+      interestedInServices: [],
+      notes: ""
+    }
+  });
 
   // Fetch dashboard stats
   const { data: dashboardData, isLoading: isDashboardLoading } = useQuery({
@@ -108,6 +163,53 @@ export default function CRMDashboard() {
     enabled: searchQuery.length > 2
   });
 
+  // Add contact mutation
+  const addContactMutation = useMutation({
+    mutationFn: async (contactData: ContactFormData) => {
+      const response = await fetch("/api/crm/contacts", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(contactData)
+      });
+      if (!response.ok) throw new Error("Failed to add contact");
+      return response.json();
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["/api/crm/contacts"] });
+      queryClient.invalidateQueries({ queryKey: ["/api/crm/dashboard"] });
+      toast({ title: "Success", description: "Contact added successfully" });
+      setIsAddContactDialogOpen(false);
+      contactForm.reset();
+    },
+    onError: () => {
+      toast({ title: "Error", description: "Failed to add contact", variant: "destructive" });
+    }
+  });
+
+  // CSV import mutation
+  const csvImportMutation = useMutation({
+    mutationFn: async (file: File) => {
+      const formData = new FormData();
+      formData.append("csvFile", file);
+      const response = await fetch("/api/crm/contacts/import", {
+        method: "POST",
+        body: formData
+      });
+      if (!response.ok) throw new Error("Failed to import CSV");
+      return response.json();
+    },
+    onSuccess: (data) => {
+      queryClient.invalidateQueries({ queryKey: ["/api/crm/contacts"] });
+      queryClient.invalidateQueries({ queryKey: ["/api/crm/dashboard"] });
+      toast({ title: "Success", description: `Imported ${data.imported} contacts successfully` });
+      setCsvFile(null);
+      if (fileInputRef.current) fileInputRef.current.value = "";
+    },
+    onError: () => {
+      toast({ title: "Error", description: "Failed to import CSV file", variant: "destructive" });
+    }
+  });
+
   // Update contact mutation
   const updateContactMutation = useMutation({
     mutationFn: async ({ id, data }: { id: number; data: Partial<Contact> }) => {
@@ -146,6 +248,51 @@ export default function CRMDashboard() {
       toast({ title: "Error", description: "Failed to delete contact", variant: "destructive" });
     }
   });
+
+  // Form submissions query
+  const { data: formSubmissions, isLoading: isFormSubmissionsLoading } = useQuery({
+    queryKey: ["/api/crm/form-submissions"],
+    queryFn: async () => {
+      const response = await fetch("/api/crm/form-submissions");
+      if (!response.ok) throw new Error("Failed to fetch form submissions");
+      const data = await response.json();
+      return data.submissions as FormSubmission[];
+    }
+  });
+
+  // Handle CSV file selection
+  const handleCsvFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file && file.type === "text/csv") {
+      setCsvFile(file);
+    } else {
+      toast({ title: "Error", description: "Please select a valid CSV file", variant: "destructive" });
+    }
+  };
+
+  // Handle CSV import
+  const handleCsvImport = () => {
+    if (csvFile) {
+      csvImportMutation.mutate(csvFile);
+    }
+  };
+
+  // Download CSV template
+  const downloadCsvTemplate = () => {
+    const csvContent = "firstName,lastName,email,phone,address,city,state,zipCode,jobTitle,status,source,interestedInServices,notes\nJohn,Doe,john.doe@example.com,(555) 123-4567,123 Main St,Redding,CA,96001,Homeowner,lead,website,\"Solar Installation, Battery Storage\",Interested in residential solar";
+    const blob = new Blob([csvContent], { type: "text/csv" });
+    const url = window.URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "contacts_template.csv";
+    link.click();
+    window.URL.revokeObjectURL(url);
+  };
+
+  // Add contact form submission
+  const onAddContact = (data: ContactFormData) => {
+    addContactMutation.mutate(data);
+  };
 
   const getStatusColor = (status: string) => {
     switch (status.toLowerCase()) {
@@ -261,8 +408,9 @@ export default function CRMDashboard() {
 
         {/* Main Content Tabs */}
         <Tabs defaultValue="contacts" className="space-y-6">
-          <TabsList className="grid w-full grid-cols-3">
+          <TabsList className="grid w-full grid-cols-4">
             <TabsTrigger value="contacts">Contacts</TabsTrigger>
+            <TabsTrigger value="forms">Form Submissions</TabsTrigger>
             <TabsTrigger value="opportunities">Opportunities</TabsTrigger>
             <TabsTrigger value="recent">Recent Activity</TabsTrigger>
           </TabsList>
@@ -286,8 +434,264 @@ export default function CRMDashboard() {
                         className="pl-8 w-64"
                       />
                     </div>
+                    <Button 
+                      variant="outline" 
+                      size="sm"
+                      onClick={downloadCsvTemplate}
+                    >
+                      <Download className="h-4 w-4 mr-2" />
+                      CSV Template
+                    </Button>
+                    <div className="flex items-center gap-2">
+                      <input
+                        ref={fileInputRef}
+                        type="file"
+                        accept=".csv"
+                        onChange={handleCsvFileChange}
+                        className="hidden"
+                      />
+                      <Button 
+                        variant="outline" 
+                        size="sm"
+                        onClick={() => fileInputRef.current?.click()}
+                      >
+                        <Upload className="h-4 w-4 mr-2" />
+                        Import CSV
+                      </Button>
+                      {csvFile && (
+                        <Button 
+                          size="sm"
+                          onClick={handleCsvImport}
+                          disabled={csvImportMutation.isPending}
+                        >
+                          {csvImportMutation.isPending ? "Importing..." : "Process CSV"}
+                        </Button>
+                      )}
+                    </div>
+                    <Dialog open={isAddContactDialogOpen} onOpenChange={setIsAddContactDialogOpen}>
+                      <DialogTrigger asChild>
+                        <Button size="sm">
+                          <Plus className="h-4 w-4 mr-2" />
+                          Add Contact
+                        </Button>
+                      </DialogTrigger>
+                      <DialogContent className="max-w-2xl">
+                        <DialogHeader>
+                          <DialogTitle>Add New Contact</DialogTitle>
+                          <DialogDescription>
+                            Enter the contact information below.
+                          </DialogDescription>
+                        </DialogHeader>
+                        <Form {...contactForm}>
+                          <form onSubmit={contactForm.handleSubmit(onAddContact)} className="space-y-4">
+                            <div className="grid grid-cols-2 gap-4">
+                              <FormField
+                                control={contactForm.control}
+                                name="firstName"
+                                render={({ field }) => (
+                                  <FormItem>
+                                    <FormLabel>First Name</FormLabel>
+                                    <FormControl>
+                                      <Input {...field} />
+                                    </FormControl>
+                                    <FormMessage />
+                                  </FormItem>
+                                )}
+                              />
+                              <FormField
+                                control={contactForm.control}
+                                name="lastName"
+                                render={({ field }) => (
+                                  <FormItem>
+                                    <FormLabel>Last Name</FormLabel>
+                                    <FormControl>
+                                      <Input {...field} />
+                                    </FormControl>
+                                    <FormMessage />
+                                  </FormItem>
+                                )}
+                              />
+                            </div>
+                            <div className="grid grid-cols-2 gap-4">
+                              <FormField
+                                control={contactForm.control}
+                                name="email"
+                                render={({ field }) => (
+                                  <FormItem>
+                                    <FormLabel>Email</FormLabel>
+                                    <FormControl>
+                                      <Input type="email" {...field} />
+                                    </FormControl>
+                                    <FormMessage />
+                                  </FormItem>
+                                )}
+                              />
+                              <FormField
+                                control={contactForm.control}
+                                name="phone"
+                                render={({ field }) => (
+                                  <FormItem>
+                                    <FormLabel>Phone</FormLabel>
+                                    <FormControl>
+                                      <Input {...field} />
+                                    </FormControl>
+                                    <FormMessage />
+                                  </FormItem>
+                                )}
+                              />
+                            </div>
+                            <FormField
+                              control={contactForm.control}
+                              name="address"
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormLabel>Address</FormLabel>
+                                  <FormControl>
+                                    <Input {...field} />
+                                  </FormControl>
+                                  <FormMessage />
+                                </FormItem>
+                              )}
+                            />
+                            <div className="grid grid-cols-3 gap-4">
+                              <FormField
+                                control={contactForm.control}
+                                name="city"
+                                render={({ field }) => (
+                                  <FormItem>
+                                    <FormLabel>City</FormLabel>
+                                    <FormControl>
+                                      <Input {...field} />
+                                    </FormControl>
+                                    <FormMessage />
+                                  </FormItem>
+                                )}
+                              />
+                              <FormField
+                                control={contactForm.control}
+                                name="state"
+                                render={({ field }) => (
+                                  <FormItem>
+                                    <FormLabel>State</FormLabel>
+                                    <FormControl>
+                                      <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                        <SelectTrigger>
+                                          <SelectValue placeholder="Select state" />
+                                        </SelectTrigger>
+                                        <SelectContent>
+                                          <SelectItem value="CA">California</SelectItem>
+                                          <SelectItem value="OR">Oregon</SelectItem>
+                                          <SelectItem value="WA">Washington</SelectItem>
+                                          <SelectItem value="NV">Nevada</SelectItem>
+                                        </SelectContent>
+                                      </Select>
+                                    </FormControl>
+                                    <FormMessage />
+                                  </FormItem>
+                                )}
+                              />
+                              <FormField
+                                control={contactForm.control}
+                                name="zipCode"
+                                render={({ field }) => (
+                                  <FormItem>
+                                    <FormLabel>ZIP Code</FormLabel>
+                                    <FormControl>
+                                      <Input {...field} />
+                                    </FormControl>
+                                    <FormMessage />
+                                  </FormItem>
+                                )}
+                              />
+                            </div>
+                            <div className="grid grid-cols-2 gap-4">
+                              <FormField
+                                control={contactForm.control}
+                                name="status"
+                                render={({ field }) => (
+                                  <FormItem>
+                                    <FormLabel>Status</FormLabel>
+                                    <FormControl>
+                                      <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                        <SelectTrigger>
+                                          <SelectValue placeholder="Select status" />
+                                        </SelectTrigger>
+                                        <SelectContent>
+                                          <SelectItem value="lead">Lead</SelectItem>
+                                          <SelectItem value="prospect">Prospect</SelectItem>
+                                          <SelectItem value="customer">Customer</SelectItem>
+                                          <SelectItem value="inactive">Inactive</SelectItem>
+                                        </SelectContent>
+                                      </Select>
+                                    </FormControl>
+                                    <FormMessage />
+                                  </FormItem>
+                                )}
+                              />
+                              <FormField
+                                control={contactForm.control}
+                                name="source"
+                                render={({ field }) => (
+                                  <FormItem>
+                                    <FormLabel>Source</FormLabel>
+                                    <FormControl>
+                                      <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                        <SelectTrigger>
+                                          <SelectValue placeholder="Select source" />
+                                        </SelectTrigger>
+                                        <SelectContent>
+                                          <SelectItem value="website">Website</SelectItem>
+                                          <SelectItem value="referral">Referral</SelectItem>
+                                          <SelectItem value="social">Social Media</SelectItem>
+                                          <SelectItem value="advertising">Advertising</SelectItem>
+                                          <SelectItem value="manual">Manual Entry</SelectItem>
+                                        </SelectContent>
+                                      </Select>
+                                    </FormControl>
+                                    <FormMessage />
+                                  </FormItem>
+                                )}
+                              />
+                            </div>
+                            <FormField
+                              control={contactForm.control}
+                              name="notes"
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormLabel>Notes</FormLabel>
+                                  <FormControl>
+                                    <Textarea {...field} rows={3} />
+                                  </FormControl>
+                                  <FormMessage />
+                                </FormItem>
+                              )}
+                            />
+                            <div className="flex justify-end space-x-2">
+                              <Button 
+                                type="button" 
+                                variant="outline" 
+                                onClick={() => setIsAddContactDialogOpen(false)}
+                              >
+                                Cancel
+                              </Button>
+                              <Button 
+                                type="submit" 
+                                disabled={addContactMutation.isPending}
+                              >
+                                {addContactMutation.isPending ? "Adding..." : "Add Contact"}
+                              </Button>
+                            </div>
+                          </form>
+                        </Form>
+                      </DialogContent>
+                    </Dialog>
                   </div>
                 </div>
+                {csvFile && (
+                  <p className="text-sm text-green-600 mt-2">
+                    Selected file: {csvFile.name}
+                  </p>
+                )}
               </CardHeader>
               <CardContent>
                 {isContactsLoading ? (
@@ -377,6 +781,69 @@ export default function CRMDashboard() {
                         {searchQuery ? "No contacts found matching your search." : "No contacts found."}
                       </div>
                     )}
+                  </div>
+                )}
+              </CardContent>
+            </Card>
+          </TabsContent>
+
+          {/* Form Submissions Tab */}
+          <TabsContent value="forms" className="space-y-6">
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <FormInput className="h-5 w-5" />
+                  Form Submissions
+                </CardTitle>
+                <CardDescription>
+                  All form submissions from your website will appear here automatically.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                {isFormSubmissionsLoading ? (
+                  <div className="text-center py-8">
+                    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-orange-600 mx-auto"></div>
+                    <p className="mt-2 text-gray-600">Loading form submissions...</p>
+                  </div>
+                ) : formSubmissions && formSubmissions.length > 0 ? (
+                  <div className="space-y-4">
+                    {formSubmissions.map((submission) => (
+                      <div key={submission.id} className="border rounded-lg p-4 hover:bg-gray-50 transition-colors">
+                        <div className="flex items-center justify-between mb-3">
+                          <div className="flex items-center gap-3">
+                            <Badge variant="outline" className="capitalize">
+                              {submission.formType}
+                            </Badge>
+                            <span className="text-sm text-gray-500">
+                              {format(new Date(submission.submittedAt), "MMM d, yyyy 'at' h:mm a")}
+                            </span>
+                          </div>
+                          {submission.contact && (
+                            <div className="text-sm font-medium">
+                              {submission.contact.firstName} {submission.contact.lastName}
+                            </div>
+                          )}
+                        </div>
+                        <div className="bg-gray-50 rounded p-3 text-sm">
+                          <div className="grid grid-cols-2 gap-4">
+                            {Object.entries(submission.formData).map(([key, value]) => (
+                              <div key={key} className="break-words">
+                                <span className="font-medium text-gray-700 capitalize">{key.replace(/([A-Z])/g, ' $1').trim()}:</span>
+                                <span className="ml-2 text-gray-600">
+                                  {Array.isArray(value) ? value.join(', ') : String(value)}
+                                </span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="text-center py-8 text-gray-500">
+                    <FormInput className="h-12 w-12 mx-auto mb-4 opacity-50" />
+                    <p>No form submissions yet.</p>
+                    <p className="text-sm mt-2">Form submissions from your website will automatically appear here.</p>
                   </div>
                 )}
               </CardContent>
