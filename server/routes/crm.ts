@@ -1374,4 +1374,282 @@ router.get("/processing-capabilities", async (req, res) => {
   }
 });
 
+// ==========================================
+// DOCUMENT CHAT INTERFACE
+// ==========================================
+
+// Chat with documents - ask questions about document content
+router.post("/document-chat", async (req, res) => {
+  try {
+    const { documentId, question, chatHistory } = req.body;
+    
+    if (!documentId || !question) {
+      return res.status(400).json({ error: "Document ID and question are required" });
+    }
+    
+    console.log(`Document chat query for document ${documentId}: ${question}`);
+    
+    // Get the document from database
+    const document = await db.select()
+      .from(customerDocuments)
+      .where(eq(customerDocuments.id, parseInt(documentId)))
+      .limit(1);
+    
+    if (document.length === 0) {
+      return res.status(404).json({ error: "Document not found" });
+    }
+    
+    const doc = document[0];
+    
+    // Use AI to answer questions based on document content
+    const response = await openai.chat.completions.create({
+      model: "anthropic/claude-3.5-sonnet:beta",
+      messages: [
+        {
+          role: "system",
+          content: `You are an AI assistant helping users understand documents for Advance Power of Redding, a solar installation company. You have access to a document's analysis and content. Answer questions based ONLY on the document content provided. If information isn't in the document, say so clearly.
+
+Always provide specific quotes or references when possible, and mention the document location if the user asks about finding the complete document.`
+        },
+        ...((chatHistory || []).map(msg => ({
+          role: msg.role,
+          content: msg.content
+        }))),
+        {
+          role: "user",
+          content: `Document Information:
+- Document Name: ${doc.documentName}
+- Document Type: ${doc.documentCategory}
+- File Path: ${doc.filePath}
+- Processing Results: ${JSON.stringify(doc.processingResults, null, 2)}
+- Extracted Data: ${JSON.stringify(doc.extractedData, null, 2)}
+
+User Question: ${question}
+
+Please answer based on the document content above.`
+        }
+      ],
+      max_tokens: 1500
+    });
+    
+    const aiAnswer = response.choices[0].message.content;
+    
+    // Also provide document location info
+    const locationInfo = {
+      documentName: doc.documentName,
+      documentPath: doc.filePath,
+      documentId: doc.id,
+      uploadDate: doc.uploadDate,
+      documentType: doc.documentCategory
+    };
+    
+    res.json({
+      success: true,
+      answer: aiAnswer,
+      documentInfo: locationInfo,
+      confidence: "high", // Could be enhanced with confidence scoring
+      sources: [`Document: ${doc.documentName}`]
+    });
+    
+  } catch (error) {
+    console.error("Document chat failed:", error);
+    res.status(500).json({ 
+      error: "Failed to process chat query", 
+      details: error.message 
+    });
+  }
+});
+
+// Search documents by content and enable chat
+router.post("/search-and-chat", async (req, res) => {
+  try {
+    const { query, chatMode } = req.body;
+    
+    if (!query) {
+      return res.status(400).json({ error: "Search query is required" });
+    }
+    
+    console.log(`Searching documents for chat: ${query}`);
+    
+    // Search for relevant documents
+    const relevantDocs = await db.select()
+      .from(customerDocuments)
+      .where(
+        or(
+          like(customerDocuments.documentName, `%${query}%`),
+          like(customerDocuments.extractedData, `%${query}%`),
+          like(customerDocuments.processingResults, `%${query}%`)
+        )
+      )
+      .limit(10);
+    
+    if (chatMode && relevantDocs.length > 0) {
+      // Use AI to answer based on multiple documents
+      const response = await openai.chat.completions.create({
+        model: "anthropic/claude-3.5-sonnet:beta",
+        messages: [{
+          role: "user",
+          content: `Based on these Advance Power of Redding documents, answer the user's question: "${query}"
+
+Documents Found:
+${relevantDocs.map(doc => `
+Document: ${doc.documentName}
+Type: ${doc.documentCategory}
+Content: ${JSON.stringify(doc.extractedData, null, 2)}
+Analysis: ${JSON.stringify(doc.processingResults, null, 2)}
+`).join('\n---\n')}
+
+Provide a comprehensive answer based on the document content above. Include specific document references and mention where users can find the complete documents.`
+        }],
+        max_tokens: 2000
+      });
+      
+      return res.json({
+        success: true,
+        chatResponse: response.choices[0].message.content,
+        documentsFound: relevantDocs.length,
+        documents: relevantDocs.map(doc => ({
+          id: doc.id,
+          name: doc.documentName,
+          type: doc.documentCategory,
+          path: doc.filePath,
+          uploadDate: doc.uploadDate
+        }))
+      });
+    } else {
+      // Regular search results
+      return res.json({
+        success: true,
+        documentsFound: relevantDocs.length,
+        documents: relevantDocs.map(doc => ({
+          id: doc.id,
+          name: doc.documentName,
+          type: doc.documentCategory,
+          path: doc.filePath,
+          uploadDate: doc.uploadDate,
+          preview: doc.extractedData ? JSON.stringify(doc.extractedData).substring(0, 200) + "..." : ""
+        }))
+      });
+    }
+    
+  } catch (error) {
+    console.error("Document search and chat failed:", error);
+    res.status(500).json({ 
+      error: "Failed to search documents", 
+      details: error.message 
+    });
+  }
+});
+
+// Get chat history for a document
+router.get("/document-chat-history/:documentId", async (req, res) => {
+  try {
+    const { documentId } = req.params;
+    
+    // In a real implementation, you'd store chat history in a separate table
+    // For now, we'll return a placeholder structure
+    
+    const document = await db.select()
+      .from(customerDocuments)
+      .where(eq(customerDocuments.id, parseInt(documentId)))
+      .limit(1);
+    
+    if (document.length === 0) {
+      return res.status(404).json({ error: "Document not found" });
+    }
+    
+    res.json({
+      success: true,
+      documentId: documentId,
+      documentName: document[0].documentName,
+      chatHistory: [], // Would be populated from chat_history table
+      availableActions: [
+        "Ask about document content",
+        "Find specific information",
+        "Summarize document",
+        "Extract customer details",
+        "Identify action items"
+      ]
+    });
+    
+  } catch (error) {
+    console.error("Error getting chat history:", error);
+    res.status(500).json({ error: "Failed to get chat history" });
+  }
+});
+
+// Bulk document analysis with chat interface
+router.post("/bulk-document-chat", async (req, res) => {
+  try {
+    const { question, documentIds, analysisType } = req.body;
+    
+    if (!question || !documentIds || documentIds.length === 0) {
+      return res.status(400).json({ error: "Question and document IDs are required" });
+    }
+    
+    console.log(`Bulk document chat for ${documentIds.length} documents: ${question}`);
+    
+    // Get all requested documents
+    const documents = await db.select()
+      .from(customerDocuments)
+      .where(
+        or(...documentIds.map(id => eq(customerDocuments.id, parseInt(id))))
+      );
+    
+    if (documents.length === 0) {
+      return res.status(404).json({ error: "No documents found" });
+    }
+    
+    // Use AI to analyze across multiple documents
+    const response = await openai.chat.completions.create({
+      model: "anthropic/claude-3.5-sonnet:beta",
+      messages: [{
+        role: "user",
+        content: `Analyze these ${documents.length} Advance Power of Redding documents to answer: "${question}"
+
+Analysis Type: ${analysisType || 'general'}
+
+Documents:
+${documents.map((doc, index) => `
+Document ${index + 1}: ${doc.documentName}
+Type: ${doc.documentCategory}
+Customer: ${doc.customerId || 'Unknown'}
+Content Analysis: ${JSON.stringify(doc.extractedData, null, 2)}
+Processing Results: ${JSON.stringify(doc.processingResults, null, 2)}
+File Location: ${doc.filePath}
+`).join('\n---\n')}
+
+Provide a comprehensive analysis that:
+1. Answers the specific question
+2. Compares information across documents
+3. Identifies patterns or trends
+4. Highlights any discrepancies
+5. References specific documents for verification`
+      }],
+      max_tokens: 3000
+    });
+    
+    res.json({
+      success: true,
+      bulkAnalysis: response.choices[0].message.content,
+      documentsAnalyzed: documents.length,
+      documentSummary: documents.map(doc => ({
+        id: doc.id,
+        name: doc.documentName,
+        type: doc.documentCategory,
+        customer: doc.customerId,
+        path: doc.filePath
+      })),
+      analysisType: analysisType || 'general'
+    });
+    
+  } catch (error) {
+    console.error("Bulk document chat failed:", error);
+    res.status(500).json({ 
+      error: "Failed to perform bulk document analysis", 
+      details: error.message 
+    });
+  }
+});
+
 export default router;

@@ -2,7 +2,7 @@ import { advancedPDFProcessor } from "./advancedPDFProcessor";
 import { pdfOCREngine } from "./pdfOCREngine";
 import { db } from "../db";
 import { customerDocuments, contacts } from "@shared/schema";
-import { eq } from "drizzle-orm";
+import { eq, like, or, sql } from "drizzle-orm";
 import OpenAI from "openai";
 import * as fs from "fs";
 import * as path from "path";
@@ -210,7 +210,16 @@ export class UniversalDocumentProcessor {
   private async processPDFDocument(fileBuffer: Buffer, filename: string, uploadedBy?: string): Promise<any> {
     // Use the comprehensive PDF workflow engine we already built
     const { pdfWorkflowEngine } = await import('./pdfWorkflowEngine');
-    return await pdfWorkflowEngine.processDocument(fileBuffer, filename, uploadedBy);
+    const result = await pdfWorkflowEngine.processDocument(fileBuffer, filename, uploadedBy);
+    
+    // Enhanced customer matching for PDF
+    const customerMatch = await this.advancedCustomerMatching(result, filename);
+    
+    return {
+      ...result,
+      customerMatching: customerMatch,
+      documentPath: filename
+    };
   }
 
   /**
@@ -593,6 +602,299 @@ export class UniversalDocumentProcessor {
       }
     } catch (error) {
       console.error(`Failed to cleanup directory ${dirPath}:`, error);
+    }
+  }
+
+  /**
+   * Advanced Customer Matching System
+   * Uses multiple AI models and database searches to identify document owners
+   */
+  private async advancedCustomerMatching(processingResult: any, filename: string): Promise<any> {
+    try {
+      console.log(`Starting advanced customer matching for: ${filename}`);
+      
+      // Extract all potential customer identifiers from the document
+      const identifiers = await this.extractCustomerIdentifiers(processingResult, filename);
+      
+      // Search existing customers using multiple strategies
+      const customerMatches = await this.searchCustomersByIdentifiers(identifiers);
+      
+      // Use AI to validate and score matches
+      const validatedMatches = await this.validateCustomerMatches(customerMatches, processingResult);
+      
+      // Determine best match or create new customer
+      const finalMatch = await this.determineBestCustomerMatch(validatedMatches, identifiers);
+      
+      return {
+        identifiersFound: identifiers,
+        potentialMatches: customerMatches,
+        validatedMatches: validatedMatches,
+        finalMatch: finalMatch,
+        confidence: finalMatch?.confidence || 0,
+        strategy: finalMatch?.strategy || 'no_match'
+      };
+      
+    } catch (error) {
+      console.error('Customer matching failed:', error);
+      return {
+        error: error.message,
+        identifiersFound: [],
+        confidence: 0,
+        strategy: 'error'
+      };
+    }
+  }
+
+  /**
+   * Extract customer identifiers from document content
+   */
+  private async extractCustomerIdentifiers(processingResult: any, filename: string): Promise<any> {
+    try {
+      // Use AI to extract comprehensive customer identifiers
+      const response = await openai.chat.completions.create({
+        model: "anthropic/claude-3.5-sonnet:beta",
+        messages: [{
+          role: "user",
+          content: `Extract ALL possible customer identifiers from this solar company document analysis. Be extremely thorough - look for ANY information that could identify a customer:
+
+Document Analysis: ${JSON.stringify(processingResult, null, 2)}
+Filename: ${filename}
+
+Extract and return JSON with ALL possible identifiers:
+{
+  "names": ["full names", "first names", "last names", "business names"],
+  "addresses": ["complete addresses", "street addresses", "cities", "zip codes"],
+  "phones": ["all phone numbers found"],
+  "emails": ["all email addresses"],
+  "accountNumbers": ["customer IDs", "account numbers", "job numbers"],
+  "propertyIdentifiers": ["parcel numbers", "property descriptions", "landmarks"],
+  "projectIdentifiers": ["permit numbers", "job names", "system IDs"],
+  "financialIdentifiers": ["contract numbers", "invoice numbers"],
+  "filenameClues": ["patterns in filename that suggest customer"],
+  "contextClues": ["any other identifying information"],
+  "redding_specific": ["Shasta County addresses", "Redding area locations"]
+}`
+        }],
+        max_tokens: 2000,
+        response_format: { type: "json_object" }
+      });
+
+      return JSON.parse(response.choices[0].message.content);
+      
+    } catch (error) {
+      console.error('Error extracting customer identifiers:', error);
+      return {
+        names: [],
+        addresses: [],
+        phones: [],
+        emails: [],
+        accountNumbers: [],
+        propertyIdentifiers: [],
+        projectIdentifiers: [],
+        financialIdentifiers: [],
+        filenameClues: [],
+        contextClues: [],
+        redding_specific: []
+      };
+    }
+  }
+
+  /**
+   * Search customers using multiple database strategies
+   */
+  private async searchCustomersByIdentifiers(identifiers: any): Promise<any[]> {
+    const matches = [];
+    
+    try {
+      // Strategy 1: Exact name matches
+      for (const name of identifiers.names || []) {
+        if (name && name.length > 2) {
+          const nameMatches = await db.select()
+            .from(contacts)
+            .where(
+              or(
+                like(contacts.firstName, `%${name}%`),
+                like(contacts.lastName, `%${name}%`),
+                like(contacts.companyName, `%${name}%`)
+              )
+            )
+            .limit(10);
+          
+          matches.push(...nameMatches.map(m => ({ ...m, matchType: 'name', matchValue: name })));
+        }
+      }
+
+      // Strategy 2: Address matches
+      for (const address of identifiers.addresses || []) {
+        if (address && address.length > 5) {
+          const addressMatches = await db.select()
+            .from(contacts)
+            .where(like(contacts.billingAddress, `%${address}%`))
+            .limit(10);
+          
+          matches.push(...addressMatches.map(m => ({ ...m, matchType: 'address', matchValue: address })));
+        }
+      }
+
+      // Strategy 3: Phone number matches
+      for (const phone of identifiers.phones || []) {
+        if (phone && phone.length > 6) {
+          const cleanPhone = phone.replace(/\D/g, '');
+          const phoneMatches = await db.select()
+            .from(contacts)
+            .where(like(contacts.phone, `%${cleanPhone}%`))
+            .limit(5);
+          
+          matches.push(...phoneMatches.map(m => ({ ...m, matchType: 'phone', matchValue: phone })));
+        }
+      }
+
+      // Strategy 4: Email matches
+      for (const email of identifiers.emails || []) {
+        if (email && email.includes('@')) {
+          const emailMatches = await db.select()
+            .from(contacts)
+            .where(like(contacts.email, `%${email}%`))
+            .limit(5);
+          
+          matches.push(...emailMatches.map(m => ({ ...m, matchType: 'email', matchValue: email })));
+        }
+      }
+
+      // Strategy 5: Redding/Shasta County specific searches
+      for (const location of identifiers.redding_specific || []) {
+        if (location && location.length > 3) {
+          const locationMatches = await db.select()
+            .from(contacts)
+            .where(
+              or(
+                like(contacts.billingAddress, `%${location}%`),
+                like(contacts.billingAddress, '%Redding%'),
+                like(contacts.billingAddress, '%Shasta%')
+              )
+            )
+            .limit(10);
+          
+          matches.push(...locationMatches.map(m => ({ ...m, matchType: 'location', matchValue: location })));
+        }
+      }
+
+      // Remove duplicates based on customer ID
+      const uniqueMatches = matches.filter((match, index, self) => 
+        index === self.findIndex(m => m.id === match.id)
+      );
+
+      console.log(`Found ${uniqueMatches.length} potential customer matches`);
+      return uniqueMatches;
+      
+    } catch (error) {
+      console.error('Error searching customers:', error);
+      return [];
+    }
+  }
+
+  /**
+   * Use AI to validate and score customer matches
+   */
+  private async validateCustomerMatches(matches: any[], processingResult: any): Promise<any[]> {
+    if (matches.length === 0) return [];
+    
+    try {
+      const response = await openai.chat.completions.create({
+        model: "anthropic/claude-3.5-sonnet:beta",
+        messages: [{
+          role: "user",
+          content: `Analyze these potential customer matches for a solar company document. Score each match based on how likely it is to be the correct customer:
+
+Document Analysis: ${JSON.stringify(processingResult, null, 2)}
+
+Potential Customers: ${JSON.stringify(matches, null, 2)}
+
+For each customer, provide a confidence score (0.0-1.0) and reasoning:
+{
+  "validatedMatches": [
+    {
+      "customerId": "customer ID",
+      "confidence": 0.0-1.0,
+      "reasoning": "why this is/isn't a good match",
+      "matchQuality": "excellent|good|fair|poor",
+      "identifierMatches": ["which identifiers matched"]
+    }
+  ]
+}`
+        }],
+        max_tokens: 2000,
+        response_format: { type: "json_object" }
+      });
+
+      const validation = JSON.parse(response.choices[0].message.content);
+      return validation.validatedMatches || [];
+      
+    } catch (error) {
+      console.error('Error validating customer matches:', error);
+      return matches.map(m => ({
+        customerId: m.id,
+        confidence: 0.5,
+        reasoning: 'Fallback validation',
+        matchQuality: 'unknown',
+        identifierMatches: [m.matchType]
+      }));
+    }
+  }
+
+  /**
+   * Determine the best customer match or suggest creating new customer
+   */
+  private async determineBestCustomerMatch(validatedMatches: any[], identifiers: any): Promise<any> {
+    if (validatedMatches.length === 0) {
+      return {
+        action: 'create_new_customer',
+        confidence: 0.8,
+        strategy: 'no_matches_found',
+        suggestedData: {
+          names: identifiers.names || [],
+          addresses: identifiers.addresses || [],
+          phones: identifiers.phones || [],
+          emails: identifiers.emails || []
+        }
+      };
+    }
+
+    // Sort by confidence
+    const sortedMatches = validatedMatches.sort((a, b) => b.confidence - a.confidence);
+    const bestMatch = sortedMatches[0];
+
+    if (bestMatch.confidence > 0.8) {
+      return {
+        action: 'link_to_existing',
+        customerId: bestMatch.customerId,
+        confidence: bestMatch.confidence,
+        strategy: 'high_confidence_match',
+        reasoning: bestMatch.reasoning,
+        matchQuality: bestMatch.matchQuality
+      };
+    } else if (bestMatch.confidence > 0.6) {
+      return {
+        action: 'suggest_match',
+        customerId: bestMatch.customerId,
+        confidence: bestMatch.confidence,
+        strategy: 'medium_confidence_match',
+        reasoning: bestMatch.reasoning,
+        alternatives: sortedMatches.slice(1, 3)
+      };
+    } else {
+      return {
+        action: 'manual_review',
+        confidence: bestMatch.confidence,
+        strategy: 'low_confidence_matches',
+        potentialMatches: sortedMatches.slice(0, 5),
+        suggestedData: {
+          names: identifiers.names || [],
+          addresses: identifiers.addresses || [],
+          phones: identifiers.phones || [],
+          emails: identifiers.emails || []
+        }
+      };
     }
   }
 
