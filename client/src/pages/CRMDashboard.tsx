@@ -117,37 +117,105 @@ export default function CRMDashboard() {
     }
   });
 
-  // Fetch dashboard stats
-  const { data: dashboardData, isLoading: isDashboardLoading } = useQuery({
+  // Enhanced dashboard stats with comprehensive error handling
+  const { data: dashboardData, isLoading: isDashboardLoading, error: dashboardError, refetch: refetchDashboard } = useQuery({
     queryKey: ["/api/crm/dashboard"],
     queryFn: async () => {
-      const response = await fetch("/api/crm/dashboard");
-      if (!response.ok) throw new Error("Failed to fetch dashboard data");
-      const data = await response.json();
-      return data.stats as DashboardStats;
-    }
+      try {
+        const response = await fetch("/api/crm/dashboard");
+        if (!response.ok) {
+          const errorData = await response.json().catch(() => ({}));
+          throw new Error(errorData.error || `HTTP ${response.status}: Failed to fetch dashboard data`);
+        }
+        const data = await response.json();
+        if (!data.success) {
+          throw new Error(data.error || "Dashboard data request failed");
+        }
+        return data.stats as DashboardStats;
+      } catch (error) {
+        console.error("Dashboard fetch error:", error);
+        throw error;
+      }
+    },
+    retry: 3,
+    retryDelay: attemptIndex => Math.min(1000 * 2 ** attemptIndex, 30000),
+    staleTime: 30000, // 30 seconds
+    refetchInterval: 60000, // Refresh every minute
   });
 
-  // Fetch all contacts
-  const { data: contactsData, isLoading: isContactsLoading } = useQuery({
+  // Enhanced contacts with comprehensive error handling
+  const { data: contactsData, isLoading: isContactsLoading, error: contactsError, refetch: refetchContacts } = useQuery({
     queryKey: ["/api/crm/contacts"],
     queryFn: async () => {
-      const response = await fetch("/api/crm/contacts");
-      if (!response.ok) throw new Error("Failed to fetch contacts");
-      const data = await response.json();
-      return data.contacts as Contact[];
-    }
+      try {
+        const response = await fetch("/api/crm/contacts");
+        if (!response.ok) {
+          const errorData = await response.json().catch(() => ({}));
+          throw new Error(errorData.error || `HTTP ${response.status}: Failed to fetch contacts`);
+        }
+        const data = await response.json();
+        if (!data.success) {
+          throw new Error(data.error || "Contacts request failed");
+        }
+        return (data.contacts || []) as Contact[];
+      } catch (error) {
+        console.error("Contacts fetch error:", error);
+        throw error;
+      }
+    },
+    retry: 3,
+    retryDelay: attemptIndex => Math.min(1000 * 2 ** attemptIndex, 30000),
+    staleTime: 30000,
   });
 
-  // Fetch all opportunities
-  const { data: opportunitiesData, isLoading: isOpportunitiesLoading } = useQuery({
+  // Enhanced opportunities with comprehensive error handling
+  const { data: opportunitiesData, isLoading: isOpportunitiesLoading, error: opportunitiesError, refetch: refetchOpportunities } = useQuery({
     queryKey: ["/api/crm/opportunities"],
     queryFn: async () => {
-      const response = await fetch("/api/crm/opportunities");
-      if (!response.ok) throw new Error("Failed to fetch opportunities");
-      const data = await response.json();
-      return data.opportunities as Opportunity[];
-    }
+      try {
+        const response = await fetch("/api/crm/opportunities");
+        if (!response.ok) {
+          const errorData = await response.json().catch(() => ({}));
+          throw new Error(errorData.error || `HTTP ${response.status}: Failed to fetch opportunities`);
+        }
+        const data = await response.json();
+        if (!data.success) {
+          throw new Error(data.error || "Opportunities request failed");
+        }
+        return (data.opportunities || []) as Opportunity[];
+      } catch (error) {
+        console.error("Opportunities fetch error:", error);
+        throw error;
+      }
+    },
+    retry: 3,
+    retryDelay: attemptIndex => Math.min(1000 * 2 ** attemptIndex, 30000),
+    staleTime: 30000,
+  });
+
+  // Enhanced form submissions with comprehensive error handling
+  const { data: formSubmissionsData, isLoading: isFormSubmissionsLoading, error: formSubmissionsError, refetch: refetchFormSubmissions } = useQuery({
+    queryKey: ["/api/crm/form-submissions"],
+    queryFn: async () => {
+      try {
+        const response = await fetch("/api/crm/form-submissions");
+        if (!response.ok) {
+          const errorData = await response.json().catch(() => ({}));
+          throw new Error(errorData.error || `HTTP ${response.status}: Failed to fetch form submissions`);
+        }
+        const data = await response.json();
+        if (!data.success) {
+          throw new Error(data.error || "Form submissions request failed");
+        }
+        return (data.submissions || []) as FormSubmission[];
+      } catch (error) {
+        console.error("Form submissions fetch error:", error);
+        throw error;
+      }
+    },
+    retry: 3,
+    retryDelay: attemptIndex => Math.min(1000 * 2 ** attemptIndex, 30000),
+    staleTime: 30000,
   });
 
   // Search contacts
@@ -163,50 +231,101 @@ export default function CRMDashboard() {
     enabled: searchQuery.length > 2
   });
 
-  // Add contact mutation
+  // Enhanced add contact mutation with comprehensive error handling
   const addContactMutation = useMutation({
     mutationFn: async (contactData: ContactFormData) => {
-      const response = await fetch("/api/crm/contacts", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(contactData)
-      });
-      if (!response.ok) throw new Error("Failed to add contact");
-      return response.json();
-    },
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["/api/crm/contacts"] });
-      queryClient.invalidateQueries({ queryKey: ["/api/crm/dashboard"] });
-      toast({ title: "Success", description: "Contact added successfully" });
-      setIsAddContactDialogOpen(false);
-      contactForm.reset();
-    },
-    onError: () => {
-      toast({ title: "Error", description: "Failed to add contact", variant: "destructive" });
-    }
-  });
-
-  // CSV import mutation
-  const csvImportMutation = useMutation({
-    mutationFn: async (file: File) => {
-      const formData = new FormData();
-      formData.append("csvFile", file);
-      const response = await fetch("/api/crm/contacts/import", {
-        method: "POST",
-        body: formData
-      });
-      if (!response.ok) throw new Error("Failed to import CSV");
-      return response.json();
+      try {
+        const response = await fetch("/api/crm/contacts", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(contactData)
+        });
+        
+        if (!response.ok) {
+          const errorData = await response.json().catch(() => ({}));
+          throw new Error(errorData.error || `HTTP ${response.status}: Failed to add contact`);
+        }
+        
+        const data = await response.json();
+        if (!data.success) {
+          throw new Error(data.error || "Contact creation failed");
+        }
+        
+        return data;
+      } catch (error) {
+        console.error("Add contact error:", error);
+        throw error;
+      }
     },
     onSuccess: (data) => {
       queryClient.invalidateQueries({ queryKey: ["/api/crm/contacts"] });
       queryClient.invalidateQueries({ queryKey: ["/api/crm/dashboard"] });
-      toast({ title: "Success", description: `Imported ${data.imported} contacts successfully` });
+      queryClient.invalidateQueries({ queryKey: ["/api/crm/form-submissions"] });
+      toast({ 
+        title: "Success", 
+        description: `Contact "${data.contact?.firstName} ${data.contact?.lastName}" added successfully`,
+        className: "bg-green-50 border-green-200"
+      });
+      setIsAddContactDialogOpen(false);
+      contactForm.reset();
+    },
+    onError: (error: Error) => {
+      console.error("Contact creation failed:", error);
+      toast({ 
+        title: "Error", 
+        description: error.message || "Failed to add contact. Please try again.",
+        variant: "destructive" 
+      });
+    }
+  });
+
+  // Enhanced CSV import mutation with comprehensive error handling
+  const csvImportMutation = useMutation({
+    mutationFn: async (file: File) => {
+      try {
+        const formData = new FormData();
+        formData.append("csvFile", file);
+        
+        const response = await fetch("/api/crm/contacts/import", {
+          method: "POST",
+          body: formData
+        });
+        
+        if (!response.ok) {
+          const errorData = await response.json().catch(() => ({}));
+          throw new Error(errorData.error || `HTTP ${response.status}: Failed to import CSV`);
+        }
+        
+        const data = await response.json();
+        if (!data.success) {
+          throw new Error(data.error || "CSV import failed");
+        }
+        
+        return data;
+      } catch (error) {
+        console.error("CSV import error:", error);
+        throw error;
+      }
+    },
+    onSuccess: (data) => {
+      queryClient.invalidateQueries({ queryKey: ["/api/crm/contacts"] });
+      queryClient.invalidateQueries({ queryKey: ["/api/crm/dashboard"] });
+      queryClient.invalidateQueries({ queryKey: ["/api/crm/form-submissions"] });
+      toast({ 
+        title: "Import Successful", 
+        description: `Imported ${data.imported} contacts successfully${data.skipped > 0 ? `, skipped ${data.skipped} invalid records` : ''}`,
+        className: "bg-green-50 border-green-200"
+      });
       setCsvFile(null);
       if (fileInputRef.current) fileInputRef.current.value = "";
     },
-    onError: () => {
-      toast({ title: "Error", description: "Failed to import CSV file", variant: "destructive" });
+    onError: (error: Error) => {
+      console.error("CSV import failed:", error);
+      toast({ 
+        title: "Import Failed", 
+        description: error.message || "Failed to import CSV file. Please check the file format and try again.",
+        variant: "destructive" 
+      });
     }
   });
 
@@ -698,6 +817,39 @@ export default function CRMDashboard() {
                   <div className="text-center py-8">
                     <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-orange-600 mx-auto"></div>
                     <p className="mt-2 text-gray-600">Loading contacts...</p>
+                  </div>
+                ) : contactsError ? (
+                  <div className="text-center py-8">
+                    <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+                      <p className="text-red-600 font-medium">Error loading contacts</p>
+                      <p className="text-red-500 text-sm mt-1">{contactsError.message}</p>
+                      <Button 
+                        variant="outline" 
+                        size="sm" 
+                        onClick={() => refetchContacts()}
+                        className="mt-3"
+                      >
+                        Try Again
+                      </Button>
+                    </div>
+                  </div>
+                ) : displayedContacts.length === 0 ? (
+                  <div className="text-center py-8">
+                    <Users className="h-12 w-12 text-gray-400 mx-auto mb-4" />
+                    <p className="text-gray-600 font-medium">No contacts found</p>
+                    <p className="text-gray-500 text-sm mt-1">
+                      {searchQuery ? "Try adjusting your search" : "Add your first contact to get started"}
+                    </p>
+                    {!searchQuery && (
+                      <Button 
+                        onClick={() => setIsAddContactDialogOpen(true)}
+                        className="mt-4"
+                        size="sm"
+                      >
+                        <Plus className="h-4 w-4 mr-2" />
+                        Add First Contact
+                      </Button>
+                    )}
                   </div>
                 ) : (
                   <div className="space-y-4">
