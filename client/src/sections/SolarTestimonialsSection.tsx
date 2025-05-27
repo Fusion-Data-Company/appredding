@@ -48,25 +48,63 @@ const SolarTestimonialsSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 to-gray-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative py-24 bg-gradient-to-br from-white via-gray-50 to-slate-100 overflow-hidden">
+      {/* Enterprise Background Pattern */}
+      <div className="absolute inset-0 opacity-20">
+        <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="testimonials-grid" width="100" height="100" patternUnits="userSpaceOnUse">
+              <path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(249, 115, 22, 0.06)" strokeWidth="1"/>
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#testimonials-grid)" />
+        </svg>
+      </div>
+
+      {/* Premium Floating Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-48 left-48 w-40 h-40 bg-gradient-to-br from-yellow-400/4 to-orange-500/4 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-48 right-48 w-48 h-48 bg-gradient-to-br from-orange-500/4 to-red-500/4 rounded-full blur-3xl animate-pulse delay-1000"></div>
+      </div>
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            What Our <span className="bg-gradient-to-r from-yellow-500 to-orange-500 bg-clip-text text-transparent">Customers Say</span>
+          {/* Enterprise Typography */}
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-gray-900 mb-10 leading-tight">
+            What Our{" "}
+            <span className="relative inline-block">
+              <span className="bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 bg-clip-text text-transparent">
+                Customers Say
+              </span>
+              <div className="absolute -inset-1 bg-gradient-to-r from-yellow-400/20 to-orange-500/20 blur-lg -z-10 animate-pulse"></div>
+            </span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          
+          <p className="text-2xl md:text-3xl text-gray-700 max-w-4xl mx-auto font-light leading-relaxed mb-6">
             Over 25 years of satisfied customers throughout Northern California. 
             See why families and businesses trust Advance Power Redding for their solar needs.
           </p>
+
+          {/* Trust Rating Display */}
+          <div className="flex items-center justify-center gap-4 text-lg font-medium text-gray-600">
+            <div className="flex items-center gap-2">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="w-6 h-6 text-yellow-500 fill-current" />
+              ))}
+            </div>
+            <span className="text-2xl font-bold text-gray-800">4.9/5</span>
+            <span className="text-gray-600">from 500+ reviews</span>
+          </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        {/* Enterprise Testimonial Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-20">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={index}
@@ -74,31 +112,44 @@ const SolarTestimonialsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 p-8 relative"
+              whileHover={{ scale: 1.03, y: -8 }}
+              className="group relative bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-500 p-10 border border-gray-200/50 hover:border-orange-200 overflow-hidden"
             >
-              <div className="absolute top-4 right-4">
-                <Quote className="w-8 h-8 text-yellow-500/20" />
-              </div>
+              {/* Enterprise Card Background Effects */}
+              <div className="absolute inset-0 bg-gradient-to-br from-yellow-50/40 via-orange-50/20 to-red-50/10 opacity-50 group-hover:opacity-70 transition-opacity duration-500"></div>
               
-              <div className="flex items-center mb-4">
-                {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 text-yellow-500 fill-current" />
-                ))}
-              </div>
+              {/* Premium Card Glow Effect */}
+              <div className="absolute -inset-0.5 bg-gradient-to-br from-yellow-500/8 via-orange-500/8 to-red-500/8 rounded-3xl blur-lg opacity-40 group-hover:opacity-60 transition-opacity duration-500"></div>
               
-              <p className="text-gray-700 mb-6 leading-relaxed italic">
-                "{testimonial.text}"
-              </p>
-              
-              <div className="border-t border-gray-200 pt-6">
-                <div className="flex justify-between items-center">
-                  <div>
-                    <h4 className="font-bold text-gray-900">{testimonial.name}</h4>
-                    <p className="text-gray-600 text-sm">{testimonial.location}</p>
-                  </div>
-                  <div className="text-right">
-                    <div className="text-lg font-bold text-green-600">{testimonial.savings}</div>
-                    <div className="text-gray-500 text-xs">Annual Savings</div>
+              <div className="relative z-10">
+                {/* Enhanced Quote Icon */}
+                <div className="absolute top-6 right-6">
+                  <Quote className="w-12 h-12 text-yellow-500/15 group-hover:text-orange-500/20 transition-colors duration-500" />
+                </div>
+                
+                {/* Premium Star Rating */}
+                <div className="flex items-center mb-6 gap-1">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <Star key={i} className="w-6 h-6 text-yellow-500 fill-current drop-shadow-sm" />
+                  ))}
+                </div>
+                
+                {/* Enhanced Testimonial Text */}
+                <p className="text-lg text-gray-800 mb-8 leading-relaxed italic font-medium">
+                  "{testimonial.text}"
+                </p>
+                
+                {/* Premium Footer Section */}
+                <div className="border-t border-gray-200/70 pt-6">
+                  <div className="flex justify-between items-end">
+                    <div>
+                      <h4 className="text-xl font-black text-gray-900 mb-1">{testimonial.name}</h4>
+                      <p className="text-gray-600 font-medium">{testimonial.location}</p>
+                    </div>
+                    <div className="text-right">
+                      <div className="text-2xl font-black text-green-600 mb-1">{testimonial.savings}</div>
+                      <div className="text-gray-500 text-sm font-medium">Annual Savings</div>
+                    </div>
                   </div>
                 </div>
               </div>
