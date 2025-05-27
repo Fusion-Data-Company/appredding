@@ -30,7 +30,7 @@ const Footer = () => {
             </div>
           </div>
           <div className="text-center max-w-lg">
-            <p className="text-orange-800 text-sm font-medium">
+            <p className="text-black text-sm font-medium">
               Solar installation and renewable energy solutions serving Shasta County 
               since 1999 with expert design, installation, and service.
             </p>
@@ -52,9 +52,9 @@ const Footer = () => {
                   <div className="p-1 rounded-full bg-orange-900/30 text-orange-400 group-hover:text-orange-300 transition-colors">
                     <Phone size={12} />
                   </div>
-                  <p className="text-gray-700 text-xs font-semibold">Phone:</p>
+                  <p className="text-black text-xs font-semibold">Phone:</p>
                 </div>
-                <a href="tel:+15302415297" className="block pl-6 text-gray-800 hover:text-orange-600 text-sm transition-colors font-medium">
+                <a href="tel:+15302415297" className="block pl-6 text-black hover:text-orange-600 text-sm transition-colors font-medium">
                   (530) 241-5297
                 </a>
               </li>
@@ -63,9 +63,9 @@ const Footer = () => {
                   <div className="p-1 rounded-full bg-orange-900/30 text-orange-400 group-hover:text-orange-300 transition-colors">
                     <Mail size={12} />
                   </div>
-                  <p className="text-gray-700 text-xs font-semibold">Email:</p>
+                  <p className="text-black text-xs font-semibold">Email:</p>
                 </div>
-                <a href="mailto:info@advancepowerredding.com" className="block pl-6 text-gray-800 hover:text-orange-600 text-sm transition-colors font-medium">
+                <a href="mailto:info@advancepowerredding.com" className="block pl-6 text-black hover:text-orange-600 text-sm transition-colors font-medium">
                   info@advancepowerredding.com
                 </a>
               </li>
@@ -74,9 +74,9 @@ const Footer = () => {
                   <div className="p-1 rounded-full bg-orange-900/30 text-orange-400 group-hover:text-orange-300 transition-colors">
                     <Building2 size={12} />
                   </div>
-                  <p className="text-gray-700 text-xs font-semibold">Service Area:</p>
+                  <p className="text-black text-xs font-semibold">Service Area:</p>
                 </div>
-                <p className="block pl-6 text-gray-800 text-sm font-medium">
+                <p className="block pl-6 text-black text-sm font-medium">
                   Shasta County, California
                 </p>
               </li>
@@ -95,7 +95,7 @@ const Footer = () => {
                 <div className="p-1 rounded-full bg-orange-900/30 text-orange-400 group-hover:text-orange-300 transition-colors">
                   <Home size={12} />
                 </div>
-                <a href="/residential" className="text-gray-800 hover:text-orange-600 text-sm transition-colors font-medium">
+                <a href="/residential" className="text-black hover:text-orange-600 text-sm transition-colors font-medium">
                   Residential Solar
                 </a>
               </li>
@@ -103,7 +103,7 @@ const Footer = () => {
                 <div className="p-1 rounded-full bg-blue-900/30 text-blue-400 group-hover:text-blue-300 transition-colors">
                   <Building2 size={12} />
                 </div>
-                <a href="/commercial" className="text-gray-800 hover:text-blue-600 text-sm transition-colors font-medium">
+                <a href="/commercial" className="text-black hover:text-blue-600 text-sm transition-colors font-medium">
                   Commercial Solar
                 </a>
               </li>
@@ -111,7 +111,7 @@ const Footer = () => {
                 <div className="p-1 rounded-full bg-orange-600/30 text-orange-600 group-hover:text-orange-700 transition-colors">
                   <Battery size={12} />
                 </div>
-                <a href="/battery-storage" className="text-orange-800 hover:text-red-600 text-sm transition-colors font-semibold">
+                <a href="/battery-storage" className="text-black hover:text-red-600 text-sm transition-colors font-medium">
                   Battery Storage
                 </a>
               </li>
@@ -119,7 +119,7 @@ const Footer = () => {
                 <div className="p-1 rounded-full bg-orange-900/30 text-orange-400 group-hover:text-orange-300 transition-colors">
                   <Shield size={12} />
                 </div>
-                <a href="/solar-repairs" className="text-gray-800 hover:text-orange-600 text-sm transition-colors font-medium">
+                <a href="/solar-repairs" className="text-black hover:text-orange-600 text-sm transition-colors font-medium">
                   Solar Repairs
                 </a>
               </li>
@@ -127,7 +127,7 @@ const Footer = () => {
                 <div className="p-1 rounded-full bg-blue-900/30 text-blue-400 group-hover:text-blue-300 transition-colors">
                   <HeartPulse size={12} />
                 </div>
-                <a href="/maintenance" className="text-gray-800 hover:text-blue-600 text-sm transition-colors font-medium">
+                <a href="/maintenance" className="text-black hover:text-blue-600 text-sm transition-colors font-medium">
                   Maintenance
                 </a>
               </li>
@@ -135,7 +135,7 @@ const Footer = () => {
                 <div className="p-1 rounded-full bg-blue-900/30 text-blue-400 group-hover:text-blue-300 transition-colors">
                   <BarChart3 size={12} />
                 </div>
-                <a href="/energy-consultation" className="text-gray-800 hover:text-blue-600 text-sm transition-colors font-medium">
+                <a href="/energy-consultation" className="text-black hover:text-blue-600 text-sm transition-colors font-medium">
                   Energy Consultation
                 </a>
               </li>
@@ -154,7 +154,7 @@ const Footer = () => {
                 <div className="p-1 rounded-full bg-blue-900/30 text-blue-400 group-hover:text-blue-300 transition-colors">
                   <Shield size={12} />
                 </div>
-                <a href="/financing" className="text-gray-800 hover:text-blue-600 text-sm transition-colors font-medium">
+                <a href="/financing" className="text-black hover:text-blue-600 text-sm transition-colors font-medium">
                   Federal Tax Credit (30%)
                 </a>
               </li>
@@ -162,7 +162,7 @@ const Footer = () => {
                 <div className="p-1 rounded-full bg-blue-900/30 text-blue-400 group-hover:text-blue-300 transition-colors">
                   <HeartPulse size={12} />
                 </div>
-                <a href="/financing#solar-loans" className="text-gray-800 hover:text-blue-600 text-sm transition-colors font-medium">
+                <a href="/financing#solar-loans" className="text-black hover:text-blue-600 text-sm transition-colors font-medium">
                   Solar Loans
                 </a>
               </li>
@@ -170,7 +170,7 @@ const Footer = () => {
                 <div className="p-1 rounded-full bg-blue-900/30 text-blue-400 group-hover:text-blue-300 transition-colors">
                   <BarChart3 size={12} />
                 </div>
-                <a href="/financing#ppa" className="text-gray-800 hover:text-blue-600 text-sm transition-colors font-medium">
+                <a href="/financing#ppa" className="text-black hover:text-blue-600 text-sm transition-colors font-medium">
                   Power Purchase Agreements
                 </a>
               </li>
@@ -178,7 +178,7 @@ const Footer = () => {
                 <div className="p-1 rounded-full bg-blue-900/30 text-blue-400 group-hover:text-blue-300 transition-colors">
                   <FileText size={12} />
                 </div>
-                <a href="/financing#leasing" className="text-gray-800 hover:text-blue-600 text-sm transition-colors font-medium">
+                <a href="/financing#leasing" className="text-black hover:text-blue-600 text-sm transition-colors font-medium">
                   Solar Leasing
                 </a>
               </li>
@@ -186,7 +186,7 @@ const Footer = () => {
                 <div className="p-1 rounded-full bg-blue-900/30 text-blue-400 group-hover:text-blue-300 transition-colors">
                   <FileText size={12} />
                 </div>
-                <a href="/financing#zero-down" className="text-gray-800 hover:text-blue-600 text-sm transition-colors font-medium">
+                <a href="/financing#zero-down" className="text-black hover:text-blue-600 text-sm transition-colors font-medium">
                   Zero-Down Options
                 </a>
               </li>
@@ -206,9 +206,9 @@ const Footer = () => {
                   <div className="p-1 rounded-full bg-orange-900/30 text-orange-400 group-hover:text-orange-300 transition-colors">
                     <Users size={12} />
                   </div>
-                  <p className="text-gray-600 text-xs font-semibold">Founded:</p>
+                  <p className="text-black text-xs font-semibold">Founded:</p>
                 </div>
-                <p className="block pl-6 text-gray-800 text-sm font-medium">
+                <p className="block pl-6 text-black text-sm font-medium">
                   1999 by Greg Tomsik
                 </p>
               </li>
@@ -217,9 +217,9 @@ const Footer = () => {
                   <div className="p-1 rounded-full bg-orange-900/30 text-orange-400 group-hover:text-orange-300 transition-colors">
                     <BarChart3 size={12} />
                   </div>
-                  <p className="text-gray-600 text-xs font-semibold">Experience:</p>
+                  <p className="text-black text-xs font-semibold">Experience:</p>
                 </div>
-                <p className="block pl-6 text-gray-800 text-sm font-medium">
+                <p className="block pl-6 text-black text-sm font-medium">
                   25+ Years in Solar
                 </p>
               </li>
@@ -228,14 +228,14 @@ const Footer = () => {
                   <div className="p-1 rounded-full bg-orange-900/30 text-orange-400 group-hover:text-orange-300 transition-colors">
                     <Shield size={12} />
                   </div>
-                  <p className="text-gray-600 text-xs font-semibold">License:</p>
+                  <p className="text-black text-xs font-semibold">License:</p>
                 </div>
-                <p className="block pl-6 text-gray-800 text-sm font-medium">
+                <p className="block pl-6 text-black text-sm font-medium">
                   CA Licensed Contractor
                 </p>
               </li>
               <li className="group">
-                <a href="/contact" className="flex items-center gap-2 text-gray-800 hover:text-orange-600 text-sm transition-colors group-hover:bg-orange-900/10 rounded-md px-2 py-1 font-medium">
+                <a href="/contact" className="flex items-center gap-2 text-black hover:text-orange-600 text-sm transition-colors group-hover:bg-orange-900/10 rounded-md px-2 py-1 font-medium">
                   <div className="p-1 rounded-full bg-orange-900/30 text-orange-400 group-hover:text-orange-300 transition-colors">
                     <Mail size={12} />
                   </div>
@@ -257,12 +257,12 @@ const Footer = () => {
           </div>
           
           <div className="flex gap-6 mb-4">
-            <Link href="/about" className="text-gray-600 hover:text-orange-600 text-xs transition-colors font-medium">About Us</Link>
-            <Link href="/contact" className="text-gray-600 hover:text-orange-600 text-xs transition-colors font-medium">Contact</Link>
-            <Link href="/" className="text-gray-600 hover:text-orange-600 text-xs transition-colors font-medium">Home</Link>
+            <Link href="/about" className="text-black hover:text-orange-600 text-xs transition-colors font-medium">About Us</Link>
+            <Link href="/contact" className="text-black hover:text-orange-600 text-xs transition-colors font-medium">Contact</Link>
+            <Link href="/" className="text-black hover:text-orange-600 text-xs transition-colors font-medium">Home</Link>
           </div>
           
-          <p className="text-gray-700 text-xs font-medium">
+          <p className="text-black text-xs font-medium">
             &copy; {currentYear} Advance Power Redding. All rights reserved.
           </p>
         </div>
