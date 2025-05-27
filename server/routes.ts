@@ -1,554 +1,255 @@
-import type { Express, Request, Response, NextFunction } from "express";
-import { createServer, type Server } from "http";
+import { Router } from "express";
 import { storage } from "./storage";
-import { 
-  insertContactSchema, 
-  insertProjectSchema, 
-  insertProjectUpdateSchema, 
-  insertProjectFileSchema 
-} from "@shared/schema";
 import { z } from "zod";
-import { fromZodError } from "zod-validation-error";
-import { setupAuth } from "./auth";
-import professionalsRoutes from "./api/professionals";
-import googleReviewsRoutes from "./api/googleReviews";
-import { setupCRM } from "./crm";
-import { seedDatabase } from "./crm/seed";
-import ragRoutes from "./routes/rag";
-import chatRoutes from "./routes/chat";
-import { 
-  getContacts, 
-  getContactById, 
-  createCRMContact, 
-  updateContact, 
-  deleteContact 
-} from "./api/contacts";
-import { 
-  getCompanies,
-  getCompanyById,
-  createCompany,
-  updateCompany,
-  deleteCompany
-} from "./api/companies";
-import {
-  getOpportunities,
-  getOpportunityById,
-  createOpportunity,
-  updateOpportunity,
-  deleteOpportunity
-} from "./api/opportunities";
-import {
-  getActivities,
-  getActivityById,
-  createActivity,
-  updateActivity,
-  completeActivity,
-  deleteActivity
-} from "./api/activities";
-import { getCRMAnalytics } from "./api/analytics";
-import { importCSV } from "./api/import-csv";
-import {
-  getTasks,
-  getTaskById,
-  createTask,
-  updateTask,
-  completeTask,
-  deleteTask
-} from "./api/tasks";
-import {
-  getSocialMediaPosts,
-  getSocialMediaPostById,
-  createSocialMediaPost,
-  updateSocialMediaPost,
-  deleteSocialMediaPost,
-  getMarketingCampaigns,
-  getMarketingCampaignById,
-  createMarketingCampaign,
-  updateMarketingCampaign,
-  deleteMarketingCampaign
-} from "./api/socialMedia";
 
-// Authentication middleware
-function isAuthenticated(req: Request, res: Response, next: NextFunction) {
-  if (req.isAuthenticated()) {
-    return next();
-  }
-  res.status(401).json({ message: "Unauthorized" });
-}
+const router = Router();
 
-// Check if user is client
-function isClient(req: Request, res: Response, next: NextFunction) {
-  if (req.isAuthenticated() && req.user && (req.user.userType === "client" || req.user.userType === "admin")) {
-    return next();
-  }
-  res.status(403).json({ message: "Access forbidden" });
-}
+// Contact form schema
+const contactFormSchema = z.object({
+  firstName: z.string().min(1, "First name is required"),
+  lastName: z.string().min(1, "Last name is required"),
+  email: z.string().email("Valid email is required"),
+  phone: z.string().min(1, "Phone number is required"),
+  message: z.string().optional(),
+  interestedServices: z.array(z.string()).optional()
+});
 
-// Check if user is admin
-function isAdmin(req: Request, res: Response, next: NextFunction) {
-  if (req.isAuthenticated() && req.user && req.user.userType === "admin") {
-    return next();
-  }
-  res.status(403).json({ message: "Admin access required" });
-}
+// Quote form schema
+const quoteFormSchema = z.object({
+  firstName: z.string().min(1, "First name is required"),
+  lastName: z.string().min(1, "Last name is required"),
+  email: z.string().email("Valid email is required"),
+  phone: z.string().min(1, "Phone number is required"),
+  address: z.string().min(1, "Address is required"),
+  city: z.string().min(1, "City is required"),
+  state: z.string().min(1, "State is required"),
+  zipCode: z.string().min(1, "Zip code is required"),
+  propertyType: z.string().min(1, "Property type is required"),
+  estimatedBudget: z.string().optional(),
+  projectDescription: z.string().optional(),
+  interestedServices: z.array(z.string()).optional(),
+  preferredContactTime: z.string().optional()
+});
 
-export async function registerRoutes(app: Express): Promise<Server> {
-  // Setup authentication routes
-  setupAuth(app);
-  
-  // Run seed function to populate initial CRM data (if needed)
+// Consultation form schema
+const consultationFormSchema = z.object({
+  firstName: z.string().min(1, "First name is required"),
+  lastName: z.string().min(1, "Last name is required"),
+  email: z.string().email("Valid email is required"),
+  phone: z.string().min(1, "Phone number is required"),
+  address: z.string().min(1, "Address is required"),
+  city: z.string().min(1, "City is required"),
+  state: z.string().min(1, "State is required"),
+  zipCode: z.string().min(1, "Zip code is required"),
+  propertyType: z.string().optional(),
+  currentEnergyBill: z.string().optional(),
+  interestedServices: z.array(z.string()).optional(),
+  additionalInfo: z.string().optional()
+});
+
+// Submit contact form
+router.post("/api/contact", async (req, res) => {
   try {
-    await seedDatabase();
-    console.log("CRM database initialization completed");
+    const validatedData = contactFormSchema.parse(req.body);
+    const contact = await storage.submitContactForm(validatedData);
+    
+    // Create activity record
+    await storage.createActivity({
+      type: "form_submission",
+      subject: "Contact Form Submission",
+      details: `New contact form submission from ${contact.firstName} ${contact.lastName}`,
+      contactId: contact.id,
+      createdBy: 1
+    });
+
+    res.json({ success: true, contact });
   } catch (error) {
-    console.error("Error initializing CRM database:", error);
+    console.error("Contact form error:", error);
+    if (error instanceof z.ZodError) {
+      res.status(400).json({ success: false, error: "Validation error", details: error.errors });
+    } else {
+      res.status(500).json({ success: false, error: "Internal server error" });
+    }
   }
-  
-  // Setup CRM routes and middleware
-  setupCRM(app);
-  
-  // Register professionals API routes
-  app.use("/api/professionals", professionalsRoutes);
-  
-  // Register Google Reviews API routes
-  app.use("/api/google-reviews", googleReviewsRoutes);
-  
-  // Register RAG document management routes
-  app.use("/api/rag", ragRoutes);
-  
-  // Register chatbot routes
-  app.use("/api/chat", chatRoutes);
-  
-  // ========================
-  // CRM Routes
-  // ========================
-  
-  // Get CRM analytics for dashboard
-  app.get("/api/analytics", getCRMAnalytics);
-  
-  // Get all contacts
-  app.get("/api/contacts", getContacts);
-  
-  // Get contact by ID
-  app.get("/api/contacts/:id", getContactById);
-  
-  // Create a new contact
-  app.post("/api/contacts", createCRMContact);
-  
-  // Update a contact
-  app.put("/api/contacts/:id", updateContact);
-  
-  // Delete a contact
-  app.delete("/api/contacts/:id", deleteContact);
-  
-  // Companies routes
-  app.get("/api/companies", getCompanies);
-  app.get("/api/companies/:id", getCompanyById);
-  app.post("/api/companies", createCompany);
-  app.put("/api/companies/:id", updateCompany);
-  app.delete("/api/companies/:id", deleteCompany);
-  
-  // Opportunities routes
-  app.get("/api/opportunities", getOpportunities);
-  app.get("/api/opportunities/:id", getOpportunityById);
-  app.post("/api/opportunities", createOpportunity);
-  app.put("/api/opportunities/:id", updateOpportunity);
-  app.delete("/api/opportunities/:id", deleteOpportunity);
-  
-  // Activities routes
-  app.get("/api/activities", getActivities);
-  app.get("/api/activities/:id", getActivityById);
-  app.post("/api/activities", createActivity);
-  app.put("/api/activities/:id", updateActivity);
-  app.post("/api/activities/:id/complete", completeActivity);
-  app.delete("/api/activities/:id", deleteActivity);
-  
-  // Tasks routes
-  app.get("/api/tasks", getTasks);
-  app.get("/api/tasks/:id", getTaskById);
-  app.post("/api/tasks", createTask);
-  app.put("/api/tasks/:id", updateTask);
-  app.post("/api/tasks/:id/complete", completeTask);
-  app.delete("/api/tasks/:id", deleteTask);
-  
-  // CSV Import route
-  app.post("/api/import-csv", importCSV);
-  
-  // Social media routes
-  app.get("/api/social-media", getSocialMediaPosts);
-  app.get("/api/social-media/:id", getSocialMediaPostById);
-  app.post("/api/social-media", createSocialMediaPost);
-  app.put("/api/social-media/:id", updateSocialMediaPost);
-  app.delete("/api/social-media/:id", deleteSocialMediaPost);
-  
-  // Marketing campaigns routes
-  app.get("/api/marketing-campaigns", getMarketingCampaigns);
-  app.get("/api/marketing-campaigns/:id", getMarketingCampaignById);
-  app.post("/api/marketing-campaigns", createMarketingCampaign);
-  app.put("/api/marketing-campaigns/:id", updateMarketingCampaign);
-  app.delete("/api/marketing-campaigns/:id", deleteMarketingCampaign);
-  
-  // Contact form submission endpoint
-  app.post("/api/contact", async (req: Request, res: Response) => {
-    try {
-      // Validate request body
-      const validatedData = insertContactSchema.parse({
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        email: req.body.email,
-        phone: req.body.phone || "",
-        interest: req.body.interest || "",
-        message: req.body.message || "",
-      });
+});
 
-      // Store contact in database
-      const contact = await storage.createContact(validatedData);
-      
-      // Return success response
-      res.status(201).json({
-        message: "Contact form submitted successfully",
-        contact,
-      });
-    } catch (error) {
-      // Handle validation errors
-      if (error instanceof z.ZodError) {
-        const validationError = fromZodError(error);
-        res.status(400).json({
-          message: "Validation error",
-          errors: validationError.details,
-        });
-      } else {
-        console.error("Error processing contact form:", error);
-        res.status(500).json({ message: "An unexpected error occurred" });
-      }
-    }
-  });
+// Submit quote form
+router.post("/api/quote", async (req, res) => {
+  try {
+    const validatedData = quoteFormSchema.parse(req.body);
+    const { contact, opportunity } = await storage.submitQuoteForm(validatedData);
+    
+    // Create activity record
+    await storage.createActivity({
+      type: "quote_request",
+      subject: "Solar Quote Request",
+      details: `New solar quote request from ${contact.firstName} ${contact.lastName}`,
+      contactId: contact.id,
+      opportunityId: opportunity.id,
+      createdBy: 1
+    });
 
-  // ========================
-  // Project Management Routes
-  // ========================
-  
-  // Get client's projects
-  app.get("/api/projects", isClient, async (req: Request, res: Response) => {
-    try {
-      const clientId = req.user!.id;
-      const userProjects = await storage.getProjectsByClient(clientId);
-      res.json(userProjects);
-    } catch (error) {
-      console.error("Error fetching projects:", error);
-      res.status(500).json({ message: "Failed to fetch projects" });
+    res.json({ success: true, contact, opportunity });
+  } catch (error) {
+    console.error("Quote form error:", error);
+    if (error instanceof z.ZodError) {
+      res.status(400).json({ success: false, error: "Validation error", details: error.errors });
+    } else {
+      res.status(500).json({ success: false, error: "Internal server error" });
     }
-  });
-  
-  // Get a specific project (with access control)
-  app.get("/api/projects/:id", isAuthenticated, async (req: Request, res: Response) => {
-    try {
-      const projectId = parseInt(req.params.id);
-      if (isNaN(projectId)) {
-        return res.status(400).json({ message: "Invalid project ID" });
-      }
-      
-      const project = await storage.getProject(projectId);
-      
-      if (!project) {
-        return res.status(404).json({ message: "Project not found" });
-      }
-      
-      // Access control: verify user is admin or the client who owns this project
-      if (req.user!.userType !== "admin" && project.clientId !== req.user!.id) {
-        return res.status(403).json({ message: "You don't have permission to access this project" });
-      }
-      
-      res.json(project);
-    } catch (error) {
-      console.error("Error fetching project:", error);
-      res.status(500).json({ message: "Failed to fetch project details" });
-    }
-  });
-  
-  // Create a new project
-  app.post("/api/projects", isAuthenticated, async (req: Request, res: Response) => {
-    try {
-      // Set client ID to the authenticated user (unless admin specifies different client)
-      let clientId = req.user!.id;
-      
-      // If admin and explicitly specifying a different client
-      if (req.user!.userType === "admin" && req.body.clientId && req.body.clientId !== clientId) {
-        clientId = req.body.clientId;
-      }
-      
-      const projectData = {
-        ...req.body,
-        clientId,
-        status: req.body.status || "pending",
-      };
-      
-      const validatedData = insertProjectSchema.parse(projectData);
-      const newProject = await storage.createProject(validatedData);
-      
-      res.status(201).json(newProject);
-    } catch (error) {
-      if (error instanceof z.ZodError) {
-        const validationError = fromZodError(error);
-        return res.status(400).json({
-          message: "Validation error",
-          errors: validationError.details,
-        });
-      }
-      
-      console.error("Error creating project:", error);
-      res.status(500).json({ message: "Failed to create project" });
-    }
-  });
-  
-  // Update a project
-  app.put("/api/projects/:id", isAuthenticated, async (req: Request, res: Response) => {
-    try {
-      const projectId = parseInt(req.params.id);
-      if (isNaN(projectId)) {
-        return res.status(400).json({ message: "Invalid project ID" });
-      }
-      
-      const project = await storage.getProject(projectId);
-      
-      if (!project) {
-        return res.status(404).json({ message: "Project not found" });
-      }
-      
-      // Access control: verify user is admin or the client who owns this project
-      if (req.user!.userType !== "admin" && project.clientId !== req.user!.id) {
-        return res.status(403).json({ message: "You don't have permission to update this project" });
-      }
-      
-      // Update project
-      const updatedProject = await storage.updateProject(projectId, req.body);
-      
-      if (!updatedProject) {
-        return res.status(404).json({ message: "Project could not be updated" });
-      }
-      
-      res.json(updatedProject);
-    } catch (error) {
-      console.error("Error updating project:", error);
-      res.status(500).json({ message: "Failed to update project" });
-    }
-  });
-  
-  // Delete a project (admin only)
-  app.delete("/api/projects/:id", isAdmin, async (req: Request, res: Response) => {
-    try {
-      const projectId = parseInt(req.params.id);
-      if (isNaN(projectId)) {
-        return res.status(400).json({ message: "Invalid project ID" });
-      }
-      
-      const success = await storage.deleteProject(projectId);
-      
-      if (!success) {
-        return res.status(400).json({ message: "Failed to delete project" });
-      }
-      
-      res.json({ message: "Project deleted successfully" });
-    } catch (error) {
-      console.error("Error deleting project:", error);
-      res.status(500).json({ message: "Failed to delete project" });
-    }
-  });
-  
-  // ========================
-  // Project Updates Routes
-  // ========================
-  
-  // Get updates for a project
-  app.get("/api/projects/:id/updates", isAuthenticated, async (req: Request, res: Response) => {
-    try {
-      const projectId = parseInt(req.params.id);
-      if (isNaN(projectId)) {
-        return res.status(400).json({ message: "Invalid project ID" });
-      }
-      
-      const project = await storage.getProject(projectId);
-      
-      if (!project) {
-        return res.status(404).json({ message: "Project not found" });
-      }
-      
-      // Access control: verify user is admin or the client who owns this project
-      if (req.user!.userType !== "admin" && project.clientId !== req.user!.id) {
-        return res.status(403).json({ message: "You don't have permission to access this project" });
-      }
-      
-      const updates = await storage.getProjectUpdates(projectId);
-      res.json(updates);
-    } catch (error) {
-      console.error("Error fetching project updates:", error);
-      res.status(500).json({ message: "Failed to fetch project updates" });
-    }
-  });
-  
-  // Add update to a project
-  app.post("/api/projects/:id/updates", isAuthenticated, async (req: Request, res: Response) => {
-    try {
-      const projectId = parseInt(req.params.id);
-      if (isNaN(projectId)) {
-        return res.status(400).json({ message: "Invalid project ID" });
-      }
-      
-      const project = await storage.getProject(projectId);
-      
-      if (!project) {
-        return res.status(404).json({ message: "Project not found" });
-      }
-      
-      // Access control: verify user is admin or the client who owns this project
-      if (req.user!.userType !== "admin" && project.clientId !== req.user!.id) {
-        return res.status(403).json({ message: "You don't have permission to update this project" });
-      }
-      
-      const updateData = {
-        projectId,
-        message: req.body.message,
-        createdBy: req.user!.id,
-      };
-      
-      const validatedData = insertProjectUpdateSchema.parse(updateData);
-      const newUpdate = await storage.createProjectUpdate(validatedData);
-      
-      res.status(201).json(newUpdate);
-    } catch (error) {
-      if (error instanceof z.ZodError) {
-        const validationError = fromZodError(error);
-        return res.status(400).json({
-          message: "Validation error",
-          errors: validationError.details,
-        });
-      }
-      
-      console.error("Error creating project update:", error);
-      res.status(500).json({ message: "Failed to create project update" });
-    }
-  });
-  
-  // ========================
-  // Project Files Routes
-  // ========================
-  
-  // Get files for a project
-  app.get("/api/projects/:id/files", isAuthenticated, async (req: Request, res: Response) => {
-    try {
-      const projectId = parseInt(req.params.id);
-      if (isNaN(projectId)) {
-        return res.status(400).json({ message: "Invalid project ID" });
-      }
-      
-      const project = await storage.getProject(projectId);
-      
-      if (!project) {
-        return res.status(404).json({ message: "Project not found" });
-      }
-      
-      // Access control: verify user is admin or the client who owns this project
-      if (req.user!.userType !== "admin" && project.clientId !== req.user!.id) {
-        return res.status(403).json({ message: "You don't have permission to access this project" });
-      }
-      
-      const files = await storage.getProjectFiles(projectId);
-      res.json(files);
-    } catch (error) {
-      console.error("Error fetching project files:", error);
-      res.status(500).json({ message: "Failed to fetch project files" });
-    }
-  });
-  
-  // Add file reference to a project
-  app.post("/api/projects/:id/files", isAuthenticated, async (req: Request, res: Response) => {
-    try {
-      const projectId = parseInt(req.params.id);
-      if (isNaN(projectId)) {
-        return res.status(400).json({ message: "Invalid project ID" });
-      }
-      
-      const project = await storage.getProject(projectId);
-      
-      if (!project) {
-        return res.status(404).json({ message: "Project not found" });
-      }
-      
-      // Access control: verify user is admin or the client who owns this project
-      if (req.user!.userType !== "admin" && project.clientId !== req.user!.id) {
-        return res.status(403).json({ message: "You don't have permission to update this project" });
-      }
-      
-      const fileData = {
-        projectId,
-        fileName: req.body.fileName,
-        fileType: req.body.fileType,
-        fileUrl: req.body.fileUrl,
-        uploadedBy: req.user!.id,
-      };
-      
-      const validatedData = insertProjectFileSchema.parse(fileData);
-      const newFile = await storage.createProjectFile(validatedData);
-      
-      res.status(201).json(newFile);
-    } catch (error) {
-      if (error instanceof z.ZodError) {
-        const validationError = fromZodError(error);
-        return res.status(400).json({
-          message: "Validation error",
-          errors: validationError.details,
-        });
-      }
-      
-      console.error("Error adding project file:", error);
-      res.status(500).json({ message: "Failed to add project file" });
-    }
-  });
-  
-  // Delete file from a project
-  app.delete("/api/projects/:projectId/files/:fileId", isAuthenticated, async (req: Request, res: Response) => {
-    try {
-      const projectId = parseInt(req.params.projectId);
-      const fileId = parseInt(req.params.fileId);
-      
-      if (isNaN(projectId) || isNaN(fileId)) {
-        return res.status(400).json({ message: "Invalid ID parameters" });
-      }
-      
-      const project = await storage.getProject(projectId);
-      
-      if (!project) {
-        return res.status(404).json({ message: "Project not found" });
-      }
-      
-      // Access control: verify user is admin or the client who owns this project
-      if (req.user!.userType !== "admin" && project.clientId !== req.user!.id) {
-        return res.status(403).json({ message: "You don't have permission to modify this project" });
-      }
-      
-      const file = await storage.getProjectFile(fileId);
-      
-      if (!file) {
-        return res.status(404).json({ message: "File not found" });
-      }
-      
-      if (file.projectId !== projectId) {
-        return res.status(400).json({ message: "File does not belong to this project" });
-      }
-      
-      const success = await storage.deleteProjectFile(fileId);
-      
-      if (!success) {
-        return res.status(400).json({ message: "Failed to delete file" });
-      }
-      
-      res.json({ message: "File deleted successfully" });
-    } catch (error) {
-      console.error("Error deleting project file:", error);
-      res.status(500).json({ message: "Failed to delete project file" });
-    }
-  });
+  }
+});
 
-  const httpServer = createServer(app);
-  return httpServer;
-}
+// Submit consultation form
+router.post("/api/consultation", async (req, res) => {
+  try {
+    const validatedData = consultationFormSchema.parse(req.body);
+    const { contact, opportunity } = await storage.submitConsultationForm(validatedData);
+    
+    // Create activity record
+    await storage.createActivity({
+      type: "consultation_request",
+      subject: "Free Consultation Request",
+      details: `New free consultation request from ${contact.firstName} ${contact.lastName}`,
+      contactId: contact.id,
+      opportunityId: opportunity.id,
+      createdBy: 1
+    });
+
+    res.json({ success: true, contact, opportunity });
+  } catch (error) {
+    console.error("Consultation form error:", error);
+    if (error instanceof z.ZodError) {
+      res.status(400).json({ success: false, error: "Validation error", details: error.errors });
+    } else {
+      res.status(500).json({ success: false, error: "Internal server error" });
+    }
+  }
+});
+
+// CRM API Routes
+// Get all contacts
+router.get("/api/crm/contacts", async (req, res) => {
+  try {
+    const contacts = await storage.getContacts();
+    res.json({ success: true, contacts });
+  } catch (error) {
+    console.error("Get contacts error:", error);
+    res.status(500).json({ success: false, error: "Internal server error" });
+  }
+});
+
+// Get contact by ID
+router.get("/api/crm/contacts/:id", async (req, res) => {
+  try {
+    const contactId = parseInt(req.params.id);
+    const contact = await storage.getContactById(contactId);
+    if (!contact) {
+      return res.status(404).json({ success: false, error: "Contact not found" });
+    }
+    
+    const activities = await storage.getActivitiesByContact(contactId);
+    res.json({ success: true, contact, activities });
+  } catch (error) {
+    console.error("Get contact error:", error);
+    res.status(500).json({ success: false, error: "Internal server error" });
+  }
+});
+
+// Update contact
+router.put("/api/crm/contacts/:id", async (req, res) => {
+  try {
+    const contactId = parseInt(req.params.id);
+    const contact = await storage.updateContact(contactId, req.body);
+    res.json({ success: true, contact });
+  } catch (error) {
+    console.error("Update contact error:", error);
+    res.status(500).json({ success: false, error: "Internal server error" });
+  }
+});
+
+// Delete contact
+router.delete("/api/crm/contacts/:id", async (req, res) => {
+  try {
+    const contactId = parseInt(req.params.id);
+    await storage.deleteContact(contactId);
+    res.json({ success: true });
+  } catch (error) {
+    console.error("Delete contact error:", error);
+    res.status(500).json({ success: false, error: "Internal server error" });
+  }
+});
+
+// Search contacts
+router.get("/api/crm/contacts/search/:query", async (req, res) => {
+  try {
+    const query = req.params.query;
+    const contacts = await storage.searchContacts(query);
+    res.json({ success: true, contacts });
+  } catch (error) {
+    console.error("Search contacts error:", error);
+    res.status(500).json({ success: false, error: "Internal server error" });
+  }
+});
+
+// Get all opportunities
+router.get("/api/crm/opportunities", async (req, res) => {
+  try {
+    const opportunities = await storage.getOpportunities();
+    res.json({ success: true, opportunities });
+  } catch (error) {
+    console.error("Get opportunities error:", error);
+    res.status(500).json({ success: false, error: "Internal server error" });
+  }
+});
+
+// Get opportunity by ID
+router.get("/api/crm/opportunities/:id", async (req, res) => {
+  try {
+    const opportunityId = parseInt(req.params.id);
+    const opportunity = await storage.getOpportunityById(opportunityId);
+    if (!opportunity) {
+      return res.status(404).json({ success: false, error: "Opportunity not found" });
+    }
+    res.json({ success: true, opportunity });
+  } catch (error) {
+    console.error("Get opportunity error:", error);
+    res.status(500).json({ success: false, error: "Internal server error" });
+  }
+});
+
+// Update opportunity
+router.put("/api/crm/opportunities/:id", async (req, res) => {
+  try {
+    const opportunityId = parseInt(req.params.id);
+    const opportunity = await storage.updateOpportunity(opportunityId, req.body);
+    res.json({ success: true, opportunity });
+  } catch (error) {
+    console.error("Update opportunity error:", error);
+    res.status(500).json({ success: false, error: "Internal server error" });
+  }
+});
+
+// Get dashboard stats
+router.get("/api/crm/dashboard", async (req, res) => {
+  try {
+    const stats = await storage.getDashboardStats();
+    res.json({ success: true, stats });
+  } catch (error) {
+    console.error("Get dashboard stats error:", error);
+    res.status(500).json({ success: false, error: "Internal server error" });
+  }
+});
+
+// Create activity
+router.post("/api/crm/activities", async (req, res) => {
+  try {
+    const activity = await storage.createActivity(req.body);
+    res.json({ success: true, activity });
+  } catch (error) {
+    console.error("Create activity error:", error);
+    res.status(500).json({ success: false, error: "Internal server error" });
+  }
+});
+
+export default router;
