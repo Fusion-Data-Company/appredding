@@ -97,7 +97,7 @@ const PitchDeckSlider = () => {
 
   return (
     <>
-      {/* Trigger button fixed at bottom left - styled to match premium enterprise theme */}
+      {/* Solar-Themed Floating Action Button */}
       <AnimatePresence>
         {!isOpen && (
           <motion.div 
@@ -107,31 +107,34 @@ const PitchDeckSlider = () => {
             exit={{ opacity: 0, y: 100 }}
             transition={{ duration: 0.5 }}
           >
-            {/* Ultra-premium enterprise-level introduction button with advanced animations */}
+            {/* Solar-themed premium floating button with sun energy animations */}
             <div className="group relative inline-block animate-floating">
-              {/* Enhanced multi-layered ambient glow effect with advanced animations */}
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-700 via-blue-500 to-blue-700 rounded-full blur-[6px] opacity-60 group-hover:opacity-90 group-hover:scale-110 transition-all duration-700 animate-glow-pulse"></div>
-              <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/50 to-blue-400/50 rounded-full blur-[12px] opacity-50 group-hover:opacity-80 group-hover:scale-115 animate-pulse-slow-delayed"></div>
-              <div className="absolute -inset-2 bg-gradient-to-r from-blue-900/25 to-blue-500/25 rounded-full blur-[20px] opacity-40 group-hover:opacity-70 group-hover:scale-125 transition-all duration-1000"></div>
-              <div className="absolute -inset-3 bg-gradient-to-r from-blue-800/15 to-blue-600/15 rounded-full blur-[25px] opacity-30 group-hover:opacity-60 group-hover:scale-125 transition-all duration-1500"></div>
-              <div className="absolute -inset-4 bg-gradient-to-r from-blue-900/10 to-blue-700/10 rounded-full blur-[30px] opacity-0 group-hover:opacity-40 group-hover:scale-150 transition-all duration-2000"></div>
+              {/* Solar energy glow effects with warm orange/yellow colors */}
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 rounded-full blur-[6px] opacity-70 group-hover:opacity-95 group-hover:scale-110 transition-all duration-700 animate-glow-pulse"></div>
+              <div className="absolute -inset-1 bg-gradient-to-r from-orange-400/60 to-yellow-400/60 rounded-full blur-[12px] opacity-60 group-hover:opacity-85 group-hover:scale-115 animate-pulse-slow-delayed"></div>
+              <div className="absolute -inset-2 bg-gradient-to-r from-red-500/30 to-orange-500/30 rounded-full blur-[20px] opacity-50 group-hover:opacity-75 group-hover:scale-125 transition-all duration-1000"></div>
+              <div className="absolute -inset-3 bg-gradient-to-r from-yellow-600/20 to-orange-600/20 rounded-full blur-[25px] opacity-40 group-hover:opacity-70 group-hover:scale-125 transition-all duration-1500"></div>
+              <div className="absolute -inset-4 bg-gradient-to-r from-orange-700/15 to-red-700/15 rounded-full blur-[30px] opacity-0 group-hover:opacity-50 group-hover:scale-150 transition-all duration-2000"></div>
               
-              {/* Animated radial pulse effect */}
+              {/* Animated solar pulse effect */}
               <div className="absolute -inset-6 rounded-full opacity-0 group-hover:opacity-100">
-                <div className="absolute inset-0 rounded-full bg-blue-500/5 animate-radial-pulse"></div>
-                <div className="absolute inset-0 rounded-full bg-blue-400/5 animate-radial-pulse" style={{ animationDelay: '0.5s' }}></div>
-                <div className="absolute inset-0 rounded-full bg-blue-300/5 animate-radial-pulse" style={{ animationDelay: '1s' }}></div>
+                <div className="absolute inset-0 rounded-full bg-orange-500/8 animate-radial-pulse"></div>
+                <div className="absolute inset-0 rounded-full bg-yellow-400/8 animate-radial-pulse" style={{ animationDelay: '0.5s' }}></div>
+                <div className="absolute inset-0 rounded-full bg-red-500/8 animate-radial-pulse" style={{ animationDelay: '1s' }}></div>
               </div>
               
-              {/* Ultimate black glass button with 3D effect, glass shimmer and animations */}
+              {/* Solar-themed premium button with warm gradient */}
               <button
                 onClick={togglePitchDeck}
-                className="relative bg-gradient-to-br from-gray-900/95 via-black/95 to-gray-900/95 text-white rounded-full py-4 px-8 z-10 border border-blue-900/40 shadow-[inset_0_1px_2px_rgba(255,255,255,0.15),0_0_8px_rgba(0,0,0,0.3)] overflow-hidden group-hover:shadow-[0_0_35px_rgba(59,130,246,0.6)] transition-all duration-700 flex items-center gap-4 transform group-hover:scale-[1.06] animate-border-glow backdrop-blur-sm before:absolute before:inset-0 before:rounded-full before:bg-gradient-to-br before:from-blue-900/5 before:via-transparent before:to-blue-900/5 before:z-0"
+                className="relative bg-gradient-to-br from-orange-600 via-orange-500 to-red-500 hover:from-orange-500 hover:via-orange-400 hover:to-red-400 text-white rounded-full py-4 px-8 z-10 border border-orange-400/50 shadow-[inset_0_1px_2px_rgba(255,255,255,0.25),0_0_8px_rgba(249,115,22,0.4)] overflow-hidden group-hover:shadow-[0_0_35px_rgba(249,115,22,0.8)] transition-all duration-700 flex items-center gap-4 transform group-hover:scale-[1.06] backdrop-blur-sm"
+                style={{
+                  boxShadow: "0 0 30px rgba(249, 115, 22, 0.6), 0 8px 20px rgba(239, 68, 68, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3)"
+                }}
               >
-                {/* Advanced high-tech animated background effects */}
+                {/* Solar energy animated background effects */}
                 <div className="absolute inset-0 z-0">
-                  {/* Enhanced tech pattern overlay */}
-                  <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImEiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxwYXRoIGZpbGw9InJnYmEoNTksMTMwLDI0NiwwLjEpIiBkPSJNMCAwaDJ2Mkgwem0yIDJoMnYySDJ6Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCBmaWxsPSJ1cmwoI2EpIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIi8+PC9zdmc+')] opacity-40"></div>
+                  {/* Solar energy pattern overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-orange-500/10 via-yellow-500/5 to-red-500/10 opacity-60"></div>
                   
                   {/* Premium glass shimmer effects on button face with enhanced brightness */}
                   <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-blue-400/8 to-white/10 opacity-70"></div>
@@ -197,38 +200,47 @@ const PitchDeckSlider = () => {
                   <div className="absolute bottom-[2px] right-[2px] w-2.5 h-2.5 bg-blue-400/60 rounded-full blur-[4px] animate-pulse-slow" style={{ animationDelay: '1.5s' }}></div>
                 </div>
                 
-                {/* State-of-the-art shield icon with advanced holographic effects */}
+                {/* Beautiful solar sun icon with energy animations */}
                 <div className="relative mr-3 z-10 group/icon">
                   <div className="w-12 h-12 rounded-full flex items-center justify-center relative overflow-hidden transform group-hover:scale-110 transition-transform duration-700">
-                    {/* Futuristic layered holographic background with advanced animations */}
-                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 opacity-90"></div>
-                    <div className="absolute inset-[2px] rounded-full bg-gradient-to-br from-black to-gray-900"></div>
-                    <div className="absolute inset-0 rounded-full bg-blue-500/20 animate-pulse-slow-delayed"></div>
-                    <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-400/10 to-blue-600/10 animate-glow-pulse"></div>
+                    {/* Solar energy background with warm gradient */}
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-orange-600 via-yellow-500 to-red-500 opacity-90"></div>
+                    <div className="absolute inset-[2px] rounded-full bg-gradient-to-br from-orange-700 to-red-600"></div>
+                    <div className="absolute inset-0 rounded-full bg-yellow-500/30 animate-pulse-slow-delayed"></div>
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-br from-orange-400/20 to-yellow-600/20 animate-glow-pulse"></div>
                     
-                    {/* Multiple orbital ring animations with varied speeds and opacities */}
-                    <div className="absolute inset-[-4px] rounded-full border-2 border-blue-500/20 animate-spin-very-slow"></div>
-                    <div className="absolute inset-[-3px] rounded-full border border-blue-400/15 animate-reverse-spin-very-slow"></div>
-                    <div className="absolute inset-[-2px] rounded-full border border-blue-300/10 animate-spin-very-slow" style={{ animationDuration: '25s' }}></div>
-                    <div className="absolute inset-[-1px] rounded-full border border-blue-200/5 animate-reverse-spin-very-slow" style={{ animationDuration: '30s' }}></div>
+                    {/* Animated sun rays with rotating effect */}
+                    <div className="absolute inset-[-4px] rounded-full border-2 border-yellow-400/30 animate-spin-very-slow"></div>
+                    <div className="absolute inset-[-3px] rounded-full border border-orange-400/25 animate-reverse-spin-very-slow"></div>
+                    <div className="absolute inset-[-2px] rounded-full border border-red-400/20 animate-spin-very-slow" style={{ animationDuration: '25s' }}></div>
+                    <div className="absolute inset-[-1px] rounded-full border border-yellow-300/15 animate-reverse-spin-very-slow" style={{ animationDuration: '30s' }}></div>
                     
-                    {/* Enhanced holographic reflection effect with multi-layer animations */}
-                    <div className="absolute inset-0 bg-gradient-to-b from-blue-400/40 to-transparent opacity-0 group-hover/icon:opacity-100 transition-opacity duration-700"></div>
-                    <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-blue-300/20 to-transparent opacity-0 group-hover/icon:opacity-100 transition-opacity duration-1000"></div>
+                    {/* Solar energy reflection effects */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-yellow-400/50 to-transparent opacity-0 group-hover/icon:opacity-100 transition-opacity duration-700"></div>
+                    <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-orange-300/30 to-transparent opacity-0 group-hover/icon:opacity-100 transition-opacity duration-1000"></div>
                     
-                    {/* Luxury shield icon with reactive glow and pulse effects */}
+                    {/* Solar sun icon with battery elements */}
                     <div className="relative animate-floating" style={{ animationDuration: '2s' }}>
-                      <div className="absolute -inset-5 bg-blue-500/40 rounded-full blur-md opacity-0 group-hover/icon:opacity-100 transition-opacity duration-500 animate-pulse-slow"></div>
-                      <div className="absolute -inset-4 bg-blue-400/30 rounded-full blur-lg opacity-0 group-hover/icon:opacity-80 transition-opacity duration-700 animate-pulse-slow" style={{ animationDelay: '0.5s' }}></div>
-                      <Shield className="w-7 h-7 text-blue-300 group-hover/icon:text-blue-100 transition-colors duration-500 relative z-10 drop-shadow-[0_0_5px_rgba(59,130,246,0.8)]" />
+                      <div className="absolute -inset-5 bg-yellow-500/50 rounded-full blur-md opacity-0 group-hover/icon:opacity-100 transition-opacity duration-500 animate-pulse-slow"></div>
+                      <div className="absolute -inset-4 bg-orange-400/40 rounded-full blur-lg opacity-0 group-hover/icon:opacity-80 transition-opacity duration-700 animate-pulse-slow" style={{ animationDelay: '0.5s' }}></div>
+                      
+                      {/* Combined sun and battery icon */}
+                      <div className="relative w-7 h-7 flex items-center justify-center">
+                        {/* Sun rays */}
+                        <div className="absolute inset-0">
+                          <svg className="w-7 h-7 text-yellow-200 group-hover/icon:text-white transition-colors duration-500 relative z-10" style={{ filter: "drop-shadow(0 0 5px rgba(251, 191, 36, 0.8))" }} fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z" />
+                          </svg>
+                        </div>
+                      </div>
                     </div>
                     
-                    {/* High-end multi-layered ripple effects with advanced timing */}
-                    <div className="absolute inset-0 rounded-full border border-blue-500/20 scale-0 group-hover/icon:scale-[1.2] opacity-0 group-hover/icon:opacity-100 transition-all duration-1000"></div>
-                    <div className="absolute inset-0 rounded-full border border-blue-400/15 scale-0 group-hover/icon:scale-[1.5] opacity-0 group-hover/icon:opacity-80 transition-all duration-1500 delay-100"></div>
-                    <div className="absolute inset-0 rounded-full border border-blue-300/10 scale-0 group-hover/icon:scale-[1.8] opacity-0 group-hover/icon:opacity-60 transition-all duration-2000 delay-200"></div>
-                    <div className="absolute inset-0 rounded-full border border-blue-200/5 scale-0 group-hover/icon:scale-[2.1] opacity-0 group-hover/icon:opacity-40 transition-all duration-2500 delay-300"></div>
-                    <div className="absolute inset-0 rounded-full border border-blue-100/5 scale-0 group-hover/icon:scale-[2.4] opacity-0 group-hover/icon:opacity-20 transition-all duration-3000 delay-400"></div>
+                    {/* Solar energy ripple effects */}
+                    <div className="absolute inset-0 rounded-full border border-yellow-400/30 scale-0 group-hover/icon:scale-[1.2] opacity-0 group-hover/icon:opacity-100 transition-all duration-1000"></div>
+                    <div className="absolute inset-0 rounded-full border border-orange-400/25 scale-0 group-hover/icon:scale-[1.5] opacity-0 group-hover/icon:opacity-80 transition-all duration-1500 delay-100"></div>
+                    <div className="absolute inset-0 rounded-full border border-red-400/20 scale-0 group-hover/icon:scale-[1.8] opacity-0 group-hover/icon:opacity-60 transition-all duration-2000 delay-200"></div>
+                    <div className="absolute inset-0 rounded-full border border-yellow-300/15 scale-0 group-hover/icon:scale-[2.1] opacity-0 group-hover/icon:opacity-40 transition-all duration-2500 delay-300"></div>
+                    <div className="absolute inset-0 rounded-full border border-orange-200/10 scale-0 group-hover/icon:scale-[2.4] opacity-0 group-hover/icon:opacity-20 transition-all duration-3000 delay-400"></div>
                   </div>
                 </div>
                 
