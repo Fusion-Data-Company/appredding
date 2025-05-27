@@ -125,18 +125,18 @@ const SolarServicesSection = () => {
                   </div>
 
                   {/* Enhanced Typography */}
-                  <h3 className="text-3xl font-black text-white mb-6 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-yellow-400 group-hover:to-orange-500 group-hover:bg-clip-text transition-all duration-300">
+                  <h3 className="text-3xl font-black text-gray-900 mb-6 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-yellow-600 group-hover:to-orange-600 group-hover:bg-clip-text transition-all duration-300">
                     {service.title}
                   </h3>
                   
-                  <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+                  <p className="text-xl text-gray-700 mb-8 leading-relaxed">
                     {service.description}
                   </p>
 
                   {/* Premium Feature List */}
                   <ul className="space-y-3">
                     {service.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center text-gray-400 text-lg">
+                      <li key={featureIndex} className="flex items-center text-gray-600 text-lg">
                         <div className={`w-2 h-2 bg-gradient-to-r ${service.color} rounded-full mr-4 group-hover:scale-150 transition-transform duration-300`}></div>
                         {feature}
                       </li>
