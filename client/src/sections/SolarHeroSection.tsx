@@ -139,6 +139,13 @@ const SolarHeroSection = () => {
                     Redding's trusted solar experts with over 20 years of experience. 
                     Professional installation, repair, and maintenance services for homes and businesses.
                   </p>
+                  <div className="mt-6 p-4 bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-200 rounded-xl">
+                    <p className="text-lg md:text-xl text-green-800 font-semibold">
+                      💰 Start saving on your energy bills immediately! Most customers see 
+                      <span className="text-green-600 font-bold px-2 py-1 bg-green-100 rounded-lg mx-2">30-70% reduction</span>
+                      in their monthly electricity costs.
+                    </p>
+                  </div>
                 </div>
                 
                 {/* Elite Credential Badges */}

@@ -8,6 +8,7 @@ const SolarServicesSection = () => {
       title: "Residential Solar",
       description: "Custom solar panel installations for homes throughout Northern California.",
       features: ["25-year warranty", "Net metering setup", "Energy monitoring"],
+      savings: "Save $100-300/month on electricity bills",
       color: "from-yellow-500 to-orange-500",
       hoverColor: "hover:from-yellow-400 hover:to-orange-400"
     },
@@ -16,6 +17,7 @@ const SolarServicesSection = () => {
       title: "Commercial Solar",
       description: "Large-scale solar solutions for businesses and industrial facilities.",
       features: ["Tax incentive optimization", "Fleet maintenance", "Performance guarantees"],
+      savings: "Reduce operating costs by 40-80%",
       color: "from-orange-500 to-red-500",
       hoverColor: "hover:from-orange-400 hover:to-red-400"
     },
@@ -24,6 +26,7 @@ const SolarServicesSection = () => {
       title: "Battery Storage",
       description: "Advanced energy storage systems for backup power and energy independence.",
       features: ["24/7 backup power", "Smart grid integration", "Remote monitoring"],
+      savings: "Maximize solar savings with battery storage",
       color: "from-red-500 to-yellow-500",
       hoverColor: "hover:from-red-400 hover:to-yellow-400"
     },
@@ -198,6 +201,16 @@ const SolarServicesSection = () => {
                   <p className="text-xl text-gray-200 mb-8 leading-relaxed">
                     {service.description}
                   </p>
+
+                  {/* Green Savings Highlight */}
+                  {service.savings && (
+                    <div className="mb-6 p-4 bg-gradient-to-r from-green-600 to-emerald-600 rounded-xl border-2 border-green-400 shadow-lg">
+                      <div className="flex items-center gap-2">
+                        <span className="text-2xl">💰</span>
+                        <span className="text-white font-bold text-lg">{service.savings}</span>
+                      </div>
+                    </div>
+                  )}
 
                   {/* Premium Feature List */}
                   <ul className="space-y-3">

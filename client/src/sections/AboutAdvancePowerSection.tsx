@@ -127,6 +127,45 @@ const AboutAdvancePowerSection = () => {
           ))}
         </div>
 
+        {/* Green Savings Highlight Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="mb-24"
+        >
+          <div className="relative bg-gradient-to-r from-green-600 to-emerald-600 rounded-3xl p-12 border-2 border-green-400 shadow-2xl overflow-hidden">
+            {/* Green glow effect */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-green-500 to-emerald-500 blur-xl opacity-50"></div>
+            
+            <div className="relative z-10 text-center">
+              <div className="text-6xl mb-4">💰</div>
+              <h3 className="text-4xl md:text-5xl font-black text-white mb-6">
+                Save Money Every Month
+              </h3>
+              <p className="text-2xl text-green-100 mb-8 max-w-4xl mx-auto leading-relaxed">
+                Our customers typically save $150-400 per month on their electricity bills. 
+                With 25+ years of experience, we maximize your savings with the most efficient solar solutions.
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-white">$150-400</div>
+                  <div className="text-green-200">Monthly Savings</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-white">25+ Years</div>
+                  <div className="text-green-200">System Warranty</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-white">$50,000+</div>
+                  <div className="text-green-200">Lifetime Savings</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
         {/* Enterprise Story Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
