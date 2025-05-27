@@ -446,13 +446,6 @@ export function PremiumNavbar() {
     <div className="flex-grow flex justify-end" ref={navRef}>
       <nav className="flex space-x-1">
         <NavItem
-          label="Solar Services"
-          isOpen={activeMenu === 'services'}
-          onClick={() => toggleMenu('services')}
-          content={solarServicesContent}
-        />
-        
-        <NavItem
           label="Services"
           isOpen={activeMenu === 'services'}
           onClick={() => toggleMenu('services')}

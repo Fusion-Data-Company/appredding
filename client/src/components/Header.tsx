@@ -287,18 +287,18 @@ const Header = () => {
                 </div>
               </MenuItem>
               
-              <MenuItem setActive={setActiveItem} active={activeItem} item="Professionals">
+              <MenuItem setActive={setActiveItem} active={activeItem} item="Services">
                 <div className="grid grid-cols-2 gap-5 p-4 w-[550px]">
                   <div className="col-span-2 mb-2">
-                    <div className="relative overflow-hidden rounded-lg border border-blue-900/30 group h-28">
-                      <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-orange-900/20 opacity-70 group-hover:opacity-100 transition-opacity duration-300"></div>
-                      <div className="w-full h-full bg-gradient-to-br from-blue-900/40 to-orange-900/30 flex items-center justify-center">
-                        <BriefcaseBusiness size={42} className="text-orange-400" />
+                    <div className="relative overflow-hidden rounded-lg border border-orange-900/30 group h-28">
+                      <div className="absolute inset-0 bg-gradient-to-br from-orange-900/20 to-yellow-900/20 opacity-70 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      <div className="w-full h-full bg-gradient-to-br from-orange-900/40 to-yellow-900/30 flex items-center justify-center">
+                        <Sun size={42} className="text-yellow-400" />
                       </div>
                       <div className="absolute inset-0 flex flex-col justify-center items-center bg-gradient-to-r from-black/80 via-black/70 to-black/80">
-                        <h4 className="text-white font-bold text-lg text-center">Professional Programs</h4>
+                        <h4 className="text-white font-bold text-lg text-center">Solar Services</h4>
                         <p className="text-gray-300 text-sm text-center max-w-xs">
-                          Industry-leading solutions for licensed professionals
+                          Complete solar installation and maintenance solutions
                         </p>
                       </div>
                     </div>
@@ -306,47 +306,54 @@ const Header = () => {
                   
                   <div>
                     <div className="mb-3 pb-2 border-b border-gray-700/30">
-                      <h3 className="text-sm font-semibold text-orange-400 uppercase tracking-wider">Program Benefits</h3>
+                      <h3 className="text-sm font-semibold text-orange-400 uppercase tracking-wider">Solar Installations</h3>
                     </div>
                     
                     <ul className="space-y-2">
                       <li className="flex items-center gap-2 text-sm text-gray-300">
                         <div className="h-1.5 w-1.5 rounded-full bg-orange-500"></div>
-                        <span>Exclusive training & certification</span>
+                        <HoveredLink href="/residential-solar">Residential Solar Systems</HoveredLink>
                       </li>
                       <li className="flex items-center gap-2 text-sm text-gray-300">
                         <div className="h-1.5 w-1.5 rounded-full bg-orange-500"></div>
-                        <span>Preferred pricing structure</span>
+                        <HoveredLink href="/commercial-solar">Commercial Solar Projects</HoveredLink>
                       </li>
                       <li className="flex items-center gap-2 text-sm text-gray-300">
                         <div className="h-1.5 w-1.5 rounded-full bg-orange-500"></div>
-                        <span>Technical support access</span>
+                        <HoveredLink href="/battery-storage">Battery Storage Systems</HoveredLink>
                       </li>
                       <li className="flex items-center gap-2 text-sm text-gray-300">
                         <div className="h-1.5 w-1.5 rounded-full bg-orange-500"></div>
-                        <span>Marketing & promotional tools</span>
+                        <HoveredLink href="/hybrid-systems">Solar + Storage Hybrid</HoveredLink>
                       </li>
                     </ul>
                   </div>
                   
                   <div>
                     <div className="mb-3 pb-2 border-b border-gray-700/30">
-                      <h3 className="text-sm font-semibold text-blue-400 uppercase tracking-wider">Professional Sign-up</h3>
+                      <h3 className="text-sm font-semibold text-orange-400 uppercase tracking-wider">Services & Maintenance</h3>
                     </div>
                     
                     <div className="space-y-3">
-                      <Link href="/painters" className="flex items-center gap-3 hover:bg-orange-900/20 p-2 rounded-lg transition-colors">
+                      <HoveredLink href="/maintenance" className="flex items-center gap-3 hover:bg-orange-900/20 p-2 rounded-lg transition-colors">
                         <div className="p-2 rounded-full bg-orange-900/30 text-orange-400">
-                          <BriefcaseBusiness size={18} />
+                          <Settings size={18} />
                         </div>
-                        <span className="text-white hover:text-orange-400 transition-colors">Professional Painters</span>
-                      </Link>
+                        <span className="text-white hover:text-orange-400 transition-colors">System Maintenance</span>
+                      </HoveredLink>
                       
-                      <div className="flex flex-col gap-1.5 p-3 bg-gradient-to-br from-blue-900/20 to-orange-900/10 rounded-lg border border-blue-900/30">
-                        <span className="text-sm text-gray-300">Ready to become certified?</span>
-                        <Link href="/contact" className="text-sm font-bold text-blue-400 hover:text-blue-300 transition-colors">
-                          Contact our team →
-                        </Link>
+                      <HoveredLink href="/repairs" className="flex items-center gap-3 hover:bg-orange-900/20 p-2 rounded-lg transition-colors">
+                        <div className="p-2 rounded-full bg-orange-900/30 text-orange-400">
+                          <Wrench size={18} />
+                        </div>
+                        <span className="text-white hover:text-orange-400 transition-colors">Repair Services</span>
+                      </HoveredLink>
+                      
+                      <div className="flex flex-col gap-1.5 p-3 bg-gradient-to-br from-orange-900/20 to-yellow-900/10 rounded-lg border border-orange-900/30">
+                        <span className="text-sm text-gray-300">Need professional service?</span>
+                        <HoveredLink href="/contact" className="text-sm font-bold text-orange-400 hover:text-orange-300 transition-colors">
+                          Schedule consultation →
+                        </HoveredLink>
                       </div>
                     </div>
                   </div>
