@@ -1,132 +1,84 @@
-import { Button } from "@/components/ui/button";
-import { Phone, Zap, Battery, Sun } from "lucide-react";
+import { motion } from "framer-motion";
+import { Link } from "wouter";
 
 const SolarHeroSection = () => {
   return (
-    <section className="relative min-h-screen bg-gradient-to-br from-yellow-50 via-orange-50 to-blue-50 overflow-hidden">
-      {/* Background Elements */}
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
+      {/* Background with solar theme */}
+      <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/10 via-orange-500/5 to-red-500/10"></div>
+      
+      {/* Animated background elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 right-10 w-32 h-32 bg-yellow-200 rounded-full opacity-20 animate-pulse"></div>
-        <div className="absolute bottom-20 left-10 w-24 h-24 bg-orange-200 rounded-full opacity-30 animate-bounce"></div>
-        <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-blue-200 rounded-full opacity-25"></div>
+        <div className="absolute top-20 left-20 w-32 h-32 bg-yellow-500/20 rounded-full blur-xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-20 w-48 h-48 bg-orange-500/20 rounded-full blur-xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-yellow-500/10 to-orange-500/10 rounded-full blur-2xl"></div>
       </div>
 
-      <div className="relative z-10 container mx-auto px-4 py-20 flex flex-col lg:flex-row items-center min-h-screen">
-        {/* Content */}
-        <div className="flex-1 text-center lg:text-left mb-12 lg:mb-0">
-          {/* Logo */}
-          <div className="mb-8">
-            <img 
-              src="/advance-power-logo.jpg" 
-              alt="Advance Power Redding" 
-              className="h-20 mx-auto lg:mx-0 rounded-lg shadow-lg"
-            />
-          </div>
-
-          {/* Main Headline */}
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-            <span className="text-gray-900">Energy Freedom</span>
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="mb-8"
+        >
+          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+            <span className="bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 bg-clip-text text-transparent">
+              Solar Power
+            </span>
             <br />
-            <span className="bg-gradient-to-r from-yellow-500 to-orange-500 bg-clip-text text-transparent">
-              Begins Here!
+            <span className="text-white">
+              Solutions
             </span>
           </h1>
-
-          {/* Subheadline */}
-          <p className="text-xl md:text-2xl text-gray-700 mb-8 max-w-2xl mx-auto lg:mx-0">
-            Advance Power Redding provides expert solar solutions, battery care, and energy-saving services to help reduce costs and improve efficiency
+          
+          <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
+            North State's leader in renewable energy design, installation, service & technical expertise for over 20 years
           </p>
-
-          {/* Key Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8 max-w-lg mx-auto lg:mx-0">
-            <div className="text-center p-4 bg-white/50 rounded-lg backdrop-blur-sm">
-              <div className="text-2xl font-bold text-yellow-600">20+</div>
-              <div className="text-sm text-gray-600">Years Experience</div>
-            </div>
-            <div className="text-center p-4 bg-white/50 rounded-lg backdrop-blur-sm">
-              <div className="text-2xl font-bold text-orange-600">1000+</div>
-              <div className="text-sm text-gray-600">Installations</div>
-            </div>
-            <div className="text-center p-4 bg-white/50 rounded-lg backdrop-blur-sm col-span-2 md:col-span-1">
-              <div className="text-2xl font-bold text-blue-600">Licensed</div>
-              <div className="text-sm text-gray-600">Professionals</div>
-            </div>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Link href="#contact">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-8 py-4 bg-gradient-to-r from-yellow-500 to-orange-500 text-white font-bold rounded-lg text-lg shadow-xl hover:shadow-2xl transition-all duration-300"
+              >
+                Get Free Solar Quote
+              </motion.button>
+            </Link>
+            
+            <Link href="#services">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-8 py-4 border-2 border-gray-300 text-gray-300 font-bold rounded-lg text-lg hover:bg-white hover:text-gray-900 transition-all duration-300"
+              >
+                Our Services
+              </motion.button>
+            </Link>
           </div>
+        </motion.div>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
-            <Button size="lg" className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-8 py-4 text-lg">
-              <Phone className="w-5 h-5 mr-2" />
-              Call Now: (530) 226-0701
-            </Button>
-            <Button size="lg" variant="outline" className="border-2 border-orange-500 text-orange-600 hover:bg-orange-50 px-8 py-4 text-lg">
-              Get Free Quote
-            </Button>
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.3 }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16"
+        >
+          <div className="bg-black/30 backdrop-blur-sm border border-gray-700 rounded-xl p-6">
+            <div className="text-3xl font-bold text-yellow-400 mb-2">20+</div>
+            <div className="text-gray-300">Years Experience</div>
           </div>
-
-          {/* Energy Storage CTA */}
-          <div className="bg-gradient-to-r from-blue-500 to-blue-600 text-white p-6 rounded-lg shadow-lg max-w-md mx-auto lg:mx-0">
-            <div className="flex items-center mb-2">
-              <Battery className="w-6 h-6 mr-2" />
-              <span className="font-semibold">Family Energy Storage System</span>
-            </div>
-            <p className="text-blue-100 mb-3">Gather, store, and use power – your way!</p>
-            <Button variant="secondary" className="w-full">
-              Learn More About Energy Storage
-            </Button>
+          
+          <div className="bg-black/30 backdrop-blur-sm border border-gray-700 rounded-xl p-6">
+            <div className="text-3xl font-bold text-orange-400 mb-2">1000+</div>
+            <div className="text-gray-300">Solar Installations</div>
           </div>
-        </div>
-
-        {/* Visual Elements */}
-        <div className="flex-1 relative">
-          <div className="relative w-full max-w-lg mx-auto">
-            {/* Solar Panel Illustration */}
-            <div className="relative">
-              <div className="w-80 h-64 bg-gradient-to-br from-blue-800 to-blue-900 rounded-lg shadow-2xl transform rotate-3 mx-auto">
-                <div className="grid grid-cols-4 gap-1 p-4 h-full">
-                  {Array.from({ length: 16 }).map((_, i) => (
-                    <div 
-                      key={i} 
-                      className="bg-gradient-to-br from-blue-600 to-blue-700 rounded border border-blue-500"
-                      style={{ animationDelay: `${i * 0.1}s` }}
-                    ></div>
-                  ))}
-                </div>
-              </div>
-              
-              {/* Sun Icon */}
-              <div className="absolute -top-8 -right-8 w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center shadow-lg animate-pulse">
-                <Sun className="w-8 h-8 text-yellow-800" />
-              </div>
-
-              {/* Energy Flow Lines */}
-              <div className="absolute top-1/2 -right-12 flex flex-col gap-2">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <div 
-                    key={i}
-                    className="w-8 h-1 bg-yellow-400 rounded-full opacity-60"
-                    style={{ 
-                      animationDelay: `${i * 0.2}s`,
-                      animation: 'pulse 2s infinite'
-                    }}
-                  ></div>
-                ))}
-              </div>
-
-              {/* Battery Icon */}
-              <div className="absolute -bottom-6 -left-6 w-12 h-16 bg-green-500 rounded-md flex items-center justify-center shadow-lg">
-                <Zap className="w-6 h-6 text-white" />
-              </div>
-            </div>
+          
+          <div className="bg-black/30 backdrop-blur-sm border border-gray-700 rounded-xl p-6">
+            <div className="text-3xl font-bold text-red-400 mb-2">24/7</div>
+            <div className="text-gray-300">Support & Service</div>
           </div>
-        </div>
-      </div>
-
-      {/* Bottom Wave */}
-      <div className="absolute bottom-0 left-0 right-0">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="relative block w-full h-16">
-          <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" className="fill-white"></path>
-        </svg>
+        </motion.div>
       </div>
     </section>
   );

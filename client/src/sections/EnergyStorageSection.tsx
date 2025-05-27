@@ -1,188 +1,197 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Battery, Shield, Thermometer, Wrench, Clock, Zap } from "lucide-react";
+import { motion } from "framer-motion";
+import { Battery, Zap, Shield, Clock, TrendingUp, Home } from "lucide-react";
 
 const EnergyStorageSection = () => {
-  const batteryFeatures = [
+  const benefits = [
     {
-      icon: <Shield className="w-6 h-6" />,
-      title: "10-Year Warranty",
-      description: "Comprehensive warranty coverage for peace of mind"
+      icon: <Battery className="w-8 h-8" />,
+      title: "Energy Independence",
+      description: "Store excess solar power during the day to use at night or during outages."
     },
     {
-      icon: <Wrench className="w-6 h-6" />,
-      title: "No Maintenance",
-      description: "Zero maintenance required throughout system life"
+      icon: <Shield className="w-8 h-8" />,
+      title: "Backup Power",
+      description: "Keep your essential systems running during power outages with reliable battery backup."
     },
     {
-      icon: <Thermometer className="w-6 h-6" />,
-      title: "All-Temperature Operation",
-      description: "Operates efficiently in all weather conditions"
+      icon: <TrendingUp className="w-8 h-8" />,
+      title: "Cost Savings",
+      description: "Reduce peak-time electricity costs by using stored solar energy during expensive hours."
     },
     {
-      icon: <Zap className="w-6 h-6" />,
-      title: "Higher Efficiency",
-      description: "More efficient than traditional lead acid batteries"
+      icon: <Clock className="w-8 h-8" />,
+      title: "24/7 Solar Power",
+      description: "Access your solar energy anytime, even when the sun isn't shining."
     }
   ];
 
+  const batteryFeatures = [
+    "Lithium Iron Phosphate (LiFePO4) technology",
+    "10-15 year warranty",
+    "Smart energy management system",
+    "Seamless grid integration",
+    "Remote monitoring capabilities",
+    "Scalable modular design"
+  ];
+
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-900 to-blue-900 text-white">
-      <div className="container mx-auto px-4">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="text-white">Family Energy </span>
-            <span className="bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
-              Storage System
-            </span>
+    <section className="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            Energy <span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">Storage Solutions</span>
           </h2>
-          <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
-            Our innovative and affordable Family Energy Storage System is designed to help you take control 
-            of your energy usage. Embrace energy freedom today and build your future with advanced lithium technology.
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            Advanced lithium battery systems that store your solar energy for use when you need it most. 
+            Achieve true energy independence with our cutting-edge storage technology.
           </p>
-          <Button size="lg" className="bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-black font-semibold px-8">
-            Learn About Energy Storage
-          </Button>
-        </div>
+        </motion.div>
 
-        {/* Main Content */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
-          {/* Battery Illustration */}
-          <div className="relative">
-            <div className="relative w-full max-w-md mx-auto">
-              {/* Main Battery Unit */}
-              <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-8 shadow-2xl border border-gray-700">
-                <div className="bg-gradient-to-r from-green-500 to-blue-500 rounded-xl p-6 mb-6">
-                  <div className="flex items-center justify-between mb-4">
-                    <Battery className="w-8 h-8 text-white" />
-                    <span className="text-white font-semibold">APR Battery System</span>
-                  </div>
-                  <div className="bg-white/20 rounded-lg p-4">
-                    <div className="flex justify-between text-white text-sm mb-2">
-                      <span>Charge Level</span>
-                      <span>87%</span>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h3 className="text-3xl font-bold text-white mb-8">
+              Why Choose Battery Storage?
+            </h3>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {benefits.map((benefit, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="bg-black/30 backdrop-blur-sm border border-gray-700 rounded-xl p-6"
+                >
+                  <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-lg mb-4">
+                    <div className="text-white">
+                      {benefit.icon}
                     </div>
-                    <div className="w-full bg-white/30 rounded-full h-3">
-                      <div className="bg-gradient-to-r from-yellow-400 to-green-400 h-3 rounded-full" style={{width: '87%'}}></div>
-                    </div>
                   </div>
-                </div>
-                
-                {/* Technical Display */}
-                <div className="grid grid-cols-2 gap-4 text-center">
-                  <div className="bg-blue-500/20 rounded-lg p-3">
-                    <Clock className="w-5 h-5 text-blue-400 mx-auto mb-1" />
-                    <div className="text-blue-400 text-xs">Runtime</div>
-                    <div className="text-white font-semibold">12+ hrs</div>
-                  </div>
-                  <div className="bg-green-500/20 rounded-lg p-3">
-                    <Zap className="w-5 h-5 text-green-400 mx-auto mb-1" />
-                    <div className="text-green-400 text-xs">Power</div>
-                    <div className="text-white font-semibold">5kW</div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Energy Flow Animation */}
-              <div className="absolute -top-6 -right-6 w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center animate-pulse">
-                <Zap className="w-6 h-6 text-yellow-800" />
-              </div>
-            </div>
-          </div>
-
-          {/* Content */}
-          <div>
-            <h3 className="text-3xl font-bold mb-6">Advanced Lithium Battery Technology</h3>
-            <div className="space-y-4 text-blue-100 leading-relaxed mb-8">
-              <p>
-                Our lithium battery systems use cutting-edge <strong>LiFePO₄ (Lithium Iron Phosphate)</strong> technology, 
-                offering superior performance compared to traditional lead-acid batteries.
-              </p>
-              <p>
-                Unlike lead-acid batteries that often face problems with corrosion and water levels requiring 
-                constant maintenance, our lithium batteries are completely maintenance-free and come with a 
-                comprehensive 10-year warranty.
-              </p>
-              <p>
-                The APR Battery with advanced Battery Management System (BMS) ensures optimal performance, 
-                safety, and longevity for your energy storage investment.
-              </p>
-            </div>
-
-            {/* Feature Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {batteryFeatures.map((feature, index) => (
-                <div key={index} className="flex items-start space-x-3 p-4 bg-white/10 rounded-lg backdrop-blur-sm">
-                  <div className="text-yellow-400 mt-1">
-                    {feature.icon}
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-white">{feature.title}</h4>
-                    <p className="text-blue-200 text-sm">{feature.description}</p>
-                  </div>
-                </div>
+                  
+                  <h4 className="text-xl font-bold text-white mb-3">
+                    {benefit.title}
+                  </h4>
+                  
+                  <p className="text-gray-300 leading-relaxed">
+                    {benefit.description}
+                  </p>
+                </motion.div>
               ))}
             </div>
-          </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="bg-gradient-to-br from-yellow-500/10 to-orange-500/10 backdrop-blur-sm border border-gray-700 rounded-2xl p-8"
+          >
+            <div className="flex items-center mb-6">
+              <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-xl mr-4">
+                <Battery className="w-8 h-8 text-white" />
+              </div>
+              <div>
+                <h3 className="text-2xl font-bold text-white">Premium Lithium Batteries</h3>
+                <p className="text-gray-300">Advanced energy storage technology</p>
+              </div>
+            </div>
+
+            <ul className="space-y-3 mb-8">
+              {batteryFeatures.map((feature, index) => (
+                <li key={index} className="flex items-center text-gray-300">
+                  <div className="w-2 h-2 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full mr-3"></div>
+                  {feature}
+                </li>
+              ))}
+            </ul>
+
+            <div className="bg-black/40 rounded-xl p-6">
+              <h4 className="text-xl font-bold text-white mb-4">System Capacity Options</h4>
+              <div className="grid grid-cols-2 gap-4 text-center">
+                <div className="bg-gradient-to-r from-yellow-500/20 to-orange-500/20 rounded-lg p-4">
+                  <div className="text-2xl font-bold text-yellow-400">10-20 kWh</div>
+                  <div className="text-gray-300 text-sm">Residential</div>
+                </div>
+                <div className="bg-gradient-to-r from-yellow-500/20 to-orange-500/20 rounded-lg p-4">
+                  <div className="text-2xl font-bold text-orange-400">50+ kWh</div>
+                  <div className="text-gray-300 text-sm">Commercial</div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
 
-        {/* Comparison Section */}
-        <div className="bg-white/10 rounded-2xl p-8 backdrop-blur-sm">
-          <h3 className="text-2xl font-bold text-center mb-8">Lithium vs Lead-Acid Comparison</h3>
-          <div className="overflow-x-auto">
-            <table className="w-full text-left">
-              <thead>
-                <tr className="border-b border-white/20">
-                  <th className="pb-3 text-blue-200">Feature</th>
-                  <th className="pb-3 text-green-400">APR Lithium (LiFePO₄)</th>
-                  <th className="pb-3 text-red-400">Lead-Acid</th>
-                </tr>
-              </thead>
-              <tbody className="space-y-3">
-                <tr className="border-b border-white/10">
-                  <td className="py-3 text-blue-200">Maintenance</td>
-                  <td className="py-3 text-green-400">✓ Zero maintenance required</td>
-                  <td className="py-3 text-red-400">✗ Regular water level checks</td>
-                </tr>
-                <tr className="border-b border-white/10">
-                  <td className="py-3 text-blue-200">Lifespan</td>
-                  <td className="py-3 text-green-400">✓ 10+ years</td>
-                  <td className="py-3 text-red-400">✗ 3-5 years</td>
-                </tr>
-                <tr className="border-b border-white/10">
-                  <td className="py-3 text-blue-200">Temperature Performance</td>
-                  <td className="py-3 text-green-400">✓ Excellent in all temps</td>
-                  <td className="py-3 text-red-400">✗ Reduced cold weather performance</td>
-                </tr>
-                <tr className="border-b border-white/10">
-                  <td className="py-3 text-blue-200">Efficiency</td>
-                  <td className="py-3 text-green-400">✓ 95%+ round-trip</td>
-                  <td className="py-3 text-red-400">✗ 80% round-trip</td>
-                </tr>
-                <tr>
-                  <td className="py-3 text-blue-200">Safety</td>
-                  <td className="py-3 text-green-400">✓ No corrosive gases</td>
-                  <td className="py-3 text-red-400">✗ Corrosion and gas issues</td>
-                </tr>
-              </tbody>
-            </table>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="bg-gradient-to-r from-yellow-500 to-orange-500 rounded-2xl p-12 text-center"
+        >
+          <div className="flex items-center justify-center mb-6">
+            <Home className="w-12 h-12 text-white mr-4" />
+            <div className="text-left">
+              <h3 className="text-3xl font-bold text-white">Complete Solar + Storage Solutions</h3>
+              <p className="text-white/90">Hybrid systems for maximum energy independence</p>
+            </div>
           </div>
-        </div>
 
-        {/* CTA */}
-        <div className="text-center mt-12">
-          <h3 className="text-2xl font-bold mb-4">Ready to Take Control of Your Energy?</h3>
-          <p className="text-blue-200 mb-6">Contact us today to learn more about our Family Energy Storage System</p>
+          <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto">
+            Combine solar panels with battery storage for the ultimate energy solution. 
+            Generate, store, and use clean energy on your terms while protecting against power outages.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
+              <Zap className="w-8 h-8 text-white mx-auto mb-3" />
+              <h4 className="font-bold text-white mb-2">Solar Generation</h4>
+              <p className="text-white/80 text-sm">High-efficiency panels capture maximum sunlight</p>
+            </div>
+            
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
+              <Battery className="w-8 h-8 text-white mx-auto mb-3" />
+              <h4 className="font-bold text-white mb-2">Energy Storage</h4>
+              <p className="text-white/80 text-sm">Store excess power for later use</p>
+            </div>
+            
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
+              <Shield className="w-8 h-8 text-white mx-auto mb-3" />
+              <h4 className="font-bold text-white mb-2">Backup Protection</h4>
+              <p className="text-white/80 text-sm">Automatic backup during outages</p>
+            </div>
+          </div>
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-8">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-8 py-3 bg-white text-orange-500 font-bold rounded-lg hover:bg-gray-100 transition-all duration-300"
+            >
+              Design My Storage System
+            </motion.button>
+            
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-8 py-3 border-2 border-white text-white font-bold rounded-lg hover:bg-white hover:text-orange-500 transition-all duration-300"
+            >
               Get Storage Quote
-            </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 px-8">
-              Download Specifications
-            </Button>
+            </motion.button>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
