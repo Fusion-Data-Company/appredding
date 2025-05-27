@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle, XCircle, HelpCircle, Sparkles, Shield, Info } from "lucide-react";
 import { GradientHeading } from "@/components/ui/gradient-heading";
-import { PRAETORIAN_HERO_IMAGE } from "../../assets_dir/imageExports";
+import { ADVANCE_POWER_LOGO } from "../../assets_dir/imageExports";
 
 const ProductComparison = () => {
   const comparisons = [
@@ -98,7 +98,7 @@ const ProductComparison = () => {
     <section 
       className="py-16 relative z-10"
       style={{ 
-        backgroundImage: `url(${PRAETORIAN_HERO_IMAGE})`,
+        backgroundImage: `url(${ADVANCE_POWER_LOGO})`,
         backgroundSize: "cover",
         backgroundPosition: "center center", // Standardized position
         backgroundRepeat: "no-repeat",
