@@ -413,7 +413,7 @@ export function PremiumNavbar() {
     <div className="p-4">
       <div className="border-b border-gray-700 pb-2 mb-3">
         <h3 className="text-base font-bold text-center text-white drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">
-          Praetorian CRM
+          Advance Power CRM
         </h3>
       </div>
       

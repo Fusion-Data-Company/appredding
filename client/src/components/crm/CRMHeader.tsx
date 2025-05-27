@@ -21,10 +21,10 @@ export const CRMHeader = () => {
             glow="md" 
             weight="extrabold"
           >
-            PRAETORIAN CRM PORTAL
+            ADVANCE POWER OF REDDING CRM
           </PraetorianGradientText>
           <p className="text-white text-lg">
-            Premium Client Relationship Management System
+            Solar Installation & Repair Customer Management System
           </p>
         </div>
       </Lamp>
