@@ -10,44 +10,52 @@ const SolarSalesFunnelSection = () => {
       id: "residential",
       title: "Residential Solar",
       subtitle: "Homeowner Solutions",
-      color: "from-yellow-500 to-orange-500",
-      icon: <Sun className="w-8 h-8" />,
-      description: "Custom solar systems for your home",
-      benefits: ["Reduce energy bills by 90%", "25-year warranty", "Free consultation", "Financing available"],
-      ctaText: "Get Free Home Quote",
+      color: "from-yellow-400 via-orange-500 to-red-500",
+      bgGradient: "from-yellow-500/20 via-orange-500/15 to-red-500/10",
+      borderColor: "border-yellow-500/40",
+      icon: <Sun className="w-10 h-10" />,
+      description: "Transform your home with premium solar energy systems designed for maximum efficiency and long-term savings",
+      benefits: ["Reduce energy bills by 90%", "25-year comprehensive warranty", "Free professional consultation", "Flexible financing options"],
+      ctaText: "Get Free Home Assessment",
       formType: "residential"
     },
     {
       id: "commercial",
       title: "Commercial Solar", 
       subtitle: "Business Solutions",
-      color: "from-blue-500 to-cyan-500",
-      icon: <Zap className="w-8 h-8" />,
-      description: "Scalable solar solutions for businesses",
-      benefits: ["Tax incentives", "ROI in 3-5 years", "Performance monitoring", "Commercial warranties"],
-      ctaText: "Get Business Quote",
+      color: "from-blue-400 via-cyan-500 to-blue-600",
+      bgGradient: "from-blue-500/20 via-cyan-500/15 to-blue-600/10",
+      borderColor: "border-blue-500/40",
+      icon: <Zap className="w-10 h-10" />,
+      description: "Enterprise-grade solar solutions that deliver substantial ROI and sustainable energy independence for your business",
+      benefits: ["Federal tax incentives", "ROI in 3-5 years", "Advanced performance monitoring", "Commercial-grade warranties"],
+      ctaText: "Get Business Assessment",
       formType: "commercial"
     },
     {
       id: "storage",
       title: "Battery Storage",
       subtitle: "Energy Independence", 
-      color: "from-green-500 to-emerald-500",
-      icon: <Battery className="w-8 h-8" />,
-      description: "Hybrid systems with battery backup",
-      benefits: ["24/7 power availability", "Blackout protection", "Grid independence", "Smart energy management"],
-      ctaText: "Get Storage Quote",
+      color: "from-green-400 via-emerald-500 to-green-600",
+      bgGradient: "from-green-500/20 via-emerald-500/15 to-green-600/10",
+      borderColor: "border-green-500/40",
+      icon: <Battery className="w-10 h-10" />,
+      description: "Cutting-edge battery storage systems that provide reliable backup power and complete energy autonomy",
+      benefits: ["24/7 power availability", "Blackout protection", "Grid independence", "Intelligent energy management"],
+      ctaText: "Get Storage Assessment",
       formType: "storage"
     },
     {
       id: "maintenance",
       title: "Service & Repair",
       subtitle: "Professional Maintenance",
-      color: "from-purple-500 to-indigo-500", 
-      icon: <Shield className="w-8 h-8" />,
-      description: "Keep your system running at peak efficiency",
-      benefits: ["Performance optimization", "System diagnostics", "Panel cleaning", "Warranty protection"],
-      ctaText: "Schedule Service",
+      color: "from-purple-400 via-indigo-500 to-purple-600", 
+      bgGradient: "from-purple-500/20 via-indigo-500/15 to-purple-600/10",
+      borderColor: "border-purple-500/40",
+      icon: <Shield className="w-10 h-10" />,
+      description: "Expert maintenance and repair services to ensure your solar investment continues performing at peak efficiency",
+      benefits: ["Performance optimization", "Advanced system diagnostics", "Professional panel cleaning", "Warranty protection"],
+      ctaText: "Schedule Expert Service",
       formType: "maintenance"
     }
   ];
@@ -215,21 +223,65 @@ const SolarSalesFunnelSection = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 to-gray-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative py-24 bg-gradient-to-br from-slate-50 via-gray-50 to-white overflow-hidden">
+      {/* Enterprise Background Pattern */}
+      <div className="absolute inset-0 opacity-40">
+        <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="enterprise-dots" width="20" height="20" patternUnits="userSpaceOnUse">
+              <circle cx="10" cy="10" r="1" fill="rgba(251, 191, 36, 0.1)"/>
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#enterprise-dots)" />
+        </svg>
+      </div>
+
+      {/* Premium Floating Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 left-20 w-32 h-32 bg-gradient-to-br from-yellow-400/10 to-orange-500/10 rounded-full blur-xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-20 w-40 h-40 bg-gradient-to-br from-orange-500/10 to-red-500/10 rounded-full blur-xl animate-pulse delay-1000"></div>
+      </div>
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Find Your Perfect <span className="bg-gradient-to-r from-yellow-500 to-orange-500 bg-clip-text text-transparent">Solar Solution</span>
+          {/* Enterprise Typography */}
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-black text-gray-900 mb-8 leading-tight">
+            Find Your Perfect{" "}
+            <span className="relative inline-block">
+              <span className="bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 bg-clip-text text-transparent">
+                Solar Solution
+              </span>
+              <div className="absolute -inset-1 bg-gradient-to-r from-yellow-400/20 to-orange-500/20 blur-lg -z-10 animate-pulse"></div>
+            </span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          
+          <p className="text-2xl md:text-3xl text-gray-600 max-w-4xl mx-auto font-light leading-relaxed mb-6">
             Choose your solar journey below and get a custom quote from Northern California's most trusted solar experts.
           </p>
+
+          {/* Trust Indicators */}
+          <div className="flex items-center justify-center gap-8 text-sm font-medium text-gray-500">
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+              <span>Licensed & Insured</span>
+            </div>
+            <div className="w-1 h-4 bg-gray-300"></div>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse delay-300"></div>
+              <span>20+ Years Experience</span>
+            </div>
+            <div className="w-1 h-4 bg-gray-300"></div>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-yellow-500 rounded-full animate-pulse delay-600"></div>
+              <span>Free Consultations</span>
+            </div>
+          </div>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -240,47 +292,61 @@ const SolarSalesFunnelSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 p-8 group relative overflow-hidden"
+              whileHover={{ scale: 1.02, y: -8 }}
+              className={`group relative bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-500 p-8 border ${funnel.borderColor} hover:border-opacity-60 overflow-hidden`}
             >
-              {/* Colored gradient background */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${funnel.color} opacity-5 group-hover:opacity-10 transition-opacity duration-300`}></div>
+              {/* Enterprise Background Gradient */}
+              <div className={`absolute inset-0 bg-gradient-to-br ${funnel.bgGradient} opacity-20 group-hover:opacity-30 transition-opacity duration-500`}></div>
+              
+              {/* Premium Card Glow Effect */}
+              <div className={`absolute -inset-0.5 bg-gradient-to-br ${funnel.color} rounded-3xl blur-lg opacity-20 group-hover:opacity-30 transition-opacity duration-500`}></div>
               
               <div className="relative z-10">
-                <div className={`flex items-center justify-center w-16 h-16 bg-gradient-to-r ${funnel.color} rounded-xl mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                {/* Enhanced Icon Container */}
+                <div className={`flex items-center justify-center w-20 h-20 bg-gradient-to-br ${funnel.color} rounded-2xl mb-8 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-xl`}>
                   <div className="text-white">
                     {funnel.icon}
                   </div>
+                  <div className="absolute -inset-1 bg-white/20 rounded-2xl blur-sm"></div>
                 </div>
                 
-                <h3 className="text-xl font-bold text-gray-900 mb-2">
+                {/* Premium Typography */}
+                <h3 className="text-2xl font-black text-gray-900 mb-3 leading-tight">
                   {funnel.title}
                 </h3>
                 
-                <p className="text-sm text-gray-600 mb-4 font-medium">
+                <p className="text-base text-gray-600 mb-6 font-semibold tracking-wide">
                   {funnel.subtitle}
                 </p>
                 
-                <p className="text-gray-700 mb-6 leading-relaxed">
+                <p className="text-gray-700 mb-8 leading-relaxed text-lg font-medium">
                   {funnel.description}
                 </p>
                 
-                <ul className="space-y-2 mb-8">
+                {/* Enhanced Benefits List */}
+                <ul className="space-y-3 mb-10">
                   {funnel.benefits.map((benefit, i) => (
-                    <li key={i} className="flex items-center text-gray-700 text-sm">
-                      <div className={`w-2 h-2 bg-gradient-to-r ${funnel.color} rounded-full mr-3`}></div>
-                      {benefit}
+                    <li key={i} className="flex items-center text-gray-700 font-medium">
+                      <div className={`w-3 h-3 bg-gradient-to-r ${funnel.color} rounded-full mr-4 shadow-lg`}></div>
+                      <span className="text-base">{benefit}</span>
                     </li>
                   ))}
                 </ul>
                 
+                {/* Premium CTA Button */}
                 <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.98 }}
                   onClick={() => setSelectedFunnel(funnel)}
-                  className={`w-full py-3 bg-gradient-to-r ${funnel.color} text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300 flex items-center justify-center`}
+                  className={`group/btn relative w-full py-4 bg-gradient-to-r ${funnel.color} text-white font-bold rounded-2xl text-lg shadow-xl hover:shadow-2xl transition-all duration-500 flex items-center justify-center overflow-hidden`}
                 >
-                  {funnel.ctaText}
-                  <ArrowRight className="w-4 h-4 ml-2" />
+                  {/* Button Glow Effect */}
+                  <div className={`absolute -inset-1 bg-gradient-to-r ${funnel.color} rounded-2xl blur-lg opacity-60 group-hover/btn:opacity-80 transition-opacity duration-500`}></div>
+                  
+                  <div className="relative flex items-center gap-3">
+                    <span>{funnel.ctaText}</span>
+                    <ArrowRight className="w-5 h-5 transform group-hover/btn:translate-x-1 transition-transform duration-300" />
+                  </div>
                 </motion.button>
               </div>
             </motion.div>
