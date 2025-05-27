@@ -67,19 +67,19 @@ const SolarHeroSection = () => {
               <div className="absolute -inset-1 bg-gradient-to-r from-yellow-400/20 to-orange-500/15 blur-xl -z-10 animate-pulse delay-500"></div>
             </span>
             <br />
-            <span className="relative inline-block text-white drop-shadow-2xl font-light tracking-wide">
+            <span className="relative inline-block text-gray-800 drop-shadow-2xl font-light tracking-wide">
               Solutions
-              <div className="absolute -inset-2 bg-white/15 blur-2xl -z-10 animate-pulse delay-300"></div>
-              <div className="absolute -inset-1 bg-white/10 blur-lg -z-10"></div>
+              <div className="absolute -inset-2 bg-gray-800/15 blur-2xl -z-10 animate-pulse delay-300"></div>
+              <div className="absolute -inset-1 bg-gray-800/10 blur-lg -z-10"></div>
             </span>
           </h1>
           
           {/* Premium Subtitle with Enhanced Typography */}
           <div className="relative mb-10">
-            <p className="text-2xl md:text-3xl lg:text-4xl text-gray-200 mb-4 max-w-4xl mx-auto leading-relaxed font-light tracking-wide">
+            <p className="text-2xl md:text-3xl lg:text-4xl text-gray-700 mb-4 max-w-4xl mx-auto leading-relaxed font-light tracking-wide">
               North State's leader in renewable energy design, installation, service & technical expertise
             </p>
-            <div className="flex items-center justify-center gap-4 text-lg md:text-xl text-amber-300 font-medium">
+            <div className="flex items-center justify-center gap-4 text-lg md:text-xl text-orange-700 font-medium">
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full animate-pulse"></div>
                 <span>20+ Years Experience</span>
@@ -119,12 +119,12 @@ const SolarHeroSection = () => {
               <motion.button
                 whileHover={{ scale: 1.06, y: -2 }}
                 whileTap={{ scale: 0.98 }}
-                className="group relative px-10 py-5 backdrop-blur-md bg-white/10 border-2 border-white/30 text-white font-bold rounded-2xl text-xl hover:bg-white/20 hover:border-white/50 transition-all duration-500 shadow-xl hover:shadow-2xl"
+                className="group relative px-10 py-5 backdrop-blur-md bg-gray-800/10 border-2 border-gray-800/30 text-gray-800 font-bold rounded-2xl text-xl hover:bg-gray-800/20 hover:border-gray-800/50 transition-all duration-500 shadow-xl hover:shadow-2xl"
               >
                 <div className="relative flex items-center gap-3">
                   <span>Explore Services</span>
-                  <div className="w-6 h-6 border border-white/40 rounded-full flex items-center justify-center group-hover:border-white/60 transition-colors duration-300">
-                    <svg className="w-3 h-3 text-white transform group-hover:rotate-45 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-6 h-6 border border-gray-800/40 rounded-full flex items-center justify-center group-hover:border-gray-800/60 transition-colors duration-300">
+                    <svg className="w-3 h-3 text-gray-800 transform group-hover:rotate-45 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                     </svg>
                   </div>

@@ -112,7 +112,7 @@ const SolarServicesSection = () => {
               className="group relative"
             >
               {/* Premium Card Background */}
-              <div className="relative bg-gradient-to-br from-gray-800/80 to-gray-900/80 backdrop-blur-sm rounded-3xl p-10 border border-gray-700/50 group-hover:border-orange-500/50 transition-all duration-500 overflow-hidden">
+              <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl p-10 border border-orange-200/50 group-hover:border-orange-500/50 transition-all duration-500 overflow-hidden shadow-xl">
                 
                 {/* Card Glow Effect */}
                 <div className={`absolute -inset-1 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500 rounded-3xl`}></div>
