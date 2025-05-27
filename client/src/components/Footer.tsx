@@ -208,7 +208,7 @@ const Footer = () => {
                   </div>
                   <p className="!text-black text-xs font-semibold relative z-50" style={{color: '#000000 !important', textShadow: '0 0 1px rgba(255,255,255,0.8)'}}>Founded:</p>
                 </div>
-                <p className="block pl-6 text-black text-sm font-medium" style={{color: '#000000 !important'}}>
+                <p className="block pl-6 !text-black text-sm font-medium relative z-50" style={{color: '#000000 !important', textShadow: '0 0 1px rgba(255,255,255,0.8)'}}>
                   1999 by Greg Tomsik
                 </p>
               </li>
@@ -217,9 +217,9 @@ const Footer = () => {
                   <div className="p-1 rounded-full bg-orange-900/30 text-orange-400 group-hover:text-orange-300 transition-colors">
                     <BarChart3 size={12} />
                   </div>
-                  <p className="text-black text-xs font-semibold" style={{color: '#000000 !important'}}>Experience:</p>
+                  <p className="!text-black text-xs font-semibold relative z-50" style={{color: '#000000 !important', textShadow: '0 0 1px rgba(255,255,255,0.8)'}}>Experience:</p>
                 </div>
-                <p className="block pl-6 text-black text-sm font-medium" style={{color: '#000000 !important'}}>
+                <p className="block pl-6 !text-black text-sm font-medium relative z-50" style={{color: '#000000 !important', textShadow: '0 0 1px rgba(255,255,255,0.8)'}}>
                   25+ Years in Solar
                 </p>
               </li>
@@ -228,9 +228,9 @@ const Footer = () => {
                   <div className="p-1 rounded-full bg-orange-900/30 text-orange-400 group-hover:text-orange-300 transition-colors">
                     <Shield size={12} />
                   </div>
-                  <p className="text-black text-xs font-semibold" style={{color: '#000000 !important'}}>License:</p>
+                  <p className="!text-black text-xs font-semibold relative z-50" style={{color: '#000000 !important', textShadow: '0 0 1px rgba(255,255,255,0.8)'}}>License:</p>
                 </div>
-                <p className="block pl-6 text-black text-sm font-medium" style={{color: '#000000 !important'}}>
+                <p className="block pl-6 !text-black text-sm font-medium relative z-50" style={{color: '#000000 !important', textShadow: '0 0 1px rgba(255,255,255,0.8)'}}>
                   CA Licensed Contractor
                 </p>
               </li>
