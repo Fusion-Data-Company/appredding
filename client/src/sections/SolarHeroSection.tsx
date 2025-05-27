@@ -43,10 +43,60 @@ const SolarHeroSection = () => {
         <div className="absolute top-1/3 left-1/3 w-24 h-24 bg-gradient-to-br from-amber-400/20 to-yellow-500/15 rounded-full blur-lg animate-pulse delay-300 shadow-xl"></div>
         <div className="absolute bottom-1/3 right-1/3 w-32 h-32 bg-gradient-to-br from-red-500/20 to-orange-600/15 rounded-full blur-lg animate-pulse delay-800 shadow-xl"></div>
         
-        {/* Elite Floating Geometric Elements */}
-        <div className="absolute top-1/4 right-1/4 w-20 h-20 bg-gradient-to-br from-yellow-400/35 to-orange-500/30 rounded-lg rotate-45 animate-bounce shadow-2xl backdrop-blur-sm border border-yellow-400/25 before:absolute before:inset-2 before:bg-gradient-to-br before:from-white/10 before:to-transparent before:rounded-md"></div>
-        <div className="absolute bottom-1/4 left-1/4 w-16 h-16 bg-gradient-to-br from-orange-500/35 to-red-500/30 rounded-full animate-pulse delay-700 shadow-2xl backdrop-blur-sm border border-orange-400/25 before:absolute before:inset-2 before:bg-gradient-to-br before:from-white/15 before:to-transparent before:rounded-full"></div>
-        <div className="absolute top-3/4 right-1/3 w-14 h-14 bg-gradient-to-br from-amber-500/30 to-yellow-600/25 rounded-lg rotate-12 animate-bounce delay-1200 shadow-xl backdrop-blur-sm border border-amber-400/20"></div>
+        {/* Floating Solar Panel Elements */}
+        
+        {/* Large Solar Panel - Top Right */}
+        <div className="absolute top-16 right-20 w-40 h-24 bg-gradient-to-br from-blue-900/15 to-blue-700/10 border border-blue-500/30 rounded-lg rotate-12 animate-pulse shadow-2xl">
+          <div className="grid grid-cols-5 grid-rows-3 gap-0.5 p-2 h-full">
+            {[...Array(15)].map((_, i) => (
+              <div key={i} className="bg-blue-800/20 rounded-sm border border-blue-600/20"></div>
+            ))}
+          </div>
+        </div>
+
+        {/* Medium Solar Panel - Left Side */}
+        <div className="absolute top-1/3 left-12 w-32 h-20 bg-gradient-to-br from-blue-900/20 to-blue-700/10 border border-blue-500/25 rounded-lg -rotate-6 animate-pulse delay-1000 shadow-xl">
+          <div className="grid grid-cols-4 grid-rows-2 gap-0.5 p-1.5 h-full">
+            {[...Array(8)].map((_, i) => (
+              <div key={i} className="bg-blue-800/15 rounded-sm border border-blue-600/15"></div>
+            ))}
+          </div>
+        </div>
+
+        {/* Small Solar Panel - Bottom Left */}
+        <div className="absolute bottom-32 left-24 w-24 h-16 bg-gradient-to-br from-blue-900/20 to-blue-700/10 border border-blue-500/30 rounded-md rotate-3 animate-pulse delay-2000 shadow-xl">
+          <div className="grid grid-cols-3 grid-rows-2 gap-0.5 p-1 h-full">
+            {[...Array(6)].map((_, i) => (
+              <div key={i} className="bg-blue-800/20 rounded-sm border border-blue-600/20"></div>
+            ))}
+          </div>
+        </div>
+
+        {/* Solar Panel - Right Side */}
+        <div className="absolute bottom-40 right-28 w-36 h-22 bg-gradient-to-br from-blue-900/15 to-blue-700/10 border border-blue-500/25 rounded-lg -rotate-12 animate-pulse delay-500 shadow-xl">
+          <div className="grid grid-cols-4 grid-rows-2 gap-0.5 p-1.5 h-full">
+            {[...Array(8)].map((_, i) => (
+              <div key={i} className="bg-blue-800/15 rounded-sm border border-blue-600/15"></div>
+            ))}
+          </div>
+        </div>
+
+        {/* Additional Solar Panels */}
+        <div className="absolute top-1/2 right-12 w-28 h-18 bg-gradient-to-br from-blue-900/10 to-blue-700/5 border border-blue-500/20 rounded-lg rotate-6 animate-pulse delay-1500 shadow-lg">
+          <div className="grid grid-cols-3 grid-rows-2 gap-0.5 p-1 h-full">
+            {[...Array(6)].map((_, i) => (
+              <div key={i} className="bg-blue-800/10 rounded-sm border border-blue-600/10"></div>
+            ))}
+          </div>
+        </div>
+
+        <div className="absolute bottom-1/4 left-1/3 w-20 h-14 bg-gradient-to-br from-blue-900/15 to-blue-700/10 border border-blue-500/25 rounded-md -rotate-3 animate-pulse delay-800 shadow-lg">
+          <div className="grid grid-cols-2 grid-rows-2 gap-0.5 p-1 h-full">
+            {[...Array(4)].map((_, i) => (
+              <div key={i} className="bg-blue-800/15 rounded-sm border border-blue-600/15"></div>
+            ))}
+          </div>
+        </div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

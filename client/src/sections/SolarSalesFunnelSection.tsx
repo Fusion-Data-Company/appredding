@@ -231,16 +231,98 @@ const SolarSalesFunnelSection = () => {
         <div className="absolute bottom-1/4 right-1/3 w-80 h-80 bg-gradient-to-br from-orange-300/15 to-amber-300/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
       </div>
 
-      {/* Solar Grid Pattern */}
+      {/* Solar Panel Installation Pattern */}
       <div className="absolute inset-0 opacity-20">
         <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <pattern id="solar-grid" width="80" height="80" patternUnits="userSpaceOnUse">
-              <path d="M 80 0 L 0 0 0 80" fill="none" stroke="rgba(251, 191, 36, 0.4)" strokeWidth="1"/>
+            <pattern id="solar-installation-grid" width="120" height="80" patternUnits="userSpaceOnUse">
+              {/* Rooftop Solar Panel Layout */}
+              <rect x="10" y="10" width="45" height="30" fill="rgba(30, 58, 138, 0.1)" stroke="rgba(59, 130, 246, 0.25)" strokeWidth="0.8" rx="3"/>
+              <rect x="65" y="10" width="45" height="30" fill="rgba(30, 58, 138, 0.1)" stroke="rgba(59, 130, 246, 0.25)" strokeWidth="0.8" rx="3"/>
+              <rect x="10" y="45" width="45" height="30" fill="rgba(30, 58, 138, 0.1)" stroke="rgba(59, 130, 246, 0.25)" strokeWidth="0.8" rx="3"/>
+              <rect x="65" y="45" width="45" height="30" fill="rgba(30, 58, 138, 0.1)" stroke="rgba(59, 130, 246, 0.25)" strokeWidth="0.8" rx="3"/>
+              {/* Solar Cell Details */}
+              <line x1="32" y1="10" x2="32" y2="40" stroke="rgba(59, 130, 246, 0.15)" strokeWidth="0.4"/>
+              <line x1="87" y1="10" x2="87" y2="40" stroke="rgba(59, 130, 246, 0.15)" strokeWidth="0.4"/>
+              <line x1="32" y1="45" x2="32" y2="75" stroke="rgba(59, 130, 246, 0.15)" strokeWidth="0.4"/>
+              <line x1="87" y1="45" x2="87" y2="75" stroke="rgba(59, 130, 246, 0.15)" strokeWidth="0.4"/>
             </pattern>
           </defs>
-          <rect width="100%" height="100%" fill="url(#solar-grid)" />
+          <rect width="100%" height="100%" fill="url(#solar-installation-grid)" />
         </svg>
+      </div>
+
+      {/* Massive Solar Panel Farm Elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        {/* Large Solar Installation - Top Center */}
+        <div className="absolute top-8 left-1/2 transform -translate-x-1/2 w-56 h-32 bg-gradient-to-br from-blue-900/12 to-blue-700/8 border border-blue-500/20 rounded-xl rotate-1 animate-pulse shadow-lg">
+          <div className="grid grid-cols-7 grid-rows-4 gap-0.5 p-2 h-full">
+            {[...Array(28)].map((_, i) => (
+              <div key={i} className="bg-blue-800/15 rounded-sm border border-blue-600/15"></div>
+            ))}
+          </div>
+        </div>
+
+        {/* Solar Panel Array - Left Side */}
+        <div className="absolute top-1/4 left-8 w-44 h-26 bg-gradient-to-br from-blue-900/15 to-blue-700/10 border border-blue-500/25 rounded-lg -rotate-3 animate-pulse delay-500 shadow-xl">
+          <div className="grid grid-cols-6 grid-rows-3 gap-0.5 p-1.5 h-full">
+            {[...Array(18)].map((_, i) => (
+              <div key={i} className="bg-blue-800/18 rounded-sm border border-blue-600/18"></div>
+            ))}
+          </div>
+        </div>
+
+        {/* Commercial Solar Installation - Right Side */}
+        <div className="absolute top-1/3 right-12 w-48 h-28 bg-gradient-to-br from-blue-900/10 to-blue-700/8 border border-blue-500/20 rounded-lg rotate-4 animate-pulse delay-1000 shadow-lg">
+          <div className="grid grid-cols-6 grid-rows-3 gap-0.5 p-2 h-full">
+            {[...Array(18)].map((_, i) => (
+              <div key={i} className="bg-blue-800/12 rounded-sm border border-blue-600/12"></div>
+            ))}
+          </div>
+        </div>
+
+        {/* Solar Panel Cluster - Bottom Left */}
+        <div className="absolute bottom-16 left-20 w-40 h-24 bg-gradient-to-br from-blue-900/12 to-blue-700/8 border border-blue-500/22 rounded-lg rotate-2 animate-pulse delay-1500 shadow-md">
+          <div className="grid grid-cols-5 grid-rows-3 gap-0.5 p-1.5 h-full">
+            {[...Array(15)].map((_, i) => (
+              <div key={i} className="bg-blue-800/15 rounded-sm border border-blue-600/15"></div>
+            ))}
+          </div>
+        </div>
+
+        {/* Residential Solar Array - Bottom Right */}
+        <div className="absolute bottom-20 right-24 w-36 h-22 bg-gradient-to-br from-blue-900/14 to-blue-700/10 border border-blue-500/24 rounded-lg -rotate-2 animate-pulse delay-800 shadow-lg">
+          <div className="grid grid-cols-4 grid-rows-3 gap-0.5 p-1.5 h-full">
+            {[...Array(12)].map((_, i) => (
+              <div key={i} className="bg-blue-800/16 rounded-sm border border-blue-600/16"></div>
+            ))}
+          </div>
+        </div>
+
+        {/* Additional Scattered Solar Panels */}
+        <div className="absolute top-2/3 left-1/4 w-28 h-18 bg-gradient-to-br from-blue-900/10 to-blue-700/8 border border-blue-500/18 rounded-md rotate-6 animate-pulse delay-2000 shadow-sm">
+          <div className="grid grid-cols-3 grid-rows-2 gap-0.5 p-1 h-full">
+            {[...Array(6)].map((_, i) => (
+              <div key={i} className="bg-blue-800/12 rounded-sm border border-blue-600/12"></div>
+            ))}
+          </div>
+        </div>
+
+        <div className="absolute bottom-1/3 left-2/3 w-32 h-20 bg-gradient-to-br from-blue-900/12 to-blue-700/8 border border-blue-500/20 rounded-lg -rotate-4 animate-pulse delay-1200 shadow-md">
+          <div className="grid grid-cols-4 grid-rows-2 gap-0.5 p-1 h-full">
+            {[...Array(8)].map((_, i) => (
+              <div key={i} className="bg-blue-800/14 rounded-sm border border-blue-600/14"></div>
+            ))}
+          </div>
+        </div>
+
+        <div className="absolute top-1/2 right-1/4 w-24 h-16 bg-gradient-to-br from-blue-900/11 to-blue-700/8 border border-blue-500/19 rounded-md rotate-3 animate-pulse delay-1800 shadow-sm">
+          <div className="grid grid-cols-3 grid-rows-2 gap-0.5 p-1 h-full">
+            {[...Array(6)].map((_, i) => (
+              <div key={i} className="bg-blue-800/13 rounded-sm border border-blue-600/13"></div>
+            ))}
+          </div>
+        </div>
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
