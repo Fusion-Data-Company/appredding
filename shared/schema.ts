@@ -4,16 +4,19 @@ import { z } from "zod";
 import { relations } from "drizzle-orm";
 
 // Enums
-export const userTypeEnum = pgEnum('user_type', ['super_admin', 'admin', 'sales', 'client', 'painter', 'pool_worker', 'lobbyist', 'distributor']);
-export const projectStatusEnum = pgEnum('project_status', ['pending', 'in_progress', 'completed', 'cancelled']);
+export const userTypeEnum = pgEnum('user_type', ['super_admin', 'admin', 'sales', 'client', 'installer', 'technician', 'customer_service']);
+export const projectStatusEnum = pgEnum('project_status', ['pending', 'site_survey', 'design', 'permits', 'installation', 'inspection', 'completed', 'cancelled']);
 export const taskPriorityEnum = pgEnum('task_priority', ['low', 'medium', 'high', 'urgent']);
 export const taskStatusEnum = pgEnum('task_status', ['pending', 'in_progress', 'completed', 'cancelled', 'overdue']);
-export const applicationTypeEnum = pgEnum('application_type', ['painter_network', 'marina', 'fire_prevention', 'pool', 'construction', 'mobile_home', 'municipality']);
-export const leadSourceEnum = pgEnum('lead_source', ['website', 'referral', 'social_media', 'direct', 'trade_show', 'other']);
+export const solarServiceTypeEnum = pgEnum('solar_service_type', ['residential_solar', 'commercial_solar', 'hybrid_systems', 'lithium_battery', 'energy_conservation', 'maintenance', 'repair']);
+export const leadSourceEnum = pgEnum('lead_source', ['website', 'referral', 'social_media', 'direct', 'trade_show', 'google', 'facebook', 'other']);
 export const contactStatusEnum = pgEnum('contact_status', ['lead', 'prospect', 'customer', 'inactive']);
 export const socialMediaTypeEnum = pgEnum('social_media_type', ['facebook', 'instagram', 'twitter', 'linkedin', 'youtube', 'tiktok', 'other']);
 export const reviewStatusEnum = pgEnum('review_status', ['pending', 'approved', 'rejected']);
 export const verificationStatusEnum = pgEnum('verification_status', ['pending', 'verified', 'rejected']);
+export const systemTypeEnum = pgEnum('system_type', ['grid_tied', 'off_grid', 'hybrid']);
+export const installationStatusEnum = pgEnum('installation_status', ['quoted', 'approved', 'scheduled', 'in_progress', 'completed', 'warranty']);
+export const batteryTypeEnum = pgEnum('battery_type', ['lithium_iron_phosphate', 'lead_acid', 'lithium_ion']);
 
 // Tables
 export const users = pgTable("users", {
@@ -90,7 +93,7 @@ export const contacts = pgTable("contacts", {
   website: text("website"),
   source: leadSourceEnum("source").default('website'),
   status: contactStatusEnum("status").default('lead'),
-  interestedInApplications: jsonb("interested_in_applications"), // Array of application types
+  interestedInServices: jsonb("interested_in_services"), // Array of solar service types
   notes: text("notes"),
   birthday: date("birthday"),
   linkedinUrl: text("linkedin_url"),
@@ -143,7 +146,7 @@ export const opportunities = pgTable("opportunities", {
   name: text("name").notNull(),
   contactId: integer("contact_id").references(() => contacts.id),
   companyId: integer("company_id").references(() => companies.id),
-  applicationTypes: jsonb("application_types"), // Array of application types
+  solarServices: jsonb("solar_services"), // Array of solar service types
   status: projectStatusEnum("status").notNull().default('pending'),
   amount: decimal("amount", { precision: 10, scale: 2 }),
   probability: integer("probability").default(50), // Percentage chance of closing
@@ -201,11 +204,11 @@ export const products = pgTable("products", {
   price: decimal("price", { precision: 10, scale: 2 }).notNull(),
   cost: decimal("cost", { precision: 10, scale: 2 }),
   category: text("category"),
-  unit: text("unit").default('gallon'),
+  unit: text("unit").default('each'),
   imageUrl: text("image_url"),
   isActive: boolean("is_active").notNull().default(true),
-  applicationTypes: jsonb("application_types"), // Array of application types
-  coverage: integer("coverage"), // Coverage in sq ft per unit
+  solarServices: jsonb("solar_services"), // Array of solar service types
+  specifications: jsonb("specifications"), // Technical specs like wattage, efficiency, dimensions
   createdAt: timestamp("created_at").notNull().defaultNow(),
   updatedAt: timestamp("updated_at").notNull().defaultNow(),
   createdBy: integer("created_by").references(() => users.id),
@@ -473,7 +476,7 @@ export const insertContactSchema = createInsertSchema(contacts).pick({
   website: true,
   source: true,
   status: true,
-  interestedInApplications: true,
+  interestedInServices: true,
   notes: true,
   birthday: true,
   linkedinUrl: true,
