@@ -1,6 +1,5 @@
-// Import directly from assets
-import heroImagePlaceholder from '../assets_dir/images/optimized/new-praetorian-hero.png';
-import heroImageFull from '../assets_dir/images/optimized/new-praetorian-hero.png';
+// Import Advance Power logo for hero background
+import { ADVANCE_POWER_LOGO } from '@/assets_dir/imageExports';
 import { GradientButton } from "@/components/ui/gradient-button";
 import { useEffect, useState, useRef } from "react";
 
@@ -12,7 +11,7 @@ const HeroSection = () => {
   useEffect(() => {
     // Preload the hero image
     const img = new Image();
-    img.src = heroImageFull;
+    img.src = ADVANCE_POWER_LOGO;
     img.onload = () => {
       setImageLoaded(true);
     };
@@ -48,7 +47,7 @@ const HeroSection = () => {
         }}>
           {/* Placeholder image (loads quickly) */}
           <img 
-            src={heroImagePlaceholder} 
+            src={ADVANCE_POWER_LOGO} 
             alt="Praetorian SmartCoat Products"
             className="w-full h-full absolute top-0 left-0 transition-opacity duration-500"
             style={{ 
@@ -66,8 +65,8 @@ const HeroSection = () => {
           {/* Full quality image (loads progressively) */}
           <img 
             ref={fullImageRef}
-            src={heroImageFull} 
-            alt="Praetorian SmartCoat Products" 
+            src={ADVANCE_POWER_LOGO} 
+            alt="Advance Power Redding Solar Solutions" 
             className="w-full h-full absolute left-0 transition-opacity duration-700"
             style={{ 
               display: "block",
