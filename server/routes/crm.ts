@@ -8,6 +8,7 @@ import {
 } from "@shared/schema";
 import { eq, like, or, and, desc, asc, count, sql } from "drizzle-orm";
 import { documentProcessor } from "../services/documentProcessor";
+import { pdfWorkflowEngine } from "../services/pdfWorkflowEngine";
 import { 
   getYearlyAnalytics, 
   getCustomersByDecade, 
@@ -876,6 +877,232 @@ router.get("/analytics/technology-trends", async (req, res) => {
   } catch (error) {
     console.error("Error fetching technology trends:", error);
     res.status(500).json({ error: "Failed to fetch technology trends" });
+  }
+});
+
+// ==========================================
+// ADVANCED PDF PROCESSING ENDPOINT
+// ==========================================
+
+// Process PDF documents with comprehensive AI analysis
+router.post("/process-pdf", upload.single('document'), async (req, res) => {
+  try {
+    if (!req.file) {
+      return res.status(400).json({ error: "No document file provided" });
+    }
+
+    const { customerId, uploadedBy } = req.body;
+    
+    console.log(`Starting advanced PDF processing for: ${req.file.originalname}`);
+    
+    // Read the uploaded file
+    const fs = require('fs');
+    const fileBuffer = fs.readFileSync(req.file.path);
+    
+    // Process with the complete PDF workflow engine
+    const processingResult = await pdfWorkflowEngine.processDocument(
+      fileBuffer, 
+      req.file.originalname, 
+      uploadedBy || 'unknown'
+    );
+    
+    // Clean up the temporary file
+    fs.unlinkSync(req.file.path);
+    
+    res.json({
+      success: true,
+      message: "Document processed successfully with advanced AI analysis",
+      data: processingResult
+    });
+    
+  } catch (error) {
+    console.error("Advanced PDF processing failed:", error);
+    
+    // Clean up file if it exists
+    if (req.file?.path) {
+      try {
+        const fs = require('fs');
+        fs.unlinkSync(req.file.path);
+      } catch (cleanupError) {
+        console.error("File cleanup failed:", cleanupError);
+      }
+    }
+    
+    res.status(500).json({ 
+      error: "Failed to process PDF document", 
+      details: error.message 
+    });
+  }
+});
+
+// Batch process multiple PDF documents
+router.post("/batch-process-pdfs", upload.array('documents', 20), async (req, res) => {
+  try {
+    if (!req.files || req.files.length === 0) {
+      return res.status(400).json({ error: "No document files provided" });
+    }
+
+    const { uploadedBy } = req.body;
+    const results = [];
+    const fs = require('fs');
+    
+    console.log(`Starting batch processing of ${req.files.length} documents`);
+    
+    // Process each file
+    for (const file of req.files) {
+      try {
+        const fileBuffer = fs.readFileSync(file.path);
+        
+        const processingResult = await pdfWorkflowEngine.processDocument(
+          fileBuffer, 
+          file.originalname, 
+          uploadedBy || 'batch_upload'
+        );
+        
+        results.push({
+          filename: file.originalname,
+          status: 'success',
+          data: processingResult
+        });
+        
+        // Clean up
+        fs.unlinkSync(file.path);
+        
+      } catch (error) {
+        console.error(`Failed to process ${file.originalname}:`, error);
+        results.push({
+          filename: file.originalname,
+          status: 'failed',
+          error: error.message
+        });
+        
+        // Clean up failed file
+        try {
+          fs.unlinkSync(file.path);
+        } catch (cleanupError) {
+          console.error("File cleanup failed:", cleanupError);
+        }
+      }
+    }
+    
+    const successful = results.filter(r => r.status === 'success').length;
+    const failed = results.filter(r => r.status === 'failed').length;
+    
+    res.json({
+      success: true,
+      message: `Batch processing completed: ${successful} successful, ${failed} failed`,
+      results: results,
+      summary: {
+        total: req.files.length,
+        successful,
+        failed
+      }
+    });
+    
+  } catch (error) {
+    console.error("Batch PDF processing failed:", error);
+    
+    // Clean up all files
+    if (req.files) {
+      const fs = require('fs');
+      req.files.forEach(file => {
+        try {
+          fs.unlinkSync(file.path);
+        } catch (cleanupError) {
+          console.error("File cleanup failed:", cleanupError);
+        }
+      });
+    }
+    
+    res.status(500).json({ 
+      error: "Failed to batch process PDF documents", 
+      details: error.message 
+    });
+  }
+});
+
+// Get document processing status and results
+router.get("/document-analysis/:documentId", async (req, res) => {
+  try {
+    const { documentId } = req.params;
+    
+    const document = await db.select().from(customerDocuments)
+      .where(eq(customerDocuments.id, parseInt(documentId)))
+      .limit(1);
+    
+    if (document.length === 0) {
+      return res.status(404).json({ error: "Document not found" });
+    }
+    
+    const docData = document[0];
+    
+    res.json({
+      id: docData.id,
+      filename: docData.filename,
+      category: docData.documentCategory,
+      summary: docData.summary,
+      extractedData: docData.extractedData,
+      tags: docData.tags?.split(',') || [],
+      confidence: docData.confidence,
+      isProcessed: docData.isProcessed,
+      processedAt: docData.processedAt,
+      uploadedAt: docData.uploadedAt
+    });
+    
+  } catch (error) {
+    console.error("Error fetching document analysis:", error);
+    res.status(500).json({ error: "Failed to fetch document analysis" });
+  }
+});
+
+// Search documents by content, category, or extracted data
+router.get("/search-documents", async (req, res) => {
+  try {
+    const { query, category, customerId, dateFrom, dateTo } = req.query;
+    
+    let searchQuery = db.select().from(customerDocuments);
+    
+    const conditions = [];
+    
+    if (query) {
+      conditions.push(
+        or(
+          like(customerDocuments.summary, `%${query}%`),
+          like(customerDocuments.tags, `%${query}%`),
+          like(customerDocuments.filename, `%${query}%`)
+        )
+      );
+    }
+    
+    if (category) {
+      conditions.push(eq(customerDocuments.documentCategory, category));
+    }
+    
+    if (customerId) {
+      conditions.push(eq(customerDocuments.customerId, parseInt(customerId)));
+    }
+    
+    if (dateFrom) {
+      conditions.push(sql`${customerDocuments.uploadedAt} >= ${new Date(dateFrom)}`);
+    }
+    
+    if (dateTo) {
+      conditions.push(sql`${customerDocuments.uploadedAt} <= ${new Date(dateTo)}`);
+    }
+    
+    if (conditions.length > 0) {
+      searchQuery = searchQuery.where(and(...conditions));
+    }
+    
+    const documents = await searchQuery
+      .orderBy(desc(customerDocuments.uploadedAt))
+      .limit(100);
+    
+    res.json(documents);
+    
+  } catch (error) {
+    console.error("Error searching documents:", error);
+    res.status(500).json({ error: "Failed to search documents" });
   }
 });
 
