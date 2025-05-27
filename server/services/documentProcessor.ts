@@ -9,13 +9,13 @@ import sharp from "sharp";
 
 // AI-powered document processing service for solar business
 export class DocumentProcessor {
-  private openai: OpenAI;
+  private apiKey: string | null;
+  private baseUrl: string;
 
   constructor() {
-    if (!process.env.OPENAI_API_KEY) {
-      throw new Error("OPENAI_API_KEY is required for document processing");
-    }
-    this.openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+    // OpenRouter configuration - optional for enhanced AI features
+    this.apiKey = process.env.OPENROUTER_API_KEY || null;
+    this.baseUrl = "https://openrouter.ai/api/v1";
   }
 
   /**
@@ -55,8 +55,14 @@ export class DocumentProcessor {
         extractedText = await this.extractTextFromSpreadsheet(document.filePath);
       }
 
-      // Use AI to analyze and extract structured data
-      const analysisResult = await this.analyzeDocumentWithAI(extractedText, document.fileName);
+      // Use AI to analyze and extract structured data (if API key available)
+      let analysisResult = null;
+      if (this.apiKey) {
+        analysisResult = await this.analyzeDocumentWithAI(extractedText, document.fileName);
+      } else {
+        // Basic processing without AI
+        analysisResult = this.basicDocumentAnalysis(extractedText, document.fileName);
+      }
 
       // Find or create customer based on extracted information
       const customer = await this.findOrCreateCustomer(

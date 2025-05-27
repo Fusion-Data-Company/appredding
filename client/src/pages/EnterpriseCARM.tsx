@@ -358,9 +358,9 @@ const EnterpriseCARM = () => {
                 </div>
                 <div>
                   <h1 className="text-4xl font-bold text-gray-900 tracking-tight">
-                    Enterprise CRM
+                    Advance Power of Redding CRM
                   </h1>
-                  <p className="text-gray-500 mt-1 text-lg">Advance Power of Redding • Customer Relationship Management</p>
+                  <p className="text-gray-500 mt-1 text-lg">Solar Installation & Repair Company • Customer Relationship Management</p>
                 </div>
               </div>
               <div className="flex items-center space-x-4">
@@ -545,34 +545,35 @@ const EnterpriseCARM = () => {
                   ) : (
                     <p className="text-gray-500 text-center py-4">No recent activities</p>
                   )}
-                </CardContent>
-              </Card>
+                </div>
+              </div>
 
-              <Card className="border-orange-200">
-                <CardHeader>
-                  <CardTitle className="text-orange-700">System Status</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm">Database Connection</span>
-                      <Badge variant="outline" className="border-green-500 text-green-700">Active</Badge>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm">AI Document Processing</span>
-                      <Badge variant="outline" className="border-blue-500 text-blue-700">Ready</Badge>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm">Form Integrations</span>
-                      <Badge variant="outline" className="border-green-500 text-green-700">Connected</Badge>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm">Document Storage</span>
-                      <Badge variant="outline" className="border-green-500 text-green-700">Operational</Badge>
-                    </div>
+              <div className="bg-white rounded-2xl shadow-sm border border-gray-200/50 p-8">
+                <div className="flex items-center justify-between mb-6">
+                  <h3 className="text-xl font-semibold text-gray-900">System Status</h3>
+                  <div className="w-8 h-8 bg-gradient-to-br from-green-500 to-green-600 rounded-lg flex items-center justify-center">
+                    <Database className="w-4 h-4 text-white" />
                   </div>
-                </CardContent>
-              </Card>
+                </div>
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm">Database Connection</span>
+                    <span className="px-3 py-1 bg-green-100 text-green-700 text-sm font-medium rounded-lg">Active</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm">AI Document Processing</span>
+                    <span className="px-3 py-1 bg-blue-100 text-blue-700 text-sm font-medium rounded-lg">Ready</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm">Form Integrations</span>
+                    <span className="px-3 py-1 bg-green-100 text-green-700 text-sm font-medium rounded-lg">Connected</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm">Document Storage</span>
+                    <span className="px-3 py-1 bg-green-100 text-green-700 text-sm font-medium rounded-lg">Operational</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </TabsContent>
 
