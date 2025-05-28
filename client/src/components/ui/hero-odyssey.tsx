@@ -414,10 +414,10 @@ export const HeroSection: React.FC = () => {
         </a>
       </motion.div>
 
-      {/* Trust Badges - Above green box with clear spacing */}
+      {/* Trust Badges - Quarter inch above next section */}
       <motion.div 
         variants={itemVariants}
-        className="absolute bottom-40 left-1/2 transform -translate-x-1/2 max-w-4xl mx-auto px-4 z-20"
+        className="absolute bottom-6 left-1/2 transform -translate-x-1/2 max-w-4xl mx-auto px-4 z-20"
       >
         <div className="flex flex-wrap justify-center gap-6">
           <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg">
