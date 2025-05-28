@@ -417,7 +417,7 @@ export const HeroSection: React.FC = () => {
           {/* Trust Badges */}
           <motion.div 
             variants={itemVariants}
-            className="flex flex-wrap justify-center gap-6 mt-8"
+            className="flex flex-wrap justify-center gap-6 mt-16"
           >
             <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg">
               <span className="text-yellow-400">⭐</span>
