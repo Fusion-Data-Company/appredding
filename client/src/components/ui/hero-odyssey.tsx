@@ -393,49 +393,51 @@ export const HeroSection: React.FC = () => {
 
           <motion.p
             variants={itemVariants}
-            className="text-gray-400 mb-12 max-w-2xl text-lg"
+            className="text-gray-400 max-w-2xl text-lg"
           >
             Redding's trusted solar experts with over 20 years of experience. Professional installation, repair, and maintenance services for homes and businesses.
           </motion.p>
 
-          {/* Call to Action Buttons */}
-          <motion.div
-            variants={itemVariants}
-            className="flex flex-col sm:flex-row gap-4 mb-8"
-          >
-            <a
-              href="tel:5302260701"
-              className="px-8 py-4 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-bold rounded-lg transition-all duration-300 shadow-lg hover:scale-105"
-            >
-              CALL NOW! (530) 226-0701
-            </a>
-          </motion.div>
-
-          {/* Trust Badges */}
-          <motion.div 
-            variants={itemVariants}
-            className="flex flex-wrap justify-center gap-6 mt-16"
-          >
-            <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg">
-              <span className="text-yellow-400">⭐</span>
-              <span className="text-sm">Licensed & Insured</span>
-            </div>
-            <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg">
-              <span className="text-green-400">✓</span>
-              <span className="text-sm">Free Consultations</span>
-            </div>
-            <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg">
-              <span className="text-blue-400">🏆</span>
-              <span className="text-sm">20+ Years Experience</span>
-            </div>
-            <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg">
-              <span className="text-orange-400">⚡</span>
-              <span className="text-sm">Same Day Service</span>
-            </div>
-          </motion.div>
-
         </motion.div>
       </div>
+
+      {/* Call to Action Button - Positioned above badges */}
+      <motion.div
+        variants={itemVariants}
+        className="absolute bottom-48 left-1/2 transform -translate-x-1/2 z-20"
+      >
+        <a
+          href="tel:5302260701"
+          className="px-8 py-4 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-bold rounded-lg transition-all duration-300 shadow-lg hover:scale-105"
+        >
+          CALL NOW! (530) 226-0701
+        </a>
+      </motion.div>
+
+      {/* Trust Badges - Quarter inch above green box */}
+      <motion.div 
+        variants={itemVariants}
+        className="absolute bottom-32 left-1/2 transform -translate-x-1/2 max-w-4xl mx-auto px-4 z-20"
+      >
+        <div className="flex flex-wrap justify-center gap-6">
+          <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg">
+            <span className="text-yellow-400">⭐</span>
+            <span className="text-sm">Licensed & Insured</span>
+          </div>
+          <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg">
+            <span className="text-green-400">✓</span>
+            <span className="text-sm">Free Consultations</span>
+          </div>
+          <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg">
+            <span className="text-blue-400">🏆</span>
+            <span className="text-sm">20+ Years Experience</span>
+          </div>
+          <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg">
+            <span className="text-orange-400">⚡</span>
+            <span className="text-sm">Same Day Service</span>
+          </div>
+        </div>
+      </motion.div>
 
       {/* Green Savings Box - Positioned at bottom of hero section */}
       <motion.div 
