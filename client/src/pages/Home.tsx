@@ -1,5 +1,5 @@
 import MainLayout from "@/components/layout/MainLayout";
-import SolarHeroSection from "@/sections/SolarHeroSection";
+import { HeroSection } from "@/components/ui/hero-odyssey";
 import SolarSalesFunnelSection from "@/sections/SolarSalesFunnelSection";
 import SolarServicesSection from "@/sections/SolarServicesSection";
 import AboutAdvancePowerSection from "@/sections/AboutAdvancePowerSection";
@@ -11,7 +11,7 @@ const Home = () => {
   return (
     <MainLayout fullWidth>
       <div className="flex-1 flex flex-col">
-        <SolarHeroSection />
+        <HeroSection />
         <SolarSalesFunnelSection />
         <SolarServicesSection />
         <EnergyStorageSection />
