@@ -357,7 +357,7 @@ export const HeroSection: React.FC = () => {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="relative z-30 flex flex-col items-center text-center max-w-4xl mx-auto"
+          className="relative z-30 flex flex-col items-center text-center max-w-4xl mx-auto mt-20"
         >
           <ElasticHueSlider
               value={lightningHue}
