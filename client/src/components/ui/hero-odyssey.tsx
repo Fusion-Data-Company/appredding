@@ -404,7 +404,7 @@ export const HeroSection: React.FC = () => {
       {/* Call to Action Button - Positioned above badges */}
       <motion.div
         variants={itemVariants}
-        className="absolute bottom-48 left-1/2 transform -translate-x-1/2 z-20"
+        className="absolute bottom-40 left-1/2 transform -translate-x-1/2 z-20"
       >
         <a
           href="tel:5302260701"
@@ -417,7 +417,7 @@ export const HeroSection: React.FC = () => {
       {/* Trust Badges - Quarter inch above green box */}
       <motion.div 
         variants={itemVariants}
-        className="absolute bottom-32 left-1/2 transform -translate-x-1/2 max-w-4xl mx-auto px-4 z-20"
+        className="absolute bottom-24 left-1/2 transform -translate-x-1/2 max-w-4xl mx-auto px-4 z-20"
       >
         <div className="flex flex-wrap justify-center gap-6">
           <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg">
