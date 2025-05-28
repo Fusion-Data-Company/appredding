@@ -17,6 +17,7 @@ import {
   Upload, 
   Download, 
   AlertTriangle, 
+  AlertCircle,
   CheckCircle, 
   Activity, 
   BarChart3, 
@@ -277,125 +278,139 @@ export default function DataProcessingCenter() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-25 to-indigo-50">
-      <div className="container mx-auto p-6 space-y-8">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-950 to-indigo-950 relative overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(59,130,246,0.1),transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_100%_100%,rgba(99,102,241,0.08),transparent_50%)]" />
+      
+      <div className="container mx-auto p-6 space-y-8 relative z-10">
         
         {/* Header */}
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between backdrop-blur-sm bg-white/5 rounded-2xl p-8 border border-white/10 shadow-2xl">
           <div>
-            <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+            <h1 className="text-5xl font-bold bg-gradient-to-r from-blue-400 via-cyan-300 to-indigo-400 bg-clip-text text-transparent">
               Data Processing Center
             </h1>
-            <p className="text-slate-600 mt-2">Advanced analytics, real-time monitoring, and comprehensive data operations</p>
+            <p className="text-slate-300 mt-3 text-lg">Advanced analytics, real-time monitoring, and comprehensive data operations</p>
           </div>
-          <div className="flex items-center gap-3">
-            <Badge className={`${monitoringData?.monitoring.systemHealth.status === 'operational' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
-              {monitoringData?.monitoring.systemHealth.status === 'operational' ? 'System Online' : 'System Issues'}
-            </Badge>
+          <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2">
+              <div className={`h-3 w-3 rounded-full ${monitoringData?.monitoring.systemHealth.status === 'operational' ? 'bg-green-400 animate-pulse' : 'bg-red-400'}`} />
+              <Badge className={`${monitoringData?.monitoring.systemHealth.status === 'operational' ? 'bg-green-500/20 text-green-300 border-green-500/30' : 'bg-red-500/20 text-red-300 border-red-500/30'} px-3 py-1 text-sm font-medium`}>
+                {monitoringData?.monitoring.systemHealth.status === 'operational' ? 'System Online' : 'System Issues'}
+              </Badge>
+            </div>
           </div>
         </div>
 
         {/* Quick Stats Dashboard */}
         <div className="grid grid-cols-1 md:grid-cols-6 gap-6">
-          <Card className="border-blue-200 shadow-lg">
+          <Card className="backdrop-blur-sm bg-white/10 border-white/20 shadow-xl hover:bg-white/15 transition-all duration-300">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium text-slate-600">Business Health</CardTitle>
-              <Shield className="h-4 w-4 text-blue-600" />
+              <CardTitle className="text-sm font-medium text-slate-200">Business Health</CardTitle>
+              <Shield className="h-5 w-5 text-blue-400" />
             </CardHeader>
             <CardContent>
-              <div className={`text-2xl font-bold ${getHealthScoreColor(analyticsData?.analytics.overview.businessHealthScore || 0)}`}>
+              <div className={`text-3xl font-bold ${analyticsData?.analytics.overview.businessHealthScore >= 80 ? 'text-green-400' : 
+                analyticsData?.analytics.overview.businessHealthScore >= 60 ? 'text-yellow-400' : 'text-red-400'}`}>
                 {analyticsData?.analytics.overview.businessHealthScore || 0}
               </div>
-              <Badge className={getHealthScoreBadge(analyticsData?.analytics.overview.businessHealthScore || 0)}>
+              <Badge className={`${analyticsData?.analytics.overview.businessHealthScore >= 80 ? 'bg-green-500/20 text-green-300 border-green-500/30' : 
+                analyticsData?.analytics.overview.businessHealthScore >= 60 ? 'bg-yellow-500/20 text-yellow-300 border-yellow-500/30' : 'bg-red-500/20 text-red-300 border-red-500/30'} mt-2`}>
                 {analyticsData?.analytics.overview.businessHealthScore >= 80 ? 'Excellent' : 
                  analyticsData?.analytics.overview.businessHealthScore >= 60 ? 'Good' : 'Needs Attention'}
               </Badge>
             </CardContent>
           </Card>
 
-          <Card className="border-green-200 shadow-lg">
+          <Card className="backdrop-blur-sm bg-white/10 border-white/20 shadow-xl hover:bg-white/15 transition-all duration-300">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium text-slate-600">Total Records</CardTitle>
-              <Database className="h-4 w-4 text-green-600" />
+              <CardTitle className="text-sm font-medium text-slate-200">Total Records</CardTitle>
+              <Database className="h-5 w-5 text-green-400" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-green-700">
+              <div className="text-3xl font-bold text-green-400">
                 {(analyticsData?.analytics.overview.totalContacts || 0) + (analyticsData?.analytics.overview.totalProjects || 0)}
               </div>
-              <p className="text-xs text-slate-500">Contacts + Projects</p>
+              <p className="text-xs text-slate-300">Contacts + Projects</p>
             </CardContent>
           </Card>
 
-          <Card className="border-purple-200 shadow-lg">
+          <Card className="backdrop-blur-sm bg-white/10 border-white/20 shadow-xl hover:bg-white/15 transition-all duration-300">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium text-slate-600">Conversion Rate</CardTitle>
-              <Target className="h-4 w-4 text-purple-600" />
+              <CardTitle className="text-sm font-medium text-slate-200">Conversion Rate</CardTitle>
+              <Target className="h-5 w-5 text-purple-400" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-purple-700">
+              <div className="text-3xl font-bold text-purple-400">
                 {analyticsData?.analytics.overview.conversionRate || 0}%
               </div>
-              <p className="text-xs text-slate-500">Lead to customer</p>
+              <p className="text-xs text-slate-300">Lead to customer</p>
             </CardContent>
           </Card>
 
-          <Card className="border-indigo-200 shadow-lg">
+          <Card className="backdrop-blur-sm bg-white/10 border-white/20 shadow-xl hover:bg-white/15 transition-all duration-300">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium text-slate-600">Data Quality</CardTitle>
-              <CheckCircle className="h-4 w-4 text-indigo-600" />
+              <CardTitle className="text-sm font-medium text-slate-200">Data Quality</CardTitle>
+              <CheckCircle className="h-5 w-5 text-indigo-400" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-indigo-700">
+              <div className="text-3xl font-bold text-indigo-400">
                 {monitoringData?.monitoring.dataQuality.score || 0}%
               </div>
-              <p className="text-xs text-slate-500">Profile completeness</p>
+              <p className="text-xs text-slate-300">Profile completeness</p>
             </CardContent>
           </Card>
 
-          <Card className="border-orange-200 shadow-lg">
+          <Card className="backdrop-blur-sm bg-white/10 border-white/20 shadow-xl hover:bg-white/15 transition-all duration-300">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium text-slate-600">Processing Speed</CardTitle>
-              <Zap className="h-4 w-4 text-orange-600" />
+              <CardTitle className="text-sm font-medium text-slate-200">Processing Speed</CardTitle>
+              <Zap className="h-5 w-5 text-orange-400" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-orange-700">
+              <div className="text-3xl font-bold text-orange-400">
                 {monitoringData?.monitoring.processing.processingEfficiency || 0}%
               </div>
-              <p className="text-xs text-slate-500">Efficiency rate</p>
+              <p className="text-xs text-slate-300">Efficiency rate</p>
             </CardContent>
           </Card>
 
-          <Card className="border-red-200 shadow-lg">
+          <Card className="backdrop-blur-sm bg-white/10 border-white/20 shadow-xl hover:bg-white/15 transition-all duration-300">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium text-slate-600">Active Alerts</CardTitle>
-              <AlertTriangle className="h-4 w-4 text-red-600" />
+              <CardTitle className="text-sm font-medium text-slate-200">Active Alerts</CardTitle>
+              <AlertTriangle className="h-5 w-5 text-red-400" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-red-700">
+              <div className="text-3xl font-bold text-red-400">
                 {monitoringData?.monitoring.alerts.criticalIssues || 0}
               </div>
-              <p className="text-xs text-slate-500">Critical issues</p>
+              <p className="text-xs text-slate-300">Critical issues</p>
             </CardContent>
           </Card>
         </div>
 
         {/* Main Content Tabs */}
-        <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
-          <TabsList className="grid w-full grid-cols-5 bg-white border border-blue-200">
-            <TabsTrigger value="analytics" className="data-[state=active]:bg-blue-100 data-[state=active]:text-blue-700">
-              Comprehensive Analytics
+        <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-8">
+          <TabsList className="grid w-full grid-cols-5 backdrop-blur-sm bg-white/10 border border-white/20 p-2 rounded-xl shadow-xl">
+            <TabsTrigger value="analytics" className="flex items-center gap-2 text-slate-300 data-[state=active]:bg-blue-500/30 data-[state=active]:text-blue-200 data-[state=active]:shadow-lg transition-all duration-300 rounded-lg px-4 py-3">
+              <BarChart3 className="h-4 w-4" />
+              Analytics
             </TabsTrigger>
-            <TabsTrigger value="monitoring" className="data-[state=active]:bg-green-100 data-[state=active]:text-green-700">
-              Real-time Monitoring
+            <TabsTrigger value="monitoring" className="flex items-center gap-2 text-slate-300 data-[state=active]:bg-green-500/30 data-[state=active]:text-green-200 data-[state=active]:shadow-lg transition-all duration-300 rounded-lg px-4 py-3">
+              <Activity className="h-4 w-4" />
+              Monitoring
             </TabsTrigger>
-            <TabsTrigger value="processing" className="data-[state=active]:bg-purple-100 data-[state=active]:text-purple-700">
-              Data Processing
+            <TabsTrigger value="processing" className="flex items-center gap-2 text-slate-300 data-[state=active]:bg-purple-500/30 data-[state=active]:text-purple-200 data-[state=active]:shadow-lg transition-all duration-300 rounded-lg px-4 py-3">
+              <Upload className="h-4 w-4" />
+              Processing
             </TabsTrigger>
-            <TabsTrigger value="search" className="data-[state=active]:bg-indigo-100 data-[state=active]:text-indigo-700">
-              Advanced Search
+            <TabsTrigger value="search" className="flex items-center gap-2 text-slate-300 data-[state=active]:bg-indigo-500/30 data-[state=active]:text-indigo-200 data-[state=active]:shadow-lg transition-all duration-300 rounded-lg px-4 py-3">
+              <Search className="h-4 w-4" />
+              Search
             </TabsTrigger>
-            <TabsTrigger value="validation" className="data-[state=active]:bg-orange-100 data-[state=active]:text-orange-700">
-              Data Validation
+            <TabsTrigger value="validation" className="flex items-center gap-2 text-slate-300 data-[state=active]:bg-orange-500/30 data-[state=active]:text-orange-200 data-[state=active]:shadow-lg transition-all duration-300 rounded-lg px-4 py-3">
+              <AlertCircle className="h-4 w-4" />
+              Validation
             </TabsTrigger>
           </TabsList>
 
