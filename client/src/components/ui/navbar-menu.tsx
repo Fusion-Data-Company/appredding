@@ -71,7 +71,7 @@ export const MenuItem = ({
           className={`cursor-pointer font-cinzel uppercase tracking-wide text-sm lg:text-base px-2 py-1
                      ${active === item 
                        ? 'bg-gradient-to-r from-blue-500 to-orange-500 bg-clip-text text-transparent font-bold' 
-                       : 'text-white/90 hover:text-white'}`}
+                       : 'text-slate-200 hover:text-white'}`}
         >
           {item}
         </motion.p>
