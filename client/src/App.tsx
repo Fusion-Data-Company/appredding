@@ -15,6 +15,9 @@ import Painters from "@/pages/Painters";
 import Pools from "@/pages/Pools";
 import ResidentialSolar from "@/pages/ResidentialSolar";
 import CommercialSolar from "@/pages/CommercialSolar";
+import HybridSolar from "@/pages/HybridSolar";
+import LithiumBattery from "@/pages/LithiumBattery";
+import EnergyConservation from "@/pages/EnergyConservation";
 import BatteryStorage from "@/pages/BatteryStorage";
 import Maintenance from "@/pages/Maintenance";
 import Repairs from "@/pages/Repairs";
@@ -83,6 +86,9 @@ function Router() {
       <Route path="/municipality" component={Municipality} />
       <Route path="/residential-solar" component={ResidentialSolar} />
       <Route path="/commercial-solar" component={CommercialSolar} />
+      <Route path="/hybrid-solar" component={HybridSolar} />
+      <Route path="/lithium-battery" component={LithiumBattery} />
+      <Route path="/energy-conservation" component={EnergyConservation} />
       <Route path="/battery-storage" component={BatteryStorage} />
       <Route path="/maintenance" component={Maintenance} />
       <Route path="/repairs" component={Repairs} />
