@@ -136,10 +136,10 @@ export const ProductItem = ({
       </div>
       
       <div className="flex-1">
-        <h4 className="text-base font-bold mb-1 group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-orange-400 group-hover:bg-clip-text group-hover:text-transparent transition-colors duration-300 text-white">
+        <h4 className="text-base font-bold mb-1 group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-orange-400 group-hover:bg-clip-text group-hover:text-transparent transition-colors duration-300 text-gray-900 dark:text-gray-100">
           {title}
         </h4>
-        <p className="text-gray-400 text-xs max-w-[12rem] group-hover:text-gray-300 transition-colors duration-300 line-clamp-3">
+        <p className="text-gray-600 dark:text-gray-300 text-xs max-w-[12rem] group-hover:text-gray-500 dark:group-hover:text-gray-200 transition-colors duration-300 line-clamp-3">
           {description}
         </p>
       </div>
@@ -158,7 +158,7 @@ export const HoveredLink = ({ children, className = "", ...rest }: any) => {
       {...rest}
       className={`relative group overflow-hidden ${className}`}
     >
-      <span className="inline-block w-full text-gray-300 group-hover:text-white transition-colors duration-300 py-1.5 px-2">
+      <span className="inline-block w-full text-gray-700 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-300 py-1.5 px-2">
         {children}
         
         {/* Hover indicator line with gradient */}

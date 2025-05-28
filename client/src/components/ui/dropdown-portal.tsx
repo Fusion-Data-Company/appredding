@@ -64,8 +64,8 @@ export const DropdownPortal = ({
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: -10, scale: 0.98 }}
         transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-        className="relative bg-gradient-to-b from-[#080c14]/95 to-black/95 backdrop-blur-xl 
-                  rounded-lg overflow-auto border border-blue-900/30 shadow-[0_10px_40px_rgba(0,0,0,0.8)]"
+        className="relative bg-white dark:bg-gradient-to-b dark:from-[#080c14]/95 dark:to-black/95 backdrop-blur-xl 
+                  rounded-lg overflow-auto border border-gray-200 dark:border-blue-900/30 shadow-[0_10px_40px_rgba(0,0,0,0.8)]"
         style={{ 
           width: 'auto', 
           maxWidth: '550px',
@@ -98,7 +98,7 @@ export const DropdownPortal = ({
         </div>
         
         {/* Subtle triangle indicator pointing to the menu item */}
-        <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-4 h-4 rotate-45 bg-[#080c14] border-l border-t border-blue-900/30"></div>
+        <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-4 h-4 rotate-45 bg-white dark:bg-[#080c14] border-l border-t border-gray-200 dark:border-blue-900/30"></div>
         
         <div className="relative z-10">
           {children}
