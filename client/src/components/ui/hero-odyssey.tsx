@@ -393,7 +393,7 @@ export const HeroSection: React.FC = () => {
 
           <motion.p
             variants={itemVariants}
-            className="text-gray-400 mb-6 max-w-2xl text-lg"
+            className="text-gray-400 mb-12 max-w-2xl text-lg"
           >
             Redding's trusted solar experts with over 20 years of experience. Professional installation, repair, and maintenance services for homes and businesses.
           </motion.p>
@@ -401,7 +401,7 @@ export const HeroSection: React.FC = () => {
           {/* Green Savings Box */}
           <motion.div 
             variants={itemVariants}
-            className="mb-8 p-6 bg-gradient-to-r from-green-500/20 to-emerald-500/20 border-2 border-green-400/30 rounded-xl backdrop-blur-sm"
+            className="mb-12 p-6 bg-gradient-to-r from-green-500/20 to-emerald-500/20 border-2 border-green-400/30 rounded-xl backdrop-blur-sm"
           >
             <p className="text-lg md:text-xl text-green-300 font-semibold">
               💰 Start saving on your energy bills immediately! Most customers see 
