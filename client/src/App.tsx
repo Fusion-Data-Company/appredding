@@ -41,6 +41,7 @@ import RAGDocumentsPage from "@/pages/rag-documents";
 import ChatPage from "@/pages/chat";
 import DocumentChatInterface from "@/pages/DocumentChatInterface";
 import FinancialCenter from "@/pages/FinancialCenter";
+import DataProcessingCenter from "@/pages/DataProcessingCenter";
 import { AuthProvider } from "@/hooks/use-auth";
 import { ProtectedRoute } from "@/components/ProtectedRoute";
 import { StoreProvider } from "@/contexts/StoreContext";
@@ -119,6 +120,7 @@ function Router() {
       <Route path="/crm" component={EnterpriseCARM} />
       <Route path="/analytics" component={AnalyticsDashboard} />
       <Route path="/financial-center" component={FinancialCenter} />
+      <Route path="/data-processing" component={DataProcessingCenter} />
       <Route path="/inventory" component={InventoryPage} />
       <Route path="/rag-documents" component={RAGDocumentsPage} />
       <Route path="/chat" component={ChatPage} />

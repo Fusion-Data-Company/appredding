@@ -65,6 +65,10 @@ app.use("/api/financial", financialRoutes);
 import documentRoutes from "./routes/documents";
 app.use("/api/documents", documentRoutes);
 
+// Add Data Processing routes
+import dataProcessingRoutes from "./routes/dataProcessing";
+app.use("/api/data-processing", dataProcessingRoutes);
+
 (async () => {
   const server = await registerRoutes(app);
 
