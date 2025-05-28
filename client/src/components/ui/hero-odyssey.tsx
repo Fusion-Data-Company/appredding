@@ -440,7 +440,7 @@ export const HeroSection: React.FC = () => {
           {/* Green Savings Box - Moved to bottom */}
           <motion.div 
             variants={itemVariants}
-            className="mt-32 p-6 bg-gradient-to-r from-green-500/20 to-emerald-500/20 border-2 border-green-400/30 rounded-xl backdrop-blur-sm"
+            className="mt-40 p-6 bg-gradient-to-r from-green-500/20 to-emerald-500/20 border-2 border-green-400/30 rounded-xl backdrop-blur-sm"
           >
             <p className="text-lg md:text-xl text-green-300 font-semibold">
               💰 Start saving on your energy bills immediately! Most customers see 
