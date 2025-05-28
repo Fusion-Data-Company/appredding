@@ -437,19 +437,22 @@ export const HeroSection: React.FC = () => {
             </div>
           </motion.div>
 
-          {/* Green Savings Box - Moved to bottom */}
-          <motion.div 
-            variants={itemVariants}
-            className="mt-40 p-6 bg-gradient-to-r from-green-500/20 to-emerald-500/20 border-2 border-green-400/30 rounded-xl backdrop-blur-sm"
-          >
-            <p className="text-lg md:text-xl text-green-300 font-semibold">
-              💰 Start saving on your energy bills immediately! Most customers see 
-              <span className="text-green-200 font-bold px-2 py-1 bg-green-500/30 rounded-lg mx-2">30-70% reduction</span>
-              in their monthly electricity costs.
-            </p>
-          </motion.div>
         </motion.div>
       </div>
+
+      {/* Green Savings Box - Positioned at bottom of hero section */}
+      <motion.div 
+        variants={itemVariants}
+        className="absolute bottom-12 left-1/2 transform -translate-x-1/2 max-w-4xl mx-auto px-4 z-20"
+      >
+        <div className="p-6 bg-gradient-to-r from-green-500/20 to-emerald-500/20 border-2 border-green-400/30 rounded-xl backdrop-blur-sm">
+          <p className="text-lg md:text-xl text-green-300 font-semibold text-center">
+            💰 Start saving on your energy bills immediately! Most customers see 
+            <span className="text-green-200 font-bold px-2 py-1 bg-green-500/30 rounded-lg mx-2">30-70% reduction</span>
+            in their monthly electricity costs.
+          </p>
+        </div>
+      </motion.div>
 
       {/* Background elements */}
       <motion.div
