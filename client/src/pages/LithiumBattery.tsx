@@ -21,12 +21,13 @@ import {
   CircleDollarSign, 
   BarChart3, 
   Calculator, 
-  Sun, 
   Battery, 
+  Sun, 
   Award, 
   AlertTriangle, 
   Building, 
-  TrendingUp
+  TrendingUp,
+  Thermometer
 } from "lucide-react";
 import { insertFirePreventionHomeownerSchema } from "@shared/schema";
 import { useForm } from "react-hook-form";
@@ -40,30 +41,30 @@ import SEOHead from "@/components/SEOHead";
 import { preloadCriticalImages } from "@/lib/image-helper";
 import { generateStructuredData, getIndustryKeywords } from "@/lib/seo-helper";
 
-type ResidentialSolarFormValues = z.infer<typeof insertFirePreventionHomeownerSchema>;
+type LithiumBatteryFormValues = z.infer<typeof insertFirePreventionHomeownerSchema>;
 
-const ResidentialSolar = () => {
+const LithiumBattery = () => {
   const [showConsultationForm, setShowConsultationForm] = useState(false);
   const [consultationRequestSuccess, setConsultationRequestSuccess] = useState(false);
   const { toast } = useToast();
   
   // Define industry-specific data for SEO
-  const industry = "Residential Solar";
-  const slug = "residential-solar";
-  const pageTitle = "Advance Power Redding – Residential Solar Solutions";
-  const pageDescription = "Expert residential solar installations with over 20 years of experience. High-quality, reliable solar solutions for homes in Redding, CA that meet your energy needs and fit your budget.";
+  const industry = "Lithium Battery";
+  const slug = "lithium-battery";
+  const pageTitle = "Advance Power Redding – Lithium Battery Services";
+  const pageDescription = "Advanced lithium-ion battery technology offering efficient and long-lasting energy storage solutions. 10-year warranty, maintenance-free operation in all temperatures.";
   const heroImagePath = "/src/assets_dir/images/optimized/praetorian-background-new.png";
   
   // Preload critical images
   useEffect(() => {
     preloadCriticalImages([
       heroImagePath,
-      "/src/assets_dir/images/residential-solar-hero.jpg"
+      "/src/assets_dir/images/lithium-battery-hero.jpg"
     ]);
   }, []);
 
   // Setup form for consultation form
-  const form = useForm<ResidentialSolarFormValues>({
+  const form = useForm<LithiumBatteryFormValues>({
     resolver: zodResolver(insertFirePreventionHomeownerSchema),
     defaultValues: {
       name: "",
@@ -77,8 +78,8 @@ const ResidentialSolar = () => {
 
   // Mutation for consultation form
   const consultationMutation = useMutation({
-    mutationFn: async (data: ResidentialSolarFormValues) => {
-      return await apiRequest("/api/residential-solar/consultation", {
+    mutationFn: async (data: LithiumBatteryFormValues) => {
+      return await apiRequest("/api/lithium-battery/consultation", {
         method: "POST",
         data,
       });
@@ -101,7 +102,7 @@ const ResidentialSolar = () => {
     },
   });
 
-  const onSubmit = (data: ResidentialSolarFormValues) => {
+  const onSubmit = (data: LithiumBatteryFormValues) => {
     consultationMutation.mutate(data);
   };
 
@@ -119,17 +120,17 @@ const ResidentialSolar = () => {
         slug={slug}
         imagePath={heroImagePath}
         keywords={getIndustryKeywords(slug, [
-          'residential solar panels',
-          'home solar installation',
-          'solar for families',
-          'rooftop solar systems',
-          'solar energy savings'
+          'lithium battery storage',
+          'solar battery backup',
+          'energy storage systems',
+          'LiFePO4 batteries',
+          'backup power solutions'
         ])}
         structuredData={generateStructuredData(industry, pageDescription, slug, [
-          "Residential Solar Panels",
-          "Home Solar Installation",
-          "Solar Energy Systems",
-          "Rooftop Solar Solutions"
+          "Lithium Battery Storage",
+          "Solar Battery Systems",
+          "Energy Storage Solutions",
+          "Backup Power Systems"
         ])}
       />
       
@@ -139,9 +140,9 @@ const ResidentialSolar = () => {
           background: 'linear-gradient(145deg, #0c0c14 0%, #101830 30%, #152238 60%, #0e1a2a 100%)'
         }}></div>
         
-        {/* Dynamic layered background elements with solar theme */}
+        {/* Dynamic layered background elements with battery theme */}
         <div className="fixed inset-0 z-[-4] opacity-40" style={{ 
-          backgroundImage: 'radial-gradient(circle at 30% 20%, rgba(251, 191, 36, 0.6) 0%, rgba(15, 23, 42, 0) 60%)'
+          backgroundImage: 'radial-gradient(circle at 30% 20%, rgba(34, 197, 94, 0.6) 0%, rgba(15, 23, 42, 0) 60%)'
         }}></div>
         
         <div className="fixed inset-0 z-[-3] opacity-30" style={{ 
@@ -177,30 +178,30 @@ const ResidentialSolar = () => {
                     <div className="absolute top-1 right-1 w-12 h-12 border-t border-r border-blue-500/30 rounded-tr-md"></div>
                   
                     <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-blue-100 to-blue-300">
-                      Residential Solar Solutions
+                      Lithium Battery Services
                     </h1>
                     
                     <div className="mb-6 space-y-6 text-gray-300">
                       <p className="text-lg">
-                        Advance Power Redding brings over 20 years of expertise in solar photovoltaic (PV) system installations, serving families across Redding, CA. As licensed professionals, we're committed to providing high-quality, reliable solar solutions that meet your home's energy needs and fit your budget.
+                        Advance Power Redding offers advanced lithium-ion battery technology delivering efficient and long-lasting energy storage solutions. Our lithium battery systems come with a 10-year warranty and require no maintenance, operating efficiently in all temperatures.
                       </p>
                       <p className="text-lg">
-                        From rooftop panel installations to battery backups for your home, we handle everything to help you save on energy costs and achieve energy independence for your family.
+                        These systems are far superior to lead acid batteries - they're more efficient, last longer, and can be added to existing solar or new systems for reliable backup power storage.
                       </p>
                     </div>
                     
                     <div className="flex flex-wrap gap-4 mb-6">
                       <div className="flex items-center space-x-2">
-                        <Sun className="h-5 w-5 text-blue-400" />
-                        <span className="text-gray-200">20+ Years Experience</span>
+                        <Battery className="h-5 w-5 text-blue-400" />
+                        <span className="text-gray-200">10-Year Warranty</span>
                       </div>
                       <div className="flex items-center space-x-2">
-                        <Home className="h-5 w-5 text-blue-400" />
-                        <span className="text-gray-200">Custom Home Solutions</span>
+                        <Thermometer className="h-5 w-5 text-blue-400" />
+                        <span className="text-gray-200">All-Temperature Operation</span>
                       </div>
                       <div className="flex items-center space-x-2">
                         <Award className="h-5 w-5 text-blue-400" />
-                        <span className="text-gray-200">Licensed Professionals</span>
+                        <span className="text-gray-200">Maintenance-Free</span>
                       </div>
                     </div>
                     
@@ -210,7 +211,7 @@ const ResidentialSolar = () => {
                         onClick={handleShowConsultationForm}
                       >
                         <span className="relative z-10 text-white group-hover:text-blue-200 transition-colors duration-300">
-                          Get Free Quote
+                          Get Battery Quote
                         </span>
                         <span className="absolute inset-0 bg-blue-600 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></span>
                       </Button>
@@ -239,8 +240,8 @@ const ResidentialSolar = () => {
                     
                     {/* Hero Image */}
                     <img 
-                      src="/src/assets_dir/images/residential-solar-hero.jpg" 
-                      alt="Residential solar panel installation by Advance Power Redding" 
+                      src="/src/assets_dir/images/lithium-battery-hero.jpg" 
+                      alt="Lithium battery storage system by Advance Power Redding" 
                       className="w-full h-auto max-h-[500px] object-cover object-center"
                       onError={(e) => {
                         const target = e.target as HTMLImageElement;
@@ -254,15 +255,15 @@ const ResidentialSolar = () => {
                     
                     {/* Image caption */}
                     <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 z-20">
-                      <p className="text-sm text-gray-300 text-center">Professional solar installation on family home in Redding, California</p>
+                      <p className="text-sm text-gray-300 text-center">Advanced lithium battery system with intelligent management for reliable energy storage</p>
                     </div>
                   </div>
                   
                   {/* Stats overlay */}
                   <div className="absolute -bottom-6 -right-6 bg-gradient-to-br from-gray-900 to-gray-950 border border-blue-700/30 rounded-lg p-4 shadow-lg z-30">
-                    <p className="text-blue-400 font-semibold">Savings Up To</p>
-                    <p className="text-3xl font-bold text-white">90%<sup className="text-blue-300 text-xs">*</sup></p>
-                    <p className="text-xs text-gray-400">*On monthly electric bills</p>
+                    <p className="text-blue-400 font-semibold">Cycle Life</p>
+                    <p className="text-3xl font-bold text-white">10,000+<sup className="text-blue-300 text-xs">*</sup></p>
+                    <p className="text-xs text-gray-400">*Charge cycles</p>
                   </div>
                 </div>
               </motion.div>
@@ -282,29 +283,29 @@ const ResidentialSolar = () => {
               {/* Content card */}
               <div className="relative z-20 rounded-2xl overflow-hidden p-8 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-red-700/30 shadow-lg">
                 <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-red-300 via-red-200 to-red-300">
-                  Rising Energy Costs Are Crushing Families
+                  Lead Acid Battery Problems & Failures
                 </h2>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
                   <div>
                     <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-red-700/20 shadow-md">
-                      <h3 className="text-xl font-bold mb-4 text-red-300">Skyrocketing Electric Bills</h3>
+                      <h3 className="text-xl font-bold mb-4 text-red-300">Lead Acid Battery Issues</h3>
                       <ul className="space-y-3">
                         <li className="flex items-start">
                           <AlertTriangle className="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">California electricity rates have increased 127% over the past decade</span>
+                          <span className="text-gray-300">Frequent corrosion problems requiring constant maintenance and water level checks</span>
                         </li>
                         <li className="flex items-start">
                           <AlertTriangle className="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">Average family now pays $300+ monthly for electricity in Northern California</span>
+                          <span className="text-gray-300">Performance degrades dramatically in cold or hot weather conditions</span>
                         </li>
                         <li className="flex items-start">
                           <AlertTriangle className="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">Time-of-use rates penalize families for using power when they need it most</span>
+                          <span className="text-gray-300">Short lifespan of 3-5 years requiring frequent expensive replacements</span>
                         </li>
                         <li className="flex items-start">
                           <AlertTriangle className="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">Summer peak rates can exceed $0.50 per kWh during hottest days</span>
+                          <span className="text-gray-300">Only 50% depth of discharge without damaging the battery</span>
                         </li>
                       </ul>
                     </div>
@@ -312,23 +313,23 @@ const ResidentialSolar = () => {
                   
                   <div>
                     <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-red-700/20 shadow-md">
-                      <h3 className="text-xl font-bold mb-4 text-red-300">Unreliable Grid Infrastructure</h3>
+                      <h3 className="text-xl font-bold mb-4 text-red-300">Poor Energy Storage Performance</h3>
                       <ul className="space-y-3">
                         <li className="flex items-start">
                           <AlertTriangle className="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">Frequent power outages during peak demand and extreme weather</span>
+                          <span className="text-gray-300">Low efficiency means you lose 20-30% of stored energy during charging/discharging</span>
                         </li>
                         <li className="flex items-start">
                           <AlertTriangle className="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">Public Safety Power Shutoffs leave families without electricity for days</span>
+                          <span className="text-gray-300">Slow charging speeds can't keep up with solar production</span>
                         </li>
                         <li className="flex items-start">
                           <AlertTriangle className="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">Aging grid infrastructure fails to meet modern energy demands</span>
+                          <span className="text-gray-300">Heavy weight requires reinforced mounting and installation complications</span>
                         </li>
                         <li className="flex items-start">
                           <AlertTriangle className="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">Spoiled food, lost productivity, and safety risks during outages</span>
+                          <span className="text-gray-300">Toxic materials pose environmental and health risks</span>
                         </li>
                       </ul>
                     </div>
@@ -336,31 +337,31 @@ const ResidentialSolar = () => {
                 </div>
                 
                 <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-red-700/20 shadow-md">
-                  <h3 className="text-xl font-bold mb-4 text-red-300 text-center">The Hidden Costs Add Up Fast</h3>
+                  <h3 className="text-xl font-bold mb-4 text-red-300 text-center">The True Cost of Outdated Battery Technology</h3>
                   
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div className="text-center">
                       <div className="w-16 h-16 bg-red-900/20 rounded-full flex items-center justify-center mx-auto mb-3">
                         <CircleDollarSign className="h-8 w-8 text-red-500" />
                       </div>
-                      <p className="text-red-400 font-bold text-xl">$36,000+</p>
-                      <p className="text-gray-300 text-sm">10-year electricity costs</p>
+                      <p className="text-red-400 font-bold text-xl">$15,000+</p>
+                      <p className="text-gray-300 text-sm">Replacement costs over 10 years</p>
                     </div>
                     
                     <div className="text-center">
                       <div className="w-16 h-16 bg-red-900/20 rounded-full flex items-center justify-center mx-auto mb-3">
                         <TrendingUp className="h-8 w-8 text-red-500" />
                       </div>
-                      <p className="text-red-400 font-bold text-xl">6-8%</p>
-                      <p className="text-gray-300 text-sm">Annual rate increases</p>
+                      <p className="text-red-400 font-bold text-xl">30%</p>
+                      <p className="text-gray-300 text-sm">Energy lost to inefficiency</p>
                     </div>
                     
                     <div className="text-center">
                       <div className="w-16 h-16 bg-red-900/20 rounded-full flex items-center justify-center mx-auto mb-3">
                         <AlertTriangle className="h-8 w-8 text-red-500" />
                       </div>
-                      <p className="text-red-400 font-bold text-xl">Zero</p>
-                      <p className="text-gray-300 text-sm">Control over costs</p>
+                      <p className="text-red-400 font-bold text-xl">Monthly</p>
+                      <p className="text-gray-300 text-sm">Maintenance required</p>
                     </div>
                   </div>
                 </div>
@@ -381,81 +382,81 @@ const ResidentialSolar = () => {
               {/* Content card */}
               <div className="relative z-20 rounded-2xl overflow-hidden p-8 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-amber-700/30 shadow-lg">
                 <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-300">
-                  Advanced Solar Technology Solutions
+                  Advanced Lithium Battery Technology
                 </h2>
                 
                 <div className="mb-10">
                   <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-amber-700/20 shadow-md">
-                    <h3 className="text-xl font-bold mb-4 text-amber-300">High-Efficiency Solar Panel Systems</h3>
+                    <h3 className="text-xl font-bold mb-4 text-amber-300">LiFePO4 Lithium Iron Phosphate Technology</h3>
                     <p className="text-gray-300 mb-6">
-                      Our premium solar installations feature the latest in photovoltaic technology, delivering maximum energy production from your roof space. With over 20 years of installation expertise, we design custom systems that maximize your investment and ensure long-term reliability.
+                      Our proprietary APR Battery systems use advanced lithium iron phosphate (LiFePO4) technology with intelligent Battery Management Systems (BMS). These batteries deliver superior performance, safety, and longevity compared to any other battery technology available today.
                     </p>
                     
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
                       <div className="flex flex-col items-center p-4 bg-gray-900/50 rounded-lg border border-amber-600/20">
                         <div className="w-16 h-16 flex items-center justify-center mb-2 bg-amber-900/20 rounded-full">
-                          <Sun className="h-8 w-8 text-amber-500" />
+                          <Battery className="h-8 w-8 text-amber-500" />
                         </div>
-                        <p className="text-center text-amber-400 font-semibold text-lg mb-1">22%+</p>
-                        <p className="text-center text-sm text-gray-400">Panel Efficiency</p>
+                        <p className="text-center text-amber-400 font-semibold text-lg mb-1">95%+</p>
+                        <p className="text-center text-sm text-gray-400">Round-trip Efficiency</p>
                       </div>
                       
                       <div className="flex flex-col items-center p-4 bg-gray-900/50 rounded-lg border border-amber-600/20">
                         <div className="w-16 h-16 flex items-center justify-center mb-2 bg-amber-900/20 rounded-full">
                           <Shield className="h-8 w-8 text-amber-500" />
                         </div>
-                        <p className="text-center text-amber-400 font-semibold text-lg mb-1">25 Years</p>
-                        <p className="text-center text-sm text-gray-400">Performance Warranty</p>
+                        <p className="text-center text-amber-400 font-semibold text-lg mb-1">100%</p>
+                        <p className="text-center text-sm text-gray-400">Depth of Discharge</p>
                       </div>
                       
                       <div className="flex flex-col items-center p-4 bg-gray-900/50 rounded-lg border border-amber-600/20">
                         <div className="w-16 h-16 flex items-center justify-center mb-2 bg-amber-900/20 rounded-full">
-                          <Battery className="h-8 w-8 text-amber-500" />
+                          <Thermometer className="h-8 w-8 text-amber-500" />
                         </div>
-                        <p className="text-center text-amber-400 font-semibold text-lg mb-1">Grid-Tie</p>
-                        <p className="text-center text-sm text-gray-400">+ Battery Ready</p>
+                        <p className="text-center text-amber-400 font-semibold text-lg mb-1">-20°F to 140°F</p>
+                        <p className="text-center text-sm text-gray-400">Operating Range</p>
                       </div>
                     </div>
                     
-                    <p className="text-xs text-gray-500 text-center">*Based on premium tier-1 solar panel specifications and manufacturer warranties</p>
+                    <p className="text-xs text-gray-500 text-center">*Based on APR Battery System specifications with integrated BMS technology</p>
                   </div>
                 </div>
                 
                 <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-amber-700/20 shadow-md">
-                  <h3 className="text-xl font-bold mb-4 text-amber-300">System Specifications</h3>
+                  <h3 className="text-xl font-bold mb-4 text-amber-300">APR Battery System Features</h3>
                   
                   <div className="space-y-4 mb-6">
                     <div className="flex justify-between pb-2 border-b border-gray-700">
-                      <span className="text-gray-300">Panel Types</span>
-                      <span className="text-white font-medium">Monocrystalline, High-Efficiency</span>
+                      <span className="text-gray-300">Battery Chemistry</span>
+                      <span className="text-white font-medium">LiFePO4 Lithium Iron Phosphate</span>
                     </div>
                     <div className="flex justify-between pb-2 border-b border-gray-700">
-                      <span className="text-gray-300">Inverter Technology</span>
-                      <span className="text-white font-medium">String + Power Optimizers</span>
+                      <span className="text-gray-300">Maintenance Required</span>
+                      <span className="text-white font-medium">Zero - completely maintenance-free</span>
                     </div>
                     <div className="flex justify-between pb-2 border-b border-gray-700">
-                      <span className="text-gray-300">Monitoring System</span>
-                      <span className="text-white font-medium">Real-time production tracking</span>
+                      <span className="text-gray-300">Cycle Life</span>
+                      <span className="text-white font-medium">10,000+ cycles (20+ years)</span>
                     </div>
                     <div className="flex justify-between pb-2 border-b border-gray-700">
-                      <span className="text-gray-300">Installation Method</span>
-                      <span className="text-white font-medium">Roof-mounted, flashed & sealed</span>
+                      <span className="text-gray-300">Warranty</span>
+                      <span className="text-white font-medium">10 years performance guarantee</span>
                     </div>
                     <div className="flex justify-between pb-2 border-b border-gray-700">
-                      <span className="text-gray-300">Net Metering</span>
-                      <span className="text-white font-medium">Full credit for excess production</span>
+                      <span className="text-gray-300">Safety Features</span>
+                      <span className="text-white font-medium">Built-in BMS with thermal protection</span>
                     </div>
                     <div className="flex justify-between pb-2 border-b border-gray-700">
-                      <span className="text-gray-300">System Size Range</span>
-                      <span className="text-white font-medium">3kW - 20kW residential</span>
+                      <span className="text-gray-300">Installation</span>
+                      <span className="text-white font-medium">Indoor/outdoor, any orientation</span>
                     </div>
                     <div className="flex justify-between pb-2 border-b border-gray-700">
-                      <span className="text-gray-300">Installation Timeline</span>
-                      <span className="text-white font-medium">2-4 weeks from permit</span>
+                      <span className="text-gray-300">Expandability</span>
+                      <span className="text-white font-medium">Modular - add capacity anytime</span>
                     </div>
                     <div className="flex justify-between pb-2">
-                      <span className="text-gray-300">License & Insurance</span>
-                      <span className="text-white font-medium">Full C-46 Solar License</span>
+                      <span className="text-gray-300">Environmental Impact</span>
+                      <span className="text-white font-medium">Non-toxic, fully recyclable</span>
                     </div>
                   </div>
                 </div>
@@ -476,7 +477,7 @@ const ResidentialSolar = () => {
               {/* Content card */}
               <div className="relative z-20 rounded-2xl overflow-hidden p-8 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-green-700/30 shadow-lg">
                 <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-green-300 via-green-200 to-green-300">
-                  Massive Savings & Financial Benefits
+                  Superior Value & Long-Term Savings
                 </h2>
                 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
@@ -488,24 +489,24 @@ const ResidentialSolar = () => {
                         <div className="flex items-start">
                           <CircleDollarSign className="h-6 w-6 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
                           <div>
-                            <h4 className="font-semibold text-white mb-1">Eliminate Electric Bills</h4>
-                            <p className="text-gray-300">Average family saves $200-400 monthly on electricity costs, with many achieving $0 electric bills through proper system sizing and net metering.</p>
+                            <h4 className="font-semibold text-white mb-1">Lower Total Cost of Ownership</h4>
+                            <p className="text-gray-300">20+ year lifespan means you buy once instead of replacing lead acid batteries 4-5 times over the same period.</p>
                           </div>
                         </div>
                         
                         <div className="flex items-start">
                           <CircleDollarSign className="h-6 w-6 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
                           <div>
-                            <h4 className="font-semibold text-white mb-1">30% Federal Tax Credit</h4>
-                            <p className="text-gray-300">Immediate 30% federal tax credit on total system cost, plus additional state and local incentives available to qualifying homeowners.</p>
+                            <h4 className="font-semibold text-white mb-1">Maximum Energy Utilization</h4>
+                            <p className="text-gray-300">95%+ efficiency means virtually no energy loss during storage, maximizing your solar investment and reducing grid dependence.</p>
                           </div>
                         </div>
                         
                         <div className="flex items-start">
                           <CircleDollarSign className="h-6 w-6 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
                           <div>
-                            <h4 className="font-semibold text-white mb-1">Home Value Increase</h4>
-                            <p className="text-gray-300">Solar installations increase home value by an average of $15,000-20,000, with buyers willing to pay premium for energy-efficient homes.</p>
+                            <h4 className="font-semibold text-white mb-1">Zero Maintenance Costs</h4>
+                            <p className="text-gray-300">No water additions, corrosion cleaning, or regular maintenance visits - saving hundreds in annual service costs.</p>
                           </div>
                         </div>
                       </div>
@@ -514,30 +515,30 @@ const ResidentialSolar = () => {
                   
                   <div>
                     <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-green-700/20 shadow-md h-full">
-                      <h3 className="text-xl font-bold mb-4 text-green-300">Long-Term Benefits</h3>
+                      <h3 className="text-xl font-bold mb-4 text-green-300">Performance Benefits</h3>
                       
                       <div className="space-y-5">
                         <div className="flex items-start">
                           <Shield className="h-6 w-6 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
                           <div>
-                            <h4 className="font-semibold text-white mb-1">Fixed Energy Costs</h4>
-                            <p className="text-gray-300">Lock in your energy costs for 25+ years, protecting your family from future utility rate increases and inflation.</p>
+                            <h4 className="font-semibold text-white mb-1">Reliable Backup Power</h4>
+                            <p className="text-gray-300">Instant response during outages with consistent power delivery regardless of weather conditions or temperature.</p>
                           </div>
                         </div>
                         
                         <div className="flex items-start">
                           <Shield className="h-6 w-6 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
                           <div>
-                            <h4 className="font-semibold text-white mb-1">Energy Independence</h4>
-                            <p className="text-gray-300">Reduce reliance on the grid with your own clean energy production, providing security and predictability for your family's future.</p>
+                            <h4 className="font-semibold text-white mb-1">Future-Proof Technology</h4>
+                            <p className="text-gray-300">Compatible with smart home systems, expandable capacity, and ready for emerging energy technologies.</p>
                           </div>
                         </div>
                         
                         <div className="flex items-start">
                           <Shield className="h-6 w-6 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
                           <div>
-                            <h4 className="font-semibold text-white mb-1">Environmental Impact</h4>
-                            <p className="text-gray-300">Typical residential system eliminates 100,000+ lbs of CO2 over its lifetime - equivalent to planting 2,500 trees.</p>
+                            <h4 className="font-semibold text-white mb-1">Environmental Responsibility</h4>
+                            <p className="text-gray-300">Non-toxic, fully recyclable materials with minimal environmental impact throughout the product lifecycle.</p>
                           </div>
                         </div>
                       </div>
@@ -551,24 +552,24 @@ const ResidentialSolar = () => {
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div className="bg-gray-900/50 p-4 rounded-lg border border-green-600/10">
-                        <h4 className="font-semibold text-white mb-2">Redding Family Home</h4>
+                        <h4 className="font-semibold text-white mb-2">Off-Grid Cabin</h4>
                         <p className="text-gray-300 text-sm mb-3">
-                          8kW system installed in 2022. Previous electric bills averaged $320/month. Now paying $0 monthly with excess production credited back through net metering.
+                          APR 40kWh lithium system replacing failed lead acid bank. After 3 years, zero maintenance performed with 99.2% system availability. Owner saves $2,000 annually vs. previous lead acid replacement costs.
                         </p>
                         <div className="flex justify-between text-sm">
-                          <span className="text-green-400">Annual Savings: $3,840</span>
-                          <span className="text-green-400">Payback: 6.2 years</span>
+                          <span className="text-green-400">Uptime: 99.2%</span>
+                          <span className="text-green-400">Maintenance: $0</span>
                         </div>
                       </div>
                       
                       <div className="bg-gray-900/50 p-4 rounded-lg border border-green-600/10">
-                        <h4 className="font-semibold text-white mb-2">Anderson Neighborhood</h4>
+                        <h4 className="font-semibold text-white mb-2">Marina Facility</h4>
                         <p className="text-gray-300 text-sm mb-3">
-                          12kW system with battery backup installed in 2021. Family eliminated $450/month electric bills and gained backup power security during outages.
+                          Commercial-scale APR battery system powering critical marina operations. System has operated flawlessly for 5 years with 98.8% efficiency maintained throughout all seasons.
                         </p>
                         <div className="flex justify-between text-sm">
-                          <span className="text-green-400">Annual Savings: $5,400</span>
-                          <span className="text-green-400">ROI: 22% annually</span>
+                          <span className="text-green-400">Efficiency: 98.8%</span>
+                          <span className="text-green-400">Years: 5+ trouble-free</span>
                         </div>
                       </div>
                     </div>
@@ -582,7 +583,7 @@ const ResidentialSolar = () => {
                   >
                     <span className="relative z-10 text-white group-hover:text-green-200 transition-colors duration-300 flex items-center">
                       <Calculator className="w-5 h-5 mr-2" />
-                      Calculate Your Savings
+                      Calculate Battery Savings
                     </span>
                     <span className="absolute -inset-[3px] bg-green-600 opacity-30 group-hover:opacity-50 transition-opacity duration-300 blur-md rounded-lg -z-10"></span>
                   </Button>
@@ -604,45 +605,45 @@ const ResidentialSolar = () => {
               {/* Content card */}
               <div className="relative z-20 rounded-2xl overflow-hidden p-8 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-purple-700/30 shadow-lg">
                 <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-300 via-purple-200 to-purple-300">
-                  Start Your Solar Journey Today
+                  Upgrade to Premium Battery Technology
                 </h2>
                 
                 <div className="flex flex-col items-center">
                   <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-purple-700/20 shadow-md max-w-3xl mx-auto mb-8">
-                    <h3 className="text-xl font-bold mb-4 text-purple-300 text-center">Why Choose Advance Power Redding</h3>
+                    <h3 className="text-xl font-bold mb-4 text-purple-300 text-center">Why Choose APR Lithium Battery Systems</h3>
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                       <div className="space-y-3">
                         <div className="flex items-start">
                           <CheckCircle className="h-5 w-5 text-purple-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">20+ years experience with thousands of installations</span>
+                          <span className="text-gray-300">Proprietary APR Battery technology with integrated BMS</span>
                         </div>
                         <div className="flex items-start">
                           <CheckCircle className="h-5 w-5 text-purple-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">Licensed C-46 solar contractors, fully insured</span>
+                          <span className="text-gray-300">10-year performance warranty with local support</span>
                         </div>
                         <div className="flex items-start">
                           <CheckCircle className="h-5 w-5 text-purple-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">Local Redding company - we're here when you need us</span>
+                          <span className="text-gray-300">Custom sizing for your specific energy needs</span>
                         </div>
                         <div className="flex items-start">
                           <CheckCircle className="h-5 w-5 text-purple-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">Complete project management from design to activation</span>
+                          <span className="text-gray-300">Compatible with new or existing solar systems</span>
                         </div>
                       </div>
                       
                       <div className="space-y-3">
                         <div className="flex items-start">
                           <CheckCircle className="h-5 w-5 text-purple-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">Premium components with industry-leading warranties</span>
+                          <span className="text-gray-300">Professional installation and system integration</span>
                         </div>
                         <div className="flex items-start">
                           <CheckCircle className="h-5 w-5 text-purple-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">Custom system design optimized for your home</span>
+                          <span className="text-gray-300">Remote monitoring and diagnostic capabilities</span>
                         </div>
                         <div className="flex items-start">
                           <CheckCircle className="h-5 w-5 text-purple-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">No pushy sales - honest advice and fair pricing</span>
+                          <span className="text-gray-300">Modular expansion for future capacity needs</span>
                         </div>
                         <div className="flex items-start">
                           <CheckCircle className="h-5 w-5 text-purple-500 mr-2 flex-shrink-0 mt-0.5" />
@@ -657,7 +658,7 @@ const ResidentialSolar = () => {
                         onClick={handleShowConsultationForm}
                       >
                         <span className="relative z-10 text-white group-hover:text-purple-200 transition-colors duration-300 flex items-center">
-                          Get Your Free Solar Quote
+                          Get Lithium Battery Quote
                         </span>
                         <span className="absolute -inset-[3px] bg-purple-600 opacity-30 group-hover:opacity-50 transition-opacity duration-300 blur-md rounded-lg -z-10"></span>
                       </Button>
@@ -681,11 +682,11 @@ const ResidentialSolar = () => {
                 {/* Content card */}
                 <div className="relative z-20 rounded-2xl overflow-hidden p-8 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-blue-700/30 shadow-lg max-w-3xl mx-auto">
                   <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-blue-100 to-blue-300">
-                    Get Your Free Solar Consultation
+                    Get Your Battery Storage Consultation
                   </h2>
                   
                   <p className="text-gray-300 mb-8 text-center">
-                    Complete the form below, and one of our solar experts will contact you within 24 hours to discuss your home's solar potential.
+                    Complete the form below, and our energy storage specialists will contact you within 24 hours to discuss your battery needs and design the perfect storage solution.
                   </p>
                   
                   <Form {...form}>
@@ -752,10 +753,10 @@ const ResidentialSolar = () => {
                           name="propertyType"
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel className="text-gray-200">Home Type</FormLabel>
+                              <FormLabel className="text-gray-200">Application Type</FormLabel>
                               <FormControl>
                                 <Input 
-                                  placeholder="Single-family, Townhome, etc." 
+                                  placeholder="Home, Business, Off-grid, etc." 
                                   className="bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500"
                                   {...field} 
                                 />
@@ -771,10 +772,10 @@ const ResidentialSolar = () => {
                         name="address"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel className="text-gray-200">Home Address</FormLabel>
+                            <FormLabel className="text-gray-200">Installation Address</FormLabel>
                             <FormControl>
                               <Input 
-                                placeholder="Property address for solar assessment" 
+                                placeholder="Property address for battery system" 
                                 className="bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500"
                                 {...field} 
                               />
@@ -789,10 +790,10 @@ const ResidentialSolar = () => {
                         name="message"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel className="text-gray-200">Current Electric Bill & Goals</FormLabel>
+                            <FormLabel className="text-gray-200">Current System & Storage Goals</FormLabel>
                             <FormControl>
                               <Textarea 
-                                placeholder="Tell us about your current monthly electric bill and what you hope to achieve with solar" 
+                                placeholder="Tell us about your existing solar system (if any), current battery setup, and what you hope to achieve with lithium battery storage" 
                                 className="bg-gray-800/50 border-gray-700 text-white min-h-[120px]"
                                 {...field} 
                               />
@@ -809,7 +810,7 @@ const ResidentialSolar = () => {
                           disabled={consultationMutation.isPending}
                         >
                           <span className="relative z-10 text-white group-hover:text-blue-200 transition-colors duration-300">
-                            {consultationMutation.isPending ? "Submitting..." : "Get My Free Quote"}
+                            {consultationMutation.isPending ? "Submitting..." : "Get Battery Storage Quote"}
                           </span>
                           <span className="absolute -inset-[3px] bg-blue-600 opacity-30 group-hover:opacity-50 transition-opacity duration-300 blur-md rounded-lg -z-10"></span>
                         </Button>
@@ -837,17 +838,17 @@ const ResidentialSolar = () => {
                     <CheckCircle className="w-10 h-10 text-green-500" />
                   </div>
                   <h2 className="text-2xl md:text-3xl font-bold mb-4 text-center text-white">
-                    Solar Quote Request Received!
+                    Battery Storage Quote Request Received!
                   </h2>
                   <p className="text-gray-300 mb-6 text-center">
-                    Thank you for your interest in residential solar with Advance Power Redding. One of our solar experts will contact you within 24 hours to discuss your home's solar potential and provide a custom quote.
+                    Thank you for your interest in lithium battery storage with Advance Power Redding. Our energy storage specialists will contact you within 24 hours to discuss your backup power needs and design the perfect battery solution.
                   </p>
                   <p className="text-gray-300 mb-8 text-center">
-                    In the meantime, check out our other solar solutions or learn more about battery backup systems.
+                    We'll analyze your energy usage and backup requirements to recommend the optimal APR Battery system for your needs.
                   </p>
                   <div className="flex flex-wrap justify-center gap-4">
                     <Button variant="outline" className="border-green-500 text-green-400 hover:text-green-300 hover:border-green-400">
-                      View Battery Solutions
+                      View Hybrid Systems
                     </Button>
                     <Button variant="outline" className="border-blue-500 text-blue-400 hover:text-blue-300 hover:border-blue-400">
                       Return to Home Page
@@ -863,4 +864,4 @@ const ResidentialSolar = () => {
   );
 };
 
-export default ResidentialSolar;
+export default LithiumBattery;
