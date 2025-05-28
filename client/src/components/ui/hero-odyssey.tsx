@@ -409,9 +409,6 @@ export const HeroSection: React.FC = () => {
             >
               CALL NOW! (530) 226-0701
             </a>
-            <button className="px-8 py-3 bg-white/10 backdrop-blur-sm rounded-lg hover:bg-white/20 transition-colors">
-              Get Free Estimate
-            </button>
           </motion.div>
 
           {/* Trust Badges */}
