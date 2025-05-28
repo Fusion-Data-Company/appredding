@@ -6,6 +6,7 @@ import AboutAdvancePowerSection from "@/sections/AboutAdvancePowerSection";
 import EnergyStorageSection from "@/sections/EnergyStorageSection";
 import SolarTestimonialsSection from "@/sections/SolarTestimonialsSection";
 import ContactSection from "@/sections/ContactSection";
+import PitchDeckTrigger from "@/components/PitchDeck/PitchDeckTrigger";
 
 const Home = () => {
   return (
@@ -19,6 +20,7 @@ const Home = () => {
         <SolarTestimonialsSection />
         <ContactSection />
       </div>
+      <PitchDeckTrigger />
     </MainLayout>
   );
 };
