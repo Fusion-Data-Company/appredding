@@ -38,23 +38,32 @@ export const MenuItem = ({
   children?: React.ReactNode;
 }) => {
   const itemRef = useRef<HTMLDivElement>(null);
-  const [rect, setRect] = useState<DOMRect | null>(null);
-  
-  // Update rect when active changes
-  useEffect(() => {
-    if (active === item && itemRef.current) {
-      setRect(itemRef.current.getBoundingClientRect());
-    }
-  }, [active, item]);
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseEnter = () => {
+    setActive(item);
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+    // Delay clearing active to allow moving to dropdown
+    setTimeout(() => {
+      if (!isHovered) {
+        setActive(null);
+      }
+    }, 100);
+  };
 
   return (
     <div 
       ref={itemRef}
-      onMouseEnter={() => setActive(item)} 
-      className="relative"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      className="relative group"
     >
       {/* Premium menu item with hover indicator */}
-      <div className="relative group">
+      <div className="relative">
         {/* Animated highlight line */}
         <motion.div 
           initial={{ width: 0, opacity: 0 }} 
@@ -77,15 +86,22 @@ export const MenuItem = ({
         </motion.p>
       </div>
       
-      {/* Portal-based dropdown that's rendered at the root level */}
-      <DropdownPortal 
-        isOpen={active === item}
-        anchorRect={rect}
-      >
-        <div className="w-max h-full py-6 px-6">
-          {children}
-        </div>
-      </DropdownPortal>
+      {/* Direct dropdown without portal - positioned closer */}
+      {active === item && (
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 10 }}
+          transition={{ duration: 0.2 }}
+          className="absolute top-full left-0 mt-1 z-[9999] bg-white border border-gray-200 rounded-lg shadow-2xl min-w-[280px]"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
+          <div className="py-4 px-4">
+            {children}
+          </div>
+        </motion.div>
+      )}
     </div>
   );
 };

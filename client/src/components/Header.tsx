@@ -95,8 +95,8 @@ const Header = () => {
             <Menu setActive={setActiveItem}>
               <MenuItem setActive={setActiveItem} active={activeItem} item="Solar Solutions">
                 <div className="grid grid-cols-2 gap-4 p-4 w-[500px]">
-                  <div className="col-span-2 mb-2 pb-2 border-b border-gray-700/30">
-                    <h3 className="text-sm font-semibold text-red-400 uppercase tracking-wider">Solar Energy Solutions</h3>
+                  <div className="col-span-2 mb-2 pb-2 border-b border-gray-300">
+                    <h3 className="text-sm font-semibold text-black uppercase tracking-wider">Solar Energy Solutions</h3>
                   </div>
                   
                   <div className="flex items-center gap-3 hover:bg-red-900/20 p-2 rounded-lg transition-colors">
@@ -138,8 +138,8 @@ const Header = () => {
               
               <MenuItem setActive={setActiveItem} active={activeItem} item="About">
                 <div className="flex flex-col space-y-1 p-4 w-[280px]">
-                  <div className="mb-2 pb-2 border-b border-gray-700/30">
-                    <h3 className="text-sm font-semibold text-red-400 uppercase tracking-wider">Company Information</h3>
+                  <div className="mb-2 pb-2 border-b border-gray-300">
+                    <h3 className="text-sm font-semibold text-black uppercase tracking-wider">Company Information</h3>
                   </div>
                   
                   <div className="flex items-center gap-3 hover:bg-blue-900/20 p-2 rounded-lg transition-colors">
@@ -195,8 +195,8 @@ const Header = () => {
               <MenuItem setActive={setActiveItem} active={activeItem} item="Business Tools">
                 <div className="flex gap-6 p-4 w-[550px]">
                   <div className="w-1/2">
-                    <div className="mb-3 pb-2 border-b border-gray-700/30">
-                      <h3 className="text-sm font-semibold text-red-400 uppercase tracking-wider">Business Operations</h3>
+                    <div className="mb-3 pb-2 border-b border-gray-300">
+                      <h3 className="text-sm font-semibold text-black uppercase tracking-wider">Business Operations</h3>
                     </div>
                     
                     <div className="grid gap-3">
@@ -231,8 +231,8 @@ const Header = () => {
                   </div>
                   
                   <div className="w-1/2">
-                    <div className="mb-3 pb-2 border-b border-gray-700/30">
-                      <h3 className="text-sm font-semibold text-green-400 uppercase tracking-wider">Tools & Services</h3>
+                    <div className="mb-3 pb-2 border-b border-gray-300">
+                      <h3 className="text-sm font-semibold text-black uppercase tracking-wider">Tools & Services</h3>
                     </div>
                     
                     <div className="space-y-2.5">
