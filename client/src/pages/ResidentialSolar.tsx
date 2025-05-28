@@ -37,8 +37,6 @@ import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
 import { motion } from "framer-motion";
 import SEOHead from "@/components/SEOHead";
-import { preloadCriticalImages } from "@/lib/image-helper";
-import { generateStructuredData, getIndustryKeywords } from "@/lib/seo-helper";
 
 type ResidentialSolarFormValues = z.infer<typeof insertFirePreventionHomeownerSchema>;
 
@@ -50,17 +48,8 @@ const ResidentialSolar = () => {
   // Define industry-specific data for SEO
   const industry = "Residential Solar";
   const slug = "residential-solar";
-  const pageTitle = "Advance Power Redding – Residential Solar Solutions";
-  const pageDescription = "Expert residential solar installations with over 20 years of experience. High-quality, reliable solar solutions for homes in Redding, CA that meet your energy needs and fit your budget.";
-  const heroImagePath = "/src/assets_dir/images/optimized/praetorian-background-new.png";
-  
-  // Preload critical images
-  useEffect(() => {
-    preloadCriticalImages([
-      heroImagePath,
-      "/src/assets_dir/images/residential-solar-hero.jpg"
-    ]);
-  }, []);
+  const pageTitle = "Advance Power Redding – Residential Solar Installation";
+  const pageDescription = "Professional residential solar installations in Redding, CA. Save money on energy bills with custom solar solutions designed for Northern California homes.";
 
   // Setup form for consultation form
   const form = useForm<ResidentialSolarFormValues>({
@@ -78,7 +67,7 @@ const ResidentialSolar = () => {
   // Mutation for consultation form
   const consultationMutation = useMutation({
     mutationFn: async (data: ResidentialSolarFormValues) => {
-      return await apiRequest("/api/residential-solar/consultation", {
+      return await apiRequest("/api/fire-prevention/consultation", {
         method: "POST",
         data,
       });
@@ -101,171 +90,154 @@ const ResidentialSolar = () => {
     },
   });
 
-  const onSubmit = (data: ResidentialSolarFormValues) => {
-    consultationMutation.mutate(data);
-  };
-
   const handleShowConsultationForm = () => {
     setShowConsultationForm(true);
   };
 
+  const onSubmit = (data: ResidentialSolarFormValues) => {
+    consultationMutation.mutate(data);
+  };
+
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Residential Solar Installation",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Advance Power Redding",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Redding",
+        "addressRegion": "CA"
+      }
+    },
+    "description": pageDescription,
+    "areaServed": "Redding, California"
+  };
+
   return (
-    <MainLayout fullWidth={true}>
-      {/* Enhanced SEO Head with structured data and improved metadata */}
-      <SEOHead
+    <MainLayout>
+      <SEOHead 
         title={pageTitle}
         description={pageDescription}
-        industry={industry}
-        slug={slug}
-        imagePath={heroImagePath}
-        keywords={getIndustryKeywords(slug, [
-          'residential solar panels',
-          'home solar installation',
-          'solar for families',
-          'rooftop solar systems',
-          'solar energy savings'
-        ])}
-        structuredData={generateStructuredData(industry, pageDescription, slug, [
-          "Residential Solar Panels",
-          "Home Solar Installation",
-          "Solar Energy Systems",
-          "Rooftop Solar Solutions"
-        ])}
+        structuredData={structuredData}
       />
-      
-      <div className="relative">
-        {/* Advanced premium gradient background with layered effects */}
-        <div className="fixed inset-0 z-[-5]" style={{ 
-          background: 'linear-gradient(145deg, #0c0c14 0%, #101830 30%, #152238 60%, #0e1a2a 100%)'
-        }}></div>
-        
-        {/* Dynamic layered background elements with solar theme */}
-        <div className="fixed inset-0 z-[-4] opacity-40" style={{ 
-          backgroundImage: 'radial-gradient(circle at 30% 20%, rgba(251, 191, 36, 0.6) 0%, rgba(15, 23, 42, 0) 60%)'
-        }}></div>
-        
-        <div className="fixed inset-0 z-[-3] opacity-30" style={{ 
-          backgroundImage: 'radial-gradient(circle at 70% 60%, rgba(30, 64, 175, 0.5) 0%, rgba(15, 23, 42, 0) 60%)'
-        }}></div>
-        
-        {/* Subtle animated grid overlay */}
-        <div className="fixed inset-0 z-[-2] opacity-10 bg-[url('/src/assets_dir/images/grid-pattern.svg')] bg-repeat"></div>
 
-        {/* SANDLER STAGE 0: INTRO - BLUE GLOW SECTION */}
-        <section className="relative z-10 py-16 md:py-24 overflow-hidden">
+      <div className="min-h-screen bg-black">
+        {/* SANDLER STAGE 0: OPENING - BLUE GLOW SECTION - Introduction */}
+        <section className="relative z-10 pt-20 pb-12 overflow-hidden">
           <div className="container mx-auto">
-            <div className="flex flex-col lg:flex-row items-center gap-8">
-              {/* Left column with text content */}
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7 }}
-                className="lg:w-1/2 relative"
-              >
-                <div className="relative">
-                  {/* Blue glow effect with multi-layered design */}
-                  <div className="absolute -inset-10 bg-blue-500/20 rounded-xl blur-xl opacity-70 z-0"></div>
-                  <div className="absolute -inset-20 bg-blue-600/10 rounded-xl blur-2xl opacity-50 z-0"></div>
-                  <div className="absolute -inset-30 bg-blue-700/5 rounded-xl blur-3xl opacity-30 z-0 animate-pulse-slow"></div>
-                  
-                  {/* Content card with premium effects */}
-                  <div className="relative z-20 rounded-2xl overflow-hidden p-8 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-blue-700/30 shadow-lg">
-                    {/* Premium corner accents */}
-                    <div className="absolute bottom-1 left-1 w-12 h-12 border-b border-l border-blue-500/30 rounded-bl-md"></div>
-                    <div className="absolute bottom-1 right-1 w-12 h-12 border-b border-r border-blue-500/30 rounded-br-md"></div>
-                    <div className="absolute top-1 left-1 w-12 h-12 border-t border-l border-blue-500/30 rounded-tl-md"></div>
-                    <div className="absolute top-1 right-1 w-12 h-12 border-t border-r border-blue-500/30 rounded-tr-md"></div>
-                  
-                    <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-blue-100 to-blue-300">
-                      Residential Solar Solutions
-                    </h1>
-                    
-                    <div className="mb-6 space-y-6 text-gray-300">
-                      <p className="text-lg">
-                        Advance Power Redding brings over 20 years of expertise in solar photovoltaic (PV) system installations, serving families across Redding, CA. As licensed professionals, we're committed to providing high-quality, reliable solar solutions that meet your home's energy needs and fit your budget.
-                      </p>
-                      <p className="text-lg">
-                        From rooftop panel installations to battery backups for your home, we handle everything to help you save on energy costs and achieve energy independence for your family.
-                      </p>
-                    </div>
-                    
-                    <div className="flex flex-wrap gap-4 mb-6">
-                      <div className="flex items-center space-x-2">
-                        <Sun className="h-5 w-5 text-blue-400" />
-                        <span className="text-gray-200">20+ Years Experience</span>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <Home className="h-5 w-5 text-blue-400" />
-                        <span className="text-gray-200">Custom Home Solutions</span>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <Award className="h-5 w-5 text-blue-400" />
-                        <span className="text-gray-200">Licensed Professionals</span>
-                      </div>
-                    </div>
-                    
-                    <div className="flex flex-wrap gap-4">
-                      <Button 
-                        className="relative group overflow-hidden bg-gradient-to-r from-gray-800 to-gray-950 border border-gray-700 hover:border-blue-500 transition-all duration-300 px-6 py-2 shadow-lg"
-                        onClick={handleShowConsultationForm}
-                      >
-                        <span className="relative z-10 text-white group-hover:text-blue-200 transition-colors duration-300">
-                          Get Free Quote
-                        </span>
-                        <span className="absolute inset-0 bg-blue-600 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></span>
-                      </Button>
-                      <Button 
-                        variant="outline" 
-                        className="border-gray-600 text-blue-400 hover:text-blue-300 hover:border-blue-500"
-                      >
-                        Learn More
-                      </Button>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
+            <div className="relative">
+              {/* Enhanced Blue glow effect with multi-layer glow */}
+              <div className="absolute -inset-10 bg-blue-500/20 rounded-xl blur-xl opacity-70 z-0"></div>
+              <div className="absolute -inset-20 bg-blue-600/10 rounded-xl blur-2xl opacity-50 z-0"></div>
+              <div className="absolute -inset-30 bg-blue-700/5 rounded-xl blur-3xl opacity-30 z-0 animate-pulse-slow"></div>
               
-              {/* Right column with image */}
-              <motion.div 
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.7, delay: 0.2 }}
-                className="lg:w-1/2"
-              >
-                <div className="relative">
-                  {/* Premium image container with decorative elements */}
-                  <div className="relative rounded-2xl overflow-hidden border border-blue-700/30 shadow-lg">
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-900/30 to-black/80 mix-blend-overlay z-10"></div>
+              {/* Content within the glow */}
+              <div className="relative z-20 rounded-2xl overflow-hidden">
+                <div className="bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-blue-700/30 shadow-lg p-8">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    {/* Left column with text content */}
+                    <motion.div 
+                      initial={{ opacity: 0, x: -50 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.7 }}
+                      className="space-y-6"
+                    >
+                      <div className="space-y-4">
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-blue-200 to-blue-300">
+                          Residential Solar Installation
+                        </h1>
+                        <h2 className="text-2xl md:text-3xl font-semibold text-blue-200">
+                          Advance Power Redding
+                        </h2>
+                        <p className="text-lg text-gray-300 leading-relaxed">
+                          Professional solar installations for Northern California homes. Our founder brings decades of expertise in renewable energy systems, helping Redding families achieve energy independence with premium solar solutions.
+                        </p>
+                      </div>
+                      
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div className="flex items-center space-x-2">
+                          <CheckCircle className="h-5 w-5 text-blue-400" />
+                          <span className="text-gray-200">25-Year Warranty</span>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <Shield className="h-5 w-5 text-blue-400" />
+                          <span className="text-gray-200">Licensed & Insured</span>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <Sun className="h-5 w-5 text-blue-400" />
+                          <span className="text-gray-200">Tier 1 Solar Panels</span>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <Award className="h-5 w-5 text-blue-400" />
+                          <span className="text-gray-200">Local Expertise</span>
+                        </div>
+                      </div>
+                      
+                      <div className="flex flex-wrap gap-4">
+                        <Button 
+                          className="relative group overflow-hidden bg-gradient-to-r from-gray-800 to-gray-950 border border-gray-700 hover:border-blue-500 transition-all duration-300 px-6 py-2 shadow-lg"
+                          onClick={handleShowConsultationForm}
+                        >
+                          <span className="relative z-10 text-white group-hover:text-blue-200 transition-colors duration-300">
+                            Get Free Quote
+                          </span>
+                          <span className="absolute inset-0 bg-blue-600 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></span>
+                        </Button>
+                        <Button 
+                          variant="outline" 
+                          className="border-gray-600 text-blue-400 hover:text-blue-300 hover:border-blue-500"
+                        >
+                          Learn More
+                        </Button>
+                      </div>
+                    </motion.div>
                     
-                    {/* Hero Image */}
-                    <img 
-                      src="/src/assets_dir/images/residential-solar-hero.jpg" 
-                      alt="Residential solar panel installation by Advance Power Redding" 
-                      className="w-full h-auto max-h-[500px] object-cover object-center"
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.src = "/src/assets_dir/images/optimized/praetorian-background-new.png";
-                      }}
-                    />
-                    
-                    {/* Premium overlay elements */}
-                    <div className="absolute top-0 left-0 w-20 h-20 border-t-2 border-l-2 border-blue-400/40 rounded-tl-xl"></div>
-                    <div className="absolute bottom-0 right-0 w-20 h-20 border-b-2 border-r-2 border-blue-400/40 rounded-br-xl"></div>
-                    
-                    {/* Image caption */}
-                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 z-20">
-                      <p className="text-sm text-gray-300 text-center">Professional solar installation on family home in Redding, California</p>
-                    </div>
-                  </div>
-                  
-                  {/* Stats overlay */}
-                  <div className="absolute -bottom-6 -right-6 bg-gradient-to-br from-gray-900 to-gray-950 border border-blue-700/30 rounded-lg p-4 shadow-lg z-30">
-                    <p className="text-blue-400 font-semibold">Savings Up To</p>
-                    <p className="text-3xl font-bold text-white">90%<sup className="text-blue-300 text-xs">*</sup></p>
-                    <p className="text-xs text-gray-400">*On monthly electric bills</p>
+                    {/* Right column with image */}
+                    <motion.div 
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.7, delay: 0.2 }}
+                      className="lg:w-full"
+                    >
+                      <div className="relative">
+                        {/* Premium image container with decorative elements */}
+                        <div className="relative rounded-2xl overflow-hidden border border-blue-700/30 shadow-lg">
+                          <div className="absolute inset-0 bg-gradient-to-br from-blue-900/30 to-black/80 mix-blend-overlay z-10"></div>
+                          
+                          {/* Hero Image */}
+                          <img 
+                            src="/src/assets_dir/images/residential-solar-hero.jpg" 
+                            alt="Residential solar installation by Advance Power Redding" 
+                            className="w-full h-auto max-h-[500px] object-cover object-center"
+                            onError={(e) => {
+                              const target = e.target as HTMLImageElement;
+                              target.src = "/src/assets_dir/images/optimized/praetorian-background-new.png";
+                            }}
+                          />
+                          
+                          {/* Premium overlay elements */}
+                          <div className="absolute top-0 left-0 w-20 h-20 border-t-2 border-l-2 border-blue-400/40 rounded-tl-xl"></div>
+                          <div className="absolute bottom-0 right-0 w-20 h-20 border-b-2 border-r-2 border-blue-400/40 rounded-br-xl"></div>
+                          
+                          {/* Image caption */}
+                          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 z-20">
+                            <p className="text-sm text-gray-300 text-center">Professional residential solar installation in Redding, CA</p>
+                          </div>
+                        </div>
+                        
+                        {/* Stats overlay */}
+                        <div className="absolute -bottom-6 -right-6 bg-gradient-to-br from-gray-900 to-gray-950 border border-blue-700/30 rounded-lg p-4 shadow-lg z-30">
+                          <p className="text-blue-400 font-semibold">Average Savings</p>
+                          <p className="text-3xl font-bold text-white">30-50%</p>
+                          <p className="text-xs text-gray-400">*On monthly energy bills</p>
+                        </div>
+                      </div>
+                    </motion.div>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             </div>
           </div>
         </section>
@@ -282,29 +254,25 @@ const ResidentialSolar = () => {
               {/* Content card */}
               <div className="relative z-20 rounded-2xl overflow-hidden p-8 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-red-700/30 shadow-lg">
                 <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-red-300 via-red-200 to-red-300">
-                  Rising Energy Costs Are Crushing Families
+                  Rising Energy Costs Are Crushing Homeowners
                 </h2>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
                   <div>
                     <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-red-700/20 shadow-md">
-                      <h3 className="text-xl font-bold mb-4 text-red-300">Skyrocketing Electric Bills</h3>
+                      <h3 className="text-xl font-bold mb-4 text-red-300">Skyrocketing Utility Bills</h3>
                       <ul className="space-y-3">
                         <li className="flex items-start">
                           <AlertTriangle className="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">California electricity rates have increased 127% over the past decade</span>
+                          <span className="text-gray-300">California electricity rates increased 47% over the past 5 years</span>
                         </li>
                         <li className="flex items-start">
                           <AlertTriangle className="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">Average family now pays $300+ monthly for electricity in Northern California</span>
+                          <span className="text-gray-300">Average Redding household pays $200+ monthly for electricity</span>
                         </li>
                         <li className="flex items-start">
                           <AlertTriangle className="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">Time-of-use rates penalize families for using power when they need it most</span>
-                        </li>
-                        <li className="flex items-start">
-                          <AlertTriangle className="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">Summer peak rates can exceed $0.50 per kWh during hottest days</span>
+                          <span className="text-gray-300">Peak hour rates can exceed $0.50/kWh during summer months</span>
                         </li>
                       </ul>
                     </div>
@@ -312,150 +280,104 @@ const ResidentialSolar = () => {
                   
                   <div>
                     <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-red-700/20 shadow-md">
-                      <h3 className="text-xl font-bold mb-4 text-red-300">Unreliable Grid Infrastructure</h3>
+                      <h3 className="text-xl font-bold mb-4 text-red-300">Energy Dependency Risks</h3>
                       <ul className="space-y-3">
                         <li className="flex items-start">
                           <AlertTriangle className="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">Frequent power outages during peak demand and extreme weather</span>
+                          <span className="text-gray-300">Grid instability during extreme weather events</span>
                         </li>
                         <li className="flex items-start">
                           <AlertTriangle className="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">Public Safety Power Shutoffs leave families without electricity for days</span>
+                          <span className="text-gray-300">Planned power shutoffs affecting thousands annually</span>
                         </li>
                         <li className="flex items-start">
                           <AlertTriangle className="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">Aging grid infrastructure fails to meet modern energy demands</span>
-                        </li>
-                        <li className="flex items-start">
-                          <AlertTriangle className="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">Spoiled food, lost productivity, and safety risks during outages</span>
+                          <span className="text-gray-300">Limited control over energy costs and availability</span>
                         </li>
                       </ul>
                     </div>
                   </div>
                 </div>
                 
-                <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-red-700/20 shadow-md">
-                  <h3 className="text-xl font-bold mb-4 text-red-300 text-center">The Hidden Costs Add Up Fast</h3>
-                  
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div className="text-center">
-                      <div className="w-16 h-16 bg-red-900/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                        <CircleDollarSign className="h-8 w-8 text-red-500" />
-                      </div>
-                      <p className="text-red-400 font-bold text-xl">$36,000+</p>
-                      <p className="text-gray-300 text-sm">10-year electricity costs</p>
-                    </div>
-                    
-                    <div className="text-center">
-                      <div className="w-16 h-16 bg-red-900/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                        <TrendingUp className="h-8 w-8 text-red-500" />
-                      </div>
-                      <p className="text-red-400 font-bold text-xl">6-8%</p>
-                      <p className="text-gray-300 text-sm">Annual rate increases</p>
-                    </div>
-                    
-                    <div className="text-center">
-                      <div className="w-16 h-16 bg-red-900/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                        <AlertTriangle className="h-8 w-8 text-red-500" />
-                      </div>
-                      <p className="text-red-400 font-bold text-xl">Zero</p>
-                      <p className="text-gray-300 text-sm">Control over costs</p>
-                    </div>
-                  </div>
+                <div className="text-center bg-gradient-to-r from-red-900/20 to-red-800/20 p-6 rounded-lg border border-red-700/30">
+                  <p className="text-xl font-semibold text-red-200 mb-2">The Average Redding Family Spends Over $2,400 Annually on Electricity</p>
+                  <p className="text-gray-300">That's money leaving your pocket forever, with rates only getting higher each year.</p>
                 </div>
               </div>
             </div>
           </div>
         </section>
-          
-        {/* SANDLER STAGE 2: TECH SOLUTION - YELLOW GLOW SECTION */}
+
+        {/* SANDLER STAGE 2: TECHNICAL - YELLOW GLOW SECTION - Solution Details */}
         <section className="relative z-10 py-12 overflow-hidden">
           <div className="container mx-auto mb-16">
             <div className="relative">
-              {/* Enhanced Yellow/Amber glow effect with multi-layer glow */}
-              <div className="absolute -inset-10 bg-amber-500/20 rounded-xl blur-xl opacity-70 z-0"></div>
-              <div className="absolute -inset-20 bg-amber-600/10 rounded-xl blur-2xl opacity-50 z-0"></div>
-              <div className="absolute -inset-30 bg-amber-700/5 rounded-xl blur-3xl opacity-30 z-0 animate-pulse-slow"></div>
+              {/* Enhanced Yellow glow effect with multi-layer glow */}
+              <div className="absolute -inset-10 bg-yellow-500/20 rounded-xl blur-xl opacity-70 z-0"></div>
+              <div className="absolute -inset-20 bg-yellow-600/10 rounded-xl blur-2xl opacity-50 z-0"></div>
+              <div className="absolute -inset-30 bg-yellow-700/5 rounded-xl blur-3xl opacity-30 z-0 animate-pulse-slow"></div>
               
               {/* Content card */}
-              <div className="relative z-20 rounded-2xl overflow-hidden p-8 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-amber-700/30 shadow-lg">
-                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-300">
-                  Advanced Solar Technology Solutions
+              <div className="relative z-20 rounded-2xl overflow-hidden p-8 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-yellow-700/30 shadow-lg">
+                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-yellow-200 to-yellow-300">
+                  Professional Solar Technology Solutions
                 </h2>
                 
-                <div className="mb-10">
-                  <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-amber-700/20 shadow-md">
-                    <h3 className="text-xl font-bold mb-4 text-amber-300">High-Efficiency Solar Panel Systems</h3>
-                    <p className="text-gray-300 mb-6">
-                      Our premium solar installations feature the latest in photovoltaic technology, delivering maximum energy production from your roof space. With over 20 years of installation expertise, we design custom systems that maximize your investment and ensure long-term reliability.
-                    </p>
-                    
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-                      <div className="flex flex-col items-center p-4 bg-gray-900/50 rounded-lg border border-amber-600/20">
-                        <div className="w-16 h-16 flex items-center justify-center mb-2 bg-amber-900/20 rounded-full">
-                          <Sun className="h-8 w-8 text-amber-500" />
-                        </div>
-                        <p className="text-center text-amber-400 font-semibold text-lg mb-1">22%+</p>
-                        <p className="text-center text-sm text-gray-400">Panel Efficiency</p>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-10">
+                  <div>
+                    <h3 className="text-2xl font-bold mb-6 text-yellow-300">Premium Equipment & Installation</h3>
+                    <div className="space-y-4">
+                      <div className="bg-gradient-to-r from-yellow-900/20 to-yellow-800/20 p-4 rounded-lg border border-yellow-700/30">
+                        <h4 className="font-semibold text-yellow-200 mb-2">Tier 1 Solar Panels</h4>
+                        <p className="text-gray-300">High-efficiency monocrystalline panels with 25-year manufacturer warranties</p>
                       </div>
-                      
-                      <div className="flex flex-col items-center p-4 bg-gray-900/50 rounded-lg border border-amber-600/20">
-                        <div className="w-16 h-16 flex items-center justify-center mb-2 bg-amber-900/20 rounded-full">
-                          <Shield className="h-8 w-8 text-amber-500" />
-                        </div>
-                        <p className="text-center text-amber-400 font-semibold text-lg mb-1">25 Years</p>
-                        <p className="text-center text-sm text-gray-400">Performance Warranty</p>
+                      <div className="bg-gradient-to-r from-yellow-900/20 to-yellow-800/20 p-4 rounded-lg border border-yellow-700/30">
+                        <h4 className="font-semibold text-yellow-200 mb-2">Smart Inverter Technology</h4>
+                        <p className="text-gray-300">Optimized power conversion with real-time monitoring capabilities</p>
                       </div>
-                      
-                      <div className="flex flex-col items-center p-4 bg-gray-900/50 rounded-lg border border-amber-600/20">
-                        <div className="w-16 h-16 flex items-center justify-center mb-2 bg-amber-900/20 rounded-full">
-                          <Battery className="h-8 w-8 text-amber-500" />
-                        </div>
-                        <p className="text-center text-amber-400 font-semibold text-lg mb-1">Grid-Tie</p>
-                        <p className="text-center text-sm text-gray-400">+ Battery Ready</p>
+                      <div className="bg-gradient-to-r from-yellow-900/20 to-yellow-800/20 p-4 rounded-lg border border-yellow-700/30">
+                        <h4 className="font-semibold text-yellow-200 mb-2">Professional Installation</h4>
+                        <p className="text-gray-300">Licensed electricians with specialized solar training and certification</p>
                       </div>
                     </div>
-                    
-                    <p className="text-xs text-gray-500 text-center">*Based on premium tier-1 solar panel specifications and manufacturer warranties</p>
+                  </div>
+                  
+                  <div>
+                    <h3 className="text-2xl font-bold mb-6 text-yellow-300">Custom System Design</h3>
+                    <div className="space-y-4">
+                      <div className="bg-gradient-to-r from-yellow-900/20 to-yellow-800/20 p-4 rounded-lg border border-yellow-700/30">
+                        <h4 className="font-semibold text-yellow-200 mb-2">Site Assessment</h4>
+                        <p className="text-gray-300">Comprehensive evaluation of roof condition, shading, and energy needs</p>
+                      </div>
+                      <div className="bg-gradient-to-r from-yellow-900/20 to-yellow-800/20 p-4 rounded-lg border border-yellow-700/30">
+                        <h4 className="font-semibold text-yellow-200 mb-2">Engineering Design</h4>
+                        <p className="text-gray-300">Custom layouts optimized for maximum energy production and efficiency</p>
+                      </div>
+                      <div className="bg-gradient-to-r from-yellow-900/20 to-yellow-800/20 p-4 rounded-lg border border-yellow-700/30">
+                        <h4 className="font-semibold text-yellow-200 mb-2">Permitting & Inspections</h4>
+                        <p className="text-gray-300">Complete handling of all local permits and required inspections</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 
-                <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-amber-700/20 shadow-md">
-                  <h3 className="text-xl font-bold mb-4 text-amber-300">System Specifications</h3>
-                  
-                  <div className="space-y-4 mb-6">
-                    <div className="flex justify-between pb-2 border-b border-gray-700">
-                      <span className="text-gray-300">Panel Types</span>
-                      <span className="text-white font-medium">Monocrystalline, High-Efficiency</span>
+                <div className="bg-gradient-to-r from-yellow-900/30 to-yellow-800/30 p-6 rounded-lg border border-yellow-700/40">
+                  <h3 className="text-xl font-bold text-yellow-200 mb-4 text-center">Why Choose Advance Power Redding?</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div className="text-center">
+                      <Award className="h-12 w-12 text-yellow-400 mx-auto mb-3" />
+                      <h4 className="font-semibold text-yellow-200 mb-2">Local Expertise</h4>
+                      <p className="text-gray-300 text-sm">Deep understanding of Northern California climate and regulations</p>
                     </div>
-                    <div className="flex justify-between pb-2 border-b border-gray-700">
-                      <span className="text-gray-300">Inverter Technology</span>
-                      <span className="text-white font-medium">String + Power Optimizers</span>
+                    <div className="text-center">
+                      <Shield className="h-12 w-12 text-yellow-400 mx-auto mb-3" />
+                      <h4 className="font-semibold text-yellow-200 mb-2">Quality Guarantee</h4>
+                      <p className="text-gray-300 text-sm">Premium materials with comprehensive warranties and insurance</p>
                     </div>
-                    <div className="flex justify-between pb-2 border-b border-gray-700">
-                      <span className="text-gray-300">Monitoring System</span>
-                      <span className="text-white font-medium">Real-time production tracking</span>
-                    </div>
-                    <div className="flex justify-between pb-2 border-b border-gray-700">
-                      <span className="text-gray-300">Installation Method</span>
-                      <span className="text-white font-medium">Roof-mounted, flashed & sealed</span>
-                    </div>
-                    <div className="flex justify-between pb-2 border-b border-gray-700">
-                      <span className="text-gray-300">Net Metering</span>
-                      <span className="text-white font-medium">Full credit for excess production</span>
-                    </div>
-                    <div className="flex justify-between pb-2 border-b border-gray-700">
-                      <span className="text-gray-300">System Size Range</span>
-                      <span className="text-white font-medium">3kW - 20kW residential</span>
-                    </div>
-                    <div className="flex justify-between pb-2 border-b border-gray-700">
-                      <span className="text-gray-300">Installation Timeline</span>
-                      <span className="text-white font-medium">2-4 weeks from permit</span>
-                    </div>
-                    <div className="flex justify-between pb-2">
-                      <span className="text-gray-300">License & Insurance</span>
-                      <span className="text-white font-medium">Full C-46 Solar License</span>
+                    <div className="text-center">
+                      <CheckCircle className="h-12 w-12 text-yellow-400 mx-auto mb-3" />
+                      <h4 className="font-semibold text-yellow-200 mb-2">Full Service</h4>
+                      <p className="text-gray-300 text-sm">From initial consultation through post-installation support</p>
                     </div>
                   </div>
                 </div>
@@ -463,8 +385,8 @@ const ResidentialSolar = () => {
             </div>
           </div>
         </section>
-          
-        {/* SANDLER STAGE 3: BUDGET - GREEN GLOW SECTION */}
+
+        {/* SANDLER STAGE 3: BENEFITS - GREEN GLOW SECTION - Savings & Benefits */}
         <section className="relative z-10 py-12 overflow-hidden">
           <div className="container mx-auto mb-16">
             <div className="relative">
@@ -476,123 +398,95 @@ const ResidentialSolar = () => {
               {/* Content card */}
               <div className="relative z-20 rounded-2xl overflow-hidden p-8 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-green-700/30 shadow-lg">
                 <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-green-300 via-green-200 to-green-300">
-                  Massive Savings & Financial Benefits
+                  Immediate Savings & Long-Term Benefits
                 </h2>
                 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-10">
                   <div>
-                    <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-green-700/20 shadow-md h-full">
-                      <h3 className="text-xl font-bold mb-4 text-green-300">Financial Benefits</h3>
-                      
-                      <div className="space-y-5">
-                        <div className="flex items-start">
-                          <CircleDollarSign className="h-6 w-6 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
-                          <div>
-                            <h4 className="font-semibold text-white mb-1">Eliminate Electric Bills</h4>
-                            <p className="text-gray-300">Average family saves $200-400 monthly on electricity costs, with many achieving $0 electric bills through proper system sizing and net metering.</p>
-                          </div>
+                    <h3 className="text-2xl font-bold mb-6 text-green-300">Financial Benefits</h3>
+                    <div className="space-y-4">
+                      <div className="bg-gradient-to-r from-green-900/20 to-green-800/20 p-4 rounded-lg border border-green-700/30">
+                        <div className="flex items-center justify-between mb-2">
+                          <h4 className="font-semibold text-green-200">Monthly Savings</h4>
+                          <span className="text-2xl font-bold text-green-400">$80-200</span>
                         </div>
-                        
-                        <div className="flex items-start">
-                          <CircleDollarSign className="h-6 w-6 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
-                          <div>
-                            <h4 className="font-semibold text-white mb-1">30% Federal Tax Credit</h4>
-                            <p className="text-gray-300">Immediate 30% federal tax credit on total system cost, plus additional state and local incentives available to qualifying homeowners.</p>
-                          </div>
+                        <p className="text-gray-300">Typical reduction in monthly electricity bills</p>
+                      </div>
+                      <div className="bg-gradient-to-r from-green-900/20 to-green-800/20 p-4 rounded-lg border border-green-700/30">
+                        <div className="flex items-center justify-between mb-2">
+                          <h4 className="font-semibold text-green-200">25-Year Savings</h4>
+                          <span className="text-2xl font-bold text-green-400">$40,000+</span>
                         </div>
-                        
-                        <div className="flex items-start">
-                          <CircleDollarSign className="h-6 w-6 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
-                          <div>
-                            <h4 className="font-semibold text-white mb-1">Home Value Increase</h4>
-                            <p className="text-gray-300">Solar installations increase home value by an average of $15,000-20,000, with buyers willing to pay premium for energy-efficient homes.</p>
-                          </div>
+                        <p className="text-gray-300">Total estimated savings over system lifetime</p>
+                      </div>
+                      <div className="bg-gradient-to-r from-green-900/20 to-green-800/20 p-4 rounded-lg border border-green-700/30">
+                        <div className="flex items-center justify-between mb-2">
+                          <h4 className="font-semibold text-green-200">Home Value Increase</h4>
+                          <span className="text-2xl font-bold text-green-400">4-6%</span>
                         </div>
+                        <p className="text-gray-300">Typical increase in property value</p>
                       </div>
                     </div>
                   </div>
                   
                   <div>
-                    <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-green-700/20 shadow-md h-full">
-                      <h3 className="text-xl font-bold mb-4 text-green-300">Long-Term Benefits</h3>
-                      
-                      <div className="space-y-5">
-                        <div className="flex items-start">
-                          <Shield className="h-6 w-6 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
-                          <div>
-                            <h4 className="font-semibold text-white mb-1">Fixed Energy Costs</h4>
-                            <p className="text-gray-300">Lock in your energy costs for 25+ years, protecting your family from future utility rate increases and inflation.</p>
-                          </div>
+                    <h3 className="text-2xl font-bold mb-6 text-green-300">Additional Benefits</h3>
+                    <div className="space-y-4">
+                      <div className="flex items-start">
+                        <CheckCircle className="h-6 w-6 text-green-400 mr-3 flex-shrink-0 mt-1" />
+                        <div>
+                          <h4 className="font-semibold text-green-200 mb-1">30% Federal Tax Credit</h4>
+                          <p className="text-gray-300">Significant reduction in system cost through federal incentives</p>
                         </div>
-                        
-                        <div className="flex items-start">
-                          <Shield className="h-6 w-6 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
-                          <div>
-                            <h4 className="font-semibold text-white mb-1">Energy Independence</h4>
-                            <p className="text-gray-300">Reduce reliance on the grid with your own clean energy production, providing security and predictability for your family's future.</p>
-                          </div>
+                      </div>
+                      <div className="flex items-start">
+                        <CheckCircle className="h-6 w-6 text-green-400 mr-3 flex-shrink-0 mt-1" />
+                        <div>
+                          <h4 className="font-semibold text-green-200 mb-1">Net Energy Metering</h4>
+                          <p className="text-gray-300">Sell excess power back to the grid for additional credits</p>
                         </div>
-                        
-                        <div className="flex items-start">
-                          <Shield className="h-6 w-6 text-green-500 mr-3 flex-shrink-0 mt-0.5" />
-                          <div>
-                            <h4 className="font-semibold text-white mb-1">Environmental Impact</h4>
-                            <p className="text-gray-300">Typical residential system eliminates 100,000+ lbs of CO2 over its lifetime - equivalent to planting 2,500 trees.</p>
-                          </div>
+                      </div>
+                      <div className="flex items-start">
+                        <CheckCircle className="h-6 w-6 text-green-400 mr-3 flex-shrink-0 mt-1" />
+                        <div>
+                          <h4 className="font-semibold text-green-200 mb-1">Energy Independence</h4>
+                          <p className="text-gray-300">Reduce dependency on volatile utility rates and grid outages</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start">
+                        <CheckCircle className="h-6 w-6 text-green-400 mr-3 flex-shrink-0 mt-1" />
+                        <div>
+                          <h4 className="font-semibold text-green-200 mb-1">Environmental Impact</h4>
+                          <p className="text-gray-300">Reduce carbon footprint equivalent to planting 150+ trees annually</p>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
                 
-                <div className="mb-10">
-                  <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-green-700/20 shadow-md">
-                    <h3 className="text-xl font-bold mb-4 text-green-300">Real Customer Success Stories</h3>
-                    
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div className="bg-gray-900/50 p-4 rounded-lg border border-green-600/10">
-                        <h4 className="font-semibold text-white mb-2">Redding Family Home</h4>
-                        <p className="text-gray-300 text-sm mb-3">
-                          8kW system installed in 2022. Previous electric bills averaged $320/month. Now paying $0 monthly with excess production credited back through net metering.
-                        </p>
-                        <div className="flex justify-between text-sm">
-                          <span className="text-green-400">Annual Savings: $3,840</span>
-                          <span className="text-green-400">Payback: 6.2 years</span>
-                        </div>
-                      </div>
-                      
-                      <div className="bg-gray-900/50 p-4 rounded-lg border border-green-600/10">
-                        <h4 className="font-semibold text-white mb-2">Anderson Neighborhood</h4>
-                        <p className="text-gray-300 text-sm mb-3">
-                          12kW system with battery backup installed in 2021. Family eliminated $450/month electric bills and gained backup power security during outages.
-                        </p>
-                        <div className="flex justify-between text-sm">
-                          <span className="text-green-400">Annual Savings: $5,400</span>
-                          <span className="text-green-400">ROI: 22% annually</span>
-                        </div>
-                      </div>
+                <div className="bg-gradient-to-r from-green-900/30 to-green-800/30 p-6 rounded-lg border border-green-700/40 text-center">
+                  <h3 className="text-2xl font-bold text-green-200 mb-3">ROI Timeline</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div>
+                      <p className="text-3xl font-bold text-green-400 mb-1">Year 1</p>
+                      <p className="text-gray-300">Immediate 30-50% bill reduction</p>
+                    </div>
+                    <div>
+                      <p className="text-3xl font-bold text-green-400 mb-1">6-8 Years</p>
+                      <p className="text-gray-300">Complete system payback</p>
+                    </div>
+                    <div>
+                      <p className="text-3xl font-bold text-green-400 mb-1">25+ Years</p>
+                      <p className="text-gray-300">Continued free electricity</p>
                     </div>
                   </div>
-                </div>
-                
-                <div className="flex justify-center">
-                  <Button 
-                    className="relative group overflow-hidden bg-black border border-green-400 hover:border-green-300 transition-all duration-300 px-8 py-3 text-lg shadow-lg"
-                    onClick={handleShowConsultationForm}
-                  >
-                    <span className="relative z-10 text-white group-hover:text-green-200 transition-colors duration-300 flex items-center">
-                      <Calculator className="w-5 h-5 mr-2" />
-                      Calculate Your Savings
-                    </span>
-                    <span className="absolute -inset-[3px] bg-green-600 opacity-30 group-hover:opacity-50 transition-opacity duration-300 blur-md rounded-lg -z-10"></span>
-                  </Button>
                 </div>
               </div>
             </div>
           </div>
         </section>
-        
-        {/* SANDLER STAGE 4: DECISION - PURPLE GLOW SECTION */}
+
+        {/* SANDLER STAGE 4: REGISTRATION - PURPLE GLOW SECTION - Call to Action */}
         <section className="relative z-10 py-12 overflow-hidden">
           <div className="container mx-auto mb-16">
             <div className="relative">
@@ -607,257 +501,181 @@ const ResidentialSolar = () => {
                   Start Your Solar Journey Today
                 </h2>
                 
-                <div className="flex flex-col items-center">
-                  <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-purple-700/20 shadow-md max-w-3xl mx-auto mb-8">
-                    <h3 className="text-xl font-bold mb-4 text-purple-300 text-center">Why Choose Advance Power Redding</h3>
+                {!showConsultationForm ? (
+                  <div className="text-center space-y-6">
+                    <p className="text-xl text-gray-300 mb-8">
+                      Join hundreds of satisfied Redding homeowners who have made the switch to solar with Advance Power Redding.
+                    </p>
                     
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                      <div className="space-y-3">
-                        <div className="flex items-start">
-                          <CheckCircle className="h-5 w-5 text-purple-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">20+ years experience with thousands of installations</span>
-                        </div>
-                        <div className="flex items-start">
-                          <CheckCircle className="h-5 w-5 text-purple-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">Licensed C-46 solar contractors, fully insured</span>
-                        </div>
-                        <div className="flex items-start">
-                          <CheckCircle className="h-5 w-5 text-purple-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">Local Redding company - we're here when you need us</span>
-                        </div>
-                        <div className="flex items-start">
-                          <CheckCircle className="h-5 w-5 text-purple-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">Complete project management from design to activation</span>
-                        </div>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                      <div className="bg-gradient-to-br from-purple-900/20 to-purple-800/20 p-6 rounded-lg border border-purple-700/30">
+                        <FileCheck className="h-12 w-12 text-purple-400 mx-auto mb-3" />
+                        <h3 className="font-semibold text-purple-200 mb-2">Free Consultation</h3>
+                        <p className="text-gray-300">No-obligation assessment of your home's solar potential</p>
                       </div>
-                      
-                      <div className="space-y-3">
-                        <div className="flex items-start">
-                          <CheckCircle className="h-5 w-5 text-purple-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">Premium components with industry-leading warranties</span>
-                        </div>
-                        <div className="flex items-start">
-                          <CheckCircle className="h-5 w-5 text-purple-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">Custom system design optimized for your home</span>
-                        </div>
-                        <div className="flex items-start">
-                          <CheckCircle className="h-5 w-5 text-purple-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">No pushy sales - honest advice and fair pricing</span>
-                        </div>
-                        <div className="flex items-start">
-                          <CheckCircle className="h-5 w-5 text-purple-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">We don't quit until everything works perfectly</span>
-                        </div>
+                      <div className="bg-gradient-to-br from-purple-900/20 to-purple-800/20 p-6 rounded-lg border border-purple-700/30">
+                        <Calculator className="h-12 w-12 text-purple-400 mx-auto mb-3" />
+                        <h3 className="font-semibold text-purple-200 mb-2">Custom Quote</h3>
+                        <p className="text-gray-300">Personalized system design and accurate cost projections</p>
+                      </div>
+                      <div className="bg-gradient-to-br from-purple-900/20 to-purple-800/20 p-6 rounded-lg border border-purple-700/30">
+                        <Award className="h-12 w-12 text-purple-400 mx-auto mb-3" />
+                        <h3 className="font-semibold text-purple-200 mb-2">Professional Installation</h3>
+                        <p className="text-gray-300">Expert installation with comprehensive warranty coverage</p>
                       </div>
                     </div>
                     
-                    <div className="text-center">
-                      <Button 
-                        className="relative group overflow-hidden bg-black border border-purple-400 hover:border-purple-300 transition-all duration-300 px-8 py-3 text-lg shadow-lg"
-                        onClick={handleShowConsultationForm}
-                      >
-                        <span className="relative z-10 text-white group-hover:text-purple-200 transition-colors duration-300 flex items-center">
-                          Get Your Free Solar Quote
-                        </span>
-                        <span className="absolute -inset-[3px] bg-purple-600 opacity-30 group-hover:opacity-50 transition-opacity duration-300 blur-md rounded-lg -z-10"></span>
-                      </Button>
-                    </div>
+                    <Button 
+                      onClick={handleShowConsultationForm}
+                      className="relative group overflow-hidden bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-500 hover:to-purple-600 text-white px-8 py-4 text-lg font-semibold transition-all duration-300 shadow-lg"
+                    >
+                      <span className="relative z-10">Get Your Free Solar Quote</span>
+                      <span className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></span>
+                    </Button>
+                    
+                    <p className="text-gray-400 text-sm">
+                      ✓ No sales pressure ✓ Custom system design ✓ Accurate savings projections
+                    </p>
                   </div>
-                </div>
+                ) : (
+                  <div className="max-w-2xl mx-auto">
+                    {consultationRequestSuccess ? (
+                      <div className="text-center space-y-4">
+                        <CheckCircle className="h-16 w-16 text-green-400 mx-auto" />
+                        <h3 className="text-2xl font-bold text-green-300">Request Submitted Successfully!</h3>
+                        <p className="text-gray-300">
+                          Thank you for your interest in solar energy. An Advance Power Redding specialist will contact you within 24 hours to schedule your free consultation.
+                        </p>
+                        <Button 
+                          onClick={() => {
+                            setShowConsultationForm(false);
+                            setConsultationRequestSuccess(false);
+                          }}
+                          variant="outline"
+                          className="border-gray-600 text-purple-400 hover:text-purple-300 hover:border-purple-500"
+                        >
+                          Close
+                        </Button>
+                      </div>
+                    ) : (
+                      <div>
+                        <h3 className="text-2xl font-bold text-purple-300 mb-6 text-center">Request Your Free Solar Consultation</h3>
+                        <Form {...form}>
+                          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                              <FormField
+                                control={form.control}
+                                name="name"
+                                render={({ field }) => (
+                                  <FormItem>
+                                    <FormLabel className="text-purple-200">Full Name</FormLabel>
+                                    <FormControl>
+                                      <Input {...field} className="bg-gray-800 border-gray-700 text-white" />
+                                    </FormControl>
+                                    <FormMessage />
+                                  </FormItem>
+                                )}
+                              />
+                              <FormField
+                                control={form.control}
+                                name="email"
+                                render={({ field }) => (
+                                  <FormItem>
+                                    <FormLabel className="text-purple-200">Email</FormLabel>
+                                    <FormControl>
+                                      <Input type="email" {...field} className="bg-gray-800 border-gray-700 text-white" />
+                                    </FormControl>
+                                    <FormMessage />
+                                  </FormItem>
+                                )}
+                              />
+                            </div>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                              <FormField
+                                control={form.control}
+                                name="phone"
+                                render={({ field }) => (
+                                  <FormItem>
+                                    <FormLabel className="text-purple-200">Phone</FormLabel>
+                                    <FormControl>
+                                      <Input {...field} className="bg-gray-800 border-gray-700 text-white" />
+                                    </FormControl>
+                                    <FormMessage />
+                                  </FormItem>
+                                )}
+                              />
+                              <FormField
+                                control={form.control}
+                                name="propertyType"
+                                render={({ field }) => (
+                                  <FormItem>
+                                    <FormLabel className="text-purple-200">Property Type</FormLabel>
+                                    <FormControl>
+                                      <Input {...field} placeholder="Single Family, Townhome, etc." className="bg-gray-800 border-gray-700 text-white" />
+                                    </FormControl>
+                                    <FormMessage />
+                                  </FormItem>
+                                )}
+                              />
+                            </div>
+                            <FormField
+                              control={form.control}
+                              name="address"
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormLabel className="text-purple-200">Property Address</FormLabel>
+                                  <FormControl>
+                                    <Input {...field} className="bg-gray-800 border-gray-700 text-white" />
+                                  </FormControl>
+                                  <FormMessage />
+                                </FormItem>
+                              )}
+                            />
+                            <FormField
+                              control={form.control}
+                              name="message"
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormLabel className="text-purple-200">Additional Information</FormLabel>
+                                  <FormControl>
+                                    <Textarea 
+                                      {...field} 
+                                      className="bg-gray-800 border-gray-700 text-white"
+                                      placeholder="Tell us about your energy goals, current electricity bill, or any specific questions..."
+                                      rows={4}
+                                    />
+                                  </FormControl>
+                                  <FormMessage />
+                                </FormItem>
+                              )}
+                            />
+                            <div className="flex gap-4">
+                              <Button 
+                                type="submit" 
+                                disabled={consultationMutation.isPending}
+                                className="flex-1 bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-500 hover:to-purple-600 text-white"
+                              >
+                                {consultationMutation.isPending ? "Submitting..." : "Request Free Consultation"}
+                              </Button>
+                              <Button 
+                                type="button"
+                                variant="outline"
+                                onClick={() => setShowConsultationForm(false)}
+                                className="border-gray-600 text-purple-400 hover:text-purple-300 hover:border-purple-500"
+                              >
+                                Cancel
+                              </Button>
+                            </div>
+                          </form>
+                        </Form>
+                      </div>
+                    )}
+                  </div>
+                )}
               </div>
             </div>
           </div>
         </section>
-        
-        {/* Free Consultation Form */}
-        {showConsultationForm && !consultationRequestSuccess && (
-          <section className="relative z-10 py-12 overflow-hidden">
-            <div className="container mx-auto mb-16">
-              <div className="relative">
-                {/* Blue glow for form */}
-                <div className="absolute -inset-10 bg-blue-500/20 rounded-xl blur-xl opacity-70 z-0"></div>
-                <div className="absolute -inset-20 bg-blue-600/10 rounded-xl blur-2xl opacity-50 z-0"></div>
-                
-                {/* Content card */}
-                <div className="relative z-20 rounded-2xl overflow-hidden p-8 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-blue-700/30 shadow-lg max-w-3xl mx-auto">
-                  <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-blue-100 to-blue-300">
-                    Get Your Free Solar Consultation
-                  </h2>
-                  
-                  <p className="text-gray-300 mb-8 text-center">
-                    Complete the form below, and one of our solar experts will contact you within 24 hours to discuss your home's solar potential.
-                  </p>
-                  
-                  <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <FormField
-                          control={form.control}
-                          name="name"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel className="text-gray-200">Full Name</FormLabel>
-                              <FormControl>
-                                <Input 
-                                  placeholder="Enter your name" 
-                                  className="bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500"
-                                  {...field} 
-                                />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-                        
-                        <FormField
-                          control={form.control}
-                          name="email"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel className="text-gray-200">Email Address</FormLabel>
-                              <FormControl>
-                                <Input 
-                                  placeholder="Enter your email" 
-                                  className="bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500"
-                                  {...field} 
-                                />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-                      </div>
-                      
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <FormField
-                          control={form.control}
-                          name="phone"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel className="text-gray-200">Phone Number</FormLabel>
-                              <FormControl>
-                                <Input 
-                                  placeholder="Enter your phone number" 
-                                  className="bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500"
-                                  {...field} 
-                                />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-                        
-                        <FormField
-                          control={form.control}
-                          name="propertyType"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel className="text-gray-200">Home Type</FormLabel>
-                              <FormControl>
-                                <Input 
-                                  placeholder="Single-family, Townhome, etc." 
-                                  className="bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500"
-                                  {...field} 
-                                />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-                      </div>
-                      
-                      <FormField
-                        control={form.control}
-                        name="address"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="text-gray-200">Home Address</FormLabel>
-                            <FormControl>
-                              <Input 
-                                placeholder="Property address for solar assessment" 
-                                className="bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500"
-                                {...field} 
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                      
-                      <FormField
-                        control={form.control}
-                        name="message"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="text-gray-200">Current Electric Bill & Goals</FormLabel>
-                            <FormControl>
-                              <Textarea 
-                                placeholder="Tell us about your current monthly electric bill and what you hope to achieve with solar" 
-                                className="bg-gray-800/50 border-gray-700 text-white min-h-[120px]"
-                                {...field} 
-                              />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                      
-                      <div className="flex justify-center">
-                        <Button 
-                          type="submit"
-                          className="relative group overflow-hidden bg-black border border-blue-400 hover:border-blue-300 transition-all duration-300 px-8 py-3 text-lg shadow-lg"
-                          disabled={consultationMutation.isPending}
-                        >
-                          <span className="relative z-10 text-white group-hover:text-blue-200 transition-colors duration-300">
-                            {consultationMutation.isPending ? "Submitting..." : "Get My Free Quote"}
-                          </span>
-                          <span className="absolute -inset-[3px] bg-blue-600 opacity-30 group-hover:opacity-50 transition-opacity duration-300 blur-md rounded-lg -z-10"></span>
-                        </Button>
-                      </div>
-                    </form>
-                  </Form>
-                </div>
-              </div>
-            </div>
-          </section>
-        )}
-        
-        {/* Consultation Request Success */}
-        {consultationRequestSuccess && (
-          <section className="relative z-10 py-12 overflow-hidden">
-            <div className="container mx-auto mb-16">
-              <div className="relative">
-                {/* Green success glow */}
-                <div className="absolute -inset-10 bg-green-500/20 rounded-xl blur-xl opacity-70 z-0"></div>
-                <div className="absolute -inset-20 bg-green-600/10 rounded-xl blur-2xl opacity-50 z-0"></div>
-                
-                {/* Content card */}
-                <div className="relative z-20 rounded-2xl overflow-hidden p-8 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-green-500/30 shadow-lg max-w-3xl mx-auto">
-                  <div className="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <CheckCircle className="w-10 h-10 text-green-500" />
-                  </div>
-                  <h2 className="text-2xl md:text-3xl font-bold mb-4 text-center text-white">
-                    Solar Quote Request Received!
-                  </h2>
-                  <p className="text-gray-300 mb-6 text-center">
-                    Thank you for your interest in residential solar with Advance Power Redding. One of our solar experts will contact you within 24 hours to discuss your home's solar potential and provide a custom quote.
-                  </p>
-                  <p className="text-gray-300 mb-8 text-center">
-                    In the meantime, check out our other solar solutions or learn more about battery backup systems.
-                  </p>
-                  <div className="flex flex-wrap justify-center gap-4">
-                    <Button variant="outline" className="border-green-500 text-green-400 hover:text-green-300 hover:border-green-400">
-                      View Battery Solutions
-                    </Button>
-                    <Button variant="outline" className="border-blue-500 text-blue-400 hover:text-blue-300 hover:border-blue-400">
-                      Return to Home Page
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-        )}
       </div>
     </MainLayout>
   );
