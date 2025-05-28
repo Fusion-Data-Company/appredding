@@ -117,28 +117,21 @@ const Header = () => {
                     <div className="p-2 rounded-full bg-green-900/30 text-green-400">
                       <Settings size={18} />
                     </div>
-                    <HoveredLink href="/solar-maintenance" className="text-left">Solar Maintenance</HoveredLink>
+                    <HoveredLink href="/hybrid-solar" className="text-left">Hybrid Solar Systems</HoveredLink>
                   </div>
                   
                   <div className="flex items-center gap-3 hover:bg-blue-900/20 p-2 rounded-lg transition-colors">
                     <div className="p-2 rounded-full bg-blue-900/30 text-blue-400">
                       <Shield size={18} />
                     </div>
-                    <HoveredLink href="/battery-storage" className="text-left">Battery Storage</HoveredLink>
+                    <HoveredLink href="/lithium-battery" className="text-left">Lithium Battery Services</HoveredLink>
                   </div>
                   
                   <div className="flex items-center gap-3 hover:bg-red-900/20 p-2 rounded-lg transition-colors">
                     <div className="p-2 rounded-full bg-red-900/30 text-red-400">
                       <BarChart4 size={18} />
                     </div>
-                    <HoveredLink href="/energy-monitoring" className="text-left">Energy Monitoring</HoveredLink>
-                  </div>
-                  
-                  <div className="flex items-center gap-3 hover:bg-yellow-900/20 p-2 rounded-lg transition-colors">
-                    <div className="p-2 rounded-full bg-yellow-900/30 text-yellow-400">
-                      <Wrench size={18} />
-                    </div>
-                    <HoveredLink href="/solar-repairs" className="text-left">Solar Repairs</HoveredLink>
+                    <HoveredLink href="/energy-conservation" className="text-left">Energy Conservation</HoveredLink>
                   </div>
                 </div>
               </MenuItem>

@@ -158,7 +158,7 @@ export const HoveredLink = ({ children, className = "", ...rest }: any) => {
       {...rest}
       className={`relative group overflow-hidden ${className}`}
     >
-      <span className="inline-block w-full text-gray-700 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-300 py-1.5 px-2">
+      <span className="inline-block w-full text-black group-hover:text-gray-800 transition-colors duration-300 py-1.5 px-2 font-medium">
         {children}
         
         {/* Hover indicator line with gradient */}
@@ -166,7 +166,7 @@ export const HoveredLink = ({ children, className = "", ...rest }: any) => {
                         group-hover:w-full transition-all duration-300 ease-out"></span>
                         
         {/* Subtle background hover effect */}
-        <span className="absolute inset-0 w-full h-full bg-white/0 group-hover:bg-white/5 transition-colors duration-300 rounded-md -z-10"></span>
+        <span className="absolute inset-0 w-full h-full bg-white/0 group-hover:bg-white/10 transition-colors duration-300 rounded-md -z-10"></span>
       </span>
     </Link>
   );
