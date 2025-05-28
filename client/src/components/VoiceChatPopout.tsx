@@ -66,7 +66,7 @@ const VoiceChatPopout = () => {
                       justifyContent: 'center'
                     }}
                     dangerouslySetInnerHTML={{
-                      __html: `<elevenlabs-convai agent-id="ybtdqCeRrbskLzgWulrg"></elevenlabs-convai>`
+                      __html: `<elevenlabs-convai agent-id="agent_01jw96xdk3etzvskmex8kx5mjn"></elevenlabs-convai><script src="https://elevenlabs.io/convai-widget/index.js" async type="text/javascript"></script>`
                     }}
                   />
                 </div>
