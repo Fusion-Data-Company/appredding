@@ -390,23 +390,12 @@ export const HeroSection: React.FC = () => {
 
 
 
-      {/* Three Standalone Product Images */}
+      {/* Other Product Images */}
       <motion.div 
         variants={itemVariants}
         className="absolute bottom-0 left-0 right-0 w-full z-20"
       >
         <div className="flex items-end justify-center">
-          {/* Solar Panel - Standalone */}
-          <motion.img 
-            src={solarPanelImage}
-            alt="Solar Panel"
-            className="w-[1200px] h-[1200px] object-contain"
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.8 }}
-            key="solar-panel-standalone"
-          />
-
           {/* Inverter - Standalone */}
           <motion.img 
             src={inverterImage}
@@ -428,6 +417,21 @@ export const HeroSection: React.FC = () => {
             key="battery-standalone"
           />
         </div>
+      </motion.div>
+
+      {/* Solar Panel - Front and Bottom */}
+      <motion.div 
+        className="absolute bottom-0 left-1/2 transform -translate-x-1/2 z-30"
+      >
+        <motion.img 
+          src={solarPanelImage}
+          alt="Solar Panel"
+          className="w-[1600px] h-[1600px] object-contain"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5, duration: 0.8 }}
+          key="solar-panel-front"
+        />
       </motion.div>
 
       {/* Trust Badges - Above product line */}
