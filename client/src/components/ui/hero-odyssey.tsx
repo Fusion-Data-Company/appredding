@@ -341,7 +341,7 @@ export const HeroSection: React.FC = () => {
             margin: 0, 
             padding: 0,
             top: '40%',
-            right: '2%',
+            right: '-6rem',
             transform: 'translateY(-50%)'
           }}
         >
