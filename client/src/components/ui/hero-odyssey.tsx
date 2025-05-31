@@ -336,12 +336,12 @@ export const HeroSection: React.FC = () => {
         
         {/* Right half logo */}
         <div 
-          className="fixed top-0 right-0 z-30"
+          className="absolute top-0 right-0 z-30"
           style={{ 
             margin: 0, 
             padding: 0,
             width: '50vw',
-            height: '100vh',
+            height: '100%',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center'
