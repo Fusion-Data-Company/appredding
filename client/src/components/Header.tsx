@@ -8,16 +8,16 @@ export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-gray-900/95 backdrop-blur-sm border-b border-orange-500/30 shadow-lg">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-black border-b border-orange-500/50 shadow-xl">
       {/* Top contact bar */}
-      <div className="bg-gray-800/90 py-2">
+      <div className="bg-black py-2">
         <div className="max-w-7xl mx-auto px-4 flex justify-between items-center text-sm">
           <div className="flex items-center space-x-4">
             <a href="tel:5302260701" className="flex items-center text-orange-400 hover:text-orange-300 font-medium">
               <Phone size={14} className="mr-1" />
               (530) 226-0701
             </a>
-            <a href="mailto:info@apredding.net" className="flex items-center text-gray-200 hover:text-white font-medium">
+            <a href="mailto:info@apredding.net" className="flex items-center text-orange-300 hover:text-orange-200 font-medium">
               <Mail size={14} className="mr-1" />
               info@apredding.net
             </a>
@@ -29,7 +29,7 @@ export default function Header() {
       </div>
 
       {/* Main navigation */}
-      <div className="bg-gray-900/95 py-4">
+      <div className="bg-black py-4">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
@@ -37,9 +37,9 @@ export default function Header() {
               <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-orange-600 rounded-lg flex items-center justify-center shadow-lg">
                 <Sun className="w-8 h-8 text-white" />
               </div>
-              <div className="text-white">
-                <div className="font-bold text-xl leading-tight drop-shadow-sm">Advance Power</div>
-                <div className="text-orange-400 text-sm font-medium drop-shadow-sm">Redding</div>
+              <div>
+                <div className="font-bold text-xl leading-tight text-orange-400">Advance Power</div>
+                <div className="text-orange-300 text-sm font-medium">Redding</div>
               </div>
             </Link>
 
@@ -47,8 +47,8 @@ export default function Header() {
             <nav className="hidden md:flex items-center space-x-8">
               <Link 
                 href="/" 
-                className={`text-lg font-semibold transition-colors drop-shadow-sm ${
-                  location === '/' ? 'text-orange-400' : 'text-white hover:text-orange-300'
+                className={`text-lg font-semibold transition-colors ${
+                  location === '/' ? 'text-orange-400' : 'text-orange-300 hover:text-orange-400'
                 }`}
               >
                 Home
@@ -56,33 +56,33 @@ export default function Header() {
               
               {/* Services Dropdown */}
               <div className="relative group">
-                <button className="text-lg font-semibold text-white hover:text-orange-300 transition-colors drop-shadow-sm">
+                <button className="text-lg font-semibold text-orange-300 hover:text-orange-400 transition-colors">
                   Services
                 </button>
-                <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-xl border border-gray-300 py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                  <Link href="/residential-solar" className="block px-4 py-2 text-gray-900 font-medium hover:bg-orange-100 hover:text-orange-800 transition-colors">
+                <div className="absolute top-full left-0 mt-2 w-64 bg-black border-2 border-orange-500 rounded-lg shadow-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                  <Link href="/residential-solar" className="block px-4 py-2 text-orange-300 font-medium hover:bg-orange-900 hover:text-orange-100 transition-colors">
                     Residential Solar
                   </Link>
-                  <Link href="/commercial-solar" className="block px-4 py-2 text-gray-900 font-medium hover:bg-orange-100 hover:text-orange-800 transition-colors">
+                  <Link href="/commercial-solar" className="block px-4 py-2 text-orange-300 font-medium hover:bg-orange-900 hover:text-orange-100 transition-colors">
                     Commercial Solar
                   </Link>
-                  <Link href="/hybrid-solar" className="block px-4 py-2 text-gray-900 font-medium hover:bg-orange-100 hover:text-orange-800 transition-colors">
+                  <Link href="/hybrid-solar" className="block px-4 py-2 text-orange-300 font-medium hover:bg-orange-900 hover:text-orange-100 transition-colors">
                     Hybrid Solar Systems
                   </Link>
-                  <Link href="/lithium-battery" className="block px-4 py-2 text-gray-900 font-medium hover:bg-orange-100 hover:text-orange-800 transition-colors">
+                  <Link href="/lithium-battery" className="block px-4 py-2 text-orange-300 font-medium hover:bg-orange-900 hover:text-orange-100 transition-colors">
                     Lithium Battery Services
                   </Link>
-                  <Link href="/energy-conservation" className="block px-4 py-2 text-gray-900 font-medium hover:bg-orange-100 hover:text-orange-800 transition-colors">
+                  <Link href="/energy-conservation" className="block px-4 py-2 text-orange-300 font-medium hover:bg-orange-900 hover:text-orange-100 transition-colors">
                     Energy Conservation
                   </Link>
-                  <div className="border-t border-gray-300 my-2"></div>
-                  <Link href="/maintenance" className="block px-4 py-2 text-gray-900 font-medium hover:bg-orange-100 hover:text-orange-800 transition-colors">
+                  <div className="border-t border-orange-600 my-2"></div>
+                  <Link href="/maintenance" className="block px-4 py-2 text-orange-300 font-medium hover:bg-orange-900 hover:text-orange-100 transition-colors">
                     Maintenance
                   </Link>
-                  <Link href="/repairs" className="block px-4 py-2 text-gray-900 font-medium hover:bg-orange-100 hover:text-orange-800 transition-colors">
+                  <Link href="/repairs" className="block px-4 py-2 text-orange-300 font-medium hover:bg-orange-900 hover:text-orange-100 transition-colors">
                     Repairs
                   </Link>
-                  <Link href="/battery-storage" className="block px-4 py-2 text-gray-900 font-medium hover:bg-orange-100 hover:text-orange-800 transition-colors">
+                  <Link href="/battery-storage" className="block px-4 py-2 text-orange-300 font-medium hover:bg-orange-900 hover:text-orange-100 transition-colors">
                     Battery Storage
                   </Link>
                 </div>
@@ -90,8 +90,8 @@ export default function Header() {
 
               <Link 
                 href="/about" 
-                className={`text-lg font-semibold transition-colors drop-shadow-sm ${
-                  location === '/about' ? 'text-orange-400' : 'text-white hover:text-orange-300'
+                className={`text-lg font-semibold transition-colors ${
+                  location === '/about' ? 'text-orange-400' : 'text-orange-300 hover:text-orange-400'
                 }`}
               >
                 About
@@ -99,8 +99,8 @@ export default function Header() {
 
               <Link 
                 href="/team" 
-                className={`text-lg font-semibold transition-colors drop-shadow-sm ${
-                  location === '/team' ? 'text-orange-400' : 'text-white hover:text-orange-300'
+                className={`text-lg font-semibold transition-colors ${
+                  location === '/team' ? 'text-orange-400' : 'text-orange-300 hover:text-orange-400'
                 }`}
               >
                 FAQ's
@@ -109,14 +109,14 @@ export default function Header() {
               {isHomePage ? (
                 <a 
                   href="#contact" 
-                  className="text-lg font-semibold text-white hover:text-orange-300 transition-colors drop-shadow-sm"
+                  className="text-lg font-semibold text-orange-300 hover:text-orange-400 transition-colors"
                 >
                   Contact Us
                 </a>
               ) : (
                 <Link 
                   href="/#contact" 
-                  className="text-lg font-semibold text-white hover:text-orange-300 transition-colors drop-shadow-sm"
+                  className="text-lg font-semibold text-orange-300 hover:text-orange-400 transition-colors"
                 >
                   Contact Us
                 </Link>
