@@ -27,8 +27,26 @@ import {
   AlertTriangle, 
   Building, 
   TrendingUp,
-  Thermometer
+  Thermometer,
+  Wrench,
+  Settings,
+  Layers,
+  Power
 } from "lucide-react";
+
+// Import the lithium battery service images
+import solarInstallImage from "@assets/13-500x500.jpg";
+import batteryBankImage from "@assets/20210121_103322-400x400.jpg";
+import inverterSystemImage from "@assets/98453708_3165453150160953_3940467511501258752_n-298x400.jpg";
+import installationTeamImage from "@assets/400617335_882191187089939_3988264444007076062_n-500x375.jpg";
+import solarFarmImage from "@assets/andreas-gucklhorn-Ilpf2eUPpUE-unsplash-500x375.jpg";
+import batteryStorageImage from "@assets/Batt-3-300x400.jpg";
+import residentialSolarImage from "@assets/Frame-5-500x282.webp";
+import technicianImage from "@assets/Greg-with-panel.jpg";
+import solArkSystemImage from "@assets/491844865_1271014964874224_7004732250107002194_n.jpg";
+import energyConservationImage from "@assets/Advance-Power-Redding-Energy-Conservation-Techniques.jpg";
+import solarPanelsAerialImage from "@assets/guillherme-schneider-ecIS-bfYSG8-unsplash-300x400.jpg";
+import forestSolarImage from "@assets/moritz-kindler-gD8IO0E4OZM-unsplash-267x400.jpg";
 import { insertFirePreventionHomeownerSchema } from "@shared/schema";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -464,6 +482,214 @@ const LithiumBattery = () => {
             </div>
           </div>
         </section>
+
+        {/* YELLOW SECTION - Lithium Battery Services Gallery */}
+        <section className="relative z-10 py-16 overflow-hidden">
+          <div className="container mx-auto mb-16">
+            <div className="relative">
+              {/* Enhanced Yellow glow effect */}
+              <div className="absolute -inset-10 bg-yellow-500/20 rounded-xl blur-xl opacity-70 z-0"></div>
+              <div className="absolute -inset-20 bg-yellow-600/10 rounded-xl blur-2xl opacity-50 z-0"></div>
+              <div className="absolute -inset-30 bg-yellow-700/5 rounded-xl blur-3xl opacity-30 z-0 animate-pulse-slow"></div>
+              
+              {/* Content card */}
+              <div className="relative z-20 rounded-2xl overflow-hidden p-8 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-yellow-700/30 shadow-lg">
+                <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-yellow-200 to-yellow-300">
+                  Professional Lithium Battery Services
+                </h2>
+                
+                {/* Solar Installation & Battery Integration */}
+                <div className="mb-12">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <div>
+                      <h3 className="text-2xl font-bold mb-4 text-yellow-300">Ground-Mount Solar with Battery Storage</h3>
+                      <p className="text-gray-300 mb-4">
+                        Professional ground-mount solar installations designed to maximize energy production while integrating seamlessly with our advanced lithium battery storage systems. These installations provide optimal positioning for year-round energy generation.
+                      </p>
+                      <div className="space-y-2">
+                        <div className="flex items-center">
+                          <Sun className="h-5 w-5 text-yellow-400 mr-2" />
+                          <span className="text-gray-300">Optimized panel positioning for maximum efficiency</span>
+                        </div>
+                        <div className="flex items-center">
+                          <Battery className="h-5 w-5 text-yellow-400 mr-2" />
+                          <span className="text-gray-300">Integrated lithium battery backup systems</span>
+                        </div>
+                        <div className="flex items-center">
+                          <Settings className="h-5 w-5 text-yellow-400 mr-2" />
+                          <span className="text-gray-300">Professional engineering and installation</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="relative">
+                      <img 
+                        src={solarInstallImage} 
+                        alt="Ground-mount solar installation with lithium battery integration" 
+                        className="w-full h-auto rounded-lg border border-yellow-600/30 shadow-lg"
+                      />
+                      <div className="absolute top-2 right-2 bg-black/80 text-yellow-300 px-2 py-1 rounded text-xs">
+                        Professional Installation
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Battery Bank Systems */}
+                <div className="mb-12">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <div className="order-2 lg:order-1 relative">
+                      <img 
+                        src={batteryBankImage} 
+                        alt="Lithium battery bank configuration and wiring" 
+                        className="w-full h-auto rounded-lg border border-yellow-600/30 shadow-lg"
+                      />
+                      <div className="absolute top-2 left-2 bg-black/80 text-yellow-300 px-2 py-1 rounded text-xs">
+                        LiFePO4 Technology
+                      </div>
+                    </div>
+                    <div className="order-1 lg:order-2">
+                      <h3 className="text-2xl font-bold mb-4 text-yellow-300">Advanced Battery Bank Configuration</h3>
+                      <p className="text-gray-300 mb-4">
+                        Our lithium battery banks utilize advanced LiFePO4 technology with intelligent wiring configurations for optimal performance and safety. Each installation includes professional-grade battery management systems.
+                      </p>
+                      <div className="space-y-2">
+                        <div className="flex items-center">
+                          <Layers className="h-5 w-5 text-yellow-400 mr-2" />
+                          <span className="text-gray-300">Modular battery bank design</span>
+                        </div>
+                        <div className="flex items-center">
+                          <Shield className="h-5 w-5 text-yellow-400 mr-2" />
+                          <span className="text-gray-300">Built-in safety management systems</span>
+                        </div>
+                        <div className="flex items-center">
+                          <Wrench className="h-5 w-5 text-yellow-400 mr-2" />
+                          <span className="text-gray-300">Professional installation and testing</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Inverter & System Integration */}
+                <div className="mb-12">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <div>
+                      <h3 className="text-2xl font-bold mb-4 text-yellow-300">Inverter Systems & Grid Integration</h3>
+                      <p className="text-gray-300 mb-4">
+                        Advanced inverter systems that seamlessly integrate solar generation, battery storage, and grid connectivity. Our systems provide intelligent power management and backup capabilities during outages.
+                      </p>
+                      <div className="space-y-2">
+                        <div className="flex items-center">
+                          <Power className="h-5 w-5 text-yellow-400 mr-2" />
+                          <span className="text-gray-300">Grid-tie with battery backup capability</span>
+                        </div>
+                        <div className="flex items-center">
+                          <Zap className="h-5 w-5 text-yellow-400 mr-2" />
+                          <span className="text-gray-300">Intelligent load management</span>
+                        </div>
+                        <div className="flex items-center">
+                          <Shield className="h-5 w-5 text-yellow-400 mr-2" />
+                          <span className="text-gray-300">Automatic transfer switch integration</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="relative">
+                      <img 
+                        src={inverterSystemImage} 
+                        alt="Advanced inverter system with grid integration" 
+                        className="w-full h-auto rounded-lg border border-yellow-600/30 shadow-lg"
+                      />
+                      <div className="absolute bottom-2 right-2 bg-black/80 text-yellow-300 px-2 py-1 rounded text-xs">
+                        Grid-Tie System
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Installation Team & Service */}
+                <div className="mb-12">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <div className="order-2 lg:order-1 relative">
+                      <img 
+                        src={installationTeamImage} 
+                        alt="Professional installation team working on lithium battery system" 
+                        className="w-full h-auto rounded-lg border border-yellow-600/30 shadow-lg"
+                      />
+                      <div className="absolute top-2 left-2 bg-black/80 text-yellow-300 px-2 py-1 rounded text-xs">
+                        Expert Installation
+                      </div>
+                    </div>
+                    <div className="order-1 lg:order-2">
+                      <h3 className="text-2xl font-bold mb-4 text-yellow-300">Professional Installation Services</h3>
+                      <p className="text-gray-300 mb-4">
+                        Our certified installation team brings years of experience in lithium battery system deployment. We handle every aspect from site preparation to final system commissioning and testing.
+                      </p>
+                      <div className="space-y-2">
+                        <div className="flex items-center">
+                          <Award className="h-5 w-5 text-yellow-400 mr-2" />
+                          <span className="text-gray-300">Certified installation technicians</span>
+                        </div>
+                        <div className="flex items-center">
+                          <FileCheck className="h-5 w-5 text-yellow-400 mr-2" />
+                          <span className="text-gray-300">Complete system testing and commissioning</span>
+                        </div>
+                        <div className="flex items-center">
+                          <Building className="h-5 w-5 text-yellow-400 mr-2" />
+                          <span className="text-gray-300">Local permits and inspections handled</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Commercial Scale Projects */}
+                <div className="mb-12">
+                  <div className="text-center mb-8">
+                    <h3 className="text-2xl font-bold mb-4 text-yellow-300">Commercial & Utility Scale Battery Integration</h3>
+                    <p className="text-gray-300 max-w-3xl mx-auto">
+                      From residential installations to large-scale commercial and utility projects, our lithium battery solutions scale to meet any energy storage requirement. Our systems integrate seamlessly with existing solar farms and new installations.
+                    </p>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="relative">
+                      <img 
+                        src={solarFarmImage} 
+                        alt="Commercial scale solar farm with battery integration capabilities" 
+                        className="w-full h-auto rounded-lg border border-yellow-600/30 shadow-lg"
+                      />
+                      <div className="absolute bottom-2 left-2 bg-black/80 text-yellow-300 px-2 py-1 rounded text-xs">
+                        Utility Scale
+                      </div>
+                    </div>
+                    <div className="relative">
+                      <img 
+                        src={solarPanelsAerialImage} 
+                        alt="Aerial view of commercial solar installation with battery storage" 
+                        className="w-full h-auto rounded-lg border border-yellow-600/30 shadow-lg"
+                      />
+                      <div className="absolute bottom-2 right-2 bg-black/80 text-yellow-300 px-2 py-1 rounded text-xs">
+                        Commercial Grade
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Call to Action */}
+                <div className="text-center">
+                  <Button 
+                    className="relative group overflow-hidden bg-gradient-to-r from-yellow-600 to-yellow-700 border border-yellow-500 hover:border-yellow-400 transition-all duration-300 px-8 py-3 text-lg shadow-lg"
+                    onClick={handleShowConsultationForm}
+                  >
+                    <span className="relative z-10 text-white group-hover:text-yellow-100 transition-colors duration-300">
+                      Get Professional Battery Consultation
+                    </span>
+                    <span className="absolute inset-0 bg-yellow-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></span>
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
           
         {/* SANDLER STAGE 3: BUDGET - GREEN GLOW SECTION */}
         <section className="relative z-10 py-12 overflow-hidden">
@@ -664,6 +890,214 @@ const LithiumBattery = () => {
                       </Button>
                     </div>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* GREEN SECTION - Additional Battery Services & Systems */}
+        <section className="relative z-10 py-16 overflow-hidden">
+          <div className="container mx-auto mb-16">
+            <div className="relative">
+              {/* Enhanced Green glow effect */}
+              <div className="absolute -inset-10 bg-green-500/20 rounded-xl blur-xl opacity-70 z-0"></div>
+              <div className="absolute -inset-20 bg-green-600/10 rounded-xl blur-2xl opacity-50 z-0"></div>
+              <div className="absolute -inset-30 bg-green-700/5 rounded-xl blur-3xl opacity-30 z-0 animate-pulse-slow"></div>
+              
+              {/* Content card */}
+              <div className="relative z-20 rounded-2xl overflow-hidden p-8 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-green-700/30 shadow-lg">
+                <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-green-300 via-green-200 to-green-300">
+                  Advanced Battery Storage Solutions
+                </h2>
+                
+                {/* Battery Storage Systems */}
+                <div className="mb-12">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <div>
+                      <h3 className="text-2xl font-bold mb-4 text-green-300">Modular Battery Storage Banks</h3>
+                      <p className="text-gray-300 mb-4">
+                        Our modular lithium battery storage systems provide scalable energy solutions that grow with your needs. These high-capacity storage banks deliver reliable backup power for residential and commercial applications.
+                      </p>
+                      <div className="space-y-2">
+                        <div className="flex items-center">
+                          <Battery className="h-5 w-5 text-green-400 mr-2" />
+                          <span className="text-gray-300">Stackable modular design for easy expansion</span>
+                        </div>
+                        <div className="flex items-center">
+                          <Shield className="h-5 w-5 text-green-400 mr-2" />
+                          <span className="text-gray-300">Built-in safety and monitoring systems</span>
+                        </div>
+                        <div className="flex items-center">
+                          <Zap className="h-5 w-5 text-green-400 mr-2" />
+                          <span className="text-gray-300">High-efficiency charge/discharge cycles</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="relative">
+                      <img 
+                        src={batteryStorageImage} 
+                        alt="Modular lithium battery storage bank system" 
+                        className="w-full h-auto rounded-lg border border-green-600/30 shadow-lg"
+                      />
+                      <div className="absolute top-2 right-2 bg-black/80 text-green-300 px-2 py-1 rounded text-xs">
+                        Modular Design
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Residential Solar Integration */}
+                <div className="mb-12">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <div className="order-2 lg:order-1 relative">
+                      <img 
+                        src={residentialSolarImage} 
+                        alt="Residential solar installation with integrated battery storage" 
+                        className="w-full h-auto rounded-lg border border-green-600/30 shadow-lg"
+                      />
+                      <div className="absolute top-2 left-2 bg-black/80 text-green-300 px-2 py-1 rounded text-xs">
+                        Residential Integration
+                      </div>
+                    </div>
+                    <div className="order-1 lg:order-2">
+                      <h3 className="text-2xl font-bold mb-4 text-green-300">Residential Solar & Battery Integration</h3>
+                      <p className="text-gray-300 mb-4">
+                        Seamless integration of rooftop solar panels with lithium battery storage systems for maximum energy independence. Our residential solutions provide clean energy generation and reliable backup power.
+                      </p>
+                      <div className="space-y-2">
+                        <div className="flex items-center">
+                          <Home className="h-5 w-5 text-green-400 mr-2" />
+                          <span className="text-gray-300">Custom residential system design</span>
+                        </div>
+                        <div className="flex items-center">
+                          <Sun className="h-5 w-5 text-green-400 mr-2" />
+                          <span className="text-gray-300">Optimized solar panel placement</span>
+                        </div>
+                        <div className="flex items-center">
+                          <Battery className="h-5 w-5 text-green-400 mr-2" />
+                          <span className="text-gray-300">Integrated battery backup systems</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Expert Installation Services */}
+                <div className="mb-12">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <div>
+                      <h3 className="text-2xl font-bold mb-4 text-green-300">Expert Installation & Service</h3>
+                      <p className="text-gray-300 mb-4">
+                        Our certified technicians bring decades of experience in solar and battery installation. We handle complex installations including high-elevation work and specialized mounting systems for optimal performance.
+                      </p>
+                      <div className="space-y-2">
+                        <div className="flex items-center">
+                          <Award className="h-5 w-5 text-green-400 mr-2" />
+                          <span className="text-gray-300">Certified installation professionals</span>
+                        </div>
+                        <div className="flex items-center">
+                          <Settings className="h-5 w-5 text-green-400 mr-2" />
+                          <span className="text-gray-300">Specialized equipment and techniques</span>
+                        </div>
+                        <div className="flex items-center">
+                          <Shield className="h-5 w-5 text-green-400 mr-2" />
+                          <span className="text-gray-300">Safety-first installation protocols</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="relative">
+                      <img 
+                        src={technicianImage} 
+                        alt="Certified technician performing solar panel installation" 
+                        className="w-full h-auto rounded-lg border border-green-600/30 shadow-lg"
+                      />
+                      <div className="absolute bottom-2 right-2 bg-black/80 text-green-300 px-2 py-1 rounded text-xs">
+                        Expert Service
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* SolArk & Advanced Systems */}
+                <div className="mb-12">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <div className="order-2 lg:order-1 relative">
+                      <img 
+                        src={solArkSystemImage} 
+                        alt="SolArk hybrid inverter system with lithium battery integration" 
+                        className="w-full h-auto rounded-lg border border-green-600/30 shadow-lg"
+                      />
+                      <div className="absolute top-2 left-2 bg-black/80 text-green-300 px-2 py-1 rounded text-xs">
+                        SolArk System
+                      </div>
+                    </div>
+                    <div className="order-1 lg:order-2">
+                      <h3 className="text-2xl font-bold mb-4 text-green-300">SolArk Hybrid Inverter Systems</h3>
+                      <p className="text-gray-300 mb-4">
+                        Advanced SolArk hybrid inverter systems that seamlessly manage solar generation, battery storage, and grid connectivity. These intelligent systems provide automatic switching and load management for maximum efficiency.
+                      </p>
+                      <div className="space-y-2">
+                        <div className="flex items-center">
+                          <Power className="h-5 w-5 text-green-400 mr-2" />
+                          <span className="text-gray-300">Hybrid grid-tie and off-grid capability</span>
+                        </div>
+                        <div className="flex items-center">
+                          <Settings className="h-5 w-5 text-green-400 mr-2" />
+                          <span className="text-gray-300">Intelligent load management</span>
+                        </div>
+                        <div className="flex items-center">
+                          <Layers className="h-5 w-5 text-green-400 mr-2" />
+                          <span className="text-gray-300">Integrated monitoring and control</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Energy Conservation Integration */}
+                <div className="mb-12">
+                  <div className="text-center mb-8">
+                    <h3 className="text-2xl font-bold mb-4 text-green-300">Complete Energy Conservation Solutions</h3>
+                    <p className="text-gray-300 max-w-3xl mx-auto">
+                      Our lithium battery systems integrate perfectly with comprehensive energy conservation techniques including radiant barrier installation, solar attic fans, and high-efficiency HVAC systems for maximum energy savings.
+                    </p>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="relative">
+                      <img 
+                        src={energyConservationImage} 
+                        alt="Energy conservation techniques including radiant barrier and solar attic fans" 
+                        className="w-full h-auto rounded-lg border border-green-600/30 shadow-lg"
+                      />
+                      <div className="absolute bottom-2 left-2 bg-black/80 text-green-300 px-2 py-1 rounded text-xs">
+                        Energy Conservation
+                      </div>
+                    </div>
+                    <div className="relative">
+                      <img 
+                        src={forestSolarImage} 
+                        alt="Sustainable solar installation integrated with natural environment" 
+                        className="w-full h-auto rounded-lg border border-green-600/30 shadow-lg"
+                      />
+                      <div className="absolute bottom-2 right-2 bg-black/80 text-green-300 px-2 py-1 rounded text-xs">
+                        Sustainable Solutions
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Call to Action */}
+                <div className="text-center">
+                  <Button 
+                    className="relative group overflow-hidden bg-gradient-to-r from-green-600 to-green-700 border border-green-500 hover:border-green-400 transition-all duration-300 px-8 py-3 text-lg shadow-lg"
+                    onClick={handleShowConsultationForm}
+                  >
+                    <span className="relative z-10 text-white group-hover:text-green-100 transition-colors duration-300">
+                      Schedule Battery System Consultation
+                    </span>
+                    <span className="absolute inset-0 bg-green-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></span>
+                  </Button>
                 </div>
               </div>
             </div>
