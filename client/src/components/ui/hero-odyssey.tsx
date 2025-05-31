@@ -401,7 +401,7 @@ export const HeroSection: React.FC = () => {
             <motion.img 
               src={solarPanelImage}
               alt="Solar Panel"
-              className="w-96 h-96 object-contain"
+              className="w-[480px] h-[480px] object-contain"
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.5, duration: 0.8 }}
