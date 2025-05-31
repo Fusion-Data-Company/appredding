@@ -333,25 +333,7 @@ export const HeroSection: React.FC = () => {
     <div className="relative w-full bg-black text-white overflow-hidden">
       <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 h-screen">
         
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="w-full z-200 top-[30%] relative"
-        >
-          <motion.div variants={itemVariants}>
-            <FeatureItem name="20+ Years" value="Experience" position="left-0 sm:left-10 top-40" />
-          </motion.div>
-          <motion.div variants={itemVariants}>
-            <FeatureItem name="Professional" value="Installation" position="left-1/4 top-24" />
-          </motion.div>
-          <motion.div variants={itemVariants}>
-            <FeatureItem name="Local" value="Experts" position="right-1/4 top-24" />
-          </motion.div>
-          <motion.div variants={itemVariants}>
-            <FeatureItem name="Trusted" value="In Redding" position="right-0 sm:right-10 top-40" />
-          </motion.div>
-        </motion.div>
+
 
         {/* Main hero content */}
         <motion.div
