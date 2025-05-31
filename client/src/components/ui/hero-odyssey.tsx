@@ -335,27 +335,21 @@ export const HeroSection: React.FC = () => {
       <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 h-screen">
         
         {/* Right half logo */}
-        <div 
-          className="absolute z-[99999]"
+        <img 
+          src={logoImage}
+          alt="Advance Power Redding Logo"
           style={{ 
+            position: 'absolute',
             margin: 0, 
             padding: 0,
             top: '50%',
-            right: '-6rem',
-            transform: 'translateY(-50%)'
+            left: '75vw',
+            transform: 'translateY(-50%)',
+            width: '48vw',
+            height: 'auto',
+            zIndex: 99999
           }}
-        >
-          <img 
-            src={logoImage}
-            alt="Advance Power Redding Logo"
-            style={{ 
-              margin: 0, 
-              padding: 0,
-              width: '48vw',
-              height: 'auto',
-              maxWidth: 'none'
-            }}
-          />
+        />
         </div>
 
       </div>
