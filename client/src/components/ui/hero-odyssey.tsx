@@ -393,15 +393,15 @@ export const HeroSection: React.FC = () => {
       {/* Energy Flow Product Line */}
       <motion.div 
         variants={itemVariants}
-        className="absolute bottom-20 left-1/2 transform -translate-x-1/2 max-w-6xl mx-auto px-4 z-20"
+        className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full z-20"
       >
-        <div className="flex items-center justify-center gap-16">
+        <div className="flex items-center justify-center gap-8">
           {/* Solar Panel - Left side (much larger) */}
           <div className="relative">
             <motion.img 
               src={solarPanelImage}
               alt="Solar Panel"
-              className="w-[480px] h-[480px] object-contain"
+              className="w-[800px] h-[800px] object-contain"
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.5, duration: 0.8 }}
