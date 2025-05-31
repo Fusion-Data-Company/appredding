@@ -386,9 +386,9 @@ export const HeroSection: React.FC = () => {
         </motion.div>
       </div>
 
-      {/* Solar Panel - Centered at bottom */}
+      {/* Solar Panel - Positioned where badges are */}
       <motion.div 
-        className="absolute bottom-0 left-1/2 transform -translate-x-1/2 z-[99999] pointer-events-none"
+        className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-[99999] pointer-events-none"
         style={{ zIndex: 99999 }}
       >
         <motion.img 
@@ -406,24 +406,24 @@ export const HeroSection: React.FC = () => {
       {/* Trust Badges - Above product line */}
       <motion.div 
         variants={itemVariants}
-        className="absolute bottom-6 left-1/2 transform -translate-x-1/2 max-w-4xl mx-auto px-4 z-20"
+        className="absolute bottom-6 left-1/2 transform -translate-x-1/2 max-w-4xl mx-auto px-4 z-[100000]"
       >
         <div className="flex flex-wrap justify-center gap-6">
           <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg">
             <span className="text-yellow-400">⭐</span>
-            <span className="text-sm">Licensed & Insured</span>
+            <span className="text-sm">20+ Years</span>
           </div>
           <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg">
             <span className="text-green-400">✓</span>
-            <span className="text-sm">Free Consultations</span>
+            <span className="text-sm">Professional</span>
           </div>
           <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg">
             <span className="text-blue-400">🏆</span>
-            <span className="text-sm">20+ Years Experience</span>
+            <span className="text-sm">Local</span>
           </div>
           <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg">
             <span className="text-orange-400">⚡</span>
-            <span className="text-sm">Same Day Service</span>
+            <span className="text-sm">Trusted</span>
           </div>
         </div>
       </motion.div>
