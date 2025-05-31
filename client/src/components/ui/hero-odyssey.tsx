@@ -332,16 +332,16 @@ export const HeroSection: React.FC = () => {
 
   return (
     <div className="relative w-full bg-black text-white overflow-hidden">
-      <div className="relative z-20 h-screen" style={{ margin: 0, padding: 0, width: '100vw', maxWidth: 'none' }}>
+      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 h-screen">
         
         {/* Right side logo */}
         <div 
-          className="fixed z-30"
+          className="absolute z-30"
           style={{ 
             margin: 0, 
             padding: 0,
-            top: '40%',
-            left: '80vw',
+            top: '50%',
+            right: '8%',
             transform: 'translateY(-50%)'
           }}
         >
@@ -351,7 +351,7 @@ export const HeroSection: React.FC = () => {
             style={{ 
               margin: 0, 
               padding: 0,
-              width: '43.75vw',
+              width: '30vw',
               height: 'auto',
               maxWidth: 'none'
             }}
