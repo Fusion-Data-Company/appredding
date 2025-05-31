@@ -340,7 +340,8 @@ export const HeroSection: React.FC = () => {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="absolute right-8 top-1/2 transform -translate-y-1/2 z-30 max-w-2xl"
+          className="absolute top-1/2 transform -translate-y-1/2 z-30 max-w-2xl"
+          style={{ right: '5rem' }}
         >
           {/* Enterprise Elite Card Background */}
           <div className="relative backdrop-blur-xl bg-gradient-to-br from-amber-900/20 via-orange-900/15 to-yellow-900/20 border border-amber-500/30 rounded-3xl p-12 shadow-2xl">
