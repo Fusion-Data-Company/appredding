@@ -394,19 +394,19 @@ export const HeroSection: React.FC = () => {
         <div className="flex flex-wrap justify-center gap-6">
           <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg">
             <span className="text-yellow-400">⭐</span>
-            <span className="text-sm">20+ Years</span>
+            <span className="text-sm">Licensed & Insured</span>
           </div>
           <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg">
             <span className="text-green-400">✓</span>
-            <span className="text-sm">Professional</span>
+            <span className="text-sm">Free Consultations</span>
           </div>
           <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg">
             <span className="text-blue-400">🏆</span>
-            <span className="text-sm">Local</span>
+            <span className="text-sm">20+ Years Experience</span>
           </div>
           <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg">
             <span className="text-orange-400">⚡</span>
-            <span className="text-sm">Trusted</span>
+            <span className="text-sm">Same Day Service</span>
           </div>
         </div>
       </motion.div>
