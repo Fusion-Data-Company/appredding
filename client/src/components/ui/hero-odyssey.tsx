@@ -289,7 +289,7 @@ export const HeroSection: React.FC = () => {
         <div className="absolute top-0 w-[100%] left-1/2 transform -translate-x-1/2 h-full">
           <Lightning
             hue={lightningHue}
-            xOffset={-72}
+            xOffset={0}
             speed={1.6}
             intensity={0.6}
             size={2}
