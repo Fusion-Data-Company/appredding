@@ -336,8 +336,16 @@ export const HeroSection: React.FC = () => {
         
         {/* Right half logo */}
         <div 
-          className="absolute right-0 top-0 w-1/2 h-full z-30 flex items-center justify-center"
-          style={{ margin: 0, padding: 0 }}
+          className="fixed top-0 right-0 z-30"
+          style={{ 
+            margin: 0, 
+            padding: 0,
+            width: '50vw',
+            height: '100vh',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}
         >
           <img 
             src={logoImage}
@@ -345,8 +353,9 @@ export const HeroSection: React.FC = () => {
             style={{ 
               margin: 0, 
               padding: 0,
-              width: '2400px',
-              height: 'auto'
+              width: '80vw',
+              height: 'auto',
+              maxWidth: 'none'
             }}
           />
         </div>
