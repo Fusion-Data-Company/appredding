@@ -421,12 +421,12 @@ export const HeroSection: React.FC = () => {
 
       {/* Solar Panel - Bottom Right Corner */}
       <motion.div 
-        className="absolute bottom-20 right-20 z-30"
+        className="absolute bottom-20 right-20 z-50"
       >
         <motion.img 
           src={solarPanelImage}
           alt="Solar Panel"
-          className="w-[800px] h-[800px] object-cover"
+          className="w-[1600px] h-[1600px] object-cover"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.8 }}
