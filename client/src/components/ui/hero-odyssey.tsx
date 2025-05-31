@@ -390,78 +390,43 @@ export const HeroSection: React.FC = () => {
 
 
 
-      {/* Energy Flow Product Line */}
+      {/* Three Standalone Product Images */}
       <motion.div 
         variants={itemVariants}
-        className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full z-20"
+        className="absolute bottom-0 left-0 right-0 w-full z-20"
       >
-        <div className="flex items-center justify-center gap-8">
-          {/* Solar Panel - Left side (much larger) */}
-          <div className="relative">
-            <motion.img 
-              src={solarPanelImage}
-              alt="Solar Panel"
-              className="w-[1200px] h-[1200px] object-contain"
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.5, duration: 0.8 }}
-              key="solar-panel-hd"
-            />
-            {/* Lightning animation pointing to the panel */}
-            <motion.div
-              className="absolute -top-12 left-1/2 transform -translate-x-1/2"
-              animate={{ 
-                opacity: [0, 1, 0],
-                y: [-25, 0, 25]
-              }}
-              transition={{ 
-                duration: 2,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            >
-              <div className="text-yellow-300 text-8xl">⚡</div>
-            </motion.div>
-          </div>
+        <div className="flex items-end justify-center">
+          {/* Solar Panel - Standalone */}
+          <motion.img 
+            src={solarPanelImage}
+            alt="Solar Panel"
+            className="w-[1200px] h-[1200px] object-contain"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.8 }}
+            key="solar-panel-standalone"
+          />
 
-          {/* Energy Flow Arrow */}
-          <motion.div
-            className="text-orange-400 text-7xl"
-            animate={{ opacity: [0.5, 1, 0.5] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-          >
-            →
-          </motion.div>
-
-          {/* Inverter and Battery - Right side (bundled together) */}
-          <div className="flex items-center gap-8">
-            <motion.img 
-              src={inverterImage}
-              alt="Sol-Ark Inverter"
-              className="w-48 h-48 object-contain"
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.7, duration: 0.8 }}
-            />
-            
-            <motion.div
-              className="text-orange-400 text-6xl"
-              animate={{ opacity: [0.5, 1, 0.5] }}
-              transition={{ duration: 1.5, repeat: Infinity, delay: 0.5 }}
-            >
-              →
-            </motion.div>
-            
-            <motion.img 
-              src={batteryImage}
-              alt="Battery Storage"
-              className="w-48 h-48 object-contain"
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.9, duration: 0.8 }}
-              key="battery-hd"
-            />
-          </div>
+          {/* Inverter - Standalone */}
+          <motion.img 
+            src={inverterImage}
+            alt="Sol-Ark Inverter"
+            className="w-48 h-48 object-contain"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.7, duration: 0.8 }}
+          />
+          
+          {/* Battery - Standalone */}
+          <motion.img 
+            src={batteryImage}
+            alt="Battery Storage"
+            className="w-48 h-48 object-contain"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.9, duration: 0.8 }}
+            key="battery-standalone"
+          />
         </div>
       </motion.div>
 
