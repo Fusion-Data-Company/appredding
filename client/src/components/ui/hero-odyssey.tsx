@@ -351,7 +351,7 @@ export const HeroSection: React.FC = () => {
             style={{ 
               margin: 0, 
               padding: 0,
-              width: '35vw',
+              width: '43.75vw',
               height: 'auto',
               maxWidth: 'none'
             }}
