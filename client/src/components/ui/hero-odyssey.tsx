@@ -380,19 +380,7 @@ export const HeroSection: React.FC = () => {
                   Advance Power
                 </motion.h1>
 
-                <motion.h2
-                  variants={itemVariants}
-                  className="pb-8 font-semibold bg-gradient-to-r from-amber-400 via-orange-400 to-yellow-400 bg-clip-text text-transparent"
-                  style={{ 
-                    fontSize: '3.5rem',
-                    lineHeight: '1.1',
-                    margin: 0,
-                    padding: 0,
-                    paddingBottom: '2rem'
-                  }}
-                >
-                  of Redding
-                </motion.h2>
+
 
                 <motion.p
                   variants={itemVariants}
