@@ -336,15 +336,13 @@ export const HeroSection: React.FC = () => {
         
         {/* Right half logo */}
         <div 
-          className="absolute top-0 right-0 z-30"
+          className="absolute z-[99999]"
           style={{ 
             margin: 0, 
             padding: 0,
-            width: '50vw',
-            height: '100%',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center'
+            top: '50%',
+            right: '-6rem',
+            transform: 'translateY(-50%)'
           }}
         >
           <img 
