@@ -341,7 +341,7 @@ export const HeroSection: React.FC = () => {
             margin: 0, 
             padding: 0,
             top: '50%',
-            right: '5%',
+            right: '2%',
             transform: 'translateY(-50%)'
           }}
         >
@@ -351,7 +351,7 @@ export const HeroSection: React.FC = () => {
             style={{ 
               margin: 0, 
               padding: 0,
-              width: '30vw',
+              width: '40.5vw',
               height: 'auto',
               maxWidth: 'none'
             }}
