@@ -126,71 +126,46 @@ const Lightning: React.FC<LightningProps> = ({
   intensity = 1,
   size = 1 
 }) => {
-  const [paths, setPaths] = useState<string[]>([]);
-
-  const generateLightningPath = () => {
-    const segments = 10;
-    const startX = 500 + xOffset;
-    const startY = 0;
-    const endX = 300 + xOffset;
-    const endY = 800;
-    
-    let path = `M ${startX} ${startY}`;
-    
-    for (let i = 1; i < segments; i++) {
-      const progress = i / segments;
-      const x = startX + (endX - startX) * progress + (Math.random() - 0.5) * 150;
-      const y = startY + (endY - startY) * progress;
-      path += ` L ${x} ${y}`;
-    }
-    
-    path += ` L ${endX} ${endY}`;
-    return path;
-  };
+  const [flash, setFlash] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      if (Math.random() < 0.8) {
-        const newPath = generateLightningPath();
-        setPaths(prev => [...prev, newPath]);
-        
-        setTimeout(() => {
-          setPaths(prev => prev.slice(1));
-        }, 300);
-      }
-    }, 150);
+      setFlash(true);
+      setTimeout(() => setFlash(false), 150);
+    }, 1200);
 
     return () => clearInterval(interval);
-  }, [xOffset]);
+  }, []);
 
   return (
-    <svg 
-      className="absolute inset-0 w-full h-full pointer-events-none" 
-      style={{ transform: `scale(${size})` }}
-    >
-      <defs>
-        <filter id={`glow-${hue}`}>
-          <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-          <feMerge> 
-            <feMergeNode in="coloredBlur"/>
-            <feMergeNode in="SourceGraphic"/>
-          </feMerge>
-        </filter>
-      </defs>
-      {paths.map((path, index) => (
-        <motion.path
-          key={index}
-          d={path}
-          stroke={`hsl(${hue}, 100%, 70%)`}
-          strokeWidth="2"
-          fill="none"
-          filter={`url(#glow-${hue})`}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: [0, 1, 0] }}
-          transition={{ duration: 0.2 }}
-        />
-      ))}
-    </svg>
+    <div className="absolute inset-0 w-full h-full pointer-events-none">
+      {flash && (
+        <>
+          <div 
+            className="absolute top-0 w-2 h-full bg-yellow-300 opacity-90"
+            style={{
+              left: `${400 + xOffset}px`,
+              boxShadow: '0 0 20px #fde047, 0 0 40px #facc15, 0 0 60px #eab308',
+              filter: 'brightness(1.5)'
+            }}
+          />
+          <div 
+            className="absolute top-0 w-1 h-full bg-white opacity-100"
+            style={{
+              left: `${402 + xOffset}px`,
+              boxShadow: '0 0 10px #ffffff'
+            }}
+          />
+          <div 
+            className="absolute top-0 w-1 h-full bg-yellow-200 opacity-80"
+            style={{
+              left: `${380 + xOffset}px`,
+              boxShadow: '0 0 15px #fef08a'
+            }}
+          />
+        </>
+      )}
+    </div>
   );
 };
 
