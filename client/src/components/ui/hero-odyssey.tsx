@@ -1,8 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import solarPanelImage from "@assets/68.png";
-import batteryImage from "@assets/67.png";
-import inverterImage from "@assets/15K-new-1-e1719430674378-628x1024.webp";
+import solarPanelImage from "@assets/Untitled design.png";
 
 interface ElasticHueSliderProps {
   value: number;
