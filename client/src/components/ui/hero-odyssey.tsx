@@ -340,72 +340,16 @@ export const HeroSection: React.FC = () => {
           className="w-full z-200 top-[30%] relative"
         >
           <motion.div variants={itemVariants}>
-            <div className="absolute left-0 sm:left-10 top-40 z-10 group transition-all duration-300 hover:scale-110">
-              <div className="flex items-center gap-2 relative">
-                <div className="relative">
-                  <div className="w-2 h-2 bg-white rounded-full group-hover:animate-pulse"></div>
-                  <div className="absolute -inset-1 bg-white/20 rounded-full blur-sm opacity-70 group-hover:opacity-100 transition-opacity duration-300"></div>
-                </div>
-                <div className="text-white relative">
-                  <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg">
-                    <span className="text-yellow-400">⭐</span>
-                    <span className="text-sm">Licensed & Insured</span>
-                  </div>
-                  <div className="absolute -inset-2 bg-white/10 rounded-lg blur-md opacity-70 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
-                </div>
-              </div>
-            </div>
+            <FeatureItem name="20+ Years" value="Experience" position="left-0 sm:left-10 top-40" />
           </motion.div>
           <motion.div variants={itemVariants}>
-            <div className="absolute left-1/4 top-24 z-10 group transition-all duration-300 hover:scale-110">
-              <div className="flex items-center gap-2 relative">
-                <div className="relative">
-                  <div className="w-2 h-2 bg-white rounded-full group-hover:animate-pulse"></div>
-                  <div className="absolute -inset-1 bg-white/20 rounded-full blur-sm opacity-70 group-hover:opacity-100 transition-opacity duration-300"></div>
-                </div>
-                <div className="text-white relative">
-                  <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg">
-                    <span className="text-green-400">✓</span>
-                    <span className="text-sm">Free Consultations</span>
-                  </div>
-                  <div className="absolute -inset-2 bg-white/10 rounded-lg blur-md opacity-70 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
-                </div>
-              </div>
-            </div>
+            <FeatureItem name="Professional" value="Installation" position="left-1/4 top-24" />
           </motion.div>
           <motion.div variants={itemVariants}>
-            <div className="absolute right-1/4 top-24 z-10 group transition-all duration-300 hover:scale-110">
-              <div className="flex items-center gap-2 relative">
-                <div className="relative">
-                  <div className="w-2 h-2 bg-white rounded-full group-hover:animate-pulse"></div>
-                  <div className="absolute -inset-1 bg-white/20 rounded-full blur-sm opacity-70 group-hover:opacity-100 transition-opacity duration-300"></div>
-                </div>
-                <div className="text-white relative">
-                  <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg">
-                    <span className="text-blue-400">🏆</span>
-                    <span className="text-sm">20+ Years Experience</span>
-                  </div>
-                  <div className="absolute -inset-2 bg-white/10 rounded-lg blur-md opacity-70 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
-                </div>
-              </div>
-            </div>
+            <FeatureItem name="Local" value="Experts" position="right-1/4 top-24" />
           </motion.div>
           <motion.div variants={itemVariants}>
-            <div className="absolute right-0 sm:right-10 top-40 z-10 group transition-all duration-300 hover:scale-110">
-              <div className="flex items-center gap-2 relative">
-                <div className="relative">
-                  <div className="w-2 h-2 bg-white rounded-full group-hover:animate-pulse"></div>
-                  <div className="absolute -inset-1 bg-white/20 rounded-full blur-sm opacity-70 group-hover:opacity-100 transition-opacity duration-300"></div>
-                </div>
-                <div className="text-white relative">
-                  <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg">
-                    <span className="text-orange-400">⚡</span>
-                    <span className="text-sm">Same Day Service</span>
-                  </div>
-                  <div className="absolute -inset-2 bg-white/10 rounded-lg blur-md opacity-70 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
-                </div>
-              </div>
-            </div>
+            <FeatureItem name="Trusted" value="In Redding" position="right-0 sm:right-10 top-40" />
           </motion.div>
         </motion.div>
 
