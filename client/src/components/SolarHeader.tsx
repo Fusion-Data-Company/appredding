@@ -112,10 +112,14 @@ const SolarHeader = () => {
       {/* Main Navigation */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
-          {/* Logo - ready for installation */}
+          {/* Logo */}
           <Link href="/">
             <div className="flex items-center space-x-3">
-              {/* Logo space ready for new logo */}
+              <img 
+                src="@assets/APR-Logo-New-300x113.png" 
+                alt="Advance Power Redding" 
+                className="h-12 w-auto"
+              />
             </div>
           </Link>
 
