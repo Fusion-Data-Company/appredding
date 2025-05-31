@@ -334,17 +334,15 @@ export const HeroSection: React.FC = () => {
     <div className="relative w-full bg-black text-white overflow-hidden">
       <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 h-screen">
         
-        {/* Right half logo */}
+        {/* Right side logo */}
         <div 
-          className="absolute top-0 right-0 z-30"
+          className="absolute z-30"
           style={{ 
             margin: 0, 
             padding: 0,
-            width: '50vw',
-            height: '100%',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center'
+            top: '40%',
+            right: '5%',
+            transform: 'translateY(-50%)'
           }}
         >
           <img 
@@ -353,7 +351,7 @@ export const HeroSection: React.FC = () => {
             style={{ 
               margin: 0, 
               padding: 0,
-              width: '48vw',
+              width: '35vw',
               height: 'auto',
               maxWidth: 'none'
             }}
