@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import solarPanelImage from "@assets/Untitled design.png";
+import logoImage from "@assets/Untitled design (1).png";
 
 interface ElasticHueSliderProps {
   value: number;
@@ -339,7 +340,7 @@ export const HeroSection: React.FC = () => {
           style={{ margin: 0, padding: 0 }}
         >
           <img 
-            src="/src/assets/attached_assets/Untitled design (1).png"
+            src={logoImage}
             alt="Advance Power Redding Logo"
             className="w-full h-auto max-w-[600px] object-contain"
             style={{ margin: 0, padding: 0 }}
