@@ -370,9 +370,9 @@ export const HeroSection: React.FC = () => {
 
 
 
-      {/* Solar Panel - Below badges */}
+      {/* Solar Panel - At bottom line */}
       <motion.div 
-        className="absolute bottom-[-200px] left-1/2 transform -translate-x-1/2 z-[99999] pointer-events-none"
+        className="absolute bottom-0 left-1/2 transform -translate-x-1/2 z-[99999] pointer-events-none"
         style={{ zIndex: 99999 }}
       >
         <motion.img 
