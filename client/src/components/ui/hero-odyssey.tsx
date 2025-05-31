@@ -421,7 +421,7 @@ export const HeroSection: React.FC = () => {
 
       {/* Solar Panel - Front and Bottom */}
       <motion.div 
-        className="absolute bottom-0 left-1/2 transform -translate-x-1/2 z-30"
+        className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 z-30"
       >
         <motion.img 
           src={solarPanelImage}
