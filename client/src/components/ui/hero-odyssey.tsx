@@ -126,46 +126,71 @@ const Lightning: React.FC<LightningProps> = ({
   intensity = 1,
   size = 1 
 }) => {
-  const [flash, setFlash] = useState(false);
+  const [paths, setPaths] = useState<string[]>([]);
+
+  const generateLightningPath = () => {
+    const segments = 8 + Math.random() * 4;
+    const startX = 400 + xOffset;
+    const startY = 50;
+    const endX = 200 + xOffset + (Math.random() - 0.5) * 200;
+    const endY = 600;
+    
+    let path = `M ${startX} ${startY}`;
+    
+    for (let i = 1; i < segments; i++) {
+      const progress = i / segments;
+      const x = startX + (endX - startX) * progress + (Math.random() - 0.5) * 100 * (1 - progress);
+      const y = startY + (endY - startY) * progress;
+      path += ` L ${x} ${y}`;
+    }
+    
+    path += ` L ${endX} ${endY}`;
+    return path;
+  };
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setFlash(true);
-      setTimeout(() => setFlash(false), 150);
-    }, 1200);
+      if (Math.random() < 0.3 * intensity) {
+        const newPath = generateLightningPath();
+        setPaths(prev => [...prev, newPath]);
+        
+        setTimeout(() => {
+          setPaths(prev => prev.slice(1));
+        }, 200 / speed);
+      }
+    }, 100 / speed);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [speed, intensity, xOffset]);
 
   return (
-    <div className="absolute inset-0 w-full h-full pointer-events-none">
-      {flash && (
-        <>
-          <div 
-            className="absolute top-0 w-2 h-full bg-yellow-300 opacity-90"
-            style={{
-              left: `${400 + xOffset}px`,
-              boxShadow: '0 0 20px #fde047, 0 0 40px #facc15, 0 0 60px #eab308',
-              filter: 'brightness(1.5)'
-            }}
-          />
-          <div 
-            className="absolute top-0 w-1 h-full bg-white opacity-100"
-            style={{
-              left: `${402 + xOffset}px`,
-              boxShadow: '0 0 10px #ffffff'
-            }}
-          />
-          <div 
-            className="absolute top-0 w-1 h-full bg-yellow-200 opacity-80"
-            style={{
-              left: `${380 + xOffset}px`,
-              boxShadow: '0 0 15px #fef08a'
-            }}
-          />
-        </>
-      )}
-    </div>
+    <svg 
+      className="absolute inset-0 w-full h-full pointer-events-none" 
+      style={{ transform: `scale(${size})` }}
+    >
+      <defs>
+        <filter id={`glow-${hue}`}>
+          <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+          <feMerge> 
+            <feMergeNode in="coloredBlur"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
+        </filter>
+      </defs>
+      {paths.map((path, index) => (
+        <motion.path
+          key={index}
+          d={path}
+          stroke={`hsl(${hue}, 100%, 70%)`}
+          strokeWidth="2"
+          fill="none"
+          filter={`url(#glow-${hue})`}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: [0, 1, 0] }}
+          transition={{ duration: 0.2 }}
+        />
+      ))}
+    </svg>
   );
 };
 
@@ -261,12 +286,12 @@ export const HeroSection: React.FC = () => {
       >
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="absolute top-[55%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-gradient-to-b from-blue-500/20 to-purple-600/10 blur-3xl"></div>
-        <div className="absolute top-0 w-[100%] left-1/2 transform -translate-x-1/2 h-full" style={{ marginLeft: '-72px' }}>
+        <div className="absolute top-0 w-[100%] left-1/2 transform -translate-x-1/2 h-full">
           <Lightning
             hue={lightningHue}
             xOffset={-72}
             speed={1.6}
-            intensity={0.8}
+            intensity={0.6}
             size={2}
           />
         </div>
