@@ -390,51 +390,7 @@ export const HeroSection: React.FC = () => {
 
 
 
-      {/* Inverter - Energy Flow Sequence */}
-      <motion.div 
-        className="absolute bottom-[15vh] right-[20%] z-30"
-      >
-        <motion.img 
-          src={inverterImage}
-          alt="Sol-Ark Inverter"
-          className="w-96 h-96 object-contain"
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.7, duration: 0.8 }}
-        />
-      </motion.div>
-      
-      {/* Battery - Final Energy Storage */}
-      <motion.div 
-        className="absolute bottom-[10vh] right-[5%] z-30"
-      >
-        <motion.img 
-          src={batteryImage}
-          alt="Battery Storage"
-          className="w-80 h-80 object-contain"
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.9, duration: 0.8 }}
-          key="battery-flow"
-        />
-      </motion.div>
 
-      {/* Solar Panel - Prominently Displayed */}
-      <motion.div 
-        className="absolute top-[40%] left-[30%] z-[99999] pointer-events-none"
-        style={{ zIndex: 99999 }}
-      >
-        <motion.img 
-          src={solarPanelImage}
-          alt="Solar Panel"
-          className="w-[600px] h-[600px] object-contain"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.8 }}
-          key="solar-panel-corner"
-          style={{ zIndex: 99999 }}
-        />
-      </motion.div>
 
       {/* Trust Badges - Above product line */}
       <motion.div 
