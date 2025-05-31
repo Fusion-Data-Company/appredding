@@ -335,36 +335,53 @@ export const HeroSection: React.FC = () => {
         
 
 
-        {/* Main hero content */}
+        {/* Main hero content - Right side with enterprise card */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="relative z-30 flex flex-col items-center text-center max-w-4xl mx-auto mt-20"
+          className="absolute right-8 top-1/2 transform -translate-y-1/2 z-30 max-w-2xl"
         >
+          {/* Enterprise Elite Card Background */}
+          <div className="relative backdrop-blur-xl bg-gradient-to-br from-amber-900/20 via-orange-900/15 to-yellow-900/20 border border-amber-500/30 rounded-3xl p-12 shadow-2xl">
+            {/* Sunshine FANG styling elements */}
+            <div className="absolute inset-0 bg-gradient-to-br from-amber-400/5 via-orange-400/3 to-yellow-400/5 rounded-3xl"></div>
+            <div className="absolute top-4 right-4 w-16 h-16 bg-gradient-to-br from-amber-400/20 to-orange-500/20 rounded-full blur-xl"></div>
+            <div className="absolute bottom-4 left-4 w-12 h-12 bg-gradient-to-br from-yellow-400/20 to-amber-500/20 rounded-full blur-lg"></div>
+            
+            {/* Elite corner accents */}
+            <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-amber-400/50 rounded-tl-3xl"></div>
+            <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-amber-400/50 rounded-tr-3xl"></div>
+            <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-amber-400/50 rounded-bl-3xl"></div>
+            <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-amber-400/50 rounded-br-3xl"></div>
 
+            {/* Content */}
+            <div className="relative z-10">
+              <motion.h1
+                variants={itemVariants}
+                className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-amber-200 via-orange-200 to-yellow-200 bg-clip-text text-transparent"
+              >
+                Advance Power
+              </motion.h1>
 
-          <motion.h1
-            variants={itemVariants}
-            className="text-5xl md:text-7xl font-light mb-2"
-          >
-            Advance Power
-          </motion.h1>
+              <motion.h2
+                variants={itemVariants}
+                className="text-2xl md:text-4xl pb-6 font-semibold bg-gradient-to-r from-amber-400 via-orange-400 to-yellow-400 bg-clip-text text-transparent"
+              >
+                of Redding
+              </motion.h2>
 
-          <motion.h2
-            variants={itemVariants}
-            className="text-3xl md:text-5xl pb-3 font-light bg-gradient-to-r from-orange-400 via-orange-300 to-amber-300 bg-clip-text text-transparent"
-          >
-            of Redding
-          </motion.h2>
+              <motion.p
+                variants={itemVariants}
+                className="text-amber-100/90 text-lg leading-relaxed"
+              >
+                Redding's trusted solar experts with over 20 years of experience. Professional installation, repair, and maintenance services for homes and businesses.
+              </motion.p>
+            </div>
 
-          <motion.p
-            variants={itemVariants}
-            className="text-gray-400 max-w-2xl text-lg"
-          >
-            Redding's trusted solar experts with over 20 years of experience. Professional installation, repair, and maintenance services for homes and businesses.
-          </motion.p>
-
+            {/* Elite glow effect */}
+            <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-amber-500/10 via-transparent to-orange-500/10 opacity-50"></div>
+          </div>
         </motion.div>
       </div>
 
