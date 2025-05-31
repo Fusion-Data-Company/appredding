@@ -303,7 +303,7 @@ const FeatureItem: React.FC<FeatureItemProps> = ({ name, value, position }) => {
 };
 
 export const HeroSection: React.FC = () => {
-  const [lightningHue, setLightningHue] = useState(220);
+  const lightningHue = 25; // Locked at 25 degrees
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -359,23 +359,7 @@ export const HeroSection: React.FC = () => {
           animate="visible"
           className="relative z-30 flex flex-col items-center text-center max-w-4xl mx-auto mt-20"
         >
-          <ElasticHueSlider
-              value={lightningHue}
-              onChange={setLightningHue}
-              label="Adjust Lightning Hue"
-            />
 
-          <motion.button
-            variants={itemVariants}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="flex items-center space-x-2 px-4 py-2 bg-white/5 hover:bg-white/10 backdrop-blur-sm rounded-full text-sm mb-6 transition-all duration-300 group"
-          >
-            <span>Energy Freedom Begins Here!</span>
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="transform group-hover:translate-x-1 transition-transform duration-300">
-              <path d="M8 3L13 8L8 13M13 8H3" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </motion.button>
 
           <motion.h1
             variants={itemVariants}
@@ -401,18 +385,7 @@ export const HeroSection: React.FC = () => {
         </motion.div>
       </div>
 
-      {/* Call to Action Button - Positioned above badges */}
-      <motion.div
-        variants={itemVariants}
-        className="absolute bottom-64 left-1/2 transform -translate-x-1/2 z-20"
-      >
-        <a
-          href="tel:5302260701"
-          className="px-8 py-4 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-bold rounded-lg transition-all duration-300 shadow-lg hover:scale-105"
-        >
-          CALL NOW! (530) 226-0701
-        </a>
-      </motion.div>
+
 
       {/* Trust Badges - Quarter inch above next section */}
       <motion.div 
@@ -459,7 +432,7 @@ export const HeroSection: React.FC = () => {
             size={2}
           />
         </div>
-        <div className="z-10 absolute top-[55%] left-1/2 transform -translate-x-1/2 w-[600px] h-[600px] backdrop-blur-3xl rounded-full bg-[radial-gradient(circle_at_25%_90%,_#1e386b_15%,_#000000de_70%,_#000000ed_100%)]"></div>
+
       </motion.div>
     </div>
   );
