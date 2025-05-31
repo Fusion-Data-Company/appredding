@@ -421,16 +421,13 @@ export const HeroSection: React.FC = () => {
 
       {/* Solar Panel - Prominently Displayed */}
       <motion.div 
-        className="absolute top-[20%] left-[50%] z-[99999] pointer-events-none"
-        style={{ 
-          zIndex: 99999,
-          transform: 'translate(-50%, 0) translate(288px, 288px)' // Center horizontally, then move 4 inches right and 4 inches down
-        }}
+        className="absolute top-[40%] left-[30%] z-[99999] pointer-events-none"
+        style={{ zIndex: 99999 }}
       >
         <motion.img 
           src={solarPanelImage}
           alt="Solar Panel"
-          className="w-[600px] h-[600px] object-contain" // 50% bigger than original size
+          className="w-[600px] h-[600px] object-contain"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.8 }}
