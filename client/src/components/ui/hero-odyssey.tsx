@@ -395,23 +395,23 @@ export const HeroSection: React.FC = () => {
         variants={itemVariants}
         className="absolute bottom-20 left-1/2 transform -translate-x-1/2 max-w-6xl mx-auto px-4 z-20"
       >
-        <div className="flex items-center justify-center gap-8">
+        <div className="flex items-center justify-center gap-12">
           {/* Solar Panel - Left side (larger) */}
           <div className="relative">
             <motion.img 
               src={solarPanelImage}
               alt="Solar Panel"
-              className="w-32 h-32 object-contain"
+              className="w-48 h-48 object-contain"
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.5, duration: 0.8 }}
             />
             {/* Lightning animation pointing to the panel */}
             <motion.div
-              className="absolute -top-4 left-1/2 transform -translate-x-1/2"
+              className="absolute -top-6 left-1/2 transform -translate-x-1/2"
               animate={{ 
                 opacity: [0, 1, 0],
-                y: [-10, 0, 10]
+                y: [-15, 0, 15]
               }}
               transition={{ 
                 duration: 2,
@@ -419,13 +419,13 @@ export const HeroSection: React.FC = () => {
                 ease: "easeInOut"
               }}
             >
-              <div className="text-yellow-300 text-2xl">⚡</div>
+              <div className="text-yellow-300 text-4xl">⚡</div>
             </motion.div>
           </div>
 
           {/* Energy Flow Arrow */}
           <motion.div
-            className="text-orange-400 text-3xl"
+            className="text-orange-400 text-5xl"
             animate={{ opacity: [0.5, 1, 0.5] }}
             transition={{ duration: 1.5, repeat: Infinity }}
           >
@@ -433,18 +433,18 @@ export const HeroSection: React.FC = () => {
           </motion.div>
 
           {/* Inverter and Battery - Right side (bundled together) */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-6">
             <motion.img 
               src={inverterImage}
               alt="Sol-Ark Inverter"
-              className="w-24 h-24 object-contain"
+              className="w-36 h-36 object-contain"
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.7, duration: 0.8 }}
             />
             
             <motion.div
-              className="text-orange-400 text-2xl"
+              className="text-orange-400 text-4xl"
               animate={{ opacity: [0.5, 1, 0.5] }}
               transition={{ duration: 1.5, repeat: Infinity, delay: 0.5 }}
             >
@@ -454,7 +454,7 @@ export const HeroSection: React.FC = () => {
             <motion.img 
               src={batteryImage}
               alt="Battery Storage"
-              className="w-24 h-24 object-contain"
+              className="w-36 h-36 object-contain"
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.9, duration: 0.8 }}
