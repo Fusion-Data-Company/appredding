@@ -390,47 +390,47 @@ export const HeroSection: React.FC = () => {
 
 
 
-      {/* Other Product Images */}
+      {/* Inverter - Energy Flow Sequence */}
       <motion.div 
-        variants={itemVariants}
-        className="absolute bottom-0 left-0 right-0 w-full z-20"
+        className="absolute bottom-[15vh] right-[20%] z-30"
       >
-        <div className="flex items-end justify-center">
-          {/* Inverter - Standalone */}
-          <motion.img 
-            src={inverterImage}
-            alt="Sol-Ark Inverter"
-            className="w-48 h-48 object-contain"
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7, duration: 0.8 }}
-          />
-          
-          {/* Battery - Standalone */}
-          <motion.img 
-            src={batteryImage}
-            alt="Battery Storage"
-            className="w-48 h-48 object-contain"
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.9, duration: 0.8 }}
-            key="battery-standalone"
-          />
-        </div>
+        <motion.img 
+          src={inverterImage}
+          alt="Sol-Ark Inverter"
+          className="w-96 h-96 object-contain"
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.7, duration: 0.8 }}
+        />
+      </motion.div>
+      
+      {/* Battery - Final Energy Storage */}
+      <motion.div 
+        className="absolute bottom-[10vh] right-[5%] z-30"
+      >
+        <motion.img 
+          src={batteryImage}
+          alt="Battery Storage"
+          className="w-80 h-80 object-contain"
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.9, duration: 0.8 }}
+          key="battery-flow"
+        />
       </motion.div>
 
-      {/* Solar Panel - Front and Bottom */}
+      {/* Solar Panel - Large Bottom Coverage */}
       <motion.div 
-        className="absolute bottom-24 left-1/2 transform -translate-x-1/2 -translate-x-72 z-30"
+        className="absolute bottom-0 left-0 right-0 h-[30vh] z-25"
       >
         <motion.img 
           src={solarPanelImage}
           alt="Solar Panel"
-          className="w-[3200px] h-[3200px] object-contain"
+          className="w-full h-full object-cover"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.8 }}
-          key="solar-panel-front"
+          key="solar-panel-hero"
         />
       </motion.div>
 
