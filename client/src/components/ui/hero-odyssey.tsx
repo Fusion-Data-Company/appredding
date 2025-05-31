@@ -286,12 +286,12 @@ export const HeroSection: React.FC = () => {
       >
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="absolute top-[55%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-gradient-to-b from-blue-500/20 to-purple-600/10 blur-3xl"></div>
-        <div className="absolute top-0 w-[100%] left-1/2 transform -translate-x-1/2 h-full">
+        <div className="absolute top-0 w-[100%] left-1/2 transform -translate-x-1/2 h-full" style={{ marginLeft: '-72px' }}>
           <Lightning
             hue={lightningHue}
-            xOffset={0}
+            xOffset={-72}
             speed={1.6}
-            intensity={0.6}
+            intensity={0.8}
             size={2}
           />
         </div>
