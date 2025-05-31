@@ -33,13 +33,14 @@ export default function Header() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <Link href="/" className="flex items-center space-x-3">
-              <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-orange-600 rounded-lg flex items-center justify-center shadow-lg">
-                <Sun className="w-8 h-8 text-white" />
-              </div>
-              <div>
-                <div className="font-bold text-xl leading-tight text-orange-400">Advance Power</div>
-                <div className="text-orange-300 text-sm font-medium">Redding</div>
+            <Link href="/" className="flex items-center">
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 via-orange-400 to-yellow-400 rounded-lg opacity-30 blur-md"></div>
+                <img 
+                  src="/attached_assets/APR-Logo-White-New-300x222.png" 
+                  alt="Advance Power Redding" 
+                  className="relative h-16 w-auto object-contain"
+                />
               </div>
             </Link>
 
