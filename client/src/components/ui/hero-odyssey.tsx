@@ -370,20 +370,29 @@ export const HeroSection: React.FC = () => {
 
 
 
-      {/* Solar Panel - At bottom line */}
+      {/* Solar Panel - Bottom left corner */}
       <motion.div 
-        className="absolute bottom-0 left-1/2 transform -translate-x-1/2 z-[99999] pointer-events-none"
-        style={{ zIndex: 99999 }}
+        className="absolute bottom-0 left-0 z-[99999] pointer-events-none"
+        style={{ 
+          zIndex: 99999,
+          margin: 0,
+          padding: 0
+        }}
       >
         <motion.img 
           src={solarPanelImage}
           alt="Solar Panel"
-          className="w-[1000px] h-[1000px] object-contain"
+          className="w-[1600px] h-[1600px] object-contain"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.8 }}
           key="solar-panel-bottom"
-          style={{ zIndex: 99999 }}
+          style={{ 
+            zIndex: 99999,
+            margin: 0,
+            padding: 0,
+            display: 'block'
+          }}
         />
       </motion.div>
 
