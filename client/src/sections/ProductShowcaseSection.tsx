@@ -1,8 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import solarPanelImage from "@assets/68.png";
-import batteryImage from "@assets/67.png";
-import inverterImage from "@assets/15K-new-1-e1719430674378-628x1024.webp";
+import solarPanelImage from "@assets/Untitled design.png";
 
 const ProductShowcaseSection: React.FC = () => {
   const containerVariants = {
@@ -37,9 +35,9 @@ const ProductShowcaseSection: React.FC = () => {
         viewport={{ once: true, amount: 0.1 }}
         className="max-w-7xl mx-auto"
       >
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
+        <div className="flex justify-center items-center">
           
-          {/* Solar Panel - Left */}
+          {/* Solar Panel - Center */}
           <motion.div 
             variants={itemVariants}
             className="flex flex-col items-center text-center"
@@ -52,44 +50,8 @@ const ProductShowcaseSection: React.FC = () => {
               />
             </div>
             <h3 className="text-2xl font-bold text-white mb-4">Solar Panels</h3>
-            <p className="text-gray-300 leading-relaxed">
+            <p className="text-gray-300 leading-relaxed max-w-md">
               High-efficiency solar panels that convert sunlight into clean, renewable energy for your home or business.
-            </p>
-          </motion.div>
-
-          {/* Inverter - Middle */}
-          <motion.div 
-            variants={itemVariants}
-            className="flex flex-col items-center text-center"
-          >
-            <div className="mb-6">
-              <img 
-                src={inverterImage}
-                alt="Sol-Ark Inverter"
-                className="w-96 h-96 object-contain mx-auto"
-              />
-            </div>
-            <h3 className="text-2xl font-bold text-white mb-4">Smart Inverters</h3>
-            <p className="text-gray-300 leading-relaxed">
-              Intelligent inverters that convert DC power to AC and optimize your entire solar energy system.
-            </p>
-          </motion.div>
-
-          {/* Battery - Right */}
-          <motion.div 
-            variants={itemVariants}
-            className="flex flex-col items-center text-center"
-          >
-            <div className="mb-6">
-              <img 
-                src={batteryImage}
-                alt="Battery Storage"
-                className="w-96 h-96 object-contain mx-auto"
-              />
-            </div>
-            <h3 className="text-2xl font-bold text-white mb-4">Battery Storage</h3>
-            <p className="text-gray-300 leading-relaxed">
-              Advanced battery systems that store your solar energy for use when you need it most, day or night.
             </p>
           </motion.div>
 
