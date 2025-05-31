@@ -421,7 +421,7 @@ export const HeroSection: React.FC = () => {
 
       {/* Solar Panel - Bottom Right Corner */}
       <motion.div 
-        className="absolute bottom-20 right-20 z-50"
+        className="absolute -bottom-80 right-20 z-[100]"
       >
         <motion.img 
           src={solarPanelImage}
