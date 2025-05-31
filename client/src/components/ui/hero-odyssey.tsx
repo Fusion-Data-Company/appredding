@@ -421,7 +421,8 @@ export const HeroSection: React.FC = () => {
 
       {/* Solar Panel - Bottom Right Corner */}
       <motion.div 
-        className="absolute -bottom-80 right-20 z-[100]"
+        className="absolute -bottom-[400px] right-20 z-[9999] pointer-events-none"
+        style={{ zIndex: 9999 }}
       >
         <motion.img 
           src={solarPanelImage}
@@ -431,6 +432,7 @@ export const HeroSection: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.8 }}
           key="solar-panel-corner"
+          style={{ zIndex: 9999 }}
         />
       </motion.div>
 
