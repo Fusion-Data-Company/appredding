@@ -112,26 +112,11 @@ const SolarHeader = () => {
       {/* Main Navigation */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
-          {/* Logo */}
+          {/* Logo - ready for installation */}
           <Link href="/">
-            <motion.div 
-              className="flex items-center space-x-3 group cursor-pointer"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <div className="relative">
-                <div className="w-12 h-12 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300">
-                  <Sun className="w-7 h-7 text-white animate-pulse" />
-                </div>
-                <div className="absolute -inset-1 bg-gradient-to-br from-yellow-400/30 to-orange-500/30 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </div>
-              <div className="flex flex-col">
-                <h1 className="text-2xl font-bold bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
-                  Advance Power
-                </h1>
-                <p className="text-sm text-orange-600 font-semibold -mt-1">of Redding</p>
-              </div>
-            </motion.div>
+            <div className="flex items-center space-x-3">
+              {/* Logo space ready for new logo */}
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
