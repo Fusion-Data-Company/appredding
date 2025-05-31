@@ -337,9 +337,9 @@ export const HeroSection: React.FC = () => {
 
       </div>
       
-      {/* Global logo - not tied to any section */}
+      {/* Global logo - scrolls with page */}
       <div 
-        className="fixed z-[99999]"
+        className="absolute z-[99999]"
         style={{ 
           margin: 0, 
           padding: 0,
