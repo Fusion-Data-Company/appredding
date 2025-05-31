@@ -1,5 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import solarPanelImage from "@assets/68.png";
+import batteryImage from "@assets/67.png";
+import inverterImage from "@assets/15K-new-1-e1719430674378-628x1024.webp";
 
 interface ElasticHueSliderProps {
   value: number;
@@ -387,7 +390,80 @@ export const HeroSection: React.FC = () => {
 
 
 
-      {/* Trust Badges - Quarter inch above next section */}
+      {/* Energy Flow Product Line */}
+      <motion.div 
+        variants={itemVariants}
+        className="absolute bottom-20 left-1/2 transform -translate-x-1/2 max-w-6xl mx-auto px-4 z-20"
+      >
+        <div className="flex items-center justify-center gap-8">
+          {/* Solar Panel - Left side (larger) */}
+          <div className="relative">
+            <motion.img 
+              src={solarPanelImage}
+              alt="Solar Panel"
+              className="w-32 h-32 object-contain"
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.5, duration: 0.8 }}
+            />
+            {/* Lightning animation pointing to the panel */}
+            <motion.div
+              className="absolute -top-4 left-1/2 transform -translate-x-1/2"
+              animate={{ 
+                opacity: [0, 1, 0],
+                y: [-10, 0, 10]
+              }}
+              transition={{ 
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            >
+              <div className="text-yellow-300 text-2xl">⚡</div>
+            </motion.div>
+          </div>
+
+          {/* Energy Flow Arrow */}
+          <motion.div
+            className="text-orange-400 text-3xl"
+            animate={{ opacity: [0.5, 1, 0.5] }}
+            transition={{ duration: 1.5, repeat: Infinity }}
+          >
+            →
+          </motion.div>
+
+          {/* Inverter and Battery - Right side (bundled together) */}
+          <div className="flex items-center gap-4">
+            <motion.img 
+              src={inverterImage}
+              alt="Sol-Ark Inverter"
+              className="w-24 h-24 object-contain"
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.7, duration: 0.8 }}
+            />
+            
+            <motion.div
+              className="text-orange-400 text-2xl"
+              animate={{ opacity: [0.5, 1, 0.5] }}
+              transition={{ duration: 1.5, repeat: Infinity, delay: 0.5 }}
+            >
+              →
+            </motion.div>
+            
+            <motion.img 
+              src={batteryImage}
+              alt="Battery Storage"
+              className="w-24 h-24 object-contain"
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.9, duration: 0.8 }}
+            />
+          </div>
+        </div>
+      </motion.div>
+
+      {/* Trust Badges - Above product line */}
       <motion.div 
         variants={itemVariants}
         className="absolute bottom-6 left-1/2 transform -translate-x-1/2 max-w-4xl mx-auto px-4 z-20"
