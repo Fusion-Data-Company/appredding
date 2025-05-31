@@ -386,24 +386,7 @@ export const HeroSection: React.FC = () => {
         </motion.div>
       </div>
 
-      {/* Solar Panel - Positioned where badges are */}
-      <motion.div 
-        className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-[99999] pointer-events-none"
-        style={{ zIndex: 99999 }}
-      >
-        <motion.img 
-          src={solarPanelImage}
-          alt="Solar Panel"
-          className="w-[1000px] h-[1000px] object-contain"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.8 }}
-          key="solar-panel-bottom"
-          style={{ zIndex: 99999 }}
-        />
-      </motion.div>
-
-      {/* Trust Badges - Above product line */}
+      {/* Trust Badges */}
       <motion.div 
         variants={itemVariants}
         className="absolute bottom-6 left-1/2 transform -translate-x-1/2 max-w-4xl mx-auto px-4 z-[100000]"
@@ -426,6 +409,23 @@ export const HeroSection: React.FC = () => {
             <span className="text-sm">Trusted</span>
           </div>
         </div>
+      </motion.div>
+
+      {/* Solar Panel - Below badges */}
+      <motion.div 
+        className="absolute bottom-[-200px] left-1/2 transform -translate-x-1/2 z-[99999] pointer-events-none"
+        style={{ zIndex: 99999 }}
+      >
+        <motion.img 
+          src={solarPanelImage}
+          alt="Solar Panel"
+          className="w-[1000px] h-[1000px] object-contain"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5, duration: 0.8 }}
+          key="solar-panel-bottom"
+          style={{ zIndex: 99999 }}
+        />
       </motion.div>
 
 
