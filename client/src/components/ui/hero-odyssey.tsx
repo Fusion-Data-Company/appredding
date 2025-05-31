@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import solarPanelImage from "@assets/Untitled design.png";
-import logoImage from "@assets/Untitled design (1).png";
+import logoImage from "@assets/Untitled design (2).png";
 
 interface ElasticHueSliderProps {
   value: number;
