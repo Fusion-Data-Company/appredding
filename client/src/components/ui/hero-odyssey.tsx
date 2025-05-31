@@ -240,7 +240,7 @@ export const HeroSection: React.FC = () => {
             margin: 0, 
             padding: 0,
             top: '50%',
-            right: '5vw',
+            right: '-5vw',
             transform: 'translateY(-50%)',
             width: '48vw',
             height: 'auto',
