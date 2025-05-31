@@ -16,6 +16,7 @@ import {
   Users,
   MessageSquare
 } from "lucide-react";
+import logoPath from "@assets/APR-Logo-New-300x113.png";
 
 const SolarHeader = () => {
   const [location] = useLocation();
@@ -116,7 +117,7 @@ const SolarHeader = () => {
           <Link href="/">
             <div className="flex items-center space-x-3">
               <img 
-                src="@assets/APR-Logo-New-300x113.png" 
+                src={logoPath} 
                 alt="Advance Power Redding" 
                 className="h-12 w-auto"
               />
