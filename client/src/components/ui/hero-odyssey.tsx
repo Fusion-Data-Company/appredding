@@ -342,8 +342,12 @@ export const HeroSection: React.FC = () => {
           <img 
             src={logoImage}
             alt="Advance Power Redding Logo"
-            className="w-full h-auto max-w-[1800px] object-contain"
-            style={{ margin: 0, padding: 0 }}
+            style={{ 
+              margin: 0, 
+              padding: 0,
+              width: '2400px',
+              height: 'auto'
+            }}
           />
         </div>
 
