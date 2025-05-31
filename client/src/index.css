@@ -36,33 +36,82 @@ section + section {
   z-index: 9999 !important;
 }
 
-/* EMERGENCY HEADER TEXT VISIBILITY FIX */
-header * {
-  color: #fb923c !important; /* Force orange text */
+/* ELITE ENTERPRISE HEADER STYLING */
+header {
+  background: linear-gradient(135deg, 
+    rgba(15, 15, 20, 0.95) 0%, 
+    rgba(25, 25, 35, 0.98) 50%, 
+    rgba(15, 15, 20, 0.95) 100%) !important;
+  backdrop-filter: blur(15px) saturate(180%) !important;
+  border-bottom: 1px solid rgba(251, 146, 60, 0.4) !important;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
 }
 
-header .bg-black {
-  background-color: #000000 !important; /* Force black background */
+header * {
+  color: #fb923c !important;
+}
+
+header .bg-black, header .bg-gray-900, header .bg-gray-800 {
+  background: transparent !important;
 }
 
 header nav a, header nav button {
-  color: #fb923c !important; /* Force orange text for navigation */
+  color: #fb923c !important;
   font-weight: 600 !important;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.8) !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  position: relative !important;
 }
 
-header .dropdown-menu {
-  background-color: #000000 !important; /* Force black dropdown background */
-  border: 2px solid #fb923c !important; /* Force orange border */
+header nav a:hover, header nav button:hover {
+  color: #fed7aa !important;
+  text-shadow: 0 0 8px rgba(251, 146, 60, 0.6) !important;
+  transform: translateY(-1px) !important;
 }
 
-header .dropdown-menu a {
-  color: #fb923c !important; /* Force orange text in dropdowns */
+/* Elite dropdown menu styling */
+header .group:hover > div {
+  background: linear-gradient(135deg,
+    rgba(30, 30, 40, 0.95) 0%,
+    rgba(40, 40, 55, 0.98) 50%,
+    rgba(30, 30, 40, 0.95) 100%) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  border: 2px solid rgba(251, 146, 60, 0.6) !important;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.4),
+    0 8px 16px rgba(251, 146, 60, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
 }
 
-header .dropdown-menu a:hover {
-  background-color: #7c2d12 !important; /* Dark orange hover */
-  color: #fed7aa !important; /* Light orange hover text */
+header .group:hover > div a {
+  color: #fb923c !important;
+  font-weight: 500 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8) !important;
+  transition: all 0.2s ease !important;
+}
+
+header .group:hover > div a:hover {
+  background: linear-gradient(90deg,
+    rgba(251, 146, 60, 0.15) 0%,
+    rgba(251, 146, 60, 0.25) 50%,
+    rgba(251, 146, 60, 0.15) 100%) !important;
+  color: #fed7aa !important;
+  text-shadow: 0 0 6px rgba(251, 146, 60, 0.5) !important;
+  transform: translateX(4px) !important;
+}
+
+/* Premium logo styling */
+header a[href="/"] > div:first-child {
+  background: linear-gradient(135deg, #fb923c 0%, #ea580c 100%) !important;
+  box-shadow: 
+    0 8px 16px rgba(251, 146, 60, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+}
+
+header a[href="/"] > div:last-child > div {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8) !important;
 }
 
 @layer utilities {
