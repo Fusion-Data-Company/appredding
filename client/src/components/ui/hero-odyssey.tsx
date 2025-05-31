@@ -334,30 +334,32 @@ export const HeroSection: React.FC = () => {
     <div className="relative w-full bg-black text-white overflow-hidden">
       <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 h-screen">
         
-        {/* Right side logo */}
-        <div 
-          className="absolute z-30"
+
+      </div>
+      
+      {/* Global logo - not tied to any section */}
+      <div 
+        className="fixed z-[99999]"
+        style={{ 
+          margin: 0, 
+          padding: 0,
+          top: '50vh',
+          right: '2vw',
+          transform: 'translateY(-50%)',
+          pointerEvents: 'none'
+        }}
+      >
+        <img 
+          src={logoImage}
+          alt="Advance Power Redding Logo"
           style={{ 
             margin: 0, 
             padding: 0,
-            top: '50%',
-            right: '2%',
-            transform: 'translateY(-50%)'
+            width: '40.5vw',
+            height: 'auto',
+            maxWidth: 'none'
           }}
-        >
-          <img 
-            src={logoImage}
-            alt="Advance Power Redding Logo"
-            style={{ 
-              margin: 0, 
-              padding: 0,
-              width: '40.5vw',
-              height: 'auto',
-              maxWidth: 'none'
-            }}
-          />
-        </div>
-
+        />
       </div>
 
 
