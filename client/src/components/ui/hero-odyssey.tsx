@@ -333,8 +333,18 @@ export const HeroSection: React.FC = () => {
     <div className="relative w-full bg-black text-white overflow-hidden">
       <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 h-screen">
         
-
-
+        {/* Right half logo */}
+        <div 
+          className="absolute right-0 top-0 w-1/2 h-full z-30 flex items-center justify-center"
+          style={{ margin: 0, padding: 0 }}
+        >
+          <img 
+            src="/src/assets/attached_assets/Untitled design (1).png"
+            alt="Advance Power Redding Logo"
+            className="w-full h-auto max-w-[600px] object-contain"
+            style={{ margin: 0, padding: 0 }}
+          />
+        </div>
 
       </div>
 
