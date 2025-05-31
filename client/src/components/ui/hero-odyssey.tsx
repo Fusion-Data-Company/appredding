@@ -129,17 +129,17 @@ const Lightning: React.FC<LightningProps> = ({
   const [paths, setPaths] = useState<string[]>([]);
 
   const generateLightningPath = () => {
-    const segments = 8 + Math.random() * 4;
-    const startX = 400 + xOffset;
-    const startY = 50;
-    const endX = 200 + xOffset + (Math.random() - 0.5) * 200;
-    const endY = 600;
+    const segments = 10;
+    const startX = 500 + xOffset;
+    const startY = 0;
+    const endX = 300 + xOffset;
+    const endY = 800;
     
     let path = `M ${startX} ${startY}`;
     
     for (let i = 1; i < segments; i++) {
       const progress = i / segments;
-      const x = startX + (endX - startX) * progress + (Math.random() - 0.5) * 100 * (1 - progress);
+      const x = startX + (endX - startX) * progress + (Math.random() - 0.5) * 150;
       const y = startY + (endY - startY) * progress;
       path += ` L ${x} ${y}`;
     }
@@ -150,18 +150,18 @@ const Lightning: React.FC<LightningProps> = ({
 
   useEffect(() => {
     const interval = setInterval(() => {
-      if (Math.random() < 0.3 * intensity) {
+      if (Math.random() < 0.8) {
         const newPath = generateLightningPath();
         setPaths(prev => [...prev, newPath]);
         
         setTimeout(() => {
           setPaths(prev => prev.slice(1));
-        }, 200 / speed);
+        }, 300);
       }
-    }, 100 / speed);
+    }, 150);
 
     return () => clearInterval(interval);
-  }, [speed, intensity, xOffset]);
+  }, [xOffset]);
 
   return (
     <svg 
