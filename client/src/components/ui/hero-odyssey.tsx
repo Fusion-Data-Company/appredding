@@ -419,20 +419,23 @@ export const HeroSection: React.FC = () => {
         />
       </motion.div>
 
-      {/* Solar Panel - Bottom Right Corner */}
+      {/* Solar Panel - Prominently Displayed */}
       <motion.div 
-        className="absolute -bottom-[400px] right-20 z-[9999] pointer-events-none"
-        style={{ zIndex: 9999 }}
+        className="absolute bottom-0 right-0 z-[99999] pointer-events-none"
+        style={{ 
+          zIndex: 99999,
+          transform: 'translate(-288px, 288px)' // 4 inches left (288px) and 4 inches down (288px)
+        }}
       >
         <motion.img 
           src={solarPanelImage}
           alt="Solar Panel"
-          className="w-[1600px] h-[1600px] object-cover"
+          className="w-[2400px] h-[2400px] object-cover" // 50% bigger: 1600 * 1.5 = 2400
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.8 }}
           key="solar-panel-corner"
-          style={{ zIndex: 9999 }}
+          style={{ zIndex: 99999 }}
         />
       </motion.div>
 
@@ -470,7 +473,7 @@ export const HeroSection: React.FC = () => {
         transition={{ duration: 1 }}
         className="absolute inset-0 z-0"
       >
-        <div className="absolute inset-0 bg-black/80"></div>
+        <div className="absolute inset-0 bg-black/40"></div>
         <div className="absolute top-[55%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-gradient-to-b from-blue-500/20 to-purple-600/10 blur-3xl"></div>
         <div className="absolute top-0 w-[100%] left-1/2 transform -translate-x-1/2 h-full">
           <Lightning
