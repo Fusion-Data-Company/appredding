@@ -197,8 +197,15 @@ const Lightning: React.FC<LightningProps> = ({
           uv += 2.0 * fbm(uv * uSize + 0.8 * iTime * uSpeed) - 1.0;
           
           float dist = abs(uv.x);
-          vec3 baseColor = hsv2rgb(vec3(uHue / 360.0, 0.7, 0.8));
-          vec3 col = baseColor * pow(mix(0.0, 0.07, hash11(iTime * uSpeed)) / dist, 1.0) * uIntensity;
+          vec3 baseColor = hsv2rgb(vec3(uHue / 360.0, 0.8, 0.9));
+          vec3 glowColor = hsv2rgb(vec3(uHue / 360.0, 0.4, 0.6));
+          
+          // Enhanced glow/mist effect
+          float glowRadius = 0.15;
+          float mistEffect = exp(-dist * 8.0) * 0.3;
+          float coreIntensity = pow(mix(0.0, 0.12, hash11(iTime * uSpeed)) / dist, 1.0);
+          
+          vec3 col = baseColor * coreIntensity * uIntensity + glowColor * mistEffect;
           col = pow(col, vec3(1.0));
           fragColor = vec4(col, 1.0);
       }
@@ -401,7 +408,7 @@ export const HeroSection: React.FC = () => {
         className="absolute inset-0 z-0"
       >
         <div className="absolute inset-0 bg-black/40"></div>
-        <div className="absolute top-[55%] left-[40%] transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-gradient-to-b from-blue-500/20 to-purple-600/10 blur-3xl"></div>
+        <div className="absolute top-[55%] left-[40%] transform -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] rounded-full bg-gradient-to-b from-blue-400/30 to-purple-500/20 blur-[100px]"></div>
         <div className="absolute top-0 w-[100%] left-[40%] transform -translate-x-1/2 h-full">
           <Lightning
             hue={lightningHue}
