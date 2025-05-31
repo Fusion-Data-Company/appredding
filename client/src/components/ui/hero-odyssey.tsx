@@ -396,22 +396,22 @@ export const HeroSection: React.FC = () => {
         className="absolute bottom-20 left-1/2 transform -translate-x-1/2 max-w-6xl mx-auto px-4 z-20"
       >
         <div className="flex items-center justify-center gap-16">
-          {/* Solar Panel - Left side (larger) */}
+          {/* Solar Panel - Left side (much larger) */}
           <div className="relative">
             <motion.img 
               src={solarPanelImage}
               alt="Solar Panel"
-              className="w-64 h-64 object-contain"
+              className="w-96 h-96 object-contain"
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.5, duration: 0.8 }}
             />
             {/* Lightning animation pointing to the panel */}
             <motion.div
-              className="absolute -top-8 left-1/2 transform -translate-x-1/2"
+              className="absolute -top-12 left-1/2 transform -translate-x-1/2"
               animate={{ 
                 opacity: [0, 1, 0],
-                y: [-20, 0, 20]
+                y: [-25, 0, 25]
               }}
               transition={{ 
                 duration: 2,
@@ -419,7 +419,7 @@ export const HeroSection: React.FC = () => {
                 ease: "easeInOut"
               }}
             >
-              <div className="text-yellow-300 text-6xl">⚡</div>
+              <div className="text-yellow-300 text-8xl">⚡</div>
             </motion.div>
           </div>
 
