@@ -405,6 +405,7 @@ export const HeroSection: React.FC = () => {
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.5, duration: 0.8 }}
+              key="solar-panel-hd"
             />
             {/* Lightning animation pointing to the panel */}
             <motion.div
@@ -458,6 +459,7 @@ export const HeroSection: React.FC = () => {
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.9, duration: 0.8 }}
+              key="battery-hd"
             />
           </div>
         </div>
