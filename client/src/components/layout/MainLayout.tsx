@@ -16,7 +16,7 @@ interface MainLayoutProps {
  */
 export default function MainLayout({ children, className, fullWidth = false }: MainLayoutProps) {
   return (
-    <div className="min-h-screen flex flex-col bg-black">
+    <div className="min-h-screen flex flex-col bg-gradient-to-br from-amber-50 via-white to-orange-50">
       <ProfessionalHeader />
       
       <main className={cn(

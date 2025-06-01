@@ -5,7 +5,6 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { useEffect, lazy, Suspense } from "react";
 import { preloadCriticalImages } from "@/utils/image-preloader";
-
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import CRM from "@/pages/CRM";

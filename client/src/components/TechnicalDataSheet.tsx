@@ -380,21 +380,20 @@ export const TechnicalDataSheet = () => {
             
             {/* Content */}
             <div className="relative z-10">
-              {/* Enhanced section header with advanced styling */}
-              <div className="flex items-center gap-3 pb-4 mb-5 border-b border-orange-700/30 relative group">
-                <div className="relative group-hover:scale-105 transition-transform duration-500 pulse-ring">
-                  {/* Icon background with enhanced gradient */}
-                  <div className="p-2 rounded-lg bg-gradient-to-br from-orange-950 to-red-950 border border-orange-700/50 relative overflow-hidden button-magnetic">
-                    {/* Icon background gradient with glow */}
+              {/* Enhanced section header */}
+              <div className="flex items-center gap-3 pb-4 mb-5 border-b border-orange-700/30">
+                <div className="relative group-hover:scale-105 transition-transform duration-500">
+                  {/* Icon background with gradient */}
+                  <div className="p-2 rounded-lg bg-orange-950 border border-orange-700/50 relative overflow-hidden">
+                    {/* Icon background gradient */}
                     <div className="absolute inset-0 opacity-50 bg-gradient-to-br from-white/10 via-transparent to-transparent"></div>
-                    <div className="absolute inset-0 opacity-30 bg-gradient-to-r from-orange-500/20 to-red-500/20 blur-sm"></div>
                     
-                    {/* Icon with enhanced effects */}
-                    <Award className="h-5 w-5 text-orange-400 relative z-10 icon-pulse" />
+                    {/* Icon */}
+                    <Award className="h-5 w-5 text-orange-400 relative z-10" />
                   </div>
                 </div>
                 
-                <h3 className="text-xl font-bold bg-gradient-to-r from-orange-300 to-amber-300 bg-clip-text text-transparent text-glow">
+                <h3 className="text-xl font-bold bg-gradient-to-r from-orange-300 to-amber-300 bg-clip-text text-transparent">
                   Performance Validation
                 </h3>
               </div>
