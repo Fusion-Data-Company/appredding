@@ -7,6 +7,7 @@ import AboutAdvancePowerSection from "@/sections/AboutAdvancePowerSection";
 import EnergyStorageSection from "@/sections/EnergyStorageSection";
 import TroubleshootingSection from "@/sections/TroubleshootingSection";
 import SpecificationsSection from "@/sections/SpecificationsSection";
+import FAQSection from "@/sections/FAQSection";
 import SolarTestimonialsSection from "@/sections/SolarTestimonialsSection";
 import ContactSection from "@/sections/ContactSection";
 import PitchDeckTrigger from "@/components/PitchDeck/PitchDeckTrigger";

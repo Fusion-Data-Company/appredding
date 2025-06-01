@@ -5,37 +5,37 @@ const AboutAdvancePowerSection = () => {
   const achievements = [
     {
       icon: <Calendar className="w-8 h-8" />,
-      number: "25+",
-      label: "Years Experience",
-      description: "Serving Northern California since 1999"
+      number: "4",
+      label: "Sol-Ark Models",
+      description: "12K, 15K, 30K, 60K hybrid inverters"
     },
     {
       icon: <Users className="w-8 h-8" />,
-      number: "1,500+",
-      label: "Happy Customers",
-      description: "Families and businesses powered by solar"
+      number: "229kWh",
+      label: "Max Battery Capacity",
+      description: "API LiFePO4 stackable system capacity"
     },
     {
       icon: <Zap className="w-8 h-8" />,
-      number: "5,000+",
-      label: "Systems Installed",
-      description: "Megawatts of clean energy generated"
+      number: "6000+",
+      label: "Battery Cycles",
+      description: "LiFePO4 thermal-stable chemistry"
     },
     {
       icon: <Award className="w-8 h-8" />,
-      number: "98%",
-      label: "Customer Satisfaction",
-      description: "Industry-leading service ratings"
+      number: "64",
+      label: "Fault Codes",
+      description: "Comprehensive troubleshooting database"
     }
   ];
 
   const certifications = [
-    "NABCEP Certified",
-    "CSLB Licensed",
-    "Tesla Certified Installer",
-    "Better Business Bureau A+",
-    "Solar Power World Top Contractor",
-    "SunPower Elite Dealer"
+    "Sol-Ark Certified Installer",
+    "API LiFePO4 Systems Specialist",
+    "CAN/RS485 Communication Expert",
+    "UL 1973/9540 Compliance",
+    "MPPT Configuration Specialist",
+    "Battery BMS Integration Expert"
   ];
 
   return (
@@ -69,18 +69,18 @@ const AboutAdvancePowerSection = () => {
           className="text-center mb-24"
         >
           <h2 className="text-6xl md:text-7xl lg:text-8xl font-black text-gray-800 mb-12 leading-tight">
-            About{" "}
+            Sol-Ark &{" "}
             <span className="relative inline-block">
               <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
-                Advance Power
+                API Expertise
               </span>
               <div className="absolute -inset-2 bg-gradient-to-r from-blue-300/30 to-indigo-300/30 blur-2xl -z-10 animate-pulse"></div>
             </span>
           </h2>
           
           <p className="text-3xl md:text-4xl text-gray-700 max-w-5xl mx-auto font-light leading-relaxed">
-            Northern California's most trusted solar experts, delivering clean energy solutions 
-            for over 25 years with unmatched expertise and customer service.
+            Northern California's premier Sol-Ark hybrid inverter and API LiFePO4 battery specialists, 
+            delivering comprehensive technical expertise and professional installation services.
           </p>
         </motion.div>
 
@@ -140,26 +140,26 @@ const AboutAdvancePowerSection = () => {
             <div className="absolute -inset-1 bg-gradient-to-r from-green-500 to-emerald-500 blur-xl opacity-50"></div>
             
             <div className="relative z-10 text-center">
-              <div className="text-6xl mb-4">💰</div>
+              <div className="text-6xl mb-4">⚡</div>
               <h3 className="text-4xl md:text-5xl font-black text-white mb-6">
-                Save Money Every Month
+                All-In-One Hybrid Power Systems
               </h3>
               <p className="text-2xl text-green-100 mb-8 max-w-4xl mx-auto leading-relaxed">
-                Our customers typically save $150-400 per month on their electricity bills. 
-                With 25+ years of experience, we maximize your savings with the most efficient solar solutions.
+                Sol-Ark inverters combine inverter, battery charger, solar MPPT inputs, and grid transfer 
+                in one unit. API LiFePO4 batteries provide safe, modular energy storage with 6000+ cycles.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-white">$150-400</div>
-                  <div className="text-green-200">Monthly Savings</div>
+                  <div className="text-3xl font-bold text-white">&lt;5ms</div>
+                  <div className="text-green-200">Fast Transfer Time</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-white">25+ Years</div>
-                  <div className="text-green-200">System Warranty</div>
+                  <div className="text-3xl font-bold text-white">6000+</div>
+                  <div className="text-green-200">Battery Cycles</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-white">$50,000+</div>
-                  <div className="text-green-200">Lifetime Savings</div>
+                  <div className="text-3xl font-bold text-white">UL Certified</div>
+                  <div className="text-green-200">Safety Compliant</div>
                 </div>
               </div>
             </div>
@@ -177,25 +177,26 @@ const AboutAdvancePowerSection = () => {
           {/* Story Content */}
           <div>
             <h3 className="text-4xl md:text-5xl font-black text-white mb-8">
-              Our Story
+              Technical Expertise
             </h3>
             
             <div className="space-y-6 text-xl text-gray-300 leading-relaxed">
               <p>
-                Founded in 1999 by Greg Peterson, Advance Power began as a small electrical contracting 
-                company in Redding, California. As solar technology emerged, we recognized the incredible 
-                potential for clean, renewable energy in Northern California.
+                Our team specializes in Sol-Ark all-in-one hybrid inverters (12K, 15K, 30K, 60K models) 
+                and API LiFePO4 stackable battery systems. We provide expert installation, configuration, 
+                and comprehensive troubleshooting services for Northern California customers.
               </p>
               
               <p>
-                Over the past 25 years, we've evolved into the region's most trusted solar installation 
-                and maintenance company. Our commitment to quality workmanship, cutting-edge technology, 
-                and exceptional customer service has earned us thousands of satisfied customers.
+                From CT orientation and Auto-Learn configuration to BMS communication setup and fault 
+                code resolution, our certified technicians handle every aspect of Sol-Ark and API 
+                system integration with precision and expertise.
               </p>
               
               <p>
-                Today, Advance Power continues to lead the way in solar innovation, helping families and 
-                businesses achieve energy independence while reducing their environmental impact.
+                We maintain an extensive fault code database covering all F-codes from F1 to F64, 
+                ensuring rapid problem resolution and optimal system performance for residential 
+                and commercial installations.
               </p>
             </div>
 
