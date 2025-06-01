@@ -15,7 +15,7 @@ const ProductShowcaseSection: React.FC = () => {
           <img 
             src={backgroundImage}
             alt="Solar Equipment Solutions"
-            className="max-w-full h-auto"
+            className="w-full max-w-5xl h-auto"
           />
         </div>
       </div>
