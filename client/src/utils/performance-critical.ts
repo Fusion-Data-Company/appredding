@@ -122,13 +122,19 @@ export function optimizeMemoryUsage(): void {
   const cleanupEvents = () => {
     // Force garbage collection if available (dev only)
     if (import.meta.env.DEV && 'gc' in window) {
-      (window as any).gc();
+      try {
+        (window as any).gc();
+      } catch (error) {
+        // Ignore GC errors
+      }
     }
   };
 
-  // Clean up every 30 seconds in development
+  // Clean up every 60 seconds in development (reduced frequency)
   if (import.meta.env.DEV) {
-    setInterval(cleanupEvents, 30000);
+    setTimeout(() => {
+      setInterval(cleanupEvents, 60000);
+    }, 5000); // Delay initial setup
   }
 }
 
@@ -164,49 +170,64 @@ export async function registerCacheService(): Promise<void> {
 
 // Initialize all critical optimizations
 export function initializeCriticalPerformance(): void {
-  // Run immediately
-  initializeCriticalResources();
-  optimizeCSSDelivery();
-  
-  // Run after DOM is ready
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-      setImageLoadingPriorities();
-      deferNonCriticalJS();
+  try {
+    // Run immediately
+    initializeCriticalResources();
+    optimizeCSSDelivery();
+    
+    // Run after DOM is ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => {
+        setTimeout(() => {
+          setImageLoadingPriorities();
+          deferNonCriticalJS();
+        }, 100);
+      });
+    } else {
+      setTimeout(() => {
+        setImageLoadingPriorities();
+        deferNonCriticalJS();
+      }, 100);
+    }
+    
+    // Run after page load with delay
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        optimizeMemoryUsage();
+        registerCacheService();
+      }, 1000);
     });
-  } else {
-    setImageLoadingPriorities();
-    deferNonCriticalJS();
+  } catch (error) {
+    console.warn('Critical performance initialization failed:', error);
   }
-  
-  // Run after page load
-  window.addEventListener('load', () => {
-    optimizeMemoryUsage();
-    registerCacheService();
-  });
 }
 
 // Performance budget monitoring
 export function monitorPerformanceBudget(): void {
-  if (!('performance' in window)) return;
+  if (!('performance' in window) || !('PerformanceObserver' in window)) return;
 
-  const observer = new PerformanceObserver((list) => {
-    for (const entry of list.getEntries()) {
-      // Monitor large resource loads
-      if (entry.name.includes('.js') && (entry as any).transferSize > 100 * 1024) {
-        console.warn(`Large JS bundle detected: ${entry.name} (${Math.round((entry as any).transferSize / 1024)}KB)`);
+  try {
+    const observer = new PerformanceObserver((list) => {
+      for (const entry of list.getEntries()) {
+        const resourceEntry = entry as any;
+        // Monitor large resource loads with safe property access
+        if (entry.name.includes('.js') && resourceEntry.transferSize && resourceEntry.transferSize > 100 * 1024) {
+          console.warn(`Large JS bundle detected: ${entry.name} (${Math.round(resourceEntry.transferSize / 1024)}KB)`);
+        }
+        
+        if (entry.name.includes('.css') && resourceEntry.transferSize && resourceEntry.transferSize > 50 * 1024) {
+          console.warn(`Large CSS file detected: ${entry.name} (${Math.round(resourceEntry.transferSize / 1024)}KB)`);
+        }
+        
+        if ((entry.name.includes('.jpg') || entry.name.includes('.png') || entry.name.includes('.webp')) && 
+            resourceEntry.transferSize && resourceEntry.transferSize > 200 * 1024) {
+          console.warn(`Large image detected: ${entry.name} (${Math.round(resourceEntry.transferSize / 1024)}KB)`);
+        }
       }
-      
-      if (entry.name.includes('.css') && (entry as any).transferSize > 50 * 1024) {
-        console.warn(`Large CSS file detected: ${entry.name} (${Math.round((entry as any).transferSize / 1024)}KB)`);
-      }
-      
-      if ((entry.name.includes('.jpg') || entry.name.includes('.png') || entry.name.includes('.webp')) && 
-          (entry as any).transferSize > 200 * 1024) {
-        console.warn(`Large image detected: ${entry.name} (${Math.round((entry as any).transferSize / 1024)}KB)`);
-      }
-    }
-  });
+    });
 
-  observer.observe({ entryTypes: ['resource'] });
+    observer.observe({ entryTypes: ['resource'] });
+  } catch (error) {
+    console.warn('Performance monitoring setup failed:', error);
+  }
 }

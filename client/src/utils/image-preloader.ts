@@ -6,7 +6,7 @@
 import { imageOptimizer } from './image-optimization';
 
 // Critical images that should be loaded immediately
-const CRITICAL_IMAGES = [
+const CRITICAL_IMAGES: string[] = [
   // Add your critical image paths here
 ];
 
