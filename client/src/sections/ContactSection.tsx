@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Phone, Mail, MapPin, Clock, MessageSquare, Calendar } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, MessageSquare, Calendar, Sun } from "lucide-react";
 
 const ContactSection = () => {
   const contactMethods = [
@@ -131,17 +131,59 @@ const ContactSection = () => {
                     {method.description}
                   </p>
 
-                  {/* Premium CTA Button - Matching WHY GO SOLAR style */}
+                  {/* Elite Solar Button - Sophisticated WHY GO SOLAR Design */}
                   <motion.button
                     whileHover={{ scale: 1.05, y: -2 }}
                     whileTap={{ scale: 0.95 }}
-                    className="w-full px-8 py-4 bg-gradient-to-r from-orange-500 via-red-500 to-yellow-500 text-white font-bold rounded-xl text-lg shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border-2 border-orange-400 hover:border-red-400"
-                    style={{
-                      background: "linear-gradient(135deg, #f97316 0%, #ef4444 50%, #eab308 100%)",
-                      boxShadow: "0 10px 25px rgba(249, 115, 22, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)"
-                    }}
+                    className="elite-solar-button w-full px-8 py-4 text-white font-bold rounded-xl text-lg"
                   >
-                    {method.action}
+                    {/* Elite Solar Panel Grid */}
+                    <div className="absolute inset-0 opacity-15">
+                      <div className="grid grid-cols-4 gap-0.5 h-full w-full">
+                        {[...Array(16)].map((_, i) => (
+                          <motion.div 
+                            key={i} 
+                            className="bg-white/40 rounded-sm"
+                            animate={{ opacity: [0.3, 0.6, 0.3] }}
+                            transition={{ duration: 3, repeat: Infinity, delay: i * 0.1 }}
+                          />
+                        ))}
+                      </div>
+                    </div>
+                    
+                    {/* Premium Animated Sun Rays */}
+                    <div className="absolute inset-0">
+                      <motion.div
+                        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                        animate={{ rotate: 360 }}
+                        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                      >
+                        {[...Array(8)].map((_, i) => (
+                          <div
+                            key={i}
+                            className="absolute w-0.5 h-4 bg-white/30"
+                            style={{
+                              transformOrigin: "bottom center",
+                              transform: `rotate(${i * 45}deg) translateY(-16px)`
+                            }}
+                          />
+                        ))}
+                      </motion.div>
+                    </div>
+                    
+                    {/* Elite Shine Effect */}
+                    <motion.div 
+                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent -skew-x-12"
+                      initial={{ x: "-100%" }}
+                      whileHover={{ x: "100%" }}
+                      transition={{ duration: 0.8 }}
+                    />
+                    
+                    {/* Premium Content */}
+                    <div className="relative z-10 flex items-center justify-center gap-2 text-white">
+                      <Sun className="h-5 w-5 drop-shadow-lg" />
+                      <span className="font-bold tracking-wide drop-shadow-lg">{method.action}</span>
+                    </div>
                   </motion.button>
                 </div>
               </div>

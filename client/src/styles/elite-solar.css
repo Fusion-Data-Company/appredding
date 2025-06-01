@@ -1,0 +1,210 @@
+/* Elite Solar Enterprise Styling System */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+/* Premium Typography Base */
+.elite-heading {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+  line-height: 1.1;
+}
+
+.elite-paragraph {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  line-height: 1.6;
+}
+
+/* Elite Solar Button */
+.elite-solar-btn {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #fbbf24 0%, #f97316 30%, #ef4444 70%, #eab308 100%);
+  box-shadow: 
+    0 0 30px rgba(251, 191, 36, 0.6),
+    0 8px 25px rgba(249, 115, 22, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    0 15px 35px rgba(239, 68, 68, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.elite-solar-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 
+    0 0 40px rgba(251, 191, 36, 0.8),
+    0 15px 35px rgba(249, 115, 22, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    0 25px 50px rgba(239, 68, 68, 0.3);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.elite-solar-btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Solar Panel Grid Animation */
+.solar-grid {
+  position: absolute;
+  inset: 0;
+  opacity: 0.15;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  height: 100%;
+  width: 100%;
+}
+
+.solar-cell {
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 2px;
+  animation: solarPulse 3s ease-in-out infinite;
+}
+
+.solar-cell:nth-child(odd) {
+  animation-delay: 0.1s;
+}
+
+.solar-cell:nth-child(even) {
+  animation-delay: 0.2s;
+}
+
+@keyframes solarPulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+/* Elite Sun Rays Animation */
+.sun-rays {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: rotateSun 20s linear infinite;
+}
+
+.sun-ray {
+  position: absolute;
+  width: 2px;
+  height: 16px;
+  background: rgba(255, 255, 255, 0.3);
+  transform-origin: bottom center;
+  animation: rayPulse 2s ease-in-out infinite;
+}
+
+.sun-ray:nth-child(1) { transform: rotate(0deg) translateY(-20px); animation-delay: 0s; }
+.sun-ray:nth-child(2) { transform: rotate(45deg) translateY(-20px); animation-delay: 0.1s; }
+.sun-ray:nth-child(3) { transform: rotate(90deg) translateY(-20px); animation-delay: 0.2s; }
+.sun-ray:nth-child(4) { transform: rotate(135deg) translateY(-20px); animation-delay: 0.3s; }
+.sun-ray:nth-child(5) { transform: rotate(180deg) translateY(-20px); animation-delay: 0.4s; }
+.sun-ray:nth-child(6) { transform: rotate(225deg) translateY(-20px); animation-delay: 0.5s; }
+.sun-ray:nth-child(7) { transform: rotate(270deg) translateY(-20px); animation-delay: 0.6s; }
+.sun-ray:nth-child(8) { transform: rotate(315deg) translateY(-20px); animation-delay: 0.7s; }
+
+@keyframes rotateSun {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes rayPulse {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 0.5; }
+}
+
+/* Elite Shine Effect */
+.elite-shine {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+  transform: translateX(-100%) skewX(-12deg);
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.elite-solar-btn:hover .elite-shine {
+  transform: translateX(100%) skewX(-12deg);
+}
+
+/* Elite Card Enhancements */
+.elite-card {
+  background: linear-gradient(135deg, #ffffff 0%, #fff7ed 50%, #fed7aa 100%);
+  border: 2px solid #fdba74;
+  box-shadow: 
+    0 20px 40px rgba(251, 146, 60, 0.15),
+    0 10px 20px rgba(249, 115, 22, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.elite-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 
+    0 30px 60px rgba(251, 146, 60, 0.2),
+    0 15px 30px rgba(249, 115, 22, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  border-color: #fb923c;
+}
+
+/* Elite Icon Enhancement */
+.elite-icon {
+  background: linear-gradient(135deg, #f97316 0%, #ef4444 100%);
+  border: 2px solid #fdba74;
+  box-shadow: 
+    0 10px 20px rgba(249, 115, 22, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.elite-icon:hover {
+  transform: rotate(-10deg) scale(1.1);
+  box-shadow: 
+    0 15px 30px rgba(249, 115, 22, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+/* Elite Glow Effects */
+.elite-glow {
+  position: absolute;
+  inset: -1px;
+  background: linear-gradient(135deg, 
+    rgba(251, 191, 36, 0.3) 0%,
+    rgba(249, 115, 22, 0.3) 30%,
+    rgba(239, 68, 68, 0.3) 70%,
+    rgba(234, 179, 8, 0.3) 100%);
+  border-radius: inherit;
+  opacity: 0.2;
+  filter: blur(20px);
+  transition: opacity 0.5s ease;
+}
+
+.elite-card:hover .elite-glow {
+  opacity: 0.5;
+}
+
+/* Premium Typography Gradients */
+.elite-gradient-text {
+  background: linear-gradient(135deg, #ea580c 0%, #dc2626 50%, #d97706 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: none;
+}
+
+/* Responsive Elite Styling */
+@media (max-width: 768px) {
+  .elite-heading {
+    font-size: clamp(2rem, 8vw, 4rem);
+  }
+  
+  .elite-paragraph {
+    font-size: clamp(1rem, 4vw, 1.5rem);
+  }
+  
+  .elite-solar-btn {
+    padding: 12px 24px;
+    font-size: 1rem;
+  }
+}
