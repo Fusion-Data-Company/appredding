@@ -119,7 +119,7 @@ const FAQSection = () => {
             </span>
           </h2>
           
-          <p className="text-3xl md:text-4xl text-gray-700 max-w-5xl mx-auto font-light leading-relaxed">
+          <p className="text-3xl md:text-4xl text-black max-w-5xl mx-auto font-bold leading-relaxed">
             Real-world answers to common questions about Sol-Ark inverters, API LiFePO4 batteries, 
             installation procedures, and system troubleshooting.
           </p>

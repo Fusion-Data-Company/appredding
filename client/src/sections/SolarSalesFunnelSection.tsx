@@ -252,7 +252,7 @@ const SolarSalesFunnelSection = () => {
             </span>
           </h2>
           
-          <p className="text-3xl md:text-4xl text-gray-700 max-w-5xl mx-auto font-light leading-relaxed mb-8">
+          <p className="text-3xl md:text-4xl text-black max-w-5xl mx-auto font-bold leading-relaxed mb-8">
             Choose your solar journey below and get a custom quote from Northern California's most trusted solar experts.
           </p>
 

@@ -220,7 +220,7 @@ const TroubleshootingSection = () => {
             </span>
           </h2>
           
-          <p className="text-3xl md:text-4xl text-gray-800 max-w-5xl mx-auto font-medium leading-relaxed drop-shadow-sm">
+          <p className="text-3xl md:text-4xl text-black max-w-5xl mx-auto font-bold leading-relaxed drop-shadow-sm">
             Comprehensive fault code database and troubleshooting guide for rapid problem resolution.
           </p>
         </motion.div>
