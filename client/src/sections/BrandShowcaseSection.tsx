@@ -146,16 +146,16 @@ const BrandShowcaseSection = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Image side with premium enhancements */}
             <div className="order-2 md:order-1">
-              <div className="relative group transform transition-all duration-500 hover:scale-105 hover:-translate-y-2 hover:z-10">
-                <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-gray-900/95 backdrop-blur-xl rounded-xl p-2 shadow-[0_10px_50px_rgba(0,0,0,0.5)] z-10">
-                  {/* Premium gradient border effect - Mixed variant (matching the third card) */}
-                  <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/50 via-transparent to-blue-400/50 opacity-70"></div>
+              <div className="relative group transform transition-all duration-500 hover:scale-105 hover:-translate-y-2 hover:z-10 card-3d">
+                <div className="relative bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-gray-900/95 backdrop-blur-xl rounded-xl p-2 shadow-[0_10px_50px_rgba(0,0,0,0.5)] z-10 glass-effect-dark">
+                  {/* Premium gradient border effect with enhanced animations */}
+                  <div className="absolute inset-0 p-0.5 rounded-xl bg-gradient-to-r from-orange-500/50 via-transparent to-blue-400/50 opacity-70 morphing-blob"></div>
                   <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-white/10 via-transparent to-transparent opacity-50 pointer-events-none"></div>
                   
-                  {/* Grey gradient card behind glow effect */}
-                  <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 border border-gray-800/50"></div>
+                  {/* Enhanced gradient card with 3D effects */}
+                  <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-gray-900/95 via-gray-950/95 to-black/95 border border-gray-800/50 card-stack"></div>
                   
-                  {/* Subtle ambient glow that activates on hover */}
+                  {/* Enhanced ambient glow with particle effects */}
                   <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-30 transition-opacity duration-700 ease-in-out" 
                       style={{ background: "radial-gradient(circle at center, rgba(251,113,36,0.3), rgba(59,130,246,0.3), transparent 70%)" }}>
                   </div>
