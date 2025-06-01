@@ -225,8 +225,8 @@ const ChatWidget = () => {
         <Card className="w-[500px] h-[650px] mb-4 shadow-[0_0_40px_rgba(255,140,50,0.25)] bg-gradient-to-br from-orange-950/80 via-primary-950/90 to-blue-950/80 backdrop-blur-lg flex flex-col overflow-hidden animate-in slide-in-from-bottom-10 duration-300 border-2 border-orange-700/30">
           <CardHeader className="flex-shrink-0 border-b py-5 px-8 flex flex-row items-center justify-between bg-gradient-to-r from-blue-900/80 to-orange-900/80 shadow-md">
             <CardTitle className="text-xl font-semibold flex items-center gap-4 text-white">
-              <div className="h-10 w-10 rounded-full bg-gradient-to-r from-blue-600 to-orange-600 flex items-center justify-center shadow-[0_0_15px_rgba(255,130,30,0.3)]">
-                <MessageSquare className="h-5 w-5" />
+              <div className="h-10 w-10 rounded-full bg-gradient-to-r from-orange-600 to-orange-600 flex items-center justify-center ambient-orange">
+                <MessageSquare className="h-5 w-5 icon-orange" />
               </div>
               {currentSession?.title || 'Watson - Solar Energy Assistant'}
             </CardTitle>
@@ -427,10 +427,10 @@ const ChatWidget = () => {
       <Button
         onClick={toggleWidget}
         size="icon"
-        className="chat-shimmer h-16 w-16 rounded-full dark:bg-gradient-to-br dark:from-gray-800 dark:via-gray-700 dark:to-gray-900 bg-gradient-to-br from-gray-100 via-white to-gray-200 dark:shadow-[0_0_20px_rgba(59,130,246,0.5)] shadow-[0_0_15px_rgba(0,0,0,0.2)] border border-gray-200/30 dark:border-blue-600/50 flex items-center justify-center transition-all hover:scale-110 group relative overflow-hidden"
+        className="chat-shimmer h-16 w-16 rounded-full dark:bg-gradient-to-br dark:from-gray-800 dark:via-gray-700 dark:to-gray-900 bg-gradient-to-br from-gray-100 via-white to-gray-200 ambient-orange ambient-orange-hover shadow-[0_0_15px_rgba(255,136,0,0.3)] border border-orange-300/50 flex items-center justify-center transition-all hover:scale-110 group relative overflow-hidden"
       >
         <span className="absolute inset-0 chat-glow"></span>
-        <MessageSquare className="h-8 w-8 dark:text-blue-400 text-blue-600 group-hover:text-blue-500 dark:group-hover:text-blue-300 transition-colors relative z-10" />
+        <MessageSquare className="h-8 w-8 text-orange-500 group-hover:text-orange-400 transition-colors relative z-10 icon-orange" />
       </Button>
     </div>
   );
