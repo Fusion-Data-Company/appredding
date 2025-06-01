@@ -191,9 +191,32 @@ const SolarHeroSection = () => {
               <motion.button
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-12 py-4 bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-400 hover:to-orange-400 text-white font-bold rounded-xl text-lg shadow-xl hover:shadow-2xl transition-all duration-300"
+                className="button-primary px-12 py-4 font-bold rounded-xl text-lg text-white"
               >
-                Get Free Solar Quote
+                <div className="solar-panel-grid">
+                  <div>
+                    {[...Array(9)].map((_, i) => (
+                      <div key={i} className="solar-panel-cell"></div>
+                    ))}
+                  </div>
+                </div>
+                
+                <div className="solar-rays">
+                  <div className="solar-ray-animation">
+                    {[...Array(8)].map((_, i) => (
+                      <div
+                        key={i}
+                        className="solar-ray"
+                        style={{
+                          transform: `rotate(${i * 45}deg) translateY(-16px)`
+                        }}
+                      />
+                    ))}
+                  </div>
+                </div>
+                
+                <span className="relative z-10 text-white">Get Free Solar Quote</span>
+                <div className="shine-effect"></div>
               </motion.button>
             </Link>
             
@@ -201,9 +224,9 @@ const SolarHeroSection = () => {
               <motion.button
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-12 py-4 bg-white/80 backdrop-blur-sm border-2 border-orange-300 text-gray-800 font-bold rounded-xl text-lg hover:bg-white hover:border-orange-400 transition-all duration-300 shadow-lg hover:shadow-xl"
+                className="px-12 py-4 bg-gray-900/90 backdrop-blur-sm border-2 border-orange-400 text-white font-bold rounded-xl text-lg hover:bg-gray-800 hover:border-orange-300 transition-all duration-300 shadow-lg hover:shadow-xl"
               >
-                Explore Services
+                <span className="text-white">Call (530) 226-0701</span>
               </motion.button>
             </Link>
           </div>
