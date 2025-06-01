@@ -194,7 +194,7 @@ export const InteractiveToolsSection: React.FC = () => {
               <h3 className="text-4xl md:text-5xl font-black text-white mb-6">
                 Ready for Professional Installation?
               </h3>
-              <p className="text-2xl text-white mb-8 max-w-4xl mx-auto leading-relaxed">
+              <p className="text-2xl text-indigo-100 mb-8 max-w-4xl mx-auto leading-relaxed">
                 Use these calculations to get started, then connect with our certified solar professionals 
                 for a comprehensive site assessment and custom system design.
               </p>

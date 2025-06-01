@@ -199,7 +199,7 @@ const SolarServicesSection = () => {
                     {service.title}
                   </h3>
                   
-                  <p className="text-xl text-white mb-8 leading-relaxed">
+                  <p className="text-xl text-gray-200 mb-8 leading-relaxed">
                     {service.description}
                   </p>
 
@@ -216,7 +216,7 @@ const SolarServicesSection = () => {
                   {/* Premium Feature List */}
                   <ul className="space-y-3">
                     {service.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center text-white text-lg">
+                      <li key={featureIndex} className="flex items-center text-gray-300 text-lg">
                         <div className={`w-2 h-2 bg-gradient-to-r ${service.color} rounded-full mr-4 group-hover:scale-150 transition-transform duration-300`}></div>
                         {feature}
                       </li>
@@ -256,7 +256,7 @@ const SolarServicesSection = () => {
                 Ready to Go Solar?
               </h3>
               
-              <p className="text-2xl text-white mb-12 max-w-4xl mx-auto leading-relaxed">
+              <p className="text-2xl text-gray-200 mb-12 max-w-4xl mx-auto leading-relaxed">
                 Join thousands of satisfied customers who've made the switch to clean, renewable energy. 
                 Get your free consultation and custom quote today.
               </p>

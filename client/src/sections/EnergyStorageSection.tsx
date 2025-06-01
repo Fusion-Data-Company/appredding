@@ -174,7 +174,7 @@ const EnergyStorageSection = () => {
               <h3 className="text-4xl md:text-5xl font-black text-white mb-6">
                 Battery Storage = Maximum Savings
               </h3>
-              <p className="text-2xl text-white mb-8 max-w-4xl mx-auto leading-relaxed">
+              <p className="text-2xl text-green-100 mb-8 max-w-4xl mx-auto leading-relaxed">
                 Store your solar energy and use it when electricity rates are highest. 
                 Battery storage can increase your solar savings by 30-50% while providing backup power security.
               </p>
@@ -215,7 +215,7 @@ const EnergyStorageSection = () => {
                 Power Your Independence
               </h3>
               
-              <p className="text-2xl text-white mb-12 max-w-4xl mx-auto leading-relaxed">
+              <p className="text-2xl text-gray-200 mb-12 max-w-4xl mx-auto leading-relaxed">
                 Take control of your energy future with advanced battery storage. Never worry about 
                 power outages again while maximizing your solar investment savings.
               </p>
@@ -239,7 +239,7 @@ const EnergyStorageSection = () => {
               </div>
 
               <div className="mt-12 text-center">
-                <p className="text-white text-lg">
+                <p className="text-gray-400 text-lg">
                   💡 Financing Available | 📱 Smart App Control | ⚡ Professional Installation
                 </p>
               </div>
