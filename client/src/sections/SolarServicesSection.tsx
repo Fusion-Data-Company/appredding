@@ -152,7 +152,8 @@ const SolarServicesSection = () => {
             </span>
           </h2>
           
-          <p className="text-3xl md:text-4xl text-black max-w-5xl mx-auto font-bold leading-relaxed drop-shadow-sm">
+          <p className="text-3xl md:text-4xl max-w-5xl mx-auto font-bold leading-relaxed drop-shadow-sm"
+             style={{ color: '#000000 !important' }}>
             All-in-one hybrid inverters with API LiFePO4 stackable battery systems. 
             Professional installation, comprehensive troubleshooting, and expert maintenance services.
           </p>
