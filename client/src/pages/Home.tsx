@@ -12,26 +12,35 @@ import FAQSection from "@/sections/FAQSection";
 import SolarTestimonialsSection from "@/sections/SolarTestimonialsSection";
 import ContactSection from "@/sections/ContactSection";
 import PitchDeckTrigger from "@/components/PitchDeck/PitchDeckTrigger";
+import { ResponsiveLayout } from "@/components/MobileLayout";
+import MobileHome from "@/pages/MobileHome";
+
+const DesktopHome = () => (
+  <MainLayout fullWidth>
+    <div className="flex-1 flex flex-col">
+      <HeroSection />
+      <ProductShowcaseSection />
+      <SolarSalesFunnelSection />
+      <InteractiveToolsSection />
+      <SolarServicesSection />
+      <EnergyStorageSection />
+      <SpecificationsSection />
+      <TroubleshootingSection />
+      <FAQSection />
+      <AboutAdvancePowerSection />
+      <SolarTestimonialsSection />
+      <ContactSection />
+    </div>
+    <PitchDeckTrigger />
+  </MainLayout>
+);
 
 const Home = () => {
   return (
-    <MainLayout fullWidth>
-      <div className="flex-1 flex flex-col">
-        <HeroSection />
-        <ProductShowcaseSection />
-        <SolarSalesFunnelSection />
-        <InteractiveToolsSection />
-        <SolarServicesSection />
-        <EnergyStorageSection />
-        <SpecificationsSection />
-        <TroubleshootingSection />
-        <FAQSection />
-        <AboutAdvancePowerSection />
-        <SolarTestimonialsSection />
-        <ContactSection />
-      </div>
-      <PitchDeckTrigger />
-    </MainLayout>
+    <ResponsiveLayout
+      desktopComponent={<DesktopHome />}
+      mobileComponent={<MobileHome />}
+    />
   );
 };
 
