@@ -231,7 +231,7 @@ h1, h2, h3, h4, h5, h6 {
     0 2px 4px rgba(0,0,0,0.3);
 }
 
-/* Advanced Animation System */
+/* Advanced Animation System with Enhanced Effects */
 @keyframes shimmer-sweep {
   0% { transform: translateX(-100%) skewX(-15deg); }
   100% { transform: translateX(200%) skewX(-15deg); }
@@ -253,6 +253,38 @@ h1, h2, h3, h4, h5, h6 {
   50% { transform: translateY(-10px) rotate(1deg); }
 }
 
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes particle-float {
+  0%, 100% { 
+    transform: translateY(0px) translateX(0px) scale(1);
+    opacity: 0.3;
+  }
+  33% { 
+    transform: translateY(-20px) translateX(10px) scale(1.1);
+    opacity: 0.6;
+  }
+  66% { 
+    transform: translateY(-10px) translateX(-10px) scale(0.9);
+    opacity: 0.4;
+  }
+}
+
+@keyframes energy-pulse {
+  0%, 100% { 
+    transform: scale(1);
+    filter: brightness(1) saturate(1);
+  }
+  50% { 
+    transform: scale(1.05);
+    filter: brightness(1.2) saturate(1.3);
+  }
+}
+
 /* Enhanced Interactive States */
 .premium-hover-scale {
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -263,14 +295,16 @@ h1, h2, h3, h4, h5, h6 {
   filter: brightness(1.1);
 }
 
-/* Enhanced Section Background System */
+/* Enhanced Section Background System with Advanced Gradients */
 .section-gradient-base {
   background: linear-gradient(135deg, 
     #0f172a 0%, 
-    #1e293b 25%, 
+    #1e293b 15%, 
+    #475569 30%,
     #334155 50%, 
-    #1e293b 75%, 
-    #0f172a 100%
+    #1e293b 70%,
+    #0f172a 85%,
+    #020617 100%
   );
   position: relative;
   overflow: hidden;
@@ -279,9 +313,11 @@ h1, h2, h3, h4, h5, h6 {
 .section-gradient-warm {
   background: linear-gradient(135deg, 
     #451a03 0%, 
-    #7c2d12 25%, 
+    #7c2d12 15%, 
+    #c2410c 30%,
     #ea580c 50%, 
-    #7c2d12 75%, 
+    #dc2626 65%,
+    #7c2d12 80%,
     #451a03 100%
   );
   position: relative;
@@ -291,10 +327,26 @@ h1, h2, h3, h4, h5, h6 {
 .section-gradient-cool {
   background: linear-gradient(135deg, 
     #1e3a8a 0%, 
-    #1d4ed8 25%, 
+    #1d4ed8 15%,
+    #2563eb 30%,
     #3b82f6 50%, 
-    #1d4ed8 75%, 
+    #2563eb 65%,
+    #1d4ed8 80%,
     #1e3a8a 100%
+  );
+  position: relative;
+  overflow: hidden;
+}
+
+.section-gradient-premium {
+  background: linear-gradient(135deg, 
+    #1c1917 0%,
+    #44403c 15%,
+    #78716c 30%,
+    #a8a29e 50%,
+    #78716c 65%,
+    #44403c 80%,
+    #1c1917 100%
   );
   position: relative;
   overflow: hidden;
@@ -376,6 +428,83 @@ h1, h2, h3, h4, h5, h6 {
     0 0 40px rgba(59, 130, 246, 0.2),
     0 0 80px rgba(249, 115, 22, 0.1),
     0 0 120px rgba(59, 130, 246, 0.1);
+}
+
+/* Advanced Particle System */
+.floating-particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  background: radial-gradient(circle, rgba(249,115,22,0.8) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: particle-float 8s infinite ease-in-out;
+}
+
+.particle:nth-child(2n) {
+  background: radial-gradient(circle, rgba(59,130,246,0.6) 0%, transparent 70%);
+  animation-delay: -2s;
+  animation-duration: 10s;
+}
+
+.particle:nth-child(3n) {
+  background: radial-gradient(circle, rgba(168,85,247,0.4) 0%, transparent 70%);
+  animation-delay: -4s;
+  animation-duration: 12s;
+}
+
+/* Enhanced Card System */
+.premium-card {
+  background: linear-gradient(135deg, 
+    rgba(15, 23, 42, 0.95) 0%,
+    rgba(30, 41, 59, 0.95) 50%,
+    rgba(15, 23, 42, 0.95) 100%
+  );
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(249, 115, 22, 0.2);
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.premium-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 
+    0 35px 60px -12px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(249, 115, 22, 0.3),
+    0 0 30px rgba(249, 115, 22, 0.2);
+}
+
+/* Dynamic Background Animations */
+.animated-gradient-bg {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient-shift 15s ease infinite;
+}
+
+/* Enhanced Interactive Elements */
+.energy-button {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f97316, #dc2626);
+  animation: energy-pulse 3s infinite;
+}
+
+.energy-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  animation: shimmer-sweep 2s infinite;
 }
 
 /* Ultra-Elite Enterprise Button Components */
