@@ -5,52 +5,52 @@ const SolarServicesSection = () => {
   const services = [
     {
       icon: <Home className="w-8 h-8" />,
-      title: "Residential Solar",
-      description: "Custom solar panel installations for homes throughout Northern California.",
-      features: ["25-year warranty", "Net metering setup", "Energy monitoring"],
-      savings: "Save $100-300/month on electricity bills",
+      title: "Sol-Ark 12K Residential",
+      description: "12,000W split-phase hybrid inverter with 9kW continuous output and 50A transfer switch for partial home backup.",
+      features: ["2x MPPT inputs (~12kW PV)", "1x 48V battery port (185A charge)", "EMP-hardened option available", "Fast transfer <5ms"],
+      savings: "9kW continuous power with critical load backup",
       color: "from-yellow-500 to-orange-500",
       hoverColor: "hover:from-yellow-400 hover:to-orange-400"
     },
     {
       icon: <Building2 className="w-8 h-8" />,
-      title: "Commercial Solar",
-      description: "Large-scale solar solutions for businesses and industrial facilities.",
-      features: ["Tax incentive optimization", "Fleet maintenance", "Performance guarantees"],
-      savings: "Reduce operating costs by 40-80%",
+      title: "Sol-Ark 15K Whole Home",
+      description: "15,000W split-phase inverter with 12kW continuous output and 200A transfer switch for complete home backup.",
+      features: ["3x MPPT inputs (~15kW PV)", "2x 48V battery ports (275A charge)", "Whole-home backup capability", "Up to 8 units parallel"],
+      savings: "12kW continuous with 200A pass-through capacity",
       color: "from-orange-500 to-red-500",
       hoverColor: "hover:from-orange-400 hover:to-red-400"
     },
     {
       icon: <Zap className="w-8 h-8" />,
-      title: "Battery Storage",
-      description: "Advanced energy storage systems for backup power and energy independence.",
-      features: ["24/7 backup power", "Smart grid integration", "Remote monitoring"],
-      savings: "Maximize solar savings with battery storage",
+      title: "API LiFePO4 Stackable",
+      description: "Advanced modular battery systems with built-in BMS, CAN/RS485 communication, and active cell balancing.",
+      features: ["5.12kWh & 14.34kWh modules", "Up to 229kWh total capacity", "UL 1973/9540 compliant", "Real-time cell monitoring"],
+      savings: "Non-flammable, thermal-stable chemistry with 6000+ cycles",
       color: "from-red-500 to-yellow-500",
       hoverColor: "hover:from-red-400 hover:to-yellow-400"
     },
     {
       icon: <Users className="w-8 h-8" />,
-      title: "System Maintenance",
-      description: "Professional cleaning, inspection, and maintenance services.",
-      features: ["Performance optimization", "Preventive care", "Emergency repairs"],
+      title: "Professional Installation",
+      description: "Expert installation of Sol-Ark inverters with proper CT orientation, neutral-ground wiring, and system commissioning.",
+      features: ["Auto-Learn CT configuration", "Phase verification testing", "Grid compliance setup", "Performance validation"],
       color: "from-yellow-500 to-red-500",
       hoverColor: "hover:from-yellow-400 hover:to-red-400"
     },
     {
       icon: <Clock className="w-8 h-8" />,
-      title: "Emergency Repairs",
-      description: "24/7 emergency repair services to keep your solar system running.",
-      features: ["Same-day service", "Licensed technicians", "Parts warranty"],
+      title: "Fault Code Resolution",
+      description: "Expert troubleshooting using comprehensive Sol-Ark fault code database for rapid problem resolution.",
+      features: ["F-code diagnostic expertise", "PV ground fault testing", "Grid phasing verification", "BMS communication repair"],
       color: "from-orange-500 to-yellow-500",
       hoverColor: "hover:from-orange-400 hover:to-yellow-400"
     },
     {
       icon: <Sun className="w-8 h-8" />,
-      title: "System Upgrades",
-      description: "Modernize your existing solar system with latest technology.",
-      features: ["Efficiency improvements", "Smart inverters", "Monitoring upgrades"],
+      title: "Commercial 30K/60K",
+      description: "Three-phase commercial inverters for large-scale installations with high-voltage battery integration.",
+      features: ["30kW/60kW 3-phase output", "Up to 90kW PV input", "CANbus HV battery support", "Microgrid applications"],
       color: "from-red-500 to-orange-500",
       hoverColor: "hover:from-red-400 hover:to-orange-400"
     }
@@ -143,18 +143,18 @@ const SolarServicesSection = () => {
           className="text-center mb-24"
         >
           <h2 className="text-6xl md:text-7xl lg:text-8xl font-black mb-12 leading-tight">
-            <span className="bg-gradient-to-r from-orange-700 via-red-700 to-amber-700 bg-clip-text text-transparent">Our</span>{" "}
+            <span className="bg-gradient-to-r from-orange-700 via-red-700 to-amber-700 bg-clip-text text-transparent">Sol-Ark</span>{" "}
             <span className="relative inline-block">
               <span className="bg-gradient-to-r from-orange-600 via-red-600 to-amber-600 bg-clip-text text-transparent">
-                Solar Services
+                Hybrid Systems
               </span>
               <div className="absolute -inset-2 bg-gradient-to-r from-orange-300/30 to-amber-300/30 blur-2xl -z-10 animate-pulse"></div>
             </span>
           </h2>
           
           <p className="text-3xl md:text-4xl text-gray-700 max-w-5xl mx-auto font-light leading-relaxed">
-            Comprehensive solar solutions for homes and businesses throughout Northern California. 
-            From installation to maintenance, we've got you covered.
+            All-in-one hybrid inverters with API LiFePO4 stackable battery systems. 
+            Professional installation, comprehensive troubleshooting, and expert maintenance services.
           </p>
         </motion.div>
 

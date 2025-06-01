@@ -5,39 +5,39 @@ const EnergyStorageSection = () => {
   const storageFeatures = [
     {
       icon: <Battery className="w-10 h-10" />,
-      title: "Tesla Powerwall",
-      description: "Industry-leading battery storage with 13.5 kWh capacity and 10-year warranty.",
-      specs: ["13.5 kWh capacity", "10-year warranty", "App monitoring"]
+      title: "API 5.12kWh Modules",
+      description: "Modular LiFePO4 system with 5.12kWh capacity per module, up to 6 units parallel for 30.7kWh total.",
+      specs: ["100Ah LiFePO4 cells", "Built-in BMS protection", "CAN/RS485 communication", "LED SOC indicator"]
     },
     {
       icon: <Shield className="w-10 h-10" />,
-      title: "Backup Protection",
-      description: "Automatic backup power during outages, keeping your essential systems running.",
-      specs: ["Instant switching", "Whole-home backup", "Emergency ready"]
+      title: "API 14.34kWh Stacks",
+      description: "High-capacity stackable modules with 280Ah cells, up to 4 stacks in parallel for 229kWh maximum.",
+      specs: ["280Ah per module", "Master BMS control", "Real-time cell monitoring", "Internet-independent display"]
     },
     {
       icon: <Zap className="w-10 h-10" />,
-      title: "Smart Integration",
-      description: "Intelligent energy management that optimizes your solar and storage systems.",
-      specs: ["AI optimization", "Peak shaving", "Load balancing"]
+      title: "Active Cell Balancing",
+      description: "Advanced BMS with active balancing ensures optimal performance and maximum cycle life of 6000+ cycles.",
+      specs: ["Active balancing technology", "6000+ cycle life", "Cell-level monitoring", "SOC/SOH tracking"]
     },
     {
       icon: <Clock className="w-10 h-10" />,
-      title: "24/7 Monitoring",
-      description: "Real-time system monitoring and performance analytics via mobile app.",
-      specs: ["Live tracking", "Performance alerts", "Remote diagnostics"]
+      title: "UL Safety Certified",
+      description: "UL 1973 and UL 9540 compliant battery systems with non-flammable, thermal-stable LiFePO4 chemistry.",
+      specs: ["UL 1973/9540 certified", "Non-flammable chemistry", "Thermal stability", "Indoor installation safe"]
     },
     {
       icon: <Home className="w-10 h-10" />,
-      title: "Energy Independence",
-      description: "Reduce reliance on the grid and protect against rising electricity costs.",
-      specs: ["Grid independence", "Rate protection", "Sustainable power"]
+      title: "Sol-Ark Integration",
+      description: "Seamless integration with Sol-Ark 12K/15K inverters via CAN bus or RS485 for closed-loop operation.",
+      specs: ["Closed-loop BMS communication", "48V nominal compatibility", "Auto charge/discharge control", "Grid-tie capability"]
     },
     {
       icon: <TrendingUp className="w-10 h-10" />,
-      title: "Increased Value",
-      description: "Battery storage systems can increase your home's value and marketability.",
-      specs: ["Property value boost", "Future-proof tech", "Green certification"]
+      title: "Modular Expansion",
+      description: "Field-expandable design allows easy capacity upgrades without replacing existing equipment.",
+      specs: ["Modular stacking design", "Field-replaceable modules", "Scalable capacity", "Future expansion ready"]
     }
   ];
 
@@ -72,37 +72,37 @@ const EnergyStorageSection = () => {
           className="text-center mb-24"
         >
           <h2 className="text-6xl md:text-7xl lg:text-8xl font-black text-gray-800 mb-12 leading-tight">
-            Energy{" "}
+            API{" "}
             <span className="relative inline-block">
               <span className="bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 bg-clip-text text-transparent">
-                Storage Solutions
+                LiFePO4 Stackable
               </span>
               <div className="absolute -inset-2 bg-gradient-to-r from-green-300/30 to-emerald-300/30 blur-2xl -z-10 animate-pulse"></div>
             </span>
           </h2>
           
           <p className="text-3xl md:text-4xl text-gray-700 max-w-5xl mx-auto font-light leading-relaxed mb-8">
-            Advanced battery storage systems that provide backup power, energy independence, 
-            and maximum savings from your solar investment.
+            Modular LiFePO4 battery systems with built-in BMS, active cell balancing, 
+            and seamless Sol-Ark inverter integration for maximum safety and performance.
           </p>
 
           {/* Premium Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16">
             <div className="text-center">
-              <div className="text-5xl font-black text-green-400 mb-2">24/7</div>
-              <div className="text-gray-300 text-lg">Backup Power</div>
+              <div className="text-5xl font-black text-green-400 mb-2">229kWh</div>
+              <div className="text-gray-300 text-lg">Maximum Capacity</div>
             </div>
             <div className="text-center">
-              <div className="text-5xl font-black text-blue-400 mb-2">15+</div>
-              <div className="text-gray-300 text-lg">Years Warranty</div>
+              <div className="text-5xl font-black text-blue-400 mb-2">6000+</div>
+              <div className="text-gray-300 text-lg">Cycle Life</div>
             </div>
             <div className="text-center">
-              <div className="text-5xl font-black text-purple-400 mb-2">90%</div>
-              <div className="text-gray-300 text-lg">Efficiency Rating</div>
+              <div className="text-5xl font-black text-purple-400 mb-2">UL</div>
+              <div className="text-gray-300 text-lg">Safety Certified</div>
             </div>
             <div className="text-center">
-              <div className="text-5xl font-black text-yellow-400 mb-2">$0</div>
-              <div className="text-gray-300 text-lg">Down Payment</div>
+              <div className="text-5xl font-black text-yellow-400 mb-2">48V</div>
+              <div className="text-gray-300 text-lg">Sol-Ark Compatible</div>
             </div>
           </div>
         </motion.div>

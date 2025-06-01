@@ -5,6 +5,7 @@ import SolarSalesFunnelSection from "@/sections/SolarSalesFunnelSection";
 import SolarServicesSection from "@/sections/SolarServicesSection";
 import AboutAdvancePowerSection from "@/sections/AboutAdvancePowerSection";
 import EnergyStorageSection from "@/sections/EnergyStorageSection";
+import TroubleshootingSection from "@/sections/TroubleshootingSection";
 import SolarTestimonialsSection from "@/sections/SolarTestimonialsSection";
 import ContactSection from "@/sections/ContactSection";
 import PitchDeckTrigger from "@/components/PitchDeck/PitchDeckTrigger";
