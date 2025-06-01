@@ -5,7 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { useEffect, lazy, Suspense } from "react";
 import { preloadCriticalImages } from "@/utils/image-preloader";
-import { ScrollProgressIndicator, FloatingScrollProgress } from "@/components/ScrollProgressIndicator";
+
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import CRM from "@/pages/CRM";
@@ -169,8 +169,6 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <ScrollProgressIndicator />
-        <FloatingScrollProgress />
         <Toaster />
         <AuthProvider>
           <StoreProvider>
