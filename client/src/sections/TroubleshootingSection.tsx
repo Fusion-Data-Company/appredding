@@ -326,17 +326,23 @@ const TroubleshootingSection = () => {
           viewport={{ once: true }}
           className="bg-gradient-to-r from-gray-800 to-gray-900 rounded-3xl p-12 border border-gray-700"
         >
-          <h3 className="text-4xl font-black text-white mb-8 text-center">
+          <h3 className="text-4xl font-black text-white mb-8 text-center"
+              style={{ 
+                textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8), 1px 1px 2px rgba(0, 0, 0, 0.6)',
+                background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%)',
+                WebkitBackgroundClip: 'text',
+                backgroundClip: 'text'
+              }}>
             General Troubleshooting Guide
           </h3>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {troubleshootingGuide.map((item, index) => (
-              <div key={index} className="bg-gray-700/50 rounded-xl p-6 border border-gray-600">
-                <h4 className="text-lg font-bold text-orange-400 mb-3">
+              <div key={index} className="bg-white/90 rounded-xl p-6 border border-gray-300">
+                <h4 className="text-lg font-bold text-orange-600 mb-3">
                   {item.issue}
                 </h4>
-                <p className="text-gray-200 leading-relaxed">
+                <p className="text-black leading-relaxed font-semibold">
                   {item.solution}
                 </p>
               </div>

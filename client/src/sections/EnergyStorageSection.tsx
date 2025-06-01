@@ -138,14 +138,14 @@ const EnergyStorageSection = () => {
                     {feature.title}
                   </h3>
                   
-                  <p className="text-xl text-gray-700 mb-8 leading-relaxed font-medium">
+                  <p className="text-xl text-black mb-8 leading-relaxed font-bold">
                     {feature.description}
                   </p>
 
                   {/* Premium Specs List */}
                   <ul className="space-y-3">
                     {feature.specs.map((spec, specIndex) => (
-                      <li key={specIndex} className="flex items-center text-gray-700 text-lg font-medium">
+                      <li key={specIndex} className="flex items-center text-black text-lg font-bold">
                         <div className="w-3 h-3 bg-gradient-to-r from-orange-500 to-red-500 rounded-full mr-4 group-hover:scale-150 transition-transform duration-300 shadow-md"></div>
                         {spec}
                       </li>
