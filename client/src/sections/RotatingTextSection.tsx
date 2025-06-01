@@ -27,7 +27,7 @@ const RotatingTextSection = () => {
         {/* Element positioned at absolute center of its container */}
         <div className="w-full flex justify-center items-center text-center">
           <div 
-            className="dark:bg-gray-800/50 bg-gray-100/90 backdrop-blur-2xl rounded-xl border-4 dark:border-white border-gray-300 dark:shadow-[0_0_40px_rgba(255,255,255,0.25)] shadow-[0_0_30px_rgba(0,0,0,0.15)]"
+            className="bg-gray-900/95 backdrop-blur-2xl rounded-xl border-4 border-orange-500/40 shadow-[0_0_40px_rgba(249,115,22,0.25)]"
             style={{ 
               width: "calc(48rem + 960px)", /* 3xl (48rem) + 10 inches (960px) wider */
               padding: "calc(3rem + 48px) 3.5rem", /* Increased top/bottom padding for better spacing */

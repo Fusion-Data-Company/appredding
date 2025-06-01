@@ -13,16 +13,23 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Proper Text Contrast Rules - Simple and Clean */
+/* Comprehensive Text Contrast Rules */
 
 /* Dark text on light backgrounds */
-.bg-white *:not(.button-primary *):not(.bg-gradient-to-r *):not(.bg-gray-800 *):not(.bg-gray-900 *),
-.bg-gray-50 *:not(.button-primary *):not(.bg-gradient-to-r *):not(.bg-gray-800 *):not(.bg-gray-900 *),
-.bg-gray-100 *:not(.button-primary *):not(.bg-gradient-to-r *):not(.bg-gray-800 *):not(.bg-gray-900 *),
-.bg-yellow-50 *:not(.button-primary *):not(.bg-gradient-to-r *):not(.bg-gray-800 *):not(.bg-gray-900 *),
-.bg-orange-50 *:not(.button-primary *):not(.bg-gradient-to-r *):not(.bg-gray-800 *):not(.bg-gray-900 *),
-.bg-blue-50 *:not(.button-primary *):not(.bg-gradient-to-r *):not(.bg-gray-800 *):not(.bg-gray-900 *),
-.bg-purple-50 *:not(.button-primary *):not(.bg-gradient-to-r *):not(.bg-gray-800 *):not(.bg-gray-900 *) {
+.bg-white *,
+.bg-gray-50 *,
+.bg-gray-100 *,
+.bg-yellow-50 *,
+.bg-orange-50 *,
+.bg-blue-50 *,
+.bg-purple-50 *,
+.bg-green-50 *,
+.bg-indigo-50 *,
+.bg-slate-50 *,
+.bg-stone-50 *,
+[class*="bg-white"] *,
+[class*="bg-gray-50"] *,
+[class*="bg-gray-100"] * {
   color: #1f2937 !important;
 }
 
@@ -30,33 +37,39 @@
 .bg-gray-800 *,
 .bg-gray-900 *,
 .bg-black *,
-.bg-gradient-to-r.from-indigo-600 *,
-.bg-gradient-to-r.from-blue-600 *,
-.bg-gradient-to-br.from-gray-900 *,
+.bg-slate-800 *,
+.bg-slate-900 *,
+.bg-stone-800 *,
+.bg-stone-900 *,
+.bg-gradient-to-r *,
+.bg-gradient-to-br *,
+.bg-gradient-to-l *,
+.bg-gradient-to-t *,
+.bg-gradient-to-b *,
 .button-primary *,
 header *,
 [class*="bg-gray-900"] *,
-[class*="bg-gray-800"] * {
+[class*="bg-gray-800"] *,
+[class*="backdrop-blur"] *,
+[class*="bg-black"] * {
   color: white !important;
 }
 
-/* Preserve white text for specific sections that should remain white */
-.bg-gradient-to-r.from-gray-800 *,
-.bg-gradient-to-r.from-gray-900 *,
-.bg-gradient-to-r.from-indigo-500 *,
-.bg-gradient-to-r.from-green-500 *,
-.bg-gray-800 *,
-.bg-gray-900 * {
-  color: inherit !important;
+/* Ensure text is never invisible - fallback rules */
+h1, h2, h3, h4, h5, h6, p, span, div, li, a {
+  color: inherit;
 }
 
-/* Specific overrides for sections that must be white */
-.text-white,
-.text-gray-200,
-.text-gray-300,
-.text-indigo-100,
-.text-green-100,
-.text-green-200 {
+/* Force visibility on any potential invisible text */
+.text-gray-700:not([class*="bg-white"] *):not([class*="bg-gray-50"] *):not([class*="bg-gray-100"] *),
+.text-gray-600:not([class*="bg-white"] *):not([class*="bg-gray-50"] *):not([class*="bg-gray-100"] *) {
+  color: #f3f4f6 !important;
+}
+
+/* Ensure button text is always visible */
+button *,
+.button-primary *,
+[role="button"] * {
   color: inherit !important;
 }
 
