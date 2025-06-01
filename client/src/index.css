@@ -52,6 +52,26 @@ section p[class*="text-4xl"] {
   font-weight: bold !important;
 }
 
+/* Preserve white text for specific sections that should remain white */
+.bg-gradient-to-r.from-gray-800 *,
+.bg-gradient-to-r.from-gray-900 *,
+.bg-gradient-to-r.from-indigo-500 *,
+.bg-gradient-to-r.from-green-500 *,
+.bg-gray-800 *,
+.bg-gray-900 * {
+  color: inherit !important;
+}
+
+/* Specific overrides for sections that must be white */
+.text-white,
+.text-gray-200,
+.text-gray-300,
+.text-indigo-100,
+.text-green-100,
+.text-green-200 {
+  color: inherit !important;
+}
+
 /* Ultra-Elite Enterprise Button Components */
 @layer components {
   .elite-solar-button {
