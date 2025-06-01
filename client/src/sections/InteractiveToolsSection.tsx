@@ -87,7 +87,8 @@ export const InteractiveToolsSection: React.FC = () => {
             </span>
           </h2>
           
-          <p className="text-3xl md:text-4xl text-gray-800 max-w-5xl mx-auto font-medium leading-relaxed drop-shadow-sm">
+          <p className="text-3xl md:text-4xl max-w-5xl mx-auto font-bold leading-relaxed drop-shadow-sm"
+             style={{ color: '#000000 !important' }}>
             Professional tools to estimate your solar savings and system requirements with precision and accuracy.
           </p>
         </motion.div>
