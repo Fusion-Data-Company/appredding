@@ -57,7 +57,7 @@ const SolarServicesSection = () => {
   ];
 
   return (
-    <section id="services" className="relative py-32 bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 overflow-hidden">
+    <section id="services" className="relative py-32 bg-gradient-to-br from-orange-100 via-amber-100 to-yellow-100 overflow-hidden">
       {/* Solar Light Effects */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-r from-orange-200/20 via-amber-200/15 to-yellow-200/20"></div>
@@ -142,17 +142,17 @@ const SolarServicesSection = () => {
           viewport={{ once: true }}
           className="text-center mb-24"
         >
-          <h2 className="text-6xl md:text-7xl lg:text-8xl font-black mb-12 leading-tight">
-            <span className="bg-gradient-to-r from-orange-700 via-red-700 to-amber-700 bg-clip-text text-transparent">Sol-Ark</span>{" "}
+          <h2 className="text-6xl md:text-7xl lg:text-8xl font-black mb-12 leading-tight drop-shadow-lg">
+            <span className="bg-gradient-to-r from-orange-800 via-red-700 to-amber-800 bg-clip-text text-transparent">Sol-Ark</span>{" "}
             <span className="relative inline-block">
-              <span className="bg-gradient-to-r from-orange-600 via-red-600 to-amber-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-orange-700 via-red-600 to-amber-700 bg-clip-text text-transparent drop-shadow-lg">
                 Hybrid Systems
               </span>
-              <div className="absolute -inset-2 bg-gradient-to-r from-orange-300/30 to-amber-300/30 blur-2xl -z-10 animate-pulse"></div>
+              <div className="absolute -inset-2 bg-gradient-to-r from-orange-300/40 to-amber-300/40 blur-2xl -z-10 animate-pulse"></div>
             </span>
           </h2>
           
-          <p className="text-3xl md:text-4xl text-gray-700 max-w-5xl mx-auto font-light leading-relaxed">
+          <p className="text-3xl md:text-4xl text-gray-800 max-w-5xl mx-auto font-medium leading-relaxed drop-shadow-sm">
             All-in-one hybrid inverters with API LiFePO4 stackable battery systems. 
             Professional installation, comprehensive troubleshooting, and expert maintenance services.
           </p>
