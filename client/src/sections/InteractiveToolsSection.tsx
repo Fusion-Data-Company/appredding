@@ -121,8 +121,8 @@ export const InteractiveToolsSection: React.FC = () => {
                 onClick={() => setActiveTab(tab.id)}
                 className={`group relative flex items-center gap-3 px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-300 ${
                   activeTab === tab.id
-                    ? "bg-gradient-to-r from-indigo-500 to-blue-500 text-white shadow-2xl"
-                    : "bg-white/80 text-gray-700 hover:bg-white hover:shadow-lg border-2 border-gray-200 hover:border-indigo-300"
+                    ? "button-primary text-white shadow-2xl"
+                    : "bg-white/80 text-gray-700 hover:bg-white hover:shadow-lg border-2 border-gray-200 hover:border-orange-300"
                 }`}
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
@@ -130,19 +130,29 @@ export const InteractiveToolsSection: React.FC = () => {
                 {/* Premium background effects for active tab */}
                 {activeTab === tab.id && (
                   <>
-                    <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-blue-600 rounded-2xl blur-lg opacity-50 -z-10"></div>
-                    <div className="absolute inset-0 opacity-20">
-                      <div className="grid grid-cols-3 gap-0.5 h-full w-full rounded-2xl overflow-hidden">
+                    <div className="solar-panel-grid">
+                      <div>
                         {[...Array(9)].map((_, i) => (
-                          <motion.div 
-                            key={i} 
-                            className="bg-white/40"
-                            animate={{ opacity: [0.3, 0.7, 0.3] }}
-                            transition={{ duration: 2, repeat: Infinity, delay: i * 0.1 }}
+                          <div key={i} className="solar-panel-cell"></div>
+                        ))}
+                      </div>
+                    </div>
+                    
+                    <div className="solar-rays">
+                      <div className="solar-ray-animation">
+                        {[...Array(8)].map((_, i) => (
+                          <div
+                            key={i}
+                            className="solar-ray"
+                            style={{
+                              transform: `rotate(${i * 45}deg) translateY(-16px)`
+                            }}
                           />
                         ))}
                       </div>
                     </div>
+                    
+                    <div className="shine-effect"></div>
                   </>
                 )}
                 

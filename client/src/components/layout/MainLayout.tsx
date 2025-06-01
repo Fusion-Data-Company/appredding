@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import SolarHeader from '@/components/SolarHeader';
+import ProfessionalHeader from '@/components/ProfessionalHeader';
 import Footer from '@/components/Footer';
 import ChatWidget from '@/components/ChatWidget';
 import VoiceChatPopout from '@/components/VoiceChatPopout';
@@ -17,10 +17,10 @@ interface MainLayoutProps {
 export default function MainLayout({ children, className, fullWidth = false }: MainLayoutProps) {
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-amber-50 via-white to-orange-50">
-      <SolarHeader />
+      <ProfessionalHeader />
       
       <main className={cn(
-        "flex-1 pt-32 relative z-10", // Account for the new header height
+        "flex-1 pt-20 relative z-10", // Account for the new header height
         className
       )}>
         {fullWidth ? (

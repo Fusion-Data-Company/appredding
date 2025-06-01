@@ -191,9 +191,10 @@ const SolarSalesFunnelSection = () => {
 
             <button
               type="submit"
-              className="w-full py-4 bg-gradient-to-r from-yellow-500 to-orange-500 text-white font-bold rounded-lg hover:shadow-lg transition-all duration-300"
+              className="button-primary w-full py-4"
             >
-              Get My Free Quote
+              <span className="relative z-10">Get My Free Quote</span>
+              <div className="shine-effect"></div>
             </button>
           </form>
 
@@ -330,15 +331,38 @@ const SolarSalesFunnelSection = () => {
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => setSelectedFunnel(funnel)}
-                  className={`group/btn relative w-full py-4 bg-gradient-to-r ${funnel.color} text-white font-bold rounded-2xl text-lg shadow-xl hover:shadow-2xl transition-all duration-500 flex items-center justify-center overflow-hidden`}
+                  className="button-primary w-full py-4 rounded-2xl text-lg"
                 >
-                  {/* Button Glow Effect */}
-                  <div className={`absolute -inset-1 bg-gradient-to-r ${funnel.color} rounded-2xl blur-lg opacity-60 group-hover/btn:opacity-80 transition-opacity duration-500`}></div>
-                  
-                  <div className="relative flex items-center gap-3">
-                    <span>{funnel.ctaText}</span>
-                    <ArrowRight className="w-5 h-5 transform group-hover/btn:translate-x-1 transition-transform duration-300" />
+                  {/* Solar panel grid background pattern */}
+                  <div className="solar-panel-grid">
+                    <div>
+                      {[...Array(9)].map((_, i) => (
+                        <div key={i} className="solar-panel-cell"></div>
+                      ))}
+                    </div>
                   </div>
+                  
+                  {/* Animated sun rays */}
+                  <div className="solar-rays">
+                    <div className="solar-ray-animation">
+                      {[...Array(8)].map((_, i) => (
+                        <div
+                          key={i}
+                          className="solar-ray"
+                          style={{
+                            transform: `rotate(${i * 45}deg) translateY(-16px)`
+                          }}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                  
+                  <div className="relative z-10 flex items-center gap-3">
+                    <span>{funnel.ctaText}</span>
+                    <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" />
+                  </div>
+                  
+                  <div className="shine-effect"></div>
                 </motion.button>
               </div>
             </motion.div>
