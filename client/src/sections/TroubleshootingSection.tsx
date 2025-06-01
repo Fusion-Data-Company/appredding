@@ -193,7 +193,7 @@ const TroubleshootingSection = () => {
   };
 
   return (
-    <section className="relative py-32 bg-gradient-to-br from-red-50 via-orange-50 to-amber-50 overflow-hidden">
+    <section className="relative py-32 bg-gradient-to-br from-red-100 via-orange-100 to-amber-100 overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-r from-red-200/20 via-orange-200/15 to-amber-200/20"></div>
@@ -210,17 +210,17 @@ const TroubleshootingSection = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-6xl md:text-7xl lg:text-8xl font-black mb-12 leading-tight">
-            <span className="bg-gradient-to-r from-red-700 via-orange-700 to-amber-700 bg-clip-text text-transparent">Sol-Ark</span>{" "}
+          <h2 className="text-6xl md:text-7xl lg:text-8xl font-black mb-12 leading-tight drop-shadow-lg">
+            <span className="bg-gradient-to-r from-orange-800 via-red-700 to-amber-800 bg-clip-text text-transparent">Sol-Ark</span>{" "}
             <span className="relative inline-block">
-              <span className="bg-gradient-to-r from-red-600 via-orange-600 to-amber-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-orange-700 via-red-600 to-amber-700 bg-clip-text text-transparent drop-shadow-lg">
                 Troubleshooting
               </span>
-              <div className="absolute -inset-2 bg-gradient-to-r from-red-300/30 to-amber-300/30 blur-2xl -z-10 animate-pulse"></div>
+              <div className="absolute -inset-2 bg-gradient-to-r from-orange-300/40 to-amber-300/40 blur-2xl -z-10 animate-pulse"></div>
             </span>
           </h2>
           
-          <p className="text-3xl md:text-4xl text-gray-700 max-w-5xl mx-auto font-light leading-relaxed">
+          <p className="text-3xl md:text-4xl text-gray-800 max-w-5xl mx-auto font-medium leading-relaxed drop-shadow-sm">
             Comprehensive fault code database and troubleshooting guide for rapid problem resolution.
           </p>
         </motion.div>

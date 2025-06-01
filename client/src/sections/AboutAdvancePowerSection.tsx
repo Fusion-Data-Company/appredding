@@ -39,7 +39,7 @@ const AboutAdvancePowerSection = () => {
   ];
 
   return (
-    <section className="relative py-32 bg-gradient-to-br from-yellow-50 via-orange-50 to-amber-50 overflow-hidden">
+    <section className="relative py-32 bg-gradient-to-br from-yellow-100 via-orange-100 to-amber-100 overflow-hidden">
       {/* Solar Light Effects */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-r from-yellow-200/20 via-orange-200/15 to-amber-200/20"></div>
@@ -68,17 +68,17 @@ const AboutAdvancePowerSection = () => {
           viewport={{ once: true }}
           className="text-center mb-24"
         >
-          <h2 className="text-6xl md:text-7xl lg:text-8xl font-black text-gray-800 mb-12 leading-tight">
-            Sol-Ark &{" "}
+          <h2 className="text-6xl md:text-7xl lg:text-8xl font-black mb-12 leading-tight drop-shadow-lg">
+            <span className="bg-gradient-to-r from-orange-800 via-red-700 to-amber-800 bg-clip-text text-transparent">Sol-Ark &</span>{" "}
             <span className="relative inline-block">
-              <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-orange-700 via-red-600 to-amber-700 bg-clip-text text-transparent drop-shadow-lg">
                 API Expertise
               </span>
-              <div className="absolute -inset-2 bg-gradient-to-r from-blue-300/30 to-indigo-300/30 blur-2xl -z-10 animate-pulse"></div>
+              <div className="absolute -inset-2 bg-gradient-to-r from-orange-300/40 to-amber-300/40 blur-2xl -z-10 animate-pulse"></div>
             </span>
           </h2>
           
-          <p className="text-3xl md:text-4xl text-gray-700 max-w-5xl mx-auto font-light leading-relaxed">
+          <p className="text-3xl md:text-4xl text-gray-800 max-w-5xl mx-auto font-medium leading-relaxed drop-shadow-sm">
             Northern California's premier Sol-Ark hybrid inverter and API LiFePO4 battery specialists, 
             delivering comprehensive technical expertise and professional installation services.
           </p>
@@ -97,28 +97,28 @@ const AboutAdvancePowerSection = () => {
               className="group relative"
             >
               {/* Premium Card Background */}
-              <div className="relative bg-gradient-to-br from-gray-800/80 to-gray-900/80 backdrop-blur-sm rounded-3xl p-8 border border-gray-700/50 group-hover:border-blue-500/50 transition-all duration-500 overflow-hidden text-center">
+              <div className="relative bg-gradient-to-br from-white via-yellow-50 to-orange-50 backdrop-blur-sm rounded-3xl p-8 border-2 border-yellow-200 group-hover:border-orange-400 shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden text-center">
                 
                 {/* Card Glow Effect */}
-                <div className="absolute -inset-1 bg-gradient-to-br from-blue-500/20 via-purple-500/20 to-indigo-500/20 opacity-0 group-hover:opacity-30 blur-xl transition-opacity duration-500 rounded-3xl"></div>
+                <div className="absolute -inset-1 bg-gradient-to-br from-orange-500/30 via-red-500/30 to-amber-500/30 opacity-20 group-hover:opacity-50 blur-xl transition-opacity duration-500 rounded-3xl"></div>
                 
                 {/* Card Content */}
                 <div className="relative z-10">
                   {/* Premium Icon */}
-                  <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-500 rounded-2xl mb-6 text-white shadow-2xl group-hover:scale-110 transition-transform duration-300">
+                  <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl mb-6 text-white shadow-2xl group-hover:scale-110 transition-transform duration-300 border-2 border-orange-300">
                     {achievement.icon}
                   </div>
 
                   {/* Enhanced Number */}
-                  <div className="text-5xl font-black text-white mb-2 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-purple-500 group-hover:bg-clip-text transition-all duration-300">
+                  <div className="text-5xl font-black text-gray-800 mb-2 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-orange-600 group-hover:to-red-500 group-hover:bg-clip-text transition-all duration-300 drop-shadow-md">
                     {achievement.number}
                   </div>
                   
-                  <h3 className="text-xl font-bold text-gray-300 mb-2">
+                  <h3 className="text-xl font-bold text-gray-700 mb-2">
                     {achievement.label}
                   </h3>
 
-                  <p className="text-gray-400 text-sm">
+                  <p className="text-gray-600 text-sm font-medium">
                     {achievement.description}
                   </p>
                 </div>

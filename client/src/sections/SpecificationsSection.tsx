@@ -181,7 +181,7 @@ const SpecificationsSection = () => {
   ];
 
   return (
-    <section className="relative py-32 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 overflow-hidden">
+    <section className="relative py-32 bg-gradient-to-br from-blue-100 via-indigo-100 to-purple-100 overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-r from-blue-200/20 via-indigo-200/15 to-purple-200/20"></div>
@@ -198,17 +198,17 @@ const SpecificationsSection = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-6xl md:text-7xl lg:text-8xl font-black mb-12 leading-tight">
-            <span className="bg-gradient-to-r from-blue-700 via-indigo-700 to-purple-700 bg-clip-text text-transparent">Technical</span>{" "}
+          <h2 className="text-6xl md:text-7xl lg:text-8xl font-black mb-12 leading-tight drop-shadow-lg">
+            <span className="bg-gradient-to-r from-orange-800 via-red-700 to-amber-800 bg-clip-text text-transparent">Technical</span>{" "}
             <span className="relative inline-block">
-              <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-orange-700 via-red-600 to-amber-700 bg-clip-text text-transparent drop-shadow-lg">
                 Specifications
               </span>
-              <div className="absolute -inset-2 bg-gradient-to-r from-blue-300/30 to-purple-300/30 blur-2xl -z-10 animate-pulse"></div>
+              <div className="absolute -inset-2 bg-gradient-to-r from-orange-300/40 to-amber-300/40 blur-2xl -z-10 animate-pulse"></div>
             </span>
           </h2>
           
-          <p className="text-3xl md:text-4xl text-gray-700 max-w-5xl mx-auto font-light leading-relaxed">
+          <p className="text-3xl md:text-4xl text-gray-800 max-w-5xl mx-auto font-medium leading-relaxed drop-shadow-sm">
             Comprehensive technical data, installation requirements, and operational specifications for Sol-Ark inverters and API LiFePO4 systems.
           </p>
         </motion.div>
@@ -233,7 +233,7 @@ const SpecificationsSection = () => {
                 onClick={() => setActiveTab(tab.id)}
                 className={`flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-lg transition-all duration-300 ${
                   activeTab === tab.id
-                    ? "bg-gradient-to-r from-blue-500 to-indigo-500 text-white shadow-lg"
+                    ? "bg-gradient-to-r from-orange-500 to-red-500 text-white shadow-lg"
                     : "bg-white/80 text-gray-700 hover:bg-white hover:shadow-md"
                 }`}
               >
@@ -262,13 +262,13 @@ const SpecificationsSection = () => {
                     </h3>
                     
                     <div className="grid grid-cols-2 gap-4 mb-6">
-                      <div className="bg-blue-50 p-4 rounded-lg">
-                        <div className="text-sm text-blue-600 font-semibold">Output Power</div>
-                        <div className="text-xl font-bold text-blue-800">{model.outputPower}</div>
+                      <div className="bg-orange-50 p-4 rounded-lg">
+                        <div className="text-sm text-orange-600 font-semibold">Output Power</div>
+                        <div className="text-xl font-bold text-orange-800">{model.outputPower}</div>
                       </div>
-                      <div className="bg-green-50 p-4 rounded-lg">
-                        <div className="text-sm text-green-600 font-semibold">PV Input</div>
-                        <div className="text-xl font-bold text-green-800">{model.pvInput}</div>
+                      <div className="bg-yellow-50 p-4 rounded-lg">
+                        <div className="text-sm text-yellow-600 font-semibold">PV Input</div>
+                        <div className="text-xl font-bold text-yellow-800">{model.pvInput}</div>
                       </div>
                       <div className="bg-purple-50 p-4 rounded-lg">
                         <div className="text-sm text-purple-600 font-semibold">Battery Ports</div>
