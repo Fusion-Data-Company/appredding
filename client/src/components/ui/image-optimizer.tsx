@@ -4,6 +4,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { cn } from '@/lib/utils';
+import { imageOptimizer, generateSrcSet, getOptimalImageFormat, createImageLazyLoader } from '@/utils/image-optimization';
 
 interface OptimizedImageProps {
   src: string;
@@ -27,20 +28,37 @@ export function OptimizedImage({
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
   const [isInView, setIsInView] = useState(priority);
+  const [optimizedSrc, setOptimizedSrc] = useState(src);
   const imgRef = useRef<HTMLImageElement>(null);
   const loadStartTime = useRef<number>(0);
+
+  // Optimize image format on mount
+  useEffect(() => {
+    if (src) {
+      getOptimalImageFormat(src).then(setOptimizedSrc);
+    }
+  }, [src]);
+
+  // Preload critical images
+  useEffect(() => {
+    if (priority && optimizedSrc) {
+      imageOptimizer.preloadCriticalImages([optimizedSrc]).catch(() => {
+        console.warn('Failed to preload critical image:', optimizedSrc);
+      });
+    }
+  }, [priority, optimizedSrc]);
 
   useEffect(() => {
     if (priority) return;
 
-    const observer = new IntersectionObserver(
+    const observer = createImageLazyLoader(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsInView(true);
           observer.disconnect();
         }
       },
-      { rootMargin: '50px' }
+      { rootMargin: '100px 0px', threshold: 0.01 }
     );
 
     if (imgRef.current) {
@@ -101,7 +119,9 @@ export function OptimizedImage({
       {(isInView || priority) && (
         <img
           ref={imgRef}
-          src={src}
+          src={optimizedSrc}
+          srcSet={generateSrcSet(optimizedSrc)}
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           alt={alt}
           onLoad={handleLoad}
           onError={handleError}
@@ -113,26 +133,22 @@ export function OptimizedImage({
           )}
           loading={priority ? "eager" : "lazy"}
           decoding="async"
+          fetchPriority={priority ? "high" : "low"}
         />
       )}
     </div>
   );
 }
 
-// Preload critical images utility
-export function preloadImage(src: string): Promise<void> {
-  return new Promise((resolve, reject) => {
-    const img = new Image();
-    img.onload = () => resolve();
-    img.onerror = reject;
-    img.src = src;
-  });
+// Preload critical images utility using advanced optimizer
+export function preloadImage(src: string): Promise<HTMLImageElement> {
+  return imageOptimizer.loadImageWithRetry(src, true);
 }
 
-// Preload multiple images
+// Preload multiple images with priority
 export async function preloadImages(srcs: string[]): Promise<void> {
   try {
-    await Promise.all(srcs.map(preloadImage));
+    await imageOptimizer.preloadCriticalImages(srcs);
   } catch (error) {
     console.warn('Some images failed to preload:', error);
   }

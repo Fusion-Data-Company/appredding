@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { FastHeroImage, useHeroImagePreloader } from '@/components/ui/fast-hero-image';
 import solarPanelImage from "@assets/Untitled design.png";
 import logoImage from "@assets/Untitled design (2).png";
 
@@ -312,6 +313,8 @@ const FeatureItem: React.FC<FeatureItemProps> = ({ name, value, position }) => {
 };
 
 export const HeroSection: React.FC = () => {
+  // Preload critical hero images
+  useHeroImagePreloader([solarPanelImage, logoImage]);
   const lightningHue = 25; // Locked at 25 degrees
 
   const containerVariants = {
