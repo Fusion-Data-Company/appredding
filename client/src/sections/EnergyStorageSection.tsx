@@ -42,7 +42,7 @@ const EnergyStorageSection = () => {
   ];
 
   return (
-    <section className="relative py-32 bg-gradient-to-br from-amber-50 via-orange-50 to-red-50 overflow-hidden">
+    <section className="relative py-32 bg-gradient-to-br from-amber-100 via-orange-100 to-red-100 overflow-hidden">
       {/* Solar Battery Light Effects */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-r from-amber-200/20 via-orange-200/15 to-red-200/20"></div>
@@ -71,17 +71,17 @@ const EnergyStorageSection = () => {
           viewport={{ once: true }}
           className="text-center mb-24"
         >
-          <h2 className="text-6xl md:text-7xl lg:text-8xl font-black text-gray-800 mb-12 leading-tight">
-            API{" "}
+          <h2 className="text-6xl md:text-7xl lg:text-8xl font-black mb-12 leading-tight drop-shadow-lg">
+            <span className="bg-gradient-to-r from-orange-800 via-red-700 to-amber-800 bg-clip-text text-transparent">API</span>{" "}
             <span className="relative inline-block">
-              <span className="bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-orange-700 via-red-600 to-amber-700 bg-clip-text text-transparent drop-shadow-lg">
                 LiFePO4 Stackable
               </span>
-              <div className="absolute -inset-2 bg-gradient-to-r from-green-300/30 to-emerald-300/30 blur-2xl -z-10 animate-pulse"></div>
+              <div className="absolute -inset-2 bg-gradient-to-r from-orange-300/40 to-amber-300/40 blur-2xl -z-10 animate-pulse"></div>
             </span>
           </h2>
           
-          <p className="text-3xl md:text-4xl text-gray-700 max-w-5xl mx-auto font-light leading-relaxed mb-8">
+          <p className="text-3xl md:text-4xl text-gray-800 max-w-5xl mx-auto font-medium leading-relaxed mb-8 drop-shadow-sm">
             Modular LiFePO4 battery systems with built-in BMS, active cell balancing, 
             and seamless Sol-Ark inverter integration for maximum safety and performance.
           </p>
@@ -89,20 +89,20 @@ const EnergyStorageSection = () => {
           {/* Premium Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16">
             <div className="text-center">
-              <div className="text-5xl font-black text-green-400 mb-2">229kWh</div>
-              <div className="text-gray-300 text-lg">Maximum Capacity</div>
+              <div className="text-5xl font-black text-orange-600 mb-2 drop-shadow-lg">229kWh</div>
+              <div className="text-gray-700 text-lg font-bold">Maximum Capacity</div>
             </div>
             <div className="text-center">
-              <div className="text-5xl font-black text-blue-400 mb-2">6000+</div>
-              <div className="text-gray-300 text-lg">Cycle Life</div>
+              <div className="text-5xl font-black text-red-500 mb-2 drop-shadow-lg">6000+</div>
+              <div className="text-gray-700 text-lg font-bold">Cycle Life</div>
             </div>
             <div className="text-center">
-              <div className="text-5xl font-black text-purple-400 mb-2">UL</div>
-              <div className="text-gray-300 text-lg">Safety Certified</div>
+              <div className="text-5xl font-black text-amber-600 mb-2 drop-shadow-lg">UL</div>
+              <div className="text-gray-700 text-lg font-bold">Safety Certified</div>
             </div>
             <div className="text-center">
-              <div className="text-5xl font-black text-yellow-400 mb-2">48V</div>
-              <div className="text-gray-300 text-lg">Sol-Ark Compatible</div>
+              <div className="text-5xl font-black text-yellow-600 mb-2 drop-shadow-lg">48V</div>
+              <div className="text-gray-700 text-lg font-bold">Sol-Ark Compatible</div>
             </div>
           </div>
         </motion.div>
@@ -120,32 +120,32 @@ const EnergyStorageSection = () => {
               className="group relative"
             >
               {/* Premium Card Background */}
-              <div className="relative bg-gradient-to-br from-gray-800/80 to-gray-900/80 backdrop-blur-sm rounded-3xl p-10 border border-gray-700/50 group-hover:border-green-500/50 transition-all duration-500 overflow-hidden">
+              <div className="relative bg-gradient-to-br from-white via-amber-50 to-orange-50 backdrop-blur-sm rounded-3xl p-10 border-2 border-amber-200 group-hover:border-orange-400 shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden">
                 
                 {/* Card Glow Effect */}
-                <div className="absolute -inset-1 bg-gradient-to-br from-green-500/20 via-blue-500/20 to-purple-500/20 opacity-0 group-hover:opacity-30 blur-xl transition-opacity duration-500 rounded-3xl"></div>
+                <div className="absolute -inset-1 bg-gradient-to-br from-orange-500/30 via-red-500/30 to-amber-500/30 opacity-20 group-hover:opacity-50 blur-xl transition-opacity duration-500 rounded-3xl"></div>
                 
                 {/* Card Content */}
                 <div className="relative z-10">
                   {/* Premium Icon */}
-                  <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-green-500 to-blue-500 rounded-2xl mb-8 text-white shadow-2xl group-hover:scale-110 transition-transform duration-300">
+                  <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl mb-8 text-white shadow-2xl group-hover:scale-110 transition-transform duration-300 border-2 border-orange-300">
                     {feature.icon}
                   </div>
 
                   {/* Enhanced Typography */}
-                  <h3 className="text-3xl font-black text-white mb-6 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-green-400 group-hover:to-blue-500 group-hover:bg-clip-text transition-all duration-300">
+                  <h3 className="text-3xl font-black text-gray-800 mb-6 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-orange-600 group-hover:to-red-500 group-hover:bg-clip-text transition-all duration-300 drop-shadow-md">
                     {feature.title}
                   </h3>
                   
-                  <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+                  <p className="text-xl text-gray-700 mb-8 leading-relaxed font-medium">
                     {feature.description}
                   </p>
 
                   {/* Premium Specs List */}
                   <ul className="space-y-3">
                     {feature.specs.map((spec, specIndex) => (
-                      <li key={specIndex} className="flex items-center text-gray-400 text-lg">
-                        <div className="w-2 h-2 bg-gradient-to-r from-green-500 to-blue-500 rounded-full mr-4 group-hover:scale-150 transition-transform duration-300"></div>
+                      <li key={specIndex} className="flex items-center text-gray-700 text-lg font-medium">
+                        <div className="w-3 h-3 bg-gradient-to-r from-orange-500 to-red-500 rounded-full mr-4 group-hover:scale-150 transition-transform duration-300 shadow-md"></div>
                         {spec}
                       </li>
                     ))}
