@@ -23,6 +23,7 @@ const Home = () => {
         <EnergyStorageSection />
         <SpecificationsSection />
         <TroubleshootingSection />
+        <FAQSection />
         <AboutAdvancePowerSection />
         <SolarTestimonialsSection />
         <ContactSection />
