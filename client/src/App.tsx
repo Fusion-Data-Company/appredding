@@ -169,6 +169,8 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
+        <ScrollProgressIndicator />
+        <FloatingScrollProgress />
         <Toaster />
         <AuthProvider>
           <StoreProvider>
