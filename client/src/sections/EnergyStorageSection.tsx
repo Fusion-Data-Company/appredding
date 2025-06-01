@@ -138,14 +138,14 @@ const EnergyStorageSection = () => {
                     {feature.title}
                   </h3>
                   
-                  <p className="text-xl text-black mb-8 leading-relaxed font-bold">
+                  <p className="text-xl text-gray-700 mb-8 leading-relaxed font-medium">
                     {feature.description}
                   </p>
 
                   {/* Premium Specs List */}
                   <ul className="space-y-3">
                     {feature.specs.map((spec, specIndex) => (
-                      <li key={specIndex} className="flex items-center text-black text-lg font-bold">
+                      <li key={specIndex} className="flex items-center text-gray-700 text-lg font-medium">
                         <div className="w-3 h-3 bg-gradient-to-r from-orange-500 to-red-500 rounded-full mr-4 group-hover:scale-150 transition-transform duration-300 shadow-md"></div>
                         {spec}
                       </li>
@@ -171,34 +171,25 @@ const EnergyStorageSection = () => {
             
             <div className="relative z-10 text-center">
               <div className="text-6xl mb-4">🔋💰</div>
-              <h3 className="text-4xl md:text-5xl font-black text-white mb-6"
-                  style={{ 
-                    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8), 1px 1px 2px rgba(0, 0, 0, 0.6)',
-                    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%)',
-                    WebkitBackgroundClip: 'text',
-                    backgroundClip: 'text'
-                  }}>
+              <h3 className="text-4xl md:text-5xl font-black text-white mb-6">
                 Battery Storage = Maximum Savings
               </h3>
-              <p className="text-2xl text-white mb-8 max-w-4xl mx-auto leading-relaxed font-bold"
-                 style={{ 
-                   textShadow: '1px 1px 3px rgba(0, 0, 0, 0.7), 0px 0px 2px rgba(0, 0, 0, 0.5)'
-                 }}>
+              <p className="text-2xl text-green-100 mb-8 max-w-4xl mx-auto leading-relaxed">
                 Store your solar energy and use it when electricity rates are highest. 
                 Battery storage can increase your solar savings by 30-50% while providing backup power security.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-white" style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8)' }}>30-50%</div>
-                  <div className="text-white font-bold" style={{ textShadow: '1px 1px 2px rgba(0, 0, 0, 0.7)' }}>More Solar Savings</div>
+                  <div className="text-3xl font-bold text-white">30-50%</div>
+                  <div className="text-green-200">More Solar Savings</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-white" style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8)' }}>24/7</div>
-                  <div className="text-white font-bold" style={{ textShadow: '1px 1px 2px rgba(0, 0, 0, 0.7)' }}>Backup Power</div>
+                  <div className="text-3xl font-bold text-white">24/7</div>
+                  <div className="text-green-200">Backup Power</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-white" style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8)' }}>$0</div>
-                  <div className="text-white font-bold" style={{ textShadow: '1px 1px 2px rgba(0, 0, 0, 0.7)' }}>Down Payment</div>
+                  <div className="text-3xl font-bold text-white">$0</div>
+                  <div className="text-green-200">Down Payment</div>
                 </div>
               </div>
             </div>
