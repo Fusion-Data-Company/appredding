@@ -202,9 +202,18 @@ const TestimonialsSection = () => {
           
           {/* Navigation dots with enhanced styling */}
           <div className="flex justify-center mt-12 space-x-4">
-            <button className="w-4 h-4 rounded-full bg-gradient-to-r from-orange-500 to-amber-500 shadow-[0_0_15px_rgba(245,158,11,0.7)]"></button>
-            <button className="w-4 h-4 rounded-full bg-gray-700 hover:bg-gradient-to-r hover:from-orange-500/70 hover:to-amber-500/70 transition-all duration-300 hover:shadow-[0_0_10px_rgba(245,158,11,0.4)]"></button>
-            <button className="w-4 h-4 rounded-full bg-gray-700 hover:bg-gradient-to-r hover:from-orange-500/70 hover:to-amber-500/70 transition-all duration-300 hover:shadow-[0_0_10px_rgba(245,158,11,0.4)]"></button>
+            <button className="relative w-6 h-6 rounded-full button-primary overflow-hidden">
+              <div className="solar-panel-grid">
+                <div>
+                  {[...Array(4)].map((_, i) => (
+                    <div key={i} className="solar-panel-cell"></div>
+                  ))}
+                </div>
+              </div>
+              <div className="shine-effect"></div>
+            </button>
+            <button className="w-4 h-4 rounded-full bg-gray-700 hover:bg-gradient-to-r hover:from-orange-500/70 hover:to-amber-500/70 transition-all duration-300 hover:shadow-[0_0_10px_rgba(245,158,11,0.4)] border border-gray-600 hover:border-orange-400"></button>
+            <button className="w-4 h-4 rounded-full bg-gray-700 hover:bg-gradient-to-r hover:from-orange-500/70 hover:to-amber-500/70 transition-all duration-300 hover:shadow-[0_0_10px_rgba(245,158,11,0.4)] border border-gray-600 hover:border-orange-400"></button>
           </div>
         </div>
       </div>

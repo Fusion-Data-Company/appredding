@@ -135,55 +135,32 @@ const ContactSection = () => {
                   <motion.button
                     whileHover={{ scale: 1.05, y: -2 }}
                     whileTap={{ scale: 0.95 }}
-                    className="elite-solar-button w-full px-8 py-4 text-white font-bold rounded-xl text-lg"
+                    className="button-primary w-full px-8 py-4 font-bold rounded-xl text-lg"
                   >
-                    {/* Elite Solar Panel Grid */}
-                    <div className="absolute inset-0 opacity-15">
-                      <div className="grid grid-cols-4 gap-0.5 h-full w-full">
-                        {[...Array(16)].map((_, i) => (
-                          <motion.div 
-                            key={i} 
-                            className="bg-white/40 rounded-sm"
-                            animate={{ opacity: [0.3, 0.6, 0.3] }}
-                            transition={{ duration: 3, repeat: Infinity, delay: i * 0.1 }}
+                    <div className="solar-panel-grid">
+                      <div>
+                        {[...Array(9)].map((_, i) => (
+                          <div key={i} className="solar-panel-cell"></div>
+                        ))}
+                      </div>
+                    </div>
+                    
+                    <div className="solar-rays">
+                      <div className="solar-ray-animation">
+                        {[...Array(8)].map((_, i) => (
+                          <div
+                            key={i}
+                            className="solar-ray"
+                            style={{
+                              transform: `rotate(${i * 45}deg) translateY(-16px)`
+                            }}
                           />
                         ))}
                       </div>
                     </div>
                     
-                    {/* Premium Animated Sun Rays */}
-                    <div className="absolute inset-0">
-                      <motion.div
-                        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
-                        animate={{ rotate: 360 }}
-                        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                      >
-                        {[...Array(8)].map((_, i) => (
-                          <div
-                            key={i}
-                            className="absolute w-0.5 h-4 bg-white/30"
-                            style={{
-                              transformOrigin: "bottom center",
-                              transform: `rotate(${i * 45}deg) translateY(-16px)`
-                            }}
-                          />
-                        ))}
-                      </motion.div>
-                    </div>
-                    
-                    {/* Elite Shine Effect */}
-                    <motion.div 
-                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent -skew-x-12"
-                      initial={{ x: "-100%" }}
-                      whileHover={{ x: "100%" }}
-                      transition={{ duration: 0.8 }}
-                    />
-                    
-                    {/* Premium Content */}
-                    <div className="relative z-10 flex items-center justify-center gap-2 text-white">
-                      <Sun className="h-5 w-5 drop-shadow-lg" />
-                      <span className="font-bold tracking-wide drop-shadow-lg">{method.action}</span>
-                    </div>
+                    <span className="relative z-10">{method.action}</span>
+                    <div className="shine-effect"></div>
                   </motion.button>
                 </div>
               </div>

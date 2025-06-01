@@ -136,12 +136,34 @@ export const UtilitySavingsCalculator: React.FC = () => {
         <motion.button
           onClick={calculateSavings}
           disabled={!inputs.monthlyBill || !inputs.homeSize || isCalculating}
-          className="elite-solar-button w-full px-8 py-4 text-white font-bold rounded-xl text-lg disabled:opacity-50"
+          className="button-primary w-full px-8 py-4 font-bold rounded-xl text-lg disabled:opacity-50"
           whileHover={{ scale: 1.02, y: -2 }}
           whileTap={{ scale: 0.98 }}
         >
+          <div className="solar-panel-grid">
+            <div>
+              {[...Array(9)].map((_, i) => (
+                <div key={i} className="solar-panel-cell"></div>
+              ))}
+            </div>
+          </div>
+          
+          <div className="solar-rays">
+            <div className="solar-ray-animation">
+              {[...Array(8)].map((_, i) => (
+                <div
+                  key={i}
+                  className="solar-ray"
+                  style={{
+                    transform: `rotate(${i * 45}deg) translateY(-16px)`
+                  }}
+                />
+              ))}
+            </div>
+          </div>
+          
           {isCalculating ? (
-            <div className="flex items-center justify-center">
+            <div className="flex items-center justify-center relative z-10">
               <motion.div
                 className="w-6 h-6 border-2 border-white border-t-transparent rounded-full"
                 animate={{ rotate: 360 }}
@@ -152,6 +174,7 @@ export const UtilitySavingsCalculator: React.FC = () => {
           ) : (
             <span className="relative z-10">Calculate My Savings</span>
           )}
+          <div className="shine-effect"></div>
         </motion.button>
 
         {results && (

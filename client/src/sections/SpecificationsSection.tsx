@@ -232,14 +232,41 @@ const SpecificationsSection = () => {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-lg transition-all duration-300 ${
+                className={`relative flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-lg transition-all duration-300 overflow-hidden ${
                   activeTab === tab.id
-                    ? "bg-gradient-to-r from-orange-500 to-red-500 text-white shadow-lg"
-                    : "bg-white/80 text-gray-700 hover:bg-white hover:shadow-md"
+                    ? "button-primary text-white shadow-lg"
+                    : "bg-white/80 text-gray-700 hover:bg-white hover:shadow-md border-2 border-gray-200 hover:border-orange-300"
                 }`}
               >
-                {tab.icon}
-                {tab.label}
+                {activeTab === tab.id && (
+                  <>
+                    <div className="solar-panel-grid">
+                      <div>
+                        {[...Array(9)].map((_, i) => (
+                          <div key={i} className="solar-panel-cell"></div>
+                        ))}
+                      </div>
+                    </div>
+                    
+                    <div className="solar-rays">
+                      <div className="solar-ray-animation">
+                        {[...Array(8)].map((_, i) => (
+                          <div
+                            key={i}
+                            className="solar-ray"
+                            style={{
+                              transform: `rotate(${i * 45}deg) translateY(-16px)`
+                            }}
+                          />
+                        ))}
+                      </div>
+                    </div>
+                    
+                    <div className="shine-effect"></div>
+                  </>
+                )}
+                <span className="relative z-10">{tab.icon}</span>
+                <span className="relative z-10">{tab.label}</span>
               </button>
             ))}
           </div>
