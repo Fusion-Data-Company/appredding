@@ -227,9 +227,32 @@ const SolarServicesSection = () => {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className={`mt-8 w-full px-8 py-4 bg-gradient-to-r ${service.color} ${service.hoverColor} text-white font-bold rounded-xl text-lg shadow-2xl transition-all duration-300 hover:shadow-3xl`}
+                    className="button-primary mt-8 w-full px-8 py-4 rounded-xl text-lg"
                   >
-                    Learn More
+                    <div className="solar-panel-grid">
+                      <div>
+                        {[...Array(9)].map((_, i) => (
+                          <div key={i} className="solar-panel-cell"></div>
+                        ))}
+                      </div>
+                    </div>
+                    
+                    <div className="solar-rays">
+                      <div className="solar-ray-animation">
+                        {[...Array(8)].map((_, i) => (
+                          <div
+                            key={i}
+                            className="solar-ray"
+                            style={{
+                              transform: `rotate(${i * 45}deg) translateY(-16px)`
+                            }}
+                          />
+                        ))}
+                      </div>
+                    </div>
+                    
+                    <span className="relative z-10">Learn More</span>
+                    <div className="shine-effect"></div>
                   </motion.button>
                 </div>
               </div>
@@ -265,17 +288,41 @@ const SolarServicesSection = () => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-12 py-6 bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-400 hover:to-orange-400 text-white font-black rounded-xl text-xl shadow-2xl transition-all duration-300 hover:shadow-3xl"
+                  className="button-primary px-12 py-6 font-black rounded-xl text-xl"
                 >
-                  Get Free Solar Quote
+                  <div className="solar-panel-grid">
+                    <div>
+                      {[...Array(9)].map((_, i) => (
+                        <div key={i} className="solar-panel-cell"></div>
+                      ))}
+                    </div>
+                  </div>
+                  
+                  <div className="solar-rays">
+                    <div className="solar-ray-animation">
+                      {[...Array(8)].map((_, i) => (
+                        <div
+                          key={i}
+                          className="solar-ray"
+                          style={{
+                            transform: `rotate(${i * 45}deg) translateY(-16px)`
+                          }}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                  
+                  <span className="relative z-10">Get Free Solar Quote</span>
+                  <div className="shine-effect"></div>
                 </motion.button>
                 
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-12 py-6 border-2 border-gray-400 text-gray-200 font-black rounded-xl text-xl hover:bg-white hover:text-gray-900 transition-all duration-300"
+                  className="px-12 py-6 border-2 border-orange-400 text-white font-black rounded-xl text-xl hover:bg-orange-500 hover:border-orange-500 transition-all duration-300 relative overflow-hidden"
                 >
-                  Call (530) 226-0701
+                  <span className="relative z-10">Call (530) 226-0701</span>
+                  <div className="shine-effect"></div>
                 </motion.button>
               </div>
             </div>

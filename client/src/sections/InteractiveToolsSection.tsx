@@ -210,14 +210,38 @@ export const InteractiveToolsSection: React.FC = () => {
               </p>
               
               <motion.button
-                className="elite-solar-button px-12 py-4 text-xl font-bold rounded-2xl"
+                className="button-primary px-12 py-4 text-xl font-bold rounded-2xl"
                 whileHover={{ scale: 1.05, y: -3 }}
                 whileTap={{ scale: 0.95 }}
               >
+                <div className="solar-panel-grid">
+                  <div>
+                    {[...Array(9)].map((_, i) => (
+                      <div key={i} className="solar-panel-cell"></div>
+                    ))}
+                  </div>
+                </div>
+                
+                <div className="solar-rays">
+                  <div className="solar-ray-animation">
+                    {[...Array(8)].map((_, i) => (
+                      <div
+                        key={i}
+                        className="solar-ray"
+                        style={{
+                          transform: `rotate(${i * 45}deg) translateY(-16px)`
+                        }}
+                      />
+                    ))}
+                  </div>
+                </div>
+                
                 <span className="relative z-10 flex items-center gap-3">
                   <Wrench className="w-6 h-6" />
                   Schedule Professional Assessment
                 </span>
+                
+                <div className="shine-effect"></div>
               </motion.button>
             </div>
           </div>
