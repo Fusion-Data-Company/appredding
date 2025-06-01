@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Sun, Battery, Zap, Shield, ArrowRight, Phone, Mail, Calculator } from "lucide-react";
 
 const SolarSalesFunnelSection = () => {
-  const [selectedFunnel, setSelectedFunnel] = useState(null);
+  const [selectedFunnel, setSelectedFunnel] = useState<any>(null);
 
   const salesFunnels = [
     {
@@ -60,7 +60,7 @@ const SolarSalesFunnelSection = () => {
     }
   ];
 
-  const LeadCaptureForm = ({ funnelType, onClose }) => {
+  const LeadCaptureForm = ({ funnelType, onClose }: { funnelType: string; onClose: () => void }) => {
     const [formData, setFormData] = useState({
       firstName: "",
       lastName: "",
@@ -73,7 +73,7 @@ const SolarSalesFunnelSection = () => {
       source: funnelType
     });
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e: React.FormEvent) => {
       e.preventDefault();
       
       // Here we would integrate with the CRM
@@ -223,7 +223,7 @@ const SolarSalesFunnelSection = () => {
   };
 
   return (
-    <section className="relative py-32 bg-gradient-to-br from-yellow-50 via-orange-50 to-amber-50 overflow-hidden">
+    <section className="relative py-32 bg-gradient-to-br from-yellow-100 via-orange-100 to-amber-100 overflow-hidden">
       {/* Solar Light Effects */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-r from-yellow-200/20 via-orange-200/15 to-amber-200/20"></div>
@@ -242,10 +242,10 @@ const SolarSalesFunnelSection = () => {
           className="text-center mb-20"
         >
           {/* Solar Typography */}
-          <h2 className="text-6xl md:text-7xl lg:text-8xl font-black text-gray-800 mb-12 leading-tight">
-            Find Your Perfect{" "}
+          <h2 className="text-6xl md:text-7xl lg:text-8xl font-black mb-12 leading-tight drop-shadow-md">
+            <span className="bg-gradient-to-r from-orange-800 via-red-700 to-amber-800 bg-clip-text text-transparent">Find Your Perfect</span>{" "}
             <span className="relative inline-block">
-              <span className="bg-gradient-to-r from-orange-600 via-red-600 to-amber-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-orange-700 via-red-600 to-amber-700 bg-clip-text text-transparent drop-shadow-lg">
                 Solar Solution
               </span>
               <div className="absolute -inset-2 bg-gradient-to-r from-yellow-300/30 to-orange-300/30 blur-2xl -z-10 animate-pulse"></div>
