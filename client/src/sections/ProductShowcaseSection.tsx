@@ -3,7 +3,7 @@ import backgroundImage from '@assets/Untitled design (3).png';
 
 const ProductShowcaseSection: React.FC = () => {
   return (
-    <section className="py-8 relative bg-black">
+    <section className="pt-2 pb-8 relative bg-black">
       <div className="w-full">
         <img 
           src={backgroundImage}
