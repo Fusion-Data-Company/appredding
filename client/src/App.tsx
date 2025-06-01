@@ -55,7 +55,7 @@ import { StoreProvider } from "@/contexts/StoreContext";
 
 function Router() {
   const [location] = useLocation();
-  const { metrics, isGoodPerformance } = usePerformance('Router');
+  const { metrics, isGoodPerformance } = usePerformance();
 
   // Preload images when routes change
   useEffect(() => {
@@ -73,12 +73,12 @@ function Router() {
     return () => clearTimeout(timer);
   }, [location]);
 
-  // Log route performance issues
+  // Log route performance issues (reduced frequency)
   useEffect(() => {
-    if (metrics.largestContentfulPaint && !isGoodPerformance.lcp) {
-      console.warn(`Slow page load on ${location}: LCP ${metrics.largestContentfulPaint}ms`);
+    if (metrics.largestContentfulPaint && metrics.largestContentfulPaint > 5000) {
+      console.warn(`Very slow page load on ${location}: LCP ${Math.round(metrics.largestContentfulPaint)}ms`);
     }
-  }, [location, metrics, isGoodPerformance]);
+  }, [location, metrics]);
 
   return (
     <Switch>
@@ -152,7 +152,7 @@ function Router() {
 }
 
 function App() {
-  const { metrics } = usePerformance('App');
+  const { metrics } = usePerformance();
 
   // Preload critical images once when app loads
   useEffect(() => {
@@ -176,10 +176,10 @@ function App() {
         if (lastEntry && lastEntry.startTime > 0) {
           console.log(`Largest Contentful Paint: ${lastEntry.startTime}ms`);
           
-          // Report slow LCP as potential performance issue
-          if (lastEntry.startTime > 2500) {
+          // Report very slow LCP as potential performance issue
+          if (lastEntry.startTime > 5000) {
             errorHandler.reportManualError(
-              `Slow LCP detected: ${lastEntry.startTime}ms`, 
+              `Very slow LCP detected: ${Math.round(lastEntry.startTime)}ms`, 
               'js_error'
             );
           }

@@ -17,7 +17,7 @@ export function PerformanceIndicator({
   showDetails = false, 
   className 
 }: PerformanceIndicatorProps) {
-  const { metrics, isGoodPerformance } = usePerformance('PerformanceIndicator');
+  const { metrics, isGoodPerformance } = usePerformance();
   const [connectionStatus, setConnectionStatus] = useState<'online' | 'offline' | 'slow'>('online');
 
   useEffect(() => {

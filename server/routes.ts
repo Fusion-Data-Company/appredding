@@ -20,6 +20,9 @@ const upload = multer({
 
 const router = Router();
 
+// Add monitoring routes first
+router.use(monitoringRoutes);
+
 // Universal form submission schema - handles ALL website forms
 const universalFormSchema = z.object({
   formType: z.string().min(1, "Form type is required"),

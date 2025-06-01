@@ -24,13 +24,13 @@ interface ComponentMetrics {
 export function usePerformance(componentName?: string) {
   const [metrics, setMetrics] = useState<Partial<PerformanceMetrics>>({});
   const [componentMetrics, setComponentMetrics] = useState<ComponentMetrics | null>(null);
-  const renderStartTime = useRef<number>(Date.now());
+  const renderStartTime = useRef<number>(performance.now());
   const renderCount = useRef<number>(0);
 
-  // Track component performance
+  // Track component performance (optimized to reduce overhead)
   useEffect(() => {
-    if (componentName) {
-      const renderEndTime = Date.now();
+    if (componentName && import.meta.env.DEV) {
+      const renderEndTime = performance.now();
       const renderTime = renderEndTime - renderStartTime.current;
       renderCount.current += 1;
 
@@ -40,9 +40,9 @@ export function usePerformance(componentName?: string) {
         rerenderCount: renderCount.current
       });
 
-      // Log slow renders
-      if (renderTime > 100) {
-        reportError(`Slow render detected: ${componentName} took ${renderTime}ms`, 'js_error');
+      // Only log very slow renders to reduce noise
+      if (renderTime > 200) {
+        reportError(`Slow render detected: ${componentName} took ${Math.round(renderTime)}ms`, 'js_error');
       }
     }
   }, [componentName]);
