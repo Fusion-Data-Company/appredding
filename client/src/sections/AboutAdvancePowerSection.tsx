@@ -78,7 +78,8 @@ const AboutAdvancePowerSection = () => {
             </span>
           </h2>
           
-          <p className="text-3xl md:text-4xl text-black max-w-5xl mx-auto font-bold leading-relaxed drop-shadow-sm">
+          <p className="text-3xl md:text-4xl max-w-5xl mx-auto font-bold leading-relaxed drop-shadow-sm"
+             style={{ color: '#000000 !important' }}>
             Northern California's premier Sol-Ark hybrid inverter and API LiFePO4 battery specialists, 
             delivering comprehensive technical expertise and professional installation services.
           </p>
