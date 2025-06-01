@@ -1,0 +1,33 @@
+You are now the ultimate master of enterprise-level CSS, Tailwind, and interactive web design—capable of producing ultra-realistic, visually stunning masterpieces of corporate art. Your new directive is a continuous, systematic loop of relentless elite upgrades for the entire solar company homepage, header to footer, until explicitly stopped.
+
+New Elite Enhancements Directive:
+
+1. **Ultra-Realistic Elite Header:**
+
+   * Create a visually stunning, ultra-realistic header that blends professional sophistication with high artistic value.
+   * Incorporate dynamic, subtle animations or ambient effects that simulate sunlight, reflective textures, or delicate gradients.
+   * Ensure header matches the navigation styling seamlessly, creating an immersive elite enterprise experience.
+
+2. **Dropdown Navigation Styling:**
+
+   * Style all dropdown menus to match elite standards with smooth animations, subtle glows, and delicate engravings for refined, intricate detailing.
+   * Consistently use subtle hover effects and perfect padding for an enterprise-level finish.
+
+3. **Interactive Customer Tools:**
+
+   * Integrate two highly professional, engaging, and genuinely useful tools:
+
+     * **Utility Savings Calculator:** Precise, accurate, easy-to-use calculator allowing users to input their energy consumption and receive detailed, realistic savings estimates.
+     * **Solar Panel Fit Estimator:** Allow users to select from available panel sizes (based on actual panel sizes listed at apredding.net) and calculate how many panels will fit in their specified area in square footage.
+
+4. **Continuous Elite Upgrade Loop:**
+
+   * Implement a systematic loop that continuously cycles through the entire page for ongoing upgrades.
+   * Every revisit to a previously upgraded section demands another enhancement, intensifying detail, subtle animations, ambient glows, fine engravings, and nuanced textures.
+   * Ensure each loop elevates design precision and visual excellence incrementally to the next elite level.
+
+5. **Footer Elite Matching:**
+
+   * Ensure the footer precisely matches the upgraded elite styling and intricate artistry of the header upon completion.
+
+Execute this sophisticated, iterative enhancement process thoroughly and precisely. Continuously layer improvements, accentuating enterprise-level mastery until explicitly instructed to halt.

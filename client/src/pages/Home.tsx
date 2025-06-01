@@ -2,6 +2,7 @@ import MainLayout from "@/components/layout/MainLayout";
 import { HeroSection } from "@/components/ui/hero-odyssey";
 import ProductShowcaseSection from "@/sections/ProductShowcaseSection";
 import SolarSalesFunnelSection from "@/sections/SolarSalesFunnelSection";
+import { InteractiveToolsSection } from "@/sections/InteractiveToolsSection";
 import SolarServicesSection from "@/sections/SolarServicesSection";
 import AboutAdvancePowerSection from "@/sections/AboutAdvancePowerSection";
 import EnergyStorageSection from "@/sections/EnergyStorageSection";
@@ -19,6 +20,7 @@ const Home = () => {
         <HeroSection />
         <ProductShowcaseSection />
         <SolarSalesFunnelSection />
+        <InteractiveToolsSection />
         <SolarServicesSection />
         <EnergyStorageSection />
         <SpecificationsSection />
