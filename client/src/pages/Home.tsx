@@ -1,7 +1,8 @@
 import MainLayout from "@/components/layout/MainLayout";
 import { HeroSection } from "@/components/ui/hero-odyssey";
-import { PerformanceMonitor } from "@/components/ui/performance-monitor";
 import { LazySection } from "@/components/ui/lazy-section";
+import { OptimizedImage } from "@/components/ui/image-optimizer";
+import { PerformanceMonitor } from "@/components/ui/performance-monitor";
 import ProductShowcaseSection from "@/sections/ProductShowcaseSection";
 import SolarSalesFunnelSection from "@/sections/SolarSalesFunnelSection";
 import { InteractiveToolsSection } from "@/sections/InteractiveToolsSection";

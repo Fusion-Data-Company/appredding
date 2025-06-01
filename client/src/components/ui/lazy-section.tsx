@@ -1,66 +1,89 @@
 /**
  * Lazy Loading Section Component
- * Improves page performance by loading sections only when needed
+ * Optimizes page load by deferring non-critical sections
  */
 
-import { useState, useRef, useEffect, ReactNode } from 'react';
-import { LoadingSkeleton } from '@/components/ui/loading-skeleton';
-import { createLazyLoader } from '@/utils/performance-optimizer';
+import { useState, useEffect, useRef, ReactNode } from 'react';
+import { cn } from '@/lib/utils';
 
 interface LazySectionProps {
   children: ReactNode;
-  fallback?: ReactNode;
-  rootMargin?: string;
-  threshold?: number;
   className?: string;
-  minHeight?: string;
+  threshold?: number;
+  rootMargin?: string;
+  fallback?: ReactNode;
+  priority?: boolean;
 }
 
 export function LazySection({
   children,
-  fallback,
-  rootMargin = '100px',
+  className,
   threshold = 0.1,
-  className = '',
-  minHeight = '200px'
+  rootMargin = '100px 0px',
+  fallback,
+  priority = false
 }: LazySectionProps) {
-  const [isVisible, setIsVisible] = useState(false);
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [isVisible, setIsVisible] = useState(priority);
+  const [hasLoaded, setHasLoaded] = useState(priority);
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!sectionRef.current) return;
+    if (priority) return;
 
-    const observer = createLazyLoader(
-      (entry) => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          // Add a small delay to ensure smooth scrolling
-          setTimeout(() => setIsLoaded(true), 50);
-          observer.unobserve(entry.target);
+          // Add small delay to ensure smooth rendering
+          setTimeout(() => setHasLoaded(true), 50);
+          observer.disconnect();
         }
       },
-      { rootMargin, threshold }
+      {
+        threshold,
+        rootMargin
+      }
     );
 
-    observer.observe(sectionRef.current);
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
 
     return () => observer.disconnect();
-  }, [rootMargin, threshold]);
+  }, [priority, threshold, rootMargin]);
 
   return (
     <div 
-      ref={sectionRef} 
-      className={className}
-      style={{ minHeight: isLoaded ? 'auto' : minHeight }}
+      ref={sectionRef}
+      className={cn(
+        "transition-opacity duration-500",
+        hasLoaded ? "opacity-100" : "opacity-0",
+        className
+      )}
     >
-      {isLoaded ? (
-        children
-      ) : isVisible ? (
-        fallback || <LoadingSkeleton className="w-full h-48" />
+      {isVisible ? (
+        <div className={hasLoaded ? "animate-in slide-in-from-bottom-4 duration-500" : ""}>
+          {children}
+        </div>
       ) : (
-        <div style={{ height: minHeight }} className="bg-transparent" />
+        fallback || (
+          <div className="h-32 bg-gray-100 animate-pulse rounded-lg" />
+        )
       )}
     </div>
   );
+}
+
+// Higher-order component for lazy loading
+export function withLazyLoading<P extends object>(
+  Component: React.ComponentType<P>,
+  options: Partial<LazySectionProps> = {}
+) {
+  return function LazyLoadedComponent(props: P) {
+    return (
+      <LazySection {...options}>
+        <Component {...props} />
+      </LazySection>
+    );
+  };
 }

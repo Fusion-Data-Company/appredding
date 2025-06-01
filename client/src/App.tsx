@@ -7,6 +7,7 @@ import { useEffect, lazy, Suspense } from "react";
 import { preloadCriticalImages } from "@/utils/image-preloader";
 import { errorHandler } from "@/utils/error-handler";
 import { usePerformance } from "@/hooks/use-performance";
+import { initializeCriticalPerformance, monitorPerformanceBudget } from "@/utils/performance-critical";
 import { SuspenseFallback } from "@/components/ui/enhanced-loading";
 import { PerformanceIndicator } from "@/components/ui/performance-indicator";
 import NotFound from "@/pages/not-found";
