@@ -135,14 +135,14 @@ const FAQSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: categoryIndex * 0.2 }}
               viewport={{ once: true }}
-              className="bg-white/90 backdrop-blur-sm rounded-3xl p-8 border border-gray-200 shadow-xl"
+              className="bg-gray-900/95 backdrop-blur-sm rounded-3xl p-8 border border-gray-600 shadow-xl"
             >
               {/* Category Header */}
               <div className="flex items-center gap-4 mb-8">
                 <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-xl text-white">
                   {category.icon}
                 </div>
-                <h3 className="text-3xl font-black text-gray-800">{category.category}</h3>
+                <h3 className="text-3xl font-black text-white">{category.category}</h3>
               </div>
 
               {/* Questions */}
@@ -152,18 +152,18 @@ const FAQSection = () => {
                   const isOpen = openFAQ === faqId;
 
                   return (
-                    <div key={questionIndex} className="border border-gray-200 rounded-xl overflow-hidden">
+                    <div key={questionIndex} className="border border-gray-600 rounded-xl overflow-hidden">
                       <button
                         onClick={() => toggleFAQ(categoryIndex, questionIndex)}
-                        className="w-full px-6 py-4 text-left bg-gray-50 hover:bg-gray-100 transition-colors duration-200 flex items-center justify-between"
+                        className="w-full px-6 py-4 text-left bg-gray-800 hover:bg-gray-700 transition-colors duration-200 flex items-center justify-between"
                       >
-                        <span className="text-lg font-semibold text-gray-800 pr-4">
+                        <span className="text-lg font-semibold text-white pr-4">
                           {faq.question}
                         </span>
                         {isOpen ? (
-                          <ChevronUp className="w-5 h-5 text-gray-600 flex-shrink-0" />
+                          <ChevronUp className="w-5 h-5 text-gray-300 flex-shrink-0" />
                         ) : (
-                          <ChevronDown className="w-5 h-5 text-gray-600 flex-shrink-0" />
+                          <ChevronDown className="w-5 h-5 text-gray-300 flex-shrink-0" />
                         )}
                       </button>
                       
@@ -173,8 +173,8 @@ const FAQSection = () => {
                         transition={{ duration: 0.3 }}
                         className="overflow-hidden"
                       >
-                        <div className="px-6 py-4 bg-white">
-                          <p className="text-gray-700 leading-relaxed">
+                        <div className="px-6 py-4 bg-gray-800">
+                          <p className="text-gray-300 leading-relaxed">
                             {faq.answer}
                           </p>
                         </div>

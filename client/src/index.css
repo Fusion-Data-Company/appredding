@@ -16,13 +16,13 @@
 /* Proper Text Contrast Rules - Simple and Clean */
 
 /* Dark text on light backgrounds */
-.bg-white *:not(.button-primary *):not(.bg-gradient-to-r *),
-.bg-gray-50 *:not(.button-primary *):not(.bg-gradient-to-r *),
-.bg-gray-100 *:not(.button-primary *):not(.bg-gradient-to-r *),
-.bg-yellow-50 *:not(.button-primary *):not(.bg-gradient-to-r *),
-.bg-orange-50 *:not(.button-primary *):not(.bg-gradient-to-r *),
-.bg-blue-50 *:not(.button-primary *):not(.bg-gradient-to-r *),
-.bg-purple-50 *:not(.button-primary *):not(.bg-gradient-to-r *) {
+.bg-white *:not(.button-primary *):not(.bg-gradient-to-r *):not(.bg-gray-800 *):not(.bg-gray-900 *),
+.bg-gray-50 *:not(.button-primary *):not(.bg-gradient-to-r *):not(.bg-gray-800 *):not(.bg-gray-900 *),
+.bg-gray-100 *:not(.button-primary *):not(.bg-gradient-to-r *):not(.bg-gray-800 *):not(.bg-gray-900 *),
+.bg-yellow-50 *:not(.button-primary *):not(.bg-gradient-to-r *):not(.bg-gray-800 *):not(.bg-gray-900 *),
+.bg-orange-50 *:not(.button-primary *):not(.bg-gradient-to-r *):not(.bg-gray-800 *):not(.bg-gray-900 *),
+.bg-blue-50 *:not(.button-primary *):not(.bg-gradient-to-r *):not(.bg-gray-800 *):not(.bg-gray-900 *),
+.bg-purple-50 *:not(.button-primary *):not(.bg-gradient-to-r *):not(.bg-gray-800 *):not(.bg-gray-900 *) {
   color: #1f2937 !important;
 }
 
@@ -34,7 +34,9 @@
 .bg-gradient-to-r.from-blue-600 *,
 .bg-gradient-to-br.from-gray-900 *,
 .button-primary *,
-header * {
+header *,
+[class*="bg-gray-900"] *,
+[class*="bg-gray-800"] * {
   color: white !important;
 }
 
