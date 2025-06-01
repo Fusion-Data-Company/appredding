@@ -51,38 +51,28 @@ const PitchDeckTrigger: React.FC<PitchDeckTriggerProps> = ({
       >
         <button
           onClick={openModal}
-          className="relative overflow-hidden bg-gradient-to-br from-yellow-400 via-orange-500 to-red-500 hover:from-yellow-300 hover:via-orange-400 hover:to-red-400 text-white font-bold py-4 px-6 rounded-2xl shadow-2xl transform transition-all duration-300"
-          style={{
-            boxShadow: "0 0 30px rgba(255, 193, 7, 0.6), 0 8px 20px rgba(255, 87, 34, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3)"
-          }}
+          className="button-primary relative overflow-hidden text-white font-bold py-4 px-6 rounded-2xl shadow-2xl transform transition-all duration-300"
         >
-          {/* Solar panel grid background pattern */}
-          <div className="absolute inset-0 opacity-20">
-            <div className="grid grid-cols-3 gap-0.5 h-full w-full">
+          <div className="solar-panel-grid">
+            <div>
               {[...Array(9)].map((_, i) => (
-                <div key={i} className="bg-white/30 rounded-sm"></div>
+                <div key={i} className="solar-panel-cell"></div>
               ))}
             </div>
           </div>
           
-          {/* Animated sun rays */}
-          <div className="absolute inset-0">
-            <motion.div
-              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
-              animate={{ rotate: 360 }}
-              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-            >
+          <div className="solar-rays">
+            <div className="solar-ray-animation">
               {[...Array(8)].map((_, i) => (
                 <div
                   key={i}
-                  className="absolute w-0.5 h-4 bg-white/40"
+                  className="solar-ray"
                   style={{
-                    transformOrigin: "bottom center",
                     transform: `rotate(${i * 45}deg) translateY(-16px)`
                   }}
                 />
               ))}
-            </motion.div>
+            </div>
           </div>
           
           {/* Content */}
@@ -93,8 +83,7 @@ const PitchDeckTrigger: React.FC<PitchDeckTriggerProps> = ({
             </span>
           </div>
           
-          {/* Shine effect */}
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 transform translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
+          <div className="shine-effect"></div>
         </button>
       </motion.div>
       
