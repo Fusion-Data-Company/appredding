@@ -1,14 +1,33 @@
-import React, { useState } from "react";
-import { motion } from "framer-motion";
-import { Calculator, Grid3X3, Wrench, TrendingUp } from "lucide-react";
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Calculator, Grid3X3, Wrench, TrendingUp, Sparkles, Zap, Battery, Sun } from "lucide-react";
 import { UtilitySavingsCalculator } from "@/components/UtilitySavingsCalculator";
 import { SolarPanelFitEstimator } from "@/components/SolarPanelFitEstimator";
 
 export const InteractiveToolsSection: React.FC = () => {
   const [activeTab, setActiveTab] = useState("calculator");
+  const [ultraMode, setUltraMode] = useState(0);
+
+  useEffect(() => {
+    const modeTimer = setInterval(() => {
+      setUltraMode(prev => (prev + 1) % 4);
+    }, 3000);
+
+    return () => clearInterval(modeTimer);
+  }, []);
+
+  const getUltraModeClass = () => {
+    const modes = [
+      "from-orange-50 via-amber-50 to-yellow-50",
+      "from-orange-100 via-amber-100 to-yellow-100", 
+      "from-orange-75 via-amber-75 to-yellow-75",
+      "from-orange-125 via-amber-125 to-yellow-125"
+    ];
+    return modes[ultraMode];
+  };
 
   return (
-    <section className="relative py-32 bg-gradient-to-br from-indigo-100 via-blue-100 to-cyan-100 overflow-hidden">
+    <section className={`relative py-40 bg-gradient-to-br ${getUltraModeClass()} overflow-hidden transition-all duration-2000`}>
       {/* Ultra-Realistic Background Effects */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-r from-indigo-200/20 via-blue-200/15 to-cyan-200/20"></div>
