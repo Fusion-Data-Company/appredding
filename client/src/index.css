@@ -12,6 +12,20 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Force subtitle text to be black - override all restrictions */
+section p[class*="text-3xl"],
+section p[class*="text-4xl"] {
+  color: #000000 !important;
+  font-weight: bold !important;
+}
+
+/* Additional override for specific sections */
+.bg-gradient-to-br p[class*="text-3xl"],
+.bg-gradient-to-br p[class*="text-4xl"] {
+  color: #000000 !important;
+  font-weight: bold !important;
+}
+
 /* Ultra-Elite Enterprise Button Components */
 @layer components {
   .elite-solar-button {
