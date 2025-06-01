@@ -3,7 +3,7 @@ import backgroundImage from '@assets/Untitled design (3).png';
 
 const ProductShowcaseSection: React.FC = () => {
   return (
-    <section className="py-20 px-4 relative">
+    <section className="py-20 px-4 relative bg-black">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-white mb-8">Our Solar Solutions</h2>
