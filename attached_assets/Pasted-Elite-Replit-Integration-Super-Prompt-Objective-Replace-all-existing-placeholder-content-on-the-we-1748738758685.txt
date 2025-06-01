@@ -1,0 +1,55 @@
+Elite Replit Integration Super Prompt
+
+Objective:
+Replace all existing placeholder content on the website with detailed, precise, and in-depth information on Sol-Ark Inverters (specifically the 12K and 15K models) and API LiFePO4 Stackable Battery Systems. Deeply embed product knowledge, real-world operational data, troubleshooting guides, comprehensive specifications, and authentic customer-focused explanations throughout the existing website layout without creating new pages or altering existing graphics.
+
+Core Integration Instructions:
+	•	Comprehensive Content Replacement:
+Replace every placeholder or filler text with accurate and detailed technical specifications, operational explanations, and maintenance/troubleshooting information for the Sol-Ark and API products. Ensure clarity, depth, and accuracy at all levels.
+	•	Deep Product Knowledge Integration:
+Integrate highly specific product knowledge:
+	•	Sol-Ark Inverters: 12K and 15K model specs, operational features, installation guidelines, fault codes, troubleshooting steps.
+	•	API LiFePO4 Batteries: Stackable power system details, battery management system (BMS), installation, integration instructions, safety guidelines, lifecycle maintenance.
+	•	Real-World User & Maintenance Perspective:
+Write from the perspective of actual users and maintenance personnel. Provide realistic examples, frequently encountered issues, typical resolutions, and user-friendly troubleshooting methods.
+	•	Detailed Operational Explanations:
+Clearly explain functionalities, including dual AC outputs, MPPT solar optimization, battery integration, closed-loop communication, and grid interaction capabilities.
+
+Sections for Detailed Content Integration:
+
+1. Homepage & Product Overviews:
+	•	Summarize Sol-Ark inverter versatility, highlighting battery compatibility, ease of installation, grid-tied/off-grid flexibility, and robust performance.
+	•	Clearly outline API battery systems’ safety, modular scalability, long lifecycle, and compatibility with Sol-Ark inverters.
+
+2. Specifications & Features Pages:
+	•	Insert comprehensive specification tables and clear bullet points explaining detailed technical data.
+	•	Feature clear, concise explanations of unique selling points (e.g., EMP hardening, dual outputs, active cell balancing).
+
+3. Installation & Maintenance Sections:
+	•	Provide step-by-step installation procedures for both inverter and battery systems, emphasizing practical considerations, common pitfalls, and safety checks.
+	•	Embed thorough maintenance schedules, best practices, and preventive maintenance tasks.
+
+4. Troubleshooting & Fault Codes:
+	•	Integrate fault code cross-reference tables directly into troubleshooting sections.
+	•	Include real-case scenarios and troubleshooting steps for rapid problem resolution.
+
+5. FAQ & Resource Sections:
+	•	Replace generic FAQs with extensive, targeted Q&A based on genuine operational and technical inquiries about Sol-Ark and API products.
+	•	Provide links or embedded access to detailed user manuals, quick-reference guides, and installation documentation.
+
+Conversational Chatbot Enhancement:
+	•	Equip the chatbot with this comprehensive knowledge base, allowing it to answer in-depth technical questions, troubleshoot common and uncommon issues, and guide users through maintenance and operational procedures.
+	•	Ensure chatbot responses are precise, technically accurate, and provide direct navigation guidance to relevant site sections or manuals.
+
+Voice Interaction Integration (Eleven Labs):
+	•	Provide clear guidelines for integrating an Eleven Labs voice prompt. Ensure the conversational agent’s speech is authoritative yet user-friendly, ideal for troubleshooting guidance and detailed product explanations.
+
+Real User Reviews and Case Studies:
+	•	Integrate credible customer reviews, maintenance team testimonials, and case studies highlighting real-world usage, reliability, and effectiveness of the products.
+
+Quality Assurance and Content Verification:
+	•	Include clear instructions for quality checks, ensuring all content accurately reflects product manuals, real-world usage scenarios, and technical documentation provided.
+
+⸻
+
+Execute this mega-prompt with detailed precision, replacing every filler text with meaningful, authoritative product information. Preserve existing graphics and structural integrity while ensuring the website becomes a premier resource on Sol-Ark inverters and API LiFePO4 battery systems.
