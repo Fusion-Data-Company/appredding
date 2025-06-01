@@ -81,7 +81,7 @@ const EnergyStorageSection = () => {
             </span>
           </h2>
           
-          <p className="text-3xl md:text-4xl text-gray-800 max-w-5xl mx-auto font-medium leading-relaxed mb-8 drop-shadow-sm">
+          <p className="text-3xl md:text-4xl text-black max-w-5xl mx-auto font-bold leading-relaxed mb-8 drop-shadow-sm">
             Modular LiFePO4 battery systems with built-in BMS, active cell balancing, 
             and seamless Sol-Ark inverter integration for maximum safety and performance.
           </p>
@@ -170,25 +170,34 @@ const EnergyStorageSection = () => {
             
             <div className="relative z-10 text-center">
               <div className="text-6xl mb-4">🔋💰</div>
-              <h3 className="text-4xl md:text-5xl font-black text-white mb-6">
+              <h3 className="text-4xl md:text-5xl font-black text-white mb-6"
+                  style={{ 
+                    textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8), 1px 1px 2px rgba(0, 0, 0, 0.6)',
+                    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%)',
+                    WebkitBackgroundClip: 'text',
+                    backgroundClip: 'text'
+                  }}>
                 Battery Storage = Maximum Savings
               </h3>
-              <p className="text-2xl text-green-100 mb-8 max-w-4xl mx-auto leading-relaxed">
+              <p className="text-2xl text-white mb-8 max-w-4xl mx-auto leading-relaxed font-bold"
+                 style={{ 
+                   textShadow: '1px 1px 3px rgba(0, 0, 0, 0.7), 0px 0px 2px rgba(0, 0, 0, 0.5)'
+                 }}>
                 Store your solar energy and use it when electricity rates are highest. 
                 Battery storage can increase your solar savings by 30-50% while providing backup power security.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-white">30-50%</div>
-                  <div className="text-green-200">More Solar Savings</div>
+                  <div className="text-3xl font-bold text-white" style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8)' }}>30-50%</div>
+                  <div className="text-white font-bold" style={{ textShadow: '1px 1px 2px rgba(0, 0, 0, 0.7)' }}>More Solar Savings</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-white">24/7</div>
-                  <div className="text-green-200">Backup Power</div>
+                  <div className="text-3xl font-bold text-white" style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8)' }}>24/7</div>
+                  <div className="text-white font-bold" style={{ textShadow: '1px 1px 2px rgba(0, 0, 0, 0.7)' }}>Backup Power</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-white">$0</div>
-                  <div className="text-green-200">Down Payment</div>
+                  <div className="text-3xl font-bold text-white" style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8)' }}>$0</div>
+                  <div className="text-white font-bold" style={{ textShadow: '1px 1px 2px rgba(0, 0, 0, 0.7)' }}>Down Payment</div>
                 </div>
               </div>
             </div>

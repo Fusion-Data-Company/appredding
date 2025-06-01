@@ -152,7 +152,7 @@ const SolarServicesSection = () => {
             </span>
           </h2>
           
-          <p className="text-3xl md:text-4xl text-gray-800 max-w-5xl mx-auto font-medium leading-relaxed drop-shadow-sm">
+          <p className="text-3xl md:text-4xl text-black max-w-5xl mx-auto font-bold leading-relaxed drop-shadow-sm">
             All-in-one hybrid inverters with API LiFePO4 stackable battery systems. 
             Professional installation, comprehensive troubleshooting, and expert maintenance services.
           </p>
@@ -194,11 +194,20 @@ const SolarServicesSection = () => {
                   </div>
 
                   {/* Enhanced Typography */}
-                  <h3 className="text-3xl font-black text-white mb-6 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-yellow-300 group-hover:to-orange-300 group-hover:bg-clip-text transition-all duration-300">
+                  <h3 className="text-3xl font-black text-white mb-6 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-yellow-300 group-hover:to-orange-300 group-hover:bg-clip-text transition-all duration-300"
+                      style={{ 
+                        textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8), 1px 1px 2px rgba(0, 0, 0, 0.6)',
+                        background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%)',
+                        WebkitBackgroundClip: 'text',
+                        backgroundClip: 'text'
+                      }}>
                     {service.title}
                   </h3>
                   
-                  <p className="text-xl text-gray-200 mb-8 leading-relaxed">
+                  <p className="text-xl text-white mb-8 leading-relaxed font-bold"
+                     style={{ 
+                       textShadow: '1px 1px 3px rgba(0, 0, 0, 0.7), 0px 0px 2px rgba(0, 0, 0, 0.5)'
+                     }}>
                     {service.description}
                   </p>
 
@@ -207,7 +216,8 @@ const SolarServicesSection = () => {
                     <div className="mb-6 p-4 bg-gradient-to-r from-green-600 to-emerald-600 rounded-xl border-2 border-green-400 shadow-lg">
                       <div className="flex items-center gap-2">
                         <span className="text-2xl">💰</span>
-                        <span className="text-white font-bold text-lg">{service.savings}</span>
+                        <span className="text-white font-bold text-lg"
+                              style={{ textShadow: '1px 1px 2px rgba(0, 0, 0, 0.7)' }}>{service.savings}</span>
                       </div>
                     </div>
                   )}
@@ -215,7 +225,8 @@ const SolarServicesSection = () => {
                   {/* Premium Feature List */}
                   <ul className="space-y-3">
                     {service.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center text-gray-300 text-lg">
+                      <li key={featureIndex} className="flex items-center text-white text-lg font-semibold"
+                          style={{ textShadow: '1px 1px 2px rgba(0, 0, 0, 0.6)' }}>
                         <div className={`w-2 h-2 bg-gradient-to-r ${service.color} rounded-full mr-4 group-hover:scale-150 transition-transform duration-300`}></div>
                         {feature}
                       </li>
