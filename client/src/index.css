@@ -53,6 +53,17 @@ section p[class*="text-4xl"] {
   font-weight: bold !important;
 }
 
+/* Exceptions: Preserve white text for specific buttons and blue cards */
+.button-primary *,
+.button-primary span,
+.bg-gradient-to-r.from-indigo-600 *,
+.bg-gradient-to-r.from-indigo-600 h3,
+.bg-gradient-to-r.from-indigo-600 p,
+.bg-gray-900 *,
+.bg-gray-900 span {
+  color: white !important;
+}
+
 /* Preserve white text for specific sections that should remain white */
 .bg-gradient-to-r.from-gray-800 *,
 .bg-gradient-to-r.from-gray-900 *,
