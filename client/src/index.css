@@ -34,7 +34,7 @@
   text-shadow: 0 1px 2px rgba(255,255,255,0.5);
 }
 
-/* White text on dark backgrounds with enhanced readability */
+/* White text on dark backgrounds with enhanced readability and dark outlines */
 .bg-gray-800 *,
 .bg-gray-900 *,
 .bg-black *,
@@ -83,10 +83,15 @@ header *,
 [class*="via-orange-900"] *,
 [class*="via-orange-800"] *{
   color: white !important;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+  text-shadow: 
+    -1px -1px 0 rgba(0,0,0,0.8),
+    1px -1px 0 rgba(0,0,0,0.8),
+    -1px 1px 0 rgba(0,0,0,0.8),
+    1px 1px 0 rgba(0,0,0,0.8),
+    0 2px 4px rgba(0,0,0,0.5);
 }
 
-/* Comprehensive dark background text enforcement */
+/* Comprehensive dark background text enforcement with enhanced outlines */
 .bg-gradient-to-br.from-gray-900 *,
 .bg-gradient-to-br.from-gray-800 *,
 .bg-gradient-to-br.from-black *,
@@ -101,7 +106,12 @@ header *,
 .bg-gradient-to-br.from-orange-900 *,
 .bg-gradient-to-br.from-orange-800 * {
   color: white !important;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+  text-shadow: 
+    -1px -1px 0 rgba(0,0,0,0.8),
+    1px -1px 0 rgba(0,0,0,0.8),
+    -1px 1px 0 rgba(0,0,0,0.8),
+    1px 1px 0 rgba(0,0,0,0.8),
+    0 2px 4px rgba(0,0,0,0.5);
 }
 
 /* Force white text on any dark card container */
@@ -139,7 +149,7 @@ button *,
   color: inherit !important;
 }
 
-/* Universal dark background text fix - catch all remaining cases */
+/* Universal dark background text fix with enhanced outlines */
 div[class*="bg-gradient-to-br"][class*="gray-9"] *,
 div[class*="bg-gradient-to-br"][class*="gray-8"] *,
 div[class*="bg-gradient-to-r"][class*="gray-9"] *,
@@ -157,7 +167,12 @@ div[class*="bg-gradient-to-br"][class*="orange-8"] *,
 div[class*="bg-gradient-to-br"][class*="black"] *,
 .relative.bg-gradient-to-br *:not(.bg-white *):not(.bg-gray-50 *):not(.bg-gray-100 *) {
   color: white !important;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+  text-shadow: 
+    -1px -1px 0 rgba(0,0,0,0.8),
+    1px -1px 0 rgba(0,0,0,0.8),
+    -1px 1px 0 rgba(0,0,0,0.8),
+    1px 1px 0 rgba(0,0,0,0.8),
+    0 2px 4px rgba(0,0,0,0.4);
 }
 
 /* Emergency override for any remaining black text on dark backgrounds */
@@ -171,6 +186,49 @@ div[class*="bg-gradient-to-br"][class*="black"] *,
 .text-gray-900,
 .text-black {
   color: white !important;
+}
+
+/* Universal text outline utility classes for maximum readability */
+.text-outlined {
+  text-shadow: 
+    -1px -1px 0 rgba(0,0,0,0.8),
+    1px -1px 0 rgba(0,0,0,0.8),
+    -1px 1px 0 rgba(0,0,0,0.8),
+    1px 1px 0 rgba(0,0,0,0.8),
+    0 2px 4px rgba(0,0,0,0.5);
+}
+
+.text-outlined-light {
+  text-shadow: 
+    -0.5px -0.5px 0 rgba(0,0,0,0.6),
+    0.5px -0.5px 0 rgba(0,0,0,0.6),
+    -0.5px 0.5px 0 rgba(0,0,0,0.6),
+    0.5px 0.5px 0 rgba(0,0,0,0.6),
+    0 1px 2px rgba(0,0,0,0.3);
+}
+
+/* Apply text outlines to all white text globally for better readability */
+.text-white,
+[class*="text-white"],
+.text-gray-100,
+.text-gray-200,
+.text-gray-300 {
+  text-shadow: 
+    -0.5px -0.5px 0 rgba(0,0,0,0.7),
+    0.5px -0.5px 0 rgba(0,0,0,0.7),
+    -0.5px 0.5px 0 rgba(0,0,0,0.7),
+    0.5px 0.5px 0 rgba(0,0,0,0.7),
+    0 1px 3px rgba(0,0,0,0.4);
+}
+
+/* Enhanced text outlines for headings */
+h1, h2, h3, h4, h5, h6 {
+  text-shadow: 
+    -1px -1px 0 rgba(0,0,0,0.6),
+    1px -1px 0 rgba(0,0,0,0.6),
+    -1px 1px 0 rgba(0,0,0,0.6),
+    1px 1px 0 rgba(0,0,0,0.6),
+    0 2px 4px rgba(0,0,0,0.3);
 }
 
 /* Advanced Animation System */
