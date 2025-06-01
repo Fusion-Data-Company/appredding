@@ -6,6 +6,7 @@ import SolarServicesSection from "@/sections/SolarServicesSection";
 import AboutAdvancePowerSection from "@/sections/AboutAdvancePowerSection";
 import EnergyStorageSection from "@/sections/EnergyStorageSection";
 import TroubleshootingSection from "@/sections/TroubleshootingSection";
+import SpecificationsSection from "@/sections/SpecificationsSection";
 import SolarTestimonialsSection from "@/sections/SolarTestimonialsSection";
 import ContactSection from "@/sections/ContactSection";
 import PitchDeckTrigger from "@/components/PitchDeck/PitchDeckTrigger";
@@ -19,6 +20,8 @@ const Home = () => {
         <SolarSalesFunnelSection />
         <SolarServicesSection />
         <EnergyStorageSection />
+        <SpecificationsSection />
+        <TroubleshootingSection />
         <AboutAdvancePowerSection />
         <SolarTestimonialsSection />
         <ContactSection />
