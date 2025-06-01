@@ -34,7 +34,7 @@ export function PerformanceMonitor({ className, minimal = false }: PerformanceMo
         <div className="flex items-center gap-2">
           <div className={cn(
             "w-2 h-2 rounded-full",
-            isGoodPerformance.overall ? "bg-green-500" : "bg-red-500"
+            (isGoodPerformance.lcp && isGoodPerformance.fid && isGoodPerformance.cls) ? "bg-green-500" : "bg-red-500"
           )} />
           {metrics.largestContentfulPaint && (
             <span className={getPerformanceColor(metrics.largestContentfulPaint, 2500, 4000)}>
@@ -59,7 +59,7 @@ export function PerformanceMonitor({ className, minimal = false }: PerformanceMo
       >
         <div className={cn(
           "w-2 h-2 rounded-full flex-shrink-0",
-          isGoodPerformance.overall ? "bg-green-500" : "bg-red-500"
+          (isGoodPerformance.lcp && isGoodPerformance.fid && isGoodPerformance.cls) ? "bg-green-500" : "bg-red-500"
         )} />
         {!isExpanded && <span>Perf</span>}
       </button>
@@ -108,7 +108,7 @@ export function PerformanceMonitor({ className, minimal = false }: PerformanceMo
 
           <div className="pt-2 border-t border-gray-600 text-gray-400">
             <div className="text-xs">
-              Overall: {isGoodPerformance.overall ? '✓ Good' : '✗ Needs Work'}
+              Overall: {(isGoodPerformance.lcp && isGoodPerformance.fid && isGoodPerformance.cls) ? '✓ Good' : '✗ Needs Work'}
             </div>
           </div>
         </div>
