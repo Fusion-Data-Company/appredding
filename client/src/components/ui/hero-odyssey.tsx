@@ -409,7 +409,7 @@ export const HeroSection: React.FC = () => {
       >
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="absolute top-[55%] left-[40%] transform -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] rounded-full bg-gradient-to-b from-blue-400/30 to-purple-500/20 blur-[100px]"></div>
-        <div className="absolute top-0 w-[100%] left-[40%] transform -translate-x-1/2 h-[150vh]">
+        <div className="absolute top-0 w-[100%] left-[40%] transform -translate-x-1/2 h-full">
           <Lightning
             hue={lightningHue}
             xOffset={0}
