@@ -107,17 +107,28 @@ class ErrorHandler {
 
     try {
       // Send errors to backend for logging
-      await fetch('/api/errors', {
+      const response = await fetch('/api/errors', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ errors: errorsToFlush }),
       });
+
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+      }
+
+      const result = await response.json();
+      if (import.meta.env.DEV) {
+        console.log(`Successfully logged ${result.count} errors to backend`);
+      }
     } catch (error) {
       // If we can't send errors, add them back to queue
       this.errorQueue.unshift(...errorsToFlush);
-      console.warn('Failed to flush errors to backend:', error);
+      if (import.meta.env.DEV) {
+        console.warn('Failed to flush errors to backend:', error);
+      }
     }
   }
 

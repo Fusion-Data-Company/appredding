@@ -58,8 +58,8 @@ export function usePerformance(componentName?: string) {
           if (navigation) {
             setMetrics(prev => ({
               ...prev,
-              pageLoadTime: navigation.loadEventEnd - navigation.navigationStart,
-              timeToInteractive: navigation.domInteractive - navigation.navigationStart
+              pageLoadTime: navigation.loadEventEnd - navigation.fetchStart,
+              timeToInteractive: navigation.domInteractive - navigation.fetchStart
             }));
           }
         }
@@ -97,10 +97,10 @@ export function usePerformance(componentName?: string) {
           // Get FID
           const fidObserver = new PerformanceObserver((list) => {
             const entries = list.getEntries();
-            entries.forEach((entry) => {
+            entries.forEach((entry: any) => {
               setMetrics(prev => ({
                 ...prev,
-                firstInputDelay: entry.processingStart - entry.startTime
+                firstInputDelay: entry.processingStart ? entry.processingStart - entry.startTime : entry.duration
               }));
             });
           });

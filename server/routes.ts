@@ -4,6 +4,7 @@ import { z } from "zod";
 import multer from "multer";
 import { parse } from "csv-parse/sync";
 import crmRoutes from "./routes/crm";
+import monitoringRoutes from "./routes/monitoring";
 
 // Configure multer for file uploads
 const upload = multer({ 
