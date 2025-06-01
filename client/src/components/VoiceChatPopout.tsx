@@ -23,11 +23,11 @@ const VoiceChatPopout = () => {
             transition={{ type: 'spring', stiffness: 350, damping: 25 }}
             className="origin-top-right"
           >
-            <Card className="w-[380px] shadow-2xl bg-gradient-to-br from-gray-900 to-gray-800 border border-blue-500/20 overflow-visible">
-              <CardHeader className="p-4 pb-2 bg-gradient-to-r from-blue-600/20 to-orange-600/20 border-b border-white/10">
+            <Card className="w-[380px] shadow-2xl bg-gradient-to-br from-gray-900 to-gray-800 border border-orange-500/20 overflow-visible">
+              <CardHeader className="p-4 pb-2 bg-gradient-to-r from-orange-600/20 to-orange-600/20 border-b border-white/10">
                 <div className="flex items-center justify-between">
                   <CardTitle className="text-lg font-bold text-white flex items-center gap-2">
-                    <Mic className="h-5 w-5 text-orange-400" />
+                    <Mic className="h-5 w-5 text-orange-400 icon-orange" />
                     <span>Voice Assistant</span>
                   </CardTitle>
                   <div className="flex items-center gap-1">
@@ -84,10 +84,10 @@ const VoiceChatPopout = () => {
             <Button
               onClick={toggleExpanded}
               size="icon"
-              className="voice-chat-shimmer h-16 w-16 rounded-full dark:bg-gradient-to-br dark:from-gray-800 dark:via-gray-700 dark:to-gray-900 bg-gradient-to-br from-gray-100 via-white to-gray-200 dark:shadow-[0_0_20px_rgba(59,130,246,0.5)] shadow-[0_0_15px_rgba(0,0,0,0.2)] border border-gray-200/30 dark:border-blue-600/50 flex items-center justify-center transition-all hover:scale-110 group relative overflow-hidden"
+              className="voice-chat-shimmer h-16 w-16 rounded-full dark:bg-gradient-to-br dark:from-gray-800 dark:via-gray-700 dark:to-gray-900 bg-gradient-to-br from-gray-100 via-white to-gray-200 ambient-orange ambient-orange-hover shadow-[0_0_15px_rgba(255,136,0,0.3)] border border-orange-300/50 flex items-center justify-center transition-all hover:scale-110 group relative overflow-hidden"
             >
               <span className="absolute inset-0 voice-chat-glow"></span>
-              <Mic className="h-8 w-8 dark:text-blue-400 text-blue-600 group-hover:text-blue-500 dark:group-hover:text-blue-300 transition-colors relative z-10" />
+              <Mic className="h-8 w-8 text-orange-500 group-hover:text-orange-400 transition-colors relative z-10 icon-orange" />
             </Button>
           </motion.div>
         )}

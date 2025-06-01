@@ -74,98 +74,59 @@ const ProfessionalHeader = () => {
   ];
 
   return (
-    <header 
-      className={cn(
-        "fixed w-full border-b transition-all duration-300 h-28 flex items-center overflow-hidden",
-        scrolled 
-          ? "border-slate-400 dark:border-zinc-800 shadow-metal" 
-          : "border-slate-400/80 dark:border-zinc-800/80",
-        "after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[1px] after:bg-gradient-to-r after:from-slate-400/40 dark:after:from-zinc-400/30 after:via-slate-400/40 dark:after:via-zinc-400/30 after:to-slate-400/40 dark:after:to-zinc-400/30"
-      )}
-      style={{ zIndex: 2147483646 }}
-    >
-      {/* Stone texture background with frosted glass overlay */}
-      <StoneTextureBackground 
-        className="absolute inset-0" 
-        frostGlassOpacity={scrolled ? 0.4 : 0.3}
-      />
-      
-      {/* Light grey to dark grey gradient overlay */}
-      <div 
-        className="absolute inset-0 z-[1]"
-        style={{
-          background: 'linear-gradient(to bottom, rgba(200, 200, 210, 0.3), rgba(60, 60, 70, 0.5))',
-          pointerEvents: 'none',
-        }}
-      />
-      
-      {/* Noise texture overlay */}
-      <div className="absolute inset-0 bg-[url('/src/assets_dir/images/noise.svg')] opacity-[0.04] bg-repeat bg-[length:200px_200px] mix-blend-overlay pointer-events-none animate-subtle-pulse"></div>
-
-      {/* Advance Power logo positioned at far left edge */}
-      <Link href="/" className="absolute left-0 top-0 h-full flex items-center z-50 transition-transform duration-300 hover:scale-[1.03]" style={{ zIndex: 2147483647 }}>
-        <div className="relative">
-          {/* Minimal tint glow effect behind the logo */}
-          <div className="absolute -inset-1 rounded-md bg-gradient-to-br from-blue-900/5 via-amber-600/5 to-red-600/5 blur-xl -z-10 scale-110 translate-x-[45px] translate-y-[5px] animate-pulse-slow"></div>
+    <header className="fixed top-0 left-0 w-full header-backdrop shadow-lg z-50">
+      <div className="max-w-7xl mx-auto flex justify-between items-center px-4 py-3">
+        {/* Logo */}
+        <Link href="/" className="flex items-center">
+          <img 
+            src={advancePowerLogo} 
+            alt="Advance Power Redding" 
+            className="h-12 w-auto"
+          />
+        </Link>
+        
+        {/* Navigation */}
+        <nav className="hidden lg:flex space-x-6">
+          <Link href="/" className="nav-link">Home</Link>
           
-          <div className="relative">
-            <div className="relative logo-container">
-              <img 
-                src={advancePowerLogo} 
-                alt="Advance Power Redding - Solar Installation & Repair" 
-                className="h-[70px] w-auto relative cursor-pointer logo-3d-effect rounded-lg"
-                style={{ 
-                  filter: 'drop-shadow(0 4px 6px rgba(0, 0, 0, 0.6))',
-                  transform: 'scale(1.05) perspective(800px) rotateY(5deg)',
-                  transformStyle: 'preserve-3d',
-                  marginLeft: '60px',
-                  marginTop: '-6px',
-                  position: 'relative',
-                  zIndex: 2147483647
-                }}
-              />
-              
-              {/* Subtle shine effect */}
-              <div 
-                className="absolute inset-0 opacity-30 pointer-events-none" 
-                style={{ 
-                  background: 'linear-gradient(105deg, transparent 20%, rgba(255, 255, 255, 0.3) 35%, rgba(255, 255, 255, 0.1) 45%, transparent 65%)',
-                  animation: 'logo-shine 8s infinite ease-in-out',
-                  mixBlendMode: 'overlay'
-                }}
-              />
+          {/* Services Dropdown */}
+          <div className="group relative">
+            <span className="nav-link cursor-pointer">Services</span>
+            <div className="dropdown-menu absolute top-full left-0 mt-2 w-64 py-2 invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-200">
+              {solarServices.map((service, index) => (
+                <Link
+                  key={index}
+                  href={service.href}
+                  className="dropdown-menu-item block px-4 py-2 text-sm transition-all duration-200"
+                >
+                  <div>
+                    <div className="font-medium">{service.label}</div>
+                    <div className="text-xs text-gray-500">{service.description}</div>
+                  </div>
+                </Link>
+              ))}
             </div>
           </div>
-        </div>
-      </Link>
-
-      <div className="w-[95%] mx-auto px-4 md:px-6 flex items-center justify-between" style={{ zIndex: 2147483646, position: 'relative' }}>
-        {/* Empty space where the logo used to be */}
-        <div className="flex-grow"></div>
-
-        {/* Premium Desktop Navigation */}
-        <div className="hidden lg:flex items-center justify-end space-x-8 flex-grow" style={{ zIndex: 2147483646, position: 'relative' }}>
-          <div className="flex-grow flex justify-end" style={{ zIndex: 2147483646, position: 'relative' }}>
-            <PremiumNavbar />
-          </div>
-        </div>
+          
+          <Link href="/about" className="nav-link">About</Link>
+          <Link href="#contact" className="nav-link">Contact</Link>
+          
+          {/* Get Free Quote Button */}
+          <button className="button-primary">
+            <span className="relative z-10">Get Free Quote</span>
+            <div className="shine-effect"></div>
+          </button>
+        </nav>
 
         {/* Mobile Menu Button */}
         <button
           onClick={toggleMobileMenu}
-          className="lg:hidden p-2 z-10 rounded-sm bg-gradient-to-br from-gray-100 to-gray-200 dark:from-zinc-800 dark:to-zinc-900
-          text-gray-800 dark:text-gray-200 border border-gray-300 dark:border-zinc-700 shadow-metal
-          hover:shadow-glow-cyan hover:border-gray-400 dark:hover:border-zinc-600 transition-all duration-300 relative overflow-hidden"
+          className="lg:hidden p-2 z-10 rounded-sm bg-white/10 hover:bg-white/20 transition-all duration-300"
         >
-          {/* Shimmer overlay */}
-          <div className="absolute inset-0 rounded-sm opacity-0 hover:opacity-100 bg-gradient-to-r from-transparent via-gray-100/30 to-transparent dark:via-zinc-500/20 animate-shimmer transition-opacity duration-300" />
-          
-          {/* Button gradient hover effect */}
-          <div className="absolute inset-0 rounded-sm opacity-0 hover:opacity-100 bg-gradient-to-t from-gray-300/20 to-white/10 dark:from-zinc-700/30 dark:to-zinc-800/20 transition-opacity duration-300" />
           {mobileMenuOpen ? (
-            <X className="h-5 w-5 text-gray-800 dark:text-gray-200 relative z-10" />
+            <X className="h-5 w-5 text-gray-800" />
           ) : (
-            <MenuIcon className="h-5 w-5 text-gray-800 dark:text-gray-200 relative z-10" />
+            <MenuIcon className="h-5 w-5 text-gray-800" />
           )}
         </button>
       </div>

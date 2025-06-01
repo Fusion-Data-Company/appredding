@@ -1,0 +1,176 @@
+/* Elite Styling Foundation - Phase 1 Implementation */
+
+/* Button Primary Styling - Exact Replication from Requirements */
+.button-primary {
+  background: linear-gradient(135deg, #FFA726, #FF7043);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 50px;
+  box-shadow: 0 6px 12px rgba(255,152,0,0.3);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.button-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(255,152,0,0.4);
+}
+
+.button-primary::after {
+  content: '';
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, transparent 60%, rgba(255, 255, 255, 0.4) 80%);
+  animation: rotate 6s linear infinite;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+@keyframes rotate {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Dropdown Menu Styling */
+.dropdown-menu {
+  backdrop-filter: blur(15px);
+  background: rgba(255,255,255,0.8);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  transition: all 0.2s ease-in-out;
+}
+
+.dropdown-menu-item:hover {
+  transform: scale(1.05);
+  color: #ff8800;
+  background: rgba(255,255,255,0.95);
+}
+
+/* Text Readability Enforcement */
+.text-high-contrast {
+  color: #333333;
+  text-shadow: 1px 1px 3px rgba(255,255,255,0.7);
+}
+
+/* Background and Card Textures */
+.section-background {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><defs><pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(0,0,0,0.05)" stroke-width="1"/></pattern></defs><rect fill="url(%23grid)" width="100%" height="100%"/></svg>');
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  background-blend-mode: multiply;
+  opacity: 0.3;
+}
+
+.card-face {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" viewBox="0 0 150 150"><defs><filter id="noise"><feTurbulence baseFrequency="0.9" numOctaves="4" result="noise"/><feColorMatrix in="noise" type="saturate" values="0"/></filter></defs><rect width="100%" height="100%" filter="url(%23noise)" opacity="0.03"/></svg>');
+  background-repeat: repeat;
+  background-size: 150px 150px;
+  background-blend-mode: screen;
+  opacity: 0.15;
+}
+
+/* Orange Icons and Ambient Effects */
+.icon-orange {
+  color: #ff8800 !important;
+}
+
+.ambient-orange {
+  box-shadow: 0 0 20px rgba(255, 136, 0, 0.3), 0 0 40px rgba(255, 136, 0, 0.1);
+}
+
+.ambient-orange-hover:hover {
+  box-shadow: 0 0 30px rgba(255, 136, 0, 0.5), 0 0 60px rgba(255, 136, 0, 0.2);
+}
+
+/* Solar Panel Animation Effects - Extracted from Pitch Deck */
+.solar-panel-grid {
+  position: absolute;
+  inset: 0;
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.solar-panel-grid > div {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  height: 100%;
+  width: 100%;
+}
+
+.solar-panel-cell {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
+}
+
+.solar-rays {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.solar-ray {
+  position: absolute;
+  width: 2px;
+  height: 16px;
+  background: rgba(255, 255, 255, 0.4);
+  transform-origin: bottom center;
+}
+
+.solar-ray-animation {
+  animation: solar-rotate 20s linear infinite;
+}
+
+@keyframes solar-rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Shine Effect for Buttons */
+.shine-effect {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,0.2), transparent);
+  transform: skewX(-12deg) translateX(-100%);
+  transition: transform 1s ease;
+}
+
+.button-primary:hover .shine-effect {
+  transform: skewX(-12deg) translateX(100%);
+}
+
+/* Header Backdrop Blur Styling */
+.header-backdrop {
+  backdrop-filter: blur(15px);
+  background: rgba(255,255,255,0.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Navigation Link Transitions */
+.nav-link {
+  color: #374151;
+  transition: color 0.2s ease-in-out;
+}
+
+.nav-link:hover {
+  color: #ff8800;
+}
+
+/* Footer Backdrop Matching Header */
+.footer-backdrop {
+  backdrop-filter: blur(15px);
+  background: rgba(255,255,255,0.1);
+  box-shadow: 0 -4px 12px rgba(0,0,0,0.1);
+}
