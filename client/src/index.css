@@ -107,6 +107,121 @@ button *,
   filter: brightness(1.1);
 }
 
+/* Enhanced Section Background System */
+.section-gradient-base {
+  background: linear-gradient(135deg, 
+    #0f172a 0%, 
+    #1e293b 25%, 
+    #334155 50%, 
+    #1e293b 75%, 
+    #0f172a 100%
+  );
+  position: relative;
+  overflow: hidden;
+}
+
+.section-gradient-warm {
+  background: linear-gradient(135deg, 
+    #451a03 0%, 
+    #7c2d12 25%, 
+    #ea580c 50%, 
+    #7c2d12 75%, 
+    #451a03 100%
+  );
+  position: relative;
+  overflow: hidden;
+}
+
+.section-gradient-cool {
+  background: linear-gradient(135deg, 
+    #1e3a8a 0%, 
+    #1d4ed8 25%, 
+    #3b82f6 50%, 
+    #1d4ed8 75%, 
+    #1e3a8a 100%
+  );
+  position: relative;
+  overflow: hidden;
+}
+
+.section-texture-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.1;
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(255,255,255,0.1) 1px, transparent 1px),
+    radial-gradient(circle at 75% 75%, rgba(255,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(45deg, rgba(255,255,255,0.02) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.02) 75%),
+    linear-gradient(-45deg, rgba(255,255,255,0.02) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.02) 75%);
+  background-size: 40px 40px, 40px 40px, 20px 20px, 20px 20px;
+}
+
+.section-flow-connector {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(249, 115, 22, 0.5) 25%, 
+    rgba(59, 130, 246, 0.5) 75%, 
+    transparent 100%
+  );
+  z-index: 10;
+}
+
+/* Enhanced Background Patterns */
+.premium-geometric-pattern {
+  background-image: 
+    linear-gradient(45deg, rgba(255,255,255,0.03) 25%, transparent 25%), 
+    linear-gradient(-45deg, rgba(255,255,255,0.03) 25%, transparent 25%), 
+    linear-gradient(45deg, transparent 75%, rgba(255,255,255,0.03) 75%), 
+    linear-gradient(-45deg, transparent 75%, rgba(255,255,255,0.03) 75%);
+  background-size: 30px 30px;
+  background-position: 0 0, 0 15px, 15px -15px, -15px 0px;
+}
+
+.premium-dots-pattern {
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(255,255,255,0.1) 2px, transparent 2px),
+    radial-gradient(circle at 75% 75%, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 50px 50px, 25px 25px;
+}
+
+.premium-circuit-pattern {
+  background-image: 
+    linear-gradient(90deg, rgba(249,115,22,0.1) 1px, transparent 1px),
+    linear-gradient(rgba(59,130,246,0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Advanced Glow Effects */
+.premium-glow-orange {
+  box-shadow: 
+    0 0 20px rgba(249, 115, 22, 0.3),
+    0 0 40px rgba(249, 115, 22, 0.2),
+    0 0 80px rgba(249, 115, 22, 0.1);
+}
+
+.premium-glow-blue {
+  box-shadow: 
+    0 0 20px rgba(59, 130, 246, 0.3),
+    0 0 40px rgba(59, 130, 246, 0.2),
+    0 0 80px rgba(59, 130, 246, 0.1);
+}
+
+.premium-glow-mixed {
+  box-shadow: 
+    0 0 20px rgba(249, 115, 22, 0.2),
+    0 0 40px rgba(59, 130, 246, 0.2),
+    0 0 80px rgba(249, 115, 22, 0.1),
+    0 0 120px rgba(59, 130, 246, 0.1);
+}
+
 /* Ultra-Elite Enterprise Button Components */
 @layer components {
   .elite-solar-button {

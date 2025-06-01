@@ -48,13 +48,20 @@ const ContactSection = () => {
   ];
 
   return (
-    <section className="relative py-32 bg-gradient-to-br from-red-100 via-orange-100 to-yellow-100 overflow-hidden">
-      {/* Solar Contact Light Effects */}
+    <section className="relative py-32 section-gradient-base overflow-hidden">
+      {/* Enhanced texture overlay */}
+      <div className="section-texture-overlay"></div>
+      
+      {/* Enhanced ambient lighting effects */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-r from-red-200/20 via-orange-200/15 to-yellow-200/20"></div>
-        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-gradient-to-br from-red-300/15 to-orange-300/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 left-1/4 w-80 h-80 bg-gradient-to-br from-orange-300/15 to-yellow-300/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-700/10 via-gray-700/15 to-slate-700/10"></div>
+        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-gradient-to-br from-orange-500/15 to-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/4 left-1/4 w-80 h-80 bg-gradient-to-br from-blue-500/15 to-orange-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[60rem] h-[60rem] bg-gradient-to-r from-orange-400/5 via-transparent to-blue-400/5 rounded-full blur-[200px] animate-pulse-slow"></div>
       </div>
+      
+      {/* Section flow connector */}
+      <div className="section-flow-connector"></div>
 
       {/* Solar Grid Pattern */}
       <div className="absolute inset-0 opacity-20">

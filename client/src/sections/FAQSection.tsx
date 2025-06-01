@@ -92,13 +92,20 @@ const FAQSection = () => {
   };
 
   return (
-    <section className="relative py-32 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 overflow-hidden">
-      {/* Background Effects */}
+    <section className="relative py-32 section-gradient-cool overflow-hidden">
+      {/* Enhanced texture overlay */}
+      <div className="section-texture-overlay"></div>
+      
+      {/* Enhanced ambient lighting effects */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-r from-indigo-200/20 via-purple-200/15 to-pink-200/20"></div>
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-br from-indigo-300/15 to-purple-300/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-br from-purple-300/15 to-pink-300/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 via-indigo-600/15 to-purple-600/10"></div>
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-br from-blue-500/20 to-indigo-500/15 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-br from-indigo-500/20 to-purple-500/15 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[60rem] h-[60rem] bg-gradient-to-r from-blue-400/5 via-transparent to-orange-400/5 rounded-full blur-[200px] animate-pulse-slow"></div>
       </div>
+      
+      {/* Section flow connector */}
+      <div className="section-flow-connector"></div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}

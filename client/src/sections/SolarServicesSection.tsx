@@ -57,13 +57,20 @@ const SolarServicesSection = () => {
   ];
 
   return (
-    <section id="services" className="relative py-32 bg-gradient-to-br from-orange-100 via-amber-100 to-yellow-100 overflow-hidden">
-      {/* Solar Light Effects */}
+    <section id="services" className="relative py-32 section-gradient-warm overflow-hidden">
+      {/* Enhanced texture overlay */}
+      <div className="section-texture-overlay"></div>
+      
+      {/* Enhanced ambient lighting effects */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-r from-orange-200/20 via-amber-200/15 to-yellow-200/20"></div>
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-br from-orange-300/15 to-amber-300/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-br from-amber-300/15 to-yellow-300/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-orange-600/10 via-amber-600/15 to-yellow-600/10"></div>
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-br from-orange-500/20 to-amber-500/15 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-br from-amber-500/20 to-yellow-500/15 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[60rem] h-[60rem] bg-gradient-to-r from-orange-400/5 via-transparent to-blue-400/5 rounded-full blur-[200px] animate-pulse-slow"></div>
       </div>
+      
+      {/* Section flow connector */}
+      <div className="section-flow-connector"></div>
 
       {/* Solar Panel Array Pattern */}
       <div className="absolute inset-0 opacity-25">
