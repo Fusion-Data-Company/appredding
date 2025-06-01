@@ -74,7 +74,7 @@ const ProfessionalHeader = () => {
   ];
 
   return (
-    <header className="fixed top-0 left-0 w-full header-backdrop shadow-lg z-50">
+    <header className="fixed top-0 left-0 w-full bg-gray-900/95 backdrop-blur-xl border-b border-orange-500/20 shadow-lg z-50">
       <div className="max-w-7xl mx-auto flex justify-between items-center px-4 py-3">
         {/* Logo */}
         <Link href="/" className="flex items-center">
