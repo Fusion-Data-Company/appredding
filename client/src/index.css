@@ -12,45 +12,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Force subtitle text to be black - override all restrictions */
-section p[class*="text-3xl"],
-section p[class*="text-4xl"] {
-  color: #000000 !important;
-  font-weight: bold !important;
-}
 
-/* Additional override for specific sections */
-.bg-gradient-to-br p[class*="text-3xl"],
-.bg-gradient-to-br p[class*="text-4xl"] {
-  color: #000000 !important;
-  font-weight: bold !important;
-}
-
-/* Force all card text to be black */
-.bg-white p,
-.bg-white li,
-.bg-white h3,
-.bg-white h4,
-.bg-gradient-to-br p,
-.bg-gradient-to-br li,
-.bg-gradient-to-br h3,
-.bg-gradient-to-br h4 {
-  color: #000000 !important;
-  font-weight: bold !important;
-}
-
-/* Override any text-gray classes */
-.text-gray-100,
-.text-gray-200,
-.text-gray-300,
-.text-gray-400,
-.text-gray-500,
-.text-gray-600,
-.text-gray-700,
-.text-gray-800 {
-  color: #000000 !important;
-  font-weight: bold !important;
-}
 
 /* Preserve white text for specific sections that should remain white */
 .bg-gradient-to-r.from-gray-800 *,
