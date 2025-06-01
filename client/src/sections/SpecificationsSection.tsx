@@ -281,11 +281,11 @@ const SpecificationsSection = () => {
             className="space-y-8"
           >
             {solArkModels.map((model, index) => (
-              <div key={model.model} className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 border border-gray-200 shadow-xl">
+              <div key={model.model} className="bg-gray-900/95 backdrop-blur-sm rounded-2xl p-8 border border-gray-600 shadow-xl">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                   {/* Model Overview */}
                   <div>
-                    <h3 className="text-3xl font-black text-gray-800 mb-6">
+                    <h3 className="text-3xl font-black text-white mb-6">
                       Sol-Ark {model.model}
                     </h3>
                     
@@ -325,12 +325,12 @@ const SpecificationsSection = () => {
 
                   {/* Features List */}
                   <div>
-                    <h4 className="text-xl font-bold text-gray-800 mb-4">Key Features</h4>
+                    <h4 className="text-xl font-bold text-white mb-4">Key Features</h4>
                     <ul className="space-y-3">
                       {model.features.map((feature, featureIndex) => (
                         <li key={featureIndex} className="flex items-start gap-3">
                           <div className="w-2 h-2 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full mt-2 flex-shrink-0"></div>
-                          <span className="text-gray-700">{feature}</span>
+                          <span className="text-gray-300">{feature}</span>
                         </li>
                       ))}
                     </ul>

@@ -13,103 +13,28 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Force subtitle text to be black - override all restrictions */
-section p[class*="text-3xl"],
-section p[class*="text-4xl"] {
-  color: #000000 !important;
-  font-weight: bold !important;
+/* Proper Text Contrast Rules - Simple and Clean */
+
+/* Dark text on light backgrounds */
+.bg-white *:not(.button-primary *):not(.bg-gradient-to-r *),
+.bg-gray-50 *:not(.button-primary *):not(.bg-gradient-to-r *),
+.bg-gray-100 *:not(.button-primary *):not(.bg-gradient-to-r *),
+.bg-yellow-50 *:not(.button-primary *):not(.bg-gradient-to-r *),
+.bg-orange-50 *:not(.button-primary *):not(.bg-gradient-to-r *),
+.bg-blue-50 *:not(.button-primary *):not(.bg-gradient-to-r *),
+.bg-purple-50 *:not(.button-primary *):not(.bg-gradient-to-r *) {
+  color: #1f2937 !important;
 }
 
-/* Additional override for specific sections */
-.bg-gradient-to-br p[class*="text-3xl"],
-.bg-gradient-to-br p[class*="text-4xl"] {
-  color: #000000 !important;
-  font-weight: bold !important;
-}
-
-/* Force all card text to be black - EXCEPT specific elements */
-.bg-white p:not(.preserve-white),
-.bg-white li:not(.preserve-white),
-.bg-white h3:not(.preserve-white),
-.bg-white h4:not(.preserve-white),
-.bg-gradient-to-br p:not(.preserve-white),
-.bg-gradient-to-br li:not(.preserve-white),
-.bg-gradient-to-br h3:not(.preserve-white),
-.bg-gradient-to-br h4:not(.preserve-white) {
-  color: #000000 !important;
-  font-weight: bold !important;
-}
-
-/* Specific overrides for Sol-Ark cards and Ready to Go Solar */
-.bg-white\/90 p,
-.bg-white\/90 li,
-.bg-white\/90 h3,
-.bg-white\/90 h4,
-.bg-white\/90 div {
-  color: white !important;
-}
-
-/* Override any text-gray classes - EXCEPT in Sol-Ark cards */
-.text-gray-100:not(.bg-white\/90 *),
-.text-gray-200:not(.bg-white\/90 *),
-.text-gray-300:not(.bg-white\/90 *),
-.text-gray-400:not(.bg-white\/90 *),
-.text-gray-500:not(.bg-white\/90 *),
-.text-gray-600:not(.bg-white\/90 *),
-.text-gray-700:not(.bg-white\/90 *),
-.text-gray-800:not(.bg-white\/90 *) {
-  color: #000000 !important;
-  font-weight: bold !important;
-}
-
-/* Force white text on Sol-Ark cards and buttons */
-[class*="bg-white/90"] *,
-[class*="bg-white/90"] h3,
-[class*="bg-white/90"] p,
-[class*="bg-white/90"] div,
-[class*="bg-white/90"] span,
-[class*="bg-white/90"] .text-orange-800,
-[class*="bg-white/90"] .text-yellow-800,
-[class*="bg-white/90"] .text-purple-800,
-[class*="bg-white/90"] .text-blue-800,
-[class*="bg-white/90"] .text-gray-800 {
-  color: white !important;
-}
-
-/* Exceptions: Preserve white text for specific buttons and blue cards */
-.button-primary *,
-.button-primary span,
-.bg-gradient-to-r.from-indigo-600 *,
-.bg-gradient-to-r.from-indigo-600 h3,
-.bg-gradient-to-r.from-indigo-600 p,
+/* White text on dark backgrounds */
+.bg-gray-800 *,
 .bg-gray-900 *,
-.bg-gray-900 span {
-  color: white !important;
-}
-
-/* Sol-Ark hybrid system cards - convert to dark theme with white text */
-.bg-white\/90 {
-  background: rgba(31, 41, 55, 0.95) !important;
-}
-
-.bg-white\/90 *,
-.bg-white\/90 h3,
-.bg-white\/90 p,
-.bg-white\/90 div,
-.bg-white\/90 span,
-.bg-white\/90 .text-gray-800,
-.bg-white\/90 .text-orange-800,
-.bg-white\/90 .text-yellow-800,
-.bg-white\/90 .text-purple-800,
-.bg-white\/90 .text-blue-800 {
-  color: white !important;
-}
-
-/* Ready to Go Solar section text */
-.bg-gradient-to-br h1,
-.bg-gradient-to-br h2,
-.bg-gradient-to-br h3,
-.bg-gradient-to-br p:not(.text-3xl):not(.text-4xl) {
+.bg-black *,
+.bg-gradient-to-r.from-indigo-600 *,
+.bg-gradient-to-r.from-blue-600 *,
+.bg-gradient-to-br.from-gray-900 *,
+.button-primary *,
+header * {
   color: white !important;
 }
 
