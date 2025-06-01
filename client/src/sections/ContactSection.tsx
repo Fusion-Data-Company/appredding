@@ -48,7 +48,7 @@ const ContactSection = () => {
   ];
 
   return (
-    <section className="relative py-32 bg-gradient-to-br from-red-50 via-orange-50 to-yellow-50 overflow-hidden">
+    <section className="relative py-32 bg-gradient-to-br from-red-100 via-orange-100 to-yellow-100 overflow-hidden">
       {/* Solar Contact Light Effects */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-r from-red-200/20 via-orange-200/15 to-yellow-200/20"></div>
@@ -77,17 +77,17 @@ const ContactSection = () => {
           viewport={{ once: true }}
           className="text-center mb-24"
         >
-          <h2 className="text-6xl md:text-7xl lg:text-8xl font-black text-gray-800 mb-12 leading-tight">
-            Ready to{" "}
+          <h2 className="text-6xl md:text-7xl lg:text-8xl font-black mb-12 leading-tight drop-shadow-lg">
+            <span className="bg-gradient-to-r from-orange-800 via-red-700 to-amber-800 bg-clip-text text-transparent">Ready to</span>{" "}
             <span className="relative inline-block">
-              <span className="bg-gradient-to-r from-red-600 via-orange-600 to-yellow-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-orange-700 via-red-600 to-amber-700 bg-clip-text text-transparent drop-shadow-lg">
                 Go Solar?
               </span>
-              <div className="absolute -inset-2 bg-gradient-to-r from-red-300/30 to-orange-300/30 blur-2xl -z-10 animate-pulse"></div>
+              <div className="absolute -inset-2 bg-gradient-to-r from-orange-300/40 to-amber-300/40 blur-2xl -z-10 animate-pulse"></div>
             </span>
           </h2>
           
-          <p className="text-3xl md:text-4xl text-gray-700 max-w-5xl mx-auto font-light leading-relaxed">
+          <p className="text-3xl md:text-4xl text-gray-800 max-w-5xl mx-auto font-medium leading-relaxed drop-shadow-sm">
             Contact Northern California's most trusted solar experts today. 
             Get your free consultation and start saving with clean energy.
           </p>
@@ -106,7 +106,7 @@ const ContactSection = () => {
               className="group relative"
             >
               {/* Premium Card Background */}
-              <div className="relative bg-gradient-to-br from-gray-800/80 to-gray-900/80 backdrop-blur-sm rounded-3xl p-10 border border-gray-700/50 group-hover:border-purple-500/50 transition-all duration-500 overflow-hidden text-center">
+              <div className="relative bg-gradient-to-br from-white via-red-50 to-orange-50 backdrop-blur-sm rounded-3xl p-10 border-2 border-red-200 group-hover:border-orange-400 shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden text-center">
                 
                 {/* Card Glow Effect */}
                 <div className={`absolute -inset-1 bg-gradient-to-br ${method.color} opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500 rounded-3xl`}></div>
@@ -119,7 +119,7 @@ const ContactSection = () => {
                   </div>
 
                   {/* Enhanced Typography */}
-                  <h3 className="text-3xl font-black text-white mb-4 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-indigo-400 group-hover:to-purple-500 group-hover:bg-clip-text transition-all duration-300">
+                  <h3 className="text-3xl font-black text-gray-800 mb-4 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-orange-600 group-hover:to-red-500 group-hover:bg-clip-text transition-all duration-300 drop-shadow-md">
                     {method.title}
                   </h3>
                   
@@ -127,15 +127,19 @@ const ContactSection = () => {
                     {method.subtitle}
                   </div>
 
-                  <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+                  <p className="text-xl text-gray-700 mb-8 leading-relaxed font-medium">
                     {method.description}
                   </p>
 
-                  {/* Premium CTA Button */}
+                  {/* Premium CTA Button - Matching WHY GO SOLAR style */}
                   <motion.button
-                    whileHover={{ scale: 1.05 }}
+                    whileHover={{ scale: 1.05, y: -2 }}
                     whileTap={{ scale: 0.95 }}
-                    className={`w-full px-8 py-4 bg-gradient-to-r ${method.color} text-white font-bold rounded-xl text-lg shadow-2xl transition-all duration-300 hover:shadow-3xl`}
+                    className="w-full px-8 py-4 bg-gradient-to-r from-orange-500 via-red-500 to-yellow-500 text-white font-bold rounded-xl text-lg shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border-2 border-orange-400 hover:border-red-400"
+                    style={{
+                      background: "linear-gradient(135deg, #f97316 0%, #ef4444 50%, #eab308 100%)",
+                      boxShadow: "0 10px 25px rgba(249, 115, 22, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)"
+                    }}
                   >
                     {method.action}
                   </motion.button>
@@ -159,11 +163,11 @@ const ContactSection = () => {
                 {info.icon}
               </div>
               
-              <h3 className="text-2xl font-black text-white mb-4">
+              <h3 className="text-2xl font-black text-gray-800 mb-4 drop-shadow-md">
                 {info.title}
               </h3>
               
-              <p className="text-lg text-gray-300 leading-relaxed whitespace-pre-line">
+              <p className="text-lg text-gray-700 leading-relaxed whitespace-pre-line font-medium">
                 {info.details}
               </p>
             </div>

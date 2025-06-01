@@ -48,7 +48,7 @@ const SolarTestimonialsSection = () => {
   ];
 
   return (
-    <section className="relative py-32 bg-gradient-to-br from-yellow-50 via-amber-50 to-orange-50 overflow-hidden">
+    <section className="relative py-32 bg-gradient-to-br from-yellow-100 via-amber-100 to-orange-100 overflow-hidden">
       {/* Solar Background Pattern */}
       <div className="absolute inset-0 opacity-20">
         <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
@@ -76,17 +76,17 @@ const SolarTestimonialsSection = () => {
           className="text-center mb-20"
         >
           {/* Enterprise Typography */}
-          <h2 className="text-6xl md:text-7xl lg:text-8xl font-black text-white mb-12 leading-tight">
-            What Our{" "}
+          <h2 className="text-6xl md:text-7xl lg:text-8xl font-black mb-12 leading-tight drop-shadow-lg">
+            <span className="bg-gradient-to-r from-orange-800 via-red-700 to-amber-800 bg-clip-text text-transparent">What Our</span>{" "}
             <span className="relative inline-block">
-              <span className="bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-orange-700 via-red-600 to-amber-700 bg-clip-text text-transparent drop-shadow-lg">
                 Customers Say
               </span>
-              <div className="absolute -inset-2 bg-gradient-to-r from-yellow-400/20 to-orange-500/20 blur-2xl -z-10 animate-pulse"></div>
+              <div className="absolute -inset-2 bg-gradient-to-r from-orange-300/40 to-amber-300/40 blur-2xl -z-10 animate-pulse"></div>
             </span>
           </h2>
           
-          <p className="text-3xl md:text-4xl text-gray-200 max-w-5xl mx-auto font-light leading-relaxed mb-8">
+          <p className="text-3xl md:text-4xl text-gray-800 max-w-5xl mx-auto font-medium leading-relaxed mb-8 drop-shadow-sm">
             Over 25 years of satisfied customers throughout Northern California. 
             See why families and businesses trust Advance Power Redding for their solar needs.
           </p>
