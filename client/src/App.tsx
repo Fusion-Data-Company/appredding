@@ -5,6 +5,9 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { useEffect, lazy, Suspense } from "react";
 import { preloadCriticalImages } from "@/utils/image-preloader";
+import { errorHandler } from "@/utils/error-handler";
+import { usePerformance } from "@/hooks/use-performance";
+import { SuspenseFallback } from "@/components/ui/enhanced-loading";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import CRM from "@/pages/CRM";
@@ -51,6 +54,7 @@ import { StoreProvider } from "@/contexts/StoreContext";
 
 function Router() {
   const [location] = useLocation();
+  const { metrics, isGoodPerformance } = usePerformance('Router');
 
   // Preload images when routes change
   useEffect(() => {
@@ -68,6 +72,13 @@ function Router() {
     return () => clearTimeout(timer);
   }, [location]);
 
+  // Log route performance issues
+  useEffect(() => {
+    if (metrics.largestContentfulPaint && !isGoodPerformance.lcp) {
+      console.warn(`Slow page load on ${location}: LCP ${metrics.largestContentfulPaint}ms`);
+    }
+  }, [location, metrics, isGoodPerformance]);
+
   return (
     <Switch>
       <Route path="/" component={Home} />
@@ -78,7 +89,7 @@ function Router() {
       <Route path="/painters" component={Painters} />
       <Route path="/pools" component={Pools} />
       <Route path="/construction" >
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<SuspenseFallback message="Loading Construction..." operationName="construction-page" />}>
           <Construction />
         </Suspense>
       </Route>
@@ -93,29 +104,29 @@ function Router() {
       <Route path="/maintenance" component={Maintenance} />
       <Route path="/repairs" component={Repairs} />
       <Route path="/applications">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<SuspenseFallback message="Loading Applications..." operationName="applications-page" />}>
           <Applications />
         </Suspense>
       </Route>
       <Route path="/products">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<SuspenseFallback message="Loading Products..." operationName="products-page" />}>
           <Products />
         </Suspense>
       </Route>
       <Route path="/roi-calculator">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<SuspenseFallback message="Loading ROI Calculator..." operationName="roi-calculator-page" />}>
           <ROICalculator />
         </Suspense>
       </Route>
       <Route path="/product-comparison" component={ProductComparison} />
       <Route path="/about">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<SuspenseFallback message="Loading About..." operationName="about-page" />}>
           <About />
         </Suspense>
       </Route>
       <Route path="/team" component={Team} />
       <Route path="/technology">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<SuspenseFallback message="Loading Technology..." operationName="technology-page" />}>
           <Technology />
         </Suspense>
       </Route>
@@ -140,8 +151,13 @@ function Router() {
 }
 
 function App() {
+  const { metrics } = usePerformance('App');
+
   // Preload critical images once when app loads
   useEffect(() => {
+    // Initialize error handler
+    console.log('Solar Energy Platform initialized with enhanced error handling');
+
     // This triggers preloading of all critical site images
     preloadCriticalImages();
 
@@ -150,7 +166,7 @@ function App() {
     document.body.style.backgroundColor = '#000';
     document.body.classList.add('dark');
 
-    // Add performance monitoring
+    // Enhanced performance monitoring with error reporting
     if (typeof window !== 'undefined') {
       // Report largest contentful paint for performance monitoring
       const observer = new PerformanceObserver((list) => {
@@ -158,10 +174,22 @@ function App() {
         const lastEntry = entries[entries.length - 1];
         if (lastEntry && lastEntry.startTime > 0) {
           console.log(`Largest Contentful Paint: ${lastEntry.startTime}ms`);
+          
+          // Report slow LCP as potential performance issue
+          if (lastEntry.startTime > 2500) {
+            errorHandler.reportManualError(
+              `Slow LCP detected: ${lastEntry.startTime}ms`, 
+              'js_error'
+            );
+          }
         }
       });
 
-      observer.observe({ type: 'largest-contentful-paint', buffered: true });
+      try {
+        observer.observe({ type: 'largest-contentful-paint', buffered: true });
+      } catch (error) {
+        console.warn('LCP observer not supported in this browser');
+      }
     }
   }, []);
 
