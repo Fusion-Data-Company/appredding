@@ -63,18 +63,9 @@ const ElasticHueSlider: React.FC<ElasticHueSliderProps> = ({
         </motion.div>
       </div>
 
-       <AnimatePresence mode="wait">
-         <motion.div
-           key={value}
-           initial={{ opacity: 0, y: -5 }}
-           animate={{ opacity: 1, y: 0 }}
-           exit={{ opacity: 0, y: 5 }}
-           transition={{ duration: 0.2 }}
-           className="text-xs text-gray-500 mt-2"
-         >
-           {value}°
-         </motion.div>
-       </AnimatePresence>
+       <div className="text-xs text-gray-500 mt-2">
+         {value}°
+       </div>
     </div>
   );
 };
@@ -356,9 +347,8 @@ export const HeroSection: React.FC = () => {
           pointerEvents: 'none'
         }}
       >
-        <img 
-          src={logoImage}
-          alt="Advance Power Redding Logo"
+        <div 
+          className="bg-gradient-to-r from-orange-500 to-yellow-500 rounded-full w-32 h-32 flex items-center justify-center text-white font-bold text-xl"
           style={{ 
             margin: 0, 
             padding: 0,
@@ -366,7 +356,9 @@ export const HeroSection: React.FC = () => {
             height: 'auto',
             maxWidth: 'none'
           }}
-        />
+        >
+          SOLAR
+        </div>
       </div>
 
 
@@ -381,14 +373,8 @@ export const HeroSection: React.FC = () => {
           bottom: '-400px'
         }}
       >
-        <motion.img 
-          src={solarPanelImage}
-          alt="Solar Panel"
-          className="w-[1600px] h-[1600px] object-contain"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.8 }}
-          key="solar-panel-bottom"
+        <div 
+          className="w-[1600px] h-[1600px] bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg opacity-20"
           style={{ 
             zIndex: 99999,
             margin: 0,
@@ -409,14 +395,7 @@ export const HeroSection: React.FC = () => {
       >
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="absolute top-[55%] left-[40%] transform -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] rounded-full bg-gradient-to-b from-blue-400/30 to-purple-500/20 blur-[100px]"></div>
-        <div className="absolute top-0 w-[100%] left-[40%] transform -translate-x-1/2 h-full">
-          <Lightning
-            hue={lightningHue}
-            xOffset={0}
-            speed={1.6}
-            intensity={0.6}
-            size={2}
-          />
+        <div className="absolute top-0 w-[100%] left-[40%] transform -translate-x-1/2 h-full bg-gradient-to-b from-yellow-400/10 to-orange-400/10">
         </div>
 
       </motion.div>
