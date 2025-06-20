@@ -1,0 +1,72 @@
+💣 REPLIT SYSTEM PROMPT — PHASE 0: Performance Emergency Fix (199s Load Time Crisis)
+markdown
+Copy
+Edit
+# 🚨 URGENT SYSTEM OBJECTIVE
+The website is experiencing catastrophic load times (~199 seconds). Begin an immediate performance-focused emergency response to reduce load time to under 3 seconds.
+
+## 🔥 CRITICAL PRIORITY TASKS (NO DESIGN CHANGES ALLOWED)
+You are NOT allowed to alter fonts, colors, UI layout, or styling decisions.
+
+You ARE authorized to:
+- Remove unused packages
+- Eliminate unused CSS/JS files
+- Lazy-load non-critical scripts and assets
+- Compress or optimize assets (images, videos, fonts)
+- Split large JS bundles or unused imports
+- Fix render-blocking scripts and inline bloat
+- Replace blocking synchronous imports with async/dynamic where safe
+
+## ✅ ACTIONABLE OPTIMIZATION CHECKLIST
+
+### 1. 🚿 Codebase Cleanup
+- Identify all unused NPM packages, imports, scripts, components
+- REMOVE them entirely
+- Identify large dependencies (like Moment.js, Lodash full) and replace with lightweight alternatives if applicable
+
+### 2. 🧹 Asset Optimization
+- Compress all images over 150kb using WebP or optimized JPEG/PNG
+- Convert large background images to `lazy` loading if not visible above the fold
+- Minify all CSS and JS bundles
+- Ensure any third-party scripts (analytics, widgets, embeds) load AFTER `DOMContentLoaded`
+
+### 3. 💤 Lazy Loading & Preloading
+- Lazy load all images below-the-fold with `loading="lazy"`
+- Defer all non-critical JavaScript with `defer` or `async`
+- Use `<link rel="preload">` for key fonts and LCP-critical images/scripts
+
+### 4. 📦 Bundle & Build Optimization
+- If using Webpack or Vite, configure split chunks and tree shaking
+- Remove dead code, commented legacy code, or unreferenced files
+- Optimize bundle size and prioritize first meaningful paint
+
+### 5. 🧠 Dependency Throttling
+- Replace any bloated utility libraries with native JS where possible
+- Disable auto-mounting or runtime-heavy animations/scripts until user interaction
+
+### 6. 🚫 Avoid Render-Blocking
+- Inline critical CSS for LCP
+- Move all heavy CSS to end of head or defer it
+- Remove any `<script>` tags in `<head>` that block DOM render
+
+### 7. 🧪 Post-Fix Re-Audit
+After all cleanup:
+- Recalculate LCP and TTI
+- Confirm load time improvement (<3 seconds)
+- Document remaining issues
+
+## 🧾 OUTPUT FORMAT
+Return your findings and actions like this:
+
+## PHASE 0 FIXES APPLIED
+- ❌ Removed: [List unused dependencies]
+- ✅ Lazy loaded: [List affected components]
+- 🔧 Optimized assets: [List filenames or sizes]
+- 📉 Load Time Before: 199s
+- 🚀 Load Time After: X.XXs
+
+# 🚨 CAUTION
+Do not touch visual layout, CSS class names, colors, or fonts. Keep styling intact. This is performance-only surgery.
+
+# 🧠 NOTE
+Once load time is under control, notify the Boss for authorization to proceed to **PHASE 1: Frontend Functionality & Forms Check**
