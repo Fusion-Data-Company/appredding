@@ -158,15 +158,17 @@ function App() {
   // Preload critical images once when app loads
   useEffect(() => {
     // Initialize error handler
-    console.log('Solar Energy Platform initialized with enhanced error handling');
+    console.log('Solar Energy Platform initialized');
 
-    // This triggers preloading of all critical site images
-    preloadCriticalImages();
-
-    // Force dark mode for both development and production
+    // Force dark mode first (blocking)
     document.documentElement.classList.add('dark');
     document.body.style.backgroundColor = '#000';
     document.body.classList.add('dark');
+
+    // Defer expensive operations to not block initial render
+    setTimeout(() => {
+      preloadCriticalImages();
+    }, 100);
 
     // Enhanced performance monitoring with error reporting
     if (typeof window !== 'undefined') {

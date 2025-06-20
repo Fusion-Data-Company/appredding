@@ -168,34 +168,34 @@ export async function registerCacheService(): Promise<void> {
   }
 }
 
-// Initialize all critical optimizations
+// Initialize critical optimizations with reduced overhead
 export function initializeCriticalPerformance(): void {
   try {
-    // Run immediately
+    // Run only essential optimizations immediately
     initializeCriticalResources();
-    optimizeCSSDelivery();
     
-    // Run after DOM is ready
+    // Defer non-critical optimizations to reduce initial load impact
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
+          optimizeCSSDelivery();
           setImageLoadingPriorities();
-          deferNonCriticalJS();
-        }, 100);
+        }, 500); // Increased delay
       });
     } else {
       setTimeout(() => {
+        optimizeCSSDelivery();
         setImageLoadingPriorities();
-        deferNonCriticalJS();
-      }, 100);
+      }, 500);
     }
     
-    // Run after page load with delay
+    // Run heavy optimizations much later
     window.addEventListener('load', () => {
       setTimeout(() => {
+        deferNonCriticalJS();
         optimizeMemoryUsage();
         registerCacheService();
-      }, 1000);
+      }, 3000); // Much longer delay to not impact LCP
     });
   } catch (error) {
     console.warn('Critical performance initialization failed:', error);

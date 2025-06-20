@@ -27,22 +27,25 @@ export function usePerformance(componentName?: string) {
   const renderStartTime = useRef<number>(performance.now());
   const renderCount = useRef<number>(0);
 
-  // Track component performance (optimized to reduce overhead)
+  // Track component performance (heavily optimized)
   useEffect(() => {
     if (componentName && import.meta.env.DEV) {
       const renderEndTime = performance.now();
       const renderTime = renderEndTime - renderStartTime.current;
       renderCount.current += 1;
 
-      setComponentMetrics({
-        name: componentName,
-        renderTime,
-        rerenderCount: renderCount.current
-      });
+      // Only track if render time is significant to reduce overhead
+      if (renderTime > 50) {
+        setComponentMetrics({
+          name: componentName,
+          renderTime,
+          rerenderCount: renderCount.current
+        });
 
-      // Only log very slow renders to reduce noise
-      if (renderTime > 200) {
-        reportError(`Slow render detected: ${componentName} took ${Math.round(renderTime)}ms`, 'js_error');
+        // Only log extremely slow renders
+        if (renderTime > 500) {
+          reportError(`Very slow render detected: ${componentName} took ${Math.round(renderTime)}ms`, 'js_error');
+        }
       }
     }
   }, [componentName]);
@@ -77,66 +80,102 @@ export function usePerformance(componentName?: string) {
           });
         }
 
-        // Get LCP
+        // Get performance metrics with single observer for efficiency
         if (typeof window !== 'undefined' && 'PerformanceObserver' in window) {
+          let lcpValue = 0;
+          let fidValue = 0;
+          let clsValue = 0;
+          let observersActive = 0;
+          
+          // Single LCP observer
           const lcpObserver = new PerformanceObserver((list) => {
             const entries = list.getEntries();
             const lastEntry = entries[entries.length - 1];
+            lcpValue = lastEntry.startTime;
             setMetrics(prev => ({
               ...prev,
-              largestContentfulPaint: lastEntry.startTime
+              largestContentfulPaint: lcpValue
             }));
+            
+            // Disconnect after first meaningful LCP to reduce overhead
+            if (lcpValue > 0) {
+              lcpObserver.disconnect();
+              observersActive--;
+            }
           });
 
           try {
             lcpObserver.observe({ type: 'largest-contentful-paint', buffered: true });
+            observersActive++;
           } catch (e) {
             // LCP not supported
           }
 
-          // Get FID
+          // Single FID observer  
           const fidObserver = new PerformanceObserver((list) => {
             const entries = list.getEntries();
             entries.forEach((entry: any) => {
+              fidValue = entry.processingStart ? entry.processingStart - entry.startTime : entry.duration;
               setMetrics(prev => ({
                 ...prev,
-                firstInputDelay: entry.processingStart ? entry.processingStart - entry.startTime : entry.duration
+                firstInputDelay: fidValue
               }));
             });
+            
+            // Disconnect after first input to reduce overhead
+            fidObserver.disconnect();
+            observersActive--;
           });
 
           try {
             fidObserver.observe({ type: 'first-input', buffered: true });
+            observersActive++;
           } catch (e) {
             // FID not supported
           }
 
-          // Get CLS
+          // Throttled CLS observer
+          let clsTimeout: NodeJS.Timeout;
           const clsObserver = new PerformanceObserver((list) => {
-            let clsValue = 0;
             const entries = list.getEntries();
             entries.forEach((entry: any) => {
               if (!entry.hadRecentInput) {
                 clsValue += entry.value;
               }
             });
-            setMetrics(prev => ({
-              ...prev,
-              cumulativeLayoutShift: clsValue
-            }));
+            
+            // Debounce CLS updates to reduce overhead
+            clearTimeout(clsTimeout);
+            clsTimeout = setTimeout(() => {
+              setMetrics(prev => ({
+                ...prev,
+                cumulativeLayoutShift: clsValue
+              }));
+            }, 1000);
           });
 
           try {
             clsObserver.observe({ type: 'layout-shift', buffered: true });
+            observersActive++;
           } catch (e) {
             // CLS not supported
           }
+
+          // Auto-cleanup after reasonable time to prevent memory leaks
+          const cleanupTimer = setTimeout(() => {
+            lcpObserver.disconnect();
+            fidObserver.disconnect();
+            clsObserver.disconnect();
+            clearTimeout(clsTimeout);
+          }, 30000); // 30 seconds max observation
 
           // Cleanup observers
           return () => {
             lcpObserver.disconnect();
             fidObserver.disconnect();
             clsObserver.disconnect();
+            clearTimeout(clsTimeout);
+            clearTimeout(cleanupTimer);
           };
         }
       } catch (error) {
@@ -153,10 +192,11 @@ export function usePerformance(componentName?: string) {
     }
   }, []);
 
-  // Send performance data to backend
+  // Send performance data to backend with debouncing
   useEffect(() => {
     const sendMetrics = async () => {
-      if (Object.keys(metrics).length > 0) {
+      // Only send if we have meaningful metrics and avoid excessive calls
+      if (Object.keys(metrics).length > 2 && metrics.largestContentfulPaint) {
         try {
           await fetch('/api/performance', {
             method: 'POST',
@@ -177,10 +217,10 @@ export function usePerformance(componentName?: string) {
       }
     };
 
-    // Send metrics after a delay
-    const timer = setTimeout(sendMetrics, 5000);
+    // Send metrics after a longer delay and only once per page load
+    const timer = setTimeout(sendMetrics, 10000);
     return () => clearTimeout(timer);
-  }, [metrics, componentMetrics]);
+  }, [metrics.largestContentfulPaint]); // Only trigger when LCP is available
 
   return {
     metrics,

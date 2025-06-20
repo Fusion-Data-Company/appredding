@@ -22,47 +22,47 @@ const Home = () => {
       <div className="flex-1 flex flex-col">
         <HeroSection />
         
-        <LazySection minHeight="400px">
+        <LazySection className="min-h-[400px]">
           <ProductShowcaseSection />
         </LazySection>
         
-        <LazySection minHeight="500px">
+        <LazySection className="min-h-[500px]">
           <SolarSalesFunnelSection />
         </LazySection>
         
-        <LazySection minHeight="600px">
+        <LazySection className="min-h-[600px]">
           <InteractiveToolsSection />
         </LazySection>
         
-        <LazySection minHeight="400px">
+        <LazySection className="min-h-[400px]">
           <SolarServicesSection />
         </LazySection>
         
-        <LazySection minHeight="500px">
+        <LazySection className="min-h-[500px]">
           <EnergyStorageSection />
         </LazySection>
         
-        <LazySection minHeight="400px">
+        <LazySection className="min-h-[400px]">
           <SpecificationsSection />
         </LazySection>
         
-        <LazySection minHeight="400px">
+        <LazySection className="min-h-[400px]">
           <TroubleshootingSection />
         </LazySection>
         
-        <LazySection minHeight="300px">
+        <LazySection className="min-h-[300px]">
           <FAQSection />
         </LazySection>
         
-        <LazySection minHeight="400px">
+        <LazySection className="min-h-[400px]">
           <AboutAdvancePowerSection />
         </LazySection>
         
-        <LazySection minHeight="300px">
+        <LazySection className="min-h-[300px]">
           <SolarTestimonialsSection />
         </LazySection>
         
-        <LazySection minHeight="400px">
+        <LazySection className="min-h-[400px]">
           <ContactSection />
         </LazySection>
       </div>

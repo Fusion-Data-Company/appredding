@@ -83,6 +83,16 @@ router.post('/api/performance', async (req: Request, res: Response) => {
   try {
     // Handle empty or null body gracefully
     const body = req.body || {};
+    
+    // Validate that we have the minimum required data
+    if (!body.metrics || typeof body.metrics !== 'object') {
+      res.status(200).json({ 
+        success: true, 
+        message: 'Performance metrics skipped - insufficient data' 
+      });
+      return;
+    }
+    
     const performanceData = PerformanceMetricsSchema.parse(body);
 
     // Log performance metrics
