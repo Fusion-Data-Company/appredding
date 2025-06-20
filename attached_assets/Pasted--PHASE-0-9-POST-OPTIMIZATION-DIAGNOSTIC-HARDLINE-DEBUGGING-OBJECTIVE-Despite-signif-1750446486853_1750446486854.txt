@@ -1,0 +1,75 @@
+ ⚠️ PHASE 0.9 — POST-OPTIMIZATION DIAGNOSTIC + HARDLINE DEBUGGING
+
+## 🎯 OBJECTIVE
+Despite significant frontend optimization, the site still experiences unacceptable load time. Begin **direct runtime profiling**, live load diagnostics, and backend/fetch monitoring to uncover hidden lag sources. DO NOT make further optimizations until root causes are logged and reported.
+
+## ✅ EXECUTE THIS DIAGNOSTIC BUNDLE:
+
+### 1. 🕵️ RUNTIME PROFILING
+- Capture and print the exact timestamps of:
+  - Initial load trigger
+  - DOMContentLoaded
+  - First Paint
+  - Largest Contentful Paint (LCP)
+  - First Input Delay (FID)
+- Use `performance.mark()` and `performance.measure()` if needed
+
+### 2. 🌐 NETWORK SNAPSHOT
+- List ALL outgoing network requests on page load
+- For each:
+  - Log the full URL
+  - Response time
+  - Status code
+  - Payload size
+- Flag any fetch/XHR request that takes more than 500ms
+
+### 3. 🔁 LOOP OR MEMORY ISSUES
+- Confirm there are no infinite loops in React/Vue useEffect/render
+- Run memory profiling on app boot
+- Detect if there are repeated state re-renders or hydration failures
+
+### 4. 🧱 BACKEND/API BLOCKERS
+- Identify any API or DB call triggered at load
+- Log:
+  - Endpoint
+  - Latency
+  - Status
+  - Payload
+- Flag if any are failing or retrying
+
+### 5. 🔌 HOSTING CONFIG VALIDATION
+- Confirm `.replit` is set to production mode
+- Ensure NO dev flags or debug tools are loading in production
+- Log what build mode is being executed
+- Log build time (not app run time)
+
+### 6. 🧾 RETURN OUTPUT IN THIS FORMAT
+
+### ⚙️ PHASE 0.9 RESULTS
+
+- 🧭 Page Load Events:
+  - TTFB: XXms
+  - DOMContentLoaded: XXms
+  - LCP: XXms
+  - FID: XXms
+
+- 🌐 Network Requests (on load):
+  - [URL] - 1023ms - 200 - 1.2MB
+  - [URL] - 721ms - 500 - FAILED
+
+- 🔁 React/Vue Loop Check: [✓ / ✗]
+- 💾 Memory Usage at Boot: XX MB
+- 🔌 Build Mode: [Dev / Prod]
+- 🔨 Build Time: XXs
+
+- 🔍 Key Suspects:
+  - [Slow API call]
+  - [Massive dependency]
+  - [Async function not resolving]
+
+---
+
+## FINAL DIRECTIVE
+
+DO NOT clean, remove, or optimize anything yet.
+Just find the fire. Wait for Bossman’s go-ahead to pull the trigger.
