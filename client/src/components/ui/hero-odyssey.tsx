@@ -1,8 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { FastHeroImage, useHeroImagePreloader } from '@/components/ui/fast-hero-image';
-import solarPanelImage from "@assets/Untitled design.png";
-import logoImage from "@assets/Untitled design (2).png";
+import { motion } from 'framer-motion';
 
 interface ElasticHueSliderProps {
   value: number;
@@ -314,7 +311,7 @@ const FeatureItem: React.FC<FeatureItemProps> = ({ name, value, position }) => {
 
 export const HeroSection: React.FC = () => {
   // Preload critical hero images
-  useHeroImagePreloader([solarPanelImage, logoImage]);
+  // Removed image preloader for performance
   const lightningHue = 25; // Locked at 25 degrees
 
   const containerVariants = {

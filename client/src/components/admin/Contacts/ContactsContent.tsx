@@ -36,7 +36,7 @@ import {
 } from "lucide-react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
-import { formatDistanceToNow } from "date-fns";
+// Replaced date-fns with native Date methods for performance
 
 // Contact type definition
 export interface Contact {
@@ -155,7 +155,16 @@ export default function ContactsContent() {
   const getLastContactedTime = (lastContactedDate: string | null) => {
     if (!lastContactedDate) return "Never";
     try {
-      return formatDistanceToNow(new Date(lastContactedDate), { addSuffix: true });
+      const now = new Date();
+      const lastContacted = new Date(lastContactedDate);
+      const diffMs = now.getTime() - lastContacted.getTime();
+      const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+      
+      if (diffDays === 0) return 'today';
+      if (diffDays === 1) return 'yesterday';
+      if (diffDays < 30) return `${diffDays} days ago`;
+      if (diffDays < 365) return `${Math.floor(diffDays / 30)} months ago`;
+      return `${Math.floor(diffDays / 365)} years ago`;
     } catch (e) {
       return "Unknown";
     }

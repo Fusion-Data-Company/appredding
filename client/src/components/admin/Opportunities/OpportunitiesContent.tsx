@@ -39,7 +39,7 @@ import {
 } from "lucide-react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
-import { format, formatDistanceToNow } from "date-fns";
+
 
 // Opportunity type definition from schema
 export interface Opportunity {

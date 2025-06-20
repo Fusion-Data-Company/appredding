@@ -61,11 +61,7 @@ export function LazySection({
         className
       )}
     >
-      {isVisible ? (
-        <div className={hasLoaded ? "animate-in slide-in-from-bottom-4 duration-500" : ""}>
-          {children}
-        </div>
-      ) : (
+      {isVisible ? children : (
         fallback || (
           <div className="h-32 bg-gray-100 animate-pulse rounded-lg" />
         )
