@@ -54,6 +54,32 @@ a:not(.preserve-text-color) {
   text-shadow: 0 1px 2px rgba(0,0,0,0.4);
 }
 
+/* Force header navigation visibility - Critical Fix */
+header nav a,
+header nav span,
+header nav button,
+.nav-link,
+nav a,
+nav span {
+  color: white !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.8) !important;
+  font-weight: 500 !important;
+}
+
+header nav a:hover,
+header nav span:hover,
+header nav button:hover,
+nav a:hover,
+nav span:hover {
+  color: #fed7aa !important; /* orange-200 */
+}
+
+/* Ensure header has proper dark background */
+header {
+  background-color: rgba(17, 24, 39, 0.95) !important; /* gray-900/95 */
+  backdrop-filter: blur(12px) !important;
+}
+
 /* Comprehensive dark background text enforcement with enhanced outlines */
 .bg-gradient-to-br.from-gray-900 *,
 .bg-gradient-to-br.from-gray-800 *,
