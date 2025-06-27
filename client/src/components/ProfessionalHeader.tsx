@@ -102,23 +102,25 @@ const ProfessionalHeader = () => {
         </Link>
         
         {/* Navigation */}
-        <nav style={{ display: 'flex', gap: '24px' }}>
-          <Link href="/" style={{ 
-            color: 'white', 
+        <nav style={{ display: 'flex', gap: '24px', alignItems: 'center' }} className="hidden lg:flex">
+          <a href="/" style={{ 
+            color: '#ffffff !important', 
             fontSize: '16px', 
             fontWeight: '500', 
             textDecoration: 'none',
-            textShadow: '0 2px 4px rgba(0,0,0,0.8)'
-          }}>Home</Link>
+            textShadow: '0 2px 4px rgba(0,0,0,0.8)',
+            display: 'block'
+          }}>Home</a>
           
           {/* Services Dropdown */}
           <div className="group relative">
             <span style={{ 
-              color: 'white', 
+              color: '#ffffff !important', 
               fontSize: '16px', 
               fontWeight: '500', 
               cursor: 'pointer',
-              textShadow: '0 2px 4px rgba(0,0,0,0.8)'
+              textShadow: '0 2px 4px rgba(0,0,0,0.8)',
+              display: 'block'
             }}>Services</span>
             <div className="absolute top-full left-0 mt-2 w-64 py-2 bg-gray-900/95 backdrop-blur-xl border border-orange-500/30 rounded-lg shadow-xl invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-200">
               {solarServices.map((service, index) => (
@@ -136,20 +138,22 @@ const ProfessionalHeader = () => {
             </div>
           </div>
           
-          <Link href="/about" style={{ 
-            color: 'white', 
+          <a href="/about" style={{ 
+            color: '#ffffff !important', 
             fontSize: '16px', 
             fontWeight: '500', 
             textDecoration: 'none',
-            textShadow: '0 2px 4px rgba(0,0,0,0.8)'
-          }}>About</Link>
-          <Link href="#contact" style={{ 
-            color: 'white', 
+            textShadow: '0 2px 4px rgba(0,0,0,0.8)',
+            display: 'block'
+          }}>About</a>
+          <a href="#contact" style={{ 
+            color: '#ffffff !important', 
             fontSize: '16px', 
             fontWeight: '500', 
             textDecoration: 'none',
-            textShadow: '0 2px 4px rgba(0,0,0,0.8)'
-          }}>Contact</Link>
+            textShadow: '0 2px 4px rgba(0,0,0,0.8)',
+            display: 'block'
+          }}>Contact</a>
           
           {/* Get Free Quote Button */}
           <button style={{
@@ -169,19 +173,43 @@ const ProfessionalHeader = () => {
 
         {/* Mobile Menu Button */}
         <button
-          onClick={toggleMobileMenu}
-          className="lg:hidden p-2 z-10 rounded-sm bg-white/10 hover:bg-white/20 transition-all duration-300"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          style={{
+            color: '#ffffff !important',
+            background: 'none',
+            border: 'none',
+            cursor: 'pointer',
+            display: 'block',
+            padding: '8px'
+          }}
         >
           {mobileMenuOpen ? (
-            <X className="h-5 w-5 text-gray-800" />
+            <X size={24} style={{ color: '#ffffff !important' }} />
           ) : (
-            <MenuIcon className="h-5 w-5 text-gray-800" />
+            <MenuIcon size={24} style={{ color: '#ffffff !important' }} />
           )}
         </button>
       </div>
 
       {/* Mobile Navigation */}
-      <MobileMenu isOpen={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)} isHomePage={isHomePage} />
+      {mobileMenuOpen && (
+        <div style={{
+          position: 'absolute',
+          top: '100%',
+          left: 0,
+          right: 0,
+          backgroundColor: '#111827',
+          borderTop: '1px solid rgba(249, 115, 22, 0.2)',
+          padding: '16px',
+          zIndex: 40
+        }}>
+          <nav style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+            <a href="/" style={{ color: '#ffffff !important', fontSize: '16px', fontWeight: '500', textDecoration: 'none' }}>Home</a>
+            <a href="/about" style={{ color: '#ffffff !important', fontSize: '16px', fontWeight: '500', textDecoration: 'none' }}>About</a>
+            <a href="#contact" style={{ color: '#ffffff !important', fontSize: '16px', fontWeight: '500', textDecoration: 'none' }}>Contact</a>
+          </nav>
+        </div>
+      )}
     </header>
   );
 };
