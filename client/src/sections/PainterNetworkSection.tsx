@@ -74,12 +74,12 @@ const PainterNetworkSection = () => {
                 </div>
               </li>
             </ul>
-            <a 
-              href="#" 
+            <button 
+              onClick={() => window.open('/contact', '_blank')}
               className="bg-[#ff9900] hover:bg-orange-600 text-white font-medium py-3 px-6 rounded-lg transition-colors inline-block"
             >
               Join Our Network
-            </a>
+            </button>
           </div>
         </div>
       </div>

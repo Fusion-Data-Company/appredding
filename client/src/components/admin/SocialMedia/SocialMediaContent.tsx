@@ -346,14 +346,14 @@ export default function SocialMediaContent() {
                     </TableRow>
                   </TableHeader>
                   <TableBody>
-                    {posts.filter((post: SocialMediaPost) => {
+                    {posts.filter((post: any) => {
                       return (
                         post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
                         post.content.toLowerCase().includes(searchQuery.toLowerCase()) ||
                         post.platform.toLowerCase().includes(searchQuery.toLowerCase()) ||
                         (post.campaign?.name || '').toLowerCase().includes(searchQuery.toLowerCase())
                       );
-                    }).map((post: SocialMediaPost) => (
+                    }).map((post: any) => (
                       <TableRow key={post.id}>
                         <TableCell>
                           <div>
@@ -508,13 +508,13 @@ export default function SocialMediaContent() {
                     </TableRow>
                   </TableHeader>
                   <TableBody>
-                    {campaigns.filter((campaign: MarketingCampaign) => {
+                    {campaigns.filter((campaign: any) => {
                       return (
                         campaign.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
                         (campaign.description || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
                         (campaign.platform || '').toLowerCase().includes(searchQuery.toLowerCase())
                       );
-                    }).map((campaign: MarketingCampaign) => (
+                    }).map((campaign: any) => (
                       <TableRow key={campaign.id}>
                         <TableCell>
                           <div>
@@ -648,13 +648,13 @@ export default function SocialMediaContent() {
                 <div className="p-4 border rounded-lg">
                   <h3 className="font-medium mb-2">Published</h3>
                   <p className="text-2xl font-bold text-green-600">
-                    {posts?.filter(p => p.status === 'published').length || 0}
+                    {posts?.filter((p: any) => p.status === 'published').length || 0}
                   </p>
                 </div>
                 <div className="p-4 border rounded-lg">
                   <h3 className="font-medium mb-2">Scheduled</h3>
                   <p className="text-2xl font-bold text-orange-600">
-                    {posts?.filter(p => p.status === 'scheduled').length || 0}
+                    {posts?.filter((p: any) => p.status === 'scheduled').length || 0}
                   </p>
                 </div>
               </div>
