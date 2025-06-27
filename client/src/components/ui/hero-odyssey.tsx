@@ -28,8 +28,8 @@ const ElasticHueSlider: React.FC<ElasticHueSliderProps> = ({
   const handleMouseUp = () => setIsDragging(false);
 
   return (
-    <div className="scale-50 relative w-full max-w-xs flex flex-col items-center" ref={sliderRef}>
-      {label && <label htmlFor="hue-slider-native" className="text-white text-sm mb-1 font-medium">{label}</label>}
+    <div className="relative w-full max-w-sm flex flex-col items-center p-4 bg-black/20 rounded-lg backdrop-blur-sm border border-white/10" ref={sliderRef}>
+      {label && <label htmlFor="hue-slider-native" className="text-white text-sm mb-2 font-medium tracking-wide">{label}</label>}
       <div className="relative w-full h-5 flex items-center">
         <input
           id="hue-slider-native"
@@ -50,20 +50,30 @@ const ElasticHueSlider: React.FC<ElasticHueSliderProps> = ({
         <div className="absolute left-0 w-full h-1 bg-gray-700 rounded-full z-0"></div>
 
         <div
-            className="absolute left-0 h-1 bg-blue-500 rounded-full z-10"
-            style={{ width: `${thumbPosition}%` }}
+            className="absolute left-0 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full z-10 transition-all duration-200"
+            style={{ 
+              width: `${thumbPosition}%`,
+              filter: `hue-rotate(${value}deg)`
+            }}
         ></div>
 
         <motion.div
-          className="absolute top-1/2 transform -translate-y-1/2 z-30"
-          style={{ left: `${thumbPosition}%` }}
-          animate={{ scale: isDragging ? 1.2 : 1 }}
+          className="absolute top-1/2 transform -translate-y-1/2 -translate-x-1/2 z-30 w-4 h-4 bg-white rounded-full shadow-lg border-2 border-blue-500"
+          style={{ 
+            left: `${thumbPosition}%`,
+            borderColor: `hsl(${value}, 70%, 60%)`
+          }}
+          animate={{ scale: isDragging ? 1.3 : 1 }}
           transition={{ type: "spring", stiffness: 500, damping: isDragging ? 20 : 30 }}
         >
+          <div 
+            className="w-2 h-2 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full m-auto mt-0.5"
+            style={{ filter: `hue-rotate(${value}deg)` }}
+          ></div>
         </motion.div>
       </div>
 
-       <div className="text-xs text-gray-500 mt-2">
+       <div className="text-sm text-white/80 mt-3 font-mono">
          {value}°
        </div>
     </div>
@@ -301,9 +311,8 @@ const FeatureItem: React.FC<FeatureItemProps> = ({ name, value, position }) => {
 };
 
 export const HeroSection: React.FC = () => {
-  // Preload critical hero images
-  // Removed image preloader for performance
-  const lightningHue = 25; // Locked at 25 degrees
+  // Interactive hue control state
+  const [hue, setHue] = useState(230);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -330,63 +339,92 @@ export const HeroSection: React.FC = () => {
 
   return (
     <div className="relative w-full bg-black text-white overflow-hidden">
-      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 h-screen">
-        
+      {/* Interactive Lightning Effects */}
+      <div className="absolute inset-0 z-10">
+        <Lightning 
+          hue={hue} 
+          xOffset={-0.3} 
+          speed={0.8} 
+          intensity={1.2} 
+          size={1.5}
+        />
+        <Lightning 
+          hue={hue + 30} 
+          xOffset={0.3} 
+          speed={1.2} 
+          intensity={0.8} 
+          size={1.2}
+        />
+      </div>
 
+      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 h-screen">
+        {/* Interactive Controls */}
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={containerVariants}
+          className="flex flex-col items-center justify-center h-full"
+        >
+          <motion.div variants={itemVariants} className="mb-8">
+            <h1 className="text-6xl md:text-8xl font-bold text-center mb-4 bg-gradient-to-r from-blue-400 via-purple-500 to-orange-400 bg-clip-text text-transparent">
+              PRAETORIAN
+            </h1>
+            <p className="text-xl md:text-2xl text-center text-gray-300 mb-8">
+              Advanced Energy Solutions
+            </p>
+          </motion.div>
+
+          {/* Interactive Hue Slider */}
+          <motion.div variants={itemVariants} className="mb-12">
+            <ElasticHueSlider
+              value={hue}
+              onChange={setHue}
+              label="Adjust Hue"
+            />
+          </motion.div>
+
+          {/* Feature Points */}
+          <motion.div variants={itemVariants} className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <FeatureItem 
+              name="Fire Protection" 
+              value="Class A Rating" 
+              position="relative"
+            />
+            <FeatureItem 
+              name="Energy Efficiency" 
+              value="40% Reduction" 
+              position="relative"
+            />
+            <FeatureItem 
+              name="Thermal Barrier" 
+              value="Advanced Ceramic" 
+              position="relative"
+            />
+          </motion.div>
+        </motion.div>
       </div>
       
-      {/* Global logo - scrolls with page */}
-      <div 
-        className="absolute z-[99999]"
-        style={{ 
-          margin: 0, 
-          padding: 0,
-          top: '50vh',
-          right: '2vw',
-          transform: 'translateY(-50%)',
-          pointerEvents: 'none'
-        }}
+      {/* Dynamic Brand Element */}
+      <motion.div 
+        className="absolute top-8 right-8 z-30"
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 1, duration: 0.8 }}
       >
         <div 
-          className="bg-gradient-to-r from-orange-500 to-yellow-500 rounded-full w-32 h-32 flex items-center justify-center text-white font-bold text-xl"
+          className="bg-gradient-to-r from-orange-500 to-yellow-500 rounded-full w-20 h-20 flex items-center justify-center text-white font-bold text-sm shadow-lg"
           style={{ 
-            margin: 0, 
-            padding: 0,
-            width: '40.5vw',
-            height: 'auto',
-            maxWidth: 'none'
+            filter: `hue-rotate(${hue - 45}deg)`,
+            transition: 'filter 0.3s ease'
           }}
         >
-          SOLAR
+          APR
         </div>
-      </div>
-
-
-
-      {/* Solar Panel - Bottom left corner */}
-      <motion.div 
-        className="absolute left-0 z-[99999] pointer-events-none"
-        style={{ 
-          zIndex: 99999,
-          margin: 0,
-          padding: 0,
-          bottom: '-400px'
-        }}
-      >
-        <div 
-          className="w-[1600px] h-[1600px] bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg opacity-20"
-          style={{ 
-            zIndex: 99999,
-            margin: 0,
-            padding: 0,
-            display: 'block'
-          }}
-        />
       </motion.div>
 
 
 
-      {/* Background elements */}
+      {/* Dynamic Background Elements */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -394,10 +432,21 @@ export const HeroSection: React.FC = () => {
         className="absolute inset-0 z-0"
       >
         <div className="absolute inset-0 bg-black/40"></div>
-        <div className="absolute top-[55%] left-[40%] transform -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] rounded-full bg-gradient-to-b from-blue-400/30 to-purple-500/20 blur-[100px]"></div>
-        <div className="absolute top-0 w-[100%] left-[40%] transform -translate-x-1/2 h-full bg-gradient-to-b from-yellow-400/10 to-orange-400/10">
+        <div 
+          className="absolute top-[55%] left-[40%] transform -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] rounded-full bg-gradient-to-b from-blue-400/30 to-purple-500/20 blur-[100px]"
+          style={{ 
+            filter: `hue-rotate(${hue}deg)`,
+            transition: 'filter 0.5s ease'
+          }}
+        ></div>
+        <div 
+          className="absolute top-0 w-[100%] left-[40%] transform -translate-x-1/2 h-full bg-gradient-to-b from-yellow-400/10 to-orange-400/10"
+          style={{ 
+            filter: `hue-rotate(${hue - 60}deg)`,
+            transition: 'filter 0.5s ease'
+          }}
+        >
         </div>
-
       </motion.div>
     </div>
   );
