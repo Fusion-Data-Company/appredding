@@ -39,7 +39,7 @@ export default function Header() {
                 <img 
                   src="/attached_assets/APR-Logo-White-New-300x222.png" 
                   alt="Advance Power Redding" 
-                  className="relative h-16 w-auto object-contain"
+                  className="relative h-16 w-auto object-contain bg-white p-2 rounded shadow"
                 />
               </div>
             </Link>

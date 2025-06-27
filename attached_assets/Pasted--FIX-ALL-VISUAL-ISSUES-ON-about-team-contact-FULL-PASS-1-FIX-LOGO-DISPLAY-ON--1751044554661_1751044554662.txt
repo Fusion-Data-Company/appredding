@@ -1,0 +1,71 @@
+🚨 FIX ALL VISUAL ISSUES ON /about, /team, /#contact — FULL PASS
+
+---
+
+1. ✅ FIX LOGO DISPLAY ON /about AND /team
+
+- The Advance Power Redding logo is missing or visually hidden.
+- Ensure logo renders in the header for both pages.
+- Check for broken src path or visibility issues (opacity, display, z-index).
+- Apply this wrapper if needed:
+  className="bg-white p-2 rounded shadow w-auto h-[40px]"
+
+---
+
+2. ✅ FIX DARK HEADERS AND TEXT ON /about PAGE
+
+Affected sections:
+- Our Mission
+- Our Vision
+- Our History (ENTIRE TIMELINE, not just 1999 & 2005)
+
+Fix all headings and labels that are currently black or dark text on a dark background.
+
+Update all of the following:
+- “Our Mission” → className="text-white font-semibold text-2xl"
+- “Our Vision” → same as above
+- Paragraphs under each → className="text-gray-200"
+
+---
+
+3. ✅ FIX ENTIRE "OUR HISTORY" TIMELINE BLOCK
+
+- Every year block (1999, 2005, 2012, 2018, 2023, etc.) must be readable
+- All dark text or faded styles on the left-side labels must be updated
+- Timeline dots/markers should remain styled, but the year + title text must have:
+  className="text-orange-300 font-semibold text-base md:text-lg"
+
+- All paragraph bodies should be:
+  className="text-gray-200 text-sm md:text-base leading-relaxed"
+
+Check for any text or span styled via `opacity`, `text-black`, or custom theme tokens — and override them.
+
+---
+
+4. ✅ FIX BROKEN /#contact SECTION
+
+- The /#contact section is either broken or missing.
+- Confirm there is a section in the DOM:
+  <section id="contact" className="...">...</section>
+
+- If missing, restore the contact form or placeholder.
+
+- If routing via anchor, ensure:
+  - You're using `<a href="#contact">` or `<HashLink to="/#contact">`
+  - There’s no scroll lock or collision with `overflow-hidden`
+
+✅ Example contact section stub if missing:
+<section id="contact" className="bg-white text-black py-12 px-6">
+  <h2 className="text-2xl font-bold mb-4">Get in Touch</h2>
+  {/* form content */}
+</section>
+
+---
+
+✅ FINAL DELIVERABLE:
+
+- Logo fully visible and sized right on /about and /team
+- ALL headings readable — Our Mission, Our Vision, Our History, ALL timeline blocks
+- No black or dark gray text on dark backgrounds
+- Contact section restored and functioning
+- Mobile + desktop responsive test passes

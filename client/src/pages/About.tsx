@@ -24,13 +24,13 @@ const About = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-16">
               <div className="bg-gradient-to-b from-gray-100/70 to-gray-200/70 dark:from-gray-800/70 dark:to-gray-900/70 rounded-xl p-8 shadow-xl dark:shadow-orange-600/5 border border-gray-200 dark:border-gray-700/50">
-                <h2 className="gradient-text-combined text-2xl md:text-3xl font-bold mb-4 font-heading">Our Mission</h2>
-                <p className="dark:text-gray-300 text-gray-700 mb-4">
+                <h2 className="text-white font-semibold text-2xl mb-4 font-heading">Our Mission</h2>
+                <p className="text-gray-200 mb-4">
                   At Advance Power of Redding, our mission is to revolutionize Northern California's energy landscape through 
                   cutting-edge solar technology, exceptional service, and environmental stewardship. We are committed to providing 
                   reliable, cost-effective renewable energy solutions that reduce carbon footprints and energy costs.
                 </p>
-                <p className="dark:text-gray-300 text-gray-700">
+                <p className="text-gray-200">
                   We strive to be the leading solar installer in the region, empowering homeowners and businesses with 
                   sustainable energy independence while creating jobs and supporting our local Redding community through 
                   the clean energy transition.
@@ -38,13 +38,13 @@ const About = () => {
               </div>
 
               <div className="bg-gradient-to-b from-gray-100/70 to-gray-200/70 dark:from-gray-800/70 dark:to-gray-900/70 rounded-xl p-8 shadow-xl dark:shadow-blue-600/5 border border-gray-200 dark:border-gray-700/50">
-                <h2 className="gradient-text-combined text-2xl md:text-3xl font-bold mb-4 font-heading">Our Vision</h2>
-                <p className="dark:text-gray-300 text-gray-700 mb-4">
+                <h2 className="text-white font-semibold text-2xl mb-4 font-heading">Our Vision</h2>
+                <p className="text-gray-200 mb-4">
                   We envision a future where every home and business in Northern California is powered by clean, 
                   renewable solar energy. Our vision is to create a sustainable energy ecosystem that benefits both 
                   our customers and the environment for generations to come.
                 </p>
-                <p className="dark:text-gray-300 text-gray-700">
+                <p className="text-gray-200">
                   Through continuous innovation and community partnership, we aim to make solar energy accessible and 
                   affordable for all, while maintaining our position as the most trusted solar company in the 
                   Redding area with unmatched expertise and customer service.
@@ -96,8 +96,8 @@ const About = () => {
               <div className="relative border-l-4 border-gradient-to-b from-blue-500 via-white to-orange-500 pl-8 ml-6">
                 <div className="mb-10 relative">
                   <div className="absolute -left-11 w-6 h-6 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 border-4 border-gray-100 dark:border-gray-900"></div>
-                  <h3 className="gradient-text-blue text-xl font-bold mb-2 font-heading">1999: Foundation</h3>
-                  <p className="dark:text-gray-300 text-gray-700">
+                  <h3 className="text-orange-300 font-semibold text-base md:text-lg mb-2 font-heading">1999: Foundation</h3>
+                  <p className="text-gray-200 text-sm md:text-base leading-relaxed">
                     Advance Power of Redding was founded by Greg Tomsik with a vision to bring reliable solar energy 
                     solutions to Northern California. Starting as a small local business, we focused on quality 
                     installations and exceptional customer service in the emerging solar market.
@@ -106,8 +106,8 @@ const About = () => {
                 
                 <div className="mb-10 relative">
                   <div className="absolute -left-11 w-6 h-6 rounded-full bg-gradient-to-r from-blue-400 to-amber-500 border-4 border-gray-100 dark:border-gray-900"></div>
-                  <h3 className="gradient-text-blue text-xl font-bold mb-2 font-heading">2005: Growth & Expansion</h3>
-                  <p className="dark:text-gray-300 text-gray-700">
+                  <h3 className="text-orange-300 font-semibold text-base md:text-lg mb-2 font-heading">2005: Growth & Expansion</h3>
+                  <p className="text-gray-200 text-sm md:text-base leading-relaxed">
                     As solar technology improved and California incentives expanded, we grew our team and service area. 
                     We became one of the first certified solar installers in Shasta County, establishing partnerships 
                     with leading manufacturers and earning our California Solar Contractor license.
@@ -116,8 +116,8 @@ const About = () => {
                 
                 <div className="mb-10 relative">
                   <div className="absolute -left-11 w-6 h-6 rounded-full bg-gradient-to-r from-purple-500 to-orange-500 border-4 border-gray-100 dark:border-gray-900"></div>
-                  <h3 className="gradient-text-fire text-xl font-bold mb-2 font-heading">2015: Technology Leadership</h3>
-                  <p className="dark:text-gray-300 text-gray-700">
+                  <h3 className="text-orange-300 font-semibold text-base md:text-lg mb-2 font-heading">2015: Technology Leadership</h3>
+                  <p className="text-gray-200 text-sm md:text-base leading-relaxed">
                     We embraced the latest solar innovations including micro-inverters, battery storage systems, and 
                     smart monitoring technology. This period marked our transition to offering complete energy solutions 
                     including maintenance, repairs, and system optimization services.
@@ -126,8 +126,8 @@ const About = () => {
                 
                 <div className="relative">
                   <div className="absolute -left-11 w-6 h-6 rounded-full bg-gradient-to-r from-orange-500 to-orange-600 border-4 border-gray-100 dark:border-gray-900"></div>
-                  <h3 className="gradient-text-fire text-xl font-bold mb-2 font-heading">Today</h3>
-                  <p className="dark:text-gray-300 text-gray-700">
+                  <h3 className="text-orange-300 font-semibold text-base md:text-lg mb-2 font-heading">Today</h3>
+                  <p className="text-gray-200 text-sm md:text-base leading-relaxed">
                     With over 25 years of experience, Advance Power continues to lead Northern California in residential 
                     and commercial solar installations. We've completed thousands of projects, helping families and 
                     businesses achieve energy independence while supporting our local Redding community.
