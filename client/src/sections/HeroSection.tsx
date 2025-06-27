@@ -37,7 +37,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section id="hero-section" className="w-full bg-black overflow-hidden pt-0 mt-0 pb-0 relative" style={{ zIndex: 20, marginBottom: "-1px" }}>
+    <section id="hero-section" className="w-full bg-black overflow-hidden pt-0 mt-0 pb-0 relative bg-image-overlay" style={{ zIndex: 20, marginBottom: "-1px" }}>
       {/* Hero image container with responsive height */}
       <div className="relative w-screen" style={{ marginLeft: "calc(50% - 50vw)", marginTop: "0" /* Removed margin to eliminate blue gap */ }}>
         {/* Hero image with natural proportions */}

@@ -2,6 +2,7 @@
 /* Removed font imports for performance - using system fonts */
 @import './styles/elite-solar.css';
 @import './styles/elite-styling.css';
+@import './styles/background-overlays.css';
 
 @tailwind base;
 @tailwind components;
@@ -17,54 +18,11 @@
   text-shadow: 0 1px 2px rgba(255,255,255,0.5);
 }
 
-/* White text on dark backgrounds with enhanced readability and dark outlines */
-.bg-gray-800 *,
-.bg-gray-900 *,
-.bg-black *,
-.bg-slate-800 *,
-.bg-slate-900 *,
-.bg-stone-800 *,
-.bg-stone-900 *,
-.bg-red-800 *,
-.bg-red-900 *,
-.bg-orange-800 *,
-.bg-orange-900 *,
-.bg-gradient-to-r *,
-.bg-gradient-to-br *,
-.bg-gradient-to-l *,
-.bg-gradient-to-t *,
-.bg-gradient-to-b *,
-.button-primary *,
-header *,
-[class*="bg-gray-900"] *,
-[class*="bg-gray-800"] *,
-[class*="bg-black"] *,
-[class*="bg-red-900"] *,
-[class*="bg-red-800"] *,
-[class*="bg-orange-900"] *,
-[class*="bg-orange-800"] *,
-[class*="backdrop-blur"] *,
-[class*="from-gray-900"] *,
-[class*="from-gray-800"] *,
-[class*="from-black"] *,
-[class*="to-gray-900"] *,
-[class*="to-gray-800"] *,
-[class*="to-black"] *,
-[class*="via-gray-900"] *,
-[class*="via-gray-800"] *,
-[class*="via-black"] *,
-[class*="from-red-900"] *,
-[class*="from-red-800"] *,
-[class*="to-red-900"] *,
-[class*="to-red-800"] *,
-[class*="via-red-900"] *,
-[class*="via-red-800"] *,
-[class*="from-orange-900"] *,
-[class*="from-orange-800"] *,
-[class*="to-orange-900"] *,
-[class*="to-orange-800"] *,
-[class*="via-orange-900"] *,
-[class*="via-orange-800"]:not(.preserve-text-color) > *:not(.preserve-text-color) {
+/* White text on dark backgrounds - using higher specificity without !important */
+.bg-gray-800:not(.preserve-text-color) > *:not(.preserve-text-color),
+.bg-gray-900:not(.preserve-text-color) > *:not(.preserve-text-color),
+.bg-black:not(.preserve-text-color) > *:not(.preserve-text-color),
+header:not(.preserve-text-color) > *:not(.preserve-text-color) {
   color: white;
   text-shadow: 
     -1px -1px 0 rgba(0,0,0,0.8),

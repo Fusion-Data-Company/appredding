@@ -219,7 +219,7 @@ const ChatWidget = () => {
   const messages = currentSession?.messages || [];
   
   return (
-    <div className="fixed bottom-4 right-4 z-[9999] flex flex-col items-end">
+    <div className="fixed bottom-4 right-4 z-40 flex flex-col items-end">
       {/* Main Chat Widget */}
       {isOpen && (
         <Card className="w-[500px] h-[650px] mb-4 shadow-[0_0_40px_rgba(255,140,50,0.25)] bg-gradient-to-br from-orange-950/80 via-primary-950/90 to-blue-950/80 backdrop-blur-lg flex flex-col overflow-hidden animate-in slide-in-from-bottom-10 duration-300 border-2 border-orange-700/30">
