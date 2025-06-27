@@ -189,21 +189,36 @@ div[class*="bg-gradient-to-br"][class*="black"] *,
   color: white !important;
 }
 
-/* Form input text visibility enforcement */
-input.text-gray-900,
-textarea.text-gray-900,
-select.text-gray-900,
-input[type="number"],
+/* BULLETPROOF INPUT TEXT VISIBILITY - MAXIMUM OVERRIDE POWER */
 input[type="text"],
+input[type="number"],
 input[type="email"],
-input[type="tel"] {
-  color: #111827 !important; /* Dark gray-900 for maximum visibility */
-  background-color: white !important;
+input[type="tel"],
+textarea,
+select {
+  color: #111827 !important; /* Tailwind gray-900 */
+  background-color: #ffffff !important;
+  font-weight: 500 !important;
 }
 
 input::placeholder,
 textarea::placeholder {
-  color: #374151 !important; /* Gray-700 for placeholders */
+  color: #374151 !important; /* Tailwind gray-700 */
+  opacity: 1 !important;
+}
+
+/* Additional specificity override for any nested contexts */
+.bg-white input,
+.bg-white textarea,
+.bg-white select,
+div input[type="number"],
+div input[type="text"],
+div input[type="email"],
+form input,
+form textarea,
+form select {
+  color: #111827 !important;
+  background-color: #ffffff !important;
 }
 
 /* Non-form text overrides */

@@ -64,7 +64,7 @@ export const UtilitySavingsCalculator: React.FC = () => {
     >
       <div className="absolute -inset-1 bg-gradient-to-br from-orange-300/30 to-amber-300/30 rounded-3xl blur-xl opacity-50"></div>
       
-      <div className="relative z-10">
+      <div className="relative z-10 bg-white text-gray-900 dark:text-gray-900 dark:bg-white">
         <div className="text-center mb-8">
           <motion.div
             className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl mb-4 text-white shadow-2xl"
