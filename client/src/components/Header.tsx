@@ -13,16 +13,16 @@ export default function Header() {
       <div className="bg-black py-2">
         <div className="max-w-7xl mx-auto px-4 flex justify-between items-center text-sm">
           <div className="flex items-center space-x-4">
-            <a href="tel:5302260701" className="flex items-center text-orange-400 hover:text-orange-300 font-medium">
+            <a href="tel:5302260701" className="flex items-center text-orange-300 hover:text-orange-200 font-medium">
               <Phone size={14} className="mr-1" />
               (530) 226-0701
             </a>
-            <a href="mailto:info@apredding.net" className="flex items-center text-orange-400 hover:text-orange-300 font-medium">
+            <a href="mailto:info@apredding.net" className="flex items-center text-orange-300 hover:text-orange-200 font-medium">
               <Mail size={14} className="mr-1" />
               info@apredding.net
             </a>
           </div>
-          <div className="hidden md:block text-orange-400 font-medium">
+          <div className="hidden md:block text-orange-300 font-medium">
             Energy Freedom Begins Here!
           </div>
         </div>
@@ -49,7 +49,7 @@ export default function Header() {
               <Link 
                 href="/" 
                 className={`text-lg font-semibold transition-colors ${
-                  location === '/' ? 'text-orange-400' : 'text-orange-300 hover:text-orange-400'
+                  location === '/' ? 'text-orange-200' : 'text-orange-300 hover:text-orange-200'
                 }`}
               >
                 Home
@@ -57,33 +57,33 @@ export default function Header() {
               
               {/* Services Dropdown */}
               <div className="relative group">
-                <button className="text-lg font-semibold text-orange-300 hover:text-orange-400 transition-colors">
+                <button className="text-lg font-semibold text-orange-300 hover:text-orange-200 transition-colors">
                   Services
                 </button>
                 <div className="absolute top-full left-0 mt-2 w-64 bg-black border-2 border-orange-500 rounded-lg shadow-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                  <Link href="/residential-solar" className="block px-4 py-2 text-orange-300 font-medium hover:bg-orange-900 hover:text-orange-100 transition-colors">
+                  <Link href="/residential-solar" className="block px-4 py-2 text-orange-200 font-medium hover:bg-orange-900 hover:text-white transition-colors">
                     Residential Solar
                   </Link>
-                  <Link href="/commercial-solar" className="block px-4 py-2 text-orange-300 font-medium hover:bg-orange-900 hover:text-orange-100 transition-colors">
+                  <Link href="/commercial-solar" className="block px-4 py-2 text-orange-200 font-medium hover:bg-orange-900 hover:text-white transition-colors">
                     Commercial Solar
                   </Link>
-                  <Link href="/hybrid-solar" className="block px-4 py-2 text-orange-300 font-medium hover:bg-orange-900 hover:text-orange-100 transition-colors">
+                  <Link href="/hybrid-solar" className="block px-4 py-2 text-orange-200 font-medium hover:bg-orange-900 hover:text-white transition-colors">
                     Hybrid Solar Systems
                   </Link>
-                  <Link href="/lithium-battery" className="block px-4 py-2 text-orange-300 font-medium hover:bg-orange-900 hover:text-orange-100 transition-colors">
+                  <Link href="/lithium-battery" className="block px-4 py-2 text-orange-200 font-medium hover:bg-orange-900 hover:text-white transition-colors">
                     Lithium Battery Services
                   </Link>
-                  <Link href="/energy-conservation" className="block px-4 py-2 text-orange-300 font-medium hover:bg-orange-900 hover:text-orange-100 transition-colors">
+                  <Link href="/energy-conservation" className="block px-4 py-2 text-orange-200 font-medium hover:bg-orange-900 hover:text-white transition-colors">
                     Energy Conservation
                   </Link>
                   <div className="border-t border-orange-600 my-2"></div>
-                  <Link href="/maintenance" className="block px-4 py-2 text-orange-300 font-medium hover:bg-orange-900 hover:text-orange-100 transition-colors">
+                  <Link href="/maintenance" className="block px-4 py-2 text-orange-200 font-medium hover:bg-orange-900 hover:text-white transition-colors">
                     Maintenance
                   </Link>
-                  <Link href="/repairs" className="block px-4 py-2 text-orange-300 font-medium hover:bg-orange-900 hover:text-orange-100 transition-colors">
+                  <Link href="/repairs" className="block px-4 py-2 text-orange-200 font-medium hover:bg-orange-900 hover:text-white transition-colors">
                     Repairs
                   </Link>
-                  <Link href="/battery-storage" className="block px-4 py-2 text-orange-300 font-medium hover:bg-orange-900 hover:text-orange-100 transition-colors">
+                  <Link href="/battery-storage" className="block px-4 py-2 text-orange-200 font-medium hover:bg-orange-900 hover:text-white transition-colors">
                     Battery Storage
                   </Link>
                 </div>
@@ -92,7 +92,7 @@ export default function Header() {
               <Link 
                 href="/about" 
                 className={`text-lg font-semibold transition-colors ${
-                  location === '/about' ? 'text-orange-400' : 'text-orange-300 hover:text-orange-400'
+                  location === '/about' ? 'text-orange-200' : 'text-orange-300 hover:text-orange-200'
                 }`}
               >
                 About
@@ -101,7 +101,7 @@ export default function Header() {
               <Link 
                 href="/team" 
                 className={`text-lg font-semibold transition-colors ${
-                  location === '/team' ? 'text-orange-400' : 'text-orange-300 hover:text-orange-400'
+                  location === '/team' ? 'text-orange-200' : 'text-orange-300 hover:text-orange-200'
                 }`}
               >
                 FAQ's
@@ -155,7 +155,7 @@ export default function Header() {
                   Home
                 </Link>
                 
-                <div className="px-4 py-2 text-orange-400 font-medium border-b border-gray-700">
+                <div className="px-4 py-2 text-orange-200 font-medium border-b border-gray-700">
                   Services
                 </div>
                 <Link 

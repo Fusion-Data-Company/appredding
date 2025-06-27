@@ -259,7 +259,7 @@ const ChatWidget = () => {
             <div className="absolute top-[52px] left-0 right-0 bg-card shadow-md border-b border-border z-10 max-h-[300px] overflow-y-auto animate-in slide-in-from-top duration-200">
               <div className="p-3">
                 <div className="flex justify-between items-center mb-2">
-                  <h3 className="text-sm font-semibold text-foreground">Chat History</h3>
+                  <h3 className="text-sm font-semibold text-white">Chat History</h3>
                   <Button
                     variant="outline"
                     size="sm"
@@ -272,10 +272,10 @@ const ChatWidget = () => {
                 
                 {isLoadingSessions ? (
                   <div className="flex justify-center py-8">
-                    <Loader2 className="h-6 w-6 animate-spin text-muted-foreground" />
+                    <Loader2 className="h-6 w-6 animate-spin text-gray-200" />
                   </div>
                 ) : chatSessions?.length === 0 ? (
-                  <p className="text-sm text-muted-foreground text-center py-4">
+                  <p className="text-sm text-gray-200 text-center py-4">
                     No previous chats found
                   </p>
                 ) : (
@@ -293,7 +293,7 @@ const ChatWidget = () => {
                           <p className="font-medium">
                             {session.title || 'Untitled Chat'}
                           </p>
-                          <p className="text-xs text-muted-foreground">
+                          <p className="text-xs text-gray-200">
                             {format(new Date(session.createdAt!), 'MMM d, yyyy • h:mm a')}
                           </p>
                         </div>
@@ -323,7 +323,7 @@ const ChatWidget = () => {
                 <div className="w-16 h-16 rounded-full bg-gradient-to-r from-blue-700 to-orange-700 flex items-center justify-center shadow-[0_0_20px_rgba(255,255,255,0.15)]">
                   <Loader2 className="h-8 w-8 animate-spin text-white" />
                 </div>
-                <p className="text-gray-400 font-medium">Loading conversation...</p>
+                <p className="text-gray-200 font-medium">Loading conversation...</p>
               </div>
             ) : isMessagesError ? (
               <div className="flex flex-col justify-center items-center h-full gap-4">
@@ -331,7 +331,7 @@ const ChatWidget = () => {
                   <X className="h-8 w-8 text-white" />
                 </div>
                 <div className="bg-gradient-to-r from-red-950/80 via-orange-950/90 to-red-950/80 p-5 rounded-lg border border-red-500/30 shadow-lg">
-                  <p className="text-red-400 font-medium">
+                  <p className="text-red-300 font-medium">
                     Failed to load messages. Please try again.
                   </p>
                 </div>
@@ -345,7 +345,7 @@ const ChatWidget = () => {
                   <h3 className="text-xl font-semibold text-white mb-3">
                     Hello! I'm Watson 👋
                   </h3>
-                  <p className="text-gray-300 max-w-xs leading-relaxed mb-4">
+                  <p className="text-gray-200 max-w-xs leading-relaxed mb-4">
                     I'm your Solar Energy Assistant at Advance Power Redding. Ask me anything about solar installations, battery storage, financing options, or energy savings. I'm here to help with all your renewable energy needs in Shasta County since 1999.
                   </p>
                 </div>
@@ -371,8 +371,8 @@ const ChatWidget = () => {
                   </div>
                   
                   {msg.role === "assistant" && msg.citedDocuments && msg.citedDocuments.length > 0 && (
-                    <div className="mt-2 text-xs bg-gradient-to-r from-blue-950/80 to-primary-950/90 text-gray-300 px-3 py-2 rounded-md border border-blue-500/30 inline-block shadow-sm">
-                      <p className="font-medium">Sources: <span className="text-blue-300">Documents {msg.citedDocuments.join(', ')}</span></p>
+                    <div className="mt-2 text-xs bg-gradient-to-r from-blue-950/80 to-primary-950/90 text-gray-200 px-3 py-2 rounded-md border border-blue-500/30 inline-block shadow-sm">
+                      <p className="font-medium">Sources: <span className="text-blue-200">Documents {msg.citedDocuments.join(', ')}</span></p>
                     </div>
                   )}
                 </div>

@@ -1,0 +1,62 @@
+🚨 This site still has unreadable text due to low contrast — NOT just white on white. I'm seeing light gray on gray, black on black, and other poor combinations.
+
+You previously marked some of it as fixed, but it's NOT FIXED.
+
+I need you to do a full forensic sweep AND fix the issue.
+
+---
+
+🎯 OBJECTIVE:
+Identify and FIX all instances of **text that is unreadable or non-compliant with WCAG 2.1 AA contrast guidelines** across the entire site — including header, footer, body, overlays, modals, and mobile views.
+
+---
+
+🧠 SCOPE:
+
+1. Check **ALL text elements**:
+   - `<p>`, `<span>`, `<a>`, `<h1>`–`<h6>`, `<button>`, nav links, labels, tooltips, modals, popouts, chat widgets, sliders
+
+2. Analyze **final computed styles**:
+   - Final `color` and `background-color` (inherited or declared)
+   - Opacity, filters, pseudo-elements
+   - Z-index and overlapping containers
+   - Tailwind classes, CSS modules, global styles, inline styles, variables from theme.json
+   - Responsive modifiers (`md:`, `dark:`, `hover:`, etc.)
+
+3. Calculate **contrast ratio**:
+   - Must be ≥ 4.5:1 for normal text, 3:1 for large/bold text
+   - Must pass across **light mode**, **dark mode**, and **mobile viewports**
+
+4. Identify the **root cause** of low contrast:
+   - Conflicting class chains
+   - !important overrides
+   - Transparent or inherited backgrounds
+   - Theme tokens producing non-contrasting values
+   - Default Tailwind values causing color-on-color rendering
+
+5. FIX THE PROBLEMS:
+   - Change text colors or backgrounds to meet WCAG 2.1 AA contrast requirements
+   - Preserve visual hierarchy and branding, but make text readable
+   - Prioritize semantic class updates or utility overrides, not just inline styling
+   - Add background overlays where needed on top of images or gradients
+   - Fix responsive and theme-based issues, not just desktop
+
+---
+
+✅ FOR EACH FIX, DOCUMENT:
+- File + line number
+- Selector or component
+- Original text color / background
+- New applied style (class or inline)
+- Updated contrast ratio (must be ≥ 4.5:1)
+- Whether it affects mobile or desktop or both
+
+---
+
+🛑 DO NOT skip anything.
+
+- Fix unreadable headers, buttons, CTA labels, tooltips, forms, chat widgets
+- Fix broken themes, overlapping z-indexes, or text hidden under parallax or blur layers
+- Clean up conflicting or redundant CSS if necessary to make fixes stick
+
+This is a **production-grade accessibility pass**. I want all visual contrast failures gone in one shot. Be thorough. Be final.

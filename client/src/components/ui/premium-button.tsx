@@ -10,15 +10,15 @@ const premiumButtonVariants = cva(
     variants: {
       variant: {
         default: 
-          "bg-gradient-to-r from-gray-950 via-black to-gray-950 text-white border-2 border-blue-500/70 shadow-lg hover:shadow-[0_0_20px_rgba(59,130,246,0.6)] hover:border-blue-400/80 transition-all duration-500 hover:scale-[1.01]",
+          "bg-gradient-to-r from-gray-950 via-black to-gray-950 text-white border-2 border-blue-400/80 shadow-lg hover:shadow-[0_0_20px_rgba(59,130,246,0.6)] hover:border-blue-300/90 transition-all duration-500 hover:scale-[1.01]",
         gold: 
-          "bg-gradient-to-br from-amber-950 via-black to-amber-950 text-white border-2 border-amber-500/70 shadow-lg hover:shadow-[0_0_20px_rgba(251,191,36,0.6)] hover:border-amber-400/80 transition-all duration-500 hover:scale-[1.01]",
+          "bg-gradient-to-br from-amber-950 via-black to-amber-950 text-white border-2 border-amber-400/80 shadow-lg hover:shadow-[0_0_20px_rgba(251,191,36,0.6)] hover:border-amber-300/90 transition-all duration-500 hover:scale-[1.01]",
         fire: 
-          "bg-gradient-to-br from-gray-900 via-black to-gray-950 text-white border-2 border-blue-500/70 shadow-lg hover:shadow-[0_0_30px_rgba(59,130,246,0.7)] transform transition-all duration-500 hover:scale-[1.02] hover:border-blue-400/80",
+          "bg-gradient-to-br from-gray-900 via-black to-gray-950 text-white border-2 border-blue-400/80 shadow-lg hover:shadow-[0_0_30px_rgba(59,130,246,0.7)] transform transition-all duration-500 hover:scale-[1.02] hover:border-blue-300/90",
         outline: 
-          "bg-black text-white border-2 border-blue-500/70 shadow-lg hover:shadow-[0_0_15px_rgba(59,130,246,0.5)]",
+          "bg-black text-white border-2 border-blue-400/80 shadow-lg hover:shadow-[0_0_15px_rgba(59,130,246,0.5)]",
         ghost: 
-          "bg-black text-white border-2 border-blue-500/60 shadow-lg hover:shadow-[0_0_15px_rgba(59,130,246,0.4)]"
+          "bg-black text-white border-2 border-blue-400/80 shadow-lg hover:shadow-[0_0_15px_rgba(59,130,246,0.4)]"
       },
       size: {
         sm: "h-12 px-5 py-3 text-base rounded-lg",
@@ -98,9 +98,9 @@ const ShineEffect = () => (
       }}
     />
     
-    {/* Corner accent points - changed to black */}
-    <div className="absolute top-0 left-0 w-2 h-2 bg-gray-300/70 rounded-full blur-[1px] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-    <div className="absolute bottom-0 right-0 w-2 h-2 bg-gray-300/70 rounded-full blur-[1px] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+    {/* Corner accent points - improved contrast */}
+    <div className="absolute top-0 left-0 w-2 h-2 bg-white/80 rounded-full blur-[1px] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+    <div className="absolute bottom-0 right-0 w-2 h-2 bg-white/80 rounded-full blur-[1px] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
   </>
 );
 
@@ -135,7 +135,7 @@ const PremiumButton = forwardRef<HTMLButtonElement, PremiumButtonProps>(
           {/* Inner border and glass effects for fire variant */}
           {isFire && (
             <>
-              <div className="absolute inset-0 rounded-[10px] border border-gray-500/40 pointer-events-none"></div>
+              <div className="absolute inset-0 rounded-[10px] border border-gray-400/60 pointer-events-none"></div>
               <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent pointer-events-none opacity-30"></div>
               <div className="absolute inset-x-0 top-0 h-[1px] bg-white/20 rounded-full"></div>
               <div className="absolute inset-0 rounded-[10px] backdrop-blur-[0.5px] opacity-50 pointer-events-none"></div>
@@ -200,11 +200,11 @@ const PremiumButton = forwardRef<HTMLButtonElement, PremiumButtonProps>(
               {/* Additional hover shimmer effect - more pronounced on hover */}
               <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/15 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 -translate-x-full group-hover:translate-x-full transform transition-transform duration-1000 rounded-lg"></div>
               
-              {/* Corner accent points - premium touch with subtle blue glow */}
-              <div className="absolute top-0 left-0 w-2 h-2 bg-blue-300/80 rounded-full blur-[1px] opacity-100 transition-opacity duration-300"></div>
-              <div className="absolute top-0 right-0 w-2 h-2 bg-blue-300/80 rounded-full blur-[1px] opacity-100 transition-opacity duration-300"></div>
-              <div className="absolute bottom-0 left-0 w-2 h-2 bg-blue-300/80 rounded-full blur-[1px] opacity-100 transition-opacity duration-300"></div>
-              <div className="absolute bottom-0 right-0 w-2 h-2 bg-blue-300/80 rounded-full blur-[1px] opacity-100 transition-opacity duration-300"></div>
+              {/* Corner accent points - premium touch with enhanced visibility */}
+              <div className="absolute top-0 left-0 w-2 h-2 bg-blue-200/90 rounded-full blur-[1px] opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute top-0 right-0 w-2 h-2 bg-blue-200/90 rounded-full blur-[1px] opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute bottom-0 left-0 w-2 h-2 bg-blue-200/90 rounded-full blur-[1px] opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute bottom-0 right-0 w-2 h-2 bg-blue-200/90 rounded-full blur-[1px] opacity-100 transition-opacity duration-300"></div>
             </>
           )}
         </button>
