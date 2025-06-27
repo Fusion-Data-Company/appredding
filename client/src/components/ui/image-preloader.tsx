@@ -82,7 +82,7 @@ export function ImagePreloader({ imageUrls, altTexts, lazyLoadBelowFold = false,
       <div className="flex items-center justify-center min-h-screen bg-gray-900">
         <div className="text-center">
           <div className="w-16 h-16 border-t-4 border-b-4 border-orange-500 border-solid rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-gray-300">Loading amazing content...</p>
+          <p className="text-gray-200">Loading amazing content...</p>
         </div>
       </div>
     );

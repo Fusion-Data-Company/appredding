@@ -110,14 +110,14 @@ export default function Header() {
               {isHomePage ? (
                 <a 
                   href="#contact" 
-                  className="text-lg font-semibold text-orange-300 hover:text-orange-400 transition-colors"
+                  className="text-lg font-semibold text-orange-300 hover:text-orange-200 transition-colors"
                 >
                   Contact Us
                 </a>
               ) : (
                 <Link 
                   href="/#contact" 
-                  className="text-lg font-semibold text-orange-300 hover:text-orange-400 transition-colors"
+                  className="text-lg font-semibold text-orange-300 hover:text-orange-200 transition-colors"
                 >
                   Contact Us
                 </Link>
@@ -160,56 +160,56 @@ export default function Header() {
                 </div>
                 <Link 
                   href="/residential-solar" 
-                  className="block px-6 py-2 text-gray-300 hover:text-white hover:bg-gray-800 transition-colors"
+                  className="block px-6 py-2 text-gray-200 hover:text-white hover:bg-gray-800 transition-colors"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Residential Solar
                 </Link>
                 <Link 
                   href="/commercial-solar" 
-                  className="block px-6 py-2 text-gray-300 hover:text-white hover:bg-gray-800 transition-colors"
+                  className="block px-6 py-2 text-gray-200 hover:text-white hover:bg-gray-800 transition-colors"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Commercial Solar
                 </Link>
                 <Link 
                   href="/hybrid-solar" 
-                  className="block px-6 py-2 text-gray-300 hover:text-white hover:bg-gray-800 transition-colors"
+                  className="block px-6 py-2 text-gray-200 hover:text-white hover:bg-gray-800 transition-colors"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Hybrid Solar Systems
                 </Link>
                 <Link 
                   href="/lithium-battery" 
-                  className="block px-6 py-2 text-gray-300 hover:text-white hover:bg-gray-800 transition-colors"
+                  className="block px-6 py-2 text-gray-200 hover:text-white hover:bg-gray-800 transition-colors"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Lithium Battery Services
                 </Link>
                 <Link 
                   href="/energy-conservation" 
-                  className="block px-6 py-2 text-gray-300 hover:text-white hover:bg-gray-800 transition-colors"
+                  className="block px-6 py-2 text-gray-200 hover:text-white hover:bg-gray-800 transition-colors"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Energy Conservation
                 </Link>
                 <Link 
                   href="/maintenance" 
-                  className="block px-6 py-2 text-gray-300 hover:text-white hover:bg-gray-800 transition-colors border-t border-gray-700"
+                  className="block px-6 py-2 text-gray-200 hover:text-white hover:bg-gray-800 transition-colors border-t border-gray-700"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Maintenance
                 </Link>
                 <Link 
                   href="/repairs" 
-                  className="block px-6 py-2 text-gray-300 hover:text-white hover:bg-gray-800 transition-colors"
+                  className="block px-6 py-2 text-gray-200 hover:text-white hover:bg-gray-800 transition-colors"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Repairs
                 </Link>
                 <Link 
                   href="/battery-storage" 
-                  className="block px-6 py-2 text-gray-300 hover:text-white hover:bg-gray-800 transition-colors"
+                  className="block px-6 py-2 text-gray-200 hover:text-white hover:bg-gray-800 transition-colors"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Battery Storage

@@ -147,7 +147,7 @@ const PremiumButton = forwardRef<HTMLButtonElement, PremiumButtonProps>(
             {/* Icon with specialized glow for fire variant */}
             {icon && iconPosition === 'left' && (
               <div className={isFire ? "relative" : ""}>
-                {isFire && <div className="absolute inset-0 bg-gray-500/30 blur-md rounded-full opacity-80 group-hover:opacity-100 transition-opacity duration-500"></div>}
+                {isFire && <div className="absolute inset-0 bg-gray-400/40 blur-md rounded-full opacity-80 group-hover:opacity-100 transition-opacity duration-500"></div>}
                 <div className={isFire ? "relative z-10 animate-subtle-bounce" : ""}>{icon}</div>
               </div>
             )}
@@ -163,7 +163,7 @@ const PremiumButton = forwardRef<HTMLButtonElement, PremiumButtonProps>(
             
             {icon && iconPosition === 'right' && (
               <div className={isFire ? "relative" : ""}>
-                {isFire && <div className="absolute inset-0 bg-gray-500/30 blur-md rounded-full opacity-80 group-hover:opacity-100 transition-opacity duration-500"></div>}
+                {isFire && <div className="absolute inset-0 bg-gray-400/40 blur-md rounded-full opacity-80 group-hover:opacity-100 transition-opacity duration-500"></div>}
                 <div className={isFire ? "relative z-10 animate-subtle-bounce" : ""}>{icon}</div>
               </div>
             )}

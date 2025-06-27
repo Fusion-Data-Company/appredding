@@ -29,7 +29,7 @@ const DropdownSection = ({ title, items, gridCols = 2 }) => (
         <Link 
           key={index} 
           href={item.href}
-          className="text-sm text-gray-300 hover:text-white transition-colors"
+          className="text-sm text-gray-200 hover:text-white transition-colors"
         >
           {item.label}
         </Link>
@@ -104,7 +104,7 @@ const ImageCard = ({ title, description, imageSrc, href }) => (
     </div>
     <div className="p-2 bg-gray-800/90">
       <h4 className="font-bold text-white text-xs mb-0.5 group-hover:text-amber-400 transition-colors">{title}</h4>
-      <p className="text-gray-300 text-[10px] leading-tight">{description}</p>
+      <p className="text-gray-200 text-[10px] leading-tight">{description}</p>
     </div>
   </Link>
 );

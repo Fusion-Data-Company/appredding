@@ -79,7 +79,7 @@ export function PremiumTabsTrigger({
       value={value}
       className={cn(
         "relative group px-4 py-2 rounded-md data-[state=active]:bg-gradient-to-br data-[state=active]:from-gray-800/80 data-[state=active]:to-gray-900/80",
-        "text-gray-300 data-[state=active]:text-white font-medium",
+        "text-gray-200 data-[state=active]:text-white font-medium",
         "border border-transparent data-[state=active]:border-gray-700/50",
         "transition-all duration-300 hover:text-white",
         "data-[state=active]:shadow-[0_0_20px_rgba(59,130,246,0.3)]",

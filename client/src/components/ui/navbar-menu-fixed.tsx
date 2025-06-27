@@ -145,7 +145,7 @@ export const ProductItem = ({
         <h4 className="text-base font-bold mb-1 text-white group-hover:text-blue-300 transition-colors duration-300">
           {title}
         </h4>
-        <p className="text-gray-300 text-xs group-hover:text-gray-200 transition-colors duration-300">
+        <p className="text-gray-200 text-xs group-hover:text-white transition-colors duration-300">
           {description}
         </p>
       </div>
@@ -157,7 +157,7 @@ export const HoveredLink = ({ children, ...rest }: any) => {
   return (
     <Link
       {...rest}
-      className="text-gray-300 hover:text-white transition-colors duration-300 py-1 block"
+      className="text-gray-200 hover:text-white transition-colors duration-300 py-1 block"
     >
       {children}
     </Link>

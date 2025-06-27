@@ -34,7 +34,7 @@ const VoiceChatPopout = () => {
                     <Button 
                       variant="ghost" 
                       size="icon"
-                      className="h-7 w-7 rounded-full hover:bg-white/10 text-gray-300"
+                      className="h-7 w-7 rounded-full hover:bg-white/10 text-gray-200"
                       onClick={toggleExpanded}
                     >
                       <Minimize2 className="h-4 w-4" />
@@ -42,7 +42,7 @@ const VoiceChatPopout = () => {
                     <Button 
                       variant="ghost" 
                       size="icon"
-                      className="h-7 w-7 rounded-full hover:bg-white/10 text-gray-300"
+                      className="h-7 w-7 rounded-full hover:bg-white/10 text-gray-200"
                       onClick={toggleExpanded}
                     >
                       <X className="h-4 w-4" />
