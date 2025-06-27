@@ -89,7 +89,7 @@ export const UtilitySavingsCalculator: React.FC = () => {
               type="number"
               value={inputs.monthlyBill}
               onChange={(e) => setInputs({...inputs, monthlyBill: e.target.value})}
-              className="w-full px-4 py-3 bg-white border-2 border-orange-200 rounded-xl placeholder-gray-500 text-gray-800 font-normal focus:border-orange-400 focus:ring-4 focus:ring-orange-100 transition-all duration-300"
+              className="w-full px-4 py-3 bg-white text-gray-700 placeholder-gray-500 border border-orange-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-200 focus:border-orange-400 transition duration-200 text-sm"
               placeholder="Enter amount"
             />
           </div>
@@ -100,7 +100,7 @@ export const UtilitySavingsCalculator: React.FC = () => {
               type="number"
               value={inputs.homeSize}
               onChange={(e) => setInputs({...inputs, homeSize: e.target.value})}
-              className="w-full px-4 py-3 bg-white border-2 border-orange-200 rounded-xl placeholder-gray-500 text-gray-800 font-normal focus:border-orange-400 focus:ring-4 focus:ring-orange-100 transition-all duration-300"
+              className="w-full px-4 py-3 bg-white text-gray-700 placeholder-gray-500 border border-orange-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-200 focus:border-orange-400 transition duration-200 text-sm"
               placeholder="Square footage"
             />
           </div>
@@ -110,12 +110,12 @@ export const UtilitySavingsCalculator: React.FC = () => {
             <select
               value={inputs.roofType}
               onChange={(e) => setInputs({...inputs, roofType: e.target.value})}
-              className="w-full px-4 py-3 bg-white border-2 border-orange-200 rounded-xl placeholder-gray-500 text-gray-800 font-normal focus:border-orange-400 focus:ring-4 focus:ring-orange-100 transition-all duration-300"
+              className="w-full px-4 py-3 bg-white text-gray-700 placeholder-gray-500 border border-orange-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-200 focus:border-orange-400 transition duration-200 text-sm"
             >
-              <option value="asphalt" className="text-gray-800">Asphalt Shingles</option>
-              <option value="tile" className="text-gray-800">Tile</option>
-              <option value="metal" className="text-gray-800">Metal</option>
-              <option value="flat" className="text-gray-800">Flat</option>
+              <option value="asphalt" className="text-gray-700">Asphalt Shingles</option>
+              <option value="tile" className="text-gray-700">Tile</option>
+              <option value="metal" className="text-gray-700">Metal</option>
+              <option value="flat" className="text-gray-700">Flat</option>
             </select>
           </div>
           
@@ -124,11 +124,11 @@ export const UtilitySavingsCalculator: React.FC = () => {
             <select
               value={inputs.sunExposure}
               onChange={(e) => setInputs({...inputs, sunExposure: e.target.value})}
-              className="w-full px-4 py-3 bg-white border-2 border-orange-200 rounded-xl placeholder-gray-500 text-gray-800 font-normal focus:border-orange-400 focus:ring-4 focus:ring-orange-100 transition-all duration-300"
+              className="w-full px-4 py-3 bg-white text-gray-700 placeholder-gray-500 border border-orange-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-200 focus:border-orange-400 transition duration-200 text-sm"
             >
-              <option value="full" className="text-gray-800">Full Sun (6+ hours)</option>
-              <option value="partial" className="text-gray-800">Partial Sun (4-6 hours)</option>
-              <option value="limited" className="text-gray-800">Limited Sun (2-4 hours)</option>
+              <option value="full" className="text-gray-700">Full Sun (6+ hours)</option>
+              <option value="partial" className="text-gray-700">Partial Sun (4-6 hours)</option>
+              <option value="limited" className="text-gray-700">Limited Sun (2-4 hours)</option>
             </select>
           </div>
         </div>

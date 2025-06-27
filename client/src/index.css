@@ -189,25 +189,27 @@ div[class*="bg-gradient-to-br"][class*="black"] *,
   color: white !important;
 }
 
-/* BALANCED INPUT TEXT VISIBILITY - AESTHETIC & FUNCTIONAL */
+/* CLEAN MODERN INPUT STYLING - BRAND ALIGNED */
 input[type="text"],
 input[type="number"],
 input[type="email"],
 input[type="tel"],
 textarea,
 select {
-  color: #1f2937 !important; /* Tailwind gray-800 - softer than black */
+  color: #374151 !important; /* Tailwind gray-700 - clean and readable */
   background-color: #ffffff !important;
-  font-weight: 400 !important; /* Normal weight, not bold */
+  font-weight: 400 !important; /* Normal weight */
+  font-size: 0.875rem !important; /* text-sm */
+  text-shadow: none !important; /* Remove any shadows */
 }
 
 input::placeholder,
 textarea::placeholder {
-  color: #6b7280 !important; /* Tailwind gray-500 - softer placeholder */
+  color: #6b7280 !important; /* Tailwind gray-500 */
   opacity: 1 !important;
 }
 
-/* Additional specificity override for any nested contexts */
+/* Remove any forced styling overrides */
 .bg-white input,
 .bg-white textarea,
 .bg-white select,
@@ -217,9 +219,11 @@ div input[type="email"],
 form input,
 form textarea,
 form select {
-  color: #1f2937 !important; /* Gray-800 for visual balance */
+  color: #374151 !important; /* Gray-700 for clean appearance */
   background-color: #ffffff !important;
   font-weight: 400 !important;
+  text-shadow: none !important;
+  box-shadow: none !important;
 }
 
 /* Non-form text overrides */
