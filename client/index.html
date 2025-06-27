@@ -112,7 +112,16 @@
     <div id="root" class="loading"></div>
     
     <!-- Critical JS chunk - minimal JS to bootstrap the app -->
-    <script type="module" src="/src/main.tsx"></script>
+    <script type="module" src="/src/main.tsx" defer></script>
+    
+    <!-- Critical CSS inlined -->
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { font-family: system-ui, -apple-system, sans-serif; background: #0f172a; color: white; }
+      .loading { opacity: 0; }
+      .hero { min-height: 50vh; display: flex; align-items: center; justify-content: center; }
+      .container { max-width: 1200px; margin: 0 auto; padding: 1rem; }
+    </style>
     
     <!-- Performance monitoring script -->
     <script>
@@ -165,10 +174,8 @@
       }, true);
     </script>
     
-    <!-- This is a replit script which adds a banner on the top of the page when opened in development mode outside the replit environment -->
-    <script type="text/javascript" src="https://replit.com/public/js/replit-dev-banner.js" async></script>
-    
-    <!-- ElevenLabs Chat Widget Integration -->
-    <script src="https://elevenlabs.io/convai-widget/index.js" async type="text/javascript"></script>
+    <!-- Load non-critical scripts asynchronously -->
+    <script src="https://replit.com/public/js/replit-dev-banner.js" async></script>
+    <script src="https://elevenlabs.io/convai-widget/index.js" async></script>
   </body>
 </html>
