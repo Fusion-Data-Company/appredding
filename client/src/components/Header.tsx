@@ -113,14 +113,14 @@ export default function Header() {
 
               {isHomePage ? (
                 <a 
-                  href="#contact" 
+                  href="/contact" 
                   className="text-lg font-semibold text-orange-300 hover:text-orange-200 transition-colors"
                 >
                   Contact Us
                 </a>
               ) : (
                 <Link 
-                  href="/#contact" 
+                  href="/contact" 
                   className="text-lg font-semibold text-orange-300 hover:text-orange-200 transition-colors"
                 >
                   Contact Us
