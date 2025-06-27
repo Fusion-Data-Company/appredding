@@ -54,30 +54,48 @@ a:not(.preserve-text-color) {
   text-shadow: 0 1px 2px rgba(0,0,0,0.4);
 }
 
-/* Force header navigation visibility - Critical Fix */
-header nav a,
-header nav span,
-header nav button,
+/* EMERGENCY HEADER FIX - FORCE WHITE TEXT */
+header *,
+header nav *,
+header a,
+header span,
+header button,
 .nav-link,
-nav a,
-nav span {
+[class*="text-white"],
+nav *:not(svg) {
   color: white !important;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.8) !important;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.8) !important;
   font-weight: 500 !important;
 }
 
-header nav a:hover,
-header nav span:hover,
-header nav button:hover,
-nav a:hover,
-nav span:hover {
+header *:hover,
+header nav *:hover,
+header a:hover,
+header span:hover,
+header button:hover {
   color: #fed7aa !important; /* orange-200 */
 }
 
-/* Ensure header has proper dark background */
-header {
-  background-color: rgba(17, 24, 39, 0.95) !important; /* gray-900/95 */
-  backdrop-filter: blur(12px) !important;
+/* Nuclear option - override any conflicting styles */
+* {
+  color: inherit;
+}
+
+header, 
+header * {
+  background-color: rgba(17, 24, 39, 0.95) !important;
+}
+
+/* Specifically target navigation links */
+header nav a[href="/"],
+header nav span:contains("Services"),
+header nav a[href="/about"],
+header nav a[href="#contact"],
+header nav button {
+  color: white !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  display: inline !important;
 }
 
 /* Comprehensive dark background text enforcement with enhanced outlines */

@@ -74,24 +74,52 @@ const ProfessionalHeader = () => {
   ];
 
   return (
-    <header className="fixed top-0 left-0 w-full bg-gray-900/95 backdrop-blur-xl border-b border-orange-500/20 shadow-lg z-50">
-      <div className="max-w-7xl mx-auto flex justify-between items-center px-4 py-3">
+    <header style={{ 
+      position: 'fixed', 
+      top: 0, 
+      left: 0, 
+      width: '100%', 
+      backgroundColor: '#111827', 
+      borderBottom: '1px solid rgba(249, 115, 22, 0.2)', 
+      boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)', 
+      zIndex: 50 
+    }}>
+      <div style={{ 
+        maxWidth: '80rem', 
+        margin: '0 auto', 
+        display: 'flex', 
+        justifyContent: 'space-between', 
+        alignItems: 'center', 
+        padding: '12px 16px' 
+      }}>
         {/* Logo */}
-        <Link href="/" className="flex items-center">
+        <Link href="/" style={{ display: 'flex', alignItems: 'center' }}>
           <img 
             src={advancePowerLogo} 
             alt="Advance Power Redding" 
-            className="h-12 w-auto"
+            style={{ height: '48px', width: 'auto' }}
           />
         </Link>
         
         {/* Navigation */}
-        <nav className="hidden lg:flex space-x-6">
-          <Link href="/" className="text-white hover:text-orange-300 font-medium transition-colors duration-200">Home</Link>
+        <nav style={{ display: 'flex', gap: '24px' }}>
+          <Link href="/" style={{ 
+            color: 'white', 
+            fontSize: '16px', 
+            fontWeight: '500', 
+            textDecoration: 'none',
+            textShadow: '0 2px 4px rgba(0,0,0,0.8)'
+          }}>Home</Link>
           
           {/* Services Dropdown */}
           <div className="group relative">
-            <span className="text-white hover:text-orange-300 font-medium transition-colors duration-200 cursor-pointer">Services</span>
+            <span style={{ 
+              color: 'white', 
+              fontSize: '16px', 
+              fontWeight: '500', 
+              cursor: 'pointer',
+              textShadow: '0 2px 4px rgba(0,0,0,0.8)'
+            }}>Services</span>
             <div className="absolute top-full left-0 mt-2 w-64 py-2 bg-gray-900/95 backdrop-blur-xl border border-orange-500/30 rounded-lg shadow-xl invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-200">
               {solarServices.map((service, index) => (
                 <Link
@@ -108,11 +136,33 @@ const ProfessionalHeader = () => {
             </div>
           </div>
           
-          <Link href="/about" className="text-white hover:text-orange-300 font-medium transition-colors duration-200">About</Link>
-          <Link href="#contact" className="text-white hover:text-orange-300 font-medium transition-colors duration-200">Contact</Link>
+          <Link href="/about" style={{ 
+            color: 'white', 
+            fontSize: '16px', 
+            fontWeight: '500', 
+            textDecoration: 'none',
+            textShadow: '0 2px 4px rgba(0,0,0,0.8)'
+          }}>About</Link>
+          <Link href="#contact" style={{ 
+            color: 'white', 
+            fontSize: '16px', 
+            fontWeight: '500', 
+            textDecoration: 'none',
+            textShadow: '0 2px 4px rgba(0,0,0,0.8)'
+          }}>Contact</Link>
           
           {/* Get Free Quote Button */}
-          <button className="bg-gradient-to-r from-orange-500 to-yellow-500 hover:from-orange-400 hover:to-yellow-400 text-white font-bold py-2 px-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
+          <button style={{
+            background: 'linear-gradient(to right, #f97316, #eab308)',
+            color: 'white',
+            fontWeight: 'bold',
+            padding: '8px 16px',
+            borderRadius: '8px',
+            border: 'none',
+            cursor: 'pointer',
+            boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+            textShadow: '0 2px 4px rgba(0,0,0,0.8)'
+          }}>
             Get Free Quote
           </button>
         </nav>
