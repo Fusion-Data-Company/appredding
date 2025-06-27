@@ -72,73 +72,9 @@ const SolarServicesSection = () => {
       {/* Section flow connector */}
       <div className="section-flow-connector"></div>
 
-      {/* Solar Panel Array Pattern */}
-      <div className="absolute inset-0 opacity-25">
-        <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <pattern id="solar-array-pattern" width="100" height="60" patternUnits="userSpaceOnUse">
-              {/* Solar Panel Row */}
-              <rect x="5" y="5" width="40" height="25" fill="rgba(30, 58, 138, 0.08)" stroke="rgba(59, 130, 246, 0.2)" strokeWidth="0.5" rx="2"/>
-              <rect x="55" y="5" width="40" height="25" fill="rgba(30, 58, 138, 0.08)" stroke="rgba(59, 130, 246, 0.2)" strokeWidth="0.5" rx="2"/>
-              <rect x="5" y="30" width="40" height="25" fill="rgba(30, 58, 138, 0.08)" stroke="rgba(59, 130, 246, 0.2)" strokeWidth="0.5" rx="2"/>
-              <rect x="55" y="30" width="40" height="25" fill="rgba(30, 58, 138, 0.08)" stroke="rgba(59, 130, 246, 0.2)" strokeWidth="0.5" rx="2"/>
-              {/* Solar Cell Grid Lines */}
-              <line x1="25" y1="5" x2="25" y2="30" stroke="rgba(59, 130, 246, 0.1)" strokeWidth="0.3"/>
-              <line x1="75" y1="5" x2="75" y2="30" stroke="rgba(59, 130, 246, 0.1)" strokeWidth="0.3"/>
-              <line x1="25" y1="30" x2="25" y2="55" stroke="rgba(59, 130, 246, 0.1)" strokeWidth="0.3"/>
-              <line x1="75" y1="30" x2="75" y2="55" stroke="rgba(59, 130, 246, 0.1)" strokeWidth="0.3"/>
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#solar-array-pattern)" />
-        </svg>
-      </div>
 
-      {/* Floating Solar Panel Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        {/* Large Solar Array - Top */}
-        <div className="absolute top-12 left-1/4 w-48 h-28 bg-gradient-to-br from-blue-900/12 to-blue-700/8 border border-blue-500/20 rounded-lg rotate-3 animate-pulse shadow-lg">
-          <div className="grid grid-cols-6 grid-rows-3 gap-0.5 p-2 h-full">
-            {[...Array(18)].map((_, i) => (
-              <div key={i} className="bg-blue-800/15 rounded-sm border border-blue-600/15"></div>
-            ))}
-          </div>
-        </div>
 
-        {/* Medium Solar Panel - Right */}
-        <div className="absolute top-1/3 right-20 w-32 h-20 bg-gradient-to-br from-blue-900/15 to-blue-700/10 border border-blue-500/25 rounded-lg -rotate-6 animate-pulse delay-1000 shadow-xl">
-          <div className="grid grid-cols-4 grid-rows-2 gap-0.5 p-1.5 h-full">
-            {[...Array(8)].map((_, i) => (
-              <div key={i} className="bg-blue-800/20 rounded-sm border border-blue-600/20"></div>
-            ))}
-          </div>
-        </div>
 
-        {/* Solar Panel Cluster - Bottom Left */}
-        <div className="absolute bottom-20 left-16 w-40 h-24 bg-gradient-to-br from-blue-900/10 to-blue-700/8 border border-blue-500/20 rounded-lg rotate-2 animate-pulse delay-500 shadow-lg">
-          <div className="grid grid-cols-5 grid-rows-3 gap-0.5 p-1.5 h-full">
-            {[...Array(15)].map((_, i) => (
-              <div key={i} className="bg-blue-800/12 rounded-sm border border-blue-600/12"></div>
-            ))}
-          </div>
-        </div>
-
-        {/* Small Solar Panels Scattered */}
-        <div className="absolute top-2/3 left-1/3 w-24 h-16 bg-gradient-to-br from-blue-900/12 to-blue-700/8 border border-blue-500/20 rounded-md -rotate-4 animate-pulse delay-1500 shadow-md">
-          <div className="grid grid-cols-3 grid-rows-2 gap-0.5 p-1 h-full">
-            {[...Array(6)].map((_, i) => (
-              <div key={i} className="bg-blue-800/15 rounded-sm border border-blue-600/15"></div>
-            ))}
-          </div>
-        </div>
-
-        <div className="absolute bottom-1/3 right-1/3 w-28 h-18 bg-gradient-to-br from-blue-900/10 to-blue-700/8 border border-blue-500/18 rounded-lg rotate-8 animate-pulse delay-2000 shadow-md">
-          <div className="grid grid-cols-3 grid-rows-2 gap-0.5 p-1 h-full">
-            {[...Array(6)].map((_, i) => (
-              <div key={i} className="bg-blue-800/12 rounded-sm border border-blue-600/12"></div>
-            ))}
-          </div>
-        </div>
-      </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Enterprise Header */}
