@@ -87,34 +87,33 @@ const ProfessionalHeader = () => {
         
         {/* Navigation */}
         <nav className="hidden lg:flex space-x-6">
-          <Link href="/" className="nav-link">Home</Link>
+          <Link href="/" className="text-white hover:text-orange-300 font-medium transition-colors duration-200">Home</Link>
           
           {/* Services Dropdown */}
           <div className="group relative">
-            <span className="nav-link cursor-pointer">Services</span>
-            <div className="dropdown-menu absolute top-full left-0 mt-2 w-64 py-2 invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-200">
+            <span className="text-white hover:text-orange-300 font-medium transition-colors duration-200 cursor-pointer">Services</span>
+            <div className="absolute top-full left-0 mt-2 w-64 py-2 bg-gray-900/95 backdrop-blur-xl border border-orange-500/30 rounded-lg shadow-xl invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-200">
               {solarServices.map((service, index) => (
                 <Link
                   key={index}
                   href={service.href}
-                  className="dropdown-menu-item block px-4 py-2 text-sm transition-all duration-200"
+                  className="block px-4 py-2 text-sm text-white hover:text-orange-300 hover:bg-gray-800/50 transition-all duration-200"
                 >
                   <div>
                     <div className="font-medium">{service.label}</div>
-                    <div className="text-xs text-gray-500">{service.description}</div>
+                    <div className="text-xs text-gray-400">{service.description}</div>
                   </div>
                 </Link>
               ))}
             </div>
           </div>
           
-          <Link href="/about" className="nav-link">About</Link>
-          <Link href="#contact" className="nav-link">Contact</Link>
+          <Link href="/about" className="text-white hover:text-orange-300 font-medium transition-colors duration-200">About</Link>
+          <Link href="#contact" className="text-white hover:text-orange-300 font-medium transition-colors duration-200">Contact</Link>
           
           {/* Get Free Quote Button */}
-          <button className="button-primary">
-            <span className="relative z-10">Get Free Quote</span>
-            <div className="shine-effect"></div>
+          <button className="bg-gradient-to-r from-orange-500 to-yellow-500 hover:from-orange-400 hover:to-yellow-400 text-white font-bold py-2 px-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
+            Get Free Quote
           </button>
         </nav>
 

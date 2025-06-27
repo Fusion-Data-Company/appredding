@@ -404,23 +404,7 @@ export const HeroSection: React.FC = () => {
         </motion.div>
       </div>
       
-      {/* Dynamic Brand Element */}
-      <motion.div 
-        className="absolute top-8 right-8 z-30"
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 1, duration: 0.8 }}
-      >
-        <div 
-          className="bg-gradient-to-r from-orange-500 to-yellow-500 rounded-full w-20 h-20 flex items-center justify-center text-white font-bold text-sm shadow-lg"
-          style={{ 
-            filter: `hue-rotate(${hue - 45}deg)`,
-            transition: 'filter 0.3s ease'
-          }}
-        >
-          APR
-        </div>
-      </motion.div>
+
 
 
 
