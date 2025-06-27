@@ -15,6 +15,10 @@ const ProductCard = ({ imageSrc, title, price, description }: ProductCardProps) 
           src={imageSrc}
           alt={title}
           className="w-full h-full object-cover"
+          onError={(e) => {
+            const target = e.target as HTMLImageElement;
+            target.src = '/images/product-placeholder.jpg';
+          }}
         />
       </div>
       <div className="p-6">
@@ -60,19 +64,19 @@ const ProductCard = ({ imageSrc, title, price, description }: ProductCardProps) 
 const ProductsSection = () => {
   const products = [
     {
-      imageSrc: "https://images.unsplash.com/photo-1595185440571-b1609180ff8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+      imageSrc: "/images/fire-coating-product.jpg",
       title: "FireGuard Pro",
       price: "$189.99",
       description: "Class-A fire retardant coating with intumescent technology for wildfire protection."
     },
     {
-      imageSrc: "https://images.unsplash.com/photo-1531913223931-b0d3198229ee?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+      imageSrc: "/images/marine-coating-product.jpg",
       title: "MarineShield Ultra",
       price: "$229.99",
       description: "Premium marine-grade coating with anti-fouling and UV protection properties."
     },
     {
-      imageSrc: "https://images.unsplash.com/photo-1560090995-01632a28895b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+      imageSrc: "/images/pool-coating-product.jpg",
       title: "AquaGuard Pool Finish",
       price: "$159.99",
       description: "Chemical-resistant pool coating for long-lasting protection and appearance."
@@ -102,12 +106,12 @@ const ProductsSection = () => {
         </div>
         
         <div className="text-center mt-12">
-          <a 
-            href="#" 
+          <button 
+            onClick={() => window.open('/contact', '_blank')}
             className="bg-transparent border border-[#0070f3] text-[#0070f3] hover:bg-[#0070f3]/10 font-medium py-3 px-6 rounded-lg transition-colors inline-block"
           >
             View Full Product Catalog
-          </a>
+          </button>
         </div>
       </div>
     </section>

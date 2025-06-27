@@ -52,7 +52,7 @@ const About = () => {
               </div>
             </div>
 
-            <div className="bg-[url('/images/optimized/diamond-plate-fire-water.jpg')] bg-cover bg-center rounded-2xl overflow-hidden mb-16">
+            <div className="bg-gradient-to-r from-blue-900/20 via-purple-900/20 to-orange-900/20 rounded-2xl overflow-hidden mb-16">
               <div className="bg-gray-900/70 p-8 md:p-12">
                 <div className="max-w-4xl mx-auto">
                   <GradientHeading level={2} className="text-3xl md:text-4xl mb-6 text-center" variant="mixed">

@@ -11,11 +11,17 @@ const PainterNetworkSection = () => {
               <p className="text-[#a0a0a0]">Find approved application professionals in your area</p>
             </div>
             <div className="h-[400px] bg-gray-800 relative">
-              <img 
-                src="https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
-                alt="Painter network map" 
-                className="w-full h-full object-cover opacity-70"
-              />
+              <div className="w-full h-full bg-gradient-to-br from-gray-700 via-gray-800 to-gray-900 opacity-70 flex items-center justify-center">
+                <div className="grid grid-cols-4 gap-4 p-8">
+                  {Array.from({ length: 12 }, (_, i) => (
+                    <div 
+                      key={i} 
+                      className="w-3 h-3 bg-orange-500 rounded-full animate-pulse"
+                      style={{ animationDelay: `${i * 0.2}s` }}
+                    />
+                  ))}
+                </div>
+              </div>
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="text-center bg-black/60 rounded-lg p-6 max-w-xs">
                   <i className="fas fa-map-marker-alt text-4xl mb-3 text-[#ff9900]"></i>
