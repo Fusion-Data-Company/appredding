@@ -77,58 +77,58 @@ export const UtilitySavingsCalculator: React.FC = () => {
           <h3 className="text-3xl font-black text-gray-800 mb-2 drop-shadow-md">
             Utility Savings Calculator
           </h3>
-          <p className="text-gray-600 font-medium">
+          <p className="text-gray-700 font-medium">
             Get precise estimates for your solar energy savings
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
           <div className="space-y-2">
-            <label className="block text-sm font-bold text-gray-700">Monthly Electric Bill ($)</label>
+            <label className="text-gray-800 font-semibold text-sm">Monthly Electric Bill ($)</label>
             <input
               type="number"
               value={inputs.monthlyBill}
               onChange={(e) => setInputs({...inputs, monthlyBill: e.target.value})}
-              className="w-full px-4 py-3 bg-white/80 border-2 border-orange-200 rounded-xl focus:border-orange-400 focus:ring-4 focus:ring-orange-100 transition-all duration-300 font-medium"
+              className="w-full px-4 py-3 bg-white border-2 border-orange-200 rounded-xl placeholder-gray-700 text-gray-900 focus:border-orange-400 focus:ring-4 focus:ring-orange-100 transition-all duration-300 font-medium"
               placeholder="Enter amount"
             />
           </div>
           
           <div className="space-y-2">
-            <label className="block text-sm font-bold text-gray-700">Home Size (sq ft)</label>
+            <label className="text-gray-800 font-semibold text-sm">Home Size (sq ft)</label>
             <input
               type="number"
               value={inputs.homeSize}
               onChange={(e) => setInputs({...inputs, homeSize: e.target.value})}
-              className="w-full px-4 py-3 bg-white/80 border-2 border-orange-200 rounded-xl focus:border-orange-400 focus:ring-4 focus:ring-orange-100 transition-all duration-300 font-medium"
+              className="w-full px-4 py-3 bg-white border-2 border-orange-200 rounded-xl placeholder-gray-700 text-gray-900 focus:border-orange-400 focus:ring-4 focus:ring-orange-100 transition-all duration-300 font-medium"
               placeholder="Square footage"
             />
           </div>
           
           <div className="space-y-2">
-            <label className="block text-sm font-bold text-gray-700">Roof Type</label>
+            <label className="text-gray-800 font-semibold text-sm">Roof Type</label>
             <select
               value={inputs.roofType}
               onChange={(e) => setInputs({...inputs, roofType: e.target.value})}
-              className="w-full px-4 py-3 bg-white/80 border-2 border-orange-200 rounded-xl focus:border-orange-400 focus:ring-4 focus:ring-orange-100 transition-all duration-300 font-medium"
+              className="w-full px-4 py-3 bg-white border-2 border-orange-200 rounded-xl text-gray-900 focus:border-orange-400 focus:ring-4 focus:ring-orange-100 transition-all duration-300 font-medium"
             >
-              <option value="asphalt">Asphalt Shingles</option>
-              <option value="tile">Tile</option>
-              <option value="metal">Metal</option>
-              <option value="flat">Flat</option>
+              <option value="asphalt" className="text-gray-900">Asphalt Shingles</option>
+              <option value="tile" className="text-gray-900">Tile</option>
+              <option value="metal" className="text-gray-900">Metal</option>
+              <option value="flat" className="text-gray-900">Flat</option>
             </select>
           </div>
           
           <div className="space-y-2">
-            <label className="block text-sm font-bold text-gray-700">Sun Exposure</label>
+            <label className="text-gray-800 font-semibold text-sm">Sun Exposure</label>
             <select
               value={inputs.sunExposure}
               onChange={(e) => setInputs({...inputs, sunExposure: e.target.value})}
-              className="w-full px-4 py-3 bg-white/80 border-2 border-orange-200 rounded-xl focus:border-orange-400 focus:ring-4 focus:ring-orange-100 transition-all duration-300 font-medium"
+              className="w-full px-4 py-3 bg-white border-2 border-orange-200 rounded-xl text-gray-900 focus:border-orange-400 focus:ring-4 focus:ring-orange-100 transition-all duration-300 font-medium"
             >
-              <option value="full">Full Sun (6+ hours)</option>
-              <option value="partial">Partial Sun (4-6 hours)</option>
-              <option value="limited">Limited Sun (2-4 hours)</option>
+              <option value="full" className="text-gray-900">Full Sun (6+ hours)</option>
+              <option value="partial" className="text-gray-900">Partial Sun (4-6 hours)</option>
+              <option value="limited" className="text-gray-900">Limited Sun (2-4 hours)</option>
             </select>
           </div>
         </div>

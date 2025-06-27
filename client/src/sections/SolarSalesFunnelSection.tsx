@@ -277,7 +277,7 @@ const SolarSalesFunnelSection = () => {
           </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="flex flex-wrap gap-6 justify-center items-stretch">
           {salesFunnels.map((funnel, index) => (
             <motion.div
               key={funnel.id}
@@ -286,13 +286,13 @@ const SolarSalesFunnelSection = () => {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
               whileHover={{ scale: 1.02, y: -8 }}
-              className={`group relative bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-500 p-8 border ${funnel.borderColor} hover:border-opacity-60 overflow-hidden h-full flex flex-col`}
+              className="relative w-full min-h-[580px] flex flex-col justify-between p-6 bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-500 border border-orange-200 hover:border-opacity-60 overflow-hidden lg:w-[calc(25%-1.5rem)] md:w-[calc(50%-1.5rem)]"
             >
-              {/* Enterprise Background Gradient */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${funnel.bgGradient} opacity-20 group-hover:opacity-30 transition-opacity duration-500`}></div>
-              
               {/* Premium Card Glow Effect */}
-              <div className={`absolute -inset-0.5 bg-gradient-to-br ${funnel.color} rounded-3xl blur-lg opacity-20 group-hover:opacity-30 transition-opacity duration-500`}></div>
+              <div className={`absolute -inset-0.5 bg-gradient-to-br ${funnel.color} rounded-3xl blur-lg opacity-20 pointer-events-none z-0 group-hover:opacity-30 transition-opacity duration-500`}></div>
+              
+              {/* Enterprise Background Gradient */}
+              <div className={`absolute inset-0 bg-gradient-to-br ${funnel.bgGradient} opacity-20 group-hover:opacity-30 transition-opacity duration-500 pointer-events-none z-0`}></div>
               
               <div className="relative z-10 h-full flex flex-col">
                 {/* Enhanced Icon Container */}
