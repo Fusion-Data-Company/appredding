@@ -174,6 +174,7 @@ const ProfessionalHeader = () => {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="lg:hidden"
           style={{
             color: '#ffffff !important',
             background: 'none',
