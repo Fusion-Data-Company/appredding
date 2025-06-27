@@ -37,9 +37,13 @@ export default function Header() {
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 via-orange-400 to-yellow-400 rounded-lg opacity-30 blur-md"></div>
                 <img 
-                  src="/attached_assets/APR-Logo-White-New-300x222.png" 
+                  src="/images/APR-Logo-White-New-300x222.png" 
                   alt="Advance Power Redding" 
                   className="relative h-16 w-auto object-contain bg-white p-2 rounded shadow"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIyMiIgdmlld0JveD0iMCAwIDMwMCAyMjIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iMjIyIiBmaWxsPSIjZmZmZmZmIi8+Cjx0ZXh0IHg9IjE1MCIgeT0iMTExIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMzMzMzMzIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMjQiIGZvbnQtd2VpZ2h0PSJib2xkIj5BUFI8L3RleHQ+Cjx0ZXh0IHg9IjE1MCIgeT0iMTM1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjNjY2NjY2IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiPkFkdmFuY2UgUG93ZXIgUmVkZGluZzwvdGV4dD4KPHN2Zz4=';
+                  }}
                 />
               </div>
             </Link>
@@ -240,7 +244,7 @@ export default function Header() {
                   </a>
                 ) : (
                   <Link 
-                    href="/#contact" 
+                    href="/contact" 
                     className="block px-4 py-3 text-white hover:bg-gray-800 transition-colors border-t border-gray-700"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >

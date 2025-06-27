@@ -109,7 +109,7 @@ const Team = () => {
                     <GradientButton href="/careers" variant="default" size="lg">
                       View Open Positions
                     </GradientButton>
-                    <GradientButton href="/#contact" variant="default" size="lg">
+                    <GradientButton href="/contact" variant="default" size="lg">
                       Contact Us
                     </GradientButton>
                   </div>

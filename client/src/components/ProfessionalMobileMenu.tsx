@@ -186,7 +186,7 @@ const ProfessionalMobileMenu = ({ isOpen, onClose, isHomePage = true }: Professi
                     </a>
                   ) : (
                     <Link 
-                      href="/#contact"
+                      href="/contact"
                       onClick={handleLinkClick}
                       className="flex items-center space-x-3 px-4 py-2 text-sm rounded-md hover:bg-amber-100/50 dark:hover:bg-amber-900/30 text-amber-900 dark:text-amber-200"
                     >

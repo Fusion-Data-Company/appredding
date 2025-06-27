@@ -75,7 +75,7 @@ const ProfessionalHeader = () => {
   const resources = [
     { label: "About Us", href: "/about", description: "Learn about our company" },
     { label: "Team", href: "/team", description: "Meet our expert team" },
-    { label: "Contact", href: isHomePage ? "#contact" : "/#contact", description: "Get in touch with us" },
+    { label: "Contact", href: "/contact", description: "Get in touch with us" },
     { label: "Style Showcase", href: "/style-showcase", description: "View our design language" },
   ];
 
