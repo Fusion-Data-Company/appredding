@@ -48,7 +48,7 @@ const ContactSection = () => {
   ];
 
   return (
-    <section className="relative py-32 section-gradient-base overflow-hidden">
+    <section id="contact" className="relative py-32 section-gradient-base overflow-hidden">
       {/* Enhanced texture overlay */}
       <div className="section-texture-overlay"></div>
       
