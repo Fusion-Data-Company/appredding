@@ -443,6 +443,14 @@ export default function TasksContent() {
                   <Loader2 className="h-8 w-8 animate-spin text-primary/80" />
                   <span className="ml-2">Loading tasks...</span>
                 </div>
+              ) : filteredTasks.length === 0 ? (
+                <div className="flex flex-col items-center justify-center p-8 text-center">
+                  <p className="mb-2 text-gray-500">No tasks assigned to you</p>
+                  <Button variant="outline" size="sm" className="mt-2">
+                    <Plus className="h-4 w-4 mr-2" />
+                    Create New Task
+                  </Button>
+                </div>
               ) : (
                 <Table>
                   <TableHeader>
@@ -457,15 +465,72 @@ export default function TasksContent() {
                     </TableRow>
                   </TableHeader>
                   <TableBody>
-                    {/* Filter my tasks will be implemented here */}
-                    <TableRow>
-                      <TableCell colSpan={7} className="text-center py-8">
-                        <p className="text-muted-foreground">My Tasks filter is coming soon</p>
-                        <p className="text-sm text-muted-foreground mt-1">
-                          This feature is in development.
-                        </p>
-                      </TableCell>
-                    </TableRow>
+                    {filteredTasks.map((task) => {
+                      const relatedInfo = getRelatedInfo(task);
+                      return (
+                        <TableRow key={task.id}>
+                          <TableCell>
+                            <Checkbox 
+                              id={`task-${task.id}`} 
+                              checked={task.status === 'completed'} 
+                              onCheckedChange={() => task.status !== 'completed' && handleCompleteTask(task.id)}
+                              disabled={task.status === 'completed' || completeMutation.isPending}
+                            />
+                          </TableCell>
+                          <TableCell>
+                            <div>
+                              <p className="font-medium">{task.title}</p>
+                              <p className="text-xs text-muted-foreground">{task.description || "No description"}</p>
+                            </div>
+                          </TableCell>
+                          <TableCell className="hidden md:table-cell">
+                            <div className="flex items-center">
+                              {getRelatedIcon(relatedInfo.type)}
+                              <div>
+                                <p className="text-sm">{relatedInfo.name}</p>
+                                {relatedInfo.company && (
+                                  <p className="text-xs text-muted-foreground">{relatedInfo.company}</p>
+                                )}
+                              </div>
+                            </div>
+                          </TableCell>
+                          <TableCell className="hidden lg:table-cell">
+                            <div className="flex items-center">
+                              <Calendar className="h-3.5 w-3.5 mr-1 text-muted-foreground" />
+                              {formatDate(task.dueDate)}
+                            </div>
+                          </TableCell>
+                          <TableCell className="hidden sm:table-cell">
+                            <Badge variant="outline" className={getPriorityColor(task.priority)}>
+                              {task.priority.charAt(0).toUpperCase() + task.priority.slice(1)}
+                            </Badge>
+                          </TableCell>
+                          <TableCell>
+                            <Badge variant="outline" className={getStatusColor(task.status)}>
+                              {getStatusText(task.status)}
+                            </Badge>
+                          </TableCell>
+                          <TableCell>
+                            <DropdownMenu>
+                              <DropdownMenuTrigger asChild>
+                                <Button variant="ghost" size="icon">
+                                  <MoreHorizontal className="h-4 w-4" />
+                                </Button>
+                              </DropdownMenuTrigger>
+                              <DropdownMenuContent align="end">
+                                <DropdownMenuItem>Edit Task</DropdownMenuItem>
+                                <DropdownMenuItem onClick={() => handleCompleteTask(task.id)}>
+                                  Mark Complete
+                                </DropdownMenuItem>
+                                <DropdownMenuItem onClick={() => handleDeleteTask(task.id)}>
+                                  Delete
+                                </DropdownMenuItem>
+                              </DropdownMenuContent>
+                            </DropdownMenu>
+                          </TableCell>
+                        </TableRow>
+                      );
+                    })}
                   </TableBody>
                 </Table>
               )}

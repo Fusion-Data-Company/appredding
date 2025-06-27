@@ -530,25 +530,161 @@ export default function OpportunitiesContent() {
         </TabsContent>
 
         <TabsContent value="pending" className="m-0">
-          <Card>
-            <CardContent className="p-6 flex flex-col items-center justify-center min-h-[300px] text-center">
-              <p className="text-muted-foreground">Filter applied: Pending</p>
-              <p className="text-sm text-muted-foreground mt-1">
-                This is a placeholder. The actual filter would show only pending opportunities.
-              </p>
-            </CardContent>
-          </Card>
+          {view === "table" ? (
+            <Card>
+              <CardContent className="p-0">
+                {isLoading ? (
+                  <div className="flex items-center justify-center py-8">
+                    <Loader2 className="h-8 w-8 animate-spin text-primary/80" />
+                  </div>
+                ) : filteredOpportunities.filter(opp => opp.status === 'pending').length === 0 ? (
+                  <div className="flex flex-col items-center justify-center p-8 text-center">
+                    <p className="mb-2 text-gray-500">No pending opportunities found</p>
+                  </div>
+                ) : (
+                  <Table>
+                    <TableHeader>
+                      <TableRow>
+                        <TableHead>Opportunity</TableHead>
+                        <TableHead className="hidden lg:table-cell">Company</TableHead>
+                        <TableHead className="hidden md:table-cell">Contact</TableHead>
+                        <TableHead className="hidden sm:table-cell">Amount</TableHead>
+                        <TableHead className="hidden md:table-cell">Probability</TableHead>
+                        <TableHead>Status</TableHead>
+                        <TableHead className="w-[50px]"></TableHead>
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                      {filteredOpportunities.filter(opp => opp.status === 'pending').map((opportunity) => (
+                        <TableRow key={opportunity.id}>
+                          <TableCell>
+                            <div>
+                              <p className="font-medium">{opportunity.name}</p>
+                              <p className="text-xs text-muted-foreground">{opportunity.description}</p>
+                            </div>
+                          </TableCell>
+                          <TableCell className="hidden lg:table-cell">
+                            {opportunity.company?.name || 'No company'}
+                          </TableCell>
+                          <TableCell className="hidden md:table-cell">
+                            {opportunity.contact ? 
+                              `${opportunity.contact.firstName} ${opportunity.contact.lastName}` : 
+                              'No contact'
+                            }
+                          </TableCell>
+                          <TableCell className="hidden sm:table-cell">
+                            {formatAmount(opportunity.amount)}
+                          </TableCell>
+                          <TableCell className="hidden md:table-cell">
+                            {opportunity.probability}%
+                          </TableCell>
+                          <TableCell>
+                            <Badge variant="outline" className={getStatusColor(opportunity.status)}>
+                              {getStatusText(opportunity.status)}
+                            </Badge>
+                          </TableCell>
+                          <TableCell>
+                            <DropdownMenu>
+                              <DropdownMenuTrigger asChild>
+                                <Button variant="ghost" size="icon">
+                                  <MoreHorizontal className="h-4 w-4" />
+                                </Button>
+                              </DropdownMenuTrigger>
+                              <DropdownMenuContent align="end">
+                                <DropdownMenuItem>Edit</DropdownMenuItem>
+                                <DropdownMenuItem onClick={() => handleDeleteOpportunity(opportunity.id)}>
+                                  Delete
+                                </DropdownMenuItem>
+                              </DropdownMenuContent>
+                            </DropdownMenu>
+                          </TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                )}
+              </CardContent>
+            </Card>
+          ) : null}
         </TabsContent>
 
         <TabsContent value="in_progress" className="m-0">
-          <Card>
-            <CardContent className="p-6 flex flex-col items-center justify-center min-h-[300px] text-center">
-              <p className="text-muted-foreground">Filter applied: In Progress</p>
-              <p className="text-sm text-muted-foreground mt-1">
-                This is a placeholder. The actual filter would show only in progress opportunities.
-              </p>
-            </CardContent>
-          </Card>
+          {view === "table" ? (
+            <Card>
+              <CardContent className="p-0">
+                {isLoading ? (
+                  <div className="flex items-center justify-center py-8">
+                    <Loader2 className="h-8 w-8 animate-spin text-primary/80" />
+                  </div>
+                ) : filteredOpportunities.filter(opp => opp.status === 'in_progress').length === 0 ? (
+                  <div className="flex flex-col items-center justify-center p-8 text-center">
+                    <p className="mb-2 text-gray-500">No in-progress opportunities found</p>
+                  </div>
+                ) : (
+                  <Table>
+                    <TableHeader>
+                      <TableRow>
+                        <TableHead>Opportunity</TableHead>
+                        <TableHead className="hidden lg:table-cell">Company</TableHead>
+                        <TableHead className="hidden md:table-cell">Contact</TableHead>
+                        <TableHead className="hidden sm:table-cell">Amount</TableHead>
+                        <TableHead className="hidden md:table-cell">Probability</TableHead>
+                        <TableHead>Status</TableHead>
+                        <TableHead className="w-[50px]"></TableHead>
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                      {filteredOpportunities.filter(opp => opp.status === 'in_progress').map((opportunity) => (
+                        <TableRow key={opportunity.id}>
+                          <TableCell>
+                            <div>
+                              <p className="font-medium">{opportunity.name}</p>
+                              <p className="text-xs text-muted-foreground">{opportunity.description}</p>
+                            </div>
+                          </TableCell>
+                          <TableCell className="hidden lg:table-cell">
+                            {opportunity.company?.name || 'No company'}
+                          </TableCell>
+                          <TableCell className="hidden md:table-cell">
+                            {opportunity.contact ? 
+                              `${opportunity.contact.firstName} ${opportunity.contact.lastName}` : 
+                              'No contact'
+                            }
+                          </TableCell>
+                          <TableCell className="hidden sm:table-cell">
+                            {formatAmount(opportunity.amount)}
+                          </TableCell>
+                          <TableCell className="hidden md:table-cell">
+                            {opportunity.probability}%
+                          </TableCell>
+                          <TableCell>
+                            <Badge variant="outline" className={getStatusColor(opportunity.status)}>
+                              {getStatusText(opportunity.status)}
+                            </Badge>
+                          </TableCell>
+                          <TableCell>
+                            <DropdownMenu>
+                              <DropdownMenuTrigger asChild>
+                                <Button variant="ghost" size="icon">
+                                  <MoreHorizontal className="h-4 w-4" />
+                                </Button>
+                              </DropdownMenuTrigger>
+                              <DropdownMenuContent align="end">
+                                <DropdownMenuItem>Edit</DropdownMenuItem>
+                                <DropdownMenuItem onClick={() => handleDeleteOpportunity(opportunity.id)}>
+                                  Delete
+                                </DropdownMenuItem>
+                              </DropdownMenuContent>
+                            </DropdownMenu>
+                          </TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                )}
+              </CardContent>
+            </Card>
+          ) : null}
         </TabsContent>
 
         <TabsContent value="completed" className="m-0">

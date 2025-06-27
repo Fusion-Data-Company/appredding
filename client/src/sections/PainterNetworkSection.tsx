@@ -20,7 +20,10 @@ const PainterNetworkSection = () => {
                 <div className="text-center bg-black/60 rounded-lg p-6 max-w-xs">
                   <i className="fas fa-map-marker-alt text-4xl mb-3 text-[#ff9900]"></i>
                   <p className="mb-4">Interactive painter network map would be displayed here</p>
-                  <button className="bg-[#ff9900] hover:bg-orange-600 text-white font-medium py-2 px-4 rounded transition-colors">
+                  <button 
+                    onClick={() => window.open('/contact', '_blank')}
+                    className="bg-[#ff9900] hover:bg-orange-600 text-white font-medium py-2 px-4 rounded transition-colors"
+                  >
                     Find Nearby Painters
                   </button>
                 </div>

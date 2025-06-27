@@ -25,28 +25,32 @@ const ProductCard = ({ imageSrc, title, price, description }: ProductCardProps) 
         <p className="text-[#a0a0a0] mb-6">{description}</p>
         <div className="flex items-center justify-between">
           <div className="space-x-2">
-            <a
-              href="#"
+            <button
+              onClick={() => window.open('/contact', '_blank')}
               className="inline-block px-3 py-1 border border-[#333333] rounded-md text-sm hover:bg-white/5 transition-colors"
             >
               Gallon
-            </a>
-            <a
-              href="#"
+            </button>
+            <button
+              onClick={() => window.open('/contact', '_blank')}
               className="inline-block px-3 py-1 border border-[#333333] rounded-md text-sm hover:bg-white/5 transition-colors"
             >
               5-Gallon
-            </a>
-            <a
-              href="#"
+            </button>
+            <button
+              onClick={() => window.open('/contact', '_blank')}
               className="inline-block px-3 py-1 border border-[#333333] rounded-md text-sm hover:bg-white/5 transition-colors"
             >
               Pallet
-            </a>
+            </button>
           </div>
-          <a href="#" className="text-[#0070f3] hover:text-blue-400 transition-colors">
+          <button
+            onClick={() => window.open('/about', '_blank')}
+            className="text-[#0070f3] hover:text-blue-400 transition-colors"
+            title="More Information"
+          >
             <i className="fas fa-info-circle"></i>
-          </a>
+          </button>
         </div>
       </div>
     </div>

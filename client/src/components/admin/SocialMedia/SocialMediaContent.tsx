@@ -614,12 +614,21 @@ export default function SocialMediaContent() {
               <CardTitle>Social Media Calendar</CardTitle>
               <CardDescription>Schedule and view your social media posts</CardDescription>
             </CardHeader>
-            <CardContent className="p-6 flex flex-col items-center justify-center min-h-[400px] text-center">
-              <Calendar className="h-10 w-10 text-muted-foreground mb-4" />
-              <p className="text-muted-foreground">Calendar View</p>
-              <p className="text-sm text-muted-foreground mt-1">
-                This is a placeholder for the social media calendar view.
-              </p>
+            <CardContent className="p-6">
+              <div className="grid grid-cols-7 gap-4 mb-4">
+                {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map(day => (
+                  <div key={day} className="text-center font-medium text-sm p-2 border rounded bg-gray-50 dark:bg-gray-800">
+                    {day}
+                  </div>
+                ))}
+              </div>
+              <div className="grid grid-cols-7 gap-2">
+                {Array.from({ length: 35 }, (_, i) => (
+                  <div key={i} className="aspect-square border rounded p-1 text-xs hover:bg-gray-50 dark:hover:bg-gray-800 cursor-pointer">
+                    <div className="text-gray-500">{((i % 31) + 1)}</div>
+                  </div>
+                ))}
+              </div>
             </CardContent>
           </Card>
         </TabsContent>
@@ -630,11 +639,25 @@ export default function SocialMediaContent() {
               <CardTitle>Social Media Analytics</CardTitle>
               <CardDescription>Track your social media performance</CardDescription>
             </CardHeader>
-            <CardContent className="p-6 flex flex-col items-center justify-center min-h-[400px] text-center">
-              <p className="text-muted-foreground">Analytics Dashboard</p>
-              <p className="text-sm text-muted-foreground mt-1">
-                This is a placeholder for the social media analytics dashboard.
-              </p>
+            <CardContent className="p-6">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                <div className="p-4 border rounded-lg">
+                  <h3 className="font-medium mb-2">Total Posts</h3>
+                  <p className="text-2xl font-bold text-blue-600">{posts?.length || 0}</p>
+                </div>
+                <div className="p-4 border rounded-lg">
+                  <h3 className="font-medium mb-2">Published</h3>
+                  <p className="text-2xl font-bold text-green-600">
+                    {posts?.filter(p => p.status === 'published').length || 0}
+                  </p>
+                </div>
+                <div className="p-4 border rounded-lg">
+                  <h3 className="font-medium mb-2">Scheduled</h3>
+                  <p className="text-2xl font-bold text-orange-600">
+                    {posts?.filter(p => p.status === 'scheduled').length || 0}
+                  </p>
+                </div>
+              </div>
             </CardContent>
           </Card>
         </TabsContent>
