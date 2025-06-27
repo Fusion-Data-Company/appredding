@@ -267,22 +267,22 @@ export function PremiumNavbar() {
           <h4 className="font-bold text-white mb-2 text-sm">Resources</h4>
           <ul className="space-y-2">
             <li>
-              <Link href="/products" className="text-sm text-gray-300 hover:text-white transition-colors">
+              <Link href="/products" className="text-sm text-gray-200 hover:text-white transition-colors">
                 All Products
               </Link>
             </li>
             <li>
-              <Link href="/roi-calculator" className="text-sm text-gray-300 hover:text-white transition-colors">
+              <Link href="/roi-calculator" className="text-sm text-gray-200 hover:text-white transition-colors">
                 ROI Calculator
               </Link>
             </li>
             <li>
-              <Link href="/technology" className="text-sm text-gray-300 hover:text-white transition-colors">
+              <Link href="/technology" className="text-sm text-gray-200 hover:text-white transition-colors">
                 Technical Data
               </Link>
             </li>
             <li>
-              <Link href="/application-guide" className="text-sm text-gray-300 hover:text-white transition-colors">
+              <Link href="/application-guide" className="text-sm text-gray-200 hover:text-white transition-colors">
                 Application Guide
               </Link>
             </li>
@@ -293,7 +293,7 @@ export function PremiumNavbar() {
           <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-3 rounded-lg border border-gray-700">
             <h4 className="font-bold text-amber-400 mb-1 text-sm">Featured Product</h4>
             <h5 className="text-white font-bold mb-1 text-xs">Praetorian Shield™</h5>
-            <p className="text-xs text-gray-300 mb-2">Our flagship protective coating with revolutionary ceramic technology.</p>
+            <p className="text-xs text-gray-200 mb-2">Our flagship protective coating with revolutionary ceramic technology.</p>
             <Link 
               href="/products/praetorian-shield" 
               className="text-xs text-amber-400 hover:text-amber-300 font-medium"
@@ -317,21 +317,21 @@ export function PremiumNavbar() {
       
       <div className="grid grid-cols-2 gap-4">
         <div>
-          <p className="text-gray-300 text-xs mb-3">
+          <p className="text-gray-200 text-xs mb-3">
             North State's leader in renewable energy design, installation, service & technical expertise for over 20 years.
           </p>
           
           <div className="grid grid-cols-2 gap-x-4 gap-y-2">
-            <Link href="/about" className="text-xs text-gray-300 hover:text-white transition-colors">
+            <Link href="/about" className="text-xs text-gray-200 hover:text-white transition-colors">
               About Us
             </Link>
-            <Link href="/faq" className="text-xs text-gray-300 hover:text-white transition-colors">
+            <Link href="/faq" className="text-xs text-gray-200 hover:text-white transition-colors">
               FAQ
             </Link>
-            <Link href="/energy-storage" className="text-xs text-gray-300 hover:text-white transition-colors">
+            <Link href="/energy-storage" className="text-xs text-gray-200 hover:text-white transition-colors">
               Energy Storage
             </Link>
-            <Link href="/testimonials" className="text-xs text-gray-300 hover:text-white transition-colors">
+            <Link href="/testimonials" className="text-xs text-gray-200 hover:text-white transition-colors">
               Testimonials
             </Link>
           </div>
@@ -339,8 +339,8 @@ export function PremiumNavbar() {
         
         <div className="border-l border-gray-700 pl-4">
           <h4 className="font-bold text-white text-xs mb-1">Contact Information</h4>
-          <p className="text-gray-300 text-xs mb-1">(530) 226-0701</p>
-          <a href="mailto:info@apredding.net" className="text-gray-300 text-xs hover:text-white block mb-3">
+          <p className="text-gray-200 text-xs mb-1">(530) 226-0701</p>
+          <a href="mailto:info@apredding.net" className="text-gray-200 text-xs hover:text-white block mb-3">
             info@apredding.net
           </a>
           
