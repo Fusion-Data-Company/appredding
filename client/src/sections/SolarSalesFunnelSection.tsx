@@ -113,7 +113,7 @@ const SolarSalesFunnelSection = () => {
         >
           <div className="text-center mb-6">
             <h3 className="text-2xl font-bold text-gray-900 mb-2">Get Your Free Solar Quote</h3>
-            <p className="text-gray-600">Licensed • Bonded • Insured • 25+ Years Experience</p>
+            <p className="text-gray-700 font-medium">Licensed • Bonded • Insured • 25+ Years Experience</p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-4">
@@ -124,7 +124,7 @@ const SolarSalesFunnelSection = () => {
                 required
                 value={formData.firstName}
                 onChange={(e) => setFormData({...formData, firstName: e.target.value})}
-                className="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                className="px-4 py-3 border-2 border-gray-400 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 text-gray-900 placeholder-gray-600 bg-white"
               />
               <input
                 type="text"
@@ -132,7 +132,7 @@ const SolarSalesFunnelSection = () => {
                 required
                 value={formData.lastName}
                 onChange={(e) => setFormData({...formData, lastName: e.target.value})}
-                className="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                className="px-4 py-3 border-2 border-gray-400 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 text-gray-900 placeholder-gray-600 bg-white"
               />
             </div>
             
@@ -142,7 +142,7 @@ const SolarSalesFunnelSection = () => {
               required
               value={formData.email}
               onChange={(e) => setFormData({...formData, email: e.target.value})}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+              className="w-full px-4 py-3 border-2 border-gray-400 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 text-gray-900 placeholder-gray-600 bg-white"
             />
             
             <input
@@ -151,7 +151,7 @@ const SolarSalesFunnelSection = () => {
               required
               value={formData.phone}
               onChange={(e) => setFormData({...formData, phone: e.target.value})}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+              className="w-full px-4 py-3 border-2 border-gray-400 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 text-gray-900 placeholder-gray-600 bg-white"
             />
             
             <input
@@ -160,33 +160,33 @@ const SolarSalesFunnelSection = () => {
               required
               value={formData.address}
               onChange={(e) => setFormData({...formData, address: e.target.value})}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+              className="w-full px-4 py-3 border-2 border-gray-400 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 text-gray-900 placeholder-gray-600 bg-white"
             />
             
             <select
               value={formData.monthlyBill}
               onChange={(e) => setFormData({...formData, monthlyBill: e.target.value})}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+              className="w-full px-4 py-3 border-2 border-gray-400 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 text-gray-900 bg-white"
             >
-              <option value="">Monthly Electric Bill</option>
-              <option value="Under $100">Under $100</option>
-              <option value="$100-200">$100-200</option>
-              <option value="$200-300">$200-300</option>
-              <option value="$300-500">$300-500</option>
-              <option value="Over $500">Over $500</option>
+              <option value="" className="text-gray-600">Monthly Electric Bill</option>
+              <option value="Under $100" className="text-gray-900">Under $100</option>
+              <option value="$100-200" className="text-gray-900">$100-200</option>
+              <option value="$200-300" className="text-gray-900">$200-300</option>
+              <option value="$300-500" className="text-gray-900">$300-500</option>
+              <option value="Over $500" className="text-gray-900">Over $500</option>
             </select>
             
             <select
               value={formData.timeframe}
               onChange={(e) => setFormData({...formData, timeframe: e.target.value})}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+              className="w-full px-4 py-3 border-2 border-gray-400 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 text-gray-900 bg-white"
             >
-              <option value="">Installation Timeframe</option>
-              <option value="ASAP">As soon as possible</option>
-              <option value="1-3 months">1-3 months</option>
-              <option value="3-6 months">3-6 months</option>
-              <option value="6+ months">6+ months</option>
-              <option value="Just researching">Just researching</option>
+              <option value="" className="text-gray-600">Installation Timeframe</option>
+              <option value="ASAP" className="text-gray-900">As soon as possible</option>
+              <option value="1-3 months" className="text-gray-900">1-3 months</option>
+              <option value="3-6 months" className="text-gray-900">3-6 months</option>
+              <option value="6+ months" className="text-gray-900">6+ months</option>
+              <option value="Just researching" className="text-gray-900">Just researching</option>
             </select>
 
             <button
@@ -199,13 +199,13 @@ const SolarSalesFunnelSection = () => {
           </form>
 
           <div className="mt-6 text-center">
-            <p className="text-sm text-gray-500 mb-3">Or call us directly:</p>
+            <p className="text-sm text-gray-700 font-medium mb-3">Or call us directly:</p>
             <div className="flex items-center justify-center space-x-4">
-              <a href="tel:5302260701" className="flex items-center text-yellow-600 hover:text-yellow-700">
+              <a href="tel:5302260701" className="flex items-center text-yellow-600 hover:text-yellow-700 font-semibold">
                 <Phone className="w-4 h-4 mr-2" />
                 (530) 226-0701
               </a>
-              <a href="mailto:info@apredding.net" className="flex items-center text-yellow-600 hover:text-yellow-700">
+              <a href="mailto:info@apredding.net" className="flex items-center text-yellow-600 hover:text-yellow-700 font-semibold">
                 <Mail className="w-4 h-4 mr-2" />
                 Email Us
               </a>
@@ -214,7 +214,7 @@ const SolarSalesFunnelSection = () => {
 
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 text-gray-400 hover:text-gray-600"
+            className="absolute top-4 right-4 text-gray-600 hover:text-gray-800 text-2xl font-bold leading-none"
           >
             ✕
           </button>
@@ -277,7 +277,7 @@ const SolarSalesFunnelSection = () => {
           </div>
         </motion.div>
 
-        <div className="flex flex-wrap gap-6 justify-center items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {salesFunnels.map((funnel, index) => (
             <motion.div
               key={funnel.id}
@@ -286,7 +286,7 @@ const SolarSalesFunnelSection = () => {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
               whileHover={{ scale: 1.02, y: -8 }}
-              className={`group relative bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-500 p-8 border ${funnel.borderColor} hover:border-opacity-60 overflow-hidden flex-1 min-w-[280px] max-w-[320px] flex flex-col`}
+              className={`group relative bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-500 p-8 border ${funnel.borderColor} hover:border-opacity-60 overflow-hidden h-full flex flex-col`}
             >
               {/* Enterprise Background Gradient */}
               <div className={`absolute inset-0 bg-gradient-to-br ${funnel.bgGradient} opacity-20 group-hover:opacity-30 transition-opacity duration-500`}></div>
@@ -294,7 +294,7 @@ const SolarSalesFunnelSection = () => {
               {/* Premium Card Glow Effect */}
               <div className={`absolute -inset-0.5 bg-gradient-to-br ${funnel.color} rounded-3xl blur-lg opacity-20 group-hover:opacity-30 transition-opacity duration-500`}></div>
               
-              <div className="relative z-10 flex flex-col h-full">
+              <div className="relative z-10 h-full flex flex-col">
                 {/* Enhanced Icon Container */}
                 <div className={`flex items-center justify-center w-20 h-20 bg-gradient-to-br ${funnel.color} rounded-2xl mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-xl`}>
                   <div className="text-white">
@@ -304,24 +304,24 @@ const SolarSalesFunnelSection = () => {
                 </div>
                 
                 {/* Premium Typography */}
-                <h3 className="text-xl font-black text-gray-900 mb-2 leading-tight">
+                <h3 className="text-2xl font-black text-gray-900 mb-3 leading-tight">
                   {funnel.title}
                 </h3>
                 
-                <p className="text-sm text-gray-600 mb-4 font-semibold tracking-wide">
+                <p className="text-base text-gray-600 mb-4 font-semibold tracking-wide">
                   {funnel.subtitle}
                 </p>
                 
-                <p className="text-gray-700 mb-6 leading-relaxed text-base font-medium flex-grow">
+                <p className="text-gray-700 mb-6 leading-relaxed text-lg font-medium flex-1">
                   {funnel.description}
                 </p>
                 
                 {/* Enhanced Benefits List */}
-                <ul className="space-y-2 mb-6">
+                <ul className="space-y-3 mb-8">
                   {funnel.benefits.map((benefit, i) => (
-                    <li key={i} className="flex items-center text-gray-700 font-medium">
-                      <div className={`w-3 h-3 bg-gradient-to-r ${funnel.color} rounded-full mr-3 shadow-lg flex-shrink-0`}></div>
-                      <span className="text-sm">{benefit}</span>
+                    <li key={i} className="flex items-start text-gray-700 font-medium">
+                      <div className={`w-3 h-3 bg-gradient-to-r ${funnel.color} rounded-full mr-4 shadow-lg flex-shrink-0 mt-1`}></div>
+                      <span className="text-base leading-relaxed">{benefit}</span>
                     </li>
                   ))}
                 </ul>
@@ -331,7 +331,7 @@ const SolarSalesFunnelSection = () => {
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => setSelectedFunnel(funnel)}
-                  className="button-primary w-full py-3 rounded-2xl text-base mt-auto"
+                  className="button-primary w-full py-4 rounded-2xl text-lg mt-auto"
                 >
                   {/* Solar panel grid background pattern */}
                   <div className="solar-panel-grid">
