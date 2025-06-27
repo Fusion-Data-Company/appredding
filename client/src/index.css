@@ -140,12 +140,12 @@ h1, h2, h3, h4, h5, h6, p, span, div, li, a {
   color: inherit;
 }
 
-/* Force visibility on any potential invisible text */
-.text-gray-700:not([class*="bg-white"] *):not([class*="bg-gray-50"] *):not([class*="bg-gray-100"] *),
-.text-gray-600:not([class*="bg-white"] *):not([class*="bg-gray-50"] *):not([class*="bg-gray-100"] *),
-.text-gray-800:not([class*="bg-white"] *):not([class*="bg-gray-50"] *):not([class*="bg-gray-100"] *),
-.text-gray-900:not([class*="bg-white"] *):not([class*="bg-gray-50"] *):not([class*="bg-gray-100"] *),
-.text-black:not([class*="bg-white"] *):not([class*="bg-gray-50"] *):not([class*="bg-gray-100"] *) {
+/* Force visibility on any potential invisible text - EXCEPT form inputs */
+.text-gray-700:not([class*="bg-white"] *):not([class*="bg-gray-50"] *):not([class*="bg-gray-100"] *):not(input):not(textarea):not(select),
+.text-gray-600:not([class*="bg-white"] *):not([class*="bg-gray-50"] *):not([class*="bg-gray-100"] *):not(input):not(textarea):not(select),
+.text-gray-800:not([class*="bg-white"] *):not([class*="bg-gray-50"] *):not([class*="bg-gray-100"] *):not(input):not(textarea):not(select),
+.text-gray-900:not([class*="bg-white"] *):not([class*="bg-gray-50"] *):not([class*="bg-gray-100"] *):not(input):not(textarea):not(select),
+.text-black:not([class*="bg-white"] *):not([class*="bg-gray-50"] *):not([class*="bg-gray-100"] *):not(input):not(textarea):not(select) {
   color: #f3f4f6 !important;
 }
 
@@ -189,9 +189,27 @@ div[class*="bg-gradient-to-br"][class*="black"] *,
   color: white !important;
 }
 
-.text-gray-800,
-.text-gray-900,
-.text-black {
+/* Form input text visibility enforcement */
+input.text-gray-900,
+textarea.text-gray-900,
+select.text-gray-900,
+input[type="number"],
+input[type="text"],
+input[type="email"],
+input[type="tel"] {
+  color: #111827 !important; /* Dark gray-900 for maximum visibility */
+  background-color: white !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #374151 !important; /* Gray-700 for placeholders */
+}
+
+/* Non-form text overrides */
+.text-gray-800:not(input):not(textarea):not(select),
+.text-gray-900:not(input):not(textarea):not(select),
+.text-black:not(input):not(textarea):not(select) {
   color: white !important;
 }
 
