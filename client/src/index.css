@@ -189,21 +189,21 @@ div[class*="bg-gradient-to-br"][class*="black"] *,
   color: white !important;
 }
 
-/* BULLETPROOF INPUT TEXT VISIBILITY - MAXIMUM OVERRIDE POWER */
+/* BALANCED INPUT TEXT VISIBILITY - AESTHETIC & FUNCTIONAL */
 input[type="text"],
 input[type="number"],
 input[type="email"],
 input[type="tel"],
 textarea,
 select {
-  color: #111827 !important; /* Tailwind gray-900 */
+  color: #1f2937 !important; /* Tailwind gray-800 - softer than black */
   background-color: #ffffff !important;
-  font-weight: 500 !important;
+  font-weight: 400 !important; /* Normal weight, not bold */
 }
 
 input::placeholder,
 textarea::placeholder {
-  color: #374151 !important; /* Tailwind gray-700 */
+  color: #6b7280 !important; /* Tailwind gray-500 - softer placeholder */
   opacity: 1 !important;
 }
 
@@ -217,8 +217,9 @@ div input[type="email"],
 form input,
 form textarea,
 form select {
-  color: #111827 !important;
+  color: #1f2937 !important; /* Gray-800 for visual balance */
   background-color: #ffffff !important;
+  font-weight: 400 !important;
 }
 
 /* Non-form text overrides */
