@@ -1,0 +1,71 @@
+🚨 I need you to run a deep audit on this entire website to identify **all visibility and contrast issues** that make text hard or impossible to read.
+
+DO NOT FIX ANYTHING YET — I only want a full diagnostic report.
+
+---
+
+🎯 OBJECTIVE:
+Scan every page, style, and element in the entire project and detect:
+
+1. **Low-contrast text**:
+   - Any combination of text color and background color that fails WCAG 2.1 AA standards:
+     - < 4.5:1 for regular text
+     - < 3:1 for large/bold text
+   - Examples: white on white, light gray on gray, #ccc on #fff, light blue on light green, etc.
+
+2. **Overlapping styles** that obscure text:
+   - Positioning conflicts (`position: absolute`, `z-index`, etc.)
+   - Pseudo-elements (`::before`, `::after`) blocking or overlaying content
+   - Backgrounds with opacity, images, gradients, or parallax layers that lower visibility
+
+3. **Responsive layout issues** that break readability:
+   - Mobile view causing text to overlay backgrounds poorly
+   - Collapsed boxes or wrapped sections hiding content
+
+---
+
+🔬 HOW TO SCAN:
+
+1. Parse every HTML, template, and component file in the project (`.html`, `.ejs`, `.js`, `.jsx`, `.ts`, `.tsx`, etc.)
+2. For every element that contains text:
+   - Identify computed text color and background color (inherited or direct)
+   - Determine actual rendered contrast ratio
+   - Note if the background is:
+     - a solid color
+     - a gradient
+     - a transparent layer
+     - an image
+   - Check if any other elements (divs, overlays, z-indexed containers) are blocking or fading text
+3. Include mobile and tablet breakpoints in your analysis (responsive layout)
+
+---
+
+📋 OUTPUT FORMAT (for each issue found):
+
+- Page/File:
+- Element Selector (class/id/tag):
+- Text (if visible):
+- Computed Text Color:
+- Computed Background Color:
+- Contrast Ratio:
+- Visibility Problem Summary (e.g., grey on grey, text blocked by image, white on gradient, etc.):
+- Style Source (inline/class + file name & line number if possible)
+
+Example:
+Page: services.html  
+Selector: .feature-box p  
+Text: "Complete energy audit"  
+Text Color: #cccccc  
+Background: #eeeeee  
+Contrast Ratio: 1.29 (FAIL)  
+Problem: Low contrast — light gray on light gray background  
+CSS Source: /styles/main.css line 152
+
+---
+
+📌 NOTE:
+- Do NOT make any style changes yet.
+- Do NOT skip any banners, footers, modals, or hidden sections.
+- This is a visibility audit — be precise, complete, and include exact locations and contrast scores.
+
+I’ll ask for targeted fixes once the report is generated.
