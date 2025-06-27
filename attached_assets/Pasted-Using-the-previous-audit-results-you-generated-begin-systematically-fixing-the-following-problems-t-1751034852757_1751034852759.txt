@@ -1,0 +1,81 @@
+Using the previous audit results you generated, begin systematically fixing the following problems to bring the entire site up to WCAG 2.1 AA contrast and layout compliance.
+
+This is a mission-critical production deployment — apply clean, maintainable fixes across the codebase.
+
+---
+
+🎯 PRIORITY 1: CRITICAL CONTRAST FIXES
+
+1. Hero Section Slider Label
+   - File: hero-odyssey.tsx
+   - Selector: .text-gray-300
+   - Fix: Change to `.text-gray-100` or `text-white` for better contrast on slate-900 background
+
+2. Header Contact Text
+   - File: Header.tsx
+   - Selector: .text-orange-300
+   - Fix: Update to `.text-orange-400` or `text-amber-300` to reach 4.5:1 contrast on black
+
+3. Premium Button Borders
+   - File: premium-button.tsx
+   - Selector: .border-blue-500/40
+   - Fix: Increase opacity to 70%+ or use `.border-blue-600` for visible delineation
+
+---
+
+🧹 PRIORITY 2: CSS CLEANUP & VARIABLE SAFETY
+
+4. index.css
+   - Lines 13–86: Remove or refactor `!important` overrides that force text colors
+   - Ensure fallback background layers exist wherever white or dark text is forced
+
+5. card.tsx and theme.json
+   - Audit `--card` and `--card-foreground` variables
+   - Use `color-contrast()` or manual adjustments to ensure 4.5:1 ratio across all themes
+   - Example: If background is `#f9fafb`, text must be `#1a1a1a` or darker
+
+6. elite-solar.css
+   - Ensure `.elite-heading` and `.elite-paragraph` use font-display: swap
+   - Verify font color inheritance doesn't drop contrast under any theme
+
+---
+
+📱 PRIORITY 3: MOBILE + POSITIONING
+
+7. Header/Footer Fixed Layouts
+   - Add padding/margin-top/bottom to prevent text being hidden underneath `.fixed.top-0` or `.fixed.bottom-0`
+   - Ensure mobile screens ≥ 360px width render cleanly without overlap
+
+8. Z-Index Conflict
+   - Rework chat widget layering so it only appears above non-interactive zones
+   - Use `z-40` for ChatWidget, `z-50` for header/footer, and avoid stacking conflicts
+
+---
+
+🌈 PRIORITY 4: GLOBAL COLOR STRATEGY
+
+9. theme.json
+   - Verify all `hsl()` defined colors with dark/light backgrounds
+   - Convert risky combinations to hex with verified contrast
+   - Use accessible color palettes (Tailwind `gray-900` on `gray-100`, `slate-800` on `amber-200`, etc.)
+
+10. Background Image Text
+    - Apply `bg-black/40` or `bg-gradient-to-b from-black/70 to-transparent` overlays behind any text on background images
+    - Add `.text-shadow-sm` or subtle glow for readability on photo banners
+
+---
+
+🔒 FINAL QA
+
+Once all changes are applied:
+
+- Re-run Lighthouse and confirm all contrast issues are gone
+- Confirm all text is readable in:
+  - Light theme
+  - Dark theme
+  - Mobile and tablet breakpoints
+- Validate every `.tsx`/`.css`/`.json` file compiles cleanly
+
+Make sure all updates are **production safe**, readable, and semantically styled — no hardcoded inline overrides unless explicitly necessary.
+
+Proceed now and apply fixes step-by-step.

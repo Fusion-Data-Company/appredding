@@ -29,7 +29,7 @@ const ElasticHueSlider: React.FC<ElasticHueSliderProps> = ({
 
   return (
     <div className="scale-50 relative w-full max-w-xs flex flex-col items-center" ref={sliderRef}>
-      {label && <label htmlFor="hue-slider-native" className="text-gray-300 text-sm mb-1">{label}</label>}
+      {label && <label htmlFor="hue-slider-native" className="text-white text-sm mb-1 font-medium">{label}</label>}
       <div className="relative w-full h-5 flex items-center">
         <input
           id="hue-slider-native"

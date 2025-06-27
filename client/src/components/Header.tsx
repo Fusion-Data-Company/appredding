@@ -8,7 +8,7 @@ export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-black border-b border-orange-500/50 shadow-xl">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-black border-b border-orange-500/50 shadow-xl" style={{ height: 'auto' }}>
       {/* Top contact bar */}
       <div className="bg-black py-2">
         <div className="max-w-7xl mx-auto px-4 flex justify-between items-center text-sm">
@@ -17,12 +17,12 @@ export default function Header() {
               <Phone size={14} className="mr-1" />
               (530) 226-0701
             </a>
-            <a href="mailto:info@apredding.net" className="flex items-center text-orange-300 hover:text-orange-200 font-medium">
+            <a href="mailto:info@apredding.net" className="flex items-center text-orange-400 hover:text-orange-300 font-medium">
               <Mail size={14} className="mr-1" />
               info@apredding.net
             </a>
           </div>
-          <div className="hidden md:block text-orange-300 font-medium">
+          <div className="hidden md:block text-orange-400 font-medium">
             Energy Freedom Begins Here!
           </div>
         </div>

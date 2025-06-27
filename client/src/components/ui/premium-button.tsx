@@ -10,15 +10,15 @@ const premiumButtonVariants = cva(
     variants: {
       variant: {
         default: 
-          "bg-gradient-to-r from-gray-950 via-black to-gray-950 text-white border-2 border-blue-500/40 shadow-lg hover:shadow-[0_0_20px_rgba(59,130,246,0.6)] hover:border-blue-400/50 transition-all duration-500 hover:scale-[1.01]",
+          "bg-gradient-to-r from-gray-950 via-black to-gray-950 text-white border-2 border-blue-500/70 shadow-lg hover:shadow-[0_0_20px_rgba(59,130,246,0.6)] hover:border-blue-400/80 transition-all duration-500 hover:scale-[1.01]",
         gold: 
-          "bg-gradient-to-br from-amber-950 via-black to-amber-950 text-white border-2 border-amber-500/40 shadow-lg hover:shadow-[0_0_20px_rgba(251,191,36,0.6)] hover:border-amber-400/50 transition-all duration-500 hover:scale-[1.01]",
+          "bg-gradient-to-br from-amber-950 via-black to-amber-950 text-white border-2 border-amber-500/70 shadow-lg hover:shadow-[0_0_20px_rgba(251,191,36,0.6)] hover:border-amber-400/80 transition-all duration-500 hover:scale-[1.01]",
         fire: 
-          "bg-gradient-to-br from-gray-900 via-black to-gray-950 text-white border-2 border-blue-500/40 shadow-lg hover:shadow-[0_0_30px_rgba(59,130,246,0.7)] transform transition-all duration-500 hover:scale-[1.02] hover:border-blue-400/50",
+          "bg-gradient-to-br from-gray-900 via-black to-gray-950 text-white border-2 border-blue-500/70 shadow-lg hover:shadow-[0_0_30px_rgba(59,130,246,0.7)] transform transition-all duration-500 hover:scale-[1.02] hover:border-blue-400/80",
         outline: 
-          "bg-black text-white border-2 border-blue-500/40 shadow-lg hover:shadow-[0_0_15px_rgba(59,130,246,0.5)]",
+          "bg-black text-white border-2 border-blue-500/70 shadow-lg hover:shadow-[0_0_15px_rgba(59,130,246,0.5)]",
         ghost: 
-          "bg-black text-white border-2 border-blue-500/30 shadow-lg hover:shadow-[0_0_15px_rgba(59,130,246,0.4)]"
+          "bg-black text-white border-2 border-blue-500/60 shadow-lg hover:shadow-[0_0_15px_rgba(59,130,246,0.4)]"
       },
       size: {
         sm: "h-12 px-5 py-3 text-base rounded-lg",
