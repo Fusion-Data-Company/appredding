@@ -277,7 +277,7 @@ const SolarSalesFunnelSection = () => {
           </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="flex flex-wrap gap-6 justify-center items-stretch">
           {salesFunnels.map((funnel, index) => (
             <motion.div
               key={funnel.id}
@@ -286,7 +286,7 @@ const SolarSalesFunnelSection = () => {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
               whileHover={{ scale: 1.02, y: -8 }}
-              className={`group relative bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-500 p-8 border ${funnel.borderColor} hover:border-opacity-60 overflow-hidden`}
+              className={`group relative bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-500 p-8 border ${funnel.borderColor} hover:border-opacity-60 overflow-hidden flex-1 min-w-[280px] max-w-[320px] flex flex-col`}
             >
               {/* Enterprise Background Gradient */}
               <div className={`absolute inset-0 bg-gradient-to-br ${funnel.bgGradient} opacity-20 group-hover:opacity-30 transition-opacity duration-500`}></div>
@@ -294,9 +294,9 @@ const SolarSalesFunnelSection = () => {
               {/* Premium Card Glow Effect */}
               <div className={`absolute -inset-0.5 bg-gradient-to-br ${funnel.color} rounded-3xl blur-lg opacity-20 group-hover:opacity-30 transition-opacity duration-500`}></div>
               
-              <div className="relative z-10">
+              <div className="relative z-10 flex flex-col h-full">
                 {/* Enhanced Icon Container */}
-                <div className={`flex items-center justify-center w-20 h-20 bg-gradient-to-br ${funnel.color} rounded-2xl mb-8 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-xl`}>
+                <div className={`flex items-center justify-center w-20 h-20 bg-gradient-to-br ${funnel.color} rounded-2xl mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-xl`}>
                   <div className="text-white">
                     {funnel.icon}
                   </div>
@@ -304,34 +304,34 @@ const SolarSalesFunnelSection = () => {
                 </div>
                 
                 {/* Premium Typography */}
-                <h3 className="text-2xl font-black text-gray-900 mb-3 leading-tight">
+                <h3 className="text-xl font-black text-gray-900 mb-2 leading-tight">
                   {funnel.title}
                 </h3>
                 
-                <p className="text-base text-gray-600 mb-6 font-semibold tracking-wide">
+                <p className="text-sm text-gray-600 mb-4 font-semibold tracking-wide">
                   {funnel.subtitle}
                 </p>
                 
-                <p className="text-gray-700 mb-8 leading-relaxed text-lg font-medium">
+                <p className="text-gray-700 mb-6 leading-relaxed text-base font-medium flex-grow">
                   {funnel.description}
                 </p>
                 
                 {/* Enhanced Benefits List */}
-                <ul className="space-y-3 mb-10">
+                <ul className="space-y-2 mb-6">
                   {funnel.benefits.map((benefit, i) => (
                     <li key={i} className="flex items-center text-gray-700 font-medium">
-                      <div className={`w-3 h-3 bg-gradient-to-r ${funnel.color} rounded-full mr-4 shadow-lg`}></div>
-                      <span className="text-base">{benefit}</span>
+                      <div className={`w-3 h-3 bg-gradient-to-r ${funnel.color} rounded-full mr-3 shadow-lg flex-shrink-0`}></div>
+                      <span className="text-sm">{benefit}</span>
                     </li>
                   ))}
                 </ul>
                 
-                {/* Premium CTA Button */}
+                {/* Premium CTA Button - Always at bottom */}
                 <motion.button
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => setSelectedFunnel(funnel)}
-                  className="button-primary w-full py-4 rounded-2xl text-lg"
+                  className="button-primary w-full py-3 rounded-2xl text-base mt-auto"
                 >
                   {/* Solar panel grid background pattern */}
                   <div className="solar-panel-grid">
