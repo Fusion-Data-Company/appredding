@@ -35,19 +35,19 @@ export const MenuItem = ({
   }, [active, item]);
 
   const handleMouseEnter = () => {
-    setHovering(true);
-    setActive(item);
+    // DISABLED - Preventing auto-dropdown behavior
+    // setHovering(true);
+    // setActive(item);
   };
 
   const handleMouseLeave = () => {
-    setHovering(false);
+    // DISABLED - Preventing auto-dropdown behavior
+    // setHovering(false);
   };
 
   return (
     <div 
       ref={itemRef}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
       className="relative py-2" // Added vertical padding for better touch target
     >
       <motion.p
@@ -57,19 +57,19 @@ export const MenuItem = ({
         {item}
       </motion.p>
       
-      {/* Portal-based dropdown that's rendered at the root level */}
-      <DropdownPortal 
-        isOpen={active === item}
-        anchorRect={rect}
-      >
-        <div 
-          className="w-max h-full p-4"
-          onMouseEnter={() => setHovering(true)}
-          onMouseLeave={() => setHovering(false)}
+      {/* DISABLED: Portal-based dropdown to prevent auto-appearing Services menu */}
+      {item !== "Services" && (
+        <DropdownPortal 
+          isOpen={false}
+          anchorRect={rect}
         >
-          {children}
-        </div>
-      </DropdownPortal>
+          <div 
+            className="w-max h-full p-4"
+          >
+            {children}
+          </div>
+        </DropdownPortal>
+      )}
     </div>
   );
 };

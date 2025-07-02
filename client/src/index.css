@@ -204,13 +204,18 @@ header nav button {
   color: white !important;
 }
 
-/* DISABLE PROBLEMATIC HOVER EFFECTS ON DROPDOWNS */
+/* DISABLE ALL HOVER-TRIGGERED DROPDOWNS COMPLETELY */
 .relative.group:hover > div[class*="absolute"],
-.group:hover > div[class*="dropdown"],
-*:hover > div[class*="group-hover"] {
+.group:hover > div[class*="dropdown"], 
+*:hover > div[class*="group-hover"],
+[class*="dropdown"]:hover,
+[class*="DropdownPortal"],
+div[class*="absolute"][class*="dropdown"],
+div[class*="absolute"][class*="menu"] {
   opacity: 0 !important;
   visibility: hidden !important;
   pointer-events: none !important;
+  display: none !important;
 }
 
 /* NUCLEAR VISIBILITY FIX - Ensure ALL text is readable */
