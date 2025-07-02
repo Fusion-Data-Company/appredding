@@ -85,7 +85,7 @@ export default function Header() {
                   <ChevronDown className={`ml-1 w-4 h-4 transition-transform ${isServicesOpen ? 'rotate-180' : ''}`} />
                 </button>
                 {isServicesOpen && (
-                  <div className="absolute top-full left-0 mt-2 w-64 bg-black border-2 border-orange-500 rounded-lg shadow-xl py-2 z-50">
+                  <div className="manual-dropdown absolute top-full left-0 mt-2 w-64 bg-black border-2 border-orange-500 rounded-lg shadow-xl py-2 z-50">
                     <Link href="/residential-solar" className="block px-4 py-2 text-orange-200 font-medium hover:bg-orange-900 hover:text-white transition-colors" onClick={() => setIsServicesOpen(false)}>
                       Residential Solar
                     </Link>

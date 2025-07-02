@@ -204,18 +204,23 @@ header nav button {
   color: white !important;
 }
 
-/* DISABLE ALL HOVER-TRIGGERED DROPDOWNS COMPLETELY */
-.relative.group:hover > div[class*="absolute"],
-.group:hover > div[class*="dropdown"], 
-*:hover > div[class*="group-hover"],
-[class*="dropdown"]:hover,
+/* COMPLETELY DISABLE ALL AUTO-APPEARING DROPDOWNS */
 [class*="DropdownPortal"],
 div[class*="absolute"][class*="dropdown"],
-div[class*="absolute"][class*="menu"] {
+div[class*="absolute"][class*="menu"],
+.absolute[class*="w-64"][class*="bg-black"]:not(.manual-dropdown) {
   opacity: 0 !important;
   visibility: hidden !important;
   pointer-events: none !important;
   display: none !important;
+}
+
+/* ALLOW ONLY MANUAL CLICK-CONTROLLED DROPDOWN */
+.manual-dropdown {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  display: block !important;
 }
 
 /* NUCLEAR VISIBILITY FIX - Ensure ALL text is readable */
