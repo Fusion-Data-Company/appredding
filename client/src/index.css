@@ -328,6 +328,61 @@ div[data-component-name="div"]:contains("Hybrid Systems"),
   visibility: hidden !important;
 }
 
+/* OVERRIDE PROBLEMATIC BUTTON-PRIMARY STYLES */
+.btn-unified.button-primary,
+.btn-unified .button-primary,
+button.btn-unified {
+  /* Remove all the problematic elite-styling effects */
+  background: unset !important;
+  box-shadow: unset !important;
+  animation: none !important;
+  transform: none !important;
+  position: relative !important;
+  overflow: visible !important;
+}
+
+.btn-unified.button-primary::after,
+.btn-unified .button-primary::after,
+button.btn-unified::after {
+  display: none !important;
+  content: none !important;
+}
+
+.btn-unified:hover .shine-effect,
+.btn-unified .shine-effect {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+/* NUCLEAR OPTION: COMPLETELY OVERRIDE BUTTON-PRIMARY */
+.button-primary {
+  background: unset !important;
+  box-shadow: unset !important;
+  animation: none !important;
+  transform: none !important;
+  border-radius: unset !important;
+  padding: unset !important;
+  overflow: unset !important;
+  position: unset !important;
+}
+
+.button-primary::after {
+  display: none !important;
+  content: none !important;
+  animation: none !important;
+}
+
+.button-primary:hover {
+  transform: none !important;
+  box-shadow: unset !important;
+}
+
+.button-primary:hover .shine-effect {
+  transform: none !important;
+  display: none !important;
+}
+
 /* NUCLEAR VISIBILITY FIX - Ensure ALL text is readable */
 *:not(svg):not(path):not(circle):not(rect) {
   visibility: visible !important;
