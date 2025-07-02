@@ -103,14 +103,17 @@ const ProfessionalHeader = () => {
         
         {/* Navigation */}
         <nav style={{ display: 'flex', gap: '24px', alignItems: 'center' }} className="hidden lg:flex">
-          <a href="/" style={{ 
-            color: '#ffffff !important', 
-            fontSize: '16px', 
-            fontWeight: '500', 
-            textDecoration: 'none',
-            textShadow: '0 2px 4px rgba(0,0,0,0.8)',
-            display: 'block'
-          }}>Home</a>
+          <a
+            href="/"
+            style={{ 
+              color: '#ffffff !important', 
+              fontSize: '16px', 
+              fontWeight: '500', 
+              textDecoration: 'none',
+              textShadow: '0 2px 4px rgba(0,0,0,0.8)',
+              display: 'block'
+            }}
+            className="text-[#c6cbd4]">Home</a>
           
           {/* Services Dropdown */}
           <div className="group relative">
@@ -191,7 +194,6 @@ const ProfessionalHeader = () => {
           )}
         </button>
       </div>
-
       {/* Mobile Navigation */}
       {mobileMenuOpen && (
         <div style={{
