@@ -159,7 +159,7 @@ export function PremiumNavbar() {
           title="Hybrid Systems"
           description="Solar + battery storage solutions"
           imageSrc="/images/hybrid-solar.jpg"
-          href="/hybrid-systems"
+          href="/hybrid-solar"
         />
       </div>
       
@@ -168,7 +168,7 @@ export function PremiumNavbar() {
           title="Lithium Batteries"
           description="Advanced energy storage systems"
           imageSrc="/images/lithium-batteries.jpg"
-          href="/lithium-batteries"
+          href="/lithium-battery"
         />
         
         <ImageCard
@@ -242,10 +242,10 @@ export function PremiumNavbar() {
             />
             
             <ImageCard
-              title="Energy Audits"
+              title="Energy Conservation"
               description="Efficiency assessments & optimization"
               imageSrc="/images/energy-audit.jpg"
-              href="/energy-audit"
+              href="/energy-conservation"
             />
           </div>
         </div>
@@ -282,8 +282,8 @@ export function PremiumNavbar() {
               </Link>
             </li>
             <li>
-              <Link href="/application-guide" className="text-sm text-gray-200 hover:text-white transition-colors">
-                Application Guide
+              <Link href="/applications" className="text-sm text-gray-200 hover:text-white transition-colors">
+                Applications
               </Link>
             </li>
           </ul>
@@ -295,10 +295,10 @@ export function PremiumNavbar() {
             <h5 className="text-white font-bold mb-1 text-xs">Praetorian Shield™</h5>
             <p className="text-xs text-gray-200 mb-2">Our flagship protective coating with revolutionary ceramic technology.</p>
             <Link 
-              href="/products/praetorian-shield" 
+              href="/products" 
               className="text-xs text-amber-400 hover:text-amber-300 font-medium"
             >
-              Learn More →
+              View Products →
             </Link>
           </div>
         </div>
@@ -325,14 +325,14 @@ export function PremiumNavbar() {
             <Link href="/about" className="text-xs text-gray-200 hover:text-white transition-colors">
               About Us
             </Link>
-            <Link href="/faq" className="text-xs text-gray-200 hover:text-white transition-colors">
-              FAQ
+            <Link href="/team" className="text-xs text-gray-200 hover:text-white transition-colors">
+              Team
             </Link>
-            <Link href="/energy-storage" className="text-xs text-gray-200 hover:text-white transition-colors">
+            <Link href="/battery-storage" className="text-xs text-gray-200 hover:text-white transition-colors">
               Energy Storage
             </Link>
-            <Link href="/testimonials" className="text-xs text-gray-200 hover:text-white transition-colors">
-              Testimonials
+            <Link href="/technology" className="text-xs text-gray-200 hover:text-white transition-colors">
+              Technology
             </Link>
           </div>
         </div>
@@ -369,13 +369,13 @@ export function PremiumNavbar() {
           <h4 className="font-bold text-white mb-2 text-sm">Resources</h4>
           <ul className="space-y-2">
             <li>
-              <Link href="/solar-calculator" className="text-sm text-gray-300 hover:text-white transition-colors">
-                Solar Calculator
+              <Link href="/roi-calculator" className="text-sm text-gray-300 hover:text-white transition-colors">
+                ROI Calculator
               </Link>
             </li>
             <li>
-              <Link href="/financing" className="text-sm text-gray-300 hover:text-white transition-colors">
-                Financing Options
+              <Link href="/products" className="text-sm text-gray-300 hover:text-white transition-colors">
+                Solar Products
               </Link>
             </li>
             <li>
@@ -384,8 +384,8 @@ export function PremiumNavbar() {
               </Link>
             </li>
             <li>
-              <Link href="/installation-guide" className="text-sm text-gray-300 hover:text-white transition-colors">
-                Installation Process
+              <Link href="/applications" className="text-sm text-gray-300 hover:text-white transition-colors">
+                Applications
               </Link>
             </li>
           </ul>
@@ -397,7 +397,7 @@ export function PremiumNavbar() {
             <h5 className="text-white font-bold mb-1 text-xs">Hybrid Solar Systems</h5>
             <p className="text-xs text-gray-300 mb-2">Solar panels with lithium battery storage for energy independence.</p>
             <Link 
-              href="/hybrid-systems" 
+              href="/hybrid-solar" 
               className="text-xs text-yellow-400 hover:text-yellow-300 font-medium"
             >
               Learn More →
