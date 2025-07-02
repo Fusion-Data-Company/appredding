@@ -108,8 +108,8 @@ const EnergyStorageSection = () => {
           </div>
         </motion.div>
 
-        {/* Enterprise Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-24">
+        {/* Enterprise Features Grid - Fixed Alignment */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24 items-stretch">
           {storageFeatures.map((feature, index) => (
             <motion.div
               key={index}
@@ -118,36 +118,36 @@ const EnergyStorageSection = () => {
               transition={{ duration: 0.8, delay: index * 0.1 }}
               viewport={{ once: true }}
               whileHover={{ scale: 1.05, y: -10 }}
-              className="group relative"
+              className="group relative h-full flex"
             >
-              {/* Premium Card Background */}
-              <div className="relative bg-gradient-to-br from-white via-amber-50 to-orange-50 backdrop-blur-sm rounded-3xl p-10 border-2 border-amber-200 group-hover:border-orange-400 shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden">
+              {/* Premium Card Background - Full Height */}
+              <div className="relative bg-gradient-to-br from-white via-amber-50 to-orange-50 backdrop-blur-sm rounded-3xl p-8 border-2 border-amber-200 group-hover:border-orange-400 shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden w-full flex flex-col">
                 
                 {/* Card Glow Effect */}
                 <div className="absolute -inset-1 bg-gradient-to-br from-orange-500/30 via-red-500/30 to-amber-500/30 opacity-20 group-hover:opacity-50 blur-xl transition-opacity duration-500 rounded-3xl"></div>
                 
-                {/* Card Content */}
-                <div className="relative z-10">
+                {/* Card Content - Flexbox for consistent spacing */}
+                <div className="relative z-10 flex flex-col h-full">
                   {/* Premium Icon */}
-                  <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl mb-8 text-white shadow-2xl group-hover:scale-110 transition-transform duration-300 border-2 border-orange-300">
+                  <div className="inline-flex items-center justify-center w-18 h-18 bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl mb-6 text-white shadow-2xl group-hover:scale-110 transition-transform duration-300 border-2 border-orange-300">
                     {feature.icon}
                   </div>
 
                   {/* Enhanced Typography */}
-                  <h3 className="text-3xl font-black text-gray-800 mb-6 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-orange-600 group-hover:to-red-500 group-hover:bg-clip-text transition-all duration-300 drop-shadow-md">
+                  <h3 className="text-2xl font-black text-gray-800 mb-4 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-orange-600 group-hover:to-red-500 group-hover:bg-clip-text transition-all duration-300 drop-shadow-md">
                     {feature.title}
                   </h3>
                   
-                  <p className="text-xl text-gray-700 mb-8 leading-relaxed font-medium">
+                  <p className="text-lg text-gray-700 mb-6 leading-relaxed font-medium flex-grow">
                     {feature.description}
                   </p>
 
-                  {/* Premium Specs List */}
-                  <ul className="space-y-3">
+                  {/* Premium Specs List - Always at bottom */}
+                  <ul className="space-y-2 mt-auto">
                     {feature.specs.map((spec, specIndex) => (
-                      <li key={specIndex} className="flex items-center text-gray-700 text-lg font-medium">
-                        <div className="w-3 h-3 bg-gradient-to-r from-orange-500 to-red-500 rounded-full mr-4 group-hover:scale-150 transition-transform duration-300 shadow-md"></div>
-                        {spec}
+                      <li key={specIndex} className="flex items-center text-gray-700 text-base font-medium">
+                        <div className="w-2.5 h-2.5 bg-gradient-to-r from-orange-500 to-red-500 rounded-full mr-3 group-hover:scale-150 transition-transform duration-300 shadow-md flex-shrink-0"></div>
+                        <span className="leading-tight">{spec}</span>
                       </li>
                     ))}
                   </ul>
