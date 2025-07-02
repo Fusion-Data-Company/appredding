@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Award, Users, Calendar, Shield, Zap, CheckCircle } from "lucide-react";
+import { Award, Users, Calendar, Shield, Zap, CheckCircle, Star, Badge, Settings, Battery, Wifi, Wrench, FileCheck } from "lucide-react";
 
 const AboutAdvancePowerSection = () => {
   const achievements = [
@@ -30,12 +30,48 @@ const AboutAdvancePowerSection = () => {
   ];
 
   const certifications = [
-    "Sol-Ark Certified Installer",
-    "API LiFePO4 Systems Specialist",
-    "CAN/RS485 Communication Expert",
-    "UL 1973/9540 Compliance",
-    "MPPT Configuration Specialist",
-    "Battery BMS Integration Expert"
+    {
+      icon: <Star className="w-6 h-6" />,
+      title: "Sol-Ark Certified Installer",
+      color: "text-yellow-400",
+      bgColor: "bg-yellow-500/20"
+    },
+    {
+      icon: <Battery className="w-6 h-6" />,
+      title: "API LiFePO4 Systems Specialist",
+      color: "text-blue-400",
+      bgColor: "bg-blue-500/20"
+    },
+    {
+      icon: <Wifi className="w-6 h-6" />,
+      title: "CAN/RS485 Communication Expert",
+      color: "text-green-400",
+      bgColor: "bg-green-500/20"
+    },
+    {
+      icon: <Shield className="w-6 h-6" />,
+      title: "UL 1973/9540 Compliance",
+      color: "text-red-400",
+      bgColor: "bg-red-500/20"
+    },
+    {
+      icon: <Settings className="w-6 h-6" />,
+      title: "MPPT Configuration Specialist",
+      color: "text-purple-400",
+      bgColor: "bg-purple-500/20"
+    },
+    {
+      icon: <Wrench className="w-6 h-6" />,
+      title: "Battery BMS Integration Expert",
+      color: "text-orange-400",
+      bgColor: "bg-orange-500/20"
+    },
+    {
+      icon: <FileCheck className="w-6 h-6" />,
+      title: "Fully Licensed & Insured",
+      color: "text-emerald-400",
+      bgColor: "bg-emerald-500/20"
+    }
   ];
 
   return (
@@ -218,7 +254,7 @@ const AboutAdvancePowerSection = () => {
               Certifications & Awards
             </h3>
             
-            <div className="space-y-4">
+            <div className="grid grid-cols-1 gap-4">
               {certifications.map((cert, index) => (
                 <motion.div
                   key={index}
@@ -226,23 +262,70 @@ const AboutAdvancePowerSection = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="flex items-center text-xl text-gray-300"
+                  whileHover={{ scale: 1.02, x: 5 }}
+                  className="group relative overflow-hidden"
                 >
-                  <CheckCircle className="w-6 h-6 text-green-500 mr-4 flex-shrink-0" />
-                  {cert}
+                  {/* Premium Badge Container */}
+                  <div className={`relative ${cert.bgColor} backdrop-blur-sm rounded-xl p-4 border border-gray-600/30 group-hover:border-gray-500/50 shadow-lg hover:shadow-xl transition-all duration-300`}>
+                    
+                    {/* Glow Effect */}
+                    <div className={`absolute -inset-1 ${cert.bgColor} opacity-0 group-hover:opacity-50 blur-xl transition-opacity duration-500 rounded-xl`}></div>
+                    
+                    {/* Content */}
+                    <div className="relative z-10 flex items-center">
+                      {/* Premium Icon Badge */}
+                      <div className={`inline-flex items-center justify-center w-12 h-12 ${cert.bgColor} rounded-xl mr-4 ${cert.color} shadow-lg group-hover:scale-110 transition-transform duration-300 border border-gray-600/20`}>
+                        {cert.icon}
+                      </div>
+                      
+                      {/* Certification Text */}
+                      <div className="flex-1">
+                        <h4 className="text-lg font-bold text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-200 group-hover:bg-clip-text transition-all duration-300">
+                          {cert.title}
+                        </h4>
+                      </div>
+                      
+                      {/* Verification Badge */}
+                      <div className="flex items-center">
+                        <Badge className="w-5 h-5 text-green-400 ml-2" />
+                        <span className="text-xs text-green-400 ml-1 font-medium">VERIFIED</span>
+                      </div>
+                    </div>
+                  </div>
                 </motion.div>
               ))}
             </div>
 
-            <div className="mt-12 p-8 bg-gradient-to-br from-gray-800/80 to-gray-900/80 backdrop-blur-sm rounded-2xl border border-gray-700/50">
-              <div className="flex items-center mb-4">
-                <Shield className="w-8 h-8 text-blue-500 mr-4" />
-                <h4 className="text-2xl font-bold text-white">Fully Licensed & Insured</h4>
+            <div className="mt-8 p-6 bg-gradient-to-br from-emerald-900/30 to-green-900/30 backdrop-blur-sm rounded-2xl border border-emerald-600/30 relative overflow-hidden">
+              {/* Premium background effects */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500/20 to-green-500/20 blur-xl opacity-70"></div>
+              
+              <div className="relative z-10">
+                <div className="flex items-center mb-4">
+                  <div className="inline-flex items-center justify-center w-12 h-12 bg-emerald-500/20 rounded-xl mr-4 text-emerald-400 shadow-lg border border-emerald-600/20">
+                    <Shield className="w-6 h-6" />
+                  </div>
+                  <h4 className="text-2xl font-bold text-white">License & Insurance Details</h4>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-emerald-200">
+                  <div className="flex items-center">
+                    <CheckCircle className="w-4 h-4 mr-2 text-emerald-400" />
+                    <span>CSLB License #942090</span>
+                  </div>
+                  <div className="flex items-center">
+                    <CheckCircle className="w-4 h-4 mr-2 text-emerald-400" />
+                    <span>Bonded & Insured</span>
+                  </div>
+                  <div className="flex items-center">
+                    <CheckCircle className="w-4 h-4 mr-2 text-emerald-400" />
+                    <span>Workers' Compensation</span>
+                  </div>
+                  <div className="flex items-center">
+                    <CheckCircle className="w-4 h-4 mr-2 text-emerald-400" />
+                    <span>General Liability Insurance</span>
+                  </div>
+                </div>
               </div>
-              <p className="text-gray-300 leading-relaxed">
-                CSLB License #942090 | Bonded & Insured | Workers' Compensation Coverage | 
-                General Liability Insurance | All work backed by comprehensive warranties.
-              </p>
             </div>
           </div>
         </motion.div>
