@@ -231,6 +231,91 @@ div[data-component-name="div"]:contains("Hybrid Systems"),
   visibility: hidden !important;
 }
 
+/* UNIFIED BUTTON STYLING SYSTEM */
+.btn-unified {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 32px;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.btn-unified::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.btn-unified:hover::before {
+  opacity: 1;
+}
+
+.btn-unified:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+/* Primary Action Button */
+.btn-primary {
+  background: linear-gradient(135deg, #f59e0b 0%, #ea580c 50%, #dc2626 100%);
+  color: white !important;
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 8px 25px rgba(245, 158, 11, 0.6);
+}
+
+/* Secondary Action Button */
+.btn-secondary {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 50%, #1e40af 100%);
+  color: white !important;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+}
+
+.btn-secondary:hover {
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.6);
+}
+
+/* Success/Green Button */
+.btn-success {
+  background: linear-gradient(135deg, #10b981 0%, #059669 50%, #047857 100%);
+  color: white !important;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+}
+
+.btn-success:hover {
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.6);
+}
+
+/* Purple/Service Button */
+.btn-service {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 50%, #6d28d9 100%);
+  color: white !important;
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+}
+
+.btn-service:hover {
+  box-shadow: 0 8px 25px rgba(139, 92, 246, 0.6);
+}
+
 /* NUCLEAR VISIBILITY FIX - Ensure ALL text is readable */
 *:not(svg):not(path):not(circle):not(rect) {
   visibility: visible !important;

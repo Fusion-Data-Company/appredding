@@ -331,7 +331,12 @@ const SolarSalesFunnelSection = () => {
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => setSelectedFunnel(funnel)}
-                  className="button-primary w-full py-4 rounded-2xl text-lg mt-auto"
+                  className={`btn-unified w-full py-4 rounded-2xl text-lg mt-auto ${
+                    funnel.id === 'residential' ? 'btn-primary' :
+                    funnel.id === 'commercial' ? 'btn-secondary' :
+                    funnel.id === 'storage' ? 'btn-success' :
+                    'btn-service'
+                  }`}
                 >
                   {/* Solar panel grid background pattern */}
                   <div className="solar-panel-grid">
@@ -385,14 +390,14 @@ const SolarSalesFunnelSection = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="tel:5302260701"
-                className="px-8 py-3 bg-gradient-to-r from-yellow-500 to-orange-500 text-white font-bold rounded-lg hover:shadow-lg transition-all duration-300 flex items-center justify-center"
+                className="btn-unified btn-primary"
               >
                 <Phone className="w-5 h-5 mr-2" />
                 Call (530) 226-0701
               </a>
               <button
                 onClick={() => setSelectedFunnel(salesFunnels[0])}
-                className="px-8 py-3 border-2 border-gray-300 text-gray-300 font-bold rounded-lg hover:bg-white hover:text-gray-900 transition-all duration-300"
+                className="btn-unified btn-secondary"
               >
                 <Calculator className="w-5 h-5 mr-2 inline" />
                 Start Solar Calculator

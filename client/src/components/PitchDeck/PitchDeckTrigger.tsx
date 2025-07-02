@@ -51,7 +51,7 @@ const PitchDeckTrigger: React.FC<PitchDeckTriggerProps> = ({
       >
         <button
           onClick={openModal}
-          className="button-primary relative overflow-hidden text-white font-bold py-4 px-6 rounded-2xl shadow-2xl transform transition-all duration-300"
+          className="btn-unified btn-success relative overflow-hidden text-white font-bold py-4 px-6 rounded-2xl shadow-2xl transform transition-all duration-300"
         >
           <div className="solar-panel-grid">
             <div>
