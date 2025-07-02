@@ -51,39 +51,14 @@ const PitchDeckTrigger: React.FC<PitchDeckTriggerProps> = ({
       >
         <button
           onClick={openModal}
-          className="btn-unified btn-success relative overflow-hidden text-white font-bold py-4 px-6 rounded-2xl shadow-2xl transform transition-all duration-300"
+          className="btn-unified btn-success text-white font-bold py-4 px-6 rounded-2xl"
         >
-          <div className="solar-panel-grid">
-            <div>
-              {[...Array(9)].map((_, i) => (
-                <div key={i} className="solar-panel-cell"></div>
-              ))}
-            </div>
-          </div>
-          
-          <div className="solar-rays">
-            <div className="solar-ray-animation">
-              {[...Array(8)].map((_, i) => (
-                <div
-                  key={i}
-                  className="solar-ray"
-                  style={{
-                    transform: `rotate(${i * 45}deg) translateY(-16px)`
-                  }}
-                />
-              ))}
-            </div>
-          </div>
-          
-          {/* Content */}
-          <div className="relative z-10 flex items-center gap-2">
-            <Sun className="h-5 w-5 text-white drop-shadow-lg" />
-            <span className="text-sm font-bold tracking-wide drop-shadow-lg">
+          <div className="flex items-center gap-2">
+            <Sun className="h-5 w-5 text-white" />
+            <span className="text-sm font-bold tracking-wide">
               Why Go Solar?
             </span>
           </div>
-          
-          <div className="shine-effect"></div>
         </button>
       </motion.div>
       

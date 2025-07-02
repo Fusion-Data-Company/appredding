@@ -316,6 +316,18 @@ div[data-component-name="div"]:contains("Hybrid Systems"),
   box-shadow: 0 8px 25px rgba(139, 92, 246, 0.6);
 }
 
+/* DISABLE DECORATIVE BUTTON ELEMENTS */
+.btn-unified .solar-panel-grid,
+.btn-unified .solar-rays,
+.btn-unified .shine-effect,
+.btn-unified .solar-panel-cell,
+.btn-unified .solar-ray,
+.btn-unified .solar-ray-animation {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
 /* NUCLEAR VISIBILITY FIX - Ensure ALL text is readable */
 *:not(svg):not(path):not(circle):not(rect) {
   visibility: visible !important;

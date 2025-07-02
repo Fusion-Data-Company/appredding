@@ -338,36 +338,10 @@ const SolarSalesFunnelSection = () => {
                     'btn-service'
                   }`}
                 >
-                  {/* Solar panel grid background pattern */}
-                  <div className="solar-panel-grid">
-                    <div>
-                      {[...Array(9)].map((_, i) => (
-                        <div key={i} className="solar-panel-cell"></div>
-                      ))}
-                    </div>
-                  </div>
-                  
-                  {/* Animated sun rays */}
-                  <div className="solar-rays">
-                    <div className="solar-ray-animation">
-                      {[...Array(8)].map((_, i) => (
-                        <div
-                          key={i}
-                          className="solar-ray"
-                          style={{
-                            transform: `rotate(${i * 45}deg) translateY(-16px)`
-                          }}
-                        />
-                      ))}
-                    </div>
-                  </div>
-                  
-                  <div className="relative z-10 flex items-center gap-3">
+                  <div className="flex items-center justify-center gap-3">
                     <span>{funnel.ctaText}</span>
                     <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" />
                   </div>
-                  
-                  <div className="shine-effect"></div>
                 </motion.button>
               </div>
             </motion.div>
