@@ -147,7 +147,7 @@ export async function getCRMAnalytics(req: Request, res: Response) {
 
     res.json(analytics);
   } catch (error) {
-    console.error('Error fetching CRM analytics:', error);
+    
     res.status(500).json({ error: 'Failed to fetch CRM analytics' });
   }
 }

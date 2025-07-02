@@ -106,7 +106,7 @@ router.post("/api/contact", async (req, res) => {
 
     res.json({ success: true, contact });
   } catch (error) {
-    console.error("Contact form error:", error);
+    
     if (error instanceof z.ZodError) {
       res.status(400).json({ success: false, error: "Validation error", details: error.errors });
     } else {
@@ -133,7 +133,7 @@ router.post("/api/quote", async (req, res) => {
 
     res.json({ success: true, contact, opportunity });
   } catch (error) {
-    console.error("Quote form error:", error);
+    
     if (error instanceof z.ZodError) {
       res.status(400).json({ success: false, error: "Validation error", details: error.errors });
     } else {
@@ -160,7 +160,7 @@ router.post("/api/consultation", async (req, res) => {
 
     res.json({ success: true, contact, opportunity });
   } catch (error) {
-    console.error("Consultation form error:", error);
+    
     if (error instanceof z.ZodError) {
       res.status(400).json({ success: false, error: "Validation error", details: error.errors });
     } else {
@@ -187,15 +187,14 @@ router.post("/api/forms/submit", async (req, res) => {
     
     // Create form submission record and automatically process it
     const submission = await storage.createFormSubmission(formData);
-    
-    
+
     res.json({ 
       success: true, 
       message: "Form submitted successfully! We'll contact you soon.",
       submissionId: submission.id 
     });
   } catch (error) {
-    console.error("Universal form submission error:", error);
+    
     res.status(500).json({ 
       success: false, 
       error: "Failed to submit form. Please try again." 
@@ -210,7 +209,7 @@ router.get("/api/crm/contacts", async (req, res) => {
     const contacts = await storage.getContacts();
     res.json({ success: true, contacts });
   } catch (error) {
-    console.error("Get contacts error:", error);
+    
     res.status(500).json({ success: false, error: "Internal server error" });
   }
 });
@@ -227,7 +226,7 @@ router.get("/api/crm/contacts/:id", async (req, res) => {
     const activities = await storage.getActivitiesByContact(contactId);
     res.json({ success: true, contact, activities });
   } catch (error) {
-    console.error("Get contact error:", error);
+    
     res.status(500).json({ success: false, error: "Internal server error" });
   }
 });
@@ -239,7 +238,7 @@ router.put("/api/crm/contacts/:id", async (req, res) => {
     const contact = await storage.updateContact(contactId, req.body);
     res.json({ success: true, contact });
   } catch (error) {
-    console.error("Update contact error:", error);
+    
     res.status(500).json({ success: false, error: "Internal server error" });
   }
 });
@@ -251,7 +250,7 @@ router.delete("/api/crm/contacts/:id", async (req, res) => {
     await storage.deleteContact(contactId);
     res.json({ success: true });
   } catch (error) {
-    console.error("Delete contact error:", error);
+    
     res.status(500).json({ success: false, error: "Internal server error" });
   }
 });
@@ -263,7 +262,7 @@ router.get("/api/crm/contacts/search/:query", async (req, res) => {
     const contacts = await storage.searchContacts(query);
     res.json({ success: true, contacts });
   } catch (error) {
-    console.error("Search contacts error:", error);
+    
     res.status(500).json({ success: false, error: "Internal server error" });
   }
 });
@@ -274,7 +273,7 @@ router.get("/api/crm/opportunities", async (req, res) => {
     const opportunities = await storage.getOpportunities();
     res.json({ success: true, opportunities });
   } catch (error) {
-    console.error("Get opportunities error:", error);
+    
     res.status(500).json({ success: false, error: "Internal server error" });
   }
 });
@@ -289,7 +288,7 @@ router.get("/api/crm/opportunities/:id", async (req, res) => {
     }
     res.json({ success: true, opportunity });
   } catch (error) {
-    console.error("Get opportunity error:", error);
+    
     res.status(500).json({ success: false, error: "Internal server error" });
   }
 });
@@ -301,7 +300,7 @@ router.put("/api/crm/opportunities/:id", async (req, res) => {
     const opportunity = await storage.updateOpportunity(opportunityId, req.body);
     res.json({ success: true, opportunity });
   } catch (error) {
-    console.error("Update opportunity error:", error);
+    
     res.status(500).json({ success: false, error: "Internal server error" });
   }
 });
@@ -312,7 +311,7 @@ router.get("/api/crm/dashboard", async (req, res) => {
     const stats = await storage.getDashboardStats();
     res.json({ success: true, stats });
   } catch (error) {
-    console.error("Get dashboard stats error:", error);
+    
     res.status(500).json({ success: false, error: "Internal server error" });
   }
 });
@@ -363,7 +362,7 @@ router.post("/api/crm/contacts/import", upload.single('csvFile'), async (req, re
           skipped++;
         }
       } catch (error) {
-        console.error("Error importing contact:", error);
+        
         skipped++;
       }
     }
@@ -375,7 +374,7 @@ router.post("/api/crm/contacts/import", upload.single('csvFile'), async (req, re
       message: `Successfully imported ${imported} contacts, skipped ${skipped} invalid records` 
     });
   } catch (error) {
-    console.error("CSV import error:", error);
+    
     res.status(500).json({ success: false, error: "Failed to import CSV file" });
   }
 });
@@ -386,7 +385,7 @@ router.get("/api/crm/form-submissions", async (req, res) => {
     const submissions = await storage.getFormSubmissions();
     res.json({ success: true, submissions });
   } catch (error) {
-    console.error("Get form submissions error:", error);
+    
     res.status(500).json({ success: false, error: "Internal server error" });
   }
 });
@@ -397,7 +396,7 @@ router.post("/api/crm/activities", async (req, res) => {
     const activity = await storage.createActivity(req.body);
     res.json({ success: true, activity });
   } catch (error) {
-    console.error("Create activity error:", error);
+    
     res.status(500).json({ success: false, error: "Internal server error" });
   }
 });

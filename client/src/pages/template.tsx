@@ -966,9 +966,7 @@ const Construction = () => {
             </div>
           </div>
         </section>
-        
 
-        
         {/* Registration Form Section - Purple Section (conditionally rendered) */}
         {showRegistrationForm && (
           <section className="py-16 relative z-10">

@@ -239,7 +239,7 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
                           muted
                           loop
                           playsInline
-                          onError={(e) => console.error("Video error:", e)}
+                          onError={(e) => }
                         ></video>
                       </div>
                     ) : (

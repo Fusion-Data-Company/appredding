@@ -30,7 +30,7 @@ try {
     });
   }
 } catch (error) {
-  console.warn('Anthropic client initialization failed:', error.message);
+  
 }
 
 // Document upload and processing endpoint
@@ -104,7 +104,7 @@ Document content: ${extractedText.substring(0, 2000)}`
             else if (analysisText.includes('insurance')) documentCategory = 'insurance';
           }
         } catch (aiError) {
-          console.warn('AI analysis failed, using basic categorization:', aiError.message);
+          
         }
       }
 
@@ -139,7 +139,7 @@ Document content: ${extractedText.substring(0, 2000)}`
       });
 
     } catch (processingError) {
-      console.error('Document processing error:', processingError);
+      
       res.status(500).json({
         success: false,
         error: "Failed to process document content",
@@ -148,7 +148,7 @@ Document content: ${extractedText.substring(0, 2000)}`
     }
 
   } catch (error) {
-    console.error('Document upload error:', error);
+    
     res.status(500).json({
       success: false,
       error: "Failed to upload document",
@@ -205,7 +205,7 @@ router.post("/search-documents", async (req, res) => {
     });
 
   } catch (error) {
-    console.error('Document search error:', error);
+    
     res.status(500).json({
       success: false,
       error: "Failed to search documents",
@@ -282,7 +282,7 @@ Please provide a helpful answer based on the document content. If the informatio
       });
 
     } catch (aiError) {
-      console.error('AI chat error:', aiError);
+      
       res.status(500).json({
         success: false,
         error: "Failed to process chat request",
@@ -291,7 +291,7 @@ Please provide a helpful answer based on the document content. If the informatio
     }
 
   } catch (error) {
-    console.error('Document chat error:', error);
+    
     res.status(500).json({
       success: false,
       error: "Failed to process chat request",
@@ -358,7 +358,7 @@ Provide a comprehensive answer based on the available documents. Include specifi
         const answer = response.content[0];
         chatResponse = answer && 'text' in answer ? answer.text : null;
       } catch (aiError) {
-        console.warn('AI search chat failed:', aiError.message);
+        
       }
     }
 
@@ -378,7 +378,7 @@ Provide a comprehensive answer based on the available documents. Include specifi
     });
 
   } catch (error) {
-    console.error('Search and chat error:', error);
+    
     res.status(500).json({
       success: false,
       error: "Failed to search and chat",
@@ -425,7 +425,7 @@ router.get("/processing-capabilities", async (req, res) => {
     });
 
   } catch (error) {
-    console.error('Error getting capabilities:', error);
+    
     res.json({
       supportedFileTypes: {
         documents: ['pdf', 'doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx'],

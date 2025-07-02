@@ -137,7 +137,7 @@ router.get("/analytics/comprehensive", async (req, res) => {
       }
     });
   } catch (error) {
-    console.error("Error fetching comprehensive analytics:", error);
+    
     res.status(500).json({ success: false, error: "Failed to fetch analytics" });
   }
 });
@@ -212,7 +212,7 @@ router.post("/process/batch-import", async (req, res) => {
       }
     });
   } catch (error) {
-    console.error("Error in batch import:", error);
+    
     res.status(500).json({ success: false, error: "Batch import failed" });
   }
 });
@@ -316,7 +316,7 @@ router.post("/search/advanced", async (req, res) => {
       }
     });
   } catch (error) {
-    console.error("Error in advanced search:", error);
+    
     res.status(500).json({ success: false, error: "Search failed" });
   }
 });
@@ -406,7 +406,7 @@ router.get("/monitoring/performance", async (req, res) => {
       }
     });
   } catch (error) {
-    console.error("Error fetching performance monitoring:", error);
+    
     res.status(500).json({ success: false, error: "Failed to fetch monitoring data" });
   }
 });
@@ -530,7 +530,7 @@ router.post("/export/generate", async (req, res) => {
     res.send(exportData);
 
   } catch (error) {
-    console.error("Error generating export:", error);
+    
     res.status(500).json({ success: false, error: "Export generation failed" });
   }
 });
@@ -650,7 +650,7 @@ router.post("/cleanup/validate", async (req, res) => {
     });
 
   } catch (error) {
-    console.error("Error in data validation:", error);
+    
     res.status(500).json({ success: false, error: "Data validation failed" });
   }
 });

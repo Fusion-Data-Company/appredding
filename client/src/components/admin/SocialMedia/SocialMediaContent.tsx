@@ -216,7 +216,7 @@ export default function SocialMediaContent() {
       queryClient.invalidateQueries({ queryKey: ['/api/social-media'] });
     },
     onError: (error) => {
-      console.error('Error deleting post:', error);
+      
       toast.error('Failed to delete post');
     }
   });
@@ -237,7 +237,7 @@ export default function SocialMediaContent() {
       queryClient.invalidateQueries({ queryKey: ['/api/marketing-campaigns'] });
     },
     onError: (error) => {
-      console.error('Error deleting campaign:', error);
+      
       toast.error('Failed to delete campaign');
     }
   });

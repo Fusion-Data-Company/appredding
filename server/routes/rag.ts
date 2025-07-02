@@ -12,7 +12,7 @@ router.get("/documents", async (req: Request, res: Response) => {
     const documents = await db.select().from(ragDocuments).orderBy(ragDocuments.createdAt);
     res.json(documents);
   } catch (error) {
-    console.error("Error fetching documents:", error);
+    
     res.status(500).json({ error: "Failed to fetch documents" });
   }
 });
@@ -33,7 +33,7 @@ router.get("/documents/:id", async (req: Request, res: Response) => {
     
     res.json({ ...document[0], chunks });
   } catch (error) {
-    console.error("Error fetching document:", error);
+    
     res.status(500).json({ error: "Failed to fetch document" });
   }
 });
@@ -69,7 +69,7 @@ router.post("/documents", async (req: Request, res: Response) => {
     
     res.status(201).json(document);
   } catch (error) {
-    console.error("Error creating document:", error);
+    
     res.status(500).json({ error: "Failed to create document" });
   }
 });
@@ -116,7 +116,7 @@ router.put("/documents/:id", async (req: Request, res: Response) => {
     
     res.json(document);
   } catch (error) {
-    console.error("Error updating document:", error);
+    
     res.status(500).json({ error: "Failed to update document" });
   }
 });
@@ -136,7 +136,7 @@ router.delete("/documents/:id", async (req: Request, res: Response) => {
     
     res.json({ message: "Document deleted successfully" });
   } catch (error) {
-    console.error("Error deleting document:", error);
+    
     res.status(500).json({ error: "Failed to delete document" });
   }
 });

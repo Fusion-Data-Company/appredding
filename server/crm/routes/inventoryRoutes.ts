@@ -47,7 +47,7 @@ router.get("/", async (_req: Request, res: Response) => {
     const items = await InventoryModel.getAll();
     res.status(200).json(items);
   } catch (error) {
-    console.error("Error fetching inventory:", error);
+    
     res.status(500).json({ message: "Server error" });
   }
 });
@@ -67,7 +67,7 @@ router.get("/:id", isAuthenticated, async (req: Request, res: Response) => {
     
     res.status(200).json(item);
   } catch (error) {
-    console.error("Error fetching inventory item:", error);
+    
     res.status(500).json({ message: "Server error" });
   }
 });
@@ -82,8 +82,7 @@ router.post("/", isAdmin, async (req: Request, res: Response) => {
     if (error instanceof z.ZodError) {
       return res.status(400).json({ error: error.errors });
     }
-    
-    console.error("Error creating inventory item:", error);
+
     res.status(500).json({ message: "Server error" });
   }
 });
@@ -108,8 +107,7 @@ router.put("/:id", isAdmin, async (req: Request, res: Response) => {
     if (error instanceof z.ZodError) {
       return res.status(400).json({ error: error.errors });
     }
-    
-    console.error("Error updating inventory item:", error);
+
     res.status(500).json({ message: "Server error" });
   }
 });
@@ -135,7 +133,7 @@ router.post("/:id/restock", isAdmin, async (req: Request, res: Response) => {
       message: `Successfully restocked ${amount} units` 
     });
   } catch (error) {
-    console.error("Error restocking inventory:", error);
+    
     res.status(500).json({ message: "Server error" });
   }
 });

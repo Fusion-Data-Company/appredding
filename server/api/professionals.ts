@@ -38,7 +38,7 @@ router.post("/painters", async (req: Request, res: Response) => {
     // Return the painter data
     return res.status(201).json(painter);
   } catch (error) {
-    console.error("Error creating painter:", error);
+    
     return res.status(500).json({ error: "Failed to register painter" });
   }
 });
@@ -68,7 +68,7 @@ router.post("/pool-professionals", async (req: Request, res: Response) => {
     // Return the professional data
     return res.status(201).json(professional);
   } catch (error) {
-    console.error("Error creating pool professional:", error);
+    
     return res.status(500).json({ error: "Failed to register pool professional" });
   }
 });
@@ -98,7 +98,7 @@ router.post("/municipality-professionals", async (req: Request, res: Response) =
     // Return the professional data
     return res.status(201).json(professional);
   } catch (error) {
-    console.error("Error creating municipality professional:", error);
+    
     return res.status(500).json({ error: "Failed to register municipality professional" });
   }
 });
@@ -128,7 +128,7 @@ router.post("/construction-distributors", async (req: Request, res: Response) =>
     // Return the distributor data
     return res.status(201).json(distributor);
   } catch (error) {
-    console.error("Error creating construction distributor:", error);
+    
     return res.status(500).json({ error: "Failed to register construction distributor" });
   }
 });
@@ -158,7 +158,7 @@ router.post("/marina-professionals", async (req: Request, res: Response) => {
     // Return the professional data
     return res.status(201).json(professional);
   } catch (error) {
-    console.error("Error creating marina professional:", error);
+    
     return res.status(500).json({ error: "Failed to register marina professional" });
   }
 });
@@ -188,7 +188,7 @@ router.post("/mobile-home-professionals", async (req: Request, res: Response) =>
     // Return the professional data
     return res.status(201).json(professional);
   } catch (error) {
-    console.error("Error creating mobile home professional:", error);
+    
     return res.status(500).json({ error: "Failed to register mobile home professional" });
   }
 });
@@ -218,7 +218,7 @@ router.post("/fire-prevention-homeowners", async (req: Request, res: Response) =
     // Return the homeowner data
     return res.status(201).json(homeowner);
   } catch (error) {
-    console.error("Error creating fire prevention homeowner:", error);
+    
     return res.status(500).json({ error: "Failed to register fire prevention homeowner" });
   }
 });

@@ -12,7 +12,7 @@ export async function getCompanies(req: Request, res: Response) {
     const companies = await storage.getCompanies();
     res.json(companies);
   } catch (error) {
-    console.error("Error fetching companies:", error);
+    
     res.status(500).json({ message: "Failed to fetch companies" });
   }
 }
@@ -35,7 +35,7 @@ export async function getCompanyById(req: Request, res: Response) {
 
     res.json(company);
   } catch (error) {
-    console.error("Error fetching company:", error);
+    
     res.status(500).json({ message: "Failed to fetch company details" });
   }
 }
@@ -67,7 +67,7 @@ export async function createCompany(req: Request, res: Response) {
         errors: validationError.details,
       });
     } else {
-      console.error("Error creating company:", error);
+      
       res.status(500).json({ message: "An unexpected error occurred" });
     }
   }
@@ -97,7 +97,7 @@ export async function updateCompany(req: Request, res: Response) {
 
     res.json(updatedCompany);
   } catch (error) {
-    console.error("Error updating company:", error);
+    
     res.status(500).json({ message: "Failed to update company" });
   }
 }
@@ -120,7 +120,7 @@ export async function deleteCompany(req: Request, res: Response) {
 
     res.status(204).end();
   } catch (error) {
-    console.error("Error deleting company:", error);
+    
     res.status(500).json({ message: "Failed to delete company" });
   }
 }

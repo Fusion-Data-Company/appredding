@@ -25,7 +25,7 @@ export function parseCSV(csvString: string, options: {
     });
     return records;
   } catch (error) {
-    console.error('Error parsing CSV:', error);
+    
     throw new Error('Failed to parse CSV data');
   }
 }

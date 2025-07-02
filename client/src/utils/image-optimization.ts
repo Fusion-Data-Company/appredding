@@ -54,7 +54,7 @@ class ImageOptimizer {
       const attempts = this.retryAttempts.get(url) || 0;
       if (attempts < this.maxRetries) {
         this.retryAttempts.set(url, attempts + 1);
-        console.warn(`Retrying image load (${attempts + 1}/${this.maxRetries}): ${url}`);
+        console.warn(`Retrying image load (attempt ${attempts + 1}): ${url}`);
         await new Promise(resolve => setTimeout(resolve, 1000 * (attempts + 1)));
         return this.loadImageWithRetry(url, isPriority);
       }

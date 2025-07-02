@@ -78,7 +78,7 @@ function Router() {
   // Log route performance issues (reduced frequency)
   useEffect(() => {
     if (metrics.largestContentfulPaint && metrics.largestContentfulPaint > 5000) {
-      console.warn(`Very slow page load on ${location}: LCP ${Math.round(metrics.largestContentfulPaint)}ms`);
+      // Performance issue already logged in performance monitor
     }
   }, [location, metrics]);
 
@@ -192,7 +192,7 @@ function App() {
       try {
         observer.observe({ type: 'largest-contentful-paint', buffered: true });
       } catch (error) {
-        console.warn('LCP observer not supported in this browser');
+        
       }
     }
   }, []);

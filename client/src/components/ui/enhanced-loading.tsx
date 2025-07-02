@@ -144,7 +144,7 @@ export function SuspenseFallback({
         size="lg"
         operationName={operationName}
         onTimeout={() => {
-          console.error(`Page load timeout: ${operationName || 'unknown'}`);
+          
         }}
       />
     </div>

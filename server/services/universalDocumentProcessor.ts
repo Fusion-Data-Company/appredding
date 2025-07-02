@@ -87,8 +87,7 @@ export class UniversalDocumentProcessor {
   async processFolderStructure(folderPath: string, uploadedBy?: string): Promise<FolderProcessingResult> {
     const startTime = Date.now();
     const processId = `folder_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
-    
-    
+
     try {
       // Discover all files recursively
       const allFiles = await this.discoverFilesRecursively(folderPath);
@@ -118,8 +117,7 @@ export class UniversalDocumentProcessor {
           successCount++;
           
         } catch (error) {
-          console.error(`Failed to process ${filePath}:`, error);
-          
+
           processedDocuments.push({
             originalPath: filePath,
             filename: path.basename(filePath),
@@ -135,8 +133,7 @@ export class UniversalDocumentProcessor {
       }
       
       const processingTime = Date.now() - startTime;
-      
-      
+
       return {
         totalFiles: allFiles.length,
         processedFiles: allFiles.length,
@@ -148,7 +145,7 @@ export class UniversalDocumentProcessor {
       };
       
     } catch (error) {
-      console.error(`Folder processing failed for ${processId}:`, error);
+      
       throw new Error(`Failed to process folder structure: ${error.message}`);
     }
   }
@@ -166,8 +163,7 @@ export class UniversalDocumentProcessor {
     
     const fileBuffer = fs.readFileSync(filePath);
     const filename = path.basename(filePath);
-    
-    
+
     switch (fileType) {
       case 'pdf':
         return await this.processPDFDocument(fileBuffer, filename, uploadedBy);
@@ -581,7 +577,7 @@ export class UniversalDocumentProcessor {
         }
       }
     } catch (error) {
-      console.error(`Error reading directory ${dirPath}:`, error);
+      
     }
     
     return structure;
@@ -596,7 +592,7 @@ export class UniversalDocumentProcessor {
         fs.rmSync(dirPath, { recursive: true, force: true });
       }
     } catch (error) {
-      console.error(`Failed to cleanup directory ${dirPath}:`, error);
+      
     }
   }
 
@@ -629,7 +625,7 @@ export class UniversalDocumentProcessor {
       };
       
     } catch (error) {
-      console.error('Customer matching failed:', error);
+      
       return {
         error: error.message,
         identifiersFound: [],
@@ -676,7 +672,7 @@ Extract and return JSON with ALL possible identifiers:
       return JSON.parse(response.choices[0].message.content);
       
     } catch (error) {
-      console.error('Error extracting customer identifiers:', error);
+      
       return {
         names: [],
         addresses: [],
@@ -781,7 +777,7 @@ Extract and return JSON with ALL possible identifiers:
       return uniqueMatches;
       
     } catch (error) {
-      console.error('Error searching customers:', error);
+      
       return [];
     }
   }
@@ -824,7 +820,7 @@ For each customer, provide a confidence score (0.0-1.0) and reasoning:
       return validation.validatedMatches || [];
       
     } catch (error) {
-      console.error('Error validating customer matches:', error);
+      
       return matches.map(m => ({
         customerId: m.id,
         confidence: 0.5,
@@ -908,7 +904,7 @@ For each customer, provide a confidence score (0.0-1.0) and reasoning:
         processingCapabilities: Object.values(this.supportedExtensions).filter((v, i, a) => a.indexOf(v) === i)
       };
     } catch (error) {
-      console.error('Error getting processing stats:', error);
+      
       return { 
         totalDocuments: 0,
         processedDocuments: 0,

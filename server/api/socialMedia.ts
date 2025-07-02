@@ -17,7 +17,7 @@ export async function getSocialMediaPosts(req: Request, res: Response) {
     const posts = await storage.getSocialMediaPosts({ status, platform, campaignId });
     res.json(posts);
   } catch (error) {
-    console.error("Error fetching social media posts:", error);
+    
     res.status(500).json({ message: "Failed to fetch social media posts" });
   }
 }
@@ -40,7 +40,7 @@ export async function getSocialMediaPostById(req: Request, res: Response) {
 
     res.json(post);
   } catch (error) {
-    console.error("Error fetching social media post:", error);
+    
     res.status(500).json({ message: "Failed to fetch social media post details" });
   }
 }
@@ -75,7 +75,7 @@ export async function createSocialMediaPost(req: Request, res: Response) {
         errors: validationError.details,
       });
     } else {
-      console.error("Error creating social media post:", error);
+      
       res.status(500).json({ message: "An unexpected error occurred" });
     }
   }
@@ -105,7 +105,7 @@ export async function updateSocialMediaPost(req: Request, res: Response) {
 
     res.json(updatedPost);
   } catch (error) {
-    console.error("Error updating social media post:", error);
+    
     res.status(500).json({ message: "Failed to update social media post" });
   }
 }
@@ -128,7 +128,7 @@ export async function deleteSocialMediaPost(req: Request, res: Response) {
 
     res.status(204).end();
   } catch (error) {
-    console.error("Error deleting social media post:", error);
+    
     res.status(500).json({ message: "Failed to delete social media post" });
   }
 }
@@ -144,7 +144,7 @@ export async function getMarketingCampaigns(req: Request, res: Response) {
     const campaigns = await storage.getMarketingCampaigns(status);
     res.json(campaigns);
   } catch (error) {
-    console.error("Error fetching marketing campaigns:", error);
+    
     res.status(500).json({ message: "Failed to fetch marketing campaigns" });
   }
 }
@@ -167,7 +167,7 @@ export async function getMarketingCampaignById(req: Request, res: Response) {
 
     res.json(campaign);
   } catch (error) {
-    console.error("Error fetching marketing campaign:", error);
+    
     res.status(500).json({ message: "Failed to fetch marketing campaign details" });
   }
 }
@@ -199,7 +199,7 @@ export async function createMarketingCampaign(req: Request, res: Response) {
         errors: validationError.details,
       });
     } else {
-      console.error("Error creating marketing campaign:", error);
+      
       res.status(500).json({ message: "An unexpected error occurred" });
     }
   }
@@ -229,7 +229,7 @@ export async function updateMarketingCampaign(req: Request, res: Response) {
 
     res.json(updatedCampaign);
   } catch (error) {
-    console.error("Error updating marketing campaign:", error);
+    
     res.status(500).json({ message: "Failed to update marketing campaign" });
   }
 }
@@ -252,7 +252,7 @@ export async function deleteMarketingCampaign(req: Request, res: Response) {
 
     res.status(204).end();
   } catch (error) {
-    console.error("Error deleting marketing campaign:", error);
+    
     res.status(500).json({ message: "Failed to delete marketing campaign" });
   }
 }

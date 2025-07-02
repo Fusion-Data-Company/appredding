@@ -14,7 +14,6 @@ import MobileMenu from "./MobileMenu";
 import { PremiumNavbar } from "@/components/ui/premium-navbar";
 import StoneTextureBackground from "@/components/ui/stone-texture-background";
 
-
 const ProfessionalHeader = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);

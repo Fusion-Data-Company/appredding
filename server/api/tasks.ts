@@ -13,7 +13,7 @@ export async function getTasks(req: Request, res: Response) {
     
     res.json(tasks);
   } catch (error) {
-    console.error("Error fetching tasks:", error);
+    
     res.status(500).json({ message: "Failed to fetch tasks" });
   }
 }
@@ -35,7 +35,7 @@ export async function getTaskById(req: Request, res: Response) {
     
     res.json(task);
   } catch (error) {
-    console.error("Error fetching task:", error);
+    
     res.status(500).json({ message: "Failed to fetch task" });
   }
 }
@@ -52,8 +52,7 @@ export async function createTask(req: Request, res: Response) {
     if (error instanceof z.ZodError) {
       return res.status(400).json({ message: "Invalid task data", errors: error.errors });
     }
-    
-    console.error("Error creating task:", error);
+
     res.status(500).json({ message: "Failed to create task" });
   }
 }
@@ -79,7 +78,7 @@ export async function updateTask(req: Request, res: Response) {
     
     res.json(updatedTask);
   } catch (error) {
-    console.error("Error updating task:", error);
+    
     res.status(500).json({ message: "Failed to update task" });
   }
 }
@@ -106,7 +105,7 @@ export async function completeTask(req: Request, res: Response) {
     
     res.json(updatedTask);
   } catch (error) {
-    console.error("Error completing task:", error);
+    
     res.status(500).json({ message: "Failed to complete task" });
   }
 }
@@ -134,7 +133,7 @@ export async function deleteTask(req: Request, res: Response) {
       res.status(500).json({ message: "Failed to delete task" });
     }
   } catch (error) {
-    console.error("Error deleting task:", error);
+    
     res.status(500).json({ message: "Failed to delete task" });
   }
 }

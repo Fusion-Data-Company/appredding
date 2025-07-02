@@ -17,7 +17,7 @@ export async function getActivities(req: Request, res: Response) {
     const activities = await storage.getActivities(contactId, companyId, opportunityId);
     res.json(activities);
   } catch (error) {
-    console.error("Error fetching activities:", error);
+    
     res.status(500).json({ message: "Failed to fetch activities" });
   }
 }
@@ -40,7 +40,7 @@ export async function getActivityById(req: Request, res: Response) {
 
     res.json(activity);
   } catch (error) {
-    console.error("Error fetching activity:", error);
+    
     res.status(500).json({ message: "Failed to fetch activity details" });
   }
 }
@@ -73,7 +73,7 @@ export async function createActivity(req: Request, res: Response) {
         errors: validationError.details,
       });
     } else {
-      console.error("Error creating activity:", error);
+      
       res.status(500).json({ message: "An unexpected error occurred" });
     }
   }
@@ -103,7 +103,7 @@ export async function updateActivity(req: Request, res: Response) {
 
     res.json(updatedActivity);
   } catch (error) {
-    console.error("Error updating activity:", error);
+    
     res.status(500).json({ message: "Failed to update activity" });
   }
 }
@@ -138,7 +138,7 @@ export async function completeActivity(req: Request, res: Response) {
 
     res.json(updatedActivity);
   } catch (error) {
-    console.error("Error completing activity:", error);
+    
     res.status(500).json({ message: "Failed to complete activity" });
   }
 }
@@ -161,7 +161,7 @@ export async function deleteActivity(req: Request, res: Response) {
 
     res.status(204).end();
   } catch (error) {
-    console.error("Error deleting activity:", error);
+    
     res.status(500).json({ message: "Failed to delete activity" });
   }
 }

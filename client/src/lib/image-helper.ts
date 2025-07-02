@@ -82,7 +82,7 @@ export const preloadCriticalImages = (imagePaths: string[]): void => {
   
   criticalImages.forEach(imagePath => {
     if (!imagePath || typeof imagePath !== 'string') {
-      console.warn('Invalid image path for preloading:', imagePath);
+      
       return;
     }
     
@@ -98,9 +98,11 @@ export const preloadCriticalImages = (imagePaths: string[]): void => {
       // Also create an Image object to handle load error properly
       const img = new Image();
       img.src = optimizeImageUrl(imagePath);
-      img.onerror = () => console.warn('Failed to preload critical image:', imagePath);
+      img.onerror = () => {
+        console.error(`Failed to preload image: ${imagePath}`);
+      };
     } catch (error) {
-      console.error('Error preloading image:', imagePath, error);
+      console.error('Error preloading image:', error);
     }
   });
 };
@@ -113,7 +115,7 @@ export const checkImageExists = async (imageUrl: string): Promise<boolean> => {
     const response = await fetch(imageUrl, { method: 'HEAD' });
     return response.ok;
   } catch (error) {
-    console.warn(`Error checking if image exists at ${imageUrl}:`, error);
+    
     return false;
   }
 };

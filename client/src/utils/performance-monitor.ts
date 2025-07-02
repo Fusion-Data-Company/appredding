@@ -24,17 +24,17 @@ export function identifyPerformanceIssues() {
   reportWebVitals((metric) => {
     // LCP should be < 2.5s for good user experience
     if (metric.name === 'LCP' && metric.value > 2500) {
-      console.warn(`⚠️ Slow Largest Contentful Paint: ${metric.value}ms`);
+      
     }
     
     // CLS should be < 0.1 for good stability
     if (metric.name === 'CLS' && metric.value > 0.1) {
-      console.warn(`⚠️ High Cumulative Layout Shift: ${metric.value}`);
+      
     }
     
     // FID should be < 100ms for good responsiveness
     if (metric.name === 'FID' && metric.value > 100) {
-      console.warn(`⚠️ High First Input Delay: ${metric.value}ms`);
+      
     }
   });
 }
@@ -78,7 +78,7 @@ export function preloadCriticalImages() {
     };
     
     link.onerror = () => {
-      console.warn(`⚠️ Failed to preload image: ${imageSrc}`);
+      
     };
     
     document.head.appendChild(link);
@@ -87,7 +87,7 @@ export function preloadCriticalImages() {
   // Log if all critical images were preloaded successfully
   window.addEventListener('load', () => {
     if (preloadedCount < totalImages) {
-      console.warn(`⚠️ Some critical images failed to preload`, {});
+      
     }
   });
 }

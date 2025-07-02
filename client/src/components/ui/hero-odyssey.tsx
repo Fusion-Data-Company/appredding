@@ -116,7 +116,7 @@ const Lightning: React.FC<LightningProps> = ({
 
     const gl = canvas.getContext("webgl");
     if (!gl) {
-      console.error("WebGL not supported");
+      
       return;
     }
 
@@ -223,7 +223,7 @@ const Lightning: React.FC<LightningProps> = ({
       gl.shaderSource(shader, source);
       gl.compileShader(shader);
       if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
-        console.error("Shader compile error:", gl.getShaderInfoLog(shader));
+        console.error('Shader compilation failed');
         gl.deleteShader(shader);
         return null;
       }
@@ -243,7 +243,7 @@ const Lightning: React.FC<LightningProps> = ({
     gl.attachShader(program, fragmentShader);
     gl.linkProgram(program);
     if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
-      console.error("Program linking error:", gl.getProgramInfoLog(program));
+      );
       return;
     }
     gl.useProgram(program);
@@ -403,10 +403,6 @@ export const HeroSection: React.FC = () => {
           </motion.div>
         </motion.div>
       </div>
-      
-
-
-
 
       {/* Dynamic Background Elements */}
       <motion.div

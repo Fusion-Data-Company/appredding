@@ -26,8 +26,7 @@ class ErrorHandler {
   private initializeErrorHandlers() {
     // Handle unhandled promise rejections
     window.addEventListener('unhandledrejection', (event) => {
-      console.error('Unhandled promise rejection:', event.reason);
-      
+
       this.reportError({
         type: 'promise_rejection',
         message: event.reason?.message || 'Unhandled promise rejection',
@@ -95,7 +94,7 @@ class ErrorHandler {
 
     // Log to console for development
     if (import.meta.env.DEV) {
-      console.error('Error captured:', errorReport);
+      
     }
   }
 
@@ -126,7 +125,7 @@ class ErrorHandler {
       // If we can't send errors, add them back to queue
       this.errorQueue.unshift(...errorsToFlush);
       if (import.meta.env.DEV) {
-        console.warn('Failed to flush errors to backend:', error);
+        
       }
     }
   }

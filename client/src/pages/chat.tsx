@@ -63,7 +63,7 @@ const ChatPage = () => {
         }
         return response.json();
       } catch (error) {
-        console.error('Error fetching chat sessions:', error);
+        
         return [];
       }
     },
@@ -86,7 +86,7 @@ const ChatPage = () => {
         }
         return response.json();
       } catch (error) {
-        console.error('Error fetching chat session:', error);
+        
         throw error;
       }
     },

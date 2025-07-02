@@ -169,7 +169,7 @@ export class Phase09Diagnostics {
         });
         observer.observe({ entryTypes: ['largest-contentful-paint'] });
       } catch (e) {
-        console.warn('LCP observer failed:', e);
+        
       }
     }
 
@@ -222,7 +222,7 @@ export class Phase09Diagnostics {
       this.results.reactLoopCheck = renderRate < 10; // Less than 10 renders per second
       
       if (renderRate > 10) {
-        console.warn(`🔁 HIGH RENDER RATE DETECTED: ${renderRate.toFixed(2)} renders/sec`);
+        } renders/sec`);
       }
     }, 1000);
   }
@@ -273,15 +273,12 @@ export class Phase09Diagnostics {
 
   private printResults() {
     const r = this.results;
-    
-    
-    
+
     r.networkRequests?.slice(0, 10).forEach(req => {
       const sizeKB = (req.size / 1024).toFixed(1);
       const status = req.status || 'UNKNOWN';
     });
-    
-    
+
     if (r.keySuspects?.length) {
     } else {
     }

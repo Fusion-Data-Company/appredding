@@ -10,8 +10,7 @@ export const preloadCriticalImage = (imagePath: string) => {
   link.as = 'image';
   link.setAttribute('fetchpriority', 'high');
   document.head.appendChild(link);
-  
-  
+
   return true;
 };
 

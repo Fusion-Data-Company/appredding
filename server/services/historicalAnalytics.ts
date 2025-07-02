@@ -74,7 +74,7 @@ export async function getYearlyAnalytics(startYear?: number, endYear?: number): 
       maintenanceCalls: Number(row.maintenanceCalls) || 0,
     }));
   } catch (error) {
-    console.error('Error fetching yearly analytics:', error);
+    
     return [];
   }
 }
@@ -103,7 +103,7 @@ export async function getCustomersByDecade(): Promise<CustomersByDecade[]> {
       averageSystemSize: Number(row.averageSystemSize) || 0,
     }));
   } catch (error) {
-    console.error('Error fetching customers by decade:', error);
+    
     return [];
   }
 }
@@ -134,7 +134,7 @@ export async function getGeographicAnalysis(): Promise<GeographicAnalysis[]> {
       lastInstallation: row.lastInstallation || 'Unknown',
     }));
   } catch (error) {
-    console.error('Error fetching geographic analysis:', error);
+    
     return [];
   }
 }
@@ -167,7 +167,7 @@ export async function getCustomersByYear(
       hasMore: (offset + limit) < Number(totalCount[0]?.count || 0),
     };
   } catch (error) {
-    console.error('Error fetching customers by year:', error);
+    
     return { customers: [], totalCount: 0, hasMore: false };
   }
 }
@@ -217,7 +217,7 @@ export async function searchCustomersAcrossYears(
       hasMore: (offset + limit) < Number(totalCount[0]?.count || 0),
     };
   } catch (error) {
-    console.error('Error searching customers across years:', error);
+    
     return { customers: [], totalCount: 0, hasMore: false };
   }
 }
@@ -246,7 +246,7 @@ export async function getServiceAnalyticsByYear() {
       averageServiceCalls: Number(row.averageServiceCalls) || 0,
     }));
   } catch (error) {
-    console.error('Error fetching service analytics by year:', error);
+    
     return [];
   }
 }
@@ -280,7 +280,7 @@ export async function getTechnologyTrends() {
         : 0,
     }));
   } catch (error) {
-    console.error('Error fetching technology trends:', error);
+    
     return [];
   }
 }

@@ -160,7 +160,7 @@ router.get("/contacts", async (req, res) => {
       }
     });
   } catch (error) {
-    console.error("Error fetching contacts:", error);
+    
     res.status(500).json({ error: "Failed to fetch contacts" });
   }
 });
@@ -211,7 +211,7 @@ router.get("/contacts/:id", async (req, res) => {
       tasks: contactTasks
     });
   } catch (error) {
-    console.error("Error fetching contact:", error);
+    
     res.status(500).json({ error: "Failed to fetch contact" });
   }
 });
@@ -241,7 +241,7 @@ router.post("/contacts", async (req, res) => {
 
     res.status(201).json(newContact);
   } catch (error) {
-    console.error("Error creating contact:", error);
+    
     res.status(500).json({ error: "Failed to create contact" });
   }
 });
@@ -276,7 +276,7 @@ router.put("/contacts/:id", async (req, res) => {
 
     res.json(updatedContact);
   } catch (error) {
-    console.error("Error updating contact:", error);
+    
     res.status(500).json({ error: "Failed to update contact" });
   }
 });
@@ -297,7 +297,7 @@ router.delete("/contacts/:id", async (req, res) => {
 
     res.json({ message: "Contact deleted successfully" });
   } catch (error) {
-    console.error("Error deleting contact:", error);
+    
     res.status(500).json({ error: "Failed to delete contact" });
   }
 });
@@ -355,7 +355,7 @@ router.get("/form-submissions", async (req, res) => {
       }
     });
   } catch (error) {
-    console.error("Error fetching form submissions:", error);
+    
     res.status(500).json({ error: "Failed to fetch form submissions" });
   }
 });
@@ -446,7 +446,7 @@ router.post("/form-submissions/:id/process", async (req, res) => {
       message: "Form submission processed successfully"
     });
   } catch (error) {
-    console.error("Error processing form submission:", error);
+    
     res.status(500).json({ error: "Failed to process form submission" });
   }
 });
@@ -513,7 +513,7 @@ router.get("/opportunities", async (req, res) => {
       }
     });
   } catch (error) {
-    console.error("Error fetching opportunities:", error);
+    
     res.status(500).json({ error: "Failed to fetch opportunities" });
   }
 });
@@ -582,7 +582,7 @@ router.get("/customers", async (req, res) => {
       }
     });
   } catch (error) {
-    console.error("Error fetching customers:", error);
+    
     res.status(500).json({ error: "Failed to fetch customers" });
   }
 });
@@ -613,7 +613,7 @@ router.get("/customers/:id", async (req, res) => {
       documents
     });
   } catch (error) {
-    console.error("Error fetching customer:", error);
+    
     res.status(500).json({ error: "Failed to fetch customer" });
   }
 });
@@ -653,7 +653,7 @@ router.post("/customers/:id/documents", upload.array('documents', 10), async (re
       try {
         await documentProcessor.processDocument(document.id);
       } catch (error) {
-        console.error(`Failed to process document ${document.id}:`, error);
+        
       }
     }
 
@@ -662,7 +662,7 @@ router.post("/customers/:id/documents", upload.array('documents', 10), async (re
       documents: uploadedDocuments
     });
   } catch (error) {
-    console.error("Error uploading documents:", error);
+    
     res.status(500).json({ error: "Failed to upload documents" });
   }
 });
@@ -681,7 +681,7 @@ router.get("/search", async (req, res) => {
 
     res.json(results);
   } catch (error) {
-    console.error("Error performing search:", error);
+    
     res.status(500).json({ error: "Failed to perform search" });
   }
 });
@@ -711,7 +711,7 @@ router.get("/activities", async (req, res) => {
 
     res.json(recentActivities);
   } catch (error) {
-    console.error("Error fetching activities:", error);
+    
     res.status(500).json({ error: "Failed to fetch activities" });
   }
 });
@@ -733,7 +733,7 @@ router.post("/documents/bulk-process", async (req, res) => {
 
     res.json({ message: `Queued ${documentIds.length} documents for processing` });
   } catch (error) {
-    console.error("Error bulk processing documents:", error);
+    
     res.status(500).json({ error: "Failed to bulk process documents" });
   }
 });
@@ -767,7 +767,7 @@ router.get("/contacts/export", async (req, res) => {
     res.setHeader('Content-Disposition', 'attachment; filename=contacts.csv');
     res.send(csvHeader + csvData);
   } catch (error) {
-    console.error("Error exporting contacts:", error);
+    
     res.status(500).json({ error: "Failed to export contacts" });
   }
 });
@@ -786,7 +786,7 @@ router.get("/analytics/yearly", async (req, res) => {
     const analytics = await getYearlyAnalytics(start, end);
     res.json(analytics);
   } catch (error) {
-    console.error("Error fetching yearly analytics:", error);
+    
     res.status(500).json({ error: "Failed to fetch yearly analytics" });
   }
 });
@@ -797,7 +797,7 @@ router.get("/analytics/decades", async (req, res) => {
     const decadeData = await getCustomersByDecade();
     res.json(decadeData);
   } catch (error) {
-    console.error("Error fetching decade analysis:", error);
+    
     res.status(500).json({ error: "Failed to fetch decade analysis" });
   }
 });
@@ -808,7 +808,7 @@ router.get("/analytics/geographic", async (req, res) => {
     const geoData = await getGeographicAnalysis();
     res.json(geoData);
   } catch (error) {
-    console.error("Error fetching geographic analysis:", error);
+    
     res.status(500).json({ error: "Failed to fetch geographic analysis" });
   }
 });
@@ -827,7 +827,7 @@ router.get("/analytics/customers-by-year/:year", async (req, res) => {
     
     res.json(data);
   } catch (error) {
-    console.error("Error fetching customers by year:", error);
+    
     res.status(500).json({ error: "Failed to fetch customers by year" });
   }
 });
@@ -854,7 +854,7 @@ router.get("/analytics/search-historical", async (req, res) => {
     
     res.json(results);
   } catch (error) {
-    console.error("Error searching historical data:", error);
+    
     res.status(500).json({ error: "Failed to search historical data" });
   }
 });
@@ -865,7 +865,7 @@ router.get("/analytics/service-trends", async (req, res) => {
     const serviceData = await getServiceAnalyticsByYear();
     res.json(serviceData);
   } catch (error) {
-    console.error("Error fetching service analytics:", error);
+    
     res.status(500).json({ error: "Failed to fetch service analytics" });
   }
 });
@@ -876,7 +876,7 @@ router.get("/analytics/technology-trends", async (req, res) => {
     const techData = await getTechnologyTrends();
     res.json(techData);
   } catch (error) {
-    console.error("Error fetching technology trends:", error);
+    
     res.status(500).json({ error: "Failed to fetch technology trends" });
   }
 });
@@ -893,8 +893,7 @@ router.post("/process-pdf", upload.single('document'), async (req, res) => {
     }
 
     const { customerId, uploadedBy } = req.body;
-    
-    
+
     // Read the uploaded file
     const fs = require('fs');
     const fileBuffer = fs.readFileSync(req.file.path);
@@ -916,15 +915,14 @@ router.post("/process-pdf", upload.single('document'), async (req, res) => {
     });
     
   } catch (error) {
-    console.error("Advanced PDF processing failed:", error);
-    
+
     // Clean up file if it exists
     if (req.file?.path) {
       try {
         const fs = require('fs');
         fs.unlinkSync(req.file.path);
       } catch (cleanupError) {
-        console.error("File cleanup failed:", cleanupError);
+        
       }
     }
     
@@ -945,8 +943,7 @@ router.post("/batch-process-pdfs", upload.array('documents', 20), async (req, re
     const { uploadedBy } = req.body;
     const results = [];
     const fs = require('fs');
-    
-    
+
     // Process each file
     for (const file of req.files) {
       try {
@@ -968,7 +965,7 @@ router.post("/batch-process-pdfs", upload.array('documents', 20), async (req, re
         fs.unlinkSync(file.path);
         
       } catch (error) {
-        console.error(`Failed to process ${file.originalname}:`, error);
+        
         results.push({
           filename: file.originalname,
           status: 'failed',
@@ -979,7 +976,7 @@ router.post("/batch-process-pdfs", upload.array('documents', 20), async (req, re
         try {
           fs.unlinkSync(file.path);
         } catch (cleanupError) {
-          console.error("File cleanup failed:", cleanupError);
+          
         }
       }
     }
@@ -999,8 +996,7 @@ router.post("/batch-process-pdfs", upload.array('documents', 20), async (req, re
     });
     
   } catch (error) {
-    console.error("Batch PDF processing failed:", error);
-    
+
     // Clean up all files
     if (req.files) {
       const fs = require('fs');
@@ -1008,7 +1004,7 @@ router.post("/batch-process-pdfs", upload.array('documents', 20), async (req, re
         try {
           fs.unlinkSync(file.path);
         } catch (cleanupError) {
-          console.error("File cleanup failed:", cleanupError);
+          
         }
       });
     }
@@ -1049,7 +1045,7 @@ router.get("/document-analysis/:documentId", async (req, res) => {
     });
     
   } catch (error) {
-    console.error("Error fetching document analysis:", error);
+    
     res.status(500).json({ error: "Failed to fetch document analysis" });
   }
 });
@@ -1100,7 +1096,7 @@ router.get("/search-documents", async (req, res) => {
     res.json(documents);
     
   } catch (error) {
-    console.error("Error searching documents:", error);
+    
     res.status(500).json({ error: "Failed to search documents" });
   }
 });
@@ -1117,8 +1113,7 @@ router.post("/process-any-document", upload.single('document'), async (req, res)
     }
 
     const { uploadedBy } = req.body;
-    
-    
+
     // Process with the universal document processor
     const processingResult = await universalDocumentProcessor.processAnyDocument(
       req.file.path, 
@@ -1137,15 +1132,14 @@ router.post("/process-any-document", upload.single('document'), async (req, res)
     });
     
   } catch (error) {
-    console.error("Universal document processing failed:", error);
-    
+
     // Clean up file if it exists
     if (req.file?.path) {
       try {
         const fs = require('fs');
         fs.unlinkSync(req.file.path);
       } catch (cleanupError) {
-        console.error("File cleanup failed:", cleanupError);
+        
       }
     }
     
@@ -1165,8 +1159,7 @@ router.post("/process-folder", upload.single('folder'), async (req, res) => {
 
     const { uploadedBy } = req.body;
     const tempDir = path.join(process.cwd(), 'temp_processing', Date.now().toString());
-    
-    
+
     try {
       const fs = require('fs');
       const path = require('path');
@@ -1225,15 +1218,14 @@ router.post("/process-folder", upload.single('folder'), async (req, res) => {
     }
     
   } catch (error) {
-    console.error("Folder processing failed:", error);
-    
+
     // Clean up file if it exists
     if (req.file?.path) {
       try {
         const fs = require('fs');
         fs.unlinkSync(req.file.path);
       } catch (cleanupError) {
-        console.error("File cleanup failed:", cleanupError);
+        
       }
     }
     
@@ -1254,8 +1246,7 @@ router.post("/batch-process-mixed", upload.array('documents', 50), async (req, r
     const { uploadedBy } = req.body;
     const results = [];
     const fs = require('fs');
-    
-    
+
     // Process each file with universal processor
     for (const file of req.files) {
       try {
@@ -1275,7 +1266,7 @@ router.post("/batch-process-mixed", upload.array('documents', 50), async (req, r
         fs.unlinkSync(file.path);
         
       } catch (error) {
-        console.error(`Failed to process ${file.originalname}:`, error);
+        
         results.push({
           filename: file.originalname,
           documentType: 'unknown',
@@ -1287,7 +1278,7 @@ router.post("/batch-process-mixed", upload.array('documents', 50), async (req, r
         try {
           fs.unlinkSync(file.path);
         } catch (cleanupError) {
-          console.error("File cleanup failed:", cleanupError);
+          
         }
       }
     }
@@ -1316,8 +1307,7 @@ router.post("/batch-process-mixed", upload.array('documents', 50), async (req, r
     });
     
   } catch (error) {
-    console.error("Mixed batch processing failed:", error);
-    
+
     // Clean up all files
     if (req.files) {
       const fs = require('fs');
@@ -1325,7 +1315,7 @@ router.post("/batch-process-mixed", upload.array('documents', 50), async (req, r
         try {
           fs.unlinkSync(file.path);
         } catch (cleanupError) {
-          console.error("File cleanup failed:", cleanupError);
+          
         }
       });
     }
@@ -1370,7 +1360,7 @@ router.get("/processing-capabilities", async (req, res) => {
     });
     
   } catch (error) {
-    console.error("Error getting processing capabilities:", error);
+    
     res.status(500).json({ error: "Failed to get processing capabilities" });
   }
 });
@@ -1387,8 +1377,7 @@ router.post("/document-chat", async (req, res) => {
     if (!documentId || !question) {
       return res.status(400).json({ error: "Document ID and question are required" });
     }
-    
-    
+
     // Get the document from database
     const document = await db.select()
       .from(customerDocuments)
@@ -1452,7 +1441,7 @@ Please answer based on the document content above.`
     });
     
   } catch (error) {
-    console.error("Document chat failed:", error);
+    
     res.status(500).json({ 
       error: "Failed to process chat query", 
       details: error.message 
@@ -1468,8 +1457,7 @@ router.post("/search-and-chat", async (req, res) => {
     if (!query) {
       return res.status(400).json({ error: "Search query is required" });
     }
-    
-    
+
     // Search for relevant documents
     const relevantDocs = await db.select()
       .from(customerDocuments)
@@ -1532,7 +1520,7 @@ Provide a comprehensive answer based on the document content above. Include spec
     }
     
   } catch (error) {
-    console.error("Document search and chat failed:", error);
+    
     res.status(500).json({ 
       error: "Failed to search documents", 
       details: error.message 
@@ -1572,7 +1560,7 @@ router.get("/document-chat-history/:documentId", async (req, res) => {
     });
     
   } catch (error) {
-    console.error("Error getting chat history:", error);
+    
     res.status(500).json({ error: "Failed to get chat history" });
   }
 });
@@ -1585,8 +1573,7 @@ router.post("/bulk-document-chat", async (req, res) => {
     if (!question || !documentIds || documentIds.length === 0) {
       return res.status(400).json({ error: "Question and document IDs are required" });
     }
-    
-    
+
     // Get all requested documents
     const documents = await db.select()
       .from(customerDocuments)
@@ -1642,7 +1629,7 @@ Provide a comprehensive analysis that:
     });
     
   } catch (error) {
-    console.error("Bulk document chat failed:", error);
+    
     res.status(500).json({ 
       error: "Failed to perform bulk document analysis", 
       details: error.message 

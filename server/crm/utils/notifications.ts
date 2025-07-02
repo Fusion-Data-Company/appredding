@@ -42,7 +42,7 @@ export class NotificationService {
         }
       });
     } else {
-      console.warn('SMTP settings not configured. Email notifications will not be sent.');
+      
     }
   }
 
@@ -52,7 +52,7 @@ export class NotificationService {
     const [product] = await db.select().from(inventory).where(eq(inventory.id, productId));
     
     if (!product) {
-      console.error(`Product with ID ${productId} not found for threshold check`);
+      
       return;
     }
     
@@ -114,7 +114,7 @@ export class NotificationService {
   // Send an email notification
   private static async sendEmailNotification(email: string, title: string, message: string): Promise<void> {
     if (!this.emailTransporter) {
-      console.warn('Email transporter not initialized. Email notification not sent.');
+      
       return;
     }
     
@@ -128,14 +128,13 @@ export class NotificationService {
       });
       
     } catch (error) {
-      console.error('Failed to send email notification:', error);
+      
     }
   }
 
   // Send a console notification (for development)
   private static sendConsoleNotification(title: string, message: string): void {
-    console.warn(`ALERT: ${title}`);
-    console.warn(message);
+
   }
 
   // Get all in-app notifications for a user

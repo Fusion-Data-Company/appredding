@@ -41,8 +41,7 @@ router.post("/login", async (req: Request, res: Response) => {
     if (error instanceof z.ZodError) {
       return res.status(400).json({ error: error.errors });
     }
-    
-    console.error("Login error:", error);
+
     res.status(500).json({ message: "Server error during login" });
   }
 });
@@ -91,7 +90,7 @@ router.post("/notification-mode", async (req: Request, res: Response) => {
     
     res.status(200).json({ message: "Notification mode updated" });
   } catch (error) {
-    console.error("Error updating notification mode:", error);
+    
     res.status(500).json({ message: "Server error" });
   }
 });
@@ -126,7 +125,7 @@ router.post("/update-password", async (req: Request, res: Response) => {
     
     res.status(200).json({ message: "Password updated successfully" });
   } catch (error) {
-    console.error("Error updating password:", error);
+    
     res.status(500).json({ message: "Server error" });
   }
 });

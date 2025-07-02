@@ -50,7 +50,7 @@ router.post('/api/errors', async (req: Request, res: Response) => {
     errors.forEach(error => {
       console.error(`[CLIENT ERROR] ${error.type}: ${error.message}`, {
         stack: error.stack,
-        timestamp: new Date(error.timestamp).toISOString(),
+        timestamp: new Date().toISOString(),
         userAgent: error.userAgent,
         url: error.url,
         userId: error.userId
@@ -70,7 +70,7 @@ router.post('/api/errors', async (req: Request, res: Response) => {
     });
 
   } catch (error) {
-    console.error('Failed to process error reports:', error);
+    
     res.status(400).json({ 
       success: false, 
       message: 'Invalid error report format' 
@@ -118,7 +118,7 @@ router.post('/api/performance', async (req: Request, res: Response) => {
     }
 
     if (issues.length > 0) {
-      console.warn(`[PERFORMANCE ISSUES] ${performanceData.url}:`, issues);
+      
     }
 
     res.status(200).json({ 
@@ -128,7 +128,7 @@ router.post('/api/performance', async (req: Request, res: Response) => {
     });
 
   } catch (error) {
-    console.error('Failed to process performance metrics:', error);
+    
     // Return success even if parsing fails to avoid client errors
     res.status(200).json({ 
       success: true, 

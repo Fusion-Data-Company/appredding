@@ -12,7 +12,7 @@ export async function dynamicImport<T>(
   try {
     return await importFn();
   } catch (error) {
-    console.warn(errorMessage || 'Dynamic import failed:', error);
+    
     if (fallback) {
       return fallback;
     }
@@ -155,7 +155,7 @@ export function monitorBundleSize(): void {
         if (entry.name.includes('chunk') && entry.transferSize) {
           const sizeKB = Math.round(entry.transferSize / 1024);
           if (sizeKB > 250) {
-            console.warn(`Large chunk detected: ${entry.name} (${sizeKB}KB)`);
+            `);
           }
         }
       }

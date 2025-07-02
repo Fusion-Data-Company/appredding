@@ -57,8 +57,7 @@ export function InventoryTable({ isAdmin }: InventoryTableProps) {
   useEffect(() => {
     // Log error and attempt to refetch
     if (error) {
-      console.error("Error fetching inventory:", error);
-      
+
       // Attempt to refetch after a delay
       const timer = setTimeout(() => {
         refetch();

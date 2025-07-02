@@ -132,8 +132,7 @@ export function setupAuth(app: Express) {
           errors: validationError.details,
         });
       }
-      
-      console.error("Registration error:", error);
+
       res.status(500).json({ message: "An unexpected error occurred during registration" });
     }
   });
@@ -218,7 +217,7 @@ export function setupAuth(app: Express) {
       
       res.json({ message: "Password updated successfully" });
     } catch (error) {
-      console.error("Password change error:", error);
+      
       res.status(500).json({ message: "An unexpected error occurred while changing password" });
     }
   });
@@ -271,7 +270,7 @@ export function setupAuth(app: Express) {
       const { password, ...userWithoutPassword } = updatedUser;
       res.json(userWithoutPassword);
     } catch (error) {
-      console.error("Profile update error:", error);
+      
       res.status(500).json({ message: "An unexpected error occurred while updating profile" });
     }
   });

@@ -163,7 +163,7 @@ export default function Pools() {
   // Calculate results based on inputs
   const calculateResults = () => {
     if (poolSurfaceArea <= 0) {
-      alert("Please enter a valid surface area");
+      
       return;
     }
     

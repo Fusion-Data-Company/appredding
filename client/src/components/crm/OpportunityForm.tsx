@@ -133,8 +133,7 @@ export function OpportunityForm({ isOpen, onClose, contacts, companies }: Opport
           return await res.json();
         } catch (error: any) {
           lastError = error;
-          console.error(`Attempt ${retryCount + 1} failed:`, error);
-          
+
           // Show retry toast on non-final attempts
           if (retryCount < maxRetries - 1) {
             toast({

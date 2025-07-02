@@ -121,8 +121,7 @@ export function ActivityForm({ isOpen, onClose, contacts, companies, opportuniti
           return await res.json();
         } catch (error: any) {
           lastError = error;
-          console.error(`Attempt ${retryCount + 1} failed:`, error);
-          
+
           // Show retry toast on non-final attempts
           if (retryCount < maxRetries - 1) {
             toast({

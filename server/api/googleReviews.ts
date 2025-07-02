@@ -54,7 +54,7 @@ router.get('/', async (req, res) => {
     const parseResult = GoogleReviewsResponseSchema.safeParse(response.data);
     
     if (!parseResult.success) {
-      console.error('Invalid Google API response:', parseResult.error);
+      
       return res.status(500).json({ 
         error: 'Invalid API response',
         message: 'The Google API returned an unexpected response format.'
@@ -79,7 +79,7 @@ router.get('/', async (req, res) => {
       reviews: processedReviews
     });
   } catch (error) {
-    console.error('Error fetching Google reviews:', error);
+    
     res.status(500).json({ 
       error: 'Failed to fetch reviews',
       message: 'An error occurred while fetching reviews from Google. Please try again later.'

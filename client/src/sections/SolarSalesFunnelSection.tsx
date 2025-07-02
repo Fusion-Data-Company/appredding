@@ -87,12 +87,11 @@ const SolarSalesFunnelSection = () => {
         });
         
         if (response.ok) {
-          alert('Thank you! We will contact you within 24 hours.');
+          
           onClose();
         }
       } catch (error) {
-        console.error('Error submitting form:', error);
-        alert('Thank you for your interest! Please call us at (530) 226-0701.');
+        toast.error('Failed to submit form. Please call us at 530-226-0701.');
       }
     };
 
@@ -231,8 +230,6 @@ const SolarSalesFunnelSection = () => {
         <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-gradient-to-br from-yellow-300/15 to-orange-300/10 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-1/4 right-1/3 w-80 h-80 bg-gradient-to-br from-orange-300/15 to-amber-300/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
       </div>
-
-
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div

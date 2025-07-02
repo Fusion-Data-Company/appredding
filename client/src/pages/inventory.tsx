@@ -60,7 +60,7 @@ export default function InventoryPage() {
         throw new Error("Failed to update notification mode");
       }
     } catch (error) {
-      console.error("Error updating notification mode:", error);
+      
     }
   };
   
@@ -70,7 +70,7 @@ export default function InventoryPage() {
       await apiRequest("POST", "/api/crm/auth/logout", {});
       refetchUser(); // Refetch user to update authentication state
     } catch (error) {
-      console.error("Logout error:", error);
+      
     }
   };
   

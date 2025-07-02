@@ -16,8 +16,6 @@ if (typeof window !== 'undefined') {
   }, 50);
 }
 
-
-
 createRoot(document.getElementById("root")!).render(
   <ThemeProvider 
     attribute="class" 

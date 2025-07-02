@@ -126,7 +126,7 @@ router.post("/generate-quote", async (req, res) => {
     });
 
   } catch (error) {
-    console.error('Quote generation error:', error);
+    
     res.status(500).json({
       error: "Failed to generate quote",
       details: error.message
@@ -229,7 +229,7 @@ router.post("/calculate-roi", async (req, res) => {
     });
 
   } catch (error) {
-    console.error('ROI calculation error:', error);
+    
     res.status(500).json({
       error: "Failed to calculate ROI",
       details: error.message
@@ -345,7 +345,7 @@ router.get("/revenue-analytics", async (req, res) => {
     });
 
   } catch (error) {
-    console.error('Revenue analytics error:', error);
+    
     res.status(500).json({
       error: "Failed to fetch revenue analytics",
       details: error.message
@@ -428,7 +428,7 @@ router.get("/commission-tracking", async (req, res) => {
     });
 
   } catch (error) {
-    console.error('Commission tracking error:', error);
+    
     res.status(500).json({
       error: "Failed to fetch commission data",
       details: error.message

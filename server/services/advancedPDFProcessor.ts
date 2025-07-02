@@ -78,7 +78,7 @@ export class AdvancedPDFProcessor {
 
       return result;
     } catch (error) {
-      console.error('PDF Analysis failed:', error);
+      
       throw new Error(`Failed to analyze PDF: ${error.message}`);
     }
   }
@@ -370,7 +370,7 @@ export class AdvancedPDFProcessor {
 
       return null;
     } catch (error) {
-      console.error('Customer matching error:', error);
+      
       return null;
     }
   }
@@ -397,7 +397,7 @@ export class AdvancedPDFProcessor {
 
       return newContact.id;
     } catch (error) {
-      console.error('Customer creation error:', error);
+      
       throw error;
     }
   }
@@ -430,7 +430,7 @@ export class AdvancedPDFProcessor {
 
       return document.id;
     } catch (error) {
-      console.error('Document storage error:', error);
+      
       throw error;
     }
   }
@@ -456,7 +456,7 @@ export class AdvancedPDFProcessor {
       }
 
     } catch (error) {
-      console.error('Relationship building error:', error);
+      
     }
   }
 

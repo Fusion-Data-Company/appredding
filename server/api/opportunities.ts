@@ -15,7 +15,7 @@ export async function getOpportunities(req: Request, res: Response) {
     const opportunities = await storage.getOpportunities(clientId);
     res.json(opportunities);
   } catch (error) {
-    console.error("Error fetching opportunities:", error);
+    
     res.status(500).json({ message: "Failed to fetch opportunities" });
   }
 }
@@ -38,7 +38,7 @@ export async function getOpportunityById(req: Request, res: Response) {
 
     res.json(opportunity);
   } catch (error) {
-    console.error("Error fetching opportunity:", error);
+    
     res.status(500).json({ message: "Failed to fetch opportunity details" });
   }
 }
@@ -71,7 +71,7 @@ export async function createOpportunity(req: Request, res: Response) {
         errors: validationError.details,
       });
     } else {
-      console.error("Error creating opportunity:", error);
+      
       res.status(500).json({ message: "An unexpected error occurred" });
     }
   }
@@ -101,7 +101,7 @@ export async function updateOpportunity(req: Request, res: Response) {
 
     res.json(updatedOpportunity);
   } catch (error) {
-    console.error("Error updating opportunity:", error);
+    
     res.status(500).json({ message: "Failed to update opportunity" });
   }
 }
@@ -124,7 +124,7 @@ export async function deleteOpportunity(req: Request, res: Response) {
 
     res.status(204).end();
   } catch (error) {
-    console.error("Error deleting opportunity:", error);
+    
     res.status(500).json({ message: "Failed to delete opportunity" });
   }
 }

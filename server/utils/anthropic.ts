@@ -59,7 +59,7 @@ export async function generateChatResponse(messages: { role: string; content: st
 
     return response.content[0].type === 'text' ? response.content[0].text : "I'm sorry, I couldn't process that request.";
   } catch (error) {
-    console.error("Error generating chat response:", error);
+    
     throw new Error("Failed to generate chat response. Please try again later.");
   }
 }

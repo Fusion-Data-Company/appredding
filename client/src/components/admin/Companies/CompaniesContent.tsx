@@ -38,7 +38,6 @@ import {
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 
-
 // Company type definition
 export interface Company {
   id: number;

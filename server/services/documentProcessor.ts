@@ -57,8 +57,7 @@ export class DocumentProcessor {
         .where(eq(customerDocuments.id, documentId));
 
     } catch (error) {
-      console.error(`Error processing document ${documentId}:`, error);
-      
+
       // Mark as failed
       await db.update(customerDocuments)
         .set({ 
@@ -146,7 +145,7 @@ export class DocumentProcessor {
 
       return newCustomer.id;
     } catch (error) {
-      console.error('Error finding/creating customer:', error);
+      
       throw error;
     }
   }

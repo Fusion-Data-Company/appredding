@@ -15,7 +15,7 @@ export async function preloadCriticalImages(): Promise<void> {
   try {
     await imageOptimizer.preloadCriticalImages(CRITICAL_IMAGES);
   } catch (error) {
-    console.warn('Some critical images failed to preload:', error);
+    
   }
 }
 

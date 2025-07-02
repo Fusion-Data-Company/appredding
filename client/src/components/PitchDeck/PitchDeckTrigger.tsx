@@ -61,9 +61,7 @@ const PitchDeckTrigger: React.FC<PitchDeckTriggerProps> = ({
           </div>
         </button>
       </motion.div>
-      
 
-      
       {/* The Modal */}
       <PitchDeckModal isOpen={isModalOpen} onClose={closeModal} />
     </>

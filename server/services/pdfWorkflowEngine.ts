@@ -14,8 +14,7 @@ export class PDFWorkflowEngine {
    */
   async processDocument(fileBuffer: Buffer, filename: string, uploadedBy?: string): Promise<any> {
     const processId = `proc_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
-    
-    
+
     try {
       // Stage 1: Multi-Model OCR Processing
       const ocrResults = await pdfOCREngine.processWithMultipleModels(fileBuffer, filename);
@@ -119,8 +118,7 @@ export class PDFWorkflowEngine {
       return processingResult;
       
     } catch (error) {
-      console.error(`${processId}: Processing failed:`, error);
-      
+
       // Store failed processing record
       await this.logProcessingFailure(processId, filename, error, uploadedBy);
       
@@ -167,7 +165,7 @@ export class PDFWorkflowEngine {
       
       return intelligence;
     } catch (error) {
-      console.error('Business intelligence generation failed:', error);
+      
       return { error: error.message };
     }
   }
@@ -251,15 +249,17 @@ export class PDFWorkflowEngine {
    */
   private async logProcessingFailure(processId: string, filename: string, error: any, uploadedBy?: string): Promise<void> {
     try {
-      console.error(`Processing failure logged: ${processId}`, {
+      const errorLog = {
+        processId,
         filename,
-        error: error.message,
-        uploadedBy,
-        timestamp: new Date().toISOString()
-      });
+        error: error.message || 'Unknown error',
+        timestamp: new Date().toISOString(),
+        uploadedBy
+      };
       
       // In a production system, you might want to store this in a dedicated error log table
       // For now, we'll just log to console
+      console.error('PDF Processing Failure:', errorLog);
       
     } catch (logError) {
       console.error('Failed to log processing failure:', logError);

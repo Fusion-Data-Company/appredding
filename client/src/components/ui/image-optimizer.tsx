@@ -43,7 +43,7 @@ export function OptimizedImage({
   useEffect(() => {
     if (priority && optimizedSrc) {
       imageOptimizer.preloadCriticalImages([optimizedSrc]).catch(() => {
-        console.warn('Failed to preload critical image:', optimizedSrc);
+        
       });
     }
   }, [priority, optimizedSrc]);
@@ -74,7 +74,7 @@ export function OptimizedImage({
     
     // Log slow image loads for optimization
     if (loadTime > 1000) {
-      console.warn(`Slow image load: ${src} took ${Math.round(loadTime)}ms`);
+      }ms`);
     }
     
     onLoad?.();
@@ -150,6 +150,6 @@ export async function preloadImages(srcs: string[]): Promise<void> {
   try {
     await imageOptimizer.preloadCriticalImages(srcs);
   } catch (error) {
-    console.warn('Some images failed to preload:', error);
+    
   }
 }

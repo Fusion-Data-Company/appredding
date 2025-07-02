@@ -216,7 +216,6 @@ export default function Products() {
                       className="relative w-[700px] h-[400px] object-contain drop-shadow-2xl scale-110 -translate-y-6 z-20"
                     />
                   </motion.div>
-                  
 
                 </div>
               </div>

@@ -28,7 +28,6 @@ import { RomanDivider } from "@/components/ui/roman-header";
 import MobileMenu from "./MobileMenu";
 import { PremiumNavbar } from "@/components/ui/premium-navbar";
 
-
 const ProfessionalHeader = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);

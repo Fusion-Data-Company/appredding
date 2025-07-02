@@ -241,7 +241,7 @@ export function useOperationTimer() {
   const start = (operationName?: string) => {
     startTimer.current = performance.now();
     if (operationName && import.meta.env.DEV) {
-      console.time(operationName);
+      
     }
   };
 
@@ -250,7 +250,7 @@ export function useOperationTimer() {
     
     if (operationName) {
       if (import.meta.env.DEV) {
-        console.timeEnd(operationName);
+        
       }
       
       // Log slow operations

@@ -295,18 +295,16 @@ export function CSVImportForm({ onSuccess }: CSVImportFormProps) {
           
           // Handle specific error types
           if (error.name === 'AbortError') {
-            console.error('Request timed out:', error);
+            
             throw new Error('Request timed out. The file may be too large or the server is busy.');
           }
           
           // Handle network errors
           if (error.message?.includes('network') || error.message?.includes('fetch')) {
-            console.error('Network error:', error);
+            
             throw new Error('Network error. Please check your connection and try again.');
           }
-          
-          console.error(`Import attempt ${retryCount + 1} failed:`, error);
-          
+
           // If we're on the last retry, show the error
           if (retryCount === maxRetries - 1) {
             setImportResult({
@@ -335,8 +333,7 @@ export function CSVImportForm({ onSuccess }: CSVImportFormProps) {
           retryCount++;
         }
       } catch (error: any) {
-        console.error('Error importing CSV:', error);
-        
+
         // If we're on the last retry, show the error
         if (retryCount === maxRetries - 1) {
           setImportResult({

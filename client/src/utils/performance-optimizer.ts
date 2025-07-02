@@ -98,7 +98,7 @@ export function measureTaskTime<T>(
   const duration = end - start;
 
   if (duration > threshold) {
-    console.warn(`Slow task "${label}": ${duration.toFixed(2)}ms`);
+    }ms`);
   }
 
   return result;
@@ -192,7 +192,7 @@ export async function registerServiceWorker(): Promise<ServiceWorkerRegistration
     const registration = await navigator.serviceWorker.register('/sw.js');
     return registration;
   } catch (error) {
-    console.warn('Service Worker registration failed:', error);
+    
     return null;
   }
 }

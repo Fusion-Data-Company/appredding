@@ -30,7 +30,7 @@ export function LazyVideo({
     // Fallback if poster doesn't load in reasonable time
     const timeoutId = setTimeout(() => {
       if (!isPosterLoaded) {
-        console.warn("Poster image taking too long to load");
+        
         setIsPosterLoaded(true);
       }
     }, 1000);
@@ -64,7 +64,7 @@ export function LazyVideo({
 
     // Handle video loading error
     const handleError = () => {
-      console.error("Video loading error");
+      
       setIsVideoError(true);
       setIsLoading(false);
     };
@@ -90,7 +90,7 @@ export function LazyVideo({
     loadingTimeoutId = setTimeout(() => {
       if (isLoading) {
         setIsLoading(false);
-        console.warn("Loading timeout reached, showing content anyway");
+        
       }
     }, 2000);
 
@@ -104,7 +104,7 @@ export function LazyVideo({
       // Start playing with minimal delay
       playTimeoutId = setTimeout(() => {
         videoElement.play().catch(error => {
-          console.error("Error playing video:", error);
+          
           setIsLoading(false);
           setIsVideoError(true);
         });

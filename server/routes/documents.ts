@@ -124,7 +124,7 @@ router.post("/generate-contract", async (req, res) => {
     });
 
   } catch (error) {
-    console.error('Contract generation error:', error);
+    
     res.status(500).json({
       error: "Failed to generate contract",
       details: error.message
@@ -193,7 +193,7 @@ router.get("/templates", async (req, res) => {
     });
 
   } catch (error) {
-    console.error('Templates fetch error:', error);
+    
     res.status(500).json({
       error: "Failed to fetch templates",
       details: error.message
@@ -280,7 +280,7 @@ router.post("/generate-from-template", async (req, res) => {
     });
 
   } catch (error) {
-    console.error('Template generation error:', error);
+    
     res.status(500).json({
       error: "Failed to generate document from template",
       details: error.message
@@ -354,7 +354,7 @@ router.get("/workflow/:contactId", async (req, res) => {
     });
 
   } catch (error) {
-    console.error('Workflow status error:', error);
+    
     res.status(500).json({
       error: "Failed to fetch workflow status",
       details: error.message
@@ -422,7 +422,7 @@ router.get("/by-category", async (req, res) => {
     });
 
   } catch (error) {
-    console.error('Document categorization error:', error);
+    
     res.status(500).json({
       error: "Failed to fetch categorized documents",
       details: error.message

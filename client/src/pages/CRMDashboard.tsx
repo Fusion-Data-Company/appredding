@@ -133,7 +133,7 @@ export default function CRMDashboard() {
         }
         return data.stats as DashboardStats;
       } catch (error) {
-        console.error("Dashboard fetch error:", error);
+        
         throw error;
       }
     },
@@ -159,7 +159,7 @@ export default function CRMDashboard() {
         }
         return (data.contacts || []) as Contact[];
       } catch (error) {
-        console.error("Contacts fetch error:", error);
+        
         throw error;
       }
     },
@@ -184,7 +184,7 @@ export default function CRMDashboard() {
         }
         return (data.opportunities || []) as Opportunity[];
       } catch (error) {
-        console.error("Opportunities fetch error:", error);
+        
         throw error;
       }
     },
@@ -209,7 +209,7 @@ export default function CRMDashboard() {
         }
         return (data.submissions || []) as FormSubmission[];
       } catch (error) {
-        console.error("Form submissions fetch error:", error);
+        
         throw error;
       }
     },
@@ -253,7 +253,7 @@ export default function CRMDashboard() {
         
         return data;
       } catch (error) {
-        console.error("Add contact error:", error);
+        
         throw error;
       }
     },
@@ -270,7 +270,7 @@ export default function CRMDashboard() {
       contactForm.reset();
     },
     onError: (error: Error) => {
-      console.error("Contact creation failed:", error);
+      
       toast({ 
         title: "Error", 
         description: error.message || "Failed to add contact. Please try again.",
@@ -303,7 +303,7 @@ export default function CRMDashboard() {
         
         return data;
       } catch (error) {
-        console.error("CSV import error:", error);
+        
         throw error;
       }
     },
@@ -320,7 +320,7 @@ export default function CRMDashboard() {
       if (fileInputRef.current) fileInputRef.current.value = "";
     },
     onError: (error: Error) => {
-      console.error("CSV import failed:", error);
+      
       toast({ 
         title: "Import Failed", 
         description: error.message || "Failed to import CSV file. Please check the file format and try again.",
@@ -367,8 +367,6 @@ export default function CRMDashboard() {
       toast({ title: "Error", description: "Failed to delete contact", variant: "destructive" });
     }
   });
-
-
 
   // Handle CSV file selection
   const handleCsvFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {

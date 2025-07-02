@@ -335,7 +335,7 @@ export async function importCSV(req: Request, res: Response) {
       });
       
     } catch (importError: any) {
-      console.error('CSV import processing error:', importError);
+      
       return res.status(500).json({ 
         error: 'Failed to process CSV data', 
         message: importError.message 
@@ -343,7 +343,7 @@ export async function importCSV(req: Request, res: Response) {
     }
     
   } catch (error: any) {
-    console.error('CSV import error:', error);
+    
     return res.status(500).json({ 
       error: 'Failed to import CSV data', 
       message: error.message || 'Unknown error occurred'

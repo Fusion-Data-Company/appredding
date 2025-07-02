@@ -149,7 +149,7 @@ router.get("/contacts", async (req, res) => {
     });
 
   } catch (error) {
-    console.error('Error fetching contacts:', error);
+    
     res.status(500).json({ 
       error: "Failed to fetch contacts", 
       details: error.message 
@@ -182,7 +182,7 @@ router.post("/contacts", async (req, res) => {
     res.status(201).json(newContact);
 
   } catch (error) {
-    console.error('Error creating contact:', error);
+    
     res.status(500).json({ 
       error: "Failed to create contact", 
       details: error.message 
@@ -209,7 +209,7 @@ router.put("/contacts/:id", async (req, res) => {
     res.json(updatedContact);
 
   } catch (error) {
-    console.error('Error updating contact:', error);
+    
     res.status(500).json({ 
       error: "Failed to update contact", 
       details: error.message 
@@ -234,7 +234,7 @@ router.delete("/contacts/:id", async (req, res) => {
     res.json({ message: "Contact deleted successfully" });
 
   } catch (error) {
-    console.error('Error deleting contact:', error);
+    
     res.status(500).json({ 
       error: "Failed to delete contact", 
       details: error.message 
@@ -288,7 +288,7 @@ router.get("/companies", async (req, res) => {
     });
 
   } catch (error) {
-    console.error('Error fetching companies:', error);
+    
     res.status(500).json({ 
       error: "Failed to fetch companies", 
       details: error.message 
@@ -317,7 +317,7 @@ router.post("/companies", async (req, res) => {
     res.status(201).json(newCompany);
 
   } catch (error) {
-    console.error('Error creating company:', error);
+    
     res.status(500).json({ 
       error: "Failed to create company", 
       details: error.message 
@@ -344,7 +344,7 @@ router.put("/companies/:id", async (req, res) => {
     res.json(updatedCompany);
 
   } catch (error) {
-    console.error('Error updating company:', error);
+    
     res.status(500).json({ 
       error: "Failed to update company", 
       details: error.message 
@@ -369,7 +369,7 @@ router.delete("/companies/:id", async (req, res) => {
     res.json({ message: "Company deleted successfully" });
 
   } catch (error) {
-    console.error('Error deleting company:', error);
+    
     res.status(500).json({ 
       error: "Failed to delete company", 
       details: error.message 
@@ -432,7 +432,7 @@ router.get("/form-submissions", async (req, res) => {
     });
 
   } catch (error) {
-    console.error('Error fetching form submissions:', error);
+    
     res.status(500).json({ 
       error: "Failed to fetch form submissions", 
       details: error.message 
@@ -457,7 +457,7 @@ router.post("/form-submissions", async (req, res) => {
     res.status(201).json(newSubmission);
 
   } catch (error) {
-    console.error('Error creating form submission:', error);
+    
     res.status(500).json({ 
       error: "Failed to create form submission", 
       details: error.message 
@@ -484,7 +484,7 @@ router.put("/form-submissions/:id", async (req, res) => {
     res.json(updatedSubmission);
 
   } catch (error) {
-    console.error('Error updating form submission:', error);
+    
     res.status(500).json({ 
       error: "Failed to update form submission", 
       details: error.message 
@@ -556,7 +556,7 @@ router.post("/process-any-document", upload.single('document'), async (req, res)
     });
 
   } catch (error) {
-    console.error('Document upload error:', error);
+    
     res.status(500).json({
       success: false,
       error: "Failed to upload document",
@@ -627,7 +627,7 @@ Provide a comprehensive answer based on the available documents. Include specifi
         const answer = response.content[0];
         chatResponse = answer && 'text' in answer ? answer.text : null;
       } catch (aiError) {
-        console.warn('AI search chat failed:', aiError.message);
+        
       }
     }
 
@@ -647,7 +647,7 @@ Provide a comprehensive answer based on the available documents. Include specifi
     });
 
   } catch (error) {
-    console.error('Search and chat error:', error);
+    
     res.status(500).json({
       success: false,
       error: "Failed to search and chat",
@@ -727,7 +727,7 @@ Please provide a helpful answer based on the document content. If the informatio
       });
 
     } catch (aiError) {
-      console.error('AI chat error:', aiError);
+      
       res.status(500).json({
         success: false,
         error: "Failed to process chat request",
@@ -736,7 +736,7 @@ Please provide a helpful answer based on the document content. If the informatio
     }
 
   } catch (error) {
-    console.error('Document chat error:', error);
+    
     res.status(500).json({
       success: false,
       error: "Failed to process chat request",
@@ -776,7 +776,7 @@ router.get("/processing-capabilities", async (req, res) => {
     });
 
   } catch (error) {
-    console.error('Error getting capabilities:', error);
+    
     res.json({
       supportedFileTypes: {
         documents: ['pdf', 'doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx'],
@@ -840,7 +840,7 @@ router.get("/analytics/dashboard", async (req, res) => {
     });
 
   } catch (error) {
-    console.error('Error fetching dashboard analytics:', error);
+    
     res.status(500).json({ 
       error: "Failed to fetch analytics", 
       details: error.message 

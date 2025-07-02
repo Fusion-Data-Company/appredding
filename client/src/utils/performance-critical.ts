@@ -150,7 +150,6 @@ export async function registerCacheService(): Promise<void> {
       scope: '/'
     });
 
-    
     // Update cache when new version is available
     registration.addEventListener('updatefound', () => {
       const newWorker = registration.installing;
@@ -162,7 +161,7 @@ export async function registerCacheService(): Promise<void> {
       }
     });
   } catch (error) {
-    console.warn('Cache service registration failed:', error);
+    
   }
 }
 
@@ -196,7 +195,7 @@ export function initializeCriticalPerformance(): void {
       }, 3000); // Much longer delay to not impact LCP
     });
   } catch (error) {
-    console.warn('Critical performance initialization failed:', error);
+    
   }
 }
 
@@ -210,22 +209,22 @@ export function monitorPerformanceBudget(): void {
         const resourceEntry = entry as any;
         // Monitor large resource loads with safe property access
         if (entry.name.includes('.js') && resourceEntry.transferSize && resourceEntry.transferSize > 100 * 1024) {
-          console.warn(`Large JS bundle detected: ${entry.name} (${Math.round(resourceEntry.transferSize / 1024)}KB)`);
+          }KB)`);
         }
         
         if (entry.name.includes('.css') && resourceEntry.transferSize && resourceEntry.transferSize > 50 * 1024) {
-          console.warn(`Large CSS file detected: ${entry.name} (${Math.round(resourceEntry.transferSize / 1024)}KB)`);
+          }KB)`);
         }
         
         if ((entry.name.includes('.jpg') || entry.name.includes('.png') || entry.name.includes('.webp')) && 
             resourceEntry.transferSize && resourceEntry.transferSize > 200 * 1024) {
-          console.warn(`Large image detected: ${entry.name} (${Math.round(resourceEntry.transferSize / 1024)}KB)`);
+          }KB)`);
         }
       }
     });
 
     observer.observe({ entryTypes: ['resource'] });
   } catch (error) {
-    console.warn('Performance monitoring setup failed:', error);
+    
   }
 }

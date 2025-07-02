@@ -397,16 +397,44 @@ export default function CRMSection() {
         </TabsContent>
 
         <TabsContent value="calendar" className="mt-6">
-          <div className="card-premium p-8 text-center">
-            <h3 className="text-xl font-bold mb-4">Calendar View Coming Soon</h3>
-            <p className="text-gray-400 mb-6">Schedule activities and meetings in the meantime</p>
-            <PraetorianButton
-              variant="metal"
-              onClick={() => setActivityModalOpen(true)}
-              leftIcon={<PlusCircle size={16} />}
-            >
-              Schedule Activity
-            </PraetorianButton>
+          <div className="card-premium p-8">
+            <div className="flex justify-between items-center mb-6">
+              <h3 className="text-xl font-bold">Activity Calendar</h3>
+              <PraetorianButton
+                variant="metal"
+                onClick={() => setActivityModalOpen(true)}
+                leftIcon={<PlusCircle size={16} />}
+              >
+                Schedule Activity
+              </PraetorianButton>
+            </div>
+            
+            <div className="grid grid-cols-7 gap-2">
+              {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day) => (
+                <div key={day} className="text-center text-sm font-medium text-gray-400 py-2">
+                  {day}
+                </div>
+              ))}
+              {Array.from({ length: 35 }, (_, i) => {
+                const date = new Date();
+                date.setDate(date.getDate() - date.getDay() + i - 7);
+                const isToday = new Date().toDateString() === date.toDateString();
+                const dayNum = date.getDate();
+                
+                return (
+                  <div
+                    key={i}
+                    className={`border border-gray-800 rounded p-2 h-20 hover:border-cyan-600 transition-colors cursor-pointer ${
+                      isToday ? 'border-cyan-500 bg-cyan-900/20' : ''
+                    }`}
+                  >
+                    <div className={`text-sm ${isToday ? 'text-cyan-400 font-bold' : 'text-gray-400'}`}>
+                      {dayNum}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </TabsContent>
         

@@ -12,7 +12,7 @@ export async function getContacts(req: Request, res: Response) {
     const contacts = await storage.getContacts();
     res.json(contacts);
   } catch (error) {
-    console.error("Error fetching contacts:", error);
+    
     res.status(500).json({ message: "Failed to fetch contacts" });
   }
 }
@@ -35,7 +35,7 @@ export async function getContactById(req: Request, res: Response) {
 
     res.json(contact);
   } catch (error) {
-    console.error("Error fetching contact:", error);
+    
     res.status(500).json({ message: "Failed to fetch contact details" });
   }
 }
@@ -68,7 +68,7 @@ export async function createCRMContact(req: Request, res: Response) {
         errors: validationError.details,
       });
     } else {
-      console.error("Error creating contact:", error);
+      
       res.status(500).json({ message: "An unexpected error occurred" });
     }
   }
@@ -98,7 +98,7 @@ export async function updateContact(req: Request, res: Response) {
 
     res.json(updatedContact);
   } catch (error) {
-    console.error("Error updating contact:", error);
+    
     res.status(500).json({ message: "Failed to update contact" });
   }
 }
@@ -121,7 +121,7 @@ export async function deleteContact(req: Request, res: Response) {
 
     res.status(204).end();
   } catch (error) {
-    console.error("Error deleting contact:", error);
+    
     res.status(500).json({ message: "Failed to delete contact" });
   }
 }

@@ -102,7 +102,7 @@ export const StoreProvider: React.FC<{children: ReactNode}> = ({ children }) => 
       try {
         setCart(JSON.parse(savedCart));
       } catch (error) {
-        console.error('Failed to parse saved cart', error);
+        
         localStorage.removeItem('praetorianCart');
       }
     }

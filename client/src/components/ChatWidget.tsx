@@ -55,7 +55,7 @@ const ChatWidget = () => {
         }
         return response.json();
       } catch (error) {
-        console.error('Error fetching chat sessions:', error);
+        
         return [];
       }
     },
@@ -79,7 +79,7 @@ const ChatWidget = () => {
         }
         return response.json();
       } catch (error) {
-        console.error('Error fetching chat session:', error);
+        
         throw error;
       }
     },

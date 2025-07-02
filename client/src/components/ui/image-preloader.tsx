@@ -56,10 +56,10 @@ export function ImagePreloader({ imageUrls, altTexts, lazyLoadBelowFold = false,
         }
       };
       img.onerror = () => {
-        console.warn(`⚠️ Failed to preload image: ${url}`);
+        
         loadedCount++;
         if (loadedCount === criticalImages.length) {
-          console.warn('⚠️ Some critical images failed to preload');
+          
           setImagesLoaded(true);
         }
       };
@@ -68,7 +68,7 @@ export function ImagePreloader({ imageUrls, altTexts, lazyLoadBelowFold = false,
     // Set a timeout to display content even if images don't all load
     const timeout = setTimeout(() => {
       if (!imagesLoaded) {
-        console.warn('Some images taking too long to load, showing content anyway');
+        
         setImagesLoaded(true);
       }
     }, 3000);

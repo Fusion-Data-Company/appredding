@@ -20,7 +20,7 @@ router.get("/", isAuthenticated, async (_req: Request, res: Response) => {
     const orders = await OrderModel.getAll();
     res.status(200).json(orders);
   } catch (error) {
-    console.error("Error fetching orders:", error);
+    
     res.status(500).json({ message: "Server error" });
   }
 });
@@ -40,7 +40,7 @@ router.get("/:id", isAuthenticated, async (req: Request, res: Response) => {
     
     res.status(200).json(order);
   } catch (error) {
-    console.error("Error fetching order:", error);
+    
     res.status(500).json({ message: "Server error" });
   }
 });
@@ -61,7 +61,7 @@ router.get("/user/:userId", isAuthenticated, async (req: Request, res: Response)
     const orders = await OrderModel.getByUserId(userId);
     res.status(200).json(orders);
   } catch (error) {
-    console.error("Error fetching user orders:", error);
+    
     res.status(500).json({ message: "Server error" });
   }
 });
@@ -104,8 +104,7 @@ router.post("/", isAuthenticated, async (req: Request, res: Response) => {
     if (error instanceof z.ZodError) {
       return res.status(400).json({ error: error.errors });
     }
-    
-    console.error("Error creating order:", error);
+
     res.status(500).json({ message: "Server error" });
   }
 });
@@ -132,7 +131,7 @@ router.post("/:id/confirm", isAuthenticated, async (req: Request, res: Response)
       message: "Order confirmed and inventory updated"
     });
   } catch (error) {
-    console.error("Error confirming order:", error);
+    
     if (error instanceof Error) {
       return res.status(400).json({ message: error.message });
     }
@@ -168,7 +167,7 @@ router.delete("/:id", isAuthenticated, async (req: Request, res: Response) => {
       res.status(500).json({ message: "Error deleting order" });
     }
   } catch (error) {
-    console.error("Error deleting order:", error);
+    
     if (error instanceof Error) {
       return res.status(400).json({ message: error.message });
     }

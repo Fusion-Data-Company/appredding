@@ -31,7 +31,7 @@ router.post("/sessions", async (req: Request, res: Response) => {
     
     res.status(201).json(session);
   } catch (error) {
-    console.error("Error creating chat session:", error);
+    
     res.status(500).json({ error: "Failed to create chat session" });
   }
 });
@@ -44,7 +44,7 @@ router.get("/sessions", async (req: Request, res: Response) => {
       
     res.json(sessions);
   } catch (error) {
-    console.error("Error fetching chat sessions:", error);
+    
     res.status(500).json({ error: "Failed to fetch chat sessions" });
   }
 });
@@ -69,7 +69,7 @@ router.get("/sessions/:sessionId", async (req: Request, res: Response) => {
     
     res.json({ ...session, messages });
   } catch (error) {
-    console.error("Error fetching chat session:", error);
+    
     res.status(500).json({ error: "Failed to fetch chat session" });
   }
 });
@@ -90,7 +90,7 @@ router.delete("/sessions/:sessionId", async (req: Request, res: Response) => {
     
     res.json({ message: "Chat session deleted successfully" });
   } catch (error) {
-    console.error("Error deleting chat session:", error);
+    
     res.status(500).json({ error: "Failed to delete chat session" });
   }
 });
@@ -198,7 +198,7 @@ router.post("/messages", async (req: Request, res: Response) => {
     
     res.json(savedMessage);
   } catch (error) {
-    console.error("Error sending message:", error);
+    
     res.status(500).json({ error: "Failed to send message" });
   }
 });

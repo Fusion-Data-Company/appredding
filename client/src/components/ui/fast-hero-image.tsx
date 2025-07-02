@@ -61,7 +61,7 @@ export function FastHeroImage({
           onLoad?.();
         }
       } catch (error) {
-        console.warn('Hero image failed to load:', error);
+        
         setLoadProgress(100);
       }
     };
@@ -123,7 +123,7 @@ export function useHeroImagePreloader(imageSources: string[]) {
       try {
         await imageOptimizer.preloadCriticalImages(imageSources);
       } catch (error) {
-        console.warn('Failed to preload some hero images:', error);
+        
       }
     };
 
