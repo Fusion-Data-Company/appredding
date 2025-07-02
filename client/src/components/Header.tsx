@@ -1,11 +1,27 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "wouter";
-import { Sun, Menu, X, Phone, Mail } from "lucide-react";
+import { Sun, Menu, X, Phone, Mail, ChevronDown } from "lucide-react";
 
 export default function Header() {
   const [location] = useLocation();
   const isHomePage = location === '/';
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const servicesRef = useRef<HTMLDivElement>(null);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (servicesRef.current && !servicesRef.current.contains(event.target as Node)) {
+        setIsServicesOpen(false);
+      }
+    }
+
+    if (isServicesOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => document.removeEventListener('mousedown', handleClickOutside);
+    }
+  }, [isServicesOpen]);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-black border-b border-orange-500/50 shadow-xl" style={{ height: 'auto' }}>
@@ -60,37 +76,43 @@ export default function Header() {
               </Link>
               
               {/* Services Dropdown */}
-              <div className="relative group">
-                <button className="text-lg font-semibold text-orange-300 hover:text-orange-200 transition-colors">
+              <div className="relative" ref={servicesRef}>
+                <button 
+                  onClick={() => setIsServicesOpen(!isServicesOpen)}
+                  className="flex items-center text-lg font-semibold text-orange-300 hover:text-orange-200 transition-colors"
+                >
                   Services
+                  <ChevronDown className={`ml-1 w-4 h-4 transition-transform ${isServicesOpen ? 'rotate-180' : ''}`} />
                 </button>
-                <div className="absolute top-full left-0 mt-2 w-64 bg-black border-2 border-orange-500 rounded-lg shadow-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                  <Link href="/residential-solar" className="block px-4 py-2 text-orange-200 font-medium hover:bg-orange-900 hover:text-white transition-colors">
-                    Residential Solar
-                  </Link>
-                  <Link href="/commercial-solar" className="block px-4 py-2 text-orange-200 font-medium hover:bg-orange-900 hover:text-white transition-colors">
-                    Commercial Solar
-                  </Link>
-                  <Link href="/hybrid-solar" className="block px-4 py-2 text-orange-200 font-medium hover:bg-orange-900 hover:text-white transition-colors">
-                    Hybrid Solar Systems
-                  </Link>
-                  <Link href="/lithium-battery" className="block px-4 py-2 text-orange-200 font-medium hover:bg-orange-900 hover:text-white transition-colors">
-                    Lithium Battery Services
-                  </Link>
-                  <Link href="/energy-conservation" className="block px-4 py-2 text-orange-200 font-medium hover:bg-orange-900 hover:text-white transition-colors">
-                    Energy Conservation
-                  </Link>
-                  <div className="border-t border-orange-600 my-2"></div>
-                  <Link href="/maintenance" className="block px-4 py-2 text-orange-200 font-medium hover:bg-orange-900 hover:text-white transition-colors">
-                    Maintenance
-                  </Link>
-                  <Link href="/repairs" className="block px-4 py-2 text-orange-200 font-medium hover:bg-orange-900 hover:text-white transition-colors">
-                    Repairs
-                  </Link>
-                  <Link href="/battery-storage" className="block px-4 py-2 text-orange-200 font-medium hover:bg-orange-900 hover:text-white transition-colors">
-                    Battery Storage
-                  </Link>
-                </div>
+                {isServicesOpen && (
+                  <div className="absolute top-full left-0 mt-2 w-64 bg-black border-2 border-orange-500 rounded-lg shadow-xl py-2 z-50">
+                    <Link href="/residential-solar" className="block px-4 py-2 text-orange-200 font-medium hover:bg-orange-900 hover:text-white transition-colors" onClick={() => setIsServicesOpen(false)}>
+                      Residential Solar
+                    </Link>
+                    <Link href="/commercial-solar" className="block px-4 py-2 text-orange-200 font-medium hover:bg-orange-900 hover:text-white transition-colors" onClick={() => setIsServicesOpen(false)}>
+                      Commercial Solar
+                    </Link>
+                    <Link href="/hybrid-solar" className="block px-4 py-2 text-orange-200 font-medium hover:bg-orange-900 hover:text-white transition-colors" onClick={() => setIsServicesOpen(false)}>
+                      Hybrid Solar Systems
+                    </Link>
+                    <Link href="/lithium-battery" className="block px-4 py-2 text-orange-200 font-medium hover:bg-orange-900 hover:text-white transition-colors" onClick={() => setIsServicesOpen(false)}>
+                      Lithium Battery Services
+                    </Link>
+                    <Link href="/energy-conservation" className="block px-4 py-2 text-orange-200 font-medium hover:bg-orange-900 hover:text-white transition-colors" onClick={() => setIsServicesOpen(false)}>
+                      Energy Conservation
+                    </Link>
+                    <div className="border-t border-orange-600 my-2"></div>
+                    <Link href="/maintenance" className="block px-4 py-2 text-orange-200 font-medium hover:bg-orange-900 hover:text-white transition-colors" onClick={() => setIsServicesOpen(false)}>
+                      Maintenance
+                    </Link>
+                    <Link href="/repairs" className="block px-4 py-2 text-orange-200 font-medium hover:bg-orange-900 hover:text-white transition-colors" onClick={() => setIsServicesOpen(false)}>
+                      Repairs
+                    </Link>
+                    <Link href="/battery-storage" className="block px-4 py-2 text-orange-200 font-medium hover:bg-orange-900 hover:text-white transition-colors" onClick={() => setIsServicesOpen(false)}>
+                      Battery Storage
+                    </Link>
+                  </div>
+                )}
               </div>
 
               <Link 

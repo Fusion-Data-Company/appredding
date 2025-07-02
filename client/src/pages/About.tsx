@@ -24,6 +24,18 @@ const About = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-16">
               <div className="bg-gradient-to-b from-gray-100/70 to-gray-200/70 dark:from-gray-800/70 dark:to-gray-900/70 rounded-xl p-8 shadow-xl dark:shadow-orange-600/5 border border-gray-200 dark:border-gray-700/50">
+                {/* Company Image */}
+                <div className="flex justify-center mb-6">
+                  <img 
+                    src="/images/APR-Logo-White-New-300x222.png" 
+                    alt="Advance Power Redding Company Logo" 
+                    className="h-24 w-auto object-contain bg-white p-3 rounded-lg shadow-md"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.style.display = 'none';
+                    }}
+                  />
+                </div>
                 <h2 className="text-white font-semibold text-2xl mb-4 font-heading">Our Mission</h2>
                 <p className="text-gray-200 mb-4">
                   At Advance Power of Redding, our mission is to revolutionize Northern California's energy landscape through 
