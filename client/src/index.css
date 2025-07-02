@@ -28,8 +28,12 @@
 .bg-gray-800:not(.preserve-text-color) > *:not(.preserve-text-color),
 .bg-gray-900:not(.preserve-text-color) > *:not(.preserve-text-color),
 .bg-black:not(.preserve-text-color) > *:not(.preserve-text-color),
-header:not(.preserve-text-color) > *:not(.preserve-text-color) {
-  color: white; /* 21:1 contrast ratio on black */
+header:not(.preserve-text-color) > *:not(.preserve-text-color),
+[style*="background"] *:not(.preserve-text-color),
+nav *:not(.preserve-text-color),
+.navbar *:not(.preserve-text-color),
+.navigation *:not(.preserve-text-color) {
+  color: white !important; /* 21:1 contrast ratio on black */
   text-shadow: 
     -1px -1px 0 rgba(0,0,0,0.9),
     1px -1px 0 rgba(0,0,0,0.9),
@@ -45,6 +49,38 @@ header:not(.preserve-text-color) > *:not(.preserve-text-color) {
 
 .text-muted-foreground:not(.preserve-text-color) {
   color: #e5e7eb !important; /* Upgraded to gray-200 equivalent */
+}
+
+/* Global text visibility enforcement - catch all rules */
+* {
+  /* Ensure no text becomes invisible */
+  color: inherit;
+}
+
+/* Force high contrast text on any dark element */
+[class*="bg-gray-9"] *:not(.preserve-text-color),
+[class*="bg-gray-8"] *:not(.preserve-text-color),
+[class*="bg-black"] *:not(.preserve-text-color),
+[class*="bg-slate-9"] *:not(.preserve-text-color),
+[class*="bg-slate-8"] *:not(.preserve-text-color),
+[style*="dark"] *:not(.preserve-text-color),
+[style*="111827"] *:not(.preserve-text-color),
+[style*="1f2937"] *:not(.preserve-text-color) {
+  color: white !important;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.8) !important;
+}
+
+/* Fix common problematic text classes */
+.text-gray-400:not(.preserve-text-color) {
+  color: #e5e7eb !important; /* Force to gray-200 for better contrast */
+}
+
+.text-gray-500:not(.preserve-text-color) {
+  color: #d1d5db !important; /* Force to gray-300 for better contrast */
+}
+
+.text-gray-600:not(.preserve-text-color) {
+  color: #9ca3af !important; /* Ensure minimum contrast */
 }
 
 /* Enhanced visibility for critical interactive elements */
@@ -76,8 +112,41 @@ header button:hover {
   color: #fed7aa !important; /* orange-200 */
 }
 
-/* Nuclear option - override any conflicting styles */
-* {
+/* Universal text visibility enforcement */
+main *:not(.preserve-text-color),
+section *:not(.preserve-text-color),
+article *:not(.preserve-text-color),
+aside *:not(.preserve-text-color),
+footer *:not(.preserve-text-color),
+.content *:not(.preserve-text-color),
+.section *:not(.preserve-text-color),
+.card *:not(.preserve-text-color),
+.hero *:not(.preserve-text-color),
+.about *:not(.preserve-text-color),
+.team *:not(.preserve-text-color),
+.contact *:not(.preserve-text-color),
+.services *:not(.preserve-text-color) {
+  color: inherit;
+  text-shadow: inherit;
+  min-contrast: 4.5;
+}
+
+/* Force specific problematic elements to be visible */
+p:not(.preserve-text-color),
+h1:not(.preserve-text-color),
+h2:not(.preserve-text-color),
+h3:not(.preserve-text-color),
+h4:not(.preserve-text-color),
+h5:not(.preserve-text-color),
+h6:not(.preserve-text-color),
+span:not(.preserve-text-color),
+div:not(.preserve-text-color),
+li:not(.preserve-text-color) {
+  color: inherit;
+}
+
+/* Absolute fallback for invisible text */
+*:not(.preserve-text-color) {
   color: inherit;
 }
 
@@ -135,9 +204,39 @@ header nav button {
   color: white !important;
 }
 
-/* Ensure text is never invisible - fallback rules */
-h1, h2, h3, h4, h5, h6, p, span, div, li, a {
+/* NUCLEAR VISIBILITY FIX - Ensure ALL text is readable */
+*:not(svg):not(path):not(circle):not(rect) {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Force minimum readable colors everywhere */
+h1:not(.preserve-text-color), 
+h2:not(.preserve-text-color), 
+h3:not(.preserve-text-color), 
+h4:not(.preserve-text-color), 
+h5:not(.preserve-text-color), 
+h6:not(.preserve-text-color), 
+p:not(.preserve-text-color), 
+span:not(.preserve-text-color), 
+div:not(.preserve-text-color), 
+li:not(.preserve-text-color), 
+a:not(.preserve-text-color),
+label:not(.preserve-text-color),
+button:not(.preserve-text-color),
+input:not(.preserve-text-color) {
   color: inherit;
+  min-contrast-ratio: 4.5;
+}
+
+/* Catch any remaining invisible text */
+*[style*="color: transparent"],
+*[style*="opacity: 0"],
+*[style*="visibility: hidden"] {
+  color: white !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.8) !important;
 }
 
 /* Force visibility on any potential invisible text - EXCEPT form inputs */
