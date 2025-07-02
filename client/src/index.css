@@ -363,13 +363,36 @@ button.btn-unified::after {
   visibility: hidden !important;
 }
 
-/* NUCLEAR OPTION: COMPLETELY OVERRIDE BUTTON-PRIMARY WITH UNIFIED STYLING */
+/* NUCLEAR OPTION: COMPLETELY ELIMINATE ALL DECORATIVE BUTTON EFFECTS */
+
+/* Kill ALL pseudo-elements globally for buttons */
+button *,
+[class*="btn-"] *,
+.button-primary *,
+.btn-unified * {
+  background-image: none !important;
+  opacity: 1 !important;
+}
+
+button::before,
+button::after,
+[class*="btn-"]::before,
+[class*="btn-"]::after,
+.button-primary::before,
+.button-primary::after {
+  content: none !important;
+  display: none !important;
+  animation: none !important;
+  background: none !important;
+}
+
+/* CLEAN BUTTON STYLING OVERRIDE */
 .button-primary {
-  /* Disable problematic elite-styling effects */
+  /* Kill all elite-styling decorative effects */
   animation: none !important;
   overflow: visible !important;
   
-  /* Apply unified button styling */
+  /* Clean unified button styling */
   position: relative !important;
   display: inline-flex !important;
   align-items: center !important;
@@ -382,23 +405,44 @@ button.btn-unified::after {
   text-decoration: none !important;
   border: none !important;
   cursor: pointer !important;
-  backdrop-filter: blur(10px) !important;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.1) !important;
   color: white !important;
-}
-
-.button-primary::after {
-  display: none !important;
-  content: none !important;
-  animation: none !important;
+  
+  /* Force clean gradient - no patterns */
+  background: linear-gradient(135deg, #f59e0b 0%, #ea580c 50%, #dc2626 100%) !important;
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4) !important;
 }
 
 .button-primary:hover {
   transform: translateY(-2px) !important;
+  box-shadow: 0 8px 25px rgba(245, 158, 11, 0.6) !important;
 }
 
-.button-primary:hover .shine-effect {
-  transform: none !important;
+/* ELIMINATE ALL DECORATIVE CLASSES FROM ELITE-STYLING */
+.solar-panel-grid,
+.solar-rays,
+.shine-effect,
+.solar-panel-cell,
+.solar-ray,
+.solar-ray-animation,
+.section-background,
+.card-face {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  animation: none !important;
+  background-image: none !important;
+}
+
+/* KILL SPECIFIC SVG GRID PATTERNS */
+div[class*="bg-[url('data:image/svg+xml"],
+div[style*="background-image: url('data:image/svg+xml"],
+*[style*="data:image/svg+xml;base64"] {
+  background-image: none !important;
+  background: transparent !important;
+}
+
+/* TARGET SPECIFIC PATTERN CLASSES */
+.absolute[class*="bg-[url('data:image/svg+xml"] {
   display: none !important;
 }
 
