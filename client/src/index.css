@@ -273,47 +273,55 @@ div[data-component-name="div"]:contains("Hybrid Systems"),
 }
 
 /* Primary Action Button */
-.btn-primary {
-  background: linear-gradient(135deg, #f59e0b 0%, #ea580c 50%, #dc2626 100%);
+.btn-primary,
+.button-primary.btn-primary {
+  background: linear-gradient(135deg, #f59e0b 0%, #ea580c 50%, #dc2626 100%) !important;
   color: white !important;
-  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4) !important;
 }
 
-.btn-primary:hover {
-  box-shadow: 0 8px 25px rgba(245, 158, 11, 0.6);
+.btn-primary:hover,
+.button-primary.btn-primary:hover {
+  box-shadow: 0 8px 25px rgba(245, 158, 11, 0.6) !important;
 }
 
 /* Secondary Action Button */
-.btn-secondary {
-  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 50%, #1e40af 100%);
+.btn-secondary,
+.button-primary.btn-secondary {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 50%, #1e40af 100%) !important;
   color: white !important;
-  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4) !important;
 }
 
-.btn-secondary:hover {
-  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.6);
+.btn-secondary:hover,
+.button-primary.btn-secondary:hover {
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.6) !important;
 }
 
 /* Success/Green Button */
-.btn-success {
-  background: linear-gradient(135deg, #10b981 0%, #059669 50%, #047857 100%);
+.btn-success,
+.button-primary.btn-success {
+  background: linear-gradient(135deg, #10b981 0%, #059669 50%, #047857 100%) !important;
   color: white !important;
-  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4) !important;
 }
 
-.btn-success:hover {
-  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.6);
+.btn-success:hover,
+.button-primary.btn-success:hover {
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.6) !important;
 }
 
 /* Purple/Service Button */
-.btn-service {
-  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 50%, #6d28d9 100%);
+.btn-service,
+.button-primary.btn-service {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 50%, #6d28d9 100%) !important;
   color: white !important;
-  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4) !important;
 }
 
-.btn-service:hover {
-  box-shadow: 0 8px 25px rgba(139, 92, 246, 0.6);
+.btn-service:hover,
+.button-primary.btn-service:hover {
+  box-shadow: 0 8px 25px rgba(139, 92, 246, 0.6) !important;
 }
 
 /* DISABLE DECORATIVE BUTTON ELEMENTS */
@@ -355,16 +363,28 @@ button.btn-unified::after {
   visibility: hidden !important;
 }
 
-/* NUCLEAR OPTION: COMPLETELY OVERRIDE BUTTON-PRIMARY */
+/* NUCLEAR OPTION: COMPLETELY OVERRIDE BUTTON-PRIMARY WITH UNIFIED STYLING */
 .button-primary {
-  background: unset !important;
-  box-shadow: unset !important;
+  /* Disable problematic elite-styling effects */
   animation: none !important;
-  transform: none !important;
-  border-radius: unset !important;
-  padding: unset !important;
-  overflow: unset !important;
-  position: unset !important;
+  overflow: visible !important;
+  
+  /* Apply unified button styling */
+  position: relative !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 16px 32px !important;
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  border-radius: 12px !important;
+  transition: all 0.3s ease !important;
+  text-decoration: none !important;
+  border: none !important;
+  cursor: pointer !important;
+  backdrop-filter: blur(10px) !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.1) !important;
+  color: white !important;
 }
 
 .button-primary::after {
@@ -374,8 +394,7 @@ button.btn-unified::after {
 }
 
 .button-primary:hover {
-  transform: none !important;
-  box-shadow: unset !important;
+  transform: translateY(-2px) !important;
 }
 
 .button-primary:hover .shine-effect {
