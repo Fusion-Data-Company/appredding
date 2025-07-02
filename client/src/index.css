@@ -204,6 +204,15 @@ header nav button {
   color: white !important;
 }
 
+/* DISABLE PROBLEMATIC HOVER EFFECTS ON DROPDOWNS */
+.relative.group:hover > div[class*="absolute"],
+.group:hover > div[class*="dropdown"],
+*:hover > div[class*="group-hover"] {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
 /* NUCLEAR VISIBILITY FIX - Ensure ALL text is readable */
 *:not(svg):not(path):not(circle):not(rect) {
   visibility: visible !important;
