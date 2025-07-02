@@ -125,7 +125,7 @@ const ProfessionalHeader = () => {
               textShadow: '0 2px 4px rgba(0,0,0,0.8)',
               display: 'block'
             }}>Services</span>
-            <div className="absolute top-full left-0 mt-2 w-64 py-2 bg-gray-900/95 backdrop-blur-xl border border-orange-500/30 rounded-lg shadow-xl invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-200">
+            <div className="absolute top-full left-0 mt-2 w-64 py-2 bg-gray-900/95 backdrop-blur-xl border border-orange-500/30 rounded-lg shadow-xl invisible opacity-0 transition-all duration-200" style={{ display: 'none !important' }}>
               {solarServices.map((service, index) => (
                 <Link
                   key={index}
