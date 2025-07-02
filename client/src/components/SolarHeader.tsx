@@ -136,76 +136,22 @@ const SolarHeader = () => {
               </span>
             </Link>
 
-            {/* Services Dropdown */}
-            <div 
-              className="relative"
-              onMouseEnter={() => setActiveDropdown("services")}
-              onMouseLeave={() => setActiveDropdown(null)}
-            >
-              <button className="flex items-center space-x-1 font-medium text-gray-700 hover:text-orange-600 transition-colors duration-200">
-                <span>Services</span>
-                <ChevronDown className="w-4 h-4" />
-              </button>
-              
-              {activeDropdown === "services" && (
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="absolute top-full left-0 mt-2 w-80 bg-white rounded-xl shadow-xl border border-gray-200 p-4 z-50"
-                >
-                  <div className="grid gap-3">
-                    {serviceDropdownItems.map((item) => (
-                      <Link key={item.href} href={item.href}>
-                        <div className="flex items-center space-x-3 p-3 rounded-lg hover:bg-orange-50 transition-colors duration-200 cursor-pointer">
-                          <div className="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center text-orange-600">
-                            {item.icon}
-                          </div>
-                          <div>
-                            <h3 className="font-semibold text-gray-800">{item.title}</h3>
-                            <p className="text-sm text-gray-600">{item.description}</p>
-                          </div>
-                        </div>
-                      </Link>
-                    ))}
-                  </div>
-                </motion.div>
-              )}
+            {/* Services Dropdown - DISABLED HOVER BEHAVIOR */}
+            <div className="relative">
+              <Link href="/services">
+                <span className="font-medium text-gray-700 hover:text-orange-600 transition-colors duration-200">
+                  Services
+                </span>
+              </Link>
             </div>
 
-            {/* Industries Dropdown */}
-            <div 
-              className="relative"
-              onMouseEnter={() => setActiveDropdown("industries")}
-              onMouseLeave={() => setActiveDropdown(null)}
-            >
-              <button className="flex items-center space-x-1 font-medium text-gray-700 hover:text-orange-600 transition-colors duration-200">
-                <span>Industries</span>
-                <ChevronDown className="w-4 h-4" />
-              </button>
-              
-              {activeDropdown === "industries" && (
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="absolute top-full left-0 mt-2 w-80 bg-white rounded-xl shadow-xl border border-gray-200 p-4 z-50"
-                >
-                  <div className="grid gap-3">
-                    {industryDropdownItems.map((item) => (
-                      <Link key={item.href} href={item.href}>
-                        <div className="flex items-center space-x-3 p-3 rounded-lg hover:bg-orange-50 transition-colors duration-200 cursor-pointer">
-                          <div className="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center text-orange-600">
-                            {item.icon}
-                          </div>
-                          <div>
-                            <h3 className="font-semibold text-gray-800">{item.title}</h3>
-                            <p className="text-sm text-gray-600">{item.description}</p>
-                          </div>
-                        </div>
-                      </Link>
-                    ))}
-                  </div>
-                </motion.div>
-              )}
+            {/* Industries Dropdown - DISABLED HOVER BEHAVIOR */}
+            <div className="relative">
+              <Link href="/industries">
+                <span className="font-medium text-gray-700 hover:text-orange-600 transition-colors duration-200">
+                  Industries
+                </span>
+              </Link>
             </div>
 
             <Link href="/about">
