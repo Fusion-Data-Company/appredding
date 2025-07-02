@@ -27,7 +27,4 @@ app.get('*', (req, res) => {
 });
 
 app.listen(port, '0.0.0.0', () => {
-  console.log(`🚀 PRODUCTION SERVER running on port ${port}`);
-  console.log(`NODE_ENV: ${process.env.NODE_ENV}`);
-  console.log(`Serving from: ${distPath}`);
 });

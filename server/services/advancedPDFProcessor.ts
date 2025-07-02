@@ -319,7 +319,6 @@ export class AdvancedPDFProcessor {
           });
         }
       } catch (error) {
-        console.log(`Address processing error for ${address}:`, error);
       }
     }
 

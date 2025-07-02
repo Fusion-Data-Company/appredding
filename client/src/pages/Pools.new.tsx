@@ -160,7 +160,6 @@ export default function Pools() {
   
   // Handle dealer application form submission
   const onRegistrationSubmit = (values: z.infer<typeof poolDealerSchema>) => {
-    console.log("Registration submitted:", values);
     
     // Simulate successful submission
     setTimeout(() => {

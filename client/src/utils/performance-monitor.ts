@@ -15,7 +15,6 @@ export function reportWebVitals(onPerfEntry?: (metric: any) => void) {
 export function logPerformanceMetrics() {
   if (process.env.NODE_ENV !== 'production') {
     reportWebVitals((metric) => {
-      console.log(`${metric.name}: ${metric.value}`);
     });
   }
 }
@@ -76,7 +75,6 @@ export function preloadCriticalImages() {
     
     link.onload = () => {
       preloadedCount++;
-      console.log(`Preloaded image ${preloadedCount} of ${totalImages}: ${imageSrc}`);
     };
     
     link.onerror = () => {

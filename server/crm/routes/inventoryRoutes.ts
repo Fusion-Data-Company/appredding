@@ -34,7 +34,6 @@ async function seedInventoryIfEmpty() {
     for (const item of seedData) {
       await InventoryModel.create(item);
     }
-    console.log("Inventory seeded with initial products");
   }
 }
 

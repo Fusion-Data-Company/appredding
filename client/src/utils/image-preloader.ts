@@ -14,7 +14,6 @@ const CRITICAL_IMAGES: string[] = [
 export async function preloadCriticalImages(): Promise<void> {
   try {
     await imageOptimizer.preloadCriticalImages(CRITICAL_IMAGES);
-    console.log('Critical images preloaded successfully');
   } catch (error) {
     console.warn('Some critical images failed to preload:', error);
   }

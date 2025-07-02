@@ -239,7 +239,6 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
                           muted
                           loop
                           playsInline
-                          onLoadedData={() => console.log("Video loaded successfully")}
                           onError={(e) => console.error("Video error:", e)}
                         ></video>
                       </div>

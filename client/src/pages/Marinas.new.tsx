@@ -164,7 +164,6 @@ export default function Marinas() {
   
   // Handle dealer application form submission
   const onRegistrationSubmit = (values: z.infer<typeof marinaDealerSchema>) => {
-    console.log("Registration submitted:", values);
     
     // Simulate successful submission
     setTimeout(() => {

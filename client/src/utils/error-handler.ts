@@ -121,7 +121,6 @@ class ErrorHandler {
 
       const result = await response.json();
       if (import.meta.env.DEV) {
-        console.log(`Successfully logged ${result.count} errors to backend`);
       }
     } catch (error) {
       // If we can't send errors, add them back to queue

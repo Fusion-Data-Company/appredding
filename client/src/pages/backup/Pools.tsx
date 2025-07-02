@@ -209,7 +209,6 @@ export default function Pools() {
   // Handle registration form submission
   const onRegistrationSubmit = (values: z.infer<typeof poolDistributorSchema>) => {
     // In a real application, this would submit to an API endpoint
-    console.log("Registration submitted:", values);
     
     // Simulate successful submission
     setTimeout(() => {

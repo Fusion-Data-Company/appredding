@@ -49,7 +49,6 @@ export function LazyVideo({
       if (videoRef.current && !hasVideoFrozen) {
         videoRef.current.pause();
         hasVideoFrozen = true;
-        console.log(`Video paused at ${freezeAt} seconds`);
       }
     };
 

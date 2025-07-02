@@ -190,7 +190,6 @@ export async function registerServiceWorker(): Promise<ServiceWorkerRegistration
 
   try {
     const registration = await navigator.serviceWorker.register('/sw.js');
-    console.log('Service Worker registered successfully');
     return registration;
   } catch (error) {
     console.warn('Service Worker registration failed:', error);

@@ -147,7 +147,6 @@ const Construction = () => {
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
     toast({
       title: "Form Submitted",
       description: "We've received your request and will contact you shortly.",
@@ -156,7 +155,6 @@ const Construction = () => {
   }
   
   function onRegistrationSubmit(values: z.infer<typeof constructionProfessionalFormSchema>) {
-    console.log(values);
     toast({
       title: "Registration Received",
       description: "Your application has been submitted successfully.",

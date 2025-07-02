@@ -172,7 +172,6 @@ router.post("/api/consultation", async (req, res) => {
 // UNIVERSAL FORM SUBMISSION ENDPOINT - Handles ALL website forms
 router.post("/api/forms/submit", async (req, res) => {
   try {
-    console.log("Universal form submission received:", req.body);
     
     // Validate the form data
     const validationResult = universalFormSchema.safeParse(req.body);
@@ -189,7 +188,6 @@ router.post("/api/forms/submit", async (req, res) => {
     // Create form submission record and automatically process it
     const submission = await storage.createFormSubmission(formData);
     
-    console.log("Form submission created and processed:", submission);
     
     res.json({ 
       success: true, 

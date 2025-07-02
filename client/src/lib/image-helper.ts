@@ -98,7 +98,6 @@ export const preloadCriticalImages = (imagePaths: string[]): void => {
       // Also create an Image object to handle load error properly
       const img = new Image();
       img.src = optimizeImageUrl(imagePath);
-      img.onload = () => console.log('Successfully preloaded critical image:', imagePath);
       img.onerror = () => console.warn('Failed to preload critical image:', imagePath);
     } catch (error) {
       console.error('Error preloading image:', imagePath, error);

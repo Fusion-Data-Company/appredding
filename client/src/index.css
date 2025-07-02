@@ -1873,7 +1873,7 @@ header a[href="/"] img {
   }
 
   * {
-    @apply border-border;
+    @apply border-gray-200;
   }
 
   body {

@@ -175,7 +175,6 @@ const FirePrevention = () => {
   
   // Handle distributor application form submission
   const onRegistrationSubmit = (values: z.infer<typeof firePreventionDistributorSchema>) => {
-    console.log(values);
     
     // Simulate successful submission
     setTimeout(() => {

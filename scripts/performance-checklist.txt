@@ -1,0 +1,28 @@
+PRODUCTION PERFORMANCE CHECKLIST
+================================
+
+BEFORE DEPLOYMENT:
+[ ] Run: NODE_ENV=production npm run build
+[ ] Verify LCP < 2.5 seconds in production
+[ ] Test with disabled cache
+[ ] Verify all console.logs removed
+[ ] Check bundle size < 1MB per chunk
+
+ENVIRONMENT VARIABLES REQUIRED:
+[ ] DATABASE_URL
+[ ] SESSION_SECRET  
+[ ] NODE_ENV=production
+[ ] PORT (default: 3000)
+
+PERFORMANCE TARGETS:
+[ ] LCP (Largest Contentful Paint): < 2.5s
+[ ] FID (First Input Delay): < 100ms
+[ ] CLS (Cumulative Layout Shift): < 0.1
+[ ] Bundle Size: < 1MB per chunk
+
+SECURITY CHECKLIST:
+[ ] No console.log in production
+[ ] HTTPS only in production
+[ ] Secure session cookies
+[ ] CORS properly configured
+[ ] No source maps in production

@@ -11,8 +11,6 @@ process.env.NODE_ENV = 'production';
 const app = express();
 const port = Number(process.env.PORT) || 5000;
 
-console.log('🚀 PRODUCTION SERVER STARTING');
-console.log('NODE_ENV:', process.env.NODE_ENV);
 
 // High-performance middleware
 app.use(compression({
@@ -62,17 +60,13 @@ app.get('*', (req, res) => {
 });
 
 app.listen(port, '0.0.0.0', () => {
-  console.log(`✅ Production server running on port ${port}`);
-  console.log(`📂 Serving optimized build from: ${distPath}`);
 });
 
 // Graceful shutdown
 process.on('SIGTERM', () => {
-  console.log('SIGTERM received, shutting down gracefully');
   process.exit(0);
 });
 
 process.on('SIGINT', () => {
-  console.log('SIGINT received, shutting down gracefully');
   process.exit(0);
 });

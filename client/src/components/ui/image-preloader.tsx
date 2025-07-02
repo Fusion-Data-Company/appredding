@@ -52,7 +52,6 @@ export function ImagePreloader({ imageUrls, altTexts, lazyLoadBelowFold = false,
       img.onload = () => {
         loadedCount++;
         if (loadedCount === criticalImages.length) {
-          console.log('✅ All critical images preloaded successfully');
           setImagesLoaded(true);
         }
       };

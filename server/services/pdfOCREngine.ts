@@ -62,7 +62,6 @@ export class PDFOCREngine {
 
       return JSON.parse(response.choices[0].message.content);
     } catch (error) {
-      console.log('Claude processing failed:', error);
       return { fullText: '', structuredData: {}, confidence: 0, model: 'claude', error: error.message };
     }
   }
@@ -93,7 +92,6 @@ export class PDFOCREngine {
 
       return JSON.parse(response.choices[0].message.content);
     } catch (error) {
-      console.log('GPT processing failed:', error);
       return { fullText: '', structuredData: {}, confidence: 0, model: 'gpt', error: error.message };
     }
   }
@@ -124,7 +122,6 @@ export class PDFOCREngine {
 
       return JSON.parse(response.choices[0].message.content);
     } catch (error) {
-      console.log('Gemini processing failed:', error);
       return { fullText: '', structuredData: {}, confidence: 0, model: 'gemini', error: error.message };
     }
   }

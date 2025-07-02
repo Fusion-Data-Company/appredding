@@ -158,7 +158,6 @@ function App() {
   // Preload critical images once when app loads
   useEffect(() => {
     // Initialize error handler
-    console.log('Solar Energy Platform initialized');
 
     // Force dark mode first (blocking)
     document.documentElement.classList.add('dark');
@@ -177,7 +176,6 @@ function App() {
         const entries = list.getEntries();
         const lastEntry = entries[entries.length - 1];
         if (lastEntry && lastEntry.startTime > 0) {
-          console.log(`Largest Contentful Paint: ${lastEntry.startTime}ms`);
           
           // Report very slow LCP as potential performance issue
           if (lastEntry.startTime > 5000) {

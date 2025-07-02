@@ -122,7 +122,6 @@ export function useHeroImagePreloader(imageSources: string[]) {
     const preloadHeroImages = async () => {
       try {
         await imageOptimizer.preloadCriticalImages(imageSources);
-        console.log('Hero images preloaded successfully');
       } catch (error) {
         console.warn('Failed to preload some hero images:', error);
       }

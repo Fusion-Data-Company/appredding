@@ -102,7 +102,6 @@ export function Lamp({
     if (!isFreezingRef.current || isFrozenRef.current) return;
     
     freezeTimerRef.current = setTimeout(() => {
-      console.log('Freezing lamp animation');
       isFrozenRef.current = true;
       
       // Apply frozen styles

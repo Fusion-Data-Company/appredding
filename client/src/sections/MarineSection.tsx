@@ -18,7 +18,6 @@ const MarineSection = () => {
 
   const handleFindCoatings = () => {
     // This would handle the form submission logic in a real implementation
-    console.log("Form data:", formData);
   };
 
   return (

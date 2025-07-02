@@ -112,7 +112,6 @@ export default function Municipality() {
 
   // Handle consultation form submission
   const onConsultationSubmit = (values: z.infer<typeof municipalityConsultationSchema>) => {
-    console.log("Consultation submitted:", values);
     
     // Simulate successful submission
     setTimeout(() => {
@@ -156,7 +155,6 @@ export default function Municipality() {
   
   // Handle dealer application form submission
   const onRegistrationSubmit = (values: z.infer<typeof municipalityDealerSchema>) => {
-    console.log("Registration submitted:", values);
     
     // Simulate successful submission
     setTimeout(() => {

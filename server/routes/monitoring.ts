@@ -96,7 +96,6 @@ router.post('/api/performance', async (req: Request, res: Response) => {
     const performanceData = PerformanceMetricsSchema.parse(body);
 
     // Log performance metrics
-    console.log(`[PERFORMANCE] ${performanceData.url}`, {
       metrics: performanceData.metrics,
       componentMetrics: performanceData.componentMetrics,
       timestamp: new Date(performanceData.timestamp).toISOString(),

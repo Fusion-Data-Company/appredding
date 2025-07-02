@@ -150,7 +150,6 @@ export async function registerCacheService(): Promise<void> {
       scope: '/'
     });
 
-    console.log('Cache service registered successfully');
     
     // Update cache when new version is available
     registration.addEventListener('updatefound', () => {
@@ -158,7 +157,6 @@ export async function registerCacheService(): Promise<void> {
       if (newWorker) {
         newWorker.addEventListener('statechange', () => {
           if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-            console.log('New cache version available');
           }
         });
       }

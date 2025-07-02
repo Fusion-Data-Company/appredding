@@ -138,7 +138,6 @@ export default function Painters() {
 
   // Handle consultation form submission
   const onConsultationSubmit = (values: z.infer<typeof insertPainterContactSchema>) => {
-    console.log("Consultation submitted:", values);
     
     // Simulate successful submission
     setTimeout(() => {
@@ -182,7 +181,6 @@ export default function Painters() {
   
   // Handle dealer application form submission
   const onRegistrationSubmit = (values: z.infer<typeof painterDealerSchema>) => {
-    console.log("Registration submitted:", values);
     
     // Simulate successful submission
     setTimeout(() => {

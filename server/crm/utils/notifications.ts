@@ -127,7 +127,6 @@ export class NotificationService {
         html: `<h2>${title}</h2><p>${message}</p>`
       });
       
-      console.log(`Email notification sent to ${email}`);
     } catch (error) {
       console.error('Failed to send email notification:', error);
     }

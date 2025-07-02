@@ -11,7 +11,6 @@ export const preloadCriticalImage = (imagePath: string) => {
   link.setAttribute('fetchpriority', 'high');
   document.head.appendChild(link);
   
-  console.log('Hero image path:', imagePath);
   
   return true;
 };

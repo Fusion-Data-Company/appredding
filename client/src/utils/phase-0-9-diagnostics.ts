@@ -127,7 +127,6 @@ export class Phase09Diagnostics {
   }
 
   async runFullDiagnostics(): Promise<DiagnosticResults> {
-    console.log('🕵️ PHASE 0.9 DIAGNOSTICS INITIATED');
     
     // 1. Runtime Profiling
     await this.capturePageLoadEvents();
@@ -275,35 +274,18 @@ export class Phase09Diagnostics {
   private printResults() {
     const r = this.results;
     
-    console.log('\n### ⚙️ PHASE 0.9 RESULTS\n');
     
-    console.log('- 🧭 Page Load Events:');
-    console.log(`  - TTFB: ${r.pageLoadEvents?.ttfb?.toFixed(0) || 'N/A'}ms`);
-    console.log(`  - DOMContentLoaded: ${r.pageLoadEvents?.domContentLoaded?.toFixed(0) || 'N/A'}ms`);
-    console.log(`  - LCP: ${r.pageLoadEvents?.lcp?.toFixed(0) || 'N/A'}ms`);
-    console.log(`  - FID: ${r.pageLoadEvents?.fid?.toFixed(0) || 'N/A'}ms`);
-    console.log(`  - First Paint: ${r.pageLoadEvents?.firstPaint?.toFixed(0) || 'N/A'}ms`);
     
-    console.log('\n- 🌐 Network Requests (slowest first):');
     r.networkRequests?.slice(0, 10).forEach(req => {
       const sizeKB = (req.size / 1024).toFixed(1);
       const status = req.status || 'UNKNOWN';
-      console.log(`  - ${req.url.substring(0, 60)}... - ${req.responseTime.toFixed(0)}ms - ${status} - ${sizeKB}KB`);
     });
     
-    console.log(`\n- 🔁 React Loop Check: ${r.reactLoopCheck ? '✓' : '✗'}`);
-    console.log(`- 💾 Memory Usage at Boot: ${r.memoryUsage?.toFixed(1) || 'N/A'} MB`);
-    console.log(`- 🔌 Build Mode: ${r.buildMode}`);
-    console.log(`- 🔨 Diagnostic Runtime: ${r.buildTime?.toFixed(0) || 'N/A'}ms`);
     
-    console.log('\n- 🔍 Key Suspects:');
     if (r.keySuspects?.length) {
-      r.keySuspects.forEach(suspect => console.log(`  - ${suspect}`));
     } else {
-      console.log('  - No obvious bottlenecks detected');
     }
     
-    console.log('\n---\n');
   }
 }
 

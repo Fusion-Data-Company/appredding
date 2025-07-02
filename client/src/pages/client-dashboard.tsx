@@ -95,7 +95,6 @@ export default function ClientDashboard() {
                 
                 <select 
                   className="bg-primary-800 border border-primary-700 rounded-md px-3 py-2 text-sm"
-                  onChange={(e) => console.log(e.target.value)}
                 >
                   <option value="all">All Projects</option>
                   <option value="pending">Pending</option>

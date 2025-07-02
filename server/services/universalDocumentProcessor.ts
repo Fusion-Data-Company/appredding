@@ -88,12 +88,10 @@ export class UniversalDocumentProcessor {
     const startTime = Date.now();
     const processId = `folder_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
     
-    console.log(`Starting recursive folder processing: ${processId} for path: ${folderPath}`);
     
     try {
       // Discover all files recursively
       const allFiles = await this.discoverFilesRecursively(folderPath);
-      console.log(`Discovered ${allFiles.length} files in folder structure`);
       
       // Build folder structure map
       const folderStructure = await this.buildFolderStructure(folderPath);
@@ -105,7 +103,6 @@ export class UniversalDocumentProcessor {
       
       for (const filePath of allFiles) {
         try {
-          console.log(`Processing file: ${filePath}`);
           
           const processingResult = await this.processAnyDocument(filePath, uploadedBy);
           
@@ -139,7 +136,6 @@ export class UniversalDocumentProcessor {
       
       const processingTime = Date.now() - startTime;
       
-      console.log(`Folder processing completed: ${successCount} successful, ${failCount} failed, ${processingTime}ms`);
       
       return {
         totalFiles: allFiles.length,
@@ -171,7 +167,6 @@ export class UniversalDocumentProcessor {
     const fileBuffer = fs.readFileSync(filePath);
     const filename = path.basename(filePath);
     
-    console.log(`Processing ${fileType} document: ${filename}`);
     
     switch (fileType) {
       case 'pdf':
@@ -611,7 +606,6 @@ export class UniversalDocumentProcessor {
    */
   private async advancedCustomerMatching(processingResult: any, filename: string): Promise<any> {
     try {
-      console.log(`Starting advanced customer matching for: ${filename}`);
       
       // Extract all potential customer identifiers from the document
       const identifiers = await this.extractCustomerIdentifiers(processingResult, filename);
@@ -784,7 +778,6 @@ Extract and return JSON with ALL possible identifiers:
         index === self.findIndex(m => m.id === match.id)
       );
 
-      console.log(`Found ${uniqueMatches.length} potential customer matches`);
       return uniqueMatches;
       
     } catch (error) {
