@@ -1,9 +1,11 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Sun, Battery, Zap, Shield, ArrowRight, Phone, Mail, Calculator } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 const SolarSalesFunnelSection = () => {
   const [selectedFunnel, setSelectedFunnel] = useState<any>(null);
+  const { toast } = useToast();
 
   const salesFunnels = [
     {
@@ -91,7 +93,11 @@ const SolarSalesFunnelSection = () => {
           onClose();
         }
       } catch (error) {
-        toast.error('Failed to submit form. Please call us at 530-226-0701.');
+        toast({
+          title: "Error",
+          description: "Failed to submit form. Please call us at 530-226-0701.",
+          variant: "destructive"
+        });
       }
     };
 
