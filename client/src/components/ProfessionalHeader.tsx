@@ -115,31 +115,15 @@ const ProfessionalHeader = () => {
             }}
             className="text-white">Home</a>
           
-          {/* Services Dropdown */}
-          <div className="group relative">
-            <span style={{ 
-              color: '#ffffff !important', 
-              fontSize: '16px', 
-              fontWeight: '500', 
-              cursor: 'pointer',
-              textShadow: '0 2px 4px rgba(0,0,0,0.8)',
-              display: 'block'
-            }}>Services</span>
-            <div className="absolute top-full left-0 mt-2 w-64 py-2 bg-gray-900/95 backdrop-blur-xl border border-orange-500/30 rounded-lg shadow-xl invisible opacity-0 transition-all duration-200" style={{ display: 'none !important' }}>
-              {solarServices.map((service, index) => (
-                <Link
-                  key={index}
-                  href={service.href}
-                  className="block px-4 py-2 text-sm text-white hover:text-orange-300 hover:bg-gray-800/50 transition-all duration-200"
-                >
-                  <div>
-                    <div className="font-medium">{service.label}</div>
-                    <div className="text-xs text-gray-400">{service.description}</div>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </div>
+          {/* Services - Simple Link (Dropdown Completely Removed) */}
+          <a href="/residential-solar" style={{ 
+            color: '#ffffff !important', 
+            fontSize: '16px', 
+            fontWeight: '500', 
+            textDecoration: 'none',
+            textShadow: '0 2px 4px rgba(0,0,0,0.8)',
+            display: 'block'
+          }}>Services</a>
           
           <a href="/about" style={{ 
             color: '#ffffff !important', 

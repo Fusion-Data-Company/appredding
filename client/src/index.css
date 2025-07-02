@@ -223,6 +223,14 @@ div[class*="absolute"][class*="menu"],
   display: block !important;
 }
 
+/* COMPLETELY BLOCK HYBRID SYSTEMS ELEMENT */
+div[data-component-name="div"]:contains("Hybrid Systems"),
+*:contains("Hybrid Systems"):not(a):not(button) {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
 /* NUCLEAR VISIBILITY FIX - Ensure ALL text is readable */
 *:not(svg):not(path):not(circle):not(rect) {
   visibility: visible !important;
