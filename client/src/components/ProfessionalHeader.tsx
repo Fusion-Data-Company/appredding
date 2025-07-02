@@ -113,7 +113,7 @@ const ProfessionalHeader = () => {
               textShadow: '0 2px 4px rgba(0,0,0,0.8)',
               display: 'block'
             }}
-            className="text-[#c6cbd4]">Home</a>
+            className="text-white">Home</a>
           
           {/* Services Dropdown */}
           <div className="group relative">
@@ -149,7 +149,7 @@ const ProfessionalHeader = () => {
             textShadow: '0 2px 4px rgba(0,0,0,0.8)',
             display: 'block'
           }}>About</a>
-          <a href="#contact" style={{ 
+          <a href="/contact" style={{ 
             color: '#ffffff !important', 
             fontSize: '16px', 
             fontWeight: '500', 
@@ -209,7 +209,7 @@ const ProfessionalHeader = () => {
           <nav style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
             <a href="/" style={{ color: '#ffffff !important', fontSize: '16px', fontWeight: '500', textDecoration: 'none' }}>Home</a>
             <a href="/about" style={{ color: '#ffffff !important', fontSize: '16px', fontWeight: '500', textDecoration: 'none' }}>About</a>
-            <a href="#contact" style={{ color: '#ffffff !important', fontSize: '16px', fontWeight: '500', textDecoration: 'none' }}>Contact</a>
+            <a href="/contact" style={{ color: '#ffffff !important', fontSize: '16px', fontWeight: '500', textDecoration: 'none' }}>Contact</a>
           </nav>
         </div>
       )}
