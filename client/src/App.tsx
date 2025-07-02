@@ -39,6 +39,7 @@ import ClientDashboard from "@/pages/client-dashboard";
 import AdminDashboard from "@/pages/admin-dashboard";
 const About = lazy(() => import('./pages/About'));
 import Team from "@/pages/Team";
+import Contact from "@/pages/Contact";
 import CrmLogin from "@/pages/crm-login";
 import CrmDashboard from "@/pages/crm-dashboard";
 import CRMDashboard from "@/pages/CRMDashboardFixed";
@@ -127,6 +128,7 @@ function Router() {
         </Suspense>
       </Route>
       <Route path="/team" component={Team} />
+      <Route path="/contact" component={Contact} />
       <Route path="/technology">
         <Suspense fallback={<SuspenseFallback message="Loading Technology..." operationName="technology-page" />}>
           <Technology />
