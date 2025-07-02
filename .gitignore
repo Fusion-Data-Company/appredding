@@ -4,3 +4,10 @@ dist
 server/public
 vite.config.ts.*
 *.tar.gz
+
+# Production ignores
+temp_backup_*
+.env.production
+*.log
+emergency-build.js
+attached_assets/
