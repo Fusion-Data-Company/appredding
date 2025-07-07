@@ -42,6 +42,100 @@ button:has-text("Calculate Your Savings") {
   display: none !important;
 }
 
+/* Solar Hero Section Lighting Effects and Animations */
+.solar-panel-grid {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 1px;
+  padding: 4px;
+  z-index: 1;
+}
+
+.solar-panel-cell {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(147, 197, 253, 0.1) 100%);
+  border: 0.5px solid rgba(147, 197, 253, 0.3);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.solar-rays {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  overflow: hidden;
+  border-radius: inherit;
+}
+
+.solar-ray-animation {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+  animation: solarRotate 8s linear infinite;
+}
+
+.solar-ray {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2px;
+  height: 12px;
+  background: linear-gradient(to bottom, rgba(255, 107, 53, 0.8), transparent);
+  transform-origin: center bottom;
+  border-radius: 1px;
+}
+
+.shine-effect {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.2) 50%,
+    transparent 70%
+  );
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 3;
+}
+
+.button-primary:hover .shine-effect {
+  opacity: 1;
+  animation: shine 1.5s ease-out;
+}
+
+@keyframes solarRotate {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes shine {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Button Primary Styling for Solar Hero Section */
+.button-primary {
+  position: relative;
+  background: linear-gradient(135deg, #ff6b35 0%, #e55a2b 100%);
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(255, 107, 53, 0.3);
+}
+
+.button-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(255, 107, 53, 0.4);
+}
+
 @keyframes gradientShift {
   0% {
     background-position: 0% 50%;

@@ -44,15 +44,15 @@ Core Technologies:
 - ACCESSIBILITY_AUDIT_REPORT.md, PHASE_1_FINAL_REPORT.md
 
 ## Recent Changes  
-- **HERO SECTION REPLACED**: Created new high-converting Advance Power Redding solar hero
-- **Solar-Focused Design**: "SLASH YOUR ENERGY BILLS BY 70%" headline with local Redding focus
-- **Conversion Optimized**: Added trust indicators (500+ installations, 20+ years experience)
-- **Performance Enhanced**: Eager loading for hero image, optimized for Core Web Vitals
-- **Font Unification**: Applied consistent system fonts across entire site
-- **Professional Branding**: Orange (#ff6b35) and blue (#1a2332) color scheme for APR
-- **Responsive Design**: Mobile-first approach with stacked layout on small screens
-- **Call-to-Actions**: "Get Free Solar Quote" button only (removed broken Calculate Savings)
-- **Social Proof**: "$2.4M saved by Redding residents" ticker display
+- **HERO SECTION RESTORED**: Replaced HeroAPRSolar with original SolarHeroSection featuring:
+  - Animated lighting elements and solar ray effects
+  - Multiple floating solar panel visual elements with grid patterns
+  - Professional Advance Power Redding branding and messaging
+  - Solar panel grid animations with rotating ray effects
+  - Lighting and shine effects on interactive elements
+- **Visual Solar Elements**: Added CSS animations for solar panels, rays, and lighting effects
+- **Interactive Button Effects**: Solar ray animations and shine effects on hover
+- **Professional Branding**: Maintained orange (#ff6b35) and blue (#1a2332) APR color scheme
 - **CHAT WIDGET FIXED**: Replaced broken Watson chat with simple working chat solution
 - **VOICE SUPPORT UNIFIED**: Phone and chat buttons now in unified bottom-right toolbar
 - **WHY GO SOLAR VISIBILITY**: Added semi-transparent dark background (rgba(26, 35, 50, 0.85))
