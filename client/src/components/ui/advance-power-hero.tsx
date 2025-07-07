@@ -478,8 +478,8 @@ const AdvancePowerHero: React.FC = () => {
       {/* Main Content - Forced Down */}
       <div className="relative z-10 flex items-center h-full pt-32">
         <div className="container mx-auto px-4 pt-16">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left Column - Content */}
+          <div className="grid lg:grid-cols-3 gap-8 items-center">
+            {/* Left Column - Content - Spans 2 columns for width */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               animate={controls}
@@ -487,10 +487,10 @@ const AdvancePowerHero: React.FC = () => {
                 visible: { opacity: 1, x: 0 }
               }}
               transition={{ duration: 1, delay: 0.3 }}
-              className="text-white space-y-6"
+              className="text-white space-y-6 lg:col-span-2"
             >
               <motion.h1 
-                className="text-4xl md:text-6xl font-bold leading-tight"
+                className="text-3xl md:text-5xl lg:text-6xl font-bold leading-relaxed"
                 key={currentSlide}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
