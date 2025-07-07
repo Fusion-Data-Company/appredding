@@ -314,7 +314,7 @@ const ResidentialSolar = () => {
               <div className="absolute -inset-30 bg-yellow-700/5 rounded-xl blur-3xl opacity-30 z-0 animate-pulse-slow"></div>
               
               {/* Content card */}
-              <div className="relative z-20 rounded-2xl overflow-hidden p-8 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-yellow-700/30 shadow-lg">
+              <div className="relative z-20 rounded-2xl overflow-hidden p-8 bg-transparent border border-yellow-700/30 shadow-lg">
                 <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-yellow-200 to-yellow-300">
                   Professional Solar Technology Solutions
                 </h2>
@@ -323,15 +323,15 @@ const ResidentialSolar = () => {
                   <div>
                     <h3 className="text-2xl font-bold mb-6 text-yellow-300">Premium Equipment & Installation</h3>
                     <div className="space-y-4">
-                      <div className="bg-gradient-to-r from-yellow-900/20 to-yellow-800/20 p-4 rounded-lg border border-yellow-700/30">
+                      <div className="bg-yellow-500/10 p-4 rounded-lg border border-yellow-400/40">
                         <h4 className="font-semibold text-yellow-200 mb-2">Tier 1 Solar Panels</h4>
                         <p className="text-gray-300">High-efficiency monocrystalline panels with 25-year manufacturer warranties</p>
                       </div>
-                      <div className="bg-gradient-to-r from-yellow-900/20 to-yellow-800/20 p-4 rounded-lg border border-yellow-700/30">
+                      <div className="bg-yellow-500/10 p-4 rounded-lg border border-yellow-400/40">
                         <h4 className="font-semibold text-yellow-200 mb-2">Smart Inverter Technology</h4>
                         <p className="text-gray-300">Optimized power conversion with real-time monitoring capabilities</p>
                       </div>
-                      <div className="bg-gradient-to-r from-yellow-900/20 to-yellow-800/20 p-4 rounded-lg border border-yellow-700/30">
+                      <div className="bg-yellow-500/10 p-4 rounded-lg border border-yellow-400/40">
                         <h4 className="font-semibold text-yellow-200 mb-2">Professional Installation</h4>
                         <p className="text-gray-300">Licensed electricians with specialized solar training and certification</p>
                       </div>
@@ -341,15 +341,15 @@ const ResidentialSolar = () => {
                   <div>
                     <h3 className="text-2xl font-bold mb-6 text-yellow-300">Custom System Design</h3>
                     <div className="space-y-4">
-                      <div className="bg-gradient-to-r from-yellow-900/20 to-yellow-800/20 p-4 rounded-lg border border-yellow-700/30">
+                      <div className="bg-yellow-500/10 p-4 rounded-lg border border-yellow-400/40">
                         <h4 className="font-semibold text-yellow-200 mb-2">Site Assessment</h4>
                         <p className="text-gray-300">Comprehensive evaluation of roof condition, shading, and energy needs</p>
                       </div>
-                      <div className="bg-gradient-to-r from-yellow-900/20 to-yellow-800/20 p-4 rounded-lg border border-yellow-700/30">
+                      <div className="bg-yellow-500/10 p-4 rounded-lg border border-yellow-400/40">
                         <h4 className="font-semibold text-yellow-200 mb-2">Engineering Design</h4>
                         <p className="text-gray-300">Custom layouts optimized for maximum energy production and efficiency</p>
                       </div>
-                      <div className="bg-gradient-to-r from-yellow-900/20 to-yellow-800/20 p-4 rounded-lg border border-yellow-700/30">
+                      <div className="bg-yellow-500/10 p-4 rounded-lg border border-yellow-400/40">
                         <h4 className="font-semibold text-yellow-200 mb-2">Permitting & Inspections</h4>
                         <p className="text-gray-300">Complete handling of all local permits and required inspections</p>
                       </div>
@@ -357,7 +357,7 @@ const ResidentialSolar = () => {
                   </div>
                 </div>
                 
-                <div className="bg-gradient-to-r from-yellow-900/30 to-yellow-800/30 p-6 rounded-lg border border-yellow-700/40">
+                <div className="bg-yellow-500/15 p-6 rounded-lg border border-yellow-400/50">
                   <h3 className="text-xl font-bold text-yellow-200 mb-4 text-center">Why Choose Advance Power Redding?</h3>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div className="text-center">
