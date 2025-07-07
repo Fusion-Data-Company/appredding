@@ -3,7 +3,7 @@ import { GridBackground } from '@/components/ui/glowing-card';
 
 const PowerFlowSection: React.FC = () => {
   return (
-    <section className="py-16 bg-black">
+    <section className="py-16 bg-black mb-16">
       <div className="container mx-auto px-4">
         <GridBackground
           title=""
