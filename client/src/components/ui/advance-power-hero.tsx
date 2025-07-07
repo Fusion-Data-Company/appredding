@@ -435,7 +435,7 @@ const AdvancePowerHero: React.FC = () => {
           visible: { opacity: 1, y: 0 }
         }}
         transition={{ duration: 1, delay: 0.2 }}
-        className="absolute top-36 left-8 md:left-16 z-20 text-left"
+        className="absolute top-28 left-8 md:left-16 z-20 text-left"
       >
         {/* Ultra Premium Header Card */}
         <div className="relative group">
@@ -600,7 +600,7 @@ const AdvancePowerHero: React.FC = () => {
                   initial={{ opacity: 0, scale: 0.5 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.6, delay: 1.4 }}
-                  className="absolute -top-2 -right-4 bg-gradient-to-r from-yellow-400 to-orange-500 
+                  className="absolute -top-8 -right-2 bg-gradient-to-r from-yellow-400 to-orange-500 
                            text-black text-xs font-bold px-3 py-1 rounded-full
                            shadow-lg border border-white/20"
                 >
