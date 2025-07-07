@@ -1,7 +1,6 @@
 import React, { ReactNode } from 'react';
 import ProfessionalHeader from '@/components/ProfessionalHeader';
 import Footer from '@/components/Footer';
-import SimpleChatWidget from '@/components/SimpleChatWidget';
 import { cn } from '@/lib/utils';
 
 interface MainLayoutProps {
@@ -33,7 +32,6 @@ export default function MainLayout({ children, className, fullWidth = false }: M
       </main>
       
       <Footer />
-      <SimpleChatWidget />
     </div>
   );
 }

@@ -3401,19 +3401,7 @@ header a[href="/"] img {
     background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #3b82f6 100%);
   }
   
-  .voice-chat-glow {
-    box-shadow: 0 0 15px rgba(59, 130, 246, 0.5),
-                0 0 30px rgba(59, 130, 246, 0.2);
-    opacity: 0.7;
-    animation: voiceChatGlowPulse 3s ease-in-out infinite;
-  }
-  
-  .chat-glow {
-    box-shadow: 0 0 15px rgba(59, 130, 246, 0.5),
-                0 0 30px rgba(59, 130, 246, 0.2);
-    opacity: 0.7;
-    animation: chatGlowPulse 3.5s ease-in-out infinite;
-  }
+
   
   .premium-intro-glow {
     background: linear-gradient(135deg, rgba(30, 58, 138, 0.9) 0%, rgba(37, 99, 235, 0.8) 50%, rgba(59, 130, 246, 0.9) 100%);
@@ -3432,30 +3420,12 @@ header a[href="/"] img {
     }
   }
   
-  @keyframes voiceChatGlowPulse {
-    0%, 100% {
-      opacity: 0.3;
-    }
-    50% {
-      opacity: 0.7;
-    }
-  }
-  
   @keyframes introGlowPulse {
     0%, 100% {
       opacity: 0.3;
     }
     50% {
       opacity: 0.8;
-    }
-  }
-  
-  @keyframes chatGlowPulse {
-    0%, 100% {
-      opacity: 0.3;
-    }
-    50% {
-      opacity: 0.7;
     }
   }
   
