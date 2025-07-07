@@ -437,41 +437,178 @@ const AdvancePowerHero: React.FC = () => {
         transition={{ duration: 1, delay: 0.2 }}
         className="absolute top-36 left-8 md:left-16 z-20 text-left"
       >
-        {/* Elite Background Card */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={controls}
-          variants={{
-            visible: { opacity: 1, scale: 1 }
-          }}
-          transition={{ duration: 1.2, delay: 0.4 }}
-          className="absolute inset-0 -inset-4 bg-gradient-to-br from-black/20 via-blue-900/10 to-purple-900/20 backdrop-blur-sm border border-yellow-400/20 rounded-2xl shadow-2xl"
-          style={{
-            boxShadow: '0 0 50px rgba(251, 191, 36, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1)'
-          }}
-        />
-        
-        {/* Content */}
-        <div className="relative z-10 p-6">
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-2 tracking-wider">
-            <span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent drop-shadow-lg">
-              ADVANCE POWER
-            </span>
-          </h1>
-          <h2 className="text-lg md:text-2xl lg:text-3xl font-light text-yellow-200 tracking-widest">
-            OF REDDING
-          </h2>
+        {/* Ultra Premium Header Card */}
+        <div className="relative group">
+          {/* Animated Glow Background */}
+          <motion.div 
+            className="absolute -inset-2 bg-gradient-to-r from-orange-500 via-yellow-400 to-orange-500 
+                       rounded-3xl blur-lg opacity-30 group-hover:opacity-60"
+            animate={{ 
+              backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+            }}
+            transition={{ 
+              duration: 4, 
+              repeat: Infinity, 
+              ease: "linear" 
+            }}
+            style={{ backgroundSize: '200% 200%' }}
+          />
           
-          {/* Elite Accent Line */}
+          {/* Main Card Container */}
           <motion.div
-            initial={{ width: 0 }}
+            initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={controls}
             variants={{
-              visible: { width: "100%" }
+              visible: { opacity: 1, scale: 1, y: 0 }
             }}
-            transition={{ duration: 1.5, delay: 0.8 }}
-            className="h-0.5 bg-gradient-to-r from-yellow-400 to-orange-500 mt-3 rounded-full"
-          />
+            transition={{ 
+              duration: 1.2, 
+              delay: 0.4,
+              type: "spring",
+              stiffness: 100,
+              damping: 20
+            }}
+            className="relative backdrop-blur-xl bg-gradient-to-br from-slate-900/95 via-blue-950/90 to-slate-900/95 
+                       rounded-3xl border-2 border-white/30 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.8)]
+                       p-10 overflow-hidden"
+          >
+            
+            {/* Animated Mesh Background */}
+            <div className="absolute inset-0 opacity-20">
+              <motion.div 
+                className="absolute inset-0 bg-gradient-to-r from-orange-500/20 via-transparent to-blue-500/20"
+                animate={{ opacity: [0.2, 0.4, 0.2] }}
+                transition={{ duration: 3, repeat: Infinity }}
+              />
+              <div className="absolute top-0 left-0 w-full h-full 
+                             bg-[radial-gradient(circle_at_25%_25%,_rgba(249,115,22,0.15),transparent_50%),
+                                 radial-gradient(circle_at_75%_75%,_rgba(59,130,246,0.15),transparent_50%)]" />
+            </div>
+            
+            {/* Floating Particles */}
+            <div className="absolute inset-0 overflow-hidden">
+              {[...Array(6)].map((_, i) => (
+                <motion.div
+                  key={i}
+                  className="absolute w-2 h-2 bg-gradient-to-r from-orange-400 to-yellow-400 rounded-full opacity-60"
+                  style={{
+                    left: `${20 + (i * 12)}%`,
+                    top: `${30 + (i * 8)}%`,
+                  }}
+                  animate={{
+                    y: [-10, 10, -10],
+                    opacity: [0.4, 0.8, 0.4],
+                    scale: [0.8, 1.2, 0.8],
+                  }}
+                  transition={{
+                    duration: 3 + (i * 0.5),
+                    repeat: Infinity,
+                    delay: i * 0.3,
+                  }}
+                />
+              ))}
+            </div>
+            
+            {/* Company Header with Enhanced Logo */}
+            <div className="relative flex items-center gap-6">
+              {/* Premium Logo Container */}
+              <motion.div
+                initial={{ rotate: -10, scale: 0.8 }}
+                animate={{ rotate: 0, scale: 1 }}
+                transition={{ duration: 1, delay: 0.6 }}
+                className="relative"
+              >
+                <div className="w-20 h-20 bg-gradient-to-br from-orange-400 via-orange-500 to-orange-600 
+                               rounded-2xl flex items-center justify-center shadow-2xl
+                               border-2 border-white/20 relative overflow-hidden group-hover:scale-105 transition-transform duration-300">
+                  
+                  {/* Logo Shine Effect */}
+                  <motion.div 
+                    className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent 
+                               transform rotate-45"
+                    animate={{ x: ['-200%', '200%'] }}
+                    transition={{ duration: 3, repeat: Infinity, delay: 2 }}
+                  />
+                  
+                  {/* Solar Panel Icon */}
+                  <div className="relative z-10">
+                    <div className="grid grid-cols-2 gap-1">
+                      {[...Array(4)].map((_, i) => (
+                        <motion.div
+                          key={i}
+                          className="w-3 h-3 bg-white/90 rounded-sm"
+                          animate={{ opacity: [0.7, 1, 0.7] }}
+                          transition={{ duration: 2, delay: i * 0.2, repeat: Infinity }}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Orbiting Ring */}
+                <motion.div
+                  className="absolute inset-0 rounded-2xl border-2 border-orange-300/50"
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+                />
+              </motion.div>
+              
+              {/* Enhanced Typography */}
+              <div className="relative">
+                <motion.h1 
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8, delay: 0.7 }}
+                  className="text-4xl md:text-5xl font-black text-transparent bg-clip-text 
+                           bg-gradient-to-r from-white via-orange-200 to-white
+                           tracking-wider leading-tight drop-shadow-lg"
+                  style={{ 
+                    fontFamily: "'Orbitron', 'Space Grotesk', 'Inter', sans-serif",
+                    textShadow: '0 0 20px rgba(249,115,22,0.5)'
+                  }}
+                >
+                  ADVANCE POWER
+                </motion.h1>
+                
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8, delay: 0.9 }}
+                  className="relative"
+                >
+                  <h2 className="text-xl md:text-2xl font-bold text-transparent bg-clip-text 
+                               bg-gradient-to-r from-orange-300 via-yellow-300 to-orange-300
+                               tracking-[0.3em]"
+                     style={{ 
+                       fontFamily: "'Orbitron', 'Space Grotesk', 'Inter', sans-serif",
+                       textShadow: '0 0 15px rgba(251,191,36,0.4)'
+                     }}>
+                    OF REDDING
+                  </h2>
+                  
+                  {/* Animated Underline */}
+                  <motion.div
+                    className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-orange-400 to-yellow-400"
+                    initial={{ width: 0 }}
+                    animate={{ width: "100%" }}
+                    transition={{ duration: 1, delay: 1.2 }}
+                  />
+                </motion.div>
+                
+                {/* Premium Badge */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.6, delay: 1.4 }}
+                  className="absolute -top-2 -right-4 bg-gradient-to-r from-yellow-400 to-orange-500 
+                           text-black text-xs font-bold px-3 py-1 rounded-full
+                           shadow-lg border border-white/20"
+                >
+                  PREMIUM SOLAR
+                </motion.div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </motion.div>
 
