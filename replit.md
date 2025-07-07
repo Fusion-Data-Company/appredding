@@ -44,6 +44,18 @@ Core Technologies:
 - ACCESSIBILITY_AUDIT_REPORT.md, PHASE_1_FINAL_REPORT.md
 
 ## Recent Changes  
+- **TECHNICAL DATA PAGE CREATED**: New dedicated Technical Data page to house all technical specifications and engineering resources
+  - Created /technical-data route with TechnicalData.tsx component
+  - Added Technical Data tab to main navigation header and mobile menu
+  - Moved SpecificationsSection, TroubleshootingSection, PowerFlowSection, EnergyStorageSection, InteractiveToolsSection from main page
+  - Main page significantly shortened and more focused on core messaging
+  - Technical Data page features professional hero section with quick navigation cards
+  - Organized technical content for educational and engaging experience
+- **ELEVENLABS VOICE WIDGET ADDED**: Integrated ElevenLabs voice AI assistant in bottom right corner
+  - Added elevenlabs-convai component to MainLayout.tsx
+  - Widget automatically positions itself in bottom right corner with native styling
+  - ElevenLabs script already loaded in index.html with custom styling
+  - Voice agent replaces previous chat widgets with advanced AI capabilities
 - **HELP AGENTS COMPLETELY REMOVED**: Eliminated all floating chat widgets and help agents from bottom right corner
   - Deleted SimpleChatWidget.tsx component completely
   - Removed all imports and references to SimpleChatWidget from MainLayout.tsx

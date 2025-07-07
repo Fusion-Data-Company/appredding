@@ -124,6 +124,14 @@ const ProfessionalHeader = () => {
             display: 'block'
           }}>Services</a>
           
+          <a href="/technical-data" style={{ 
+            color: '#ffffff !important', 
+            fontSize: '16px', 
+            fontWeight: '500', 
+            textDecoration: 'none',
+            textShadow: '0 2px 4px rgba(0,0,0,0.8)',
+            display: 'block'
+          }}>Technical Data</a>
           <a href="/about" style={{ 
             color: '#ffffff !important', 
             fontSize: '16px', 
@@ -191,6 +199,8 @@ const ProfessionalHeader = () => {
         }}>
           <nav style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
             <a href="/" style={{ color: '#ffffff !important', fontSize: '16px', fontWeight: '500', textDecoration: 'none' }}>Home</a>
+            <a href="/residential-solar" style={{ color: '#ffffff !important', fontSize: '16px', fontWeight: '500', textDecoration: 'none' }}>Services</a>
+            <a href="/technical-data" style={{ color: '#ffffff !important', fontSize: '16px', fontWeight: '500', textDecoration: 'none' }}>Technical Data</a>
             <a href="/about" style={{ color: '#ffffff !important', fontSize: '16px', fontWeight: '500', textDecoration: 'none' }}>About</a>
             <a href="/contact" style={{ color: '#ffffff !important', fontSize: '16px', fontWeight: '500', textDecoration: 'none' }}>Contact</a>
           </nav>

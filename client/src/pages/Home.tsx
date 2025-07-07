@@ -7,12 +7,8 @@ const LazySection = lazy(() => import("@/components/ui/lazy-section").then(m => 
 const PowerFlowSection = lazy(() => import("@/sections/PowerFlowSection"));
 const ProductShowcaseSection = lazy(() => import("@/sections/ProductShowcaseSection"));
 const SolarSalesFunnelSection = lazy(() => import("@/sections/SolarSalesFunnelSection"));
-const InteractiveToolsSection = lazy(() => import("@/sections/InteractiveToolsSection").then(m => ({ default: m.InteractiveToolsSection })));
 const SolarServicesSection = lazy(() => import("@/sections/SolarServicesSection"));
 const AboutAdvancePowerSection = lazy(() => import("@/sections/AboutAdvancePowerSection"));
-const EnergyStorageSection = lazy(() => import("@/sections/EnergyStorageSection"));
-const TroubleshootingSection = lazy(() => import("@/sections/TroubleshootingSection"));
-const SpecificationsSection = lazy(() => import("@/sections/SpecificationsSection"));
 const FAQSection = lazy(() => import("@/sections/FAQSection"));
 const SolarTestimonialsSection = lazy(() => import("@/sections/SolarTestimonialsSection"));
 const ContactSection = lazy(() => import("@/sections/ContactSection"));
@@ -42,11 +38,7 @@ const Home = () => {
           </LazySection>
         </Suspense>
         
-        <Suspense fallback={<div className="h-[600px] bg-gray-100 animate-pulse rounded-lg" />}>
-          <LazySection className="min-h-[600px]">
-            <InteractiveToolsSection />
-          </LazySection>
-        </Suspense>
+
         
         <Suspense fallback={<div className="h-[400px] bg-gray-100 animate-pulse rounded-lg" />}>
           <LazySection className="min-h-[400px]">
@@ -54,23 +46,9 @@ const Home = () => {
           </LazySection>
         </Suspense>
         
-        <Suspense fallback={<div className="h-[500px] bg-gray-100 animate-pulse rounded-lg" />}>
-          <LazySection className="min-h-[500px]">
-            <EnergyStorageSection />
-          </LazySection>
-        </Suspense>
+
         
-        <Suspense fallback={<div className="h-[400px] bg-gray-100 animate-pulse rounded-lg" />}>
-          <LazySection className="min-h-[400px]">
-            <SpecificationsSection />
-          </LazySection>
-        </Suspense>
-        
-        <Suspense fallback={<div className="h-[400px] bg-gray-100 animate-pulse rounded-lg" />}>
-          <LazySection className="min-h-[400px]">
-            <TroubleshootingSection />
-          </LazySection>
-        </Suspense>
+
         
         <Suspense fallback={<div className="h-[300px] bg-gray-100 animate-pulse rounded-lg" />}>
           <LazySection className="min-h-[300px]">

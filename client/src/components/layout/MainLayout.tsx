@@ -32,6 +32,9 @@ export default function MainLayout({ children, className, fullWidth = false }: M
       </main>
       
       <Footer />
+      
+      {/* ElevenLabs Voice Widget */}
+      <elevenlabs-convai agent-id="your-agent-id"></elevenlabs-convai>
     </div>
   );
 }
