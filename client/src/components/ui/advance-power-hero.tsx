@@ -486,7 +486,7 @@ const AdvancePowerHero: React.FC = () => {
             </div>
             
             {/* Floating Particles */}
-            <div className="absolute top-0 left-0 w-full h-2/3 overflow-hidden pointer-events-none">
+            <div className="absolute top-0 left-0 w-1/3 h-1/3 overflow-hidden pointer-events-none">
               {[...Array(6)].map((_, i) => (
                 <motion.div
                   key={i}
