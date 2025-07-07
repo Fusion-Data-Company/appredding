@@ -427,6 +427,26 @@ const AdvancePowerHero: React.FC = () => {
         </motion.div>
       </div>
 
+      {/* Company Header */}
+      <motion.div
+        initial={{ opacity: 0, y: -30 }}
+        animate={controls}
+        variants={{
+          visible: { opacity: 1, y: 0 }
+        }}
+        transition={{ duration: 1, delay: 0.2 }}
+        className="absolute top-8 left-1/2 transform -translate-x-1/2 z-20 text-center"
+      >
+        <h1 className="text-5xl md:text-7xl font-bold text-white mb-2 tracking-wider">
+          <span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">
+            ADVANCE POWER
+          </span>
+        </h1>
+        <h2 className="text-2xl md:text-4xl font-light text-yellow-200 tracking-widest">
+          OF REDDING
+        </h2>
+      </motion.div>
+
       {/* Main Content */}
       <div className="relative z-10 flex items-center h-full">
         <div className="container mx-auto px-4 py-20">
