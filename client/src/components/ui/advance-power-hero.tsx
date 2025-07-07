@@ -485,29 +485,7 @@ const AdvancePowerHero: React.FC = () => {
                                  radial-gradient(circle_at_75%_75%,_rgba(59,130,246,0.15),transparent_50%)]" />
             </div>
             
-            {/* Floating Particles */}
-            <div className="absolute top-0 left-0 w-1/3 h-1/3 overflow-hidden pointer-events-none">
-              {[...Array(6)].map((_, i) => (
-                <motion.div
-                  key={i}
-                  className="absolute w-2 h-2 bg-gradient-to-r from-orange-400 to-yellow-400 rounded-full opacity-60"
-                  style={{
-                    left: `${20 + (i * 12)}%`,
-                    top: `${30 + (i * 8)}%`,
-                  }}
-                  animate={{
-                    y: [-10, 10, -10],
-                    opacity: [0.4, 0.8, 0.4],
-                    scale: [0.8, 1.2, 0.8],
-                  }}
-                  transition={{
-                    duration: 3 + (i * 0.5),
-                    repeat: Infinity,
-                    delay: i * 0.3,
-                  }}
-                />
-              ))}
-            </div>
+
             
             {/* Company Header with Enhanced Logo */}
             <div className="relative flex items-center gap-6">
