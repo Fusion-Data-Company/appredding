@@ -366,8 +366,8 @@ const AdvancePowerHero: React.FC = () => {
       {/* Particle System */}
       <ParticleSystem isActive={isAnimationActive} />
 
-      {/* Solar Animation - Moved to Middle of Page */}
-      <div className="absolute top-1/2 left-8 md:left-16 transform -translate-y-1/2">
+      {/* Solar Animation - Forced Down */}
+      <div className="absolute top-1/2 left-8 md:left-16 transform translate-y-12">
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={controls}
@@ -435,7 +435,7 @@ const AdvancePowerHero: React.FC = () => {
           visible: { opacity: 1, y: 0 }
         }}
         transition={{ duration: 1, delay: 0.2 }}
-        className="absolute top-32 left-8 md:left-16 z-20 text-left"
+        className="absolute top-44 left-8 md:left-16 z-20 text-left"
       >
         {/* Elite Background Card */}
         <motion.div
@@ -475,9 +475,9 @@ const AdvancePowerHero: React.FC = () => {
         </div>
       </motion.div>
 
-      {/* Main Content - Moved down slightly */}
-      <div className="relative z-10 flex items-center h-full pt-16">
-        <div className="container mx-auto px-4 py-24">
+      {/* Main Content - Forced Down */}
+      <div className="relative z-10 flex items-center h-full pt-32">
+        <div className="container mx-auto px-4 pt-16">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Column - Content */}
             <motion.div
@@ -597,7 +597,7 @@ const AdvancePowerHero: React.FC = () => {
         </div>
       </div>
 
-      {/* Animation Control */}
+      {/* Animation Control - Forced Down */}
       <motion.button
         initial={{ opacity: 0 }}
         animate={controls}
@@ -606,7 +606,7 @@ const AdvancePowerHero: React.FC = () => {
         }}
         transition={{ duration: 1, delay: 1.2 }}
         onClick={() => setIsAnimationActive(!isAnimationActive)}
-        className="absolute top-4 right-4 z-20 p-3 bg-white/10 backdrop-blur-sm rounded-full text-white hover:bg-white/20 transition-colors"
+        className="absolute top-16 right-4 z-20 p-3 bg-white/10 backdrop-blur-sm rounded-full text-white hover:bg-white/20 transition-colors"
         aria-label={isAnimationActive ? "Pause animation" : "Play animation"}
       >
         {isAnimationActive ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5" />}
