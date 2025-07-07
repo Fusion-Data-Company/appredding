@@ -4,6 +4,7 @@ import { HeroOdyssey } from "@/components/ui/hero-odyssey-original";
 
 // Lazy load all non-critical sections
 const LazySection = lazy(() => import("@/components/ui/lazy-section").then(m => ({ default: m.LazySection })));
+const PowerFlowSection = lazy(() => import("@/sections/PowerFlowSection"));
 const ProductShowcaseSection = lazy(() => import("@/sections/ProductShowcaseSection"));
 const SolarSalesFunnelSection = lazy(() => import("@/sections/SolarSalesFunnelSection"));
 const InteractiveToolsSection = lazy(() => import("@/sections/InteractiveToolsSection").then(m => ({ default: m.InteractiveToolsSection })));
@@ -22,6 +23,12 @@ const Home = () => {
     <MainLayout fullWidth>
       <div className="flex-1 flex flex-col">
         <HeroOdyssey />
+        
+        <Suspense fallback={<div className="h-[400px] bg-gray-100 animate-pulse rounded-lg" />}>
+          <LazySection className="min-h-[400px]">
+            <PowerFlowSection />
+          </LazySection>
+        </Suspense>
         
         <Suspense fallback={<div className="h-[400px] bg-gray-100 animate-pulse rounded-lg" />}>
           <LazySection className="min-h-[400px]">
