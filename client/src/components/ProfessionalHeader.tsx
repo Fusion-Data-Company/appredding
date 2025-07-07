@@ -89,7 +89,7 @@ const ProfessionalHeader = () => {
         display: 'flex', 
         justifyContent: 'space-between', 
         alignItems: 'center', 
-        padding: '12px 48px' 
+        padding: '20px 48px' 
       }}>
         {/* Logo */}
         <Link href="/" style={{ display: 'flex', alignItems: 'center' }}>
