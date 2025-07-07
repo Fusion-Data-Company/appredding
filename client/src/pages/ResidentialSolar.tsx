@@ -305,7 +305,7 @@ const ResidentialSolar = () => {
         </section>
 
         {/* SANDLER STAGE 2: TECHNICAL - YELLOW GLOW SECTION - Solution Details */}
-        <section className="relative z-10 py-12 overflow-hidden">
+        <section className="relative z-10 pt-20 pb-12 overflow-hidden">
           <div className="container mx-auto mb-16">
             <div className="relative">
               {/* Enhanced Yellow glow effect with multi-layer glow */}
