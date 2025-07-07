@@ -366,8 +366,8 @@ const AdvancePowerHero: React.FC = () => {
       {/* Particle System */}
       <ParticleSystem isActive={isAnimationActive} />
 
-      {/* Solar Animation - Moved to Far Left */}
-      <div className="absolute top-80 left-8 md:left-16">
+      {/* Solar Animation - Moved to Middle of Page */}
+      <div className="absolute top-1/2 left-8 md:left-16 transform -translate-y-1/2">
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={controls}
@@ -435,7 +435,7 @@ const AdvancePowerHero: React.FC = () => {
           visible: { opacity: 1, y: 0 }
         }}
         transition={{ duration: 1, delay: 0.2 }}
-        className="absolute top-20 left-8 md:left-16 z-20 text-left"
+        className="absolute top-32 left-8 md:left-16 z-20 text-left"
       >
         {/* Elite Background Card */}
         <motion.div
