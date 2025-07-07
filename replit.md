@@ -56,6 +56,11 @@ Core Technologies:
   - Widget automatically positions itself in bottom right corner with native styling
   - ElevenLabs script already loaded in index.html with custom styling
   - Voice agent replaces previous chat widgets with advanced AI capabilities
+- **REPLIT METADATA BADGE FIXED**: Resolved Replit development badges blocking hero section text
+  - Added comprehensive CSS rules to hide all Replit metadata badges and overlays
+  - Enhanced hero text styling with backdrop protection and improved visibility
+  - Applied hero-main-title and hero-subtitle classes for better text presentation
+  - Fixed "Professional Installation & Maintenance" text visibility issue
 - **HELP AGENTS COMPLETELY REMOVED**: Eliminated all floating chat widgets and help agents from bottom right corner
   - Deleted SimpleChatWidget.tsx component completely
   - Removed all imports and references to SimpleChatWidget from MainLayout.tsx

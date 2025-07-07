@@ -342,7 +342,7 @@ const AdvancePowerHero: React.FC = () => {
   }
 
   return (
-    <div ref={heroRef} className="relative h-[calc(100vh-6rem)] md:h-[calc(100vh-5rem)] overflow-hidden bg-gradient-to-br from-blue-900 via-blue-800 to-purple-900">
+    <div ref={heroRef} className="hero-section relative h-[calc(100vh-6rem)] md:h-[calc(100vh-5rem)] overflow-hidden bg-gradient-to-br from-blue-900 via-blue-800 to-purple-900">
       {/* Background Image Slider */}
       <div className="absolute inset-0">
         {slides.map((slide, index) => (
@@ -627,7 +627,7 @@ const AdvancePowerHero: React.FC = () => {
               className="text-white space-y-6 lg:col-span-2"
             >
               <motion.h1 
-                className="text-3xl md:text-5xl lg:text-6xl font-bold leading-relaxed"
+                className="text-3xl md:text-5xl lg:text-6xl font-bold leading-relaxed hero-main-title"
                 key={currentSlide}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -637,7 +637,7 @@ const AdvancePowerHero: React.FC = () => {
               </motion.h1>
               
               <motion.p 
-                className="text-xl md:text-2xl text-blue-100"
+                className="text-xl md:text-2xl text-blue-100 hero-subtitle"
                 key={`subtitle-${currentSlide}`}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
