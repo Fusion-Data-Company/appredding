@@ -1,6 +1,6 @@
 import { lazy, Suspense } from "react";
 import MainLayout from "@/components/layout/MainLayout";
-import { HeroOdyssey } from "@/components/ui/hero-odyssey";
+import { HeroAPRSolar } from "@/components/ui/hero-apr-solar";
 
 // Lazy load all non-critical sections
 const LazySection = lazy(() => import("@/components/ui/lazy-section").then(m => ({ default: m.LazySection })));
@@ -21,7 +21,7 @@ const Home = () => {
   return (
     <MainLayout fullWidth>
       <div className="flex-1 flex flex-col">
-        <HeroOdyssey />
+        <HeroAPRSolar />
         
         <Suspense fallback={<div className="h-[400px] bg-gray-100 animate-pulse rounded-lg" />}>
           <LazySection className="min-h-[400px]">
