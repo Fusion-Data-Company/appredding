@@ -56,6 +56,10 @@ Core Technologies:
   - Widget automatically positions itself in bottom right corner with native styling
   - ElevenLabs script already loaded in index.html with custom styling
   - Voice agent replaces previous chat widgets with advanced AI capabilities
+- **DUPLICATE CONTENT CLEANUP**: Removed PowerFlowSection from Home page to prevent duplication
+  - PowerFlowSection now exclusively on Technical Data page for better organization
+  - Home page streamlined with no technical duplicates
+  - Clean separation between marketing (Home) and technical content (Technical Data)
 - **HELP AGENTS COMPLETELY REMOVED**: Eliminated all floating chat widgets and help agents from bottom right corner
   - Deleted SimpleChatWidget.tsx component completely
   - Removed all imports and references to SimpleChatWidget from MainLayout.tsx

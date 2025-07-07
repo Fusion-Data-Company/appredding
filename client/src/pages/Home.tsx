@@ -4,7 +4,7 @@ import AdvancePowerHero from "@/components/ui/advance-power-hero";
 
 // Lazy load all non-critical sections
 const LazySection = lazy(() => import("@/components/ui/lazy-section").then(m => ({ default: m.LazySection })));
-const PowerFlowSection = lazy(() => import("@/sections/PowerFlowSection"));
+
 const ProductShowcaseSection = lazy(() => import("@/sections/ProductShowcaseSection"));
 const SolarSalesFunnelSection = lazy(() => import("@/sections/SolarSalesFunnelSection"));
 const SolarServicesSection = lazy(() => import("@/sections/SolarServicesSection"));
@@ -22,12 +22,6 @@ const Home = () => {
         
         <Suspense fallback={<div className="h-[400px] bg-gray-100 animate-pulse rounded-lg" />}>
           <LazySection className="min-h-[400px]">
-            <PowerFlowSection />
-          </LazySection>
-        </Suspense>
-        
-        <Suspense fallback={<div className="h-[400px] bg-gray-100 animate-pulse rounded-lg" />}>
-          <LazySection className="min-h-[400px]">
             <ProductShowcaseSection />
           </LazySection>
         </Suspense>
@@ -38,17 +32,11 @@ const Home = () => {
           </LazySection>
         </Suspense>
         
-
-        
         <Suspense fallback={<div className="h-[400px] bg-gray-100 animate-pulse rounded-lg" />}>
           <LazySection className="min-h-[400px]">
             <SolarServicesSection />
           </LazySection>
         </Suspense>
-        
-
-        
-
         
         <Suspense fallback={<div className="h-[300px] bg-gray-100 animate-pulse rounded-lg" />}>
           <LazySection className="min-h-[300px]">
