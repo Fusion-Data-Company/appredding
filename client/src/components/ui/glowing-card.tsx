@@ -19,7 +19,7 @@ export function GridBackground({
   return (
     <div 
       className={cn(
-        'px-10 py-20 rounded-md relative mx-18 flex items-center justify-center',
+        'px-10 py-32 rounded-md relative mx-18 flex items-center justify-center',
         className
       )}
       style={{
@@ -32,12 +32,9 @@ export function GridBackground({
       }}
     >
       <div 
-        className="w-3 h-3 rounded-full absolute shadow-[0_0_15px] shadow-current z-10 bg-current"
+        className="w-3 h-3 rounded-full absolute shadow-[0_0_15px] shadow-[#22c55e] z-10 bg-[#22c55e]"
         style={{
-          animation: `
-            border-follow 6s linear infinite,
-            color-change 6s linear infinite
-          `
+          animation: `border-follow 6s linear infinite`
         }}
       />
       <div 
