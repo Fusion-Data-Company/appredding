@@ -51,11 +51,16 @@ const PitchDeckTrigger: React.FC<PitchDeckTriggerProps> = ({
       >
         <button
           onClick={openModal}
-          className="btn-unified btn-success text-white font-bold py-4 px-6 rounded-2xl"
+          className="text-white font-bold py-4 px-8 rounded-xl shadow-2xl transition-all duration-300 hover:scale-105 hover:shadow-3xl"
+          style={{
+            background: 'rgba(26, 35, 50, 0.85)',
+            backdropFilter: 'blur(10px)',
+            border: '1px solid rgba(255, 255, 255, 0.1)'
+          }}
         >
-          <div className="flex items-center gap-2">
-            <Sun className="h-5 w-5 text-white" />
-            <span className="text-sm font-bold tracking-wide">
+          <div className="flex items-center gap-3">
+            <Sun className="h-6 w-6 text-[#ff6b35]" />
+            <span className="text-lg font-bold tracking-wide">
               Why Go Solar?
             </span>
           </div>

@@ -51,8 +51,13 @@ Core Technologies:
 - **Font Unification**: Applied consistent system fonts across entire site
 - **Professional Branding**: Orange (#ff6b35) and blue (#1a2332) color scheme for APR
 - **Responsive Design**: Mobile-first approach with stacked layout on small screens
-- **Call-to-Actions**: "Get Free Solar Quote" and "Calculate Your Savings" buttons
+- **Call-to-Actions**: "Get Free Solar Quote" button only (removed broken Calculate Savings)
 - **Social Proof**: "$2.4M saved by Redding residents" ticker display
+- **CHAT WIDGET FIXED**: Replaced broken Watson chat with simple working chat solution
+- **VOICE SUPPORT UNIFIED**: Phone and chat buttons now in unified bottom-right toolbar
+- **WHY GO SOLAR VISIBILITY**: Added semi-transparent dark background (rgba(26, 35, 50, 0.85))
+- **BROKEN BUTTON REMOVED**: Eliminated non-functional "Calculate Your Savings" button
+- **HEADER WHITE SPACE FIXED**: Added CSS to ensure header touches top of viewport
 - **UNIFIED STYLING SYSTEM COMPLETE**: Resolved all button inconsistencies across platform
 - **Root Cause Fixed**: Disabled conflicting `button-primary` CSS from elite-styling.css causing glass effects
 - **Clean Button Implementation**: Removed all decorative elements (solar grids, rays, shine effects)

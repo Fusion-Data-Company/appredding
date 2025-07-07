@@ -92,13 +92,6 @@ export const HeroAPRSolar: React.FC<HeroAPRSolarProps> = ({ className = "" }) =>
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
               </Link>
-              
-              <Link href="/solar-tools" className="group">
-                <button className="w-full sm:w-auto px-8 py-4 bg-transparent text-white font-bold text-lg rounded-md border-2 border-white hover:bg-white hover:text-[#1a2332] transition-all duration-300 flex items-center justify-center">
-                  Calculate Your Savings
-                  <DollarSign className="ml-2 w-5 h-5" />
-                </button>
-              </Link>
             </motion.div>
           </motion.div>
           

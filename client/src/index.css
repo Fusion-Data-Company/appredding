@@ -17,6 +17,31 @@ html * {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Fix header white space - ensure header touches top */
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden;
+}
+
+body {
+  padding-top: 0 !important;
+}
+
+/* Ensure all header elements have no top margin */
+header, nav, .navbar, .header, [class*="header"], [class*="nav"] {
+  margin-top: 0 !important;
+  top: 0 !important;
+}
+
+/* Hide broken Calculate Savings buttons */
+a[href="/solar-tools"],
+a[href*="calculator"],
+a[href*="savings"]:has-text("Calculate"),
+button:has-text("Calculate Your Savings") {
+  display: none !important;
+}
+
 @keyframes gradientShift {
   0% {
     background-position: 0% 50%;
