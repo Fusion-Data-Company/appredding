@@ -435,7 +435,7 @@ const AdvancePowerHero: React.FC = () => {
           visible: { opacity: 1, y: 0 }
         }}
         transition={{ duration: 1, delay: 0.2 }}
-        className="absolute top-8 left-1/2 transform -translate-x-1/2 z-20 text-center"
+        className="absolute top-20 left-1/2 transform -translate-x-1/2 z-20 text-center"
       >
         <h1 className="text-5xl md:text-7xl font-bold text-white mb-2 tracking-wider">
           <span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">
