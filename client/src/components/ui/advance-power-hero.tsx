@@ -342,7 +342,7 @@ const AdvancePowerHero: React.FC = () => {
   }
 
   return (
-    <div ref={heroRef} className="relative h-[calc(100vh-6rem)] md:h-[calc(100vh-5rem)] overflow-hidden bg-gradient-to-br from-blue-900 via-blue-800 to-purple-900">
+    <div ref={heroRef} className="relative h-[calc(100vh-12rem)] md:h-[calc(100vh-10rem)] overflow-hidden bg-gradient-to-br from-blue-900 via-blue-800 to-purple-900">
       {/* Background Image Slider */}
       <div className="absolute inset-0">
         {slides.map((slide, index) => (

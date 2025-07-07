@@ -21,7 +21,7 @@ const PitchDeckTrigger = lazy(() => import("@/components/PitchDeck/PitchDeckTrig
 const Home = () => {
   return (
     <MainLayout fullWidth>
-      <div className="flex-1 flex flex-col -mt-24 md:-mt-20">
+      <div className="flex-1 flex flex-col -mt-48 md:-mt-40">
         <AdvancePowerHero />
         
         <Suspense fallback={<div className="h-[400px] bg-gray-100 animate-pulse rounded-lg" />}>
