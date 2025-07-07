@@ -89,14 +89,14 @@ const ProfessionalHeader = () => {
         display: 'flex', 
         justifyContent: 'space-between', 
         alignItems: 'center', 
-        padding: '60px 16px' 
+        padding: '12px 16px' 
       }}>
         {/* Logo */}
         <Link href="/" style={{ display: 'flex', alignItems: 'center' }}>
           <img 
             src={advancePowerLogo} 
             alt="Advance Power Redding" 
-            style={{ height: '120px', width: 'auto' }}
+            style={{ height: '48px', width: 'auto' }}
           />
         </Link>
         
