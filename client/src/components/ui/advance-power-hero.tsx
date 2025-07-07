@@ -435,7 +435,7 @@ const AdvancePowerHero: React.FC = () => {
           visible: { opacity: 1, y: 0 }
         }}
         transition={{ duration: 1, delay: 0.2 }}
-        className="absolute top-28 left-8 md:left-16 z-20 text-left"
+        className="absolute top-20 left-8 md:left-16 z-20 text-left"
       >
         {/* Ultra Premium Header Card */}
         <div className="relative group">
@@ -612,9 +612,9 @@ const AdvancePowerHero: React.FC = () => {
         </div>
       </motion.div>
 
-      {/* Main Content - Forced Down */}
-      <div className="relative z-10 flex items-center h-full pt-32">
-        <div className="container mx-auto px-4 pt-16">
+      {/* Main Content - Adjusted for Card */}
+      <div className="relative z-10 flex items-center h-full pt-40">
+        <div className="container mx-auto px-4 pt-20">
           <div className="grid lg:grid-cols-3 gap-8 items-center">
             {/* Left Column - Content - Spans 2 columns for width */}
             <motion.div
