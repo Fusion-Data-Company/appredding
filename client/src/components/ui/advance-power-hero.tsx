@@ -454,7 +454,7 @@ const AdvancePowerHero: React.FC = () => {
                 <img 
                   src="/assets/advance-power-logo-new.png" 
                   alt="Advance Power Redding" 
-                  className="h-32 md:h-48 w-auto"
+                  className="h-96 md:h-[36rem] w-auto"
                 />
               </motion.div>
 
