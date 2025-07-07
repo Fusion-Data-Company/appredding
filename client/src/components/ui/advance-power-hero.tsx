@@ -366,20 +366,20 @@ const AdvancePowerHero: React.FC = () => {
       {/* Particle System */}
       <ParticleSystem isActive={isAnimationActive} />
 
-      {/* Solar Animation */}
-      <div className="absolute top-20 left-1/2 transform -translate-x-1/2">
+      {/* Solar Animation - Moved to Far Left */}
+      <div className="absolute top-32 left-8 md:left-16">
         <motion.div
-          initial={{ opacity: 0, y: -50 }}
+          initial={{ opacity: 0, x: -50 }}
           animate={controls}
           variants={{
-            visible: { opacity: 1, y: 0 }
+            visible: { opacity: 1, x: 0 }
           }}
           transition={{ duration: 1 }}
           className="relative"
         >
           {/* Sun */}
           <motion.div
-            className="w-20 h-20 bg-gradient-to-br from-yellow-300 to-orange-400 rounded-full flex items-center justify-center mb-8"
+            className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-yellow-300 to-orange-400 rounded-full flex items-center justify-center mb-6"
             animate={{
               boxShadow: [
                 '0 0 20px rgba(251, 191, 36, 0.5)',
@@ -389,17 +389,17 @@ const AdvancePowerHero: React.FC = () => {
             }}
             transition={{ duration: 3, repeat: Infinity }}
           >
-            <Sun className="w-10 h-10 text-white" />
+            <Sun className="w-8 h-8 md:w-10 md:h-10 text-white" />
           </motion.div>
 
           {/* Sun Rays */}
-          <div className="absolute top-20 left-1/2 transform -translate-x-1/2">
+          <div className="absolute top-16 md:top-20 left-1/2 transform -translate-x-1/2">
             {Array.from({ length: 5 }).map((_, i) => (
               <div
                 key={i}
                 className="absolute"
                 style={{
-                  left: `${(i - 2) * 15}px`,
+                  left: `${(i - 2) * 12}px`,
                   transform: 'translateX(-50%)'
                 }}
               >
@@ -409,7 +409,7 @@ const AdvancePowerHero: React.FC = () => {
           </div>
 
           {/* Solar Panels */}
-          <div className="flex space-x-4 mt-16">
+          <div className="flex space-x-2 md:space-x-4 mt-12 md:mt-16">
             {Array.from({ length: 3 }).map((_, i) => (
               <motion.div
                 key={i}
@@ -427,7 +427,7 @@ const AdvancePowerHero: React.FC = () => {
         </motion.div>
       </div>
 
-      {/* Company Header */}
+      {/* Company Header - Centered */}
       <motion.div
         initial={{ opacity: 0, y: -30 }}
         animate={controls}
@@ -435,21 +435,21 @@ const AdvancePowerHero: React.FC = () => {
           visible: { opacity: 1, y: 0 }
         }}
         transition={{ duration: 1, delay: 0.2 }}
-        className="absolute top-20 left-1/2 transform -translate-x-1/2 z-20 text-center"
+        className="absolute top-24 left-1/2 transform -translate-x-1/2 z-20 text-center w-full"
       >
-        <h1 className="text-5xl md:text-7xl font-bold text-white mb-2 tracking-wider">
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-2 tracking-wider">
           <span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">
             ADVANCE POWER
           </span>
         </h1>
-        <h2 className="text-2xl md:text-4xl font-light text-yellow-200 tracking-widest">
+        <h2 className="text-xl md:text-3xl lg:text-4xl font-light text-yellow-200 tracking-widest">
           OF REDDING
         </h2>
       </motion.div>
 
-      {/* Main Content */}
-      <div className="relative z-10 flex items-center h-full">
-        <div className="container mx-auto px-4 py-20">
+      {/* Main Content - Moved down slightly */}
+      <div className="relative z-10 flex items-center h-full pt-16">
+        <div className="container mx-auto px-4 py-24">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Column - Content */}
             <motion.div
