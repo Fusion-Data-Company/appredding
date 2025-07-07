@@ -367,7 +367,7 @@ const AdvancePowerHero: React.FC = () => {
       <ParticleSystem isActive={isAnimationActive} />
 
       {/* Solar Animation - Moved to Far Left */}
-      <div className="absolute top-32 left-8 md:left-16">
+      <div className="absolute top-48 left-8 md:left-16">
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={controls}
