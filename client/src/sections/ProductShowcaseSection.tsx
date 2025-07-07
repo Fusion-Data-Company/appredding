@@ -3,7 +3,7 @@ import backgroundImage from '@assets/Untitled design (3).png';
 
 const ProductShowcaseSection: React.FC = () => {
   return (
-    <section className="relative bg-black" style={{ marginTop: '0' }}>
+    <section className="relative bg-black z-10" style={{ marginTop: '2rem' }}>
       <img 
         src={backgroundImage}
         alt="Solar Equipment Solutions"
