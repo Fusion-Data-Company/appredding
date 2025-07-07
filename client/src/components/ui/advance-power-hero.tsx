@@ -435,7 +435,7 @@ const AdvancePowerHero: React.FC = () => {
           visible: { opacity: 1, y: 0 }
         }}
         transition={{ duration: 1, delay: 0.2 }}
-        className="absolute top-44 left-8 md:left-16 z-20 text-left"
+        className="absolute top-36 left-8 md:left-16 z-20 text-left"
       >
         {/* Elite Background Card */}
         <motion.div
