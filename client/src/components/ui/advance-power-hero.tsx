@@ -522,7 +522,7 @@ const AdvancePowerHero: React.FC = () => {
                 comprehensive solar solutions tailored to Redding's unique climate and energy needs.
               </motion.p>
 
-              {/* CTA Buttons */}
+              {/* CTA Button */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={controls}
@@ -532,15 +532,6 @@ const AdvancePowerHero: React.FC = () => {
                 transition={{ duration: 1, delay: 0.8 }}
                 className="flex flex-col sm:flex-row gap-4"
               >
-                <Button
-                  onClick={scrollToContact}
-                  size="lg"
-                  className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-8 py-4 text-lg group"
-                >
-                  Get Free Quote
-                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </Button>
-                
                 <Button
                   variant="outline"
                   size="lg"
