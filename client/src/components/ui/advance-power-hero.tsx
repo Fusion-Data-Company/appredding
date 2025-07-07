@@ -367,7 +367,7 @@ const AdvancePowerHero: React.FC = () => {
       <ParticleSystem isActive={isAnimationActive} />
 
       {/* Solar Animation - Moved to Far Left */}
-      <div className="absolute top-64 left-8 md:left-16">
+      <div className="absolute top-80 left-8 md:left-16">
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={controls}
@@ -427,7 +427,7 @@ const AdvancePowerHero: React.FC = () => {
         </motion.div>
       </div>
 
-      {/* Company Header - Positioned Left */}
+      {/* Company Header with Elite Card Background */}
       <motion.div
         initial={{ opacity: 0, y: -30 }}
         animate={controls}
@@ -435,16 +435,44 @@ const AdvancePowerHero: React.FC = () => {
           visible: { opacity: 1, y: 0 }
         }}
         transition={{ duration: 1, delay: 0.2 }}
-        className="absolute top-24 left-8 md:left-16 z-20 text-left"
+        className="absolute top-20 left-8 md:left-16 z-20 text-left"
       >
-        <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-2 tracking-wider">
-          <span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">
-            ADVANCE POWER
-          </span>
-        </h1>
-        <h2 className="text-lg md:text-2xl lg:text-3xl font-light text-yellow-200 tracking-widest">
-          OF REDDING
-        </h2>
+        {/* Elite Background Card */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={controls}
+          variants={{
+            visible: { opacity: 1, scale: 1 }
+          }}
+          transition={{ duration: 1.2, delay: 0.4 }}
+          className="absolute inset-0 -inset-4 bg-gradient-to-br from-black/20 via-blue-900/10 to-purple-900/20 backdrop-blur-sm border border-yellow-400/20 rounded-2xl shadow-2xl"
+          style={{
+            boxShadow: '0 0 50px rgba(251, 191, 36, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1)'
+          }}
+        />
+        
+        {/* Content */}
+        <div className="relative z-10 p-6">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-2 tracking-wider">
+            <span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent drop-shadow-lg">
+              ADVANCE POWER
+            </span>
+          </h1>
+          <h2 className="text-lg md:text-2xl lg:text-3xl font-light text-yellow-200 tracking-widest">
+            OF REDDING
+          </h2>
+          
+          {/* Elite Accent Line */}
+          <motion.div
+            initial={{ width: 0 }}
+            animate={controls}
+            variants={{
+              visible: { width: "100%" }
+            }}
+            transition={{ duration: 1.5, delay: 0.8 }}
+            className="h-0.5 bg-gradient-to-r from-yellow-400 to-orange-500 mt-3 rounded-full"
+          />
+        </div>
       </motion.div>
 
       {/* Main Content - Moved down slightly */}
@@ -519,7 +547,7 @@ const AdvancePowerHero: React.FC = () => {
                   className="border-white text-white hover:bg-white hover:text-black px-8 py-4 text-lg"
                   onClick={() => {
                     const phone = document.createElement('a')
-                    phone.href = 'tel:+15305551234'
+                    phone.href = 'tel:+15302260701'
                     phone.click()
                   }}
                 >
