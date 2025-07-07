@@ -1452,16 +1452,10 @@ h1, h2, h3, h4, h5, h6 {
 
 @keyframes border-color-change {
   0% {
-    border-color: #3b82f6; 
-  }
-  33% {
-    border-color: #ef4444;
-  }
-  66% {
-    border-color: #22c55e;
+    border-color: #22c55e; 
   }
   100% {
-    border-color: #3b82f6; 
+    border-color: #22c55e; 
   }
 }
 
