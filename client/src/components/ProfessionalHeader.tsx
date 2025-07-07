@@ -84,12 +84,12 @@ const ProfessionalHeader = () => {
       zIndex: 50 
     }}>
       <div style={{ 
-        maxWidth: '80rem', 
+        maxWidth: '100%', 
         margin: '0 auto', 
         display: 'flex', 
         justifyContent: 'space-between', 
         alignItems: 'center', 
-        padding: '12px 16px' 
+        padding: '12px 48px' 
       }}>
         {/* Logo */}
         <Link href="/" style={{ display: 'flex', alignItems: 'center' }}>
