@@ -41,7 +41,7 @@ import inverterSystemImage from "@assets/98453708_3165453150160953_3940467511501
 import installationTeamImage from "@assets/400617335_882191187089939_3988264444007076062_n-500x375.jpg";
 import solarFarmImage from "@assets/andreas-gucklhorn-Ilpf2eUPpUE-unsplash-500x375.jpg";
 import batteryStorageImage from "@assets/Batt-3-300x400.jpg";
-import advancePowerLogo from "/advance-power-logo.jpg";
+import residentialSolarImage from "@assets/Frame-5-500x282.webp";
 import technicianImage from "@assets/Greg-with-panel.jpg";
 import solArkSystemImage from "@assets/491844865_1271014964874224_7004732250107002194_n.jpg";
 import energyConservationImage from "@assets/Advance-Power-Redding-Energy-Conservation-Techniques.jpg";
@@ -952,9 +952,9 @@ const LithiumBattery = () => {
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                     <div className="order-2 lg:order-1 relative">
                       <img 
-                        src={advancePowerLogo} 
-                        alt="Advance Power Redding - Professional solar installation company" 
-                        className="w-full h-auto rounded-lg border border-green-600/30 shadow-lg bg-white p-4"
+                        src={residentialSolarImage} 
+                        alt="Residential solar installation with integrated battery storage" 
+                        className="w-full h-auto rounded-lg border border-green-600/30 shadow-lg"
                       />
                       <div className="absolute top-2 left-2 bg-black/80 text-green-300 px-2 py-1 rounded text-xs">
                         Residential Integration

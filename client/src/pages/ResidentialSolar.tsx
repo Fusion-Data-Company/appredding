@@ -208,13 +208,9 @@ const ResidentialSolar = () => {
                           
                           {/* Hero Image */}
                           <img 
-                            src="/src/assets_dir/images/residential-solar-hero.jpg" 
-                            alt="Residential solar installation by Advance Power Redding" 
-                            className="w-full h-auto max-h-[500px] object-cover object-center"
-                            onError={(e) => {
-                              const target = e.target as HTMLImageElement;
-                              target.src = "/src/assets_dir/images/optimized/praetorian-background-new.png";
-                            }}
+                            src="/advance-power-logo.jpg" 
+                            alt="Advance Power Redding - Professional solar installation company" 
+                            className="w-full h-auto max-h-[500px] object-contain object-center bg-white p-8"
                           />
                           
                           {/* Premium overlay elements */}
