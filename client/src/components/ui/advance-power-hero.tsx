@@ -342,7 +342,7 @@ const AdvancePowerHero: React.FC = () => {
   }
 
   return (
-    <div ref={heroRef} className="relative h-[calc(100vh-12rem)] md:h-[calc(100vh-10rem)] overflow-hidden bg-gradient-to-br from-blue-900 via-blue-800 to-purple-900">
+    <div ref={heroRef} className="relative h-screen overflow-hidden bg-gradient-to-br from-blue-900 via-blue-800 to-purple-900">
       {/* Background Image Slider */}
       <div className="absolute inset-0">
         {slides.map((slide, index) => (
@@ -429,7 +429,7 @@ const AdvancePowerHero: React.FC = () => {
 
       {/* Main Content */}
       <div className="relative z-10 flex items-center h-full">
-        <div className="container mx-auto px-4 py-20">
+        <div className="container mx-auto px-4 py-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Column - Content */}
             <motion.div

@@ -19,8 +19,7 @@ export default function MainLayout({ children, className, fullWidth = false }: M
       <ProfessionalHeader />
       
       <main className={cn(
-        "flex-1 pt-48 pb-16 relative z-10", // Account for header and footer height on mobile
-        "md:pt-40 md:pb-12", // Larger screens get normal padding
+        "flex-1 relative z-10", 
         className
       )}>
         {fullWidth ? (
