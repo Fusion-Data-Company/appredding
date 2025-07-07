@@ -441,23 +441,6 @@ const AdvancePowerHero: React.FC = () => {
               transition={{ duration: 1, delay: 0.3 }}
               className="text-white space-y-6"
             >
-              {/* Logo above header text */}
-              <motion.div
-                initial={{ opacity: 0, y: -20 }}
-                animate={controls}
-                variants={{
-                  visible: { opacity: 1, y: 0 }
-                }}
-                transition={{ duration: 1, delay: 0.1 }}
-                className="mb-6"
-              >
-                <img 
-                  src="/assets/advance-power-logo-new.png" 
-                  alt="Advance Power Redding" 
-                  className="h-96 md:h-[36rem] w-auto"
-                />
-              </motion.div>
-
               <motion.h1 
                 className="text-4xl md:text-6xl font-bold leading-tight"
                 key={currentSlide}
