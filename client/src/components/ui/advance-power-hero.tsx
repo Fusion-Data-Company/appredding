@@ -591,8 +591,8 @@ const AdvancePowerHero: React.FC = () => {
       </motion.div>
 
       {/* Main Content - Adjusted for Card */}
-      <div className="relative z-10 flex items-center h-full pt-40">
-        <div className="container mx-auto px-4 pt-20">
+      <div className="relative z-10 flex items-center h-full pt-60">
+        <div className="container mx-auto px-4 pt-8">
           <div className="grid lg:grid-cols-3 gap-8 items-center">
             {/* Left Column - Content - Spans 2 columns for width */}
             <motion.div
