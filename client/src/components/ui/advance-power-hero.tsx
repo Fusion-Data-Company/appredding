@@ -469,12 +469,12 @@ const AdvancePowerHero: React.FC = () => {
               damping: 20
             }}
             className="relative backdrop-blur-xl bg-gradient-to-br from-slate-900/95 via-blue-950/90 to-slate-900/95 
-                       rounded-3xl border-2 border-white/30 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.8)]
-                       p-10 overflow-hidden"
+                       rounded-2xl border-2 border-white/30 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.8)]
+                       p-6 overflow-hidden max-w-md"
           >
             
             {/* Animated Mesh Background */}
-            <div className="absolute inset-0 opacity-20 overflow-hidden rounded-3xl">
+            <div className="absolute inset-0 opacity-20 overflow-hidden rounded-2xl">
               <motion.div 
                 className="absolute inset-0 bg-gradient-to-r from-orange-500/20 via-transparent to-blue-500/20"
                 animate={{ opacity: [0.2, 0.4, 0.2] }}
