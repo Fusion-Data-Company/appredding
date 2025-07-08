@@ -5,70 +5,70 @@ const AboutAdvancePowerSection = () => {
   const achievements = [
     {
       icon: <Calendar className="w-8 h-8" />,
-      number: "4",
-      label: "Sol-Ark Models",
-      description: "12K, 15K, 30K, 60K hybrid inverters"
+      number: "25+",
+      label: "Years Experience",
+      description: "Serving Northern California since 1999"
     },
     {
       icon: <Users className="w-8 h-8" />,
-      number: "229kWh",
-      label: "Max Battery Capacity",
-      description: "API LiFePO4 stackable system capacity"
+      number: "500+",
+      label: "Installations",
+      description: "Residential and commercial projects"
     },
     {
       icon: <Zap className="w-8 h-8" />,
-      number: "6000+",
-      label: "Battery Cycles",
-      description: "LiFePO4 thermal-stable chemistry"
+      number: "100%",
+      label: "Customer Satisfaction",
+      description: "5-star reviews and referrals"
     },
     {
       icon: <Award className="w-8 h-8" />,
-      number: "64",
-      label: "Fault Codes",
-      description: "Comprehensive troubleshooting database"
+      number: "A+",
+      label: "BBB Rating",
+      description: "Licensed, bonded, and insured"
     }
   ];
 
   const certifications = [
     {
       icon: <Star className="w-6 h-6" />,
-      title: "Sol-Ark Certified Installer",
+      title: "Premium Solar Installer",
       color: "text-yellow-400",
       bgColor: "bg-yellow-500/20"
     },
     {
-      icon: <Battery className="w-6 h-6" />,
-      title: "API LiFePO4 Systems Specialist",
+      icon: <Shield className="w-6 h-6" />,
+      title: "Fully Licensed & Bonded",
       color: "text-blue-400",
       bgColor: "bg-blue-500/20"
     },
     {
-      icon: <Wifi className="w-6 h-6" />,
-      title: "CAN/RS485 Communication Expert",
+      icon: <Award className="w-6 h-6" />,
+      title: "Industry Certified",
       color: "text-green-400",
       bgColor: "bg-green-500/20"
     },
     {
-      icon: <Shield className="w-6 h-6" />,
-      title: "UL 1973/9540 Compliance",
+      icon: <CheckCircle className="w-6 h-6" />,
+      title: "Insured & Protected",
       color: "text-red-400",
       bgColor: "bg-red-500/20"
     },
     {
-      icon: <Settings className="w-6 h-6" />,
-      title: "MPPT Configuration Specialist",
+      icon: <Badge className="w-6 h-6" />,
+      title: "Professional Standards",
       color: "text-purple-400",
       bgColor: "bg-purple-500/20"
     },
     {
-      icon: <Wrench className="w-6 h-6" />,
-      title: "Battery BMS Integration Expert",
+      icon: <Users className="w-6 h-6" />,
+      title: "Local Expertise",
       color: "text-orange-400",
       bgColor: "bg-orange-500/20"
     },
     {
       icon: <FileCheck className="w-6 h-6" />,
-      title: "Fully Licensed & Insured",
+      title: "Quality Guaranteed",
       color: "text-emerald-400",
       bgColor: "bg-emerald-500/20"
     }
@@ -105,10 +105,10 @@ const AboutAdvancePowerSection = () => {
           className="text-center mb-24"
         >
           <h2 className="text-6xl md:text-7xl lg:text-8xl font-black mb-12 leading-tight drop-shadow-lg">
-            <span className="bg-gradient-to-r from-orange-800 via-red-700 to-amber-800 bg-clip-text text-transparent">Sol-Ark &</span>{" "}
+            <span className="bg-gradient-to-r from-orange-800 via-red-700 to-amber-800 bg-clip-text text-transparent">About</span>{" "}
             <span className="relative inline-block">
               <span className="bg-gradient-to-r from-orange-700 via-red-600 to-amber-700 bg-clip-text text-transparent drop-shadow-lg">
-                API Expertise
+                Advance Power
               </span>
               <div className="absolute -inset-2 bg-gradient-to-r from-orange-300/40 to-amber-300/40 blur-2xl -z-10 animate-pulse"></div>
             </span>
@@ -116,8 +116,8 @@ const AboutAdvancePowerSection = () => {
           
           <p className="text-3xl md:text-4xl max-w-5xl mx-auto font-bold leading-relaxed drop-shadow-sm"
              style={{ color: '#000000 !important' }}>
-            Northern California's premier Sol-Ark hybrid inverter and API LiFePO4 battery specialists, 
-            delivering comprehensive technical expertise and professional installation services.
+            Northern California's trusted solar energy partner, delivering premium installation services 
+            and exceptional customer care for over two decades.
           </p>
         </motion.div>
 

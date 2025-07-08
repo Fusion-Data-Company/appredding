@@ -7,9 +7,7 @@ const LazySection = lazy(() => import("@/components/ui/lazy-section").then(m => 
 
 const ProductShowcaseSection = lazy(() => import("@/sections/ProductShowcaseSection"));
 const SolarSalesFunnelSection = lazy(() => import("@/sections/SolarSalesFunnelSection"));
-const SolarServicesSection = lazy(() => import("@/sections/SolarServicesSection"));
 const AboutAdvancePowerSection = lazy(() => import("@/sections/AboutAdvancePowerSection"));
-const FAQSection = lazy(() => import("@/sections/FAQSection"));
 const SolarTestimonialsSection = lazy(() => import("@/sections/SolarTestimonialsSection"));
 const ContactSection = lazy(() => import("@/sections/ContactSection"));
 const PitchDeckTrigger = lazy(() => import("@/components/PitchDeck/PitchDeckTrigger"));
@@ -32,17 +30,7 @@ const Home = () => {
           </LazySection>
         </Suspense>
         
-        <Suspense fallback={<div className="h-[400px] bg-gray-100 animate-pulse rounded-lg" />}>
-          <LazySection className="min-h-[400px]">
-            <SolarServicesSection />
-          </LazySection>
-        </Suspense>
-        
-        <Suspense fallback={<div className="h-[300px] bg-gray-100 animate-pulse rounded-lg" />}>
-          <LazySection className="min-h-[300px]">
-            <FAQSection />
-          </LazySection>
-        </Suspense>
+
         
         <Suspense fallback={<div className="h-[400px] bg-gray-100 animate-pulse rounded-lg" />}>
           <LazySection className="min-h-[400px]">
