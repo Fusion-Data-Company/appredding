@@ -474,13 +474,13 @@ const AdvancePowerHero: React.FC = () => {
           >
             
             {/* Animated Mesh Background */}
-            <div className="absolute inset-0 opacity-20">
+            <div className="absolute inset-0 opacity-20 overflow-hidden rounded-3xl">
               <motion.div 
                 className="absolute inset-0 bg-gradient-to-r from-orange-500/20 via-transparent to-blue-500/20"
                 animate={{ opacity: [0.2, 0.4, 0.2] }}
                 transition={{ duration: 3, repeat: Infinity }}
               />
-              <div className="absolute top-0 left-0 w-full h-full 
+              <div className="absolute inset-0 
                              bg-[radial-gradient(circle_at_25%_25%,_rgba(249,115,22,0.15),transparent_50%),
                                  radial-gradient(circle_at_75%_75%,_rgba(59,130,246,0.15),transparent_50%)]" />
             </div>
@@ -591,7 +591,7 @@ const AdvancePowerHero: React.FC = () => {
       </motion.div>
 
       {/* Main Content - Adjusted for Card */}
-      <div className="relative z-10 flex items-center h-full pt-60">
+      <div className="relative z-30 flex items-center h-full pt-60">
         <div className="container mx-auto px-4 pt-8">
           <div className="grid lg:grid-cols-3 gap-8 items-center">
             {/* Left Column - Content - Spans 2 columns for width */}
