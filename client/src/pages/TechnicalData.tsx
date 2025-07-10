@@ -95,17 +95,17 @@ const TechnicalData = () => {
             </Suspense>
           </section>
 
-          {/* Power Flow Section */}
-          <section id="power-flow">
-            <Suspense fallback={<div className="h-[500px] bg-gray-800/30 animate-pulse rounded-lg mx-4" />}>
-              <PowerFlowSection />
-            </Suspense>
-          </section>
-
           {/* Energy Storage Section */}
           <section id="energy-storage">
             <Suspense fallback={<div className="h-[500px] bg-gray-800/30 animate-pulse rounded-lg mx-4" />}>
               <EnergyStorageSection />
+            </Suspense>
+          </section>
+
+          {/* Power Flow Section */}
+          <section id="power-flow">
+            <Suspense fallback={<div className="h-[500px] bg-gray-800/30 animate-pulse rounded-lg mx-4" />}>
+              <PowerFlowSection />
             </Suspense>
           </section>
 

@@ -59,10 +59,14 @@ Core Technologies:
 - **DUPLICATE CONTENT CLEANUP - PHASE 2 COMPLETE**: Comprehensive removal of all technical content from Home page
   - **SolarServicesSection REMOVED**: All Sol-Ark/API specifications moved to Technical Data page
   - **FAQSection REMOVED**: Technical Q&A exclusively in Technical Data page troubleshooting
-  - **AboutAdvancePowerSection MODIFIED**: Removed all technical specs, kept only company info
-  - Changed technical achievements (4 Sol-Ark Models, 229kWh capacity) to marketing stats (25+ years, 500+ installations)
-  - Removed technical certifications (Sol-Ark Certified, API Specialist) in favor of business credentials
+  - **AboutAdvancePowerSection FULLY CLEANED**: Removed ALL technical content including:
+    - "All-In-One Hybrid Power Systems" section with Sol-Ark/API technical details
+    - Technical specs (<5ms transfer, 6000+ cycles, UL certified)
+    - "Technical Expertise" section mentioning specific models and fault codes
+    - Replaced with "Your Complete Solar Solution" and "Our Story" - purely marketing content
+  - **SolarSalesFunnelSection UPDATED**: Removed technical references from Battery Storage and Service categories
   - Complete separation achieved: Home page 100% marketing, Technical Data 100% technical
+  - Energy Storage (API LiFePO4) section moved to top of Technical Data page after Specifications
 - **HELP AGENTS COMPLETELY REMOVED**: Eliminated all floating chat widgets and help agents from bottom right corner
   - Deleted SimpleChatWidget.tsx component completely
   - Removed all imports and references to SimpleChatWidget from MainLayout.tsx

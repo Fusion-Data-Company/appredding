@@ -30,21 +30,21 @@ const SolarSalesFunnelSection = () => {
       borderColor: "border-blue-500/40",
       icon: <Zap className="w-10 h-10" />,
       description: "Enterprise-grade solar solutions that deliver substantial ROI and sustainable energy independence for your business",
-      benefits: ["Federal tax incentives", "ROI in 3-5 years", "Advanced performance monitoring", "Commercial-grade warranties"],
+      benefits: ["Federal tax incentives", "ROI in 3-5 years", "Professional monitoring", "Commercial-grade warranties"],
       ctaText: "Get Business Assessment",
       formType: "commercial"
     },
     {
       id: "storage",
-      title: "Battery Storage",
-      subtitle: "Energy Independence", 
+      title: "Energy Solutions",
+      subtitle: "Power Your Future", 
       color: "from-green-400 via-emerald-500 to-green-600",
       bgGradient: "from-green-500/20 via-emerald-500/15 to-green-600/10",
       borderColor: "border-green-500/40",
       icon: <Battery className="w-10 h-10" />,
-      description: "Cutting-edge battery storage systems that provide reliable backup power and complete energy autonomy",
-      benefits: ["24/7 power availability", "Blackout protection", "Grid independence", "Intelligent energy management"],
-      ctaText: "Get Storage Assessment",
+      description: "Take control of your energy future with our comprehensive energy independence solutions tailored to your needs",
+      benefits: ["Never worry about outages", "Reduce reliance on the grid", "Lock in energy costs", "Peace of mind guaranteed"],
+      ctaText: "Get Energy Assessment",
       formType: "storage"
     },
     {
@@ -56,7 +56,7 @@ const SolarSalesFunnelSection = () => {
       borderColor: "border-purple-500/40",
       icon: <Shield className="w-10 h-10" />,
       description: "Expert maintenance and repair services to ensure your solar investment continues performing at peak efficiency",
-      benefits: ["Performance optimization", "Advanced system diagnostics", "Professional panel cleaning", "Warranty protection"],
+      benefits: ["Keep your system running perfectly", "Professional maintenance team", "Regular cleaning service", "Protect your warranty"],
       ctaText: "Schedule Expert Service",
       formType: "maintenance"
     }

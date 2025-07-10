@@ -179,24 +179,24 @@ const AboutAdvancePowerSection = () => {
             <div className="relative z-10 text-center">
               <div className="text-6xl mb-4">⚡</div>
               <h3 className="text-4xl md:text-5xl font-black text-white mb-6">
-                All-In-One Hybrid Power Systems
+                Your Complete Solar Solution
               </h3>
               <p className="text-2xl text-green-100 mb-8 max-w-4xl mx-auto leading-relaxed">
-                Sol-Ark inverters combine inverter, battery charger, solar MPPT inputs, and grid transfer 
-                in one unit. API LiFePO4 batteries provide safe, modular energy storage with 6000+ cycles.
+                We provide comprehensive solar energy systems that power your home or business reliably and efficiently, 
+                backed by industry-leading warranties and expert local support.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-white">&lt;5ms</div>
-                  <div className="text-green-200">Fast Transfer Time</div>
+                  <div className="text-3xl font-bold text-white">25+</div>
+                  <div className="text-green-200">Years of Service</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-white">6000+</div>
-                  <div className="text-green-200">Battery Cycles</div>
+                  <div className="text-3xl font-bold text-white">500+</div>
+                  <div className="text-green-200">Happy Customers</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-white">UL Certified</div>
-                  <div className="text-green-200">Safety Compliant</div>
+                  <div className="text-3xl font-bold text-white">100%</div>
+                  <div className="text-green-200">Satisfaction Rate</div>
                 </div>
               </div>
             </div>
@@ -214,26 +214,26 @@ const AboutAdvancePowerSection = () => {
           {/* Story Content */}
           <div>
             <h3 className="text-4xl md:text-5xl font-black text-white mb-8">
-              Technical Expertise
+              Our Story
             </h3>
             
             <div className="space-y-6 text-xl text-gray-300 leading-relaxed">
               <p>
-                Our team specializes in Sol-Ark all-in-one hybrid inverters (12K, 15K, 30K, 60K models) 
-                and API LiFePO4 stackable battery systems. We provide expert installation, configuration, 
-                and comprehensive troubleshooting services for Northern California customers.
+                Since 1999, Advance Power Redding has been Northern California's trusted solar energy partner. 
+                We've helped hundreds of families and businesses achieve energy independence with custom solar 
+                solutions designed for their unique needs.
               </p>
               
               <p>
-                From CT orientation and Auto-Learn configuration to BMS communication setup and fault 
-                code resolution, our certified technicians handle every aspect of Sol-Ark and API 
-                system integration with precision and expertise.
+                Our team of certified professionals takes pride in delivering exceptional service from your 
+                first consultation through installation and beyond. We handle every aspect of your solar 
+                project with precision and care, ensuring a seamless experience.
               </p>
               
               <p>
-                We maintain an extensive fault code database covering all F-codes from F1 to F64, 
-                ensuring rapid problem resolution and optimal system performance for residential 
-                and commercial installations.
+                As a locally owned and operated company, we're committed to our community and your satisfaction. 
+                Our A+ BBB rating and hundreds of 5-star reviews reflect our dedication to quality work and 
+                outstanding customer service.
               </p>
             </div>
 
