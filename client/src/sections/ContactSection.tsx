@@ -85,18 +85,18 @@ const ContactSection = () => {
           className="text-center mb-24"
         >
           <h2 className="text-6xl md:text-7xl lg:text-8xl font-black mb-12 leading-tight drop-shadow-lg">
-            <span className="bg-gradient-to-r from-orange-800 via-red-700 to-amber-800 bg-clip-text text-transparent">Ready to</span>{" "}
+            <span className="bg-gradient-to-r from-orange-800 via-red-700 to-amber-800 bg-clip-text text-transparent">Get In</span>{" "}
             <span className="relative inline-block">
               <span className="bg-gradient-to-r from-orange-700 via-red-600 to-amber-700 bg-clip-text text-transparent drop-shadow-lg">
-                Go Solar?
+                Touch
               </span>
               <div className="absolute -inset-2 bg-gradient-to-r from-orange-300/40 to-amber-300/40 blur-2xl -z-10 animate-pulse"></div>
             </span>
           </h2>
           
           <p className="text-3xl md:text-4xl text-gray-800 max-w-5xl mx-auto font-medium leading-relaxed drop-shadow-sm">
-            Contact Northern California's most trusted solar experts today. 
-            Get your free consultation and start saving with clean energy.
+            Contact our expert team today for professional consultation 
+            and discover the perfect solution for your needs.
           </p>
         </motion.div>
 
