@@ -10,7 +10,6 @@ const SolarSalesFunnelSection = lazy(() => import("@/sections/SolarSalesFunnelSe
 const AboutAdvancePowerSection = lazy(() => import("@/sections/AboutAdvancePowerSection"));
 const SolarTestimonialsSection = lazy(() => import("@/sections/SolarTestimonialsSection"));
 const ContactSection = lazy(() => import("@/sections/ContactSection"));
-const PitchDeckTrigger = lazy(() => import("@/components/PitchDeck/PitchDeckTrigger"));
 
 const Home = () => {
   return (
@@ -50,9 +49,6 @@ const Home = () => {
           </LazySection>
         </Suspense>
       </div>
-      <Suspense fallback={null}>
-        <PitchDeckTrigger />
-      </Suspense>
     </MainLayout>
   );
 };
