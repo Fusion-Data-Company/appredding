@@ -531,42 +531,33 @@ const AdvancePowerHero: React.FC = () => {
                 />
               </motion.div>
               
-              {/* Enhanced Typography */}
+              {/* Enhanced Typography - Unified Brand */}
               <div className="relative">
                 <motion.h1 
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.8, delay: 0.7 }}
-                  className="text-4xl md:text-5xl font-black text-transparent bg-clip-text 
+                  className="text-3xl md:text-4xl lg:text-5xl font-black text-transparent bg-clip-text 
                            bg-gradient-to-r from-white via-orange-200 to-white
                            tracking-wider leading-tight drop-shadow-lg"
                   style={{ 
                     fontFamily: "'Orbitron', 'Space Grotesk', 'Inter', sans-serif",
-                    textShadow: '0 0 20px rgba(249,115,22,0.5)'
+                    textShadow: '0 0 20px rgba(249,115,22,0.5)',
+                    whiteSpace: 'nowrap'
                   }}
                 >
-                  ADVANCE POWER
+                  ADVANCE POWER OF REDDING
                 </motion.h1>
                 
+                {/* Animated Underline */}
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.8, delay: 0.9 }}
-                  className="relative"
+                  className="relative mt-2"
                 >
-                  <h2 className="text-xl md:text-2xl font-bold text-transparent bg-clip-text 
-                               bg-gradient-to-r from-orange-300 via-yellow-300 to-orange-300
-                               tracking-[0.3em]"
-                     style={{ 
-                       fontFamily: "'Orbitron', 'Space Grotesk', 'Inter', sans-serif",
-                       textShadow: '0 0 15px rgba(251,191,36,0.4)'
-                     }}>
-                    OF REDDING
-                  </h2>
-                  
-                  {/* Animated Underline */}
                   <motion.div
-                    className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-orange-400 to-yellow-400"
+                    className="h-0.5 bg-gradient-to-r from-orange-400 to-yellow-400"
                     initial={{ width: 0 }}
                     animate={{ width: "100%" }}
                     transition={{ duration: 1, delay: 1.2 }}
