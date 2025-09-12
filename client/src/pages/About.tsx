@@ -115,7 +115,7 @@ const About = () => {
             </div>
 
             <div className="text-center">
-              <h2 className="text-white font-semibold text-3xl mb-6 font-heading">Ready to Go Solar?</h2>
+              <h2 className="text-white font-semibold text-3xl mb-6 font-heading">Ready to Get Started?</h2>
               <p className="text-gray-200 mb-8 max-w-2xl mx-auto">
                 Join hundreds of satisfied customers who have made the switch to clean, renewable energy. 
                 Contact us today for a free consultation and custom quote.

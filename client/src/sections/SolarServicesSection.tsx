@@ -215,7 +215,7 @@ const SolarServicesSection = () => {
             
             <div className="relative z-10">
               <h3 className="text-5xl md:text-6xl font-black text-white mb-8">
-                Ready to Go Solar?
+                Ready to Get Started?
               </h3>
               
               <p className="text-2xl text-white mb-12 max-w-4xl mx-auto leading-relaxed">
