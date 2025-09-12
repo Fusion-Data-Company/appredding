@@ -8,7 +8,6 @@ import ApplicationDiagram from "../components/ApplicationDiagram";
 import DefenseCaseStudy from "../components/DefenseCaseStudy";
 import ExecutiveSummary from "../components/ExecutiveSummary";
 import PhysicalMechanics from "../components/PhysicalMechanics";
-import { PitchDeckTrigger } from "../components/PitchDeck";
 import GradientHeading from "../components/ui/GradientHeading";
 import ParticleBackground from "../components/ui/ParticleBackground";
 import MainLayout from "@/components/layout/MainLayout";
@@ -21,8 +20,6 @@ const Technology = () => {
         <meta name="description" content="Explore the science behind Praetorian's NASA-derived ceramic coating technology with Class A fire rating (0/0 flame spread), 156% elastomeric flexibility, and 30+ year verified performance." />
       </Helmet>
       
-      {/* Pitch Deck Modal Trigger */}
-      <PitchDeckTrigger delay={5000} autoShow={true} />
       
       <div className="min-h-screen relative overflow-hidden">
         {/* Background */}
