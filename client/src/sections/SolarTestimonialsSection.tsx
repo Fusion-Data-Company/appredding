@@ -4,46 +4,25 @@ import { Star, Quote } from "lucide-react";
 const SolarTestimonialsSection = () => {
   const testimonials = [
     {
-      name: "Sarah Johnson",
+      name: "D Gruber",
       location: "Redding, CA",
       rating: 5,
-      text: "Advance Power made going solar incredibly easy. From the initial consultation to final installation, their team was professional and knowledgeable. Our energy bills have dropped by 90%!",
-      savings: "$2,400/year"
+      text: "After 20 plus years PG&E has cancelled my yearly Tru-Up and placed me on monthly billing. My current last year Tru-up was $2800. Only to receive our first $920 monthly bill. We added Batteries to our solar panels and have greatly reduced the new increased electricity bills.",
+      initials: "DG"
     },
     {
-      name: "Mike Chen",
-      location: "Anderson, CA",
+      name: "Robert & Meredith",
+      location: "Whitmore, CA",
       rating: 5,
-      text: "The hybrid system with battery storage has been a game-changer. During the recent power outages, we were the only house on the block with electricity. Outstanding service from Greg and his team.",
-      savings: "$3,200/year"
+      text: "As we were building our home, we made the decision to go 'off grid'. We were lucky enough to find Greg, with Advanced Power. From the beginning, of planning the solar array, to choosing the equipment, battery, inverter, generator etc., they were so knowledgeable, helpful and skilled. They helped us to design and build the system that our household has run on for the past 8 years. They are swift and accurate anytime we have needed assistance with any part of our system. We highly recommend them for any solar power need! They stay current and even advanced in regard to the technology required to run a household smoothly and efficiently and even better than being tied in, in my opinion!",
+      initials: "R&M"
     },
     {
-      name: "Jennifer Martinez",
-      location: "Shasta Lake, CA",
+      name: "H Vasquez",
+      location: "Igo, CA",
       rating: 5,
-      text: "We've been customers for 3 years now and couldn't be happier. The maintenance service keeps our system running perfectly, and the monitoring app lets us track our energy production daily.",
-      savings: "$1,800/year"
-    },
-    {
-      name: "Robert Thompson",
-      location: "Palo Cedro, CA",
-      rating: 5,
-      text: "As a local business owner, switching to commercial solar with Advance Power was one of our best decisions. The ROI exceeded expectations, and we're proud to be environmentally responsible.",
-      savings: "$8,500/year"
-    },
-    {
-      name: "Lisa Williams",
-      location: "Cottonwood, CA",
-      rating: 5,
-      text: "The financing options made solar affordable for our family. Greg explained everything clearly, and the installation was completed faster than promised. Highly recommend!",
-      savings: "$2,100/year"
-    },
-    {
-      name: "David Rodriguez",
-      location: "Redding, CA",
-      rating: 5,
-      text: "20+ years in business really shows. Their expertise in Northern California's unique climate conditions resulted in a system that performs better than estimated. Excellent warranty support too.",
-      savings: "$2,800/year"
+      text: "I'm a senior citizen who lives off the grid in the mountains of Igo, CA. Due to a rain storm I was stranded without any electricity. I called Greg Tomsik, who owns advance power redding, and he had his crew at my place to install a solar system the next day. The crew members performed in an excellent manner installing the solar panels and batteries. The battery was consistent in providing the power to operate my motor home throughout the 9 days of rain.",
+      initials: "HV"
     }
   ];
 
@@ -98,13 +77,13 @@ const SolarTestimonialsSection = () => {
                 <Star key={i} className="w-6 h-6 text-yellow-500 fill-current" />
               ))}
             </div>
-            <span className="text-2xl font-bold text-gray-800">4.9/5</span>
-            <span className="text-gray-600">from 500+ reviews</span>
+            <span className="text-2xl font-bold text-gray-800">5.0/5</span>
+            <span className="text-gray-600">from our satisfied customers</span>
           </div>
         </motion.div>
 
         {/* Enterprise Testimonial Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 mb-20">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={index}
@@ -141,14 +120,14 @@ const SolarTestimonialsSection = () => {
                 
                 {/* Premium Footer Section */}
                 <div className="border-t border-gray-200/70 pt-6">
-                  <div className="flex justify-between items-end">
+                  <div className="flex items-center gap-4">
+                    {/* Avatar with initials */}
+                    <div className="w-14 h-14 bg-gradient-to-br from-orange-500 to-red-500 rounded-full flex items-center justify-center text-white font-black text-lg shadow-lg">
+                      {testimonial.initials}
+                    </div>
                     <div>
                       <h4 className="text-xl font-black text-gray-900 mb-1">{testimonial.name}</h4>
                       <p className="text-gray-600 font-medium">{testimonial.location}</p>
-                    </div>
-                    <div className="text-right">
-                      <div className="text-2xl font-black text-green-600 mb-1">{testimonial.savings}</div>
-                      <div className="text-gray-500 text-sm font-medium">Annual Savings</div>
                     </div>
                   </div>
                 </div>
