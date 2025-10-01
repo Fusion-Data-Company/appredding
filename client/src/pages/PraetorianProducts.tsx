@@ -9,6 +9,7 @@ import { PremiumButton } from '@/components/ui/premium-button';
 import { Filter, ArrowUp, ChevronDown, ShieldCheck, Thermometer, Droplets, Wind, Sun, Scale, Shapes } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 // Import components
+import { PRAETORIAN_PRODUCTS_HERO_IMAGE } from '@/assets_dir/imageExports';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { GradientHeading } from "@/components/ui/gradient-heading";
 import { GradientText } from "@/components/ui/gradient-text";

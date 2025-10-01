@@ -13,6 +13,7 @@ import { useTheme } from "next-themes";
 import MobileMenu from "./MobileMenu";
 import { PremiumNavbar } from "@/components/ui/premium-navbar";
 import StoneTextureBackground from "@/components/ui/stone-texture-background";
+import CartButton from "@/components/cart/CartButton";
 
 const ProfessionalHeader = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -149,20 +150,25 @@ const ProfessionalHeader = () => {
             display: 'block'
           }}>Contact</a>
           
-          {/* Get Free Quote Button */}
-          <button style={{
-            background: 'linear-gradient(to right, #f97316, #eab308)',
-            color: 'white',
-            fontWeight: 'bold',
-            padding: '8px 16px',
-            borderRadius: '8px',
-            border: 'none',
-            cursor: 'pointer',
-            boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
-            textShadow: '0 2px 4px rgba(0,0,0,0.8)'
-          }}>
-            Get Free Quote
-          </button>
+          {/* Cart Button */}
+          <CartButton />
+          
+          {/* Book Appointment Button */}
+          <a href="/book-appointment" style={{ textDecoration: 'none' }}>
+            <button style={{
+              background: 'linear-gradient(to right, #f97316, #eab308)',
+              color: 'white',
+              fontWeight: 'bold',
+              padding: '8px 16px',
+              borderRadius: '8px',
+              border: 'none',
+              cursor: 'pointer',
+              boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+              textShadow: '0 2px 4px rgba(0,0,0,0.8)'
+            }}>
+              Book Appointment
+            </button>
+          </a>
         </nav>
 
         {/* Mobile Menu Button */}
@@ -200,6 +206,7 @@ const ProfessionalHeader = () => {
           <nav style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
             <a href="/" style={{ color: '#ffffff !important', fontSize: '16px', fontWeight: '500', textDecoration: 'none' }}>Home</a>
             <a href="/residential-solar" style={{ color: '#ffffff !important', fontSize: '16px', fontWeight: '500', textDecoration: 'none' }}>Services</a>
+            <a href="/book-appointment" style={{ color: '#ffffff !important', fontSize: '16px', fontWeight: '500', textDecoration: 'none' }}>Book Appointment</a>
             <a href="/technical-data" style={{ color: '#ffffff !important', fontSize: '16px', fontWeight: '500', textDecoration: 'none' }}>Technical Data</a>
             <a href="/about" style={{ color: '#ffffff !important', fontSize: '16px', fontWeight: '500', textDecoration: 'none' }}>About</a>
             <a href="/contact" style={{ color: '#ffffff !important', fontSize: '16px', fontWeight: '500', textDecoration: 'none' }}>Contact</a>

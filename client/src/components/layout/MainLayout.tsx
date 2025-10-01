@@ -3,6 +3,16 @@ import ProfessionalHeader from '@/components/ProfessionalHeader';
 import Footer from '@/components/Footer';
 import { cn } from '@/lib/utils';
 
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      'elevenlabs-convai': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
+        'agent-id'?: string;
+      };
+    }
+  }
+}
+
 interface MainLayoutProps {
   children: ReactNode;
   className?: string;

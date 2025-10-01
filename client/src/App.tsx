@@ -13,6 +13,9 @@ import { PerformanceIndicator } from "@/components/ui/performance-indicator";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import CRM from "@/pages/CRM";
+import Cart from "@/pages/Cart";
+import Checkout from "@/pages/Checkout";
+import OrderConfirmation from "@/pages/OrderConfirmation";
 // PainterNetwork page has been removed
 import Marinas from "@/pages/Marinas";
 import FirePrevention from "@/pages/FirePrevention";
@@ -29,6 +32,8 @@ import Repairs from "@/pages/Repairs";
 const Construction = lazy(() => import('./pages/Construction'));
 import MobileHome from "@/pages/MobileHome";
 import Municipality from "@/pages/Municipality";
+import BookAppointment from "@/pages/BookAppointment";
+import Portfolio from "@/pages/Portfolio";
 const Applications = lazy(() => import('./pages/Applications')); 
 import ProductComparison from "@/pages/ProductComparison";
 const Products = lazy(() => import('./pages/Products'));
@@ -54,7 +59,7 @@ import FinancialCenter from "@/pages/FinancialCenter";
 import DataProcessingCenter from "@/pages/DataProcessingCenter";
 import { AuthProvider } from "@/hooks/use-auth";
 import { ProtectedRoute } from "@/components/ProtectedRoute";
-import { StoreProvider } from "@/contexts/StoreContext";
+import { StoreProvider } from "@/contexts/CartContext";
 
 function Router() {
   const [location] = useLocation();
@@ -107,6 +112,7 @@ function Router() {
       <Route path="/battery-storage" component={BatteryStorage} />
       <Route path="/maintenance" component={Maintenance} />
       <Route path="/repairs" component={Repairs} />
+      <Route path="/portfolio" component={Portfolio} />
       <Route path="/applications">
         <Suspense fallback={<SuspenseFallback message="Loading Applications..." operationName="applications-page" />}>
           <Applications />
@@ -117,6 +123,9 @@ function Router() {
           <Products />
         </Suspense>
       </Route>
+      <Route path="/cart" component={Cart} />
+      <Route path="/checkout" component={Checkout} />
+      <Route path="/order/confirmation/:orderNumber" component={OrderConfirmation} />
       <Route path="/roi-calculator">
         <Suspense fallback={<SuspenseFallback message="Loading ROI Calculator..." operationName="roi-calculator-page" />}>
           <ROICalculator />
@@ -130,6 +139,7 @@ function Router() {
       </Route>
       <Route path="/team" component={Team} />
       <Route path="/contact" component={Contact} />
+      <Route path="/book-appointment" component={BookAppointment} />
       <Route path="/technical-data" component={TechnicalData} />
       <Route path="/technology">
         <Suspense fallback={<SuspenseFallback message="Loading Technology..." operationName="technology-page" />}>

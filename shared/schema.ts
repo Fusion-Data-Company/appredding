@@ -17,6 +17,8 @@ export const verificationStatusEnum = pgEnum('verification_status', ['pending', 
 export const systemTypeEnum = pgEnum('system_type', ['grid_tied', 'off_grid', 'hybrid']);
 export const installationStatusEnum = pgEnum('installation_status', ['quoted', 'approved', 'scheduled', 'in_progress', 'completed', 'warranty']);
 export const batteryTypeEnum = pgEnum('battery_type', ['lithium_iron_phosphate', 'lead_acid', 'lithium_ion']);
+export const orderStatusEnum = pgEnum('order_status', ['pending', 'processing', 'completed', 'cancelled', 'refunded']);
+export const paymentStatusEnum = pgEnum('payment_status', ['pending', 'authorized', 'captured', 'failed', 'refunded']);
 
 // Tables
 export const users = pgTable("users", {
@@ -195,64 +197,29 @@ export const opportunityFiles = pgTable("opportunity_files", {
   createdAt: timestamp("created_at").notNull().defaultNow(),
 });
 
-// Products
-export const products = pgTable("products", {
-  id: serial("id").primaryKey(),
-  name: text("name").notNull(),
-  code: text("code").notNull().unique(),
-  description: text("description"),
-  price: decimal("price", { precision: 10, scale: 2 }).notNull(),
-  cost: decimal("cost", { precision: 10, scale: 2 }),
-  category: text("category"),
-  unit: text("unit").default('each'),
-  imageUrl: text("image_url"),
-  isActive: boolean("is_active").notNull().default(true),
-  solarServices: jsonb("solar_services"), // Array of solar service types
-  specifications: jsonb("specifications"), // Technical specs like wattage, efficiency, dimensions
-  createdAt: timestamp("created_at").notNull().defaultNow(),
-  updatedAt: timestamp("updated_at").notNull().defaultNow(),
-  createdBy: integer("created_by").references(() => users.id),
-});
-
 // Orders
 export const orders = pgTable("orders", {
   id: serial("id").primaryKey(),
   orderNumber: text("order_number").notNull().unique(),
-  opportunityId: integer("opportunity_id").references(() => opportunities.id),
-  contactId: integer("contact_id").notNull().references(() => contacts.id),
-  companyId: integer("company_id").references(() => companies.id),
-  status: text("status").notNull().default('pending'),
-  totalAmount: decimal("total_amount", { precision: 10, scale: 2 }).notNull(),
-  taxAmount: decimal("tax_amount", { precision: 10, scale: 2 }),
-  shippingAmount: decimal("shipping_amount", { precision: 10, scale: 2 }),
-  discountAmount: decimal("discount_amount", { precision: 10, scale: 2 }),
-  currency: text("currency").default('USD'),
-  paymentMethod: text("payment_method"),
-  paymentStatus: text("payment_status").default('pending'),
-  billingAddress: text("billing_address"),
-  billingCity: text("billing_city"),
-  billingState: text("billing_state"),
-  billingZip: text("billing_zip"),
-  billingCountry: text("billing_country"),
-  shippingAddress: text("shipping_address"),
-  shippingCity: text("shipping_city"),
-  shippingState: text("shipping_state"),
-  shippingZip: text("shipping_zip"),
-  shippingCountry: text("shipping_country"),
+  customerId: integer("customer_id").references(() => contacts.id),
+  email: text("email").notNull(),
+  status: orderStatusEnum("status").notNull().default('pending'),
+  subtotal: decimal("subtotal", { precision: 10, scale: 2 }).notNull(),
+  tax: decimal("tax", { precision: 10, scale: 2 }).notNull(),
+  shipping: decimal("shipping", { precision: 10, scale: 2 }).notNull(),
+  total: decimal("total", { precision: 10, scale: 2 }).notNull(),
+  shippingAddress: jsonb("shipping_address").notNull(),
+  billingAddress: jsonb("billing_address"),
+  paymentMethod: text("payment_method").notNull(),
+  paymentStatus: paymentStatusEnum("payment_status").notNull().default('pending'),
   notes: text("notes"),
-  termsAccepted: boolean("terms_accepted").default(false),
-  orderDate: timestamp("order_date").notNull().defaultNow(),
   createdAt: timestamp("created_at").notNull().defaultNow(),
   updatedAt: timestamp("updated_at").notNull().defaultNow(),
-  createdBy: integer("created_by").references(() => users.id),
-  assignedTo: integer("assigned_to").references(() => users.id),
 });
 
 // Order relations
 export const ordersRelations = relations(orders, ({ one, many }) => ({
-  contact: one(contacts, { fields: [orders.contactId], references: [contacts.id] }),
-  company: one(companies, { fields: [orders.companyId], references: [companies.id] }),
-  opportunity: one(opportunities, { fields: [orders.opportunityId], references: [opportunities.id] }),
+  customer: one(contacts, { fields: [orders.customerId], references: [contacts.id] }),
   items: many(orderItems)
 }));
 
@@ -260,14 +227,12 @@ export const ordersRelations = relations(orders, ({ one, many }) => ({
 export const orderItems = pgTable("order_items", {
   id: serial("id").primaryKey(),
   orderId: integer("order_id").notNull().references(() => orders.id),
-  productId: integer("product_id").notNull().references(() => products.id),
+  productId: integer("product_id").references(() => products.id),
+  sku: text("sku").notNull(),
+  name: text("name").notNull(),
+  price: decimal("price", { precision: 10, scale: 2 }).notNull(),
   quantity: integer("quantity").notNull(),
-  unitPrice: decimal("unit_price", { precision: 10, scale: 2 }).notNull(),
-  totalPrice: decimal("total_price", { precision: 10, scale: 2 }).notNull(),
-  discount: decimal("discount", { precision: 10, scale: 2 }),
-  tax: decimal("tax", { precision: 10, scale: 2 }),
-  notes: text("notes"),
-  createdAt: timestamp("created_at").notNull().defaultNow(),
+  subtotal: decimal("subtotal", { precision: 10, scale: 2 }).notNull(),
 });
 
 // Order item relations
@@ -695,60 +660,31 @@ export const insertOpportunitySchema = createInsertSchema(opportunities).pick({
   assignedTo: true
 });
 
-export const insertProductSchema = createInsertSchema(products).pick({
-  name: true,
-  code: true,
-  description: true,
-  price: true,
-  cost: true,
-  category: true,
-  unit: true,
-  imageUrl: true,
-  isActive: true,
-  solarServices: true,
-  specifications: true,
-  createdBy: true
+export const insertOrderSchema = createInsertSchema(orders).omit({
+  id: true,
+  createdAt: true,
+  updatedAt: true
+}).extend({
+  shippingAddress: z.object({
+    name: z.string().min(1, "Name is required"),
+    address: z.string().min(1, "Address is required"),
+    city: z.string().min(1, "City is required"),
+    state: z.string().min(2, "State is required"),
+    zip: z.string().regex(/^\d{5}$/, "ZIP code must be 5 digits"),
+    phone: z.string().min(10, "Phone number is required")
+  }),
+  billingAddress: z.object({
+    name: z.string().min(1, "Name is required"),
+    address: z.string().min(1, "Address is required"),
+    city: z.string().min(1, "City is required"),
+    state: z.string().min(2, "State is required"),
+    zip: z.string().regex(/^\d{5}$/, "ZIP code must be 5 digits"),
+    phone: z.string().min(10, "Phone number is required")
+  }).optional()
 });
 
-export const insertOrderSchema = createInsertSchema(orders).pick({
-  orderNumber: true,
-  opportunityId: true,
-  contactId: true,
-  companyId: true,
-  status: true,
-  totalAmount: true,
-  taxAmount: true,
-  shippingAmount: true,
-  discountAmount: true,
-  currency: true,
-  paymentMethod: true,
-  paymentStatus: true,
-  billingAddress: true,
-  billingCity: true,
-  billingState: true,
-  billingZip: true,
-  billingCountry: true,
-  shippingAddress: true,
-  shippingCity: true,
-  shippingState: true,
-  shippingZip: true,
-  shippingCountry: true,
-  notes: true,
-  termsAccepted: true,
-  orderDate: true,
-  createdBy: true,
-  assignedTo: true
-});
-
-export const insertOrderItemSchema = createInsertSchema(orderItems).pick({
-  orderId: true,
-  productId: true,
-  quantity: true,
-  unitPrice: true,
-  totalPrice: true,
-  discount: true,
-  tax: true,
-  notes: true
+export const insertOrderItemSchema = createInsertSchema(orderItems).omit({
+  id: true
 });
 
 export const insertTaskSchema = createInsertSchema(tasks).pick({
@@ -883,9 +819,6 @@ export type Tag = typeof tags.$inferSelect;
 export type InsertOpportunity = z.infer<typeof insertOpportunitySchema>;
 export type Opportunity = typeof opportunities.$inferSelect;
 
-export type InsertProduct = z.infer<typeof insertProductSchema>;
-export type Product = typeof products.$inferSelect;
-
 export type InsertOrder = z.infer<typeof insertOrderSchema>;
 export type Order = typeof orders.$inferSelect;
 
@@ -897,6 +830,9 @@ export type Task = typeof tasks.$inferSelect;
 
 export type InsertActivity = z.infer<typeof insertActivitySchema>;
 export type Activity = typeof activities.$inferSelect;
+
+export type InsertFormSubmission = z.infer<typeof insertFormSubmissionSchema>;
+export type FormSubmission = typeof formSubmissions.$inferSelect;
 
 export type InsertSocialMediaPost = z.infer<typeof insertSocialMediaPostSchema>;
 export type SocialMediaPost = typeof socialMediaPosts.$inferSelect;
@@ -1633,3 +1569,84 @@ export type ChatSession = typeof chatSessions.$inferSelect;
 export const insertChatMessageSchema = createInsertSchema(chatMessages).omit({ id: true, createdAt: true });
 export type InsertChatMessage = z.infer<typeof insertChatMessageSchema>;
 export type ChatMessage = typeof chatMessages.$inferSelect;
+
+// Product Category Enum
+export const productCategoryEnum = pgEnum('product_category', [
+  'solar-panels',
+  'inverters',
+  'batteries',
+  'mounting',
+  'monitoring',
+  'installation-services',
+  'maintenance-packages'
+]);
+
+// Products Table
+export const products = pgTable("products", {
+  id: serial("id").primaryKey(),
+  sku: text("sku").notNull().unique(),
+  name: text("name").notNull(),
+  category: productCategoryEnum("category").notNull(),
+  brand: text("brand"),
+  price: decimal("price", { precision: 10, scale: 2 }).notNull(),
+  compareAtPrice: decimal("compare_at_price", { precision: 10, scale: 2 }),
+  description: text("description"),
+  specifications: jsonb("specifications"),
+  images: text("images").array().notNull().default([]),
+  inStock: boolean("in_stock").notNull().default(true),
+  stockQuantity: integer("stock_quantity"),
+  featured: boolean("featured").notNull().default(false),
+  rating: decimal("rating", { precision: 3, scale: 2 }).notNull().default('0'),
+  reviewCount: integer("review_count").notNull().default(0),
+  tags: text("tags").array().notNull().default([]),
+  createdAt: timestamp("created_at").notNull().defaultNow(),
+  updatedAt: timestamp("updated_at").notNull().defaultNow(),
+});
+
+// Product Categories Table
+export const productCategories = pgTable("product_categories", {
+  id: serial("id").primaryKey(),
+  slug: text("slug").notNull().unique(),
+  name: text("name").notNull(),
+  description: text("description"),
+  image: text("image"),
+  displayOrder: integer("display_order").notNull().default(0),
+  createdAt: timestamp("created_at").notNull().defaultNow(),
+  updatedAt: timestamp("updated_at").notNull().defaultNow(),
+});
+
+// Insert schemas for Products
+export const insertProductSchema = createInsertSchema(products).omit({ id: true, createdAt: true, updatedAt: true });
+export type InsertProduct = z.infer<typeof insertProductSchema>;
+export type Product = typeof products.$inferSelect;
+
+export const insertProductCategorySchema = createInsertSchema(productCategories).omit({ id: true, createdAt: true, updatedAt: true });
+export type InsertProductCategory = z.infer<typeof insertProductCategorySchema>;
+export type ProductCategory = typeof productCategories.$inferSelect;
+
+// Portfolio Projects Enum
+export const portfolioCategoryEnum = pgEnum('portfolio_category', ['residential', 'commercial', 'maintenance']);
+
+// Portfolio Projects Table
+export const portfolioProjects = pgTable("portfolio_projects", {
+  id: serial("id").primaryKey(),
+  title: text("title").notNull(),
+  category: portfolioCategoryEnum("category").notNull(),
+  location: text("location").notNull(),
+  date: timestamp("date").notNull(),
+  systemSize: text("system_size").notNull(),
+  panelCount: integer("panel_count").notNull(),
+  annualSavings: text("annual_savings").notNull(),
+  description: text("description").notNull(),
+  beforeImage: text("before_image").notNull(),
+  afterImage: text("after_image").notNull(),
+  galleryImages: text("gallery_images").array().notNull().default([]),
+  featured: boolean("featured").notNull().default(false),
+  createdAt: timestamp("created_at").notNull().defaultNow(),
+  updatedAt: timestamp("updated_at").notNull().defaultNow(),
+});
+
+// Insert schemas for Portfolio Projects
+export const insertPortfolioProjectSchema = createInsertSchema(portfolioProjects).omit({ id: true, createdAt: true, updatedAt: true });
+export type InsertPortfolioProject = z.infer<typeof insertPortfolioProjectSchema>;
+export type PortfolioProject = typeof portfolioProjects.$inferSelect;

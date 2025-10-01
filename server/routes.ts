@@ -5,6 +5,11 @@ import multer from "multer";
 import { parse } from "csv-parse/sync";
 import crmRoutes from "./routes/crm";
 import monitoringRoutes from "./routes/monitoring";
+import bookingRoutes from "./routes/bookings";
+import reviewsRoutes from "./routes/reviews";
+import portfolioRoutes from "./routes/portfolio";
+import productsRoutes from "./routes/products";
+import ordersRoutes from "./routes/orders";
 
 // Configure multer for file uploads
 const upload = multer({ 
@@ -22,6 +27,21 @@ const router = Router();
 
 // Add monitoring routes first
 router.use(monitoringRoutes);
+
+// Add booking routes
+router.use("/api/bookings", bookingRoutes);
+
+// Add reviews routes
+router.use("/api/reviews", reviewsRoutes);
+
+// Add portfolio routes
+router.use("/api/portfolio", portfolioRoutes);
+
+// Add products routes
+router.use(productsRoutes);
+
+// Add orders routes
+router.use(ordersRoutes);
 
 // Universal form submission schema - handles ALL website forms
 const universalFormSchema = z.object({

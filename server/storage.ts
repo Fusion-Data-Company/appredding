@@ -1,4 +1,4 @@
-import { contacts, companies, opportunities, activities, tasks, orders, orderItems, products, formSubmissions, type Contact, type Company, type Opportunity, type FormSubmission } from "@shared/schema";
+import { contacts, companies, opportunities, activities, tasks, orders, orderItems, products, productCategories, formSubmissions, portfolioProjects, type Contact, type Company, type Opportunity, type FormSubmission, type PortfolioProject, type Product, type ProductCategory } from "@shared/schema";
 import { db } from "./db";
 import { eq, desc, and, like, sql } from "drizzle-orm";
 
@@ -40,6 +40,34 @@ export interface IStorage {
 
   // Dashboard data
   getDashboardStats(): Promise<any>;
+
+  // Portfolio Projects management
+  getPortfolioProjects(filters?: { category?: string; featured?: boolean }): Promise<PortfolioProject[]>;
+  getPortfolioProjectById(id: number): Promise<PortfolioProject | undefined>;
+  createPortfolioProject(data: any): Promise<PortfolioProject>;
+  updatePortfolioProject(id: number, data: any): Promise<PortfolioProject>;
+  deletePortfolioProject(id: number): Promise<void>;
+
+  // Products management
+  getProducts(filters?: { category?: string; inStock?: boolean; featured?: boolean; search?: string; page?: number; limit?: number }): Promise<{ products: Product[]; total: number }>;
+  getProductById(id: number): Promise<Product | undefined>;
+  getProductBySku(sku: string): Promise<Product | undefined>;
+  createProduct(data: any): Promise<Product>;
+  updateProduct(id: number, data: any): Promise<Product>;
+  deleteProduct(id: number): Promise<void>;
+  searchProducts(query: string): Promise<Product[]>;
+
+  // Product Categories management
+  getProductCategories(): Promise<ProductCategory[]>;
+  getProductCategoryBySlug(slug: string): Promise<ProductCategory | undefined>;
+
+  // Order management
+  createOrder(orderData: any, items: any[]): Promise<any>;
+  getOrderById(id: number): Promise<any>;
+  getOrderByNumber(orderNumber: string): Promise<any>;
+  getOrdersByEmail(email: string): Promise<any[]>;
+  updateOrderStatus(id: number, status: string): Promise<any>;
+  updateOrderPaymentStatus(id: number, paymentStatus: string): Promise<any>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -381,6 +409,279 @@ export class DatabaseStorage implements IStorage {
       .from(contacts)
       .where(eq(contacts.email, email));
     return contact;
+  }
+
+  async getPortfolioProjects(filters?: { category?: string; featured?: boolean }): Promise<PortfolioProject[]> {
+    let query = db.select().from(portfolioProjects);
+    
+    const conditions = [];
+    if (filters?.category) {
+      conditions.push(eq(portfolioProjects.category, filters.category as any));
+    }
+    if (filters?.featured !== undefined) {
+      conditions.push(eq(portfolioProjects.featured, filters.featured));
+    }
+    
+    if (conditions.length > 0) {
+      query = query.where(and(...conditions)) as any;
+    }
+    
+    return await query.orderBy(desc(portfolioProjects.date));
+  }
+
+  async getPortfolioProjectById(id: number): Promise<PortfolioProject | undefined> {
+    const [project] = await db
+      .select()
+      .from(portfolioProjects)
+      .where(eq(portfolioProjects.id, id));
+    return project || undefined;
+  }
+
+  async createPortfolioProject(data: any): Promise<PortfolioProject> {
+    const [project] = await db
+      .insert(portfolioProjects)
+      .values(data)
+      .returning();
+    return project;
+  }
+
+  async updatePortfolioProject(id: number, data: any): Promise<PortfolioProject> {
+    const [project] = await db
+      .update(portfolioProjects)
+      .set({ ...data, updatedAt: new Date() })
+      .where(eq(portfolioProjects.id, id))
+      .returning();
+    return project;
+  }
+
+  async deletePortfolioProject(id: number): Promise<void> {
+    await db.delete(portfolioProjects).where(eq(portfolioProjects.id, id));
+  }
+
+  async getProducts(filters?: { category?: string; inStock?: boolean; featured?: boolean; search?: string; page?: number; limit?: number }): Promise<{ products: Product[]; total: number }> {
+    const page = filters?.page || 1;
+    const limit = filters?.limit || 20;
+    const offset = (page - 1) * limit;
+
+    const conditions = [];
+    if (filters?.category) {
+      conditions.push(eq(products.category, filters.category as any));
+    }
+    if (filters?.inStock !== undefined) {
+      conditions.push(eq(products.inStock, filters.inStock));
+    }
+    if (filters?.featured !== undefined) {
+      conditions.push(eq(products.featured, filters.featured));
+    }
+    if (filters?.search) {
+      conditions.push(
+        sql`LOWER(${products.name}) LIKE ${`%${filters.search.toLowerCase()}%`} OR 
+            LOWER(${products.brand}) LIKE ${`%${filters.search.toLowerCase()}%`} OR 
+            LOWER(${products.description}) LIKE ${`%${filters.search.toLowerCase()}%`}`
+      );
+    }
+
+    let query = db.select().from(products);
+    if (conditions.length > 0) {
+      query = query.where(and(...conditions)) as any;
+    }
+
+    const allProducts = await query;
+    const total = allProducts.length;
+    
+    const paginatedProducts = await query
+      .orderBy(desc(products.featured), desc(products.createdAt))
+      .limit(limit)
+      .offset(offset);
+
+    return { products: paginatedProducts, total };
+  }
+
+  async getProductById(id: number): Promise<Product | undefined> {
+    const [product] = await db
+      .select()
+      .from(products)
+      .where(eq(products.id, id));
+    return product || undefined;
+  }
+
+  async getProductBySku(sku: string): Promise<Product | undefined> {
+    const [product] = await db
+      .select()
+      .from(products)
+      .where(eq(products.sku, sku));
+    return product || undefined;
+  }
+
+  async createProduct(data: any): Promise<Product> {
+    const [product] = await db
+      .insert(products)
+      .values(data)
+      .returning();
+    return product;
+  }
+
+  async updateProduct(id: number, data: any): Promise<Product> {
+    const [product] = await db
+      .update(products)
+      .set({ ...data, updatedAt: new Date() })
+      .where(eq(products.id, id))
+      .returning();
+    return product;
+  }
+
+  async deleteProduct(id: number): Promise<void> {
+    await db.delete(products).where(eq(products.id, id));
+  }
+
+  async searchProducts(query: string): Promise<Product[]> {
+    return await db
+      .select()
+      .from(products)
+      .where(
+        sql`LOWER(${products.name}) LIKE ${`%${query.toLowerCase()}%`} OR 
+            LOWER(${products.brand}) LIKE ${`%${query.toLowerCase()}%`} OR 
+            LOWER(${products.description}) LIKE ${`%${query.toLowerCase()}%`}`
+      )
+      .orderBy(desc(products.featured), desc(products.createdAt));
+  }
+
+  async getProductCategories(): Promise<ProductCategory[]> {
+    return await db
+      .select()
+      .from(productCategories)
+      .orderBy(productCategories.displayOrder);
+  }
+
+  async getProductCategoryBySlug(slug: string): Promise<ProductCategory | undefined> {
+    const [category] = await db
+      .select()
+      .from(productCategories)
+      .where(eq(productCategories.slug, slug));
+    return category || undefined;
+  }
+
+  async createOrder(orderData: any, items: any[]): Promise<any> {
+    const [order] = await db
+      .insert(orders)
+      .values({
+        orderNumber: orderData.orderNumber,
+        customerId: orderData.customerId || null,
+        email: orderData.email,
+        status: orderData.status || 'pending',
+        subtotal: orderData.subtotal,
+        tax: orderData.tax,
+        shipping: orderData.shipping,
+        total: orderData.total,
+        shippingAddress: orderData.shippingAddress,
+        billingAddress: orderData.billingAddress || null,
+        paymentMethod: orderData.paymentMethod,
+        paymentStatus: orderData.paymentStatus || 'pending',
+        notes: orderData.notes || null
+      })
+      .returning();
+
+    const orderItemsData = items.map(item => ({
+      orderId: order.id,
+      productId: item.productId || null,
+      sku: item.sku,
+      name: item.name,
+      price: item.price,
+      quantity: item.quantity,
+      subtotal: item.subtotal
+    }));
+
+    const createdItems = await db
+      .insert(orderItems)
+      .values(orderItemsData)
+      .returning();
+
+    return {
+      ...order,
+      items: createdItems
+    };
+  }
+
+  async getOrderById(id: number): Promise<any> {
+    const [order] = await db
+      .select()
+      .from(orders)
+      .where(eq(orders.id, id));
+    
+    if (!order) return undefined;
+
+    const items = await db
+      .select()
+      .from(orderItems)
+      .where(eq(orderItems.orderId, id));
+
+    return {
+      ...order,
+      items
+    };
+  }
+
+  async getOrderByNumber(orderNumber: string): Promise<any> {
+    const [order] = await db
+      .select()
+      .from(orders)
+      .where(eq(orders.orderNumber, orderNumber));
+    
+    if (!order) return undefined;
+
+    const items = await db
+      .select()
+      .from(orderItems)
+      .where(eq(orderItems.orderId, order.id));
+
+    return {
+      ...order,
+      items
+    };
+  }
+
+  async getOrdersByEmail(email: string): Promise<any[]> {
+    const ordersList = await db
+      .select()
+      .from(orders)
+      .where(eq(orders.email, email))
+      .orderBy(desc(orders.createdAt));
+
+    const ordersWithItems = await Promise.all(
+      ordersList.map(async (order) => {
+        const items = await db
+          .select()
+          .from(orderItems)
+          .where(eq(orderItems.orderId, order.id));
+        
+        return {
+          ...order,
+          items
+        };
+      })
+    );
+
+    return ordersWithItems;
+  }
+
+  async updateOrderStatus(id: number, status: string): Promise<any> {
+    const [order] = await db
+      .update(orders)
+      .set({ status, updatedAt: new Date() })
+      .where(eq(orders.id, id))
+      .returning();
+
+    return order;
+  }
+
+  async updateOrderPaymentStatus(id: number, paymentStatus: string): Promise<any> {
+    const [order] = await db
+      .update(orders)
+      .set({ paymentStatus, updatedAt: new Date() })
+      .where(eq(orders.id, id))
+      .returning();
+
+    return order;
   }
 }
 
