@@ -18,20 +18,20 @@ interface SolarRepairHeroProps {
 }
 
 const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
-  tagline = "24/7 Emergency Solar Panel Service",
+  tagline = "Northern California's Solar Experts Since 2004",
   title = (
     <>
-      Expert Solar Panel
+      Advance Power Redding
       <br />
-      <span className="text-primary">Repair & Maintenance</span>
+      <span className="text-primary">Complete Solar Solutions</span>
     </>
   ),
-  subtitle = "Fast diagnosis, professional repairs, and preventive maintenance to keep your solar system running at peak efficiency. Our certified technicians are ready to help.",
+  subtitle = "Professional solar panel installation, repair, and maintenance services for homes and businesses across Northern California. Licensed, insured, and trusted by over 1000 customers.",
   ctaButtons = {
-    primary: { label: "Schedule Repair", onClick: () => console.log("Schedule clicked") },
-    secondary: { label: "Emergency Service", onClick: () => console.log("Emergency clicked") }
+    primary: { label: "Get Free Solar Quote", onClick: () => console.log("Schedule clicked") },
+    secondary: { label: "Call (530) 226-0701", onClick: () => console.log("Emergency clicked") }
   },
-  backgroundImage = "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2940&auto=format&fit=crop",
+  backgroundImage = "/assets/images/solar-panels-hero.jpg",
   solarImages = [
     "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=400&h=600&fit=crop",
     "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=400&h=600&fit=crop",
@@ -123,7 +123,7 @@ const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
               initial="hidden"
               animate="show"
               variants={FADE_IN_ANIMATION_VARIANTS}
-              className="mb-4 inline-flex items-center gap-2 rounded-full border border-border bg-card/80 backdrop-blur-sm px-4 py-2 text-sm font-medium text-muted-foreground"
+              className="mb-4 inline-flex items-center gap-2 rounded-full border border-border bg-card/80 backdrop-blur-sm px-4 py-2 text-sm font-medium text-muted-foreground glass-card shimmer-effect edge-glow"
             >
               <Wrench className="w-4 h-4" />
               {tagline}
@@ -164,7 +164,7 @@ const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
             >
               <Button 
                 size="lg" 
-                className="gap-2"
+                className="gap-2 glass-button edge-glow-strong"
                 onClick={ctaButtons.primary.onClick}
               >
                 <Calendar className="w-4 h-4" />
@@ -173,7 +173,7 @@ const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
               <Button 
                 size="lg" 
                 variant="outline" 
-                className="gap-2 bg-background/80 backdrop-blur-sm"
+                className="gap-2 bg-background/80 backdrop-blur-sm glass-button edge-glow-strong"
                 onClick={ctaButtons.secondary.onClick}
               >
                 <Phone className="w-4 h-4" />
@@ -219,7 +219,7 @@ const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
               Our Triage Process
             </h2>
             <div className="grid md:grid-cols-3 gap-6 mb-12">
-              <div className="bg-card/80 backdrop-blur-sm rounded-lg p-6 border border-border">
+              <div className="bg-card/80 backdrop-blur-sm rounded-lg p-6 border border-border glass-card-strong edge-glow shimmer-effect shimmer-slow">
                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
                   <Phone className="w-6 h-6 text-primary" />
                 </div>
@@ -228,7 +228,7 @@ const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
                   Call or schedule online. Our team responds within 2 hours for emergency repairs.
                 </p>
               </div>
-              <div className="bg-card/80 backdrop-blur-sm rounded-lg p-6 border border-border">
+              <div className="bg-card/80 backdrop-blur-sm rounded-lg p-6 border border-border glass-card-strong edge-glow shimmer-effect shimmer-slow">
                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
                   <Wrench className="w-6 h-6 text-primary" />
                 </div>
@@ -237,7 +237,7 @@ const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
                   Comprehensive system inspection to identify issues and provide transparent pricing.
                 </p>
               </div>
-              <div className="bg-card/80 backdrop-blur-sm rounded-lg p-6 border border-border">
+              <div className="bg-card/80 backdrop-blur-sm rounded-lg p-6 border border-border glass-card-strong edge-glow shimmer-effect shimmer-slow">
                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
                   <Calendar className="w-6 h-6 text-primary" />
                 </div>
@@ -286,7 +286,7 @@ const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button 
                   size="lg" 
-                  className="gap-2"
+                  className="gap-2 glass-button edge-glow"
                   onClick={ctaButtons.primary.onClick}
                 >
                   <Calendar className="w-4 h-4" />
@@ -295,7 +295,7 @@ const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
                 <Button 
                   size="lg" 
                   variant="outline"
-                  className="gap-2"
+                  className="gap-2 glass-button edge-glow"
                   onClick={ctaButtons.secondary.onClick}
                 >
                   <Phone className="w-4 h-4" />
@@ -313,23 +313,23 @@ const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
 export default function SolarRepairHeroDemo() {
   return (
     <SolarRepairHero
-      tagline="24/7 Emergency Solar Panel Service"
+      tagline="Northern California's Solar Experts Since 2004"
       title={
         <>
-          Expert Solar Panel
+          Advance Power Redding
           <br />
-          <span className="text-primary">Repair & Maintenance</span>
+          <span className="text-primary">Complete Solar Solutions</span>
         </>
       }
-      subtitle="Fast diagnosis, professional repairs, and preventive maintenance to keep your solar system running at peak efficiency. Our certified technicians are ready to help."
+      subtitle="Professional solar panel installation, repair, and maintenance services for homes and businesses across Northern California. Licensed, insured, and trusted by over 1000 customers."
       ctaButtons={{
         primary: { 
-          label: "Schedule Repair",
-          onClick: () => alert("Scheduling repair appointment...")
+          label: "Get Free Solar Quote",
+          onClick: () => alert("Getting free solar quote...")
         },
         secondary: { 
-          label: "Emergency Service",
-          onClick: () => alert("Calling emergency service...")
+          label: "Call (530) 226-0701",
+          onClick: () => alert("Calling (530) 226-0701...")
         }
       }}
     />
