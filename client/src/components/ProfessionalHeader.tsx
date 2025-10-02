@@ -42,6 +42,18 @@ const ProfessionalHeader = () => {
     };
   }, []);
 
+  // Auto-close mobile menu on desktop resize
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024 && mobileMenuOpen) {
+        setMobileMenuOpen(false);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [mobileMenuOpen]);
+
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
@@ -193,7 +205,7 @@ const ProfessionalHeader = () => {
       </div>
       {/* Mobile Navigation */}
       {mobileMenuOpen && (
-        <div style={{
+        <div className="lg:hidden" style={{
           position: 'absolute',
           top: '100%',
           left: 0,
