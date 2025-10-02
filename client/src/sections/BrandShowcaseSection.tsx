@@ -2,8 +2,9 @@ import React from "react";
 import { GradientHeading } from "@/components/ui/gradient-heading";
 import { PremiumButton } from "@/components/ui/premium-button";
 import PremiumBadge from "@/components/ui/premium-badge";
-import praetorianBrandImage from '../assets_dir/images/optimized/praetorian-brand-showcase.webp';
-import backgroundImg from "../assets_dir/images/optimized/praetorian-background-new.png";
+// Updated to use solar imagery instead of paint products
+const solarBrandImage = "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800&h=600&fit=crop";
+const solarBackgroundImg = "https://images.unsplash.com/photo-1497440001374-f26997328c1b?w=1920&h=1080&fit=crop";
 
 const BrandShowcaseSection = () => {
   return (
@@ -11,7 +12,7 @@ const BrandShowcaseSection = () => {
       id="brand-showcase" 
       className="py-16 relative overflow-hidden"
       style={{ 
-        backgroundImage: `url(${backgroundImg})`,
+        backgroundImage: `url(${solarBackgroundImg})`,
         backgroundSize: "cover",
         backgroundPosition: "center center", // Standardized position
         backgroundRepeat: "no-repeat",

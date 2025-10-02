@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
-import ProfessionalHeader from '@/components/ProfessionalHeader';
-import Footer from '@/components/Footer';
+import SolarCompanyHeader from '@/components/layout/Header';
+import SolarFooter from '@/components/layout/Footer';
 import { cn } from '@/lib/utils';
 
 declare global {
@@ -24,8 +24,8 @@ interface MainLayoutProps {
  */
 export default function MainLayout({ children, className, fullWidth = false }: MainLayoutProps) {
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-br from-amber-50 via-white to-orange-50">
-      <ProfessionalHeader />
+    <div className="min-h-screen flex flex-col bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
+      <SolarCompanyHeader />
       
       <main className={cn(
         "flex-1 pt-24 pb-16 relative z-10", // Account for header and footer height on mobile
@@ -41,7 +41,7 @@ export default function MainLayout({ children, className, fullWidth = false }: M
         )}
       </main>
       
-      <Footer />
+      <SolarFooter />
       
       {/* ElevenLabs Voice Widget */}
       <elevenlabs-convai agent-id="demo"></elevenlabs-convai>

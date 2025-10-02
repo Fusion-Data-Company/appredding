@@ -17,10 +17,7 @@ import Cart from "@/pages/Cart";
 import Checkout from "@/pages/Checkout";
 import OrderConfirmation from "@/pages/OrderConfirmation";
 // PainterNetwork page has been removed
-import Marinas from "@/pages/Marinas";
-import FirePrevention from "@/pages/FirePrevention";
-import Painters from "@/pages/Painters";
-import Pools from "@/pages/Pools";
+// Removed paint-related pages: Marinas, FirePrevention, Painters, Pools
 import ResidentialSolar from "@/pages/ResidentialSolar";
 import CommercialSolar from "@/pages/CommercialSolar";
 import HybridSolar from "@/pages/HybridSolar";
@@ -45,6 +42,7 @@ import AdminDashboard from "@/pages/admin-dashboard";
 const About = lazy(() => import('./pages/About'));
 import Team from "@/pages/Team";
 import Contact from "@/pages/Contact";
+import Commerce from "@/pages/Commerce";
 import TechnicalData from "@/pages/TechnicalData";
 import CrmLogin from "@/pages/crm-login";
 import CrmDashboard from "@/pages/crm-dashboard";
@@ -93,10 +91,7 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/crm" component={CRM} />
       {/* Remove painter-network route to avoid redirects */}
-      <Route path="/marinas" component={Marinas} />
-      <Route path="/fire-prevention" component={FirePrevention} />
-      <Route path="/painters" component={Painters} />
-      <Route path="/pools" component={Pools} />
+      {/* Removed paint-related routes: marinas, fire-prevention, painters, pools */}
       <Route path="/construction" >
         <Suspense fallback={<SuspenseFallback message="Loading Construction..." operationName="construction-page" />}>
           <Construction />
@@ -139,6 +134,7 @@ function Router() {
       </Route>
       <Route path="/team" component={Team} />
       <Route path="/contact" component={Contact} />
+      <Route path="/commerce" component={Commerce} />
       <Route path="/book-appointment" component={BookAppointment} />
       <Route path="/technical-data" component={TechnicalData} />
       <Route path="/technology">

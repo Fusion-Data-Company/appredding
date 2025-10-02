@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import SEOHead from "@/components/SEOHead";
+import SolarRescueTimelineSection from "@/sections/SolarRescueTimelineSection";
 
 const Repairs = () => {
   const repairServices = [
@@ -233,6 +234,8 @@ const Repairs = () => {
         </div>
       </section>
 
+      <SolarRescueTimelineSection className="bg-gradient-to-br from-gray-950 via-gray-900 to-black" />
+ 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-red-500 to-orange-500">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

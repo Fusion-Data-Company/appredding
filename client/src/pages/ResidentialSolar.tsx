@@ -37,6 +37,7 @@ import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
 import { motion } from "framer-motion";
 import SEOHead from "@/components/SEOHead";
+import SolarRescueProcessSection from "@/sections/SolarRescueProcessSection";
 
 type ResidentialSolarFormValues = z.infer<typeof insertFirePreventionHomeownerSchema>;
 
@@ -672,6 +673,8 @@ const ResidentialSolar = () => {
             </div>
           </div>
         </section>
+
+        <SolarRescueProcessSection />
       </div>
     </MainLayout>
   );
