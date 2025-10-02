@@ -95,18 +95,20 @@ const SolarCompanyHeader: React.FC = () => {
   const navigationItems = [
     { title: 'Home', href: '/' },
     { title: 'Services', href: '/services', hasDropdown: true },
-    { title: 'Residential', href: '/residential' },
-    { title: 'Repairs', href: '/repairs' },
-    { title: 'Commerce', href: '/commerce' },
+    { title: 'Products', href: '/products' },
+    { title: 'Portfolio', href: '/portfolio' },
+    { title: 'ROI Calculator', href: '/roi-calculator' },
     { title: 'About', href: '/about' },
     { title: 'Contact', href: '/contact' },
   ];
 
   const services = [
-    { title: 'Residential Solar', href: '/residential' },
-    { title: 'Commercial Solar', href: '/commercial' },
-    { title: 'Solar Repairs', href: '/repairs' },
-    { title: 'Energy Storage', href: '/storage' },
+    { title: 'Residential Solar', href: '/residential-solar', description: 'Home solar installations' },
+    { title: 'Commercial Solar', href: '/commercial-solar', description: 'Business solar solutions' },
+    { title: 'Battery Storage', href: '/battery-storage', description: 'Energy storage systems' },
+    { title: 'Solar Repairs', href: '/repairs', description: 'Maintenance & repairs' },
+    { title: 'Hybrid Systems', href: '/hybrid-solar', description: 'Grid-tie & off-grid' },
+    { title: 'Mobile Home Solar', href: '/mobile-home', description: 'Mobile home installations' },
   ];
 
   return (
@@ -142,15 +144,16 @@ const SolarCompanyHeader: React.FC = () => {
                           {item.title}
                         </NavigationMenuTrigger>
                         <NavigationMenuContent>
-                          <ul className="grid w-[400px] gap-3 p-4">
+                          <ul className="grid w-[500px] gap-2 p-6">
                             {services.map((service) => (
                               <li key={service.title}>
                                 <NavigationMenuLink asChild>
                                   <a
                                     href={service.href}
-                                    className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-blue-950/50 hover:text-white"
+                                    className="block select-none space-y-1 rounded-lg p-4 leading-none no-underline outline-none transition-all duration-200 hover:bg-gradient-to-r hover:from-blue-950/50 hover:to-blue-900/30 hover:text-white border border-transparent hover:border-blue-800/30"
                                   >
-                                    <div className="text-sm font-medium leading-none">{service.title}</div>
+                                    <div className="text-sm font-semibold leading-none text-blue-100">{service.title}</div>
+                                    <p className="text-xs text-blue-300 leading-snug">{service.description}</p>
                                   </a>
                                 </NavigationMenuLink>
                               </li>

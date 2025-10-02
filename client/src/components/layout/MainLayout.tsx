@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import SolarCompanyHeader from '@/components/layout/Header';
-import SolarFooter from '@/components/layout/Footer';
+import PremiumSolarFooter from '@/components/layout/PremiumSolarFooter';
 import { cn } from '@/lib/utils';
 
 declare global {
@@ -41,7 +41,7 @@ export default function MainLayout({ children, className, fullWidth = false }: M
         )}
       </main>
       
-      <SolarFooter />
+      <PremiumSolarFooter />
       
       {/* ElevenLabs Voice Widget */}
       <elevenlabs-convai agent-id="demo"></elevenlabs-convai>
