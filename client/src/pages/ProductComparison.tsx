@@ -205,9 +205,7 @@ const ProductComparison = () => {
     : [];
   
   return (
-    <div className="min-h-screen flex flex-col">
-      <Header />
-      
+    <MainLayout>
       <main className="flex-grow">
         <section className="py-16 md:py-24">
           <div className="container mx-auto">
@@ -618,7 +616,7 @@ const ProductComparison = () => {
           </div>
         </section>
       </main>
-    </div>
+    </MainLayout>
   );
 };
 
