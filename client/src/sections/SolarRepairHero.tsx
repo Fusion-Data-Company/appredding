@@ -18,20 +18,20 @@ interface SolarRepairHeroProps {
 }
 
 const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
-  tagline = "24/7 Emergency Solar Panel Service",
+  tagline = "Advance Power Redding - Solar Excellence Since 2004",
   title = (
     <>
-      Expert Solar Panel
+      Advance Power of Redding
       <br />
-      <span className="text-primary">Repair & Maintenance</span>
+      <span className="text-primary">Complete Solar Solutions</span>
     </>
   ),
-  subtitle = "Fast diagnosis, professional repairs, and preventive maintenance to keep your solar system running at peak efficiency. Our certified technicians are ready to help.",
+  subtitle = "Northern California's trusted solar experts. Professional installation, repair, and maintenance services for homes and businesses. Over 20 years of experience delivering reliable solar energy solutions.",
   ctaButtons = {
-    primary: { label: "Schedule Repair", onClick: () => console.log("Schedule clicked") },
-    secondary: { label: "Emergency Service", onClick: () => console.log("Emergency clicked") }
+    primary: { label: "Get Free Quote", onClick: () => console.log("Schedule clicked") },
+    secondary: { label: "Call (530) 226-0701", onClick: () => console.log("Emergency clicked") }
   },
-  backgroundImage = "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2940&auto=format&fit=crop",
+  backgroundImage = "/assets/images/solar-panels-hero.jpg",
   solarImages = [
     "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=400&h=600&fit=crop",
     "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=400&h=600&fit=crop",
@@ -123,7 +123,7 @@ const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
               initial="hidden"
               animate="show"
               variants={FADE_IN_ANIMATION_VARIANTS}
-              className="mb-4 inline-flex items-center gap-2 rounded-full border border-border bg-card/80 backdrop-blur-sm px-4 py-2 text-sm font-medium text-muted-foreground"
+              className="mb-4 inline-flex items-center gap-2 rounded-full border border-border bg-card/80 backdrop-blur-sm px-4 py-2 text-sm font-medium text-muted-foreground glass-card shimmer-effect"
             >
               <Wrench className="w-4 h-4" />
               {tagline}
@@ -164,7 +164,7 @@ const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
             >
               <Button 
                 size="lg" 
-                className="gap-2"
+                className="gap-2 glass-button edge-glow"
                 onClick={ctaButtons.primary.onClick}
               >
                 <Calendar className="w-4 h-4" />
@@ -173,7 +173,7 @@ const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
               <Button 
                 size="lg" 
                 variant="outline" 
-                className="gap-2 bg-background/80 backdrop-blur-sm"
+                className="gap-2 bg-background/80 backdrop-blur-sm glass-button edge-glow"
                 onClick={ctaButtons.secondary.onClick}
               >
                 <Phone className="w-4 h-4" />
@@ -215,11 +215,13 @@ const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
 
         <div className="container mx-auto px-6 py-20">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">
-              Our Triage Process
-            </h2>
+            <div className="shimmer-effect">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-primary via-orange-500 to-amber-500 bg-clip-text text-transparent">
+                Our Triage Process
+              </h2>
+            </div>
             <div className="grid md:grid-cols-3 gap-6 mb-12">
-              <div className="bg-card/80 backdrop-blur-sm rounded-lg p-6 border border-border">
+              <div className="bg-card/80 backdrop-blur-sm rounded-lg p-6 border border-border glass-card-strong edge-glow-strong">
                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
                   <Phone className="w-6 h-6 text-primary" />
                 </div>
@@ -228,7 +230,7 @@ const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
                   Call or schedule online. Our team responds within 2 hours for emergency repairs.
                 </p>
               </div>
-              <div className="bg-card/80 backdrop-blur-sm rounded-lg p-6 border border-border">
+              <div className="bg-card/80 backdrop-blur-sm rounded-lg p-6 border border-border glass-card-strong edge-glow-strong">
                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
                   <Wrench className="w-6 h-6 text-primary" />
                 </div>
@@ -237,7 +239,7 @@ const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
                   Comprehensive system inspection to identify issues and provide transparent pricing.
                 </p>
               </div>
-              <div className="bg-card/80 backdrop-blur-sm rounded-lg p-6 border border-border">
+              <div className="bg-card/80 backdrop-blur-sm rounded-lg p-6 border border-border glass-card-strong edge-glow-strong">
                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
                   <Calendar className="w-6 h-6 text-primary" />
                 </div>
@@ -248,10 +250,10 @@ const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
               </div>
             </div>
 
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-primary via-orange-500 to-amber-500 bg-clip-text text-transparent">
               Common Solar Panel Issues
             </h2>
-            <div className="bg-card/80 backdrop-blur-sm rounded-lg p-8 border border-border mb-12">
+            <div className="bg-card/80 backdrop-blur-sm rounded-lg p-8 border border-border mb-12 glass-card">
               <ul className="space-y-4 text-muted-foreground">
                 <li className="flex items-start gap-3">
                   <span className="text-primary mt-1">•</span>
@@ -277,7 +279,7 @@ const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
             </div>
 
             <div className="text-center">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-primary via-orange-500 to-amber-500 bg-clip-text text-transparent">
                 Ready to Restore Your Solar System?
               </h2>
               <p className="text-lg text-muted-foreground mb-8">
@@ -286,7 +288,7 @@ const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button 
                   size="lg" 
-                  className="gap-2"
+                  className="gap-2 glass-button edge-glow"
                   onClick={ctaButtons.primary.onClick}
                 >
                   <Calendar className="w-4 h-4" />
@@ -295,7 +297,7 @@ const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
                 <Button 
                   size="lg" 
                   variant="outline"
-                  className="gap-2"
+                  className="gap-2 glass-button edge-glow"
                   onClick={ctaButtons.secondary.onClick}
                 >
                   <Phone className="w-4 h-4" />

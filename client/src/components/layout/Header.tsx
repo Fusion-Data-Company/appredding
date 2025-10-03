@@ -1,244 +1,178 @@
 "use client";
 
-import React, { useState, useEffect, useCallback, useRef } from 'react';
-import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
-import { Menu, X, Phone, Sun, Zap } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Menu, X, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from '@/components/ui/navigation-menu';
+import { cn } from '@/lib/utils';
 
-function cn(...classes: (string | undefined | null | boolean)[]): string {
-  return classes.filter(Boolean).join(' ');
-}
-
-interface BGPatternProps extends React.ComponentProps<'div'> {
-  variant?: 'dots' | 'grid';
-  mask?: 'fade-edges' | 'fade-bottom' | 'none';
-  size?: number;
-  fill?: string;
-}
-
-const BGPattern: React.FC<BGPatternProps> = ({
-  variant = 'grid',
-  mask = 'fade-bottom',
-  size = 24,
-  fill = 'rgba(59, 130, 246, 0.15)',
-  className,
-  style,
-  ...props
-}) => {
-  const maskClasses = {
-    'fade-edges': '[mask-image:radial-gradient(ellipse_at_center,var(--background),transparent)]',
-    'fade-bottom': '[mask-image:linear-gradient(to_bottom,var(--background),transparent)]',
-    'none': '',
-  };
-
-  const bgImage = variant === 'dots'
-    ? `radial-gradient(${fill} 1px, transparent 1px)`
-    : `linear-gradient(to right, ${fill} 1px, transparent 1px), linear-gradient(to bottom, ${fill} 1px, transparent 1px)`;
-
+const SolarLogo = () => {
   return (
-    <div
-      className={cn('absolute inset-0 z-[-10] size-full', maskClasses[mask], className)}
-      style={{
-        backgroundImage: bgImage,
-        backgroundSize: `${size}px ${size}px`,
-        ...style,
-      }}
-      {...props}
-    />
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" className="h-10 w-10">
+      <defs>
+        <linearGradient id="solarBlueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style={{ stopColor: "#3B82F6", stopOpacity: 1 }} />
+          <stop offset="100%" style={{ stopColor: "#1D4ED8", stopOpacity: 1 }} />
+        </linearGradient>
+        <linearGradient id="lightBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style={{ stopColor: "#60A5FA", stopOpacity: 1 }} />
+          <stop offset="100%" style={{ stopColor: "#3B82F6", stopOpacity: 1 }} />
+        </linearGradient>
+      </defs>
+      <circle cx="50" cy="50" r="20" fill="url(#solarBlueGradient)" />
+      <circle cx="50" cy="20" r="3" fill="url(#lightBlue)" />
+      <circle cx="73" cy="30" r="3" fill="url(#lightBlue)" />
+      <circle cx="80" cy="50" r="3" fill="url(#lightBlue)" />
+      <circle cx="73" cy="70" r="3" fill="url(#lightBlue)" />
+      <circle cx="50" cy="80" r="3" fill="url(#lightBlue)" />
+      <circle cx="27" cy="70" r="3" fill="url(#lightBlue)" />
+      <circle cx="20" cy="50" r="3" fill="url(#lightBlue)" />
+      <circle cx="27" cy="30" r="3" fill="url(#lightBlue)" />
+      <line x1="50" y1="23" x2="50" y2="30" stroke="#60A5FA" strokeWidth="2" />
+      <line x1="70" y1="33" x2="63" y2="40" stroke="#60A5FA" strokeWidth="2" />
+      <line x1="77" y1="50" x2="70" y2="50" stroke="#60A5FA" strokeWidth="2" />
+      <line x1="70" y1="67" x2="63" y2="60" stroke="#60A5FA" strokeWidth="2" />
+      <line x1="50" y1="77" x2="50" y2="70" stroke="#60A5FA" strokeWidth="2" />
+      <line x1="30" y1="67" x2="37" y2="60" stroke="#60A5FA" strokeWidth="2" />
+      <line x1="23" y1="50" x2="30" y2="50" stroke="#60A5FA" strokeWidth="2" />
+      <line x1="30" y1="33" x2="37" y2="40" stroke="#60A5FA" strokeWidth="2" />
+      <path
+        d="M 45 45 L 50 40 L 55 45 L 55 55 L 45 55 Z"
+        fill="#FFFFFF"
+        opacity="0.9"
+      />
+    </svg>
   );
 };
 
-interface NavLinkProps {
-  href?: string;
-  children: React.ReactNode;
-  onClick?: () => void;
-}
-
-const NavLink: React.FC<NavLinkProps> = ({ href = '#', children, onClick }) => (
-  <a
-    href={href}
-    onClick={onClick}
-    className="text-sm font-medium text-blue-100 hover:text-white transition-colors duration-200"
-  >
-    {children}
-  </a>
-);
-
 const SolarCompanyHeader: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-  const { scrollY } = useScroll();
-
-  useMotionValueEvent(scrollY, 'change', (latest) => {
-    setIsScrolled(latest > 10);
-  });
-
-  useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
-  }, [isMobileMenuOpen]);
 
   const navigationItems = [
-    { title: 'Home', href: '/' },
-    { title: 'Services', href: '/services', hasDropdown: true },
-    { title: 'Residential', href: '/residential' },
-    { title: 'Repairs', href: '/repairs' },
-    { title: 'Commerce', href: '/commerce' },
-    { title: 'About', href: '/about' },
-    { title: 'Contact', href: '/contact' },
-  ];
-
-  const services = [
-    { title: 'Residential Solar', href: '/residential' },
-    { title: 'Commercial Solar', href: '/commercial' },
-    { title: 'Solar Repairs', href: '/repairs' },
-    { title: 'Energy Storage', href: '/storage' },
+    { label: 'Home', href: '/' },
+    { label: 'Residential', href: '/residential' },
+    { label: 'Commercial', href: '/commerce' },
+    { label: 'Repairs', href: '/repairs' },
+    { label: 'Technical Data', href: '/technical-data' },
+    { label: 'About', href: '/about' },
+    { label: 'Contact', href: '/contact' },
   ];
 
   return (
-    <motion.header
-      initial={{ backgroundColor: 'rgba(15, 23, 42, 0.8)' }}
-      animate={{
-        backgroundColor: isScrolled ? 'rgba(15, 23, 42, 0.95)' : 'rgba(15, 23, 42, 0.8)',
-        borderBottomColor: isScrolled ? 'rgba(59, 130, 246, 0.3)' : 'rgba(59, 130, 246, 0.1)',
-      }}
-      transition={{ duration: 0.3 }}
-      className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b"
+    <header
+      className={cn(
+        "fixed top-0 left-0 right-0 z-50 w-full",
+        "bg-background/95 backdrop-blur-xl",
+        "border-b border-border/40",
+        "shadow-lg shadow-black/5"
+      )}
     >
-      <nav className="container mx-auto px-4 md:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
-              <Sun className="w-6 h-6 text-white" />
-            </div>
-            <div>
-              <h1 className="text-xl font-bold text-white">Advance Power</h1>
-              <p className="text-xs text-blue-300">Redding Solar</p>
+            <SolarLogo />
+            <div className="flex flex-col">
+              <span className="text-xl font-bold text-foreground tracking-tight">
+                Advance Power
+              </span>
+              <span className="text-xs text-muted-foreground font-medium">
+                Redding Solar
+              </span>
             </div>
           </div>
 
-          <div className="hidden md:flex items-center space-x-8">
-            <NavigationMenu>
-              <NavigationMenuList>
-                {navigationItems.map((item) => (
-                  <NavigationMenuItem key={item.title}>
-                    {item.hasDropdown ? (
-                      <>
-                        <NavigationMenuTrigger className="bg-transparent text-blue-100 hover:text-white">
-                          {item.title}
-                        </NavigationMenuTrigger>
-                        <NavigationMenuContent>
-                          <ul className="grid w-[400px] gap-3 p-4">
-                            {services.map((service) => (
-                              <li key={service.title}>
-                                <NavigationMenuLink asChild>
-                                  <a
-                                    href={service.href}
-                                    className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-blue-950/50 hover:text-white"
-                                  >
-                                    <div className="text-sm font-medium leading-none">{service.title}</div>
-                                  </a>
-                                </NavigationMenuLink>
-                              </li>
-                            ))}
-                          </ul>
-                        </NavigationMenuContent>
-                      </>
-                    ) : (
-                      <NavigationMenuLink asChild>
-                        <a href={item.href} className="text-blue-100 hover:text-white px-3 py-2 text-sm font-medium">
-                          {item.title}
-                        </a>
-                      </NavigationMenuLink>
-                    )}
-                  </NavigationMenuItem>
-                ))}
-              </NavigationMenuList>
-            </NavigationMenu>
-          </div>
+          <nav className="hidden lg:flex items-center space-x-1">
+            {navigationItems.map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                className={cn(
+                  "px-4 py-2 text-sm font-medium",
+                  "text-foreground/80 hover:text-foreground",
+                  "rounded-md transition-all duration-200",
+                  "hover:bg-accent/50"
+                )}
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
 
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden lg:flex items-center space-x-4">
             <Button
-              variant="outline"
-              className="border-blue-500 text-blue-400 hover:bg-blue-500 hover:text-white"
+              variant="default"
+              size="lg"
+              className={cn(
+                "bg-gradient-to-r from-blue-600 to-blue-700",
+                "hover:from-blue-700 hover:to-blue-800",
+                "text-white font-semibold",
+                "shadow-lg shadow-blue-500/20",
+                "transition-all duration-300",
+                "border border-blue-500/20"
+              )}
             >
-              Get Quote
-            </Button>
-            <Button className="bg-gradient-to-r from-blue-600 to-blue-500 text-white hover:from-blue-700 hover:to-blue-600 flex items-center gap-2">
-              <Phone className="w-4 h-4" />
-              <span className="hidden lg:inline">Emergency: </span>
-              <span className="font-semibold">(530) 226-0701</span>
+              <Phone className="mr-2 h-4 w-4" />
+              Emergency: (530) 226-0701
             </Button>
           </div>
 
           <button
-            className="md:hidden text-blue-100 hover:text-white"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className={cn(
+              "lg:hidden p-2 rounded-md",
+              "text-foreground/80 hover:text-foreground",
+              "hover:bg-accent/50 transition-colors"
+            )}
             aria-label="Toggle menu"
           >
-            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isMobileMenuOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
           </button>
         </div>
-      </nav>
 
-      <AnimatePresence>
         {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="md:hidden bg-slate-950/95 backdrop-blur-md border-t border-blue-900/30"
-          >
-            <div className="container mx-auto px-4 py-6 space-y-4">
+          <div className="lg:hidden py-4 border-t border-border/40">
+            <nav className="flex flex-col space-y-2">
               {navigationItems.map((item) => (
-                <div key={item.title}>
-                  <NavLink href={item.href} onClick={() => setIsMobileMenuOpen(false)}>
-                    {item.title}
-                  </NavLink>
-                  {item.hasDropdown && (
-                    <div className="ml-4 mt-2 space-y-2">
-                      {services.map((service) => (
-                        <NavLink
-                          key={service.title}
-                          href={service.href}
-                          onClick={() => setIsMobileMenuOpen(false)}
-                        >
-                          <span className="text-sm text-blue-300">{service.title}</span>
-                        </NavLink>
-                      ))}
-                    </div>
+                <a
+                  key={item.label}
+                  href={item.href}
+                  className={cn(
+                    "px-4 py-3 text-sm font-medium",
+                    "text-foreground/80 hover:text-foreground",
+                    "rounded-md transition-all duration-200",
+                    "hover:bg-accent/50"
                   )}
-                </div>
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {item.label}
+                </a>
               ))}
-              <div className="pt-4 space-y-3">
-                <Button variant="outline" className="w-full border-blue-500 text-blue-400">
-                  Get Quote
-                </Button>
-                <Button className="w-full bg-gradient-to-r from-blue-600 to-blue-500 text-white flex items-center justify-center gap-2">
-                  <Phone className="w-4 h-4" />
+              <div className="pt-4 px-4">
+                <Button
+                  variant="default"
+                  size="lg"
+                  className={cn(
+                    "w-full",
+                    "bg-gradient-to-r from-blue-600 to-blue-700",
+                    "hover:from-blue-700 hover:to-blue-800",
+                    "text-white font-semibold",
+                    "shadow-lg shadow-blue-500/20",
+                    "transition-all duration-300",
+                    "border border-blue-500/20"
+                  )}
+                >
+                  <Phone className="mr-2 h-4 w-4" />
                   Emergency: (530) 226-0701
                 </Button>
               </div>
-            </div>
-          </motion.div>
+            </nav>
+          </div>
         )}
-      </AnimatePresence>
-    </motion.header>
+      </div>
+    </header>
   );
 };
 
