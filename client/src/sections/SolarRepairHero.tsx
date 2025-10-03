@@ -18,7 +18,7 @@ interface SolarRepairHeroProps {
 }
 
 const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
-  tagline = "Advance Power Redding - Solar Excellence Since 2004",
+  tagline = "Solar Excellence Since 2004",
   title = (
     <>
       Advance Power of Redding
@@ -312,28 +312,4 @@ const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
   );
 };
 
-export default function SolarRepairHeroDemo() {
-  return (
-    <SolarRepairHero
-      tagline="24/7 Emergency Solar Panel Service"
-      title={
-        <>
-          Expert Solar Panel
-          <br />
-          <span className="text-primary">Repair & Maintenance</span>
-        </>
-      }
-      subtitle="Fast diagnosis, professional repairs, and preventive maintenance to keep your solar system running at peak efficiency. Our certified technicians are ready to help."
-      ctaButtons={{
-        primary: { 
-          label: "Schedule Repair",
-          onClick: () => alert("Scheduling repair appointment...")
-        },
-        secondary: { 
-          label: "Emergency Service",
-          onClick: () => alert("Calling emergency service...")
-        }
-      }}
-    />
-  );
-}
+export default SolarRepairHero;
