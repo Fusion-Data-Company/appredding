@@ -79,10 +79,7 @@ const EnergyConservation = () => {
   // Mutation for consultation form
   const consultationMutation = useMutation({
     mutationFn: async (data: EnergyConservationFormValues) => {
-      return await apiRequest("/api/energy-conservation/consultation", {
-        method: "POST",
-        data,
-      });
+      return await apiRequest("POST", "/api/energy-conservation/consultation", data);
     },
     onSuccess: () => {
       setConsultationRequestSuccess(true);

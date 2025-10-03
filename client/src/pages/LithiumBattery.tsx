@@ -47,7 +47,6 @@ import solArkSystemImage from "@assets/491844865_1271014964874224_70047322501070
 import energyConservationImage from "@assets/Advance-Power-Redding-Energy-Conservation-Techniques.jpg";
 import solarPanelsAerialImage from "@assets/guillherme-schneider-ecIS-bfYSG8-unsplash-300x400.jpg";
 import forestSolarImage from "@assets/moritz-kindler-gD8IO0E4OZM-unsplash-267x400.jpg";
-import { insertFirePreventionHomeownerSchema } from "@shared/schema";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
@@ -59,7 +58,40 @@ import SEOHead from "@/components/SEOHead";
 import { preloadCriticalImages } from "@/lib/image-helper";
 import { generateStructuredData, getIndustryKeywords } from "@/lib/seo-helper";
 
-type LithiumBatteryFormValues = z.infer<typeof insertFirePreventionHomeownerSchema>;
+// Define schema for Lithium Battery form
+const lithiumBatteryFormSchema = z.object({
+  firstName: z.string().min(1, "First name is required"),
+  lastName: z.string().min(1, "Last name is required"),
+  email: z.string().email("Invalid email address"),
+  phone: z.string().min(10, "Phone number is required"),
+  address: z.string().min(1, "Address is required"),
+  city: z.string().min(1, "City is required"),
+  state: z.string().min(1, "State is required"),
+  zipCode: z.string().min(5, "ZIP code is required"),
+  propertyType: z.string().min(1, "Property type is required"),
+  propertySize: z.string().optional().nullable(),
+  constructionMaterial: z.string().optional(),
+  roofMaterial: z.string().optional(),
+  yearBuilt: z.number().optional(),
+  waterSource: z.enum(["municipal", "well", "both"]).optional(),
+  propertySizeAcres: z.number().optional(),
+  stories: z.number().optional(),
+  existingSolar: z.boolean().optional(),
+  solarCapacity: z.number().optional(),
+  batteryBackup: z.boolean().optional(),
+  batteryCapacity: z.number().optional(),
+  desiredServices: z.object({
+    installation: z.boolean().optional(),
+    maintenance: z.boolean().optional(),
+    upgrade: z.boolean().optional(),
+    consultation: z.boolean().optional()
+  }).optional(),
+  additionalComments: z.string().optional().nullable(),
+  preferredContactMethod: z.enum(["phone", "email", "text"]).optional(),
+  bestTimeToContact: z.string().optional()
+});
+
+type LithiumBatteryFormValues = z.infer<typeof lithiumBatteryFormSchema>;
 
 const LithiumBattery = () => {
   const [showConsultationForm, setShowConsultationForm] = useState(false);
@@ -83,24 +115,26 @@ const LithiumBattery = () => {
 
   // Setup form for consultation form
   const form = useForm<LithiumBatteryFormValues>({
-    resolver: zodResolver(insertFirePreventionHomeownerSchema),
+    resolver: zodResolver(lithiumBatteryFormSchema),
     defaultValues: {
-      name: "",
+      firstName: "",
+      lastName: "",
       email: "",
       phone: "",
       address: "",
+      city: "",
+      state: "",
+      zipCode: "",
       propertyType: "",
-      message: ""
+      propertySize: null,
+      additionalComments: null
     },
   });
 
   // Mutation for consultation form
   const consultationMutation = useMutation({
     mutationFn: async (data: LithiumBatteryFormValues) => {
-      return await apiRequest("/api/lithium-battery/consultation", {
-        method: "POST",
-        data,
-      });
+      return await apiRequest("POST", "/api/lithium-battery/consultation", data);
     },
     onSuccess: () => {
       setConsultationRequestSuccess(true);
@@ -1128,13 +1162,13 @@ const LithiumBattery = () => {
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <FormField
                           control={form.control}
-                          name="name"
+                          name="firstName"
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel className="text-gray-200">Full Name</FormLabel>
+                              <FormLabel className="text-gray-200">First Name</FormLabel>
                               <FormControl>
                                 <Input 
-                                  placeholder="Enter your name" 
+                                  placeholder="Enter your first name" 
                                   className="bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500"
                                   {...field} 
                                 />
@@ -1144,6 +1178,26 @@ const LithiumBattery = () => {
                           )}
                         />
                         
+                        <FormField
+                          control={form.control}
+                          name="lastName"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="text-gray-200">Last Name</FormLabel>
+                              <FormControl>
+                                <Input 
+                                  placeholder="Enter your last name" 
+                                  className="bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500"
+                                  {...field} 
+                                />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                      </div>
+                      
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <FormField
                           control={form.control}
                           name="email"
@@ -1221,7 +1275,7 @@ const LithiumBattery = () => {
                       
                       <FormField
                         control={form.control}
-                        name="message"
+                        name="additionalComments"
                         render={({ field }) => (
                           <FormItem>
                             <FormLabel className="text-gray-200">Current System & Storage Goals</FormLabel>
@@ -1229,7 +1283,8 @@ const LithiumBattery = () => {
                               <Textarea 
                                 placeholder="Tell us about your existing solar system (if any), current battery setup, and what you hope to achieve with lithium battery storage" 
                                 className="bg-gray-800/50 border-gray-700 text-white min-h-[120px]"
-                                {...field} 
+                                {...field}
+                                value={field.value || ""}
                               />
                             </FormControl>
                             <FormMessage />

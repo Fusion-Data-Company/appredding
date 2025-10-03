@@ -46,6 +46,9 @@ const ProfessionalHeader = () => {
   const [servicesExpanded, setServicesExpanded] = useState(false);
   const [solutionsExpanded, setSolutionsExpanded] = useState(false);
   const [shopExpanded, setShopExpanded] = useState(false);
+  
+  // State for tracking open desktop dropdown
+  const [openDropdown, setOpenDropdown] = useState<'services' | 'solutions' | 'shop' | null>(null);
 
   // Handle scroll effect
   useEffect(() => {
@@ -89,6 +92,16 @@ const ProfessionalHeader = () => {
     setSolutionsExpanded(false);
     setShopExpanded(false);
   };
+  
+  // Handle dropdown blur with delay to allow clicking menu items
+  const handleDropdownBlur = (e: React.FocusEvent) => {
+    const currentTarget = e.currentTarget;
+    setTimeout(() => {
+      if (!currentTarget.contains(document.activeElement)) {
+        setOpenDropdown(null);
+      }
+    }, 100);
+  };
 
   // Services dropdown menu items
   const servicesDropdown = [
@@ -121,7 +134,7 @@ const ProfessionalHeader = () => {
 
   return (
     <>
-      {/* CSS for dropdown hover effects */}
+      {/* CSS for dropdown hover and focus effects */}
       <style>{`
         .dropdown-parent {
           position: relative;
@@ -135,11 +148,29 @@ const ProfessionalHeader = () => {
           pointer-events: none;
         }
         
-        .dropdown-parent:hover .dropdown-menu {
+        .dropdown-parent:hover .dropdown-menu,
+        .dropdown-parent:focus-within .dropdown-menu,
+        .dropdown-parent[data-open="true"] .dropdown-menu {
           display: block;
           opacity: 1;
           transform: translateY(0);
           pointer-events: auto;
+        }
+        
+        .dropdown-trigger {
+          background: none;
+          border: none;
+          padding: 0;
+          margin: 0;
+          font: inherit;
+          cursor: pointer;
+          outline: none;
+        }
+        
+        .dropdown-trigger:focus {
+          outline: 2px solid #f97316;
+          outline-offset: 2px;
+          border-radius: 4px;
         }
         
         .dropdown-item {
@@ -195,15 +226,29 @@ const ProfessionalHeader = () => {
               className="text-white">Home</a>
             
             {/* Services Dropdown */}
-            <div className="dropdown-parent" data-testid="dropdown-services">
-              <span style={{ 
-                color: '#ffffff !important', 
-                fontSize: '16px', 
-                fontWeight: '500', 
-                textShadow: '0 2px 4px rgba(0,0,0,0.8)',
-                cursor: 'pointer',
-                display: 'block'
-              }}>Services</span>
+            <div 
+              className="dropdown-parent" 
+              data-testid="dropdown-services"
+              data-open={openDropdown === 'services'}
+              onMouseEnter={() => setOpenDropdown('services')}
+              onMouseLeave={() => setOpenDropdown(null)}
+              onBlur={handleDropdownBlur}
+            >
+              <button 
+                className="dropdown-trigger"
+                aria-haspopup="true"
+                aria-expanded={openDropdown === 'services'}
+                tabIndex={0}
+                data-testid="dropdown-trigger-services"
+                onFocus={() => setOpenDropdown('services')}
+                style={{ 
+                  color: '#ffffff !important', 
+                  fontSize: '16px', 
+                  fontWeight: '500', 
+                  textShadow: '0 2px 4px rgba(0,0,0,0.8)',
+                  display: 'block'
+                }}
+              >Services</button>
               
               <div className="dropdown-menu" style={{
                 position: 'absolute',
@@ -253,15 +298,29 @@ const ProfessionalHeader = () => {
             </div>
 
             {/* Solutions Dropdown */}
-            <div className="dropdown-parent" data-testid="dropdown-solutions">
-              <span style={{ 
-                color: '#ffffff !important', 
-                fontSize: '16px', 
-                fontWeight: '500', 
-                textShadow: '0 2px 4px rgba(0,0,0,0.8)',
-                cursor: 'pointer',
-                display: 'block'
-              }}>Solutions</span>
+            <div 
+              className="dropdown-parent" 
+              data-testid="dropdown-solutions"
+              data-open={openDropdown === 'solutions'}
+              onMouseEnter={() => setOpenDropdown('solutions')}
+              onMouseLeave={() => setOpenDropdown(null)}
+              onBlur={handleDropdownBlur}
+            >
+              <button 
+                className="dropdown-trigger"
+                aria-haspopup="true"
+                aria-expanded={openDropdown === 'solutions'}
+                tabIndex={0}
+                data-testid="dropdown-trigger-solutions"
+                onFocus={() => setOpenDropdown('solutions')}
+                style={{ 
+                  color: '#ffffff !important', 
+                  fontSize: '16px', 
+                  fontWeight: '500', 
+                  textShadow: '0 2px 4px rgba(0,0,0,0.8)',
+                  display: 'block'
+                }}
+              >Solutions</button>
               
               <div className="dropdown-menu" style={{
                 position: 'absolute',
@@ -311,15 +370,29 @@ const ProfessionalHeader = () => {
             </div>
 
             {/* Shop Dropdown */}
-            <div className="dropdown-parent" data-testid="dropdown-shop">
-              <span style={{ 
-                color: '#ffffff !important', 
-                fontSize: '16px', 
-                fontWeight: '500', 
-                textShadow: '0 2px 4px rgba(0,0,0,0.8)',
-                cursor: 'pointer',
-                display: 'block'
-              }}>Shop</span>
+            <div 
+              className="dropdown-parent" 
+              data-testid="dropdown-shop"
+              data-open={openDropdown === 'shop'}
+              onMouseEnter={() => setOpenDropdown('shop')}
+              onMouseLeave={() => setOpenDropdown(null)}
+              onBlur={handleDropdownBlur}
+            >
+              <button 
+                className="dropdown-trigger"
+                aria-haspopup="true"
+                aria-expanded={openDropdown === 'shop'}
+                tabIndex={0}
+                data-testid="dropdown-trigger-shop"
+                onFocus={() => setOpenDropdown('shop')}
+                style={{ 
+                  color: '#ffffff !important', 
+                  fontSize: '16px', 
+                  fontWeight: '500', 
+                  textShadow: '0 2px 4px rgba(0,0,0,0.8)',
+                  display: 'block'
+                }}
+              >Shop</button>
               
               <div className="dropdown-menu" style={{
                 position: 'absolute',
