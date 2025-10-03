@@ -362,6 +362,22 @@ const SolarCompanyHeader: React.FC = () => {
                 ))}
               </div>
 
+              {/* Mobile Applications */}
+              <div className="px-4 py-2">
+                <div className="font-semibold text-gray-900 mb-2">Solutions</div>
+                {applicationsItems.map((item) => (
+                  <Link 
+                    key={item.href} 
+                    href={item.href}
+                    className="flex items-center py-2 text-gray-600 hover:text-orange-600 transition-colors"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    <span className="mr-2">{item.icon}</span>
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+
               {/* Mobile Company */}
               <div className="px-4 py-2">
                 <div className="font-semibold text-gray-900 mb-2">Company</div>
