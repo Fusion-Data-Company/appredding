@@ -217,13 +217,20 @@ const SolarRescueFunnelSection: React.FC = () => {
           className='relative mt-24 h-[880px]'
         >
           {stages.map((stage, index) => {
-            const topPercentage = (index / stages.length) * 100;
-            const segmentHeight = 100 / stages.length;
-            const topWidth =
-              index === 0
-                ? 98
-                : ((stages[index - 1]?.primaryValue || maxValue) / maxValue) * 98;
-            const bottomWidth = (stage.primaryValue / maxValue) * 98;
+            const cumulativeHeights = [0, 35, 65, 87, 100];
+            const stageHeights = [35, 30, 22, 13];
+            const topPercentage = cumulativeHeights[index];
+            const segmentHeight = stageHeights[index];
+            
+            const stageWidths = [
+              { top: 90, bottom: 70 },
+              { top: 70, bottom: 55 },
+              { top: 55, bottom: 35 },
+              { top: 35, bottom: 20 },
+            ];
+            
+            const topWidth = stageWidths[index].top;
+            const bottomWidth = stageWidths[index].bottom;
 
             return (
               <motion.div
@@ -276,7 +283,7 @@ const SolarRescueFunnelSection: React.FC = () => {
                       boxShadow: `0 0 40px ${stage.glowColor}, 0 20px 60px rgba(0,0,0,0.6)`,
                     }}
                   >
-                    <div className='flex items-center gap-6'>
+                    <div className='flex items-center justify-center gap-6 mb-4'>
                       <div
                         className='rounded-2xl p-4 shadow-lg'
                         style={{
@@ -287,15 +294,9 @@ const SolarRescueFunnelSection: React.FC = () => {
                       >
                         {stage.icon}
                       </div>
-                      <div className='flex-1'>
-                        <h3 className='text-2xl font-bold tracking-tight' style={{ color: stage.color }}>
-                          {stage.title}
-                        </h3>
-                        <p className='mt-1 text-sm text-slate-300'>{stage.description}</p>
-                      </div>
                     </div>
                     
-                    <div className='grid grid-cols-3 gap-4 border-t pt-4' style={{ borderColor: `${stage.color}40` }}>
+                    <div className='grid grid-cols-3 gap-4'>
                       {stage.metrics.map((metric, idx) => (
                         <div
                           key={idx}
