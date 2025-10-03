@@ -43,7 +43,7 @@ import { motion } from "framer-motion";
 import SEOHead from "@/components/SEOHead";
 import { preloadCriticalImages } from "@/lib/image-helper";
 import { generateStructuredData, getIndustryKeywords } from "@/lib/seo-helper";
-import SolarRescueFunnelSection from '@/sections/SolarSalesFunnelSection';
+import { SandlerSolarFunnel } from '@/sections/SandlerSolarFunnel';
 
 type EnergyConservationFormValues = ServiceConsultationFormValues;
 
@@ -273,7 +273,7 @@ const EnergyConservation = () => {
         </section>
 
         {/* INTERACTIVE ENERGY CONSERVATION FUNNEL - SolarRescueFunnelSection Component */}
-        <SolarRescueFunnelSection />
+        <SandlerSolarFunnel />
 
         {/* SANDLER STAGE 1: PAIN - RED GLOW SECTION - Critical Problems */}
         <section className="relative z-10 py-12 overflow-hidden">

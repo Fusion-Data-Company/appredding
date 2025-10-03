@@ -49,12 +49,21 @@ localPort = 42539
 externalPort = 5173
 
 [[ports]]
+localPort = 43673
+externalPort = 8099
+
+[[ports]]
 localPort = 44461
 externalPort = 8080
 
 [[ports]]
 localPort = 45631
 externalPort = 3001
+
+[[ports]]
+localPort = 62289
+externalPort = 8081
+exposeLocalhost = true
 
 [[ports]]
 localPort = 62419
