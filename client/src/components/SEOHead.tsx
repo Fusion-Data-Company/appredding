@@ -36,31 +36,31 @@ const SEOHead: React.FC<SEOHeadProps> = ({
 }) => {
   // Default keywords if none provided
   const defaultKeywords = [
-    'Praetorian Smart-Coat', 
-    'fireproof coating',
-    'insulating paint',
-    'ceramic coating',
-    'thermal protection',
+    'Advance Power Redding', 
+    'solar panels',
+    'solar energy',
+    'battery storage',
+    'renewable energy',
     industry,
-    'fire resistant'
+    'solar installation'
   ];
 
   // Combine default keywords with any provided and remove duplicates
   const allKeywords = Array.from(new Set([...defaultKeywords, ...keywords])).join(', ');
   
   // Build canonical URL if provided
-  const canonicalUrl = canonical || `https://praetorian-smart-coat.com/${slug}`;
+  const canonicalUrl = canonical || `https://apredding.net/${slug}`;
   
   // Generate default structured data if none provided
   const defaultStructuredData = {
     "@context": "https://schema.org",
     "@type": "Product",
-    "name": `Praetorian Smart-Coat for ${industry}`,
+    "name": `Advance Power Redding for ${industry}`,
     "description": description,
-    "image": `https://praetorian-smart-coat.com/images/og-${slug}.jpg`,
+    "image": `https://apredding.net/images/og-${slug}.jpg`,
     "brand": {
       "@type": "Brand",
-      "name": "Praetorian Smart-Coat"
+      "name": "Advance Power Redding"
     },
     "offers": {
       "@type": "Offer",
@@ -86,17 +86,17 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       {/* Open Graph / Facebook */}
       <meta property="og:type" content="website" />
       <meta property="og:url" content={canonicalUrl} />
-      <meta property="og:title" content={`Praetorian Smart-Coat – ${industry}`} />
-      <meta property="og:description" content={`Fireproof, insulating ceramic paint for ${industry}. Guard what matters.`} />
-      <meta property="og:image" content={`https://praetorian-smart-coat.com/images/og-${slug}.jpg`} />
-      <meta property="og:site_name" content="Praetorian Smart-Coat" />
+      <meta property="og:title" content={`Advance Power Redding – ${industry}`} />
+      <meta property="og:description" content={`Solar energy solutions for ${industry}. Powering your future.`} />
+      <meta property="og:image" content={`https://apredding.net/images/og-${slug}.jpg`} />
+      <meta property="og:site_name" content="Advance Power Redding" />
       
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:url" content={canonicalUrl} />
-      <meta name="twitter:title" content={`Praetorian Smart-Coat – ${industry}`} />
-      <meta name="twitter:description" content={`Fireproof, insulating ceramic paint for ${industry}. Guard what matters.`} />
-      <meta name="twitter:image" content={`https://praetorian-smart-coat.com/images/og-${slug}.jpg`} />
+      <meta name="twitter:title" content={`Advance Power Redding – ${industry}`} />
+      <meta name="twitter:description" content={`Solar energy solutions for ${industry}. Powering your future.`} />
+      <meta name="twitter:image" content={`https://apredding.net/images/og-${slug}.jpg`} />
       
       {/* Preload hero image */}
       <link rel="preload" as="image" href={imagePath} />

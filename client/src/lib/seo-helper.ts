@@ -1,5 +1,5 @@
 /**
- * Helper functions for enhancing SEO and accessibility across Praetorian Smart-Coat industry pages
+ * Helper functions for enhancing SEO and accessibility across Advance Power industry pages
  */
 
 // Add preload link for critical images
@@ -22,20 +22,20 @@ export const addSocialTags = (
   slug: string,
   imagePath: string = `/images/og-${slug}.jpg`
 ) => {
-  const baseUrl = 'https://praetorian-smart-coat.com';
-  
+  const baseUrl = 'https://apredding.net';
+
   // Create meta tags dynamically
   const metaTags = [
     { property: 'og:type', content: 'website' },
     { property: 'og:url', content: `${baseUrl}/${slug}` },
-    { property: 'og:title', content: `Praetorian Smart-Coat – ${industry}` },
-    { property: 'og:description', content: `Fireproof, insulating ceramic paint for ${industry}. Guard what matters.` },
+    { property: 'og:title', content: `Advance Power – ${industry}` },
+    { property: 'og:description', content: `Solar energy solutions for ${industry}. Powering your future.` },
     { property: 'og:image', content: `${baseUrl}${imagePath}` },
-    { property: 'og:site_name', content: 'Praetorian Smart-Coat' },
+    { property: 'og:site_name', content: 'Advance Power Redding' },
     { name: 'twitter:card', content: 'summary_large_image' },
     { name: 'twitter:url', content: `${baseUrl}/${slug}` },
-    { name: 'twitter:title', content: `Praetorian Smart-Coat – ${industry}` },
-    { name: 'twitter:description', content: `Fireproof, insulating ceramic paint for ${industry}. Guard what matters.` },
+    { name: 'twitter:title', content: `Advance Power – ${industry}` },
+    { name: 'twitter:description', content: `Solar energy solutions for ${industry}. Powering your future.` },
     { name: 'twitter:image', content: `${baseUrl}${imagePath}` }
   ];
   
@@ -113,65 +113,65 @@ export const generateStructuredData = (
  */
 export const getIndustryKeywords = (industry: string, additionalKeywords: string[] = []) => {
   const baseKeywords = [
-    'Praetorian Smart-Coat', 
-    'fireproof coating',
-    'insulating paint',
-    'ceramic coating',
-    'thermal protection',
+    'Advance Power Redding',
+    'solar panels',
+    'solar energy',
+    'battery storage',
+    'renewable energy',
     industry,
-    'fire resistant'
+    'solar installation'
   ];
   
   // Add industry-specific keywords
   const industryKeywords: Record<string, string[]> = {
-    'fire-prevention': [
-      'fire protection',
-      'flame resistant coating',
-      'intumescent paint',
-      'fireproof paint',
-      'fire retardant'
+    'residential-solar': [
+      'home solar panels',
+      'residential solar installation',
+      'home energy savings',
+      'rooftop solar',
+      'solar for homes'
+    ],
+    'commercial-solar': [
+      'commercial solar panels',
+      'business solar solutions',
+      'commercial solar installation',
+      'industrial solar',
+      'solar for businesses'
     ],
     'construction': [
-      'construction coatings',
-      'building protection',
-      'contractor supplies',
-      'commercial construction',
-      'building materials'
+      'construction solar power',
+      'job site solar',
+      'temporary solar power',
+      'construction energy solutions',
+      'portable solar'
     ],
-    'pools': [
-      'pool coating',
-      'swimming pool protection',
-      'waterproof coating',
-      'pool maintenance',
-      'pool resurfacing'
+    'mobile-homes': [
+      'manufactured home solar',
+      'mobile home solar panels',
+      'RV solar solutions',
+      'mobile home energy',
+      'solar for manufactured homes'
     ],
-    'mobile-home': [
-      'manufactured home protection',
-      'mobile home insulation',
-      'energy efficient coating',
-      'mobile home safety',
-      'mobile home fire protection'
+    'municipalities': [
+      'municipal solar',
+      'government solar solutions',
+      'public solar projects',
+      'city solar power',
+      'municipal renewable energy'
     ],
-    'marinas': [
-      'marine coating',
-      'boat protection',
-      'marine-grade paint',
-      'corrosion protection',
-      'saltwater resistant'
+    'battery-storage': [
+      'solar battery backup',
+      'energy storage systems',
+      'lithium battery storage',
+      'backup power',
+      'grid independence'
     ],
-    'municipality': [
-      'municipal building protection',
-      'government building coating',
-      'public works materials',
-      'municipality supplies',
-      'government fireproofing'
-    ],
-    'painters': [
-      'professional paint supplies',
-      'painting contractor materials',
-      'specialty coatings',
-      'commercial painting',
-      'industrial coatings'
+    'data-centers': [
+      'data center solar',
+      'critical infrastructure power',
+      'server solar backup',
+      'data center energy',
+      'reliable solar power'
     ]
   };
   

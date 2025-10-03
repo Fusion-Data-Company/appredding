@@ -64,7 +64,7 @@ export function LoginForm({ onLoginSuccess }: LoginFormProps) {
     onSuccess: () => {
       toast({
         title: "Login successful",
-        description: "Welcome to Praetorian SmartCoat CRM",
+        description: "Welcome to Advance Power CRM",
       });
       onLoginSuccess();
     },
@@ -85,7 +85,7 @@ export function LoginForm({ onLoginSuccess }: LoginFormProps) {
   return (
     <Card className="w-[400px] mx-auto">
       <CardHeader>
-        <CardTitle className="text-2xl">Praetorian SmartCoat CRM</CardTitle>
+        <CardTitle className="text-2xl">Advance Power CRM</CardTitle>
         <CardDescription>
           Login to manage inventory and orders
         </CardDescription>

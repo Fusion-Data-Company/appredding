@@ -91,7 +91,7 @@ export default function InventoryPage() {
       <MainLayout>
         <div className="flex flex-col justify-center items-center min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 p-4">
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold text-white mb-2">Praetorian SmartCoat</h1>
+            <h1 className="text-3xl font-bold text-white mb-2">Advance Power</h1>
             <p className="text-gray-300">Inventory Management System</p>
           </div>
           
@@ -111,7 +111,7 @@ export default function InventoryPage() {
             <div className="flex justify-between items-center">
               <div className="flex items-center gap-2">
                 <h1 className="text-xl font-semibold">
-                  Praetorian SmartCoat Inventory Management
+                  Advance Power Inventory Management
                 </h1>
                 <Badge variant="outline" className="ml-2">
                   {user.role}

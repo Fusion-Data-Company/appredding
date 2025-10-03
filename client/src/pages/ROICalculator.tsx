@@ -1,7 +1,7 @@
 import React from 'react';
 import MainLayout from '@/components/layout/MainLayout';
-import PricingCalculator from '@/components/store/PricingCalculator';
-import EnterpriseROI from '@/components/store/EnterpriseROI';
+import ROICalculatorComponent from '@/components/ROICalculator';
+import { UtilitySavingsCalculator } from '@/components/UtilitySavingsCalculator';
 import { motion } from 'framer-motion';
 import { SOLAR_PANELS_HERO_IMAGE } from '@/assets_dir/imageExports';
 import { GradientHeading } from '@/components/ui/gradient-heading';
@@ -11,16 +11,16 @@ const ROICalculator = () => {
     <MainLayout>
       {/* Hero Section */}
       <section className="relative pt-20 pb-10 md:pt-24 md:pb-16">
-        <div 
-          className="absolute inset-0 z-0" 
+        <div
+          className="absolute inset-0 z-0"
           style={{
             backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 20, 0.9), rgba(0, 0, 20, 0.7)), url(${SOLAR_PANELS_HERO_IMAGE})`,
             backgroundSize: 'cover',
-            backgroundPosition: 'center center', // Standardized position
+            backgroundPosition: 'center center',
             backgroundAttachment: 'fixed'
           }}
         />
-        
+
         <div className="container relative z-10 mx-auto px-4 sm:px-6">
           <div className="max-w-4xl mx-auto text-center">
             <motion.div
@@ -40,8 +40,12 @@ const ROICalculator = () => {
       </section>
 
       {/* Main Content */}
-      <PricingCalculator />
-      <EnterpriseROI />
+      <div className="container mx-auto px-4 py-12">
+        <ROICalculatorComponent />
+        <div className="mt-12">
+          <UtilitySavingsCalculator />
+        </div>
+      </div>
     </MainLayout>
   );
 };

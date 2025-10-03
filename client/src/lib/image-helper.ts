@@ -1,5 +1,5 @@
 /**
- * Image Helper Utilities for Praetorian Smart-Coat
+ * Image Helper Utilities for Advance Power Redding
  * Functions to optimize image loading, accessibility, and performance
  */
 

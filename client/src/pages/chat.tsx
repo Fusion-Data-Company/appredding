@@ -330,7 +330,7 @@ const ChatPage = () => {
                         Welcome to Praetorian Chat
                       </h3>
                       <p className="text-sm text-muted-foreground max-w-md">
-                        Ask me anything about Praetorian SmartCoat products, applications, or services! I'm here to assist with any questions about our industrial coating solutions.
+                        Ask me anything about Advance Power products, applications, or services! I'm here to assist with any questions about our industrial coating solutions.
                       </p>
                     </div>
                   </div>

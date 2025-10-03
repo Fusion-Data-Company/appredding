@@ -304,7 +304,7 @@ export default function Municipality() {
                     {/* Hero Image */}
                     <img 
                       src="/src/assets_dir/images/optimized/praetorian-background-new.png" 
-                      alt="Municipal infrastructure protection with Praetorian Smart-Coat" 
+                      alt="Municipal infrastructure protection with Advance Power Redding" 
                       className="w-full h-auto max-h-[500px] object-cover object-center"
                     />
                     
@@ -513,7 +513,7 @@ export default function Municipality() {
                       </div>
                     </div>
                     
-                    <p className="text-xs text-gray-500 text-center">*Based on independent laboratory testing and field performance data of SON-SHIELD ceramic coating technology</p>
+                    <p className="text-xs text-gray-500 text-center">*Based on independent laboratory testing and field performance data of SON-SHIELD battery storage technology</p>
                   </div>
                 </div>
                 
@@ -1301,7 +1301,7 @@ export default function Municipality() {
                       </div>
                       <h3 className="text-2xl font-bold mb-4 text-white">Application Submitted Successfully!</h3>
                       <p className="text-gray-300 mb-6">
-                        Thank you for your interest in becoming a Praetorian Smart-Coat municipal contractor. Our team will review your application and contact you within 2-3 business days to discuss next steps.
+                        Thank you for your interest in becoming a Advance Power Redding municipal contractor. Our team will review your application and contact you within 2-3 business days to discuss next steps.
                       </p>
                       <p className="text-gray-300 mb-8">
                         While you wait, you may want to explore our municipal resource section for more detailed information about our products and technologies.
@@ -1523,7 +1523,7 @@ export default function Municipality() {
                     Consultation Request Received!
                   </h2>
                   <p className="text-gray-300 mb-6 text-center">
-                    Thank you for your interest in Praetorian Smart-Coat municipal infrastructure solutions. One of our specialists will contact you within 24 hours to discuss your specific needs and provide a detailed analysis.
+                    Thank you for your interest in Advance Power Redding municipal infrastructure solutions. One of our specialists will contact you within 24 hours to discuss your specific needs and provide a detailed analysis.
                   </p>
                   <p className="text-gray-300 mb-8 text-center">
                     In the meantime, you may want to explore our municipal resource section for more information on protecting your critical infrastructure.
@@ -1557,7 +1557,7 @@ export default function Municipality() {
                       Ready to Protect Your Municipal Assets?
                     </h2>
                     <p className="text-gray-300">
-                      Join the growing number of municipalities using Praetorian Smart-Coat to extend infrastructure life, reduce maintenance costs, and optimize their budgets.
+                      Join the growing number of municipalities using Advance Power Redding to extend infrastructure life, reduce maintenance costs, and optimize their budgets.
                     </p>
                   </div>
                   

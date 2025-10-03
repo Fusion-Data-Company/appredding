@@ -443,7 +443,7 @@ const ProductComparison = () => {
                   <Shield className="h-5 w-5 text-orange-400 relative z-20 group-hover:text-amber-300 transition-colors duration-300" />
                 </div>
                 <p className="text-sm text-gray-200 relative z-20 font-medium">
-                  Data based on independent laboratory testing comparing Praetorian SmartCoat to leading industry competitors.
+                  Data based on independent laboratory testing comparing Advance Power to leading industry competitors.
                   Product performance may vary based on application methods and environmental conditions.
                 </p>
               </div>

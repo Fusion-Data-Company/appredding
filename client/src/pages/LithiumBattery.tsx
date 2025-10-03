@@ -496,7 +496,7 @@ const LithiumBattery = () => {
                     </div>
                     <div className="flex justify-between pb-2 border-b border-gray-700">
                       <span className="text-gray-300">Safety Features</span>
-                      <span className="text-white font-medium">Built-in BMS with thermal protection</span>
+                      <span className="text-white font-medium">Built-in BMS with renewable energy</span>
                     </div>
                     <div className="flex justify-between pb-2 border-b border-gray-700">
                       <span className="text-gray-300">Installation</span>

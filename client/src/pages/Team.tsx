@@ -69,7 +69,7 @@ const Team = () => {
                 Our Team
               </GradientHeading>
               <p className="text-lg dark:text-gray-300 text-gray-700 max-w-3xl mx-auto">
-                Meet the experts behind Praetorian SmartCoat Solutions, dedicated to innovation and excellence in
+                Meet the experts behind Advance Power Solutions, dedicated to innovation and excellence in
                 protective coating technology.
               </p>
             </div>

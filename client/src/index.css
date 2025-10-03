@@ -3054,7 +3054,7 @@ header a[href="/"] img {
     100% { transform: translateY(0px); }
   }
   
-  /* Original Praetorian gradient styles */
+  /* Gradient text styles */
   .gradient-text-blue {
     background: linear-gradient(90deg, 
       #38b0de 0%, 
