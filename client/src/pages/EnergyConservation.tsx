@@ -29,7 +29,7 @@ import {
   TrendingUp,
   ThermometerSun
 } from "lucide-react";
-import { insertFirePreventionHomeownerSchema } from "@shared/schema";
+import { insertServiceConsultationSchema, type ServiceConsultationFormValues } from "@shared/schema";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
@@ -41,7 +41,7 @@ import SEOHead from "@/components/SEOHead";
 import { preloadCriticalImages } from "@/lib/image-helper";
 import { generateStructuredData, getIndustryKeywords } from "@/lib/seo-helper";
 
-type EnergyConservationFormValues = z.infer<typeof insertFirePreventionHomeownerSchema>;
+type EnergyConservationFormValues = ServiceConsultationFormValues;
 
 const EnergyConservation = () => {
   const [showConsultationForm, setShowConsultationForm] = useState(false);
@@ -65,7 +65,7 @@ const EnergyConservation = () => {
 
   // Setup form for consultation form
   const form = useForm<EnergyConservationFormValues>({
-    resolver: zodResolver(insertFirePreventionHomeownerSchema),
+    resolver: zodResolver(insertServiceConsultationSchema),
     defaultValues: {
       name: "",
       email: "",

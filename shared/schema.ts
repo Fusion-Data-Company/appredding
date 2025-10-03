@@ -1650,3 +1650,15 @@ export const portfolioProjects = pgTable("portfolio_projects", {
 export const insertPortfolioProjectSchema = createInsertSchema(portfolioProjects).omit({ id: true, createdAt: true, updatedAt: true });
 export type InsertPortfolioProject = z.infer<typeof insertPortfolioProjectSchema>;
 export type PortfolioProject = typeof portfolioProjects.$inferSelect;
+
+// Generic Service Consultation Schema for service pages
+export const insertServiceConsultationSchema = z.object({
+  name: z.string().min(1, "Name is required"),
+  email: z.string().email("Valid email is required"),
+  phone: z.string().min(1, "Phone number is required"),
+  address: z.string().optional(),
+  propertyType: z.string().optional(),
+  message: z.string().optional()
+});
+
+export type ServiceConsultationFormValues = z.infer<typeof insertServiceConsultationSchema>;

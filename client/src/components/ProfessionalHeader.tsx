@@ -183,6 +183,7 @@ const ProfessionalHeader = () => {
           <nav style={{ display: 'flex', gap: '24px', alignItems: 'center' }} className="hidden lg:flex">
             <a
               href="/"
+              data-testid="nav-home"
               style={{ 
                 color: '#ffffff !important', 
                 fontSize: '16px', 
@@ -194,7 +195,7 @@ const ProfessionalHeader = () => {
               className="text-white">Home</a>
             
             {/* Services Dropdown */}
-            <div className="dropdown-parent">
+            <div className="dropdown-parent" data-testid="dropdown-services">
               <span style={{ 
                 color: '#ffffff !important', 
                 fontSize: '16px', 
@@ -220,10 +221,12 @@ const ProfessionalHeader = () => {
               }}>
                 {servicesDropdown.map((item) => {
                   const Icon = item.icon;
+                  const testId = `nav-${item.label.toLowerCase().replace(/\s+/g, '-')}`;
                   return (
                     <a
                       key={item.href}
                       href={item.href}
+                      data-testid={testId}
                       className="dropdown-item"
                       style={{
                         display: 'flex',
@@ -250,7 +253,7 @@ const ProfessionalHeader = () => {
             </div>
 
             {/* Solutions Dropdown */}
-            <div className="dropdown-parent">
+            <div className="dropdown-parent" data-testid="dropdown-solutions">
               <span style={{ 
                 color: '#ffffff !important', 
                 fontSize: '16px', 
@@ -276,10 +279,12 @@ const ProfessionalHeader = () => {
               }}>
                 {solutionsDropdown.map((item) => {
                   const Icon = item.icon;
+                  const testId = `nav-${item.label.toLowerCase().replace(/\s+/g, '-')}`;
                   return (
                     <a
                       key={item.href}
                       href={item.href}
+                      data-testid={testId}
                       className="dropdown-item"
                       style={{
                         display: 'flex',
@@ -306,7 +311,7 @@ const ProfessionalHeader = () => {
             </div>
 
             {/* Shop Dropdown */}
-            <div className="dropdown-parent">
+            <div className="dropdown-parent" data-testid="dropdown-shop">
               <span style={{ 
                 color: '#ffffff !important', 
                 fontSize: '16px', 
@@ -332,10 +337,12 @@ const ProfessionalHeader = () => {
               }}>
                 {shopDropdown.map((item) => {
                   const Icon = item.icon;
+                  const testId = `nav-${item.label.toLowerCase().replace(/\s+/g, '-')}`;
                   return (
                     <a
                       key={item.href}
                       href={item.href}
+                      data-testid={testId}
                       className="dropdown-item"
                       style={{
                         display: 'flex',
@@ -361,7 +368,7 @@ const ProfessionalHeader = () => {
               </div>
             </div>
             
-            <a href="/technical-data" style={{ 
+            <a href="/resources/technical-data" data-testid="nav-technical-data" style={{ 
               color: '#ffffff !important', 
               fontSize: '16px', 
               fontWeight: '500', 
@@ -369,7 +376,7 @@ const ProfessionalHeader = () => {
               textShadow: '0 2px 4px rgba(0,0,0,0.8)',
               display: 'block'
             }}>Technical Data</a>
-            <a href="/about" style={{ 
+            <a href="/about" data-testid="nav-about" style={{ 
               color: '#ffffff !important', 
               fontSize: '16px', 
               fontWeight: '500', 
@@ -377,7 +384,7 @@ const ProfessionalHeader = () => {
               textShadow: '0 2px 4px rgba(0,0,0,0.8)',
               display: 'block'
             }}>About</a>
-            <a href="/contact" style={{ 
+            <a href="/contact" data-testid="nav-contact" style={{ 
               color: '#ffffff !important', 
               fontSize: '16px', 
               fontWeight: '500', 
@@ -390,8 +397,8 @@ const ProfessionalHeader = () => {
             <CartButton />
             
             {/* Book Appointment Button */}
-            <a href="/book-appointment" style={{ textDecoration: 'none' }}>
-              <button style={{
+            <a href="/resources/book-appointment" style={{ textDecoration: 'none' }}>
+              <button data-testid="nav-book-appointment" style={{
                 background: 'linear-gradient(to right, #f97316, #eab308)',
                 color: 'white',
                 fontWeight: 'bold',
@@ -410,6 +417,7 @@ const ProfessionalHeader = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            data-testid="mobile-menu-toggle"
             className="lg:hidden"
             style={{
               color: '#ffffff !important',
@@ -446,6 +454,7 @@ const ProfessionalHeader = () => {
               <a 
                 href="/" 
                 onClick={handleLinkClick}
+                data-testid="nav-home"
                 style={{ 
                   color: '#ffffff', 
                   fontSize: '16px', 
@@ -465,6 +474,7 @@ const ProfessionalHeader = () => {
               <div style={{ borderBottom: '1px solid rgba(249, 115, 22, 0.1)' }}>
                 <button
                   onClick={() => setServicesExpanded(!servicesExpanded)}
+                  data-testid="mobile-accordion-services"
                   style={{
                     width: '100%',
                     display: 'flex',
@@ -489,28 +499,32 @@ const ProfessionalHeader = () => {
                   overflow: 'hidden',
                   transition: 'max-height 300ms ease-in-out'
                 }}>
-                  {servicesDropdown.map((item) => (
-                    <a
-                      key={item.href}
-                      href={item.href}
-                      onClick={handleLinkClick}
-                      style={{
-                        display: 'block',
-                        padding: '10px 0 10px 24px',
-                        minHeight: '44px',
-                        color: '#ffffff',
-                        fontSize: '14px',
-                        fontWeight: '400',
-                        textDecoration: 'none',
-                        backgroundColor: 'transparent',
-                        transition: 'background-color 200ms ease-in-out'
-                      }}
-                      onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(249, 115, 22, 0.1)'}
-                      onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
-                    >
-                      {item.label}
-                    </a>
-                  ))}
+                  {servicesDropdown.map((item) => {
+                    const testId = `nav-${item.label.toLowerCase().replace(/\s+/g, '-')}`;
+                    return (
+                      <a
+                        key={item.href}
+                        href={item.href}
+                        onClick={handleLinkClick}
+                        data-testid={testId}
+                        style={{
+                          display: 'block',
+                          padding: '10px 0 10px 24px',
+                          minHeight: '44px',
+                          color: '#ffffff',
+                          fontSize: '14px',
+                          fontWeight: '400',
+                          textDecoration: 'none',
+                          backgroundColor: 'transparent',
+                          transition: 'background-color 200ms ease-in-out'
+                        }}
+                        onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(249, 115, 22, 0.1)'}
+                        onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
+                      >
+                        {item.label}
+                      </a>
+                    );
+                  })}
                 </div>
               </div>
 
@@ -518,6 +532,7 @@ const ProfessionalHeader = () => {
               <div style={{ borderBottom: '1px solid rgba(249, 115, 22, 0.1)' }}>
                 <button
                   onClick={() => setSolutionsExpanded(!solutionsExpanded)}
+                  data-testid="mobile-accordion-solutions"
                   style={{
                     width: '100%',
                     display: 'flex',
@@ -542,28 +557,32 @@ const ProfessionalHeader = () => {
                   overflow: 'hidden',
                   transition: 'max-height 300ms ease-in-out'
                 }}>
-                  {solutionsDropdown.map((item) => (
-                    <a
-                      key={item.href}
-                      href={item.href}
-                      onClick={handleLinkClick}
-                      style={{
-                        display: 'block',
-                        padding: '10px 0 10px 24px',
-                        minHeight: '44px',
-                        color: '#ffffff',
-                        fontSize: '14px',
-                        fontWeight: '400',
-                        textDecoration: 'none',
-                        backgroundColor: 'transparent',
-                        transition: 'background-color 200ms ease-in-out'
-                      }}
-                      onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(249, 115, 22, 0.1)'}
-                      onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
-                    >
-                      {item.label}
-                    </a>
-                  ))}
+                  {solutionsDropdown.map((item) => {
+                    const testId = `nav-${item.label.toLowerCase().replace(/\s+/g, '-')}`;
+                    return (
+                      <a
+                        key={item.href}
+                        href={item.href}
+                        onClick={handleLinkClick}
+                        data-testid={testId}
+                        style={{
+                          display: 'block',
+                          padding: '10px 0 10px 24px',
+                          minHeight: '44px',
+                          color: '#ffffff',
+                          fontSize: '14px',
+                          fontWeight: '400',
+                          textDecoration: 'none',
+                          backgroundColor: 'transparent',
+                          transition: 'background-color 200ms ease-in-out'
+                        }}
+                        onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(249, 115, 22, 0.1)'}
+                        onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
+                      >
+                        {item.label}
+                      </a>
+                    );
+                  })}
                 </div>
               </div>
 
@@ -571,6 +590,7 @@ const ProfessionalHeader = () => {
               <div style={{ borderBottom: '1px solid rgba(249, 115, 22, 0.1)' }}>
                 <button
                   onClick={() => setShopExpanded(!shopExpanded)}
+                  data-testid="mobile-accordion-shop"
                   style={{
                     width: '100%',
                     display: 'flex',
@@ -595,28 +615,32 @@ const ProfessionalHeader = () => {
                   overflow: 'hidden',
                   transition: 'max-height 300ms ease-in-out'
                 }}>
-                  {shopDropdown.map((item) => (
-                    <a
-                      key={item.href}
-                      href={item.href}
-                      onClick={handleLinkClick}
-                      style={{
-                        display: 'block',
-                        padding: '10px 0 10px 24px',
-                        minHeight: '44px',
-                        color: '#ffffff',
-                        fontSize: '14px',
-                        fontWeight: '400',
-                        textDecoration: 'none',
-                        backgroundColor: 'transparent',
-                        transition: 'background-color 200ms ease-in-out'
-                      }}
-                      onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(249, 115, 22, 0.1)'}
-                      onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
-                    >
-                      {item.label}
-                    </a>
-                  ))}
+                  {shopDropdown.map((item) => {
+                    const testId = `nav-${item.label.toLowerCase().replace(/\s+/g, '-')}`;
+                    return (
+                      <a
+                        key={item.href}
+                        href={item.href}
+                        onClick={handleLinkClick}
+                        data-testid={testId}
+                        style={{
+                          display: 'block',
+                          padding: '10px 0 10px 24px',
+                          minHeight: '44px',
+                          color: '#ffffff',
+                          fontSize: '14px',
+                          fontWeight: '400',
+                          textDecoration: 'none',
+                          backgroundColor: 'transparent',
+                          transition: 'background-color 200ms ease-in-out'
+                        }}
+                        onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(249, 115, 22, 0.1)'}
+                        onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
+                      >
+                        {item.label}
+                      </a>
+                    );
+                  })}
                 </div>
               </div>
 
@@ -624,6 +648,7 @@ const ProfessionalHeader = () => {
               <a 
                 href="/resources/technical-data" 
                 onClick={handleLinkClick}
+                data-testid="nav-technical-data"
                 style={{ 
                   color: '#ffffff', 
                   fontSize: '16px', 
@@ -643,6 +668,7 @@ const ProfessionalHeader = () => {
               <a 
                 href="/about" 
                 onClick={handleLinkClick}
+                data-testid="nav-about"
                 style={{ 
                   color: '#ffffff', 
                   fontSize: '16px', 
@@ -662,6 +688,7 @@ const ProfessionalHeader = () => {
               <a 
                 href="/contact" 
                 onClick={handleLinkClick}
+                data-testid="nav-contact"
                 style={{ 
                   color: '#ffffff', 
                   fontSize: '16px', 
@@ -681,6 +708,7 @@ const ProfessionalHeader = () => {
               <a 
                 href="/resources/book-appointment" 
                 onClick={handleLinkClick}
+                data-testid="nav-book-appointment"
                 style={{ 
                   color: '#ffffff', 
                   fontSize: '16px', 
