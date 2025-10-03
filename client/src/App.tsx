@@ -9,7 +9,6 @@ import { errorHandler } from "@/utils/error-handler";
 import { usePerformance } from "@/hooks/use-performance";
 import { initializeCriticalPerformance, monitorPerformanceBudget } from "@/utils/performance-critical";
 import { SuspenseFallback } from "@/components/ui/enhanced-loading";
-import { PerformanceIndicator } from "@/components/ui/performance-indicator";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import CRM from "@/pages/CRM";
@@ -327,8 +326,6 @@ function App() {
         <AuthProvider>
           <StoreProvider>
             <Router />
-            {/* Performance indicator - only show in development */}
-            {import.meta.env.DEV && <PerformanceIndicator showDetails={true} />}
           </StoreProvider>
         </AuthProvider>
       </TooltipProvider>

@@ -102,6 +102,7 @@ const ScrollingReviews = () => {
         {/* Scrolling review track */}
         <motion.div 
           className="flex gap-6 py-4"
+          style={{ willChange: 'transform' }}
           animate={{ x: [0, -3500] }}
           transition={{ 
             duration: 60,
@@ -150,16 +151,16 @@ const ReviewCard = ({ review }: { review: Review }) => (
     </div>
     
     {/* Review text */}
-    <p className="text-gray-700 dark:text-gray-300 text-sm line-clamp-4 mb-4">
+    <p className="text-gray-700 dark:text-gray-300 text-base font-medium line-clamp-4 mb-4 leading-relaxed">
       "{review.text}"
     </p>
     
     {/* Author info */}
     <div className="mt-auto">
-      <p className="font-semibold text-amber-900 dark:text-amber-400">{review.author}</p>
+      <p className="font-bold text-amber-900 dark:text-amber-400">{review.author}</p>
       <div className="flex justify-between items-center mt-1">
-        <p className="text-gray-500 dark:text-gray-400 text-xs">{review.location}</p>
-        <p className="text-gray-400 dark:text-gray-500 text-xs">{review.date}</p>
+        <p className="text-gray-500 dark:text-gray-400 text-sm font-medium">{review.location}</p>
+        <p className="text-gray-400 dark:text-gray-500 text-sm">{review.date}</p>
       </div>
     </div>
   </div>
