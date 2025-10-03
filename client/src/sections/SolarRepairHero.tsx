@@ -55,26 +55,32 @@ const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
     img.onerror = () => setImageLoaded(false); // Fallback to gradient if image fails
   }, [backgroundImage]);
 
-  // Subtle scroll effects that don't hide the background
+  // Optimized scroll effects using requestAnimationFrame
   useEffect(() => {
     const featureEl = featureRef.current;
     if (!featureEl) return;
 
+    let ticking = false;
+
     const onScroll = () => {
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      const maxScroll = 800; // Maximum scroll distance for effects
-      const scrollPercent = Math.min(scrollTop / maxScroll, 1);
-      
-      // Subtle parallax effect without hiding the background
-      featureEl.style.transform = `translateY(${scrollTop * 0.3}px)`;
-      
-      // Very subtle blur that doesn't obscure the image (max 2px)
-      const blurAmount = scrollPercent * 2;
-      featureEl.style.filter = `blur(${blurAmount}px)`;
-      
-      // Keep opacity high (minimum 0.7, never completely transparent)
-      const opacity = Math.max(0.7, 1 - scrollPercent * 0.3);
-      featureEl.style.opacity = `${opacity}`;
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+          const maxScroll = 800;
+          const scrollPercent = Math.min(scrollTop / maxScroll, 1);
+          
+          const translateY = scrollTop * 0.3;
+          const blurAmount = scrollPercent * 2;
+          const opacity = Math.max(0.7, 1 - scrollPercent * 0.3);
+          
+          featureEl.style.transform = `translate3d(0, ${translateY}px, 0)`;
+          featureEl.style.filter = `blur(${blurAmount}px)`;
+          featureEl.style.opacity = `${opacity}`;
+          
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
     window.addEventListener('scroll', onScroll, { passive: true });
@@ -97,14 +103,13 @@ const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
         ref={featureRef}
         className="fixed top-0 left-0 right-0 w-full h-screen z-0 overflow-hidden"
         style={{
-          // Fallback gradient background with APR colors (orange/blue)
           backgroundImage: imageLoaded 
             ? `url('${backgroundImage}')`
             : 'linear-gradient(135deg, #ff6b35 0%, #f97316 25%, #0284c7 75%, #1e40af 100%)',
           backgroundPosition: 'center center',
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'cover',
-          transition: 'transform 0.3s ease-out, filter 0.3s ease-out, opacity 0.3s ease-out',
+          willChange: 'transform, filter, opacity',
         }}
       >
         {/* Semi-transparent overlay gradient for text readability */}
