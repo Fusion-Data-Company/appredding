@@ -43,7 +43,8 @@ import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
 import SEOHead from "@/components/SEOHead";
 
-// Import MCP Components
+// Import section components
+import PageHeroSection from "@/components/sections/PageHeroSection";
 import HeroSection from "@/components/sections/HeroSection";
 import ContentSection from "@/components/sections/ContentSection";
 import FeatureGrid from "@/components/sections/FeatureGrid";
@@ -247,19 +248,23 @@ const ResidentialSolar = () => {
       />
 
       {/* Hero Section */}
-      <HeroSection
+      <PageHeroSection
         title="Residential Solar Installation"
-        subtitle="Advance Power Redding"
-        description="Navigate NEM 3.0's 75-80% export credit reduction with our smart battery solutions. We specialize in rescuing orphaned solar systems within 7 days and optimizing load shifting to recover 25-40% of lost export value."
-        primaryButton={{
-          text: "Get Free Quote",
-          onClick: () => setShowConsultationForm(true)
-        }}
-        secondaryButton={{
-          text: "Calculate Savings",
-          link: "/roi-calculator"
-        }}
-        glowColor="orange"
+        subtitle="Advance Power Redding • Navigate NEM 3.0's 75-80% export credit reduction with our smart battery solutions"
+        ctaButtons={[
+          {
+            text: "Get Free Quote",
+            onClick: () => setShowConsultationForm(true),
+            variant: "primary"
+          },
+          {
+            text: "Calculate Savings",
+            link: "/roi-calculator",
+            variant: "secondary"
+          }
+        ]}
+        overlayColor="orange"
+        height="large"
       />
 
       {/* Problem Section */}
