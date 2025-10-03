@@ -19,15 +19,15 @@ interface SolarRepairHeroProps {
 }
 
 const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
-  tagline = "Solar Excellence Since 2004",
+  tagline = "25+ Years Serving Northern California",
   title = (
     <>
       Advance Power of Redding
       <br />
-      <span className="text-primary">Complete Solar Solutions</span>
+      <span className="text-primary">NEM 3.0 Solar Solutions Expert</span>
     </>
   ),
-  subtitle = "Northern California's trusted solar experts. Professional installation, repair, and maintenance services for homes and businesses. Over 20 years of experience delivering reliable solar energy solutions.",
+  subtitle = "Rescuing orphaned solar systems in 7 days or less. Specializing in NEM 3.0 battery retrofits and load shifting to recover 25-40% of lost export value. Serving Shasta County, North State I-5 corridor, Trinity & Tehama counties.",
   ctaButtons = {
     primary: { label: "Get Free Quote", onClick: () => console.log("Schedule clicked") },
     secondary: { label: "Call (530) 226-0701", onClick: () => console.log("Emergency clicked") }
