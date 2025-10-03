@@ -368,6 +368,29 @@
   .css-rays::before {
     animation-duration: 6s;
   }
+
+  /* Reduce glassmorphism blur on mobile for better performance */
+  .glass-card,
+  .glass-card-light,
+  .glass-card-strong {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .glass-button {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  /* Simplify shimmer on mobile */
+  .shimmer-effect::before {
+    animation-duration: 4s;
+  }
+
+  /* Reduce edge glow intensity on mobile */
+  .edge-glow-strong::before {
+    filter: blur(4px);
+  }
 }
 
 /* Tablet: Single column layout */
