@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Wrench, Phone, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import heroBackgroundImage from '@assets/solark_1751912613590.png';
+import heroBackgroundImage from '@assets/generated_images/4K_solar_panels_hero_background_87aa32c0.png';
 
 interface SolarRepairHeroProps {
   tagline?: string;
@@ -24,7 +24,7 @@ const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
     <>
       Advance Power of Redding
       <br />
-      <span className="text-primary">Solar Solutions Expert</span>
+      <span className="text-primary">NEM 3.0 Solar Solutions Expert</span>
     </>
   ),
   subtitle = "Rescuing orphaned solar systems in 7 days or less. Specializing in NEM 3.0 battery retrofits and load shifting to recover 25-40% of lost export value. Serving Shasta County, North State I-5 corridor, Trinity & Tehama counties.",
