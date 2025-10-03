@@ -3007,33 +3007,6 @@ header a[href="/"] img {
     box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.08);
   }
   
-  /* ElevenLabs component styling */
-  elevenlabs-iframe {
-    width: 100% !important;
-    max-height: 100vh !important;
-    border: none !important;
-  }
-  
-  elevenlabs-convai {
-    position: relative !important;
-    left: 0 !important;
-    right: 0 !important;
-    bottom: 0 !important;
-    top: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
-    max-height: 250px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    margin: 0 auto !important;
-  }
-  
-  .elevenlabs-container {
-    z-index: 9999;
-    position: relative;
-  }
-  
   .glow {
     box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
   }
@@ -3788,28 +3761,10 @@ header a[href="/"] img {
     overflow: hidden;
   }
   
-  /* Voice chat, Chat and Premium Introduction button custom shimmer effects */
-  .voice-chat-shimmer,
-  .premium-intro-shimmer,
-  .chat-shimmer {
+  /* Premium Introduction button custom shimmer effects */
+  .premium-intro-shimmer {
     position: relative;
     overflow: hidden;
-  }
-  
-  .voice-chat-shimmer::before,
-  .chat-shimmer::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: conic-gradient(
-      transparent, 
-      rgba(255, 255, 255, 0.1), 
-      transparent 30%
-    );
-    animation: shimmerRotate 4s linear infinite;
   }
   
   /* Premium introduction button has a more sophisticated shimmer */
