@@ -281,11 +281,6 @@ export function PremiumNavbar() {
                 Technical Data
               </Link>
             </li>
-            <li>
-              <Link href="/applications" className="text-sm text-gray-200 hover:text-white transition-colors">
-                Applications
-              </Link>
-            </li>
           </ul>
         </div>
         
@@ -381,11 +376,6 @@ export function PremiumNavbar() {
             <li>
               <Link href="/technology" className="text-sm text-gray-300 hover:text-white transition-colors">
                 Solar Technology
-              </Link>
-            </li>
-            <li>
-              <Link href="/applications" className="text-sm text-gray-300 hover:text-white transition-colors">
-                Applications
               </Link>
             </li>
           </ul>
