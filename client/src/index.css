@@ -16,6 +16,7 @@
 
 /* Spacing Scale - 8px base */
 :root {
+  --app-header-height: 88px; /* Fixed header height: 48px logo + 40px padding */
   --space-xs: 0.5rem;    /* 8px */
   --space-sm: 1rem;      /* 16px */
   --space-md: 1.5rem;    /* 24px */

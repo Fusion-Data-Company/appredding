@@ -41,11 +41,14 @@ export default function MainLayout({ children, className, fullWidth = false }: M
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
       <SolarCompanyHeader />
       
-      <main className={cn(
-        "flex-1 pt-24 pb-16 relative z-10", // Account for header and footer height on mobile
-        "md:pt-20 md:pb-12", // Larger screens get normal padding
-        className
-      )}>
+      <main 
+        className={cn(
+          "flex-1 pb-16 relative z-10",
+          "md:pb-12",
+          className
+        )}
+        style={{ paddingTop: 'calc(var(--app-header-height) + 1.5rem)' }}
+      >
         {fullWidth ? (
           children
         ) : (
