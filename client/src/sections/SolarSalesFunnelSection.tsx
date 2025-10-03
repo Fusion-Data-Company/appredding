@@ -3,7 +3,7 @@
 import * as React from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { cn } from '@/lib/utils';
-import { ArrowDown, Users, Phone, FileCheck, Zap } from 'lucide-react';
+import { ArrowDown, AlertTriangle, Flame, ClipboardCheck, Wrench, Battery, TrendingUp, CheckCircle, Calendar } from 'lucide-react';
 
 function GridPattern({
   width = 40,
@@ -70,11 +70,17 @@ function GridPattern({
   );
 }
 
+interface FunnelMetric {
+  label: string;
+  value: string | number;
+}
+
 interface FunnelStage {
   id: string;
   title: string;
   description: string;
-  value: number;
+  primaryValue: number;
+  metrics: FunnelMetric[];
   color: string;
   glowColor: string;
   icon: React.ReactNode;
@@ -89,44 +95,64 @@ const SolarRescueFunnelSection: React.FC = () => {
       title: 'Red • Pain Signals',
       description:
         'Emergency outage calls, orphaned installs, inverter faults, wildfire outage risk, NEM 3.0 bill shock.',
-      value: 1180,
-      color: '#ef4444',
-      glowColor: 'rgba(239, 68, 68, 0.45)',
-      icon: <Users className='h-6 w-6' />,
+      primaryValue: 8420,
+      metrics: [
+        { label: 'Annual CA System Failures', value: '8,420' },
+        { label: 'NEM 3.0 Bill Increases', value: '+$2.8M' },
+        { label: 'Wildfire Outage Hours', value: '127,400' },
+      ],
+      color: '#ff1a1a',
+      glowColor: 'rgba(255, 26, 26, 0.6)',
+      icon: <AlertTriangle className='h-7 w-7' />,
     },
     {
       id: 'intel',
       title: 'Yellow • Technical Intel',
       description:
         'Site diagnostics, IV-curve tracing, CPUC compliance, SGIP eligibility checks, wildfire readiness planning.',
-      value: 860,
-      color: '#f59e0b',
-      glowColor: 'rgba(245, 158, 11, 0.45)',
-      icon: <Zap className='h-6 w-6' />,
+      primaryValue: 6180,
+      metrics: [
+        { label: 'CPUC Inspections Needed', value: '4,230' },
+        { label: 'SGIP Applications', value: '2,890' },
+        { label: 'System Diagnostics Completed', value: '6,180' },
+      ],
+      color: '#ffaa00',
+      glowColor: 'rgba(255, 170, 0, 0.6)',
+      icon: <ClipboardCheck className='h-7 w-7' />,
     },
     {
       id: 'roi',
       title: 'Green • ROI Modeling',
       description:
         'Storage pairing, load shifting playbooks, financing alignment, home resale prep, warranty salvage.',
-      value: 540,
-      color: '#22c55e',
-      glowColor: 'rgba(34, 197, 94, 0.45)',
-      icon: <FileCheck className='h-6 w-6' />,
+      primaryValue: 3850,
+      metrics: [
+        { label: 'Battery Pairings', value: '3,850' },
+        { label: 'Annual Savings Projected', value: '$18.7M' },
+        { label: 'Load Shift Scenarios', value: '12,400' },
+      ],
+      color: '#00ff41',
+      glowColor: 'rgba(0, 255, 65, 0.6)',
+      icon: <Battery className='h-7 w-7' />,
     },
     {
       id: 'decision',
       title: 'Purple • Decision & CTA',
       description:
         'Permit-ready crews, CPUC documentation binder, maintenance membership, dispatch scheduling, onboarding.',
-      value: 290,
-      color: '#a855f7',
-      glowColor: 'rgba(168, 85, 247, 0.45)',
-      icon: <Phone className='h-6 w-6' />,
+      primaryValue: 2140,
+      metrics: [
+        { label: 'Permits Issued', value: '2,140' },
+        { label: 'Installations Scheduled', value: '1,890' },
+        { label: 'Contracts Signed', value: '$12.3M' },
+      ],
+      color: '#c026ff',
+      glowColor: 'rgba(192, 38, 255, 0.6)',
+      icon: <CheckCircle className='h-7 w-7' />,
     },
   ];
 
-  const maxValue = stages[0].value;
+  const maxValue = stages[0].primaryValue;
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -188,16 +214,16 @@ const SolarRescueFunnelSection: React.FC = () => {
           variants={containerVariants}
           initial={shouldReduceMotion ? 'visible' : 'hidden'}
           animate='visible'
-          className='relative mt-20 h-[640px]'
+          className='relative mt-24 h-[880px]'
         >
           {stages.map((stage, index) => {
             const topPercentage = (index / stages.length) * 100;
             const segmentHeight = 100 / stages.length;
             const topWidth =
               index === 0
-                ? 92
-                : ((stages[index - 1]?.value || maxValue) / maxValue) * 92;
-            const bottomWidth = (stage.value / maxValue) * 92;
+                ? 98
+                : ((stages[index - 1]?.primaryValue || maxValue) / maxValue) * 98;
+            const bottomWidth = (stage.primaryValue / maxValue) * 98;
 
             return (
               <motion.div
@@ -212,9 +238,9 @@ const SolarRescueFunnelSection: React.FC = () => {
               >
                 <div className='relative flex h-full w-full items-center justify-center'>
                   <div
-                    className='absolute inset-0 blur-3xl opacity-45 transition-opacity duration-300'
+                    className='absolute inset-0 blur-[100px] opacity-70 transition-opacity duration-500 hover:opacity-85'
                     style={{
-                      background: `radial-gradient(ellipse at center, ${stage.glowColor} 0%, transparent 72%)`,
+                      background: `radial-gradient(ellipse at center, ${stage.glowColor} 0%, transparent 70%)`,
                     }}
                   />
 
@@ -234,44 +260,61 @@ const SolarRescueFunnelSection: React.FC = () => {
                     }}
                   >
                     <div
-                      className='h-full w-full border-2 transition-all duration-300'
+                      className='h-full w-full border-[3px] transition-all duration-500 hover:border-[4px]'
                       style={{
-                        backgroundColor: `${stage.color}26`,
+                        backgroundColor: `${stage.color}35`,
                         borderColor: stage.color,
-                        boxShadow: `inset 0 0 48px ${stage.glowColor}, 0 0 38px ${stage.glowColor}`,
+                        boxShadow: `inset 0 0 60px ${stage.glowColor}, 0 0 50px ${stage.glowColor}`,
                       }}
                     />
                   </div>
 
                   <div
-                    className='relative z-10 flex w-full max-w-3xl items-center gap-6 rounded-2xl border-2 bg-slate-950/85 px-8 py-6 backdrop-blur-md transition-transform duration-300 hover:scale-[1.02]'
+                    className='relative z-10 flex w-full max-w-4xl flex-col gap-4 rounded-2xl border-[3px] bg-slate-950/90 px-10 py-7 backdrop-blur-xl shadow-2xl transition-all duration-500 hover:scale-[1.03] hover:shadow-[0_0_60px_rgba(0,0,0,0.8)]'
                     style={{
                       borderColor: stage.color,
-                      boxShadow: `0 0 30px ${stage.glowColor}`,
+                      boxShadow: `0 0 40px ${stage.glowColor}, 0 20px 60px rgba(0,0,0,0.6)`,
                     }}
                   >
-                    <div
-                      className='rounded-2xl p-3'
-                      style={{
-                        backgroundColor: `${stage.color}22`,
-                        color: stage.color,
-                      }}
-                    >
-                      {stage.icon}
-                    </div>
-                    <div className='flex-1 text-left'>
-                      <h3 className='text-2xl font-semibold' style={{ color: stage.color }}>
-                        {stage.title}
-                      </h3>
-                      <p className='mt-2 text-sm text-slate-300'>{stage.description}</p>
-                    </div>
-                    <div className='text-right text-white'>
-                      <div className='text-3xl font-semibold'>
-                        {stage.value.toLocaleString()}
+                    <div className='flex items-center gap-6'>
+                      <div
+                        className='rounded-2xl p-4 shadow-lg'
+                        style={{
+                          backgroundColor: `${stage.color}30`,
+                          color: stage.color,
+                          boxShadow: `0 0 20px ${stage.glowColor}`,
+                        }}
+                      >
+                        {stage.icon}
                       </div>
-                      <p className='text-xs uppercase tracking-[0.25em] text-slate-400/80'>
-                        prospects
-                      </p>
+                      <div className='flex-1'>
+                        <h3 className='text-2xl font-bold tracking-tight' style={{ color: stage.color }}>
+                          {stage.title}
+                        </h3>
+                        <p className='mt-1 text-sm text-slate-300'>{stage.description}</p>
+                      </div>
+                    </div>
+                    
+                    <div className='grid grid-cols-3 gap-4 border-t pt-4' style={{ borderColor: `${stage.color}40` }}>
+                      {stage.metrics.map((metric, idx) => (
+                        <div
+                          key={idx}
+                          className='rounded-xl border bg-slate-900/60 px-4 py-3 backdrop-blur transition-all duration-300 hover:scale-105'
+                          style={{
+                            borderColor: `${stage.color}30`,
+                          }}
+                        >
+                          <p className='text-xs font-medium uppercase tracking-wider text-slate-400'>
+                            {metric.label}
+                          </p>
+                          <p
+                            className='mt-1 text-xl font-bold'
+                            style={{ color: stage.color }}
+                          >
+                            {metric.value}
+                          </p>
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </div>
@@ -284,33 +327,41 @@ const SolarRescueFunnelSection: React.FC = () => {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.4, duration: 0.6 }}
-          className='mt-24 grid gap-6 text-center sm:grid-cols-3'
+          className='mt-32 grid gap-8 text-center sm:grid-cols-3'
         >
           {[
             {
-              label: 'Conversion Velocity',
-              value: '26%',
+              label: 'CA SGIP Remaining',
+              value: '$142M',
               tone: 'text-emerald-400',
+              icon: <Battery className='h-5 w-5' />,
             },
             {
-              label: 'Pipeline Health',
-              value: '$3.1M',
-              tone: 'text-purple-300',
+              label: 'NEM 3.0 Adoption Rate',
+              value: '68%',
+              tone: 'text-amber-400',
+              icon: <TrendingUp className='h-5 w-5' />,
             },
             {
-              label: 'Response SLA',
-              value: '2h 12m',
-              tone: 'text-sky-300',
+              label: 'Average System ROI',
+              value: '6.2 years',
+              tone: 'text-purple-400',
+              icon: <Calendar className='h-5 w-5' />,
             },
           ].map((stat) => (
             <div
               key={stat.label}
-              className='rounded-2xl border border-slate-800/70 bg-slate-900/70 p-6 backdrop-blur'
+              className='group rounded-2xl border-2 border-slate-800/80 bg-slate-900/80 p-8 backdrop-blur-xl shadow-xl transition-all duration-500 hover:scale-105 hover:border-slate-700 hover:bg-slate-900/90 hover:shadow-2xl'
             >
-              <p className='text-sm uppercase tracking-[0.28em] text-slate-400'>
-                {stat.label}
-              </p>
-              <p className={cn('mt-2 text-3xl font-semibold', stat.tone)}>{stat.value}</p>
+              <div className='mb-3 flex items-center justify-center gap-2'>
+                <div className={cn('transition-all duration-300 group-hover:scale-110', stat.tone)}>
+                  {stat.icon}
+                </div>
+                <p className='text-xs font-semibold uppercase tracking-[0.3em] text-slate-400 transition-colors duration-300 group-hover:text-slate-300'>
+                  {stat.label}
+                </p>
+              </div>
+              <p className={cn('text-4xl font-bold transition-all duration-300 group-hover:scale-110', stat.tone)}>{stat.value}</p>
             </div>
           ))}
         </motion.div>
