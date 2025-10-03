@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Wrench, Phone, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import heroBackgroundImage from '@assets/solar-panels-hero.jpg';
 
 interface SolarRepairHeroProps {
   tagline?: string;
@@ -31,7 +32,7 @@ const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
     primary: { label: "Get Free Quote", onClick: () => console.log("Schedule clicked") },
     secondary: { label: "Call (530) 226-0701", onClick: () => console.log("Emergency clicked") }
   },
-  backgroundImage = "/assets/images/solar-panels-hero.jpg",
+  backgroundImage = heroBackgroundImage,
   solarImages = [
     "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=400&h=600&fit=crop",
     "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=400&h=600&fit=crop",

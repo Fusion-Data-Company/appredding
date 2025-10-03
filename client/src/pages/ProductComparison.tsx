@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Header from "@/components/Header";
+import MainLayout from "@/components/layout/MainLayout";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";

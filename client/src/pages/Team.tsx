@@ -1,5 +1,4 @@
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import MainLayout from "@/components/layout/MainLayout";
 import { GradientHeading } from "@/components/ui/gradient-heading";
 import PageTransition from "@/components/ui/page-transition";
 import { GradientButton } from "@/components/ui/gradient-button";
@@ -59,9 +58,9 @@ const teamMembers: TeamMember[] = [
 
 const Team = () => {
   return (
-    <PageTransition>
-      <Header />
-      <main className="pt-24 pb-16">
+    <MainLayout>
+      <PageTransition>
+        <main>
         <section className="relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-orange-500/10 pointer-events-none"></div>
           <div className="container mx-auto px-4">
@@ -171,8 +170,8 @@ const Team = () => {
           </div>
         </section>
       </main>
-      <Footer />
-    </PageTransition>
+      </PageTransition>
+    </MainLayout>
   );
 };
 

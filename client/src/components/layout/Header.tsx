@@ -1,126 +1,310 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
-import { Menu, X, Phone } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Link, useLocation } from 'wouter';
+import { 
+  Menu, 
+  X, 
+  Phone, 
+  Mail, 
+  ChevronDown,
+  Sun,
+  Battery,
+  Settings,
+  Building2,
+  Home,
+  ShieldCheck,
+  Wrench,
+  Zap,
+  Users,
+  Info,
+  FolderOpen,
+  Code,
+  MessageSquare
+} from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
-const SolarLogo = () => {
-  return (
-    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" className="h-10 w-10">
-      <defs>
-        <linearGradient id="solarBlueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" style={{ stopColor: "#3B82F6", stopOpacity: 1 }} />
-          <stop offset="100%" style={{ stopColor: "#1D4ED8", stopOpacity: 1 }} />
-        </linearGradient>
-        <linearGradient id="lightBlue" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" style={{ stopColor: "#60A5FA", stopOpacity: 1 }} />
-          <stop offset="100%" style={{ stopColor: "#3B82F6", stopOpacity: 1 }} />
-        </linearGradient>
-      </defs>
-      <circle cx="50" cy="50" r="20" fill="url(#solarBlueGradient)" />
-      <circle cx="50" cy="20" r="3" fill="url(#lightBlue)" />
-      <circle cx="73" cy="30" r="3" fill="url(#lightBlue)" />
-      <circle cx="80" cy="50" r="3" fill="url(#lightBlue)" />
-      <circle cx="73" cy="70" r="3" fill="url(#lightBlue)" />
-      <circle cx="50" cy="80" r="3" fill="url(#lightBlue)" />
-      <circle cx="27" cy="70" r="3" fill="url(#lightBlue)" />
-      <circle cx="20" cy="50" r="3" fill="url(#lightBlue)" />
-      <circle cx="27" cy="30" r="3" fill="url(#lightBlue)" />
-      <line x1="50" y1="23" x2="50" y2="30" stroke="#60A5FA" strokeWidth="2" />
-      <line x1="70" y1="33" x2="63" y2="40" stroke="#60A5FA" strokeWidth="2" />
-      <line x1="77" y1="50" x2="70" y2="50" stroke="#60A5FA" strokeWidth="2" />
-      <line x1="70" y1="67" x2="63" y2="60" stroke="#60A5FA" strokeWidth="2" />
-      <line x1="50" y1="77" x2="50" y2="70" stroke="#60A5FA" strokeWidth="2" />
-      <line x1="30" y1="67" x2="37" y2="60" stroke="#60A5FA" strokeWidth="2" />
-      <line x1="23" y1="50" x2="30" y2="50" stroke="#60A5FA" strokeWidth="2" />
-      <line x1="30" y1="33" x2="37" y2="40" stroke="#60A5FA" strokeWidth="2" />
-      <path
-        d="M 45 45 L 50 40 L 55 45 L 55 55 L 45 55 Z"
-        fill="#FFFFFF"
-        opacity="0.9"
-      />
-    </svg>
-  );
-};
-
 const SolarCompanyHeader: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [location] = useLocation();
+  const dropdownRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
 
-  const navigationItems = [
-    { label: 'Home', href: '/' },
-    { label: 'Residential', href: '/residential' },
-    { label: 'Commercial', href: '/commerce' },
-    { label: 'Repairs', href: '/repairs' },
-    { label: 'Technical Data', href: '/technical-data' },
-    { label: 'About', href: '/about' },
-    { label: 'Contact', href: '/contact' },
+  // Handle scroll effect
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const isClickInsideAnyDropdown = Object.values(dropdownRefs.current).some(
+        ref => ref && ref.contains(event.target as Node)
+      );
+      if (!isClickInsideAnyDropdown) {
+        setActiveDropdown(null);
+      }
+    };
+
+    if (activeDropdown) {
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => document.removeEventListener('mousedown', handleClickOutside);
+    }
+  }, [activeDropdown]);
+
+  // Services dropdown items
+  const servicesItems = [
+    { label: "Residential Solar", href: "/residential-solar", icon: <Home className="w-4 h-4" />, description: "Custom solar solutions for homes" },
+    { label: "Commercial Solar", href: "/commercial-solar", icon: <Building2 className="w-4 h-4" />, description: "Business solar power systems" },
+    { label: "Hybrid Solar", href: "/hybrid-solar", icon: <Zap className="w-4 h-4" />, description: "Solar + battery storage solutions" },
+    { label: "Battery Storage", href: "/battery-storage", icon: <Battery className="w-4 h-4" />, description: "Energy storage systems" },
+    { label: "Maintenance", href: "/maintenance", icon: <Settings className="w-4 h-4" />, description: "Keep your system running optimally" },
+    { label: "Repairs", href: "/repairs", icon: <Wrench className="w-4 h-4" />, description: "Expert repair services" },
+    { label: "Energy Conservation", href: "/energy-conservation", icon: <ShieldCheck className="w-4 h-4" />, description: "Energy efficiency solutions" },
   ];
+
+  // Products dropdown items
+  const productsItems = [
+    { label: "Solar Panels", href: "/products#solar-panels", icon: <Sun className="w-4 h-4" />, description: "High-efficiency solar panels" },
+    { label: "Inverters", href: "/products#inverters", icon: <Zap className="w-4 h-4" />, description: "Power conversion systems" },
+    { label: "Batteries", href: "/products#batteries", icon: <Battery className="w-4 h-4" />, description: "Energy storage solutions" },
+    { label: "Monitoring Systems", href: "/products#monitoring", icon: <Settings className="w-4 h-4" />, description: "System monitoring tools" },
+  ];
+
+  // Applications dropdown items
+  const applicationsItems = [
+    { label: "Mobile Homes", href: "/mobile-home", icon: <Home className="w-4 h-4" />, description: "Solar for manufactured homes" },
+    { label: "Municipalities", href: "/municipality", icon: <Building2 className="w-4 h-4" />, description: "Government & public facilities" },
+    { label: "Construction", href: "/construction", icon: <Wrench className="w-4 h-4" />, description: "Construction site power" },
+    { label: "Data Centers", href: "/applications#data-centers", icon: <Code className="w-4 h-4" />, description: "Critical infrastructure power" },
+    { label: "Financial Centers", href: "/applications#financial", icon: <Building2 className="w-4 h-4" />, description: "Banking & financial facilities" },
+  ];
+
+  // Company dropdown items
+  const companyItems = [
+    { label: "About", href: "/about", icon: <Info className="w-4 h-4" />, description: "Learn about our company" },
+    { label: "Portfolio", href: "/portfolio", icon: <FolderOpen className="w-4 h-4" />, description: "View our projects" },
+    { label: "Technology", href: "/technology", icon: <Code className="w-4 h-4" />, description: "Our innovative solutions" },
+    { label: "Team", href: "/team", icon: <Users className="w-4 h-4" />, description: "Meet our experts" },
+    { label: "Contact", href: "/contact", icon: <MessageSquare className="w-4 h-4" />, description: "Get in touch" },
+  ];
+
+  const isActive = (path: string) => location === path;
+
+  const DropdownMenu = ({ items, dropdownKey }: { items: any[], dropdownKey: string }) => (
+    <div 
+      ref={el => dropdownRefs.current[dropdownKey] = el}
+      className={cn(
+        "absolute top-full left-0 mt-2 w-80 bg-white rounded-lg shadow-2xl border border-gray-200 py-2 z-50",
+        "animate-in fade-in slide-in-from-top-1 duration-200"
+      )}
+    >
+      {items.map((item) => (
+        <Link 
+          key={item.href} 
+          href={item.href}
+          className="flex items-center px-4 py-3 hover:bg-orange-50 transition-colors cursor-pointer"
+          onClick={() => {
+            setActiveDropdown(null);
+            setIsMobileMenuOpen(false);
+          }}
+        >
+          <div className="w-10 h-10 bg-gradient-to-br from-orange-100 to-blue-100 rounded-lg flex items-center justify-center text-orange-600 mr-3">
+            {item.icon}
+          </div>
+          <div>
+            <div className="font-semibold text-gray-900">{item.label}</div>
+            <div className="text-sm text-gray-600">{item.description}</div>
+          </div>
+        </Link>
+      ))}
+    </div>
+  );
 
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 w-full",
-        "bg-background/95 backdrop-blur-xl",
-        "border-b border-border/40",
-        "shadow-lg shadow-black/5"
+        "fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300",
+        isScrolled 
+          ? "bg-white/98 backdrop-blur-xl shadow-lg border-b border-gray-100" 
+          : "bg-gradient-to-b from-white/95 to-white/85 backdrop-blur-md border-b border-gray-100/50"
       )}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
-          <div className="flex items-center space-x-3">
-            <SolarLogo />
-            <div className="flex flex-col">
-              <span className="text-xl font-bold text-foreground tracking-tight">
-                Advance Power
-              </span>
-              <span className="text-xs text-muted-foreground font-medium">
-                Redding Solar
-              </span>
-            </div>
+      {/* Top contact bar - Full width */}
+      <div className="bg-gradient-to-r from-orange-500 to-blue-600 text-white py-2">
+        <div className="w-full px-6 lg:px-12 flex justify-between items-center text-sm">
+          <div className="flex items-center space-x-6">
+            <a href="tel:5302260701" className="flex items-center hover:text-orange-100 transition-colors">
+              <Phone className="w-4 h-4 mr-1" />
+              <span className="font-medium">(530) 226-0701</span>
+            </a>
+            <a href="mailto:info@apredding.net" className="hidden sm:flex items-center hover:text-orange-100 transition-colors">
+              <Mail className="w-4 h-4 mr-1" />
+              <span>info@apredding.net</span>
+            </a>
           </div>
+          <div className="hidden md:flex items-center space-x-4">
+            <span className="bg-white/20 px-3 py-1 rounded-full text-xs font-semibold">
+              Licensed & Insured
+            </span>
+            <span className="bg-white/20 px-3 py-1 rounded-full text-xs font-semibold">
+              25+ Years Experience
+            </span>
+          </div>
+        </div>
+      </div>
 
+      {/* Main navigation - Full width with centered content */}
+      <div className="w-full px-6 lg:px-12">
+        <div className="flex items-center justify-between h-20">
+          {/* Logo */}
+          <Link href="/" className="flex items-center">
+            <img 
+              src="/advance-power-logo.jpg" 
+              alt="Advance Power Redding" 
+              className="h-12 w-auto object-contain rounded"
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                // Fallback to a simple text logo if image fails
+                target.style.display = 'none';
+                const textLogo = document.createElement('div');
+                textLogo.className = 'flex flex-col';
+                textLogo.innerHTML = `
+                  <span class="text-xl font-bold bg-gradient-to-r from-orange-600 to-blue-600 bg-clip-text text-transparent">
+                    Advance Power
+                  </span>
+                  <span class="text-xs text-gray-600 font-medium">
+                    Redding Solar Solutions
+                  </span>
+                `;
+                target.parentElement?.appendChild(textLogo);
+              }}
+            />
+          </Link>
+
+          {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-1">
-            {navigationItems.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
+            <Link href="/" className={cn(
+              "px-4 py-2 font-medium rounded-lg transition-all duration-200",
+              isActive("/") 
+                ? "text-orange-600 bg-orange-50" 
+                : "text-gray-700 hover:text-orange-600 hover:bg-orange-50/50"
+            )}>
+              Home
+            </Link>
+
+            {/* Services Dropdown */}
+            <div className="relative" ref={el => dropdownRefs.current['services'] = el}>
+              <button 
+                onClick={() => setActiveDropdown(activeDropdown === 'services' ? null : 'services')}
                 className={cn(
-                  "px-4 py-2 text-sm font-medium",
-                  "text-foreground/80 hover:text-foreground",
-                  "rounded-md transition-all duration-200",
-                  "hover:bg-accent/50"
+                  "flex items-center px-4 py-2 font-medium rounded-lg transition-all duration-200",
+                  activeDropdown === 'services' 
+                    ? "text-orange-600 bg-orange-50" 
+                    : "text-gray-700 hover:text-orange-600 hover:bg-orange-50/50"
                 )}
               >
-                {item.label}
-              </a>
-            ))}
+                Services
+                <ChevronDown className={cn(
+                  "ml-1 w-4 h-4 transition-transform",
+                  activeDropdown === 'services' ? "rotate-180" : ""
+                )} />
+              </button>
+              {activeDropdown === 'services' && <DropdownMenu items={servicesItems} dropdownKey="services" />}
+            </div>
+
+            {/* Products Dropdown */}
+            <div className="relative" ref={el => dropdownRefs.current['products'] = el}>
+              <button 
+                onClick={() => setActiveDropdown(activeDropdown === 'products' ? null : 'products')}
+                className={cn(
+                  "flex items-center px-4 py-2 font-medium rounded-lg transition-all duration-200",
+                  activeDropdown === 'products' 
+                    ? "text-orange-600 bg-orange-50" 
+                    : "text-gray-700 hover:text-orange-600 hover:bg-orange-50/50"
+                )}
+              >
+                Products
+                <ChevronDown className={cn(
+                  "ml-1 w-4 h-4 transition-transform",
+                  activeDropdown === 'products' ? "rotate-180" : ""
+                )} />
+              </button>
+              {activeDropdown === 'products' && <DropdownMenu items={productsItems} dropdownKey="products" />}
+            </div>
+
+            {/* Applications Dropdown */}
+            <div className="relative" ref={el => dropdownRefs.current['applications'] = el}>
+              <button 
+                onClick={() => setActiveDropdown(activeDropdown === 'applications' ? null : 'applications')}
+                className={cn(
+                  "flex items-center px-4 py-2 font-medium rounded-lg transition-all duration-200",
+                  activeDropdown === 'applications' 
+                    ? "text-orange-600 bg-orange-50" 
+                    : "text-gray-700 hover:text-orange-600 hover:bg-orange-50/50"
+                )}
+              >
+                Applications
+                <ChevronDown className={cn(
+                  "ml-1 w-4 h-4 transition-transform",
+                  activeDropdown === 'applications' ? "rotate-180" : ""
+                )} />
+              </button>
+              {activeDropdown === 'applications' && <DropdownMenu items={applicationsItems} dropdownKey="applications" />}
+            </div>
+
+            {/* Company Dropdown */}
+            <div className="relative" ref={el => dropdownRefs.current['company'] = el}>
+              <button 
+                onClick={() => setActiveDropdown(activeDropdown === 'company' ? null : 'company')}
+                className={cn(
+                  "flex items-center px-4 py-2 font-medium rounded-lg transition-all duration-200",
+                  activeDropdown === 'company' 
+                    ? "text-orange-600 bg-orange-50" 
+                    : "text-gray-700 hover:text-orange-600 hover:bg-orange-50/50"
+                )}
+              >
+                Company
+                <ChevronDown className={cn(
+                  "ml-1 w-4 h-4 transition-transform",
+                  activeDropdown === 'company' ? "rotate-180" : ""
+                )} />
+              </button>
+              {activeDropdown === 'company' && <DropdownMenu items={companyItems} dropdownKey="company" />}
+            </div>
           </nav>
 
+          {/* CTA Button */}
           <div className="hidden lg:flex items-center space-x-4">
-            <Button
-              variant="default"
-              size="lg"
-              className={cn(
-                "bg-gradient-to-r from-blue-600 to-blue-700",
-                "hover:from-blue-700 hover:to-blue-800",
-                "text-white font-semibold",
-                "shadow-lg shadow-blue-500/20",
-                "transition-all duration-300",
-                "border border-blue-500/20"
-              )}
-            >
-              <Phone className="mr-2 h-4 w-4" />
-              Emergency: (530) 226-0701
-            </Button>
+            <Link href="/contact">
+              <Button
+                size="lg"
+                className={cn(
+                  "bg-gradient-to-r from-orange-500 to-blue-600",
+                  "hover:from-orange-600 hover:to-blue-700",
+                  "text-white font-semibold",
+                  "shadow-lg shadow-orange-500/20",
+                  "transition-all duration-300"
+                )}
+              >
+                Get Free Quote
+              </Button>
+            </Link>
           </div>
 
+          {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className={cn(
-              "lg:hidden p-2 rounded-md",
-              "text-foreground/80 hover:text-foreground",
-              "hover:bg-accent/50 transition-colors"
+              "lg:hidden p-2 rounded-lg",
+              "text-gray-700 hover:text-orange-600",
+              "hover:bg-orange-50 transition-colors"
             )}
             aria-label="Toggle menu"
           >
@@ -132,41 +316,100 @@ const SolarCompanyHeader: React.FC = () => {
           </button>
         </div>
 
+        {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden py-4 border-t border-border/40">
+          <div className="lg:hidden py-4 border-t border-gray-100">
             <nav className="flex flex-col space-y-2">
-              {navigationItems.map((item) => (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  className={cn(
-                    "px-4 py-3 text-sm font-medium",
-                    "text-foreground/80 hover:text-foreground",
-                    "rounded-md transition-all duration-200",
-                    "hover:bg-accent/50"
-                  )}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {item.label}
-                </a>
-              ))}
+              <Link 
+                href="/"
+                className="px-4 py-3 font-medium text-gray-700 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Home
+              </Link>
+
+              {/* Mobile Services */}
+              <div className="px-4 py-2">
+                <div className="font-semibold text-gray-900 mb-2">Services</div>
+                {servicesItems.map((item) => (
+                  <Link 
+                    key={item.href} 
+                    href={item.href}
+                    className="flex items-center py-2 text-gray-600 hover:text-orange-600 transition-colors"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    <span className="mr-2">{item.icon}</span>
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+
+              {/* Mobile Products */}
+              <div className="px-4 py-2">
+                <div className="font-semibold text-gray-900 mb-2">Products</div>
+                {productsItems.map((item) => (
+                  <Link 
+                    key={item.href} 
+                    href={item.href}
+                    className="flex items-center py-2 text-gray-600 hover:text-orange-600 transition-colors"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    <span className="mr-2">{item.icon}</span>
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+
+              {/* Mobile Applications */}
+              <div className="px-4 py-2">
+                <div className="font-semibold text-gray-900 mb-2">Applications</div>
+                {applicationsItems.map((item) => (
+                  <Link 
+                    key={item.href} 
+                    href={item.href}
+                    className="flex items-center py-2 text-gray-600 hover:text-orange-600 transition-colors"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    <span className="mr-2">{item.icon}</span>
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+
+              {/* Mobile Company */}
+              <div className="px-4 py-2">
+                <div className="font-semibold text-gray-900 mb-2">Company</div>
+                {companyItems.map((item) => (
+                  <Link 
+                    key={item.href} 
+                    href={item.href}
+                    className="flex items-center py-2 text-gray-600 hover:text-orange-600 transition-colors"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    <span className="mr-2">{item.icon}</span>
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+
+              {/* Mobile CTA */}
               <div className="pt-4 px-4">
-                <Button
-                  variant="default"
-                  size="lg"
-                  className={cn(
-                    "w-full",
-                    "bg-gradient-to-r from-blue-600 to-blue-700",
-                    "hover:from-blue-700 hover:to-blue-800",
-                    "text-white font-semibold",
-                    "shadow-lg shadow-blue-500/20",
-                    "transition-all duration-300",
-                    "border border-blue-500/20"
-                  )}
-                >
-                  <Phone className="mr-2 h-4 w-4" />
-                  Emergency: (530) 226-0701
-                </Button>
+                <Link href="/contact">
+                  <Button
+                    size="lg"
+                    className={cn(
+                      "w-full",
+                      "bg-gradient-to-r from-orange-500 to-blue-600",
+                      "hover:from-orange-600 hover:to-blue-700",
+                      "text-white font-semibold",
+                      "shadow-lg shadow-orange-500/20",
+                      "transition-all duration-300"
+                    )}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Get Free Quote
+                  </Button>
+                </Link>
               </div>
             </nav>
           </div>

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "wouter";
-import Header from "@/components/Header";
+import MainLayout from "@/components/layout/MainLayout";
 import { Button } from "@/components/ui/button";
 
 const Applications = () => {
@@ -62,9 +62,7 @@ const Applications = () => {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <Header />
-      
+    <MainLayout>
       <main className="flex-grow">
         <section className="py-16 md:py-24">
           <div className="container mx-auto">
@@ -154,7 +152,7 @@ const Applications = () => {
           </div>
         </section>
       </main>
-    </div>
+    </MainLayout>
   );
 };
 
