@@ -85,7 +85,7 @@ export default function Municipality() {
   const industry = "Municipal Infrastructure";
   const slug = "municipality";
   const pageTitle = "Advance Power – Municipal Solar Solutions";
-  const pageDescription = "Large-scale solar installations for municipal buildings, public facilities, and community infrastructure. Reduce operational costs while demonstrating environmental leadership.";
+  const pageDescription = "Redding Electric Utility interconnection experts. Expedited online permits for systems under 15kW. Public building retrofits with SGIP incentives and 5-7 day Shasta County approvals.";
   const heroImagePath = "/src/assets_dir/images/municipality-hero.jpg";
   
   // Preload critical images

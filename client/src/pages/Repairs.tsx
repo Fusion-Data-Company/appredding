@@ -21,23 +21,23 @@ const Repairs = () => {
   const repairServices = [
     {
       icon: <Sun className="w-6 h-6" />,
-      title: "Panel Replacement",
-      description: "Replace damaged or underperforming solar panels to restore system efficiency."
+      title: "7-Day Orphaned System Rescue",
+      description: "Rapid response for systems abandoned by defunct installers - full diagnostic and repair within 7 days."
     },
     {
       icon: <Zap className="w-6 h-6" />,
-      title: "Inverter Repair",
-      description: "Diagnose and repair inverter issues to ensure proper energy conversion."
+      title: "Rapid Inverter Swaps",
+      description: "SMA, SolarEdge, Enphase certified - same-day replacement with $2.10/mile Redding hub delivery."
     },
     {
       icon: <Battery className="w-6 h-6" />,
-      title: "Wiring & Electrical",
-      description: "Fix electrical connections, wiring issues, and system connectivity problems."
+      title: "NEM 3.0 Battery Retrofits",
+      description: "Add batteries to existing systems for load shifting - recover 25-40% of lost export value."
     },
     {
       icon: <Settings className="w-6 h-6" />,
-      title: "System Upgrades",
-      description: "Upgrade older systems with modern components for improved performance."
+      title: "Cost-Effective Repairs",
+      description: "Average repair costs less than 40% of replacement in North State - most fixes completed same visit."
     }
   ];
 
@@ -90,8 +90,8 @@ const Repairs = () => {
               </div>
               
               <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto lg:mx-0">
-                Fast, professional repair services to get your solar system back to peak performance. 
-                Expert diagnosis and quality repairs from Northern California's trusted solar specialists.
+                7-day orphaned system rescue promise. We fix systems abandoned by defunct installers with rapid 
+                inverter swaps (SMA, SolarEdge, Enphase) and emergency waivers for post-facto inspection.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">

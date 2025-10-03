@@ -20,23 +20,23 @@ const Maintenance = () => {
   const services = [
     {
       icon: <Sparkles className="w-6 h-6" />,
-      title: "Panel Cleaning",
-      description: "Professional cleaning to maintain peak energy production and system efficiency."
+      title: "IR Scanning",
+      description: "Infrared thermography detects hot spots, wiring issues, and failing cells invisible to the eye."
     },
     {
       icon: <Eye className="w-6 h-6" />,
-      title: "System Inspection",
-      description: "Comprehensive inspections to identify potential issues before they become problems."
+      title: "IV Curve Tracing",
+      description: "Advanced diagnostic testing measures actual vs expected power output, identifying underperforming modules."
     },
     {
       icon: <BarChart3 className="w-6 h-6" />,
-      title: "Performance Monitoring",
-      description: "Regular monitoring to ensure your system operates at maximum efficiency."
+      title: "Critter Guard Installation",
+      description: "Protect wiring from North State wildlife damage - squirrels and birds cause 60% of rural failures."
     },
     {
       icon: <Shield className="w-6 h-6" />,
-      title: "Preventive Maintenance",
-      description: "Scheduled maintenance to extend system life and protect your investment."
+      title: "Performance Analytics",
+      description: "Sense, Solar Analytics, or Home Assistant integration for real-time monitoring and alerts."
     }
   ];
 

@@ -108,24 +108,24 @@ const SolarBenefitsSection: React.FC = () => {
           {benefits.map((benefit, index) => {
             const toneStyles = {
               success: {
-                card: "bg-emerald-100/70 dark:bg-emerald-900/30 ring-1 ring-emerald-200/60 dark:ring-emerald-800/60",
-                text: "text-emerald-700 dark:text-emerald-200",
-                highlight: "text-emerald-600 dark:text-emerald-400"
+                card: "bg-gradient-to-br from-emerald-50 to-emerald-100 dark:from-emerald-900/90 dark:to-emerald-800/90 ring-2 ring-emerald-300/80 dark:ring-emerald-600/80 shadow-lg shadow-emerald-200/50 dark:shadow-emerald-900/50",
+                text: "text-emerald-800 dark:text-emerald-100",
+                highlight: "text-emerald-700 dark:text-emerald-300"
               },
               primary: {
-                card: "bg-blue-100/70 dark:bg-blue-900/30 ring-1 ring-blue-200/60 dark:ring-blue-800/60",
-                text: "text-blue-700 dark:text-blue-200",
-                highlight: "text-blue-600 dark:text-blue-400"
+                card: "bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/90 dark:to-blue-800/90 ring-2 ring-blue-300/80 dark:ring-blue-600/80 shadow-lg shadow-blue-200/50 dark:shadow-blue-900/50",
+                text: "text-blue-800 dark:text-blue-100",
+                highlight: "text-blue-700 dark:text-blue-300"
               },
               warning: {
-                card: "bg-amber-100/70 dark:bg-amber-900/30 ring-1 ring-amber-200/60 dark:ring-amber-800/60",
-                text: "text-amber-700 dark:text-amber-200",
-                highlight: "text-amber-600 dark:text-amber-400"
+                card: "bg-gradient-to-br from-amber-50 to-amber-100 dark:from-amber-900/90 dark:to-amber-800/90 ring-2 ring-amber-300/80 dark:ring-amber-600/80 shadow-lg shadow-amber-200/50 dark:shadow-amber-900/50",
+                text: "text-amber-800 dark:text-amber-100",
+                highlight: "text-amber-700 dark:text-amber-300"
               },
               default: {
-                card: "bg-zinc-100/70 dark:bg-zinc-900/50 ring-1 ring-zinc-200 dark:ring-zinc-800",
-                text: "text-zinc-700 dark:text-zinc-200",
-                highlight: "text-zinc-600 dark:text-zinc-400"
+                card: "bg-gradient-to-br from-zinc-50 to-zinc-100 dark:from-zinc-800/90 dark:to-zinc-700/90 ring-2 ring-zinc-300/80 dark:ring-zinc-600/80 shadow-lg shadow-zinc-200/50 dark:shadow-zinc-800/50",
+                text: "text-zinc-800 dark:text-zinc-100",
+                highlight: "text-zinc-700 dark:text-zinc-300"
               }
             };
             
@@ -140,11 +140,12 @@ const SolarBenefitsSection: React.FC = () => {
                 viewport={{ once: true }}
               >
                 <div className={cn(
-                  "relative overflow-hidden rounded-xl shadow-sm p-4 min-h-[200px]",
+                  "relative overflow-hidden rounded-xl p-4 min-h-[200px] backdrop-blur-sm",
                   styles.card
                 )}>
-                  <span className="pointer-events-none absolute -right-6 -top-6 inline-flex h-16 w-16 rounded-full bg-black/5 dark:bg-white/5" />
-                  <span className="pointer-events-none absolute -right-2 -top-2 inline-flex h-8 w-8 rounded-full bg-black/5 dark:bg-white/5" />
+                  <span className="pointer-events-none absolute -right-6 -top-6 inline-flex h-16 w-16 rounded-full bg-white/30 dark:bg-white/10" />
+                  <span className="pointer-events-none absolute -right-2 -top-2 inline-flex h-8 w-8 rounded-full bg-white/40 dark:bg-white/15" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent dark:from-white/5 pointer-events-none" />
 
                   <div className="flex items-start justify-between gap-3 mb-3">
                     <div className="space-y-1 flex-1">
@@ -161,7 +162,7 @@ const SolarBenefitsSection: React.FC = () => {
                         <ArrowUp className="h-4 w-4" aria-hidden />
                         {benefit.highlight}
                       </div>
-                      <div className="rounded-full bg-white/40 p-1.5 dark:bg-white/10">
+                      <div className="rounded-full bg-white/60 p-1.5 dark:bg-white/20 shadow-md">
                         {benefit.icon}
                       </div>
                     </div>
