@@ -27,7 +27,10 @@ import {
   AlertTriangle, 
   Building, 
   TrendingUp,
-  ThermometerSun
+  ThermometerSun,
+  Droplets,
+  Wind,
+  Eye
 } from "lucide-react";
 import { insertServiceConsultationSchema, type ServiceConsultationFormValues } from "@shared/schema";
 import { useForm } from "react-hook-form";
@@ -40,8 +43,60 @@ import { motion } from "framer-motion";
 import SEOHead from "@/components/SEOHead";
 import { preloadCriticalImages } from "@/lib/image-helper";
 import { generateStructuredData, getIndustryKeywords } from "@/lib/seo-helper";
+import { SolarFunnel } from "@/sections/SolarFunnelDynamicSection";
 
 type EnergyConservationFormValues = ServiceConsultationFormValues;
+
+const energyConservationStages = [
+  {
+    id: 'audit',
+    title: 'Energy Audit & Analysis',
+    description: 'Comprehensive home energy assessment using blower door testing, infrared thermography, and advanced diagnostic equipment to identify inefficiencies.',
+    status: 'completed' as const,
+    color: 'red' as const,
+    icon: <Eye className="h-6 w-6" />,
+    metrics: [
+      { label: 'Audits Completed', value: '500+' },
+      { label: 'Avg Savings Found', value: '35%' },
+    ],
+  },
+  {
+    id: 'planning',
+    title: 'Conservation Planning',
+    description: 'Title 24 compliance strategies, LED lighting design (80-90% energy reduction), HVAC optimization plans, and building envelope improvements prioritized by ROI.',
+    status: 'completed' as const,
+    color: 'yellow' as const,
+    icon: <Lightbulb className="h-6 w-6" />,
+    metrics: [
+      { label: 'Custom Plans', value: '450+' },
+      { label: 'Rebate Success', value: '92%' },
+    ],
+  },
+  {
+    id: 'implementation',
+    title: 'Efficiency Upgrades',
+    description: 'Professional installation of LED systems, heat pump retrofits, smart thermostats, insulation (R-values to code), air sealing, and heat pump water heaters (300% efficiency).',
+    status: 'active' as const,
+    color: 'green' as const,
+    icon: <ThermometerSun className="h-6 w-6" />,
+    metrics: [
+      { label: 'Upgrades Done', value: '400+' },
+      { label: 'Satisfaction', value: '98%' },
+    ],
+  },
+  {
+    id: 'monitoring',
+    title: 'Performance & Optimization',
+    description: 'Home Energy Score certification, utility rebate processing (PG&E Energy Upgrade California), ongoing monitoring, and continuous optimization for maximum savings.',
+    status: 'upcoming' as const,
+    color: 'purple' as const,
+    icon: <TrendingUp className="h-6 w-6" />,
+    metrics: [
+      { label: 'Rebates Secured', value: '$2M+' },
+      { label: 'Energy Scores', value: '90+' },
+    ],
+  },
+];
 
 const EnergyConservation = () => {
   const [showConsultationForm, setShowConsultationForm] = useState(false);
@@ -268,6 +323,14 @@ const EnergyConservation = () => {
           </div>
         </section>
 
+        {/* INTERACTIVE ENERGY CONSERVATION FUNNEL - Magic MCP Component */}
+        <SolarFunnel 
+          stages={energyConservationStages}
+          autoProgress={true}
+          progressInterval={5000}
+          className="my-0 py-20"
+        />
+
         {/* SANDLER STAGE 1: PAIN - RED GLOW SECTION - Critical Problems */}
         <section className="relative z-10 py-12 overflow-hidden">
           <div className="container mx-auto mb-16">
@@ -454,6 +517,240 @@ const EnergyConservation = () => {
                     <div className="flex justify-between pb-2">
                       <span className="text-gray-300">Monitoring</span>
                       <span className="text-white font-medium">Energy usage tracking & optimization</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* TECHNICAL SPECIFICATIONS & METHODOLOGIES SECTION */}
+        <section className="relative z-10 py-12 overflow-hidden">
+          <div className="container mx-auto mb-16">
+            <div className="relative">
+              {/* Cyan/Teal technical glow effect */}
+              <div className="absolute -inset-10 bg-cyan-500/15 rounded-xl blur-xl opacity-70 z-0"></div>
+              <div className="absolute -inset-20 bg-teal-600/10 rounded-xl blur-2xl opacity-50 z-0"></div>
+              
+              {/* Content card */}
+              <div className="relative z-20 rounded-2xl overflow-hidden p-8 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-cyan-700/30 shadow-lg">
+                <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-teal-200 to-cyan-300">
+                  Technical Specifications & Methodologies
+                </h2>
+                
+                {/* Title 24 Compliance */}
+                <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-cyan-700/20 shadow-md mb-6">
+                  <div className="flex items-center mb-4">
+                    <FileCheck className="h-6 w-6 text-cyan-500 mr-3" />
+                    <h3 className="text-xl font-bold text-cyan-300">Title 24 2022 Energy Code Compliance</h3>
+                  </div>
+                  <p className="text-gray-300 mb-4">
+                    California's Title 24, Part 6 (Energy Efficiency Standards) sets minimum efficiency requirements for residential and commercial buildings. Our conservation strategies ensure full compliance while exceeding baseline requirements.
+                  </p>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="bg-gray-900/50 p-4 rounded-lg border border-cyan-600/10">
+                      <h4 className="font-semibold text-white mb-2">Mandatory Measures</h4>
+                      <ul className="space-y-2 text-sm text-gray-300">
+                        <li>• High-efficacy lighting (LED) requirements</li>
+                        <li>• Minimum R-value insulation standards</li>
+                        <li>• Air leakage testing and verification</li>
+                        <li>• HVAC system efficiency minimums (14 SEER2+)</li>
+                      </ul>
+                    </div>
+                    <div className="bg-gray-900/50 p-4 rounded-lg border border-cyan-600/10">
+                      <h4 className="font-semibold text-white mb-2">Performance Compliance</h4>
+                      <ul className="space-y-2 text-sm text-gray-300">
+                        <li>• Time-dependent valuation (TDV) methodology</li>
+                        <li>• Energy budget calculations</li>
+                        <li>• CF-1R compliance documentation</li>
+                        <li>• Third-party verification protocols</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                {/* LED Lighting Specifications */}
+                <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-cyan-700/20 shadow-md mb-6">
+                  <div className="flex items-center mb-4">
+                    <Lightbulb className="h-6 w-6 text-cyan-500 mr-3" />
+                    <h3 className="text-xl font-bold text-cyan-300">LED Lighting Upgrades (80-90% Energy Reduction)</h3>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                    <div className="bg-gray-900/50 p-4 rounded-lg border border-cyan-600/10 text-center">
+                      <p className="text-cyan-400 font-bold text-2xl">80-90%</p>
+                      <p className="text-sm text-gray-400">Energy reduction vs incandescent</p>
+                    </div>
+                    <div className="bg-gray-900/50 p-4 rounded-lg border border-cyan-600/10 text-center">
+                      <p className="text-cyan-400 font-bold text-2xl">25,000+</p>
+                      <p className="text-sm text-gray-400">Hour lifespan (10+ years)</p>
+                    </div>
+                    <div className="bg-gray-900/50 p-4 rounded-lg border border-cyan-600/10 text-center">
+                      <p className="text-cyan-400 font-bold text-2xl">90+ CRI</p>
+                      <p className="text-sm text-gray-400">Color rendering index</p>
+                    </div>
+                  </div>
+                  <p className="text-gray-300 text-sm">
+                    LED technology delivers 80-140 lumens per watt compared to 10-17 lm/W for incandescent bulbs. Smart controls including occupancy sensors, daylight harvesting, and dimming systems maximize savings while maintaining optimal lighting conditions.
+                  </p>
+                </div>
+
+                {/* HVAC Optimization */}
+                <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-cyan-700/20 shadow-md mb-6">
+                  <div className="flex items-center mb-4">
+                    <Wind className="h-6 w-6 text-cyan-500 mr-3" />
+                    <h3 className="text-xl font-bold text-cyan-300">HVAC Optimization & Heat Pump Technology</h3>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                    <div className="bg-gray-900/50 p-4 rounded-lg border border-cyan-600/10">
+                      <h4 className="font-semibold text-white mb-2">Heat Pump Retrofits</h4>
+                      <ul className="space-y-2 text-sm text-gray-300">
+                        <li>• Air-source heat pumps: 300-400% efficiency (HSPF2 9.5+)</li>
+                        <li>• Mini-split ductless systems: 20+ SEER2</li>
+                        <li>• Variable-speed compressor technology</li>
+                        <li>• Cold climate performance down to -15°F</li>
+                      </ul>
+                    </div>
+                    <div className="bg-gray-900/50 p-4 rounded-lg border border-cyan-600/10">
+                      <h4 className="font-semibold text-white mb-2">Smart Thermostats</h4>
+                      <ul className="space-y-2 text-sm text-gray-300">
+                        <li>• Wi-Fi connected learning algorithms</li>
+                        <li>• Occupancy detection and geofencing</li>
+                        <li>• Energy usage reports and optimization</li>
+                        <li>• 10-23% HVAC energy savings typical</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Building Envelope */}
+                <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-cyan-700/20 shadow-md mb-6">
+                  <div className="flex items-center mb-4">
+                    <Home className="h-6 w-6 text-cyan-500 mr-3" />
+                    <h3 className="text-xl font-bold text-cyan-300">Building Envelope Improvements</h3>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                    <div>
+                      <h4 className="font-semibold text-white mb-3">Insulation R-Values (Climate Zone 1)</h4>
+                      <div className="space-y-2 text-sm text-gray-300">
+                        <div className="flex justify-between p-2 bg-gray-900/50 rounded border border-cyan-600/10">
+                          <span>Attic/Ceiling:</span>
+                          <span className="text-cyan-400 font-semibold">R-38 to R-49</span>
+                        </div>
+                        <div className="flex justify-between p-2 bg-gray-900/50 rounded border border-cyan-600/10">
+                          <span>Walls:</span>
+                          <span className="text-cyan-400 font-semibold">R-13 to R-21</span>
+                        </div>
+                        <div className="flex justify-between p-2 bg-gray-900/50 rounded border border-cyan-600/10">
+                          <span>Floors:</span>
+                          <span className="text-cyan-400 font-semibold">R-19 to R-30</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-white mb-3">Air Sealing Standards</h4>
+                      <ul className="space-y-2 text-sm text-gray-300">
+                        <li>• Target: ≤ 5 ACH50 (air changes per hour at 50 Pa)</li>
+                        <li>• Focus areas: penetrations, rim joists, attic hatches</li>
+                        <li>• Weatherstripping and caulking protocols</li>
+                        <li>• Typical reduction: 15-30% HVAC energy use</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Water Heating */}
+                <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-cyan-700/20 shadow-md mb-6">
+                  <div className="flex items-center mb-4">
+                    <Droplets className="h-6 w-6 text-cyan-500 mr-3" />
+                    <h3 className="text-xl font-bold text-cyan-300">Water Heating Efficiency (300% Efficiency)</h3>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                    <div className="bg-gray-900/50 p-4 rounded-lg border border-cyan-600/10 text-center">
+                      <p className="text-cyan-400 font-bold text-2xl">3.0+ COP</p>
+                      <p className="text-sm text-gray-400">Coefficient of Performance</p>
+                    </div>
+                    <div className="bg-gray-900/50 p-4 rounded-lg border border-cyan-600/10 text-center">
+                      <p className="text-cyan-400 font-bold text-2xl">2.5+ UEF</p>
+                      <p className="text-sm text-gray-400">Uniform Energy Factor</p>
+                    </div>
+                    <div className="bg-gray-900/50 p-4 rounded-lg border border-cyan-600/10 text-center">
+                      <p className="text-cyan-400 font-bold text-2xl">50-65%</p>
+                      <p className="text-sm text-gray-400">Energy cost savings</p>
+                    </div>
+                  </div>
+                  <p className="text-gray-300 text-sm">
+                    Heat pump water heaters (HPWH) achieve 300%+ efficiency by moving heat rather than generating it directly. Typical 50-gallon units draw ambient air heat using refrigerant cycles, delivering 3 units of thermal energy for every 1 unit of electricity consumed.
+                  </p>
+                </div>
+
+                {/* Energy Audit Methodology */}
+                <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-cyan-700/20 shadow-md mb-6">
+                  <div className="flex items-center mb-4">
+                    <Eye className="h-6 w-6 text-cyan-500 mr-3" />
+                    <h3 className="text-xl font-bold text-cyan-300">Energy Audit Methodology</h3>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="bg-gray-900/50 p-4 rounded-lg border border-cyan-600/10">
+                      <h4 className="font-semibold text-white mb-2">Blower Door Testing</h4>
+                      <ul className="space-y-2 text-sm text-gray-300">
+                        <li>• Depressurizes building to -50 Pa (standard)</li>
+                        <li>• Measures CFM50 (cubic feet per minute at 50 Pa)</li>
+                        <li>• Calculates ACH50 and ELA (effective leakage area)</li>
+                        <li>• Identifies specific infiltration points</li>
+                      </ul>
+                    </div>
+                    <div className="bg-gray-900/50 p-4 rounded-lg border border-cyan-600/10">
+                      <h4 className="font-semibold text-white mb-2">Infrared Thermography</h4>
+                      <ul className="space-y-2 text-sm text-gray-300">
+                        <li>• High-resolution thermal imaging cameras</li>
+                        <li>• Detects missing/inadequate insulation</li>
+                        <li>• Visualizes air leakage paths</li>
+                        <li>• Identifies thermal bridging and moisture intrusion</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Utility Rebates & Home Energy Score */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-cyan-700/20 shadow-md">
+                    <div className="flex items-center mb-4">
+                      <CircleDollarSign className="h-6 w-6 text-cyan-500 mr-3" />
+                      <h3 className="text-xl font-bold text-cyan-300">Utility Rebate Programs</h3>
+                    </div>
+                    <h4 className="font-semibold text-white mb-2">PG&E Energy Upgrade California</h4>
+                    <ul className="space-y-2 text-sm text-gray-300 mb-4">
+                      <li>• Whole-house approach rebates up to $6,500</li>
+                      <li>• HVAC rebates: $500-$3,000 per system</li>
+                      <li>• Insulation rebates: $0.20-$0.40 per sq ft</li>
+                      <li>• Heat pump water heater: $1,000-$1,500</li>
+                      <li>• Smart thermostat: $50-$125</li>
+                    </ul>
+                    <p className="text-xs text-gray-500">Programs and incentives subject to availability and eligibility requirements</p>
+                  </div>
+
+                  <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-cyan-700/20 shadow-md">
+                    <div className="flex items-center mb-4">
+                      <Award className="h-6 w-6 text-cyan-500 mr-3" />
+                      <h3 className="text-xl font-bold text-cyan-300">Home Energy Score</h3>
+                    </div>
+                    <p className="text-gray-300 text-sm mb-4">
+                      DOE's standardized assessment tool provides a 1-10 score based on energy efficiency. We help homeowners achieve scores of 7-10 through comprehensive upgrades.
+                    </p>
+                    <div className="space-y-2 text-sm text-gray-300">
+                      <div className="flex justify-between p-2 bg-gray-900/50 rounded border border-cyan-600/10">
+                        <span>Score 1-3:</span>
+                        <span className="text-red-400">Below Average</span>
+                      </div>
+                      <div className="flex justify-between p-2 bg-gray-900/50 rounded border border-cyan-600/10">
+                        <span>Score 4-6:</span>
+                        <span className="text-yellow-400">Average</span>
+                      </div>
+                      <div className="flex justify-between p-2 bg-gray-900/50 rounded border border-cyan-600/10">
+                        <span>Score 7-10:</span>
+                        <span className="text-green-400">High Efficiency</span>
+                      </div>
                     </div>
                   </div>
                 </div>
