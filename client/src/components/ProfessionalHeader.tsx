@@ -7,7 +7,24 @@ import {
   Moon, 
   Sun, 
   Menu as MenuIcon, 
-  X
+  X,
+  Home,
+  Building,
+  Zap,
+  Battery,
+  Leaf,
+  Wrench,
+  Settings,
+  Building2,
+  HardHat,
+  Server,
+  Landmark,
+  ShoppingBag,
+  GitCompare,
+  ShoppingCart,
+  Grid3x3,
+  MapPin,
+  Banknote
 } from "lucide-react";
 import { useTheme } from "next-themes";
 import MobileMenu from "./MobileMenu";
@@ -58,174 +75,367 @@ const ProfessionalHeader = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
 
-  // Solar services
-  const solarServices = [
-    { label: "Residential Solar", href: "/residential-solar", description: "Custom solar solutions for homes" },
-    { label: "Commercial Solar", href: "/commercial-solar", description: "Business solar power systems" },
-    { label: "Hybrid Systems", href: "/hybrid-systems", description: "Solar + battery storage solutions" },
-    { label: "Lithium Batteries", href: "/lithium-batteries", description: "Advanced energy storage systems" },
-    { label: "Energy Conservation", href: "/energy-conservation", description: "Energy efficiency services" },
-    { label: "Maintenance & Repair", href: "/maintenance", description: "Solar system maintenance" },
+  // Services dropdown menu items
+  const servicesDropdown = [
+    { label: "Residential Solar", href: "/services/residential-solar", description: "Custom solar solutions for homes", icon: Home },
+    { label: "Commercial Solar", href: "/services/commercial-solar", description: "Business solar power systems", icon: Building },
+    { label: "Hybrid Solar", href: "/services/hybrid-solar", description: "Solar + battery storage solutions", icon: Zap },
+    { label: "Battery Storage", href: "/services/battery-storage", description: "Energy storage systems", icon: Battery },
+    { label: "Lithium Battery", href: "/services/lithium-battery", description: "Advanced lithium battery solutions", icon: Battery },
+    { label: "Energy Conservation", href: "/services/energy-conservation", description: "Energy efficiency services", icon: Leaf },
+    { label: "Maintenance", href: "/services/maintenance", description: "Solar system maintenance", icon: Wrench },
+    { label: "Repairs", href: "/services/repairs", description: "Expert repair services", icon: Settings },
   ];
 
-  // Resources
-  const resources = [
-    { label: "About Us", href: "/about", description: "Learn about our company" },
-    { label: "Team", href: "/team", description: "Meet our expert team" },
-    { label: "Contact Us", href: "/contact", description: "Get in touch with us" },
-    { label: "AI Chat Support", href: "/chat", description: "Get help from our AI assistant" },
-    { label: "Style Showcase", href: "/style-showcase", description: "View our design language" },
+  // Solutions dropdown menu items
+  const solutionsDropdown = [
+    { label: "All Solutions Overview", href: "/solutions", description: "View all our solutions", icon: Grid3x3 },
+    { label: "Mobile Homes", href: "/solutions/mobile-homes", description: "Solar solutions for mobile homes", icon: Home },
+    { label: "Municipalities", href: "/solutions/municipalities", description: "Municipal solar projects", icon: MapPin },
+    { label: "Construction", href: "/solutions/construction", description: "Construction site power solutions", icon: HardHat },
+    { label: "Data Centers", href: "/solutions/data-centers", description: "Data center energy solutions", icon: Server },
+    { label: "Financial Centers", href: "/solutions/financial-centers", description: "Financial institution solutions", icon: Banknote },
   ];
 
-  // Access levels
-  const accessLevels = [
-    { label: "Client Dashboard", href: "/client-dashboard", description: "Access your client portal" },
-    { label: "Admin Dashboard", href: "/admin-dashboard", description: "Administrative controls" },
-    { label: "Team CRM", href: "/crm", description: "Customer relationship management" },
-    { label: "Inventory Management", href: "/inventory", description: "Manage product inventory and orders" },
+  // Shop dropdown menu items
+  const shopDropdown = [
+    { label: "Browse Products", href: "/shop/products", description: "Explore our product catalog", icon: ShoppingBag },
+    { label: "Product Comparison", href: "/shop/product-comparison", description: "Compare solar products", icon: GitCompare },
+    { label: "View Cart", href: "/shop/cart", description: "Review your shopping cart", icon: ShoppingCart },
   ];
 
   return (
-    <header style={{ 
-      position: 'fixed', 
-      top: 0, 
-      left: 0, 
-      width: '100%', 
-      backgroundColor: '#111827', 
-      borderBottom: '1px solid rgba(249, 115, 22, 0.2)', 
-      boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)', 
-      zIndex: 50 
-    }}>
-      <div style={{ 
-        maxWidth: '100%', 
-        margin: '0 auto', 
-        display: 'flex', 
-        justifyContent: 'space-between', 
-        alignItems: 'center', 
-        padding: '20px 48px' 
-      }}>
-        {/* Logo */}
-        <Link href="/" style={{ display: 'flex', alignItems: 'center' }}>
-          <img 
-            src={advancePowerLogo} 
-            alt="Advance Power Redding" 
-            style={{ height: '48px', width: 'auto' }}
-          />
-        </Link>
+    <>
+      {/* CSS for dropdown hover effects */}
+      <style>{`
+        .dropdown-parent {
+          position: relative;
+        }
         
-        {/* Navigation */}
-        <nav style={{ display: 'flex', gap: '24px', alignItems: 'center' }} className="hidden lg:flex">
-          <a
-            href="/"
-            style={{ 
+        .dropdown-menu {
+          display: none;
+          opacity: 0;
+          transform: translateY(-10px);
+          transition: opacity 250ms ease-in-out, transform 250ms ease-in-out;
+          pointer-events: none;
+        }
+        
+        .dropdown-parent:hover .dropdown-menu {
+          display: block;
+          opacity: 1;
+          transform: translateY(0);
+          pointer-events: auto;
+        }
+        
+        .dropdown-item {
+          transition: all 200ms ease-in-out;
+        }
+        
+        .dropdown-item:hover {
+          background-color: rgba(249, 115, 22, 0.1);
+          border-left-color: #f97316;
+        }
+      `}</style>
+      
+      <header style={{ 
+        position: 'fixed', 
+        top: 0, 
+        left: 0, 
+        width: '100%', 
+        backgroundColor: '#111827', 
+        borderBottom: '1px solid rgba(249, 115, 22, 0.2)', 
+        boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)', 
+        zIndex: 50 
+      }}>
+        <div style={{ 
+          maxWidth: '100%', 
+          margin: '0 auto', 
+          display: 'flex', 
+          justifyContent: 'space-between', 
+          alignItems: 'center', 
+          padding: '20px 48px' 
+        }}>
+          {/* Logo */}
+          <Link href="/" style={{ display: 'flex', alignItems: 'center' }}>
+            <img 
+              src={advancePowerLogo} 
+              alt="Advance Power Redding" 
+              style={{ height: '48px', width: 'auto' }}
+            />
+          </Link>
+          
+          {/* Navigation */}
+          <nav style={{ display: 'flex', gap: '24px', alignItems: 'center' }} className="hidden lg:flex">
+            <a
+              href="/"
+              style={{ 
+                color: '#ffffff !important', 
+                fontSize: '16px', 
+                fontWeight: '500', 
+                textDecoration: 'none',
+                textShadow: '0 2px 4px rgba(0,0,0,0.8)',
+                display: 'block'
+              }}
+              className="text-white">Home</a>
+            
+            {/* Services Dropdown */}
+            <div className="dropdown-parent">
+              <span style={{ 
+                color: '#ffffff !important', 
+                fontSize: '16px', 
+                fontWeight: '500', 
+                textShadow: '0 2px 4px rgba(0,0,0,0.8)',
+                cursor: 'pointer',
+                display: 'block'
+              }}>Services</span>
+              
+              <div className="dropdown-menu" style={{
+                position: 'absolute',
+                top: '100%',
+                left: '50%',
+                transform: 'translateX(-50%)',
+                marginTop: '12px',
+                backgroundColor: '#1f2937',
+                borderRadius: '8px',
+                border: '1px solid rgba(249, 115, 22, 0.3)',
+                boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.3)',
+                minWidth: '280px',
+                padding: '8px 0',
+                zIndex: 100
+              }}>
+                {servicesDropdown.map((item) => {
+                  const Icon = item.icon;
+                  return (
+                    <a
+                      key={item.href}
+                      href={item.href}
+                      className="dropdown-item"
+                      style={{
+                        display: 'flex',
+                        alignItems: 'flex-start',
+                        gap: '12px',
+                        padding: '12px 16px',
+                        textDecoration: 'none',
+                        borderLeft: '3px solid transparent'
+                      }}
+                    >
+                      <Icon size={20} style={{ color: '#f97316', marginTop: '2px', flexShrink: 0 }} />
+                      <div>
+                        <div style={{ color: '#ffffff', fontSize: '14px', fontWeight: '600', marginBottom: '2px' }}>
+                          {item.label}
+                        </div>
+                        <div style={{ color: '#9ca3af', fontSize: '12px' }}>
+                          {item.description}
+                        </div>
+                      </div>
+                    </a>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Solutions Dropdown */}
+            <div className="dropdown-parent">
+              <span style={{ 
+                color: '#ffffff !important', 
+                fontSize: '16px', 
+                fontWeight: '500', 
+                textShadow: '0 2px 4px rgba(0,0,0,0.8)',
+                cursor: 'pointer',
+                display: 'block'
+              }}>Solutions</span>
+              
+              <div className="dropdown-menu" style={{
+                position: 'absolute',
+                top: '100%',
+                left: '50%',
+                transform: 'translateX(-50%)',
+                marginTop: '12px',
+                backgroundColor: '#1f2937',
+                borderRadius: '8px',
+                border: '1px solid rgba(249, 115, 22, 0.3)',
+                boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.3)',
+                minWidth: '280px',
+                padding: '8px 0',
+                zIndex: 100
+              }}>
+                {solutionsDropdown.map((item) => {
+                  const Icon = item.icon;
+                  return (
+                    <a
+                      key={item.href}
+                      href={item.href}
+                      className="dropdown-item"
+                      style={{
+                        display: 'flex',
+                        alignItems: 'flex-start',
+                        gap: '12px',
+                        padding: '12px 16px',
+                        textDecoration: 'none',
+                        borderLeft: '3px solid transparent'
+                      }}
+                    >
+                      <Icon size={20} style={{ color: '#f97316', marginTop: '2px', flexShrink: 0 }} />
+                      <div>
+                        <div style={{ color: '#ffffff', fontSize: '14px', fontWeight: '600', marginBottom: '2px' }}>
+                          {item.label}
+                        </div>
+                        <div style={{ color: '#9ca3af', fontSize: '12px' }}>
+                          {item.description}
+                        </div>
+                      </div>
+                    </a>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Shop Dropdown */}
+            <div className="dropdown-parent">
+              <span style={{ 
+                color: '#ffffff !important', 
+                fontSize: '16px', 
+                fontWeight: '500', 
+                textShadow: '0 2px 4px rgba(0,0,0,0.8)',
+                cursor: 'pointer',
+                display: 'block'
+              }}>Shop</span>
+              
+              <div className="dropdown-menu" style={{
+                position: 'absolute',
+                top: '100%',
+                left: '50%',
+                transform: 'translateX(-50%)',
+                marginTop: '12px',
+                backgroundColor: '#1f2937',
+                borderRadius: '8px',
+                border: '1px solid rgba(249, 115, 22, 0.3)',
+                boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.3)',
+                minWidth: '280px',
+                padding: '8px 0',
+                zIndex: 100
+              }}>
+                {shopDropdown.map((item) => {
+                  const Icon = item.icon;
+                  return (
+                    <a
+                      key={item.href}
+                      href={item.href}
+                      className="dropdown-item"
+                      style={{
+                        display: 'flex',
+                        alignItems: 'flex-start',
+                        gap: '12px',
+                        padding: '12px 16px',
+                        textDecoration: 'none',
+                        borderLeft: '3px solid transparent'
+                      }}
+                    >
+                      <Icon size={20} style={{ color: '#f97316', marginTop: '2px', flexShrink: 0 }} />
+                      <div>
+                        <div style={{ color: '#ffffff', fontSize: '14px', fontWeight: '600', marginBottom: '2px' }}>
+                          {item.label}
+                        </div>
+                        <div style={{ color: '#9ca3af', fontSize: '12px' }}>
+                          {item.description}
+                        </div>
+                      </div>
+                    </a>
+                  );
+                })}
+              </div>
+            </div>
+            
+            <a href="/technical-data" style={{ 
               color: '#ffffff !important', 
               fontSize: '16px', 
               fontWeight: '500', 
               textDecoration: 'none',
               textShadow: '0 2px 4px rgba(0,0,0,0.8)',
               display: 'block'
-            }}
-            className="text-white">Home</a>
-          
-          {/* Services - Simple Link (Dropdown Completely Removed) */}
-          <a href="/residential-solar" style={{ 
-            color: '#ffffff !important', 
-            fontSize: '16px', 
-            fontWeight: '500', 
-            textDecoration: 'none',
-            textShadow: '0 2px 4px rgba(0,0,0,0.8)',
-            display: 'block'
-          }}>Services</a>
-          
-          <a href="/technical-data" style={{ 
-            color: '#ffffff !important', 
-            fontSize: '16px', 
-            fontWeight: '500', 
-            textDecoration: 'none',
-            textShadow: '0 2px 4px rgba(0,0,0,0.8)',
-            display: 'block'
-          }}>Technical Data</a>
-          <a href="/about" style={{ 
-            color: '#ffffff !important', 
-            fontSize: '16px', 
-            fontWeight: '500', 
-            textDecoration: 'none',
-            textShadow: '0 2px 4px rgba(0,0,0,0.8)',
-            display: 'block'
-          }}>About</a>
-          <a href="/contact" style={{ 
-            color: '#ffffff !important', 
-            fontSize: '16px', 
-            fontWeight: '500', 
-            textDecoration: 'none',
-            textShadow: '0 2px 4px rgba(0,0,0,0.8)',
-            display: 'block'
-          }}>Contact</a>
-          
-          {/* Cart Button */}
-          <CartButton />
-          
-          {/* Book Appointment Button */}
-          <a href="/book-appointment" style={{ textDecoration: 'none' }}>
-            <button style={{
-              background: 'linear-gradient(to right, #f97316, #eab308)',
-              color: 'white',
-              fontWeight: 'bold',
-              padding: '8px 16px',
-              borderRadius: '8px',
+            }}>Technical Data</a>
+            <a href="/about" style={{ 
+              color: '#ffffff !important', 
+              fontSize: '16px', 
+              fontWeight: '500', 
+              textDecoration: 'none',
+              textShadow: '0 2px 4px rgba(0,0,0,0.8)',
+              display: 'block'
+            }}>About</a>
+            <a href="/contact" style={{ 
+              color: '#ffffff !important', 
+              fontSize: '16px', 
+              fontWeight: '500', 
+              textDecoration: 'none',
+              textShadow: '0 2px 4px rgba(0,0,0,0.8)',
+              display: 'block'
+            }}>Contact</a>
+            
+            {/* Cart Button */}
+            <CartButton />
+            
+            {/* Book Appointment Button */}
+            <a href="/book-appointment" style={{ textDecoration: 'none' }}>
+              <button style={{
+                background: 'linear-gradient(to right, #f97316, #eab308)',
+                color: 'white',
+                fontWeight: 'bold',
+                padding: '8px 16px',
+                borderRadius: '8px',
+                border: 'none',
+                cursor: 'pointer',
+                boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+                textShadow: '0 2px 4px rgba(0,0,0,0.8)'
+              }}>
+                Book Appointment
+              </button>
+            </a>
+          </nav>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="lg:hidden"
+            style={{
+              color: '#ffffff !important',
+              background: 'none',
               border: 'none',
               cursor: 'pointer',
-              boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
-              textShadow: '0 2px 4px rgba(0,0,0,0.8)'
-            }}>
-              Book Appointment
-            </button>
-          </a>
-        </nav>
-
-        {/* Mobile Menu Button */}
-        <button
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="lg:hidden"
-          style={{
-            color: '#ffffff !important',
-            background: 'none',
-            border: 'none',
-            cursor: 'pointer',
-            display: 'block',
-            padding: '8px'
-          }}
-        >
-          {mobileMenuOpen ? (
-            <X size={24} style={{ color: '#ffffff !important' }} />
-          ) : (
-            <MenuIcon size={24} style={{ color: '#ffffff !important' }} />
-          )}
-        </button>
-      </div>
-      {/* Mobile Navigation */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden" style={{
-          position: 'absolute',
-          top: '100%',
-          left: 0,
-          right: 0,
-          backgroundColor: '#111827',
-          borderTop: '1px solid rgba(249, 115, 22, 0.2)',
-          padding: '16px',
-          zIndex: 40
-        }}>
-          <nav style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-            <a href="/" style={{ color: '#ffffff !important', fontSize: '16px', fontWeight: '500', textDecoration: 'none' }}>Home</a>
-            <a href="/residential-solar" style={{ color: '#ffffff !important', fontSize: '16px', fontWeight: '500', textDecoration: 'none' }}>Services</a>
-            <a href="/book-appointment" style={{ color: '#ffffff !important', fontSize: '16px', fontWeight: '500', textDecoration: 'none' }}>Book Appointment</a>
-            <a href="/technical-data" style={{ color: '#ffffff !important', fontSize: '16px', fontWeight: '500', textDecoration: 'none' }}>Technical Data</a>
-            <a href="/about" style={{ color: '#ffffff !important', fontSize: '16px', fontWeight: '500', textDecoration: 'none' }}>About</a>
-            <a href="/contact" style={{ color: '#ffffff !important', fontSize: '16px', fontWeight: '500', textDecoration: 'none' }}>Contact</a>
-          </nav>
+              display: 'block',
+              padding: '8px'
+            }}
+          >
+            {mobileMenuOpen ? (
+              <X size={24} style={{ color: '#ffffff !important' }} />
+            ) : (
+              <MenuIcon size={24} style={{ color: '#ffffff !important' }} />
+            )}
+          </button>
         </div>
-      )}
-    </header>
+        {/* Mobile Navigation */}
+        {mobileMenuOpen && (
+          <div className="lg:hidden" style={{
+            position: 'absolute',
+            top: '100%',
+            left: 0,
+            right: 0,
+            backgroundColor: '#111827',
+            borderTop: '1px solid rgba(249, 115, 22, 0.2)',
+            padding: '16px',
+            zIndex: 40
+          }}>
+            <nav style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+              <a href="/" style={{ color: '#ffffff !important', fontSize: '16px', fontWeight: '500', textDecoration: 'none' }}>Home</a>
+              <a href="/residential-solar" style={{ color: '#ffffff !important', fontSize: '16px', fontWeight: '500', textDecoration: 'none' }}>Services</a>
+              <a href="/book-appointment" style={{ color: '#ffffff !important', fontSize: '16px', fontWeight: '500', textDecoration: 'none' }}>Book Appointment</a>
+              <a href="/technical-data" style={{ color: '#ffffff !important', fontSize: '16px', fontWeight: '500', textDecoration: 'none' }}>Technical Data</a>
+              <a href="/about" style={{ color: '#ffffff !important', fontSize: '16px', fontWeight: '500', textDecoration: 'none' }}>About</a>
+              <a href="/contact" style={{ color: '#ffffff !important', fontSize: '16px', fontWeight: '500', textDecoration: 'none' }}>Contact</a>
+            </nav>
+          </div>
+        )}
+      </header>
+    </>
   );
 };
 
