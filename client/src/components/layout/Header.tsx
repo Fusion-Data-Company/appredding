@@ -79,15 +79,6 @@ const SolarCompanyHeader: React.FC = () => {
     { label: "Compare Products", href: "/shop/product-comparison", icon: <Settings className="w-4 h-4" />, description: "Compare product features" },
   ];
 
-  // Applications dropdown items
-  const applicationsItems = [
-    { label: "Mobile Homes", href: "/solutions/mobile-homes", icon: <Home className="w-4 h-4" />, description: "Solar for manufactured homes" },
-    { label: "Municipalities", href: "/solutions/municipalities", icon: <Building2 className="w-4 h-4" />, description: "Government & public facilities" },
-    { label: "Construction", href: "/solutions/construction", icon: <Wrench className="w-4 h-4" />, description: "Construction site power" },
-    { label: "Data Centers", href: "/solutions/data-centers", icon: <Code className="w-4 h-4" />, description: "Critical infrastructure power" },
-    { label: "Financial Centers", href: "/solutions/financial-centers", icon: <Building2 className="w-4 h-4" />, description: "Banking & financial facilities" },
-  ];
-
   // Company dropdown items
   const companyItems = [
     { label: "About", href: "/about", icon: <Info className="w-4 h-4" />, description: "Learn about our company" },
@@ -288,26 +279,6 @@ const SolarCompanyHeader: React.FC = () => {
               {activeDropdown === 'products' && <DropdownMenu items={productsItems} dropdownKey="products" />}
             </div>
 
-            {/* Applications Dropdown */}
-            <div className="relative" ref={el => dropdownRefs.current['applications'] = el}>
-              <button 
-                onClick={() => setActiveDropdown(activeDropdown === 'applications' ? null : 'applications')}
-                className={cn(
-                  "flex items-center px-4 py-2 font-medium rounded-lg transition-all duration-200",
-                  activeDropdown === 'applications' 
-                    ? "text-orange-600 bg-orange-50" 
-                    : "text-gray-700 hover:text-orange-600 hover:bg-orange-50/50"
-                )}
-              >
-                Solutions
-                <ChevronDown className={cn(
-                  "ml-1 w-4 h-4 transition-transform",
-                  activeDropdown === 'applications' ? "rotate-180" : ""
-                )} />
-              </button>
-              {activeDropdown === 'applications' && <DropdownMenu items={applicationsItems} dropdownKey="applications" />}
-            </div>
-
             {/* Company Dropdown */}
             <div className="relative" ref={el => dropdownRefs.current['company'] = el}>
               <button 
@@ -397,22 +368,6 @@ const SolarCompanyHeader: React.FC = () => {
               <div className="px-4 py-2">
                 <div className="font-semibold text-gray-900 mb-2">Products</div>
                 {productsItems.map((item) => (
-                  <Link 
-                    key={item.href} 
-                    href={item.href}
-                    className="flex items-center py-2 text-gray-600 hover:text-orange-600 transition-colors"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    <span className="mr-2">{item.icon}</span>
-                    {item.label}
-                  </Link>
-                ))}
-              </div>
-
-              {/* Mobile Applications */}
-              <div className="px-4 py-2">
-                <div className="font-semibold text-gray-900 mb-2">Solutions</div>
-                {applicationsItems.map((item) => (
                   <Link 
                     key={item.href} 
                     href={item.href}
