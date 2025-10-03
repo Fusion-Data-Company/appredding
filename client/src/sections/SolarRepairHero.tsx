@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Wrench, Phone, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import heroBackgroundImage from '@assets/solar-panels-hero.jpg';
+import heroBackgroundImage from '@assets/generated_images/4K_solar_panels_hero_background_87aa32c0.png';
 
 interface SolarRepairHeroProps {
   tagline?: string;
@@ -34,50 +34,47 @@ const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
   },
   backgroundImage = heroBackgroundImage,
   solarImages = [
-    "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=400&h=600&fit=crop",
-    "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=400&h=600&fit=crop",
-    "https://images.unsplash.com/photo-1497440001374-f26997328c1b?w=400&h=600&fit=crop",
-    "https://images.unsplash.com/photo-1559302504-64aae6ca6b6d?w=400&h=600&fit=crop",
-    "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=400&h=600&fit=crop",
+    "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=400&h=600&fit=crop&q=80",
+    "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=400&h=600&fit=crop&q=80",
+    "https://images.unsplash.com/photo-1558449028-b53a39d100fc?w=400&h=600&fit=crop&q=80",
+    "https://images.unsplash.com/photo-1559302504-64aae6ca6b6d?w=400&h=600&fit=crop&q=80",
+    "https://images.unsplash.com/photo-1613665813446-82a78c468a1d?w=400&h=600&fit=crop&q=80",
+    "https://images.unsplash.com/photo-1595437193398-f24279553f4f?w=400&h=600&fit=crop&q=80",
+    "https://images.unsplash.com/photo-1545209463-e2825498edbf?w=400&h=600&fit=crop&q=80",
+    "https://images.unsplash.com/photo-1497440001374-f26997328c1b?w=400&h=600&fit=crop&q=80",
   ]
 }) => {
   const featureRef = useRef<HTMLDivElement>(null);
-  const opaqueRef = useRef<HTMLDivElement>(null);
-  const [showOpaque, setShowOpaque] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
+  // Preload the background image
+  useEffect(() => {
+    const img = new Image();
+    img.src = backgroundImage;
+    img.onload = () => setImageLoaded(true);
+    img.onerror = () => setImageLoaded(false); // Fallback to gradient if image fails
+  }, [backgroundImage]);
+
+  // Subtle scroll effects that don't hide the background
   useEffect(() => {
     const featureEl = featureRef.current;
     if (!featureEl) return;
 
-    const computedBgSize = window
-      .getComputedStyle(featureEl)
-      .getPropertyValue('background-size');
-    const zoomFactor = parseFloat(computedBgSize) / 100;
-    const featureWidth = featureEl.clientWidth;
-    const initialSizePx = zoomFactor * featureWidth;
-
-    const isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
-    const isSafari = /Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor);
-
-    if (!isChrome && !isSafari) {
-      setShowOpaque(true);
-    }
-
     const onScroll = () => {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      const newSize = initialSizePx - scrollTop / 3;
-
-      if (newSize > featureWidth) {
-        featureEl.style.backgroundSize = `${newSize}px`;
-        const blurAmount = scrollTop / 100;
-        featureEl.style.filter = `blur(${blurAmount}px)`;
-        featureEl.style.opacity = `${1 - (scrollTop / document.documentElement.scrollHeight) * 1.3}`;
-      }
-
-      if (opaqueRef.current) {
-        const opacity = Math.min(1, scrollTop / 5000);
-        opaqueRef.current.style.opacity = `${opacity}`;
-      }
+      const maxScroll = 800; // Maximum scroll distance for effects
+      const scrollPercent = Math.min(scrollTop / maxScroll, 1);
+      
+      // Subtle parallax effect without hiding the background
+      featureEl.style.transform = `translateY(${scrollTop * 0.3}px)`;
+      
+      // Very subtle blur that doesn't obscure the image (max 2px)
+      const blurAmount = scrollPercent * 2;
+      featureEl.style.filter = `blur(${blurAmount}px)`;
+      
+      // Keep opacity high (minimum 0.7, never completely transparent)
+      const opacity = Math.max(0.7, 1 - scrollPercent * 0.3);
+      featureEl.style.opacity = `${opacity}`;
     };
 
     window.addEventListener('scroll', onScroll, { passive: true });
@@ -98,23 +95,23 @@ const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
     <div className="bg-background text-foreground min-h-screen">
       <div
         ref={featureRef}
-        className="fixed top-0 left-0 right-0 w-full z-0 overflow-hidden"
+        className="fixed top-0 left-0 right-0 w-full h-screen z-0 overflow-hidden"
         style={{
-          paddingTop: '50%',
-          backgroundImage: `url('${backgroundImage}')`,
+          // Fallback gradient background with APR colors (orange/blue)
+          backgroundImage: imageLoaded 
+            ? `url('${backgroundImage}')`
+            : 'linear-gradient(135deg, #ff6b35 0%, #f97316 25%, #0284c7 75%, #1e40af 100%)',
           backgroundPosition: 'center center',
           backgroundRepeat: 'no-repeat',
-          backgroundSize: '250%',
-          boxShadow: '0 -50px 20px -20px hsl(var(--background)) inset',
+          backgroundSize: 'cover',
+          transition: 'transform 0.3s ease-out, filter 0.3s ease-out, opacity 0.3s ease-out',
         }}
       >
-        {showOpaque && (
-          <div
-            ref={opaqueRef}
-            className="absolute inset-0 bg-background/80"
-            style={{ opacity: 0 }}
-          />
-        )}
+        {/* Semi-transparent overlay gradient for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/60" />
+        
+        {/* Additional gradient overlay with APR brand colors */}
+        <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 via-transparent to-blue-600/10" />
       </div>
 
       <div className="relative z-10 w-full">

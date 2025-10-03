@@ -2,61 +2,56 @@ import React from "react";
 import { Link } from "wouter";
 import MainLayout from "@/components/layout/MainLayout";
 import { Button } from "@/components/ui/button";
+import { Sun, Home, Building2, Battery, Zap, Settings } from "lucide-react";
 
 const Applications = () => {
   const applications = [
     {
-      id: "wildfire",
-      title: "Wildfire Protection",
-      description: "Protect your home from wildfires with our Class-A fire retardant coatings.",
-      icon: "fa-fire-alt",
-      link: "/fire-prevention",
-      image: "",
-      color: "from-red-600 to-orange-600"
+      id: "residential",
+      title: "Residential Solar",
+      description: "Complete solar solutions for homes throughout Northern California.",
+      icon: <Home className="w-12 h-12" />,
+      link: "/residential-solar",
+      color: "from-orange-600 to-red-600"
     },
     {
-      id: "marine",
-      title: "Marine",
-      description: "Salt water resistant coating for boats and marine structures.",
-      icon: "fa-water",
-      link: "/marinas",
-      image: "",
+      id: "commercial",
+      title: "Commercial Solar",
+      description: "Large-scale solar installations for businesses and organizations.",
+      icon: <Building2 className="w-12 h-12" />,
+      link: "/commercial-solar",
       color: "from-blue-600 to-cyan-500"
     },
     {
-      id: "pool",
-      title: "Pool",
-      description: "Chemical resistant coatings for pool surfaces.",
-      icon: "fa-swimming-pool",
-      link: "/pools",
-      image: "",
-      color: "from-cyan-500 to-blue-400"
-    },
-    {
-      id: "construction",
-      title: "Construction",
-      description: "Protective coatings for commercial and residential buildings.",
-      icon: "fa-hard-hat",
-      link: "/construction",
-      image: "",
-      color: "from-yellow-600 to-amber-500"
-    },
-    {
-      id: "mobile-home",
-      title: "Mobile Home",
-      description: "Specialized coatings for manufactured housing.",
-      icon: "fa-home",
-      link: "/mobile-home",
-      image: "",
+      id: "battery-storage",
+      title: "Battery Storage",
+      description: "Energy storage solutions for backup power and grid independence.",
+      icon: <Battery className="w-12 h-12" />,
+      link: "/battery-storage",
       color: "from-green-600 to-emerald-500"
     },
     {
-      id: "municipality",
-      title: "Municipality",
-      description: "Infrastructure protection for public spaces.",
-      icon: "fa-city",
-      link: "/municipality",
-      image: "",
+      id: "hybrid-systems",
+      title: "Hybrid Systems",
+      description: "All-in-one solar and storage systems for maximum energy independence.",
+      icon: <Zap className="w-12 h-12" />,
+      link: "/hybrid-solar",
+      color: "from-purple-600 to-pink-500"
+    },
+    {
+      id: "maintenance",
+      title: "Maintenance & Service",
+      description: "Professional maintenance and repair services for existing solar systems.",
+      icon: <Settings className="w-12 h-12" />,
+      link: "/maintenance",
+      color: "from-yellow-600 to-amber-500"
+    },
+    {
+      id: "repairs",
+      title: "Solar Repairs",
+      description: "Expert repair services to restore your solar system to peak performance.",
+      icon: <Sun className="w-12 h-12" />,
+      link: "/repairs",
       color: "from-indigo-600 to-blue-500"
     }
   ];
@@ -64,12 +59,13 @@ const Applications = () => {
   return (
     <MainLayout>
       <main className="flex-grow">
-        <section className="py-16 md:py-24">
-          <div className="container mx-auto">
+        <section className="py-16 md:py-24 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+          <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center mb-16">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6 glow-text">Specialized Applications</h1>
-              <p className="text-xl text-gray-200 mb-8">
-                Our protective coatings are engineered for specific environments and challenges across various industries.
+              <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">Solar Solutions for Every Need</h1>
+              <p className="text-xl text-slate-300 mb-8">
+                From residential installations to commercial projects, Advance Power of Redding provides 
+                comprehensive solar energy solutions throughout Northern California.
               </p>
             </div>
 
@@ -77,18 +73,17 @@ const Applications = () => {
               {applications.map((app) => (
                 <Link key={app.id} href={app.link}>
                   <a className="block h-full">
-                    <div className="bg-primary-800 premium-border rounded-xl overflow-hidden h-full hover-lift hover:glow transition-all duration-300">
-                      <div className={`h-32 bg-gradient-to-r ${app.color} flex items-center justify-center`}>
-                        <i className={`fas ${app.icon} text-white text-6xl`}></i>
+                    <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-xl overflow-hidden h-full hover:bg-slate-800/70 hover:border-slate-600 transition-all duration-300 hover:scale-105">
+                      <div className={`h-32 bg-gradient-to-r ${app.color} flex items-center justify-center text-white`}>
+                        {app.icon}
                       </div>
                       <div className="p-6">
-                        <h2 className="text-2xl font-bold mb-3">{app.title}</h2>
-                        <p className="mb-4">{app.description}</p>
+                        <h2 className="text-2xl font-bold mb-3 text-white">{app.title}</h2>
+                        <p className="mb-4 text-slate-300">{app.description}</p>
                         <div className="flex justify-between items-center">
-                          <Button className="bg-primary-600 hover:bg-primary-500">
+                          <Button className="bg-primary/80 hover:bg-primary">
                             Learn More
                           </Button>
-                          <i className="fas fa-arrow-right text-primary-400"></i>
                         </div>
                       </div>
                     </div>
@@ -99,32 +94,33 @@ const Applications = () => {
           </div>
         </section>
 
-        <section className="py-16 bg-primary-800/50">
-          <div className="container mx-auto">
+        <section className="py-16 bg-slate-800/30">
+          <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl font-bold mb-6 text-center">Find The Right Solution For Your Needs</h2>
-              <p className="text-xl mb-8 text-center">
-                Whether you're protecting against natural elements, chemicals, wear and tear, or seeking to extend the life of your assets, we have specialized coating systems to meet your requirements.
+              <h2 className="text-3xl font-bold mb-6 text-center text-white">Why Choose Advance Power of Redding?</h2>
+              <p className="text-xl mb-8 text-center text-slate-300">
+                With over 25 years of experience, we provide expert solar solutions tailored to your specific 
+                energy needs and budget throughout Northern California.
               </p>
               
-              <div className="bg-primary-700 premium-border rounded-xl p-8 glass-effect">
+              <div className="bg-slate-900/50 border border-slate-700 rounded-xl p-8 backdrop-blur-sm">
                 <div className="grid md:grid-cols-3 gap-6">
-                  <div className="bg-primary-800 rounded-lg p-4 text-center">
-                    <i className="fas fa-search text-primary-400 text-3xl mb-3"></i>
-                    <h3 className="text-lg font-bold mb-2">Explore Solutions</h3>
-                    <p className="text-sm">Browse our specialized application pages to find the perfect protection system for your needs.</p>
+                  <div className="bg-slate-800/50 rounded-lg p-4 text-center">
+                    <div className="text-orange-400 text-3xl mb-3">25+</div>
+                    <h3 className="text-lg font-bold mb-2 text-white">Years Experience</h3>
+                    <p className="text-sm text-slate-300">Trusted solar experts since 1999 serving Northern California.</p>
                   </div>
                   
-                  <div className="bg-primary-800 rounded-lg p-4 text-center">
-                    <i className="fas fa-clipboard-check text-primary-400 text-3xl mb-3"></i>
-                    <h3 className="text-lg font-bold mb-2">Request Assessment</h3>
-                    <p className="text-sm">Get a personalized assessment and recommendation from our coating specialists.</p>
+                  <div className="bg-slate-800/50 rounded-lg p-4 text-center">
+                    <div className="text-orange-400 text-3xl mb-3">500+</div>
+                    <h3 className="text-lg font-bold mb-2 text-white">Installations</h3>
+                    <p className="text-sm text-slate-300">Residential and commercial solar projects completed.</p>
                   </div>
                   
-                  <div className="bg-primary-800 rounded-lg p-4 text-center">
-                    <i className="fas fa-paint-roller text-primary-400 text-3xl mb-3"></i>
-                    <h3 className="text-lg font-bold mb-2">Professional Application</h3>
-                    <p className="text-sm">Connect with our certified applicator network for expert installation.</p>
+                  <div className="bg-slate-800/50 rounded-lg p-4 text-center">
+                    <div className="text-orange-400 text-3xl mb-3">100%</div>
+                    <h3 className="text-lg font-bold mb-2 text-white">Satisfaction</h3>
+                    <p className="text-sm text-slate-300">Licensed, bonded, and insured for your peace of mind.</p>
                   </div>
                 </div>
               </div>
@@ -132,20 +128,21 @@ const Applications = () => {
           </div>
         </section>
 
-        <section className="py-16">
-          <div className="container mx-auto">
+        <section className="py-16 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+          <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
-              <h2 className="text-3xl font-bold mb-6">Need Help Choosing?</h2>
-              <p className="text-xl mb-8">
-                Not sure which protective coating solution is right for your situation? Our experts are ready to help you find the perfect match for your specific needs.
+              <h2 className="text-3xl font-bold mb-6 text-white">Ready to Get Started?</h2>
+              <p className="text-xl mb-8 text-slate-300">
+                Contact our solar experts today for a free consultation and discover how we can help you 
+                reduce energy costs with clean, renewable solar power.
               </p>
               
               <div className="flex flex-col sm:flex-row justify-center gap-4">
-                <Button className="bg-primary-500 hover:bg-primary-400 px-6 py-3">
-                  <i className="fas fa-phone-alt mr-2"></i> Contact Sales
+                <Button className="bg-primary hover:bg-primary/90 px-8 py-6 text-lg">
+                  Get Free Quote
                 </Button>
-                <Button className="bg-primary-700 hover:bg-primary-600 px-6 py-3">
-                  <i className="fas fa-envelope mr-2"></i> Email Us
+                <Button variant="outline" className="px-8 py-6 text-lg border-slate-600 text-white hover:bg-slate-800">
+                  Call (530) 226-0701
                 </Button>
               </div>
             </div>
