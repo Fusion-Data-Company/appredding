@@ -38,12 +38,13 @@ const PricingCalculator = () => {
 
   // Calculate coverage rates based on application area
   const getCoverageRate = () => {
-    const baseCoverage = {
+    const baseCoverageMap: Record<string, number> = {
       roof: 100, // sq ft per gallon
       wall: 120,
       deck: 80,
       industrial: 70
-    }[calculator.applicationArea as keyof typeof baseCoverage] || 100;
+    };
+    const baseCoverage = baseCoverageMap[calculator.applicationArea] || 100;
 
     return baseCoverage / calculator.coverage; // Adjust based on coverage level
   };

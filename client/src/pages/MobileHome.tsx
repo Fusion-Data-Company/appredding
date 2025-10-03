@@ -674,7 +674,8 @@ const MobileHome = () => {
                                     onChange={(e: ChangeEvent<HTMLInputElement>) => 
                                       onChange(parseInt(e.target.value) || 0)
                                     }
-                                    {...rest} 
+                                    {...rest}
+                                    value={rest.value || 0} 
                                     className="bg-gray-900/70 border-gray-700 text-white"
                                   />
                                 </FormControl>
@@ -695,7 +696,7 @@ const MobileHome = () => {
                                   <Input 
                                     placeholder="E.g. Roof Coating, Siding Replacement, etc." 
                                     {...field} 
-                                    value={field.value?.join(", ") || ""}
+                                    value={Array.isArray(field.value) ? field.value.join(", ") : ""}
                                     onChange={(e) => {
                                       const value = e.target.value;
                                       field.onChange(value ? value.split(",").map(item => item.trim()) : []);
@@ -718,7 +719,7 @@ const MobileHome = () => {
                                   <Input 
                                     placeholder="E.g. Los Angeles, San Diego, etc." 
                                     {...field} 
-                                    value={field.value?.join(", ") || ""}
+                                    value={Array.isArray(field.value) ? field.value.join(", ") : ""}
                                     onChange={(e) => {
                                       const value = e.target.value;
                                       field.onChange(value ? value.split(",").map(item => item.trim()) : []);
@@ -741,7 +742,8 @@ const MobileHome = () => {
                               <FormControl>
                                 <Textarea 
                                   placeholder="Any additional information you'd like to share" 
-                                  {...field} 
+                                  {...field}
+                                  value={field.value || ''} 
                                   className="bg-gray-900/70 border-gray-700 text-white min-h-[100px]"
                                 />
                               </FormControl>

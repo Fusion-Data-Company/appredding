@@ -66,7 +66,7 @@ const Maintenance = () => {
       <SEOHead 
         title="Solar System Maintenance | Advance Power Redding"
         description="Professional solar panel cleaning and maintenance services in Redding, CA. Keep your solar system running at peak efficiency with regular maintenance."
-        keywords="solar maintenance, solar panel cleaning Redding, solar system inspection, solar performance monitoring"
+        keywords={["solar maintenance", "solar panel cleaning Redding", "solar system inspection", "solar performance monitoring"]}
       />
       
       {/* Hero Section */}

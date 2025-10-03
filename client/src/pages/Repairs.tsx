@@ -64,7 +64,7 @@ const Repairs = () => {
       <SEOHead 
         title="Solar System Repairs | Advance Power Redding"
         description="Professional solar panel and system repair services in Redding, CA. Fast diagnosis and repair of solar system issues. Emergency repair services available."
-        keywords="solar repair, solar panel repair Redding, inverter repair, solar system troubleshooting"
+        keywords={["solar repair", "solar panel repair Redding", "inverter repair", "solar system troubleshooting"]}
       />
       
       {/* Hero Section */}
