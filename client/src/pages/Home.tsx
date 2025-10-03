@@ -7,6 +7,7 @@ import SolarProofCarouselSection from "@/sections/SolarProofCarouselSection";
 // Lazy load all non-critical sections
 const LazySection = lazy(() => import("@/components/ui/lazy-section").then(m => ({ default: m.LazySection })));
 
+const SolarTestimonialCarousel = lazy(() => import("@/sections/SolarTestimonialCarousel"));
 const ProductShowcaseSection = lazy(() => import("@/sections/ProductShowcaseSection"));
 const SolarBenefitsSection = lazy(() => import("@/sections/SolarBenefitsSection"));
 const AboutAdvancePowerSection = lazy(() => import("@/sections/AboutAdvancePowerSection"));
@@ -25,6 +26,12 @@ const Home = () => {
  
         <Suspense fallback={<div className="h-[600px] bg-slate-800/10 animate-pulse rounded-3xl" />}>
           <SolarProofCarouselSection />
+        </Suspense>
+
+        <Suspense fallback={<div className="h-[600px] bg-slate-800/10 animate-pulse rounded-3xl" />}>
+          <LazySection className="min-h-[600px]">
+            <SolarTestimonialCarousel />
+          </LazySection>
         </Suspense>
 
         <Suspense fallback={<div className="h-[400px] bg-slate-800 animate-pulse rounded-lg" />}>
