@@ -52,7 +52,6 @@ import FinancialCenter from "@/pages/FinancialCenter";
 import DataProcessingCenter from "@/pages/DataProcessingCenter";
 import { AuthProvider } from "@/hooks/use-auth";
 import { ProtectedRoute } from "@/components/ProtectedRoute";
-import { StoreProvider } from "@/contexts/CartContext";
 
 function Router() {
   const [location] = useLocation();
@@ -324,9 +323,7 @@ function App() {
       <TooltipProvider>
         <Toaster />
         <AuthProvider>
-          <StoreProvider>
-            <Router />
-          </StoreProvider>
+          <Router />
         </AuthProvider>
       </TooltipProvider>
     </QueryClientProvider>
