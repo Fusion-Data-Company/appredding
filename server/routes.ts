@@ -28,6 +28,9 @@ const router = Router();
 // Add monitoring routes first
 router.use(monitoringRoutes);
 
+// Add CRM routes
+router.use("/api", crmRoutes);
+
 // Add booking routes
 router.use("/api/bookings", bookingRoutes);
 

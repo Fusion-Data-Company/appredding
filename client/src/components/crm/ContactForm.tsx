@@ -151,25 +151,26 @@ export function ContactForm({ isOpen, onClose, companies }: ContactFormProps) {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="card-premium sm:max-w-[600px]">
+      <DialogContent className="sm:max-w-[600px] max-h-[90vh] flex flex-col">
         <DialogHeader>
           <div className="flex items-center justify-between">
-            <DialogTitle className="gradient-text-cyan">Add New Contact</DialogTitle>
+            <DialogTitle>Add New Contact</DialogTitle>
             <Button 
               variant="ghost" 
-              className="h-8 w-8 p-0 rounded-full text-gray-400 hover:text-white" 
+              className="h-8 w-8 p-0 rounded-full" 
               onClick={onClose}
             >
               <X className="h-4 w-4" />
             </Button>
           </div>
-          <DialogDescription className="text-gray-400">
+          <DialogDescription>
             Add a new contact to your CRM database
           </DialogDescription>
         </DialogHeader>
 
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 flex flex-col flex-1 overflow-hidden">
+            <div className="space-y-4 overflow-y-auto flex-1 pr-2">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <FormField
                 control={form.control}
@@ -344,11 +345,13 @@ export function ContactForm({ isOpen, onClose, companies }: ContactFormProps) {
                 </FormItem>
               )}
             />
+            </div>
 
-            <DialogFooter className="pt-4">
+            <DialogFooter className="pt-4 flex-shrink-0">
               <Button 
                 variant="outline" 
                 onClick={onClose} 
+                type="button"
                 disabled={createContactMutation.isPending}
               >
                 Cancel

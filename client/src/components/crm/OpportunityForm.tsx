@@ -186,10 +186,10 @@ export function OpportunityForm({ isOpen, onClose, contacts, companies }: Opport
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="card-premium sm:max-w-[600px]">
+      <DialogContent className="sm:max-w-[600px] max-h-[90vh] flex flex-col">
         <DialogHeader>
           <div className="flex items-center justify-between">
-            <DialogTitle className="gradient-text-orange">Create New Opportunity</DialogTitle>
+            <DialogTitle>Create New Opportunity</DialogTitle>
             <Button 
               variant="ghost" 
               className="h-8 w-8 p-0 rounded-full text-gray-400 hover:text-white" 
@@ -204,7 +204,8 @@ export function OpportunityForm({ isOpen, onClose, contacts, companies }: Opport
         </DialogHeader>
 
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 flex flex-col flex-1 overflow-hidden">
+            <div className="space-y-4 overflow-y-auto flex-1 pr-2">
             <FormField
               control={form.control}
               name="name"
@@ -410,11 +411,13 @@ export function OpportunityForm({ isOpen, onClose, contacts, companies }: Opport
                 </FormItem>
               )}
             />
+            </div>
 
-            <DialogFooter className="pt-4">
+            <DialogFooter className="pt-4 flex-shrink-0">
               <Button 
                 variant="outline" 
                 onClick={onClose} 
+                type="button"
                 disabled={createOpportunityMutation.isPending}
               >
                 Cancel

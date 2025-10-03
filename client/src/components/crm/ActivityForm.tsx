@@ -176,10 +176,10 @@ export function ActivityForm({ isOpen, onClose, contacts, companies, opportuniti
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="card-premium sm:max-w-[600px]">
+      <DialogContent className="sm:max-w-[600px] max-h-[90vh] flex flex-col">
         <DialogHeader>
           <div className="flex items-center justify-between">
-            <DialogTitle className="gradient-text-blue">Schedule Activity</DialogTitle>
+            <DialogTitle>Schedule Activity</DialogTitle>
             <Button 
               variant="ghost" 
               className="h-8 w-8 p-0 rounded-full text-gray-400 hover:text-white" 
@@ -194,7 +194,8 @@ export function ActivityForm({ isOpen, onClose, contacts, companies, opportuniti
         </DialogHeader>
 
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 flex flex-col flex-1 overflow-hidden">
+            <div className="space-y-4 overflow-y-auto flex-1 pr-2">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <FormField
                 control={form.control}
@@ -412,11 +413,13 @@ export function ActivityForm({ isOpen, onClose, contacts, companies, opportuniti
                 </FormItem>
               )}
             />
+            </div>
 
-            <DialogFooter className="pt-4">
+            <DialogFooter className="pt-4 flex-shrink-0">
               <Button 
                 variant="outline" 
                 onClick={onClose} 
+                type="button"
                 disabled={createActivityMutation.isPending}
               >
                 Cancel
