@@ -91,12 +91,12 @@ Core Technologies:
   - Main page significantly shortened and more focused on core messaging
   - Technical Data page features professional hero section with quick navigation cards
   - Organized technical content for educational and engaging experience
-- **ELEVENLABS VOICE WIDGET REMOVED (October 2025)**: Removed ElevenLabs widget due to scrolling performance issues
-  - Widget was causing black section to skip and hang during scrolling
-  - Removed elevenlabs-convai component from MainLayout.tsx
-  - Removed ElevenLabs script from index.html
-  - Removed DOM manipulation styling script that was causing performance overhead
-  - Page now scrolls smoothly without bottom bar interference
+- **ELEVENLABS VOICE WIDGET RESTORED (October 2025)**: Added ElevenLabs conversational AI widget to all pages
+  - Widget positioned in bottom right corner via MainLayout.tsx (applies to all pages)
+  - Uses agent ID: agent_01jw96xdk3etzvskmex8kx5mjn
+  - Script loaded asynchronously from https://unpkg.com/@elevenlabs/convai-widget-embed
+  - No API key required - simple embed implementation
+  - Widget provides voice-based AI assistance for solar energy questions
 - **DUPLICATE CONTENT CLEANUP - PHASE 2 COMPLETE**: Comprehensive removal of all technical content from Home page
   - **SolarServicesSection REMOVED**: All Sol-Ark/API specifications moved to Technical Data page
   - **FAQSection REMOVED**: Technical Q&A exclusively in Technical Data page troubleshooting

@@ -3,6 +3,16 @@ import SolarCompanyHeader from '@/components/layout/Header';
 import SolarFooter from '@/components/layout/Footer';
 import { cn } from '@/lib/utils';
 
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      'elevenlabs-convai': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
+        'agent-id'?: string;
+      };
+    }
+  }
+}
+
 interface MainLayoutProps {
   children: ReactNode;
   className?: string;
@@ -32,6 +42,9 @@ export default function MainLayout({ children, className, fullWidth = false }: M
       </main>
       
       <SolarFooter />
+      
+      {/* ElevenLabs Voice Widget */}
+      <elevenlabs-convai agent-id="agent_01jw96xdk3etzvskmex8kx5mjn"></elevenlabs-convai>
     </div>
   );
 }
