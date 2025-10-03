@@ -153,7 +153,7 @@ const ResidentialSolar = () => {
                           Advance Power Redding
                         </h2>
                         <p className="text-lg text-gray-300 leading-relaxed">
-                          Professional solar installations for Northern California homes. Our founder brings decades of expertise in renewable energy systems, helping Redding families achieve energy independence with premium solar solutions.
+                          Navigate NEM 3.0's 75-80% export credit reduction with our smart battery solutions. We specialize in rescuing orphaned solar systems within 7 days and optimizing load shifting to recover 25-40% of lost export value. Serving Shasta County and the North State I-5 corridor with 25+ years of local expertise.
                         </p>
                       </div>
                       
@@ -261,15 +261,15 @@ const ResidentialSolar = () => {
                       <ul className="space-y-3">
                         <li className="flex items-start">
                           <AlertTriangle className="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">California electricity rates increased 47% over the past 5 years</span>
+                          <span className="text-gray-300">NEM 3.0 slashed export credits from ~$0.30 to $0.05/kWh (75-80% reduction)</span>
                         </li>
                         <li className="flex items-start">
                           <AlertTriangle className="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">Average Redding household pays $200+ monthly for electricity</span>
+                          <span className="text-gray-300">Time-of-use rates spike 6-9 PM when solar doesn't produce</span>
                         </li>
                         <li className="flex items-start">
                           <AlertTriangle className="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">Peak hour rates can exceed $0.50/kWh during summer months</span>
+                          <span className="text-gray-300">PSPS events cost families $250/night in hotel stays during outages</span>
                         </li>
                       </ul>
                     </div>
@@ -281,15 +281,15 @@ const ResidentialSolar = () => {
                       <ul className="space-y-3">
                         <li className="flex items-start">
                           <AlertTriangle className="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">Grid instability during extreme weather events</span>
+                          <span className="text-gray-300">PG&E wildfire PSPS shutoffs increasing in Shasta County</span>
                         </li>
                         <li className="flex items-start">
                           <AlertTriangle className="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">Planned power shutoffs affecting thousands annually</span>
+                          <span className="text-gray-300">AB 942 eliminates NEM grandfathering when homes are sold</span>
                         </li>
                         <li className="flex items-start">
                           <AlertTriangle className="h-5 w-5 text-red-500 mr-2 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">Limited control over energy costs and availability</span>
+                          <span className="text-gray-300">Orphaned solar systems from defunct installers need rescue</span>
                         </li>
                       </ul>
                     </div>
@@ -325,16 +325,16 @@ const ResidentialSolar = () => {
                     <h3 className="text-2xl font-bold mb-6 text-yellow-300">Premium Equipment & Installation</h3>
                     <div className="space-y-4">
                       <div className="bg-yellow-500/10 p-4 rounded-lg border border-yellow-400/40">
-                        <h4 className="font-semibold text-yellow-200 mb-2">Tier 1 Solar Panels</h4>
-                        <p className="text-gray-300">High-efficiency monocrystalline panels with 25-year manufacturer warranties</p>
+                        <h4 className="font-semibold text-yellow-200 mb-2">Battery Storage Systems</h4>
+                        <p className="text-gray-300">LG Chem RESU, Tesla Powerwall, FranklinWH - optimized for NEM 3.0 load shifting</p>
                       </div>
                       <div className="bg-yellow-500/10 p-4 rounded-lg border border-yellow-400/40">
-                        <h4 className="font-semibold text-yellow-200 mb-2">Smart Inverter Technology</h4>
-                        <p className="text-gray-300">Optimized power conversion with real-time monitoring capabilities</p>
+                        <h4 className="font-semibold text-yellow-200 mb-2">Rapid Inverter Swaps</h4>
+                        <p className="text-gray-300">SMA, SolarEdge, Enphase - 7-day rescue service for orphaned systems</p>
                       </div>
                       <div className="bg-yellow-500/10 p-4 rounded-lg border border-yellow-400/40">
-                        <h4 className="font-semibold text-yellow-200 mb-2">Professional Installation</h4>
-                        <p className="text-gray-300">Licensed electricians with specialized solar training and certification</p>
+                        <h4 className="font-semibold text-yellow-200 mb-2">C-46 Licensed Installation</h4>
+                        <p className="text-gray-300">Full electrical contractor license with PG&E and REU interconnection expertise</p>
                       </div>
                     </div>
                   </div>
@@ -351,8 +351,8 @@ const ResidentialSolar = () => {
                         <p className="text-gray-300">Custom layouts optimized for maximum energy production and efficiency</p>
                       </div>
                       <div className="bg-yellow-500/10 p-4 rounded-lg border border-yellow-400/40">
-                        <h4 className="font-semibold text-yellow-200 mb-2">Permitting & Inspections</h4>
-                        <p className="text-gray-300">Complete handling of all local permits and required inspections</p>
+                        <h4 className="font-semibold text-yellow-200 mb-2">Shasta County Permitting</h4>
+                        <p className="text-gray-300">5-7 day permits, PE stamps for structural mods, online submittal for systems under 15kW</p>
                       </div>
                     </div>
                   </div>
@@ -432,15 +432,15 @@ const ResidentialSolar = () => {
                       <div className="flex items-start">
                         <CheckCircle className="h-6 w-6 text-green-400 mr-3 flex-shrink-0 mt-1" />
                         <div>
-                          <h4 className="font-semibold text-green-200 mb-1">30% Federal Tax Credit</h4>
-                          <p className="text-gray-300">Significant reduction in system cost through federal incentives</p>
+                          <h4 className="font-semibold text-green-200 mb-1">30% Federal ITC Through 2032</h4>
+                          <p className="text-gray-300">Full federal tax credit available through 2032, sunset begins 2033</p>
                         </div>
                       </div>
                       <div className="flex items-start">
                         <CheckCircle className="h-6 w-6 text-green-400 mr-3 flex-shrink-0 mt-1" />
                         <div>
-                          <h4 className="font-semibold text-green-200 mb-1">Net Energy Metering</h4>
-                          <p className="text-gray-300">Sell excess power back to the grid for additional credits</p>
+                          <h4 className="font-semibold text-green-200 mb-1">SGIP Wildfire Zone Rebates</h4>
+                          <p className="text-gray-300">$1,000/kWh battery incentives for Shasta County wildfire zones (Feb 2025 E-5373)</p>
                         </div>
                       </div>
                       <div className="flex items-start">

@@ -138,25 +138,72 @@ const SolarCompanyHeader: React.FC = () => {
           : "bg-gradient-to-b from-white/95 to-white/85 backdrop-blur-md border-b border-gray-100/50"
       )}
     >
-      {/* Top contact bar - Full width */}
-      <div className="bg-gradient-to-r from-orange-500 to-blue-600 text-white py-2">
-        <div className="w-full px-6 lg:px-12 flex justify-between items-center text-sm">
-          <div className="flex items-center space-x-6">
+      {/* Top scrolling banner */}
+      <div className="bg-gradient-to-r from-orange-500 via-orange-600 to-blue-600 text-white py-2.5 overflow-hidden relative" style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
+        <div className="flex animate-scroll whitespace-nowrap">
+          {/* First set of items */}
+          <div className="flex items-center space-x-8 px-8 text-sm font-medium tracking-wide">
             <a href="tel:5302260701" className="flex items-center hover:text-orange-100 transition-colors">
-              <Phone className="w-4 h-4 mr-1" />
-              <span className="font-medium">(530) 226-0701</span>
+              <Phone className="w-4 h-4 mr-2" />
+              <span className="font-semibold">(530) 226-0701</span>
             </a>
-            <a href="mailto:info@apredding.net" className="hidden sm:flex items-center hover:text-orange-100 transition-colors">
-              <Mail className="w-4 h-4 mr-1" />
+            <span className="text-white/40">•</span>
+            <a href="mailto:info@apredding.net" className="flex items-center hover:text-orange-100 transition-colors">
+              <Mail className="w-4 h-4 mr-2" />
               <span>info@apredding.net</span>
             </a>
-          </div>
-          <div className="hidden md:flex items-center space-x-4">
-            <span className="bg-white/20 px-3 py-1 rounded-full text-xs font-semibold">
+            <span className="text-white/40">•</span>
+            <span className="flex items-center">
+              <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <span>2020 Larkspur Ln, Redding, CA 96002</span>
+            </span>
+            <span className="text-white/40">•</span>
+            <span className="bg-white/20 px-3 py-1 rounded-full text-xs font-bold backdrop-blur-sm">
               Licensed & Insured
             </span>
-            <span className="bg-white/20 px-3 py-1 rounded-full text-xs font-semibold">
+            <span className="text-white/40">•</span>
+            <span className="bg-white/20 px-3 py-1 rounded-full text-xs font-bold backdrop-blur-sm">
               25+ Years Experience
+            </span>
+            <span className="text-white/40">•</span>
+            <span className="bg-white/20 px-3 py-1 rounded-full text-xs font-bold backdrop-blur-sm">
+              Solar Excellence Since 2004
+            </span>
+          </div>
+          
+          {/* Duplicate set for seamless loop */}
+          <div className="flex items-center space-x-8 px-8 text-sm font-medium tracking-wide">
+            <a href="tel:5302260701" className="flex items-center hover:text-orange-100 transition-colors">
+              <Phone className="w-4 h-4 mr-2" />
+              <span className="font-semibold">(530) 226-0701</span>
+            </a>
+            <span className="text-white/40">•</span>
+            <a href="mailto:info@apredding.net" className="flex items-center hover:text-orange-100 transition-colors">
+              <Mail className="w-4 h-4 mr-2" />
+              <span>info@apredding.net</span>
+            </a>
+            <span className="text-white/40">•</span>
+            <span className="flex items-center">
+              <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <span>2020 Larkspur Ln, Redding, CA 96002</span>
+            </span>
+            <span className="text-white/40">•</span>
+            <span className="bg-white/20 px-3 py-1 rounded-full text-xs font-bold backdrop-blur-sm">
+              Licensed & Insured
+            </span>
+            <span className="text-white/40">•</span>
+            <span className="bg-white/20 px-3 py-1 rounded-full text-xs font-bold backdrop-blur-sm">
+              25+ Years Experience
+            </span>
+            <span className="text-white/40">•</span>
+            <span className="bg-white/20 px-3 py-1 rounded-full text-xs font-bold backdrop-blur-sm">
+              Solar Excellence Since 2004
             </span>
           </div>
         </div>
