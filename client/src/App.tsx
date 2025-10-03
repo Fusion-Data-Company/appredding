@@ -23,9 +23,6 @@ import EnergyConservation from "@/pages/EnergyConservation";
 import BatteryStorage from "@/pages/BatteryStorage";
 import Maintenance from "@/pages/Maintenance";
 import Repairs from "@/pages/Repairs";
-const Construction = lazy(() => import('./pages/Construction'));
-import MobileHome from "@/pages/MobileHome";
-import Municipality from "@/pages/Municipality";
 import BookAppointment from "@/pages/BookAppointment";
 import Portfolio from "@/pages/Portfolio"; 
 import ProductComparison from "@/pages/ProductComparison";
@@ -36,7 +33,6 @@ import AuthPage from "@/pages/auth-page";
 import ClientDashboard from "@/pages/client-dashboard";
 import AdminDashboard from "@/pages/admin-dashboard";
 const About = lazy(() => import('./pages/About'));
-const Applications = lazy(() => import('./pages/Applications'));
 import Team from "@/pages/Team";
 import Contact from "@/pages/Contact";
 import Commerce from "@/pages/Commerce";
@@ -48,8 +44,6 @@ import InventoryPage from "@/pages/inventory";
 import RAGDocumentsPage from "@/pages/rag-documents";
 import ChatPage from "@/pages/chat";
 import DocumentChatInterface from "@/pages/DocumentChatInterface";
-import FinancialCenter from "@/pages/FinancialCenter";
-import DataProcessingCenter from "@/pages/DataProcessingCenter";
 import { AuthProvider } from "@/hooks/use-auth";
 import { ProtectedRoute } from "@/components/ProtectedRoute";
 
@@ -101,21 +95,6 @@ function Router() {
       </Route>
       <Route path="/lithium-battery">
         {() => <Redirect to="/services/lithium-battery" replace />}
-      </Route>
-      <Route path="/mobile-home">
-        {() => <Redirect to="/solutions/mobile-homes" replace />}
-      </Route>
-      <Route path="/municipality">
-        {() => <Redirect to="/solutions/municipalities" replace />}
-      </Route>
-      <Route path="/construction">
-        {() => <Redirect to="/solutions/construction" replace />}
-      </Route>
-      <Route path="/data-processing">
-        {() => <Redirect to="/solutions/data-centers" replace />}
-      </Route>
-      <Route path="/financial-center">
-        {() => <Redirect to="/solutions/financial-centers" replace />}
       </Route>
       <Route path="/products">
         {() => <Redirect to="/shop/products" replace />}
@@ -172,21 +151,6 @@ function Router() {
       <Route path="/services/energy-conservation" component={EnergyConservation} />
       <Route path="/services/lithium-battery" component={LithiumBattery} />
       
-      {/* Industry Solutions Pages */}
-      <Route path="/solutions">
-        <Suspense fallback={<SuspenseFallback message="Loading Solutions..." operationName="applications-page" />}>
-          <Applications />
-        </Suspense>
-      </Route>
-      <Route path="/solutions/mobile-homes" component={MobileHome} />
-      <Route path="/solutions/municipalities" component={Municipality} />
-      <Route path="/solutions/construction">
-        <Suspense fallback={<SuspenseFallback message="Loading Construction..." operationName="construction-page" />}>
-          <Construction />
-        </Suspense>
-      </Route>
-      <Route path="/solutions/data-centers" component={DataProcessingCenter} />
-      <Route path="/solutions/financial-centers" component={FinancialCenter} />
       
       {/* Commerce Pages */}
       <Route path="/shop/products">
@@ -237,13 +201,6 @@ function Router() {
       <Route path="/repairs" component={Repairs} />
       <Route path="/energy-conservation" component={EnergyConservation} />
       <Route path="/lithium-battery" component={LithiumBattery} />
-      <Route path="/mobile-home" component={MobileHome} />
-      <Route path="/municipality" component={Municipality} />
-      <Route path="/construction">
-        <Suspense fallback={<SuspenseFallback message="Loading Construction..." operationName="construction-page" />}>
-          <Construction />
-        </Suspense>
-      </Route>
       <Route path="/products">
         <Suspense fallback={<SuspenseFallback message="Loading Products..." operationName="products-page" />}>
           <Products />
@@ -264,8 +221,6 @@ function Router() {
           <ROICalculator />
         </Suspense>
       </Route>
-      <Route path="/financial-center" component={FinancialCenter} />
-      <Route path="/data-processing" component={DataProcessingCenter} />
       <Route path="/analytics" component={AnalyticsDashboard} />
       <Route path="/inventory" component={InventoryPage} />
       

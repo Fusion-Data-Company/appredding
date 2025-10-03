@@ -15,16 +15,9 @@ import {
   Leaf,
   Wrench,
   Settings,
-  Building2,
-  HardHat,
-  Server,
-  Landmark,
   ShoppingBag,
   GitCompare,
   ShoppingCart,
-  Grid3x3,
-  MapPin,
-  Banknote,
   ChevronDown,
   ChevronUp
 } from "lucide-react";
@@ -44,11 +37,10 @@ const ProfessionalHeader = () => {
   
   // State for mobile menu accordion sections
   const [servicesExpanded, setServicesExpanded] = useState(false);
-  const [solutionsExpanded, setSolutionsExpanded] = useState(false);
   const [shopExpanded, setShopExpanded] = useState(false);
   
   // State for tracking open desktop dropdown
-  const [openDropdown, setOpenDropdown] = useState<'services' | 'solutions' | 'shop' | null>(null);
+  const [openDropdown, setOpenDropdown] = useState<'services' | 'shop' | null>(null);
 
   // Handle scroll effect
   useEffect(() => {
@@ -89,7 +81,6 @@ const ProfessionalHeader = () => {
   const handleLinkClick = () => {
     setMobileMenuOpen(false);
     setServicesExpanded(false);
-    setSolutionsExpanded(false);
     setShopExpanded(false);
   };
   
@@ -113,16 +104,6 @@ const ProfessionalHeader = () => {
     { label: "Energy Conservation", href: "/services/energy-conservation", description: "Energy efficiency services", icon: Leaf },
     { label: "Maintenance", href: "/services/maintenance", description: "Solar system maintenance", icon: Wrench },
     { label: "Repairs", href: "/services/repairs", description: "Expert repair services", icon: Settings },
-  ];
-
-  // Solutions dropdown menu items
-  const solutionsDropdown = [
-    { label: "All Solutions Overview", href: "/solutions", description: "View all our solutions", icon: Grid3x3 },
-    { label: "Mobile Homes", href: "/solutions/mobile-homes", description: "Solar solutions for mobile homes", icon: Home },
-    { label: "Municipalities", href: "/solutions/municipalities", description: "Municipal solar projects", icon: MapPin },
-    { label: "Construction", href: "/solutions/construction", description: "Construction site power solutions", icon: HardHat },
-    { label: "Data Centers", href: "/solutions/data-centers", description: "Data center energy solutions", icon: Server },
-    { label: "Financial Centers", href: "/solutions/financial-centers", description: "Financial institution solutions", icon: Banknote },
   ];
 
   // Shop dropdown menu items
@@ -265,78 +246,6 @@ const ProfessionalHeader = () => {
                 zIndex: 100
               }}>
                 {servicesDropdown.map((item) => {
-                  const Icon = item.icon;
-                  const testId = `nav-${item.label.toLowerCase().replace(/\s+/g, '-')}`;
-                  return (
-                    <a
-                      key={item.href}
-                      href={item.href}
-                      data-testid={testId}
-                      className="dropdown-item"
-                      style={{
-                        display: 'flex',
-                        alignItems: 'flex-start',
-                        gap: '12px',
-                        padding: '12px 16px',
-                        textDecoration: 'none',
-                        borderLeft: '3px solid transparent'
-                      }}
-                    >
-                      <Icon size={20} style={{ color: '#f97316', marginTop: '2px', flexShrink: 0 }} />
-                      <div>
-                        <div style={{ color: '#ffffff', fontSize: '14px', fontWeight: '600', marginBottom: '2px' }}>
-                          {item.label}
-                        </div>
-                        <div style={{ color: '#9ca3af', fontSize: '12px' }}>
-                          {item.description}
-                        </div>
-                      </div>
-                    </a>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Solutions Dropdown */}
-            <div 
-              className="dropdown-parent" 
-              data-testid="dropdown-solutions"
-              data-open={openDropdown === 'solutions'}
-              onMouseEnter={() => setOpenDropdown('solutions')}
-              onMouseLeave={() => setOpenDropdown(null)}
-              onBlur={handleDropdownBlur}
-            >
-              <button 
-                className="dropdown-trigger"
-                aria-haspopup="true"
-                aria-expanded={openDropdown === 'solutions'}
-                tabIndex={0}
-                data-testid="dropdown-trigger-solutions"
-                onFocus={() => setOpenDropdown('solutions')}
-                style={{ 
-                  color: '#ffffff !important', 
-                  fontSize: '16px', 
-                  fontWeight: '500', 
-                  textShadow: '0 2px 4px rgba(0,0,0,0.8)',
-                  display: 'block'
-                }}
-              >Solutions</button>
-              
-              <div className="dropdown-menu" style={{
-                position: 'absolute',
-                top: '100%',
-                left: '50%',
-                transform: 'translateX(-50%)',
-                marginTop: '12px',
-                backgroundColor: '#1f2937',
-                borderRadius: '8px',
-                border: '1px solid rgba(249, 115, 22, 0.3)',
-                boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.3)',
-                minWidth: '280px',
-                padding: '8px 0',
-                zIndex: 100
-              }}>
-                {solutionsDropdown.map((item) => {
                   const Icon = item.icon;
                   const testId = `nav-${item.label.toLowerCase().replace(/\s+/g, '-')}`;
                   return (
@@ -573,64 +482,6 @@ const ProfessionalHeader = () => {
                   transition: 'max-height 300ms ease-in-out'
                 }}>
                   {servicesDropdown.map((item) => {
-                    const testId = `nav-${item.label.toLowerCase().replace(/\s+/g, '-')}`;
-                    return (
-                      <a
-                        key={item.href}
-                        href={item.href}
-                        onClick={handleLinkClick}
-                        data-testid={testId}
-                        style={{
-                          display: 'block',
-                          padding: '10px 0 10px 24px',
-                          minHeight: '44px',
-                          color: '#ffffff',
-                          fontSize: '14px',
-                          fontWeight: '400',
-                          textDecoration: 'none',
-                          backgroundColor: 'transparent',
-                          transition: 'background-color 200ms ease-in-out'
-                        }}
-                        onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(249, 115, 22, 0.1)'}
-                        onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
-                      >
-                        {item.label}
-                      </a>
-                    );
-                  })}
-                </div>
-              </div>
-
-              {/* Solutions Accordion */}
-              <div style={{ borderBottom: '1px solid rgba(249, 115, 22, 0.1)' }}>
-                <button
-                  onClick={() => setSolutionsExpanded(!solutionsExpanded)}
-                  data-testid="mobile-accordion-solutions"
-                  style={{
-                    width: '100%',
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                    padding: '12px 0',
-                    minHeight: '44px',
-                    background: 'none',
-                    border: 'none',
-                    color: '#f97316',
-                    fontSize: '16px',
-                    fontWeight: '700',
-                    cursor: 'pointer',
-                    textAlign: 'left'
-                  }}
-                >
-                  Solutions
-                  {solutionsExpanded ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
-                </button>
-                <div style={{
-                  maxHeight: solutionsExpanded ? '500px' : '0',
-                  overflow: 'hidden',
-                  transition: 'max-height 300ms ease-in-out'
-                }}>
-                  {solutionsDropdown.map((item) => {
                     const testId = `nav-${item.label.toLowerCase().replace(/\s+/g, '-')}`;
                     return (
                       <a
