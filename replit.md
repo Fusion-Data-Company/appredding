@@ -44,6 +44,16 @@ Core Technologies:
 - ACCESSIBILITY_AUDIT_REPORT.md, PHASE_1_FINAL_REPORT.md
 
 ## Recent Changes
+- **HERO SECTION GLASSMORPHISM UPGRADE (October 2025)**: Transformed SolarRepairHero with premium glass effects and Advance Power Redding branding
+  - **Glassmorphism Effects**: Added CSS utilities (glass-card, glass-button, shimmer-effect, edge-glow) for frosted glass aesthetic
+  - **Advance Power Branding**: Updated tagline to "Solar Excellence Since 2004", title to "Advance Power of Redding - Complete Solar Solutions"
+  - **Background Image**: Changed from Unsplash URL to local solar panels image at /assets/images/solar-panels-hero.jpg
+  - **Premium Styling**: Glass-card badges with shimmer animations, gradient text, layered edge glows on CTA buttons
+  - **Triage Cards Enhanced**: Glass faces with strong edge highlights, improved visual hierarchy
+  - **Mobile Optimizations**: Reduced blur intensity (12px mobile vs 24px/32px desktop) for better performance
+  - **Accessibility**: Maintained contrast ratios and focus states under glass styling
+  - **Before/After Carousel**: SolarProofCarouselSection properly integrated into Home page with image comparison sliders and testimonials
+  - Files modified: client/src/sections/SolarRepairHero.tsx, client/src/index.css, client/src/pages/Home.tsx
 - **GOOGLE CALENDAR SERVICE - PRODUCTION READY (October 2025)**: Critical refactor to support multiple deployment environments
   - **Multi-Auth Support**: Supports 4 authentication methods with automatic fallback
     1. Replit Connector (auto-managed OAuth via Replit integration) - PRIMARY
