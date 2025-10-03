@@ -648,7 +648,7 @@ const MobileHome = () => {
                                   <PopoverContent className="w-auto p-0 bg-gray-900 text-white" align="start">
                                     <Calendar
                                       mode="single"
-                                      selected={field.value || undefined}
+                                      selected={field.value as Date | undefined}
                                       onSelect={field.onChange}
                                       disabled={(date) => date < new Date()}
                                       initialFocus

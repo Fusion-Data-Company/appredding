@@ -87,10 +87,7 @@ const Construction = () => {
   // Registration mutation
   const registrationMutation = useMutation({
     mutationFn: async (data: ConstructionDistributorFormValues) => {
-      return await apiRequest("/api/construction/registration", {
-        method: "POST",
-        data,
-      });
+      return await apiRequest("POST", "/api/construction/registration", data);
     },
     onSuccess: () => {
       toast({
