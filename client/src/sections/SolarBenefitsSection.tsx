@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { cn } from '@/lib/utils';
 import { 
   DollarSign, 
   Shield, 
@@ -12,58 +13,59 @@ import {
   Award,
   Clock,
   Leaf,
-  Home
+  Home,
+  ArrowUp
 } from 'lucide-react';
 
 const SolarBenefitsSection: React.FC = () => {
   const benefits = [
     {
-      icon: <DollarSign className="w-8 h-8" />,
+      icon: <DollarSign className="w-5 h-5" />,
       title: "NEM 3.0 Load Shifting",
       description: "Recover 25-40% of lost export value with smart battery storage. Charge at midday, discharge 6-9 PM when rates spike under time-of-use plans.",
-      color: "text-green-400",
-      bgColor: "bg-green-500/10",
-      borderColor: "border-green-500/30"
+      tone: "success" as const,
+      highlight: "25-40%",
+      trend: "up" as const
     },
     {
-      icon: <Shield className="w-8 h-8" />,
-      title: "75-80% Export Credit Loss Protection",
+      icon: <Shield className="w-5 h-5" />,
+      title: "Export Credit Protection",
       description: "NEM 3.0 cut export credits from ~$0.30 to $0.05/kWh. Our battery retrofits and load shifting strategies are now essential to maximize ROI.",
-      color: "text-blue-400",
-      bgColor: "bg-blue-500/10",
-      borderColor: "border-blue-500/30"
+      tone: "primary" as const,
+      highlight: "75-80%",
+      trend: "up" as const
     },
     {
-      icon: <Zap className="w-8 h-8" />,
-      title: "PSPS Wildfire Backup Power",
+      icon: <Zap className="w-5 h-5" />,
+      title: "PSPS Wildfire Backup",
       description: "Avoid $250/night hotel costs during PG&E shutoffs. Wildfire-zone residents qualify for SGIP battery rebates up to $1,000/kWh.",
-      color: "text-orange-400",
-      bgColor: "bg-orange-500/10",
-      borderColor: "border-orange-500/30"
+      tone: "warning" as const,
+      highlight: "$1,000/kWh",
+      trend: "up" as const
     },
     {
-      icon: <Award className="w-8 h-8" />,
+      icon: <Award className="w-5 h-5" />,
       title: "Orphaned System Rescue",
       description: "Original installer gone? We rescue stranded solar in 7 days. Repair costs average <40% of full replacement in North State.",
-      color: "text-purple-400",
-      bgColor: "bg-purple-500/10",
-      borderColor: "border-purple-500/30"
+      tone: "default" as const,
+      highlight: "7 Days",
+      trend: "up" as const
     },
     {
-      icon: <TrendingUp className="w-8 h-8" />,
+      icon: <TrendingUp className="w-5 h-5" />,
       title: "AB 942 Home Sale Protection",
       description: "New law eliminates NEM grandfathering on property sale. We provide due diligence inspections and compliance wrap for smooth transfers.",
-      color: "text-emerald-400",
-      bgColor: "bg-emerald-500/10",
-      borderColor: "border-emerald-500/30"
+      tone: "success" as const,
+      highlight: "Protected",
+      trend: "up" as const
     },
     {
-      icon: <Leaf className="w-8 h-8" />,
+      icon: <Leaf className="w-5 h-5" />,
       title: "Local Permitting Expertise",
       description: "5-7 day Shasta County permits. Online submittal for <15kW systems. We handle PE stamps, Title 24 compliance, and REU interconnection.",
-      color: "text-green-300",
-      bgColor: "bg-green-400/10",
-      borderColor: "border-green-400/30"
+      tone: "primary" as const,
+      highlight: "5-7 Days",
+      trend: "up" as const
     }
   ];
 
@@ -103,27 +105,77 @@ const SolarBenefitsSection: React.FC = () => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-          {benefits.map((benefit, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-            >
-              <Card className={`h-full border ${benefit.borderColor} bg-slate-800/50 backdrop-blur-sm hover:bg-slate-800/70 transition-all duration-300`}>
-                <CardHeader>
-                  <div className={`w-16 h-16 rounded-full ${benefit.bgColor} flex items-center justify-center mb-4 ${benefit.color}`}>
-                    {benefit.icon}
+          {benefits.map((benefit, index) => {
+            const toneStyles = {
+              success: {
+                card: "bg-emerald-100/70 dark:bg-emerald-900/30 ring-1 ring-emerald-200/60 dark:ring-emerald-800/60",
+                text: "text-emerald-700 dark:text-emerald-200",
+                highlight: "text-emerald-600 dark:text-emerald-400"
+              },
+              primary: {
+                card: "bg-blue-100/70 dark:bg-blue-900/30 ring-1 ring-blue-200/60 dark:ring-blue-800/60",
+                text: "text-blue-700 dark:text-blue-200",
+                highlight: "text-blue-600 dark:text-blue-400"
+              },
+              warning: {
+                card: "bg-amber-100/70 dark:bg-amber-900/30 ring-1 ring-amber-200/60 dark:ring-amber-800/60",
+                text: "text-amber-700 dark:text-amber-200",
+                highlight: "text-amber-600 dark:text-amber-400"
+              },
+              default: {
+                card: "bg-zinc-100/70 dark:bg-zinc-900/50 ring-1 ring-zinc-200 dark:ring-zinc-800",
+                text: "text-zinc-700 dark:text-zinc-200",
+                highlight: "text-zinc-600 dark:text-zinc-400"
+              }
+            };
+            
+            const styles = toneStyles[benefit.tone];
+            
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <div className={cn(
+                  "relative overflow-hidden rounded-xl shadow-sm p-4 min-h-[200px]",
+                  styles.card
+                )}>
+                  <span className="pointer-events-none absolute -right-6 -top-6 inline-flex h-16 w-16 rounded-full bg-black/5 dark:bg-white/5" />
+                  <span className="pointer-events-none absolute -right-2 -top-2 inline-flex h-8 w-8 rounded-full bg-black/5 dark:bg-white/5" />
+
+                  <div className="flex items-start justify-between gap-3 mb-3">
+                    <div className="space-y-1 flex-1">
+                      <div className="font-medium text-zinc-700 dark:text-zinc-300 text-sm">
+                        {benefit.title}
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-2">
+                      <div className={cn(
+                        "flex items-center gap-1 text-sm font-medium",
+                        styles.highlight
+                      )}>
+                        <ArrowUp className="h-4 w-4" aria-hidden />
+                        {benefit.highlight}
+                      </div>
+                      <div className="rounded-full bg-white/40 p-1.5 dark:bg-white/10">
+                        {benefit.icon}
+                      </div>
+                    </div>
                   </div>
-                  <CardTitle className="text-white text-xl">{benefit.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-slate-300 leading-relaxed">{benefit.description}</p>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
+
+                  <p className={cn("text-sm leading-relaxed", styles.text)}>
+                    {benefit.description}
+                  </p>
+
+                  <div className="bg-current/40 mt-3 h-0.5 w-16 rounded opacity-60" />
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
 
         {/* Incentives Section */}

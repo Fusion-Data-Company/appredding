@@ -182,7 +182,7 @@ const CommercialSolar = () => {
                     
                     <div className="mb-6 space-y-6 text-gray-300">
                       <p className="text-lg">
-                        We specialize in designing, building, and installing top-tier solar power systems tailored to the unique energy needs of your business. Whether you run a small office or a large facility, our commercial solar solutions help reduce operating costs and showcase your commitment to sustainability.
+                        C-46 licensed contractor specializing in PG&E and REU interconnections for commercial projects. We handle complete documentation including single-line diagrams, NEM discovery documents, and PE stamps for structural modifications. Serving the North State I-5 corridor with 25+ years of commercial solar expertise.
                       </p>
                       <p className="text-lg">
                         We handle all aspects of the project so you can focus on running your business, while we deliver reliable solar energy systems that provide decades of cost savings.

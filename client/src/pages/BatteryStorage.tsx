@@ -43,17 +43,17 @@ const BatteryStorage = () => {
     {
       name: "Tesla Powerwall",
       capacity: "13.5 kWh",
-      features: ["10-year warranty", "Smart app control", "Weather resistant", "Stackable design"]
-    },
-    {
-      name: "Enphase IQ Battery",
-      capacity: "3.36 kWh",
-      features: ["Modular design", "AC-coupled", "Safe chemistry", "Easy expansion"]
+      features: ["NEM 3.0 optimized", "Load shifting 6-9 PM", "SGIP eligible", "PSPS backup ready"]
     },
     {
       name: "LG Chem RESU",
       capacity: "9.8 kWh",
-      features: ["Compact design", "High efficiency", "Long lifespan", "Silent operation"]
+      features: ["$1,000/kWh SGIP rebate", "Wildfire zone certified", "25-40% value recovery", "Silent operation"]
+    },
+    {
+      name: "FranklinWH",
+      capacity: "13.6 kWh",
+      features: ["Whole-home backup", "Smart load management", "REU compatible", "7-day rescue support"]
     }
   ];
 

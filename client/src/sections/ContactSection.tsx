@@ -33,7 +33,7 @@ const ContactSection = () => {
     {
       icon: <MapPin className="w-6 h-6" />,
       title: "Service Area",
-      details: "Redding, Anderson, Shasta Lake, Palo Cedro, Cottonwood & All of Northern California"
+      details: "Shasta County, North State I-5 corridor, Trinity & Tehama counties. Stage from Redding hub - $2.10/mile freight delivery"
     },
     {
       icon: <Clock className="w-6 h-6" />,
@@ -43,7 +43,7 @@ const ContactSection = () => {
     {
       icon: <Calendar className="w-6 h-6" />,
       title: "Response Time",
-      details: "Same-day consultations available\nEmergency repairs within 24 hours\nFree estimates within 48 hours"
+      details: "7-day orphaned system rescue\n5-7 day Shasta County permits\nEmergency repair waivers with post-facto inspection"
     }
   ];
 
