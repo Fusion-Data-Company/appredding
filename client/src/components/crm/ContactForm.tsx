@@ -8,7 +8,6 @@ import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import { PraetorianButton } from '@/components/ui/praetorian-button';
 import { X } from 'lucide-react';
 import { useMutation } from '@tanstack/react-query';
 import { queryClient, apiRequest } from '@/lib/queryClient';
@@ -354,13 +353,12 @@ export function ContactForm({ isOpen, onClose, companies }: ContactFormProps) {
               >
                 Cancel
               </Button>
-              <PraetorianButton 
-                variant="fire" 
+              <Button 
                 type="submit" 
-                isLoading={createContactMutation.isPending}
+                disabled={createContactMutation.isPending}
               >
-                Add Contact
-              </PraetorianButton>
+                {createContactMutation.isPending ? "Adding..." : "Add Contact"}
+              </Button>
             </DialogFooter>
           </form>
         </Form>

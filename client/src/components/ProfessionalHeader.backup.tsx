@@ -1,9 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { cn } from "@/lib/utils";
-import bucketImg from "@/assets_dir/icons/praetorian-bucket.png";
-import praetorianBucketNew from "@/assets_dir/icons/praetorian-bucket-new.png";
-import praetorianHeaderImg from "@/assets_dir/images/praetorian-header-no-bg.png";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,

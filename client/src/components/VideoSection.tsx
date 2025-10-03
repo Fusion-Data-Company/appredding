@@ -5,10 +5,6 @@ import { GradientHeading } from "@/components/ui/gradient-heading";
 import { GradientButton } from "@/components/ui/gradient-button";
 // Import the video from assets_dir
 import productDemoVideo from "../assets_dir/videos/product-demo.mp4";
-// Import the hero image to use as background
-import { PRAETORIAN_HERO_IMAGE } from "../assets_dir/imageExports";
-// Import the Praetorian logo with fire background
-import praetorianLogoFire from "../assets_dir/images/praetorian-logo-fire.png";
 
 interface Video {
   id: string;
@@ -48,18 +44,8 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
 
   return (
     <section 
-      className="pt-24 pb-32 relative" 
+      className="pt-24 pb-32 relative bg-gradient-to-br from-gray-900 via-black to-gray-900" 
       id="videos"
-      style={{ 
-        backgroundImage: `url(${PRAETORIAN_HERO_IMAGE})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center center",
-        backgroundRepeat: "no-repeat",
-        backgroundAttachment: "fixed",
-        backgroundColor: "#111111",
-        position: "relative", 
-        zIndex: 0
-      }}
     >
       {/* Enhanced gradient overlay with more depth */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/70 to-black/60" style={{ zIndex: 1 }}></div>
@@ -129,7 +115,7 @@ const VideoSection = ({ videos }: VideoSectionProps) => {
                 </div>
                 
                 <p className="text-gray-300 text-xl max-w-2xl mx-auto relative z-30">
-                  Watch our expert demonstrations of Praetorian's cutting-edge coating solutions in action.
+                  Watch our expert demonstrations of solar energy solutions and installation techniques.
                 </p>
                 
                 {/* Decorative accent line */}

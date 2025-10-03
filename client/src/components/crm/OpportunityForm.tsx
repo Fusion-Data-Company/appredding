@@ -8,7 +8,6 @@ import { Textarea } from '@/components/ui/textarea';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import { PraetorianButton } from '@/components/ui/praetorian-button';
 import { X, CalendarIcon } from 'lucide-react';
 import { useMutation } from '@tanstack/react-query';
 import { queryClient, apiRequest } from '@/lib/queryClient';
@@ -420,13 +419,12 @@ export function OpportunityForm({ isOpen, onClose, contacts, companies }: Opport
               >
                 Cancel
               </Button>
-              <PraetorianButton 
-                variant="fire" 
+              <Button 
                 type="submit" 
-                isLoading={createOpportunityMutation.isPending}
+                disabled={createOpportunityMutation.isPending}
               >
-                Create Opportunity
-              </PraetorianButton>
+                {createOpportunityMutation.isPending ? "Creating..." : "Create Opportunity"}
+              </Button>
             </DialogFooter>
           </form>
         </Form>

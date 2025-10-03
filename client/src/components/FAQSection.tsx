@@ -1,6 +1,5 @@
 import React from 'react';
 import { Card } from "@/components/ui/card";
-import backgroundImg from "../assets_dir/images/optimized/praetorian-background-new.png";
 
 // Simple interface for FAQ data
 interface FAQProps {
@@ -28,16 +27,8 @@ const FAQSection = ({ faqs }: FAQProps) => {
 
   return (
     <section 
-      className="py-32 relative" 
+      className="py-32 relative bg-gradient-to-br from-gray-900 via-black to-gray-900" 
       id="faq"
-      style={{ 
-        backgroundImage: `url(${backgroundImg})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center center",
-        backgroundRepeat: "no-repeat",
-        backgroundAttachment: "fixed",
-        backgroundColor: "#111111",
-      }}
     >
       {/* Dark Overlay */}
       <div className="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>

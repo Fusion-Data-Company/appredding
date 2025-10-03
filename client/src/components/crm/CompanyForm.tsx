@@ -7,7 +7,6 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import { PraetorianButton } from '@/components/ui/praetorian-button';
 import { X } from 'lucide-react';
 import { useMutation } from '@tanstack/react-query';
 import { queryClient, apiRequest } from '@/lib/queryClient';
@@ -454,13 +453,12 @@ export function CompanyForm({ isOpen, onClose }: CompanyFormProps) {
               >
                 Cancel
               </Button>
-              <PraetorianButton 
-                variant="water" 
+              <Button 
                 type="submit" 
-                isLoading={createCompanyMutation.isPending}
+                disabled={createCompanyMutation.isPending}
               >
-                Add Company
-              </PraetorianButton>
+                {createCompanyMutation.isPending ? "Adding..." : "Add Company"}
+              </Button>
             </DialogFooter>
           </form>
         </Form>

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Lamp } from '@/components/ui/lamp';
-import { PraetorianGradientText } from '@/components/ui/praetorian-gradient-text';
-import { PraetorianButton } from '@/components/ui/praetorian-button';
+import { Button } from '@/components/ui/button';
 import { PlusCircle, Database, Users, Settings, Package, LogIn, MessageSquare, FileText } from 'lucide-react';
 
 export const CRMHeader = () => {
@@ -15,14 +14,9 @@ export const CRMHeader = () => {
         className="mb-8"
       >
         <div className="text-center space-y-4">
-          <PraetorianGradientText 
-            variant="dual" 
-            size="4xl" 
-            glow="md" 
-            weight="extrabold"
-          >
+          <h1 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-300 to-blue-400">
             ADVANCE POWER OF REDDING CRM
-          </PraetorianGradientText>
+          </h1>
           <p className="text-white text-lg">
             Solar Installation & Repair Customer Management System
           </p>
@@ -30,58 +24,61 @@ export const CRMHeader = () => {
       </Lamp>
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
-        <PraetorianButton 
-          variant="fire" 
-          leftIcon={<Package size={18} />}
-          fullWidth
-          href="/inventory"
+        <Button 
+          className="w-full"
+          asChild
         >
-          Inventory Management
-        </PraetorianButton>
+          <a href="/inventory" className="flex items-center justify-center gap-2">
+            <Package size={18} />
+            Inventory Management
+          </a>
+        </Button>
         
-        <PraetorianButton 
-          variant="water" 
-          leftIcon={<Database size={18} />}
-          fullWidth
-          href="/crm"
+        <Button 
+          className="w-full"
+          asChild
         >
-          CRM Dashboard
-        </PraetorianButton>
+          <a href="/crm" className="flex items-center justify-center gap-2">
+            <Database size={18} />
+            CRM Dashboard
+          </a>
+        </Button>
         
-        <PraetorianButton 
-          variant="premium" 
-          leftIcon={<LogIn size={18} />}
-          fullWidth
-          href="/crm-login"
+        <Button 
+          className="w-full"
+          asChild
         >
-          Admin Login
-        </PraetorianButton>
+          <a href="/crm-login" className="flex items-center justify-center gap-2">
+            <LogIn size={18} />
+            Admin Login
+          </a>
+        </Button>
       </div>
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
-        <PraetorianButton 
-          variant="metal" 
-          leftIcon={<PlusCircle size={18} />}
-          fullWidth
+        <Button 
+          variant="outline"
+          className="w-full"
         >
+          <PlusCircle size={18} className="mr-2" />
           Add New Contact
-        </PraetorianButton>
+        </Button>
         
-        <PraetorianButton 
-          variant="ghost" 
-          leftIcon={<Users size={18} />}
-          fullWidth
+        <Button 
+          variant="outline"
+          className="w-full"
         >
+          <Users size={18} className="mr-2" />
           Team Directory
-        </PraetorianButton>
+        </Button>
         
-        <PraetorianButton 
-          variant="ghost" 
-          leftIcon={<Settings size={18} />}
-          fullWidth
+        <Button 
+          variant="outline"
+          className="w-full"
         >
+          <Settings size={18} className="mr-2" />
           System Settings
-        </PraetorianButton>
+        </Button>
       </div>
     </div>
   );

@@ -8,7 +8,6 @@ import { Textarea } from '@/components/ui/textarea';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import { PraetorianButton } from '@/components/ui/praetorian-button';
 import { X, CalendarIcon, Clock } from 'lucide-react';
 import { useMutation } from '@tanstack/react-query';
 import { queryClient, apiRequest } from '@/lib/queryClient';
@@ -422,13 +421,12 @@ export function ActivityForm({ isOpen, onClose, contacts, companies, opportuniti
               >
                 Cancel
               </Button>
-              <PraetorianButton 
-                variant="fire" 
+              <Button 
                 type="submit" 
-                isLoading={createActivityMutation.isPending}
+                disabled={createActivityMutation.isPending}
               >
-                Schedule Activity
-              </PraetorianButton>
+                {createActivityMutation.isPending ? "Scheduling..." : "Schedule Activity"}
+              </Button>
             </DialogFooter>
           </form>
         </Form>

@@ -1,33 +1,49 @@
 import React from 'react';
-import heroImage from '@/assets_dir/images/optimized/praetorian-hero-final.webp';
 import { StarsBackground } from '@/components/ui/stars-background';
+import { Sun, Zap, Battery, ShieldCheck } from 'lucide-react';
 
 const HeroSectionFixed = () => {
   return (
     <section className="w-full mt-0 mb-0 pt-0 pb-0">
       <StarsBackground intensity="strong">
-        <div className="w-full flex justify-center">
-          {/* Simple image display with natural dimensions */}
-          <img 
-            src={heroImage}
-            alt="Praetorian Protection Products"
-            className="w-full max-w-[1600px]"
-            style={{ 
-              height: 'auto',
-              marginTop: '0',
-              marginBottom: '0'
-            }}
-          />
-          
-          {/* Overlay gradient */}
-          <div 
-            className="absolute inset-0 pointer-events-none" 
-            style={{
-              background: "radial-gradient(circle at center, transparent 40%, black 100%)",
-              opacity: 0.65,
-              zIndex: 2
-            }}
-          />
+        <div className="w-full flex justify-center items-center min-h-[600px] py-20">
+          <div className="container mx-auto px-4 text-center relative z-10">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-500 to-amber-600">
+              Advance Power Redding
+            </h1>
+            <p className="text-2xl md:text-3xl text-white mb-8">
+              Premium Solar Energy Solutions
+            </p>
+            <p className="text-xl text-gray-300 mb-12 max-w-3xl mx-auto">
+              Powering Northern California with cutting-edge solar technology and exceptional service
+            </p>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+              <div className="flex flex-col items-center">
+                <div className="w-16 h-16 rounded-full bg-amber-500/20 flex items-center justify-center mb-3">
+                  <Sun className="h-8 w-8 text-amber-500" />
+                </div>
+                <span className="text-white font-medium">Solar Panels</span>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className="w-16 h-16 rounded-full bg-blue-500/20 flex items-center justify-center mb-3">
+                  <Battery className="h-8 w-8 text-blue-500" />
+                </div>
+                <span className="text-white font-medium">Energy Storage</span>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className="w-16 h-16 rounded-full bg-green-500/20 flex items-center justify-center mb-3">
+                  <Zap className="h-8 w-8 text-green-500" />
+                </div>
+                <span className="text-white font-medium">Inverters</span>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className="w-16 h-16 rounded-full bg-purple-500/20 flex items-center justify-center mb-3">
+                  <ShieldCheck className="h-8 w-8 text-purple-500" />
+                </div>
+                <span className="text-white font-medium">Installation</span>
+              </div>
+            </div>
+          </div>
         </div>
       </StarsBackground>
     </section>

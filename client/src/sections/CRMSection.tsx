@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { PraetorianButton } from '@/components/ui/praetorian-button';
+import { Button } from '@/components/ui/button';
 import { 
   Users, 
   Building2, 
@@ -104,14 +104,14 @@ export default function CRMSection() {
         
         <div className="flex flex-wrap gap-2">
           {/* Admin CRM Login Button */}
-          <PraetorianButton
-            variant="premium"
-            size="md"
-            leftIcon={<Users size={16} />}
-            href="/crm-login"
+          <Button
+            asChild
           >
-            CRM Admin Login
-          </PraetorianButton>
+            <a href="/crm-login" className="flex items-center gap-2">
+              <Users size={16} />
+              CRM Admin Login
+            </a>
+          </Button>
           
           {/* CSV Import Button with data refresh */}
           <CSVImportForm 
@@ -123,41 +123,33 @@ export default function CRMSection() {
             }} 
           />
           
-          <PraetorianButton
-            variant="water"
-            size="md"
-            leftIcon={<PlusCircle size={16} />}
+          <Button
             onClick={() => setContactModalOpen(true)}
           >
+            <PlusCircle size={16} className="mr-2" />
             Add Contact
-          </PraetorianButton>
+          </Button>
           
-          <PraetorianButton
-            variant="fire"
-            size="md"
-            leftIcon={<PlusCircle size={16} />}
+          <Button
             onClick={() => setCompanyModalOpen(true)}
           >
+            <PlusCircle size={16} className="mr-2" />
             Add Company
-          </PraetorianButton>
+          </Button>
           
-          <PraetorianButton
-            variant="premium"
-            size="md"
-            leftIcon={<PlusCircle size={16} />}
+          <Button
             onClick={() => setOpportunityModalOpen(true)}
           >
+            <PlusCircle size={16} className="mr-2" />
             New Opportunity
-          </PraetorianButton>
+          </Button>
           
-          <PraetorianButton
-            variant="metal"
-            size="md"
-            leftIcon={<PlusCircle size={16} />}
+          <Button
             onClick={() => setActivityModalOpen(true)}
           >
+            <PlusCircle size={16} className="mr-2" />
             Schedule Activity
-          </PraetorianButton>
+          </Button>
         </div>
       </div>
 
@@ -202,13 +194,12 @@ export default function CRMSection() {
             <div className="card-premium p-8 text-center">
               <h3 className="text-xl font-bold mb-4">No Contacts Yet</h3>
               <p className="text-gray-400 mb-6">Add your first contact to start building your network</p>
-              <PraetorianButton
-                variant="water"
+              <Button
                 onClick={() => setContactModalOpen(true)}
-                leftIcon={<PlusCircle size={16} />}
               >
+                <PlusCircle size={16} className="mr-2" />
                 Add Contact
-              </PraetorianButton>
+              </Button>
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -265,13 +256,12 @@ export default function CRMSection() {
             <div className="card-premium p-8 text-center">
               <h3 className="text-xl font-bold mb-4">No Companies Yet</h3>
               <p className="text-gray-400 mb-6">Add your first company to start tracking business relationships</p>
-              <PraetorianButton
-                variant="fire"
+              <Button
                 onClick={() => setCompanyModalOpen(true)}
-                leftIcon={<PlusCircle size={16} />}
               >
+                <PlusCircle size={16} className="mr-2" />
                 Add Company
-              </PraetorianButton>
+              </Button>
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -317,13 +307,12 @@ export default function CRMSection() {
             <div className="card-premium p-8 text-center">
               <h3 className="text-xl font-bold mb-4">No Opportunities Yet</h3>
               <p className="text-gray-400 mb-6">Create your first opportunity to track potential deals</p>
-              <PraetorianButton
-                variant="premium"
+              <Button
                 onClick={() => setOpportunityModalOpen(true)}
-                leftIcon={<PlusCircle size={16} />}
               >
+                <PlusCircle size={16} className="mr-2" />
                 New Opportunity
-              </PraetorianButton>
+              </Button>
             </div>
           ) : (
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -383,14 +372,15 @@ export default function CRMSection() {
                 <p className="text-gray-400 text-sm">Manage SmartCoat product stock levels</p>
               </div>
               
-              <PraetorianButton
-                variant="fire"
+              <Button
                 size="sm"
-                leftIcon={<PlusCircle size={16} />}
-                href="/inventory"
+                asChild
               >
-                Full Inventory
-              </PraetorianButton>
+                <a href="/inventory" className="flex items-center gap-2">
+                  <PlusCircle size={16} />
+                  Full Inventory
+                </a>
+              </Button>
             </div>
             <InventoryTable isAdmin={true} />
           </div>
@@ -400,13 +390,12 @@ export default function CRMSection() {
           <div className="card-premium p-8">
             <div className="flex justify-between items-center mb-6">
               <h3 className="text-xl font-bold">Activity Calendar</h3>
-              <PraetorianButton
-                variant="metal"
+              <Button
                 onClick={() => setActivityModalOpen(true)}
-                leftIcon={<PlusCircle size={16} />}
               >
+                <PlusCircle size={16} className="mr-2" />
                 Schedule Activity
-              </PraetorianButton>
+              </Button>
             </div>
             
             <div className="grid grid-cols-7 gap-2">
