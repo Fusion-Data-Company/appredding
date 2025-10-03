@@ -32,7 +32,7 @@ const ROICalculator = () => {
                 ROI Calculator
               </GradientHeading>
               <p className="text-xl text-gray-300 mb-8">
-                Calculate your potential savings and return on investment with our specialized tools
+                NEM 3.0 load shifting recovers 25-40% of lost export value. Avoid $250/night hotel costs during PSPS events. Real calculations based on current Shasta County rates and SGIP incentives.
               </p>
             </motion.div>
           </div>

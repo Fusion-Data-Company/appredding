@@ -41,7 +41,7 @@ const Construction = () => {
   
   // Define SEO metadata
   const title = "Advance Power Redding – Construction Solar Solutions";
-  const description = "Commercial solar installations for construction sites and building projects. Reduce operational costs and demonstrate environmental leadership with our durable solar solutions.";
+  const description = "Shasta County Building Division compliant installations. PE stamps for structural modifications, 5-7 day permit processing, online submittal for systems under 15kW, C-46 licensed contractors.";
   const slug = "construction";
   const heroImagePath = "/src/assets_dir/images/construction-hero.png";
   

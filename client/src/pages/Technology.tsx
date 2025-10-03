@@ -16,7 +16,7 @@ const Technology = () => {
     <MainLayout fullWidth>
       <Helmet>
         <title>NASA Ceramic Technology | Praetorian SmartCoat Solutions</title>
-        <meta name="description" content="Explore the science behind Praetorian's NASA-derived ceramic coating technology with Class A fire rating (0/0 flame spread), 156% elastomeric flexibility, and 30+ year verified performance." />
+        <meta name="description" content="Solar monitoring systems including Sense energy monitors, Solar Analytics, and Home Assistant integration. Real-time performance tracking for NEM 3.0 optimization and SGIP compliance in Shasta County." />
       </Helmet>
       
       

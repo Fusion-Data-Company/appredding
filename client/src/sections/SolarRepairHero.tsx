@@ -219,32 +219,53 @@ const SolarRepairHero: React.FC<SolarRepairHeroProps> = ({
               </h2>
             </div>
             <div className="grid md:grid-cols-3 gap-6 mb-12">
-              <div className="bg-card/80 backdrop-blur-sm rounded-lg p-6 border border-border glass-card-strong edge-glow-strong">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-                  <Phone className="w-6 h-6 text-primary" />
+              <div className="relative overflow-hidden rounded-xl p-6 backdrop-blur-sm bg-gradient-to-br from-orange-50 to-orange-100 dark:from-orange-900/90 dark:to-orange-800/90 ring-2 ring-orange-300/80 dark:ring-orange-600/80 shadow-lg shadow-orange-200/50 dark:shadow-orange-900/50">
+                <span className="pointer-events-none absolute -right-6 -top-6 inline-flex h-16 w-16 rounded-full bg-white/30 dark:bg-white/10" />
+                <span className="pointer-events-none absolute -right-2 -top-2 inline-flex h-8 w-8 rounded-full bg-white/40 dark:bg-white/15" />
+                <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent dark:from-white/5 pointer-events-none" />
+                
+                <div className="relative z-10">
+                  <div className="w-12 h-12 rounded-full bg-white/60 dark:bg-white/20 shadow-md flex items-center justify-center mb-4">
+                    <Phone className="w-6 h-6 text-orange-700 dark:text-orange-300" />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2 text-orange-900 dark:text-orange-100">1. Contact Us</h3>
+                  <p className="text-orange-800 dark:text-orange-100 text-sm">
+                    Call or schedule online. Our team responds within 2 hours for emergency repairs.
+                  </p>
+                  <div className="bg-current/40 mt-4 h-0.5 w-16 rounded opacity-60" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2 text-card-foreground">1. Contact Us</h3>
-                <p className="text-muted-foreground">
-                  Call or schedule online. Our team responds within 2 hours for emergency repairs.
-                </p>
               </div>
-              <div className="bg-card/80 backdrop-blur-sm rounded-lg p-6 border border-border glass-card-strong edge-glow-strong">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-                  <Wrench className="w-6 h-6 text-primary" />
+              <div className="relative overflow-hidden rounded-xl p-6 backdrop-blur-sm bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/90 dark:to-blue-800/90 ring-2 ring-blue-300/80 dark:ring-blue-600/80 shadow-lg shadow-blue-200/50 dark:shadow-blue-900/50">
+                <span className="pointer-events-none absolute -right-6 -top-6 inline-flex h-16 w-16 rounded-full bg-white/30 dark:bg-white/10" />
+                <span className="pointer-events-none absolute -right-2 -top-2 inline-flex h-8 w-8 rounded-full bg-white/40 dark:bg-white/15" />
+                <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent dark:from-white/5 pointer-events-none" />
+                
+                <div className="relative z-10">
+                  <div className="w-12 h-12 rounded-full bg-white/60 dark:bg-white/20 shadow-md flex items-center justify-center mb-4">
+                    <Wrench className="w-6 h-6 text-blue-700 dark:text-blue-300" />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2 text-blue-900 dark:text-blue-100">2. Diagnosis</h3>
+                  <p className="text-blue-800 dark:text-blue-100 text-sm">
+                    Comprehensive system inspection to identify issues and provide transparent pricing.
+                  </p>
+                  <div className="bg-current/40 mt-4 h-0.5 w-16 rounded opacity-60" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2 text-card-foreground">2. Diagnosis</h3>
-                <p className="text-muted-foreground">
-                  Comprehensive system inspection to identify issues and provide transparent pricing.
-                </p>
               </div>
-              <div className="bg-card/80 backdrop-blur-sm rounded-lg p-6 border border-border glass-card-strong edge-glow-strong">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-                  <Calendar className="w-6 h-6 text-primary" />
+              <div className="relative overflow-hidden rounded-xl p-6 backdrop-blur-sm bg-gradient-to-br from-emerald-50 to-emerald-100 dark:from-emerald-900/90 dark:to-emerald-800/90 ring-2 ring-emerald-300/80 dark:ring-emerald-600/80 shadow-lg shadow-emerald-200/50 dark:shadow-emerald-900/50">
+                <span className="pointer-events-none absolute -right-6 -top-6 inline-flex h-16 w-16 rounded-full bg-white/30 dark:bg-white/10" />
+                <span className="pointer-events-none absolute -right-2 -top-2 inline-flex h-8 w-8 rounded-full bg-white/40 dark:bg-white/15" />
+                <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent dark:from-white/5 pointer-events-none" />
+                
+                <div className="relative z-10">
+                  <div className="w-12 h-12 rounded-full bg-white/60 dark:bg-white/20 shadow-md flex items-center justify-center mb-4">
+                    <Calendar className="w-6 h-6 text-emerald-700 dark:text-emerald-300" />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2 text-emerald-900 dark:text-emerald-100">3. Repair</h3>
+                  <p className="text-emerald-800 dark:text-emerald-100 text-sm">
+                    Expert repairs with warranty-backed parts. Most repairs completed same-day.
+                  </p>
+                  <div className="bg-current/40 mt-4 h-0.5 w-16 rounded opacity-60" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2 text-card-foreground">3. Repair</h3>
-                <p className="text-muted-foreground">
-                  Expert repairs with warranty-backed parts. Most repairs completed same-day.
-                </p>
               </div>
             </div>
 
