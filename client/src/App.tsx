@@ -1,4 +1,4 @@
-import { Switch, Route, useLocation } from "wouter";
+import { Switch, Route, useLocation, Redirect } from "wouter";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
@@ -37,6 +37,7 @@ import AuthPage from "@/pages/auth-page";
 import ClientDashboard from "@/pages/client-dashboard";
 import AdminDashboard from "@/pages/admin-dashboard";
 const About = lazy(() => import('./pages/About'));
+const Applications = lazy(() => import('./pages/Applications'));
 import Team from "@/pages/Team";
 import Contact from "@/pages/Contact";
 import Commerce from "@/pages/Commerce";
@@ -78,6 +79,80 @@ function Router() {
 
   return (
     <Switch>
+      {/* Redirects for old URLs to new structure */}
+      <Route path="/residential-solar">
+        {() => <Redirect to="/services/residential-solar" replace />}
+      </Route>
+      <Route path="/commercial-solar">
+        {() => <Redirect to="/services/commercial-solar" replace />}
+      </Route>
+      <Route path="/hybrid-solar">
+        {() => <Redirect to="/services/hybrid-solar" replace />}
+      </Route>
+      <Route path="/battery-storage">
+        {() => <Redirect to="/services/battery-storage" replace />}
+      </Route>
+      <Route path="/maintenance">
+        {() => <Redirect to="/services/maintenance" replace />}
+      </Route>
+      <Route path="/repairs">
+        {() => <Redirect to="/services/repairs" replace />}
+      </Route>
+      <Route path="/energy-conservation">
+        {() => <Redirect to="/services/energy-conservation" replace />}
+      </Route>
+      <Route path="/lithium-battery">
+        {() => <Redirect to="/services/lithium-battery" replace />}
+      </Route>
+      <Route path="/mobile-home">
+        {() => <Redirect to="/solutions/mobile-homes" replace />}
+      </Route>
+      <Route path="/municipality">
+        {() => <Redirect to="/solutions/municipalities" replace />}
+      </Route>
+      <Route path="/construction">
+        {() => <Redirect to="/solutions/construction" replace />}
+      </Route>
+      <Route path="/data-processing">
+        {() => <Redirect to="/solutions/data-centers" replace />}
+      </Route>
+      <Route path="/financial-center">
+        {() => <Redirect to="/solutions/financial-centers" replace />}
+      </Route>
+      <Route path="/products">
+        {() => <Redirect to="/shop/products" replace />}
+      </Route>
+      <Route path="/cart">
+        {() => <Redirect to="/shop/cart" replace />}
+      </Route>
+      <Route path="/checkout">
+        {() => <Redirect to="/shop/checkout" replace />}
+      </Route>
+      <Route path="/product-comparison">
+        {() => <Redirect to="/shop/product-comparison" replace />}
+      </Route>
+      <Route path="/technology">
+        {() => <Redirect to="/resources/technology" replace />}
+      </Route>
+      <Route path="/technical-data">
+        {() => <Redirect to="/resources/technical-data" replace />}
+      </Route>
+      <Route path="/roi-calculator">
+        {() => <Redirect to="/resources/roi-calculator" replace />}
+      </Route>
+      <Route path="/book-appointment">
+        {() => <Redirect to="/resources/book-appointment" replace />}
+      </Route>
+      <Route path="/crm">
+        {() => <Redirect to="/platform/crm" replace />}
+      </Route>
+      <Route path="/analytics">
+        {() => <Redirect to="/platform/analytics" replace />}
+      </Route>
+      <Route path="/inventory">
+        {() => <Redirect to="/platform/inventory" replace />}
+      </Route>
+      
       {/* Core Marketing Pages */}
       <Route path="/" component={Home} />
       <Route path="/about">
@@ -100,6 +175,11 @@ function Router() {
       <Route path="/services/lithium-battery" component={LithiumBattery} />
       
       {/* Industry Solutions Pages */}
+      <Route path="/solutions">
+        <Suspense fallback={<SuspenseFallback message="Loading Solutions..." operationName="applications-page" />}>
+          <Applications />
+        </Suspense>
+      </Route>
       <Route path="/solutions/mobile-homes" component={MobileHome} />
       <Route path="/solutions/municipalities" component={Municipality} />
       <Route path="/solutions/construction">
