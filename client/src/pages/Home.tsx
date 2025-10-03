@@ -9,7 +9,7 @@ const LazySection = lazy(() => import("@/components/ui/lazy-section").then(m => 
 const Home = () => {
   return (
     <MainLayout fullWidth>
-      <div className="flex-1 flex flex-col -mt-24 md:-mt-20">
+      <div className="flex-1 flex flex-col">
         <HeroSection />
 
         <Suspense fallback={<div className="h-[500px] bg-slate-800 animate-pulse rounded-lg" />}>
