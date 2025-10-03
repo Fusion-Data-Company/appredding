@@ -294,11 +294,11 @@ function App() {
               plugins: [ReactPlugin],
               theme: 'dark',
               position: 'bottom-right',
-              autoConnect: true,
+              autoConnect: false, // Disable auto-connect in Replit
               development: true,
-              retryConnection: true,
-              maxRetries: 3,
-              retryDelay: 2000
+              standalone: true, // Run in standalone mode
+              hideConnectionError: true, // Hide connection errors in Replit
+              showToolbar: true
             }}
           />
         )}

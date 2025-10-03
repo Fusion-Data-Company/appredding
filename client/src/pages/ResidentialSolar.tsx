@@ -46,7 +46,7 @@ import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
 import SEOHead from "@/components/SEOHead";
-import SolarSalesFunnelSection from "@/sections/SolarSalesFunnelSection";
+import SolarRescueFunnelSection from '@/sections/SolarSalesFunnelSection';
 
 import PageHeroSection from "@/components/sections/PageHeroSection";
 import ContentSection from "@/components/sections/ContentSection";
@@ -304,7 +304,7 @@ const ResidentialSolar = () => {
       </section>
 
       {/* Solar Sales Funnel Section */}
-      <SolarSalesFunnelSection />
+      <SolarRescueFunnelSection />
 
       {/* NEM 3.0 Technical Deep Dive */}
       <ContentSection

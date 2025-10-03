@@ -57,6 +57,7 @@ import { motion } from "framer-motion";
 import SEOHead from "@/components/SEOHead";
 import { preloadCriticalImages } from "@/lib/image-helper";
 import { generateStructuredData, getIndustryKeywords } from "@/lib/seo-helper";
+import { SandlerSolarFunnel } from "@/sections/SandlerSolarFunnel";
 
 // Define schema for Lithium Battery form
 const lithiumBatteryFormSchema = z.object({
@@ -204,121 +205,169 @@ const LithiumBattery = () => {
         {/* Subtle animated grid overlay */}
         <div className="fixed inset-0 z-[-2] opacity-10 bg-[url('/src/assets_dir/images/grid-pattern.svg')] bg-repeat"></div>
 
-        {/* SANDLER STAGE 0: INTRO - BLUE GLOW SECTION */}
-        <section className="relative z-10 py-16 md:py-24 overflow-hidden">
-          <div className="container mx-auto">
-            <div className="flex flex-col lg:flex-row items-center gap-8">
-              {/* Left column with text content */}
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7 }}
-                className="lg:w-1/2 relative"
-              >
-                <div className="relative">
-                  {/* Blue glow effect with multi-layered design */}
-                  <div className="absolute -inset-10 bg-blue-500/20 rounded-xl blur-xl opacity-70 z-0"></div>
-                  <div className="absolute -inset-20 bg-blue-600/10 rounded-xl blur-2xl opacity-50 z-0"></div>
-                  <div className="absolute -inset-30 bg-blue-700/5 rounded-xl blur-3xl opacity-30 z-0 animate-pulse-slow"></div>
-                  
-                  {/* Content card with premium effects */}
-                  <div className="relative z-20 rounded-2xl overflow-hidden p-8 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-blue-700/30 shadow-lg">
-                    {/* Premium corner accents */}
-                    <div className="absolute bottom-1 left-1 w-12 h-12 border-b border-l border-blue-500/30 rounded-bl-md"></div>
-                    <div className="absolute bottom-1 right-1 w-12 h-12 border-b border-r border-blue-500/30 rounded-br-md"></div>
-                    <div className="absolute top-1 left-1 w-12 h-12 border-t border-l border-blue-500/30 rounded-tl-md"></div>
-                    <div className="absolute top-1 right-1 w-12 h-12 border-t border-r border-blue-500/30 rounded-tr-md"></div>
-                  
-                    <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-blue-100 to-blue-300">
-                      Lithium Battery Services
-                    </h1>
-                    
-                    <div className="mb-6 space-y-6 text-gray-300">
-                      <p className="text-lg">
-                        Advance Power Redding offers advanced lithium-ion battery technology delivering efficient and long-lasting energy storage solutions. Our lithium battery systems come with a 10-year warranty and require no maintenance, operating efficiently in all temperatures.
-                      </p>
-                      <p className="text-lg">
-                        These systems are far superior to lead acid batteries - they're more efficient, last longer, and can be added to existing solar or new systems for reliable backup power storage.
-                      </p>
-                    </div>
-                    
-                    <div className="flex flex-wrap gap-4 mb-6">
-                      <div className="flex items-center space-x-2">
-                        <Battery className="h-5 w-5 text-blue-400" />
-                        <span className="text-gray-200">10-Year Warranty</span>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <Thermometer className="h-5 w-5 text-blue-400" />
-                        <span className="text-gray-200">All-Temperature Operation</span>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <Award className="h-5 w-5 text-blue-400" />
-                        <span className="text-gray-200">Maintenance-Free</span>
-                      </div>
-                    </div>
-                    
-                    <div className="flex flex-wrap gap-4">
-                      <Button 
-                        className="relative group overflow-hidden bg-gradient-to-r from-gray-800 to-gray-950 border border-gray-700 hover:border-blue-500 transition-all duration-300 px-6 py-2 shadow-lg"
-                        onClick={handleShowConsultationForm}
-                      >
-                        <span className="relative z-10 text-white group-hover:text-blue-200 transition-colors duration-300">
-                          Get Battery Quote
-                        </span>
-                        <span className="absolute inset-0 bg-blue-600 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></span>
-                      </Button>
-                      <Button 
-                        variant="outline" 
-                        className="border-gray-600 text-blue-400 hover:text-blue-300 hover:border-blue-500"
-                      >
-                        Learn More
-                      </Button>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
+        {/* SANDLER SOLAR FUNNEL - AUTO-ROTATING CARD FUNNEL */}
+        <SandlerSolarFunnel 
+          title="Your Path to Advanced Battery Storage"
+          subtitle="Join thousands of homeowners and businesses who have upgraded to efficient, long-lasting lithium battery systems"
+          steps={[
+            {
+              step: "Step 1",
+              title: "Free Battery Assessment",
+              description: "Get a personalized energy storage analysis for your property with zero obligation. Our experts evaluate your energy needs, backup requirements, and solar integration potential.",
+              icon: <Battery className="w-6 h-6" />,
+              benefit: "Know your storage potential in minutes"
+            },
+            {
+              step: "Step 2",
+              title: "Custom Battery Design",
+              description: "Receive a tailored lithium battery solution designed specifically for your energy independence goals and budget. Our LiFePO4 systems integrate seamlessly with solar.",
+              icon: <Shield className="w-6 h-6" />,
+              benefit: "Optimized for maximum reliability"
+            },
+            {
+              step: "Step 3",
+              title: "Energy Independence",
+              description: "Begin storing clean energy and enjoy reliable backup power. Our lithium batteries deliver 10+ year lifespan with zero maintenance required.",
+              icon: <Zap className="w-6 h-6" />,
+              benefit: "Maintenance-free operation from day one"
+            }
+          ]}
+          ctaText="Get Your Free Battery Assessment"
+          onCtaClick={handleShowConsultationForm}
+        />
+
+        {/* NEW: LiFePO4 CHEMISTRY TECHNICAL SECTION */}
+        <section className="relative z-10 py-12 overflow-hidden">
+          <div className="container mx-auto mb-16">
+            <div className="relative">
+              {/* Cyan/Tech glow effect */}
+              <div className="absolute -inset-10 bg-cyan-500/20 rounded-xl blur-xl opacity-70 z-0"></div>
+              <div className="absolute -inset-20 bg-cyan-600/10 rounded-xl blur-2xl opacity-50 z-0"></div>
+              <div className="absolute -inset-30 bg-cyan-700/5 rounded-xl blur-3xl opacity-30 z-0 animate-pulse-slow"></div>
               
-              {/* Right column with image */}
-              <motion.div 
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.7, delay: 0.2 }}
-                className="lg:w-1/2"
-              >
-                <div className="relative">
-                  {/* Premium image container with decorative elements */}
-                  <div className="relative rounded-2xl overflow-hidden border border-blue-700/30 shadow-lg">
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-900/30 to-black/80 mix-blend-overlay z-10"></div>
-                    
-                    {/* Hero Image */}
-                    <img 
-                      src="/src/assets_dir/images/lithium-battery-hero.jpg" 
-                      alt="Lithium battery storage system by Advance Power Redding" 
-                      className="w-full h-auto max-h-[500px] object-cover object-center"
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.src = "/src/assets_dir/images/optimized/praetorian-background-new.png";
-                      }}
-                    />
-                    
-                    {/* Premium overlay elements */}
-                    <div className="absolute top-0 left-0 w-20 h-20 border-t-2 border-l-2 border-blue-400/40 rounded-tl-xl"></div>
-                    <div className="absolute bottom-0 right-0 w-20 h-20 border-b-2 border-r-2 border-blue-400/40 rounded-br-xl"></div>
-                    
-                    {/* Image caption */}
-                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 z-20">
-                      <p className="text-sm text-gray-300 text-center">Advanced lithium battery system with intelligent management for reliable energy storage</p>
+              {/* Content card */}
+              <div className="relative z-20 rounded-2xl overflow-hidden p-8 bg-gradient-to-br from-gray-900/95 via-black/98 to-gray-900/95 border border-cyan-700/30 shadow-lg">
+                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-cyan-100 to-cyan-300">
+                  LiFePO4 Chemistry: The Safest Battery Technology
+                </h2>
+                
+                <div className="mb-10">
+                  <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-cyan-700/20 shadow-md">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-6">
+                      <div>
+                        <h3 className="text-xl font-bold mb-4 text-cyan-300">Lithium Iron Phosphate (LiFePO4) Cell Technology</h3>
+                        <p className="text-gray-300 mb-4">
+                          Our APR Battery systems use LiFePO4 chemistry - the safest and most stable lithium battery technology available. Unlike other chemistries, LiFePO4 has inherent thermal stability with no risk of thermal runaway.
+                        </p>
+                        <ul className="space-y-3">
+                          <li className="flex items-start">
+                            <Shield className="h-5 w-5 text-cyan-400 mr-2 flex-shrink-0 mt-0.5" />
+                            <span className="text-gray-300"><strong className="text-cyan-300">Thermal Runaway Temperature:</strong> {">"}200°C (392°F) - No thermal runaway risk under normal operation</span>
+                          </li>
+                          <li className="flex items-start">
+                            <Battery className="h-5 w-5 text-cyan-400 mr-2 flex-shrink-0 mt-0.5" />
+                            <span className="text-gray-300"><strong className="text-cyan-300">Cell Specifications:</strong> 3.2V nominal voltage, 280Ah capacity per cell</span>
+                          </li>
+                          <li className="flex items-start">
+                            <Thermometer className="h-5 w-5 text-cyan-400 mr-2 flex-shrink-0 mt-0.5" />
+                            <span className="text-gray-300"><strong className="text-cyan-300">Operating Range:</strong> -20°C to 60°C (-4°F to 140°F)</span>
+                          </li>
+                        </ul>
+                      </div>
+                      
+                      <div>
+                        <h3 className="text-xl font-bold mb-4 text-cyan-300">Exceptional Performance & Longevity</h3>
+                        <ul className="space-y-3">
+                          <li className="flex items-start">
+                            <TrendingUp className="h-5 w-5 text-cyan-400 mr-2 flex-shrink-0 mt-0.5" />
+                            <span className="text-gray-300"><strong className="text-cyan-300">Cycle Life:</strong> 6,000+ cycles @ 80% DOD, 10,000+ cycles @ 50% DOD</span>
+                          </li>
+                          <li className="flex items-start">
+                            <Zap className="h-5 w-5 text-cyan-400 mr-2 flex-shrink-0 mt-0.5" />
+                            <span className="text-gray-300"><strong className="text-cyan-300">Round-trip Efficiency:</strong> 95%+ DC-DC (industry leading)</span>
+                          </li>
+                          <li className="flex items-start">
+                            <Settings className="h-5 w-5 text-cyan-400 mr-2 flex-shrink-0 mt-0.5" />
+                            <span className="text-gray-300"><strong className="text-cyan-300">BMS Communication:</strong> CAN bus, RS485, Modbus protocols for seamless integration</span>
+                          </li>
+                          <li className="flex items-start">
+                            <Award className="h-5 w-5 text-cyan-400 mr-2 flex-shrink-0 mt-0.5" />
+                            <span className="text-gray-300"><strong className="text-cyan-300">Safety Certifications:</strong> UL 9540 & UL 1973 fire safety certified</span>
+                          </li>
+                        </ul>
+                      </div>
                     </div>
                   </div>
+                </div>
+                
+                {/* Chemistry Comparison Table */}
+                <div className="bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 rounded-lg border border-cyan-700/20 shadow-md">
+                  <h3 className="text-xl font-bold mb-6 text-cyan-300 text-center">Battery Chemistry Comparison</h3>
                   
-                  {/* Stats overlay */}
-                  <div className="absolute -bottom-6 -right-6 bg-gradient-to-br from-gray-900 to-gray-950 border border-blue-700/30 rounded-lg p-4 shadow-lg z-30">
-                    <p className="text-blue-400 font-semibold">Cycle Life</p>
-                    <p className="text-3xl font-bold text-white">10,000+<sup className="text-blue-300 text-xs">*</sup></p>
-                    <p className="text-xs text-gray-400">*Charge cycles</p>
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-left text-gray-300">
+                      <thead>
+                        <tr className="border-b border-cyan-700/30">
+                          <th className="pb-3 pr-4">Feature</th>
+                          <th className="pb-3 px-4 text-cyan-300">LiFePO4 (Our Choice)</th>
+                          <th className="pb-3 px-4">NMC Lithium</th>
+                          <th className="pb-3 pl-4">Lead-Acid</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-cyan-700/20">
+                        <tr>
+                          <td className="py-3 pr-4 font-medium">Cycle Life</td>
+                          <td className="py-3 px-4 text-cyan-300 font-semibold">6,000-10,000+</td>
+                          <td className="py-3 px-4">2,000-3,000</td>
+                          <td className="py-3 pl-4">500-1,000</td>
+                        </tr>
+                        <tr>
+                          <td className="py-3 pr-4 font-medium">Thermal Safety</td>
+                          <td className="py-3 px-4 text-cyan-300 font-semibold">Excellent ({">"}200°C)</td>
+                          <td className="py-3 px-4">Moderate (150°C)</td>
+                          <td className="py-3 pl-4">Good</td>
+                        </tr>
+                        <tr>
+                          <td className="py-3 pr-4 font-medium">Round-trip Efficiency</td>
+                          <td className="py-3 px-4 text-cyan-300 font-semibold">95%+</td>
+                          <td className="py-3 px-4">90-92%</td>
+                          <td className="py-3 pl-4">70-80%</td>
+                        </tr>
+                        <tr>
+                          <td className="py-3 pr-4 font-medium">Depth of Discharge</td>
+                          <td className="py-3 px-4 text-cyan-300 font-semibold">80-100%</td>
+                          <td className="py-3 px-4">80%</td>
+                          <td className="py-3 pl-4">50%</td>
+                        </tr>
+                        <tr>
+                          <td className="py-3 pr-4 font-medium">Maintenance</td>
+                          <td className="py-3 px-4 text-cyan-300 font-semibold">None Required</td>
+                          <td className="py-3 px-4">Minimal</td>
+                          <td className="py-3 pl-4">Monthly</td>
+                        </tr>
+                        <tr>
+                          <td className="py-3 pr-4 font-medium">Temperature Range</td>
+                          <td className="py-3 px-4 text-cyan-300 font-semibold">-20°C to 60°C</td>
+                          <td className="py-3 px-4">0°C to 45°C</td>
+                          <td className="py-3 pl-4">-5°C to 40°C</td>
+                        </tr>
+                        <tr>
+                          <td className="py-3 pr-4 font-medium">Warranty Period</td>
+                          <td className="py-3 px-4 text-cyan-300 font-semibold">10 Years</td>
+                          <td className="py-3 px-4">5-7 Years</td>
+                          <td className="py-3 pl-4">1-3 Years</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  
+                  <div className="mt-6 p-4 bg-cyan-900/20 rounded-lg border border-cyan-700/30">
+                    <p className="text-sm text-gray-300 text-center">
+                      <strong className="text-cyan-300">Why LiFePO4?</strong> Superior safety, longest lifespan, highest efficiency, and zero maintenance make LiFePO4 the clear choice for reliable energy storage systems.
+                    </p>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             </div>
           </div>
         </section>

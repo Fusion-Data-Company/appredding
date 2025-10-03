@@ -43,60 +43,9 @@ import { motion } from "framer-motion";
 import SEOHead from "@/components/SEOHead";
 import { preloadCriticalImages } from "@/lib/image-helper";
 import { generateStructuredData, getIndustryKeywords } from "@/lib/seo-helper";
-import { SolarFunnel } from "@/sections/SolarFunnelDynamicSection";
+import SolarRescueFunnelSection from '@/sections/SolarSalesFunnelSection';
 
 type EnergyConservationFormValues = ServiceConsultationFormValues;
-
-const energyConservationStages = [
-  {
-    id: 'audit',
-    title: 'Energy Audit & Analysis',
-    description: 'Comprehensive home energy assessment using blower door testing, infrared thermography, and advanced diagnostic equipment to identify inefficiencies.',
-    status: 'completed' as const,
-    color: 'red' as const,
-    icon: <Eye className="h-6 w-6" />,
-    metrics: [
-      { label: 'Audits Completed', value: '500+' },
-      { label: 'Avg Savings Found', value: '35%' },
-    ],
-  },
-  {
-    id: 'planning',
-    title: 'Conservation Planning',
-    description: 'Title 24 compliance strategies, LED lighting design (80-90% energy reduction), HVAC optimization plans, and building envelope improvements prioritized by ROI.',
-    status: 'completed' as const,
-    color: 'yellow' as const,
-    icon: <Lightbulb className="h-6 w-6" />,
-    metrics: [
-      { label: 'Custom Plans', value: '450+' },
-      { label: 'Rebate Success', value: '92%' },
-    ],
-  },
-  {
-    id: 'implementation',
-    title: 'Efficiency Upgrades',
-    description: 'Professional installation of LED systems, heat pump retrofits, smart thermostats, insulation (R-values to code), air sealing, and heat pump water heaters (300% efficiency).',
-    status: 'active' as const,
-    color: 'green' as const,
-    icon: <ThermometerSun className="h-6 w-6" />,
-    metrics: [
-      { label: 'Upgrades Done', value: '400+' },
-      { label: 'Satisfaction', value: '98%' },
-    ],
-  },
-  {
-    id: 'monitoring',
-    title: 'Performance & Optimization',
-    description: 'Home Energy Score certification, utility rebate processing (PG&E Energy Upgrade California), ongoing monitoring, and continuous optimization for maximum savings.',
-    status: 'upcoming' as const,
-    color: 'purple' as const,
-    icon: <TrendingUp className="h-6 w-6" />,
-    metrics: [
-      { label: 'Rebates Secured', value: '$2M+' },
-      { label: 'Energy Scores', value: '90+' },
-    ],
-  },
-];
 
 const EnergyConservation = () => {
   const [showConsultationForm, setShowConsultationForm] = useState(false);
@@ -134,7 +83,7 @@ const EnergyConservation = () => {
   // Mutation for consultation form
   const consultationMutation = useMutation({
     mutationFn: async (data: EnergyConservationFormValues) => {
-      return await apiRequest("POST", "/api/energy-conservation/consultation", data);
+      return await apiRequest("/api/energy-conservation/consultation", { method: "POST", data });
     },
     onSuccess: () => {
       setConsultationRequestSuccess(true);
@@ -323,13 +272,8 @@ const EnergyConservation = () => {
           </div>
         </section>
 
-        {/* INTERACTIVE ENERGY CONSERVATION FUNNEL - Magic MCP Component */}
-        <SolarFunnel 
-          stages={energyConservationStages}
-          autoProgress={true}
-          progressInterval={5000}
-          className="my-0 py-20"
-        />
+        {/* INTERACTIVE ENERGY CONSERVATION FUNNEL - SolarRescueFunnelSection Component */}
+        <SolarRescueFunnelSection />
 
         {/* SANDLER STAGE 1: PAIN - RED GLOW SECTION - Critical Problems */}
         <section className="relative z-10 py-12 overflow-hidden">
