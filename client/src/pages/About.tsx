@@ -2,6 +2,7 @@ import MainLayout from "@/components/layout/MainLayout";
 import { GradientHeading } from "@/components/ui/gradient-heading";
 import PageTransition from "@/components/ui/page-transition";
 import { GradientButton } from "@/components/ui/gradient-button";
+import AboutAdvancePowerSection from "@/sections/AboutAdvancePowerSection";
 
 const About = () => {
   return (
@@ -137,6 +138,8 @@ const About = () => {
             </div>
           </div>
         </section>
+        
+        <AboutAdvancePowerSection />
       </MainLayout>
     </PageTransition>
   );
