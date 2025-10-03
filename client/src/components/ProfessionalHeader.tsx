@@ -24,7 +24,9 @@ import {
   ShoppingCart,
   Grid3x3,
   MapPin,
-  Banknote
+  Banknote,
+  ChevronDown,
+  ChevronUp
 } from "lucide-react";
 import { useTheme } from "next-themes";
 import MobileMenu from "./MobileMenu";
@@ -39,6 +41,11 @@ const ProfessionalHeader = () => {
   const { theme, setTheme } = useTheme();
   const [location] = useLocation();
   const isHomePage = location === "/";
+  
+  // State for mobile menu accordion sections
+  const [servicesExpanded, setServicesExpanded] = useState(false);
+  const [solutionsExpanded, setSolutionsExpanded] = useState(false);
+  const [shopExpanded, setShopExpanded] = useState(false);
 
   // Handle scroll effect
   useEffect(() => {
@@ -73,6 +80,14 @@ const ProfessionalHeader = () => {
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
+  };
+  
+  // Close mobile menu when a link is clicked
+  const handleLinkClick = () => {
+    setMobileMenuOpen(false);
+    setServicesExpanded(false);
+    setSolutionsExpanded(false);
+    setShopExpanded(false);
   };
 
   // Services dropdown menu items
@@ -422,15 +437,263 @@ const ProfessionalHeader = () => {
             backgroundColor: '#111827',
             borderTop: '1px solid rgba(249, 115, 22, 0.2)',
             padding: '16px',
-            zIndex: 40
+            zIndex: 40,
+            maxHeight: '80vh',
+            overflowY: 'auto'
           }}>
-            <nav style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-              <a href="/" style={{ color: '#ffffff !important', fontSize: '16px', fontWeight: '500', textDecoration: 'none' }}>Home</a>
-              <a href="/residential-solar" style={{ color: '#ffffff !important', fontSize: '16px', fontWeight: '500', textDecoration: 'none' }}>Services</a>
-              <a href="/book-appointment" style={{ color: '#ffffff !important', fontSize: '16px', fontWeight: '500', textDecoration: 'none' }}>Book Appointment</a>
-              <a href="/technical-data" style={{ color: '#ffffff !important', fontSize: '16px', fontWeight: '500', textDecoration: 'none' }}>Technical Data</a>
-              <a href="/about" style={{ color: '#ffffff !important', fontSize: '16px', fontWeight: '500', textDecoration: 'none' }}>About</a>
-              <a href="/contact" style={{ color: '#ffffff !important', fontSize: '16px', fontWeight: '500', textDecoration: 'none' }}>Contact</a>
+            <nav style={{ display: 'flex', flexDirection: 'column' }}>
+              {/* Home Link */}
+              <a 
+                href="/" 
+                onClick={handleLinkClick}
+                style={{ 
+                  color: '#ffffff', 
+                  fontSize: '16px', 
+                  fontWeight: '500', 
+                  textDecoration: 'none',
+                  padding: '12px 0',
+                  minHeight: '44px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  borderBottom: '1px solid rgba(249, 115, 22, 0.1)'
+                }}
+              >
+                Home
+              </a>
+
+              {/* Services Accordion */}
+              <div style={{ borderBottom: '1px solid rgba(249, 115, 22, 0.1)' }}>
+                <button
+                  onClick={() => setServicesExpanded(!servicesExpanded)}
+                  style={{
+                    width: '100%',
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    padding: '12px 0',
+                    minHeight: '44px',
+                    background: 'none',
+                    border: 'none',
+                    color: '#f97316',
+                    fontSize: '16px',
+                    fontWeight: '700',
+                    cursor: 'pointer',
+                    textAlign: 'left'
+                  }}
+                >
+                  Services
+                  {servicesExpanded ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+                </button>
+                <div style={{
+                  maxHeight: servicesExpanded ? '600px' : '0',
+                  overflow: 'hidden',
+                  transition: 'max-height 300ms ease-in-out'
+                }}>
+                  {servicesDropdown.map((item) => (
+                    <a
+                      key={item.href}
+                      href={item.href}
+                      onClick={handleLinkClick}
+                      style={{
+                        display: 'block',
+                        padding: '10px 0 10px 24px',
+                        minHeight: '44px',
+                        color: '#ffffff',
+                        fontSize: '14px',
+                        fontWeight: '400',
+                        textDecoration: 'none',
+                        backgroundColor: 'transparent',
+                        transition: 'background-color 200ms ease-in-out'
+                      }}
+                      onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(249, 115, 22, 0.1)'}
+                      onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
+                    >
+                      {item.label}
+                    </a>
+                  ))}
+                </div>
+              </div>
+
+              {/* Solutions Accordion */}
+              <div style={{ borderBottom: '1px solid rgba(249, 115, 22, 0.1)' }}>
+                <button
+                  onClick={() => setSolutionsExpanded(!solutionsExpanded)}
+                  style={{
+                    width: '100%',
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    padding: '12px 0',
+                    minHeight: '44px',
+                    background: 'none',
+                    border: 'none',
+                    color: '#f97316',
+                    fontSize: '16px',
+                    fontWeight: '700',
+                    cursor: 'pointer',
+                    textAlign: 'left'
+                  }}
+                >
+                  Solutions
+                  {solutionsExpanded ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+                </button>
+                <div style={{
+                  maxHeight: solutionsExpanded ? '500px' : '0',
+                  overflow: 'hidden',
+                  transition: 'max-height 300ms ease-in-out'
+                }}>
+                  {solutionsDropdown.map((item) => (
+                    <a
+                      key={item.href}
+                      href={item.href}
+                      onClick={handleLinkClick}
+                      style={{
+                        display: 'block',
+                        padding: '10px 0 10px 24px',
+                        minHeight: '44px',
+                        color: '#ffffff',
+                        fontSize: '14px',
+                        fontWeight: '400',
+                        textDecoration: 'none',
+                        backgroundColor: 'transparent',
+                        transition: 'background-color 200ms ease-in-out'
+                      }}
+                      onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(249, 115, 22, 0.1)'}
+                      onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
+                    >
+                      {item.label}
+                    </a>
+                  ))}
+                </div>
+              </div>
+
+              {/* Shop Accordion */}
+              <div style={{ borderBottom: '1px solid rgba(249, 115, 22, 0.1)' }}>
+                <button
+                  onClick={() => setShopExpanded(!shopExpanded)}
+                  style={{
+                    width: '100%',
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    padding: '12px 0',
+                    minHeight: '44px',
+                    background: 'none',
+                    border: 'none',
+                    color: '#f97316',
+                    fontSize: '16px',
+                    fontWeight: '700',
+                    cursor: 'pointer',
+                    textAlign: 'left'
+                  }}
+                >
+                  Shop
+                  {shopExpanded ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+                </button>
+                <div style={{
+                  maxHeight: shopExpanded ? '300px' : '0',
+                  overflow: 'hidden',
+                  transition: 'max-height 300ms ease-in-out'
+                }}>
+                  {shopDropdown.map((item) => (
+                    <a
+                      key={item.href}
+                      href={item.href}
+                      onClick={handleLinkClick}
+                      style={{
+                        display: 'block',
+                        padding: '10px 0 10px 24px',
+                        minHeight: '44px',
+                        color: '#ffffff',
+                        fontSize: '14px',
+                        fontWeight: '400',
+                        textDecoration: 'none',
+                        backgroundColor: 'transparent',
+                        transition: 'background-color 200ms ease-in-out'
+                      }}
+                      onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(249, 115, 22, 0.1)'}
+                      onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
+                    >
+                      {item.label}
+                    </a>
+                  ))}
+                </div>
+              </div>
+
+              {/* Technical Data Link */}
+              <a 
+                href="/resources/technical-data" 
+                onClick={handleLinkClick}
+                style={{ 
+                  color: '#ffffff', 
+                  fontSize: '16px', 
+                  fontWeight: '500', 
+                  textDecoration: 'none',
+                  padding: '12px 0',
+                  minHeight: '44px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  borderBottom: '1px solid rgba(249, 115, 22, 0.1)'
+                }}
+              >
+                Technical Data
+              </a>
+
+              {/* About Link */}
+              <a 
+                href="/about" 
+                onClick={handleLinkClick}
+                style={{ 
+                  color: '#ffffff', 
+                  fontSize: '16px', 
+                  fontWeight: '500', 
+                  textDecoration: 'none',
+                  padding: '12px 0',
+                  minHeight: '44px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  borderBottom: '1px solid rgba(249, 115, 22, 0.1)'
+                }}
+              >
+                About
+              </a>
+
+              {/* Contact Link */}
+              <a 
+                href="/contact" 
+                onClick={handleLinkClick}
+                style={{ 
+                  color: '#ffffff', 
+                  fontSize: '16px', 
+                  fontWeight: '500', 
+                  textDecoration: 'none',
+                  padding: '12px 0',
+                  minHeight: '44px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  borderBottom: '1px solid rgba(249, 115, 22, 0.1)'
+                }}
+              >
+                Contact
+              </a>
+
+              {/* Book Appointment Link */}
+              <a 
+                href="/resources/book-appointment" 
+                onClick={handleLinkClick}
+                style={{ 
+                  color: '#ffffff', 
+                  fontSize: '16px', 
+                  fontWeight: '500', 
+                  textDecoration: 'none',
+                  padding: '12px 0',
+                  minHeight: '44px',
+                  display: 'flex',
+                  alignItems: 'center'
+                }}
+              >
+                Book Appointment
+              </a>
             </nav>
           </div>
         )}
