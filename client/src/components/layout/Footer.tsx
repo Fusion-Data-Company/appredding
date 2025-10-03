@@ -74,11 +74,11 @@ const SolarFooter: React.FC = () => {
                 <Sun className="h-7 w-7" />
               </div>
               <span className="ml-3 text-2xl font-bold tracking-tight bg-gradient-to-r from-white via-blue-200 to-cyan-200 bg-clip-text text-transparent">
-                apredding.net
+                Advance Power Redding
               </span>
             </div>
             <p className="text-slate-400 leading-relaxed mb-6 text-sm">
-              Northern California's premier solar installation company. Expert solar panel installation, repair, and maintenance services with 25+ years of experience serving Redding and surrounding communities.
+              Leading provider of government-certified solar energy solutions in Northern California. Delivering sustainable, reliable, and cost-effective renewable energy systems with military-grade quality standards.
             </p>
             <div className="flex flex-wrap gap-3 mb-6">
               <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-800/50 border border-slate-700/50">
@@ -171,15 +171,15 @@ const SolarFooter: React.FC = () => {
                 <span>Redding, CA<br />Northern California</span>
               </li>
               <li>
-                <a href="mailto:info@apredding.net" className="text-sm text-slate-400 hover:text-blue-400 transition-colors duration-300 flex items-center group">
+                <a href="mailto:info@advancepowerredding.com" className="text-sm text-slate-400 hover:text-blue-400 transition-colors duration-300 flex items-center group">
                   <Mail className="w-5 h-5 mr-3 text-blue-400 flex-shrink-0" />
-                  info@apredding.net
+                  info@advancepowerredding.com
                 </a>
               </li>
               <li>
-                <a href="tel:+15305550100" className="text-sm text-slate-400 hover:text-blue-400 transition-colors duration-300 flex items-center group">
+                <a href="tel:+15302260701" className="text-sm text-slate-400 hover:text-blue-400 transition-colors duration-300 flex items-center group">
                   <Phone className="w-5 h-5 mr-3 text-blue-400 flex-shrink-0" />
-                  (530) 555-0100
+                  (530) 226-0701
                 </a>
               </li>
               <li className="pt-2">
@@ -196,7 +196,7 @@ const SolarFooter: React.FC = () => {
         <div className="mt-16 pt-8 border-t border-slate-800">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-slate-500 text-sm font-medium text-center md:text-left">
-              © {new Date().getFullYear()} apredding.net. All rights reserved. Licensed & Insured.
+              © {new Date().getFullYear()} Advance Power Redding. All rights reserved. Licensed & Insured.
             </p>
             <ul className="flex flex-wrap justify-center gap-6 text-sm">
               {[

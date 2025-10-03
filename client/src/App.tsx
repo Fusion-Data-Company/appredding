@@ -28,7 +28,7 @@ import Maintenance from "@/pages/Maintenance";
 import Repairs from "@/pages/Repairs";
 const Construction = lazy(() => import('./pages/Construction'));
 import MobileHome from "@/pages/MobileHome";
-// Municipality page removed - not relevant for solar company
+import Municipality from "@/pages/Municipality";
 import BookAppointment from "@/pages/BookAppointment";
 import Portfolio from "@/pages/Portfolio";
 const Applications = lazy(() => import('./pages/Applications')); 
@@ -98,7 +98,7 @@ function Router() {
         </Suspense>
       </Route>
       <Route path="/mobile-home" component={MobileHome} />
-      {/* Municipality route removed - not relevant for solar company */}
+      <Route path="/municipality" component={Municipality} />
       <Route path="/residential-solar" component={ResidentialSolar} />
       <Route path="/commercial-solar" component={CommercialSolar} />
       <Route path="/hybrid-solar" component={HybridSolar} />
