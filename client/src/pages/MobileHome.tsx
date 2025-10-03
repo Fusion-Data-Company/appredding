@@ -592,7 +592,8 @@ const MobileHome = () => {
                                 <FormControl>
                                   <Input 
                                     placeholder="Enter your website URL" 
-                                    {...field} 
+                                    {...field}
+                                    value={field.value || ''} 
                                     className="bg-gray-900/70 border-gray-700 text-white"
                                   />
                                 </FormControl>
@@ -612,7 +613,8 @@ const MobileHome = () => {
                                 <FormControl>
                                   <Input 
                                     placeholder="Enter your license number" 
-                                    {...field} 
+                                    {...field}
+                                    value={field.value || ''} 
                                     className="bg-gray-900/70 border-gray-700 text-white"
                                   />
                                 </FormControl>
@@ -646,7 +648,7 @@ const MobileHome = () => {
                                   <PopoverContent className="w-auto p-0 bg-gray-900 text-white" align="start">
                                     <Calendar
                                       mode="single"
-                                      selected={field.value}
+                                      selected={field.value || undefined}
                                       onSelect={field.onChange}
                                       disabled={(date) => date < new Date()}
                                       initialFocus

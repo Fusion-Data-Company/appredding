@@ -1,5 +1,5 @@
 /* Premium fonts for enhanced header card */
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Orbitron:wght@400;700;900&family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap');
 @import './styles/elite-solar.css';
 @import './styles/elite-styling.css';
 @import './styles/background-overlays.css';
@@ -2837,8 +2837,8 @@ header a[href="/"] img {
   }
 
   body {
-    @apply font-sans antialiased;
-    font-family: var(--font-body);
+    @apply antialiased;
+    font-family: 'Cinzel', serif;
   }
 
   /* Force dark mode for entire application */
@@ -2852,7 +2852,7 @@ header a[href="/"] img {
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-heading);
+    font-family: 'Cinzel', serif;
     @apply font-semibold tracking-tight;
   }
 
