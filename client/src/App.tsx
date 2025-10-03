@@ -9,6 +9,8 @@ import { errorHandler } from "@/utils/error-handler";
 import { usePerformance } from "@/hooks/use-performance";
 import { initializeCriticalPerformance, monitorPerformanceBudget } from "@/utils/performance-critical";
 import { SuspenseFallback } from "@/components/ui/enhanced-loading";
+import { TwentyFirstToolbar } from "@21st-extension/toolbar-react";
+import { ReactPlugin } from "@21st-extension/react";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import CRM from "@/pages/CRM";
@@ -280,6 +282,11 @@ function App() {
         <AuthProvider>
           <Router />
         </AuthProvider>
+        <TwentyFirstToolbar 
+          config={{
+            plugins: [ReactPlugin]
+          }}
+        />
       </TooltipProvider>
     </QueryClientProvider>
   );
