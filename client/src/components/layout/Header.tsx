@@ -60,37 +60,39 @@ const SolarCompanyHeader: React.FC = () => {
 
   // Services dropdown items
   const servicesItems = [
-    { label: "Residential Solar", href: "/residential-solar", icon: <Home className="w-4 h-4" />, description: "Custom solar solutions for homes" },
-    { label: "Commercial Solar", href: "/commercial-solar", icon: <Building2 className="w-4 h-4" />, description: "Business solar power systems" },
-    { label: "Hybrid Solar", href: "/hybrid-solar", icon: <Zap className="w-4 h-4" />, description: "Solar + battery storage solutions" },
-    { label: "Battery Storage", href: "/battery-storage", icon: <Battery className="w-4 h-4" />, description: "Energy storage systems" },
-    { label: "Maintenance", href: "/maintenance", icon: <Settings className="w-4 h-4" />, description: "Keep your system running optimally" },
-    { label: "Repairs", href: "/repairs", icon: <Wrench className="w-4 h-4" />, description: "Expert repair services" },
-    { label: "Energy Conservation", href: "/energy-conservation", icon: <ShieldCheck className="w-4 h-4" />, description: "Energy efficiency solutions" },
+    { label: "Residential Solar", href: "/services/residential-solar", icon: <Home className="w-4 h-4" />, description: "Custom solar solutions for homes" },
+    { label: "Commercial Solar", href: "/services/commercial-solar", icon: <Building2 className="w-4 h-4" />, description: "Business solar power systems" },
+    { label: "Hybrid Solar", href: "/services/hybrid-solar", icon: <Zap className="w-4 h-4" />, description: "Solar + battery storage solutions" },
+    { label: "Battery Storage", href: "/services/battery-storage", icon: <Battery className="w-4 h-4" />, description: "Energy storage systems" },
+    { label: "Maintenance", href: "/services/maintenance", icon: <Settings className="w-4 h-4" />, description: "Keep your system running optimally" },
+    { label: "Repairs", href: "/services/repairs", icon: <Wrench className="w-4 h-4" />, description: "Expert repair services" },
+    { label: "Energy Conservation", href: "/services/energy-conservation", icon: <ShieldCheck className="w-4 h-4" />, description: "Energy efficiency solutions" },
+    { label: "Lithium Battery", href: "/services/lithium-battery", icon: <Battery className="w-4 h-4" />, description: "Advanced lithium battery systems" },
   ];
 
   // Products dropdown items
   const productsItems = [
-    { label: "Solar Panels", href: "/products#solar-panels", icon: <Sun className="w-4 h-4" />, description: "High-efficiency solar panels" },
-    { label: "Inverters", href: "/products#inverters", icon: <Zap className="w-4 h-4" />, description: "Power conversion systems" },
-    { label: "Batteries", href: "/products#batteries", icon: <Battery className="w-4 h-4" />, description: "Energy storage solutions" },
-    { label: "Monitoring Systems", href: "/products#monitoring", icon: <Settings className="w-4 h-4" />, description: "System monitoring tools" },
+    { label: "Browse Products", href: "/shop/products", icon: <FolderOpen className="w-4 h-4" />, description: "View all products" },
+    { label: "Solar Panels", href: "/shop/products#solar-panels", icon: <Sun className="w-4 h-4" />, description: "High-efficiency solar panels" },
+    { label: "Inverters", href: "/shop/products#inverters", icon: <Zap className="w-4 h-4" />, description: "Power conversion systems" },
+    { label: "Batteries", href: "/shop/products#batteries", icon: <Battery className="w-4 h-4" />, description: "Energy storage solutions" },
+    { label: "Compare Products", href: "/shop/product-comparison", icon: <Settings className="w-4 h-4" />, description: "Compare product features" },
   ];
 
   // Applications dropdown items
   const applicationsItems = [
-    { label: "Mobile Homes", href: "/mobile-home", icon: <Home className="w-4 h-4" />, description: "Solar for manufactured homes" },
-    { label: "Municipalities", href: "/municipality", icon: <Building2 className="w-4 h-4" />, description: "Government & public facilities" },
-    { label: "Construction", href: "/construction", icon: <Wrench className="w-4 h-4" />, description: "Construction site power" },
-    { label: "Data Centers", href: "/applications#data-centers", icon: <Code className="w-4 h-4" />, description: "Critical infrastructure power" },
-    { label: "Financial Centers", href: "/applications#financial", icon: <Building2 className="w-4 h-4" />, description: "Banking & financial facilities" },
+    { label: "Mobile Homes", href: "/solutions/mobile-homes", icon: <Home className="w-4 h-4" />, description: "Solar for manufactured homes" },
+    { label: "Municipalities", href: "/solutions/municipalities", icon: <Building2 className="w-4 h-4" />, description: "Government & public facilities" },
+    { label: "Construction", href: "/solutions/construction", icon: <Wrench className="w-4 h-4" />, description: "Construction site power" },
+    { label: "Data Centers", href: "/solutions/data-centers", icon: <Code className="w-4 h-4" />, description: "Critical infrastructure power" },
+    { label: "Financial Centers", href: "/solutions/financial-centers", icon: <Building2 className="w-4 h-4" />, description: "Banking & financial facilities" },
   ];
 
   // Company dropdown items
   const companyItems = [
     { label: "About", href: "/about", icon: <Info className="w-4 h-4" />, description: "Learn about our company" },
     { label: "Portfolio", href: "/portfolio", icon: <FolderOpen className="w-4 h-4" />, description: "View our projects" },
-    { label: "Technology", href: "/technology", icon: <Code className="w-4 h-4" />, description: "Our innovative solutions" },
+    { label: "Technology", href: "/resources/technology", icon: <Code className="w-4 h-4" />, description: "Our innovative solutions" },
     { label: "Team", href: "/team", icon: <Users className="w-4 h-4" />, description: "Meet our experts" },
     { label: "Contact", href: "/contact", icon: <MessageSquare className="w-4 h-4" />, description: "Get in touch" },
   ];
@@ -250,7 +252,7 @@ const SolarCompanyHeader: React.FC = () => {
                     : "text-gray-700 hover:text-orange-600 hover:bg-orange-50/50"
                 )}
               >
-                Applications
+                Solutions
                 <ChevronDown className={cn(
                   "ml-1 w-4 h-4 transition-transform",
                   activeDropdown === 'applications' ? "rotate-180" : ""
@@ -348,22 +350,6 @@ const SolarCompanyHeader: React.FC = () => {
               <div className="px-4 py-2">
                 <div className="font-semibold text-gray-900 mb-2">Products</div>
                 {productsItems.map((item) => (
-                  <Link 
-                    key={item.href} 
-                    href={item.href}
-                    className="flex items-center py-2 text-gray-600 hover:text-orange-600 transition-colors"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    <span className="mr-2">{item.icon}</span>
-                    {item.label}
-                  </Link>
-                ))}
-              </div>
-
-              {/* Mobile Applications */}
-              <div className="px-4 py-2">
-                <div className="font-semibold text-gray-900 mb-2">Applications</div>
-                {applicationsItems.map((item) => (
                   <Link 
                     key={item.href} 
                     href={item.href}

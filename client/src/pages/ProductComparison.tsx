@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import MainLayout from "@/components/layout/MainLayout";
+import Header from "@/components/Header";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
@@ -205,7 +205,9 @@ const ProductComparison = () => {
     : [];
   
   return (
-    <MainLayout>
+    <div className="min-h-screen flex flex-col">
+      <Header />
+      
       <main className="flex-grow">
         <section className="py-16 md:py-24">
           <div className="container mx-auto">
@@ -616,7 +618,7 @@ const ProductComparison = () => {
           </div>
         </section>
       </main>
-    </MainLayout>
+    </div>
   );
 };
 

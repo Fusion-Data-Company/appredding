@@ -4,7 +4,6 @@ import { ChevronRight, Microscope, Beaker, FlaskConical, Shield } from "lucide-r
 import CompetitiveMatrix from "../components/CompetitiveMatrix";
 import TechnicalDataSheet from "../components/TechnicalDataSheet";
 import TechnicalFAQ from "../components/TechnicalFAQ";
-import ApplicationDiagram from "../components/ApplicationDiagram";
 import DefenseCaseStudy from "../components/DefenseCaseStudy";
 import ExecutiveSummary from "../components/ExecutiveSummary";
 import PhysicalMechanics from "../components/PhysicalMechanics";
@@ -69,11 +68,6 @@ const Technology = () => {
                   <span>Physical Mechanics</span>
                 </a>
                 
-                <a href="#application-diagram" className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-600 to-blue-500 hover:from-orange-500 hover:to-blue-400 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300 shadow-lg shadow-orange-900/30 text-sm">
-                  <Shield className="h-4 w-4" />
-                  <span>System Architecture</span>
-                </a>
-                
                 <a href="#performance-comparison" className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-600 to-blue-500 hover:from-orange-500 hover:to-blue-400 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300 shadow-lg shadow-orange-900/30 text-sm">
                   <Shield className="h-4 w-4" />
                   <span>Performance Comparison</span>
@@ -114,18 +108,6 @@ const Technology = () => {
           </div>
         </section>
         
-        {/* Application Diagram Section */}
-        <section id="application-diagram" className="relative py-16 z-10">
-          <div className="container mx-auto px-4">
-            <GradientHeading level={2} className="text-2xl md:text-3xl font-bold text-center mb-6" variant="blue">
-              NASA Ceramic Coating System Architecture
-            </GradientHeading>
-            <p className="text-gray-400 text-center mb-8 max-w-3xl mx-auto">
-              Cross-sectional analysis of Praetorian's multi-layer ceramic protective system
-            </p>
-            <ApplicationDiagram />
-          </div>
-        </section>
         
         {/* Competitive Matrix Section */}
         <section id="performance-comparison" className="relative py-16 z-10 bg-primary-950/60 backdrop-blur-sm">
