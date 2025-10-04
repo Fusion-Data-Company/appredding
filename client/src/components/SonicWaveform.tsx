@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Battery, Zap, Activity } from 'lucide-react';
 
-// Sonic Waveform Canvas Component - customized for battery energy visualization
+// Sonic Waveform Canvas Component - optimized for performance
 const SonicWaveformCanvas = () => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -16,9 +16,9 @@ const SonicWaveformCanvas = () => {
         let animationFrameId: number;
         const mouse = { x: canvas.width / 2, y: canvas.height / 2 };
         let time = 0;
-        const dpr = Math.max(1, Math.min(2, window.devicePixelRatio || 1));
+        const dpr = Math.max(1, Math.min(1.5, window.devicePixelRatio || 1)); // Reduced DPR for performance
         let last = 0;
-        const targetFps = 30; // cap FPS for performance
+        const targetFps = 24; // Reduced from 30 to 24 for better performance
         const frameInterval = 1000 / targetFps;
 
         const resizeCanvas = () => {
@@ -37,11 +37,12 @@ const SonicWaveformCanvas = () => {
                 return;
             }
             last = now;
-            // Transparent background to show orange shapes
+            
+            // Use clearRect instead of full clear for better performance
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-            const lineCount = 48; // Slightly reduced for performance
-            const segmentCount = 72; // Slightly reduced for performance
+            const lineCount = 32; // Reduced from 48 for performance
+            const segmentCount = 48; // Reduced from 72 for performance
             const height = canvas.height / 2;
 
             for (let i = 0; i < lineCount; i++) {
@@ -49,21 +50,21 @@ const SonicWaveformCanvas = () => {
                 const progress = i / lineCount;
                 const colorIntensity = Math.sin(progress * Math.PI);
 
-                // Burnt orange gradient
-                ctx.strokeStyle = `rgba(204, 85, 0, ${colorIntensity * 0.7})`;
-                ctx.lineWidth = 1.5;
+                // Simplified color with reduced opacity
+                ctx.strokeStyle = `rgba(204, 85, 0, ${colorIntensity * 0.5})`;
+                ctx.lineWidth = 1;
 
                 for (let j = 0; j < segmentCount + 1; j++) {
                     const x = (j / segmentCount) * canvas.width;
 
-                    // Mouse influence
+                    // Reduced mouse influence calculations
                     const distToMouse = Math.hypot(x - mouse.x, height - mouse.y);
-                    const mouseEffect = Math.max(0, 1 - distToMouse / 400);
+                    const mouseEffect = Math.max(0, 1 - distToMouse / 300);
 
-                    // More complex wave calculation for dramatic effect
-                    const noise = Math.sin(j * 0.1 + time + i * 0.2) * 20;
-                    const spike = Math.cos(j * 0.2 + time + i * 0.1) * Math.sin(j * 0.05 + time) * 50;
-                    const y = height + noise + spike * (1 + mouseEffect * 2);
+                    // Simplified wave calculation
+                    const noise = Math.sin(j * 0.08 + time + i * 0.15) * 15;
+                    const spike = Math.cos(j * 0.15 + time) * 30;
+                    const y = height + noise + spike * (1 + mouseEffect * 1.5);
 
                     if (j === 0) {
                         ctx.moveTo(x, y);
@@ -74,7 +75,7 @@ const SonicWaveformCanvas = () => {
                 ctx.stroke();
             }
 
-            time += 0.02; // Standard animation speed
+            time += 0.015; // Slightly slower animation
             animationFrameId = requestAnimationFrame(draw);
         };
 
@@ -96,7 +97,7 @@ const SonicWaveformCanvas = () => {
         };
     }, []);
 
-    return <canvas ref={canvasRef} className="absolute inset-0 z-0 w-full h-full pointer-events-none" style={{ background: 'transparent', mixBlendMode: 'normal' }} />;
+    return <canvas ref={canvasRef} className="absolute inset-0 z-0 w-full h-full pointer-events-none" style={{ background: 'transparent' }} />;
 };
 
 // The main hero component for Lithium Battery page
