@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo, useCallback } from "react";
-import { Battery, Zap, Shield, Award, Activity, AlertTriangle, CheckCircle, TrendingUp, Cpu, Thermometer, Clock, ArrowRight, Beaker, Database, Lock, Gauge, Wrench, BarChart, DollarSign, Package, Truck, FileCheck, Phone, ChevronRight, AlertCircle, CircuitBoard, Flame, Snowflake, Droplets, Wind, Sun, Moon, Cloud, CloudRain, Timer, Settings, Info, Calculator, TrendingDown, Briefcase, Factory, Building2, Home, Car, Smartphone, Laptop, Server, HardDrive, Wifi, Radio, Microscope, TestTube, Scale, BookOpen, GraduationCap, Globe, MapPin, Navigation, Compass, Target, Crosshair, Eye, Search, Filter, Layers, Grid, Box, Cube, Hexagon, Triangle, Square, Circle, Star, Heart, ThumbsUp, Users, UserCheck, UserPlus, Mail, MessageSquare, Send, Bell, BellOff, Volume2, VolumeX, Mic, MicOff, Video, VideoOff, Camera, CameraOff, Image, Film, Music, Headphones, Speaker, Monitor, Tv, Projector, Watch, Tablet, Power, Leaf, Component } from "lucide-react";
+import { Battery, Zap, Shield, Award, Activity, AlertTriangle, CheckCircle, TrendingUp, Cpu, Thermometer, Clock, ArrowRight, Beaker, Database, Lock, Gauge, Wrench, BarChart, DollarSign, Package, Truck, FileCheck, Phone, ChevronRight, AlertCircle, CircuitBoard, Flame, Snowflake, Droplets, Wind, Sun, Moon, Cloud, CloudRain, Timer, Settings, Info, Calculator, TrendingDown, Briefcase, Factory, Building2, Home, Car, Smartphone, Laptop, Server, HardDrive, Wifi, Radio, Microscope, TestTube, Scale, BookOpen, GraduationCap, Globe, MapPin, Navigation, Compass, Target, Crosshair, Eye, Search, Filter, Layers, Grid, Box, Hexagon, Triangle, Square, Circle, Star, Heart, ThumbsUp, Users, UserCheck, UserPlus, Mail, MessageSquare, Send, Bell, BellOff, Volume2, VolumeX, Mic, MicOff, Video, VideoOff, Camera, CameraOff, Image, Film, Music, Headphones, Speaker, Monitor, Tv, Projector, Watch, Tablet, Power, Leaf, Component } from "lucide-react";
 import { motion } from "framer-motion";
 import SonicWaveformHero from "../components/SonicWaveform";
 import SolarBackground from "../components/SolarBackground";
@@ -8,6 +8,16 @@ import Header from "../components/layout/Header";
 import { fadeInUp, defaultViewport } from "../utils/animations";
 
 // Premium Section Header Component
+interface PremiumSectionHeaderProps {
+  title: string;
+  subtitle: string;
+  description: string;
+  icon: React.ElementType;
+  primaryColor: string;
+  secondaryColor: string;
+  bgGradient: string;
+}
+
 const PremiumSectionHeader = ({
   title,
   subtitle,
@@ -16,13 +26,13 @@ const PremiumSectionHeader = ({
   primaryColor,
   secondaryColor,
   bgGradient
-}) => (
+}: PremiumSectionHeaderProps) => (
   <NeonGradientCard
     borderRadius={20}
     borderSize={2}
     neonColors={{
       firstColor: primaryColor,
-      secondaryColor: secondaryColor
+      secondColor: secondaryColor
     }}
     className="mb-8"
   >
@@ -170,7 +180,7 @@ const LithiumBattery = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const chemistryData = {
+  const chemistryData: Record<string, any> = {
     lifepo4: {
       name: "LiFePO4 (Lithium Iron Phosphate)",
       voltage: "3.2V",
@@ -319,7 +329,7 @@ const LithiumBattery = () => {
   return (
     <>
       <Header />
-      <div className="relative overflow-hidden">
+      <div className="relative overflow-hidden" style={{ paddingTop: 'var(--app-header-height)' }}>
         {/* Solar Background - Optimized for performance */}
         <div className="background-layer">
           <SolarBackground />
@@ -342,7 +352,7 @@ const LithiumBattery = () => {
             initial={{ opacity: 0, y: 20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.8, type: "spring" }}
-            className="relative rounded-3xl p-8 mb-12 text-white overflow-hidden shadow-2xl"
+            className="relative rounded-3xl p-8 mb-12 text-white overflow-hidden shadow-2xl gpu-accelerate"
             style={{
               background: 'linear-gradient(135deg, #3b82f6, #06b6d4, #10b981)',
               boxShadow: `
@@ -434,11 +444,11 @@ const LithiumBattery = () => {
           className="mb-12 relative"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
+          viewport={defaultViewport}
         >
-          {/* Quantum Field Background */}
-          <div className="absolute inset-0 opacity-10 pointer-events-none">
-            {[...Array(15)].map((_, i) => (
+          {/* Quantum Field Background - Optimized particle count */}
+          <div className="absolute inset-0 opacity-10 pointer-events-none contain-paint">
+            {[...Array(8)].map((_, i) => (
               <motion.div
                 key={i}
                 className="absolute w-2 h-2 bg-blue-500 rounded-full"
@@ -1366,9 +1376,9 @@ const LithiumBattery = () => {
             `
           }}
         >
-          {/* Floating Particles Background */}
-          <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            {[...Array(20)].map((_, i) => (
+          {/* Floating Particles Background - Optimized */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none contain-paint">
+            {[...Array(10)].map((_, i) => (
               <motion.div
                 key={i}
                 className="absolute w-1 h-1 bg-white rounded-full"
@@ -1486,9 +1496,10 @@ const LithiumBattery = () => {
           </div>
         </motion.div>
         </div>
+        </div>
       </div>
       </div>
-    </div>
+    </>
   );
 };
 
