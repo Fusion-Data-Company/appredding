@@ -101,14 +101,44 @@ const SonicWaveformHero = () => {
         }),
     };
 
+    const scrollToSection = (sectionId: string) => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
     return (
-        <div className="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden">
+        <div className="relative h-screen w-full flex flex-col overflow-hidden">
+            {/* Navigation Bar */}
+            <nav className="absolute top-0 left-0 right-0 z-30 bg-black/20 backdrop-blur-md border-b border-white/10">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="flex items-center justify-between h-16">
+                        <div className="flex items-center">
+                            <Battery className="h-8 w-8 text-cyan-400" />
+                            <span className="ml-2 text-xl font-bold text-white">LithiumTech</span>
+                        </div>
+                        <div className="hidden md:flex items-center space-x-8">
+                            <button onClick={() => scrollToSection('chemistry')} className="text-white/80 hover:text-cyan-400 transition">Chemistry</button>
+                            <button onClick={() => scrollToSection('bms')} className="text-white/80 hover:text-cyan-400 transition">BMS Tech</button>
+                            <button onClick={() => scrollToSection('manufacturing')} className="text-white/80 hover:text-cyan-400 transition">Manufacturing</button>
+                            <button onClick={() => scrollToSection('applications')} className="text-white/80 hover:text-cyan-400 transition">Applications</button>
+                            <button onClick={() => scrollToSection('safety')} className="text-white/80 hover:text-cyan-400 transition">Safety</button>
+                            <button className="px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-lg hover:from-cyan-600 hover:to-blue-700 transition">
+                                Get Quote
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
             <SonicWaveformCanvas />
 
             <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent z-10"></div>
 
             {/* Overlay Content - Battery Theme */}
-            <div className="relative z-20 text-center p-6 max-w-6xl mx-auto">
+            <div className="absolute inset-0 flex items-center justify-center z-20">
+            <div className="text-center p-6 max-w-6xl mx-auto">
                 <motion.div
                     custom={0}
                     variants={fadeUpVariants}
@@ -150,12 +180,18 @@ const SonicWaveformHero = () => {
                     animate="visible"
                     className="flex flex-wrap gap-4 justify-center"
                 >
-                    <button className="px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300 flex items-center gap-2">
+                    <button
+                        onClick={() => scrollToSection('chemistry')}
+                        className="px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300 flex items-center gap-2 hover:from-blue-700 hover:to-cyan-700"
+                    >
                         <Zap className="h-5 w-5" />
                         Explore Battery Solutions
                         <ArrowRight className="h-5 w-5" />
                     </button>
-                    <button className="px-8 py-4 bg-white/80 backdrop-blur-sm text-gray-800 font-semibold rounded-xl shadow-lg hover:shadow-xl border border-gray-200 transform hover:-translate-y-0.5 transition-all duration-300 flex items-center gap-2">
+                    <button
+                        onClick={() => scrollToSection('bms')}
+                        className="px-8 py-4 bg-white/80 backdrop-blur-sm text-gray-800 font-semibold rounded-xl shadow-lg hover:shadow-xl border border-gray-200 transform hover:-translate-y-0.5 transition-all duration-300 flex items-center gap-2 hover:bg-white/90"
+                    >
                         <Activity className="h-5 w-5 text-green-600" />
                         View Live Metrics
                     </button>
@@ -182,6 +218,7 @@ const SonicWaveformHero = () => {
                         <div className="text-sm text-gray-600">Warranty</div>
                     </div>
                 </motion.div>
+            </div>
             </div>
         </div>
     );

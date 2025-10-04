@@ -5,6 +5,90 @@ import SonicWaveformHero from "../components/SonicWaveform";
 import SolarBackground from "../components/SolarBackground";
 import { NeonGradientCard } from "../components/ui/neon-gradient-card";
 
+// Premium Section Header Component
+const PremiumSectionHeader = ({
+  title,
+  subtitle,
+  description,
+  icon: Icon,
+  primaryColor,
+  secondaryColor,
+  bgGradient
+}) => (
+  <NeonGradientCard
+    borderRadius={20}
+    borderSize={2}
+    neonColors={{
+      firstColor: primaryColor,
+      secondaryColor: secondaryColor
+    }}
+    className="mb-8"
+  >
+    <motion.div
+      className={`relative overflow-hidden ${bgGradient} text-center p-8 rounded-2xl`}
+      initial={{ opacity: 0, y: -20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+    >
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute inset-0 bg-gradient-to-r from-white/5 via-white/10 to-white/5 animate-shimmer" />
+      </div>
+
+      <div className="relative z-10">
+        <motion.div
+          initial={{ scale: 0, rotate: -180 }}
+          whileInView={{ scale: 1, rotate: 0 }}
+          transition={{ type: "spring", duration: 0.8 }}
+          className="inline-flex items-center justify-center w-16 h-16 mb-4 rounded-2xl shadow-2xl"
+          style={{
+            background: `linear-gradient(135deg, ${primaryColor}, ${secondaryColor})`,
+            boxShadow: `0 10px 40px ${primaryColor}66, inset 0 2px 4px rgba(255,255,255,0.3)`
+          }}
+        >
+          <Icon className="w-8 h-8 text-white" />
+        </motion.div>
+
+        <motion.p
+          className="font-bold mb-2 text-sm uppercase tracking-widest"
+          style={{ color: primaryColor }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.2 }}
+        >
+          {subtitle}
+        </motion.p>
+
+        <motion.h2
+          className="text-4xl font-bold text-white mb-3"
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.3 }}
+        >
+          <span className="bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent">
+            {title}
+          </span>
+        </motion.h2>
+
+        <motion.p
+          className="text-gray-300 max-w-2xl mx-auto"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.4 }}
+        >
+          {description}
+        </motion.p>
+
+        <motion.div
+          className="mt-4 h-1 bg-gradient-to-r from-transparent via-white/50 to-transparent"
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          transition={{ delay: 0.5, duration: 0.8 }}
+        />
+      </div>
+    </motion.div>
+  </NeonGradientCard>
+);
+
 const LithiumBattery = () => {
   const [activeTab, setActiveTab] = useState("overview");
   const [selectedChemistry, setSelectedChemistry] = useState("lifepo4");
@@ -547,11 +631,15 @@ const LithiumBattery = () => {
 
         {/* Cell Format Specifications */}
         <div className="mb-12">
-          <div className="text-center mb-8">
-            <p className="text-red-600 font-semibold mb-2">Cell Formats & Standards</p>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Industry-Standard Cell Types</h2>
-            <p className="text-gray-600 dark:text-gray-400">Comprehensive specifications for all standard lithium battery cell formats</p>
-          </div>
+          <PremiumSectionHeader
+            title="Industry-Standard Cell Types"
+            subtitle="Cell Formats & Standards"
+            description="Comprehensive specifications for all standard lithium battery cell formats"
+            icon={Battery}
+            primaryColor="#f97316"
+            secondaryColor="#facc15"
+            bgGradient="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"
+          />
           <NeonGradientCard
             borderRadius={24}
             borderSize={2}
@@ -605,11 +693,15 @@ const LithiumBattery = () => {
 
         {/* BMS Technology Deep Dive */}
         <div className="mb-12">
-          <div className="text-center mb-8">
-            <p className="text-red-600 font-semibold mb-2">Battery Management System</p>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">8-Layer Protection Architecture</h2>
-            <p className="text-gray-600 dark:text-gray-400">Advanced BMS technology ensuring safety, longevity, and optimal performance</p>
-          </div>
+          <PremiumSectionHeader
+            title="8-Layer Protection Architecture"
+            subtitle="Battery Management System"
+            description="Advanced BMS technology ensuring safety, longevity, and optimal performance"
+            icon={CircuitBoard}
+            primaryColor="#06b6d4"
+            secondaryColor="#3b82f6"
+            bgGradient="bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900"
+          />
           <div className="grid lg:grid-cols-2 gap-8">
             <NeonGradientCard
               borderRadius={24}
@@ -741,11 +833,15 @@ const LithiumBattery = () => {
 
         {/* Manufacturing Process Timeline */}
         <div className="mb-12">
-          <div className="text-center mb-8">
-            <p className="text-red-600 font-semibold mb-2">Production Excellence</p>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Battery Manufacturing Process</h2>
-            <p className="text-gray-600 dark:text-gray-400">ISO 9001:2015 certified production with rigorous quality control</p>
-          </div>
+          <PremiumSectionHeader
+            title="Battery Manufacturing Process"
+            subtitle="Production Excellence"
+            description="ISO 9001:2015 certified production with rigorous quality control"
+            icon={Factory}
+            primaryColor="#10b981"
+            secondaryColor="#06b6d4"
+            bgGradient="bg-gradient-to-br from-emerald-950 via-teal-900 to-emerald-950"
+          />
           <div className="bg-gradient-to-br from-white/85 to-gray-100/80 backdrop-blur-xl dark:from-gray-800/85 dark:to-gray-900/80 rounded-2xl shadow-xl p-8">
             <div className="relative">
               {/* Process Timeline */}
@@ -790,11 +886,15 @@ const LithiumBattery = () => {
 
         {/* Application Sectors with Detailed Specs */}
         <div className="mb-12">
-          <div className="text-center mb-8">
-            <p className="text-red-600 font-semibold mb-2">Market Applications</p>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Industry-Specific Solutions</h2>
-            <p className="text-gray-600 dark:text-gray-400">Tailored lithium battery systems for every sector and use case</p>
-          </div>
+          <PremiumSectionHeader
+            title="Industry-Specific Solutions"
+            subtitle="Market Applications"
+            description="Tailored lithium battery systems for every sector and use case"
+            icon={Building2}
+            primaryColor="#8b5cf6"
+            secondaryColor="#ec4899"
+            bgGradient="bg-gradient-to-br from-purple-950 via-pink-900 to-purple-950"
+          />
           <div className="grid md:grid-cols-2 gap-8">
             {applications.map((app, idx) => (
               <div key={idx} className="bg-gradient-to-br from-white/85 to-gray-100/80 backdrop-blur-xl dark:from-gray-800/85 dark:to-gray-900/80 rounded-2xl shadow-xl overflow-hidden">
@@ -851,11 +951,15 @@ const LithiumBattery = () => {
 
         {/* Safety Standards & Testing */}
         <div className="mb-12">
-          <div className="text-center mb-8">
-            <p className="text-red-600 font-semibold mb-2">Safety & Compliance</p>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Rigorous Testing Standards</h2>
-            <p className="text-gray-600 dark:text-gray-400">Meeting and exceeding global safety certifications</p>
-          </div>
+          <PremiumSectionHeader
+            title="Rigorous Testing Standards"
+            subtitle="Safety & Compliance"
+            description="Meeting and exceeding global safety certifications"
+            icon={Shield}
+            primaryColor="#ef4444"
+            secondaryColor="#f97316"
+            bgGradient="bg-gradient-to-br from-red-950 via-orange-900 to-red-950"
+          />
 
           {/* Safety Standards Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
@@ -927,11 +1031,15 @@ const LithiumBattery = () => {
 
         {/* Battery Metrics Education */}
         <div className="mb-12">
-          <div className="text-center mb-8">
-            <p className="text-red-600 font-semibold mb-2">Technical Knowledge</p>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Understanding Battery Metrics</h2>
-            <p className="text-gray-600 dark:text-gray-400">Key performance indicators and what they mean for your system</p>
-          </div>
+          <PremiumSectionHeader
+            title="Understanding Battery Metrics"
+            subtitle="Technical Knowledge"
+            description="Key performance indicators and what they mean for your system"
+            icon={Gauge}
+            primaryColor="#0ea5e9"
+            secondaryColor="#3b82f6"
+            bgGradient="bg-gradient-to-br from-sky-950 via-blue-900 to-sky-950"
+          />
           <div className="bg-gradient-to-br from-white/85 to-gray-100/80 backdrop-blur-xl dark:from-gray-800/85 dark:to-gray-900/80 rounded-2xl shadow-xl overflow-hidden">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 p-8">
               {batteryMetrics.map((metric, idx) => (
@@ -952,11 +1060,15 @@ const LithiumBattery = () => {
 
         {/* Recycling & Sustainability */}
         <div className="mb-12">
-          <div className="text-center mb-8">
-            <p className="text-red-600 font-semibold mb-2">Circular Economy</p>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Battery Recycling & Recovery</h2>
-            <p className="text-gray-600 dark:text-gray-400">Closing the loop with 95%+ material recovery rates</p>
-          </div>
+          <PremiumSectionHeader
+            title="Battery Recycling & Recovery"
+            subtitle="Circular Economy"
+            description="Closing the loop with 95%+ material recovery rates"
+            icon={Leaf}
+            primaryColor="#22c55e"
+            secondaryColor="#10b981"
+            bgGradient="bg-gradient-to-br from-green-950 via-emerald-900 to-green-950"
+          />
           <div className="bg-gradient-to-r from-green-50 to-blue-50 dark:from-gray-800 dark:to-gray-700 rounded-2xl p-8">
             <div className="grid lg:grid-cols-2 gap-8">
               {/* Recycling Process Flow */}
@@ -1084,11 +1196,15 @@ const LithiumBattery = () => {
 
         {/* Cost Analysis & ROI Calculator */}
         <div className="mb-12">
-          <div className="text-center mb-8">
-            <p className="text-red-600 font-semibold mb-2">Financial Analysis</p>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">Total Cost of Ownership</h2>
-            <p className="text-gray-600 dark:text-gray-400">Comprehensive cost comparison and ROI calculations</p>
-          </div>
+          <PremiumSectionHeader
+            title="Total Cost of Ownership"
+            subtitle="Financial Analysis"
+            description="Comprehensive cost comparison and ROI calculations"
+            icon={DollarSign}
+            primaryColor="#eab308"
+            secondaryColor="#f59e0b"
+            bgGradient="bg-gradient-to-br from-yellow-950 via-amber-900 to-yellow-950"
+          />
           <div className="bg-gradient-to-br from-white/85 to-gray-100/80 backdrop-blur-xl dark:from-gray-800/85 dark:to-gray-900/80 rounded-2xl shadow-xl p-8">
             <div className="grid lg:grid-cols-2 gap-8">
               {/* Cost Comparison */}
