@@ -11,6 +11,93 @@
 @tailwind utilities;
 
 /* ========================================
+   ULTRA-SMOOTH SCROLLING OPTIMIZATIONS
+   Apple.com Level Performance
+   ======================================== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Lenis smooth scroll override - let JS handle it */
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* GPU Acceleration for smooth animations */
+.gpu-accelerate {
+  transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Optimized animation performance */
+.smooth-transform {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+}
+
+.smooth-scroll-item {
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Prevent layout shift during animations */
+.contain-layout {
+  contain: layout;
+}
+
+.contain-paint {
+  contain: paint;
+}
+
+.contain-strict {
+  contain: strict;
+}
+
+/* Optimize background layers */
+.background-layer {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Reduce paint on scroll */
+@media (prefers-reduced-motion: no-preference) {
+  .parallax-element {
+    will-change: transform;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ========================================
    ENTERPRISE HERO DESIGN SYSTEM
    ======================================== */
 

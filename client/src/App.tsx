@@ -49,6 +49,7 @@ import ChatPage from "@/pages/chat";
 import DocumentChatInterface from "@/pages/DocumentChatInterface";
 import { AuthProvider } from "@/hooks/use-auth";
 import { ProtectedRoute } from "@/components/ProtectedRoute";
+import { SmoothScrollWrapper } from "@/components/ui/smooth-scroll-wrapper";
 
 function Router() {
   const [location] = useLocation();
@@ -286,7 +287,9 @@ function App() {
       <TooltipProvider>
         <Toaster />
         <AuthProvider>
-          <Router />
+          <SmoothScrollWrapper>
+            <Router />
+          </SmoothScrollWrapper>
         </AuthProvider>
         {import.meta.env.DEV && (
           <TwentyFirstToolbar 
