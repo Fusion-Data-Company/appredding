@@ -111,6 +111,10 @@ export default {
         },
       },
       keyframes: {
+        "background-position-spin": {
+          "0%": { backgroundPosition: "top center" },
+          "100%": { backgroundPosition: "bottom center" },
+        },
         "accordion-down": {
           from: { height: "0" },
           to: { height: "var(--radix-accordion-content-height)" },
@@ -158,6 +162,7 @@ export default {
         },
       },
       animation: {
+        "background-position-spin": "background-position-spin 3000ms infinite alternate",
         "pulse-slow": "pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite",
         "float-slow": "float 8s ease-in-out infinite",
         "accordion-down": "accordion-down 0.2s ease-out",

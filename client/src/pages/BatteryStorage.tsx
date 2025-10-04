@@ -40,7 +40,6 @@ import {
   Settings,
   Package,
   Truck,
-  Tool,
   Timer,
   Calendar,
   DollarSign
@@ -49,6 +48,7 @@ import { Button } from "@/components/ui/button";
 import SEOHead from "@/components/SEOHead";
 import SolarRescueTimelineSection from "@/sections/SolarRescueTimelineSection";
 import ContentSection from "@/components/sections/ContentSection";
+import ShaderBackground from "@/components/ui/shader-background";
 
 const BatteryStorage = () => {
   const [showConsultationForm, setShowConsultationForm] = useState(false);
@@ -72,85 +72,195 @@ const BatteryStorage = () => {
       <SEOHead
         title={pageTitle}
         description={pageDescription}
+        industry="solar"
+        slug="battery-storage"
         structuredData={structuredData}
       />
 
-      {/* Enhanced Battery Storage Hero Section */}
-      <section className="relative bg-gradient-to-br from-gray-900 via-black to-gray-900 pt-32 pb-20 overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/images/optimized/diamond-plate-industrial.jpg')] opacity-5 bg-cover bg-center" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-black/80" />
+      {/* NEW HERO SECTION WITH SHADER BACKGROUND */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <ShaderBackground />
+        
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
+          <div className="text-center mb-16">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="inline-flex items-center gap-2 bg-purple-500/20 border border-purple-400/50 backdrop-blur-xl rounded-full px-6 py-3 mb-8"
+            >
+              <Battery className="h-5 w-5 text-purple-300" />
+              <span className="text-sm font-semibold text-purple-200 uppercase tracking-wider">
+                LiFePO4 Technology • 10,000+ Cycles • NFPA 855 Compliant
+              </span>
+            </motion.div>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Energy Storage Crisis Alert */}
-          <div className="bg-purple-900/20 border border-purple-500/50 backdrop-blur-sm rounded-xl p-4 mb-8">
-            <div className="flex items-center gap-3">
-              <TrendingDown className="h-6 w-6 text-purple-400 animate-pulse" />
-              <div className="flex-1">
-                <p className="text-purple-300 font-semibold">CRITICAL: NEM 3.0 Makes Battery Storage Mandatory for Positive ROI</p>
-                <p className="text-gray-400 text-sm mt-1">Without batteries: 10-12 year payback • With batteries + SGIP: 4-6 year payback • Time-shift arbitrage saves $150-300/month</p>
-              </div>
-            </div>
-          </div>
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              className="text-6xl md:text-7xl lg:text-8xl font-black text-white mb-8 leading-tight"
+            >
+              Advanced Battery
+              <br />
+              <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
+                Storage Systems
+              </span>
+            </motion.h1>
 
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 bg-purple-500/10 border border-purple-500/30 rounded-full px-4 py-2 mb-6">
-              <Battery className="h-4 w-4 text-purple-400" />
-              <span className="text-sm font-semibold text-purple-400 uppercase tracking-wider">LiFePO4 Technology • 10,000+ Cycles • NFPA 855 Compliant</span>
-            </div>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
-              Advanced Battery Storage Systems
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-300 max-w-5xl mx-auto mb-4">
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-xl md:text-2xl text-gray-200 max-w-4xl mx-auto mb-6"
+            >
               LiFePO4 battery technology with 95%+ round-trip efficiency, 10-year warranties, and SGIP incentives up to $1,000/kWh
-            </p>
-            <p className="text-lg text-gray-400 max-w-4xl mx-auto mb-8">
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="text-lg text-gray-300 max-w-3xl mx-auto mb-12"
+            >
               SimpliPhi • Fortress Power • EG4 • Sol-Ark Integration • Smart BMS • Thermal Management • Remote Monitoring
-            </p>
+            </motion.p>
 
-            {/* Live Battery Metrics Bar */}
-            <div className="flex flex-wrap justify-center gap-4 mb-8 text-sm">
-              <div className="flex items-center gap-2 bg-black/40 backdrop-blur-sm px-4 py-2 rounded-full border border-gray-700">
-                <Activity className="h-4 w-4 text-green-400" />
-                <span className="text-gray-400">Round-Trip:</span>
-                <span className="text-green-400 font-mono">95-98%</span>
-              </div>
-              <div className="flex items-center gap-2 bg-black/40 backdrop-blur-sm px-4 py-2 rounded-full border border-gray-700">
-                <Timer className="h-4 w-4 text-yellow-400" />
-                <span className="text-gray-400">Cycle Life:</span>
-                <span className="text-yellow-400 font-mono">6,000-10,000</span>
-              </div>
-              <div className="flex items-center gap-2 bg-black/40 backdrop-blur-sm px-4 py-2 rounded-full border border-gray-700">
-                <DollarSign className="h-4 w-4 text-purple-400" />
-                <span className="text-gray-400">SGIP Rebate:</span>
-                <span className="text-purple-400 font-mono">$200-1,000/kWh</span>
-              </div>
-              <div className="flex items-center gap-2 bg-black/40 backdrop-blur-sm px-4 py-2 rounded-full border border-gray-700">
-                <Shield className="h-4 w-4 text-blue-400" />
-                <span className="text-gray-400">Warranty:</span>
-                <span className="text-blue-400 font-mono">10 years</span>
-              </div>
-            </div>
-
-            <div className="flex flex-wrap justify-center gap-4 mb-12">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="flex flex-wrap justify-center gap-4"
+            >
               <Button
                 onClick={() => setShowConsultationForm(true)}
-                className="bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white px-8 py-6 text-lg shadow-lg shadow-purple-500/30 transform hover:scale-105 transition-all"
+                className="bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white px-10 py-7 text-lg shadow-2xl shadow-purple-500/50 transform hover:scale-105 transition-all backdrop-blur-sm"
+                data-testid="button-calculate-battery"
               >
-                <Calculator className="mr-2 h-5 w-5" />
+                <Calculator className="mr-2 h-6 w-6" />
                 Calculate Battery Sizing & SGIP
               </Button>
               <Button
                 variant="outline"
-                className="border-purple-500/50 text-purple-400 hover:bg-purple-500/10 px-8 py-6 text-lg backdrop-blur-sm"
+                className="border-purple-400/50 bg-white/10 backdrop-blur-xl text-white hover:bg-white/20 px-10 py-7 text-lg"
                 onClick={() => document.getElementById('battery-comparison')?.scrollIntoView({ behavior: 'smooth' })}
+                data-testid="button-compare-batteries"
               >
-                <Database className="mr-2 h-5 w-5" />
+                <Database className="mr-2 h-6 w-6" />
                 Compare Battery Technologies
               </Button>
-            </div>
+            </motion.div>
           </div>
 
-          {/* Battery Technology Grid */}
+          {/* Test Cards with Orange Gradient */}
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto"
+          >
+            {[
+              { 
+                title: "LiFePO4 Safety", 
+                value: "270°C", 
+                description: "Thermal runaway temp",
+                icon: <Flame className="h-8 w-8" />
+              },
+              { 
+                title: "Cycle Life", 
+                value: "10,000+", 
+                description: "@ 100% DOD cycles",
+                icon: <Activity className="h-8 w-8" />
+              },
+              { 
+                title: "Round-Trip", 
+                value: "95-98%", 
+                description: "Energy efficiency",
+                icon: <Zap className="h-8 w-8" />
+              },
+              { 
+                title: "SGIP Rebate", 
+                value: "$1,000/kWh", 
+                description: "Max incentive available",
+                icon: <DollarSign className="h-8 w-8" />
+              }
+            ].map((card, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: 0.6 + idx * 0.1 }}
+                className="relative group"
+                data-testid={`card-feature-${idx}`}
+              >
+                {/* Orange Gradient Background */}
+                <div className="absolute inset-0 bg-gradient-to-br from-orange-500/90 via-orange-600/90 to-red-600/90 rounded-2xl blur-sm group-hover:blur-md transition-all" />
+                
+                {/* Card Content */}
+                <div className="relative bg-gradient-to-br from-orange-500 via-orange-600 to-red-600 rounded-2xl p-6 backdrop-blur-sm border border-orange-400/30 hover:border-orange-300/50 transition-all transform hover:scale-105">
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="p-3 bg-white/10 backdrop-blur-sm rounded-xl text-white">
+                      {card.icon}
+                    </div>
+                    <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+                  </div>
+                  
+                  <h3 className="text-white/90 font-semibold text-sm mb-2">{card.title}</h3>
+                  <div className="text-3xl font-black text-white mb-1">{card.value}</div>
+                  <p className="text-white/70 text-xs">{card.description}</p>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Energy Storage Crisis Alert */}
+      <section className="relative bg-gradient-to-br from-gray-900 via-black to-gray-900 py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-purple-900/20 border border-purple-500/50 backdrop-blur-sm rounded-xl p-6">
+            <div className="flex items-center gap-4">
+              <TrendingDown className="h-8 w-8 text-purple-400 animate-pulse flex-shrink-0" />
+              <div className="flex-1">
+                <p className="text-purple-300 font-semibold text-lg mb-2">CRITICAL: NEM 3.0 Makes Battery Storage Mandatory for Positive ROI</p>
+                <p className="text-gray-400">Without batteries: 10-12 year payback • With batteries + SGIP: 4-6 year payback • Time-shift arbitrage saves $150-300/month</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Live Battery Metrics Bar */}
+      <section className="bg-gradient-to-br from-gray-900 via-black to-gray-900 py-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-wrap justify-center gap-4 text-sm">
+            <div className="flex items-center gap-2 bg-black/40 backdrop-blur-sm px-4 py-3 rounded-full border border-gray-700" data-testid="metric-roundtrip">
+              <Activity className="h-4 w-4 text-green-400" />
+              <span className="text-gray-400">Round-Trip:</span>
+              <span className="text-green-400 font-mono">95-98%</span>
+            </div>
+            <div className="flex items-center gap-2 bg-black/40 backdrop-blur-sm px-4 py-3 rounded-full border border-gray-700" data-testid="metric-cycles">
+              <Timer className="h-4 w-4 text-yellow-400" />
+              <span className="text-gray-400">Cycle Life:</span>
+              <span className="text-yellow-400 font-mono">6,000-10,000</span>
+            </div>
+            <div className="flex items-center gap-2 bg-black/40 backdrop-blur-sm px-4 py-3 rounded-full border border-gray-700" data-testid="metric-sgip">
+              <DollarSign className="h-4 w-4 text-purple-400" />
+              <span className="text-gray-400">SGIP Rebate:</span>
+              <span className="text-purple-400 font-mono">$200-1,000/kWh</span>
+            </div>
+            <div className="flex items-center gap-2 bg-black/40 backdrop-blur-sm px-4 py-3 rounded-full border border-gray-700" data-testid="metric-warranty">
+              <Shield className="h-4 w-4 text-blue-400" />
+              <span className="text-gray-400">Warranty:</span>
+              <span className="text-blue-400 font-mono">10 years</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Battery Technology Grid */}
+      <section className="bg-gradient-to-br from-gray-900 via-black to-gray-900 py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-4 gap-4 mb-12">
             <div className="bg-gradient-to-br from-purple-500/10 to-purple-600/5 backdrop-blur-sm rounded-2xl p-6 border border-purple-500/30 hover:border-purple-400 transition-all group">
               <div className="flex items-center gap-3 mb-4">
@@ -402,7 +512,6 @@ const BatteryStorage = () => {
 
       {/* Comprehensive Battery Chemistry Comparison */}
       <ContentSection
-        id="battery-comparison"
         title="Battery Chemistry Deep Dive"
         subtitle="LiFePO4 vs NMC vs Lead Acid"
         description="Understanding the critical differences in battery technologies and why LiFePO4 dominates residential storage"
@@ -462,459 +571,92 @@ const BatteryStorage = () => {
                 </tr>
                 <tr>
                   <td className="py-3 px-4 text-gray-300">Self-Discharge Rate</td>
-                  <td className="text-center py-3 px-4 font-mono text-purple-300">2-3%/month</td>
-                  <td className="text-center py-3 px-4 font-mono text-blue-300">3-5%/month</td>
+                  <td className="text-center py-3 px-4 font-mono text-purple-300">&lt;3%/month</td>
+                  <td className="text-center py-3 px-4 font-mono text-blue-300">&lt;5%/month</td>
                   <td className="text-center py-3 px-4 font-mono text-orange-300">5-15%/month</td>
                 </tr>
                 <tr>
-                  <td className="py-3 px-4 text-gray-300">Maintenance Required</td>
-                  <td className="text-center py-3 px-4 text-purple-300">None</td>
-                  <td className="text-center py-3 px-4 text-blue-300">None</td>
-                  <td className="text-center py-3 px-4 text-orange-300">Regular</td>
-                </tr>
-                <tr>
-                  <td className="py-3 px-4 text-gray-300">Typical Warranty</td>
-                  <td className="text-center py-3 px-4 font-mono text-purple-300">10 years</td>
-                  <td className="text-center py-3 px-4 font-mono text-blue-300">10 years</td>
+                  <td className="py-3 px-4 text-gray-300">Calendar Life</td>
+                  <td className="text-center py-3 px-4 font-mono text-purple-300">20+ years</td>
+                  <td className="text-center py-3 px-4 font-mono text-blue-300">10-15 years</td>
                   <td className="text-center py-3 px-4 font-mono text-orange-300">3-5 years</td>
                 </tr>
-                <tr className="bg-gray-900/40">
-                  <td className="py-3 px-4 text-white font-semibold">Cost per kWh (installed)</td>
-                  <td className="text-center py-3 px-4 text-purple-300 font-bold">$600-800</td>
-                  <td className="text-center py-3 px-4 text-blue-300 font-bold">$700-1,000</td>
-                  <td className="text-center py-3 px-4 text-orange-300 font-bold">$200-400</td>
+                <tr>
+                  <td className="py-3 px-4 text-gray-300">Depth of Discharge</td>
+                  <td className="text-center py-3 px-4 font-mono text-purple-300">100% safe</td>
+                  <td className="text-center py-3 px-4 font-mono text-blue-300">80-90%</td>
+                  <td className="text-center py-3 px-4 font-mono text-orange-300">50% max</td>
                 </tr>
                 <tr>
-                  <td className="py-3 px-4 text-white font-semibold">10-Year Cost/kWh/Cycle</td>
-                  <td className="text-center py-3 px-4 text-purple-300 font-bold">$0.08</td>
-                  <td className="text-center py-3 px-4 text-blue-300 font-bold">$0.20</td>
-                  <td className="text-center py-3 px-4 text-orange-300 font-bold">$0.80</td>
+                  <td className="py-3 px-4 text-gray-300">Toxicity/Environmental</td>
+                  <td className="text-center py-3 px-4 font-mono text-purple-300">Non-toxic</td>
+                  <td className="text-center py-3 px-4 font-mono text-blue-300">Cobalt concerns</td>
+                  <td className="text-center py-3 px-4 font-mono text-orange-300">Lead hazard</td>
                 </tr>
               </tbody>
             </table>
           </div>
         </div>
 
-        {/* Safety Comparison */}
-        <div className="grid lg:grid-cols-3 gap-6 mb-8">
-          <div className="bg-gradient-to-br from-purple-500/10 to-purple-600/5 border border-purple-500/30 rounded-2xl p-6">
-            <h4 className="text-xl font-bold text-white mb-4 flex items-center">
-              <Shield className="mr-2 h-5 w-5 text-purple-400" />
-              LiFePO4 Safety Profile
-            </h4>
-            <div className="space-y-3 text-sm">
-              <div className="flex items-start gap-2">
-                <CheckCircle className="h-4 w-4 text-green-400 mt-0.5 flex-shrink-0" />
-                <span className="text-gray-300">No thermal runaway below 270°C</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <CheckCircle className="h-4 w-4 text-green-400 mt-0.5 flex-shrink-0" />
-                <span className="text-gray-300">No oxygen release during failure</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <CheckCircle className="h-4 w-4 text-green-400 mt-0.5 flex-shrink-0" />
-                <span className="text-gray-300">No cobalt or nickel content</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <CheckCircle className="h-4 w-4 text-green-400 mt-0.5 flex-shrink-0" />
-                <span className="text-gray-300">UL 9540A certified for residential</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <CheckCircle className="h-4 w-4 text-green-400 mt-0.5 flex-shrink-0" />
-                <span className="text-gray-300">NFPA 855 compliant installation</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-gradient-to-br from-blue-500/10 to-blue-600/5 border border-blue-500/30 rounded-2xl p-6">
-            <h4 className="text-xl font-bold text-white mb-4 flex items-center">
-              <Info className="mr-2 h-5 w-5 text-blue-400" />
-              NMC/NCA Considerations
-            </h4>
-            <div className="space-y-3 text-sm">
-              <div className="flex items-start gap-2">
-                <AlertTriangle className="h-4 w-4 text-yellow-400 mt-0.5 flex-shrink-0" />
-                <span className="text-gray-300">Thermal runaway at 150°C possible</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <AlertTriangle className="h-4 w-4 text-yellow-400 mt-0.5 flex-shrink-0" />
-                <span className="text-gray-300">Requires active thermal management</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <CheckCircle className="h-4 w-4 text-green-400 mt-0.5 flex-shrink-0" />
-                <span className="text-gray-300">Higher energy density (smaller size)</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <CheckCircle className="h-4 w-4 text-green-400 mt-0.5 flex-shrink-0" />
-                <span className="text-gray-300">Better for mobile applications</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <Info className="h-4 w-4 text-blue-400 mt-0.5 flex-shrink-0" />
-                <span className="text-gray-300">Requires fire suppression system</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-gradient-to-br from-orange-500/10 to-orange-600/5 border border-orange-500/30 rounded-2xl p-6">
-            <h4 className="text-xl font-bold text-white mb-4 flex items-center">
-              <AlertTriangle className="mr-2 h-5 w-5 text-orange-400" />
-              Lead Acid Limitations
-            </h4>
-            <div className="space-y-3 text-sm">
-              <div className="flex items-start gap-2">
-                <AlertTriangle className="h-4 w-4 text-red-400 mt-0.5 flex-shrink-0" />
-                <span className="text-gray-300">50% DoD limit reduces usable capacity</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <AlertTriangle className="h-4 w-4 text-red-400 mt-0.5 flex-shrink-0" />
-                <span className="text-gray-300">500-1,000 cycles = 2-3 year replacement</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <AlertTriangle className="h-4 w-4 text-red-400 mt-0.5 flex-shrink-0" />
-                <span className="text-gray-300">80-85% efficiency wastes energy</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <AlertTriangle className="h-4 w-4 text-red-400 mt-0.5 flex-shrink-0" />
-                <span className="text-gray-300">Requires ventilation for hydrogen gas</span>
-              </div>
-              <div className="flex items-start gap-2">
-                <AlertTriangle className="h-4 w-4 text-red-400 mt-0.5 flex-shrink-0" />
-                <span className="text-gray-300">10x higher lifecycle cost than LiFePO4</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </ContentSection>
-
-      {/* Battery Sizing & Load Analysis */}
-      <ContentSection
-        title="Professional Battery Sizing & Load Analysis"
-        subtitle="Right-Sizing Your Energy Storage"
-        description="Engineering-grade calculations for optimal battery capacity based on your specific energy usage patterns"
-        backgroundColor="bg-gray-900"
-      >
-        <div className="grid lg:grid-cols-2 gap-8 mb-8">
-          <div className="bg-gray-800/40 backdrop-blur-sm rounded-2xl p-8 border border-gray-700">
-            <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
-              <Calculator className="mr-3 h-6 w-6 text-green-400" />
-              Load Analysis Methodology
-            </h3>
-            <div className="space-y-4">
-              <div className="bg-green-900/20 border border-green-500/30 rounded-lg p-4">
-                <h4 className="text-green-400 font-semibold mb-3">Step 1: Data Collection</h4>
-                <ul className="space-y-2 text-sm text-gray-300">
-                  <li className="flex items-start gap-2">
-                    <ChevronRight className="h-4 w-4 text-green-400 mt-0.5" />
-                    <span>12 months of 15-minute interval data from PG&E</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <ChevronRight className="h-4 w-4 text-green-400 mt-0.5" />
-                    <span>Peak demand identification (kW)</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <ChevronRight className="h-4 w-4 text-green-400 mt-0.5" />
-                    <span>TOU period consumption patterns</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <ChevronRight className="h-4 w-4 text-green-400 mt-0.5" />
-                    <span>Seasonal variation analysis</span>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="bg-blue-900/20 border border-blue-500/30 rounded-lg p-4">
-                <h4 className="text-blue-400 font-semibold mb-3">Step 2: Critical Load Audit</h4>
-                <div className="space-y-2 text-sm">
-                  <div className="flex justify-between">
-                    <span className="text-gray-400">Refrigerator:</span>
-                    <span className="text-white font-mono">150W avg (1.2kWh/day)</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-400">Lighting (LED):</span>
-                    <span className="text-white font-mono">200W (1.6kWh/day)</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-400">Internet/WiFi:</span>
-                    <span className="text-white font-mono">50W (1.2kWh/day)</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-400">Well Pump:</span>
-                    <span className="text-white font-mono">1,500W (3kWh/day)</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-400">HVAC (1 zone):</span>
-                    <span className="text-white font-mono">3,500W (14kWh/day)</span>
-                  </div>
-                  <div className="border-t border-blue-500/30 pt-2 mt-2">
-                    <div className="flex justify-between font-semibold">
-                      <span className="text-blue-400">Total Critical:</span>
-                      <span className="text-white">21kWh/day</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-gray-800/40 backdrop-blur-sm rounded-2xl p-8 border border-gray-700">
-            <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
-              <Database className="mr-3 h-6 w-6 text-purple-400" />
-              Battery Sizing Formula
-            </h3>
-            <div className="bg-purple-900/20 border border-purple-500/30 rounded-lg p-6 mb-6">
-              <h4 className="text-purple-400 font-semibold mb-3">NEM 3.0 Optimization Formula:</h4>
-              <div className="bg-black/40 rounded-lg p-4 font-mono text-sm text-green-400">
-                <p>Battery_Size = (Peak_TOU_Usage × 1.2) + (Backup_Hours × Critical_Load)</p>
-                <p className="mt-2 text-xs text-gray-400">Where:</p>
-                <p className="text-xs text-gray-400">• Peak_TOU = 4pm-9pm consumption (kWh)</p>
-                <p className="text-xs text-gray-400">• 1.2 = 20% reserve margin</p>
-                <p className="text-xs text-gray-400">• Backup_Hours = Desired outage protection</p>
-              </div>
-            </div>
-
-            <div className="space-y-4">
-              <h4 className="text-white font-semibold">Typical Residential Sizing:</h4>
-              <div className="space-y-3">
-                <div className="bg-gray-900/50 rounded-lg p-4">
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="text-sm text-gray-400">Small Home (1,500 sq ft):</span>
-                    <span className="text-white font-mono">10-13kWh</span>
-                  </div>
-                  <p className="text-xs text-gray-500">3 × SimpliPhi PHI 3.8 (11.4kWh total)</p>
-                </div>
-                <div className="bg-gray-900/50 rounded-lg p-4">
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="text-sm text-gray-400">Medium Home (2,500 sq ft):</span>
-                    <span className="text-white font-mono">15-20kWh</span>
-                  </div>
-                  <p className="text-xs text-gray-500">5 × SimpliPhi PHI 3.8 (19kWh total)</p>
-                </div>
-                <div className="bg-gray-900/50 rounded-lg p-4">
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="text-sm text-gray-400">Large Home (3,500+ sq ft):</span>
-                    <span className="text-white font-mono">25-40kWh</span>
-                  </div>
-                  <p className="text-xs text-gray-500">2 × Fortress eVault Max (37kWh total)</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Time-of-Use Optimization Strategy */}
-        <div className="bg-gradient-to-r from-green-900/20 to-blue-900/20 border border-green-500/30 rounded-2xl p-8">
+        {/* Why LiFePO4 Wins */}
+        <div className="bg-gradient-to-r from-purple-900/20 to-pink-900/20 border border-purple-500/30 rounded-2xl p-8">
           <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
-            <Clock className="mr-3 h-6 w-6 text-green-400" />
-            TOU Rate Arbitrage Strategy (PG&E EV-A Schedule)
+            <Award className="mr-3 h-6 w-6 text-purple-400" />
+            Why LiFePO4 Dominates Residential Storage
           </h3>
-          <div className="grid md:grid-cols-4 gap-4">
-            <div className="bg-black/40 rounded-lg p-4">
-              <h5 className="text-green-400 font-semibold mb-2">12am - 3pm</h5>
-              <p className="text-xs text-gray-400 mb-2">Off-Peak: $0.40/kWh</p>
-              <div className="space-y-1 text-xs text-gray-300">
-                <p>• Charge battery from solar</p>
-                <p>• Export excess at low rates</p>
-                <p>• Run heavy loads</p>
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="bg-black/30 rounded-lg p-4">
+              <div className="flex items-center gap-2 mb-3">
+                <Flame className="h-6 w-6 text-red-400" />
+                <h4 className="text-white font-semibold">Unmatched Safety</h4>
               </div>
-            </div>
-            <div className="bg-black/40 rounded-lg p-4">
-              <h5 className="text-yellow-400 font-semibold mb-2">3pm - 4pm</h5>
-              <p className="text-xs text-gray-400 mb-2">Partial-Peak: $0.42/kWh</p>
-              <div className="space-y-1 text-xs text-gray-300">
-                <p>• Reduce grid consumption</p>
-                <p>• Top off battery to 100%</p>
-                <p>• Prepare for peak period</p>
-              </div>
-            </div>
-            <div className="bg-black/40 rounded-lg p-4">
-              <h5 className="text-red-400 font-semibold mb-2">4pm - 9pm</h5>
-              <p className="text-xs text-gray-400 mb-2">Peak: $0.51/kWh</p>
-              <div className="space-y-1 text-xs text-gray-300">
-                <p>• 100% battery power</p>
-                <p>• Zero grid import</p>
-                <p>• Save $200-300/month</p>
-              </div>
-            </div>
-            <div className="bg-black/40 rounded-lg p-4">
-              <h5 className="text-blue-400 font-semibold mb-2">9pm - 12am</h5>
-              <p className="text-xs text-gray-400 mb-2">Partial-Peak: $0.42/kWh</p>
-              <div className="space-y-1 text-xs text-gray-300">
-                <p>• Continue battery use</p>
-                <p>• Grid import if needed</p>
-                <p>• Prepare for off-peak</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </ContentSection>
-
-      {/* BMS & Safety Systems */}
-      <ContentSection
-        title="Battery Management System (BMS) & Safety"
-        subtitle="Advanced Protection & Monitoring"
-        description="Understanding the critical safety systems that protect your investment and home"
-        backgroundColor="bg-gradient-to-br from-gray-900 to-black"
-      >
-        <div className="grid lg:grid-cols-2 gap-8 mb-8">
-          <div className="bg-gray-800/40 backdrop-blur-sm rounded-2xl p-8 border border-gray-700">
-            <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
-              <Cpu className="mr-3 h-6 w-6 text-blue-400" />
-              8-Layer BMS Protection
-            </h3>
-            <div className="space-y-3">
-              {[
-                { layer: "1. Cell Voltage", protection: "Over/under voltage protection", range: "2.5-3.65V/cell" },
-                { layer: "2. Current", protection: "Overcurrent & short circuit", range: "200A max continuous" },
-                { layer: "3. Temperature", protection: "Thermal monitoring per cell", range: "-20 to +60°C" },
-                { layer: "4. Cell Balance", protection: "Active balancing ±20mV", range: "Automatic equalization" },
-                { layer: "5. SOC/SOH", protection: "State tracking & health", range: "±2% accuracy" },
-                { layer: "6. Communication", protection: "CANbus/RS485 monitoring", range: "Real-time data" },
-                { layer: "7. Isolation", protection: "Ground fault detection", range: ">1MΩ resistance" },
-                { layer: "8. Firmware", protection: "OTA updates & diagnostics", range: "Remote management" }
-              ].map((item, index) => (
-                <div key={index} className="bg-blue-900/20 border border-blue-500/30 rounded-lg p-3">
-                  <div className="flex justify-between items-start">
-                    <div>
-                      <h4 className="text-blue-400 font-semibold text-sm">{item.layer}</h4>
-                      <p className="text-xs text-gray-400 mt-1">{item.protection}</p>
-                    </div>
-                    <span className="text-xs font-mono text-blue-300">{item.range}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="bg-gray-800/40 backdrop-blur-sm rounded-2xl p-8 border border-gray-700">
-            <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
-              <Shield className="mr-3 h-6 w-6 text-orange-400" />
-              NFPA 855 Compliance
-            </h3>
-            <div className="space-y-4">
-              <div className="bg-orange-900/20 border border-orange-500/30 rounded-lg p-4">
-                <h4 className="text-orange-400 font-semibold mb-2">Installation Requirements:</h4>
-                <ul className="space-y-2 text-sm text-gray-300">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="h-4 w-4 text-green-400 mt-0.5" />
-                    <span>3 feet clearance from ignition sources</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="h-4 w-4 text-green-400 mt-0.5" />
-                    <span>Dedicated 2-hour fire-rated room/enclosure</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="h-4 w-4 text-green-400 mt-0.5" />
-                    <span>Smoke/heat detection with auto-shutdown</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="h-4 w-4 text-green-400 mt-0.5" />
-                    <span>Emergency disconnect within 10 feet</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="h-4 w-4 text-green-400 mt-0.5" />
-                    <span>Ventilation per manufacturer specs</span>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="bg-gray-900/50 rounded-lg p-4">
-                <h4 className="text-white font-semibold mb-2">Thermal Management:</h4>
-                <div className="space-y-2 text-sm">
-                  <div className="flex justify-between">
-                    <span className="text-gray-400">Passive cooling (LiFePO4):</span>
-                    <span className="text-green-400">Standard</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-400">Active cooling (NMC):</span>
-                    <span className="text-yellow-400">Required</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-400">Temperature sensors:</span>
-                    <span className="text-white font-mono">Per module</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-gray-400">Shutdown temp:</span>
-                    <span className="text-red-400 font-mono">60°C</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-purple-900/20 border border-purple-500/30 rounded-lg p-4">
-                <h4 className="text-purple-400 font-semibold mb-2">Monitoring & Alerts:</h4>
-                <ul className="space-y-1 text-sm text-gray-300">
-                  <li>• 24/7 cloud monitoring dashboard</li>
-                  <li>• SMS/email alerts for anomalies</li>
-                  <li>• Remote shutdown capability</li>
-                  <li>• Predictive maintenance alerts</li>
-                  <li>• Historical performance data</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* UL Certifications */}
-        <div className="bg-gray-800/40 backdrop-blur-sm rounded-2xl p-8 border border-gray-700">
-          <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
-            <Award className="mr-3 h-6 w-6 text-green-400" />
-            Required Certifications & Standards
-          </h3>
-          <div className="grid md:grid-cols-4 gap-4">
-            <div className="bg-green-900/20 border border-green-500/30 rounded-lg p-4">
-              <h5 className="text-green-400 font-semibold mb-2">UL 9540</h5>
-              <p className="text-xs text-gray-400">Energy Storage System Standard</p>
-              <ul className="mt-2 space-y-1 text-xs text-gray-300">
-                <li>• Electrical safety</li>
-                <li>• Mechanical safety</li>
-                <li>• Environmental testing</li>
+              <p className="text-gray-400 text-sm mb-2">270°C thermal runaway temperature vs 150°C for NMC. No cobalt means inherently stable chemistry resistant to thermal events.</p>
+              <ul className="text-xs text-gray-500 space-y-1">
+                <li>• UL 9540A fire propagation tested</li>
+                <li>• NFPA 855 compliant installations</li>
+                <li>• No off-gassing or explosion risk</li>
               </ul>
             </div>
-            <div className="bg-green-900/20 border border-green-500/30 rounded-lg p-4">
-              <h5 className="text-green-400 font-semibold mb-2">UL 9540A</h5>
-              <p className="text-xs text-gray-400">Thermal Runaway Fire Test</p>
-              <ul className="mt-2 space-y-1 text-xs text-gray-300">
-                <li>• Cell-level testing</li>
-                <li>• Module-level testing</li>
-                <li>• Installation method</li>
+            <div className="bg-black/30 rounded-lg p-4">
+              <div className="flex items-center gap-2 mb-3">
+                <Activity className="h-6 w-6 text-green-400" />
+                <h4 className="text-white font-semibold">Superior Longevity</h4>
+              </div>
+              <p className="text-gray-400 text-sm mb-2">6,000-10,000 cycles at 100% DoD yields 20+ year lifespan. Degradation rate of only 0.5% annually maintains 90% capacity after 20 years.</p>
+              <ul className="text-xs text-gray-500 space-y-1">
+                <li>• 10-year standard warranties</li>
+                <li>• Predictable degradation curves</li>
+                <li>• No memory effect issues</li>
               </ul>
             </div>
-            <div className="bg-green-900/20 border border-green-500/30 rounded-lg p-4">
-              <h5 className="text-green-400 font-semibold mb-2">UL 1973</h5>
-              <p className="text-xs text-gray-400">Battery Safety Standard</p>
-              <ul className="mt-2 space-y-1 text-xs text-gray-300">
-                <li>• Construction requirements</li>
-                <li>• Performance tests</li>
-                <li>• Safety mechanisms</li>
-              </ul>
-            </div>
-            <div className="bg-green-900/20 border border-green-500/30 rounded-lg p-4">
-              <h5 className="text-green-400 font-semibold mb-2">IEEE 1547</h5>
-              <p className="text-xs text-gray-400">Grid Interconnection</p>
-              <ul className="mt-2 space-y-1 text-xs text-gray-300">
-                <li>• Anti-islanding</li>
-                <li>• Voltage/frequency</li>
-                <li>• Power quality</li>
+            <div className="bg-black/30 rounded-lg p-4">
+              <div className="flex items-center gap-2 mb-3">
+                <Zap className="h-6 w-6 text-yellow-400" />
+                <h4 className="text-white font-semibold">Economic Efficiency</h4>
+              </div>
+              <p className="text-gray-400 text-sm mb-2">95-98% round-trip efficiency maximizes energy arbitrage. Cost per cycle 40-60% lower than alternatives over lifetime.</p>
+              <ul className="text-xs text-gray-500 space-y-1">
+                <li>• $0.05-0.08 per kWh stored</li>
+                <li>• Higher SGIP qualification rates</li>
+                <li>• Lower replacement frequency</li>
               </ul>
             </div>
           </div>
         </div>
-      </ContentSection>
 
-      {/* Leading Battery Brands Comparison */}
-      <ContentSection
-        title="Leading Battery Storage Solutions"
-        subtitle="Brand Comparison & Selection Guide"
-        description="Detailed comparison of top-tier battery manufacturers and their flagship products"
-        backgroundColor="bg-gray-900"
-      >
-        <div className="grid lg:grid-cols-3 gap-6 mb-8">
+        {/* Battery Manufacturer Comparison */}
+        <h3 className="text-2xl font-bold text-white mt-12 mb-6 flex items-center">
+          <Package className="mr-3 h-6 w-6 text-blue-400" />
+          Top LiFePO4 Battery Manufacturers
+        </h3>
+        <div className="grid md:grid-cols-3 gap-6">
           <div className="bg-gradient-to-br from-blue-500/10 to-blue-600/5 border border-blue-500/30 rounded-2xl p-6">
             <div className="flex items-center gap-3 mb-4">
               <Package className="h-6 w-6 text-blue-400" />
               <h3 className="text-xl font-bold text-white">SimpliPhi Power</h3>
             </div>
             <div className="mb-4">
-              <h4 className="text-blue-400 font-semibold mb-2">PHI 3.8-M Battery</h4>
+              <h4 className="text-blue-400 font-semibold mb-2">PHI 3.8 Battery</h4>
               <div className="space-y-2 text-sm">
                 <div className="flex justify-between">
                   <span className="text-gray-400">Capacity:</span>
@@ -925,8 +667,8 @@ const BatteryStorage = () => {
                   <span className="text-white font-mono">51.2V nominal</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-400">Peak Discharge:</span>
-                  <span className="text-white font-mono">150A (7.68kW)</span>
+                  <span className="text-gray-400">Continuous Power:</span>
+                  <span className="text-white font-mono">3.4kW (66A)</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-400">Efficiency:</span>
@@ -934,17 +676,17 @@ const BatteryStorage = () => {
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-400">Cycles:</span>
-                  <span className="text-white font-mono">10,000 @ 80% DoD</span>
+                  <span className="text-white font-mono">10,000 @ 100% DoD</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-400">Warranty:</span>
-                  <span className="text-white font-mono">10 years/10,000 cycles</span>
+                  <span className="text-white font-mono">10 years</span>
                 </div>
               </div>
             </div>
             <div className="bg-blue-900/20 rounded-lg p-3">
-              <p className="text-xs text-gray-300"><strong className="text-blue-400">Best For:</strong> Modular systems, retrofits, off-grid applications</p>
-              <p className="text-xs text-green-400 mt-1">Price: $2,800-3,200/module</p>
+              <p className="text-xs text-gray-300"><strong className="text-blue-400">Best For:</strong> Modular scaling, premium quality</p>
+              <p className="text-xs text-green-400 mt-1">Price: $3,500-4,000/unit</p>
             </div>
           </div>
 
@@ -965,12 +707,12 @@ const BatteryStorage = () => {
                   <span className="text-white font-mono">51.2V nominal</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-400">Peak Discharge:</span>
-                  <span className="text-white font-mono">200A (10.24kW)</span>
+                  <span className="text-gray-400">Peak Power:</span>
+                  <span className="text-white font-mono">11.4kW (15s)</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-400">Efficiency:</span>
-                  <span className="text-white font-mono">95% round-trip</span>
+                  <span className="text-white font-mono">96% round-trip</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-400">Cycles:</span>
@@ -1030,7 +772,7 @@ const BatteryStorage = () => {
         </div>
 
         {/* Installation Timeline */}
-        <div className="bg-gray-800/40 backdrop-blur-sm rounded-2xl p-8 border border-gray-700">
+        <div className="bg-gray-800/40 backdrop-blur-sm rounded-2xl p-8 border border-gray-700 mt-12">
           <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
             <Calendar className="mr-3 h-6 w-6 text-blue-400" />
             Professional Installation Timeline
@@ -1243,6 +985,7 @@ const BatteryStorage = () => {
               <Button
                 className="bg-white text-purple-600 hover:bg-gray-100 font-bold py-4 px-8 rounded-lg shadow-lg"
                 onClick={() => window.location.href = '/contact'}
+                data-testid="button-free-analysis"
               >
                 Get Free Battery Sizing Analysis
               </Button>
@@ -1250,6 +993,7 @@ const BatteryStorage = () => {
                 variant="outline"
                 className="border-white text-white hover:bg-white hover:text-purple-600 py-4 px-8 rounded-lg"
                 onClick={() => window.location.href = 'tel:5302260701'}
+                data-testid="button-call"
               >
                 Call (530) 226-0701
               </Button>
