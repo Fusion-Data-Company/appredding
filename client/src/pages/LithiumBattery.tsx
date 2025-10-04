@@ -15,7 +15,7 @@ const LithiumBattery = () => {
   const [currentFlow, setCurrentFlow] = useState(28.5);
   const [powerOutput, setPowerOutput] = useState(1.5);
 
-  // Add custom Phase 4 animations
+  // Add optimized animations with will-change
   useEffect(() => {
     const style = document.createElement('style');
     style.textContent = `
@@ -40,11 +40,31 @@ const LithiumBattery = () => {
         0% { transform: translateX(-100%); }
         100% { transform: translateX(200%); }
       }
-      .animate-aurora { animation: aurora 40s ease-in-out infinite; }
-      .animate-holographic { animation: holographic 20s linear infinite; }
-      .animate-float { animation: float 8s ease-in-out infinite; }
-      .animate-glow { animation: glow 4s ease-in-out infinite; }
-      .animate-shine { animation: shine 3s ease-in-out infinite; }
+      .animate-aurora {
+        animation: aurora 40s ease-in-out infinite;
+        will-change: transform, opacity;
+      }
+      .animate-holographic {
+        animation: holographic 20s linear infinite;
+        will-change: background-position;
+      }
+      .animate-float {
+        animation: float 8s ease-in-out infinite;
+        will-change: transform;
+      }
+      .animate-glow {
+        animation: glow 4s ease-in-out infinite;
+        will-change: box-shadow;
+      }
+      .animate-shine {
+        animation: shine 3s ease-in-out infinite;
+        will-change: transform;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .animate-aurora, .animate-holographic, .animate-float, .animate-glow, .animate-shine {
+          animation: none !important;
+        }
+      }
     `;
     document.head.appendChild(style);
     return () => document.head.removeChild(style);
@@ -736,21 +756,30 @@ const LithiumBattery = () => {
                   <div key={step.step} className="relative flex items-start gap-6">
                     <div className="absolute left-6 w-4 h-4 bg-gradient-to-br from-white/85 to-gray-100/80 backdrop-blur-xl dark:from-gray-800/85 dark:to-gray-900/80 border-4 border-blue-500 rounded-full"></div>
                     <div className="ml-16 flex-1">
-                      <div className="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-700 dark:to-gray-800 shadow-inner rounded-xl p-6">
-                        <div className="flex items-start justify-between mb-3">
-                          <h4 className="text-lg font-bold text-gray-900 dark:text-white">
-                            Step {step.step}: {step.process}
-                          </h4>
-                          <span className="text-sm bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 px-3 py-1 rounded-full">
-                            {step.duration}
-                          </span>
+                      <NeonGradientCard
+                        borderRadius={12}
+                        borderSize={1.5}
+                        neonColors={{
+                          firstColor: step.step <= 2 ? "#3b82f6" : step.step <= 4 ? "#10b981" : step.step <= 6 ? "#f59e0b" : "#ec4899",
+                          secondColor: step.step <= 2 ? "#06b6d4" : step.step <= 4 ? "#06b6d4" : step.step <= 6 ? "#f97316" : "#8b5cf6"
+                        }}
+                      >
+                        <div className="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-700 dark:to-gray-800 shadow-inner rounded-xl p-6">
+                          <div className="flex items-start justify-between mb-3">
+                            <h4 className="text-lg font-bold text-gray-900 dark:text-white">
+                              Step {step.step}: {step.process}
+                            </h4>
+                            <span className="text-sm bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 px-3 py-1 rounded-full">
+                              {step.duration}
+                            </span>
+                          </div>
+                          <p className="text-gray-600 dark:text-gray-400 mb-3">{step.description}</p>
+                          <div className="flex items-center gap-2 text-sm">
+                            <CheckCircle className="h-4 w-4 text-green-500" />
+                            <span className="text-gray-500 dark:text-gray-400">Quality Standard: {step.quality}</span>
+                          </div>
                         </div>
-                        <p className="text-gray-600 dark:text-gray-400 mb-3">{step.description}</p>
-                        <div className="flex items-center gap-2 text-sm">
-                          <CheckCircle className="h-4 w-4 text-green-500" />
-                          <span className="text-gray-500 dark:text-gray-400">Quality Standard: {step.quality}</span>
-                        </div>
-                      </div>
+                      </NeonGradientCard>
                     </div>
                   </div>
                 ))}
