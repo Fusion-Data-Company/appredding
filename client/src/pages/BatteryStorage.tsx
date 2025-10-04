@@ -81,7 +81,7 @@ const BatteryStorage = () => {
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <ShaderBackground />
         
-        <div className="relative z-10 w-full px-6 sm:px-12 lg:px-20 py-32">
+        <div className="relative z-10 w-full px-6 sm:px-12 lg:px-20 py-20">
           {/* Glassomorphic Hero Card - Full Width */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -89,43 +89,11 @@ const BatteryStorage = () => {
             transition={{ duration: 1 }}
             className="max-w-[1600px] mx-auto"
           >
-            {/* Metallic Futuristic Badge */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="inline-flex items-center gap-3 mb-8 relative group"
-            >
-              {/* Badge Background Glow */}
-              <div className="absolute -inset-2 bg-gradient-to-r from-yellow-500/50 via-amber-500/50 to-yellow-600/50 rounded-full blur-xl opacity-75 group-hover:opacity-100 transition-opacity" />
-              
-              {/* Metallic Badge Container */}
-              <div className="relative bg-gradient-to-br from-yellow-400 via-amber-500 to-yellow-600 rounded-full p-[2px] shadow-2xl shadow-yellow-500/50">
-                <div className="bg-gradient-to-br from-gray-900 via-black to-gray-900 rounded-full px-6 py-3 backdrop-blur-xl border border-yellow-500/30">
-                  <div className="flex items-center gap-3">
-                    {/* Animated Icon */}
-                    <div className="relative">
-                      <Battery className="h-5 w-5 text-yellow-400 relative z-10" />
-                      <div className="absolute inset-0 bg-yellow-400 blur-md opacity-50 animate-pulse" />
-                    </div>
-                    
-                    {/* Badge Text with Metallic Gradient */}
-                    <span className="text-sm font-bold bg-gradient-to-r from-yellow-200 via-amber-100 to-yellow-300 bg-clip-text text-transparent uppercase tracking-widest">
-                      LiFePO4 Technology • 10,000+ Cycles • NFPA 855 Compliant
-                    </span>
-                    
-                    {/* Shine Effect */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000" />
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-
             {/* Glassomorphic Card */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
               className="relative backdrop-blur-2xl bg-gradient-to-br from-white/10 via-white/5 to-white/10 border border-white/20 rounded-3xl p-12 md:p-16 lg:p-20 shadow-2xl"
             >
               {/* Glass Reflection Effect */}
@@ -136,7 +104,7 @@ const BatteryStorage = () => {
                 <motion.h1
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.4 }}
+                  transition={{ duration: 0.8, delay: 0.3 }}
                   className="text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black mb-8 leading-tight"
                 >
                   <span className="text-white drop-shadow-2xl">Advanced Battery</span>
@@ -149,7 +117,7 @@ const BatteryStorage = () => {
                 <motion.p
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.5 }}
+                  transition={{ duration: 0.8, delay: 0.4 }}
                   className="text-xl md:text-2xl lg:text-3xl text-white/90 mb-6 leading-relaxed drop-shadow-lg"
                 >
                   LiFePO4 battery technology with 95%+ round-trip efficiency, 10-year warranties, and SGIP incentives up to $1,000/kWh
@@ -158,7 +126,7 @@ const BatteryStorage = () => {
                 <motion.p
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.6 }}
+                  transition={{ duration: 0.8, delay: 0.5 }}
                   className="text-lg md:text-xl text-yellow-200/80 mb-12 leading-relaxed"
                 >
                   SimpliPhi • Fortress Power • EG4 • Sol-Ark Integration • Smart BMS • Thermal Management • Remote Monitoring
@@ -167,7 +135,7 @@ const BatteryStorage = () => {
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.7 }}
+                  transition={{ duration: 0.8, delay: 0.6 }}
                   className="flex flex-wrap gap-4"
                 >
                   {/* Premium CTA Button */}
@@ -215,7 +183,7 @@ const BatteryStorage = () => {
             <motion.div
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
+              transition={{ duration: 0.8, delay: 0.7 }}
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12"
             >
             {[
@@ -248,7 +216,7 @@ const BatteryStorage = () => {
                 key={idx}
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.9 + idx * 0.1 }}
+                transition={{ duration: 0.5, delay: 0.8 + idx * 0.1 }}
                 className="relative group"
                 data-testid={`card-feature-${idx}`}
               >

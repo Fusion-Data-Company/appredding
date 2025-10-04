@@ -10,17 +10,26 @@ export default function SolarBackground() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
+    const dpr = Math.max(1, Math.min(2, window.devicePixelRatio || 1));
+
     const resize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      // Style size in CSS pixels
+      canvas.style.width = `${width}px`;
+      canvas.style.height = `${height}px`;
+      // Backing store size in device pixels for crisp rendering
+      canvas.width = Math.floor(width * dpr);
+      canvas.height = Math.floor(height * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     };
     resize();
     window.addEventListener("resize", resize);
 
     const gap = 16;
-    const baseCellSize = 100;
-    const cols = Math.ceil(canvas.width / baseCellSize);
-    const rows = Math.ceil(canvas.height / baseCellSize);
+    const baseCellSize = 180; // Slightly larger cells reduces draw calls
+    let cols = Math.ceil((canvas.width / dpr) / baseCellSize);
+    let rows = Math.ceil((canvas.height / dpr) / baseCellSize);
 
     const colors = [
       { primary: "#FFD700", secondary: "#FFA500", accent: "#FF8C00" },
@@ -44,29 +53,53 @@ export default function SolarBackground() {
       blur: number;
     }
 
-    const squares: Square[] = [];
-    for (let i = 0; i < cols * rows; i++) {
-      const col = i % cols;
-      const row = Math.floor(i / cols);
-      // More shapes on edges
-      const isEdge = col < 3 || col >= cols - 3 || row < 2 || row >= rows - 2;
-      const isCorner = (col < 2 || col >= cols - 2) && (row < 2 || row >= rows - 2);
+    let squares: Square[] = [];
+    const initSquares = () => {
+      cols = Math.ceil((canvas.width / dpr) / baseCellSize);
+      rows = Math.ceil((canvas.height / dpr) / baseCellSize);
+      squares = [];
+      for (let i = 0; i < cols * rows; i++) {
+        const col = i % cols;
+        const row = Math.floor(i / cols);
+        // More shapes on edges
+        const isEdge = col < 3 || col >= cols - 3 || row < 2 || row >= rows - 2;
+        const isCorner = (col < 2 || col >= cols - 2) && (row < 2 || row >= rows - 2);
 
-      squares.push({
-        opacity: isCorner ? Math.random() * 0.4 : isEdge ? Math.random() * 0.3 : Math.random() * 0.1,
-        targetOpacity: isCorner ? Math.random() * 0.6 : isEdge ? Math.random() * 0.4 : 0,
-        color: colors[Math.floor(Math.random() * colors.length)],
-        fadeSpeed: 0.003 + Math.random() * 0.005, // Much faster fade speed
-        size: sizes[Math.floor(Math.random() * sizes.length)],
-        rotation: Math.random() * 360,
-        rotationSpeed: (Math.random() - 0.5) * 0.5, // Faster rotation
-        blur: Math.random() * 2,
-      });
-    }
+        squares.push({
+          opacity: isCorner ? Math.random() * 0.4 : isEdge ? Math.random() * 0.3 : Math.random() * 0.1,
+          targetOpacity: isCorner ? Math.random() * 0.6 : isEdge ? Math.random() * 0.4 : 0,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          fadeSpeed: 0.002 + Math.random() * 0.003,
+          size: sizes[Math.floor(Math.random() * sizes.length)],
+          rotation: Math.random() * 360,
+          rotationSpeed: (Math.random() - 0.5) * 0.4,
+          blur: Math.random() * 2,
+        });
+      }
+    };
+    initSquares();
 
-    const animate = () => {
+    let last = 0;
+    const targetFps = 30;
+    const frameInterval = 1000 / targetFps;
+    let rafId = 0;
+
+    const animate = (now: number) => {
+      if (now - last < frameInterval) {
+        rafId = requestAnimationFrame(animate);
+        return;
+      }
+      last = now;
       ctx.fillStyle = "#FFF8E7";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      const currentCols = Math.ceil((canvas.width / dpr) / baseCellSize);
+      const currentRows = Math.ceil((canvas.height / dpr) / baseCellSize);
+      if (currentCols !== cols || currentRows !== rows) {
+        initSquares();
+        cols = currentCols;
+        rows = currentRows;
+      }
 
       for (let i = 0; i < cols; i++) {
         for (let j = 0; j < rows; j++) {
@@ -159,15 +192,16 @@ export default function SolarBackground() {
       }
 
       ctx.globalAlpha = 1;
-      requestAnimationFrame(animate);
+      rafId = requestAnimationFrame(animate);
     };
 
-    animate();
+    rafId = requestAnimationFrame(animate);
 
     return () => {
       window.removeEventListener("resize", resize);
+      if (rafId) cancelAnimationFrame(rafId);
     };
   }, []);
 
-  return <canvas ref={canvasRef} className="fixed inset-0 w-full h-full" />;
+  return <canvas ref={canvasRef} className="fixed inset-0 w-full h-full z-0 pointer-events-none" />;
 }

@@ -16,19 +16,32 @@ const SonicWaveformCanvas = () => {
         let animationFrameId: number;
         const mouse = { x: canvas.width / 2, y: canvas.height / 2 };
         let time = 0;
+        const dpr = Math.max(1, Math.min(2, window.devicePixelRatio || 1));
+        let last = 0;
+        const targetFps = 30; // cap FPS for performance
+        const frameInterval = 1000 / targetFps;
 
         const resizeCanvas = () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            canvas.style.width = `${width}px`;
+            canvas.style.height = `${height}px`;
+            canvas.width = Math.floor(width * dpr);
+            canvas.height = Math.floor(height * dpr);
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
         };
 
-        const draw = () => {
-            // Dark background with fade trail effect
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
+        const draw = (now: number) => {
+            if (now - last < frameInterval) {
+                animationFrameId = requestAnimationFrame(draw);
+                return;
+            }
+            last = now;
+            // Transparent background to show orange shapes
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-            const lineCount = 60; // More lines for denser effect
-            const segmentCount = 80; // More segments for smoother waves
+            const lineCount = 48; // Slightly reduced for performance
+            const segmentCount = 72; // Slightly reduced for performance
             const height = canvas.height / 2;
 
             for (let i = 0; i < lineCount; i++) {
@@ -74,7 +87,7 @@ const SonicWaveformCanvas = () => {
         window.addEventListener('mousemove', handleMouseMove);
 
         resizeCanvas();
-        draw();
+        draw(0);
 
         return () => {
             cancelAnimationFrame(animationFrameId);
@@ -83,7 +96,7 @@ const SonicWaveformCanvas = () => {
         };
     }, []);
 
-    return <canvas ref={canvasRef} className="absolute inset-0 z-0 w-full h-full bg-gradient-to-b from-white via-gray-50 to-gray-100" />;
+    return <canvas ref={canvasRef} className="absolute inset-0 z-0 w-full h-full pointer-events-none" style={{ background: 'transparent', mixBlendMode: 'normal' }} />;
 };
 
 // The main hero component for Lithium Battery page
@@ -109,32 +122,11 @@ const SonicWaveformHero = () => {
     };
 
     return (
-        <div className="relative h-screen w-full flex flex-col overflow-hidden">
-            {/* Navigation Bar */}
-            <nav className="absolute top-0 left-0 right-0 z-30 bg-black/20 backdrop-blur-md border-b border-white/10">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex items-center justify-between h-16">
-                        <div className="flex items-center">
-                            <Battery className="h-8 w-8 text-cyan-400" />
-                            <span className="ml-2 text-xl font-bold text-white">LithiumTech</span>
-                        </div>
-                        <div className="hidden md:flex items-center space-x-8">
-                            <button onClick={() => scrollToSection('chemistry')} className="text-white/80 hover:text-cyan-400 transition">Chemistry</button>
-                            <button onClick={() => scrollToSection('bms')} className="text-white/80 hover:text-cyan-400 transition">BMS Tech</button>
-                            <button onClick={() => scrollToSection('manufacturing')} className="text-white/80 hover:text-cyan-400 transition">Manufacturing</button>
-                            <button onClick={() => scrollToSection('applications')} className="text-white/80 hover:text-cyan-400 transition">Applications</button>
-                            <button onClick={() => scrollToSection('safety')} className="text-white/80 hover:text-cyan-400 transition">Safety</button>
-                            <button className="px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-lg hover:from-cyan-600 hover:to-blue-700 transition">
-                                Get Quote
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-
+        <div className="relative h-screen w-full flex flex-col overflow-hidden" style={{ background: 'transparent' }}>
             <SonicWaveformCanvas />
 
-            <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent z-10"></div>
+            {/* Subtle gradient to blend with content - mostly transparent */}
+            <div className="absolute inset-0 bg-gradient-to-t from-white/30 via-transparent to-transparent z-10 pointer-events-none"></div>
 
             {/* Overlay Content - Battery Theme */}
             <div className="absolute inset-0 flex items-center justify-center z-20">
@@ -157,7 +149,7 @@ const SonicWaveformHero = () => {
                     variants={fadeUpVariants}
                     initial="hidden"
                     animate="visible"
-                    className="text-5xl md:text-7xl font-bold tracking-tight mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-cyan-500 to-green-500"
+                    className="text-5xl md:text-7xl font-bold tracking-tight mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-white drop-shadow-[0_4px_24px_rgba(255,255,255,0.25)]"
                 >
                     Next-Generation Energy Storage
                 </motion.h1>
@@ -167,7 +159,7 @@ const SonicWaveformHero = () => {
                     variants={fadeUpVariants}
                     initial="hidden"
                     animate="visible"
-                    className="max-w-3xl mx-auto text-lg text-gray-600 mb-10"
+                    className="max-w-3xl mx-auto text-lg text-gray-200 mb-10"
                 >
                     Experience the power of advanced lithium battery technology.
                     Watch as energy flows visualize our 12,000+ cycle life systems with 95% efficiency and unmatched safety.
@@ -203,19 +195,19 @@ const SonicWaveformHero = () => {
                     variants={fadeUpVariants}
                     initial="hidden"
                     animate="visible"
-                    className="mt-12 grid grid-cols-3 gap-6 max-w-2xl mx-auto"
+                    className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl mx-auto"
                 >
-                    <div className="bg-white/70 backdrop-blur-sm rounded-xl p-4 border border-gray-200">
-                        <div className="text-3xl font-bold text-blue-600">12,000+</div>
-                        <div className="text-sm text-gray-600">Cycle Life</div>
+                    <div className="bg-white/15 backdrop-blur-md rounded-xl p-4 border border-white/20">
+                        <div className="text-3xl font-bold text-white">12,000+</div>
+                        <div className="text-sm text-blue-100">Cycle Life</div>
                     </div>
-                    <div className="bg-white/70 backdrop-blur-sm rounded-xl p-4 border border-gray-200">
-                        <div className="text-3xl font-bold text-green-600">95%</div>
-                        <div className="text-sm text-gray-600">Efficiency</div>
+                    <div className="bg-white/15 backdrop-blur-md rounded-xl p-4 border border-white/20">
+                        <div className="text-3xl font-bold text-white">95%</div>
+                        <div className="text-sm text-blue-100">Efficiency</div>
                     </div>
-                    <div className="bg-white/70 backdrop-blur-sm rounded-xl p-4 border border-gray-200">
-                        <div className="text-3xl font-bold text-cyan-600">10 Year</div>
-                        <div className="text-sm text-gray-600">Warranty</div>
+                    <div className="bg-white/15 backdrop-blur-md rounded-xl p-4 border border-white/20">
+                        <div className="text-3xl font-bold text-white">10 Year</div>
+                        <div className="text-sm text-blue-100">Warranty</div>
                     </div>
                 </motion.div>
             </div>

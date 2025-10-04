@@ -287,7 +287,7 @@ function App() {
       <TooltipProvider>
         <Toaster />
         <AuthProvider>
-          <SmoothScrollWrapper>
+          <SmoothScrollWrapper disableOnRoutes={["/services/lithium-battery", "/lithium-battery"]}>
             <Router />
           </SmoothScrollWrapper>
         </AuthProvider>
