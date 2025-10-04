@@ -13,7 +13,7 @@ interface FunnelStage {
   color: string;
   glowColor: string;
   icon: React.ReactNode;
-  metrics?: string;
+  metrics?: React.ReactNode;
 }
 
 interface SalesFunnelProps {
