@@ -1,84 +1,144 @@
 const ShaderBackground = () => {
   return (
     <>
-      {/* Animated gradient background */}
-      <div className="fixed inset-0 -z-10 bg-gradient-to-br from-purple-900 via-blue-900 to-black animate-gradient-shift" />
+      {/* Black base background */}
+      <div className="absolute inset-0 bg-black" />
       
-      {/* Animated waves overlay */}
-      <div className="fixed inset-0 -z-10 overflow-hidden opacity-30">
+      {/* Animated wave layers - visible against black */}
+      <div className="absolute inset-0 overflow-hidden">
+        {/* Wave 1 - Purple */}
         <div 
-          className="absolute inset-0 bg-gradient-to-r from-purple-600/40 via-blue-600/40 to-purple-600/40"
+          className="absolute inset-0 opacity-30"
           style={{
+            background: 'linear-gradient(45deg, transparent 30%, rgba(139, 92, 246, 0.7) 50%, transparent 70%)',
             backgroundSize: '200% 200%',
-            animation: 'wave 15s ease infinite',
+            animation: 'wave1 8s ease-in-out infinite',
           }}
         />
+        
+        {/* Wave 2 - Blue */}
         <div 
-          className="absolute inset-0 bg-gradient-to-l from-blue-600/30 via-purple-600/30 to-blue-600/30"
+          className="absolute inset-0 opacity-25"
           style={{
+            background: 'linear-gradient(-45deg, transparent 30%, rgba(59, 130, 246, 0.7) 50%, transparent 70%)',
             backgroundSize: '200% 200%',
-            animation: 'wave 20s ease-in-out infinite',
-            animationDelay: '-5s',
+            animation: 'wave2 12s ease-in-out infinite',
+          }}
+        />
+        
+        {/* Wave 3 - Violet */}
+        <div 
+          className="absolute inset-0 opacity-20"
+          style={{
+            background: 'linear-gradient(90deg, transparent 30%, rgba(167, 139, 250, 0.6) 50%, transparent 70%)',
+            backgroundSize: '300% 300%',
+            animation: 'wave3 15s ease-in-out infinite',
           }}
         />
       </div>
 
-      {/* Radial gradient accents */}
-      <div className="fixed inset-0 -z-10 opacity-20">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-500 rounded-full blur-[120px] animate-pulse-slow" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500 rounded-full blur-[120px] animate-pulse-slow" style={{ animationDelay: '2s' }} />
+      {/* Pulsing orbs for depth */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div 
+          className="absolute -top-20 -left-20 w-96 h-96 rounded-full opacity-15"
+          style={{
+            background: 'radial-gradient(circle, rgba(139, 92, 246, 0.8) 0%, transparent 70%)',
+            animation: 'float1 10s ease-in-out infinite',
+          }}
+        />
+        <div 
+          className="absolute top-1/3 right-0 w-80 h-80 rounded-full opacity-15"
+          style={{
+            background: 'radial-gradient(circle, rgba(59, 130, 246, 0.8) 0%, transparent 70%)',
+            animation: 'float2 14s ease-in-out infinite',
+          }}
+        />
+        <div 
+          className="absolute bottom-0 left-1/3 w-72 h-72 rounded-full opacity-10"
+          style={{
+            background: 'radial-gradient(circle, rgba(167, 139, 250, 0.8) 0%, transparent 70%)',
+            animation: 'float3 12s ease-in-out infinite',
+          }}
+        />
       </div>
 
-      {/* Grid pattern overlay */}
+      {/* Subtle grid overlay */}
       <div 
-        className="fixed inset-0 -z-10 opacity-10"
+        className="absolute inset-0 opacity-5"
         style={{
           backgroundImage: `
-            linear-gradient(rgba(147, 51, 234, 0.1) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(147, 51, 234, 0.1) 1px, transparent 1px)
+            linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px)
           `,
-          backgroundSize: '50px 50px',
+          backgroundSize: '60px 60px',
         }}
       />
 
-      {/* Add custom keyframes in style tag */}
       <style>{`
-        @keyframes wave {
+        @keyframes wave1 {
           0%, 100% {
             background-position: 0% 50%;
+            transform: translateY(0) scale(1);
           }
           50% {
             background-position: 100% 50%;
+            transform: translateY(-20px) scale(1.05);
           }
         }
         
-        @keyframes pulse-slow {
+        @keyframes wave2 {
           0%, 100% {
-            opacity: 0.2;
-            transform: scale(1);
-          }
-          50% {
-            opacity: 0.4;
-            transform: scale(1.1);
-          }
-        }
-        
-        @keyframes gradient-shift {
-          0%, 100% {
-            background-position: 0% 50%;
-          }
-          50% {
             background-position: 100% 50%;
+            transform: translateX(0) scale(1);
+          }
+          50% {
+            background-position: 0% 50%;
+            transform: translateX(20px) scale(1.05);
           }
         }
         
-        .animate-pulse-slow {
-          animation: pulse-slow 8s ease-in-out infinite;
+        @keyframes wave3 {
+          0%, 100% {
+            background-position: 50% 0%;
+            transform: rotate(0deg);
+          }
+          50% {
+            background-position: 50% 100%;
+            transform: rotate(2deg);
+          }
         }
         
-        .animate-gradient-shift {
-          background-size: 200% 200%;
-          animation: gradient-shift 10s ease infinite;
+        @keyframes float1 {
+          0%, 100% {
+            transform: translate(0, 0) scale(1);
+          }
+          33% {
+            transform: translate(30px, -30px) scale(1.1);
+          }
+          66% {
+            transform: translate(-20px, 20px) scale(0.95);
+          }
+        }
+        
+        @keyframes float2 {
+          0%, 100% {
+            transform: translate(0, 0) scale(1);
+          }
+          33% {
+            transform: translate(-40px, 30px) scale(1.05);
+          }
+          66% {
+            transform: translate(20px, -20px) scale(0.9);
+          }
+        }
+        
+        @keyframes float3 {
+          0%, 100% {
+            transform: translate(0, 0) scale(1);
+          }
+          50% {
+            transform: translate(30px, -40px) scale(1.1);
+          }
         }
       `}</style>
     </>
