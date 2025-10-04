@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo, useCallback } from "react";
 import { Battery, Zap, Shield, Award, Activity, AlertTriangle, CheckCircle, TrendingUp, Cpu, Thermometer, Clock, ArrowRight, Beaker, Database, Lock, Gauge, Wrench, BarChart, DollarSign, Package, Truck, FileCheck, Phone, ChevronRight, AlertCircle, CircuitBoard, Flame, Snowflake, Droplets, Wind, Sun, Moon, Cloud, CloudRain, Timer, Settings, Info, Calculator, TrendingDown, Briefcase, Factory, Building2, Home, Car, Smartphone, Laptop, Server, HardDrive, Wifi, Radio, Microscope, TestTube, Scale, BookOpen, GraduationCap, Globe, MapPin, Navigation, Compass, Target, Crosshair, Eye, Search, Filter, Layers, Grid, Box, Cube, Hexagon, Triangle, Square, Circle, Star, Heart, ThumbsUp, Users, UserCheck, UserPlus, Mail, MessageSquare, Send, Bell, BellOff, Volume2, VolumeX, Mic, MicOff, Video, VideoOff, Camera, CameraOff, Image, Film, Music, Headphones, Speaker, Monitor, Tv, Projector, Watch, Tablet, Power, Leaf, Component } from "lucide-react";
 import { motion } from "framer-motion";
 import SonicWaveformHero from "../components/SonicWaveform";
 import SolarBackground from "../components/SolarBackground";
 import { NeonGradientCard } from "../components/ui/neon-gradient-card";
+import Header from "../components/layout/Header";
+import { fadeInUp, defaultViewport } from "../utils/animations";
 
 // Premium Section Header Component
 const PremiumSectionHeader = ({
@@ -154,15 +156,17 @@ const LithiumBattery = () => {
     return () => document.head.removeChild(style);
   }, []);
 
+  // Optimized: Reduced update frequency from 100ms to 1000ms (90% fewer renders)
   useEffect(() => {
     const interval = setInterval(() => {
+      const now = Date.now();
       setCycleCount(prev => (prev + 1) % 10000);
-      setTemperatureReading(25 + Math.sin(Date.now() / 3000) * 5);
-      setSocLevel(95 + Math.sin(Date.now() / 2000) * 5);
-      setVoltageReading(52.8 + Math.sin(Date.now() / 2500) * 0.4);
-      setCurrentFlow(28.5 + Math.sin(Date.now() / 3500) * 2);
-      setPowerOutput(1.5 + Math.sin(Date.now() / 4000) * 0.2);
-    }, 100);
+      setTemperatureReading(25 + Math.sin(now / 3000) * 5);
+      setSocLevel(95 + Math.sin(now / 2000) * 5);
+      setVoltageReading(52.8 + Math.sin(now / 2500) * 0.4);
+      setCurrentFlow(28.5 + Math.sin(now / 3500) * 2);
+      setPowerOutput(1.5 + Math.sin(now / 4000) * 0.2);
+    }, 1000); // Changed from 100ms to 1000ms for smooth performance
     return () => clearInterval(interval);
   }, []);
 
@@ -313,14 +317,20 @@ const LithiumBattery = () => {
   ];
 
   return (
-    <div className="relative overflow-hidden">
-      {/* Solar Background */}
-      <SolarBackground />
+    <>
+      <Header />
+      <div className="relative overflow-hidden">
+        {/* Solar Background - Optimized for performance */}
+        <div className="background-layer">
+          <SolarBackground />
+        </div>
 
-      {/* Main Content */}
-      <div className="relative z-10">
-      {/* Sonic Waveform Hero Section */}
-      <SonicWaveformHero />
+        {/* Main Content */}
+        <div className="relative z-10">
+          {/* Sonic Waveform Hero Section */}
+          <div className="background-layer">
+            <SonicWaveformHero />
+          </div>
 
       {/* Main Content Section - Transparent to show solar background */}
       <div className="relative">

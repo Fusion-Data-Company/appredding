@@ -81,84 +81,143 @@ const BatteryStorage = () => {
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <ShaderBackground />
         
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
-          <div className="text-center mb-16">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="inline-flex items-center gap-2 bg-purple-500/20 border border-purple-400/50 backdrop-blur-xl rounded-full px-6 py-3 mb-8"
-            >
-              <Battery className="h-5 w-5 text-purple-300" />
-              <span className="text-sm font-semibold text-purple-200 uppercase tracking-wider">
-                LiFePO4 Technology • 10,000+ Cycles • NFPA 855 Compliant
-              </span>
-            </motion.div>
-
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.1 }}
-              className="text-6xl md:text-7xl lg:text-8xl font-black text-white mb-8 leading-tight"
-            >
-              Advanced Battery
-              <br />
-              <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
-                Storage Systems
-              </span>
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-xl md:text-2xl text-gray-200 max-w-4xl mx-auto mb-6"
-            >
-              LiFePO4 battery technology with 95%+ round-trip efficiency, 10-year warranties, and SGIP incentives up to $1,000/kWh
-            </motion.p>
-
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-lg text-gray-300 max-w-3xl mx-auto mb-12"
-            >
-              SimpliPhi • Fortress Power • EG4 • Sol-Ark Integration • Smart BMS • Thermal Management • Remote Monitoring
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="flex flex-wrap justify-center gap-4"
-            >
-              <Button
-                onClick={() => setShowConsultationForm(true)}
-                className="bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white px-10 py-7 text-lg shadow-2xl shadow-purple-500/50 transform hover:scale-105 transition-all backdrop-blur-sm"
-                data-testid="button-calculate-battery"
-              >
-                <Calculator className="mr-2 h-6 w-6" />
-                Calculate Battery Sizing & SGIP
-              </Button>
-              <Button
-                variant="outline"
-                className="border-purple-400/50 bg-white/10 backdrop-blur-xl text-white hover:bg-white/20 px-10 py-7 text-lg"
-                onClick={() => document.getElementById('battery-comparison')?.scrollIntoView({ behavior: 'smooth' })}
-                data-testid="button-compare-batteries"
-              >
-                <Database className="mr-2 h-6 w-6" />
-                Compare Battery Technologies
-              </Button>
-            </motion.div>
-          </div>
-
-          {/* Test Cards with Orange Gradient */}
+        <div className="relative z-10 w-full px-6 sm:px-12 lg:px-20 py-32">
+          {/* Glassomorphic Hero Card - Full Width */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto"
+            transition={{ duration: 1 }}
+            className="max-w-[1600px] mx-auto"
           >
+            {/* Metallic Futuristic Badge */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="inline-flex items-center gap-3 mb-8 relative group"
+            >
+              {/* Badge Background Glow */}
+              <div className="absolute -inset-2 bg-gradient-to-r from-yellow-500/50 via-amber-500/50 to-yellow-600/50 rounded-full blur-xl opacity-75 group-hover:opacity-100 transition-opacity" />
+              
+              {/* Metallic Badge Container */}
+              <div className="relative bg-gradient-to-br from-yellow-400 via-amber-500 to-yellow-600 rounded-full p-[2px] shadow-2xl shadow-yellow-500/50">
+                <div className="bg-gradient-to-br from-gray-900 via-black to-gray-900 rounded-full px-6 py-3 backdrop-blur-xl border border-yellow-500/30">
+                  <div className="flex items-center gap-3">
+                    {/* Animated Icon */}
+                    <div className="relative">
+                      <Battery className="h-5 w-5 text-yellow-400 relative z-10" />
+                      <div className="absolute inset-0 bg-yellow-400 blur-md opacity-50 animate-pulse" />
+                    </div>
+                    
+                    {/* Badge Text with Metallic Gradient */}
+                    <span className="text-sm font-bold bg-gradient-to-r from-yellow-200 via-amber-100 to-yellow-300 bg-clip-text text-transparent uppercase tracking-widest">
+                      LiFePO4 Technology • 10,000+ Cycles • NFPA 855 Compliant
+                    </span>
+                    
+                    {/* Shine Effect */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000" />
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Glassomorphic Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="relative backdrop-blur-2xl bg-gradient-to-br from-white/10 via-white/5 to-white/10 border border-white/20 rounded-3xl p-12 md:p-16 lg:p-20 shadow-2xl"
+            >
+              {/* Glass Reflection Effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent rounded-3xl opacity-50" />
+              
+              {/* Content */}
+              <div className="relative z-10">
+                <motion.h1
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.4 }}
+                  className="text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black mb-8 leading-tight"
+                >
+                  <span className="text-white drop-shadow-2xl">Advanced Battery</span>
+                  <br />
+                  <span className="bg-gradient-to-r from-yellow-300 via-amber-200 to-yellow-400 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(251,191,36,0.5)]">
+                    Storage Systems
+                  </span>
+                </motion.h1>
+
+                <motion.p
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.5 }}
+                  className="text-xl md:text-2xl lg:text-3xl text-white/90 mb-6 leading-relaxed drop-shadow-lg"
+                >
+                  LiFePO4 battery technology with 95%+ round-trip efficiency, 10-year warranties, and SGIP incentives up to $1,000/kWh
+                </motion.p>
+
+                <motion.p
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.6 }}
+                  className="text-lg md:text-xl text-yellow-200/80 mb-12 leading-relaxed"
+                >
+                  SimpliPhi • Fortress Power • EG4 • Sol-Ark Integration • Smart BMS • Thermal Management • Remote Monitoring
+                </motion.p>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.7 }}
+                  className="flex flex-wrap gap-4"
+                >
+                  {/* Premium CTA Button */}
+                  <Button
+                    onClick={() => setShowConsultationForm(true)}
+                    className="group relative bg-gradient-to-r from-yellow-400 via-amber-500 to-yellow-500 hover:from-yellow-500 hover:via-amber-600 hover:to-yellow-600 text-black font-bold px-12 py-8 text-lg shadow-2xl shadow-yellow-500/50 transform hover:scale-105 transition-all rounded-xl overflow-hidden"
+                    data-testid="button-calculate-battery"
+                  >
+                    {/* Button Glow */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-yellow-300 to-amber-400 opacity-0 group-hover:opacity-30 blur-xl transition-opacity" />
+                    
+                    {/* Content */}
+                    <div className="relative flex items-center gap-3">
+                      <Calculator className="h-6 w-6" />
+                      <span>Calculate Battery Sizing & SGIP</span>
+                    </div>
+                    
+                    {/* Shine Effect */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700" />
+                  </Button>
+                  
+                  {/* Secondary Button */}
+                  <Button
+                    variant="outline"
+                    className="group relative border-2 border-white/30 bg-white/10 backdrop-blur-xl text-white hover:bg-white/20 hover:border-white/50 px-12 py-8 text-lg font-semibold rounded-xl overflow-hidden transition-all"
+                    onClick={() => document.getElementById('battery-comparison')?.scrollIntoView({ behavior: 'smooth' })}
+                    data-testid="button-compare-batteries"
+                  >
+                    {/* Button Glow */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-white/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    
+                    <div className="relative flex items-center gap-3">
+                      <Database className="h-6 w-6" />
+                      <span>Compare Battery Technologies</span>
+                    </div>
+                  </Button>
+                </motion.div>
+              </div>
+              
+              {/* Bottom Shine */}
+              <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/50 to-transparent" />
+            </motion.div>
+
+            {/* Stats Cards Below Glassomorphic Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12"
+            >
             {[
               { 
                 title: "LiFePO4 Safety", 
@@ -189,28 +248,29 @@ const BatteryStorage = () => {
                 key={idx}
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.6 + idx * 0.1 }}
+                transition={{ duration: 0.5, delay: 0.9 + idx * 0.1 }}
                 className="relative group"
                 data-testid={`card-feature-${idx}`}
               >
-                {/* Orange Gradient Background */}
-                <div className="absolute inset-0 bg-gradient-to-br from-orange-500/90 via-orange-600/90 to-red-600/90 rounded-2xl blur-sm group-hover:blur-md transition-all" />
+                {/* Yellow Electric Gradient Background */}
+                <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/90 via-amber-500/90 to-yellow-600/90 rounded-2xl blur-sm group-hover:blur-md transition-all" />
                 
                 {/* Card Content */}
-                <div className="relative bg-gradient-to-br from-orange-500 via-orange-600 to-red-600 rounded-2xl p-6 backdrop-blur-sm border border-orange-400/30 hover:border-orange-300/50 transition-all transform hover:scale-105">
+                <div className="relative bg-gradient-to-br from-yellow-500 via-amber-500 to-yellow-600 rounded-2xl p-6 backdrop-blur-sm border border-yellow-400/30 hover:border-yellow-300/50 transition-all transform hover:scale-105">
                   <div className="flex items-start justify-between mb-4">
-                    <div className="p-3 bg-white/10 backdrop-blur-sm rounded-xl text-white">
+                    <div className="p-3 bg-black/20 backdrop-blur-sm rounded-xl text-black">
                       {card.icon}
                     </div>
-                    <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+                    <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse shadow-lg shadow-green-400/50" />
                   </div>
                   
-                  <h3 className="text-white/90 font-semibold text-sm mb-2">{card.title}</h3>
-                  <div className="text-3xl font-black text-white mb-1">{card.value}</div>
-                  <p className="text-white/70 text-xs">{card.description}</p>
+                  <h3 className="text-black/90 font-bold text-sm mb-2 uppercase tracking-wide">{card.title}</h3>
+                  <div className="text-3xl font-black text-black mb-1 drop-shadow-md">{card.value}</div>
+                  <p className="text-black/70 text-xs font-medium">{card.description}</p>
                 </div>
               </motion.div>
             ))}
+            </motion.div>
           </motion.div>
         </div>
       </section>
